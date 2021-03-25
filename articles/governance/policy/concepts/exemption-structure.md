@@ -4,10 +4,10 @@ description: Décrit la définition d’exemption de stratégie utilisée par Az
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91950174"
 ---
 # <a name="azure-policy-exemption-structure"></a>Structure d’exemption Azure Policy
@@ -88,7 +88,7 @@ Vous utilisez **displayName** et **description** pour identifier l’exemption d
 
 ## <a name="metadata"></a>Métadonnées
 
-La propriété **métadonnées** permet de créer n’importe quelle propriété enfant nécessaire pour stocker des informations pertinentes. Dans l’exemple ci-dessus, les propriétés **requestedBy**, **approvedBy**, **approvedOn**et **ticketRef** contiennent des valeurs client pour fournir des informations sur les personnes qui ont demandé l’exemption, qui l’a approuvée et le moment, et un ticket de suivi interne pour la demande. Ces propriétés de **métadonnées** sont des exemples, mais elles ne sont pas obligatoires et les **métadonnées** ne sont pas limitées à ces propriétés enfants.
+La propriété **métadonnées** permet de créer n’importe quelle propriété enfant nécessaire pour stocker des informations pertinentes. Dans l’exemple ci-dessus, les propriétés **requestedBy**, **approvedBy**, **approvedOn** et **ticketRef** contiennent des valeurs client pour fournir des informations sur les personnes qui ont demandé l’exemption, qui l’a approuvée et le moment, et un ticket de suivi interne pour la demande. Ces propriétés de **métadonnées** sont des exemples, mais elles ne sont pas obligatoires et les **métadonnées** ne sont pas limitées à ces propriétés enfants.
 
 ## <a name="policy-assignment-id"></a>ID d'attribution de stratégie
 

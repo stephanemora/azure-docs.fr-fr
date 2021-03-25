@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538593"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Résoudre les problèmes de perte de données dans Azure Cache pour Redis
@@ -36,7 +36,7 @@ Si vous constatez que des clés ont disparu de votre cache, passez en revue les 
 
 ### <a name="key-expiration"></a>Expiration des clés
 
-Le cache Azure Cache pour Redis supprime automatiquement une clé si un délai d’attente est affecté à la clé et que la période est passée. Pour en savoir plus sur l’expiration des clés Redis, consultez la documentation relative à la commande [EXPIRE](https://redis.io/commands/expire). Vous pouvez également définir des valeurs de délai d’expiration à l’aide des commandes [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex) et [GETSET](https://redis.io/commands/getset), et d’autres commandes **\*STORE** .
+Le cache Azure Cache pour Redis supprime automatiquement une clé si un délai d’attente est affecté à la clé et que la période est passée. Pour en savoir plus sur l’expiration des clés Redis, consultez la documentation relative à la commande [EXPIRE](https://redis.io/commands/expire). Vous pouvez également définir des valeurs de délai d’expiration à l’aide des commandes [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex) et [GETSET](https://redis.io/commands/getset), et d’autres commandes **\*STORE**.
 
 Vous pouvez utiliser la commande [INFO](https://redis.io/commands/info) pour obtenir des statistiques sur le nombre de clés arrivées à expiration. La section `Stats` montre le nombre total de clés arrivées à expiration. La section `Keyspace` fournit des informations supplémentaires sur le nombre de clés avec des délais d’expiration, et la valeur moyenne du délai d’expiration.
 
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Sélection incorrecte de la base de données
 
-Azure Cache pour Redis utilise la base de données **db0** par défaut. Si vous basculez vers une autre base de données (par exemple, **db1** ) et essayez de lire des clés à partir de celle-ci, Azure Cache pour Redis ne les trouve pas à cet emplacement. Chaque base de données est une unité logiquement distincte et contient un jeu de données différent. Utilisez la commande [SELECT](https://redis.io/commands/select) pour utiliser d’autres bases de données disponibles et rechercher des clés dans chacune d’elles.
+Azure Cache pour Redis utilise la base de données **db0** par défaut. Si vous basculez vers une autre base de données (par exemple, **db1**) et essayez de lire des clés à partir de celle-ci, Azure Cache pour Redis ne les trouve pas à cet emplacement. Chaque base de données est une unité logiquement distincte et contient un jeu de données différent. Utilisez la commande [SELECT](https://redis.io/commands/select) pour utiliser d’autres bases de données disponibles et rechercher des clés dans chacune d’elles.
 
 ### <a name="redis-instance-failure"></a>Échec de l’instance de Redis
 

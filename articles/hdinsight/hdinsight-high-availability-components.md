@@ -4,12 +4,12 @@ description: Vue d’ensemble des différents composants haute disponibilité ut
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945306"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863715"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Services de haute disponibilité pris en charge par Azure HDInsight
 
@@ -34,7 +34,7 @@ Cette infrastructure est constituée d’un certain nombre de services et de com
 - Service de haute disponibilité esclave
 - Service de haute disponibilité maître
 
-![Infrastructure de haute disponibilité](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="Infrastructure de haute disponibilité" border="false":::
 
 Il existe également d’autres services de haute disponibilité, qui sont pris en charge par les composants open source de fiabilité Apache. Ces composants sont également présents sur les clusters HDInsight :
 
@@ -91,7 +91,7 @@ Le service master-ha-service s’exécute uniquement sur le nœud principal acti
 
 ### <a name="the-failover-process"></a>Processus de basculement
 
-![processus de basculement](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="processus de basculement" border="false":::
 
 Un moniteur d’intégrité s’exécute sur chaque nœud principal avec le contrôleur de basculement principal pour envoyer des notifications de pulsation au quorum Zookeeper. Le nœud principal est considéré comme un service haute disponibilité dans ce scénario. Le moniteur d’intégrité vérifie si chaque service haute disponibilité est sain et s’il est prêt à participer à l’élection du service maître. Si c’est le cas, ce nœud principal participera à l’élection. Si ce n’est pas le cas, il la quittera jusqu’à être à nouveau prêt.
 

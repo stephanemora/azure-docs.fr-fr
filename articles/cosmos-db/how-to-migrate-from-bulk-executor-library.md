@@ -9,10 +9,10 @@ ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 24d6b475964e4bf7745495e9c41d0e89bb76f7e9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341280"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrer de la bibliothèque d’exécuteur en bloc vers la prise en charge de l’exécution en bloc dans le SDK Azure Cosmos DB .NET v3
@@ -50,7 +50,7 @@ Et si vous souhaitez effectuer une *suppression* en bloc (comme lors de l’util
 
 ## <a name="capture-task-result-state"></a>Capturer l’état du résultat de la tâche
 
-Dans les exemples de code précédents, nous avons créé une liste de tâches simultanées et appelé la méthode `CaptureOperationResponse` sur chacune de ces tâches. Cette méthode est une extension qui nous permet de conserver un *schéma de réponse similaire* à BulkExecutor, en capturant les erreurs et en effectuant le suivi de l’ [utilisation des unités de requête](request-units.md).
+Dans les exemples de code précédents, nous avons créé une liste de tâches simultanées et appelé la méthode `CaptureOperationResponse` sur chacune de ces tâches. Cette méthode est une extension qui nous permet de conserver un *schéma de réponse similaire* à BulkExecutor, en capturant les erreurs et en effectuant le suivi de l’[utilisation des unités de requête](request-units.md).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="CaptureOperationResult":::
 

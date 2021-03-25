@@ -12,10 +12,10 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792172"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Créer, configurer et gérer des travaux élastiques (préversion)
@@ -50,11 +50,11 @@ Les travaux utilisent des [informations d’identification incluses dans l’ét
 
 La configuration d’informations d’identification appropriées pour exécuter un travail pouvant parfois porter à confusion, gardez à l’esprit les points suivants :
 
-- Les informations d’identification incluses dans l’étendue de la base de données doivent être créées dans la *base de données de travaux* .
-- **Toutes les bases de données cibles doivent avoir une connexion disposant d’ [autorisations suffisantes](/sql/relational-databases/security/permissions-database-engine) pour que le travail puisse s’exécuter** (`jobuser` dans le diagramme ci-dessous).
+- Les informations d’identification incluses dans l’étendue de la base de données doivent être créées dans la *base de données de travaux*.
+- **Toutes les bases de données cibles doivent avoir une connexion disposant d’[autorisations suffisantes](/sql/relational-databases/security/permissions-database-engine) pour que le travail puisse s’exécuter** (`jobuser` dans le diagramme ci-dessous).
 - Les informations d’identification peuvent être réutilisées dans différents travaux, et les mots de passe associés sont chiffrés et sécurisés pour que les utilisateurs ayant accès en lecture seule aux objets de travail ne puissent pas y accéder.
 
-L’image suivante est conçue pour vous aider à comprendre et à configurer les informations d’identification de travail appropriées. **N’oubliez pas de créer l’utilisateur dans chaque base de données (toutes les *bases de données utilisateur cibles* ) sur laquelle le travail doit s’exécuter** .
+L’image suivante est conçue pour vous aider à comprendre et à configurer les informations d’identification de travail appropriées. **N’oubliez pas de créer l’utilisateur dans chaque base de données (toutes les *bases de données utilisateur cibles*) sur laquelle le travail doit s’exécuter**.
 
 ![Informations d’identification des travaux élastiques](./media/elastic-jobs-overview/job-credentials.png)
 

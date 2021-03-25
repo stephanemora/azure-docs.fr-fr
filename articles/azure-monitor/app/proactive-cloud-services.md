@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87309288"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alertes en cas de problèmes dans Azure Cloud Services à l’aide de l’intégration Diagnostics Azure avec Azure Application Insights
@@ -90,7 +90,7 @@ Dans la fenêtre **Créer une règle**, dans la section **Définir la condition 
 
 Dans la zone **Rechercher la requête**, collez la requête combinée que vous avez préparée à l’étape précédente.
 
-Ensuite, passez à la zone **Seuil** et définissez sa valeur sur 0. Vous pouvez éventuellement régler les **champs** **Période** et Fréquence.
+Ensuite, passez à la zone **Seuil** et définissez sa valeur sur 0. Vous pouvez éventuellement régler les **champs****Période** et Fréquence.
 Cliquez sur **Done**.
 
 ![Capture d’écran de Configurer la requête de la logique du signal](./media/proactive-cloud-services/003.png)

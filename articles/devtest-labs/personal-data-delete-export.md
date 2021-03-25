@@ -4,10 +4,10 @@ description: Découvrez comment supprimer et exporter des données personnelles 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483514"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exporter ou supprimer des données personnelles à partir d’Azure DevTest Labs
@@ -207,4 +207,4 @@ Les données exportées peuvent être manipulées et visualisées à l’aide d�
 Voir les articles suivants : 
 
 - [Définir des stratégies pour un laboratoire](devtest-lab-set-lab-policy.md)
-- [Forum Aux Questions (FAQ)](devtest-lab-faq.md)
+- [Forum aux questions](devtest-lab-faq.md)

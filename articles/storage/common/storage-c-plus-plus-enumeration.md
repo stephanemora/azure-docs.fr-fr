@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784096"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listage des ressources Azure Storage en C++
@@ -59,7 +59,7 @@ Il est donc impossible de lister tous les objets dans une même réponse. En rev
 
 La réponse à une opération de listage segmenté comporte les éléments suivants :
 
-* *_segment* , qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ;
+* *_segment*, qui contient le jeu de résultats retourné pour un seul appel à l'API de listage ;
 * *continuation_token* (jeton de liaison), qui est transmis à l’appel suivant pour obtenir la page de résultats suivante. Quand il n’y a plus de résultats à retourner, le jeton de liaison prend la valeur null.
 
 Par exemple, un appel type destiné à lister tous les objets blob présents dans un conteneur peut ressembler à l'extrait de code suivant. Le code est disponible dans nos [exemples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
@@ -95,7 +95,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Si vous ne spécifiez pas le paramètre *max_results* , le nombre de résultats retournés dans une seule page peut atteindre 5 000 résultats, soit la valeur maximale par défaut.
+Si vous ne spécifiez pas le paramètre *max_results*, le nombre de résultats retournés dans une seule page peut atteindre 5 000 résultats, soit la valeur maximale par défaut.
 
 Sachez aussi qu’une requête au niveau du stockage d’une table Azure peut retourner aucun enregistrement ou moins d’enregistrements que la valeur du paramètre *max_results* que vous avez spécifiée, même si le jeton de liaison n’est pas vide. L’une des raisons possibles à cela est que la requête n’a pas pu aboutir dans un délai de cinq secondes. Tant que le jeton de liaison n'est pas vide, la requête doit se poursuivre et votre code ne doit pas présumer la taille des résultats du segment.
 

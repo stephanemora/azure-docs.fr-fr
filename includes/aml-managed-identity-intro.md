@@ -1,6 +1,6 @@
 ---
 title: Fichier include
-description: inclure fichier
+description: Fichier include
 services: machine-learning
 author: sdgilley
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 08/24/2020
 ms.openlocfilehash: 70b636b7bb508b71475a7464983b091d5d10e0e1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026736"
 ---
  Les clusters de calcul Azure Machine Learning prennent également en charge les [identités managées](../articles/active-directory/managed-identities-azure-resources/overview.md) pour authentifier l'accès aux ressources Azure sans inclure d'informations d'identification dans votre code. Il existe deux types d’identités administrées :

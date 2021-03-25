@@ -11,10 +11,10 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a96c0f7c6fb767b96be273a615149143043e8bc1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91975125"
 ---
 # <a name="open-ports-and-endpoints-to-a-vm-with-the-azure-cli"></a>Ouvrir des ports et des points de terminaison sur une machine virtuelle avec Azure CLI
@@ -89,4 +89,4 @@ Pour les applications Web hautement disponibles, vous devez placer vos machines 
 Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HTTP. Vous trouverez plus d’informations sur la création d’environnements plus détaillés dans les articles suivants :
 
 * [Présentation d’Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-* [Présentation du groupe de sécurité réseau](../../virtual-network/network-security-groups-overview.md)
+* [Présentation du groupe de sécurité réseau (NSG)](../../virtual-network/network-security-groups-overview.md)

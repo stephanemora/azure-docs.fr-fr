@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 07/06/2020
 ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94492087"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
@@ -131,7 +131,7 @@ Les mots clés peuvent aider les clients à trouver votre offre lorsqu’ils eff
 
 Quand vous créez un lien entre le badge AppSource ou Place de marché Azure de votre site et votre annonce sur la place de marché commerciale, vous pouvez inclure les paramètres de requête suivants à la fin de l’URL pour prendre en charge de puissantes fonctionnalités d’analyse et de création de rapports :
 * **src** : ajoute la source à partir de laquelle le trafic est routé jusqu’à AppSource (par exemple, un site web, LinkedIn ou Facebook).
-* **mktcmpid**  : votre ID de campagne marketing, qui peut contenir jusqu’à 16 caractères dans n’importe quelle combinaison de lettres, chiffres, tirets bas et traits d’union (par exemple, *blogpost_12* ).
+* **mktcmpid** : votre ID de campagne marketing, qui peut contenir jusqu’à 16 caractères dans n’importe quelle combinaison de lettres, chiffres, tirets bas et traits d’union (par exemple, *blogpost_12*).
 
 L’exemple d’URL suivant contient à la fois les deux paramètres de requête précédents : `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

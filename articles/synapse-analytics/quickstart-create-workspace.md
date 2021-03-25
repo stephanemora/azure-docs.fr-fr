@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f2ed99af288b72a4c53f07d3cd7ba8b46974c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693626"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600154"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Démarrage rapide : Créer un espace de travail Synapse
 Ce guide de démarrage rapide décrit les étapes à suivre pour créer un espace de travail Azure Synapse à l’aide du portail Azure.
@@ -35,7 +35,7 @@ Ce guide de démarrage rapide décrit les étapes à suivre pour créer un espac
 
 > [!NOTE]
 > Après avoir créé votre espace de travail Azure Synapse, vous ne pourrez pas le déplacer vers un autre locataire Azure Active Directory. Si vous effectuez cette opération par le biais d’une migration d’abonnement ou d’autres actions, vous risquez de perdre l’accès aux artefacts dans l’espace de travail.
-> De plus, vous ne pouvez pas créer un espace de travail Synapse Analytics dans un abonnement [Fournisseur de solutions cloud (CSP)](https://docs.microsoft.com/partner-center/csp-overview) pour le moment.
+> De plus, vous ne pouvez pas créer un espace de travail Synapse Analytics dans un abonnement [Fournisseur de solutions cloud (CSP)](/partner-center/csp-overview) pour le moment.
 
 ## <a name="open-synapse-studio"></a>Ouvrir Synapse Studio
 

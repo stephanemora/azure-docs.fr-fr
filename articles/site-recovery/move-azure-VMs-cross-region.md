@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: 5ae930240872c00c8dbb45857e4e77d82766eadf
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93398060"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Déplacer des machines virtuelles Azure vers une autre région Azure
@@ -81,12 +81,12 @@ Les étapes ci-dessous copient les données vers la région cible à l’aide d�
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
 2. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery**.
-3. Dans **Nom** , indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
+3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
 5. Spécifiez une région Azure. Pour vérifier les régions prises en charge, consultez [Informations détaillées sur la tarification d’Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Dans Coffres Recovery Services, sélectionnez **Vue d’ensemble** > **ConsotoVMVault** >  **+Répliquer**.
-7. Dans **Source** , sélectionnez **Azure**.
-8. Dans **Emplacement source** , sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
+7. Dans **Source**, sélectionnez **Azure**.
+8. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 9. Sélectionnez le modèle de déploiement Azure Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.
 10. Sélectionnez **OK** pour enregistrer les paramètres.
 
@@ -95,8 +95,8 @@ Les étapes ci-dessous copient les données vers la région cible à l’aide d�
 Site Recovery récupère une liste des machines virtuelles associées à l’abonnement et au groupe de ressources.
 
 1. Sélectionnez la machine virtuelle que vous souhaitez déplacer, puis sélectionnez **OK**.
-2. Dans **Paramètres** , sélectionnez **Récupération d’urgence**.
-3. Dans **Configurer la récupération d’urgence** > **Région cible** , sélectionnez la région cible vers laquelle vous effectuez la réplication.
+2. Dans **Paramètres**, sélectionnez **Récupération d’urgence**.
+3. Dans **Configurer la récupération d’urgence** > **Région cible**, sélectionnez la région cible vers laquelle vous effectuez la réplication.
 4. Choisissez d’utiliser les ressources de la cible par défaut ou celles que vous avez préalablement créées.
 5. Sélectionnez **Activer la réplication** pour démarrer le travail.
 
@@ -106,11 +106,11 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 ## <a name="test-the-configuration"></a>Tester la configuration
 
 
-1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués** , sélectionnez la machine virtuelle que vous souhaitez déplacer vers la région cible. Sélectionnez ensuite **Test de basculement**.
-2. Dans **Test de basculement** , sélectionnez un point de récupération à utiliser pour le basculement :
+1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle que vous souhaitez déplacer vers la région cible. Sélectionnez ensuite **Test de basculement**.
+2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
 
-   - **Dernier point traité**  : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Comme le traitement des données ne prend pas de temps, cette option offre donc un objectif de délai de récupération faible (RTO).
-   - **Dernier point de cohérence des applications**  : bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
+   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Comme le traitement des données ne prend pas de temps, cette option offre donc un objectif de délai de récupération faible (RTO).
+   - **Dernier point de cohérence des applications** : bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
    - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Sélectionnez le réseau virtuel Azure cible vers lequel vous voulez déplacer les machines virtuelles Azure afin de tester la configuration.
@@ -120,15 +120,15 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
 4. Pour commencer à tester le déplacement, sélectionnez **OK**. Pour suivre la progression, sélectionnez la machine virtuelle pour afficher ses **propriétés**. Sinon, sélectionnez le travail **Test de basculement** dans le coffre. Ensuite, sélectionnez **Paramètres** > **Travaux** > **Travaux Site Recovery**.
 5. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Vérifiez que la machine virtuelle est en cours d’exécution, qu’elle est correctement dimensionnée et qu’elle est connectée au réseau approprié.
-6. Pour supprimer la machine virtuelle que vous avez créé pour le test, sélectionnez **Nettoyer le test de basculement** sur l’élément répliqué. À partir de **Notes** , consignez et enregistrez les éventuelles observations associées au test.
+6. Pour supprimer la machine virtuelle que vous avez créé pour le test, sélectionnez **Nettoyer le test de basculement** sur l’élément répliqué. À partir de **Notes**, consignez et enregistrez les éventuelles observations associées au test.
 
 ## <a name="perform-the-move-and-confirm"></a>Effectuer le déplacement et confirmer
 
-1. Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués** , sélectionnez la machine virtuelle et sélectionnez ensuite **Basculement**.
-1. Dans **Basculement** , sélectionnez **Dernier**. 
+1. Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle et sélectionnez ensuite **Basculement**.
+1. Dans **Basculement**, sélectionnez **Dernier**. 
 2. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Mais le basculement se poursuit même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 3. Une fois le travail terminé, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible choisie.
-4. Dans **Éléments répliqués** , cliquez avec le bouton droit sur la machine virtuelle et sélectionnez **Valider**. Cette étape termine le déplacement. Attendez la fin de la tâche de validation.
+4. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle et sélectionnez **Valider**. Cette étape termine le déplacement. Attendez la fin de la tâche de validation.
 
 ## <a name="discard-the-resources-from-the-source-region"></a>Supprimer les ressources de la région source
 

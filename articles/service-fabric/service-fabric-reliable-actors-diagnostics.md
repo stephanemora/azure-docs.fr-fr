@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
 ms.openlocfilehash: ebaedb5369f3b39372262bfde526706e8d069418
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789614"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostics et surveillance des performances pour Reliable Actors
@@ -160,7 +160,7 @@ Lorsqu'un client appelle une méthode via un objet proxy d'acteur, un message de
 | Service Fabric Actor |Moyenne en millisecondes pour la sérialisation de la réponse |Durée (en millisecondes) nécessaire pour sérialiser le message de réponse d'acteur au niveau du service avant l’envoi de la réponse au client |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Comment les Acteurs fiables utilisent la plateforme Service Fabric](service-fabric-reliable-actors-platform.md)
+* [Comment le service Reliable Actors utilise la plateforme Service Fabric](service-fabric-reliable-actors-platform.md)
 * [Documentation de référence de l’API d’acteur](/previous-versions/azure/dn971626(v=azure.100))
 * [Exemple de code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Fournisseurs EventSource dans PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

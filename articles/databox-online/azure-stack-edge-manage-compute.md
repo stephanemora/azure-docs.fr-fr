@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: alkohli
 ms.openlocfilehash: ebf967fe02ab6424b9952bb0315b70fadb547fe3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97967828"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gérer le calcul sur votre ressource Azure Stack Edge Pro
@@ -28,7 +28,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-triggers"></a>Gérer les déclencheurs
 
-Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans votre ressource Azure Stack Edge Pro, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
+Les événements sont des faits qui se produisent au sein de votre environnement cloud ou sur votre appareil, sur lesquels vous pouvez agir. Par exemple, quand un fichier est créé dans un partage, il s’agit d’un événement. Les déclencheurs activent les événements. Dans Azure Stack Edge Pro, des déclencheurs peuvent répondre à des événements de fichier ou intervenir en vertu d’une planification.
 
 - **Fichier** : Ces déclencheurs répondent à des événements tels que la création ou la modification d’un fichier.
 - **Scheduled** : Ces déclencheurs résultent d’une planification que vous pouvez définir avec une date de début, une heure de début et un intervalle de répétition.
@@ -82,7 +82,7 @@ La liste des déclencheurs est actualisée afin de refléter la suppression.
 
 ## <a name="manage-compute-configuration"></a>Gérer la configuration du calcul
 
-Utilisez le portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante ou actualiser la configuration de calcul, afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour votre ressource Azure Stack Edge Pro.
+Utilisez le portail Azure pour afficher la configuration de calcul, supprimer une configuration de calcul existante, ou actualiser la configuration de calcul afin de synchroniser les clés d’accès de l’appareil IoT et de l’appareil IoT Edge pour Azure Stack Edge Pro.
 
 ### <a name="view-compute-configuration"></a>Afficher une configuration de calcul
 

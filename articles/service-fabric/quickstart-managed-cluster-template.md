@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91410393"
 ---
 # <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>Démarrage rapide : Déployer un cluster managé Service Fabric (version préliminaire) avec un modèle Azure Resource Manager
@@ -81,4 +81,4 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources de votre
 Dans ce guide de démarrage rapide, vous avez déployé un cluster Service Fabric managé. Pour en savoir plus sur la mise à l’échelle d’un cluster, consultez :
 
 > [!div class="nextstepaction"]
-> [Monter en charge un cluster managé Service Fabric](tutorial-managed-cluster-scale.md)
+> [Effectuer le scale-out d’un cluster Service Fabric managé](tutorial-managed-cluster-scale.md)

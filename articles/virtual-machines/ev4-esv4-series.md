@@ -10,10 +10,10 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
 ms.openlocfilehash: 40ca03114d5a27ad3e5be54d75cb3bbe0221a501
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102560291"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
@@ -56,7 +56,7 @@ Le stockage sur disque de données à distance est facturé séparément des mac
 Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake). Ces instances sont idéales pour les applications d’entreprise utilisant beaucoup de mémoire. Les machines virtuelles de cette série sont dotées de la technologie Intel&reg; Hyper-Threading. Le stockage sur disque de données à distance est facturé séparément des machines virtuelles.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>

@@ -4,12 +4,12 @@ description: Découvrez-en plus sur Azure HDInsight IO Cache et comment l’util
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940133"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866299"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache
 
@@ -37,7 +37,7 @@ Azure HDInsight IO Cache est désactivé par défaut dans la préversion. IO Cac
 
 1. Sélectionnez **Actions** (**Actions de service** dans HDI 3.6) et **Activer**.
 
-    ![Activation du service Cache d’E/S dans Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Activation du service Cache d’E/S dans Ambari")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Activation du service Cache d’E/S dans Ambari" border="true":::
 
 1. Confirmez le redémarrage de tous les services affectés sur le cluster.
 
@@ -52,7 +52,7 @@ Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des
 
 1. Sélectionnez les onglets **Configurations** et **Avancé**.
 
-    ![Modifier la configuration avancée HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Modifier la configuration avancée HDFS")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="Modifier la configuration avancée HDFS" border="true":::
 
 1. Faites défiler la page vers le bas et développez la zone **Configuration core-site personnalisée**.
 
@@ -60,13 +60,13 @@ Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des
 
 1. Modifiez la valeur définie dans la zone.
 
-    ![Pourcentage de remplissage du cache d’E/S](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Pourcentage de remplissage du cache d’E/S")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="Pourcentage de remplissage du cache d’E/S" border="true":::
 
 1. Sélectionnez **Enregistrer** dans le coin supérieur droit.
 
 1. Sélectionnez **Redémarrer** > **Redémarrer tous les éléments affectés**.
 
-    ![Apache Ambari redémarre tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="Apache Ambari redémarre tous les éléments affectés" border="true":::
 
 1. Sélectionnez **Confirmer le redémarrage**.
 

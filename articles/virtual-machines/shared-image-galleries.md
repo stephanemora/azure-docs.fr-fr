@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 225aca8c4695db33e504a5857acb856f4e01d1f1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551060"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609139"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
 
@@ -104,7 +104,7 @@ Les machines virtuelles spécialisées n'ont pas été soumises à un processus 
 
 ## <a name="regional-support"></a>Prise en charge régionale
 
-Toutes les régions publiques peuvent être choisies comme cibles. Cependant, pour que vous puissiez effectuer la réplication dans les régions Australie Centre et Australie Centre 2, votre abonnement doit être ajouté à la liste verte. Pour demander l’ajout d’un abonnement à la liste verte, accédez à : https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
+Toutes les régions publiques peuvent être des régions cibles, mais certaines régions impliquent que les clients se soumettent à un processus de demande pour obtenir un accès. Pour demander l’ajout d’un abonnement à la liste verte d’une région comme Australie Centre ou Australie Centre 2, envoyez [une demande d’accès](/troubleshoot/azure/general/region-access-request-process).
 
 ## <a name="limits"></a>limites 
 

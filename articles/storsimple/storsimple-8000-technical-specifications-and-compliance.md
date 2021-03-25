@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68965291"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
@@ -39,11 +39,11 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | --- | --- | --- |
 | Puissance de sortie maximale |580 W |764 W |
 | Fréquence |50/60 Hz |50/60 Hz |
-| Sélection de la plage de tension |Détermination automatique : 90 - 264 V CA, 47/63 Hz |Détermination automatique : 90 - 264 V CA, 47/63 Hz |
+| Sélection de la plage de tension |Détermination automatique : 90 à 264 V CA, 47/63 Hz |Détermination automatique : 90 à 264 V CA, 47/63 Hz |
 | Courant d’appel maximal |20 A |20 A |
 | Correction du facteur de puissance |> 95 % de la tension d’entrée nominale |> 95 % de la tension d’entrée nominale |
 | Harmonique |Conforme à la norme EN61000-3-2 |Conforme à la norme EN61000-3-2 |
-| Output |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
+| Sortie |Tension en mode veille 5 V \@ 2,0 A |Tension en mode veille 5 V \@ 2,7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
 | Enfichable à chaud |Oui |Oui |
@@ -79,7 +79,7 @@ Les appareils StorSimple disposent d’une combinaison de disques durs et de dis
 | Capacité de disque SSD unique |400 Go |800 Go |
 | Capacité de rechange |4 To |4 To |
 | Capacité utilisable de disque dur |14 To |36 To |
-| Capacité utilisable de disque SSD |800 Go |2 To |
+| Capacité utilisable de disque SSD |800 Go |2 To |
 | Capacité utilisable totale* |~ 15 To |~ 38 To |
 | Capacité totale de la solution (y compris le cloud) |200 To |500 To |
 
@@ -151,8 +151,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux normes internationales 
 
 L’appareil Microsoft Azure StorSimple est conforme aux normes de sécurité suivantes :
 
-* Homologation du type de produit du système : UL, cUL, CE
-* Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950
+* Homologation du type de produit du système : UL, cUL, CE
+* Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformité électromagnétique
 
@@ -162,8 +162,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux niveaux de sécurité s
 
 L’appareil est conforme aux normes CEM pour les niveaux d’émissions par conduction et par rayonnement.
 
-* Niveaux de limitation des émissions par conduction : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
-* Niveaux de limitation des émissions rayonnées : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
+* Niveaux maximums d’émissions par conduction : CFR 47 partie 15 classe A, EN55022 classe A, CISPR classe A
+* Niveaux maximums d’émissions par rayonnement : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
 
 ### <a name="harmonics-and-flicker"></a>Harmonique et papillotement
 

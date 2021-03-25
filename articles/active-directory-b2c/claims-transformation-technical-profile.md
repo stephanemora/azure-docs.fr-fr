@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6553b9ec120ca0e1e479b400495b61bc68c88cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85201206"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de transformation de revendications dans une stratégie personnalisée Azure Active Directory B2C
@@ -104,11 +104,11 @@ Le profil technique de transformation de revendications permet d’exécuter une
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 ## <a name="use-a-validation-technical-profile"></a>Utiliser un profil technique de validation
 
-Un profil technique de transformation de revendications peut être utilisé pour valider des informations. Dans l’exemple suivant, le [profil technique autodéclaré](self-asserted-technical-profile.md) nommé **LocalAccountSignUpWithLogonEmail** demande à l’utilisateur d’entrer l’adresse e-mail à deux reprises, puis appelle le [profil technique de validation](validation-technical-profile.md) nommé **Validate-Email** pour valider les e-mails. Le profil technique **Validate-Email** appelle la transformation de revendications **AssertEmailAreEqual** pour comparer les deux revendications **email** et **emailRepeat**  et envoie une exception s’ils ne sont pas égaux selon la comparaison spécifiée.
+Un profil technique de transformation de revendications peut être utilisé pour valider des informations. Dans l’exemple suivant, le [profil technique autodéclaré](self-asserted-technical-profile.md) nommé **LocalAccountSignUpWithLogonEmail** demande à l’utilisateur d’entrer l’adresse e-mail à deux reprises, puis appelle le [profil technique de validation](validation-technical-profile.md) nommé **Validate-Email** pour valider les e-mails. Le profil technique **Validate-Email** appelle la transformation de revendications **AssertEmailAreEqual** pour comparer les deux revendications **email** et **emailRepeat** et envoie une exception s’ils ne sont pas égaux selon la comparaison spécifiée.
 
 ```xml
 <ClaimsTransformations>

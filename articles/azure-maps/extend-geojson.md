@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 87a5dec2582796c6703bfb37b76e26e53a1192c0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895781"
 ---
 # <a name="extended-geojson-geometries"></a>Géométries GeoJSON étendues
@@ -49,7 +49,7 @@ Une géométrie `Circle` représentée à l’aide de l’objet `GeoJSON Feature
 
 - Subtype
 
-    La géométrie circle doit également contenir la propriété `subType`. Cette propriété doit faire partie des propriétés de la `GeoJSON Feature`, et sa valeur doit être _Circle_ .
+    La géométrie circle doit également contenir la propriété `subType`. Cette propriété doit faire partie des propriétés de la `GeoJSON Feature`, et sa valeur doit être _Circle_.
 
 #### <a name="example"></a>Exemple
 
@@ -81,7 +81,7 @@ Une géométrie `Rectangle` représentée à l’aide de l’objet `GeoJSON Poly
 
 - Subtype
 
-    La géométrie rectangle doit également contenir la propriété `subType`. Cette propriété doit faire partie des propriétés de `GeoJSON Feature`, et sa valeur doit être _Rectangle_ .
+    La géométrie rectangle doit également contenir la propriété `subType`. Cette propriété doit faire partie des propriétés de `GeoJSON Feature`, et sa valeur doit être _Rectangle_.
 
 ### <a name="example"></a>Exemple
 

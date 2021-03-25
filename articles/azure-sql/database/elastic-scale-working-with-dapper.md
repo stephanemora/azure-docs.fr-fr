@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: d660e62ea293bd3cc377b95612cfaf41a9f1cd6a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793362"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
@@ -23,14 +23,14 @@ ms.locfileid: "92793362"
 
 Ce document est destiné aux développeurs qui utilisent Dapper pour générer des applications, mais veulent également adopter les [outils de base de données élastique](elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour effectuer un scale-out de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
 
-**Exemple de code**  : [outils de base de données élastique pour l’intégration Azure SQL Database - Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Exemple de code** : [outils de base de données élastique pour l’intégration Azure SQL Database - Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
 L’intégration de **Dapper** et de **DapperExtensions** avec la bibliothèque cliente de la base de données élastique pour Azure SQL Database est simple. Les applications peuvent utiliser le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) pour utiliser l’appel [OpenConnectionForKey](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) à partir de la [bibliothèque cliente](/previous-versions/azure/dn765902(v=azure.100)). Cela limite les modifications au sein de votre application à la création et l’ouverture de nouvelles connexions uniquement. 
 
 ## <a name="dapper-overview"></a>Vue d’ensemble de Dapper
 **Dapper** est un mappeur relationnel objet. Il mappe les objets .NET de votre application à une base de données relationnelle (et inversement). La première partie de l’exemple de code illustre comment vous pouvez intégrer la bibliothèque client de base de données élastique avec les applications Dapper. La deuxième partie de l’exemple de code illustre comment effectuer l’intégration lors de l’utilisation de Dapper et de DapperExtensions.  
 
-La fonctionnalité de mappeur de Dapper fournit des méthodes d’extension sur les connexions de base de données qui simplifient la soumission d’instructions T-SQL pour l’exécution ou l’interrogation de la base de données. Par exemple, Dapper facilite le mappage entre vos objets .NET et les paramètres des instructions SQL pour les appels **Execute** , ou pour utiliser les résultats de vos requêtes SQL dans des objets .NET à l’aide des appels **Query** de Dapper. 
+La fonctionnalité de mappeur de Dapper fournit des méthodes d’extension sur les connexions de base de données qui simplifient la soumission d’instructions T-SQL pour l’exécution ou l’interrogation de la base de données. Par exemple, Dapper facilite le mappage entre vos objets .NET et les paramètres des instructions SQL pour les appels **Execute**, ou pour utiliser les résultats de vos requêtes SQL dans des objets .NET à l’aide des appels **Query** de Dapper. 
 
 Lorsque vous utilisez DapperExtensions, vous n’avez plus besoin de fournir les instructions SQL. Les méthodes d’extensions telles que **GetList** ou **Insert** sur la connexion de base de données créent les instructions SQL en arrière-plan.
 
@@ -39,7 +39,7 @@ Un autre avantage de Dapper et de DapperExtensions est que l’application contr
 Pour obtenir les assemblys Dapper, consultez [Dapper point net](https://www.nuget.org/packages/Dapper/). Pour les extensions Dapper, consultez [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Coup de œil rapide à la bibliothèque cliente de la base de données élastique
-Avec la bibliothèque cliente de la base de données élastique, vous définissez les partitions de vos données d’application appelées *shardlets* , vous les mappez à des bases de données et les identifier à l’aide de *clés de partitionnement* . Vous pouvez avoir autant de bases de données que nécessaire et distribuer vos shardlets sur ces bases de données. Le mappage des valeurs de clé de partitionnement vers les bases de données est stocké par une carte de partitions fournie par les API de la bibliothèque. Cette fonctionnalité s’appelle la **gestion des cartes de partitions** . La carte de partitions sert également de service Broker de connexion de base de données pour les demandes transportant une clé de partitionnement. Cette fonctionnalité s’appelle le **routage dépendant des données** .
+Avec la bibliothèque cliente de la base de données élastique, vous définissez les partitions de vos données d’application appelées *shardlets*, vous les mappez à des bases de données et les identifier à l’aide de *clés de partitionnement*. Vous pouvez avoir autant de bases de données que nécessaire et distribuer vos shardlets sur ces bases de données. Le mappage des valeurs de clé de partitionnement vers les bases de données est stocké par une carte de partitions fournie par les API de la bibliothèque. Cette fonctionnalité s’appelle la **gestion des cartes de partitions**. La carte de partitions sert également de service Broker de connexion de base de données pour les demandes transportant une clé de partitionnement. Cette fonctionnalité s’appelle le **routage dépendant des données**.
 
 ![Cartes de partitions et routage dépendant des données][1]
 
@@ -52,9 +52,9 @@ Durant l’utilisation des API de la bibliothèque cliente de la base de donnée
 
 * **Effectuer un scale-out** : nous voulons ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée en fonction des demandes de capacité de l’application. 
 * **Cohérence** : sachant que l’application a fait l’objet d’un scale-out en utilisant le partitionnement, vous devez effectuer un routage dépendant des données. Pour ce faire, vous souhaitez utiliser les fonctionnalités de routage dépendant des données de la bibliothèque. En particulier, vous souhaitez conserver les garanties de validation et de cohérence fournies par les connexions réparties via le Gestionnaire de carte de partition afin d’éviter une corruption ou des résultats de requête incorrects. Cela garantit que les connexions à un shardlet donné sont rejetées ou arrêtées si (par exemple) le shardlet est en cours de déplacement vers une partition différente à l’aide des API de fractionnement et de fusion.
-* **Mappage d’objets**  : nous voulons préserver le caractère pratique des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes. 
+* **Mappage d’objets** : nous voulons préserver le caractère pratique des mappages fournis par Dapper pour la traduction entre les classes dans l’application et les structures de base de données sous-jacentes. 
 
-La section suivante fournit des instructions relatives aux exigences pour les applications basées sur **Dapper** et **DapperExtensions** .
+La section suivante fournit des instructions relatives aux exigences pour les applications basées sur **Dapper** et **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Conseils techniques
 ### <a name="data-dependent-routing-with-dapper"></a>Routage dépendant des données avec Dapper

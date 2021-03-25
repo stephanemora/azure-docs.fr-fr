@@ -12,10 +12,10 @@ ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953761"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Tutoriel de configuration de HYPR avec Azure Active Directory B2C
@@ -24,7 +24,7 @@ Dans cet exemple de tutoriel, nous fournissons des conseils sur la façon de con
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vérifiez que vous avez :
+Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 

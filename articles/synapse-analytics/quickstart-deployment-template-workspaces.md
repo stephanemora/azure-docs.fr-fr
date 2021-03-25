@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
 ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92740364"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Démarrage rapide : Créer un espace de travail Azure Synapse en utilisant un modèle ARM
@@ -48,15 +48,15 @@ Le modèle définit deux ressources :
 
 1. Entrez ou mettez à jour les valeurs suivantes :
 
-   - **Abonnement** : Sélectionnez un abonnement Azure.
-   - **Groupe de ressources**  : Sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources et sélectionnez **OK**. La création d’un nouveau groupe de ressources facilitera le nettoyage des ressources.
-   - **Région**  : sélectionnez une région.  Par exemple, **USA Centre**.
-   - **Nom**  : attribuez un nom à votre espace de travail.
-   - **Connexion de l’administrateur SQL**  : entrez le nom d’administrateur pour le serveur SQL.
-   - **Mot de passe de l’administrateur SQL**  : entrez le mot de passe d’administrateur pour le serveur SQL.
-   - **Valeurs des balises**  : acceptez la valeur par défaut.
-   - **Examiner et créer**  : cochez la case.
-   - **Créer**  : cochez la case.
+   - **Abonnement**: Sélectionnez un abonnement Azure.
+   - **Groupe de ressources** : Sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources et sélectionnez **OK**. La création d’un nouveau groupe de ressources facilitera le nettoyage des ressources.
+   - **Région** : Sélectionnez une région.  Par exemple, **USA Centre**.
+   - **Nom** : attribuez un nom à votre espace de travail.
+   - **Connexion de l’administrateur SQL** : entrez le nom d’administrateur pour le serveur SQL.
+   - **Mot de passe de l’administrateur SQL** : entrez le mot de passe d’administrateur pour le serveur SQL.
+   - **Valeurs des balises** : acceptez la valeur par défaut.
+   - **Examiner et créer** : cochez la case.
+   - **Créer** : cochez la case.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

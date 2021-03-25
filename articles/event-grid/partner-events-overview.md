@@ -4,10 +4,10 @@ description: Envoyez des événements de partenaires SaaS et PaaS Event Grid tie
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506144"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Événements de partenaire dans Azure Event Grid (préversion)

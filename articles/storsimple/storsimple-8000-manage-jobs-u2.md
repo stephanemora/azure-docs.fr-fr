@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: dc630021cbf93074119d4feedcb3a09fae1453e3
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949426"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer des travaux (Update 3 et versions ultérieures)
@@ -83,7 +83,7 @@ Pour annuler une tâche en cours d’exécution, procédez comme suit.
 
     ![Détails du travail 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
-3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération. Cette tâche est à présent annulée.
+3. Cliquez sur **Oui** lorsque vous êtes invité à confirmer l’opération. Cette tâche est à présent annulée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur la [gestion de vos stratégies de sauvegarde StorSimple](storsimple-8000-manage-backup-policies-u2.md).

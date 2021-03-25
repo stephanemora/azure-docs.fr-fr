@@ -1,18 +1,14 @@
 ---
 title: Activer et configurer votre capteur
 description: Cet article explique comment activer une console de capteur et s’y connecter.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 2fdfa0dd7048bf39ae5b53a729aef578054b30ac
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449830"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779186"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Activer et configurer votre capteur
 

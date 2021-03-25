@@ -1,35 +1,35 @@
 ---
 title: Utiliser les commandes CLI Defender pour IoT
 description: Cet article décrit les commandes CLI Defender pour IoT pour les capteurs et les consoles de gestion locales.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523139"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778676"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Utiliser les commandes CLI Defender pour IoT
 
-Cet article décrit les commandes CLI pour les capteurs et les consoles de gestion locales. Les commandes sont accessibles aux administrateurs, aux utilisateurs de CyberX et aux utilisateurs du support technique.
+Cet article décrit les commandes CLI pour les capteurs et les consoles de gestion locales. Les commandes sont accessibles aux utilisateurs suivants :
 
-Vous devez définir des règles d’exclusion lorsque vous planifiez des activités de maintenance ou une activité ne nécessitant pas d’alerte.
+- Administrateur
+- CyberX 
+- Support
+
+Pour commencer à travailler dans l’interface CLI, connectez-vous en utilisant un terminal. Par exemple, le nom de terminal `Putty` et l’utilisateur `Support`. 
 
 ## <a name="create-local-alert-exclusion-rules"></a>Créer des règles d’exclusion d’alerte locales
 
-Vous pouvez créer une règle d’exclusion en entrant la commande suivante dans l’interface CLI :
+Vous pouvez créer une règle d’exclusion d’alerte locale en entrant la commande suivante dans l’interface CLI :
 
 ```azurecli-interactive
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Vous pouvez définir les attributs suivants dans les règles d’exclusion d’alerte :
+Vous pouvez utiliser les attributs suivants avec les règles d’exclusion d’alerte :
 
 | Attribut | Description |
 |--|--|
@@ -42,18 +42,18 @@ Vous pouvez définir les attributs suivants dans les règles d’exclusion d’a
 
 ## <a name="append-local-alert-exclusion-rules"></a>Créer des règles d’exclusion d’alerte locales
 
-Vous pouvez ajouter de nouvelles règles aux règles d’exclusion d’alerte actuelles en entrant la commande suivante dans l’interface CLI :
+Vous pouvez ajouter des règles d’exclusion d’alerte locale en entrant la commande suivante dans l’interface CLI :
 
 ```azurecli-interactive
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-Les attributs utilisés ici sont semblables à ceux décrits lors de la création de règles d’exclusion d’alerte locales. Les attributs utilisés ici sont appliqués aux règles existantes.
+Les attributs utilisés ici sont les mêmes que ceux décrits dans la section Créer des règles d’exclusion d’alerte locale. La différence d’utilisation réside dans le fait qu’ici, les attributs sont appliqués aux règles existantes.
 
 ## <a name="show-local-alert-exclusion-rules"></a>Afficher les règles d’exclusion d’alerte locales
 
-Entrez la commande suivante pour afficher toutes les règles d’exclusion existantes :
+Entrez la commande suivante pour présenter la liste existante des règles d’exclusion :
 
 ```azurecli-interactive
 alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -77,11 +77,11 @@ Vous pouvez utiliser l’attribut suivant avec les règles d’exclusion d’ale
 
 ## <a name="sync-time-from-the-ntp-server"></a>Synchroniser l’heure à partir du serveur NTP
 
-Vous pouvez activer et désactiver la synchronisation de l’heure à partir d’un serveur NTP.
+Vous pouvez activer ou désactiver la synchronisation de l’heure à partir d’un serveur NTP spécifié.
 
 ### <a name="enable-ntp-sync"></a>Activer la synchronisation NTP
 
-La commande suivante permet d’effectuer une récupération périodique de l’heure actuelle auprès d’un serveur NTP spécifié :
+Entrez la commande suivante pour récupérer périodiquement l’heure auprès du serveur NTP spécifié :
 
 ```azurecli-interactive
 ntp enable IP
@@ -91,7 +91,7 @@ L’attribut que vous pouvez définir dans la commande est l’adresse IP du ser
 
 ### <a name="disable-ntp-sync"></a>Désactiver la synchronisation NTP
 
-La commande suivante permet de désactiver la synchronisation de l’heure avec le serveur NTP spécifié :
+Entrez la commande suivante pour désactiver la synchronisation de l’heure avec le serveur NTP spécifié :
 
 ```azurecli-interactive
 ntp disable IP
@@ -99,15 +99,15 @@ ntp disable IP
 
 L’attribut que vous pouvez définir dans la commande est l’adresse IP du serveur NTP.
 
-## <a name="configure-the-network"></a>configurer le réseau.
+## <a name="network-configuration"></a>Configuration réseau
 
 Le tableau suivant décrit les commandes disponibles pour configurer vos options de réseau pour Azure Defender pour IoT :
 
 |Nom|Commande|Description|
 |-----------|-------|-----------|
-|Ping|`ping IP `| Exécute une commande Ping sur des adresses en dehors de la plateforme Defender pour IoT.|
-|Blink|`network blink`|Permet de modifier les paramètres de configuration du réseau.|
-|Reconfigurer le réseau |`network edit-settings`| Permet de modifier les paramètres de configuration du réseau. |
+|Ping|`ping IP`| Effectuer un test ping sur une adresse en dehors de la plateforme Defender pour IoT.|
+|Blink|`network blink`| Localiser une connexion en provoquant le clignotement des lumières de l’interface. |
+|Reconfigurer le réseau |`network edit-settings`| Activer une modification dans les paramètres de configuration du réseau. |
 |Afficher les paramètres du réseau |`network list`|Affiche les paramètres de la carte réseau. |
 |Valider la configuration du réseau |`network validate` |Affiche les paramètres réseau de sortie. <br /> <br />Par exemple : <br /> <br />Current Network Settings: <br /> interface: eth0 <br /> ip: 10.100.100.1 <br />subnet: 255.255.255.0 <br />default gateway: 10.100.100.254 <br />dns: 10.100.100.254 <br />monitor interfaces: eth1|
 |Importation d’un certificat |`certificate import FILE` |Importe le certificat HTTPS. Vous devrez spécifier le chemin d’accès complet à un fichier \*.crt. |
@@ -115,7 +115,7 @@ Le tableau suivant décrit les commandes disponibles pour configurer vos options
 
 ## <a name="filter-network-configurations"></a>Filtrer les configurations réseau
 
-La commande `network capture-filter` permet aux administrateurs d’éliminer le trafic réseau qui n’a pas besoin d’être analysé. Filtrer le trafic à l’aide d’une liste d’inclusion ou d’exclusion.
+La commande `network capture-filter` permet aux administrateurs d’éliminer le trafic réseau qui n’a pas besoin d’être analysé. Vous pouvez filtrer le trafic en utilisant une liste d’inclusion ou une liste d’exclusion.
 
 ```azurecli-interactive
 network capture-filter
@@ -125,7 +125,7 @@ Une fois que vous avez entré la commande, vous êtes invité à répondre à la
 
 >`Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
 
-Sélectionnez `Y` pour ouvrir un fichier nano dans lequel ajouter des appareils, des canaux, des ports et des sous-réseaux à l’aide de la syntaxe suivante :
+Sélectionnez `Y` pour ouvrir un fichier nano où vous pouvez ajouter un appareil, un canal, un port et un sous-réseau en utilisant la syntaxe suivante :
 
 | Attribut | Description |
 |--|--|
@@ -141,7 +141,7 @@ Vous êtes ensuite invité à répondre à la question suivante :
 
 >`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
-Sélectionnez `Y` pour ouvrir un fichier nano dans lequel ajouter des appareils, des canaux, des ports et des sous-réseaux à l’aide de la syntaxe suivante :
+Sélectionnez `Y` pour ouvrir un fichier nano où vous pouvez ajouter un appareil, un canal, un port et des sous-réseaux en utilisant la syntaxe suivante :
 
 | Attribut | Description |
 |--|--|
@@ -256,6 +256,7 @@ Le tableau suivant décrit les commandes disponibles pour effectuer diverses act
 
 |Nom|Code|Description|
 |----|----|-----------|
+|Afficher la date|`date`|Retourne la date actuelle de l’hôte au format GMT.|
 |Redémarrer l’hôte|`system reboot`|Redémarre l’appareil hôte.|
 |Arrêter l’hôte|`system shutdown`|Arrête l’hôte.|
 |Sauvegarder le système|`system backup`|Lance une sauvegarde immédiate (sauvegarde non planifiée).|
@@ -282,7 +283,7 @@ La commande prend en charge les indicateurs d’entrée suivants :
 | --key | Fichier \*.key. La longueur de la clé doit être de 2 048 bits minimum. |
 | --chain | Chemin d’accès au fichier de chaîne de certificat (facultatif). |
 | --pass | Phrase secrète utilisée pour chiffrer le certificat (facultatif). |
-| --passphrase-set | La valeur par défaut est **False**, **non utilisé**. <br />Définir sur **True** pour utiliser la phrase secrète précédente fournie avec le certificat précédent (facultatif). |  |
+| --passphrase-set | La valeur par défaut est **False**, **non utilisé**. <br />Définir sur **True** pour utiliser la phrase secrète précédente fournie avec le certificat précédent (facultatif). | 
 
 Lorsque vous utilisez l’outil :
 
@@ -290,6 +291,6 @@ Lorsque vous utilisez l’outil :
 
 - Vérifiez auprès du service informatique le domaine de l’appliance (tel qu’il apparaît dans le certificat) avec votre serveur DNS et l’adresse IP correspondante. 
     
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [API de capteur et de console de gestion Defender pour IoT](references-work-with-defender-for-iot-apis.md)

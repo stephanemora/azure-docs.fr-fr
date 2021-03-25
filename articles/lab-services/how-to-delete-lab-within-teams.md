@@ -4,10 +4,10 @@ description: Découvrez comment supprimer un laboratoire Azure Lab Services à p
 ms.topic: article
 ms.date: 10/12/2020
 ms.openlocfilehash: 8d1e20f8f676eb9863187b550a3c0400871d670c
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433952"
 ---
 # <a name="delete-labs-within-teams"></a>Supprimer des laboratoires dans Teams
@@ -34,7 +34,7 @@ Si l’onglet est supprimé, les utilisateurs figurant sur la liste des membres 
 
 - [Utilisation d’Azure Lab Services dans Teams](lab-services-within-teams-overview.md)
 - [Gestion des listes d’utilisateurs de labo dans Teams](how-to-manage-user-lists-within-teams.md)
-- [Gestion du pool de machines virtuelles du labo dans Teams](how-to-manage-vm-pool-within-teams.md)
+- [Gérer le pool de machines virtuelles du labo dans Teams](how-to-manage-vm-pool-within-teams.md)
 - [Créer et gérer des planifications de labo dans Teams](how-to-create-schedules-within-teams.md)
-- [Accès à une machine virtuelle dans Teams – Affichage étudiant](how-to-access-vm-for-students-within-teams.md)
+- [Accéder à une machine virtuelle dans Teams – Vue étudiant](how-to-access-vm-for-students-within-teams.md)
 

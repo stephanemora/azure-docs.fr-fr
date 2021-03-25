@@ -5,19 +5,21 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f3293ada549351cc7273847cde48c0531f06f028
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675805"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Créer et gérer une application Azure IoT Central sur le portail des CSP
 
 Le programme Fournisseur de solutions cloud Microsoft est un programme Revendeur Microsoft. Son objectif est de fournir à nos partenaires un programme clé en main pour revendre tous les services en ligne commerciaux de Microsoft. Découvrez plus d’informations sur le [programme Fournisseur de solutions cloud](https://partner.microsoft.com/cloud-solution-provider).
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 En tant que fournisseur de solutions cloud, vous pouvez créer et gérer des applications Microsoft Azure IoT Central pour le compte de vos clients via le [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Quand des applications Azure IoT Central sont créées pour le compte de clients par des fournisseurs de solutions cloud, tout comme avec d’autres services gérés par ceux-ci, les fournisseurs de solutions cloud gèrent la facturation des clients. Le coût d’Azure IoT Central apparaît dans le total de votre facture sur l’Espace partenaires Microsoft.
 

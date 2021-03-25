@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 tags: connectors
 ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98013445"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour une base de données SQL à l’aide d’Azure Logic Apps
@@ -189,7 +189,7 @@ La première fois que vous ajoutez un [déclencheur SQL](#add-sql-trigger) ou un
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Décalage et dérive de la périodicité du déclencheur
 
-Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SQL, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n’est pas le seul pilote à contrôler l’exécution, et le fuseau horaire détermine uniquement l’heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu, par exemple le non-respect du calendrier fixé lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l’heure fixée pour la périodicité ne change pas au moment du passage à l’heure d’été, ajustez la périodicité manuellement afin que votre application logique continue de s’exécuter à l’heure prévue. Sinon, l’heure de début est avancée d’une heure lors du passage à l’heure d’été et reculée d’une heure lors du passage à l’heure d’hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
+Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SQL, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n’est pas le seul pilote à contrôler l’exécution, et le fuseau horaire détermine uniquement l’heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu, par exemple le non-respect du calendrier fixé lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l'heure fixée pour la périodicité ne change pas au moment du passage à l'heure d'été, ajustez la périodicité manuellement afin que votre application logique continue de s'exécuter à l'heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="add-sql-action"></a>
 
