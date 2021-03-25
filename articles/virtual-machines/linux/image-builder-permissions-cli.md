@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201479"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607531"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurer des autorisations de service Azure Image Builder à l’aide d’Azure CLI
 
@@ -239,7 +239,7 @@ Remplacez les paramètres d’espaces réservés suivants :
 | \<Storage account container\> | Nom du conteneur de compte de stockage |
 | \<Subscription ID\> | Abonnement Azure |
 
-Pour plus d’informations sur l’utilisation d’une identité managée attribuée par l’utilisateur, consultez la rubrique [Créer une image personnalisée qui utilisera une identité managée attribuée par l’utilisateur Azure pour accéder de façon transparente aux fichiers du Stockage Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). Le Guide de démarrage rapide vous guide dans la création et la configuration de l’identité managée attribuée par l’utilisateur pour accéder à un compte de stockage.
+Pour plus d’informations sur l’utilisation d’une identité managée attribuée par l’utilisateur, consultez la rubrique [Créer une image personnalisée qui utilisera une identité managée attribuée par l’utilisateur Azure pour accéder de façon transparente aux fichiers du Stockage Azure](./image-builder-user-assigned-identity.md). Le Guide de démarrage rapide vous guide dans la création et la configuration de l’identité managée attribuée par l’utilisateur pour accéder à un compte de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

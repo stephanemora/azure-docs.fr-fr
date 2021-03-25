@@ -3,14 +3,15 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104805"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702876"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
+
 
 Azure Policy peut vérifier les paramètres à l’intérieur d’une machine, tant pour les machines s’exécutant dans Azure que dans [Arc Connected Machines](../../../azure-arc/servers/overview.md). La validation est effectuée par le client et l’extension de configuration d’invité. L’extension, via le client, valide des paramètres tels que :
 
@@ -20,13 +21,15 @@ Azure Policy peut vérifier les paramètres à l’intérieur d’une machine, t
 
 À l’heure actuelle, la plupart des définitions de stratégie pour Azure Policy Guest Configuration auditent uniquement les paramètres à l’intérieur de la machine. Elles n’appliquent pas de configurations. L’exception est une stratégie intégrée [référencée ci-dessous](#applying-configurations-using-guest-configuration).
 
+[Un guide vidéo de ce document est disponible](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Activer la configuration d’invité
 
 Pour vérifier l’état des machines dans votre environnement, y compris les machines dans Azure et Arc Connected Machines, examinez les informations suivantes.
 
 ## <a name="resource-provider"></a>Fournisseur de ressources
 
-Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le fournisseur de ressources. Le fournisseur de ressources est inscrit automatiquement si l’affectation d’une stratégie de configuration d’invité est effectuée via le portail. Vous pouvez l’inscrire manuellement via le [portail](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Avant de pouvoir utiliser la configuration d’invité, vous devez inscrire le fournisseur de ressources. Si l’affectation d’une stratégie de configuration d’invité est effectuée via le portail, ou si l’abonnement est inscrit dans Azure Security Center, le fournisseur de ressources est inscrit automatiquement. Vous pouvez l’inscrire manuellement via le [portail](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell) ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Configuration requise pour le déploiement de machines virtuelles Azure
 
@@ -62,13 +65,13 @@ Les définitions de stratégie Guest Configuration sont incluses dans les nouvel
 
 |Serveur de publication|Nom|Versions|
 |-|-|-|
-|Canonical|Serveur Ubuntu|14.04 - 18.04|
-|Credativ|Debian|8 ou version ultérieure|
-|Microsoft|Windows Server|2012 ou version ultérieure|
+|Canonical|Serveur Ubuntu|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Client Windows|Windows 10|
-|OpenLogic|CentOS|7.3 ou version ultérieure|
-|Red Hat|Red Hat Enterprise Linux|7.4 à 7.8|
-|SUSE|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|SUSE|SLES|12 SP3-SP5, 15|
 
 Les images de machine virtuelle personnalisées sont prises en charge par les définitions de stratégie Guest Configuration, dans la mesure où il s’agit d’un des systèmes d’exploitation répertoriés dans le tableau ci-dessus.
 
@@ -116,7 +119,24 @@ Les définitions de stratégie **AuditIfNotExists** ne retournent pas de résult
 > [!IMPORTANT]
 > Dans une version antérieure de la configuration d’invité, une initiative était nécessaire pour combiner les définitions **DeployIfNoteExists** et **AuditIfNotExists**. Les définitions **DeployIfNotExists** ne sont plus nécessaires. Les définitions et les initiatives sont étiquetées `[Deprecated]` mais les attributions existantes continuent à fonctionner. Pour plus d’informations, consultez le billet de blog : [Modification importante publiée pour les stratégies d’audit de Guest Configuration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-Azure Policy utilise la propriété **complianceStatus** de fournisseur de ressources de configuration d’invité pour signaler la conformité dans le nœud **Conformité**. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/get-compliance-data.md).
+### <a name="what-is-a-guest-assignment"></a>Qu’est-ce qu’une affectation d’invité ?
+
+Lorsqu’une instance Azure Policy est affectée, si elle se trouve dans la catégorie « Configuration d’invité », des métadonnées sont incluses pour décrire une affectation d’invité.
+Vous pouvez considérer une affectation d’invité comme un lien entre un ordinateur et un scénario Azure Policy.
+Par exemple, l’extrait de code ci-dessous associe la configuration de base Windows Azure avec une version minimale `1.0.0` à n’importe quel ordinateur dans l’étendue de la stratégie. Par défaut, l’affectation d’invité effectue uniquement un audit de l’ordinateur.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+Les affectations d’invités sont créées automatiquement pour chaque ordinateur par le service de configuration d’invité. Le type de ressource, est `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+Azure Policy utilise la propriété **complianceStatus** de la ressource Attribution d’invité pour signaler l’état de conformité. Pour plus d’informations, consultez [Obtention de données de conformité](../how-to/get-compliance-data.md).
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Audit des paramètres du système d’exploitation conformément aux lignes de base du secteur
 
@@ -201,6 +221,12 @@ Des exemples de stratégie intégrée de configuration d’invité sont disponib
 - [Définitions de stratégie intégrées - Configuration d’invité](../samples/built-in-policies.md#guest-configuration)
 - [Initiatives intégrées - Configuration d’invité](../samples/built-in-initiatives.md#guest-configuration)
 - [Exemples Azure Policy - Dépôt GitHub](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Présentation vidéo
+
+La présentation suivante d’Azure Policy Guest Configuration provient de ITOps Talks 2021.
+
+[Gestion des bases de référence dans des environnements de serveur hybrides à l’aide d’Azure Policy Guest Configuration](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

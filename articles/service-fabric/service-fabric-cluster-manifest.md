@@ -4,10 +4,10 @@ description: Découvrez comment configurer votre cluster Azure Service Fabric lo
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: fd93263b38340ce080cca1aecb98f3a599ff1861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91843156"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
@@ -145,7 +145,7 @@ La valeur name représente le nom convivial de ce type de nœud particulier. Pou
 * leaseDriverEndpointPort est le port utilisé par le pilote de lease cluster pour savoir si les nœuds sont toujours actifs. 
 * serviceConnectionEndpointPort est le port utilisé par les applications et les services déployés sur un nœud pour communiquer avec le client Service Fabric sur ce nœud spécifique.
 * httpGatewayEndpointPort est le port utilisé par le Service Fabric Explorer pour se connecter au cluster.
-* Les ports ephemeralPorts remplacent les [ports dynamiques utilisés par le système d’exploitation](https://support.microsoft.com/kb/929851). Service Fabric utilise une partie de ces ports comme ports d’application et le reste est disponible pour le système d’exploitation. Il mappe également cette plage sur la plage existante dans le système d’exploitation. Vous pouvez donc utiliser en toutes circonstances les plages spécifiées dans les exemples de fichiers JSON. Assurez-vous que la différence entre les ports de début et de fin est d’au moins 255. Vous pouvez rencontrer des conflits si cette différence est trop faible, étant donné que cette plage est partagée avec le système d’exploitation. Consultez la plage de ports dynamiques configurée en exécutant `netsh int ipv4 show dynamicport tcp`.
+* ephemeralPorts remplacent les [ports dynamiques utilisés par le système d’exploitation](https://support.microsoft.com/kb/929851). Service Fabric utilise une partie de ces ports comme ports d’application et le reste est disponible pour le système d’exploitation. Il mappe également cette plage sur la plage existante dans le système d’exploitation. Vous pouvez donc utiliser en toutes circonstances les plages spécifiées dans les exemples de fichiers JSON. Assurez-vous que la différence entre les ports de début et de fin est d’au moins 255. Vous pouvez rencontrer des conflits si cette différence est trop faible, étant donné que cette plage est partagée avec le système d’exploitation. Consultez la plage de ports dynamiques configurée en exécutant `netsh int ipv4 show dynamicport tcp`.
 * Les ports applicationPorts sont les ports utilisés par les applications Service Fabric. La plage des ports d’application doit suffire à couvrir les exigences en matière de points de terminaison de vos applications. Cette plage doit être exclusive à partir de la plage de ports dynamiques de la machine, c’est-à-dire la plage ephemeralPorts comme défini dans la configuration. Service Fabric les utilise chaque fois que des nouveaux ports sont nécessaires et prend également en charge l’ouverture du pare-feu pour ces ports. 
 * reverseProxyEndpointPort est un point de terminaison proxy inverse facultatif. Pour en savoir plus, consultez [Proxy inverse Service Fabric](service-fabric-reverseproxy.md). 
 
@@ -167,7 +167,7 @@ La section fabricSettings vous permet de définir les répertoires racine des do
 Nous vous recommandons d’utiliser un lecteur autre que celui du système d’exploitation pour FabricDataRoot et FabricLogRoot pour plus de fiabilité en cas de défaillance du système d’exploitation. Si vous personnalisez uniquement la racine des données, la racine du journal sera placée un niveau en dessous de la racine des données.
 
 ### <a name="stateful-reliable-services-settings"></a>Paramètres Services fiables avec état
-La section KtlLogger vous permet de définir les paramètres de configuration globaux pour les services fiables (Reliable Services). Pour plus d’informations sur ces paramètres, consultez [Configuration de services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md). L’exemple suivant montre comment modifier le journal des transactions partagé qui est créé afin de sauvegarder toutes les collections fiables pour les services avec état :
+La section KtlLogger vous permet de définir les paramètres de configuration globaux pour les services fiables (Reliable Services). Pour plus d’informations sur ces paramètres, consultez [Configuration de services fiables (Reliable Services) avec état](service-fabric-reliable-services-configuration.md). L’exemple suivant montre comment modifier le journal des transactions partagé qui est créé afin de sauvegarder toutes les collections fiables (Reliable Collections) pour les services avec état :
 
 ```json
 "fabricSettings": [{

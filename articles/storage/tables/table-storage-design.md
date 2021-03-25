@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.subservice: tables
 ms.openlocfilehash: 8f3bd2a998066804bfb589e3262ac5e68db601fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93306938"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Conception de tables extensibles et performantes
@@ -121,7 +121,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </table>
 
 
-Jusqu’ici, ces données ressemblent à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. Par ailleurs, chacune des propriétés définies par l’utilisateur, comme **FirstName** ou **Age** , est caractérisée par un type de données, par exemple, un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
+Jusqu’ici, ces données ressemblent à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. Par ailleurs, chacune des propriétés définies par l’utilisateur, comme **FirstName** ou **Age**, est caractérisée par un type de données, par exemple, un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Le choix de la valeur de **PartitionKey** et de **RowKey** est fondamental pour une bonne conception de table. Toutes les entités stockées dans une table doivent avoir une combinaison unique de **PartitionKey** et **RowKey**. Comme avec les clés dans une table de base de données relationnelle, les valeurs de **PartitionKey** et **RowKey** sont indexées pour créer un index cluster afin de permettre des recherches rapides. Toutefois, le service de Table ne crée pas d’index secondaire, **PartitionKey** et **RowKey** sont par conséquent les seules propriétés indexées. Certains des modèles décrits dans [Modèles de conception de table](table-storage-design-patterns.md) illustrent comment contourner cette limitation apparente.  
 

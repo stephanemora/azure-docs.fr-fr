@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
 ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92544526"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Fournisseur d’États de session ASP.NET pour le Cache Azure pour Redis
@@ -22,7 +22,7 @@ Dans une application cloud réelle, il n’est souvent pas pratique d’éviter 
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Stockage de l'état de session ASP.NET dans le cache
 
-Pour configurer une application cliente dans Visual Studio avec le package NuGet de l’État de session du Cache Azure pour Redis, cliquez sur **Gestionnaire de package NuGet** , **Console du Gestionnaire de package** dans le menu **Outils** .
+Pour configurer une application cliente dans Visual Studio avec le package NuGet de l’État de session du Cache Azure pour Redis, cliquez sur **Gestionnaire de package NuGet**, **Console du Gestionnaire de package** dans le menu **Outils**.
 
 Exécutez la commande suivante depuis la fenêtre `Package Manager Console`.
     
@@ -83,17 +83,17 @@ La section commentée fournit un exemple d’attributs et de paramétrage pour c
 Configurez les attributs avec les valeurs du panneau de votre cache sur le portail Microsoft Azure et configurez les autres valeurs selon votre choix. Pour obtenir des instructions sur l’accès aux propriétés de votre cache, voir [Configurer les paramètres du Cache Azure pour Redis](cache-configure.md#configure-azure-cache-for-redis-settings).
 
 * **host** : spécifiez le point de terminaison de votre cache.
-* **port**  : utilisez votre port non TLS/SSL ou votre port TLS/SSL, selon les paramètres TLS.
+* **port** : utilisez votre port non TLS/SSL ou votre port TLS/SSL, selon les paramètres TLS.
 * **accessKey** : utilisez la clé primaire ou secondaire pour votre cache.
-* **ssl**  : choisissez « true » si vous souhaitez sécuriser les communications cache/client avec TLS ; sinon, choisissez « false ». Veillez à spécifier le port approprié.
+* **ssl** : choisissez « true » si vous souhaitez sécuriser les communications cache/client avec TLS ; sinon, choisissez « false ». Veillez à spécifier le port approprié.
   * Le port non TLS est désactivé par défaut pour les nouveaux caches. Spécifiez True pour ce paramètre afin d’utiliser le port TLS. Pour plus d’informations sur l’activation du port non TLS, consultez la section relative aux [ports d’accès](cache-configure.md#access-ports) dans la rubrique [Configuration d’un cache](cache-configure.md).
 * **throwOnError** : true si vous voulez lever une exception en cas d’échec, ou false si vous souhaitez que l’opération échoue en silence. Pour contrôler un échec, vous pouvez vérifier la propriété statique Microsoft.Web.Redis.RedisSessionStateProvider.LastException. La valeur par défaut est true.
-* **retryTimeoutInMilliseconds**  : intervalle, en millisecondes, au cours duquel interviennent les nouvelles tentatives d’exécution des opérations ayant échoué. La première nouvelle tentative intervient après 20 millisecondes. Les tentatives suivantes se produisent à chaque seconde jusqu’à l’expiration de l’intervalle retryTimeoutInMilliseconds. Une dernière tentative d’exécution est effectuée immédiatement après cet intervalle. Si le problème persiste, l’exception est renvoyée à l’appelant, en fonction du paramètre throwOnError. La valeur 0 par défaut signifie qu’aucune nouvelle tentative n’est effectuée.
+* **retryTimeoutInMilliseconds** : intervalle, en millisecondes, au cours duquel interviennent les nouvelles tentatives d’exécution des opérations ayant échoué. La première nouvelle tentative intervient après 20 millisecondes. Les tentatives suivantes se produisent à chaque seconde jusqu’à l’expiration de l’intervalle retryTimeoutInMilliseconds. Une dernière tentative d’exécution est effectuée immédiatement après cet intervalle. Si le problème persiste, l’exception est renvoyée à l’appelant, en fonction du paramètre throwOnError. La valeur 0 par défaut signifie qu’aucune nouvelle tentative n’est effectuée.
 * **databaseId** : spécifie la base de données à utiliser pour les données de sortie du cache. Si ce champ n’est pas spécifié, la valeur 0 sera utilisée par défaut.
 * **applicationName`{<Application Name>_<Session ID>}_Data` : les clés sont stockées dans redis sous** . Ce schéma d’affectation permet à plusieurs applications de partager la même instance Redis. Ce paramètre est facultatif. Si vous n’indiquez aucune valeur, une valeur par défaut sera utilisée.
 * **connectionTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre connectTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut connectTimeout 5000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** : ce paramètre vous permet de remplacer le paramètre syncTimeout dans le client StackExchange.Redis. S’il n’est pas spécifié, le paramètre par défaut syncTimeout 1000 est utilisé. Pour plus d’informations, consultez le [modèle de configuration StackExchange.Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **redisSerializerType**  : ce paramètre vous permet de spécifier une sérialisation personnalisée du contenu de session envoyé à Redis. Le type spécifié doit implémenter `Microsoft.Web.Redis.ISerializer` et déclarer un constructeur public sans paramètre. Par défaut, `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` est utilisé.
+* **redisSerializerType** : ce paramètre vous permet de spécifier une sérialisation personnalisée du contenu de session envoyé à Redis. Le type spécifié doit implémenter `Microsoft.Web.Redis.ISerializer` et déclarer un constructeur public sans paramètre. Par défaut, `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` est utilisé.
 
 Pour plus d’informations sur ces propriétés, consultez la publication du blog d’origine [Announcing ASP.NET Session State Provider for Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/)(en anglais).
 

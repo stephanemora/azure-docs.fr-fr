@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev , devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 06/26/2020
+ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b27af53d615fa9c0c46699a52a004098dc46b7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688533"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procédure : Utiliser Azure PowerShell pour créer un principal du service avec un certificat
 
@@ -72,7 +72,7 @@ L’exemple reste en veille pendant 20 secondes pour laisser le temps au nouvea
 
 Vous pouvez étendre l’attribution de rôle à un groupe de ressources spécifiques à l’aide du paramètre **ResourceGroupName**. Vous pouvez également l’étendre à une ressource spécifique en utilisant les paramètres **ResourceType** et **ResourceName**. 
 
-Si vous **n’avez pas Windows 10 ou Windows Server 2016**, téléchargez le [générateur de certificats auto-signés](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) depuis le Centre de scripts Microsoft. Extrayez son contenu et importez l’applet de commande dont vous avez besoin.
+Si vous **ne disposez pas de Windows 10 ou de Windows Server 2016**, téléchargez l’[applet de commande New-SelfSignedCertificateEx](https://www.pkisolutions.com/tools/pspki/New-SelfSignedCertificateEx/) de PKI Solutions. Extrayez son contenu et importez l’applet de commande dont vous avez besoin.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate

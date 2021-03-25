@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9ec2bbef88ed185c3927676ad2596269783d1850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515628"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde
@@ -38,7 +38,7 @@ Le panneau **Stratégies de sauvegarde** de votre appareil StorSimple vous perme
 
 La liste tabulaire de stratégies de sauvegarde vous permet également de filtrer les stratégies de sauvegarde existantes à l’aide de l’un ou de plusieurs des champs suivants :
 
-* **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
+* **Nom de la stratégie** : nom associé à la stratégie. Les différents types de stratégies sont les suivants :
 
   * stratégies planifiées, qui sont explicitement créées par l’utilisateur ;
   * stratégies importées, qui ont été créées dans le gestionnaire d’instantanés StorSimple. Ces éléments présentent une balise décrivant l’hôte du gestionnaire d’instantanés StorSimple depuis lequel les stratégies ont été importées.
@@ -46,13 +46,13 @@ La liste tabulaire de stratégies de sauvegarde vous permet également de filtre
   > [!NOTE]
   > Les stratégies de sauvegarde automatiques ou par défaut ne sont plus activées au moment de la création du volume.
 
-* **Dernière sauvegarde réussie** : la date et l’heure de la dernière sauvegarde réussie associée à cette stratégie.
+* **Dernière sauvegarde réussie** : date et heure de la dernière sauvegarde exécutée avec cette stratégie.
 
-* **Prochaine sauvegarde** : la date et l’heure de la prochaine sauvegarde planifiée qui sera lancée par cette stratégie.
+* **Sauvegarde suivante** : date et heure de la prochaine sauvegarde planifiée qui sera initiée par cette stratégie.
 
-* **Volumes** : les volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
+* **Volumes** : volumes associés à la stratégie. Tous les volumes associés à une stratégie de sauvegarde sont regroupés lors de la création des sauvegardes.
 
-* **Planifications** : le nombre de planifications associées à la stratégie de sauvegarde.
+* **Planifications** : nombre de planifications associées à la stratégie de sauvegarde.
 
 Les opérations fréquentes pouvant être effectuées pour les stratégies de sauvegarde sont les suivantes :
 

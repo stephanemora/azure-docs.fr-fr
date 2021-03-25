@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514074"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Remplacement d’un module de contrôleur sur votre appareil StorSimple
@@ -103,7 +103,7 @@ En cas d’échec de l’un des contrôleurs de votre appareil Microsoft Azure S
 8. Une fois que le contrôleur a redémarré, vérifiez l’**état du contrôleur** et l’**état du cluster** dans le portail Azure pour vous assurer que le contrôleur est à nouveau intègre et en mode veille.
 
 > [!NOTE]
-> Si vous utilisez la console série pour surveiller l’appareil, il est possible que vous assistiez à plusieurs redémarrages pendant la récupération du contrôleur suite à la procédure de remplacement. Vous savez que la procédure de remplacement est terminée quand le menu de la console série s’affiche. Si ce menu ne s’affiche pas dans un délai de deux heures après le début du remplacement du contrôleur, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md).
+> Si vous utilisez la console série pour surveiller l’appareil, il est possible que vous assistiez à plusieurs redémarrages pendant la récupération du contrôleur suite à la procédure de remplacement. Vous savez que la procédure de remplacement est terminée quand le menu de la console série s’affiche. Si ce menu ne s'affiche pas au bout de 2 heures après le début du remplacement du contrôleur, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md).
 >
 > À partir d’Update 4, vous pouvez également utiliser l’applet de commande `Get-HCSControllerReplacementStatus` dans l’interface Windows PowerShell de l’appareil pour surveiller l’état du processus de remplacement du contrôleur.
 > 
@@ -120,7 +120,7 @@ Dans un remplacement de deux contrôleurs, vous devez d’abord retirer les deux
    2. Fait-il partie du cluster ?
    3. Le contrôleur homologue est-il en cours d’exécution et en cluster ?
       
-      Si aucune de ces conditions n’est remplie, le contrôleur recherche la dernière sauvegarde quotidienne (située dans le répertoire **nonDOMstorage** sur le lecteur S). Le contrôleur copie le dernier instantané du VHD à partir de la sauvegarde.
+      Si aucune de ces conditions n'est remplie, le contrôleur recherche la dernière sauvegarde quotidienne (située dans le répertoire **nonDOMstorage** du lecteur S). Le contrôleur copie le dernier instantané du VHD à partir de la sauvegarde.
 2. Le contrôleur inséré dans l’emplacement 0 utilise l’instantané pour créer une image de lui-même.
 3. Pendant ce temps, le contrôleur inséré dans l’emplacement 1 attend que le contrôleur 0 termine la création de l’image et démarre.
 4. Une fois que le contrôleur 0 démarre, le contrôleur 1 détecte le cluster créé par le contrôleur 0, ce qui déclenche la logique de remplacement d’un seul contrôleur. Pour plus d’informations, voir [Logique de remplacement d’un seul contrôleur](#single-controller-replacement-logic).
@@ -153,7 +153,7 @@ Ce flux de travail doit être suivi quand les deux contrôleurs de votre apparei
    4. Une fois que le premier contrôleur redémarre et que son intégrité est vérifiée, le système redémarre.
       
       > [!NOTE]
-      > Si vous utilisez la console série pour surveiller l’appareil, il est possible que vous assistiez à plusieurs redémarrages pendant la récupération du contrôleur suite à la procédure de remplacement. Vous savez que la procédure de remplacement est terminée quand le menu de la console série s’affiche. Si ce menu ne s’affiche pas dans un délai de 2,5 heures après le début du remplacement du contrôleur, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md).
+      > Si vous utilisez la console série pour surveiller l’appareil, il est possible que vous assistiez à plusieurs redémarrages pendant la récupération du contrôleur suite à la procédure de remplacement. Vous savez que la procédure de remplacement est terminée quand le menu de la console série s’affiche. Si ce menu ne s'affiche pas au bout de 2 heures et 30 minutes après le début du remplacement du contrôleur, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md).
      
 ## <a name="remove-a-controller"></a>Retirer un contrôleur
 Utilisez les procédures suivantes pour retirer un module de contrôleur défectueux de votre appareil StorSimple.
@@ -166,7 +166,7 @@ Utilisez les procédures suivantes pour retirer un module de contrôleur défect
 1. Saisissez le verrou du module entre le pouce et l’index.
 2. Pressez doucement le pouce et l’index pour libérer le verrou du contrôleur.
    
-    ![Libération du verrou du contrôleur](./media/storsimple-controller-replacement/IC741047.png)
+    ![ Libération du verrou du contrôleur](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figure 2** Libération du verrou du contrôleur
 3. Utilisez le verrou comme une poignée pour faire glisser le contrôleur hors du châssis.

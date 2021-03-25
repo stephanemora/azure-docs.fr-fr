@@ -1,70 +1,62 @@
 ---
 title: Processeurs de télémétrie (préversion) – Azure Monitor Application Insights pour Java
-description: Comment configurer des processeurs de télémétrie dans Azure Monitor Application Insights pour Java
+description: Découvrez comment configurer des processeurs de télémétrie dans Azure Monitor Application Insights pour Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734568"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processeurs de télémétrie (préversion) – Azure Monitor Application Insights pour Java
 
 > [!NOTE]
-> Cette fonctionnalité est encore en préversion.
+> La fonctionnalité Processeurs de télémétrie est en préversion.
 
-L’agent Java 3.0 pour Application Insights offre désormais les fonctionnalités nécessaires pour le traitement des données de télémétrie avant leur exportation.
+L’agent Java 3.0 pour Application Insights peut traiter des données de télémétrie avant leur exportation.
 
 Voici quelques cas d’utilisation des processeurs de télémétrie :
- * Masquer des données sensibles
- * Ajouter de manière conditionnelle des dimensions personnalisées
- * Mettre à jour le nom utilisé pour l’agrégation et l’affichage dans le portail Azure
- * Supprimer les attributs d’étendue pour contrôler le coût d’ingestion
+ * Créer des données sensibles.
+ * Ajouter de manière conditionnelle des dimensions personnalisées.
+ * Mettre à jour le nom de l’étendue, qui est utilisé pour agréger des données de télémétrie similaires dans le portail Azure.
+ * Supprimer les attributs d’étendue pour contrôler les coûts d’ingestion.
 
 ## <a name="terminology"></a>Terminologie
 
-Avant de passer aux processeurs de télémétrie, il est important de comprendre ce que le terme étendue signifie.
+Avant d’en savoir plus sur les processeurs de télémétrie, vous devez comprendre le terme *étendue*. Une étendue est un terme général désignant l’un de ces trois éléments :
 
-Une étendue est un terme général désignant l’un de ces trois éléments :
+* Une requête entrante.
+* Une dépendance sortante (par exemple, un appel distant à un autre service).
+* Une dépendance « in-process » (par exemple, une tâche effectuée par les sous-composants du service).
 
-* Une requête entrante
-* Une dépendance sortante (par exemple, un appel distant à un autre service)
-* Une dépendance « in-process » (par exemple, une tâche effectuée par les sous-composants du service)
-
-Dans le cadre des processeurs de télémétrie, les composants importants d’une étendue sont :
+Pour les processeurs de télémétrie, ces composants d’étendue sont importants :
 
 * Nom
 * Attributs
 
-Le nom de l’étendue est l’affichage principal utilisé pour les demandes et les dépendances dans le portail Azure.
-
-Les attributs d’étendue représentent à la fois les propriétés standard et personnalisées d’une requête ou d’une dépendance donnée.
+Le nom de l’étendue est l’affichage principal utilisé pour les requêtes et les dépendances dans le portail Azure. Les attributs d’étendue représentent à la fois les propriétés standard et personnalisées d’une requête ou d’une dépendance donnée.
 
 ## <a name="telemetry-processor-types"></a>Types de processeurs de télémétrie
 
-Il existe actuellement deux types de processeurs de télémétrie.
+Actuellement, les deux types de processeurs de télémétrie sont les processeurs d’attributs et les processeurs d’étendue.
 
-#### <a name="attribute-processor"></a>Processeur d’attributs
+Un processeur d’attributs peut insérer, mettre à jour, supprimer ou hacher des attributs.
+Il peut également utiliser une expression régulière pour extraire un ou plusieurs nouveaux attributs d’un attribut existant.
 
-Un processeur d’attributs permet d’insérer, de mettre à jour, de supprimer ou de hacher des attributs.
-Il peut également extraire (via une expression régulière) un ou plusieurs nouveaux attributs d’un attribut existant.
-
-#### <a name="span-processor"></a>Processeur d’étendue
-
-Un processeur d’étendue permet de mettre à jour le nom de la télémétrie.
-Il peut également extraire (via une expression régulière) un ou plusieurs nouveaux attributs du nom de l’étendue.
+Un processeur d’étendue peut mettre à jour le nom de la télémétrie.
+Il peut également utiliser une expression régulière pour extraire un ou plusieurs nouveaux attributs du nom de l’étendue.
 
 > [!NOTE]
-> Notez que les processeurs de télémétrie traitent actuellement uniquement les attributs de type chaîne et non les attributs de type booléen ou numérique.
+> Actuellement, les processeurs de télémétrie traitent uniquement les attributs de type chaîne. Ils ne traitent pas les attributs de type booléen ou nombre.
 
 ## <a name="getting-started"></a>Prise en main
 
-Créez un fichier de configuration nommé `applicationinsights.json`, puis placez-le dans le même répertoire que `applicationinsights-agent-*.jar`, avec le modèle suivant.
+Pour commencer, créez un fichier de configuration nommé *applicationinsights.json*. Enregistrez-le dans le même répertoire que le fichier *applicationinsights-agent-\*.jar*. Utilisez le modèle suivant.
 
 ```json
 {
@@ -88,29 +80,27 @@ Créez un fichier de configuration nommé `applicationinsights.json`, puis place
 }
 ```
 
-## <a name="includeexclude-criteria"></a>Inclure/exclure des critères
+## <a name="include-criteria-and-exclude-criteria"></a>Inclure des critères et exclure des critères
 
 Les processeurs d’attributs et les processeurs d’étendue prennent en charge les critères facultatifs `include` et `exclude` .
 Un processeur est appliqué uniquement aux étendues qui correspondent à ses critères `include` (si fournis) _et_ qui ne correspondent pas à ses critères `exclude` (si fournis).
 
-Pour configurer cette option, sous `include` et/ou `exclude`, au moins un `matchType` et l’un des `spanNames` ou `attributes` sont requis.
+Pour configurer cette option, sous `include` ou `exclude` (ou les deux), spécifiez au moins un `matchType` et `spanNames` ou `attributes`.
 Plusieurs conditions peuvent être spécifiées pour la configuration d’inclusion/exclusion.
 Pour qu’une correspondance soit établie, toutes les conditions spécifiées doivent prendre la valeur true. 
 
-**Champ obligatoire** : 
-* `matchType` contrôle la façon dont les éléments des tableaux `spanNames` et `attributes` sont interprétés. Les valeurs possibles sont `regexp` ou `strict`. 
+* **Champ obligatoire** : `matchType` contrôle la façon dont les éléments des tableaux `spanNames` et `attributes` sont interprétés. Les valeurs possibles sont `regexp` et `strict`. 
 
-**Champs facultatifs** : 
-* `spanNames` doit correspondre au moins à l’un des éléments. 
-* `attributes` spécifie la liste des attributs par rapport auxquels établir une correspondance. Tous ces attributs doivent correspondre exactement pour qu’une correspondance soit établie.
-
+* **Champs facultatifs** : 
+    * `spanNames` doit correspondre au moins à l’un des éléments. 
+    * `attributes` spécifie la liste des attributs par rapport auxquels établir une correspondance. Tous ces attributs doivent correspondre exactement pour qu’une correspondance soit établie.
+    
 > [!NOTE]
-> Si les attributs `include` et `exclude` sont tous deux spécifiés, les propriétés de l’attribut `include` sont vérifiées avant celles ce l’attribut `exclude`.
+> Si les attributs `include` et `exclude` sont tous deux spécifiés, les propriétés `include` sont vérifiées avant les propriétés `exclude`.
 
-#### <a name="sample-usage"></a>Exemple d’utilisation
+### <a name="sample-usage"></a>Exemple d’utilisation
 
 ```json
-
 "processors": [
   {
     "type": "attribute",
@@ -143,15 +133,20 @@ Pour qu’une correspondance soit établie, toutes les conditions spécifiées d
   }
 ]
 ```
-Pour plus d’informations, consultez la documentation des [exemples de processeurs de télémétrie](./java-standalone-telemetry-processors-examples.md).
+Pour plus d’informations, consultez [Exemples de processeurs de télémétrie](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="attribute-processor"></a>Processeur d’attributs
 
-Le processeur d’attributs modifie les attributs d’une étendue. Il prend éventuellement en charge la possibilité d’inclure ou d’exclure des étendues. Il prend une liste d’actions qui sont exécutées dans l’ordre spécifié dans le fichier de configuration. Les actions prises en charge sont les suivantes :
+Le processeur d’attributs modifie les attributs d’une étendue. Il peut prendre en charge la possibilité d’inclure ou d’exclure des étendues. Il prend une liste d’actions qui sont exécutées dans l’ordre spécifié par le fichier de configuration. Le processeur prend en charge les actions suivantes :
 
+- `insert`
+- `update`
+- `delete`
+- `hash`
+- `extract`
 ### `insert`
 
-Insère un nouvel attribut dans les étendues où la clé n’existe pas encore.   
+L’action `insert` insère un nouvel attribut dans les étendues où la clé n’existe pas encore.   
 
 ```json
 "processors": [
@@ -167,14 +162,14 @@ Insère un nouvel attribut dans les étendues où la clé n’existe pas encore.
   }
 ]
 ```
-Pour l’action `insert`, les éléments suivants sont obligatoires :
-  * `key`
-  * `value` ou `fromAttribute`
-  * `action`:`insert`
+L’action `insert` nécessite les paramètres suivants :
+* `key`
+* `value` ou `fromAttribute`
+* `action`: `insert`
 
 ### `update`
 
-met à jour un attribut dans les étendues où la clé existe.
+L’action `update` met à jour un attribut dans les étendues où la clé existe déjà.
 
 ```json
 "processors": [
@@ -190,15 +185,15 @@ met à jour un attribut dans les étendues où la clé existe.
   }
 ]
 ```
-Pour l’action `update`, les éléments suivants sont obligatoires :
-  * `key`
-  * `value` ou `fromAttribute`
-  * `action`:`update`
+L’action `update` nécessite les paramètres suivants :
+* `key`
+* `value` ou `fromAttribute`
+* `action`: `update`
 
 
 ### `delete` 
 
-supprime un attribut d’une étendue.
+L’action `delete` supprime un attribut d’une étendue.
 
 ```json
 "processors": [
@@ -213,13 +208,13 @@ supprime un attribut d’une étendue.
   }
 ]
 ```
-Pour l’action `delete`, les éléments suivants sont obligatoires :
-  * `key`
-  * `action`: `delete`
+L’action `delete` nécessite les paramètres suivants :
+* `key`
+* `action`: `delete`
 
 ### `hash`
 
-hache (SHA1) une valeur d’attribut existante.
+L’action `hash` hache (SHA1) une valeur d’attribut existante.
 
 ```json
 "processors": [
@@ -234,16 +229,16 @@ hache (SHA1) une valeur d’attribut existante.
   }
 ]
 ```
-Pour l’action `hash`, les éléments suivants sont obligatoires :
+L’action `hash` nécessite les paramètres suivants :
 * `key`
-* `action` : `hash`
+* `action`: `hash`
 
 ### `extract`
 
 > [!NOTE]
-> Cette fonctionnalité n’est disponible que dans la version 3.0.2 et les versions ultérieures.
+> La fonctionnalité `extract` est disponible uniquement dans la version 3.0.2 et les versions ultérieures.
 
-Extrait des valeurs suivant une règle d’expression régulière de la clé d’entrée vers les clés cibles spécifiées dans la règle. S’il existe déjà une clé cible, elle sera remplacée. Ce comportement est similaire à celui du paramètre `toAttributes` du [Processeur d’étendue](#extract-attributes-from-span-name), avec comme source l’attribut existant.
+L’action `extract` extrait des valeurs en suivant une règle d’expression régulière de la clé d’entrée vers les clés cibles spécifiées dans la règle. S’il existe déjà une clé cible, elle est remplacée. Cette action se comporte comme le paramètre `toAttributes` du [processeur d’étendue](#extract-attributes-from-the-span-name), où l’attribut existant est la source.
 
 ```json
 "processors": [
@@ -259,28 +254,24 @@ Extrait des valeurs suivant une règle d’expression régulière de la clé d�
   }
 ]
 ```
-Pour l’action `extract`, les éléments suivants sont obligatoires :
+L’action `extract` nécessite les paramètres suivants :
 * `key`
 * `pattern`
-* `action` : `extract`
+* `action`: `extract`
 
-Pour plus d’informations, consultez la documentation des [exemples de processeurs de télémétrie](./java-standalone-telemetry-processors-examples.md).
+Pour plus d’informations, consultez [Exemples de processeurs de télémétrie](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="span-processor"></a>Processeur d’étendue
 
-Le processeur d’étendue modifie le nom ou les attributs d’une étendue en fonction de son nom. Il prend éventuellement en charge la possibilité d’inclure ou d’exclure des étendues.
+Le processeur d’étendue modifie le nom ou les attributs d’une étendue en fonction de son nom. Il peut prendre en charge la possibilité d’inclure ou d’exclure des étendues.
 
 ### <a name="name-a-span"></a>Nommer une étendue
 
-Le paramètre suivant est requis dans la section du nom :
+La `name` section requiert le paramètre `fromAttributes`. Les valeurs de ces attributs sont utilisées pour créer un nouveau nom, concaténées dans l’ordre spécifié par la configuration. Le processeur ne modifie le nom de l’étendue que si tous ces attributs sont présents sur l’étendue.
 
-* `fromAttributes` : la valeur d’attribut pour les clés est utilisée pour créer un nom dans l’ordre spécifié dans la configuration. Toutes les clés d’attribut doivent être spécifiées dans l’étendue pour que le processeur la renomme.
-
-Vous pouvez éventuellement configurer le paramètre suivant :
-
-* `separator` : une chaîne, qui est spécifiée, sera utilisée pour fractionner les valeurs
+Le paramètre `separator` est facultatif. Ce paramètre est une chaîne. Il est spécifié pour fractionner les valeurs.
 > [!NOTE]
-> Si le changement de nom dépend d’attributs en modifiés par le processeur d’attributs, assurez-vous que le processeur d’étendue est spécifié après le processeur d’attributs dans la spécification du pipeline.
+> Si le changement de nom dépend du processeur d’attributs pour modifier les attributs, assurez-vous que le processeur d’étendue est spécifié après le processeur d’attributs dans la spécification du pipeline.
 
 ```json
 "processors": [
@@ -297,16 +288,26 @@ Vous pouvez éventuellement configurer le paramètre suivant :
 ] 
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Extraire des attributs d’une nom d’étendue
+### <a name="extract-attributes-from-the-span-name"></a>Extraire des attributs du nom d’étendue
 
-Prend une liste d’expressions régulières à mettre en correspondance avec le nom d’étendue, et en extrait des attributs en fonction de sous-expressions. Doit être spécifié dans la section `toAttributes`.
+La section `toAttributes` répertorie les expressions régulières à mettre en correspondance avec le nom de l’étendue. Elle extrait des attributs en fonction des sous-expressions.
 
-Les paramètres suivants sont requis :
+Le paramètre `rules` est obligatoire. Ce paramètre répertorie les règles utilisées pour extraire des valeurs d’attribut du nom d’étendue. 
 
-`rules` : liste de règles pour l’extraction de valeurs d’attribut du nom d’étendue. Les valeurs dans le nom d’étendue sont remplacées par les noms d’attributs extraits. Chaque règle figurant dans la liste est une chaîne de modèle regex. Le nom d’étendue est vérifié par rapport à l’expression régulière. Si l’expression régulière correspond, toutes les sous-expressions nommées de l’expression régulière sont extraites en tant qu’attributs et ajoutées à l’étendue. Chaque nom de sous-expression devient un nom d’attribut, et la portion correspondante de la sous-expression devient la valeur d’attribut. La portion correspondante dans le nom d’étendue est remplacée par le nom d’attribut extrait. Si les attributs existent déjà dans l’étendue, ils sont remplacés. Le processus est répété pour toutes les règles dans l’ordre dans de leur spécification. Chaque règle subséquente fonctionne sur le nom d’étendue qui est la sortie résultant du traitement de la règle précédente.
+Les valeurs dans le nom d’étendue sont remplacées par les noms d’attributs extraits. Chaque règle de la liste est une chaîne de modèle d’expression régulière (regex). 
+
+Voici comment les valeurs sont remplacées par les noms d’attributs extraits :
+
+1. Le nom d’étendue est vérifié par rapport à l’expression régulière. 
+1. Si l’expression régulière correspond, toutes les sous-expressions nommées de l’expression régulière sont extraites en tant qu’attributs. 
+1. Les attributs extraits sont ajoutés à l’étendue. 
+1. Chaque nom de sous-expression devient un nom d’attribut. 
+1. La portion correspondante de la sous-expression devient la valeur de l’attribut. 
+1. La portion correspondante dans le nom d’étendue est remplacée par le nom d’attribut extrait. Si les attributs existent déjà dans l’étendue, ils sont remplacés. 
+ 
+Le processus est répété pour toutes les règles dans l’ordre spécifié. Chaque règle subséquente fonctionne sur le nom d’étendue qui est la sortie de la règle précédente.
 
 ```json
-
 "processors": [
   {
     "type": "span",
@@ -324,18 +325,18 @@ Les paramètres suivants sont requis :
 
 ```
 
-## <a name="list-of-attributes"></a>Liste d’attributs
+## <a name="common-span-attributes"></a>Attributs d’étendue courants
 
-Voici une liste d’attributs d’étendue courants qui peuvent être utilisés dans les processeurs de télémétrie.
+Cette section répertorie certains attributs d’étendue courants que les processeurs de télémétrie peuvent utiliser.
 
 ### <a name="http-spans"></a>Étendues HTTP
 
 | Attribut  | Type | Description | 
 |---|---|---|
 | `http.method` | string | Méthode de requête HTTP.|
-| `http.url` | string | URL complète de la requête HTTP sous la forme `scheme://host[:port]/path?query[#fragment]`. En règle générale, le fragment n’est pas transmis via HTTP. S’il est connu, il est néanmoins préférable de l’inclure.|
+| `http.url` | string | URL complète de la requête HTTP sous la forme `scheme://host[:port]/path?query[#fragment]`. Le fragment n’est généralement pas transmis via HTTP. Toutefois, si le fragment est connu, il doit être inclus.|
 | `http.status_code` | nombre | [Code de statut de la réponse HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Type de protocole HTTP utilisé. |
+| `http.flavor` | string | Type de protocole HTTP. |
 | `http.user_agent` | string | Valeur de l’en-tête [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) envoyé par le client. |
 
 ### <a name="jdbc-spans"></a>Étendues JDBC
@@ -345,5 +346,5 @@ Voici une liste d’attributs d’étendue courants qui peuvent être utilisés 
 | `db.system` | string | Identificateur du produit SGBD (système de gestion de base de données) utilisé. |
 | `db.connection_string` | string | Chaîne de connexion utilisée pour se connecter à la base de données. Il est recommandé de supprimer les informations d’identification incorporées.|
 | `db.user` | string | Nom d’utilisateur utilisé pour accéder à la base de données. |
-| `db.name` | string | Cet attribut est utilisé pour signaler le nom de la base de données qui fait l’objet de l’accès. Dans les commandes qui changent de base de données, cette valeur doit être définie sur la base de données cible (même en cas d’échec de la commande).|
+| `db.name` | string | Chaîne utilisée pour signaler le nom de la base de données qui fait l’objet de l’accès. Dans les commandes qui changent de base de données, cette chaîne doit être définie sur la base de données cible, même en cas d’échec de la commande.|
 | `db.statement` | string | Instruction de base de données en cours d’exécution.|

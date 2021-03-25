@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 0531305364b3e6f914a6de00614a3f9af4be3531
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 058873df989c444ebe06fc20a2f8a40fd2d3c594
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418774"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594544"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -73,7 +73,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure 
 | Attribuée par le système | PRÉVERSION | Non disponible | Non disponible | Non disponible |
 | Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
 
-Kubernetes avec Azure Arc [prend actuellement en charge l’identité attribuée par le système](../../azure-arc/kubernetes/connect-cluster.md#azure-arc-agents-for-kubernetes). Le certificat d’identité de service managée est utilisé par tous les agents Kubernetes avec Azure Arc pour la communication avec Azure.
+Kubernetes avec Azure Arc [prend actuellement en charge l’identité attribuée par le système](../../azure-arc/kubernetes/quickstart-connect-cluster.md). Le certificat d’identité de service managée est utilisé par tous les agents Kubernetes avec Azure Arc pour la communication avec Azure.
 
 ### <a name="azure-arc-enabled-servers"></a>Serveurs avec Azure Arc
 

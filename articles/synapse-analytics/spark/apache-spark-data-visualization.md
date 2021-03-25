@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
 ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121523"
 ---
 # <a name="visualize-data"></a>Visualiser les données
@@ -38,7 +38,7 @@ Pour accéder aux options de graphique :
    |--|--| 
    | Type de graphique | La fonction ```display``` prend en charge un large éventail de types de graphiques, notamment les graphiques à barres, les nuages de points, les graphiques en courbes, etc. |
    | Clé | Spécifier la plage de valeurs pour l’axe X|
-   | Value | Spécifier la plage de valeurs pour l’axe Y |
+   | Valeur | Spécifier la plage de valeurs pour l’axe Y |
    | Groupe de séries | Utilisé pour déterminer les groupes de l’agrégation | 
    | Agrégation | Méthode pour agréger des données dans votre visualisation| 
    

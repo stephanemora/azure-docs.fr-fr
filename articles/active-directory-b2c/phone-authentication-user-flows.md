@@ -12,10 +12,10 @@ ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100557230"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs (préversion)
@@ -129,7 +129,7 @@ Vous pouvez activer l’invite de récupération par e-mail dans les propriété
 
 Une fois que vous avez activé l’inscription et la connexion par téléphone et l’invite de récupération par e-mail dans votre flux d’utilisateur, vous pouvez utiliser **Exécuter le flux d’utilisateur** pour tester l’expérience utilisateur.
 
-1. Sélectionnez **Stratégies** > **Flux d’utilisateurs**, puis sélectionnez le flux d’utilisateur que vous avez créé. Dans la page de présentation du flux d’utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
+1. Sélectionnez **Stratégies** > **Flux d’utilisateurs**, puis sélectionnez le flux d’utilisateur que vous avez créé. Dans la page de vue d’ensemble du flux utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
 
 2. Pour **Application**, sélectionnez l’application web que vous avez inscrite à l’étape 1. L’**URL de réponse** doit être `https://jwt.ms`.
 

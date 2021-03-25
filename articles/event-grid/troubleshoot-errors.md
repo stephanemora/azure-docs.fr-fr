@@ -4,10 +4,10 @@ description: Cet article fournit une liste de codes d’erreur avec les messages
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592989"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Résoudre les erreurs liées à Azure Event Grid
@@ -42,8 +42,8 @@ Ce guide de résolution des problèmes fournit les informations suivantes :
 Vérifiez également qu'il se trouve derrière une instance d'Azure Application Gateway ou un pare-feu d'applications web. Si c’est le cas, désactivez les règles de pare-feu suivantes et exécutez une nouvelle requête HTTP POST :
 
 - 920300 (En-tête Accept manquant dans la requête)
-- 942430 (Détection restreinte des anomalies de caractères SQL (args) : nombre de caractères spéciaux dépassé (12))
-- 920230 (Détection d'encodage de plusieurs URL)
+- 942430 (Détection restreinte des anomalies de caractères SQL [args] : nombre de caractères spéciaux dépassé [12])
+- 920230 (Détection d’encodage de plusieurs URL)
 - 942130 (Attaque par injection de code SQL : Tautologie SQL détectée.)
 - 931130 (Attaque possible par inclusion de fichier distant = Référence/Lien hors domaine)
 

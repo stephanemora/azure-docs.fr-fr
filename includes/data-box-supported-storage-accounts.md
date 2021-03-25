@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/21/2021
 ms.author: alkohli
 ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706031"
 ---
 Voici une liste des comptes de stockage et des types de stockage pris en charge pour un appareil Data Box. Pour obtenir la liste complète de toutes les capacités pour tous les types de comptes de stockage, consultez [Types de comptes de stockage](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).

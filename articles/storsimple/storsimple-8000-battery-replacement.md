@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 17a6a07d117557cdee23634bd211a14cf90d49e3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023769"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Remplacer le module de batterie de secours sur votre appareil StorSimple
 
 ## <a name="overview"></a>Vue d’ensemble
-Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil Microsoft Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Cette batterie est appelée *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
+Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil Microsoft Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Ce pack batterie est appelé *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
 
 Ce didacticiel explique comment :
 
@@ -32,7 +32,7 @@ Ce didacticiel explique comment :
 Le module de batterie de secours pour votre appareil StorSimple est une unité remplaçable sur site. Avant son installation dans le module PCM, le module de batterie doit être conservé dans son emballage d’origine. Procédez comme suit pour supprimer la batterie de secours.
 
 #### <a name="to-remove-the-backup-battery-module"></a>Pour retirer le module de batterie de secours
-1. Dans le portail Azure, accédez à votre panneau de service StorSimple Device Manager. Accédez à **Appareils**, puis sélectionnez votre appareil dans la listes des appareils. Accédez à **Surveiller** > **Intégrité matérielle**. Sous **Composants partagés**, regardez l’état de la batterie.
+1. Dans le portail Azure, accédez à votre panneau de service StorSimple Device Manager. Accédez à **Appareils**, puis sélectionnez votre appareil dans la listes des appareils. Accédez à **Surveiller** > **Intégrité matérielle**. Sous **Composants partagés**, regardez l'état de la batterie.
 2. Identifiez le PCM dans lequel la batterie est défectueuse. La figure 1 illustre l’arrière de l’appareil StorSimple.
    
     ![Fond du panier des modules du boîtier principal de l’appareil](./media/storsimple-battery-replacement/IC740994.png)
@@ -81,7 +81,7 @@ Procédez comme suit pour installer le module de batterie de remplacement dans l
 ## <a name="maintain-the-backup-battery-module"></a>Entretenir le module de batterie de secours
 Dans votre appareil StorSimple, le module de batterie de secours de votre appareil alimente le contrôleur en cas de panne de courant. Il permet à l’appareil StorSimple d’enregistrer des données critiques avant de s’arrêter de façon contrôlée. Ce système, équipé de deux batteries entièrement chargées dans les PCM, peut faire face à deux pannes de courant consécutives.
 
-Dans le portail Azure, **Intégrité matérielle** sous le panneau **Surveiller** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L’état de la batterie est indiqué par **Batterie dans PCM 0** ou **Batterie dans PCM 1** sous **Composants partagés**. Ce panneau indiquera l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
+Dans le portail Azure, **Intégrité matérielle** sous le panneau **Surveiller** indique si la batterie ne fonctionne pas correctement ou si elle approche de la fin de sa durée de vie. L'état de la batterie est indiqué par **Batterie dans le PCM 0** ou **Batterie dans le PCM 1** sous **Composants partagés**. Ce panneau indiquera l’état **DÉTÉRIORÉ** si la fin de durée de vie approche et l’état **ÉCHEC** si elle est atteinte.
 
 > [!NOTE]
 > La batterie peut signaler **ÉCHEC** quand elle a juste besoin d’être chargée.
@@ -91,7 +91,7 @@ Si l’état **DÉTÉRIORÉ** s’affiche, nous vous recommandons de procéder a
 
 * Le système a peut-être récemment subi une panne ou des opérations de maintenance peuvent être en cours sur les batteries. Observez le système pendant 12 heures avant de continuer.
   
-  * Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md) pour obtenir un module de batterie de secours de remplacement.
+  * Si l’état est toujours **DÉTÉRIORÉ** après 12 heures de branchement sur secteur alors que les contrôleurs et les PCM sont en cours d’exécution, vous devez changer la batterie. Pour obtenir un module de batterie de secours de rechange, veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md).
   * Si l’état redevient opérationnel après 12 heures, cela veut dire que la batterie fonctionne et qu’elle avait juste besoin d’être chargée dans le cadre de la maintenance.
 * Si aucune panne n’est survenue et que le PCM est activé et branché sur secteur, la batterie doit être remplacée. [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) pour commander un module de batterie de secours de remplacement.
 

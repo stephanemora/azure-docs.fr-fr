@@ -4,10 +4,10 @@ description: Utilisez l’opération copy dans un modèle Azure Resource Manager
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905891"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Itération de variable dans les modèles ARM

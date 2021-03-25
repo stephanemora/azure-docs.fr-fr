@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 79d908077d3bd66a3ed86759e37574383358881b
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218848"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Tutoriel : Définir des mots de passe pour le matériel
@@ -71,13 +71,13 @@ Pour créer un mot de passe de configuration du BIOS :
 
 1. Activez ou redémarrez le nœud, puis appuyez immédiatement sur F2 pour ouvrir l’utilitaire de configuration du système.
 
-1. Dans l’écran **System Setup Main Menu** (Menu principal de la configuration système), choisissez **System BIOS** > **System Security** .
+1. Dans l’écran **System Setup Main Menu** (Menu principal de la configuration système), choisissez **System BIOS** > **System Security**.
 
 1. Assurez-vous que le paramètre **Password Status** (État du mot de passe) est **Unlocked** (Déverrouillé).
 
 1. Utilisez le champ **Setup Password** pour définir le mot de passe. (Vous pouvez également définir un mot de passe BIOS système à partir de cet écran si vous souhaitez en utiliser un.)
 
-1. Appuyez sur ÉCHAP pour revenir à l’écran **System BIOS** , puis appuyez de nouveau sur ÉCHAP. Un message vous demande d’enregistrer les modifications. Si le système ne redémarre pas automatiquement, redémarrez-le pour accéder à l’écran de démarrage normal.<!-- how to exit this mode/do you need to reboot to get to the initial setup screen? -->
+1. Appuyez sur ÉCHAP pour revenir à l’écran **System BIOS**, puis appuyez de nouveau sur ÉCHAP. Un message vous demande d’enregistrer les modifications. Si le système ne redémarre pas automatiquement, redémarrez-le pour accéder à l’écran de démarrage normal.<!-- how to exit this mode/do you need to reboot to get to the initial setup screen? -->
 
 ## <a name="set-initial-passwords"></a>Définir des mots de passe initiaux
 

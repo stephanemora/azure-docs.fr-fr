@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741835"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863409"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -42,7 +42,7 @@ Cet article vous guide à travers la configuration du [portail Azure](https://po
 
 ## <a name="basics"></a>Concepts de base
 
-![hdinsight - options de création personnalisée - création rapide](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="hdinsight - options de création personnalisée - création rapide":::
 
 ### <a name="project-details"></a>Détails du projet
 
@@ -107,7 +107,7 @@ Le nom d’utilisateur SSH présente les restrictions suivantes :
 
 ## <a name="storage"></a>Stockage
 
-![Paramètres de stockage du cluster : Points de terminaison compatibles HDFS](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Paramètres de stockage du cluster : Points de terminaison compatibles HDFS":::
 
 Bien qu’une installation locale de Hadoop utilise le système de fichiers distribués Hadoop (HDFS) pour le stockage sur le cluster, dans le cloud, vous utilisez des points de terminaison de stockage connectés au cluster. L’utilisation de stockage cloud signifie que vous pouvez supprimer sans risque les clusters HDInsight utilisés pour le calcul tout en conservant vos données.
 
@@ -165,7 +165,7 @@ Ambari permet de superviser les clusters HDInsight, d’apporter des modificatio
 
 ## <a name="security--networking"></a>Sécurité + mise en réseau
 
-![hdinsight options de création choisir le package de sécurité d’entreprise](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="hdinsight options de création choisir le package de sécurité d’entreprise":::
 
 ### <a name="enterprise-security-package"></a>Package de sécurité d’entreprise
 
@@ -201,7 +201,7 @@ Pour plus d’informations, consultez [Identités managées dans Azure HDInsight
 
 ## <a name="configuration--pricing"></a>Configuration + prix
 
-![Choix de la taille de votre nœud HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="Choix de la taille de votre nœud HDInsight":::
 
 Vous êtes facturé pour l’utilisation du nœud tant que le cluster existe. La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Les clusters ne peuvent pas être désalloués ou mis en attente.
 
@@ -211,10 +211,10 @@ Chaque type de cluster possède son propre nombre de nœuds, sa terminologie pou
 
 | Type | Nœuds | Diagramme |
 | --- | --- | --- |
-| Hadoop |Nœud principal (2), nœud Worker (1+) |![Nœuds de cluster Hadoop HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| hbase |Serveur principal (2), serveur de région (1+), nœud principal/ZooKeeper (3) |![Configuration du type de cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nœud Nimbus (2), serveur supervisor (1+), nœud ZooKeeper (3) |![Configuration du type de cluster Storm HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Nœud principal (2), nœud Worker (1+), nœud ZooKeeper (3) (gratuits pour les machines virtuelles ZooKeeper A1) |![Configuration du type de cluster Spark HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop |Nœud principal (2), nœud Worker (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="Nœuds de cluster Hadoop HDInsight" border="false"::: |
+| hbase |Serveur principal (2), serveur de région (1+), nœud principal/ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="Configuration du type de cluster HDInsight HBase" border="false"::: |
+| Storm |Nœud Nimbus (2), serveur supervisor (1+), nœud ZooKeeper (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="Configuration du type de cluster Storm HDInsight" border="false"::: |
+| Spark |Nœud principal (2), nœud Worker (1+), nœud ZooKeeper (3) (gratuits pour les machines virtuelles ZooKeeper A1) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="Configuration du type de cluster Spark HDInsight" border="false"::: |
 
 Pour plus d’informations, consultez [Configuration des nœuds par défaut et tailles des machines virtuelles pour les clusters](hdinsight-supported-node-configuration.md) dans « Quels sont les composants Hadoop et les versions dans HDInsight ? »
 
@@ -222,7 +222,7 @@ Le coût des clusters HDInsight est déterminé par le nombre de nœuds et par l
 
 Les différents types de clusters ont des types de nœuds, nombres de nœuds et tailles de nœuds différents :
 * Type de cluster Hadoop par défaut :
-    * Deux *nœuds principaux*  
+    * Deux *nœuds principaux*
     * Quatre *nœuds Worker*
 * Type de cluster Storm par défaut :
     * Deux *nœuds Nimbus*

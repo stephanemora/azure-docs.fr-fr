@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84ee65b05af4393f49696875bda41df39e283d5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85980087"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copier des données d’objets blob de Stockage Azure vers Azure Data Lake Storage Gen1
@@ -31,7 +31,7 @@ Vous pouvez également utiliser l’outil AdlCopy dans deux modes différents :
 * **Autonome** : l’outil utilise des ressources Data Lake Storage Gen1 pour effectuer la tâche.
 * **À l’aide d’un compte Data Lake Analytics**: les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -57,7 +57,7 @@ Les paramètres de la syntaxe sont décrits ci-après :
 | Dest |Spécifie la destination Data Lake Storage Gen1 vers laquelle effectuer la copie. |
 | SourceKey |Spécifie la clé d’accès de stockage pour la source d’objet blob Azure Storage. Cela est nécessaire uniquement si la source est un conteneur d’objets blob ou un objet blob. |
 | Compte |**Facultatif**. Utilisez ce paramètre si vous souhaitez utiliser un compte Azure Data Lake Analytics pour exécuter la tâche de copie. Si vous utilisez l’option /Account dans la syntaxe, mais sans spécifier de compte Data Lake Analytics, AdlCopy utilise un compte par défaut pour exécuter la tâche. En outre, si vous utilisez cette option, vous devez ajouter la source (Azure Storage Blob) et la destination (Data Lake Storage Gen1) comme sources de données de votre compte Data Lake Analytics. |
-| Units |Spécifie le nombre d’unités Data Lake Analytics utilisées pour la tâche de copie. Cette option est obligatoire si vous utilisez l’option **/Account** pour spécifier le compte Data Lake Analytics. |
+| Unités |Spécifie le nombre d’unités Data Lake Analytics utilisées pour la tâche de copie. Cette option est obligatoire si vous utilisez l’option **/Account** pour spécifier le compte Data Lake Analytics. |
 | Modèle |Spécifie un modèle d’expression régulière qui indique les objets blob ou les fichiers à copier. AdlCopy respecte la casse pour la mise en correspondance. Le modèle par défaut lorsqu’aucun modèle n’est spécifié consiste à copier tous les éléments. La spécification de plusieurs modèles de fichiers n’est pas prise en charge. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Utilisation d’AdlCopy (en mode autonome) pour copier des données à partir d’un objet blob Azure Storage

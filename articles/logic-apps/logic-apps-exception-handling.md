@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702502"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -112,7 +112,7 @@ Bien que cela ne soit pas défini explicitement dans votre action ou déclencheu
 }
 ```
 
-### <a name="none"></a>None
+### <a name="none"></a>Aucun
 
 Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur `none` à <*retry-policy-type*>.
 
@@ -176,7 +176,7 @@ Pour vous assurer qu’une action peut toujours être exécutée malgré l’ét
 
 Vous pouvez personnaliser le comportement « exécuter après » d’une action afin qu’elle s’exécute quand l’état du prédécesseur est `Succeeded`, `Failed`, `Skipped` ou `TimedOut`. Par exemple, pour envoyer un e-mail une fois que l’action prédécesseur Excel Online `Add_a_row_into_a_table` est marquée `Failed`, plutôt que `Succeeded`, modifiez le comportement « exécuter après » en effectuant l’une des étapes suivantes :
 
-* En mode Conception, sélectionnez le bouton des points de suspension ( **...** ), puis **Configurer la propriété Exécuter après**.
+* En mode Conception, sélectionnez le bouton des points de suspension (**...**), puis **Configurer la propriété Exécuter après**.
 
   ![Configurer le comportement « exécuter après » pour une action](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
 
@@ -208,7 +208,7 @@ Vous pouvez personnaliser le comportement « exécuter après » d’une actio
   }
   ```
 
-  Pour cet exemple, remplacez la valeur de la propriété `runAfter` `Succeeded` par `Failed` :
+  Pour cet exemple, remplacez la valeur de la propriété `runAfter``Succeeded` par `Failed` :
 
   ```json
   "Send_an_email_(V2)": {
@@ -263,13 +263,14 @@ Pour les limites sur les étendues, consultez [Limites et configuration](../logi
 
 ### <a name="get-context-and-results-for-failures"></a>Obtenir le contexte et les résultats des échecs
 
-Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés.
+Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. La [fonction `result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) retourne les résultats des actions de niveau supérieur dans une action délimitée en acceptant un seul paramètre, le nom de l’étendue, et en retournant un tableau qui contient les résultats de ces actions de premier niveau. Ces objets d’action incluent les mêmes attributs que ceux retournés par la fonction `actions()`, comme l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. 
 
-La fonction [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fournit le contexte des résultats de toutes les actions dans une étendue. La fonction `result()` accepte un seul paramètre, qui est le nom de l’étendue, et retourne un tableau contenant tous les résultats des actions dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet `actions()`, comme l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Pour envoyer le contexte pour les actions qui ont échoué dans une étendue, vous pouvez facilement associer une expression `@result()` à la propriété `runAfter`.
+> [!NOTE]
+> La fonction `result()` retourne les résultats *uniquement* à partir des actions de premier niveau, et non pas à partir d’actions imbriquées plus approfondies telles que les actions de condition ou de basculement.
 
-Pour exécuter une action pour chaque action dans une étendue dont le résultat est `Failed` et pour filtrer le tableau de résultats sur les actions ayant échoué, vous pouvez associer une expression `@result()` à une action [**Filtrer le tableau**](logic-apps-perform-data-operations.md#filter-array-action) et à une boucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle `For_each`.
+Pour obtenir le contexte sur les actions qui ont échoué dans une étendue, vous pouvez utiliser l’expression `@result()` avec le nom de l’étendue et la propriété `runAfter`. Pour filtrer le tableau retourné en fonction des actions qui ont l’état `Failed`, vous pouvez ajouter l’action [**Filtrer un tableau**](logic-apps-perform-data-operations.md#filter-array-action). Pour exécuter une action pour une action ayant retourné une erreur, utilisez le tableau filtré retourné avec une boucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md).
 
-Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse pour toutes les actions qui ont échoué dans l’étendue « My_Scope » :
+Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse pour toutes les actions qui ont échoué dans l’action d’étendue « My_Scope » :
 
 ```json
 "Filter_array": {
@@ -362,7 +363,7 @@ Vous pouvez utiliser les expressions décrites plus haut dans cet article pour e
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurer les journaux Azure Monitor
 
-Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Azure Monitor](../azure-monitor/overview.md) vous permet d'envoyer facilement tous les événements du workflow, y compris les états d'exécution et d'action, à un [espace de travail Log Analytics](../azure-monitor/platform/data-platform-logs.md), à un [compte de stockage Azure](../storage/blobs/storage-blobs-overview.md) ou à [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Azure Monitor](../azure-monitor/overview.md) vous permet d'envoyer facilement tous les événements du workflow, y compris les états d'exécution et d'action, à un [espace de travail Log Analytics](../azure-monitor/logs/data-platform-logs.md), à un [compte de stockage Azure](../storage/blobs/storage-blobs-overview.md) ou à [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Vous pouvez surveiller les journaux d’activité et les mesures ou les publier dans n’importe quel outil de supervision de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via Event Hubs à [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives basées sur des anomalies, moyennes ou échecs dans les journaux de diagnostic. Vous pouvez utiliser Stream Analytics pour envoyer des informations à d’autres sources de données, telles que des files d’attente, des rubriques, SQL, Azure Cosmos DB ou Power BI.
 

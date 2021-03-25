@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313686"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Guide pratique pour configurer le routage de hub virtuel
@@ -30,7 +30,7 @@ Pour plus d’informations, consultez [À propos du routage de hub virtuel](abou
 3. Sélectionnez **+ Créer une table de routage** pour ouvrir la page **Créer une table de routage**.
 4. Sous l’onglet **Informations de base** de la page Créer une table de routage, renseignez les champs suivants.
 
-   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Page Routage":::
+   :::image type="content" source="./media/how-to-virtual-hub-routing/basics.png" alt-text="Onglet Informations de base":::
 
    * **Nom**
    * **Itinéraires**
@@ -41,20 +41,20 @@ Pour plus d’informations, consultez [À propos du routage de hub virtuel](abou
 
      Si vous sélectionnez une connexion de réseau virtuel, vous verrez **Configurer des routes statiques**. Il s’agit d’un paramètre de configuration facultatif. Pour plus d’informations, consultez [Configurer des routes statiques](about-virtual-hub-routing.md#static).
 
-      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Page Routage":::
+      :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Tronçon suivant":::
 
 5. Sélectionnez l’onglet **Étiquettes** pour configurer les noms des étiquettes. Les étiquettes fournissent un mécanisme permettant de regrouper logiquement des tables de routage.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Page Routage":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configurer les noms des étiquettes":::
 
 6. Sélectionnez l’onglet **Associations** pour associer des connexions à la table de routage.
 Vous verrez **Branches**, **Réseaux virtuels** et les **Paramètres actuels** des connexions.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Page Routage":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/associations.png" alt-text="Association de connexions à la table de routage":::
 
 7. Sélectionnez l’onglet **Propagations** pour propager les routes des connexions à la table de routage.
 
-    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Page Routage":::
+    :::image type="content" source="./media/how-to-virtual-hub-routing/propagations.png" alt-text="Propager les routes":::
 
 8. Sélectionnez **Créer** pour créer la table de routage.
 
@@ -70,7 +70,7 @@ Dans le portail Azure, recherchez la table de routage de votre hub virtuel. Vous
 
 Dans le portail Azure, recherchez la table de routage de votre hub virtuel. Cliquez sur **« ... »** et sélectionnez **Routages effectifs** pour voir les routes apprises par la table de routage sélectionnée. Les routes propagées de la connexion à la table de routage sont renseignées automatiquement dans la liste **Routages effectifs** de la table de routage. Pour plus d’informations, consultez [À propos des routes effectives](effective-routes-virtual-hub.md).
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Page Routage" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="Afficher les routes effectives" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
 ## <a name="to-set-up-routing-configuration-for-a-virtual-network-connection"></a><a name="routing-configuration"></a>Pour définir la configuration du routage pour une connexion de réseau virtuel
 
@@ -82,7 +82,7 @@ Dans le portail Azure, recherchez la table de routage de votre hub virtuel. Cliq
 1. Pour **Itinéraires statiques**, configurez des itinéraires statiques pour l’appliance virtuelle réseau (le cas échéant). Le réseau étendu virtuel prend en charge une adresse IP de tronçon suivant unique pour l’itinéraire statique dans une connexion de réseau virtuel. Par exemple, si vous avez une appliance virtuelle distincte pour les flux de trafic entrants et sortants, il serait préférable que les appliances virtuelles se trouvent sur des réseaux virtuels distincts et que ceux-ci soient attachés au hub virtuel.
 
 
-:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Page Routage" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
+:::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Définir la configuration du routage" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

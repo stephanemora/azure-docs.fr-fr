@@ -4,16 +4,16 @@ ms.service: storage
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
-ms.openlocfilehash: e3732823be1c8391f2bec9018a094200c7c93a5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61576de4a57d55ea9d1ea209c52df556f0069617
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710955"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750293"
 ---
 | Propriété | Description |
 |:--- |:---|
-|**identity / type** | Type d’authentification qui a été utilisé pour effectuer la demande. Par exemple : `OAuth`, `SAS Key`, `Account Key` ou `Anonymous` |
+|**identity / type** | Type d’authentification qui a été utilisé pour effectuer la demande. Par exemple : `OAuth`, `Kerberos`, `SAS Key`, `Account Key` ou `Anonymous` |
 |**identity / tokenHash**|Ce champ est réservé à un usage interne. |
 |**authorization / action** | Action affectée à la demande. |
 |**authorization / roleAssignmentId** | ID d’attribution de rôle. Par exemple : `4e2521b7-13be-4363-aeda-111111111111`.|
