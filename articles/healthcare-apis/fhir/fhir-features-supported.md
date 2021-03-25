@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: a31fb48443cf760186faad705b8be21a62846a44
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019505"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048417"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -35,14 +35,14 @@ Versions antérieures également prises en charge : `3.0.2`
 | update with optimistic locking | Oui       | Oui       | Oui       |                                                     |
 | update (conditional)           | Oui       | Oui       | Oui       |                                                     |
 | patch                          | Non        | Non        | Non        |                                                     |
-| supprimer                         | Oui       | Oui       | Oui       |  Voir la remarque ci-dessous                                                   |
+| supprimer                         | Oui       | Oui       | Oui       |  Voir la remarque ci-dessous.                                   |
 | delete (conditional)           | Non        | Non        | Non        |                                                     |
 | history                        | Oui       | Oui       | Oui       |                                                     |
 | create                         | Oui       | Oui       | Oui       | Prend en charge POST et PUT                               |
 | create (conditional)           | Oui       | Oui       | Oui       | Problème [no 1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| recherche                         | Partiel   | Partiel   | Partiel   | Voir ci-dessous                                           |
-| recherche chaînée                 | Non        | Oui       | Non        |                                                     |
-| recherche chaînée inversée         | Non        | Oui       | Non        |                                                     |
+| recherche                         | Partiel   | Partiel   | Partiel   | Consultez la section Rechercher ci-dessous.                           |
+| recherche chaînée                 | Oui       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
+| recherche chaînée inversée         | Oui       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
 | capabilities                   | Oui       | Oui       | Oui       |                                                     |
 | lot                          | Oui       | Oui       | Oui       |                                                     |
 | transaction                    | Non        | Oui       | Non        |                                                     |
@@ -50,7 +50,13 @@ Versions antérieures également prises en charge : `3.0.2`
 | intermediaries                 | Non        | Non        | Non        |                                                     |
 
 > [!Note]
-> La suppression définie par la spécification FHIR nécessite qu’après la suppression, les lectures suivantes non spécifiques à la version d’une ressource renvoient un code d’état HTTP 410 et que la ressource ne soit plus trouvée via la recherche. L’API Azure pour FHIR vous permet également de supprimer entièrement (y compris l’historique) la ressource. Pour supprimer entièrement la ressource, vous pouvez passer une `hardDelete` valeur de paramètre à true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Si vous ne transmettez pas ce paramètre ou que vous affectez `hardDelete` la valeur false, les versions historiques de la ressource seront toujours disponibles.
+> Après la suppression, telle qu’elle est définie par la spécification FHIR, les lectures suivantes d’une ressource qui ne sont pas propres à la version renvoient un code de statut HTTP 410, et la ressource ne figure plus dans les résultats de recherche. L’API Azure pour FHIR permet également de supprimer entièrement la ressource (y compris l’historique). Pour supprimer entièrement la ressource, vous pouvez passer une valeur de paramètre `hardDelete` définie sur true (`DELETE {server}/{resource}/{id}?hardDelete=true`). Si vous ne transmettez pas ce paramètre ou que vous lui donnez la valeur false, les versions historiques de la ressource restent disponibles.
+
+
+ **Remarque 2**
+* Ajoute la prise en charge MVP pour la recherche de FHIR chaînée et inversée dans CosmosDB. 
+
+  Dans l’API Azure pour FHIR et le serveur FHIR Open source avec Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. Pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée. Par défaut, la recherche chaînée se trouve derrière un indicateur de fonctionnalité. Pour utiliser la recherche chaînée sur Cosmos DB, utilisez l’en-tête `x-ms-enable-chained-search: true` . Pour plus d’informations, consultez la page [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Recherche
 
@@ -92,7 +98,7 @@ Tous les types de paramètre de recherche sont pris en charge.
 | `_list`                 | Oui       | Oui       | Oui       |         |
 | `_type`                 | Oui       | Oui       | Oui       | Problème [1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Oui       | Oui       | Oui       |         |
-| `_profile`              | Partiel   | Partiel   | Partiel   | Pris en charge dans STU3. Si vous avez créé votre base de données après le 20 février 2021, vous bénéficiez également d' **une** prise en charge dans R4. Nous travaillons à l’activation de _profile sur les bases de données créées avant le 20 février 2021. |
+| `_profile`              | Partiel   | Partiel   | Partiel   | Pris en charge dans STU3. Si vous avez créé votre base de données **après** le 20 février 2021, vous bénéficiez également d’une prise en charge dans R4. Nous nous efforçons d’activer _profile sur les bases de données créées avant le 20 février 2021. |
 | `_text`                 | Non        | Non        | Non        |         |
 | `_content`              | Non        | Non        | Non        |         |
 | `_has`                  | Non        | Non        | Non        |         |
@@ -102,7 +108,7 @@ Tous les types de paramètre de recherche sont pris en charge.
 | Paramètres des résultats de la recherche | Prise en charge - PaaS | Prise en charge - OSS (SQL) | Prise en charge - OSS (Cosmos DB) | Commentaire |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_elements`             | Oui       | Oui       | Oui       | Problème [1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Oui       | Oui       | Oui       | `_count` est limité à 1000 caractères. Si la valeur est supérieure à 1000, seul 1000 est retourné et un avertissement est renvoyé dans le bundle. |
+| `_count`                | Oui       | Oui       | Oui       | `_count` est limité à 1 000 caractères. Si la valeur est supérieure à 1 000, seuls 1 000 résultats sont renvoyés, et un avertissement est retourné dans le pack. |
 | `_include`              | Oui       | Oui       | Oui       |Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB n’inclut pas la prise en charge de l’élément :iterate.|
 | `_revinclude`           | Oui       | Oui       | Oui       | Les éléments inclus sont limités à 100. Include sur PaaS et OSS sur Cosmos DB [n’inclut pas la prise en charge du modificateur :iterate](https://github.com/microsoft/fhir-server/issues/1313). Problème [n° 1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Partiel   | Partiel   | Partiel   | `_summary=count` est pris en charge |

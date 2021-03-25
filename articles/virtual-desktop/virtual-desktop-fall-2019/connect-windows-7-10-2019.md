@@ -7,10 +7,10 @@ ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008355"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Se connecter avec le client Windows Desktop (classique)
@@ -36,7 +36,7 @@ Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Wi
 Choisissez le client qui correspond à votre version de Windows :
 
 - [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
-- [Windows 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows 32 bits](https://go.microsoft.com/fwlink/?linkid=2098960)
 - [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Vous pouvez installer le client pour l’utilisateur actuel, ce qui ne nécessite pas de droits d’administrateur, ou votre administrateur peut installer et configurer le client afin que tous les utilisateurs de l’appareil puissent y accéder.
@@ -45,9 +45,9 @@ Une fois installé, le client peut être lancé à partir du menu Démarrer quan
 
 ## <a name="subscribe-to-a-workspace"></a>S'abonner à un espace de travail
 
-Il y deux manières de vous abonner à un espace de travail. Le client peut essayer de découvrir les ressources disponibles à partir de votre compte professionnel ou scolaire, ou vous pouvez spécifier directement l’URL de vos ressources dans les cas où le client ne parvient pas à les trouver. Une fois que vous êtes abonné à un espace de travail, vous pouvez lancer des ressources avec l’une des méthodes suivantes :
+Vous avez deux façons de vous abonner à un espace de travail. Le client peut tenter de découvrir les ressources disponibles à partir de votre compte professionnel ou scolaire, ou vous pouvez spécifier directement l’URL de vos ressources, si le client ne parvient pas à les trouver. Dès que vous êtes abonné à un espace de travail, lancez des ressources en utilisant l’une des méthodes suivantes :
 
-- Accédez au centre de connexion, puis double-cliquez sur une ressource pour la lancer.
+- Accédez au Centre de connexion, puis double-cliquez sur une ressource pour la lancer.
 - Vous pouvez également accéder au menu Démarrer et rechercher un dossier avec le nom de l’espace de travail ou entrer le nom de la ressource dans la barre de recherche.
 
 ### <a name="subscribe-with-a-user-account"></a>S’abonner avec un compte d’utilisateur
@@ -60,9 +60,9 @@ Il y deux manières de vous abonner à un espace de travail. Le client peut essa
 
 1. Dans la page principale du client, sélectionnez **S’abonner avec une URL**.
 2. Entrez l’URL de l’espace de travail ou votre adresse e-mail :
-   - Si vous utilisez une **URL d’espace de travail**, utilisez celle que votre administrateur vous a donnée. Si vous accédez à des ressources à partir de Windows Virtual Desktop, vous pouvez utiliser l’une des URL suivantes :
-     - Windows Virtual Desktop (classique) : `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Windows Virtual Desktop : `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+   - Si vous utilisez l’**URL de l’espace de travail**, utilisez celle que votre administrateur vous a donnée. Si vous accédez aux ressources à partir de Windows Virtual Desktop, vous pouvez utiliser l’une des URL suivantes :
+     - Windows Virtual Desktop (classique) : `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop : `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - Si vous utilisez le champ **E-mail** à la place, entrez votre adresse e-mail. Cela indique au client de rechercher une URL associée à votre adresse e-mail si votre administrateur a configuré la [détection d’e-mails](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Sélectionnez **Suivant**.
 4. Connectez-vous avec votre compte d’utilisateur quand vous y êtes invité.

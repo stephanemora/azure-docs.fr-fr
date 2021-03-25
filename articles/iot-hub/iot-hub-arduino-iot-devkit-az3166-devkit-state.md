@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148787"
 ---
 # <a name="mxchip-iot-devkit"></a>DevKit IoT MXChip
@@ -44,14 +44,14 @@ Vous pouvez utiliser cet exemple pour surveiller les informations relatives au W
 
 2. Votre progression s’affiche sous l’onglet **TERMINAL** du panneau **Bienvenue**.
 
-3. Lorsque vous y êtes invité par le message vous demandant*quel abonnement choisir*, sélectionnez un abonnement.
+3. Lorsque vous y êtes invité par le message vous demandant *quel abonnement choisir*, sélectionnez un abonnement.
 
 4. Sélectionnez ou choisissez un groupe de ressources. 
  
    > [!NOTE]
    > Si vous disposez déjà d’un IoT Hub gratuit, vous pouvez ignorer cette étape.
 
-5. Lorsque vous y êtes invité par le message vous demandant*quel IoT Hub choisir*, sélectionnez ou créez un IoT Hub.
+5. Lorsque vous y êtes invité par le message vous demandant *quel IoT Hub choisir*, sélectionnez ou créez un IoT Hub.
 
 6. Un texte ressemblant à ce qui suit : *application de fonction : nom de l’application de fonction : xxx*, s’affiche. Notez le nom de l’application de fonction, qui sera utilisée ultérieurement.
 

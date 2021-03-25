@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 8bc9f03f05d52df6e400be5c57033ab2a38fa8eb
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92102963"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Exécuter des tâches simultanément pour optimiser l’utilisation des nœuds de calcul Batch
@@ -20,7 +20,7 @@ Bien que certains scénarios fonctionnent mieux avec toutes les ressources d’u
 - **Réduisez les transferts de données** lorsque les tâches sont en mesure de partager des données. Vous pouvez considérablement réduire les frais de transfert de données en copiant les données partagées vers un plus petit nombre de nœuds et en exécutant les tâches en parallèle sur chaque nœud. Cela s'applique surtout si les données à copier sur chaque nœud doivent être transférées entre des régions géographiques.
 - **Optimisation de l’utilisation de la mémoire** pour les tâches nécessitent une grande quantité de mémoire, mais seulement pendant de courtes périodes et à des moments variables au cours de l’exécution. Vous pouvez employer des nœuds de calcul moins nombreux mais de plus grande taille, avec plus de mémoire pour gérer efficacement ces pics. De cette façon, ces nœuds ont plusieurs tâches exécutées en parallèle sur chaque nœud, mais chaque tâche bénéficie de la mémoire abondante des nœuds à des moments différents.
 - **Atténuez les limites au nombre de nœuds** lorsque la communication entre les nœuds est requise au sein d’un pool. Actuellement, les pools configurés pour la communication entre les nœuds sont limités à 50 nœuds de calcul. Si chaque nœud dans un pool de ce type est capable d’exécuter des tâches en parallèle, un plus grand nombre de tâches peuvent être exécutées simultanément.
-- **Repliquez un cluster de calcul local** , comme lorsque vous déplacez un environnement de calcul vers Azure pour la première fois. Si cette configuration exécute actuellement plusieurs tâches par nœud de calcul, vous pouvez augmenter le nombre maximal de tâches de nœud pour refléter plus précisément cette configuration.
+- **Repliquez un cluster de calcul local**, comme lorsque vous déplacez un environnement de calcul vers Azure pour la première fois. Si cette configuration exécute actuellement plusieurs tâches par nœud de calcul, vous pouvez augmenter le nombre maximal de tâches de nœud pour refléter plus précisément cette configuration.
 
 ## <a name="example-scenario"></a>Exemple de scénario
 
@@ -46,7 +46,7 @@ Lorsque vous activez les tâches simultanées, il est important de spécifier co
 
 La propriété [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) vous permet de spécifier que les tâches doivent être affectées uniformément entre tous les nœuds du pool (« propagation »). Vous pouvez également spécifier qu'autant de tâches que possible doivent être attribuées à chaque nœud avant que les tâches ne soient attribuées à un autre nœud du pool (« compression »).
 
-Pour illustrer cette fonctionnalité, examinons le pool de nœuds [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (dans l’exemple ci-dessus) configuré avec une propriété [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) de valeur 16. Si la propriété [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) est configurée avec une propriété [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) de type *Pack* , l’utilisation des 16 cœurs de chaque nœud est optimisée et un [pool de mise à l’échelle automatique](batch-automatic-scaling.md) est autorisé pour supprimer les nœuds inutilisés (nœuds sans aucune tâche affectée) du pool. Ceci limite l'utilisation des ressources et permet d'économiser de l'argent.
+Pour illustrer cette fonctionnalité, examinons le pool de nœuds [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) (dans l’exemple ci-dessus) configuré avec une propriété [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) de valeur 16. Si la propriété [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) est configurée avec une propriété [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) de type *Pack*, l’utilisation des 16 cœurs de chaque nœud est optimisée et un [pool de mise à l’échelle automatique](batch-automatic-scaling.md) est autorisé pour supprimer les nœuds inutilisés (nœuds sans aucune tâche affectée) du pool. Ceci limite l'utilisation des ressources et permet d'économiser de l'argent.
 
 ## <a name="define-variable-slots-per-task"></a>Définir des emplacements variables par tâche
 

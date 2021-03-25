@@ -1,19 +1,14 @@
 ---
 title: Prise en charge et mise hors service des fonctionnalités
-titleSuffix: Azure Defender for IoT
 description: Defender pour IoT continuera à prendre en charge C, C# et Edge jusqu’au 1er mars 2022.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: a33e7ff230292d4ceb14610e3cf00935dc1a67a0
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 782e2e8ab0c54e21da643ca73f647a7ea21e4223
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493167"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784524"
 ---
 # <a name="feature-support-and-retirement"></a>Prise en charge et mise hors service des fonctionnalités
 

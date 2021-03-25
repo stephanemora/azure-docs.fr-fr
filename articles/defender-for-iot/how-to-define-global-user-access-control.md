@@ -1,18 +1,14 @@
 ---
 title: Définir le contrôle d’accès utilisateur global
 description: Dans les grandes organisations, les autorisations utilisateur peuvent être complexes et peuvent être déterminées par une structure organisationnelle globale, en plus du site standard et de la structure de zone.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 81ede3506337e76c84e20203ac27a3d441fdcef8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522272"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784286"
 ---
 # <a name="define-global-access-control"></a>Définir le contrôle d’accès global
 
@@ -88,6 +84,6 @@ Prenez en compte les informations suivantes lorsque vous créez des règles :
 
 - Si aucune division ou région n’est sélectionnée, les utilisateurs auront accès à toutes les divisions et régions définies.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [À propos des utilisateurs de la console Defender pour IoT](how-to-create-and-manage-users.md)

@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 3050f701c11773207aa6054d4d08d908d87b2ce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88932064"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Résolution de problèmes liés aux filtres de collection OData dans la Recherche cognitive Azure
@@ -199,7 +199,7 @@ Les expressions lambda sur des collections complexes prennent en charge une synt
 
 Tout d’abord, les fonctions `search.ismatch` et `search.ismatchscoring` ne sont pas prises en charge dans les expressions lambda. Pour plus d’informations, consultez [Présentation des filtres de collection OData dans la Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
-Ensuite, il n’est pas permis de faire référence à des champs qui ne sont pas *liés* à la variable de portée (appelée  *variables libres*). Voyons par exemple les deux expressions de filtres OData équivalentes suivantes :
+Ensuite, il n’est pas permis de faire référence à des champs qui ne sont pas *liés* à la variable de portée (appelée *variables libres*). Voyons par exemple les deux expressions de filtres OData équivalentes suivantes :
 
 1. `stores/any(s: s/amenities/any(a: a eq 'parking')) and details/margin gt 0.5`
 1. `stores/any(s: s/amenities/any(a: a eq 'parking' and details/margin gt 0.5))`
@@ -225,8 +225,8 @@ Si vous écrivez souvent des filtres et qu’il vous serait plus utile de compre
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Présentation des filtres de collection OData dans la Recherche cognitive Azure](search-query-understand-collection-filters.md)
+- [Présentation des filtres de collection OData dans Recherche cognitive Azure](search-query-understand-collection-filters.md)
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

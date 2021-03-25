@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 242700c05053aa9d07e3a561a21986c8451a46c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91612442"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage
@@ -65,4 +65,4 @@ $lastSyncTime=$(az storage account show \
 
 - [Redondance de Stockage Azure](storage-redundancy.md)
 - [Modifier l’option de redondance d’un compte de stockage](redundancy-migration.md)
-- [Utiliser la géoredondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)
+- [Utilisez la géo-redondance pour concevoir des applications hautement disponibles](geo-redundant-design.md)

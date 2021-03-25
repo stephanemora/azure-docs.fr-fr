@@ -6,10 +6,10 @@ ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92743691"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurer une application Ruby Linux pour Azure App Service
@@ -111,7 +111,7 @@ Vous pouvez personnaliser le processus de démarrage de différentes manières 
 Le serveur Rails du conteneur Ruby s’exécute en mode production par défaut, et [part du principe que les ressources sont précompilées et traitées par votre serveur web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Pour traiter les ressources statiques à partir du serveur Rails, vous devez faire deux choses :
 
 - **Précompiler les ressources** - [Précompilez les ressources statiques localement](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) et déployez-les manuellement. Vous pouvez aussi laisser le moteur de déploiement se charger de la précompilation (consultez [Précompiler les ressources](#precompile-assets)).
-- **Activer le traitement des fichiers statiques**  : pour servir des ressources statiques du conteneur Ruby, [définissez le paramètre d’application `RAILS_SERVE_STATIC_FILES`](configure-common.md#configure-app-settings) sur `true`. Par exemple :
+- **Activer le traitement des fichiers statiques** : pour servir des ressources statiques du conteneur Ruby, [définissez le paramètre d’application `RAILS_SERVE_STATIC_FILES`](configure-common.md#configure-app-settings) sur `true`. Par exemple :
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true

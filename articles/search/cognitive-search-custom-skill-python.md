@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936127"
 ---
-# <a name="example-create-a-custom-skill-using-python"></a>Exemple : Créer une compétence personnalisée avec Python
+# <a name="example-create-a-custom-skill-using-python"></a>Exemple : Créer une compétence personnalisée avec Python
 
 Dans cet exemple d’ensemble de compétences concernant la Recherche cognitive Azure, vous allez apprendre à créer une compétence personnalisée d’API web à l’aide de Python et de Visual Studio Code. L’exemple utilise une [fonction Azure](https://azure.microsoft.com/services/functions/) qui implémente l’[interface de la compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
@@ -182,7 +182,7 @@ Une fois que vous avez démarré le débogage, votre fonction s’exécute local
 
 Lorsque vous êtes satisfait du comportement de la fonction, vous pouvez la publier.
 
-1. Dans Visual Studio Code, appuyez sur F1 pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez **Déployer dans l’application de fonction...** . 
+1. Dans Visual Studio Code, appuyez sur F1 pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez **Déployer dans l’application de fonction...**. 
 
 1. Sélectionnez l’abonnement Azure dans lequel vous souhaitez déployer votre application.
 
@@ -208,7 +208,7 @@ Lorsque vous êtes satisfait du comportement de la fonction, vous pouvez la publ
 POST [Function URL you copied above]
 ```
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de la demande
 ```json
 {
     "values": [

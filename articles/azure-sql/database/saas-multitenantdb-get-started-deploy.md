@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
 ms.openlocfilehash: 4de7e428bff0feaafdec00b0c0014bbaf6acb917
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790965"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
@@ -29,7 +29,7 @@ Ce modèle de base de données vous permet de stocker un ou plusieurs locataires
 
 ## <a name="app-deploys-quickly"></a>Déploiement rapide de l’application
 
-L’application s’exécute dans le cloud Azure et utilise Azure SQL Database. La section relative au déploiement qui suit inclut le bouton bleu **Déployer dans Azure** . Lors de l’activation du bouton est activé, l’application est entièrement déployée vers votre abonnement Azure dans les cinq minutes. Vous avez un accès complet pour utiliser les composants d’application individuels.
+L’application s’exécute dans le cloud Azure et utilise Azure SQL Database. La section relative au déploiement qui suit inclut le bouton bleu **Déployer dans Azure**. Lors de l’activation du bouton est activé, l’application est entièrement déployée vers votre abonnement Azure dans les cinq minutes. Vous avez un accès complet pour utiliser les composants d’application individuels.
 
 L’application est déployée avec des données pour trois exemples de locataires. Les locataires sont stockés ensemble dans une base de données multilocataire.
 
@@ -41,7 +41,7 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 > - Comment déployer l’application SaaS Wingtip Tickets.
 > - Obtenir le code source de l’application et les scripts de gestion.
 > - Explorer les serveurs et les bases de données qui composent l’application.
-> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue* .
+> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue*.
 > - Approvisionner un nouveau locataire.
 > - Surveiller l’activité d’un locataire dans l’application.
 
@@ -57,7 +57,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 ### <a name="plan-the-names"></a>Planifier les noms
 
-Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley* , nous vous suggérons :
+Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
 - *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
 - *Groupe de ressources :* **wingtip-mt-af1** *(wingtip-mt indique qu’il s’agit de l’application multi-locataires partitionnée. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
 
@@ -73,19 +73,19 @@ Choisissez vos noms maintenant et notez-les.
 1. Entrez les valeurs de paramètre requises pour le déploiement.
 
     > [!IMPORTANT]
-    > Pour cette démonstration, n’utilisez pas les groupes de ressources, serveurs ou pools préexistants. Sélectionnez plutôt **Créer un groupe de ressources** . Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
+    > Pour cette démonstration, n’utilisez pas les groupes de ressources, serveurs ou pools préexistants. Sélectionnez plutôt **Créer un groupe de ressources**. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
     > N’utilisez pas cette application, ni les ressources qu’elle crée, pour la production. Certains aspects de l’authentification et les paramètres de pare-feu serveur sont intentionnellement non sécurisés dans l’application afin de faciliter la démonstration.
 
-    - Pour **Groupe de ressources** , sélectionnez **Création** et indiquez un **Nom** pour le groupe de ressources (sensible à la casse).
+    - Pour **Groupe de ressources**, sélectionnez **Création** et indiquez un **Nom** pour le groupe de ressources (sensible à la casse).
         - Sélectionnez un **Emplacement** dans la liste déroulante.
-    - Pour **Utilisateur** , nous vous recommandons de choisir un nom d’ **utilisateur** court.
+    - Pour **Utilisateur**, nous vous recommandons de choisir un nom d’**utilisateur** court.
 
-1. **Déployez l’application** .
+1. **Déployez l’application**.
 
     - Cliquez pour accepter les conditions générales.
-    - Cliquez sur **Achat** .
+    - Cliquez sur **Achat**.
 
-1. Surveillez l’état du déploiement en cliquant sur **Notifications** , l’icône représentant une cloche à droite de la zone de recherche. Le déploiement de l’application Wingtip dure environ cinq minutes.
+1. Surveillez l’état du déploiement en cliquant sur **Notifications**, l’icône représentant une cloche à droite de la zone de recherche. Le déploiement de l’application Wingtip dure environ cinq minutes.
 
    ![déploiement réussi](./media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -97,20 +97,20 @@ Lors du déploiement de l’application, téléchargez le code source de l’app
 > Le contenu exécutable (scripts, DLL) peut être bloqué par Windows lors du téléchargement et de l’extraction de fichiers .zip à partir d’une source externe. Lorsque vous extrayez les scripts d’un fichier zip, utilisez les étapes suivantes pour débloquer le fichier .zip avant l’extraction. En débloquant le fichier .zip, vous êtes assuré de l’exécution des scripts.
 
 1. Accédez au [dépôt GitHub WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
-2. Cliquez sur **Cloner ou télécharger** .
+2. Cliquez sur **Cloner ou télécharger**.
 3. Cliquez sur **Télécharger ZIP** et enregistrez le fichier.
-4. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-MultiTenantDb-master.zip** , puis sélectionnez **Propriétés** .
-5. Sous l’onglet **Général** , sélectionnez **Débloquer** , puis cliquez sur **Appliquer** .
-6. Cliquez sur **OK** .
+4. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-MultiTenantDb-master.zip**, puis sélectionnez **Propriétés**.
+5. Sous l’onglet **Général**, sélectionnez **Débloquer**, puis cliquez sur **Appliquer**.
+6. Cliquez sur **OK**.
 7. Procédez à l’extraction des fichiers.
 
 Les scripts se trouvent dans le dossier *...\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* .
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>Mettre à jour le fichier de configuration pour ce déploiement
 
-Avant d’exécuter des scripts, définissez les valeurs *resource group* et *user* dans **UserConfig.psm1** . Pour ces variables, utilisez les mêmes valeurs que vous avez définies pendant le déploiement.
+Avant d’exécuter des scripts, définissez les valeurs *resource group* et *user* dans **UserConfig.psm1**. Pour ces variables, utilisez les mêmes valeurs que vous avez définies pendant le déploiement.
 
-1. Ouvrez ...\\Learning Modules\\*UserConfig.psm1* dans *PowerShell ISE* .
+1. Ouvrez ...\\Learning Modules\\*UserConfig.psm1* dans *PowerShell ISE*.
 2. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
 3. Enregistrez les modifications.
 
@@ -129,7 +129,7 @@ Une page web centrale de **concentrateur d’événements** fournit une liste de
 
      ![events hub](./media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
-2. Cliquez sur **Fabrikam Jazz Club** dans le **concentrateur d’événements** .
+2. Cliquez sur **Fabrikam Jazz Club** dans le **concentrateur d’événements**.
 
    ![Événements](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
@@ -137,7 +137,7 @@ Une page web centrale de **concentrateur d’événements** fournit une liste de
 
 Pour contrôler la distribution des requêtes entrantes, l’application Wingtip utilise [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). La page des événements de chaque locataire inclut le nom du locataire dans son URL. Chaque URL comprend également la valeur d’utilisateur spécifique. Chaque URL respecte le format indiqué en procédant comme suit :
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/ *fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. L’application d’événements analyse le nom du locataire dans l’URL. Le nom du locataire est *fabrikamjazzclub* dans l’exemple d’URL ci-dessus.
 2. L’application applique un hachage au nom du locataire pour créer une clé permettant d’accéder à un catalogue utilisant la [gestion des cartes de partitions](elastic-scale-shard-map-management.md).
@@ -155,7 +155,7 @@ Dans un environnement de production, vous créez généralement un enregistremen
 
 Maintenant que l’application est déployée, nous allons l’exécuter ! Le script PowerShell *Demo-LoadGenerator* démarre une charge de travail qui s’exécute pour chaque locataire. La charge réelle sur de nombreuses applications SaaS est généralement sporadique et imprévisible. Pour simuler ce type de charge, le générateur produit une charge répartie sur tous les locataires. La charge inclut des pics aléatoires sur chaque locataire qui se produisent à des intervalles aléatoires. Plusieurs minutes sont nécessaires avant que le modèle de charge n’émerge, et il est donc préférable de laisser le générateur s’exécuter pendant au moins trois ou quatre minutes avant d’analyser la charge.
 
-1. Dans *PowerShell ISE* , ouvrez le script... \\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* .
+1. Dans *PowerShell ISE*, ouvrez le script... \\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
 2. Appuyez sur **F5** pour exécuter le script et démarrer le générateur de charge (laissez les valeurs de paramètre par défaut pour l’instant).
 
 Le script *Demo-LoadGenerator.ps1* ouvre une autre session PowerShell dans laquelle le générateur de charge s’exécute. Le générateur de charge s’exécute dans cette session comme une tâche de premier plan qui appelle des travaux de génération de charge en arrière-plan, un pour chaque locataire.
@@ -164,23 +164,23 @@ Après le démarrage de la tâche de premier plan, elle reste dans un état d’
 
 La fermeture de la session PowerShell arrête tous les travaux.
 
-Vous pouvez souhaiter redémarrer la session de générateur de charge pour utiliser des valeurs de paramètre différentes. Dans ce cas, fermez la session de génération PowerShell, puis réexécutez *Demo-LoadGenerator.ps1* .
+Vous pouvez souhaiter redémarrer la session de générateur de charge pour utiliser des valeurs de paramètre différentes. Dans ce cas, fermez la session de génération PowerShell, puis réexécutez *Demo-LoadGenerator.ps1*.
 
 ## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Approvisionner un nouveau locataire dans la base de données partitionnée
 
-Le déploiement initial inclut trois exemples de locataires dans la base de données *Tenants1* . Nous allons créer un autre locataire et observer son impact sur l’application déployée. À cette étape, appuyez sur une touche pour créer un locataire :
+Le déploiement initial inclut trois exemples de locataires dans la base de données *Tenants1*. Nous allons créer un autre locataire et observer son impact sur l’application déployée. À cette étape, appuyez sur une touche pour créer un locataire :
 
-1. Ouvrez ...\\Learning Modules\\Provision et Catalog\\*Demo-ProvisionTenants.ps1* dans *PowerShell ISE* .
-2. Appuyez sur **F5** (et non **F8** )pour exécuter le script (laissez les valeurs par défaut pour l’instant).
+1. Ouvrez ...\\Learning Modules\\Provision et Catalog\\*Demo-ProvisionTenants.ps1* dans *PowerShell ISE*.
+2. Appuyez sur **F5** (et non **F8**)pour exécuter le script (laissez les valeurs par défaut pour l’instant).
 
    > [!NOTE]
-   > Vous devez exécuter les scripts PowerShell uniquement en appuyant sur la touche  **F5** , et non en appuyant sur **F8** pour exécuter une partie sélectionnée du script. Le problème avec **F8** est que la variable *$PSScriptRoot* n’est pas évaluée. Cette variable est requise par de nombreux scripts pour naviguer dans des dossiers, appeler d’autres scripts ou importer des modules.
+   > Vous devez exécuter les scripts PowerShell uniquement en appuyant sur la touche **F5**, et non en appuyant sur **F8** pour exécuter une partie sélectionnée du script. Le problème avec **F8** est que la variable *$PSScriptRoot* n’est pas évaluée. Cette variable est requise par de nombreux scripts pour naviguer dans des dossiers, appeler d’autres scripts ou importer des modules.
 
 Le nouveau locataire Red Maple Racing est ajouté à la base de données *Tenants1* et enregistré dans le catalogue. Le site **événements** de vente de tickets du nouveau locataire s’ouvre dans votre navigateur :
 
 ![Nouveau locataire](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Actualisez le **concentrateur d’événements**  : le nouveau locataire apparaît dans la liste.
+Actualisez le **concentrateur d’événements** : le nouveau locataire apparaît dans la liste.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Approvisionner un nouveau locataire dans sa propre base de données
 
@@ -193,7 +193,7 @@ Vous pouvez placer les clients d’une version d'évaluation ou les clients en m
 
 Ensuite, nous approvisionnerons un autre locataire, dans sa propre base de données cette fois-ci :
 
-1. Dans ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1* , remplacez *$TenantName* par **Salix Salsa** , *$VenueType* par **dance** et *$Scenario* par **2** .
+1. Dans ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1*, remplacez *$TenantName* par **Salix Salsa**, *$VenueType* par **dance** et *$Scenario* par **2**.
 
 2. Appuyez sur **F5** pour réexécuter le script.
     - Cet appui sur **F5** configure le nouveau locataire dans une base de données distincte. La base de données et le locataire sont enregistrés dans le catalogue. Le navigateur s’ouvre alors sur la page des événements du locataire.
@@ -202,7 +202,7 @@ Ensuite, nous approvisionnerons un autre locataire, dans sa propre base de donn�
 
    - Faites défiler vers le bas de la page. Dans la bannière, vous voyez le nom de la base de données dans laquelle les données du locataire sont stockées.
 
-3. Actualisez le **concentrateur d’événements**  : les deux nouveaux locataires apparaissent maintenant dans la liste.
+3. Actualisez le **concentrateur d’événements** : les deux nouveaux locataires apparaissent maintenant dans la liste.
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Explorer les serveurs et les bases de données de locataires
 
@@ -212,7 +212,7 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Cliquez sur le serveur **catalog-mt&lt;utilisateur&gt;** . Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb* . La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
+2. Cliquez sur le serveur **catalog-mt&lt;utilisateur&gt;** . Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb*. La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
 
    ![catalog server](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -232,11 +232,11 @@ Si le générateur de charge s’exécute depuis plusieurs minutes, suffisamment
 
    Le graphique d’utilisation de DTU montre clairement comment une base de données peut multilocataire peut supporter une charge de travail imprévisible entre plusieurs locataires. Dans ce cas, le générateur de charge applique une charge sporadique de 30 DTU environ sur chaque locataire. Cette charge équivaut à 60 % d’utilisation d’une base de données de 50 DTU. Des pics supérieurs à 60 % sont le résultat d’une charge appliquée sur plusieurs locataires simultanément.
 
-2. Accédez au serveur **tenants1-mt&lt;utilisateur&gt;** , puis cliquez sur la base de données **salixsalsa** . Vous voyez l’utilisation des ressources sur cette base de données qui contient un seul locataire.
+2. Accédez au serveur **tenants1-mt&lt;utilisateur&gt;** , puis cliquez sur la base de données **salixsalsa**. Vous voyez l’utilisation des ressources sur cette base de données qui contient un seul locataire.
 
    ![base de données salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
-Le générateur de charge applique une charge similaire sur chaque locataire, quelle que soit la base de données dans laquelle se trouve chaque locataire. Avec un seul locataire dans la base de données **salixsalsa** , vous pouvez constater que la base de données peut supporter une charge bien supérieure à celle de la base de données en contenant plusieurs. 
+Le générateur de charge applique une charge similaire sur chaque locataire, quelle que soit la base de données dans laquelle se trouve chaque locataire. Avec un seul locataire dans la base de données **salixsalsa**, vous pouvez constater que la base de données peut supporter une charge bien supérieure à celle de la base de données en contenant plusieurs. 
 
 ### <a name="resource-allocations-vary-by-workload"></a>Allocations de ressources variant selon la charge de travail
 
@@ -260,7 +260,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > - Déployer l’application de base de données multilocataire Wingtip Tickets SaaS.
 > - Explorer les serveurs et les bases de données qui composent l’application.
-> - Explorer les locataires qui sont mappés à leurs données avec le *catalogue* .
+> - Explorer les locataires qui sont mappés à leurs données avec le *catalogue*.
 > - Approvisionner les nouveaux locataires dans une base de données multilocataire et une base de données à locataire unique.
 > - Afficher l’utilisation du pool pour surveiller l’activité des locataires.
 > - Comment supprimer les exemples de ressources pour arrêter la facturation associée.

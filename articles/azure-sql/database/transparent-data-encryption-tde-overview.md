@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
 ms.openlocfilehash: 8fbbd7a2aabc9de417f1eefd2513edba3119bfc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791390"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Chiffrement transparent des données pour SQL Database, SQL Managed Instance et Azure Synapse Analytics
@@ -32,7 +32,7 @@ Pour Azure SQL Database et Azure Synapse, le protecteur TDE est défini au nivea
 > Toutes les bases de données SQL Database nouvellement créées sont chiffrées par défaut à l’aide du chiffrement transparent des données géré par le service. Les bases de données SQL existantes créées avant mai 2017 et les bases de données SQL créées via restauration, géoréplication et copie de base de données, ne sont pas chiffrées par défaut. Les bases de données SQL Managed Instance existantes créées avant février 2019 ne sont pas chiffrées par défaut. Les bases de données SQL Managed Instance créées par le biais de la restauration héritent de l’état de chiffrement de la source.
 
 > [!NOTE]
-> Vous ne pouvez pas utiliser la technologie TDE pour chiffrer des bases de données système, telle la base de données **master** , dans Azure SQL Database et Azure SQL Managed Instance. La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur. Il est recommandé de ne pas stocker de données sensibles dans les bases de données système. Un [chiffrement d’infrastructure](transparent-data-encryption-byok-overview.md#doubleencryption) est en cours de déploiement, qui chiffre les bases de données système, y compris la base de données master. 
+> Vous ne pouvez pas utiliser la technologie TDE pour chiffrer des bases de données système, telle la base de données **master**, dans Azure SQL Database et Azure SQL Managed Instance. La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur. Il est recommandé de ne pas stocker de données sensibles dans les bases de données système. Un [chiffrement d’infrastructure](transparent-data-encryption-byok-overview.md#doubleencryption) est en cours de déploiement, qui chiffre les bases de données système, y compris la base de données master. 
 
 ## <a name="service-managed-transparent-data-encryption"></a>Chiffrement transparent des données géré par le service
 

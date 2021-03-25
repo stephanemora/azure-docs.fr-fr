@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
 ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792104"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
@@ -163,7 +163,7 @@ La clause DISTRIBUTION spécifie la distribution des données utilisée pour cet
 2. **REPLICATED** signifie que des copies identiques de la table sont présentes sur chaque base de données. La responsabilité de vous assurer que les réplicas sont identiques d’une base de données à l’autre vous incombe.
 3. **ROUND\_ROBIN** signifie que la table est partitionnée horizontalement à l’aide d’une méthode de distribution liée à l’application.
 
-**Référence de la couche Données**  : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie une carte de partitions qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
+**Référence de la couche Données** : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie une carte de partitions qui fournit à la table externe les informations nécessaires à la localisation de toutes les bases de données de votre couche de données.
 
 ### <a name="security-considerations"></a>Considérations relatives à la sécurité
 

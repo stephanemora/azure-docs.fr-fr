@@ -10,10 +10,10 @@ ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
 ms.openlocfilehash: ee9d137973bfa4eeb28bc6526437e76e781f3199
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92172267"
 ---
 # <a name="connect-to-azure-data-explorer-using-apache-spark-for-azure-synapse-analytics"></a>Se connecter à Azure Data Explorer à l’aide d’Apache Spark pour Azure Synapse Analytics
@@ -30,7 +30,7 @@ Cet article explique comment accéder à une base de données Azure Data Explore
 
 ## <a name="go-to-synapse-studio"></a>Accéder à Synapse Studio
 
-Dans un espace de travail Azure Synapse, sélectionnez **Lancer Synapse Studio** . Dans la page d’accueil de Synapse Studio, sélectionnez **Données** pour accéder à l’ **Explorateur d’objets de données** .
+Dans un espace de travail Azure Synapse, sélectionnez **Lancer Synapse Studio**. Dans la page d’accueil de Synapse Studio, sélectionnez **Données** pour accéder à l’**Explorateur d’objets de données**.
 
 ## <a name="connect-an-azure-data-explorer-database-to-an-azure-synapse-workspace"></a>Connecter une base de données Azure Data Explorer à un espace de travail Azure Synapse
 
@@ -38,13 +38,13 @@ La connexion d’une base de données Azure Data Explorer à un espace de travai
 
 À partir de l’Explorateur d’objets de données, procédez comme suit pour connecter directement un cluster Azure Data Explorer :
 
-1. Sélectionnez l’icône **+** à proximité de **Données** .
+1. Sélectionnez l’icône **+** à proximité de **Données**.
 1. Sélectionnez **Se connecter** pour vous connecter à des données externes.
 1. Sélectionnez **Azure Data Explorer (Kusto)** .
-1. Sélectionnez **Continuer** .
+1. Sélectionnez **Continuer**.
 1. Utilisez un nom convivial pour nommer le service lié. Le nom sera affiché dans l’Explorateur d’objets de données et les runtimes Azure Synapse l’utiliseront pour se connecter à la base de données.
 1. Sélectionnez le cluster Azure Data Explorer dans votre abonnement ou entrez l’URI.
-1. Entrez l’ **ID du principal de service** et la **clé du principal de service** . Vérifiez que ce principal de service dispose d’un accès en affichage à la base de données pour l’opération de lecture et d’un accès à l’ingéreur pour l’ingestion des données.
+1. Entrez l’**ID du principal de service** et la **clé du principal de service**. Vérifiez que ce principal de service dispose d’un accès en affichage à la base de données pour l’opération de lecture et d’un accès à l’ingéreur pour l’ingestion des données.
 1. Entrez le nom de la base de données Azure Data Explorer.
 1. Sélectionnez **Tester la connexion** pour vérifier que vous disposez des autorisations appropriées.
 1. Sélectionnez **Create** (Créer).
@@ -54,7 +54,7 @@ La connexion d’une base de données Azure Data Explorer à un espace de travai
     > [!NOTE]
     > (Facultatif) L’option **Tester la connexion** ne valide pas l’accès en écriture. Assurez-vous que votre ID de principal de service dispose d’un accès en écriture à la base de données Azure Data Explorer.
 
-1. Les clusters et bases de données Azure Data Explorer apparaissent sous l’onglet **Lié** dans la section **Azure Data Explorer** .
+1. Les clusters et bases de données Azure Data Explorer apparaissent sous l’onglet **Lié** dans la section **Azure Data Explorer**.
 
     ![Capture d’écran montrant la navigation pour sélectionner les clusters.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
 

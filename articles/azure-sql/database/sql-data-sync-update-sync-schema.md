@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
 ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790183"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-Le déclencheur insère un enregistrement dans la table de suivi des modifications de schéma pour chaque commande ALTER TABLE. Cet exemple ajoute un filtre pour éviter la réplication des modifications de schéma apportées sous le schéma **DataSync** , car elles sont sans doute effectuées par le service Data Sync. Ajoutez d’autres filtres si vous souhaitez seulement répliquer certains types de modifications de schéma.
+Le déclencheur insère un enregistrement dans la table de suivi des modifications de schéma pour chaque commande ALTER TABLE. Cet exemple ajoute un filtre pour éviter la réplication des modifications de schéma apportées sous le schéma **DataSync**, car elles sont sans doute effectuées par le service Data Sync. Ajoutez d’autres filtres si vous souhaitez seulement répliquer certains types de modifications de schéma.
 
 Vous pouvez également ajouter davantage de déclencheurs pour répliquer d’autres types de modifications de schéma. Par exemple, créez des déclencheurs CREATE_PROCEDURE, ALTER_PROCEDURE et DROP_PROCEDURE pour répliquer les modifications apportées à des procédures stockées.
 

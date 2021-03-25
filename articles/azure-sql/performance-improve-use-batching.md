@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792597"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Utiliser le traitement par lot pour améliorer les performances des applications Azure SQL Database et Azure SQL Managed Instance
@@ -42,7 +42,7 @@ La première partie de cet article examine différentes techniques de traitement
 ### <a name="note-about-timing-results-in-this-article"></a>Remarque relative aux résultats de minutage fournis dans cet article
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives** . Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant les nouveaux [niveaux de service DTU](database/service-tiers-dtu.md) ou [niveaux de service vCore](database/service-tiers-vcore.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
+> Les résultats ne représentent pas des valeurs de référence, mais des **performances relatives**. Les minutages reposent sur une moyenne calculée à partir d’au moins 10 séries de tests. Les opérations consistent en des insertions dans une table vide. Ces tests ont été mesurés avant la V12 et ne correspondent pas nécessairement au débit que vous pourriez obtenir avec une base de données V12 utilisant les nouveaux [niveaux de service DTU](database/service-tiers-dtu.md) ou [niveaux de service vCore](database/service-tiers-vcore.md). L’avantage relatif de la technique de traitement par lots doit être similaire.
 
 ### <a name="transactions"></a>Transactions
 
@@ -97,7 +97,7 @@ Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier
 
 Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
-**Local vers Azure** :
+**Local vers Azure**:
 
 | Opérations | Sans transaction (ms) | Avec transaction (ms) |
 | --- | --- | --- |
@@ -128,7 +128,7 @@ Pour plus d’informations sur les transactions dans ADO.NET, consultez [Transac
 
 ### <a name="table-valued-parameters"></a>Paramètres table
 
-Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType** .
+Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **\@TestTvp** . L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add** . Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
+Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **\@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
 
 Pour améliorer l’exemple précédent, utilisez une procédure stockée au lieu d’une commande de texte. La commande Transact-SQL suivante crée une procédure stockée qui utilise le paramètre table **SimpleTestTableType** .
 
@@ -212,7 +212,7 @@ Pour plus d’informations sur les paramètres table, consultez [Paramètres tab
 
 ### <a name="sql-bulk-copy"></a>Copie en bloc SQL
 
-La copie en bloc SQL est une autre façon d’insérer de grandes quantités de données dans une base de données cible. Les applications .NET peuvent utiliser la classe **SqlBulkCopy** pour effectuer des opérations d’insertion en bloc. Le fonctionnement de la classe **SqlBulkCopy** est similaire à celui de l’outil en ligne de commande **Bcp.exe** ou de l’instruction Transact-SQL, **BULK INSERT** . L'exemple de code suivant montre comment copier en bloc les lignes de la table source **DataTable** dans la table de destination, MyTable.
+La copie en bloc SQL est une autre façon d’insérer de grandes quantités de données dans une base de données cible. Les applications .NET peuvent utiliser la classe **SqlBulkCopy** pour effectuer des opérations d’insertion en bloc. Le fonctionnement de la classe **SqlBulkCopy** est similaire à celui de l’outil en ligne de commande **Bcp.exe** ou de l’instruction Transact-SQL, **BULK INSERT**. L'exemple de code suivant montre comment copier en bloc les lignes de la table source **DataTable** dans la table de destination, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))

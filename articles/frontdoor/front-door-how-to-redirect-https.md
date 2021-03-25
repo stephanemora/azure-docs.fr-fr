@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
 ms.openlocfilehash: 19908b3cba63bc76a205097ef8d16e612d58503b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91626636"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une porte d’entrée avec redirection de HTTP vers HTTPS à l’aide du portail Microsoft Azure
@@ -35,21 +35,21 @@ Vous pouvez utiliser le portail Azure afin de [créer une instance Front Door](q
 
 1. La configuration de la porte d’entrée se déroule en trois étapes : l’ajout d’un hôte frontend par défaut, l’ajout de back ends dans un pool de back ends et la création de règles d’acheminement pour mapper le comportement d’acheminement à l’hôte frontend. Sélectionnez l’icône « **+**  » sur les _Hôtes front-end_ pour créer un hôte front-end.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Concepteur de configuration de porte d’entrée":::
 
 1. Entrez un nom global unique destiné à votre hôte front-end par défaut pour votre instance Front Door. Sélectionnez **Ajouter** pour passer à l’étape suivante.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Ajouter un hôte frontend":::
 
 ### <a name="create-backend-pool"></a>Créer un pool de back-ends
 
 1. Cliquez sur l’icône « **+**  » dans _Pools de back-ends_ pour créer un pool de back-ends. Fournissez un nom pour le pool, puis sélectionnez « **Ajouter un back-end** ».
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Concepteur de configuration de Front Door - pool de back-ends ":::
 
 1. Sélectionnez le type d’hôte back end en tant que _service d’application_. Sélectionnez l’abonnement dans lequel votre application web est hébergée, puis sélectionnez l’application web spécifique dans la liste déroulante pour **Nom de l’hôte back end**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Ajouter un back end dans un pool de back ends":::
 
 1. Sélectionnez **Ajouter** pour enregistrer le back-end et sélectionnez de nouveau **Ajouter** pour enregistrer la configuration du pool de back-ends. 
 
@@ -57,11 +57,11 @@ Vous pouvez utiliser le portail Azure afin de [créer une instance Front Door](q
 
 1. Sélectionnez l’icône « **+**  » dans *Règles de routage* pour créer une route. Fournissez un nom pour la route, par exemple « HttpToHttpsRedirect », puis définissez le champ *Protocole accepté* sur **« HTTP uniquement »** . Vérifiez que la sélection des *Front-ends/domaines* est appropriée.  
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Concepteur de configuration de Front Door - règle de routage":::
 
 1. Sous la section *Détails de la route*, définissez le *Type de route* sur **Rediriger**. Assurez-vous que le *Type de redirection* est défini sur **Trouvé (302)** , et le *Protocole de redirection* sur **HTTPS uniquement**. 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Ajouter un itinéraire de redirection HTTP vers HTTPS":::
 
 1. Sélectionnez **Ajouter** pour enregistrer la règle de routage de la redirection HTTP vers HTTPS.
 
@@ -71,7 +71,7 @@ Vous pouvez utiliser le portail Azure afin de [créer une instance Front Door](q
 
 1. Dans la section Détails de la route, définissez le *Type de route* sur **Transférer**. Assurez-vous que le pool de back-ends approprié est sélectionné, et que le *Protocole de transfert* est défini sur **HTTPS uniquement**. 
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Configurer les paramètres de base pour la nouvelle porte d’entrée" border="false":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-forward-route-example.png" alt-text="Ajouter un itinéraire de transfert pour le trafic HTTPS" border="false":::
 
 1. Sélectionnez **Ajouter** pour enregistrer la règle de routage du transfert de requêtes.
 

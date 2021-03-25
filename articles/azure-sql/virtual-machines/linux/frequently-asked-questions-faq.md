@@ -12,10 +12,10 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792546"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Questions fréquentes (FAQ) sur les machines virtuelles SQL Server sur Linux
@@ -95,13 +95,13 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 ## <a name="resources"></a>Ressources
 
-**Machines virtuelles Linux**  :
+**Machines virtuelles Linux** :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Provisionner SQL Server sur une machine virtuelle Linux](sql-vm-create-portal-quickstart.md)
 * [Documentation relative à SQL Server sur Linux](/sql/linux/sql-server-linux-overview)
 
-**Machines virtuelles Windows**  :
+**Machines virtuelles Windows** :
 
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Provisionner SQL Server sur une machine virtuelle Windows](../windows/sql-vm-create-portal-quickstart.md)

@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5ea58cc3d9f3615a74249b36f3f9ffb79caddda1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212244"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
@@ -158,7 +158,7 @@ Dans les fonctions JavaScript, l’enregistrement est passé à l’objet `conte
 
 Dans les fonctions C# et F#, toutes les modifications apportées à l’enregistrement d’entrée (paramètre d’entrée) sont automatiquement renvoyées à la table une fois que la fonction s’est correctement terminée. Vous ne pouvez pas modifier un enregistrement dans les fonctions JavaScript.
 
-## <a name="output"></a>Output
+## <a name="output"></a>Sortie
 
 Utilisez la liaison de sortie Mobile Apps pour écrire un nouvel enregistrement dans une table Mobile Apps.  
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
 ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202546"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Créer et gérer le peering public ExpressRoute
@@ -42,12 +42,12 @@ Une fois le peering public activé, vous êtes en mesure de vous connecter à pr
 
 Cette section présente les services disponibles via le peering public. Étant donné que le peering public est déprécié, il n’est pas prévu d’ajouter de nouveaux services ou des services supplémentaires au peering public. Si vous utilisez le peering public et que le service que vous souhaitez utiliser est pris en charge uniquement sur le peering Microsoft, vous devez passer au peering Microsoft. Pour obtenir la liste des services pris en charge, consultez [Peering Microsoft](expressroute-faqs.md#microsoft-peering).
 
-**Pris en charge :**
+**Pris en charge :**
 
 * Power BI
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.
 
-**Non pris en charge :**
+**Non pris en charge :**
   * CDN
   * Azure Front Door
   * Serveur Multi-Factor Authentication (hérité)

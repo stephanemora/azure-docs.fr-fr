@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 8121ceb68bdea9332316a9508bf6f4731e05b0ba
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92890783"
 ---
 # <a name="interact-with-the-map"></a>Interagir avec la carte
@@ -22,7 +22,7 @@ Cet article explique comment utiliser la [classe d’événements cartographique
 
 ## <a name="interact-with-the-map"></a>Interagir avec la carte
 
-Manipulez la carte ci-dessous et observez les événements de souris correspondants mis en surbrillance sur la droite. Cliquez sur l’ **onglet JS** pour afficher et modifier le code JavaScript. Vous pouvez également cliquer sur **Modifier sur CodePen** afin de modifier le code par ce biais.
+Manipulez la carte ci-dessous et observez les événements de souris correspondants mis en surbrillance sur la droite. Cliquez sur l’**onglet JS** pour afficher et modifier le code JavaScript. Vous pouvez également cliquer sur **Modifier sur CodePen** afin de modifier le code par ce biais.
 
 <br/>
 

@@ -4,10 +4,10 @@ description: Cet article explique comment utiliser le module Azure PowerShell po
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88065741"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
@@ -18,7 +18,7 @@ Vous pouvez également gérer les entités Service Bus à l’aide de modèles A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que les prérequis suivants sont respectés :
 
@@ -26,7 +26,7 @@ Avant de commencer, vérifiez que les prérequis suivants sont respectés :
 * Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la page [Bien démarrer avec les applets de commande Azure PowerShell](/powershell/azure/get-started-azureps).
 * Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
-## <a name="get-started"></a>Bien démarrer
+## <a name="get-started"></a>Prendre en main
 
 La première étape consiste à utiliser PowerShell pour vous connecter à votre compte Azure et à votre abonnement Azure. Suivez les instructions décrites dans [Prise en main des applets de commande Azure PowerShell](/powershell/azure/get-started-azureps) pour vous connecter à votre compte Azure, récupérer les ressources de votre abonnement Azure et accéder à celles-ci.
 

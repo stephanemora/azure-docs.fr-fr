@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88795981"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Qu’est-ce que la page Vérification supplémentaire ?
@@ -54,7 +54,7 @@ Une fois que votre organisation a activé et configuré la vérification à deux
 
 ### <a name="to-access-the-additional-security-verification-page"></a>Pour accéder à la page Vérification de sécurité supplémentaire
 
-1. Sélectionnez **Suivant** dans l’invite**Plus d’informations requises**.
+1. Sélectionnez **Suivant** dans l’invite **Plus d’informations requises**.
 
     La page **Vérification de sécurité supplémentaire** s’affiche.
 

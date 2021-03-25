@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793464"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Si vous êtes un développeur Software as a Service et que votre application connaît subitement une forte demande, vous devez vous adapter à cette croissance. Vous pouvez donc ajouter d’autres bases de données (partitions). Comment répartir les données vers les nouvelles bases de données sans nuire à l'intégrité des données ? Utilisez l’ **outil de division-fusion** pour déplacer les données de bases de données limitées vers de nouvelles bases de données.  
+Si vous êtes un développeur Software as a Service et que votre application connaît subitement une forte demande, vous devez vous adapter à cette croissance. Vous pouvez donc ajouter d’autres bases de données (partitions). Comment répartir les données vers les nouvelles bases de données sans nuire à l'intégrité des données ? Utilisez l’**outil de division-fusion** pour déplacer les données de bases de données limitées vers de nouvelles bases de données.  
 
 L'outil de division-fusion fonctionne comme un service web Azure. Grâce à cet outil, un administrateur ou un développeur déplace des shardlets (les données d'une partition) entre différentes bases de données (partitions). L'outil s’appuie sur la gestion de cartes de partitions pour gérer la base de données de métadonnées de service et garantir des mappages cohérents.
 
@@ -49,7 +49,7 @@ L'outil de division-fusion fonctionne comme un service web Azure. Grâce à cet 
 
 - **Diviser pour augmenter**
 
-  Pour accroître la capacité globale de façon à gérer une croissance importante et soudaine, créez une capacité supplémentaire en partitionnant les données et en les distribuant de manière incrémentielle entre plusieurs bases de données jusqu’à ce que les besoins en capacité soient satisfaits. Il s’agit d’un parfait exemple de la fonctionnalité de **division** .
+  Pour accroître la capacité globale de façon à gérer une croissance importante et soudaine, créez une capacité supplémentaire en partitionnant les données et en les distribuant de manière incrémentielle entre plusieurs bases de données jusqu’à ce que les besoins en capacité soient satisfaits. Il s’agit d’un parfait exemple de la fonctionnalité de **division**.
 
 - **Fusionner pour réduire**
 

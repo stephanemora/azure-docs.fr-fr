@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747209"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Configurer le délai d’inactivité et la réinitialisation TCP pour Azure Load Balancer
@@ -45,7 +45,7 @@ Pour définir le délai d’inactivité et la réinitialisation TCP pour un équ
 
 4. Sélectionnez votre équilibreur de charge. Dans cet exemple, l’équilibreur de charge est nommé **myLoadBalancer**.
 
-5. Dans **Paramètres** , sélectionnez **Règles d’équilibrage de charge**.
+5. Dans **Paramètres**, sélectionnez **Règles d’équilibrage de charge**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Modifier les règles de l’équilibreur de charge." border="true":::
 
@@ -53,7 +53,7 @@ Pour définir le délai d’inactivité et la réinitialisation TCP pour un équ
 
 7. Dans la règle d’équilibrage de charge, déplacez le curseur dans **Délai d’inactivité (minutes)** sur la valeur du délai d’attente.  
 
-8. Sous **Réinitialisation TCP** , sélectionnez **Activé**.
+8. Sous **Réinitialisation TCP**, sélectionnez **Activé**.
 
    :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Définir le délai d’inactivité et la réinitialisation TCP." border="true":::
 

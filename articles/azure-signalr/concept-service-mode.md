@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92143256"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Mode de service dans Azure SignalR Service
@@ -21,7 +21,7 @@ Le mode de service est un concept important dans Azure SignalR Service. Lorsque 
 
 Vous pouvez également le modifier ultérieurement dans le menu des paramètres :
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="Choisir le mode de service au moment de la création":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Mettre à jour le mode de service":::
 
 Actuellement, Azure SignalR Service prend en charge trois modes de service : **par défaut**, **serverless** et **classique**. Votre ressource SignalR se comportera différemment selon le mode. Dans cet article, vous allez découvrir ces différences et la façon de choisir le mode de service approprié en fonction de votre scénario.
 
@@ -29,7 +29,7 @@ Actuellement, Azure SignalR Service prend en charge trois modes de service : **
 
 Le mode par défaut est la valeur par défaut pour le mode de service lorsque vous créez une ressource SignalR. Dans ce mode, votre application fonctionne comme une application SignalR ASP.NET Core (ou ASP.NET) typique, où vous disposez d’un serveur web qui héberge un hub (appelé « serveur hub » ci-dessous) et où les clients peuvent avoir une communication duplex en temps réel avec le serveur hub. La seule différence est qu’au lieu de se connecter directement, le client et le serveur se connectent tous deux au service SignalR et utilisent le service comme un proxy. Vous trouverez ci-dessous un diagramme illustrant la structure d’application typique en mode par défaut :
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="Choisir le mode de service au moment de la création":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Structure d’application en mode par défaut":::
 
 Par conséquent, si vous avez une application SignalR et que vous souhaitez l’intégrer au service SignalR, le mode par défaut devrait être le bon choix dans la plupart des cas.
 
@@ -59,7 +59,7 @@ Pour plus d’informations sur la configuration en amont, consultez ce [document
 
 Vous trouverez ci-dessous un diagramme illustrant le fonctionnement du mode serverless :
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Choisir le mode de service au moment de la création":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Structure d’application en mode serverless":::
 
 > [!NOTE]
 > Notez que dans le mode par défaut, vous pouvez également utiliser l’API REST, le Kit de développement logiciel (SDK) de gestion ou la liaison de fonction pour envoyer directement des messages au client si vous ne souhaitez pas passer par le serveur hub. Toutefois, en mode par défaut, les connexions clientes sont toujours gérées par les serveurs hubs et l’amont ne fonctionne pas dans ce mode.

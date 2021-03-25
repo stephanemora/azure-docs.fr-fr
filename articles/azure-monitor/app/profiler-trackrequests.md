@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: aaa1d6df9faa20b1a561bfccdfea682af7645c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930245"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Écrire du code pour effectuer le suivi des requêtes avec Application Insights
@@ -32,7 +32,7 @@ Pour suivre manuellement les requêtes, procédez comme suit :
         ```
       Pour plus d’informations sur cette configuration de clé d’instrumentation générale, consultez [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Utiliser Service Fabric avec Application Insights).  
 
-  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d'une instruction `StartOperation<RequestTelemetry>` **using**, comme indiqué dans l'exemple suivant :
+  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d’une instruction  **using**`StartOperation<RequestTelemetry>`, comme indiqué dans l’exemple suivant :
 
         ```csharp
         using Microsoft.ApplicationInsights;

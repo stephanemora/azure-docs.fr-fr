@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: b402dab4c6e94a7634e11f0330b5379315e43abf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91762408"
 ---
 # <a name="call-logic-apps-from-power-automate-and-power-apps"></a>Appeler des applications logiques à partir de Power Automate et Power Apps
@@ -52,7 +52,7 @@ Avant de pouvoir appeler votre application logique à partir de Power Automate o
 
 1. Dans le volet **exporter**, pour **Nom**, entrez un nom pour le connecteur personnalisé de votre application logique. Dans la liste **Environnement**, sélectionnez l’environnement Power Automate ou Power Apps à partir duquel vous souhaitez appeler votre application logique. Quand vous avez terminé, sélectionnez **OK**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="Capture d’écran de la page de l’application logique dans le portail Azure, montrant le menu avec le bouton « Exporter » sélectionné":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="Capture d’écran du volet d’exportation de l’application logique, montrant les champs requis pour le nom et l’environnement du connecteur personnalisé":::
 
 1. Pour vérifier que votre application logique a été correctement exportée, consultez le volet des notifications.
 
@@ -80,7 +80,7 @@ Pour vous connecter à l’application logique que vous avez exportée avec votr
 
 1. Sous **Choisir une action**, dans la zone de recherche, entrez le nom du connecteur de votre application logique. Si vous le souhaitez, pour afficher uniquement les connecteurs personnalisés dans votre environnement, filtrez les résultats en sélectionnant l’onglet **Personnalisé**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="Capture d’écran de la page de l’application logique dans le portail Azure, montrant le menu avec le bouton « Exporter » sélectionné":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="Capture d’écran de l’éditeur de flux de Power Automate, montrant une nouvelle étape ajoutée pour le connecteur personnalisé et les actions disponibles":::
 
 1. Sélectionnez l’action que vous souhaitez effectuer avec le connecteur de votre application logique. 
 
@@ -102,7 +102,7 @@ Pour vous connecter à l’application logique que vous avez exportée avec votr
 
 1. Dans la liste, recherchez votre connecteur personnalisé, puis sélectionnez le bouton de sélection ( **...** ) &gt; **Supprimer**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Capture d’écran de la page de l’application logique dans le portail Azure, montrant le menu avec le bouton « Exporter » sélectionné":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Capture d’écran de la page « Connecteurs personnalisés » de Power Automate, montrant les boutons de gestion du connecteur personnalisé de l’application logique":::
 
 1. Sélectionnez **OK** pour confirmer la suppression.
 
@@ -122,7 +122,7 @@ Pour vous connecter à l’application logique que vous avez exportée avec votr
 
 1. Sous **Choisir une action**, dans la nouvelle étape, entrez le nom du connecteur de votre application logique dans la zone de recherche. Si vous le souhaitez, filtrez les résultats au moyen de l’onglet **Personnalisé** pour voir uniquement les connecteurs personnalisés dans votre environnement.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="Capture d’écran de la page de l’application logique dans le portail Azure, montrant le menu avec le bouton « Exporter » sélectionné":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="Capture d’écran de l’éditeur de flux de Power Apps, montrant une nouvelle étape ajoutée pour le connecteur personnalisé et les actions disponibles":::
 
 1. Sélectionnez l’action que vous souhaitez effectuer avec le connecteur. 
 
@@ -144,7 +144,7 @@ Pour vous connecter à l’application logique que vous avez exportée avec votr
 
 1. Dans la liste, recherchez votre connecteur personnalisé, puis sélectionnez le bouton de sélection ( **...** ) &gt; **Supprimer**.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Capture d’écran de la page de l’application logique dans le portail Azure, montrant le menu avec le bouton « Exporter » sélectionné":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Capture d’écran de la page « Connecteurs personnalisés » de Power Apps, montrant les boutons de gestion du connecteur personnalisé de l’application logique":::
 
 1. Sélectionnez **OK** pour confirmer la suppression.
 

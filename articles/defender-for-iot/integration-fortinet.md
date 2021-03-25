@@ -1,19 +1,14 @@
 ---
 title: À propos de l’intégration de Fortinet
-titleSuffix: Azure Defender for IoT
 description: Defender pour IoT et Fortinet ont établi un partenariat afin de détecter et de bloquer les attaques sur les réseaux IoT et ICS.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 313db90d4c9be30ef588b00caf1d6e4ce32b113b
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: e2119a9e01a4e58cd9d2ca1b9b3384ec9629784c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556657"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784014"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>Détection et prévention des menaces IIoT et ICS par Defender pour IoT et Fortinet
 
@@ -117,8 +112,8 @@ Pour créer une règle de transfert
     |--|--|
     | **Nom** | Nom de la règle de transfert. |
     | **Select Severity** (Sélectionner une gravité) | Incident de niveau de sécurité minimal à transférer. Par exemple, si **Minor** (Mineur) est sélectionné, les alertes mineures et toute alerte de niveau de gravité supérieur à ce niveau seront transférées. |
-    | **Protocoles** | Par défaut, tous les protocoles sont sélectionnés.<br><br>Pour sélectionner un protocole spécifique, sélectionnez **Specific**, puis sélectionnez le protocole pour lequel cette règle est appliquée. |
-    | **Engines** (Moteurs) | Par défaut, tous les moteurs de sécurité sont impliqués.<br><br>Pour sélectionner un moteur de sécurité spécifique auquel cette règle est appliquée, sélectionnez **Specific**, puis sélectionnez le moteur. |
+    | **Protocoles** | Par défaut, tous les protocoles sont sélectionnés.<br><br>Pour sélectionner un protocole spécifique, sélectionnez **Specific** (Spécifique), puis sélectionnez le protocole pour lequel cette règle est appliquée. |
+    | **Engines** (Moteurs) | Par défaut, tous les moteurs de sécurité sont impliqués.<br><br>Pour sélectionner un moteur de sécurité spécifique auquel cette règle est appliquée, sélectionnez **Specific** (Spécifique), puis sélectionnez le moteur. |
     | **System Notifications** (Notifications système) | État en ligne/hors connexion du capteur de transfert. Cette option est disponible uniquement si vous êtes connecté à la console de gestion locale. |
 
 3. Pour indiquer à Defender pour IoT d’envoyer les informations d’alerte à FortiSIEM, sélectionnez **Action**, puis **Send to FortiSIEM** (Envoyer à FortiSIEM).
@@ -204,8 +199,8 @@ Pour définir une règle de pare-feu FortiGate qui bloque cette source malveilla
     | --------- | ----------- |
     | **Nom** | Nom de la règle de transfert. |
     | **Select Severity** (Sélectionner une gravité) | Incident de niveau de sécurité minimal à transférer. Par exemple, si **Minor** est sélectionné, les alertes mineures et toute alerte de niveau de gravité supérieur à ce niveau seront transférées. |
-    | **Protocoles** | Par défaut, tous les protocoles sont sélectionnés.<br><br>Pour sélectionner un protocole spécifique, sélectionnez **Specific**, puis sélectionnez le protocole pour lequel cette règle est appliquée. |
-    | **Engines** (Moteurs) | Par défaut, tous les moteurs de sécurité sont impliqués.<br><br>Pour sélectionner un moteur de sécurité spécifique auquel cette règle est appliquée, sélectionnez **Specific**, puis sélectionnez le moteur. |
+    | **Protocoles** | Par défaut, tous les protocoles sont sélectionnés.<br><br>Pour sélectionner un protocole spécifique, sélectionnez **Specific** (Spécifique), puis sélectionnez le protocole pour lequel cette règle est appliquée. |
+    | **Engines** (Moteurs) | Par défaut, tous les moteurs de sécurité sont impliqués.<br><br>Pour sélectionner un moteur de sécurité spécifique auquel cette règle est appliquée, sélectionnez **Specific** (Spécifique), puis sélectionnez le moteur. |
     | **System Notifications** (Notifications système) | État *en ligne et hors connexion* du capteur de transfert. Cette option est disponible uniquement si vous êtes connecté à la console de gestion locale. |
 
 1. Pour indiquer à Defender pour IoT d’envoyer les règles de pare-feu à FortiGate, sélectionnez **Action**, puis **Send to FortiGate** (Envoyer à FortiGate).

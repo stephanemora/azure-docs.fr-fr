@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev, devx-track-java
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9d1faf7aed5cf4c4975925c7a56d169dc99a7bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87313589"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procédure : activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
@@ -32,7 +32,7 @@ La plateforme d’identité de Microsoft, avec les kits de développement logici
 
 Dans cette procédure, vous allez découvrir comment configurer le Kit de développement logiciel (SDK) dans votre application afin de fournir l’authentification unique à vos clients.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous savez comment :
 

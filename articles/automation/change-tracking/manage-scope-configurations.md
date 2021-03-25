@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6eb9a20920f0a340491459f0875fc85b90dfa193
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92209044"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limiter l’étendue du déploiement de Change Tracking and Inventory
@@ -26,19 +26,19 @@ Pour limiter l’étendue du déploiement de Change Tracking and Inventory :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Dans le portail Azure, sélectionnez **Tous les services** . Dans la liste de ressources, saisissez **Automation** . Au fur et à mesure de la saisie, la liste filtre les suggestions. Sélectionnez **Comptes Automation** .
+2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Automation**. Au fur et à mesure de la saisie, la liste filtre les suggestions. Sélectionnez **Comptes Automation**.
 
 3. Dans votre liste de comptes Automation, sélectionnez le compte que vous avez choisi quand vous avez activé Suivi des modifications et inventaire.
 
-4. Dans votre compte Automation, sélectionnez **Espace de travail lié** sous **Ressources connexes** .
+4. Dans votre compte Automation, sélectionnez **Espace de travail lié** sous **Ressources connexes**.
 
-5. Cliquez sur **Accéder à l’espace de travail** .
+5. Cliquez sur **Accéder à l’espace de travail**.
 
-6. Sélectionnez **Configurations d’étendue (préversion)** , sous **Sources de données de l’espace de travail** .
+6. Sélectionnez **Configurations d’étendue (préversion)** , sous **Sources de données de l’espace de travail**.
 
-7. Sélectionnez les points de suspension sur la droite de la configuration d’étendue `MicrosoftDefaultScopeConfig-ChangeTracking`, puis cliquez sur **Modifier** .
+7. Sélectionnez les points de suspension sur la droite de la configuration d’étendue `MicrosoftDefaultScopeConfig-ChangeTracking`, puis cliquez sur **Modifier**.
 
-8. Dans le volet de modification, choisissez **Sélectionner des groupes d’ordinateurs** . Le volet Groupes d’ordinateurs affiche les recherches enregistrées et utilisées pour créer la configuration d’étendue. La recherche enregistrée utilisée par Change Tracking and Inventory est :
+8. Dans le volet de modification, choisissez **Sélectionner des groupes d’ordinateurs**. Le volet Groupes d’ordinateurs affiche les recherches enregistrées et utilisées pour créer la configuration d’étendue. La recherche enregistrée utilisée par Change Tracking and Inventory est :
 
     |Nom     |Category  |Alias  |
     |---------|---------|---------|
