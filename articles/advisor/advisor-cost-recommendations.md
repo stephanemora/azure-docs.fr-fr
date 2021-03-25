@@ -4,10 +4,10 @@ description: Le conseiller Azure permet d’optimiser le coût de vos déploieme
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 346b790c6970abc8670661e1ec180662957af47d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503372"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Réduire les coûts de service à l’aide d’Azure Advisor

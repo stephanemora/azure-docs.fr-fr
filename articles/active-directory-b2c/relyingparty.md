@@ -7,15 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198436"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579754"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -145,10 +146,11 @@ L’élément **UserJourneyBehaviors** contient les éléments suivants :
 | JourneyInsights | 0:1 | Clé d’instrumentation Azure Application Insights à utiliser. |
 | ContentDefinitionParameters | 0:1 | Liste des paires clé/valeur à ajouter à l’URI de charge de définition de contenu. |
 |ScriptExecution| 0:1| Modes d’exécution [JavaScript](javascript-and-page-layout.md) pris en charge. Valeurs possibles : `Allow` ou `Disallow` (par défaut).
+| JourneyFraming | 0:1| Autorise le chargement de l’interface utilisateur de cette stratégie dans un iframe. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-L’élément **SingleSignOn** contient l’attribut suivant :
+L’élément **SingleSignOn** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
@@ -165,7 +167,7 @@ L’élément **JourneyInsights** contient les attributs suivants :
 | --------- | -------- | ----------- |
 | TelemetryEngine | Oui | La valeur doit être `ApplicationInsights`. |
 | InstrumentationKey | Oui | Chaîne qui contient la clé d’instrumentation pour l’élément application insights. |
-| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre est adapté au développement, mais restreint à des volumes élevés. Les journaux d’activité détaillés sont conçus uniquement pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
+| DeveloperMode | Oui | Valeurs possibles : `true` ou `false`. Si `true`, Application Insights envoie la télémétrie par le biais du pipeline de traitement. Ce paramètre est adapté au développement, mais restreint à des volumes élevés. Les journaux d’activité détaillés sont conçus uniquement pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production. Les journaux d’activité recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement. En cas d’utilisation en production, le développeur assume la responsabilité des données personnelles recueillies dans le journal Application Insights dont il est propriétaire. Ces journaux d’activité détaillés sont recueillis uniquement quand cette valeur est `true`.|
 | ClientEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le script côté client Application Insights pour le suivi des affichages de page et des erreurs côté client. |
 | ServerEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights. |
 | TelemetryVersion | Oui | La valeur doit être `1.0.0`. |
@@ -193,6 +195,15 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 | Nom | Oui | Nom de la paire clé/valeur. |
 
 Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri).
+
+### <a name="journeyframing"></a>JourneyFraming
+
+L’élément **JourneyFraming** contient les attributs suivants :
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| activé | Oui | Permet le chargement de cette stratégie dans un iframe. Valeurs possibles : `false` (par défaut) ou `true`. |
+| Sources | Oui | Contient les domaines qui chargera l’iframe de l’hôte. Pour plus d’informations, consultez [Charger Azure B2C dans un iframe](embedded-login.md). |
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

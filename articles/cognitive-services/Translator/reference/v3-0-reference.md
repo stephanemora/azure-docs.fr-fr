@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
 ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100650760"
 ---
 # <a name="translator-v30"></a>Translator v3.0
@@ -35,7 +35,7 @@ Microsoft Translator est desservi par des centres de données situés dans plusi
 
 * **Amérique :** USA Est, USA Centre Sud, USA Centre-Ouest, USA Ouest 2 
 * **Asie-Pacifique :** Corée Sud, Japon Est, Asie Sud-Est et Australie Est
-* **Europe :** Europe Nord, Europe Ouest, Suisse Nord<sup>1,2</sup> et Suisse Ouest<sup>1,2</sup>
+* **Europe :** Europe Nord, Europe Ouest, Suisse Nord <sup>1,2</sup> et Suisse Ouest <sup>1,2</sup>
 
 Les requêtes adressées à Microsoft Translator sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la zone géographique Azure.
 

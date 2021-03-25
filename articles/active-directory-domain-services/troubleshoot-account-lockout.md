@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 7967347fa63c657ba6211328bdd1d55512358521
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618771"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103198959"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Résoudre les problèmes de verrouillage de compte avec un domaine managé Azure Active Directory Domain Services
 
@@ -83,6 +83,23 @@ AADDomainServicesAccountManagement
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
+
+**Remarque**
+
+Vous pouvez constater que la section détaillée « Source Workstation : » (« Station de travail source ») est vide pour les événements 4776 et 4740. C'est parce que le mauvais mot de passe a circulé sur une connexion réseau via d’autres appareils.
+Par exemple : si vous avez un serveur RADIUS, qui peut transférer l’authentification à AAD DS. Pour confirmer que l’activation de l’accès RDP au serveur principal DC, configurez les journaux Netlogon.
+
+03/04 19:07:29 [LOGON] [10752] contoso : SamLogon : ouverture de session réseau transitive de contoso\Nagappan.Veerappan à partir de (via LOB11-RADIUS) entrée 
+
+03/04 19:07:29 [LOGON] [10752] contoso : SamLogon : ouverture de session réseau transitive de contoso\Nagappan.Veerappan à partir de (via LOB11-RADIUS) retourne 0xC000006A
+
+03/04 19:07:35 [LOGON] [10753] contoso : SamLogon : ouverture de session réseau transitive de contoso\Nagappan.Veerappan à partir de (via LOB11-RADIUS) entrée 
+
+03/04 19:07:35 [LOGON] [10753] contoso : SamLogon : ouverture de session réseau transitive de contoso\Nagappan.Veerappan à partir de (via LOB11-RADIUS) retourne 0xC000006A
+
+Activez le protocole RDP sur vos contrôleurs de réseau dans NSG sur le backend pour configurer la capture de diagnostics (c.-à-d. netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules si vous avez déjà modifié le groupe de sécurité réseau par défaut, suivez PSlet pour activer https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+
+Pour activer le journal Netlogon sur n’importe quel serveur https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
 
 ## <a name="next-steps"></a>Étapes suivantes
 

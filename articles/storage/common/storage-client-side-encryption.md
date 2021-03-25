@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718520"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588254"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage
 
@@ -132,7 +132,7 @@ Il existe deux packages nécessaires pour l’intégration du coffre de clés :
 * Azure.Core contient les interfaces `IKeyEncryptionKey` et `IKeyEncryptionKeyResolver`. La bibliothèque cliente de stockage pour .NET le définit déjà en tant que dépendance.
 * Azure.Security.KeyVault.Keys (v4. x) contient le client REST de coffre de clés, ainsi que les clients de chiffrement utilisés avec le chiffrement côté client.
 
-Le coffre de clés est conçu pour les clés principales de valeur élevée et les seuils de limitation par coffre de clés sont définies avec cela à l’esprit. À compter de la version 4.1.0 d’Azure.Security.KeyVault.Keys, il n’existe pas d’implémentation `IKeyEncryptionKeyResolver` qui prenne en charge la mise en cache de clés. Si la mise en cache est nécessaire en raison de limitations, [cet exemple](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) peut être suivi pour injecter une couche de mise en cache dans une instance `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
+Le coffre de clés est conçu pour les clés principales de valeur élevée et les seuils de limitation par coffre de clés sont définies avec cela à l’esprit. À compter de la version 4.1.0 d’Azure.Security.KeyVault.Keys, il n’existe pas d’implémentation `IKeyEncryptionKeyResolver` qui prenne en charge la mise en cache de clés. Si la mise en cache est nécessaire en raison de limitations, [cet exemple](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) peut être suivi pour injecter une couche de mise en cache dans une instance `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver`.
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 

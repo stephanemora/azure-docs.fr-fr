@@ -8,10 +8,10 @@ ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.openlocfilehash: af371a8f7da5ef32e95d4096b69c5d52ce3e3700
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510376"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages de machine virtuelle - Maintenance et temps d’arrêt

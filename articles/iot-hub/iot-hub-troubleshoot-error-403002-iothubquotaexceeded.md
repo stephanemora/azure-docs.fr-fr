@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 8312c3267e826088f34b3bffe1520703eec00bdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76960390"
 ---
 # <a name="403002-iothubquotaexceeded"></a>403002 IoTHubQuotaExceeded
@@ -23,7 +23,7 @@ Cet article décrit les causes et solutions des erreurs **403002 IoTHubQuotaExce
 
 Toutes les demandes que vous adressez à IoT Hub échouent avec l’erreur **403002 IoTHubQuotaExceeded**. La liste d’appareils du hub IoT ne se charge pas dans le Portail Azure.
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Le quota quotidien des messages pour le hub IoT est dépassé. 
 

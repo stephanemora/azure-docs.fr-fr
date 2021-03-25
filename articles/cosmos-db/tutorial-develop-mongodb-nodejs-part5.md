@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: a3097fa539f460ef5e8ffe73598fa5d55516717e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097802"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Utiliser Mongoose pour établir la connexion à Cosmos DB
@@ -51,7 +51,7 @@ Mongoose est une bibliothèque ODM (modèles de données objets) pour MongoDB et
     npm i mongoose --save
     ```
 
-1. Dans le dossier **server** , créez un fichier nommé **mongo.js**. Vous allez ajouter les détails de connexion de votre compte Azure Cosmos DB à ce fichier.
+1. Dans le dossier **server**, créez un fichier nommé **mongo.js**. Vous allez ajouter les détails de connexion de votre compte Azure Cosmos DB à ce fichier.
 
 1. Copiez le code suivant dans le fichier **mongo.js**. Ce code fournit les fonctionnalités suivantes :
 
@@ -85,7 +85,7 @@ Mongoose est une bibliothèque ODM (modèles de données objets) pour MongoDB et
      };
      ```
     
-1. Dans le volet Explorateur, sous **server** , créez un dossier nommé **environment**. Dans le dossier **environment** , créez un fichier nommé **environment.js**.
+1. Dans le volet Explorateur, sous **server**, créez un dossier nommé **environment**. Dans le dossier **environment**, créez un fichier nommé **environment.js**.
 
 1. À partir du fichier mongo.js, nous devons inclure des valeurs des paramètres `dbName`, `key`et `cosmosPort`. Copiez le code suivant dans le fichier **environment.js** :
 
@@ -105,13 +105,13 @@ Pour connecter votre application à Azure Cosmos DB, vous devez mettre à jour l
 
 1. Dans le portail Azure, obtenez le numéro de port, le nom du compte Azure Cosmos DB et les valeurs de clé primaire de votre compte Azure Cosmos DB.
 
-1. Dans le fichier **environment.js** , remplacez la valeur de `port` par 10255. 
+1. Dans le fichier **environment.js**, remplacez la valeur de `port` par 10255. 
 
     ```javascript
     const port = 10255;
     ```
 
-1. Dans le fichier **environment.js** , remplacez la valeur de `accountName` par le nom de compte Azure Cosmos DB que vous avez créé à [l’étape 4](tutorial-develop-mongodb-nodejs-part4.md) du didacticiel. 
+1. Dans le fichier **environment.js**, remplacez la valeur de `accountName` par le nom de compte Azure Cosmos DB que vous avez créé à [l’étape 4](tutorial-develop-mongodb-nodejs-part4.md) du didacticiel. 
 
 1. Récupérez la clé primaire du compte Azure Cosmos DB en entrant la commande CLI suivante dans la fenêtre du terminal : 
 
@@ -129,7 +129,7 @@ Votre application dispose maintenant de toutes les informations nécessaires pou
 
 Vous devez ensuite définir le schéma des données à stocker dans Azure Cosmos DB en définissant un fichier de modèle. Pour créer un _modèle héros_ qui définit le schéma des données, procédez comme suit :
 
-1. Dans le volet Explorateur, sous le dossier **server** , créez un fichier nommé **hero.model.js**.
+1. Dans le volet Explorateur, sous le dossier **server**, créez un fichier nommé **hero.model.js**.
 
 1. Copiez le code suivant dans le fichier **hero.model.js**. Ce code fournit les fonctionnalités suivantes :
 
@@ -137,7 +137,7 @@ Vous devez ensuite définir le schéma des données à stocker dans Azure Cosmos
    * Crée un nouveau schéma avec un ID, un nom et un message.
    * Crée un modèle à l’aide du schéma.
    * Exporte le modèle. 
-   * Nomme la collection **Heroes** (au lieu de **Heros** , le nom par défaut de la collection selon les règles d’affectation de noms au pluriel de Mongoose).
+   * Nomme la collection **Heroes** (au lieu de **Heros**, le nom par défaut de la collection selon les règles d’affectation de noms au pluriel de Mongoose).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -164,7 +164,7 @@ Vous devez ensuite définir le schéma des données à stocker dans Azure Cosmos
 
 Après avoir créé le modèle héros, vous devez définir un service pour lire les données et effectuer des opérations de liste, création, suppression et mise à jour. Procédez comme suit pour créer un _service héros_ qui interroge les données à partir d’Azure Cosmos DB :
 
-1. Dans le volet Explorateur, sous le dossier **server** , créez un fichier nommé **hero.model.js**.
+1. Dans le volet Explorateur, sous le dossier **server**, créez un fichier nommé **hero.model.js**.
 
 1. Copiez le code suivant dans le fichier **hero.service.js**. Ce code fournit les fonctionnalités suivantes :
 
@@ -200,9 +200,9 @@ Après avoir créé le modèle héros, vous devez définir un service pour lire 
 
 ## <a name="configure-routes"></a>Configurer des itinéraires
 
-Ensuite, vous devez définir des itinéraires pour gérer les URL des requêtes get, create, read et delete. Les méthodes de routage spécifient les fonctions de rappel (également appelées _fonctions gestionnaires_ ). Ces fonctions sont appelées lorsque l’application reçoit une requête au point de terminaison et via la méthode HTTP spécifiés. Procédez comme suit pour ajouter le service de héros et définir vos itinéraires :
+Ensuite, vous devez définir des itinéraires pour gérer les URL des requêtes get, create, read et delete. Les méthodes de routage spécifient les fonctions de rappel (également appelées _fonctions gestionnaires_). Ces fonctions sont appelées lorsque l’application reçoit une requête au point de terminaison et via la méthode HTTP spécifiés. Procédez comme suit pour ajouter le service de héros et définir vos itinéraires :
 
-1. Dans Visual Studio Code, dans le fichier **routes.js** , commentez la fonction `res.send` qui envoie des exemples de données héros. Ajoutez une ligne pour appeler la fonction `heroService.getHeroes` à la place.
+1. Dans Visual Studio Code, dans le fichier **routes.js**, commentez la fonction `res.send` qui envoie des exemples de données héros. Ajoutez une ligne pour appeler la fonction `heroService.getHeroes` à la place.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -219,13 +219,13 @@ Ensuite, vous devez définir des itinéraires pour gérer les URL des requêtes 
     const heroService = require('./hero.service'); 
     ```
 
-1. Dans le fichier **hero.service.js** , mettez à jour la fonction `getHeroes` pour obtenir les paramètres `req` et `res` comme suit :
+1. Dans le fichier **hero.service.js**, mettez à jour la fonction `getHeroes` pour obtenir les paramètres `req` et `res` comme suit :
 
     ```javascript
     function getHeroes(req, res) {
     ```
 
-Prenons quelques instants pour examiner et parcourir le code précédent. Le fichier index.js apparaît en premier. Il configure le serveur de nœud. Notez qu’il configure et définit les itinéraires. Ensuite, le fichier routes.js communique avec le service héros pour lui demander d’obtenir vos fonctions, comme **getHeroes** , et de transmettre les requêtes et les réponses. Le fichier hero.service.js obtient le modèle et établit la connexion à Mongo. Ensuite, il exécute **getHeroes** lorsque nous l’appelons et retourne la réponse 200. 
+Prenons quelques instants pour examiner et parcourir le code précédent. Le fichier index.js apparaît en premier. Il configure le serveur de nœud. Notez qu’il configure et définit les itinéraires. Ensuite, le fichier routes.js communique avec le service héros pour lui demander d’obtenir vos fonctions, comme **getHeroes**, et de transmettre les requêtes et les réponses. Le fichier hero.service.js obtient le modèle et établit la connexion à Mongo. Ensuite, il exécute **getHeroes** lorsque nous l’appelons et retourne la réponse 200. 
 
 ## <a name="run-the-app"></a>Exécuter l’application
 

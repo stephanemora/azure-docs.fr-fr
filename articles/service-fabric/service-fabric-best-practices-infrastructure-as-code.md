@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a0f0324d1f7308eb1392c4f7a98a6a5d226026be
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b765d92778df40caec0864dc6f547324216fdb07
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705504"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611978"
 ---
 # <a name="infrastructure-as-code"></a>Infrastructure as code
 
@@ -91,7 +91,7 @@ microservices_sfpkg.close()
 ```
 
 ## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuration de mise à niveau automatique du système d’exploitation Machine virtuelle Azure 
-La mise à niveau de vos machines virtuelles est une opération initiée par l’utilisateur. Il est recommandé d’utiliser la [mise à niveau automatique du système d’exploitation dans des groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) pour la gestion des correctifs hôtes des clusters Azure Service Fabric. L’application d’orchestration des correctifs est une solution alternative utilisée en cas d’hébergement en dehors d’Azure, bien qu’elle puisse être utilisée dans Azure, sachant que la surcharge d’hébergement de l’application d’orchestration des correctifs dans Azure est une raison courante de préférer la mise à niveau automatique du système d’exploitation dans des groupes de machines virtuelles identiques. Les propriétés du modèle Groupe de machines virtuelles identiques de calcul Resource Manager pour activer la mise à niveau automatique du système d’exploitation sont les suivantes :
+La mise à niveau de vos machines virtuelles est une opération initiée par l’utilisateur. Il est recommandé d’utiliser la [mise à niveau automatique du système d’exploitation dans des groupes de machines virtuelles identiques](service-fabric-patch-orchestration-application.md) pour la gestion des correctifs hôtes des clusters Azure Service Fabric. L’application d’orchestration des correctifs est une solution alternative utilisée en cas d’hébergement en dehors d’Azure, bien qu’elle puisse être utilisée dans Azure, sachant que la surcharge d’hébergement de l’application d’orchestration des correctifs dans Azure est une raison courante de préférer la mise à niveau automatique du système d’exploitation dans des groupes de machines virtuelles identiques. Les propriétés du modèle Groupe de machines virtuelles identiques de calcul Resource Manager pour activer la mise à niveau automatique du système d’exploitation sont les suivantes :
 
 ```json
 "upgradePolicy": {
@@ -104,7 +104,7 @@ La mise à niveau de vos machines virtuelles est une opération initiée par l�
 ```
 Lors de l’utilisation de mises à niveau automatiques du système d’exploitation avec Service Fabric, la nouvelle image du système d’exploitation est déployée, un domaine de mise à jour après l’autre, pour maintenir la haute disponibilité des services en cours d’exécution dans Service Fabric. Pour utiliser les mises à niveau automatiques du système d’exploitation dans Service Fabric, votre cluster doit être configuré pour utiliser le niveau de durabilité Silver ou une version supérieure.
 
-Vérifiez que la clé de Registre suivante est définie sur false pour empêcher le lancement de mises à jour non coordonnées sur vos ordinateurs hôtes Windows : HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Vérifiez que la clé de registre suivante est définie sur false pour empêcher le lancement de mises à jour non coordonnées sur vos ordinateurs hôtes Windows : HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
 Les propriétés du modèle Groupe de machines virtuelles identiques de calcul Resource Manager pour définir la clé de Registre WindowsUpdate sur false sont les suivantes :
 ```json

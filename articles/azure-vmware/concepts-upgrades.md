@@ -2,13 +2,13 @@
 title: Concepts – Mises à jour et mises à niveau des clouds privés
 description: Découvrez les processus et fonctionnalités clés de mise à niveau dans Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.date: 03/17/2021
+ms.openlocfilehash: 9810de40944f70a4efb7ec81d17868ffdf256c7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634990"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586146"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Mises à jour et mises à niveau des clouds privés Azure VMware Solution
 
@@ -53,7 +53,9 @@ Azure VMware Solution effectue également une sauvegarde de la configuration des
 
 En cas d’échec, Azure VMware Solution peut restaurer ces composants à partir de la sauvegarde de la configuration. 
 
-Pour plus d’informations sur les versions des logiciels VMware, consultez l’[article sur les concepts des clusters et des clouds privés](concepts-private-clouds-clusters.md) ainsi que les [Questions fréquentes (FAQ)](faq.yml).
+## <a name="vmware-software-versions"></a>Versions des logiciels VMware
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

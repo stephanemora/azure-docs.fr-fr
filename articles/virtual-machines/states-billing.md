@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525429"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596295"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>États et facturation des machines virtuelles Azure
 
@@ -82,6 +82,6 @@ Les états de provisionnement d’un système d’exploitation s’appliquent un
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Consultez la [Documentation Cost Management and Billing](https://docs.microsoft.com/azure/cost-management-billing/).
+- Consultez la [Documentation Cost Management and Billing](../cost-management-billing/index.yml).
 - Utilisez la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) pour planifier vos déploiements.
-- Découvrez-en plus sur la supervision de votre machine virtuelle en consultant [Supervision des machines virtuelles dans Azure](../azure-monitor/insights/monitor-vm-azure.md).
+- Découvrez-en plus sur la supervision de votre machine virtuelle en consultant [Supervision des machines virtuelles dans Azure](../azure-monitor/vm/monitor-vm-azure.md).

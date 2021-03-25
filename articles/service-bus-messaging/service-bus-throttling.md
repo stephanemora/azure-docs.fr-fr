@@ -4,10 +4,10 @@ description: Vue d’ensemble de la limitation Service Bus – Niveaux Standard 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85340942"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Opérations de limitation dans Azure Service Bus
@@ -89,7 +89,7 @@ Si le nombre de demandes est supérieur à la capacité de traitement actuelle d
 ### <a name="how-will-i-know-that-im-being-throttled"></a>Comment savoir si je suis limité ?
 
 Il existe différentes façons d’identifier la limitation dans Azure Service Bus Premium – 
-  * Les **demandes limitées**  figurent dans les [métriques des demandes d’Azure Monitor](service-bus-metrics-azure-monitor.md#request-metrics) pour identifier le nombre de demandes qui ont été limitées.
+  * Les **demandes limitées** figurent dans les [métriques des demandes d’Azure Monitor](service-bus-metrics-azure-monitor.md#request-metrics) pour identifier le nombre de demandes qui ont été limitées.
   * Une **utilisation du processeur** élevée indique que l’allocation de ressources actuelle est élevée et que les demandes risquent d’être limitées si la charge de travail actuelle ne diminue pas.
   * Une **utilisation de la mémoire** élevée indique que l’allocation de ressources actuelle est élevée et que les demandes risquent d’être limitées si la charge de travail actuelle ne diminue pas.
 
@@ -122,6 +122,6 @@ Cependant, quand une demande est limitée, cela sous-entend que le service ne pe
 Pour plus d’informations et des exemples d’utilisation de la messagerie Service Bus, consultez les rubriques avancées suivantes :
 
 * [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
-* [Démarrage rapide : Envoyer et recevoir des messages avec le Portail Azure et .NET](service-bus-quickstart-portal.md)
-* [Tutoriel : Mettre à jour l’inventaire avec le Portail Azure et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-portal.md)
+* [Démarrage rapide : Envoyer et recevoir des messages à l’aide du portail Azure et de .NET](service-bus-quickstart-portal.md)
+* [Tutoriel : Mettre à jour l’inventaire à l’aide du portail Azure et des rubriques/abonnements](service-bus-tutorial-topics-subscriptions-portal.md)
 

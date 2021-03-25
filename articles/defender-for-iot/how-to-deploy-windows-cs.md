@@ -1,25 +1,14 @@
 ---
 title: Installer l'agent C# sur un appareil Windows
 description: Découvrez comment installer l’agent Defender pour IoT sur les appareils Windows 32 bits ou 64 bits.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: e7c7fdd5874dbde5ca304309d0840724cb3872df
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: b5efc9ce675fa068f378cdc2bdd5a077d3437a93
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103494527"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778761"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Déploiement d’un agent de sécurité C# Defender pour IoT pour Windows
 

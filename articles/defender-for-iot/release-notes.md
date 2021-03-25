@@ -1,24 +1,14 @@
 ---
 title: Nouveautés d’Azure Defender pour IoT
 description: Cet article vous présente les nouveautés de la dernière version de Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/14/2021
-ms.author: shhazam
-ms.openlocfilehash: ef72be60b6294ad4e1fca2ce9c0e3c66b64ac687
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 970d46a76f125dcaf82491fdea877e6874e2384f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493953"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778693"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT
 

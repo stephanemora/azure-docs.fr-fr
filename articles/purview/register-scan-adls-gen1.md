@@ -8,10 +8,10 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693713"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Inscrire et analyser Azure Data Lake Storage Gen1
@@ -32,7 +32,7 @@ La source de données Azure Data Lake Storage Gen1 prend en charge les fonctionn
 ## <a name="prerequisites"></a>Prérequis
 
 - Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
-- Vous devez être un administrateur de source de données Azure Purview
+- Vous devez être administrateur de la source de données Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
 
@@ -87,7 +87,7 @@ Pour utiliser un principal de service, vous devez d’abord en créer un en proc
 
 4. Sélectionnez **+ Nouvelle inscription d’application**.
 
-5. Entrez un nom pour **l’application** (nom du principal de service).
+5. Entrez un nom pour l’**application** (nom du principal de service).
 
 6. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
 
@@ -137,5 +137,5 @@ Dans l’écran Inscrire des sources (Azure Data Lake Storage Gen1), procédez c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Parcourir le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Effectuer une recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)

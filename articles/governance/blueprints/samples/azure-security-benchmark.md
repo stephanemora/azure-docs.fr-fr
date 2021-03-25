@@ -4,10 +4,10 @@ description: Vue d’ensemble de l’exemple de blueprint Azure Security Benchma
 ms.date: 01/27/2021
 ms.topic: sample
 ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919237"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exemple de blueprint Azure Security Benchmark

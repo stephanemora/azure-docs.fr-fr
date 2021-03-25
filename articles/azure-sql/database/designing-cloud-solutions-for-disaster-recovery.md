@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 07/28/2020
 ms.openlocfilehash: be632ba06edc858e7eadcd6e57a4f7769f69f2cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91321677"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conception de services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database
@@ -36,7 +36,7 @@ Dans ce scénario, les applications ont les caractéristiques suivantes :
 * La couche Web et la couche Données doivent être colocalisées pour réduire la latence et les coûts liés au trafic
 * Les temps d’arrêt représentent un plus grand risque pour ces applications que la perte de données
 
-Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application doivent être basculés en même temps. Le diagramme ci-dessous illustre cette topologie. Pour assurer la géoredondance, les ressources de l’application sont déployées dans la région A et la région B. Toutefois, les ressources de la région B sont utilisées seulement en cas de défaillance de la région A. Un groupe de basculement est configuré entre les deux régions pour gérer le basculement, la réplication et la connectivité à la base de données. Le service web des deux régions est configuré pour accéder à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). Azure Traffic Manager est configuré pour utiliser la [méthode de routage prioritaire](../../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Dans ce cas, la topologie de déploiement d’applications est optimisée pour la gestion des sinistres régionaux lorsque tous les composants d’application doivent être basculés en même temps. Le diagramme ci-dessous illustre cette topologie. Pour assurer la géoredondance, les ressources de l’application sont déployées dans la région A et la région B. Toutefois, les ressources de la région B sont utilisées seulement en cas de défaillance de la région A. Un groupe de basculement est configuré entre les deux régions pour gérer le basculement, la réplication et la connectivité à la base de données. Le service web des deux régions est configuré pour accéder à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). Azure Traffic Manager est configuré pour utiliser la [méthode de routage prioritaire](../../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) est utilisé dans cet article aux fins d’illustration uniquement. Vous pouvez utiliser toute solution d’équilibrage de charge qui prend en charge la méthode de routage prioritaire.

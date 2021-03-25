@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308226"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Sélectionner des algorithmes Azure Machine Learning
@@ -123,7 +123,7 @@ Les algorithmes de régression linéaire supposent que les tendances des donnée
 
 ![Limite de classe non linéaire](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_Limite de classe non linéaire_* _: _l’utilisation d’un algorithme de classification linéaire entraînerait une justesse faible.*
+***Limite de classe non linéaire** _: _l’utilisation d’un algorithme de classification linéaire entraînerait une justesse faible.*
 
 ![Données avec une tendance non linéaire](./media/how-to-select-algorithms/nonlinear-trend.png)
 

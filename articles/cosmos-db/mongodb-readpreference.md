@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349042"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Comment distribuer à l’échelle mondiale des lectures par l’intermédiaire de l’API Azure Cosmos DB pour MongoDB
@@ -44,7 +44,7 @@ Exécutez les commandes suivantes pour cloner l’exemple de référentiel. Selo
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Exécution de l'application
+## <a name="run-the-application"></a>Exécuter l’application
 
 En fonction de la plateforme utilisée, installez les packages nécessaires et démarrez l’application. Pour installer les dépendances, suivez les instructions du fichier LISEZMOI inclus dans le dépôt d’exemple d’application. Par exemple, dans l’exemple d’application NodeJS, utilisez les commandes suivantes pour installer les packages nécessaires et démarrer l’application.
 

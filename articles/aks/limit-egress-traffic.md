@@ -4,14 +4,14 @@ description: Découvrez les ports et adresses requis pour contrôler le trafic d
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 11/09/2020
+ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: 93c8d1392de8f502a829276287a4687476dd36de
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9e65e2736578ce04dfa79d5a7827e190d47fb312
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505056"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573827"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -214,6 +214,24 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Cette adresse est utilisée pour le bon fonctionnement d’Azure Policy.  |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies intégrées de GitHub afin de garantir le bon fonctionnement d’Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Le module complémentaire Azure Policy envoie des données de télémétrie au point de terminaison Applications Insights. |
+
+#### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure China 21Vianet 
+
+Les noms de domaine complets/règles d’application suivants sont requis pour les clusters AKS avec Azure Policy activé.
+
+| FQDN                                          | Port      | Utilisation      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.cn`** | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies Kubernetes et pour signaler l’état de conformité du cluster au service de stratégie. |
+| **`store.policy.azure.cn`** | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les artefacts Gatekeeper de stratégies intégrées. |
+
+#### <a name="azure-us-government-required-fqdn--application-rules"></a>Règles de nom FQDN/d’application requises pour Azure US Government
+
+Les noms de domaine complets/règles d’application suivants sont requis pour les clusters AKS avec Azure Policy activé.
+
+| FQDN                                          | Port      | Utilisation      |
+|-----------------------------------------------|-----------|----------|
+| **`data.policy.azure.us`** | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les stratégies Kubernetes et pour signaler l’état de conformité du cluster au service de stratégie. |
+| **`store.policy.azure.us`** | **`HTTPS:443`** | Cette adresse est utilisée pour extraire les artefacts Gatekeeper de stratégies intégrées. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitation du trafic de sortie à l’aide du Pare-feu Azure
 

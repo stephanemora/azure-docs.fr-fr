@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
 ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485441"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Haute disponibilité dans Azure Database pour PostgreSQL – Serveur unique
@@ -49,7 +49,7 @@ Voici quelques scénarios de maintenance planifiée :
 Des temps d’arrêt non planifiés peuvent se produire suite à des défaillances imprévues telles qu’un échec matériel sous-jacent, des problèmes de mise en réseau et des bogues logiciels. Si le serveur de base de données tombe en panne de façon inattendue, un nouveau serveur de base de données est automatiquement approvisionné en quelques secondes. Le stockage étendu est automatiquement attaché au nouveau serveur de base de données. Le moteur PostgreSQL effectue l’opération de récupération à l’aide des fichiers WAL et de base de données, puis ouvre le serveur de base de données pour permettre aux clients de se connecter. Les transactions non validées sont perdues et doivent être retentées par l’application. Bien qu’il ne soit pas possible d’éviter un temps d’arrêt non planifié, le service Azure Database pour PostgreSQL réduit les temps d’arrêt en effectuant automatiquement des opérations de récupération au niveau du serveur de base de données et des couches de stockage, sans intervention humaine. 
 
 
-:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="vue de la mise à l’échelle élastique dans Azure PostgreSQL":::
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="affichage de la haute disponibilité dans Azure PostgreSQL":::
 
 1. Serveurs Azure PostgreSQL avec fonctionnalités de mise à l’échelle rapide.
 2. Passerelle faisant office de proxy pour router les connexions client vers le serveur de base de données approprié.

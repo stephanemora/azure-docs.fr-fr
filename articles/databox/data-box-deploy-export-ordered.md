@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: 42476e2689cc503edc19e8e299a01ce922f1bf42
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789193"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box
@@ -123,9 +123,9 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     ![Écran Sécurité de l’Assistant Commande d’importation Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
 
-10. Si vous souhaitez utiliser votre propre clé gérée par le client afin de protéger la clé d'accès de déverrouillage pour votre nouvelle ressource, développez **Type de chiffrement**.
+10. Si vous souhaitez utiliser votre propre clé gérée par le client afin de protéger la clé d’accès de déverrouillage pour votre nouvelle ressource, développez **Type de chiffrement**.
 
-    La configuration d’une clé gérée par le client pour Azure Data Box est facultative. Par défaut, Data Box utilise une clé managée par Microsoft pour protéger la clé d'accès de déverrouillage.
+    La configuration d’une clé gérée par le client pour Azure Data Box est facultative. Par défaut, Data Box utilise une clé managée par Microsoft pour protéger la clé d’accès de déverrouillage.
 
     Une clé gérée par le client n’affecte pas la manière dont les données sont chiffrées sur l’appareil. La clé est utilisée uniquement pour chiffrer la clé d'accès de déverrouillage de l’appareil.
 
@@ -143,9 +143,9 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
       ![Écran Sélectionner une clé dans Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
 
-    - Vous pouvez également sélectionner **Créer** pour créer un coffre de clés. Dans l’écran **Créer un coffre de clés**, saisissez le groupe de ressources et un nom de coffre de clés. Assurez-vous que les options **Soft delete** (Suppression réversible) et **Purge protection** (Protection contre le vidage) sont activées. Acceptez toutes les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
+    - Vous pouvez également sélectionner **Créer** pour créer un coffre de clés. Dans l’écran **Créer un coffre de clés**, entrez le groupe de ressources et un nom de coffre de clés. Assurez-vous que les options **Suppression réversible** et **Protection de purge** sont activées. Acceptez toutes les autres valeurs par défaut, puis sélectionnez **Vérifier + créer**.
 
-      ![Paramètres Créer un coffre Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+      ![Paramètres Créer un coffre de clés](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
 
       Passez en revue les informations de votre coffre de clés, puis sélectionnez **Créer**. Patientez quelques minutes avant la fin de la création du coffre de clés.
 
@@ -155,7 +155,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     ![Sélectionner une clé existante dans Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
 
-    Si vous voulez créer un coffre de clés, sélectionnez **Create new** (Créer). Vous devez utiliser une clé RSA. La taille peut être supérieure ou égale à 2048. Entrez un nom pour votre nouvelle clé, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
+    Si vous voulez créer un coffre de clés, sélectionnez **Créer**. Vous devez utiliser une clé RSA. La taille peut être supérieure ou égale à 2048. Entrez un nom pour votre nouvelle clé, acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
 
       ![Option permettant de créer une clé](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
 
@@ -165,7 +165,7 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
       ![Nouvelle clé créée dans le coffre de clés](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
 
-    Si vous voulez créer une version de clé, sélectionnez **Create new** (Créer).
+    Si vous voulez créer une version de clé, sélectionnez **Créer**.
 
     ![Ouvrir une boîte de dialogue permettant de créer une version de clé](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
 
@@ -175,9 +175,9 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
 
     Les paramètres **Type de chiffrement** de l’écran **Sécurité** montrent votre coffre de clés et votre clé.
 
-    ![Clé et coffre de clés pour une clé gérée par un client](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+    ![Clé et coffre de clés pour une clé gérée par le client](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
 
-15. Sélectionnez une identité d’utilisateur que vous utiliserez pour gérer l’accès à cette ressource. Choisissez **Sélectionner une identité d’utilisateur**. Dans le volet de droite, sélectionnez l’abonnement et l’identité managée à utiliser. Ensuite, choisissez **Sélectionner**.
+15. Sélectionnez une identité d’utilisateur que vous utiliserez pour gérer l’accès à cette ressource. Choisissez **Sélectionner une identité d’utilisateur**. Dans le volet de droite, sélectionnez l’abonnement et l’identité managée à utiliser. Choisissez ensuite **Sélectionner**.
 
     Une identité managée affectée par l’utilisateur est une ressource Azure autonome qui peut être utilisée pour gérer plusieurs ressources. Pour plus d’informations, consultez [Types d’identités managées](../active-directory/managed-identities-azure-resources/overview.md).  
 
