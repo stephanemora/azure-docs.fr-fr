@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249434"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformation sécurisée des données à l’aide de flux de données de mappage
@@ -71,7 +71,7 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 1. Sur le portail Data Factory, accédez à **Gérer** et sélectionnez **Nouveau** pour créer un runtime d’intégration Azure.
 
    ![Capture d’écran montrant la création d’un runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Dans la page **Configuration du runtime d’intégration**, choisissez le runtime d’intégration à créer en fonction des fonctionnalités nécessaires. Dans ce tutoriel, sélectionnez **Azure, Auto-hébergé** puis cliquez sur **Continuer**. 
+1. Dans la page **Configuration du runtime d’intégration**, choisissez le runtime d’intégration à créer en fonction des fonctionnalités nécessaires. Dans ce tutoriel, sélectionnez **Azure, Auto-hébergé**, puis cliquez sur **Continuer**. 
 1. Sélectionnez **Azure**, puis cliquez sur **Continuer** pour créer un runtime d’intégration Azure.
 
    ![Capture d’écran montrant un nouveau runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/azure-ir.png)

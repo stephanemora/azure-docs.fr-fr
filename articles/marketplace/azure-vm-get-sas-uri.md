@@ -6,17 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 1/5/2021
-ms.openlocfilehash: 560699296b8cae83413c36820106eedf7fef7414
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 03/10/2021
+ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914159"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800106"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Comment générer un URI SAS pour une image de machine virtuelle
 
-Pendant le processus de publication, vous devez fournir un URI de SAS (Shared Access Signature) pour chaque disque dur virtuel associé à vos plans (anciennement appelés niveaux tarifaires). Microsoft doit accéder à ces disques durs virtuels pendant le processus de certification. Vous entrerez cet URI sous l’onglet **Plans** de l’Espace partenaires.
+> [!NOTE]
+> Vous n’avez pas besoin d’un URI SAS pour publier votre machine virtuelle. Il vous suffit de partager une image dans l’Espace partenaires. Reportez-vous à [Créer une machine virtuelle à l’aide d’une base approuvée](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) ou [Créer une machine virtuelle à l’aide de votre propre image](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image).
 
 La génération d’URI de SAS pour vos disques durs virtuels impose les exigences suivantes :
 
@@ -24,6 +25,71 @@ La génération d’URI de SAS pour vos disques durs virtuels impose les exigenc
 - Seules les autorisations Liste et Lecture sont requises. Ne fournissez pas d’accès en écriture ou en suppression
 - La durée d’accès (date d’expiration) doit être d’au moins trois semaines à partir de la date de création de l’URI SAS
 - Pour vous protéger contre les changements de temps UTC, choisissez la veille de la date actuelle comme date de début. Par exemple, si la date actuelle est le 16 juin 2020, sélectionnez 15/6/2020
+
+## <a name="extract-vhd-from-a-vm"></a>Extraire le disque dur virtuel à partir d’une machine virtuelle
+
+> [!NOTE]
+> Vous pouvez ignorer cette étape si vous disposez déjà d’un disque dur virtuel chargé dans un compte de stockage.
+
+Pour extraire le disque dur virtuel de votre machine virtuelle, vous devez prendre un instantané de votre disque de machine virtuelle et extraire le disque dur virtuel de l’instantané.
+
+Commencez par créer un instantané du disque de la machine virtuelle :
+
+1. Connectez-vous au portail Azure.
+2. À partir du coin supérieur gauche, sélectionnez Créer une ressource, puis recherchez et sélectionnez Instantané.
+3. Dans le panneau Instantané, sélectionnez Créer.
+4. Entrez un nom pour la capture instantanée.
+5. Sélectionnez un groupe de ressources existant ou entrez le nom d’un nouveau.
+6. Dans Disque source, sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.
+7. Sélectionnez le type de compte à utiliser pour stocker la capture instantanée. Utilisez Standard HDD, sauf si vous en avez besoin de la stocker sur un disque SSD hautes performances.
+8. Sélectionnez Créer.
+
+### <a name="extract-the-vhd"></a>Extraire le disque dur virtuel
+
+Utilisez le script suivant pour exporter l’instantané dans un disque dur virtuel de votre compte de stockage.
+
+```azurecli
+#Provide the subscription Id where the snapshot is created
+$subscriptionId=yourSubscriptionId
+
+#Provide the name of your resource group where the snapshot is created
+$resourceGroupName=myResourceGroupName
+
+#Provide the snapshot name
+$snapshotName=mySnapshot
+
+#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
+#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
+$sasExpiryDuration=3600
+
+#Provide storage account name where you want to copy the underlying VHD file. Currently, only general purpose v1 storage is supported.
+$storageAccountName=mystorageaccountname
+
+#Name of the storage container where the downloaded VHD will be stored.
+$storageContainerName=mystoragecontainername
+
+#Provide the key of the storage account where you want to copy the VHD 
+$storageAccountKey=mystorageaccountkey
+
+#Give a name to the destination VHD file to which the VHD will be copied.
+$destinationVHDFileName=myvhdfilename.vhd
+
+az account set --subscription $subscriptionId
+
+$sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+
+az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
+```
+
+### <a name="script-explanation"></a>Explication du script
+Ce script utilise les commandes suivantes afin de générer l’URI SAS pour un instantané et copie le VHD sous-jacent vers un compte de stockage à l’aide de l’URI SAS. Chaque commande du tableau renvoie à une documentation spécifique.
+
+
+|Commande  |Notes  |
+|---------|---------|
+| az disk grant-access    |     Génère l’URI SAP en lecture seule qui est utilisé pour copier le fichier de VHD sous-jacent vers un compte de stockage ou le télécharger en local    |
+|  az storage blob copy start   |    Copiez un objet blob de façon asynchrone à partir d’un compte de stockage vers un autre. Utilisez az storage blob show pour vérifier l’état du nouvel objet blob.     |
+|
 
 ## <a name="generate-the-sas-address"></a>Générer l’adresse de SAS
 

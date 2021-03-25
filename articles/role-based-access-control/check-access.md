@@ -11,10 +11,10 @@ ms.date: 12/09/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98115726"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Démarrage rapide : Vérifier l’accès d’un utilisateur aux ressources Azure
@@ -57,10 +57,10 @@ Suivez ces étapes pour vérifier l’accès d’un utilisateur, groupe, princip
 
 1. Cliquez sur le principal de sécurité pour ouvrir le volet **Affectations**.
 
-    Dans ce volet, vous pouvez voir l’accès du principal de sécurité sélectionné pour cette étendue et celui hérité de cette étendue. Les affectations pour les étendues enfants ne sont pas listées. Les affectations suivantes s’affichent :
+    Dans ce volet, vous pouvez voir l’accès du principal de sécurité sélectionné pour cette étendue et celui hérité de cette étendue. Les affectations pour les étendues enfants ne sont pas listées. Les affectations suivantes s'affichent :
 
     - Attributions de rôle ajoutées avec RBAC Azure.
-    - Affectations de refus ajoutées en utilisant Azure Blueprints ou des applications managées Azure.
+    - Affectations de refus ajoutées à l’aide d’Azure Blueprints ou des applications managées Azure.
     - Affectations de l’administrateur de service classique ou de coadministrateurs pour les déploiements classiques. 
 
     ![Volet des affectations de rôle et de refus pour un utilisateur](./media/shared/rg-check-access-assignments-user.png)

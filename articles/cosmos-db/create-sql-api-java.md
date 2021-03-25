@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090407"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB
@@ -43,15 +43,15 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
 
 ## <a name="introductory-notes"></a>Remarques d’introduction
 
-*Structure d’un compte Cosmos DB.* Quels que soient l’API et le langage de programmation, un *compte* Cosmos DB contient zéro, une ou plusieurs *bases de données* , une *base de données* contient zéro, un ou plusieurs *conteneurs* et un *conteneur* contient zéro, un ou plusieurs éléments, comme illustré dans le schéma ci-dessous :
+*Structure d’un compte Cosmos DB.* Quels que soient l’API et le langage de programmation, un *compte* Cosmos DB contient zéro, une ou plusieurs *bases de données*, une *base de données* contient zéro, un ou plusieurs *conteneurs* et un *conteneur* contient zéro, un ou plusieurs éléments, comme illustré dans le schéma ci-dessous :
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entités du compte Azure Cosmos" border="false":::
 
 Pour en savoir plus sur les bases de données, les conteneurs et les éléments, consultez [cette page](account-databases-containers-items.md). Certaines propriétés importantes sont définies au niveau du conteneur, notamment le *débit provisionné* et la *clé de partition*. 
 
-Le débit provisionné est mesuré en unités de requête ( *RU* ), pour lesquelles un prix est fixé. Il s’agit d’un facteur déterminant du coût d’exploitation du compte. Vous pouvez choisir un débit provisionné par conteneur ou par base de données. Toutefois, il est généralement préférable de spécifier le débit au niveau du conteneur. Pour en savoir plus sur le provisionnement du débit consultez [cette page](set-throughput.md).
+Le débit provisionné est mesuré en unités de requête (*RU*), pour lesquelles un prix est fixé. Il s’agit d’un facteur déterminant du coût d’exploitation du compte. Vous pouvez choisir un débit provisionné par conteneur ou par base de données. Toutefois, il est généralement préférable de spécifier le débit au niveau du conteneur. Pour en savoir plus sur le provisionnement du débit consultez [cette page](set-throughput.md).
 
-À mesure que des éléments sont insérés dans un conteneur Cosmos DB, la base de données croît horizontalement : les capacités de stockage et de calcul augmentent pour assurer le traitement des requêtes. Les capacités de stockage et de calcul sont ajoutées par unités séparées appelées *partitions*. Vous devez choisir dans vos documents un champ qui sera la clé de partition qui mappe chaque document à une partition. Les partitions sont gérées de la façon suivante : à chaque partition est attribuée une section relativement équivalente de la plage de valeurs de clé de partition. Il est donc recommandé de choisir une clé de partition relativement aléatoire ou distribuée uniformément. Dans le cas contraire, un plus grand nombre de requêtes sera adressé à certaines partitions ( *partitions à chaud* ) et un nombre de requêtes sensiblement inférieur sera adressé à d’autres partitions ( *partitions à froid* ). Cette situation doit être évitée. Pour en savoir plus sur le partitionnement, consultez [cette page](partitioning-overview.md).
+À mesure que des éléments sont insérés dans un conteneur Cosmos DB, la base de données croît horizontalement : les capacités de stockage et de calcul augmentent pour assurer le traitement des requêtes. Les capacités de stockage et de calcul sont ajoutées par unités séparées appelées *partitions*. Vous devez choisir dans vos documents un champ qui sera la clé de partition qui mappe chaque document à une partition. Les partitions sont gérées de la façon suivante : à chaque partition est attribuée une section relativement équivalente de la plage de valeurs de clé de partition. Il est donc recommandé de choisir une clé de partition relativement aléatoire ou distribuée uniformément. Dans le cas contraire, un plus grand nombre de requêtes sera adressé à certaines partitions (*partitions à chaud*) et un nombre de requêtes sensiblement inférieur sera adressé à d’autres partitions (*partitions à froid*). Cette situation doit être évitée. Pour en savoir plus sur le partitionnement, consultez [cette page](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 

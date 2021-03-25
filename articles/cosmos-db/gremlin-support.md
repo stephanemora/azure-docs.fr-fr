@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
 ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630749"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Prise en charge des graphes Azure Cosmos DB Gremlin et compatibilité avec les fonctionnalités TinkerPop
@@ -169,31 +169,31 @@ Le moteur optimisé pour l’écriture fourni par Azure Cosmos DB prend en charg
 
 ## <a name="behavior-differences"></a>Différences de comportement
 
-* Le moteur de graphe Azure Cosmos DB fonctionne en ***largeur d’abord** _ sur la traversée tandis que TinkerPop Gremlin fonctionne en profondeur d’abord. Ce comportement permet d'obtenir de meilleures performances dans un système horizontalement évolutif comme Cosmos DB.
+* Le moteur Azure Cosmos DB Graph fonctionne ***d’abord en largeur*** de traversée tandis que TinkerPop Gremlin fonctionne d’abord en profondeur. Ce comportement permet d'obtenir de meilleures performances dans un système horizontalement évolutif comme Cosmos DB.
 
 ## <a name="unsupported-features"></a>Fonctionnalités non prises en charge
 
-_ * **[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ est une spécification pour les traversées de graphe indépendante du langage de programmation. Cosmos DB Graph ne la prend pas encore en charge. Utilisez `GremlinClient.SubmitAsync()` et passez la traversée en tant que chaîne de texte.
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** est une spécification pour les traversées de graphe indépendante du langage de programmation. Cosmos DB Graph ne la prend pas encore en charge. Utilisez `GremlinClient.SubmitAsync()` et passez la traversée en tant que chaîne de texte.
 
-_ La cardinalité des ensembles * **`property(set, 'xyz', 1)`** _ n’est actuellement pas prise en charge. Utilisez `property(list, 'xyz', 1)` à la place. Pour plus d’informations, consultez [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties) (Propriétés de vertex avec TinkerPop).
+* La cardinalité des ensembles ***`property(set, 'xyz', 1)`*** n’est pas prise en charge. Utilisez `property(list, 'xyz', 1)` à la place. Pour plus d’informations, consultez [Vertex properties with TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties) (Propriétés de vertex avec TinkerPop).
 
-_ L’***étape `match()`** _ n’est actuellement pas disponible. Cette étape fournit des fonctions d’interrogation déclarative.
+* L’***étape `match()`*** n’est pas disponible actuellement. Cette étape fournit des fonctions d’interrogation déclarative.
 
-_ Les ***objets en tant que propriétés** _ sur les sommets ou arêtes ne sont pas pris en charge. Les propriétés peuvent uniquement être des types primitifs ou des tableaux.
+* Les ***objets en tant que propriétés*** sur les sommets ou arêtes ne sont pas pris en charge. Les propriétés peuvent uniquement être des types primitifs ou des tableaux.
 
-_ Le ***tri par propriétés de tableau** _ `order().by(<array property>)` n’est pas pris en charge. Seul est pris en charge le tri par types primitifs.
+* Le ***tri par propriétés de tableau*** `order().by(<array property>)` n’est pas pris en charge. Seul est pris en charge le tri par types primitifs.
 
-_ Les ***types JSON non primitifs** _ ne sont pas pris en charge. Utilisez les types `string`, `number` ou `true`/`false`. Les valeurs `null` ne sont pas prises en charge. 
+* Les ***types JSON non primitifs*** ne sont pas pris en charge. Utilisez les types `string`, `number` ou `true`/`false`. Les valeurs `null` ne sont pas prises en charge. 
 
-_ Le sérialiseur ***GraphSONv3** n’est actuellement pas pris en charge. Utilisez les classes de sérialiseur, de lecteur et d’enregistreur `GraphSONv2` dans la configuration de la connexion. Les résultats renvoyés par l'API Azure Cosmos DB Gremlin ne sont pas au format GraphSON. 
+* Le sérialiseur ***GraphSONv3*** n’est pas pris en charge actuellement. Utilisez les classes de sérialiseur, de lecteur et d’enregistreur `GraphSONv2` dans la configuration de la connexion. Les résultats renvoyés par l'API Azure Cosmos DB Gremlin ne sont pas au format GraphSON. 
 
-_ Les **fonctions et expressions lambda** ne sont actuellement pas prises en charge. Cela comprend les fonctions `.map{<expression>}`, `.by{<expression>}` et `.filter{<expression>}`. Pour plus d’informations et pour découvrir comment les réécrire à l’aide d’étapes Gremlin, consultez [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas) (Remarque sur les lambdas).
+* Les **fonctions et les expressions lambda** ne sont pas prises en charge actuellement. Cela comprend les fonctions `.map{<expression>}`, `.by{<expression>}` et `.filter{<expression>}`. Pour plus d’informations et pour découvrir comment les réécrire à l’aide d’étapes Gremlin, consultez [A Note on Lambdas](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas) (Remarque sur les lambdas).
 
-* Les ***transactions** _ ne sont pas prises en charge en raison de la nature distribuée du système.  Configurez un modèle d’accès concurrentiel optimiste approprié sur le compte Gremlin pour « lire vos propres écrits », et utilisez l’accès concurrentiel optimiste pour résoudre les conflits d’écritures.
+* Les ***transactions*** ne sont pas prises en charge en raison de la nature distribuée du système.  Configurez un modèle d’accès concurrentiel optimiste approprié sur le compte Gremlin pour « lire vos propres écrits », et utilisez l’accès concurrentiel optimiste pour résoudre les conflits d’écritures.
 
 ## <a name="known-limitations"></a>Limitations connues
 
-_ **Étapes de l’utilisation de l’index pour les requêtes Gremlin avec `.V()` à mi-parcours** : Actuellement, seul le premier appel `.V()` d’une traversée utilisera l’index pour résoudre les filtres ou prédicats qui lui sont associés. Les appels suivants ne consultent pas l’index, ce qui peut augmenter la latence et le coût de la requête.
+* **Utilisation de l’index pour les requêtes Gremlin avec des étapes `.V()` mi-parcours** : Actuellement, seul le premier appel `.V()` d’une traversée utilisera l’index pour résoudre les filtres ou prédicats qui lui sont associés. Les appels suivants ne consultent pas l’index, ce qui peut augmenter la latence et le coût de la requête.
     
 Dans l’hypothèse de l’indexation par défaut, une requête Gremlin de lecture classique commençant par l’étape `.V()` utiliserait des paramètres dans les étapes de filtrage associées, tels que `.has()` ou `.where()`, pour optimiser le coût et les performances de la requête. Par exemple :
 

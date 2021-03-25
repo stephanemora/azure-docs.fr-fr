@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour créer une configuration de jeu de ressources déterminé
+title: Comment créer une configuration de jeu de ressources déterminé
 description: Découvrez comment créer une règle de configuration de jeu de ressources déterminé pour changer la manière dont les ressources sont regroupées dans les jeux de ressources
 author: djpmsft
 ms.author: daperlov
@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
-ms.openlocfilehash: 8d7d482f38d58c8d6a8959acb51c94c0fb814697
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668433"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608000"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Créer des règles de configuration de jeu de ressources déterminé
 
@@ -24,20 +24,29 @@ Lors de l’analyse d’un compte de stockage, Azure Purview se sert d’un ense
 
 Suivez les étapes ci-dessous pour créer une configuration de jeu de ressources déterminé :
 
-1. Accédez au centre de gestion. Sélectionnez **Jeux de ressources déterminés** dans le menu. Cliquez sur **+ Nouveau** pour créer un ensemble de règles de configuration.
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Créer une règle de jeu de ressources déterminé" border="true":::
+1. Accédez au centre de gestion. Sélectionnez **Jeux de ressources déterminés** dans le menu. Cliquez sur **+ Nouveau** pour créer un nouvel ensemble de règles de configuration.
 
-1. Entrez l’étendue de votre configuration de jeu de ressources déterminé. Sélectionnez le type de compte de stockage et le nom du compte de stockage sur lequel vous souhaitez créer un ensemble de règles. Chaque ensemble de règles est appliqué par rapport à une étendue de chemin de dossier spécifiée dans le champ **Chemin du dossier**. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Créer une règle de jeu de ressources déterminé" border="true":::
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Créer une règle de jeu de ressources déterminé" border="true":::
+
+1. Entrez l’étendue de votre configuration de jeu de ressources déterminé. Sélectionnez le type de compte de stockage et le nom du compte de stockage sur lequel vous souhaitez créer un ensemble de règles. Chaque ensemble de règles est appliqué par rapport à une étendue de chemin de dossier spécifiée dans le champ **Chemin du dossier**.
+
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Créer des configurations de jeu de ressources déterminé" border="true":::
 
 1. Pour entrer une règle destinée à une étendue de configuration, sélectionnez **+ Nouvelle règle**.
+
 1. Renseignez les champs suivants pour créer une règle :
-    1. **Nom de la règle.** Nom de la règle de configuration. Ce champ n’a aucun effet sur les ressources auxquelles la règle s’applique.
-    1. **Nom qualifié.** Chemin qualifié qui utilise une combinaison de texte, de remplacements dynamiques et de remplaçants statiques pour faire correspondre les ressources à la règle de configuration. Ce chemin dépend de l’étendue de la règle de configuration. Consultez la section sur la [syntaxe](#syntax) ci-dessous pour obtenir des instructions détaillées sur la façon de spécifier des noms qualifiés. 
-    1. **Nom d’affichage.** Nom d’affichage de la ressource. Ce champ est facultatif. Utilisez du texte brut et des remplaçants statiques pour personnaliser l’affichage d’une ressource dans le catalogue. Pour obtenir des instructions plus détaillées, consultez la section sur la [syntaxe](#syntax) ci-dessous.
-    1. **Ne pas regrouper en jeu de ressources.** Si cette option est activée, la ressource correspondante n’est pas regroupée dans un jeu de ressources. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Créer une règle de jeu de ressources déterminé" border="true"::: 
-1. Enregistrez la règle en cliquant sur **Ajouter**. 
+
+   1. **Nom de la règle.** Nom de la règle de configuration. Ce champ n’a aucun effet sur les ressources auxquelles la règle s’applique.
+
+   1. **Nom qualifié.** Chemin qualifié qui utilise une combinaison de texte, de remplacements dynamiques et de remplaçants statiques pour faire correspondre les ressources à la règle de configuration. Ce chemin dépend de l’étendue de la règle de configuration. Consultez la section sur la [syntaxe](#syntax) ci-dessous pour obtenir des instructions détaillées sur la façon de spécifier des noms qualifiés.
+
+   1. **Nom d’affichage.** Nom d’affichage de la ressource. Ce champ est facultatif. Utilisez du texte brut et des remplaçants statiques pour personnaliser l’affichage d’une ressource dans le catalogue. Pour obtenir des instructions plus détaillées, consultez la section sur la [syntaxe](#syntax) ci-dessous.
+
+   1. **Ne pas regrouper en jeu de ressources.** Si cette option est activée, la ressource correspondante n’est pas regroupée dans un jeu de ressources.
+
+      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Créer une nouvelle règle de configuration." border="true":::
+
+1. Enregistrez la règle en cliquant sur **Ajouter**.
 
 ## <a name="scoped-resource-set-syntax"></a><a name="syntax"></a> Syntaxe du jeu de ressources déterminé
 
@@ -69,21 +78,23 @@ Voici les types disponibles qui peuvent être utilisés dans les remplacements s
 | ---- | --------- |
 | string | Série de 1 ou de plusieurs caractères Unicode, y compris des délimiteurs comme les espaces. |
 | int | Série de 1 ou de plusieurs caractères ASCII allant de 0 à 9, et pouvant commencer par 0 (par exemple, 0001). |
-| guid | Série d’une représentation de chaîne 32 ou 8-4-4-4-12 d’un UUID tel que défini dans https://tools.ietf.org/html/rfc4122 |
-| Date | Série de 6 ou 8 caractères ASCII allant de 0 à 9, avec des séparateurs facultatifs : aaaammjj, aaaa-mm-jj, aammjj, aa-mm-jj, comme spécifié dans https://tools.ietf.org/html/rfc3339 |
-| time | Série de 4 ou 6 caractères ASCII allant de 0 à 9, avec des séparateurs facultatifs : HHmm, HH:mm, HHmmss, HH:mm:ss, tel que précisé dans https://tools.ietf.org/html/rfc3339 |
-| timestamp | Série de 12 ou 14 caractères ASCII allant de 0 à 9, avec des séparateurs facultatifs : aaaa-mm-jjTHH:mm, aaaammjjhhmm, aaaa-mm-jjTHH:mm:ss, aaaammjjHHmmss, tel que défini dans https://tools.ietf.org/html/rfc3339 |
-| boolean | Peut contenir « true » ou « false », non-respect de la casse. |
-| nombre | Série de 0 ou de plusieurs caractères ASCII allant de 0 à 9, pouvant commencer par 0 (par exemple, 0001) et être suivi éventuellement d’un point « . » et série de 1 ou de plusieurs caractères ASCII allant de 0 à 9, pouvant se terminer par 0 (par exemple, .100) | 
+| guid | Série d’une représentation de chaîne 32 ou 8-4-4-4-12 d’un UUID tel que défini dans [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| Date | Série de 6 ou 8 caractères ASCII allant de 0 à 9, avec des séparateurs facultatifs : aaaammjj, aaaa-mm-jj, aammjj, aa-mm-jj, comme spécifié dans [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| time | Série de 4 ou 6 caractères ASCII allant de 0 à 9, avec des séparateurs facultatifs : HHmm, HH:mm, HHmmss, HH:mm:ss, tel que précisé dans [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| timestamp | Série de 12 ou 14 caractères ASCII allant de 0 à 9, avec des séparateurs facultatifs : aaaa-mm-jjTHH:mm, aaaammjjhhmm, aaaa-mm-jjTHH:mm:ss, aaaammjjHHmmss, tel que défini dans [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| boolean | Peut contenir « true » ou « false », insensible à la casse. |
+| nombre | Une série de 0 ou de plusieurs caractères ASCII allant de 0 à 9, pouvant commencer par 0 (par exemple, 0001) et être suivi éventuellement d’un point « . » et série de 1 ou de plusieurs caractères ASCII allant de 0 à 9, pouvant se terminer par 0 (par exemple, .100) |
 | hex | Série de 1 ou de plusieurs caractères ASCII compris dans l’ensemble de chiffres 0 à 1 et de lettres A à F ; la valeur peut comporter le préfixe 0 |
-| locale | Chaîne qui correspond à la syntaxe spécifiée dans https://tools.ietf.org/html/rfc5646 |
+| locale | Chaîne qui correspond à la syntaxe spécifiée dans [RFC 5646](https://tools.ietf.org/html/rfc5646). |
 
-## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Ordre d’application des règles du jeu de ressources déterminé.
+## <a name="order-of-scoped-resource-set-rules-getting-applied"></a>Ordre d’application des règles de jeu de ressources déterminé.
 
 Voici l’ordre des opérations permettant d’appliquer des règles de jeu de ressources déterminé :
 
-1. Les étendues plus sélectives sont prioritaires si une ressource est conforme à deux règles. Par exemple, les règles d’une étendue `container/folder` s’appliquent avant les règles dont la portée est `container`. 
+1. Les étendues plus sélectives sont prioritaires si une ressource est conforme à deux règles. Par exemple, les règles d’une étendue `container/folder` s’appliquent avant les règles dont la portée est `container`.
+
 1. L’ordre des règles au sein d’une étendue particulière. Il est modifiable dans l’expérience utilisateur.
+
 1. Si une ressource ne correspond à aucune règle spécifiée, les heuristiques du jeu de ressources par défaut s’appliquent.
 
 ## <a name="examples"></a>Exemples
@@ -95,16 +106,16 @@ Extraction de données SAP en charges complètes et différentielles
 #### <a name="inputs"></a>Entrées
 
 Fichiers :
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
--   `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### <a name="scoped-resource-set-rule"></a>Règle de jeu de ressources déterminé 
+#### <a name="scoped-resource-set-rule"></a>Règle de jeu de ressources déterminé
 
-**Étendue :** https://myazureblob.blob.core.windows.net/bar/
+**Étendue :** `https://myazureblob.blob.core.windows.net/bar/`
 
 **Nom d’affichage :** « Client externe »
 
@@ -112,7 +123,7 @@ Fichiers :
 
 **Nom du jeu de ressources :** true
 
-#### <a name="output"></a>Output 
+#### <a name="output"></a>Output
 
 Une ressource de jeu de ressources
 
@@ -124,17 +135,18 @@ Une ressource de jeu de ressources
 
 Données IoT au format Avro
 
-#### <a name="inputs"></a>Entrées 
+#### <a name="inputs"></a>Entrées
 
 Fichiers :
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rules"></a>Règles de jeu de ressources déterminé 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Étendue :** https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rules"></a>Règles de jeu de ressources déterminé
+
+**Étendue :** `https://myazureblob.blob.core.windows.net/bar/`
 
 Règle 1
 
@@ -150,11 +162,11 @@ Règle 2
 
 **Nom qualifié :** `raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### <a name="resource-set-true"></a>*Nom du jeu de ressources : true* 
+#### <a name="resource-set-true"></a>*Nom du jeu de ressources : true*
 
-#### <a name="outputs"></a>Sorties 
+#### <a name="outputs"></a>Sorties
 
-2 jeux de ressources 
+2 jeux de ressources
 
 Jeu de ressources 1
 
@@ -172,17 +184,18 @@ Jeu de ressources 2
 
 Données IoT au format Avro
 
-#### <a name="inputs"></a>Entrées 
+#### <a name="inputs"></a>Entrées
 
 Fichiers :
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Règle de jeu de ressources déterminé 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Étendue :** https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Règle de jeu de ressources déterminé
+
+**Étendue :** `https://myazureblob.blob.core.windows.net/bar/`
 
 **Nom d’affichage :** « Machine-{{Machineid}} »
 
@@ -190,7 +203,7 @@ Fichiers :
 
 **Nom du jeu de ressources :** true
 
-#### <a name="outputs"></a>Sorties 
+#### <a name="outputs"></a>Sorties
 
 Jeu de ressources 1
 
@@ -208,25 +221,26 @@ Jeu de ressources 2
 
 Ne pas regrouper dans des jeux de ressources
 
-#### <a name="inputs"></a>Entrées 
+#### <a name="inputs"></a>Entrées
 
 Fichiers :
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--   `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### <a name="scoped-resource-set-rule"></a>Règle de jeu de ressources déterminé 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Étendue :** https://myazureblob.blob.core.windows.net/bar/
+#### <a name="scoped-resource-set-rule"></a>Règle de jeu de ressources déterminé
 
-**Nom d’affichage :** « Machine-{{Machineid}} »
+**Étendue :** `https://myazureblob.blob.core.windows.net/bar/`
+
+**Nom d’affichage :** `Machine-{{machineid}}`
 
 **Nom qualifié :** `raw/machinename-{{machineid:int}}/{{:date}}/{{:time}}-{{:int}}.avro`
 
 **Jeu de ressources :** false
 
-#### <a name="outputs"></a>Sorties 
+#### <a name="outputs"></a>Sorties
 
 4 ressources individuelles
 

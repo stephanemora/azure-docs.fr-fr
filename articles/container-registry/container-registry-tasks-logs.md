@@ -4,10 +4,10 @@ description: Guide pratique pour afficher et gérer les journaux d’exécution 
 ms.topic: article
 ms.date: 03/09/2020
 ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027174"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Afficher et gérer les journaux d’exécution des tâches
@@ -60,19 +60,19 @@ Run ID: cf4 was successful after 5s
 
 Azure Container Registry stocke les journaux d’exécution de toutes les tâches. Vous pouvez afficher les journaux d’exécution stockés dans le portail Azure. Ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs) pour afficher un journal sélectionné. Par défaut, les journaux d’activité sont conservés 30 jours.
 
-Si une tâche est déclenchée automatiquement, par exemple par une mise à jour du code source, l’accès aux journaux stockés est l’ *unique* moyen d’afficher les journaux d’exécution. Les déclencheurs de tâches automatiques incluent les validations de code source ou les requêtes de tirage, les mises à jour d’image de base et les déclencheurs de minuteur.
+Si une tâche est déclenchée automatiquement, par exemple par une mise à jour du code source, l’accès aux journaux stockés est l’*unique* moyen d’afficher les journaux d’exécution. Les déclencheurs de tâches automatiques incluent les validations de code source ou les requêtes de tirage, les mises à jour d’image de base et les déclencheurs de minuteur.
 
 Pour afficher les journaux d’exécution dans le portail :
 
 1. Accédez à votre registre de conteneurs.
-1. Dans **Services** , sélectionnez **Tâches** > **Exécutions**.
+1. Dans **Services**, sélectionnez **Tâches** > **Exécutions**.
 1. Sélectionnez un **ID d’exécution** pour afficher l’état d’exécution et les journaux d’exécution. Le journal contient les mêmes informations qu’un journal diffusé en continu, le cas échéant.
 
 ![Afficher l’exécution d’une tâche dans le portail de connexion](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Pour afficher un journal à l’aide de l’interface de ligne de commande Azure, exécutez [az acr task logs](/cli/azure/acr/task#az-acr-task-logs), puis spécifiez un ID d’exécution, un nom de tâche ou une image spécifique créée par une tâche de génération. Si un nom de tâche est spécifié, la commande affiche le journal de la dernière exécution créée.
 
-L’exemple suivant génère le journal pour l’exécution dont l’ID est *CF4*  :
+L’exemple suivant génère le journal pour l’exécution dont l’ID est *CF4* :
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \

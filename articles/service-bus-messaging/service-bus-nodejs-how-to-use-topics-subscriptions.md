@@ -8,10 +8,10 @@ ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
 ms.openlocfilehash: a1afe4207ce3833f3bcb55bc7bc2e8e27f393f63
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98179994"
 ---
 # <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>Démarrage rapide : Rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus en préversion
@@ -207,5 +207,5 @@ Dans cette page, si vous sélectionnez un abonnement, vous accédez à la page *
 Voir la documentation et les exemples suivants : 
 
 - [Bibliothèque de client Azure Service Bus pour Python](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Le dossier **JavaScript** contient des exemples JavaScript, et le dossier **typescript** contient des exemples TypeScript. 
+- [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). Le dossier **javascript** contient des exemples JavaScript, et le dossier **typescript** contient des exemples TypeScript. 
 - [Documentation de référence sur azure-servicebus](/javascript/api/overview/azure/service-bus)

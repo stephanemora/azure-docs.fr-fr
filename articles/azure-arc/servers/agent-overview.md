@@ -1,14 +1,14 @@
 ---
-title: Présentation de l’agent Connected Machine Windows
+title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651091"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470487"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs activés par Azure Arc
 
@@ -90,9 +90,11 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 ### <a name="required-permissions"></a>Autorisations requises
 
-* Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration de machine connectée à Azure**.
+* Pour intégrer des ordinateurs, vous devez être membre du rôle **Intégration Azure Connected Machine** ou [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) dans le groupe de ressources.
 
-* Pour lire, modifier et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources Azure Connected Machine**. 
+* Pour lire, modifier et supprimer un ordinateur, vous devez être membre du rôle **Administrateur des ressources Azure Connected Machine** dans le groupe de ressources.
+
+* Pour sélectionner un groupe de ressources dans la liste déroulante lors de l’utilisation de la méthode de **génération de script**, vous devez être au minimum membre du rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) pour ce groupe de ressources.
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 

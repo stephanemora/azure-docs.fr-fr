@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
 ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333577"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service avec une application web à partir de GitHub à l’aide d’un modèle Azure Resource Manager
@@ -44,15 +44,15 @@ Une fois dans le Portail Azure, sélectionnez l’abonnement dans lequel effectu
 
 :::image type="content" source="./media/create-website/template-deployment.png" alt-text="Capture d’écran de l’interface utilisateur du déploiement de modèle":::
 
-* **Région**  : cela est requis par le Resource Manager. Entrez la même région que celle utilisée par le paramètre d’emplacement où se trouvent vos ressources.
-* **Nom de l’application**  : ce nom est utilisé par toutes les ressources pour ce déploiement. Veillez à choisir un nom unique pour éviter les conflits avec les comptes Azure Cosmos DB et App Service existants.
-* **Emplacement**  : la région où les ressources sont déployées.
-* **Niveau du plan App Service**  : niveau tarifaire du plan App Service.
-* **Instances du plan App Service**  : le nombre de Workers du plan App Service.
-* **URL du référentiel**  : le référentiel de l’application web sur GitHub.
-* **Branche**  : la branche du référentiel GitHub.
-* **Nom de la base de données**  : le nom de la base de données Azure Cosmos.
-* **Nom du conteneur**  : le nom du conteneur Azure Cosmos.
+* **Région** : cela est requis par le Resource Manager. Entrez la même région que celle utilisée par le paramètre d’emplacement où se trouvent vos ressources.
+* **Nom de l’application** : ce nom est utilisé par toutes les ressources pour ce déploiement. Veillez à choisir un nom unique pour éviter les conflits avec les comptes Azure Cosmos DB et App Service existants.
+* **Emplacement** : la région où les ressources sont déployées.
+* **Niveau du plan App Service** : niveau tarifaire du plan App Service.
+* **Instances du plan App Service** : le nombre de Workers du plan App Service.
+* **URL du référentiel** : le référentiel de l’application web sur GitHub.
+* **Branche** : la branche du référentiel GitHub.
+* **Nom de la base de données** : le nom de la base de données Azure Cosmos.
+* **Nom du conteneur** : le nom du conteneur Azure Cosmos.
 
 Après avoir renseigné les valeurs, sélectionnez le bouton **Créer** pour démarrer le déploiement. Cette étape devrait prendre 5 à 10 minutes.
 

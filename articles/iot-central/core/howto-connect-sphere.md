@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123421"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Connecter un appareil Azure Sphere à votre application Azure IoT Central
@@ -67,7 +67,7 @@ Pour permettre à l’exemple de se connecter à IoT Central, vous devez [config
 
 Une fois l'appareil connecté à IoT Central, les données de télémétrie s'affichent sur le tableau de bord.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Modèle d’appareil pour kit de développement Azure Sphere":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Tableau de bord pour kit de développement Azure Sphere":::
 
 ## <a name="create-a-simulated-device"></a>Créez un appareil simulé.
 
@@ -86,4 +86,4 @@ Pour créer un appareil simulé :
 Si vous êtes un développeur d’appareils, nous vous suggérons les étapes suivantes :
 
 - En savoir plus sur la [connectivité des appareils dans Azure IoT Central](./concepts-get-connected.md)
-- Découvrir comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Découvrez comment [superviser la connectivité des appareils à l’aide d’Azure CLI](./howto-monitor-devices-azure-cli.md)

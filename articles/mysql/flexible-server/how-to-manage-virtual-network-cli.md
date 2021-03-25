@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: a41cd2ce14ceb452d783b472955de347199d0870
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97109468"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Créer et gérer des réseaux virtuels pour Azure Database pour MySQL - Serveur flexible à l’aide d’Azure CLI
@@ -62,7 +62,7 @@ Pour obtenir la liste complète des paramètres CLI configurables, reportez-vou
     ```azurecli-interactive
     az mysql flexible-server create
     ```
-- Créez un serveur flexible à l’aide d’un réseau virtuel et d’un sous-réseau déjà existants. Si le réseau virtuel et le sous-réseau spécifiés n’existent pas, ils seront créés avec le préfixe d’adresse par défaut.
+- Créez un serveur flexible à l’aide d’un réseau virtuel et d’un sous-réseau existants. Si le réseau virtuel et le sous-réseau spécifiés n’existent pas, ils seront créés avec le préfixe d’adresse par défaut.
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
     ```

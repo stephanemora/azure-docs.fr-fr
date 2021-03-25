@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320236"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Utiliser Azure Data Studio pour gérer vos groupes de serveurs PostgreSQL Hyperscale compatibles avec Azure Arc
@@ -34,7 +34,7 @@ Cet article explique comment :
 
 ## <a name="connect-to-the-azure-arc-data-controller"></a>Se connecter au contrôleur de données Azure Arc
 
-Dans Azure Data Studio, développez le nœud **Contrôleurs Azure Arc** et sélectionnez le bouton **Connexion au contrôleur**  :
+Dans Azure Data Studio, développez le nœud **Contrôleurs Azure Arc** et sélectionnez le bouton **Connexion au contrôleur** :
 
 Entrez les informations de connexion à votre contrôleur de données Azure :
 
@@ -68,12 +68,12 @@ Comporte plusieurs tableaux de bord figurant sur le côté gauche de ce volet :
 
 ## <a name="work-with-your-data-and-schema"></a>Utiliser vos données et votre schéma
 
-Sur le côté gauche de la fenêtre Azure Data Studio, développez le nœud **Serveurs**  :
+Sur le côté gauche de la fenêtre Azure Data Studio, développez le nœud **Serveurs** :
 
 Sélectionnez [Ajouter une connexion] et renseignez les informations de connexion à votre instance PostgreSQL :
 - **Type de connexion :** PostgreSQL
 - **Nom du serveur :** entrez le nom de votre instance PostgreSQL. Par exemple : postgres01
-- **Type d’authentification**  : Mot de passe
+- **Type d’authentification** : Mot de passe
 - **Nom d’utilisateur :** par exemple, vous pouvez utiliser le nom d’utilisateur administrateur PostgreSQL standard/par défaut. Notez que ce champ respecte la casse.
 - **Mot de passe :** vous trouverez le mot de passe du nom d’utilisateur PostgreSQL dans la chaîne de connexion psql dans la sortie de la commande `azdata postgres server endpoint -n postgres01`
 - **Nom de la base de données :** définissez le nom de la base de données à laquelle vous souhaitez vous connecter. Vous pouvez laisser la valeur __par défaut__

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 8ef32ecfb6f69b71d29578d3b8314f568fd9386a
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102431072"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo

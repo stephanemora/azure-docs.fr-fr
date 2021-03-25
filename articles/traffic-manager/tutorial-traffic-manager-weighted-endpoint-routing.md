@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003784"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Tutoriel : Contrôler le routage du trafic avec des points de terminaison pondérés à l’aide de Traffic Manager
@@ -137,7 +137,7 @@ Créez un profil Traffic Manager basé sur la méthode de routage **Pondéré**.
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations de base suivantes. Acceptez les valeurs par défaut des autres paramètres, puis sélectionnez **Créer**.
 
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Nom                   | Entrez un nom unique dans la zone trafficmanager.net. Cela attribuera le nom DNS trafficmanager.net qui vous permettra d’accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Pondéré**.                                       |

@@ -4,12 +4,12 @@ description: Découvrez comment résoudre les problèmes liés à l’agent Java
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: f971466f25c2b7a4bd28e5b7eec6268f1b2e8b3d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199609"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103225572"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guide de résolution des problèmes : Azure Monitor Application Insights pour Java
 
@@ -41,7 +41,9 @@ Ces modifications sont les suivantes :
 
 ## <a name="some-logging-is-not-auto-collected"></a>Une partie de la journalisation n’est pas collectée automatiquement
 
-La journalisation n’est capturée que si elle respecte, premièrement, le seuil configuré des infrastructures de journalisation, et deuxièmement, le seuil configuré d’Application Insights.
+La journalisation est capturée uniquement si elle est conforme au niveau configuré pour le framework de journalisation, et si elle correspond également au niveau configuré pour Application Insights.
+
+Par exemple, si votre infrastructure de journalisation est configurée pour consigner `WARN` (et versions ultérieures) à partir du package `com.example`, et que Application Insights est configuré pour capturer `INFO` (et versions ultérieures), alors Application Insights capturera uniquement `WARN` (et versions ultérieures) à partir du package `com.example`.
 
 La meilleure façon de savoir si une instruction de journalisation particulière respecte le seuil configuré des frameworks de journalisation est de confirmer qu’elle apparaît dans le journal des applications (par exemple, fichier ou console).
 

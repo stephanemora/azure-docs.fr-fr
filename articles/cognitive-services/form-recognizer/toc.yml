@@ -7,40 +7,20 @@
       href: overview.md
     - name: Nouveautés
       href: whats-new.md
-- name: Bien démarrer avec Form Recognizer
-  expanded: true
+- name: Démarrages rapides
   items:
-    - name: Utilisation de la bibliothèque de client ou de l’API REST
+    - name: Bien démarrer avec la bibliothèque cliente ou l’API REST
       href: quickstarts/client-library.md
-    - name: Utilisation de l’outil d’étiquetage des exemples
+    - name: Utiliser l’outil d’étiquetage des exemples
       href: quickstarts/label-tool.md
-- name: Tutoriels
+- name: Exemples
   items:
-    - name: Utiliser Form Recognizer avec Recherche cognitive
-      href: ../../search/cognitive-search-custom-skill-form.md
-    - name: Utiliser Form Recognizer avec AI Builder
-      href: tutorial-ai-builder.md
-    - name: Utiliser Form Recognizer avec Azure Functions
-      href: tutorial-azure-function.md
-    - name: Extraire des données de formulaire en bloc
-      href: tutorial-bulk-processing.md
-- name: Concepts
-  items:
-    - name: API de disposition
-      expanded: true
-      items:
-        - name: Extraire des données de formulaire
-          href: concept-layout.md
-    - name: Modèles personnalisés
-      href: concept-custom.md
-    - name: Reçus
-      href: concept-receipts.md
-    - name: Cartes de visite
-      href: concept-business-cards.md
-    - name: Factures
-      href: concept-invoices.md
-    - name: Cartes d’identification
-      href: concept-identification-cards.md
+    - name: "C#/.NET\_: SDK de la bibliothèque de client Form Recognizer pour .NET"
+      href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+    - name: "Java\_: SDK de la bibliothèque de client Form Recognizer pour .NET"
+      href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    - name: "Python\_: SDK de la bibliothèque de client Form Recognizer pour .NET"
+      href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
 - name: Guides pratiques
   items:
     - name: Créer un jeu de données d’entraînement
@@ -64,6 +44,33 @@
           href: ../containers/index.yml
     - name: Sauvegarder et récupérer des modèles
       href: disaster-recovery.md
+- name: Concepts
+  items:
+    - name: API de disposition
+      expanded: true
+      items:
+        - name: Extraire des données de formulaire
+          href: concept-layout.md
+    - name: Modèles personnalisés
+      href: concept-custom.md
+    - name: Reçus
+      href: concept-receipts.md
+    - name: Cartes de visite
+      href: concept-business-cards.md
+    - name: Factures
+      href: concept-invoices.md
+    - name: Cartes d’identification
+      href: concept-identification-cards.md
+- name: Tutoriels
+  items:
+    - name: Extraire des données de formulaire en bloc
+      href: tutorial-bulk-processing.md
+    - name: Utiliser Form Recognizer avec Recherche cognitive
+      href: ../../search/cognitive-search-custom-skill-form.md
+    - name: Utiliser Form Recognizer avec AI Builder
+      href: tutorial-ai-builder.md
+    - name: Utiliser Form Recognizer avec Azure Functions
+      href: tutorial-azure-function.md
 - name: Informations de référence
   items:
     - name: "API Form Recognizer\_v2.1 preview.3"

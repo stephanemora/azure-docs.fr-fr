@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
 ms.openlocfilehash: 156a4c74eea24b20c28df88be85cb32c0ebe2981
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012446"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Déterminer la taille de sous-réseau d’un réseau virtuel pour Azure SQL Managed Instance
@@ -52,14 +52,14 @@ Dimensionnez votre sous-réseau en fonction des besoins futurs de déploiement e
 
 GP = usage général ; BC = critique pour l’entreprise ; VC = cluster virtuel
 
-| **Génération de matériel** | **Niveau tarifaire** | **Utilisation d’Azure** | **Utilisation de VC** | **Utilisation de l’instance** | **Total** _ |
+| **Génération de matériel** | **Niveau tarifaire** | **Utilisation d’Azure** | **Utilisation de VC** | **Utilisation de l’instance** | **Total*** |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \_ Le total de la colonne affiche le nombre d’adresses qui seraient prises lorsqu’une instance est déployée dans le sous-réseau. Chaque instance supplémentaire dans le sous-réseau ajoute le nombre d’adresses représentées par la colonne d’utilisation de l’instance. Les adresses représentées par la colonne d’utilisation d’Azure sont partagées entre plusieurs clusters virtuels, tandis que les adresses représentées par la colonne d’utilisation de VC sont partagées entre les instances placées dans ce cluster virtuel.
+  \* Le total de la colonne affiche le nombre d’adresses qui seraient prises lorsqu’une instance est déployée dans le sous-réseau. Chaque instance supplémentaire dans le sous-réseau ajoute le nombre d’adresses représentées par la colonne d’utilisation de l’instance. Les adresses représentées par la colonne d’utilisation d’Azure sont partagées entre plusieurs clusters virtuels, tandis que les adresses représentées par la colonne d’utilisation de VC sont partagées entre les instances placées dans ce cluster virtuel.
 
 L’opération de mise à jour nécessite généralement un redimensionnement de cluster virtuel. Dans certains cas, l’opération de mise à jour nécessite la création d’un cluster virtuel (pour plus d’informations, consultez [l’article sur les opérations de gestion](sql-managed-instance-paas-overview.md#management-operations)). En cas de création d’un cluster virtuel, le nombre d’adresses supplémentaires requises est égal au nombre d’adresses représentées par la colonne d’utilisation de VC auquel vous ajoutez les adresses requises pour les instances placées dans ce cluster virtuel (colonne d’utilisation de l’instance).
 
@@ -74,12 +74,12 @@ Comme indiqué ci-dessus, dans certains cas, l’opération de mise à jour néc
 
 Pendant l’opération de mise à l’échelle, les instances nécessitent temporairement une capacité d’adresse IP supplémentaire qui dépend du niveau tarifaire et de la génération de matériel
 
-| **Génération de matériel** | **Niveau tarifaire** | **Scénario** | **Adresses supplémentaires** _ |
+| **Génération de matériel** | **Niveau tarifaire** | **Scénario** | **Adresses supplémentaires*** |
 | --- | --- | --- | --- |
 | Gen4 | GP ou BC | Mise à l’échelle de vCores | 5 |
 | Gen4 | GP ou BC | Mise à l’échelle du stockage | 5 |
 | Gen4 | GP ou BC | Passage de GP à BC ou BC à GP | 5 |
-| Gen4 | GP | Passage à Gen5_ | 9 |
+| Gen4 | GP | Passage à Gen5* | 9 |
 | Gen4 | BC | Passage à Gen5* | 11 |
 | Gen5 | GP | Mise à l’échelle de vCores | 3 |
 | Gen5 | GP | Mise à l’échelle du stockage | 0 |

@@ -4,10 +4,10 @@ description: Cet article décrit les fonctionnalités de sécurité réseau, com
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: db0dd89d1f902699c27b724609505ba681757454
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310459"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Sécurité réseau pour Azure Service Bus 

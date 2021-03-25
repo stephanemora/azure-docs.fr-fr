@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330493"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry dans Event Hubs (préversion)
@@ -18,7 +18,7 @@ Le **Registre de schéma Azure** est une fonctionnalité de Event Hubs, qui four
 
 > [!NOTE]
 > - La fonctionnalité **Registre de schémas** est actuellement en **préversion** et n’est pas recommandée pour les charges de travail de production.
-> - Cette fonctionnalité est disponible uniquement pour les niveaux **standard** et **dédié** et non pour le niveau **de base** .
+> - Cette fonctionnalité est disponible uniquement pour les niveaux **standard** et **dédié** et non pour le niveau **de base**.
 
 Avec les infrastructures de sérialisation basées sur des schémas comme Apache Avro, l’externalisation des métadonnées de sérialisation dans des schémas partagés peut également réduire considérablement la surcharge par message des informations sur le type et des noms de champs inclus avec chaque jeu de données, comme c’est le cas avec des formats étiquetés tels que JSON. Le fait de disposer de schémas stockés avec les événements et à l’intérieur de l’infrastructure d’événements permet de s’assurer que les métadonnées requises pour la sérialisation/désérialisation sont toujours accessibles et que les schémas ne peuvent pas être mal placés. 
 
@@ -65,7 +65,7 @@ Pour obtenir des instructions sur la création et l’inscription d’une applic
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment créer un registre de schémas à l’aide du portail Azure, consultez [Créer un registre de schémas Event Hubs à l’aide du portail Azure](create-schema-registry.md).
-- Reportez-vous aux exemples suivants de la **Bibliothèque client Avro de registre de schémas** .
+- Reportez-vous aux exemples suivants de la **Bibliothèque client Avro de registre de schémas**.
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )

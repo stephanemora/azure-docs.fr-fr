@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
 ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95249889"
 ---
 # <a name="delete-volume-replications-or-volumes"></a>Supprimer des volumes ou des réplications de volume
@@ -34,10 +34,10 @@ Pour mettre fin à la connexion de réplication entre les volumes source et de d
     1. Sélectionnez le volume de *destination*. Cliquez sur **Réplication** sous Service de stockage.  
 
     2.  Vérifiez les champs suivants avant de continuer :  
-        * Vérifiez qu’État du miroir indique ***En miroir** _.   
-            N’essayez pas d’arrêter le peering de réplication si État du miroir indique _Non initialisé*.
-        * Vérifiez qu’État de la relation indique ***Inactif** _.   
-            N’essayez pas d’arrêter le peering de réplication si État de la relation indique _Transfert en cours*.   
+        * Vérifiez qu’État du miroir indique ***En miroir***.   
+            N’essayez pas d’arrêter le peering de réplication si État du miroir indique *Non initialisé*.
+        * Vérifiez qu’État de la relation indique ***Inactive***.   
+            N’essayez pas d’arrêter le peering de réplication si État de la relation indique *Transfert en cours*.   
 
         Voir [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md). 
 

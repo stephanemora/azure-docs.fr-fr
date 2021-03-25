@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333237"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modélisation des données dans Azure Cosmos DB
@@ -31,7 +31,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 ## <a name="embedding-data"></a>Incorporation de données
 
-Quand vous entamez la modélisation des données dans Azure Cosmos DB, essayez de traiter vos entités en tant qu’ **éléments autonomes** représentés sous la forme de documents  JSON.
+Quand vous entamez la modélisation des données dans Azure Cosmos DB, essayez de traiter vos entités en tant qu’**éléments autonomes** représentés sous la forme de documents  JSON.
 
 À des fins de comparaison, nous allons tout d’abord voir comment nous pouvons modéliser les données dans une base de données relationnelle. L'exemple suivant montre comment une personne peut être stockée dans une base de données relationnelle.
 
@@ -118,7 +118,7 @@ Prenons cet extrait de code JSON.
 }
 ```
 
-Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité** , c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème, car la taille de l’élément peut augmenter à l’infini.
+Une entité post avec commentaires incorporés pourrait avoir cet aspect si nous étions en train de modéliser un système de blog, ou CMS, classique. Dans cet exemple, le problème est que le tableau de commentaires est **illimité**, c’est-à-dire qu’il n’existe aucune limite (pratique) au nombre de commentaires possibles pour une publication. Cela peut devenir un problème, car la taille de l’élément peut augmenter à l’infini.
 
 L’augmentation de la taille de l’élément a une incidence sur les possibilités de transmission des données par câble, ainsi que sur les possibilités de lecture et de mise à jour de l’élément à grande échelle.
 

@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183401"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232050"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -349,6 +349,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DisableContainers|valeur booléenne, valeur par défaut : FALSE|statique|Configuration pour la désactivation des conteneurs - utilisé à la place de DisableContainerServiceStartOnContainerActivatorOpen qui est un paramètre de configuration déprécié |
 |DisableDockerRequestRetry|valeur booléenne, valeur par défaut : FALSE |Dynamique| Par défaut SF communique avec DD (docker dameon) avec un délai d’expiration « DockerRequestTimeout » pour chaque requête http qui lui est envoyée. Si DD ne répond pas au cours de cette période, SF renvoie la requête s’il reste du temps dans l’opération de niveau supérieur.  Avec le conteneur Hyper-V ; DD prend parfois beaucoup plus de temps pour afficher le conteneur ou le désactiver. Dans ce cas, DD demande un délai d’expiration à partir de la perspective de SF et SF retente l’opération. Parfois, cela semble ajoute plus de pression sur DD. Cette configuration permet de désactiver cette nouvelle tentative et d’attendre la réponse de DD. |
 |DnsServerListTwoIps | Valeur booléenne, valeur par défaut : FALSE | statique | Cet indicateur ajoute deux fois le serveur DNS local pour aider à atténuer les problèmes intermittents. |
+| DockerTerminateOnLastHandleClosed | valeur booléenne, valeur par défaut : FALSE | statique | Par défaut, si FabricHost gère dockerd (en fonction de : SkipDockerProcessManagement == false), ce paramètre configure ce qui se produit lorsque FabricHost ou dockerd se bloquent. Si lorsque la valeur est définie sur `true`, l’un des processus se bloque, tous les conteneurs en cours d’exécution sont arrêtés de force par HCS. Si la valeur est définie sur `false`, les conteneurs continuent de s’exécuter. Remarque : avant la version 8.0, ce comportement était intentionnellement équivalent à `false`. La valeur par défaut `true` correspond au comportement attendu par défaut par la suite pour que notre logique de nettoyage soit effective au redémarrage de ces processus. |
 | DoNotInjectLocalDnsServer | valeur booléenne, valeur par défaut : FALSE | statique | Empêche le runtime d’injecter l’adresse IP locale en tant que serveur DNS pour les conteneurs. |
 |EnableActivateNoWindow| valeur booléenne, valeur par défaut : FALSE|Dynamique| Le processus activé est créé en arrière-plan sans aucune console. |
 |EnableContainerServiceDebugMode|Valeur booléenne, valeur par défaut : TRUE|statique|Activer/désactiver la journalisation pour les conteneurs Docker.  Windows uniquement.|

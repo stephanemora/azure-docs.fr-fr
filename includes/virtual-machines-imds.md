@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510807"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464981"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -1140,174 +1140,168 @@ S’il existe un élément de données introuvable ou une requête mal formée, 
 
 ## <a name="frequently-asked-questions"></a>Forum aux questions
 
-**J’obtiens l’erreur `400 Bad Request, Required metadata header not specified`. Qu’est-ce que cela signifie ?**
+- J’obtiens l’erreur `400 Bad Request, Required metadata header not specified`. Qu’est-ce que cela signifie ?
+  - IMDS requiert que l’en-tête `Metadata: true` soit passé dans la requête. Passer cet en-tête dans l’appel REST permet d’accéder à IMDS.
 
-IMDS requiert que l’en-tête `Metadata: true` soit passé dans la requête. Passer cet en-tête dans l’appel REST permet d’accéder à IMDS.
+- Pourquoi je n’obtiens pas les informations de calcul pour ma machine virtuelle ?
+  - Actuellement, IMDS prend en charge seulement les instances créées avec Azure Resource Manager.
 
-**Pourquoi je n’obtiens pas les informations de calcul pour ma machine virtuelle ?**
+- J’ai créé ma machine virtuelle par l’intermédiaire d’Azure Resource Manager il y a quelque temps. Pourquoi ne puis-je pas voir les informations de métadonnées de calcul ?
+  - Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
 
-Actuellement, IMDS prend en charge seulement les instances créées avec Azure Resource Manager.
+- Pourquoi je ne vois pas toutes les données renseignées pour une nouvelle version ?
+  - Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
 
-**J’ai créé ma machine virtuelle via Azure Resource Manager il y a quelque temps. Pourquoi ne vois-je pas les informations des métadonnées de calcul ?**
+- Pourquoi l’erreur `500 Internal Server Error` ou `410 Resource Gone` s’affiche-t-elle ?
+  - Réessayez votre requête. Pour plus d’informations, consultez [Gestion des erreurs transitoires](/azure/architecture/best-practices/transient-faults). Si le problème persiste, créez un ticket de support dans le portail Azure pour la machine virtuelle.
 
-Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
+- Cela fonctionne-t-il pour des instances de groupe de machines virtuelles identiques ?
+  - Oui, IMDS est disponible pour les instances de groupe de machines virtuelles identiques.
 
-**Pourquoi je ne vois pas toutes les données renseignées pour une nouvelle version ?**
+- J’ai mis à jour mes étiquettes dans des groupes de machines virtuelles identiques, mais elles n’apparaissent pas dans les instances (contrairement aux machines virtuelles mono-instances). Ai-je fait une erreur quelque part ?
+  - Actuellement, les étiquettes pour les groupes de machines virtuelles identiques apparaissent sur la machine virtuelle seulement lors d’un redémarrage, d’un réimageage ou d’une modification de disque pour l’instance.
 
-Si vous avez créé votre machine virtuelle après septembre 2016, ajoutez une [étiquette](../articles/azure-resource-manager/management/tag-resources.md) pour commencer à voir les métadonnées de calcul. Si vous avez créé votre machine virtuelle avant septembre 2016, ajoutez ou supprimez des extensions ou des disques de données aux instances de machine virtuelle pour actualiser les métadonnées.
+- Pourquoi les informations de référence SKU n’apparaissent-elles pas pour ma machine virtuelle dans les détails `instance/compute` ?
+  - Pour les images personnalisées créées à partir de la Place de marché Azure, la plateforme Azure ne conserve ni les informations de référence SKU de l’image personnalisée ni les détails des machines virtuelles créées à partir de cette image. Elle est conçue ainsi, d’où l’absence d’exposition dans les détails `instance/compute` de la machine virtuelle.
 
-**Pourquoi est-ce que je reçois l’erreur `500 Internal Server Error` ou `410 Resource Gone` ?**
+- Pourquoi ma requête dépasse le délai d’expiration pour mon appel au service ?
+  - Les appels de métadonnées doivent être effectués à partir de l’adresse IP principale affectée à la carte réseau principale de la machine virtuelle. De plus, si vous avez changé vos routes, il doit y avoir une route pour l’adresse 169.254.169.254/32 dans la table de routage locale de votre machine virtuelle.
 
-Réessayez votre requête. Pour plus d’informations, consultez [Gestion des erreurs transitoires](/azure/architecture/best-practices/transient-faults). Si le problème persiste, créez un ticket de support dans le portail Azure pour la machine virtuelle.
+    ### <a name="windows"></a>[Windows](#tab/windows/)
 
-**Cela fonctionne-t-il pour des instances de groupe de machines virtuelles identiques ?**
+    1. Produisez une image mémoire de votre table de routage locale et recherchez l’entrée IMDS. Par exemple :
+        ```console
+        > route print
+        IPv4 Route Table
+        ===========================================================================
+        Active Routes:
+        Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+            168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+        169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+        ... (continues) ...
+        ```
+    1. Vérifiez qu’il existe une route pour `169.254.169.254` et notez l’interface réseau correspondante (par exemple `172.16.69.7`).
+    1. Produisez une image mémoire de la configuration de l’interface et recherchez l’interface qui correspond à celle référencée dans la table de routage, en notant l’adresse MAC (physique).
+        ```console
+        > ipconfig /all
+        ... (continues) ...
+        Ethernet adapter Ethernet:
 
-Oui, IMDS est disponible pour les instances de groupe de machines virtuelles identiques.
+        Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+        Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+        Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+        DHCP Enabled. . . . . . . . . . . : Yes
+        Autoconfiguration Enabled . . . . : Yes
+        Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+        IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        ... (continues) ...
+        ```
+    1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau et l’adresse IP principales en examinant la configuration réseau dans le portail Azure ou en la recherchant avec Azure CLI. Notez les adresses IP privées (et l’adresse MAC si vous utilisez l’interface CLI). Voici un exemple PowerShell CLI :
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: wintest767 True 00-0D-3A-E5-1C-C0
+        ```
+    1. Si elles ne correspondent pas, mettez à jour la table de routage afin de cibler la carte réseau et l’adresse IP principales.
 
-**J’ai mis à jour mes étiquettes dans des groupes de machines virtuelles identiques, mais elles n’apparaissent pas dans les instances (contrairement aux machines virtuelles mono-instances). Est-ce que je fais quelque chose qu’il ne faut pas ?**
+    ### <a name="linux"></a>[Linux](#tab/linux/)
 
-Actuellement, les étiquettes pour les groupes de machines virtuelles identiques apparaissent sur la machine virtuelle seulement lors d’un redémarrage, d’un réimageage ou d’une modification de disque pour l’instance.
+    1. Videz votre table de routage locale à l’aide d’une commande telle que `netstat -r` et recherchez l’entrée IMDS (p. ex.) :
+        ```console
+        ~$ netstat -r
+        Kernel IP routing table
+        Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+        default         _gateway        0.0.0.0         UG        0 0          0 eth0
+        168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
+        169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
+        172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
+        ```
+    1. Vérifiez qu’il existe une route pour `169.254.169.254` et notez l’interface réseau correspondante (par exemple `eth0`).
+    1. Videz la configuration d’interface pour l’interface correspondante dans la table de routage (notez que le nom exact du fichier de configuration peut varier).
+        ```console
+        ~$ cat /etc/netplan/50-cloud-init.yaml
+        network:
+        ethernets:
+            eth0:
+                dhcp4: true
+                dhcp4-overrides:
+                    route-metric: 100
+                dhcp6: false
+                match:
+                    macaddress: 00:0d:3a:e4:c7:2e
+                set-name: eth0
+        version: 2
+        ```
+    1. Si vous utilisez une adresse IP dynamique, notez l’adresse MAC. Si vous utilisez une adresse IP statique, vous pouvez noter la ou les adresses IP répertoriées et/ou l’adresse MAC.
+    1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau et l’adresse IP principales en examinant la configuration réseau dans le portail Azure ou en la recherchant avec Azure CLI. Notez les adresses IP privées (et l’adresse MAC si vous utilisez l’interface CLI). Voici un exemple PowerShell CLI :
+        ```powershell
+        $ResourceGroup = '<Resource_Group>'
+        $VmName = '<VM_Name>'
+        $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+        foreach($NicName in $NicNames)
+        {
+            $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+            Write-Host $NicName, $Nic.primary, $Nic.macAddress
+        }
+        # Output: ipexample606 True 00-0D-3A-E4-C7-2E
+        ```
+    1. Si elles ne correspondent pas, mettez à jour la table de routage afin que la carte réseau/adresse IP principale soit ciblée.
 
-**Pourquoi ma requête dépasse le délai d’expiration pour mon appel au service ?**
+    ---
 
-Les appels de métadonnées doivent être effectués à partir de l’adresse IP principale affectée à la carte réseau principale de la machine virtuelle. De plus, si vous avez changé vos routes, il doit y avoir une route pour l’adresse 169.254.169.254/32 dans la table de routage locale de votre machine virtuelle.
+- Clustering de basculement dans Windows Server
+  - Quand vous interrogez IMDS avec le clustering de basculement, il est parfois nécessaire d’ajouter une route à la table de routage. Voici comment faire :
 
-#### <a name="windows"></a>[Windows](#tab/windows/)
+    1. Ouvrez une invite de commandes avec les privilèges Administrateur.
 
-1. Produisez une image mémoire de votre table de routage locale et recherchez l’entrée IMDS. Par exemple :
-    ```console
-    > route print
+    1. Exécutez la commande suivante et notez l’adresse de l’interface pour la destination réseau (`0.0.0.0`) dans la table de routage IPv4.
+
+    ```bat
+    route print
+    ```
+
+    > [!NOTE]
+    > L’exemple de sortie suivant provient d’une machine virtuelle Windows Server avec le cluster de basculement activé. Pour simplifier, la sortie contient seulement la table de routage IPv4.
+
+    ```
     IPv4 Route Table
     ===========================================================================
     Active Routes:
     Network Destination        Netmask          Gateway       Interface  Metric
-              0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+            0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+            10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+            10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+            10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
             127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
             127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-      127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-        168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
-      169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
-    ... (continues) ...
+    127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+        169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+        169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+    169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+            224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+            224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+    255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+    255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
     ```
-1. Vérifiez qu’il existe une route pour `169.254.169.254` et notez l’interface réseau correspondante (par exemple `172.16.69.7`).
-1. Produisez une image mémoire de la configuration de l’interface et recherchez l’interface qui correspond à celle référencée dans la table de routage, en notant l’adresse MAC (physique).
-    ```console
-    > ipconfig /all
-    ... (continues) ...
-    Ethernet adapter Ethernet:
 
-       Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
-       Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
-       Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
-       DHCP Enabled. . . . . . . . . . . : Yes
-       Autoconfiguration Enabled . . . . : Yes
-       Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
-       IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
-       Subnet Mask . . . . . . . . . . . : 255.255.255.0
-    ... (continues) ...
+    Exécutez la commande suivante et notez l’adresse de l’interface pour la destination réseau (`0.0.0.0`) qui est (`10.0.1.10`) dans cet exemple.
+
+    ```bat
+    route add 169.254.169.254/32 10.0.1.10 metric 1 -p
     ```
-1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau et l’adresse IP principales en examinant la configuration réseau dans le portail Azure ou en la recherchant avec Azure CLI. Notez les adresses IP privées (et l’adresse MAC si vous utilisez l’interface CLI). Voici un exemple PowerShell CLI :
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: wintest767 True 00-0D-3A-E5-1C-C0
-    ```
-1. Si elles ne correspondent pas, mettez à jour la table de routage afin de cibler la carte réseau et l’adresse IP principales.
-
-#### <a name="linux"></a>[Linux](#tab/linux/)
-
- 1. Videz votre table de routage locale à l’aide d’une commande telle que `netstat -r` et recherchez l’entrée IMDS (p. ex.) :
-    ```console
-    ~$ netstat -r
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-    default         _gateway        0.0.0.0         UG        0 0          0 eth0
-    168.63.129.16   _gateway        255.255.255.255 UGH       0 0          0 eth0
-    169.254.169.254 _gateway        255.255.255.255 UGH       0 0          0 eth0
-    172.16.69.0     0.0.0.0         255.255.255.0   U         0 0          0 eth0
-    ```
-1. Vérifiez qu’il existe une route pour `169.254.169.254` et notez l’interface réseau correspondante (par exemple `eth0`).
-1. Videz la configuration d’interface pour l’interface correspondante dans la table de routage (notez que le nom exact du fichier de configuration peut varier).
-    ```console
-    ~$ cat /etc/netplan/50-cloud-init.yaml
-    network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            dhcp4-overrides:
-                route-metric: 100
-            dhcp6: false
-            match:
-                macaddress: 00:0d:3a:e4:c7:2e
-            set-name: eth0
-    version: 2
-    ```
-1. Si vous utilisez une adresse IP dynamique, notez l’adresse MAC. Si vous utilisez une adresse IP statique, vous pouvez noter la ou les adresses IP répertoriées et/ou l’adresse MAC.
-1. Vérifiez que l’interface correspond à la carte réseau principale et à l’adresse IP principale de la machine virtuelle. Vous pouvez trouver la carte réseau et l’adresse IP principales en examinant la configuration réseau dans le portail Azure ou en la recherchant avec Azure CLI. Notez les adresses IP privées (et l’adresse MAC si vous utilisez l’interface CLI). Voici un exemple PowerShell CLI :
-    ```powershell
-    $ResourceGroup = '<Resource_Group>'
-    $VmName = '<VM_Name>'
-    $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
-    foreach($NicName in $NicNames)
-    {
-        $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
-        Write-Host $NicName, $Nic.primary, $Nic.macAddress
-    }
-    # Output: ipexample606 True 00-0D-3A-E4-C7-2E
-    ```
-1. Si elles ne correspondent pas, mettez à jour la table de routage afin que la carte réseau/adresse IP principale soit ciblée.
-
----
-
-**Clustering de basculement dans Windows Server**
-
-Quand vous interrogez IMDS avec le clustering de basculement, il est parfois nécessaire d’ajouter une route à la table de routage. Voici comment faire :
-
-1. Ouvrez une invite de commandes avec les privilèges Administrateur.
-
-1. Exécutez la commande suivante et notez l’adresse de l’interface pour la destination réseau (`0.0.0.0`) dans la table de routage IPv4.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> L’exemple de sortie suivant provient d’une machine virtuelle Windows Server avec le cluster de basculement activé. Pour simplifier, la sortie contient seulement la table de routage IPv4.
-
-```
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-Exécutez la commande suivante et notez l’adresse de l’interface pour la destination réseau (`0.0.0.0`) qui est (`10.0.1.10`) dans cet exemple.
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
 
 ## <a name="support"></a>Support
 
@@ -1315,12 +1309,12 @@ Si vous ne pouvez pas obtenir une réponse de métadonnées après plusieurs ten
 
 ## <a name="product-feedback"></a>Commentaires sur le produit
 
-Vous pouvez apporter des commentaires sur le produit et partager des idées sur notre canal de commentaires des utilisateurs sous Machines virtuelles > Instance Metadata Service, à l’adresse https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627.
+Vous pouvez formuler des commentaires sur le produit et des idées sur notre [canal de commentaires des utilisateurs](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627), sous Machines virtuelles > Instance Metadata Service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Acquérir un jeton d’accès pour la machine virtuelle](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+- [Acquérir un jeton d’accès pour la machine virtuelle](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-[Événements planifiés pour Linux](../articles/virtual-machines/linux/scheduled-events.md)
+- [Événements planifiés pour Linux](../articles/virtual-machines/linux/scheduled-events.md)
 
-[Événements planifiés pour Windows](../articles/virtual-machines/windows/scheduled-events.md)
+- [Événements planifiés pour Windows](../articles/virtual-machines/windows/scheduled-events.md)

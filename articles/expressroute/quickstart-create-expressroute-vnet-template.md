@@ -10,10 +10,10 @@ ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789724"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Démarrage rapide : Créer un circuit ExpressRoute avec un peering privé en utilisant un modèle ARM
@@ -22,7 +22,7 @@ Ce guide de démarrage rapide décrit comment utiliser un modèle Azure Resource
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-Dans ce guide de démarrage rapide, vous créez un circuit ExpressRoute avec *Equinix* comme fournisseur de services. Le circuit utilise un *SKU Premium* , avec une bande passante de *50 Mbits/s* et la localisation de peering *Washington DC* . Le peering privé est activé avec les sous-réseaux principal et secondaire *192.168.10.16/30* et *192.168.10.20/30* , respectivement. Un réseau virtuel est également créé avec une *passerelle ExpressRoute HighPerformance* .
+Dans ce guide de démarrage rapide, vous créez un circuit ExpressRoute avec *Equinix* comme fournisseur de services. Le circuit utilise un *SKU Premium*, avec une bande passante de *50 Mbits/s* et la localisation de peering *Washington DC*. Le peering privé est activé avec les sous-réseaux principal et secondaire *192.168.10.16/30* et *192.168.10.20/30*, respectivement. Un réseau virtuel est également créé avec une *passerelle ExpressRoute HighPerformance*.
 
 :::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
@@ -70,7 +70,7 @@ Pour rechercher d’autres modèles associés à ExpressRoute, consultez [Modèl
 
 1. Sélectionnez **Copier** dans le bloc de code précédent pour copier le script PowerShell.
 
-1. Cliquez sur le volet de la console shell, puis sélectionnez **Coller** .
+1. Cliquez sur le volet de la console shell, puis sélectionnez **Coller**.
 
 1. Entrez les valeurs.
 
@@ -92,11 +92,11 @@ Azure PowerShell est utilisé pour déployer le modèle. Outre Azure PowerShell,
 
 1. Le groupe de ressources doit contenir les ressources indiquées ci-dessous :
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager ExpressRoute":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Groupe de ressources de déploiement ExpressRoute":::
 
-1. Sélectionnez le circuit ExpressRoute **er-ck01** pour vérifier que l’état du circuit est **Activé** , que l’état du fournisseur est **Non provisionné** et que l’état du peering privé est **Provisionné** .
+1. Sélectionnez le circuit ExpressRoute **er-ck01** pour vérifier que l’état du circuit est **Activé**, que l’état du fournisseur est **Non provisionné** et que l’état du peering privé est **Provisionné**.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Sortie du déploiement PowerShell du modèle Resource Manager ExpressRoute":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Circuit de déploiement ExpressRoute":::
 
 > [!NOTE]
 > Vous devrez appeler le fournisseur pour terminer le processus de provisionnement avant de pouvoir connecter le réseau virtuel au circuit.

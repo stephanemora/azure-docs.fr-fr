@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 5abbb26e7582d8ddabb73f3a178cf6d87e24db21
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5422fe324ca1f3ef5bb2d14fb04664c8fb03fe3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942535"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866231"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion)
 
@@ -40,13 +40,13 @@ Créer un projet Spark 2.3.2 pour continuer l’échec de débogage, prenez l�
 
    b. Dans la fenêtre principale, sélectionnez **Projet Spark avec échec de débogage de travail (préversion) (Scala)** .
 
-     ![Créer un projet de débogage Intellij](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png" alt-text="Créer un projet de débogage Intellij" border="true":::
 
    c. Sélectionnez **Suivant**.
 
 2. Dans la boîte de dialogue **New Project** (Nouveau projet), effectuez les étapes suivantes :
 
-   ![Nouveau projet IntelliJ - Sélection de la version Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png" alt-text="Nouveau projet IntelliJ - Sélection de la version Spark" border="true":::
 
    a. Entrez un nom de projet et un emplacement de projet.
 
@@ -64,25 +64,25 @@ Créez une application Spark Scala/Java, puis exécutez l’application sur un c
 
 1. Cliquez sur **Ajouter une configuration** pour ouvrir la fenêtre **Configurations d’exécution/de débogage**.
 
-   ![HDI IntelliJ - Ajouter une configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI IntelliJ - Ajouter une configuration" border="true":::
 
 2. Dans la boîte de dialogue **Run/Debug Configurations** (Exécuter/Déboguer les configurations) sélectionnez le signe plus ( **+** ). Sélectionnez ensuite l’option **Apache Spark on HDInsight**.
 
-   ![IntelliJ - Ajouter une configuration](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="IntelliJ - Ajouter une configuration" border="true":::
 
 3. Basculez vers l’onglet **Remotely Run in Cluster (Exécuter à distance dans le cluster)** . Entrez les informations sur le **Nom**, le **Cluster Spark** et le **Nom principal de la classe**. Nos outils prennent en charge le débogage avec **Exécuteurs**. Pour **numExectors**, la valeur par défaut est 5, et vous ne pouvez pas définir une valeur supérieure à 3. Pour réduire le temps d’exécution, vous pouvez ajouter **spark.yarn.maxAppAttempts** dans les **configurations de travail** et définir la valeur sur 1. Cliquez sur le bouton **OK** pour enregistrer la configuration.
 
-   ![Exécuter le débogage des configurations dans Intellij](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png" alt-text="Exécuter le débogage des configurations dans Intellij" border="true":::
 
 4. La configuration est maintenant enregistrée avec le nom fourni. Pour afficher les détails de configuration, sélectionnez le nom de configuration. Pour apporter des modifications, sélectionnez **Modifier les configurations**.
 
 5. Une fois le paramétrage des configurations terminé, vous pouvez exécuter le projet sur le cluster à distance.
 
-   ![IntelliJ - Bouton d’exécution du débogage à distance des travaux Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png" alt-text="IntelliJ - Bouton d’exécution du débogage à distance des travaux Spark" border="true":::
 
 6. Vous pouvez vérifier l’ID de l’application dans la fenêtre de sortie.
 
-   ![IntelliJ - Résultat de l’exécution du débogage à distance des travaux Spark](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png" alt-text="IntelliJ - Résultat de l’exécution du débogage à distance des travaux Spark" border="true":::
 
 ## <a name="download-failed-job-profile"></a>Téléchargez le profil de travail ayant échoué
 
@@ -90,9 +90,9 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 
 1. Ouvrez l’**Explorateur Stockage Microsoft Azure**, recherchez le compte HDInsight du cluster pour le travail ayant échoué, puis téléchargez les ressources de travail ayant échoué à partir de l’emplacement correspondant **\hdp\spark2-events\\.spark-failures\\\<application ID>** dans un dossier local. La fenêtre **Activités** indique la progression du téléchargement.
 
-   ![Échec du téléchargement dans l’Explorateur Stockage Azure](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png" alt-text="Échec du téléchargement dans l’Explorateur Stockage Azure" border="true":::
 
-   ![Réussite du téléchargement dans l’Explorateur Stockage Azure](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png" alt-text="Réussite du téléchargement dans l’Explorateur Stockage Azure" border="true":::
 
 ## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>Configurez l’environnement de débogage local et déboguer en cas d’échec
 
@@ -100,13 +100,13 @@ En cas d’échec de l’envoi du travail, vous pouvez télécharger le profil d
 
 1. Dans IntelliJ IDEA, créez un fichier de configuration de **débogage d’échec Spark**, puis sélectionnez le fichier DFT dans les ressources de travail ayant échoué précédemment téléchargées pour le champ **Emplacement du contexte de l’échec du travail Spark**.
 
-   ![créer une configuration d’échec](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png" alt-text="créer une configuration d’échec" border="true":::
 
 1. Cliquez sur le bouton d’exécution local dans la barre d’outils, l’erreur s’affiche dans la fenêtre Exécuter.
 
-   ![run-failure-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png" alt-text="run-failure-configuration1" border="true":::
 
-   ![run-failure-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png" alt-text="run-failure-configuration2" border="true":::
 
 1. Définissez le point d’arrêt comme le journal l’indique, puis cliquez sur le bouton de débogage local pour effectuer le débogage local tout comme vos projets Scala/Java normaux dans IntelliJ.
 
