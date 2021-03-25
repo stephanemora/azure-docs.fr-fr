@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: alkohli
 ms.openlocfilehash: eb42a9a77927d8577dfec3c9167294eb8f809fec
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382620"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Instructions de sécurité pour Azure Stack Edge Mini R
@@ -29,7 +29,7 @@ Voici les termes signalétiques correspondant aux panneaux d’alerte de danger�
 
 | Icône | Description |
 |:--- |:--- |
-| ![Symbole de danger](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)| **DANGER :** Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. <br> **AVERTISSEMENT :** Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. <br> **ATTENTION :** Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves.|
+| ![Symbole de danger](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)| **DANGER :** Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. <br> **AVERTISSEMENT :** Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. <br> **ATTENTION :** Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner des blessures légères ou moyennement graves.|
 |
 
 Les icônes de danger suivantes doivent être observées lors de la configuration et de l’exécution de l’appareil Azure Stack Edge Mini R :

@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
 ms.openlocfilehash: 2b658cdc58777274bb14f9e8069cef2facdb0479
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92363451"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marquer votre application avec la mention « éditeur vérifié »
@@ -28,11 +28,11 @@ Si vous êtes déjà inscrit à Microsoft Partner Network (MPN) et que vous remp
 
 1. Se connecter au [portail d’inscription des applications](https://aka.ms/PublisherVerificationPreview) à l’aide de l’[authentification multifacteur](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
-1. Choisissez une application, puis cliquez sur **Personnalisation** . 
+1. Choisissez une application, puis cliquez sur **Personnalisation**. 
 
 1. Cliquez sur **Ajouter l’ID MPN pour valider l'éditeur** et passez en revue les conditions requises.
 
-1. Entrez votre ID MPN, puis cliquez sur **Vérifier et enregistrer** .
+1. Entrez votre ID MPN, puis cliquez sur **Vérifier et enregistrer**.
 
 Pour plus d’informations sur les avantages spécifiques, les conditions requises et les questions fréquemment posées, consultez la [vue d'ensemble](publisher-verification-overview.md).
 
@@ -56,13 +56,13 @@ Assurez-vous d'avoir respecté les [conditions préalables](publisher-verificati
 
 1. Cliquez sur **Ajouter l'ID MPN pour vérifier l'éditeur** en bas de la page. 
 
-1. Entrez votre **ID MPN** . Cet ID MPN doit correspondre à ce qui suit : 
+1. Entrez votre **ID MPN**. Cet ID MPN doit correspondre à ce qui suit : 
 
     - Un compte Microsoft Partner Network valide auquel le processus de vérification a été appliqué jusqu'à son terme.  
 
     - Le compte global partenaire (PGA) de votre organisation. 
 
-1. Cliquez sur **Vérifier et enregistrer** . 
+1. Cliquez sur **Vérifier et enregistrer**. 
 
 1. Attendez le traitement de la requête, ce qui peut prendre quelques minutes. 
 

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: b6cc89cb082cd0ed32abd88e3a6683c60a27ba90
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023038"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Cloner à partir d’une sauvegarde de votre instance StorSimple Virtual Array
@@ -71,11 +71,11 @@ Cet article décrit étape par étape comment cloner un jeu de sauvegarde de vos
 
 Pour effectuer un clonage à partir d’une sauvegarde, dans le portail Azure, vous devez effectuer les étapes similaires à celles effectuées lors du clonage d’un partage. L'opération de clonage clone la sauvegarde vers un nouveau volume sur le même appareil virtuel ; vous ne pouvez pas cloner vers un autre appareil.
 
-#### <a name="to-clone-a-volume"></a>Cloner un volume
+#### <a name="to-clone-a-volume"></a>Clonage d’un volume
 
 1. Accédez au panneau **Appareils**. Sélectionnez et cliquez sur votre appareil, puis cliquez sur **Volumes**. Sélectionnez le volume que vous souhaitez cloner, cliquez avec le bouton droit sur le volume pour appeler le menu contextuel. Sélectionnez **Cloner**.
    
-   ![Cloner un volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
+   ![Clonage d’un volume](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. Dans le panneau **Cloner**, cliquez sur **Sauvegarde**, puis procédez comme suit : 
    
    a.    Filtrez une sauvegarde sur cet appareil en fonction de l’intervalle de temps. Vous pouvez choisir **7 derniers jours**, **30 derniers jours** ou **Dernière année**. 

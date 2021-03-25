@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896526"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Résoudre des problèmes liés à Azure Automation State Configuration
@@ -107,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Ce problème est dû à un certificat incorrect ou expiré. Consultez [Réinscrire un nœud](../automation-dsc-onboarding.md#re-register-a-node).
 
-Ce problème peut aussi être dû à une configuration de proxy n’autorisant pas l’accès à **_.azure-automation.net_*. Pour plus d’informations, consultez [Configuration de réseaux privés](../automation-dsc-overview.md#network-planning). 
+Ce problème pourrait aussi être dû à une configuration de proxy n'autorisant pas l’accès à * **.azure-automation.net**. Pour plus d’informations, consultez [Configuration de réseaux privés](../automation-dsc-overview.md#network-planning). 
 
 ### <a name="resolution"></a>Résolution
 

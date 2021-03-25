@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d061832022b983e4d5fd55e72c1d4789b82f6633
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945193"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863222"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurer le chiffrement et l’authentification TLS pour Apache Kafka dans Azure HDInsight
 
@@ -128,11 +128,11 @@ Pour terminer la modification de configuration, procédez comme suit :
 1. Sous **Kafka Broker** (Répartiteur Kafka), définissez la propriété **listeners** sur `PLAINTEXT://localhost:9092,SSL://localhost:9093`.
 1. Sous **Advanced kafka-broker** (Répartiteurs Kafka avancés), définissez la propriété **security.inter.broker.protocol** sur `SSL`
 
-    ![Modification des propriétés de configuration SSL Kafka dans Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Modification des propriétés de configuration SSL Kafka dans Ambari" border="true":::
 
 1. Sous **Custom kafka-broker** (Répartiteur Kafka personnalisé), définissez la propriété **ssl.client.auth** sur `required`. Cette étape n’est nécessaire que si vous configurez l’authentification et le chiffrement.
 
-    ![Modification des propriétés de configuration SSL Kafka dans Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Modification des propriétés de configuration SSL Kafka dans Ambari" border="true":::
 
 1. Pour la version 3.6 de HDI, accédez à l’interface utilisateur d’Ambari et ajoutez les configurations suivantes sous **kafka-env avancé** et la propriété de **modèle kafka-env**.
 
@@ -153,11 +153,11 @@ Pour terminer la modification de configuration, procédez comme suit :
 
     Pour HDI version 3.6 :
 
-    ![Modification de la propriété kafka-env template dans Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png" alt-text="Modification de la propriété kafka-env template dans Ambari" border="true":::
 
     Pour HDI version 4.0 :
 
-     ![Modification de la propriété kafka-env template dans Ambari 4](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)
+     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Modification de la propriété kafka-env template dans Ambari 4" border="true":::
 
 1. Redémarrez tous les répartiteurs Kafka.
 

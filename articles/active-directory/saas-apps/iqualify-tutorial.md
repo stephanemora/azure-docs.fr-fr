@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Didacticiel : Intégration d’Azure Active Directory à iQualify LMS
@@ -30,7 +30,7 @@ L’intégration d’iQualify LMS avec Azure AD vous offre les avantages suivan
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec iQualify LMS, vous avez besoin des éléments suivants :
 
@@ -116,7 +116,7 @@ Pour configurer l’authentification unique Azure AD avec iQualify LMS, effectu
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Capture d’écran montrant Set additional URLs, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
+    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
     | |
@@ -133,7 +133,7 @@ Pour configurer l’authentification unique Azure AD avec iQualify LMS, effectu
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | Name | Attribut source|
+    | Nom | Attribut source|
     | --- | --- |
     | email | user.userprincipalname |
     | first_name | user.givenname |
@@ -181,7 +181,7 @@ Pour configurer l’authentification unique Azure AD avec iQualify LMS, effectu
 
 1. Une fois connecté, cliquez sur votre avatar en haut à droite, puis sur **Account settings**.
 
-    ![Account Settings](./media/iqualify-tutorial/setting1.png)
+    ![Paramètres de compte](./media/iqualify-tutorial/setting1.png)
 
 1. Dans la zone de paramètres de compte, cliquez sur le menu de ruban sur la gauche et cliquez sur **INTEGRATIONS**.
 

@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
 ms.openlocfilehash: 73d31fff362807937cbd87b8e1313cf601909802
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93092175"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Opérations DDL dans l’API Cassandra Azure Cosmos DB à partir de Spark
@@ -141,7 +141,7 @@ DESCRIBE tables;
 Après avoir créé l’espace de clés et la table, passez aux articles suivants, qui traitent, entre autres, des opérations CRUD :
  
 * [Opérations de création et d’insertion](cassandra-spark-create-ops.md)  
-* [Opérations de lecture](cassandra-spark-read-ops.md)  
+* [Lire les opérations](cassandra-spark-read-ops.md)  
 * [Opérations d’upsert](cassandra-spark-upsert-ops.md)  
 * [Opérations de suppression](cassandra-spark-delete-ops.md)  
 * [Opérations d’agrégation](cassandra-spark-aggregation-ops.md)  

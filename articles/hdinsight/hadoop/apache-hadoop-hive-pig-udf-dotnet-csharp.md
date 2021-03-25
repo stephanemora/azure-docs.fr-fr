@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b5682ff58ad827f5a165342f11f03fb49bbe6d2d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946552"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867880"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
@@ -19,7 +19,7 @@ Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document fonctionnent avec des clusters HDInsight Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).
 
-Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_ . Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
+Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,7 +55,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
-4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
+4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet***HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
 5. Dans l’IDE Visual Studio, remplacez le contenu de *Program.cs* par le code suivant :
 
@@ -122,7 +122,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
-4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
+4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet***PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
 5. Dans l’IDE Visual Studio, remplacez le contenu de *Program.cs* par le code suivant :
 
@@ -171,9 +171,9 @@ Ensuite, chargez les applications de fonction définie par l’utilisateur Hive 
 
 1. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte **(compte de stockage par défaut)** est répertoriée.
 
-    ![Compte de stockage par défaut, cluster HDInsight, explorateur de serveurs](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png" alt-text="Compte de stockage par défaut, cluster HDInsight, explorateur de serveurs" border="true":::
 
-    * Si cette entrée peut être développée, vous utilisez un **compte de stockage Azure** en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée et double-cliquez sur le **(conteneur par défaut)** .
+    * Si cette entrée peut être développée, vous utilisez un **compte de stockage Azure** en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée et double-cliquez sur le **(conteneur par défaut)**.
 
     * Si cette entrée ne peut pas être développée, vous utilisez **Azure Data Lake Storage** comme stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, double-cliquez sur l’entrée **(compte de stockage par défaut)** .
 
@@ -181,7 +181,7 @@ Ensuite, chargez les applications de fonction définie par l’utilisateur Hive 
 
     * Si vous utilisez un **compte de stockage Azure**, sélectionnez l’icône **Télécharger un objet Blob**.
 
-        ![Icône de chargement de HDInsight pour le nouveau projet](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="Icône de chargement de HDInsight pour le nouveau projet" border="true":::
 
         Dans la boîte de dialogue **Télécharger un nouveau fichier**, sous **Nom de fichier**, sélectionnez **Parcourir**. Dans la boîte de dialogue **Télécharger un objet Blob**, accédez au dossier *bin\debug* pour le projet *HiveCSharp*, puis sélectionnez le fichier *HiveCSharp.exe*. Enfin, sélectionnez **Ouvrir**, puis **OK** pour terminer le téléchargement.
 

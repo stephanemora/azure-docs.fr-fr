@@ -10,10 +10,10 @@ ms.date: 07/15/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: e78cb29551bf7eb3f713edb755464eb7696106e8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556126"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants-using-powershell"></a>Partager des images de machine virtuelle des galeries entre des locataires Azure à l’aide de PowerShell

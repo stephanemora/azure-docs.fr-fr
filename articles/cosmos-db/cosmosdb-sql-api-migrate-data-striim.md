@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339594"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Migrer des données vers un compte d’API SQL Azure Cosmos DB à l’aide de Striim
@@ -32,15 +32,15 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Sélectionnez **Créer une ressource** , puis recherchez **Striim** dans la place de marché Azure. Sélectionnez la première option, puis **Créer**.
+1. Sélectionnez **Créer une ressource**, puis recherchez **Striim** dans la place de marché Azure. Sélectionnez la première option, puis **Créer**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Rechercher l’élément de la place de marché Striim":::
 
-1. Ensuite, entrez les propriétés de configuration de l’instance Striim. L’environnement Striim est déployé sur un ordinateur virtuel. Dans le volet **De base** , entrez le **nom d’utilisateur de la machine virtuelle** et le **mot de passe de la machine virtuelle** (ce mot de passe est utilisé pour la connexion SSH à la machine virtuelle). Sélectionnez votre **Abonnement** , votre **Groupe de ressources** et les **Détails de l’emplacement** où vous souhaitez déployer Striim. Quand vous avez terminé, sélectionnez **OK**.
+1. Ensuite, entrez les propriétés de configuration de l’instance Striim. L’environnement Striim est déployé sur un ordinateur virtuel. Dans le volet **De base**, entrez le **nom d’utilisateur de la machine virtuelle** et le **mot de passe de la machine virtuelle** (ce mot de passe est utilisé pour la connexion SSH à la machine virtuelle). Sélectionnez votre **Abonnement**, votre **Groupe de ressources** et les **Détails de l’emplacement** où vous souhaitez déployer Striim. Quand vous avez terminé, sélectionnez **OK**.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Configurer les paramètres de base pour Striim":::
 
-1. Dans le volet **Paramètres du cluster Striim** , choisissez le type de déploiement Striim et la taille de la machine virtuelle.
+1. Dans le volet **Paramètres du cluster Striim**, choisissez le type de déploiement Striim et la taille de la machine virtuelle.
 
    |Paramètre | Valeur | Description |
    | ---| ---| ---|
@@ -50,7 +50,7 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
    Une fois le formulaire rempli, sélectionnez **OK** pour continuer.
 
-1. Dans le volet **Paramètres d’accès à Striim** , configurez l' **Adresse IP publique** (choisissez les valeurs par défaut), le **Nom de domaine pour Striim** et le **Mot de passe d’administrateur** que vous souhaitez utiliser pour vous connecter à l’interface utilisateur Striim. Configurez un réseau virtuel et un sous-réseau (choisissez les valeurs par défaut). Après avoir renseigné les détails, sélectionnez **OK** pour continuer.
+1. Dans le volet **Paramètres d’accès à Striim**, configurez l'**Adresse IP publique** (choisissez les valeurs par défaut), le **Nom de domaine pour Striim** et le **Mot de passe d’administrateur** que vous souhaitez utiliser pour vous connecter à l’interface utilisateur Striim. Configurez un réseau virtuel et un sous-réseau (choisissez les valeurs par défaut). Après avoir renseigné les détails, sélectionnez **OK** pour continuer.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Paramètres d’accès à Striim":::
 
@@ -78,7 +78,7 @@ Dans cette section, vous allez configurer le compte d’API SQL Azure Cosmos DB 
 
 1. À présent, revenons à Striim. Avant d’interagir avec Striim, installez le pilote Oracle JDBC que vous avez téléchargé précédemment.
 
-1. Accédez à l’instance Striim que vous avez déployée dans le Portail Microsoft Azure. Sélectionnez le bouton **Se connecter** dans la barre de menus supérieure, puis sous l’onglet **SSH** , copiez l’URL dans le champ **Login using VM local account** (Connexion à l’aide du compte local de machine virtuelle).
+1. Accédez à l’instance Striim que vous avez déployée dans le Portail Microsoft Azure. Sélectionnez le bouton **Se connecter** dans la barre de menus supérieure, puis sous l’onglet **SSH**, copiez l’URL dans le champ **Login using VM local account** (Connexion à l’aide du compte local de machine virtuelle).
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/get-ssh-url.png" alt-text="Récupérer l’URL SSH":::
 
@@ -126,13 +126,13 @@ Dans cette section, vous allez configurer le compte d’API SQL Azure Cosmos DB 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/copy-public-ip-address.png" alt-text="Copier l’adresse IP de l’ordinateur virtuel Striim":::
 
-1. Pour accéder à l’interface utilisateur web de Striim, ouvrez un nouvel onglet dans un navigateur et copiez l’adresse IP publique, puis procédez comme suit : 9080. Connectez-vous en utilisant le nom d’utilisateur **admin** , ainsi que le mot de passe d’administrateur que vous avez spécifié dans le Portail Microsoft Azure.
+1. Pour accéder à l’interface utilisateur web de Striim, ouvrez un nouvel onglet dans un navigateur et copiez l’adresse IP publique, puis procédez comme suit : 9080. Connectez-vous en utilisant le nom d’utilisateur **admin**, ainsi que le mot de passe d’administrateur que vous avez spécifié dans le Portail Microsoft Azure.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Connectez-vous à Striim":::
 
 1. Vous arrivez à présent sur la page d’hébergement de Striim. Il existe trois volets différents : **Dashboards** (Tableaux de bord), **Apps** (Applications) et **SourcePreview** (Aperçu de la source). Le volet Dashboards vous permet de déplacer des données en temps réel et de les visualiser. Le volet Apps contient vos pipelines de données de streaming ou de flux de données. Dans la partie droite de la page se trouve SourcePreview, où vous pouvez afficher un aperçu de vos données avant de les déplacer.
 
-1. Sélectionnez le volet **Apps** , nous nous concentrerons sur ce volet pour l’instant. Vous pouvez utiliser un grand nombre d’exemples d’applications pour en savoir plus sur Striim. Toutefois, dans cet article, vous allez créer votre propre application. Sélectionnez le bouton **Add App** (Ajouter une application) dans le coin supérieur droit.
+1. Sélectionnez le volet **Apps**, nous nous concentrerons sur ce volet pour l’instant. Vous pouvez utiliser un grand nombre d’exemples d’applications pour en savoir plus sur Striim. Toutefois, dans cet article, vous allez créer votre propre application. Sélectionnez le bouton **Add App** (Ajouter une application) dans le coin supérieur droit.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/add-striim-app.png" alt-text="Ajouter l’application Striim":::
 
@@ -144,9 +144,9 @@ Dans cette section, vous allez configurer le compte d’API SQL Azure Cosmos DB 
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/oracle-cdc-cosmosdb.png" alt-text="Sélection Oracle CDC to Cosmos DB":::
 
-1. Dans la page suivante, nommez votre application. Vous pouvez fournir un nom tel que **oraToCosmosDB** , puis sélectionner **Save** (Enregistrer).
+1. Dans la page suivante, nommez votre application. Vous pouvez fournir un nom tel que **oraToCosmosDB**, puis sélectionner **Save** (Enregistrer).
 
-1. Ensuite, entrez la configuration source de votre instance Oracle source. Entrez une valeur pour le champ **Source Name** (Nom de la source). Le nom de la source est simplement une convention d’affectation de noms pour l’application Striim. Vous pouvez utiliser un nom tel que **src_onPremOracle**. Entrez des valeurs pour les autres paramètres source : **URL** , **Username** (Nom d’utilisateur), **Password** (Mot de passe), puis sélectionnez **LogMiner** comme lecteur de données depuis Oracle. Sélectionnez **Suivant** pour continuer.
+1. Ensuite, entrez la configuration source de votre instance Oracle source. Entrez une valeur pour le champ **Source Name** (Nom de la source). Le nom de la source est simplement une convention d’affectation de noms pour l’application Striim. Vous pouvez utiliser un nom tel que **src_onPremOracle**. Entrez des valeurs pour les autres paramètres source : **URL**, **Username** (Nom d’utilisateur), **Password** (Mot de passe), puis sélectionnez **LogMiner** comme lecteur de données depuis Oracle. Sélectionnez **Suivant** pour continuer.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="Configurer les paramètres de la source":::
 
@@ -164,7 +164,7 @@ Dans cette section, vous allez configurer le compte d’API SQL Azure Cosmos DB 
 
    * **Target Name** (Nom de la cible) : fournissez un nom significatif pour la cible. 
    * **Input From** (Entrée depuis) : dans la liste déroulante, sélectionnez le flux d’entrée que vous avez créé dans la configuration Oracle source. 
-   * **Collections**  : entrez les propriétés de configuration Azure Cosmos DB cible. La syntaxe des collections est **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. Dans cet exemple, la valeur serait « SYSTEM. ORDERS, StriimDemo. Orders ». 
+   * **Collections** : entrez les propriétés de configuration Azure Cosmos DB cible. La syntaxe des collections est **SourceSchema.SourceTable, TargetDatabase.TargetContainer**. Dans cet exemple, la valeur serait « SYSTEM. ORDERS, StriimDemo. Orders ». 
    * **AccessKey** (Clé d’accès) : la PrimaryKey (clé primaire) de votre compte Azure Cosmos.
    * **ServiceEndpoint** (Point de terminaison du service) : l’URI de votre compte Azure Cosmos, qui se trouve sous la section **Clés** du Portail Microsoft Azure. 
 

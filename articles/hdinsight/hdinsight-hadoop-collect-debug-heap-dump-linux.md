@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 824ba2c3316ccb34b59a9e435b9a6e582f137090
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945919"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866588"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux
 
@@ -82,15 +82,15 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
 2. Dans la liste de gauche, sélectionnez la zone de service que vous souhaitez modifier. Par exemple, **HDFS**. Dans la zone centrale, sélectionnez l’onglet **Configurations** .
 
-    ![Image du site web Ambari avec l’onglet des configurations HDFS sélectionné](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png" alt-text="Image du site web Ambari avec l’onglet des configurations HDFS sélectionné":::
 
-3. À l’aide de l’entrée **Filtre...** , entrez **opts**. Seuls les éléments contenant ce texte s’affichent.
+3. À l’aide de l’entrée **Filtre...**, entrez **opts**. Seuls les éléments contenant ce texte s’affichent.
 
-    ![Apache Ambari - Liste de configurations filtrée](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Apache Ambari - Liste de configurations filtrée":::
 
 4. Recherchez l’entrée **\*\_OPTS** du service pour lequel vous souhaitez activer les dumps de tas et ajoutez les options que vous souhaitez activer. Dans l’image suivante, j’ai ajouté `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/` à l’entrée **HADOOP\_NAMENODE\_OPTS** :
 
-    ![Apache Ambari - hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari - hadoop-namenode-opts":::
 
    > [!NOTE]  
    > Quand vous activez les dumps de tas du processus enfant de mappage ou de réduction, cherchez les champs intitulés **mapreduce.admin.map.child.java.opts** et **mapreduce.admin.reduce.child.java.opts**.
@@ -99,15 +99,15 @@ Pour modifier la configuration d’un service, procédez comme suit :
 
 5. Une fois que ces dernières ont été appliquées, l’icône **Redémarrage requis** s’affiche en regard d’un ou de plusieurs services.
 
-    ![icône de redémarrage requis et bouton redémarrer](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png" alt-text="icône de redémarrage requis et bouton redémarrer":::
 
 6. Sélectionnez chaque service nécessitant un redémarrage et utilisez le bouton **Actions de service** pour **Activer le mode de maintenance**. Le mode de maintenance bloque la génération d’alertes au redémarrage de ce service.
 
-    ![HDI - Menu Activer le mode de maintenance](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="HDI - Menu Activer le mode de maintenance":::
 
 7. Une fois le mode de maintenance activé, utilisez le bouton **Redémarrer** pour que le service puisse **redémarrer tous les éléments affectés**
 
-    ![Apache Ambari - Entrée Redémarrer tous les éléments affectés](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari - Entrée Redémarrer tous les éléments affectés":::
 
    > [!NOTE]  
    > Les entrées du bouton **Redémarrer** peuvent être différentes pour d’autres services.
