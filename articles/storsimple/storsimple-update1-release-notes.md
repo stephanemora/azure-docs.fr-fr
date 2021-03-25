@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94956685"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Notes de publication Update 1.2 pour votre appareil StorSimple série 8000
@@ -67,10 +67,10 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans les mi
 | Non. | Fonctionnalité | Problème | Résolu dans Update | S’applique à un appareil physique | S’applique à un appareil virtuel |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Windows PowerShell pour StorSimple |Lorsqu’un utilisateur accédait à distance à l’appareil StorSimple à l’aide de Windows PowerShell pour StorSimple, puis lançait l’assistant de configuration, un incident se produisait dès la saisie de l’adresse IP de Data 0. Ce bogue a été corrigé dans Update 1. |Update 1 |Oui |Oui |
-| 2 |Réinitialisation aux paramètres d’usine |Dans certains cas, lorsque vous effectuiez une réinitialisation aux paramètres d’usine, l’appareil StorSimple se bloquait et affichait le message suivant : **Réinitialisation aux paramètres d’usine en cours (phase 8)** . Cela se produisait si vous appuyiez sur les touches CTRL + C lors de l’exécution de l’applet de commande. Ce bogue a été corrigé. |Update 1 |Oui |Non |
-| 3 |Réinitialisation aux paramètres d’usine |Après l’échec de la réinitialisation aux paramètres d’usine d’un contrôleur double, vous pouviez procéder à l’inscription de l’appareil. Cela entraînait la mise en place d’une configuration système non prise en charge. Dans Update 1, un message d’erreur s’affiche et l’inscription de l’appareil présentant un échec de réinitialisation aux paramètres d’usine est bloquée. |Update 1 |Oui |Non |
-| 4 |Réinitialisation aux paramètres d’usine |Dans certains cas, des alertes d’incompatibilité illégitimes étaient émises. Les alertes illégitimes d’incompatibilité ne seront plus générées sur les appareils exécutant Update 1. |Update 1 |Oui |Non |
-| 5 |Réinitialisation aux paramètres d’usine |Si une réinitialisation aux paramètres d’usine a été interrompue avant la fin de l’opération, l’appareil passait en mode de récupération ; vous ne pouviez plus accéder à Windows PowerShell pour StorSimple. Ce bogue a été corrigé. |Update 1 |Oui |Non |
+| 2 |Réinitialisation des paramètres d’usine |Dans certains cas, lorsque vous effectuiez une réinitialisation aux paramètres d’usine, l’appareil StorSimple se bloquait et affichait le message suivant : **Réinitialisation aux paramètres d’usine en cours (phase 8)**. Cela se produisait si vous appuyiez sur les touches CTRL + C lors de l’exécution de l’applet de commande. Ce bogue a été corrigé. |Update 1 |Oui |Non |
+| 3 |Réinitialisation des paramètres d’usine |Après l’échec de la réinitialisation aux paramètres d’usine d’un contrôleur double, vous pouviez procéder à l’inscription de l’appareil. Cela entraînait la mise en place d’une configuration système non prise en charge. Dans Update 1, un message d’erreur s’affiche et l’inscription de l’appareil présentant un échec de réinitialisation aux paramètres d’usine est bloquée. |Update 1 |Oui |Non |
+| 4 |Réinitialisation des paramètres d’usine |Dans certains cas, des alertes d’incompatibilité illégitimes étaient émises. Les alertes illégitimes d’incompatibilité ne seront plus générées sur les appareils exécutant Update 1. |Update 1 |Oui |Non |
+| 5 |Réinitialisation des paramètres d’usine |Si une réinitialisation aux paramètres d’usine a été interrompue avant la fin de l’opération, l’appareil passait en mode de récupération ; vous ne pouviez plus accéder à Windows PowerShell pour StorSimple. Ce bogue a été corrigé. |Update 1 |Oui |Non |
 | 6 |Récupération d'urgence |Un bogue de récupération d’urgence a été corrigé. Auparavant, la récupération était mise en échec durant la découverte des sauvegardes sur l’appareil cible. |Update 1 |Oui |Oui |
 | 7 |LED de contrôle |Dans certains cas, les LED de contrôle situées à l’arrière de l’appliance n’indiquaient pas le statut approprié. La LED bleue était désactivée. Les LED de DATA 0 et DATA 1 clignotaient, même lorsque ces interfaces n’étaient pas configurées. Ce problème a été corrigé ; les LED de contrôle indiquent désormais le statut correct. |Update 1 |Oui |Non |
 | 8 |LED de contrôle |Dans certains cas, après avoir appliqué Update 1, le voyant bleu sur le contrôleur actif s'est éteint rendant difficile l'identification du contrôleur actif. Ce problème a été résolu dans cette version du correctif. |Update 1.2 |Oui |Non |

@@ -16,10 +16,10 @@ ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
 ms.openlocfilehash: 46b6ceff74dd3a296d26cc018b380c1c3f76664c
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552947"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionner un disque de système d’exploitation ayant une partition GPT

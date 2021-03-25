@@ -4,10 +4,10 @@ description: Vous montre comment utiliser des variables d’environnement pour d
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 610e44ac98b8b8a2ce5a91fdbcfda145ae36a94b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96576738"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Guide pratique pour spécifier des variables d’environnement pour des services dans Service Fabric

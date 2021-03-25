@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
 ms.openlocfilehash: 40ef380cd2bd4743b92daf44a0a5b70ade1cbb35
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933007"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Exception lors de l'exécution de requêtes depuis la vue Apache Ambari Hive dans Azure HDInsight
@@ -26,7 +26,7 @@ Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XH
 <title>IIS 8.5 Detailed Error - 502.3 - Bad Gateway</title>
 ```
 
-## <a name="cause"></a>Cause :
+## <a name="cause"></a>Cause
 
 Un dépassement du délai de la passerelle.
 
@@ -51,7 +51,7 @@ Voici quelques recommandations générales pour améliorer la situation :
 
 * Si vous utilisez un Metastore Hive externe, vérifiez les métriques de la base de données et assurez-vous que la base de données n'est pas surchargée. Vous pouvez mettre à l'échelle la couche de la base de données du metastore.
 
-* Assurez-vous que les opérations parallèles sont activées (cela permet aux threads du gestionnaire HTTP de s’exécuter en parallèle). Pour vérifier la valeur, lancez [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) et accédez à **Hive** > **Configs** > **Avanced (Avancé)**  > **Custom hive-site (hive-site personnalisé)** . La valeur de `hive.server2.parallel.ops.in.session` doit être `true`.
+* Assurez-vous que les opérations parallèles sont activées (cela permet aux threads du gestionnaire HTTP de s’exécuter en parallèle). Pour vérifier la valeur, lancez [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) et accédez à **Hive** > **Configs** > **Avanced (Avancé)** > **Custom hive-site (hive-site personnalisé)**. La valeur de `hive.server2.parallel.ops.in.session` doit être `true`.
 
 * Vérifiez que la référence SKU de la machine virtuelle du cluster n’est pas trop petite pour la charge. Vous pouvez répartir le travail entre plusieurs groupes. Pour plus d’informations, consultez [Choisir un type de cluster](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 

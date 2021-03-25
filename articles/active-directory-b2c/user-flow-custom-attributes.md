@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661202"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102607915"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
@@ -30,6 +30,8 @@ Votre annuaire Azure AD B2C comprend un [ensemble intégré d’attributs](user-
 * Une application côté client a besoin de conserver un attribut tel que **LoyaltyId**.
 * Un fournisseur d’identité a un identificateur d’utilisateur unique, **uniqueUserGUID**, qui doit être enregistré.
 * Un parcours utilisateur personnalisé doit enregistrer l’état de l’utilisateur, **migrationStatus**, pour que d’autres logiques fonctionnent dessus.
+
+Dans cet article, les termes *propriété d’extension*, *attribut personnalisé* et *revendication personnalisée* font référence à la même chose. Le nom varie en fonction du contexte (application, objet, stratégie).
 
 Azure AD B2C vous permet d’étendre l’ensemble d’attributs stocké sur chaque compte d’utilisateur. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Microsoft Graph](microsoft-graph-operations.md).
 
@@ -66,11 +68,7 @@ Une fois que vous avez créé un utilisateur à l’aide d’un flux d’utilisa
 
 ## <a name="azure-ad-b2c-extensions-app"></a>Application d’extensions Azure AD B2C
 
-Les attributs d’extension ne peuvent être inscrits que pour un objet application, même s’ils peuvent contenir les données d’un utilisateur. L’attribut d’extension est attaché à l’application appelée b2c-extensions-app. Ne modifiez pas cette application, car elle est utilisée par Azure AD B2C pour le stockage des données utilisateurs. Vous trouverez cette application sous Azure AD B2C, inscriptions d’applications.
-
-Dans cet article, les termes *propriété d’extension*, *attribut personnalisé* et *revendication personnalisée* font référence à la même chose. Le nom varie en fonction du contexte (application, objet, stratégie).
-
-## <a name="get-the-application-properties"></a>Obtenir les propriétés de l’application
+Les attributs d’extension ne peuvent être inscrits que pour un objet application, même s’ils peuvent contenir les données d’un utilisateur. L’attribut d’extension est attaché à l’application appelée `b2c-extensions-app`. Ne modifiez pas cette application, car elle est utilisée par Azure AD B2C pour le stockage des données utilisateurs. Vous trouverez cette application sous Azure AD B2C, inscriptions d’applications. Obtenir les propriétés de l’application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
@@ -81,14 +79,6 @@ Dans cet article, les termes *propriété d’extension*, *attribut personnalis�
     * **ID de l’application**. Exemple : `11111111-1111-1111-1111-111111111111`.
     * **ID objet**. Exemple : `22222222-2222-2222-2222-222222222222`.
 
-## <a name="using-custom-attribute-with-ms-graph-api"></a>Utilisation d’un attribut personnalisé avec l’API MS Graph
-
-L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Les attributs d’extension dans l’API Graph sont nommés d’après la convention `extension_ApplicationClientID_attributename`, où `ApplicationClientID` est l’**ID d’application (client)** de l’application `b2c-extensions-app`. Notez que l’**ID d’application (client)** tel qu’il est représenté dans le nom de l’attribut d’extension ne comprend aucun trait d’union. Par exemple :
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
-
 ::: zone pivot="b2c-custom-policy"
 
 ## <a name="modify-your-custom-policy"></a>Modifier votre stratégie personnalisée
@@ -97,22 +87,27 @@ Pour activer des attributs personnalisés dans votre stratégie, fournissez l’
 
 1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Recherchez l’élément ClaimsProviders. Ajoutez un nouveau ClaimsProvider à l’élément ClaimsProviders.
-1. Remplacez `ApplicationObjectId` par l’ID d’objet que vous avez enregistré précédemment. Remplacez ensuite `ClientId` par l’ID d’application que vous avez enregistré précédemment dans l’extrait de code ci-dessous.
+1. Insérez **l’ID d’application** que vous avez enregistré précédemment, entre les éléments d’ouverture `<Item Key="ClientId">` et de fermeture `</Item>`.
+1. Insérez **l’ID d’objet d’application** que vous avez enregistré précédemment, entre les éléments d’ouverture `<Item Key="ApplicationObjectId">` et de fermeture `</Item>`.
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## <a name="upload-your-custom-policy"></a>Télécharger votre stratégie personnalisée
@@ -167,6 +162,14 @@ L’exemple suivant illustre l’utilisation d’un attribut personnalisé au se
 ```
 
 ::: zone-end
+
+## <a name="using-custom-attribute-with-ms-graph-api"></a>Utilisation d’un attribut personnalisé avec l’API MS Graph
+
+L’API Microsoft Graph prend en charge la création et la mise à jour d’un utilisateur avec des attributs d’extension. Les attributs d’extension dans l’API Graph sont nommés d’après la convention `extension_ApplicationClientID_attributename`, où `ApplicationClientID` est l’**ID d’application (client)** de l’application `b2c-extensions-app`. Notez que l’**ID d’application (client)** tel qu’il est représenté dans le nom de l’attribut d’extension ne comprend aucun trait d’union. Par exemple :
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
+``` 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,15 +4,15 @@ description: 'Services Go-To-Market : les ressources Microsoft que les éditeur
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246245"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631050"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -38,7 +38,7 @@ Vous bénéficierez d’une aide pour comprendre les ressources disponibles et m
 
 Vous trouverez une description détaillée de tous les avantages du programme dans cette [présentation du programme Marketplace Rewards](https://aka.ms/marketplacerewards).
 
-Pour commencer en toute simplicité :
+## <a name="getting-started-is-easy"></a>Pour commencer en toute simplicité :
 
 1. Publiez une offre sur Microsoft AppSource ou la Place de marché.
 2. Accédez à [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) sur l’Espace partenaires, puis sélectionnez **Inscrire au programme Marketplace Rewards**.
@@ -49,19 +49,17 @@ Pour commencer en toute simplicité :
     1. Fournissez le numéro de téléphone et la langue par défaut de ce contact marketing. Une fois que vous avez terminé d’entrer ces informations, sélectionnez **Attribuer l’utilisateur**.
     1. Une fois que vous avez mis à jour le contact marketing, sélectionnez **Activer** pour l’avantage que vous souhaitez commencer à utiliser. Une fois que vous avez activé un avantage, votre contact marketing sera contacté par un membre de l’équipe Récompenses dans un délai d’une semaine.
 
-### <a name="technical-benefits"></a>Avantages techniques
-
-1. Vous pouvez utiliser vos avantages techniques pour demander une assistance technique pendant les phases de prévente, de conception, de déploiement et de développement d’applications de vos solutions cloud et hybrides. Pour demander de l’aide, remplissez le formulaire de demande, puis sélectionnez **Envoyer la demande**.
-2. La façon d’utiliser les avantages du parrainage Azure sera partagée par e-mail à mesure que vous déverrouillerez ces avantages.
-
->[!NOTE]
->Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes.<br><br>Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, vous pouvez envoyer un ticket de support à l’équipe [Aide et support](https://aka.ms/marketplacepublishersupport).
+> [!NOTE]
+> Si votre offre a été publiée depuis plus de quatre semaines et que vous n’avez pas reçu de message, vérifiez au sein de votre organisation qui est le propriétaire de l’offre en question en consultant l’Espace partenaires. Cette personne devrait disposer de la communication et des étapes suivantes.<br><br>Si vous ne pouvez pas déterminer le propriétaire ou si le propriétaire a quitté votre entreprise, envoyez un ticket de support à l’équipe [Aide et support](https://aka.ms/marketplacepublishersupport).
 
 La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur le marketplace commercial. Toutes les offres reçoivent un niveau de base de recommandations d’optimisation et de promotion dans le cadre d’un e-mail en libre-service de ressources et de meilleures pratiques.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Avantages des listes, des versions d’évaluation et du conseil
 
-Si vous publiez une version d’évaluation ou une preuve de concept, une implémentation ou un atelier, vous aurez un responsable d’engagement attitré pendant trois mois, qui vous guidera dans la réussite de votre plan de mise sur le marché. Vous pouvez répéter cet engagement de trois mois chaque fois que vous publiez une nouvelle offre, afin de vous assurer que chacune de vos nouvelles offres démarre avec succès.
+Chaque fois que vous publiez sur Microsoft AppSource ou sur la Place de marché Azure, vous avez accès à un nouvel ensemble d’avantages. Une fois votre offre active, accédez à [l’Espace partenaires](https://partner.microsoft.com/dashboard) pour activer les avantages marketing, commerciaux et techniques auxquels vous avez droit.
+
+> [!IMPORTANT]
+> Tous les avantages Essai et Conseil expirent au bout de trois mois.
 
 Le tableau ci-dessous récapitule les conditions d’éligibilité pour les offres Liste, Version d’essai et Conseil :
 
@@ -71,7 +69,7 @@ Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la Place de marché pour les partenaires de transaction
 
-Lorsque vous publiez votre offre négociable sur Microsoft AppSource ou Place de marché Azure, vous pouvez accéder à des avantages supplémentaires à mesure que vous augmentez le nombre de transactions facturées ou de sièges vendus sur le marketplace commercial.
+Lorsque vous publiez votre offre négociable sur Microsoft AppSource ou Place de marché Azure, vous pouvez accéder à des avantages supplémentaires à mesure que vous augmentez le nombre de transactions facturées ou de postes vendus sur le marketplace commercial.
 
 >[!NOTE]
 >Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS comportant des intégrations à Microsoft Teams, Office, Outlook ou SharePoint), et les avantages doivent avoir été utilisés avant le 30 juin 2021.
@@ -80,13 +78,19 @@ Ces avantages sont conçus pour vous aider dans vos activités de marketing, de 
 
 Tous les partenaires qui disposent d’une offre publiée peuvent travailler avec un responsable de l’engagement dédié pour choisir les activités à plus forte valeur ajoutée pour votre portefeuille d’offres sur le marketplace commercial. Cet engagement est persistant pour chaque offre, ce qui signifie que vous pouvez choisir vos activités et le calendrier de ces activités pour l’adapter à la planification des stratégies de vente et de marketing générales de votre entreprise.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Avantages marketing pour les offres de transaction
+
 ![Avantages marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Avantages commerciaux pour les offres de transaction
 
 ![Avantages commerciaux](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Avantages techniques pour les offres de transaction
+
 ![Avantages techniques](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS comportant des intégrations à Microsoft Teams, Office, Outlook ou SharePoint), et les avantages doivent avoir été utilisés avant le 30 juin 2021.
+ Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS comportant des intégrations à Microsoft Teams, Office, Outlook ou SharePoint), et les avantages doivent avoir été utilisés avant le 30 juin 2021.
 
 Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 

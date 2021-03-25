@@ -4,10 +4,10 @@ description: Utilisez Azure Resource Manager et Azure Cloud Shell pour déployer
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: c67251a33b6197603be27086bcc6cd047e0c414b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028605"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Déployer des modèles ARM à partir d’Azure Cloud Shell

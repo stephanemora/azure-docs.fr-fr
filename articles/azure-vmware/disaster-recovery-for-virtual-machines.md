@@ -4,10 +4,10 @@ description: Cet article explique comment effectuer une reprise d’activité ap
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779609"
 ---
 # <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Effectuer une récupération d'urgence de machines virtuelles à l'aide d’Azure VMware Solution
@@ -16,15 +16,15 @@ Cet article décrit le processus de récupération d’urgence de vos machines v
 
 La solution VMware HCX exécute diverses opérations qui permettent de contrôler avec souplesse et précision les stratégies de réplication. Les opérations disponibles sont les suivantes :
 
-- **Inverser**  : après un incident. Une inversion permet de faire d’un site B le site source, et d’un site A l’emplacement de résidence de la machine virtuelle protégée.
+- **Inverser** : après un incident. Une inversion permet de faire d’un site B le site source, et d’un site A l’emplacement de résidence de la machine virtuelle protégée.
 
-- **Mettre en pause**  : met en pause la stratégie de réplication actuelle associée à la machine virtuelle sélectionnée.
+- **Mettre en pause** : met en pause la stratégie de réplication actuelle associée à la machine virtuelle sélectionnée.
 
-- **Reprendre**  : reprend la stratégie de réplication actuelle associée à la machine virtuelle sélectionnée.
+- **Reprendre** : reprend la stratégie de réplication actuelle associée à la machine virtuelle sélectionnée.
 
-- **Supprimer**  : supprime la stratégie de réplication actuelle associée à la machine virtuelle sélectionnée.
+- **Supprimer** : supprime la stratégie de réplication actuelle associée à la machine virtuelle sélectionnée.
 
-- **Synchroniser maintenant**  : de la machine virtuelle source de synchronisation hors limites vers la machine virtuelle protégée.
+- **Synchroniser maintenant** : de la machine virtuelle source de synchronisation hors limites vers la machine virtuelle protégée.
 
 Ce guide présente les scénarios de réplication suivants :
 
@@ -50,7 +50,7 @@ Ce guide présente les scénarios de réplication suivants :
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Fenêtre Protéger les machines virtuelles" border="true":::
 
-1. Si nécessaire, sélectionnez les options de **réplication par défaut**  :
+1. Si nécessaire, sélectionnez les options de **réplication par défaut** :
 
    - **Activer la compression :** option recommandée pour les scénarios à faible débit.
 
@@ -91,7 +91,7 @@ Ce guide présente les scénarios de réplication suivants :
 ## <a name="complete-a-test-recover-of-vms"></a>Effectuer un test de récupération des machines virtuelles
 
 1. Connectez-vous au **Client vSphere** sur le site distant, qui est le cloud privé Azure VMware Solution. 
-1. Dans le **plug-in HCX** , dans la zone Récupération d’urgence, sélectionnez l’ellipse verticale sur une machine virtuelle pour afficher le menu Opérations, puis sélectionnez **Tester la récupération de la machine virtuelle**.
+1. Dans le **plug-in HCX**, dans la zone Récupération d’urgence, sélectionnez l’ellipse verticale sur une machine virtuelle pour afficher le menu Opérations, puis sélectionnez **Tester la récupération de la machine virtuelle**.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Sélectionner Tester la récupération de la machine virtuelle" border="true":::
 
@@ -99,7 +99,7 @@ Ce guide présente les scénarios de réplication suivants :
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Choisir un instantané, puis sélectionner Tester" border="true":::
 
-1. Après avoir sélectionné **Test** , l’opération de récupération commence.
+1. Après avoir sélectionné **Test**, l’opération de récupération commence.
 
 1. Lorsque vous avez terminé, vous pouvez vérifier la nouvelle machine virtuelle dans le cloud privé vCenter Azure VMware Solution.
 
@@ -115,7 +115,7 @@ Ce guide présente les scénarios de réplication suivants :
 
    Pour le scénario de récupération, un groupe de machines virtuelles est utilisé pour cet exemple.
 
-1. Sélectionnez la machine virtuelle à récupérer dans la liste, ouvrez le menu **ACTIONS** , puis sélectionnez **Récupérer des machines virtuelles**.
+1. Sélectionnez la machine virtuelle à récupérer dans la liste, ouvrez le menu **ACTIONS**, puis sélectionnez **Récupérer des machines virtuelles**.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Récupérer des machines virtuelles" border="true":::
 
@@ -132,7 +132,7 @@ Ce guide présente les scénarios de réplication suivants :
    >[!NOTE]
    > Vérifiez que les machines virtuelles d’origine sur le site source sont hors tension avant de lancer la réplication inversée. L’opération échoue si les machines virtuelles ne sont pas hors tension.
 
-1. Dans la liste, sélectionnez les machines virtuelles à répliquer sur le site source, ouvrez le menu **ACTIONS** , puis sélectionnez **Inverser**. 
+1. Dans la liste, sélectionnez les machines virtuelles à répliquer sur le site source, ouvrez le menu **ACTIONS**, puis sélectionnez **Inverser**. 
 1. Sélectionnez **Inverser** pour lancer la réplication.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Sélectionner l’action Inverser dans les opérations de protection" border="true":::
@@ -149,7 +149,7 @@ Ces API couvrent les opérations de récupération d’urgence suivantes.
 
 - Protéger
 
-- Recover
+- Récupérer
 
 - Tester la récupération
 

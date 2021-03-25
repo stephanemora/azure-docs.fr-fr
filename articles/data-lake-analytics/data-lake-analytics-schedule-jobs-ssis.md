@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/17/2018
 ms.openlocfilehash: b080b433f5af49e970faba02003fb68e21a08365
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221449"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
@@ -95,7 +95,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
 
    3. Dans la vue **Gestionnaires de connexions**, cliquez avec le bouton droit sur la connexion de fichier créée à l’instant et choisissez **Propriétés**.
 
-   4. Dans la fenêtre **Propriétés**, développez **Expressions**et définissez **ConnectionString** sur la variable définie dans le conteneur de boucle Foreach, par exemple, `@[User::FileName]`.
+   4. Dans la fenêtre **Propriétés**, développez **Expressions** et définissez **ConnectionString** sur la variable définie dans le conteneur de boucle Foreach, par exemple, `@[User::FileName]`.
 
        ![Configurer un conteneur de boucle Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 

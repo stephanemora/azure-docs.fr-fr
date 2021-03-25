@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
 ms.openlocfilehash: 324852a967b5de015a9b1e9b465d4b4703e573cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929690"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Exécuter Apache Spark depuis l’interpréteur de commandes Spark
@@ -104,7 +104,7 @@ Pour accéder à l’instance de SparkSession, entrez `spark`. Pour accéder à 
 
 La commande d’interpréteur de commandes Spark (`spark-shell` ou `pyspark`) prend en charge de nombreux paramètres de ligne de commande. Pour afficher une liste complète des paramètres, démarrez l’interpréteur de commandes Spark avec le commutateur `--help`. Certains de ces paramètres peuvent s’appliquer uniquement à `spark-submit`, que l’interpréteur de commandes Spark encapsule.
 
-| commutateur | description | exemple |
+| switch | description | exemple |
 | --- | --- | --- |
 | --master MASTER_URL | Spécifie l’URL principale. Dans HDInsight, cette valeur est toujours `yarn`. | `--master yarn`|
 | --jars JAR_LIST | Liste séparée par des virgules des fichiers JAR locaux à inclure dans les classpaths du pilote et de l’exécuteur. Dans HDInsight, cette liste est composée de chemins au système de fichiers par défaut dans Data Lake Storage ou Stockage Azure. | `--jars /path/to/examples.jar` |

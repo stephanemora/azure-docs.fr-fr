@@ -13,15 +13,15 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282536"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Utiliser des collections dans le portail Mes applications
 
-Les collections sont les différentes vues d’application que vous pouvez voir sur le portail **Mes applications**. Les applications peuvent être regroupées en collections par département ou rôle d’utilisateur, par exemple. Si vous ne voyez pas de collection ou de catégorie disponible, cela signifie que votre administrateur n’en a pas encore configuré ou partagé avec vous. Contactez le support technique de votre organisation pour obtenir une assistance supplémentaire ou des autorisations pour voir les collections partagées.
+Les collections sont les différentes vues d’application que vous pouvez voir sur le portail **Mes applications**. Les applications peuvent être regroupées en collections par département ou rôle d’utilisateur, par exemple. Si vous ne voyez pas de collection ou de catégorie disponible, cela signifie que votre administrateur n’en a pas encore configuré ou partagé avec vous. Contactez le support technique de votre organisation pour obtenir une assistance supplémentaire ou des autorisations pour afficher les collections partagées.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

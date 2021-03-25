@@ -13,10 +13,10 @@ ms.author: sasapopo
 ms.reviewer: sstein, bonova
 ms.date: 10/08/2020
 ms.openlocfilehash: f9d5528746a85668677ab122d98e954bd39cd163
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790727"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Utiliser des groupes d’approbations de serveurs pour configurer et gérer l’approbation entre des instances managées SQL
@@ -36,19 +36,19 @@ La section suivante décrit la configuration du groupe d’approbations de serve
 
 2. Accédez à l’instance Azure SQL Managed Instance que vous prévoyez d’ajouter à un groupe d’approbations de serveurs nouvellement créé.
 
-3. Dans la page de paramètres **Sécurité** , sélectionnez l’onglet **Groupes d’approbations SQL** .
+3. Dans la page de paramètres **Sécurité**, sélectionnez l’onglet **Groupes d’approbations SQL**.
 
    :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Groupes d’approbations de serveurs":::
 
-4. Dans la page Configuration du groupe d’approbations de serveurs, sélectionnez l’icône **Nouveau groupe** .
+4. Dans la page Configuration du groupe d’approbations de serveurs, sélectionnez l’icône **Nouveau groupe**.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Groupes d’approbations de serveurs":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="Nouveau groupe":::
 
-5. Dans le panneau **Groupe d’approbations SQL** , définissez le **Nom du groupe** . Il doit être unique dans toutes les régions où résident les membres du groupe. L’ **Étendue d’approbation** définit le type de scénario inter-instances qui est activé avec le groupe d’approbations de serveurs. Dans la préversion, la seule étendue d’approbation applicable est **Transactions distribuées** , elle est donc présélectionnée et ne peut pas être modifiée. Tous les **Membres du groupe** doivent appartenir au même **abonnement** , mais ils peuvent se trouver sous des groupes de ressources différents. Sélectionnez le **Groupe de ressources** et **SQL Server/instance** pour choisir l’instance Azure SQL Managed Instance qui sera membre du groupe.
+5. Dans le panneau **Groupe d’approbations SQL**, définissez le **Nom du groupe**. Il doit être unique dans toutes les régions où résident les membres du groupe. L’**Étendue d’approbation** définit le type de scénario inter-instances qui est activé avec le groupe d’approbations de serveurs. Dans la préversion, la seule étendue d’approbation applicable est **Transactions distribuées**, elle est donc présélectionnée et ne peut pas être modifiée. Tous les **Membres du groupe** doivent appartenir au même **abonnement**, mais ils peuvent se trouver sous des groupes de ressources différents. Sélectionnez le **Groupe de ressources** et **SQL Server/instance** pour choisir l’instance Azure SQL Managed Instance qui sera membre du groupe.
 
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Groupes d’approbations de serveurs":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Panneau Créer un groupe d’approbations de serveurs":::
 
-6. Une fois tous les champs obligatoires remplis, cliquez sur **Enregistrer** .
+6. Une fois tous les champs obligatoires remplis, cliquez sur **Enregistrer**.
 
 ## <a name="server-trust-group-maintenance-and-deletion"></a>Maintenance et suppression du groupe d’approbations de serveurs
 
@@ -57,13 +57,13 @@ Impossible de modifier le groupe d’approbations de serveurs. Pour supprimer un
 La section suivante décrit le processus de suppression d’un groupe d’approbations de serveurs. 
 1. Accédez au portail Azure.
 2. Accédez à une instance managée qui appartient au groupe d’approbations.
-3. Dans les paramètres de **Sécurité** , sélectionnez l’onglet **Groupes d’approbations SQL** .
+3. Dans les paramètres de **Sécurité**, sélectionnez l’onglet **Groupes d’approbations SQL**.
 4. Sélectionnez le groupe d’approbations que vous souhaitez supprimer.
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Groupes d’approbations de serveurs":::
-5. Cliquez sur **Supprimer un groupe** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Groupes d’approbations de serveurs":::
-6. Entrez le nom du groupe d’approbations de serveurs pour confirmer la suppression, puis cliquez sur **Supprimer** .
-   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Groupes d’approbations de serveurs":::
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Sélectionner un groupe d’approbations de serveurs":::
+5. Cliquez sur **Supprimer un groupe**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Supprimer un groupe d’approbations de serveurs":::
+6. Entrez le nom du groupe d’approbations de serveurs pour confirmer la suppression, puis cliquez sur **Supprimer**.
+   :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirmer la suppression du groupe d’approbations de serveurs":::
 
 > [!NOTE]
 > La suppression du groupe d’approbations de serveurs risque de ne pas supprimer immédiatement l’approbation entre les deux instances managées. La suppression de l’approbation peut être appliquée en appelant un [basculement](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) d’instances managées. Consultez les [Problèmes connus](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) pour obtenir les dernières mises à jour à ce sujet.

@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mbaldwin
 ms.date: 10/16/2020
 ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144974"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Démarrage rapide : Créer un fournisseur Azure Attestation avec un modèle Resource Manager
@@ -21,7 +21,7 @@ ms.locfileid: "92144974"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
@@ -49,11 +49,11 @@ Ressources Azure définies dans le modèle :
 
     Sauf si elle est spécifiée, utilisez la valeur par défaut pour créer le fournisseur d’attestations.
 
-    - **Nom du fournisseur d’attestation**  : Sélectionnez un nom pour votre fournisseur Azure Attestation.
-    - **Emplacement** : Sélectionnez un emplacement. Par exemple, **USA Centre** .
-    - **Étiquettes**  : Sélectionnez un emplacement. Par exemple, **USA Centre** .
+    - **Nom du fournisseur d’attestation** : Sélectionnez un nom pour votre fournisseur Azure Attestation.
+    - **Emplacement** : Sélectionnez un emplacement. Par exemple, **USA Centre**.
+    - **Étiquettes** : Sélectionnez un emplacement. Par exemple, **USA Centre**.
 
-1. Sélectionnez **Achat** . Une fois que la ressource d’attestation a été déployée, vous recevez une notification.
+1. Sélectionnez **Achat**. Une fois que la ressource d’attestation a été déployée, vous recevez une notification.
 
 Le portail Azure est utilisé pour déployer le modèle. Outre le portail Azure, vous pouvez également utiliser Azure PowerShell, l’interface Azure CLI et l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](../azure-resource-manager/templates/deploy-powershell.md).
 

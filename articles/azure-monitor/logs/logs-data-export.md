@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: df165b83a6635fbcf72c94a4d16cbdf16c337636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea33eff30e712c1597c3606d74cb6d56683211ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713590"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615582"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -36,7 +36,7 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 
 - Actuellement, la configuration peut être effectuée à l’aide d’une interface CLI ou de requêtes REST. Le Portail Azure ou PowerShell ne sont pas encore pris en charge.
 - L’option ```--export-all-tables``` dans l’interface CLI et REST n’est pas prise en charge et sera supprimée. Vous devez fournir explicitement la liste des tables dans les règles d’exportation.
-- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. 
+- Les tables prises en charge sont actuellement limitées à celles qui sont spécifiques à la section [tables prises en charge](#supported-tables) ci-dessous. Par exemple, les tables de journal personnalisées ne sont actuellement pas prises en charge.
 - Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table tant qu’elle n’est pas prise en charge. 
 - Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur ```Table <tableName> does not exist in the workspace```.
 - Votre espace de travail Log Analytics peut se trouver dans n’importe quelle région, à l’exception des suivantes :
@@ -76,7 +76,7 @@ L’exportation de données Log Analytics peut écrire des objets Blob d’ajout
 Les données sont envoyées à votre Event Hub quasiment en temps réel à mesure qu’elles atteignent Azure Monitor. Un Event Hub est créé pour chaque type de données que vous exportez avec le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un Event Hub nommé *am-SecurityEvent*. Si vous souhaitez que les données exportées atteignent un Event Hub spécifique, ou si vous avez une table avec un nom qui dépasse la limite de 47 caractères, vous pouvez fournir votre propre nom Event Hub et y exporter toutes les données pour les tables définies.
 
 > [!IMPORTANT]
-> Le [nombre de hubs d’événements pris en charge par espace de noms est de 10](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). Si vous exportez plus de 10 tables, indiquez le nom de votre propre hub d’événements pour exporter toutes vos tables vers celui-ci. 
+> Le [nombre de hubs d’événements pris en charge par espace de noms est de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Si vous exportez plus de 10 tables, indiquez le nom de votre propre hub d’événements pour exporter toutes vos tables vers celui-ci.
 
 Considérations :
 1. La référence SKU de l’Event Hub « De base » prend en charge une [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de taille d’événement inférieure, et certains journaux de votre espace de travail peuvent dépasser cette taille et être supprimés. Nous vous recommandons d’utiliser un Event Hub « Standard » ou « Dédié » comme destination de l’exportation.
@@ -114,10 +114,14 @@ Si vous avez configuré votre compte de stockage pour autoriser l’accès à pa
 
 [![Pare-feux de compte de stockage et réseaux virtuels](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### <a name="create-or-update-data-export-rule"></a>Créer ou mettre à jour une règle d’exportation de données
-Une règle d’exportation de données définit les données qui doivent être exportées pour un certain ensemble de tables vers une destination unique. Vous pouvez créer une règle unique pour chaque destination.
+Une règle d’exportation de données définit les tables pour lesquelles les données sont exportées et la destination. À l’heure actuelle, il est possible de créer une seule règle par destination.
 
+La règle d’exportation doit inclure les tables que vous avez dans votre espace de travail. Exécutez cette requête pour obtenir la liste des tables disponibles dans votre espace de travail.
+
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -128,12 +132,6 @@ N/A
 N/A
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Utilisez la commande CLI suivante pour afficher les tables dans votre espace de travail. Elle peut vous aider à copier les tables que vous souhaitez inclure dans la règle d’exportation de données.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Utilisez la commande suivante pour créer une règle d’exportation de données vers un compte de stockage à l’aide de l’interface CLI.
 

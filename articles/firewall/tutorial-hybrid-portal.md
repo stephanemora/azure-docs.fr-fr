@@ -9,10 +9,10 @@ ms.date: 11/17/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 86e27c190b269763d8dd2f562a207b3f2020da29
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98051069"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
@@ -148,7 +148,7 @@ Tout d’abord, créez le groupe de ressources qui doit contenir les ressources 
 2. Dans la colonne de gauche, sélectionnez **Mise en réseau**, puis recherchez et sélectionnez **Pare-feu**.
 4. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
 
-   |Paramètre  |Valeur  |
+   |Paramètre  |Value  |
    |---------|---------|
    |Abonnement     |\<your subscription\>|
    |Resource group     |**FW-Hybrid-Test** |

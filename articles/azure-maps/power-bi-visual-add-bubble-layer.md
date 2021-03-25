@@ -10,25 +10,25 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896223"
 ---
 # <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
 
-Le **calque de bulles**  affiche les données d’emplacement sous forme de cercles à l’échelle sur la carte.
+Le **calque de bulles** affiche les données d’emplacement sous forme de cercles à l’échelle sur la carte.
 
 > [!div class="mx-imgBorder"]
 > ![Carte affichant des données de point à l’aide du calque de bulles](media/power-bi-visual/bubble-layer-with-legend-color.png)
 
-Initialement, toutes les bulles ont la même couleur de remplissage. Si un champ est transmis au compartiment **Légende** du volet **Champs** , les bulles sont colorées en fonction de leur catégorisation. Le contour des bulles est blanc par défaut, mais vous pouvez lui donner une nouvelle couleur ou activer l’option de contour à contraste élevé. L’option **bordure à contraste élevé** attribue dynamiquement une couleur de contour qui est une variante à contraste élevé de la couleur de remplissage. Cela permet de s’assurer que les bulles sont clairement visibles quel que soit le style de la carte. Vous trouverez ci-dessous les principaux paramètres du volet **Format** disponibles dans la section **Calque de bulles** .
+Initialement, toutes les bulles ont la même couleur de remplissage. Si un champ est transmis au compartiment **Légende** du volet **Champs**, les bulles sont colorées en fonction de leur catégorisation. Le contour des bulles est blanc par défaut, mais vous pouvez lui donner une nouvelle couleur ou activer l’option de contour à contraste élevé. L’option **bordure à contraste élevé** attribue dynamiquement une couleur de contour qui est une variante à contraste élevé de la couleur de remplissage. Cela permet de s’assurer que les bulles sont clairement visibles quel que soit le style de la carte. Vous trouverez ci-dessous les principaux paramètres du volet **Format** disponibles dans la section **Calque de bulles**.
 
 | Paramètre               | Description    |
 |-----------------------|----------------|
-| Taille                  | Taille de chaque bulle. Cette option est masquée quand un champ est transmis dans le compartiment **Taille** du volet **Champs** . Des options supplémentaires s’affichent comme exposé dans la rubrique [Mise à l'échelle de la taille des bulles](#bubble-size-scaling) plus loin dans cet article. |
-| Couleur de remplissage            | Couleur de chaque bulle. Cette option est masquée lorsqu’un champ est transmis dans le compartiment **Légende** du volet **Champs** , et une section **Couleurs des données** distincte apparaît dans le volet **Format** . |
+| Taille                  | Taille de chaque bulle. Cette option est masquée quand un champ est transmis dans le compartiment **Taille** du volet **Champs**. Des options supplémentaires s’affichent comme exposé dans la rubrique [Mise à l'échelle de la taille des bulles](#bubble-size-scaling) plus loin dans cet article. |
+| Couleur de remplissage            | Couleur de chaque bulle. Cette option est masquée lorsqu’un champ est transmis dans le compartiment **Légende** du volet **Champs**, et une section **Couleurs des données** distincte apparaît dans le volet **Format**. |
 | Transparence du remplissage     | Transparence de chaque bulle. |
 | Contour à contraste élevé | Fait en sorte que la couleur du contour contraste avec la couleur de remplissage pour une meilleure accessibilité à l’aide d’une variante à contraste élevé de la couleur de remplissage. |
 | Couleur du contour         | Couleur de contour de la bulle. Cette option est masquée lorsque l’option **Contour à contraste élevé** est activée. |
@@ -43,7 +43,7 @@ Initialement, toutes les bulles ont la même couleur de remplissage. Si un champ
 
 ## <a name="bubble-size-scaling"></a>Mise à l’échelle de la taille des bulles
 
-Si un champ est transmis au compartiment **Taille** du volet **Champs** , les bulles sont mises à l’échelle par rapport à la valeur de mesure de chaque point de données. L’option **Taille** dans la section **Calque de bulle** du volet **Format** disparaît lorsqu’un champ est transmis au compartiment **Taille** , car les rayons des bulles sont mis à l’échelle entre une valeur minimale et une valeur maximale. Les options suivantes s’affichent dans la section **Calque de bulles** du volet **Format** quand un compartiment **Taille** a un champ spécifié.
+Si un champ est transmis au compartiment **Taille** du volet **Champs**, les bulles sont mises à l’échelle par rapport à la valeur de mesure de chaque point de données. L’option **Taille** dans la section **Calque de bulle** du volet **Format** disparaît lorsqu’un champ est transmis au compartiment **Taille**, car les rayons des bulles sont mis à l’échelle entre une valeur minimale et une valeur maximale. Les options suivantes s’affichent dans la section **Calque de bulles** du volet **Format** quand un compartiment **Taille** a un champ spécifié.
 
 | Paramètre             | Description  |
 |---------------------|--------------|
@@ -51,13 +51,13 @@ Si un champ est transmis au compartiment **Taille** du volet **Champs** , les bu
 | Taille maximale            | Taille de bulle maximale lors de la mise à l’échelle des données.|
 | Méthode de mise à l'échelle de la taille | Algorithme de mise à l’échelle utilisé pour déterminer la taille de bulle relative.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Linéaire : plage de données d’entrée mappées de façon linéaire à la taille minimale et maximale. (par défaut)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log : plage de données d’entrée mappées de façon logarithmique à la taille minimale et maximale.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Bezier cubique : spécifiez les valeurs X1, Y1, X2 et Y2 d’une courbe de Bézier cubique pour créer une méthode de mise à l'échelle personnalisée. |
 
-Lorsque la **méthode de mise à l’échelle de la taille** est définie sur **Log** , les options suivantes sont disponibles.
+Lorsque la **méthode de mise à l’échelle de la taille** est définie sur **Log**, les options suivantes sont disponibles.
 
 | Paramètre   | Description      |
 |-----------|------------------|
 | Échelle logarithmique | Échelle logarithmique à appliquer lors du calcul de la taille des bulles. |
 
-Lorsque la **méthode de mise à l’échelle de la taille** est définie sur **Bezier cubique** , les options suivantes sont disponibles pour personnaliser la courbe de mise à l'échelle.
+Lorsque la **méthode de mise à l’échelle de la taille** est définie sur **Bezier cubique**, les options suivantes sont disponibles pour personnaliser la courbe de mise à l'échelle.
 
 | Paramètre | Description                           |
 |---------|---------------------------------------|
@@ -79,7 +79,7 @@ Modifier la façon dont vos données sont affichées sur la carte :
 Ajouter davantage de contexte à la carte :
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de référence](power-bi-visual-add-reference-layer.md)
+> [Ajouter une couche de référence](power-bi-visual-add-reference-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une couche de mosaïques](power-bi-visual-add-tile-layer.md)

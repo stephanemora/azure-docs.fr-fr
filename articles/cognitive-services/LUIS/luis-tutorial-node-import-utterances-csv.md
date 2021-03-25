@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541037"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Créer une application LUIS par programmation à l’aide de Node.js
@@ -22,13 +22,13 @@ LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS](lu
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Connectez-vous au site web [LUIS](luis-reference-regions.md) et recherchez votre [clé de création](luis-how-to-azure-subscription.md#authoring-key) dans les paramètres du compte. Cette clé vous permet d’appeler les API de création.
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/cognitive-services/) avant de commencer.
 * Cet article commence par un volume partagé de cluster pour les fichiers journaux d’une société fictive de requêtes d’utilisateurs. Téléchargez-le [ici](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Installez la dernière version de Node.js avec NPM. Téléchargez-la [ici](https://nodejs.org/en/download/).
-* **[Recommandé]**  Visual Studio Code pour IntelliSense et le débogage, à télécharger gratuitement [ici](https://code.visualstudio.com/).
+* **[Recommandé]** Visual Studio Code pour IntelliSense et le débogage, à télécharger gratuitement [ici](https://code.visualstudio.com/).
 
 Tout le code utilisé dans cet article est disponible dans le [dépôt GitHub d’exemples Azure Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/examples/build-app-programmatically-csv).
 

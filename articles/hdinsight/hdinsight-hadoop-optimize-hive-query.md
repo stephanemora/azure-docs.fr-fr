@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/28/2020
-ms.openlocfilehash: a15c3e0fb3550c6e50b3fba2279611fdba25bc84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 551d985ea78e83397e507676c5fd7ecfce12ff7b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945565"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864242"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimiser les requêtes Apache Hive dans Azure HDInsight
 
@@ -34,11 +34,11 @@ L’augmentation du nombre de nœuds Worker d’un cluster HDInsight permet d'ex
 
 * Lors de la création d’un cluster, vous pouvez spécifier le nombre de nœuds Worker à l’aide du portail Azure, d’Azure PowerShell ou d’une interface de ligne de commande.  Pour plus d’informations, consultez la rubrique [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La capture d’écran suivante montre la configuration du nœud Worker sur le portail Azure :
   
-    ![Portail Azure - Taille de cluster, nœuds](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png" alt-text="Portail Azure - Taille de cluster, nœuds":::
 
 * Une fois le cluster créé, vous pouvez également modifier le nombre de nœuds Worker pour effectuer un scale-out d’un cluster sans en recréer un autre :
 
-    ![Taille de cluster de mise à l’échelle Portail Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png " alt-text="Taille de cluster de mise à l’échelle Portail Azure":::
 
 Pour plus d’informations sur la mise à l’échelle de HDInsight, consultez la rubrique [Mettre à l’échelle les clusters HDInsight](hdinsight-scaling-best-practices.md)
 
@@ -46,7 +46,7 @@ Pour plus d’informations sur la mise à l’échelle de HDInsight, consultez l
 
 [Apache Tez](https://tez.apache.org/) est un moteur d’exécution représentant une alternative au moteur MapReduce. Tez est activé par défaut pour les clusters HDInsight basés sur Linux.
 
-![HDInsight - Schéma de présentation d’Apache Tez](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png" alt-text="HDInsight - Schéma de présentation d’Apache Tez":::
 
 Tez est plus rapide pour les raisons suivantes :
 
@@ -70,7 +70,7 @@ Les opérations d’E/S constituent le principal goulot d’étranglement des pe
 
 Le partitionnement Hive est implémenté en réorganisant les données brutes en nouveaux répertoires. Chaque partition a son propre répertoire de fichiers. Le partitionnement est défini par l’utilisateur. Le schéma suivant illustre le partitionnement d’une table Hive selon la colonne *Année*. Un nouveau répertoire est créé pour chaque année.
 
-![HDInsight - Partitionnement Apache Hive](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png" alt-text="HDInsight - Partitionnement Apache Hive":::
 
 Considérations relatives au partitionnement :
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a75896dde7a23ea346e0af73ed145094e78812ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b09587d90024a8c376be8b0d93f7ef7b6cc51a1e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654491"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008482"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -47,9 +47,10 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 
 | Exemple | Description |
 |--------| ----------- |
+| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL React. Cet exemple utilise le flux de code d’autorisation avec PKCE. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE. |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Une application monopage (SPA) appelant Microsoft Graph pour gérer les utilisateurs dans un répertoire B2C. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE.|
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Application monopage (SPA) appelant une API web. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux implicite.|
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Une application monopage (SPA) appelant Microsoft Graph pour gérer les utilisateurs dans un répertoire B2C. L’authentification est effectuée avec Azure AD B2C en utilisant MSAL.js. Cet exemple utilise le flux de code d’autorisation avec PKCE.|
 
 ## <a name="consoledaemon-apps"></a>Applications console/démon
 

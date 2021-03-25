@@ -4,10 +4,10 @@ description: Cet article fournit des informations sur l’autorisation d’accè
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910795"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoriser l’accès aux ressources Event Hubs à l'aide d'Azure Active Directory
@@ -46,11 +46,11 @@ Avant d’attribuer un rôle Azure à un principal de sécurité, déterminez l�
 
 La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources Event Hubs, en commençant par la plus petite étendue :
 
-- **Groupe de consommateurs**  : Dans cette étendue, l’attribution de rôle s’applique uniquement à cette entité. Actuellement, le portail Azure ne prend pas en charge l’attribution d’un rôle Azure à un principal de sécurité de ce niveau. 
-- **Hub d'événements**  : L’attribution de rôle s’applique à l’entité Event Hub et au groupe de consommateurs sous-jacent.
-- **Espace de noms**  : L’attribution de rôle s’étend à toute la topologie d'Event Hubs sous l’espace de noms et au groupe de consommateurs qui lui est associé.
-- **Groupe de ressources**  : L’attribution de rôle s’applique à toutes les ressources Event Hubs sous le groupe de ressources.
-- **Abonnement** : L’attribution de rôle s’applique à toutes les ressources Event Hubs dans tous les groupes de ressources de l’abonnement.
+- **Groupe de consommateurs** : Dans cette étendue, l’attribution de rôle s’applique uniquement à cette entité. Actuellement, le portail Azure ne prend pas en charge l’attribution d’un rôle Azure à un principal de sécurité de ce niveau. 
+- **Hub d'événements** : L’attribution de rôle s’applique à l’entité Event Hub et au groupe de consommateurs sous-jacent.
+- **Espace de noms** : L’attribution de rôle s’étend à toute la topologie d'Event Hubs sous l’espace de noms et au groupe de consommateurs qui lui est associé.
+- **Groupe de ressources** : L’attribution de rôle s’applique à toutes les ressources Event Hubs sous le groupe de ressources.
+- **Abonnement**: L’attribution de rôle s’applique à toutes les ressources Event Hubs dans tous les groupes de ressources de l’abonnement.
 
 > [!NOTE]
 > - Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes. 
@@ -64,7 +64,7 @@ Pour plus d’informations sur la définition des rôles intégrés, consultez [
 ## <a name="samples"></a>Exemples
 - [Exemples Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs** , mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs**, mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [Exemples Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Cet exemple a été mis à jour pour utiliser la dernière bibliothèque **Azure.Messaging.EventHubs**.

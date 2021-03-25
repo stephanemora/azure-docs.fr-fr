@@ -4,10 +4,10 @@ description: Cet article fournit des conseils sur le développement et le déplo
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881650"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Guide pratique - Développer et déployer un serveur d’inférence gRPC
@@ -64,7 +64,7 @@ Effectuez les étapes nécessaires pour que le [module Live Video Analytics soit
 En cas de colocalisation sur le même nœud, la mémoire partagée peut être utilisée pour bénéficier de performances optimales. Vous devez pour cela utiliser les fonctionnalités de mémoire partagée Linux exposées par le langage/l’environnement de programmation.
 
 1. Ouvrez le descripteur de la mémoire partagée Linux.
-1. Lors de la réception d’une image, accédez au décalage d’adresse dans la mémoire partagée.
+1. À la réception d’une trame, accédez au décalage d’adresse dans la mémoire partagée.
 1. Accusez réception de la fin du traitement de l’image afin que sa mémoire puisse être récupérée par Live Video Analytics.
 
 ## <a name="create-a-grpc-inference-server"></a>Créer un serveur d’inférence gRPC

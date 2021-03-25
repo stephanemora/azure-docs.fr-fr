@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: cshoe
 ms.openlocfilehash: 266df5371ff5f47526fa9d6567c62e31d51ebb05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87810222"
 ---
 # <a name="shifting-from-expressjs-to-azure-functions"></a>Passage d’Express.js à Azure Functions
@@ -22,7 +22,7 @@ Lors de la migration du code vers une architecture sans serveur, la refactorisat
 
 - **API différentes** : L’API utilisée pour traiter les demandes et les réponses diffère entre Azure Functions et Express.js. L’exemple suivant détaille les modifications requises.
 
-- **Route par défaut** : Par défaut, les points de terminaison Azure Functions sont exposés sous l’itinéraire `api`. Les règles de routage sont configurables par le biais de [`routePrefix` dans le fichier _host.json_ ](./functions-bindings-http-webhook-output.md#hostjson-settings).
+- **Route par défaut** : Par défaut, les points de terminaison Azure Functions sont exposés sous l’itinéraire `api`. Les règles de routage sont configurables par le biais de [`routePrefix` dans le fichier _host.json_](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
 - **Configuration et conventions** : Une application de fonctions utilise le fichier _function.json_ pour définir des verbes HTTP, définir des stratégies de sécurité et configurer les [d’entrée et de sortie](./functions-triggers-bindings.md) de la fonction. Par défaut, le nom du dossier qui contient les fichiers de fonctions définit le nom du point de terminaison, mais vous pouvez modifier le nom via la propriété `route` dans le fichier [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint).
 

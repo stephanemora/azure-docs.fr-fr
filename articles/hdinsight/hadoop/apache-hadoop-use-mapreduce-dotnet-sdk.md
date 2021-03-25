@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
 ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932178"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Exécuter des travaux MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
@@ -21,7 +21,7 @@ Apprenez à envoyer des travaux MapReduce à l’aide du Kit de développement l
 > [!NOTE]  
 > Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Créer des clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -31,7 +31,7 @@ Apprenez à envoyer des travaux MapReduce à l’aide du Kit de développement l
 
 Le kit SDK HDInsight .NET fournit des bibliothèques de client .NET, ce qui facilite l’utilisation des clusters HDInsight à partir de .NET.
 
-1. Démarrez Visual Studio et créez une application console C#.
+1. Démarrez Visual Studio et créez une application console C#.
 
 1. Accédez à **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**, puis entrez la commande suivante :
 

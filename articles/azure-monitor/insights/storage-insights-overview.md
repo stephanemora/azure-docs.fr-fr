@@ -6,10 +6,10 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
 ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708065"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage

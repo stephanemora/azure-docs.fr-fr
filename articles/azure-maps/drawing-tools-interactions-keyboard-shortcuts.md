@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: b609a21348222150faf5fb828f2cc38ca6658f5d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895815"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Types d'interaction et raccourcis clavier dans le module Outils de dessin
@@ -23,7 +23,7 @@ Pour tracer des formes, le gestionnaire de dessins prend en charge trois modes d
 
 * `click` - Les coordonnées sont ajoutées au moyen d’un clic (souris ou interaction tactile).
 * `freehand ` - Les coordonnées sont ajoutées au moyen d’un glisser-déplacer sur la carte (souris ou interaction tactile).
-* `hybrid` - Les coordonnées sont ajoutées au moyen d’un clic ou d’un glisser-déplacer (souris ou interaction tactile).
+* `hybrid` - Les coordonnées sont ajoutées au moyen d'un clic ou d'un glisser-déplacer (souris ou interaction tactile).
 
 ## <a name="how-to-draw-shapes"></a>Tracer des formes
 
@@ -53,7 +53,7 @@ Lorsque le gestionnaire de dessins est en mode de dessin `draw-point`, les actio
 Quand le gestionnaire de dessins est en mode `draw-line`, les actions suivantes peuvent être effectuées pour tracer des points sur la carte, en fonction du mode d’interaction.
 
 **Commencer à dessiner**
- - Mode Clic
+ - Mode clic
    * Cliquez sur le bouton gauche de la souris ou appuyez sur la carte pour y ajouter chacun des points d’une ligne. Les coordonnées correspondant à chaque clic ou interaction tactile sont ajoutées à la ligne. 
    * Si la souris se trouve sur la carte, appuyez sur la touche `F`. Un point sera alors ajouté aux coordonnées du pointeur de la souris. Cette méthode offre une plus grande précision pour ajouter un point à la carte. Aucune pression ne sera exercée sur le bouton gauche de la souris, ce qui risquerait de déplacer légèrement celle-ci.
    * Continuez à cliquer jusqu'à ce que tous les points souhaités aient été ajoutés à la ligne.
@@ -79,7 +79,7 @@ Quand le gestionnaire de dessins est en mode `draw-line`, les actions suivantes 
 Quand le gestionnaire de dessins est en mode `draw-polygon`, les actions suivantes peuvent être effectuées pour tracer des points sur la carte, en fonction du mode d’interaction.
 
 **Commencer à dessiner**
- - Mode Clic
+ - Mode clic
    * Cliquez sur le bouton gauche de la souris ou appuyez sur la carte pour y ajouter chacun des points d’un polygone. Les coordonnées correspondant à chaque clic ou interaction tactile sont ajoutées au polygone. 
    * Si la souris se trouve sur la carte, appuyez sur la touche `F`. Un point sera alors ajouté aux coordonnées du pointeur de la souris. Cette méthode offre une plus grande précision pour ajouter un point à la carte. Aucune pression ne sera exercée sur le bouton gauche de la souris, ce qui risquerait de déplacer légèrement celle-ci.
    * Continuez à cliquer jusqu'à ce que tous les points souhaités aient été ajoutés au polygone.

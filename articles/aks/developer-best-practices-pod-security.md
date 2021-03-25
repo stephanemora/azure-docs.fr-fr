@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
 ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92900822"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
@@ -29,13 +29,13 @@ Vous pouvez également consulter les bonnes pratiques pour la [sécurité des cl
 
 **Meilleures pratiques** : pour changer d’utilisateur ou de groupe et limiter l’accès aux services et processus de nœud sous-jacents, définissez les paramètres du contexte de sécurité des pods. Affectez le nombre minimal de privilèges requis.
 
-Pour que vos applications s’exécutent correctement, les pods doivent s’exécuter en tant qu’utilisateur ou groupe défini, et non en tant que *racine* . Le `securityContext` pour un pod ou un conteneur vous permet de définir des paramètres tels que *runAsUser* ou *fsGroup* pour assumer les autorisations appropriées. Affectez uniquement les autorisations requises pour l’utilisateur ou le groupe et n’utilisez pas le contexte de sécurité pour assumer des autorisations supplémentaires. Le *runAsUser* , élévation des privilèges, et d’autres paramètres de fonctionnalités Linux sont uniquement disponibles sur les pods et nœuds Linux.
+Pour que vos applications s’exécutent correctement, les pods doivent s’exécuter en tant qu’utilisateur ou groupe défini, et non en tant que *racine*. Le `securityContext` pour un pod ou un conteneur vous permet de définir des paramètres tels que *runAsUser* ou *fsGroup* pour assumer les autorisations appropriées. Affectez uniquement les autorisations requises pour l’utilisateur ou le groupe et n’utilisez pas le contexte de sécurité pour assumer des autorisations supplémentaires. Le *runAsUser*, élévation des privilèges, et d’autres paramètres de fonctionnalités Linux sont uniquement disponibles sur les pods et nœuds Linux.
 
 Lorsque vous vous connectez en tant qu’utilisateur non root, les conteneurs ne peuvent pas établir de liaison avec les ports privilégiés inférieurs à 1024. Dans ce scénario, Kubernetes Services peut être utilisé pour masquer le fait qu’une application s’exécute sur un port particulier.
 
 Un contexte de sécurité de pod peut également permettre de définir des fonctionnalités ou autorisations supplémentaires pour accéder à des processus et services. Vous pouvez utiliser les définitions de contexte de sécurité courantes ci-dessous :
 
-* **allowPrivilegeEscalation** définit si le pod peut assumer les privilèges *racine* . Concevez vos applications afin que ce paramètre soit toujours défini sur *false* .
+* **allowPrivilegeEscalation** définit si le pod peut assumer les privilèges *racine*. Concevez vos applications afin que ce paramètre soit toujours défini sur *false*.
 * **Les fonctionnalités Linux** permettent au pod d’accéder aux processus de nœud sous-jacents. Soyez vigilant lorsque vous affectez ces fonctionnalités. Affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez [Fonctionnalités de Linux][linux-capabilities].
 * **SELinux Labels** est un module de sécurité du noyau Linux qui vous permet de définir des stratégies d’accès pour l’accès aux services, aux processus et au système de fichiers. Là encore, affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez [Options de SELinux dans Kubernetes][selinux-labels]
 
@@ -97,7 +97,7 @@ L’utilisation du projet d’identités de pod vous permet de vous authentifier
 
 Lorsque les applications ont besoin d’informations d’identification, elles communiquent avec le coffre numérique, récupèrent le dernier contenu des secrets, puis se connectent au service nécessaire. Azure Key Vault peut être utilisé comme coffre numérique. Le schéma suivant illustre de façon simplifiée le workflow utilisé pour récupérer des informations d’identification à partir d’Azure Key Vault à l’aide d’identités de pod managées :
 
-:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Workflow simplifié du système d’identités de pod managées dans Azure":::
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Workflow simplifié pour récupérer des informations d’identification dans Key Vault à l’aide d’une identité de pod managée":::
 
 Key Vault vous permet de stocker et faire tourner régulièrement les secrets, tels que les informations d’identification, les clés de compte de stockage ou les certificats. Vous pouvez intégrer Azure Key Vault à un cluster AKS à l’aide du [fournisseur Azure Key Vault pour le pilote Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). Le pilote Secrets Store CSI permet au cluster AKS de récupérer en mode natif le contenu des secrets à partir de Key Vault, et fournit celui-ci uniquement au pod demandeur. Collaborez avec votre opérateur de cluster pour déployer le pilote Secrets Store CSI sur les nœuds Worker AKS. Vous pouvez utiliser une identité managée par un pod pour demander l’accès à Key Vault et récupérer le contenu des secrets par le biais du pilote Secrets Store CSI.
 

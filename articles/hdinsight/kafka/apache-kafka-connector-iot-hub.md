@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: feada70c7a461bb4a9cd621c76b5606a7f0e19d5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932879"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865279"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Utiliser Apache Kafka sur HDInsight avec Azure IoT Hub
 
@@ -22,11 +22,11 @@ Pour extraire des données à partir d’IoT Hub, vous devez utiliser un connect
 
 Le diagramme suivant illustre le flux de données entre Azure IoT Hub et Kafka sur HDInsight avec l’utilisation du connecteur.
 
-![Image montrant les données transitant d’IoT Hub vers Kafka via le connecteur](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="Image montrant les données transitant d’IoT Hub vers Kafka via le connecteur" border="false":::
 
 Pour plus d’informations sur l’API Connect, consultez [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Cluster Apache Kafka sur HDInsight. Pour plus d’informations, consultez le document [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
 
@@ -146,20 +146,20 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
 1. Obtenez le point de terminaison compatible Event Hub et le nom du point de terminaison compatible Event Hub pour votre IoT Hub. Pour obtenir ces informations, utilisez l’une des méthodes suivantes :
 
-   * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__ , procédez comme suit :
+   * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__, procédez comme suit :
 
      1. Accédez à votre IoT Hub, puis sélectionnez __Points de terminaison__.
      2. À partir de __Points de terminaison intégrés__, sélectionnez __Événements__.
      3. À partir de __Propriétés__, copiez la valeur des champs suivants :
 
          * __Nom compatible avec les hubs d’événements__
-         * __Point de terminaison compatible avec les hubs d’événements__
+         * __Point de terminaison compatible Event Hub__
          * __Partitions__
 
         > [!IMPORTANT]  
         > La valeur de point de terminaison en provenance du portail peut contenir du texte superflu qui n’est pas utile dans cet exemple. Extrayez le texte qui correspond à ce modèle `sb://<randomnamespace>.servicebus.windows.net/`.
 
-   * __À partir d’[Azure CLI](/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
+   * __À partir d’[Azure CLI](/cli/azure/get-started-with-azure-cli)__, utilisez la commande suivante :
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -175,13 +175,13 @@ Pour récupérer les informations d’IoT Hub utilisées par le connecteur, proc
 
 2. Procurez-vous la __stratégie d’accès partagé__ et la __clé__. Pour cet exemple, utilisez la clé de __service__. Pour obtenir ces informations, utilisez l’une des méthodes suivantes :
 
-    * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__ , procédez comme suit :
+    * __À partir du [portail Microsoft Azure](https://portal.azure.com/)__, procédez comme suit :
 
         1. Sélectionnez __Stratégies d’accès partagé__, puis __service__.
         2. Copiez la valeur __Clé primaire__.
         3. Copiez la valeur __Clé primaire de la chaîne de connexion__.
 
-    * __À partir d’[Azure CLI](/cli/azure/get-started-with-azure-cli)__ , utilisez la commande suivante :
+    * __À partir d’[Azure CLI](/cli/azure/get-started-with-azure-cli)__, utilisez la commande suivante :
 
         1. Pour obtenir la valeur de la clé primaire, utilisez la commande suivante :
 

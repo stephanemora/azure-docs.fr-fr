@@ -4,10 +4,10 @@ description: Correspondance des contrôles de l’exemple de blueprint SWIFT CSP
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 466b37b287d79a891fba39b133ab5fa79dbd147e
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98048791"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint SWIFT CSP-CSCF v2020

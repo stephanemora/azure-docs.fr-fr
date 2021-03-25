@@ -9,10 +9,10 @@ ms.date: 01/08/2021
 ms.author: mimig
 ms.custom: include file
 ms.openlocfilehash: a7e34f077ce1b2541168df40f2806fdb24a63a79
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98050751"
 ---
 Si vous utilisez actuellement le stockage de table Azure, vous bénéficiez des avantages suivants en passant à l’API Table d’Azure Cosmos DB :

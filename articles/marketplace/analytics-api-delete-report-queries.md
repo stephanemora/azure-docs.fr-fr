@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 4fc3479f1e35970a97684396a7a2e0c0c2582128
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583545"
 ---
 # <a name="delete-report-queries-api"></a>API Supprimer des requêtes de rapport
@@ -28,7 +28,7 @@ Cette API supprime les requêtes définies par l’utilisateur.
 
 | **En-tête** | **Type** | **Description** |
 | --- | --- | --- |
-| Autorisation | string | Obligatoire. Jeton d’accès Azure Active Directory (Azure AD) au format `Bearer <token>` |
+| Autorisation | string | Obligatoire. Le jeton d’accès Azure Active Directory (Azure AD) au format `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
 
 **Paramètre de chemin**
@@ -41,7 +41,7 @@ Cette API supprime les requêtes définies par l’utilisateur.
 
 Aucun
 
-**Charge utile de requête**
+**Charge utile de la requête**
 
 Aucun
 
@@ -92,4 +92,4 @@ Ce tableau liste les définitions clés des éléments dans la réponse.
 | `CreatedTime` | Heure de création de la requête |
 | `ModifiedTime` | Null |
 | `TotalCount` | Nombre de jeux de données dans le tableau de valeur |
-| `StatusCode` | Code de résultat Les valeurs possibles sont 200, 400, 401, 403, 500 |
+| `StatusCode` | Code de résultat. Les valeurs possibles sont 200, 400, 401, 403, 500 |
