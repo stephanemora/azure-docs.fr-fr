@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394728"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
@@ -51,8 +51,8 @@ Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre r
 | Utilisateur | Une activation d’un rôle est en attente d’approbation | Une demande d’activation de rôle est terminée | PIM est activé |
 | --- | --- | --- | --- |
 | Administrateur de rôle privilégié</br>(Activé/éligible) | Oui</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | Oui |
-| Security Administrator</br>(Activé/éligible) | Non  | Oui* | Oui |
-| Administrateur général</br>(Activé/éligible) | Non  | Oui* | Oui |
+| Security Administrator</br>(Activé/éligible) | Non | Oui* | Oui |
+| Administrateur général</br>(Activé/éligible) | Non | Oui* | Oui |
 
 \* Si le paramètre [**Notifications**](pim-how-to-change-default-settings.md#notifications) a la valeur **Activer**.
 

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017982"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Présentation de StorSimple Snapshot Manager
@@ -56,11 +56,11 @@ Les sauvegardes de Gestionnaire d’instantanés StorSimple prennent la forme d�
 ## <a name="support-for-multiple-volume-types"></a>Prise en charge de plusieurs types de volumes
 Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour configurer et sauvegarder les types de volumes suivants : 
 
-* **Volumes de base** : un volume de base est une partition unique sur un disque de base. 
-* **Volumes simples** : un volume simple est un volume dynamique qui contient l’espace d’un seul disque dynamique. Un volume simple se compose d’une seule région d’un disque ou de plusieurs régions liées entre elles sur le même disque. (Vous pouvez créer des volumes simples uniquement sur des disques dynamiques). Les volumes simples ne sont pas tolérants aux pannes.
-* **Volumes dynamiques** : un volume dynamique est un volume créé sur un disque dynamique. Les disques dynamiques utilisent une base de données pour effectuer le suivi des informations sur les volumes contenus sur les disques dynamiques d’un ordinateur. 
-* **Volumes dynamiques avec mise en miroir** : les volumes dynamiques avec mise en miroir reposent sur l’architecture RAID 1. Avec RAID 1, des données identiques sont écrites sur deux ou plusieurs disques, produisant un ensemble en miroir. Une demande de lecture peut ensuite être traitée par n’importe quel disque contenant les données demandées.
-* **Volumes partagés de cluster** : avec les volumes partagés de cluster (CSV), plusieurs nœuds dans un cluster de basculement peuvent lire ou écrire simultanément sur le même disque. Le basculement d’un nœud sur un autre nœud peut se produire rapidement, sans nécessiter la modification de propriété du lecteur ou le montage, démontage et la suppression d’un volume. 
+* **Volumes de base** - Un volume de base est une partition unique sur un disque de base. 
+* **Volumes simples** - Un volume simple est un volume dynamique qui contient l'espace disque d'un seul disque dynamique. Un volume simple se compose d’une seule région d’un disque ou de plusieurs régions liées entre elles sur le même disque. (Vous pouvez créer des volumes simples uniquement sur des disques dynamiques). Les volumes simples ne sont pas tolérants aux pannes.
+* **Volumes dynamiques** - Un volume dynamique est un volume créé sur un disque dynamique. Les disques dynamiques utilisent une base de données pour effectuer le suivi des informations sur les volumes contenus sur les disques dynamiques d’un ordinateur. 
+* **Volumes dynamiques avec mise en miroir** - Les volumes dynamiques avec mise en miroir reposent sur l'architecture RAID 1. Avec RAID 1, des données identiques sont écrites sur deux ou plusieurs disques, produisant un ensemble en miroir. Une demande de lecture peut ensuite être traitée par n’importe quel disque contenant les données demandées.
+* **Volumes partagés de cluster** - Avec les volumes partagés de cluster, plusieurs nœuds d'un cluster de basculement peuvent lire ou écrire simultanément sur le même disque. Le basculement d’un nœud sur un autre nœud peut se produire rapidement, sans nécessiter la modification de propriété du lecteur ou le montage, démontage et la suppression d’un volume. 
 
 > [!IMPORTANT]
 > Ne mélangez pas les volumes partagés de cluster et les volumes non partagés de cluster dans le même instantané. Le mélange de volumes partagés de cluster et de volumes non partagés de cluster dans un instantané n’est pas pris en charge. 
@@ -113,7 +113,7 @@ Avec le Gestionnaire d’instantanés StorSimple, vous pouvez sauvegarder les do
 Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour créer les types de sauvegardes suivants :
 
 * **Instantanés locaux** : les instantanés locaux sont des copies ponctuelles dans le temps de données de volume stockées sur l’appareil StorSimple. En règle générale, ce type de sauvegarde peut être créé et restauré rapidement. Vous pouvez utiliser un instantané local comme vous utiliseriez une copie de sauvegarde locale.
-* **Instantanés cloud** : les instantanés cloud sont des copies ponctuelles de données de volume stockées dans le cloud. Un instantané cloud est équivalent à un instantané répliqué sur un système de stockage hors site distinct. Les instantanés cloud sont particulièrement utiles dans les scénarios de récupération d’urgence.
+* **Instantanés cloud** - Les instantanés cloud sont des copies jusqu'à une date et heure des données de volume stockées dans le cloud. Un instantané cloud est équivalent à un instantané répliqué sur un système de stockage hors site distinct. Les instantanés cloud sont particulièrement utiles dans les scénarios de récupération d’urgence.
 
 ### <a name="on-demand-and-scheduled-backups"></a>Sauvegardes à la demande et planifiées
 Avec le Gestionnaire d’instantanés StorSimple, vous pouvez lancer une sauvegarde ponctuelle à créer immédiatement, ou vous pouvez utiliser une stratégie de sauvegarde pour planifier des opérations de sauvegarde récurrentes.
@@ -124,11 +124,11 @@ Vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour configurer
 
 Pour chaque stratégie de sauvegarde que vous créez, vous devez définir les informations suivantes :
 
-* **Nom** : nom unique de la stratégie de sauvegarde sélectionnée.
-* **Type** : type de stratégie de sauvegarde (instantané local ou instantané cloud).
-* **Groupe de volumes** : groupe de volumes auquel la stratégie de sauvegarde sélectionnée est affectée.
-* **Rétention** : nombre de copies de sauvegarde à conserver. Si vous cochez la case **Toutes**, toutes les copies de sauvegarde sont conservées jusqu’à ce que le nombre maximal de copies de sauvegarde par volume soit atteint. À ce moment-là, la stratégie échoue et génère un message d’erreur. Vous pouvez également spécifier un nombre de sauvegardes à conserver (entre 1 et 64).
-* **Date** : date de création de la stratégie de sauvegarde.
+* **Nom** - Nom unique de la stratégie de sauvegarde sélectionnée.
+* **Type** - Type de stratégie de sauvegarde : instantané local ou instantané cloud.
+* **Groupe de volumes** - Groupe de volumes auquel la stratégie de sauvegarde sélectionnée est affectée.
+* **Rétention** - Nombre de copies de sauvegarde à conserver. Si vous cochez la case **Tout**, toutes les copies de sauvegarde sont conservées jusqu'à ce que le nombre maximal de copies de sauvegarde par volume soit atteint. Au-delà, la stratégie échoue et génère un message d'erreur. Vous pouvez également spécifier un nombre de sauvegardes à conserver (entre 1 et 64).
+* **Date** - Date à laquelle la stratégie de sauvegarde a été créée.
 
 Pour plus d’informations sur la configuration des stratégies de sauvegarde, consultez la section [Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md).
 

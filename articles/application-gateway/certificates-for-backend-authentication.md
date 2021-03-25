@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397720"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Créer des certificats pour autoriser le serveur back-end dans Azure Application Gateway
@@ -35,7 +35,7 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
 À partir de votre certificat TLS/SSL, exportez le fichier .cer de clé publique (et non la clé privée). Les étapes suivantes vous aident à exporter le fichier .cer au format X.509 avec codage base 64 (.CER) pour votre certificat :
 
-1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Recherchez le certificat, généralement dans « Certificats - Utilisateur actuel\Personnel\Certificats », puis cliquez dessus avec le bouton droit. Cliquez sur **Toutes les tâches** , puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**. Si vous ne trouvez pas le certificat sous Current User\Personal\Certificates, il est possible que vous ayez ouvert par erreur « Certificats – Ordinateur local » et non « Certificats – Utilisateur actuel ». Si vous voulez ouvrir le Gestionnaire de certificats dans le champ d’application utilisateur actuel en utilisant PowerShell, tapez *certmgr* dans la fenêtre de la console.
+1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Recherchez le certificat, généralement dans « Certificats - Utilisateur actuel\Personnel\Certificats », puis cliquez dessus avec le bouton droit. Cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**. Si vous ne trouvez pas le certificat sous Current User\Personal\Certificates, il est possible que vous ayez ouvert par erreur « Certificats – Ordinateur local » et non « Certificats – Utilisateur actuel ». Si vous voulez ouvrir le Gestionnaire de certificats dans le champ d’application utilisateur actuel en utilisant PowerShell, tapez *certmgr* dans la fenêtre de la console.
 
    ![Capture d’écran montrant le Gestionnaire de certificats avec l’option Certificats sélectionnée, et un menu contextuel avec les options Toutes les tâches, puis Exporter sélectionnées.](./media/certificates-for-backend-authentication/export.png)
 
@@ -43,15 +43,15 @@ Un certificat d’authentification est nécessaire pour autoriser les instances 
 
    ![Exportation du certificat](./media/certificates-for-backend-authentication/exportwizard.png)
 
-3. Sélectionnez **Non, ne pas exporter la clé privée** , puis cliquez sur **Suivant**.
+3. Sélectionnez **Non, ne pas exporter la clé privée**, puis cliquez sur **Suivant**.
 
    ![N’exportez pas la clé privée](./media/certificates-for-backend-authentication/notprivatekey.png)
 
-4. Sur la page **Format de fichier d’exportation** , sélectionnez **Codé à base 64 X.509 (.cer).** , puis cliquez sur **Suivant**.
+4. Sur la page **Format de fichier d’exportation**, sélectionnez **Codé à base 64 X.509 (.cer).** , puis cliquez sur **Suivant**.
 
    ![Encodage en base 64](./media/certificates-for-backend-authentication/base64.png)
 
-5. Dans **Fichier à exporter** , cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier** , nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
+5. Dans **Fichier à exporter**, cliquez sur **Parcourir** pour accéder à l’emplacement vers lequel vous souhaitez exporter le certificat. Pour la zone **Nom de fichier**, nommez le fichier de certificat. Cliquez ensuite sur **Suivant**.
 
    ![Capture d’écran montrant l’Assistant Exportation de certificat dans lequel vous spécifiez un fichier à exporter.](./media/certificates-for-backend-authentication/browse.png)
 
@@ -97,11 +97,11 @@ Les étapes suivantes vous aident à exporter le fichier .cer de votre certifica
 
    ![informations du certificat](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
-5. Accédez à la vue **Détails** , puis cliquez sur **Copier dans un fichier**.
+5. Accédez à la vue **Détails**, puis cliquez sur **Copier dans un fichier**.
 
    ![copier le certificat racine](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
-6. À ce stade, vous avez extrait les détails du certificat racine à partir du certificat de serveur back-end. Vous voyez s’ouvrir l’ **Assistant Exportation du certificat**. Utilisez à présent les étapes 2 à 9 mentionnées dans la section **Exporter un certificat d’authentification à partir d’un certificat de serveur back-end (pour le SKU v1)** ci-dessus afin d’exporter le certificat racine approuvé au format X.509 avec codage base 64 (.CER).
+6. À ce stade, vous avez extrait les détails du certificat racine à partir du certificat de serveur back-end. Vous voyez s’ouvrir l’**Assistant Exportation du certificat**. Utilisez à présent les étapes 2 à 9 mentionnées dans la section **Exporter un certificat d’authentification à partir d’un certificat de serveur back-end (pour le SKU v1)** ci-dessus afin d’exporter le certificat racine approuvé au format X.509 avec codage base 64 (.CER).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

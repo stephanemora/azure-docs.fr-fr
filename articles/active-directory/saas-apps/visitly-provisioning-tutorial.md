@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: ff3f3ab65df2d801b7c962de7cce645e9fc00b30
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358607"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Tutoriel : Configurer Visitly pour le provisionnement automatique d’utilisateurs
@@ -75,7 +75,7 @@ Pour ajouter Visitly à partir de la galerie d’applications Azure AD, procéde
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -83,7 +83,7 @@ Pour ajouter Visitly à partir de la galerie d’applications Azure AD, procéde
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Visitly** , sélectionnez **Visitly** dans le volet de résultats, puis sélectionnez **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Visitly**, sélectionnez **Visitly** dans le volet de résultats, puis sélectionnez **Ajouter** pour ajouter l’application.
 
     ![Visitly dans la liste des résultats](common/search-new-app.png)
 
@@ -116,17 +116,17 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![URL de locataire + jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans la zone **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement. Cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans la zone **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur de provisionnement. Cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Sélectionnez **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Visitly**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Visitly**.
 
     ![Mappages d’utilisateurs Visitly](media/visitly-provisioning-tutorial/usermapping.png)
 
-9. Dans la section **Mappage d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Visitly. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Visitly pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappage d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Visitly. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Visitly pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur Visitly](media/visitly-provisioning-tutorial/userattribute.png)
 
@@ -136,7 +136,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-12. Définissez les utilisateurs ou groupes à provisionner dans Visitly en choisissant les valeurs souhaitées dans **Étendue** , dans la section **Paramètres**.
+12. Définissez les utilisateurs ou groupes à provisionner dans Visitly en choisissant les valeurs souhaitées dans **Étendue**, dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086888"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
@@ -298,7 +298,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 > 
 > Sur Ubuntu, nous vous recommandons de procéder à l’installation directement depuis le site Eclipse au lieu d’utiliser le programme d’installation d’un package (`apt` ou `apt-get`). Ceci vous assure d’obtenir la version la plus récente d’Eclipse. Vous pouvez installer l’environnement IDE pour les développeurs Java ou Java EE.
 
-1. Dans Eclipse, assurez-vous d’avoir installé Eclipse Neon ou version ultérieure et Buildship version 2.2.1 ou version ultérieure. Vérifiez les versions des composants installés en sélectionnant **Aide** > **About Eclipse** (À propos d’Eclipse) > **Détails de l’installation**. Vous pouvez mettre à jour Buildship en utilisant les instructions [Eclipse Buildship : plug-ins Eclipse pour Gradle][buildship-update].
+1. Dans Eclipse, assurez-vous d’avoir installé Eclipse Neon ou version ultérieure et Buildship version 2.2.1 ou version ultérieure. Vérifiez les versions des composants installés en sélectionnant **Aide** > **About Eclipse**(À propos d’Eclipse) > **Détails de l’installation**. Vous pouvez mettre à jour Buildship en utilisant les instructions [Eclipse Buildship : plug-ins Eclipse pour Gradle][buildship-update].
 
 2. Pour installer le plug-in Service Fabric, sélectionnez **Aide** > **Installer un nouveau logiciel**.
 
@@ -308,7 +308,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 
     ![Page des logiciels disponibles][sf-eclipse-plugin]
 
-5. Sélectionnez le plug-in **Service Fabric** , puis cliquez sur **Suivant**.
+5. Sélectionnez le plug-in **Service Fabric**, puis cliquez sur **Suivant**.
 
 6. Suivez la procédure d’installation. Acceptez ensuite le contrat de licence de l’utilisateur final.
 

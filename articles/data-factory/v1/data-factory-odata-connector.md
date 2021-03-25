@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380064"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Déplacer des données à partir d’une source OData à l’aide d’Azure Data Factory
@@ -48,7 +48,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie.
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour un exemple contenant des définitions JSON pour les entités Data Factory servant à copier des données à partir d’une source OData, consultez la section [Exemple JSON : copier des données d’une source OData vers Stockage Blob Azure](#json-example-copy-data-from-odata-source-to-azure-blob) de cet article.
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory utilisées pour copier des données d’une source OData, consultez la section [Exemple JSON : copier des données depuis une source OData vers Azure Blob](#json-example-copy-data-from-odata-source-to-azure-blob) de cet article.
 
 Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à la source OData :
 
@@ -57,7 +57,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **OData** |Oui |
+| type |La propriété de type doit être définie sur **OData** |Oui |
 | url |URL du service OData. |Oui |
 | authenticationType |Type d’authentification utilisé pour se connecter à la source OData. <br/><br/> Pour OData dans le cloud, les valeurs possibles sont Anonyme, De base et OAuth (notez qu’à l’heure actuelle, Azure Data Factory prend en charge uniquement l’authentification OAuth basée sur Azure Active Directory). <br/><br/> Pour OData en local, les valeurs possibles sont Anonyme, De base et Windows. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. |Oui (uniquement si vous utilisez l’authentification de base) |
@@ -184,7 +184,7 @@ Lors du déplacement de données à partir d’OData, les mappages suivants sont
 > [!Note]
 > Les types de données complexes OData, comme Object, ne sont pas pris en charge.
 
-## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Exemple JSON : copier des données d’une source OData vers Stockage Blob Azure
+## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Exemple JSON : copie de données d’une source OData vers Azure Blob
 Cet exemple présente des exemples de définition JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données depuis une source OData vers un système Blob Storage Microsoft Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory. L’exemple contient les entités Data Factory suivantes :
 
 1. Un service lié de type [OData](#linked-service-properties).
@@ -195,7 +195,7 @@ Cet exemple présente des exemples de définition JSON que vous pouvez utiliser
 
 L'exemple copie toutes les heures les données provenant de l’interrogation d'une source OData vers un objet blob Azure. Les propriétés JSON utilisées dans ces exemples sont décrites dans les sections suivant les exemples.
 
-**Service lié OData**  : cet exemple utilise l’authentification anonyme. Consultez la section [Service lié OData](#linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
+**Service lié OData :** cet exemple utilise l’authentification anonyme. Consultez la section [Service lié OData](#linked-service-properties) pour connaître les différents types d’authentification que vous pouvez utiliser.
 
 ```json
 {
@@ -368,7 +368,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 }
 ```
 
-La spécification de la **requête** dans la définition du pipeline est facultative. L’**URL** que le service Data Factory utilise pour récupérer les données est : URL spécifiée dans le service lié (obligatoire) + chemin spécifié dans le jeu de données (facultatif) + requête dans le pipeline (facultatif).
+La spécification de la **requête** dans la définition du pipeline est facultative. L’ **URL** que le service Data Factory utilise pour récupérer les données est : URL spécifiée dans le service lié (obligatoire) + chemin d'accès spécifié dans le jeu de données (facultatif) + requête dans le pipeline (facultatif).
 
 ### <a name="type-mapping-for-odata"></a>Mappage de type pour OData
 Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md) , l’activité de copie convertit automatiquement les types source en types récepteur à l’aide de l’approche en 2 étapes suivante :

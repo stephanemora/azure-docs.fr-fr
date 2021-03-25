@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537206"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Créer ou modifier un Peering direct à l’aide du Portail Azure
@@ -41,7 +41,7 @@ En tant que fournisseur de services Internet ou fournisseur Internet Exchange, v
 
 2. Sélectionnez votre abonnement Azure.
 
-3. Pour le groupe de ressources, sélectionnez un groupe de ressources existant dans la liste déroulante ou créez un nouveau groupe en sélectionnant Créer nouveau. Dans cet exemple, ,nous allons créer un nouveau groupe de ressources.
+3. Sélectionnez un groupe de ressources existant dans la liste déroulante, ou créez un groupe en sélectionnant Créer nouveau. Dans cet exemple, ,nous allons créer un nouveau groupe de ressources.
 
 4. Le nom correspond au nom de la ressource et vous pouvez le choisir librement.
 
@@ -50,10 +50,10 @@ En tant que fournisseur de services Internet ou fournisseur Internet Exchange, v
     >[!NOTE]
     > La région dans laquelle un groupe de ressources réside est indépendante de l’emplacement où vous souhaitez créer le Peering avec Microsoft. Toutefois, il est recommandé d’organiser vos ressources de Peering dans des groupes de ressources qui résident dans les régions Azure les plus proches. Par exemple : pour les Peerings à Ashburn, vous pouvez créer un groupe de ressources dans les régions USA Est ou USA Est2.
 
-6. Sélectionnez votre ASN dans la boîte **PeerASN**.
+6. Sélectionnez votre ASN dans la zone **PeerASN**.
 
     >[!IMPORTANT]
-    >Vous pouvez uniquement choisir un ASN dont le paramètre ValidationState est « approuvé » avant de soumettre une demande de Peering. Si vous venez d’envoyer votre demande PeerAsn, patientez environ 12 heures pour que l’association ASN soit « approuvée ». Si l’ASN que vous sélectionnez est en attente de validation, un message d’erreur s’affiche. Si vous ne voyez pas l’ASN que vous devez choisir, vérifiez que vous avez sélectionné le bon abonnement. Si c’est le cas, vérifiez si vous avez déjà créé PeerAsn à l’aide de **[l’association entre l’ASN pair et un abonnement Azure](https://go.microsoft.com/fwlink/?linkid=2129592)** .
+    >Vous pouvez uniquement choisir un ASN dont le paramètre ValidationState est « approuvé » avant de soumettre une demande de Peering. Si vous venez d’envoyer votre demande PeerAsn, patientez environ 12 heures pour que l’association ASN soit « approuvée ». Si l’ASN que vous sélectionnez est en attente de validation, un message d’erreur s’affiche. Si vous ne voyez pas l’ASN que vous devez choisir, vérifiez que vous avez sélectionné le bon abonnement. Si c’est le cas, vérifiez que vous avez déjà créé PeerAsn à l’aide de **[l’association entre l’ASN pair et un abonnement Azure](https://go.microsoft.com/fwlink/?linkid=2129592)** .
 
 7. Sélectionnez **Suivant : Configuration** pour continuer.
 

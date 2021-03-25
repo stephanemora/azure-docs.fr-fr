@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793226"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
@@ -62,7 +62,7 @@ En général, le modèle de location n’affecte pas le fonctionnement d’une a
 
 - **Possibilités de personnalisation :** &nbsp; Facilité de prise en charge des personnalisations de schéma propres au locataire ou à la classe du locataire.
 
-La discussion sur la location est axée sur la couche *Données* .  Mais réfléchissons un instant à la couche *Application* .  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
+La discussion sur la location est axée sur la couche *Données*.  Mais réfléchissons un instant à la couche *Application*.  La couche Application est traitée comme une entité monolithique.  Si vous divisez l’application en plusieurs composants, le modèle de location que vous avez choisi peut être amené à changer.  Vous pouvez traiter certains composants différemment des autres sur le plan de la location et de la plateforme/technologie de stockage utilisées.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Application à locataire unique autonome avec une base de données à locataire unique
 

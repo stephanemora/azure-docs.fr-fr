@@ -3,16 +3,16 @@ title: Mettre à jour des modèles d’apprentissage automatique à l’aide d�
 description: Explique comment créer des pipelines prédictifs avec Azure Data Factory v1 et Azure Machine Learning studio (classique).
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 7a27ed657ba21d9e2125df903b40d74cd81eacf6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2d9156bfcc11817a647c33053a2d04c653c0a706
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379299"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785493"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Mise à jour des modèles Azure Machine Learning studio (classique) avec l’activité Mettre à jour une ressource
 

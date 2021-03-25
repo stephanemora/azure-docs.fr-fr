@@ -1,19 +1,14 @@
 ---
 title: Investiguer la recommandation sur le benchmark CIS
-titleSuffix: Azure Defender for IoT
 description: Effectuez des investigations de base et avancées à partir des recommandations de base du système d’exploitation.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2f68ebedb229f7295bc9c5dcc3b3349808970e8c
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 01ca6e1fecddff9800872a3e5495a5cac578a74f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809589"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782025"
 ---
 # <a name="investigate-os-baseline-based-on-cis-benchmark-recommendation"></a>Examiner une recommandation de base du système d’exploitation (basée sur le test d’évaluation CIS) 
 

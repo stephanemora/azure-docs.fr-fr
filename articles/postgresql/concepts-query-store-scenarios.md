@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: ad646e39e9b6a87611dc2f40330a77fe70c92c27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91710547"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Scénarios d’utilisation du Magasin des requêtes
 
 **S’applique à :** Azure Database pour PostgreSQL - Serveur unique versions 9.6, 10, 11
 
-Vous pouvez utiliser le Magasin des requêtes dans de nombreux scénarios dans lesquels il est essentiel de suivre et de gérer les performances des charges de travail prévisibles. Voici quelques exemples : 
+Vous pouvez utiliser le Magasin des requêtes dans de nombreux scénarios dans lesquels il est essentiel de suivre et de gérer les performances des charges de travail prévisibles. Penchez-vous sur les exemples suivants : 
 - Identification et ajustement des requêtes les plus coûteuses 
 - Test A/B 
 - Maintien de performances stables pendant les mises à niveau 

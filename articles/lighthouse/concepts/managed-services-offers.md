@@ -1,14 +1,14 @@
 ---
 title: Offres de services managés dans la Place de marché Azure
 description: Les offres de services gérés vous permettent de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375542"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092989"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Offres de services managés dans la Place de marché Azure
 
@@ -20,9 +20,12 @@ Les offres de services gérés simplifient le processus d’intégration des cli
 
 Après cela, les utilisateurs de votre organisation seront en mesure de travailler sur ces ressources à partir de votre locataire de gestion avec la [gestion des ressources déléguées Azure](azure-delegated-resource-management.md), en fonction de l’accès que vous avez défini lors de la création de l’offre. Cette opération s'effectue par le biais d'un manifeste spécifiant les utilisateurs, groupes et principaux de service Azure Active Directory (Azure AD) qui auront accès aux ressources du client, ainsi que les [rôles](tenants-users-roles.md) déterminant leur niveau d'accès.
 
+> [!NOTE]
+> Les offres de services managés peuvent ne pas être disponibles dans Azure Government et d’autres clouds nationaux.
+
 ## <a name="public-and-private-offers"></a>Offres publiques et privées
 
-Chaque offre de services gérés comprend un ou plusieurs plans. Les plans peuvent être privés ou publics.
+Chaque offre de service managé comprend un ou plusieurs plans. Les plans peuvent être privés ou publics.
 
 Si vous souhaitez limiter votre offre à des clients spécifiques, vous pouvez publier un plan privé. Dans ce cas, le plan ne peut être acheté que pour les ID d’abonnement que vous spécifiez. Pour plus d’informations, voir [Offres privées](../../marketplace/private-offers.md).
 
@@ -38,9 +41,9 @@ Le cas échéant, vous pouvez inclure des plans publics et privés dans la même
 
 ## <a name="publish-managed-service-offers"></a>Publier des offres de services gérés
 
-Pour savoir comment publier une offre de services gérés, consultez [Publier une offre de services gérés sur la Place de marché Azure](../how-to/publish-managed-services-offers.md).
+Pour savoir comment publier une offre de service managé, consultez [Publier une offre de services gérés sur la place de marché Azure](../how-to/publish-managed-services-offers.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez la [Gestion des ressources déléguées Azure](azure-delegated-resource-management.md) et les [Expériences de gestion inter-locataire](cross-tenant-management-experience.md).
-- [Publier des offres de services gérés](../how-to/publish-managed-services-offers.md) sur la Place de marché Azure.
+- [Publiez des offres de services managés](../how-to/publish-managed-services-offers.md) sur la Place de marché Azure.

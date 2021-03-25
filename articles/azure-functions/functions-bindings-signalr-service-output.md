@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763283"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Liaisons de sortie SignalR Service pour Azure Functions
@@ -753,5 +753,5 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gérer les messages du service SignalR (liaison de déclenchement)](./functions-bindings-signalr-service-trigger.md)
+- [Prendre en charge les messages de SignalR Service (liaison de déclencheur)](./functions-bindings-signalr-service-trigger.md)
 - [Retourner l’URL du point de terminaison de service et le jeton d’accès (Liaison d’entrée)](./functions-bindings-signalr-service-input.md)

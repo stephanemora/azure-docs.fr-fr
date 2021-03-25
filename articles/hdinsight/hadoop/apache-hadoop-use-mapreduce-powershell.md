@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
 ms.openlocfilehash: 16c6c5e317591b70c3a1300453093fc715e213fb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939669"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Exécuter des travaux MapReduce avec Apache Hadoop sur HDInsight à l’aide de PowerShell
@@ -18,7 +18,7 @@ ms.locfileid: "98939669"
 
 Ce document fournit un exemple d’utilisation d’Azure PowerShell pour exécuter une tâche MapReduce sur un Hadoop sur un cluster HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Créer des clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 

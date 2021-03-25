@@ -4,10 +4,10 @@ description: Référence pour l’événement de début de suppression de pool B
 ms.topic: reference
 ms.date: 12/28/2020
 ms.openlocfilehash: 86f6eb8e7b269cb45f692398e9e60390375ca073
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97803746"
 ---
 # <a name="pool-delete-start-event"></a>Événement de début de suppression de pool

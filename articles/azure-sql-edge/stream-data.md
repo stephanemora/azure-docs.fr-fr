@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392110"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Streaming de données dans Azure SQL Edge
@@ -35,15 +35,15 @@ Le streaming T-SQL fonctionne exactement de la même façon qu’[Azure Stream A
 
 Un travail Stream Analytics se compose de ce qui suit :
 
-- **Entrée de flux**  : définit les connexions à une source de données à partir de laquelle lire le flux de données. Actuellement, Azure SQL Edge prend en charge les types d’entrée de flux suivants :
+- **Entrée de flux** : définit les connexions à une source de données à partir de laquelle lire le flux de données. Actuellement, Azure SQL Edge prend en charge les types d’entrée de flux suivants :
     - Hub Edge
     - Kafka (la prise en charge des entrées Kafka est uniquement disponible sur les versions Intel/AMD64 d’Azure SQL Edge.)
 
-- **Sortie de flux**  : définit les connexions à une source de données dans laquelle écrire le flux de données. Actuellement, Azure SQL Edge prend en charge les types de sortie de flux suivants :
+- **Sortie de flux** : définit les connexions à une source de données dans laquelle écrire le flux de données. Actuellement, Azure SQL Edge prend en charge les types de sortie de flux suivants :
     - Hub Edge
     - SQL (La sortie SQL peut être une base de données locale au sein de l’instance d’Azure SQL Edge ou une instance SQL Server ou Azure SQL Database distante.) 
 
-- **Requête de flux**  : définit la transformation, les agrégations, le filtrage, le tri et les jointures à appliquer au flux d’entrée avant qu’il ne soit écrit dans la sortie de flux. La requête de flux est basée sur le même langage de requête que celui utilisé par Stream Analytics. Pour plus d’informations, consultez [Langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
+- **Requête de flux** : définit la transformation, les agrégations, le filtrage, le tri et les jointures à appliquer au flux d’entrée avant qu’il ne soit écrit dans la sortie de flux. La requête de flux est basée sur le même langage de requête que celui utilisé par Stream Analytics. Pour plus d’informations, consultez [Langage de requête Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference).
 
 > [!IMPORTANT]
 > Contrairement à Stream Analytics, le streaming T-SQL ne prend pas en charge l’[utilisation de données de référence pour les recherches](../stream-analytics/stream-analytics-use-reference-data.md) ou l’[utilisation d’UDF et d’UDA dans un travail de flux](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c).

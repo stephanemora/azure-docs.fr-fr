@@ -13,17 +13,17 @@ ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081057"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
 
 La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) la plus importante et celle dont vous devez tenir compte pour prendre des décisions éclairées en ce qui concerne la mise à l’échelle d’une instance du service Gestion des API pour accepter une charge plus élevée. Sa construction est complexe et requiert l’adoption d’un certain comportement.
 
-Cet article explique ce à quoi correspond la **capacité** , ainsi que son comportement. Il décrit comment accéder aux métriques de **capacité** dans le Portail Azure et vous informe quand le moment est venu de procéder à une mise à l’échelle ou à une mise à niveau de votre instance du service Gestion des API.
+Cet article explique ce à quoi correspond la **capacité**, ainsi que son comportement. Il décrit comment accéder aux métriques de **capacité** dans le Portail Azure et vous informe quand le moment est venu de procéder à une mise à l’échelle ou à une mise à niveau de votre instance du service Gestion des API.
 
 > [!IMPORTANT]
 > Cet article explique comment surveiller et mettre à l’échelle votre instance de Gestion des API Azure en fonction de sa métrique de capacité. Toutefois, il est tout aussi important de comprendre ce qui se passe quand une instance de Gestion des API Azure a réellement *atteint* sa capacité. La Gestion des API Azure n’applique pas de limitation au niveau du service pour empêcher une surcharge physique des instances. Quand une instance atteint sa capacité physique, elle se comporte comme tout serveur web surchargé incapable de traiter des demandes entrantes : la latence augmente, des connexions sont abandonnées, des erreurs de délai d’attente se produisent, etc. Cela signifie que les clients d’API doivent être prêts à gérer cette éventualité comme avec tout autre service externe (par exemple, en appliquant des stratégies de nouvelle tentative).

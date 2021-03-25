@@ -3,12 +3,12 @@ title: Géorécupération d’urgence - Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: eb6ef1a7536b819d1bc973740a0da6fdf3d756d5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f3b74b89f47582fbb3f1640f315f413ab86b26b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042366"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602636"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -204,7 +204,7 @@ Pour plus d’informations sur les concentrateurs d’événements, accédez aux
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)
 * [Exemples d’application complets qui utilisent des concentrateurs d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

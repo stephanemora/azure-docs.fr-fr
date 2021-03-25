@@ -16,10 +16,10 @@ ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: ae816d2be592ab774500d1cfe8f2f6a7b7905b91
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98196552"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envoi de courriers électroniques à l'aide de SendGrid avec Azure
@@ -98,7 +98,7 @@ msg.AddContent(MimeType.Text, "Hello World plain text!");
 msg.AddContent(MimeType.Html, "<p>Hello World!</p>");
 ```
 
-Pour plus d'informations sur les propriétés et méthodes prises en charge par le type **SendGrid** , consultez la page [sendgrid-csharp][sendgrid-csharp] sur GitHub.
+Pour plus d’informations sur toutes les propriétés et méthodes prises en charge par le type **SendGrid**, consultez la page [sendgrid-csharp][sendgrid-csharp] sur GitHub.
 
 ## <a name="how-to-send-an-email"></a>Procédure : envoyer un e-mail
 Après avoir créé un e-mail, vous pouvez l’envoyer à l’aide de l’API de SendGrid. Une autre possibilité consiste à utiliser la [bibliothèque intégrée de .NET][NET-library].
@@ -151,7 +151,7 @@ namespace Example
 }
 ```
 
-## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procédure : envoyer un e-mail à partir de l’API ASP .NET Core avec la classe MailHelper
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Guide pratique pour envoyer un e-mail à partir de l’API ASP .NET Core avec la classe MailHelper
 
 L’exemple ci-dessous peut être utilisé pour envoyer un même e-mail à plusieurs personnes à partir de l’API ASP .NET Core avec la classe `MailHelper` de l’espace de noms `SendGrid.Helpers.Mail`. Pour cet exemple, nous utilisons ASP .NET Core 1.0. 
 
@@ -248,7 +248,7 @@ var banner2 = new Attachment()
 msg.AddAttachment(banner2);
 ```
 
-## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Procédure : utiliser des paramètres de messagerie pour activer les pieds de page, le suivi et l’analytique
+## <a name="how-to-use-mail-settings-to-enable-footers-tracking-and-analytics"></a>Utilisation de paramètres de messagerie pour activer les pieds de page, le suivi et l’analyse
 SendGrid offre d’autres fonctionnalités de messagerie grâce à l’utilisation de paramètres de messagerie et de suivi. Vous pouvez ajouter ces paramètres à un message électronique pour activer des fonctionnalités spécifiques, telles que le suivi des clics, Google Analytics, le suivi des abonnements, etc. Pour obtenir la liste complète des applications, consultez la [documentation relative aux paramètres][settings-documentation].
 
 Les applications peuvent être appliquées aux messages électroniques **SendGrid** à l’aide des méthodes implémentées dans le cadre de la classe **SendGridMessage**. Les exemples suivants montrent les filtres de pied de page et de suivi des clics :

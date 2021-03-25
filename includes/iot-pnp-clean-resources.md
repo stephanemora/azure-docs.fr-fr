@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
 ms.openlocfilehash: 647226091c3e15a19bf8262c23e62d95018488b3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831199"
 ---
 Si vous prévoyez de continuer avec d’autres articles IoT Plug-and-Play, vous pouvez conserver et réutiliser les ressources que vous avez utilisées dans cet article. Sinon, vous pouvez supprimer les ressources que vous avez créées dans cet article afin d’éviter des frais supplémentaires.

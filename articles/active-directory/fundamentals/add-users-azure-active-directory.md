@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426822"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594595"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
 
@@ -75,7 +75,7 @@ Si vous avez un environnement avec Azure Active Directory (cloud) et Windows Ser
 Vous pouvez supprimer un utilisateur existant à l’aide du portail Azure Active Directory.
 
 >[!Note]
->Pour supprimer des utilisateurs de votre organisation, vous devez disposer du rôle Administrateur général ou Administrateur d’utilisateurs. Les administrateurs généraux peuvent supprimer tous les utilisateurs, y compris les autres administrateurs. Les administrateurs d’utilisateurs peuvent supprimer tous les utilisateurs non administrateurs, les administrateurs du support technique et les autres administrateurs d’utilisateurs. Pour plus d’informations, consultez [Autorisations des rôles d’administrateur dans Azure AD](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+>Pour supprimer des utilisateurs de votre organisation, vous devez disposer du rôle Administrateur général ou Administrateur d’utilisateurs. Les administrateurs généraux peuvent supprimer tous les utilisateurs, y compris les autres administrateurs. Les administrateurs d’utilisateurs peuvent supprimer tous les utilisateurs non administrateurs, les administrateurs du support technique et les autres administrateurs d’utilisateurs. Pour plus d’informations, consultez [Autorisations des rôles d’administrateur dans Azure AD](../roles/permissions-reference.md).
 
 Pour supprimer un utilisateur, effectuez les étapes suivantes :
 

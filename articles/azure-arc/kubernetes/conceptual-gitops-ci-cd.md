@@ -9,10 +9,10 @@ ms.author: tcare
 description: Cet article fournit une vue d’ensemble conceptuelle d’un workflow CI/CD avec GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, conteneurs, intégration continue, livraison continue, Azure DevOps
 ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121777"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flux de travail CI/CD avec GitOps – Kubernetes avec Azure Arc

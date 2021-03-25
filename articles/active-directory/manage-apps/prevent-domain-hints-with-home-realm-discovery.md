@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: hirsin
-ms.openlocfilehash: 67cb1003e139a085d45d01617cd44647bad420f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589376"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Désactiver l’accélération automatique vers un fournisseur d’identité fédéré lors d’une connexion utilisateur avec la stratégie Découverte de domaine d’accueil
 
-La [stratégie Découverte de domaine d’accueil](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offre aux administrateurs plusieurs moyens de contrôler le mode et l’emplacement d’authentification de leurs utilisateurs. La section `domainHintPolicy` de la stratégie HRD est utilisée pour faciliter la migration d’utilisateurs fédérés vers des informations d’identification managées dans le cloud telles que [FIDO](../authentication/howto-authentication-passwordless-security-key.md), en veillant à ce qu’ils visitent toujours la page de connexion à Azure AD et ne soient pas automatiquement accélérés vers un fournisseur d’identité fédéré en raison d’indications de domaine.
+La [stratégie Découverte de domaine d’accueil](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offre aux administrateurs plusieurs moyens de contrôler le mode et l’emplacement d’authentification de leurs utilisateurs. La section `domainHintPolicy` de la stratégie HRD est utilisée pour faciliter la migration d’utilisateurs fédérés vers des informations d’identification managées dans le cloud telles que [FIDO](../authentication/howto-authentication-passwordless-security-key.md), en veillant à ce qu’ils visitent toujours la page de connexion à Azure AD et ne soient pas automatiquement accélérés vers un fournisseur d’identité fédéré en raison d’indications de domaine.
 
 Cette stratégie est nécessaire dans les situations où des applications qu’un administrateur ne peut ni contrôler ni mettre à jour ajoutent des indications de domaine lors de la connexion.  Par exemple, `outlook.com/contoso.com` envoie l’utilisateur vers une page de connexion avec le paramètre `&domain_hint=contoso.com` ajouté, afin d’accélérer automatiquement l’utilisateur directement vers le fournisseur d’identité fédéré pour le domaine `contoso.com`. Les utilisateurs disposant d’informations d’identification managées envoyées à un fournisseur d’identité fédéré ne peuvent pas se connecter à l’aide de ces informations, ce qui a pour effet de réduire la sécurité et de frustrer les utilisateurs avec des expériences de connexion aléatoires. Les administrateurs déployant des informations d’identification managées [doivent également configurer cette stratégie](#suggested-use-within-a-tenant) pour s’assurer que les utilisateurs peuvent toujours utiliser ces informations.
 
@@ -101,7 +101,7 @@ Une fois l’étape 4 accomplie, tous les utilisateurs, à l’exception de ceu
 
 ## <a name="configuring-policy-through-graph-explorer"></a>Configuration de stratégie via l’Explorateur graphique
 
-Définissez la [stratégie HRD](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) comme d’habitude, à l’aide de Microsoft Graph.  
+Définissez la [stratégie HRD](/graph/api/resources/homeRealmDiscoveryPolicy) comme d’habitude, à l’aide de Microsoft Graph.  
 
 1. Accordez l’autorisation Policy.ReadWrite.ApplicationConfiguration dans l’[Explorateur graphique](https://developer.microsoft.com/graph/graph-explorer).  
 1. Utilisez l’URL `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`.

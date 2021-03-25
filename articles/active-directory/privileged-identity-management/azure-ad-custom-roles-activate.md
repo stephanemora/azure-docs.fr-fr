@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371611"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Activer un rôle personnalisé Azure AD dans Privileged Identity Management
@@ -47,16 +47,16 @@ Lorsque vous avez besoin d’activer un rôle personnalisé Azure AD, demandez u
 > Avant d’attribuer un rôle, vous devez en créer/configurer un. Pour plus d’informations sur la configuration des rôles personnalisés AAD, consultez [Configurer des rôles personnalisés Azure AD dans Privileged Identity Management](azure-ad-custom-roles-configure.md).
 
 1. Dans la page **Rôles personnalisés Azure AD (préversion)** , recherchez l’attribution dont vous avez besoin.
-1. Sélectionnez **Activer votre rôle** pour ouvrir la page **Activer** .
-1. Si votre rôle exige une authentification multifacteur, sélectionnez **Vérifier votre identité avant de continuer** . Vous ne pouvez vous authentifier qu’une seule fois par session.
+1. Sélectionnez **Activer votre rôle** pour ouvrir la page **Activer**.
+1. Si votre rôle exige une authentification multifacteur, sélectionnez **Vérifier votre identité avant de continuer**. Vous ne pouvez vous authentifier qu’une seule fois par session.
 1. Sélectionnez **Vérifier mon identité** et suivez les instructions pour effectuer une vérification de sécurité supplémentaire.
 1. Pour spécifier une portée d’application personnalisée, sélectionnez **Portée** pour ouvrir le volet de filtre. Vous devez demander l’accès à un rôle au minimum de portée nécessaire. Si votre attribution est à la portée d’une application, vous pouvez l’activer uniquement dans le cadre de cette portée.
 
    ![Attribuer une portée de ressource Azure AD à l’attribution de rôle](./media/azure-ad-custom-roles-activate/assign-scope.png)
 
 1. Si nécessaire, spécifiez une heure de début personnalisée pour l’activation. Lorsqu’il est utilisé, le membre de rôle est activé à l’heure spécifiée.
-1. Dans la zone de texte **Raison** , entrez le motif de la demande d’activation. Ils peuvent être rendus obligatoires ou non dans le paramètre de rôle.
-1. Sélectionnez **Activer** .
+1. Dans la zone de texte **Raison**, entrez le motif de la demande d’activation. Ils peuvent être rendus obligatoires ou non dans le paramètre de rôle.
+1. Sélectionnez **Activer**.
 
 Si le rôle ne nécessite pas d’approbation, il est activé en fonction de vos paramètres et est ajouté à la liste des rôles actifs. Si vous souhaitez utiliser le rôle activé, commencez par les étapes indiquées dans la section [Attribuer un rôle personnalisé Azure AD dans Privileged Identity Management](azure-ad-custom-roles-assign.md).
 

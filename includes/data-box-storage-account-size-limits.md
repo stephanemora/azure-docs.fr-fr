@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/12/2021
 ms.author: alkohli
 ms.openlocfilehash: 6cabac4c59b09d146c1e42762402043622edb60e
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98225493"
 ---
 Voici les limites de la taille des données qui sont copiées dans un compte de stockage. Assurez-vous que les données que vous chargez sont conformes à ces limites. Pour obtenir les informations les plus récentes sur ces limites, consultez [Objectifs de performance et d’extensibilité du stockage Blob](../articles/storage/blobs/scalability-targets.md) et [Objectifs de performance et d’extensibilité pour Azure Files](../articles/storage/files/storage-files-scale-targets.md).

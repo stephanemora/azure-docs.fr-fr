@@ -4,10 +4,10 @@ description: Répertoriez les exceptions Azure Relay et les actions suggérées 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98625146"
 ---
 # <a name="azure-relay-exceptions"></a>Exceptions Azure Relay
@@ -80,7 +80,7 @@ Deux causes courantes peuvent être à l’origine de cette erreur :
     IL arrive parfois que le service Relay subisse des retards dans le traitement des requêtes. Cela peut se produire, par exemple, pendant les périodes à fort trafic. Dans ce cas, réessayez l’opération après un certain délai, jusqu’à ce qu’elle réussisse. Si la même opération échoue encore après plusieurs tentatives, consultez le [Site de statut des services Azure](https://azure.microsoft.com/status/) pour voir s’il existe des interruptions de service connues.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [FAQ Azure Relay](relay-faq.md)
+* [FAQ sur Azure Relay](relay-faq.md)
 * [Créer un espace de noms Relay](relay-create-namespace-portal.md)
 * [Bien démarrer avec Azure Relay et .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Bien démarrer avec Azure Relay et Node](relay-hybrid-connections-node-get-started.md)

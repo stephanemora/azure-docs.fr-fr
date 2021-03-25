@@ -14,10 +14,10 @@ ms.date: 07/07/2017
 ms.author: kumud
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a349f8160e8ab5b6459b2085e21e7368570c57db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87503835"
 ---
 # <a name="use-an-azure-cli-script-to-route-traffic-through-a-network-virtual-appliance"></a>Utiliser un script Azure CLI pour router le trafic via une appliance virtuelle réseau

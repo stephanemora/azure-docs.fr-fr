@@ -1,19 +1,14 @@
 ---
 title: À propos de l’intégration de Forescout
-titleSuffix: Azure Defender for IoT
 description: L’intégration d’Azure Defender pour IoT avec la plateforme Forescout offre un nouveau niveau de visibilité, de surveillance et de contrôle centralisés pour le paysage IoT et OT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 07e5187970d193502b95b49c5517a8e3824767be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556671"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784065"
 ---
 # <a name="about-the-forescout-integration"></a>À propos de l’intégration de Forescout
 
@@ -183,4 +178,4 @@ Pour accéder aux propriétés de Defender pour IoT :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [Transférer des informations d’alerte](how-to-forward-alert-information-to-partners.md).
+Découvrez comment [transférer des informations d’alerte](how-to-forward-alert-information-to-partners.md).

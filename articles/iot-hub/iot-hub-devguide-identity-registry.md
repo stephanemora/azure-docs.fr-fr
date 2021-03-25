@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93146924"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
@@ -195,7 +195,7 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité de l’appareil, conformément à la [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
 | auth.symkey |facultatif |Un objet composite contenant une clé primaire et une clé secondaire, stockées au format base64. |
-| status |obligatoire |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé** , l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé** , cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
+| status |obligatoire |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
 | statusReason |facultatif |Une chaîne de 128 caractères qui stocke le motif de l’état de l’identité de l’appareil. Tous les caractères UTF-8 sont autorisés. |
 | statusUpdateTime |en lecture seule |Un indicateur temporel, indiquant la date et l’heure de la dernière mise à jour de l’état. |
 | connectionState |en lecture seule |Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important** : ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’il est déconnecté. |
@@ -220,7 +220,7 @@ Les identités des modules sont représentées sous forme de documents JSON avec
 | etag |obligatoire, en lecture seule |Une chaîne représentant un ETag faible pour l’identité de l’appareil, conformément à la [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |facultatif |Un objet composite contenant des informations d’authentification et des éléments de sécurité. |
 | auth.symkey |facultatif |Un objet composite contenant une clé primaire et une clé secondaire, stockées au format base64. |
-| status |obligatoire |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé** , l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé** , cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
+| status |obligatoire |Un indicateur d’accès. Peut être **Activé** ou **Désactivé**. Si la propriété est définie sur **Activé**, l’appareil est autorisé à se connecter. Si la propriété est définie sur **Désactivé**, cet appareil ne peut pas accéder à un point de terminaison de l’appareil. |
 | statusReason |facultatif |Une chaîne de 128 caractères qui stocke le motif de l’état de l’identité de l’appareil. Tous les caractères UTF-8 sont autorisés. |
 | statusUpdateTime |en lecture seule |Un indicateur temporel, indiquant la date et l’heure de la dernière mise à jour de l’état. |
 | connectionState |en lecture seule |Un champ indiquant l’état de la connexion : **Connecté** ou **Déconnecté**. Ce champ représente la vue IoT Hub de l’état de connexion de l’appareil. **Important** : ce champ doit être utilisé uniquement à des fins de développement et de débogage. L’état de la connexion est mis à jour uniquement pour les appareils utilisant les protocoles AMQP ou MQTT. Cet état est basé sur les pings au niveau du protocole (tests ping MQTT ou AMQP) et peut avoir un délai maximum de 5 minutes seulement. Pour ces raisons, de faux positifs peuvent survenir. Par exemple : un appareil peut être signalé comme étant connecté, alors qu’il est déconnecté. |

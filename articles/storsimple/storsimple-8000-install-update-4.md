@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
 ms.openlocfilehash: ed6f9d58c5c54c88acf8e3a0e7fda7d2d65b8637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85514317"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installer Update 4 sur votre appareil StorSimple
@@ -45,7 +45,7 @@ Suivez la procédure ci-dessous pour mettre à jour votre appareil vers [Update�
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 4 (6.3.9600.17820)** . Le paramètre **Dernière date de mise à jour** doit également être modifié.
+Vérifiez que votre appareil exécute **StorSimple 8000 Series Update 4 (6.3.9600.17820)**. Le paramètre **Dernière date de mise à jour** doit également être modifié.
 
 * Vous verrez maintenant que les mises à jour en mode maintenance sont disponibles (ce message peut continuer à afficher jusqu’à 24 heures après l’installation des mises à jour). Les mises à jour en mode maintenance entraînent des temps d’arrêt de l’appareil et ne peuvent être appliquées que par le biais de l’interface Windows PowerShell de votre appareil.
 
@@ -74,7 +74,7 @@ La méthode du correctif logiciel implique les trois étapes suivantes :
 
 Vous devez télécharger et installer les correctifs logiciels suivants dans l’ordre indiqué et les dossiers suggérés :
 
-| JSON | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
+| Commande | Ko | Description | Type de mise à jour | Durée d’installation |Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4011839 |Mise à jour logicielle |Normal <br></br>sans interruption de service |~ 25 minutes |FirstOrderUpdate|
 | 2A. |KB4011841 <br> KB4011842 |Mises à jour du pilote et du microprogramme LSI <br> Mise à jour du microprogramme USM (version 3.38) |Normal <br></br>sans interruption de service |~ 3 heures <br> (inclut 2A. + 2B. + 2C.)|SecondOrderUpdate|
@@ -83,7 +83,7 @@ Vous devez télécharger et installer les correctifs logiciels suivants dans l�
 
 En outre, vous devez peut-être installer les mises à jour du microprogramme de disque en plus de toutes les mises à jour indiquées dans les tableaux précédents. Pour vérifier si vous avez besoin des mises à jour du microprogramme de disque, vous pouvez exécuter l’applet de commande `Get-HcsFirmwareVersion` . Si vous utilisez la version `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106` du microprogramme, vous n’avez pas besoin d’installer ces mises à jour.
 
-| JSON | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
+| Commande | Ko | Description | Type de mise à jour | Durée d’installation | Installer dans le dossier|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB3121899 |Microprogramme de disque |Maintenance <br></br>Interruption de service |~ 30 minutes | ThirdOrderUpdate |
 

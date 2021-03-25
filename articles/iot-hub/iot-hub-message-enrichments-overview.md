@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
 ms.openlocfilehash: 3975a57c095a8593e392e932bd125308853d3756
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92541517"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enrichissements de messages pour les messages IoT Hub appareil-à-cloud
@@ -84,7 +84,7 @@ Pour essayer les enrichissements de messages, consultez le [tutoriel sur les enr
 
 * Les mises à jour d’un jumeau d’appareil peuvent prendre jusqu’à cinq minutes pour apparaître dans la valeur d’enrichissement correspondante.
 
-* La taille totale du message, y compris des enrichissements, ne peut pas dépasser 256 Ko. Si la taille d’un message dépasse 256 Ko, l’IoT Hub supprimera le message. Vous pouvez utiliser les [métriques IoT Hub](monitor-iot-hub-reference.md#metrics) pour identifier et déboguer des erreurs lorsque les messages sont supprimés. Par exemple, vous pouvez analyser la métrique *Messages de télémétrie incompatibles* ( *d2c.telemetry.egress.invalid* ) dans les [métriques de routage](monitor-iot-hub-reference.md#routing-metrics). Pour plus d’informations, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
+* La taille totale du message, y compris des enrichissements, ne peut pas dépasser 256 Ko. Si la taille d’un message dépasse 256 Ko, l’IoT Hub supprimera le message. Vous pouvez utiliser les [métriques IoT Hub](monitor-iot-hub-reference.md#metrics) pour identifier et déboguer des erreurs lorsque les messages sont supprimés. Par exemple, vous pouvez analyser la métrique *Messages de télémétrie incompatibles* (*d2c.telemetry.egress.invalid*) dans les [métriques de routage](monitor-iot-hub-reference.md#routing-metrics). Pour plus d’informations, consultez [Surveiller IoT Hub](monitor-iot-hub.md).
 
 * Les enrichissements de message ne s’appliquent pas aux événements de changement de jumeau numérique.
 

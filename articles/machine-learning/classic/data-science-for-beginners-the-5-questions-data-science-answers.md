@@ -10,10 +10,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: e9bbadc95be3479da82d91e9a4a4f712fbc32c57
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100520389"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>La science des données pour les débutants, vidéo 1 : Les cinq questions auxquelles répond la science des données
@@ -32,8 +32,8 @@ Cette première vidéo concerne les types de questions auxquelles la science des
 
 * Vidéo 1 : Les cinq questions auxquelles répond la science des données
 * Vidéo 2 : [Vos données sont-elles prêtes pour la science des données ?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sec)*
-* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
+* Vidéo 3 : [Poser une question à laquelle les données permettent de répondre](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vidéo 4 : [Prédire une réponse à l’aide d’un modèle simple](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
 * Vidéo 5 : [Copier le travail d’autres personnes pour des projets de science des données](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Transcription : Les cinq questions auxquelles répond la science des données

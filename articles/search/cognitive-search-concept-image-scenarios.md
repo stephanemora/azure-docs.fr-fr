@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56ec893de159f4c8a90c5a229ccf7669856fb066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020216"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419589"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 
@@ -213,6 +213,77 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
             return original;
         }
 ```
+## <a name="passing-images-to-custom-skills"></a>Passage d’images aux compétences personnalisées
+
+Pour les scénarios où vous avez besoin d’une compétence personnalisée pour travailler sur les images, vous pouvez faire passer des images à la compétence personnalisée et faire en sorte qu’elle retourne du texte ou des images. [L’exemple Python](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) de traitement d’image illustre le workflow. L’ensemble de compétences suivant provient de l’exemple.
+
+L’ensemble de compétences suivant prend l’image normalisée (obtenue lors du craquage de document) et génère des tranches de l’image.
+
+#### <a name="sample-skillset"></a>Exemple d’ensemble de compétences
+```json
+{
+  "description": "Extract text from images and merge with content text to produce merged_text",
+  "skills":
+  [
+    {
+          "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+          "name": "ImageSkill",
+          "description": "Segment Images",
+          "context": "/document/normalized_images/*",
+          "uri": "https://your.custom.skill.url",
+          "httpMethod": "POST",
+          "timeout": "PT30S",
+          "batchSize": 100,
+          "degreeOfParallelism": 1,
+          "inputs": [
+            {
+              "name": "image",
+              "source": "/document/normalized_images/*"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "slices",
+              "targetName": "slices"
+            }
+          ],
+          "httpHeaders": {}
+        }
+  ]
+}
+```
+
+#### <a name="custom-skill"></a>Compétence personnalisée
+
+La compétence personnalisée elle-même est externe à l’ensemble de compétences. Dans ce cas, il s’agit d’un code Python qui effectue une boucle complète sur le lot d’enregistrements des requêtes au format de la compétence personnalisée, puis convertit la chaîne encodée en Base64 en une image.
+
+```python
+# deserialize the request, for each item in the batch
+for value in values:
+  data = value['data']
+  base64String = data["image"]["data"]
+  base64Bytes = base64String.encode('utf-8')
+  inputBytes = base64.b64decode(base64Bytes)
+  # Use numpy to convert the string to an image
+  jpg_as_np = np.frombuffer(inputBytes, dtype=np.uint8)
+  # you now have an image to work with
+```
+Comme pour le retour d’une image, une chaîne encodée en Base64 est retournée dans un objet JSON avec une propriété `$type` de `file`.
+
+```python
+def base64EncodeImage(image):
+    is_success, im_buf_arr = cv2.imencode(".jpg", image)
+    byte_im = im_buf_arr.tobytes()
+    base64Bytes = base64.b64encode(byte_im)
+    base64String = base64Bytes.decode('utf-8')
+    return base64String
+
+ base64String = base64EncodeImage(jpg_as_np)
+ result = { 
+  "$type": "file", 
+  "data": base64String 
+}
+```
 
 ## <a name="see-also"></a>Voir aussi
 + [Créer un indexeur (REST)](/rest/api/searchservice/create-indexer)
@@ -221,3 +292,4 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
 + [Compétence de fusion de texte](cognitive-search-skill-textmerger.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)
++ [Guide pratique pour passer des images aux compétences personnalisées](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing)

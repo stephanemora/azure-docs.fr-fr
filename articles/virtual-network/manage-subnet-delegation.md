@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
 ms.openlocfilehash: 2bb80ba421617d5fd1699826deda00e56f1e43af
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943673"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Ajouter ou supprimer une délégation de sous-réseau
@@ -38,11 +38,11 @@ Dans le cadre de cette section, vous allez créer un réseau virtuel et le sous-
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez *MyVirtualNetwork*. |
+    | Nom | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.0.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
+    | Abonnement | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
-    | Location | Sélectionnez **USA Est**.|
+    | Emplacement | Sélectionnez **USA Est**.|
     | Sous-réseau - Nom | Entrez *mySubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.0.0.0/24*. |
     |||

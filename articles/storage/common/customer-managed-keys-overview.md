@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517529"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
@@ -27,7 +27,7 @@ Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azur
 
 > [!IMPORTANT]
 >
-> Le chiffrement avec des clés managées par le client stockées dans un HSM managé par Azure Key Vault est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques s’appliquant aux fonctionnalités Azure qui sont en version bêta, en préversion ou qui ne sont pas encore en disponibilité générale.
+> Le chiffrement avec des clés managées par le client stockées dans un HSM managé par Azure Key Vault est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
 >
 > Azure Key Vault et le module HSM managé par Azure Key Vault prennent en charge les mêmes API et interfaces de gestion pour la configuration.
 
