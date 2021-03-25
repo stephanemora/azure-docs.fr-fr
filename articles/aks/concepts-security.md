@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: 1adf8370f55a0f6131eb4140c58fa4618e08127b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6c69e46ea3510476089cd932b1cd1bdf14254021
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686019"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122372"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -40,7 +40,10 @@ Vous pouvez contrôler l’accès au serveur d’API avec des contrôles d’acc
 
 ## <a name="node-security"></a>Sécurité des nœuds
 
-Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Les nœuds Linux exécutent une distribution Ubuntu optimisée à l’aide du runtime de conteneur Moby. Les nœuds Windows Server exécutent une version Windows Server 2019 optimisée et utilisent également le runtime de conteneur Moby. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
+Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Les nœuds Linux exécutent une distribution Ubuntu optimisée à l’aide de `containerd` ou du runtime de conteneur Moby. Les nœuds Windows Server exécutent une version Windows Server 2019 optimisée et utilisent également `containerd` ou le runtime de conteneur Moby. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
+
+> [!NOTE]
+> Les clusters AKS utilisant des pools de nœuds Kubernetes version 1.19 et ultérieure utilisent`containerd` comme runtime de conteneur. Les clusters AKS utilisant une version de Kubernetes antérieure à v1.19 pour les pools de nœuds utilisent [Moby](https://mobyproject.org/) (Docker en amont) comme runtime de conteneur.
 
 La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation aux nœuds Linux chaque nuit. Si une mise à jour de la sécurité du système d’exploitation Linux nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez redémarrer les nœuds Linux manuellement ou appliquer une approche courante qui consiste à utiliser [Kured][kured], un démon de redémarrage open source pour Kubernetes. Kured s’exécute comme un [DaemonSet][aks-daemonsets] et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
 

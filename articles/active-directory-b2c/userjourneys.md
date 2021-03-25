@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400011"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174663"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ L’élément **Preconditions** contient l’élément suivant :
 
 #### <a name="precondition"></a>Precondition
 
+Des étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’étape d’orchestration. Il existe deux types de conditions préalables :
+ 
+- **Les revendications existent** : les actions doivent être exécutées si les revendications indiquées existent dans le jeu de revendications actuel de l’utilisateur.
+- **Les revendications sont égales** : les actions doivent être exécutées si la revendication indiquée existe et que sa valeur est égale à la valeur spécifiée. La vérification effectue une comparaison ordinale respectant la casse. Lors de la vérification du type de revendication booléenne, utilisez `True` ou `False`.
+
 L’élément **Precondition** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Type` | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| `ExecuteActionsIf` | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. |
+| `ExecuteActionsIf` | Oui | Utilisez un test `true` ou `false` pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. |
 
 L’élément **Precondition** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Valeur | 1:n | ClaimTypeReferenceId à interroger. Un autre élément de valeur contient la valeur à vérifier.</li></ul>|
+| Valeur | 1:2 | Identificateur d’un type de revendication. La revendication est déjà définie dans la section Schéma des revendications du fichier de stratégie ou dans le fichier de stratégie parent. Lorsque la condition préalable est de type `ClaimEquals`, un deuxième élément `Value` contient la valeur à vérifier. |
 | Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. |
 
 #### <a name="preconditions-examples"></a>Exemples de conditions préalables
@@ -189,9 +194,12 @@ Plusieurs conditions préalables peuvent être vérifiées. L’exemple suivant 
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ClaimsProviderSelection
+## <a name="claims-provider-selection"></a>Sélection du fournisseur de revendications
 
-Une étape d’orchestration de type `ClaimsProviderSelection` ou `CombinedSignInAndSignUp` peut contenir une liste de fournisseurs de revendications avec lesquels un utilisateur peut se connecter. L’ordre des éléments à l’intérieur des éléments `ClaimsProviderSelections` détermine l’ordre des fournisseurs d’identité présentés à l’utilisateur.
+La sélection du fournisseur d’identité permet aux utilisateurs de sélectionner une action dans une liste d’options. La sélection du fournisseur d’identité se compose de deux étapes d’orchestration : 
+
+1. **Boutons** : il commence par le type `ClaimsProviderSelection`, ou `CombinedSignInAndSignUp` contient une liste d’options parmi lesquelles un utilisateur peut choisir. L’ordre des options dans l’élément `ClaimsProviderSelections` contrôle l’ordre des boutons présentés à l’utilisateur.
+2. **Actions** : suivi par le type de `ClaimsExchange`. ClaimsExchange contient la liste des actions. L’action fait référence à un profil technique, comme [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), une [transformation de revendications](claims-transformation-technical-profile.md)ou l’[auto-déclaration](self-asserted-technical-profile.md). Lorsqu’un utilisateur clique sur l’un des boutons, l’action correspondante est exécutée.
 
 L’élément **ClaimsProviderSelections** contient l’élément suivant :
 
@@ -212,7 +220,7 @@ L’élément **ClaimsProviderSelection** contient les attributs suivants :
 | TargetClaimsExchangeId | Non  | Identificateur de l’échange de revendications, qui est exécuté à l’étape d’orchestration suivante de la sélection du fournisseur de revendications. Cet attribut ou l’attribut ValidationClaimsExchangeId doit être spécifié, mais pas les deux. |
 | ValidationClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté lors de l’étape d’orchestration en cours afin de valider la sélection du fournisseur de revendications. Cet attribut ou l’attribut TargetClaimsExchangeId doit être spécifié, mais pas les deux. |
 
-### <a name="claimsproviderselection-example"></a>Exemple de ClaimsProviderSelection
+### <a name="claims-provider-selection-example"></a>Exemple de sélection du fournisseur de revendications
 
 Dans l’étape d’orchestration suivante, l’utilisateur peut choisir de se connecter avec Facebook, LinkedIn, Twitter, Google ou un compte local. Si l’utilisateur sélectionne l’un des fournisseurs d’identité sociale, la deuxième étape d’orchestration s’exécute avec l’échange de revendication sélectionné spécifié dans l’attribut `TargetClaimsExchangeId`. La deuxième étape d’orchestration redirige l’utilisateur vers le fournisseur d’identité sociale pour terminer le processus de connexion. Si l’utilisateur choisit de se connecter avec le compte local, Azure AD B2C reste à la même étape d’orchestration (la même page d’inscription ou de connexion) et ignore la deuxième étape d’orchestration.
 
@@ -242,7 +250,7 @@ Dans l’étape d’orchestration suivante, l’utilisateur peut choisir de se c
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>

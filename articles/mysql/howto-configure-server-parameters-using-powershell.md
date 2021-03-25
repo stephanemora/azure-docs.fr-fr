@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 973025dfd8c0141ed0884539fe5207cc64ec822c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541859"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Configurer les paramètres de serveur dans Azure Database pour MySQL à l’aide de PowerShell
@@ -33,7 +33,7 @@ Pour utiliser ce guide pratique, il vous faut :
 > Tant que le module Az.MySql PowerShell est en préversion, vous devez l’installer séparément du module Az PowerShell à l’aide de la commande suivante : `Install-Module -Name Az.MySql -AllowPrerelease`.
 > Une fois que le module Az.MySql PowerShell est en disponibilité générale, il devient partie intégrante des versions futures du module Az PowerShell et disponible en mode natif dans Azure Cloud Shell.
 
-Si vous choisissez d’utiliser PowerShell en local, connectez-vous à votre compte Azure à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
+Si vous choisissez d’utiliser PowerShell localement, connectez-vous à votre compte Azure à l’aide de l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

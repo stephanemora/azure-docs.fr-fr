@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 92b068ee9b8aaf4c462002354bbb6490f4888a80
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455899"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Claromentis
@@ -47,15 +47,15 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 Pour configurer l’intégration de Claromentis à Azure AD, vous devez ajouter Claromentis à votre liste d’applications SaaS gérées à partir de la galerie.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Claromentis** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Claromentis** dans la zone de recherche.
 1. Sélectionnez **Claromentis** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-claromentis"></a>Configurer et tester l’authentification unique Azure AD pour Claromentis
 
-Configurez et testez l’authentification unique Azure AD auprès de Claromentis pour un utilisateur de test nommé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Claromentis associé.
+Configurez et testez l’authentification unique Azure AD auprès de Claromentis pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Claromentis associé.
 
 Pour configurer et tester l’authentification unique (SSO) Azure AD avec Claromentis, suivez les indications des sections suivantes :
 
@@ -70,21 +70,21 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec Claro
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Claromentis** , recherchez la section **Gérer** , puis sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Sur le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Claromentis**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité** , entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur** , entrez la valeur d’identificateur telle que l’exige votre organisation.
+    a. Dans la zone de texte **Identificateur**, entrez la valeur d’identificateur telle que l’exige votre organisation.
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<customer_site_url>/custom/loginhandler/simplesaml/www/module.php/saml/sp/saml2-acs.php/claromentis`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<customer_site_url>/custom/loginhandler/simplesaml/www/module.php/saml/sp/saml2-acs.php/claromentis`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL d’authentification** , tapez une URL au format suivant :
+    Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
 
     ```https
     https://<customer_site_url>/login
@@ -94,11 +94,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. La procédure est expliquée plus loin dans le tutoriel.
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Dans la section **Configurer Claromentis** , copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer Claromentis**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -106,37 +106,37 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
-   1. Cliquez sur **Créer** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Claromentis.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **Claromentis** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Claromentis**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-claromentis-sso"></a>Configurer l’authentification unique Claromentis
 
 1. Dans une autre fenêtre de navigateur, connectez-vous au site web Claromentis en tant qu’administrateur.
 
-1. Cliquez sur l’ **icône d’applications** et sélectionnez **Admin** .
+1. Cliquez sur l’**icône d’applications** et sélectionnez **Admin**.
 
     ![Capture d’écran montrant le site web Claromentis avec Admin sélectionné.](./media/claromentis-tutorial/config1.png)
 
@@ -144,11 +144,11 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
     ![Capture d’écran montrant la page Administration avec Custom Login Handler sélectionné.](./media/claromentis-tutorial/config2.png)
 
-1. Sélectionnez **SAML Config** .
+1. Sélectionnez **SAML Config**.
 
     ![Capture d’écran montrant la page de configuration pour SAML.](./media/claromentis-tutorial/config3.png)
 
-1. Sous l’onglet **SAML Config** , faites défiler l’écran jusqu’à la section **Config** et effectuez les étapes suivantes :
+1. Sous l’onglet **SAML Config**, faites défiler l’écran jusqu’à la section **Config** et effectuez les étapes suivantes :
 
     ![Capture d’écran montrant la section Config de la page où vous pouvez entrer les informations décrites dans cette étape.](./media/claromentis-tutorial/config4.png)
 
@@ -168,9 +168,9 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
     c. Chargez le fichier **XML de métadonnées de fédération** que vous avez téléchargé à partir du portail Azure.
 
-    d. Cliquez sur **Enregistrer** .
+    d. Cliquez sur **Enregistrer**.
 
-1. Vous remarquerez alors que toutes les URL ont été renseignées dans la section **Identity Provider** de la section **SAML Config** .
+1. Vous remarquerez alors que toutes les URL ont été renseignées dans la section **Identity Provider** de la section **SAML Config**.
 
     ![Capture d’écran montrant la page Identity Provider contenant des URL.](./media/claromentis-tutorial/config6.png)
 

@@ -6,10 +6,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.openlocfilehash: 53198c663d318a2eb47bcb3207939bbcb1fdd59c
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98763238"
 ---
 Les applications de la Bibliothèque d’authentification Microsoft (MSAL) génèrent des messages de journal qui contribuent à diagnostiquer des problèmes. Une application peut configurer la journalisation avec quelques lignes de code et contrôler de façon personnalisée le niveau de détail, ainsi que permettre de savoir si des données personnelles et d’organisation sont consignées ou non. Nous vous conseillons de créer un rappel de journalisation et de donner aux utilisateurs le moyen d’envoyer des journaux lorsqu’ils rencontrent des problèmes d’authentification.

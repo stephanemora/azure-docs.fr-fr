@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab24b3113f9dc69b8f3907037e228ba212a03106
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85252931"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Paramètres de stratégie de groupe et de gestion des appareils mobiles
@@ -26,13 +26,13 @@ Les entreprises qui souhaitent gérer l’itinérance pour les appareils personn
 Les tableaux suivants décrivent les paramètres de stratégie disponibles.
 
 > [!NOTE]
-> Cet article s’applique au navigateur HTML Microsoft Edge ancien lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
+> Cet article s’applique au navigateur HTML hérité Microsoft Edge lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="mdm-settings"></a>Paramètres de MDM
 
 Les paramètres de stratégie de MDM s’appliquent à Windows 10 et à Windows 10 Mobile.  La prise en charge Windows 10 Mobile existe uniquement pour l’itinérance basée sur compte Microsoft via le compte OneDrive de l’utilisateur. Pour plus d’informations sur les appareils pris en charge pour la synchronisation Azure AD, consultez [Appareils et points de terminaison](enterprise-state-roaming-windows-settings-reference.md).
 
-| Name | Description |
+| Nom | Description |
 | --- | --- |
 | Autoriser la connexion de comptes Microsoft |Permet aux utilisateurs de s’authentifier sur l’appareil à l’aide d’un compte Microsoft |
 | Autoriser la synchronisation de mes paramètres |Permet l’itinérance pour les paramètres de Windows et les données d’application. Désactiver cette stratégie désactive la synchronisation, ainsi que les sauvegardes sur les appareils mobiles |
@@ -43,7 +43,7 @@ Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10
 
 Ces paramètres se trouvent dans : `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Name | Description |
+| Nom | Description |
 | --- | --- |
 | Comptes : bloquer les comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur |
 | Ne pas synchroniser |Empêche l’itinérance des paramètres Windows et des données d’application des utilisateurs |

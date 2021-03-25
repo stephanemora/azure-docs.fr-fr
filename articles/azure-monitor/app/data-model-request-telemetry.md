@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87320559"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des requêtes : modèle de données Application Insights
@@ -17,7 +17,7 @@ Un élément de télémétrie de demande (dans [Application Insights](./app-insi
 
 La télémétrie des requêtes prend en charge le modèle d’extensibilité standard en utilisant des propriétés (`properties`) et des mesures (`measurements`) personnalisées.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nom
 
 Le nom de la requête représente le chemin de code utilisé pour traiter la requête. La valeur de faible cardinalité permet de mieux regrouper les requêtes. Pour les requêtes HTTP, elle représente la méthode HTTP et le modèle de chemin d’URL comme `GET /values/{id}` sans la valeur `id` réelle.
 
@@ -55,7 +55,7 @@ Longueur maximale : 1024 caractères
 
 ## <a name="success"></a>Succès
 
-Indication de la réussite ou non d’un appel. Ce champ est obligatoire. Lorsqu’il n’est pas défini explicitement sur `false`, une requête est considérée comme ayant réussi. Définissez cette valeur sur `false` si l’opération a été interrompue par une exception ou a retourné un code de résultat d’erreur.
+Indication de la réussite ou non d’un appel. Ce champ doit obligatoirement être renseigné. Lorsqu’il n’est pas défini explicitement sur `false`, une requête est considérée comme ayant réussi. Définissez cette valeur sur `false` si l’opération a été interrompue par une exception ou a retourné un code de résultat d’erreur.
 
 Pour les applications Web, Application Insights définit les requêtes comme ayant réussi lorsque le code de réponse est inférieur à `400` ou égal à `401`. Toutefois, il arrive que ce mappage par défaut ne corresponde pas à la sémantique de l’application. Le code de réponse `404` peut indiquer « aucun enregistrement », qui peut faire partie d’un flux régulier. Il peut également indiquer un lien rompu. Pour les liens rompus, vous pouvez même implémenter une logique plus avancée. Vous ne pouvez marquer les liens rompus en tant qu’échecs que lorsque ces liens sont situés sur le même site en analysant le point d’accès de l’URL. Ou bien vous pouvez les marquer en tant qu’échecs lors de l’accès à partir de l’application mobile de l’entreprise. De même `301` et `302` indiquent un échec lors de l’accès à partir du client qui ne prend pas en charge la redirection.
 

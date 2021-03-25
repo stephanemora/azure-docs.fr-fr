@@ -4,10 +4,10 @@ description: Découvrez comment vous connecter à vos machines virtuelles à l�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 352fc5fd3ff53a00d9f62966ecf21417ad898706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288054"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>Connectez-vous à vos machines virtuelles à l’aide d’un navigateur 
@@ -30,4 +30,4 @@ Une fois la machine virtuelle créée, vous pouvez la lancer dans un navigateur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Add a VM to a lab in Azure DevTest Labs](devtest-lab-add-vm.md) (Ajouter une machine virtuelle à un laboratoire dans Azure DevTest Labs)
+[Ajouter une machine virtuelle à un laboratoire dans Azure DevTest Labs](devtest-lab-add-vm.md)

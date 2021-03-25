@@ -5,14 +5,20 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: ea4a7764cf1ede1cfaf53b1097034c5894660376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f8a9c26e65ef911ad85806c72c7946947379ab72
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660676"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613339"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh
+
+> [!IMPORTANT]
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> 
+> Pour plus d’informations, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 L’interface de ligne de commande Service Fabric Mesh est nécessaire pour déployer et gérer des ressources localement et dans Azure Service Fabric Mesh. Voici comment la configurer :
 
 Les trois types d’interfaces CLI qui peuvent être utilisés sont mentionnés dans le tableau ci-dessous.

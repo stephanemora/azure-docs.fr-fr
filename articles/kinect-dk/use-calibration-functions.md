@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, capteur, Kit de développement logiciel (sdk), étalonnage, fonctions, caméra, intrinsèque, extrinsèque, projection, déprojection, transformation, rvb-d, nuage de points
 ms.openlocfilehash: a501765222154bde4ed35e878a9d18042893fca2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276476"
 ---
 # <a name="use-azure-kinect-calibration-functions"></a>Utiliser les fonctions d’étalonnage d’Azure Kinect

@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945453"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité d’Azure
@@ -27,7 +27,7 @@ Microsoft a publié sa [politique de support pour le SE invité](https://support
 
 Cette politique développe les points suivants :
 
-1. Microsoft prendra en charge **au moins les deux dernières familles de systèmes d'exploitation invités**. Lorsqu'une famille est supprimée, les clients bénéficient d'un délai de 12 mois à compter de la date officielle de suppression pour passer à une famille de systèmes d'exploitation invités plus récente prise en charge.
+1. Microsoft prendra en charge **au moins les deux dernières familles du système d'exploitation invité**. Lorsqu'une famille est supprimée, les clients bénéficient d'un délai de 12 mois à compter de la date officielle de suppression pour passer à une famille de systèmes d'exploitation invités plus récente prise en charge.
 2. Microsoft prendra en charge **au moins les deux dernières versions des familles des systèmes d'exploitation invités prises en charge**.
 3. Microsoft prendra en charge **au moins les deux dernières versions d'Azure SDK**. Lorsqu'une version du SDK est supprimée, les clients bénéficient d'un délai de 12 mois à compter de la date officielle de suppression pour passer à une version plus récente.
 

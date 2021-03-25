@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87289355"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gouvernance de l’infrastructure d’Azure DevTest Labs - Migration et intégration d’applications
@@ -54,10 +54,10 @@ Regardez [cette vidéo sur le modèle Image Factory](./devtest-lab-faq.md#blog-p
 
 Utilisation d’Azure DevTest Labs pour créer un pipeline d’images personnalisées dans Azure Pipelines :
 
-- [Introduction : Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs (Introduction : Rendre les machines virtuelles opérationnelles en quelques minutes en configuration une fabrique d’images dans Azure DevTest Labs)](./devtest-lab-faq.md#blog-post)
+- [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs (Introduction : Rendre les machines virtuelles opérationnelles en quelques minutes en configuration une fabrique d’images dans Azure DevTest Labs)](./devtest-lab-faq.md#blog-post)
 - [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs (Fabrique d’images – Partie 2 : Configurer VSTS et Factory Lab pour créer des machines virtuelles)](./devtest-lab-faq.md#blog-post)
 - [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs (Fabrique d’images – Partie 3 : Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires)](./devtest-lab-faq.md#blog-post)
-- [Vidéo : Custom Image Factory with Azure DevTest Labs (Vidéo : Fabrique d’images personnalisées avec Azure DevTest Labs)](./devtest-lab-faq.md#blog-post)
+- [Video: Custom Image Factory with Azure DevTest Labs (Vidéo : Fabrique d’images personnalisées avec Azure DevTest Labs)](./devtest-lab-faq.md#blog-post)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Modèles de configuration du réseau
 

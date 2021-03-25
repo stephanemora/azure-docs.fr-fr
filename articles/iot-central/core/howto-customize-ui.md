@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 660f6dfae23331455408ae7127274550a3a4cc3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90019833"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personnaliser l’interface utilisateur d’Azure IoT Central
@@ -47,7 +47,7 @@ Une image PNG, ne dépassant pas 32 x 32 pixels, avec un fond transparent. Un
 
 ### <a name="browser-colors"></a>Couleurs du navigateur
 
-Vous pouvez modifier la couleur de l’en-tête de la page et la couleur utilisée pour accentuer les boutons et les mises en surbrillance. Utilisez une valeur de couleur hexadécimale de six caractères au format `##ff6347`. Pour plus d’informations sur la notation des couleurs en **valeur hexadécimale (HEX)** , veuillez consulter la page [Couleurs HTML](https://www.w3schools.com/html/html_colors.asp).
+Vous pouvez modifier la couleur de l’en-tête de la page et la couleur utilisée pour accentuer les boutons et les mises en surbrillance. Utilisez une valeur de couleur hexadécimale de six caractères au format `##ff6347`. Pour plus d’informations sur la notation des couleurs en **valeur hexadécimale (HEX)**, veuillez consulter la page [Couleurs HTML](https://www.w3schools.com/html/html_colors.asp).
 
 > [!NOTE]
 > Vous pouvez toujours revenir aux options par défaut sur la page **Personnaliser votre application**.

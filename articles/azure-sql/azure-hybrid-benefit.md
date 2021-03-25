@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
-ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/16/2021
+ms.openlocfilehash: f7a37e761e37e295bbb92e442b1813ebded2a7cd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737453"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955276"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,6 @@ Pour définir ou mettre à jour le type de licence à l’aide de PowerShell :
 Pour définir ou mettre à jour le type de licence à l’aide d’Azure CLI :
 
 - [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
 - [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
 - [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
 
@@ -85,12 +84,12 @@ La différence entre Azure Hybrid Benefit pour SQL Server et la mobilité de lic
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quels sont les droits spécifiques associés à Azure Hybrid Benefit pour SQL Server ?
 
-Les clients SQL Database bénéficie des droits suivants associés à Azure Hybrid Benefit pour SQL Server :
+Les clients SQL Database et SQL Managed Instance ont les droits suivants associés à Azure Hybrid Benefit pour SQL Server :
 
 |Empreinte de licence|Que vous propose Azure Hybrid Benefit pour SQL Server ?|
 |---|---|
 |Clients avec cœurs SQL Server Enterprise Edition et SA|<li>Possibilité de payer un taux de base pour les références SKU Hyperscale, Usage général et Critique pour l’entreprise</li><br><li>1 cœur local = 4 cœurs dans la référence SKU Hyperscale</li><br><li>1 cœur local = 4 cœurs dans la référence SKU Usage général</li><br><li>1 cœur local = 1 cœur dans la référence SKU Critique pour l’entreprise</li>|
-|Clients avec cœurs SQL Server Standard Edition et SA|<li>Possibilité de payer un taux de base pour les références SKU Hyperscale et Usage général uniquement</li><br><li>1 cœur local = 1 cœur dans la référence SKU Hyperscale</li><br><li>1 cœur local = 1 cœur dans la référence SKU Usage général</li>|
+|Clients avec cœurs SQL Server Standard Edition et SA|<li>Possibilité de payer un taux de base pour les références SKU Hyperscale, Usage général et Critique pour l’entreprise</li><br><li>1 cœur local = 1 cœur dans la référence SKU Hyperscale</li><br><li>1 cœur local = 1 cœur dans la référence SKU Usage général</li><br><li>4 cœurs locaux = 1 cœur dans la référence SKU Critique pour l’entreprise</li>|
 |||
 
 

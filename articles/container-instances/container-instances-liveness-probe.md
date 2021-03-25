@@ -4,10 +4,10 @@ description: Découvrez comment configurer les sondes probe liveness pour redém
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: befe9693be1413abf455d915814c53aab20db53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169695"
 ---
 # <a name="configure-liveness-probes"></a>Configurer les probe liveness
@@ -61,7 +61,7 @@ Exécutez la commande suivante pour déployer ce groupe de conteneurs avec la co
 az container create --resource-group myResourceGroup --name livenesstest -f liveness-probe.yaml
 ```
 
-### <a name="start-command"></a>Commande de démarrage
+### <a name="start-command"></a>Démarrer, commande
 
 Le déploiement comprend une propriété `command` définissant une commande de démarrage qui s’exécute lors du premier démarrage du conteneur. Cette propriété accepte un tableau de chaînes. Cette commande simule le conteneur présentant un état non sain.
 

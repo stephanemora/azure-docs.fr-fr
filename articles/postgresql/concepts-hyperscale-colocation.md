@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90884427"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocation de tables dans Azure Database pour PostgreSQL - Hyperscale (Citus)
@@ -96,7 +96,7 @@ Ensuite, l’application doit combiner les résultats des deux étapes.
 
 Les requêtes exécutées doivent consulter les données dans les partitions réparties entre les nœuds.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Partitions":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Requêtes inefficaces":::
 
 Dans ce cas, la distribution des données présente de sérieux inconvénients :
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 En raison du filtre et de la jointure sur tenant_id, Hyperscale (Citus) sait que l'intégralité de la requête peut être traitée à l'aide de l'ensemble de partitions colocalisées qui contiennent les données de ce locataire particulier. Un seul nœud PostgreSQL peut répondre à la requête en une seule étape.
 
-:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Partitions":::
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Meilleure requête":::
 
 Dans certains cas, les requêtes et les schémas de table doivent être modifiés pour inclure l’ID de locataire dans des conditions de jointure et des contraintes uniques. Cette modification est généralement simple.
 

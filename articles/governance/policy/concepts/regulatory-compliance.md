@@ -4,10 +4,10 @@ description: Décrit comment utiliser une définition d’initiative pour regrou
 ms.date: 08/17/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89645527"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Conformité réglementaire dans Azure Policy
@@ -40,11 +40,11 @@ La sélection d’un **contrôle** entraîne l’ouverture d’une page de déta
 > [!NOTE]
 > Le type d’évaluation **Géré par Microsoft** correspond au `type` de définition de stratégie [statique](./definition-structure.md#type).
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Capture d’écran de la vue d’ensemble de la conformité réglementaire pour la définition intégrée NIST SP 800-53 R4, montrant des contrôles conformes et non conformes.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Capture d’écran des détails de conformité réglementaire pour le contrôle Protection de la limite de la définition intégrée NIST SP 800-53 R4.":::
 
 À partir de la même page de **contrôle**, le passage à l’onglet **Conformité des ressources** permet d’afficher toutes les ressources incluses dans les définitions de stratégie de ce **contrôle**. Des filtres sont disponibles pour le nom ou l’ID, l’état de conformité, le type de ressource ainsi que l’emplacement.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Capture d’écran de la vue d’ensemble de la conformité réglementaire pour la définition intégrée NIST SP 800-53 R4, montrant des contrôles conformes et non conformes.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="Capture d’écran de conformité réglementaire au contrôle Protection de la limite de la définition intégrée NIST SP 800-53 R4.":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>Conformité réglementaire dans le kit SDK
 

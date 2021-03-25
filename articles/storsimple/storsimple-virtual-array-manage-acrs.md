@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bad0d7adfd77dff53b1582e63a91f2cd87a9233d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85507617"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les enregistrements de contrôle d’accès pour StorSimple Virtual Array
@@ -67,7 +67,7 @@ Effectuez les opérations suivantes pour ajouter un enregistrement de contrôle 
 2. Dans le panneau **Enregistrements de contrôle d’accès**, cliquez sur **Ajouter**.
 3. Dans le panneau **Ajouter un ACR**, procédez comme suit :
    
-    1. Saisissez un **Nom** pour votre ACR.
+    1. Donnez un **Nom** à votre enregistrement de contrôle d'accès.
     
     2. Sous **Nom d’initiateur iSCSI**, indiquez le nom IQN de votre hôte Windows. Pour obtenir le nom IQN de l’hôte Windows Server, procédez comme suit :
    

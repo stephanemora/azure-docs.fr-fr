@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97932433"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planification d’un déploiement de révision d’accès Azure Active Directory
@@ -241,10 +241,10 @@ Pour créer une stratégie de révision d’accès, vous devez disposer des info
 
 **Exemple de plan de révision d’accès**
 
-| Composant| Value |
+| Composant| Valeur |
 | - | - |
 | **Ressources à réviser**| Accès à Microsoft Dynamics |
-| **Fréquence de révision**| Chaque mois |
+| **Fréquence de révision**| Mensuelle |
 | **Qui effectue la révision**| Responsables de programme du groupe d’entreprise Dynamics |
 | **Notification**| E-mail envoyé 24 heures avant la révision à l’alias Dynamics-Pms<p>Inclure un message personnalisé encourageant les réviseurs pour obtenir leur adhésion |
 | **Durée**| 48 heures à partir de la notification |

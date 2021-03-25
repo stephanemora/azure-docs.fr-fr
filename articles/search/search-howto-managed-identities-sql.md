@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358420"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée
@@ -33,7 +33,7 @@ Quand une identité managée affectée par le système est activée, Azure crée
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activer l’identité managée affectée par le système")
 
-Après avoir sélectionné **Enregistrer** , vous verrez un ID d’objet qui a été attribué à votre service de recherche.
+Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a été attribué à votre service de recherche.
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
 
@@ -82,7 +82,7 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 1. Dans le portail Azure, accédez à votre page Azure SQL Server.
 2. Sélectionnez **Contrôle d’accès (IAM)**
-3. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle**.
+3. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**.
 
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-sql-server.png "Ajouter une attribution de rôle")
 
@@ -101,9 +101,9 @@ Lors de la création d’une source de données à l’aide de l’[API REST](/r
 * **name** est le nom unique de la source de données au sein de votre service de recherche.
 * **type** est `azuresql`
 * **credentials**
-    * Le format d’ **informations d’identification** est différent selon que vous utilisez ou non une identité managée. Vous indiquerez ici un nom Initial Catalog ou Database et un ResourceId qui n’a pas de clé de compte ni de mot de passe. Le ResourceId doit inclure l’ID d’abonnement d’Azure SQL Database, le groupe de ressources d’Azure SQL Database et le nom de la base de données SQL. 
+    * Le format d’**informations d’identification** est différent selon que vous utilisez ou non une identité managée. Vous indiquerez ici un nom Initial Catalog ou Database et un ResourceId qui n’a pas de clé de compte ni de mot de passe. Le ResourceId doit inclure l’ID d’abonnement d’Azure SQL Database, le groupe de ressources d’Azure SQL Database et le nom de la base de données SQL. 
     * Format de la chaîne de connexion de l’identité managée :
-        * *Initial Catalog|Database= **nom de la base de données** ;ResourceId=/subscriptions/ **votre ID d’abonnement** /resourceGroups/ **votre nom de groupe de ressources** /providers/Microsoft.Sql/servers/ **votre nom de serveur SQL** /;Connection Timeout= **durée de la connexion** ;*
+        * *Initial Catalog|Database=**nom de la base de données**;ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**votre nom de groupe de ressources**/providers/Microsoft.Sql/servers/**votre nom de serveur SQL**/;Connection Timeout=**durée de la connexion**;*
 * **container** spécifie le nom de la table ou de l’affichage que vous souhaitez indexer.
 
 Exemple de création d’un objet de source de données Azure SQL à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) :

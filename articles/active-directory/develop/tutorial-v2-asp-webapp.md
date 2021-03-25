@@ -13,10 +13,10 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
 ms.openlocfilehash: 38def2b5af3a5f0f9a32c2b681bd0ee95ca44086
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174680"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutoriel : Ajouter la connexion à Microsoft à une application web ASP.NET
@@ -426,7 +426,7 @@ Pour voir les revendications de l’utilisateur, sélectionnez le lien permettan
 
 Une fois que vous avez accédé à la vue de contrôleur, vous devez voir un tableau qui contient les propriétés de base de l’utilisateur :
 
-|Propriété |Valeur |Description |
+|Propriété |Value |Description |
 |---|---|---|
 |**Nom** |Nom complet de l’utilisateur | Prénom et nom de l’utilisateur
 |**Nom d’utilisateur** |utilisateur<span>@domain.com</span> | Nom d’utilisateur utilisé pour identifier l’utilisateur|

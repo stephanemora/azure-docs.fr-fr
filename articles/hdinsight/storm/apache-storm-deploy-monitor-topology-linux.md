@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fb57992c8e26560061faf68443c4993801f9713d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929175"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871569"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur Azure HDInsight
 
 Ce document présente les principes fondamentaux de la gestion et du monitoring des topologies [Apache Storm](https://storm.apache.org/) qui s’exécutent sur des clusters Storm sur HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster**.
 
@@ -43,9 +43,9 @@ Vous pouvez utiliser les outils de Data Lake pour Visual Studio pour envoyer du 
 
 1. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet**, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
-    ![Configurer votre fenêtre de nouveau projet, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="Configurer votre fenêtre de nouveau projet, Visual Studio" border="true":::
 
-1. À partir de l’**Explorateur de serveurs**, cliquez avec le bouton droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure...** , puis effectuez le processus de connexion.
+1. À partir de l’**Explorateur de serveurs**, cliquez avec le bouton droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure...**, puis effectuez le processus de connexion.
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet et choisissez **Envoyer à Storm sur HDInsight**.
 
@@ -83,7 +83,7 @@ Vous pouvez déployer par programme une topologie à l’aide du service Nimbus.
 
 Lorsque vous soumettez une topologie à l’aide de Visual Studio, la fenêtre **Vue des topologies Storm** s’affiche. Sélectionnez la topologie à partir de la liste pour afficher des informations sur la topologie en cours d’exécution.
 
-![Topologie de surveillance, fenêtre Vue des topologies Storm, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="Topologie de surveillance, fenêtre Vue des topologies Storm, Visual Studio" border="true":::
 
 > [!NOTE]  
 > Vous pouvez également afficher les **Topologies Storm** dans l’**Explorateur de serveurs**. Développez **Azure** > **HDInsight**, cliquez avec le bouton droit sur un Storm sur le cluster HDInsight, puis sélectionnez **Afficher les topologies Storm**.
@@ -179,7 +179,7 @@ La page principale de l’interface utilisateur de Storm fournit les information
 
 La page principale de l’interface utilisateur de Storm ressemble à cette page web :
 
-![Page principale, interface utilisateur de Storm, topologies Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="Page principale, interface utilisateur de Storm, topologies Apache Storm, Azure" border="true":::
 
 #### <a name="topology-summary"></a>Résumé de la topologie
 
@@ -198,7 +198,7 @@ La sélection d’un lien de la section **Résumé de la topologie** affiche les
 
 La page Résumé de la topologie de Storm ressemble à cette page web :
 
-![Page Résumé de la topologie, interface utilisateur de Storm, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="Page Résumé de la topologie, interface utilisateur de Storm, Apache Storm, Azure" border="true":::
 
 Dans la section **Actions de topologie**, vous pouvez sélectionner les boutons suivants pour effectuer une action :
 
@@ -223,13 +223,13 @@ La sélection d’un spout à partir de la section **Spouts** ou **Bolts** affic
 | Statistiques du spout ou statistiques du bolt | statistiques relatives au spout ou au bolt. Pour définir le laps de temps pour une entrée dans cette section, sélectionnez son lien dans la colonne **Fenêtre**. |
 | (Bolt uniquement)<br/>Statistiques d’entrée *(intervalle de temps)* | informations sur les flux d’entrée consommés par le bolt. |
 | Statistiques de sortie *(intervalle de temps)* | informations sur les flux de données émis par le spout ou le bolt. |
-| Profilage et débogage | Contrôles pour le profilage et le débogage des composants sur cette page. Vous pouvez définir la valeur **État/délai d’expiration (minutes)** , et vous pouvez sélectionner les boutons pour **JStack**, **Redémarrer le Worker** et **Tas**. |
+| Profilage et débogage | Contrôles pour le profilage et le débogage des composants sur cette page. Vous pouvez définir la valeur **État/délai d’expiration (minutes)**, et vous pouvez sélectionner les boutons pour **JStack**, **Redémarrer le Worker** et **Tas**. |
 | Executors *(délai d’exécution)* | informations sur les instances du spout ou du bolt. Sélectionnez l’entrée **Port** d’un exécuteur spécifique afin d’afficher le journal des informations de diagnostic généré pour cette instance. Vous pouvez également voir les ressources Worker associées à un exécuteur spécifique en sélectionnant son lien dans la colonne **Hôte**. |
 | Erreurs | informations d’erreur pour le spout ou le bolt. |
 
 La page de résumé du bolt de Storm ressemble à cette page web :
 
-![Page Résumé du bolt, interface utilisateur de Storm, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="Page Résumé du bolt, interface utilisateur de Storm, Apache Storm, Azure" border="true":::
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>Surveiller et gérer la topologie à l’aide de l’API REST
 
@@ -252,7 +252,7 @@ Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de
 | Ambari Web | Sur la page web du cluster Ambari (`https://CLUSTERNAME.azurehdinsight.net`), sélectionnez **Services** en haut de la page, puis sélectionnez **Storm**. Sous l’onglet **Résumé**, sélectionnez **Serveur de l’interface utilisateur de Storm**. Le nom de domaine complet du nœud qui héberge l’interface utilisateur de Storm et l’API REST figure en haut de la page. |
 | API Ambari REST | utilisez la commande `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` pour extraire des informations sur le nœud sur lequel l’interface utilisateur de Storm et l’API REST s’exécutent. Remplacez les deux instances de *CLUSTERNAME* par le nom du cluster. Quand vous y êtes invité, entrez le mot de passe du compte (administrateur) du cluster. Dans la réponse, l’entrée « host_name » de la sortie JSON contient le nom de domaine complet du nœud. |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Les requêtes à l’API REST doivent utiliser l’ *authentification de base*, vous devez donc utiliser le nom et le mot de passe de l’administrateur du cluster HDInsight.
 

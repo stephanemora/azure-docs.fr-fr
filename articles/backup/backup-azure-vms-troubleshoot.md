@@ -5,17 +5,17 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831548"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -134,8 +134,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Étape 3 : Si les étapes 1 et 2 n’ont pas résolu le problème, l’échec peut être dû à un dépassement du délai d’expiration des enregistreurs VSS en raison d’un IOPS limité.<br>
 
-Pour le vérifier, accédez à ***Journaux du système et des applications de l'observateur d'événements** _ et recherchez le message d'erreur suivant :<br>
-_Le fournisseur de clichés instantanés a dépassé le délai d'attente maximal lors de la mise en attente des écritures vers le volume cliché. Cela est probablement dû à une activité excessive sur le volume par une application ou un service système. Réessayez quand l'activité sur le volume sera moindre.*<br>
+Pour vérifier, accédez à ***Journaux du système et des applications de l’observateur d’événements*** et recherchez le message d’erreur suivant :<br>
+*Le délai d’attente du fournisseur de clichés instantanés a expiré pendant que les écritures en attente dans le volume était copiées en mémoire fantôme. Cela est probablement dû à une activité excessive sur le volume par une application ou un service système. Réessayez plus tard lorsque l’activité sur le volume sera réduite.*<br>
 
 Solution :
 

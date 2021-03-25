@@ -4,10 +4,10 @@ description: Service Fabric prend en charge l’utilisation d’Azure Files pour
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247691"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Pilote de volume Azure Files pour Service Fabric
@@ -18,7 +18,7 @@ Le pilote de volume Azure Files est un [plug-in de volume Docker](https://docs.d
 > La version 6.5.661.9590 du plug-in de volume Azure Files a été publiée pour la mise à la disposition générale.
 >
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * La version Windows du plug-in de volume Azure Files fonctionne sur [Windows Server version 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](/windows/whats-new/whats-new-windows-10-version-1709) ou des systèmes d’exploitation plus récents uniquement.
 
 * La version Linux du plug-in de volume Azure Files fonctionne sur toutes les versions de système d’exploitation prises en charge par Service Fabric.
