@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907394"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurer la haute disponibilité Hyperscale (Citus)
@@ -29,7 +29,7 @@ Cliquez sur le bouton **Enregistrer** pour appliquer votre sélection. L’activ
 
 L’onglet **Vue d’ensemble** du groupe de serveurs liste tous les nœuds et leurs nœuds de secours, ainsi qu’une colonne **Haute disponibilité** indiquant si la haute disponibilité est correctement activée pour chaque nœud.
 
-:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="Curseur de haute disponibilité":::
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="Vue d’ensemble de la colonne Haute disponibilité dans le groupe de serveurs":::
 
 ### <a name="next-steps"></a>Étapes suivantes
 

@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786942"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
@@ -70,7 +70,7 @@ Dans les tests par lots, les points de données représentent les énoncés dans
 
 Dans les tests par lots, les points de données représentent les énoncés dans lesquels votre application a mal prédit l’existence de l’intention/entité cible.
 
-### <a name="precision"></a>Precision
+### <a name="precision"></a>Précision
 Dans les tests par lots, la précision (également appelée coefficient de prévision d'un test positif) est la part d’énoncés pertinents parmi les énoncés récupérés.
 
 Si l’on prend un exemple dans le domaine de l’élevage, un test par lots correspond au nombre de moutons prédits divisé par le nombre total d’animaux (moutons et non-mouton).

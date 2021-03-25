@@ -3,19 +3,20 @@ title: Déployer un cluster OpenShift Container Platform 3.11 autogéré à l�
 description: Déployez un cluster OpenShift Container Platform 3.11 autogéré à l’aide de l’offre de la Place de marché dans Azure.
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 36adf35c5fbfc3e88b7d9af425ebabc852707e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374097"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670445"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 
@@ -93,7 +94,7 @@ Entrez les valeurs des paramètres d’entrée et cliquez sur **OK**.
 
 **Modifier la taille**
 
-Pour sélectionner une autre taille de machine virtuelle, cliquez sur ***Modifier la taille***.  La fenêtre de sélection de la machine virtuelle s’affiche.  Sélectionnez la taille de machine virtuelle de votre choix, puis cliquez sur **Sélectionner**.
+Pour sélectionner une autre taille de machine virtuelle, cliquez sur **Modifier la taille**.  La fenêtre de sélection de la machine virtuelle s’affiche.  Sélectionnez la taille de machine virtuelle de votre choix, puis cliquez sur _*Sélectionner**.
 
    ![Sélectionner la taille de machine virtuelle](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>

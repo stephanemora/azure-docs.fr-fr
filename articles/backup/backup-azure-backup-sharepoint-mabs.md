@@ -4,10 +4,10 @@ description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de re
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89375395"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
@@ -114,13 +114,13 @@ Une fois le groupe de protection créé, la réplication initiale se produit et 
 
 ### <a name="set-up-monitoring-notifications"></a>Configurer des notifications d’analyse
 
-1. Dans la Console Administrateur MABS, sélectionnez **Analyse** > **Action** > **Options**.
+1. Dans la console Administrateur MABS, sélectionnez **Analyse** > **Action** > **Options**.
 
-2. Sélectionnez **Serveur SMTP**, saisissez le nom du serveur, le port et l’adresse e-mail à partir desquels les notifications seront envoyées. L’adresse doit être valide.
+2. Sélectionnez **Serveur SMTP**, tapez le nom du serveur, le port et l’adresse e-mail à partir desquels les notifications seront envoyées. L’adresse doit être valide.
 
 3. Dans **Serveur SMTP authentifié**, saisissez un nom d’utilisateur et un mot de passe. Le nom d’utilisateur et le mot de passe doivent correspondre au nom du compte de domaine de la personne dont l’adresse « De » est décrite à l’étape précédente. Sinon, la remise de notification échoue.
 
-4. Pour tester les paramètres du serveur SMTP, sélectionnez **Envoyer un message de test**, saisissez l’adresse e-mail à laquelle MABS doit envoyer le message de test, puis sélectionnez **OK**. Sélectionnez **Options** > **Notifications**, puis sélectionnez les types d’alertes dont les destinataires souhaitent être avertis. Dans **Destinataires**, saisissez l’adresse e-mail de chaque destinataire auquel MABS doit envoyer des copies des notifications.
+4. Pour tester les paramètres du serveur SMTP, sélectionnez **Envoyer un message de test**, tapez l’adresse e-mail à laquelle MABS doit envoyer le message de test, puis sélectionnez **OK**. Sélectionnez **Options** > **Notifications**, puis sélectionnez les types d’alertes dont les destinataires souhaitent être avertis. Dans **Destinataires**, saisissez l’adresse e-mail de chaque destinataire auquel MABS doit envoyer des copies des notifications.
 
 ### <a name="publish-operations-manager-alerts"></a>Publier les alertes Operations Manager
 
@@ -159,7 +159,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
    >
 8. Sélectionnez le **processus de récupération** que vous souhaitez utiliser.
 
-   * Sélectionnez **Récupérer sans utiliser de batterie de serveurs de récupération** si la batterie de serveurs SharePoint n’a pas changé et qu’elle est la même que le point de récupération en cours de restauration.
+   * Sélectionnez **Récupérer sans utiliser de batterie de serveurs de récupération** si la batterie de serveurs SharePoint n’a pas changé et qu’elle est la même que le point de récupération restauré.
    * Sélectionnez l’option de **récupération avec une batterie de serveurs** si la batterie de serveurs SharePoint a changé depuis la création du point de restauration.
 
      ![processus de récupération](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -167,10 +167,10 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
 
     ![Emplacement intermédiaire1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    Le serveur de sauvegarde Azure connecte la base de données de contenu, qui héberge l’élément SharePoint, à l’instance SQL temporaire. À partir de la base de données de contenu, l’élément est restauré et stocké à l’emplacement du fichier intermédiaire sur le serveur de sauvegarde Azure. L’élément récupéré situé à l’emplacement intermédiaire doit maintenant être exporté vers l’emplacement intermédiaire sur la batterie de serveurs SharePoint.
+    Le serveur de sauvegarde Azure connecte la base de données de contenu, qui héberge l’élément SharePoint, à l’instance SQL Server temporaire. À partir de la base de données de contenu, l’élément est restauré et stocké à l’emplacement du fichier intermédiaire sur le serveur de sauvegarde Azure. L’élément récupéré situé à l’emplacement intermédiaire doit maintenant être exporté vers l’emplacement intermédiaire sur la batterie de serveurs SharePoint.
 
     ![Emplacement intermédiaire2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Sélectionnez **Spécifier les options de récupération**et appliquez des paramètres de sécurité à la batterie de serveurs SharePoint, ou appliquez les paramètres de sécurité du point de récupération. Sélectionnez **Suivant**.
+10. Sélectionnez **Spécifier les options de récupération** et appliquez des paramètres de sécurité à la batterie de serveurs SharePoint, ou appliquez les paramètres de sécurité du point de récupération. Sélectionnez **Suivant**.
 
     ![Options de récupération](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -212,7 +212,7 @@ Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a ét�
     Une fois le catalogage terminé, l’état passe à *Succès*. Sélectionnez **Fermer**.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Sélectionnez l’objet SharePoint affiché dans l’onglet **Récupération** du serveur de sauvegarde Azure pour obtenir la structure de base de données de contenu. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **Récupérer**.
+4. Sélectionnez l’objet SharePoint affiché sous l’onglet **Récupération** du serveur de sauvegarde Azure pour obtenir la structure de base de données de contenu. Cliquez avec le bouton droit sur l’élément, puis sélectionnez **Récupérer**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. À ce stade, suivez les étapes de récupération mentionnées précédemment dans cet article pour la récupération d’une base de données de contenu SharePoint à partir du disque.

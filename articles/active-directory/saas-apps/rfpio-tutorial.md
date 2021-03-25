@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: c4e838afa867a7fb1e7fa8f582bc8879c24056a9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92506052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Didacticiel : Intégration d’Azure Active Directory à RFPIO
@@ -49,11 +49,11 @@ Pour configurer l’intégration de RFPIO avec Azure AD, vous devez ajouter RFP
 
 **Pour ajouter RFPIO depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Pour configurer l’intégration de RFPIO avec Azure AD, vous devez ajouter RFP
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **RFPIO** , sélectionnez **RFPIO** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **RFPIO**, sélectionnez **RFPIO** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![RFPIO dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure Active Directory avec RFPIO, avec un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure Active Directory avec RFPIO, avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure Active Directory et l’utilisateur RFPIO associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec RFPIO, vous devez suivre les indications des sections suivantes :
@@ -85,44 +85,44 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure Active Directory avec RFPIO, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **RFPIO** , sélectionnez **Authentification unique** .
+1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **RFPIO**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité** , effectuez l’étape suivante :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
     ![Capture d’écran montrant la section Configuration SAML de base, dans laquelle vous pouvez entrer un identificateur.](common/idp-identifier.png)
 
-    a. Dans la zone de texte **Identificateur** , tapez une URL au format suivant : `https://www.rfpio.com`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.rfpio.com`
 
-    b. Cliquez sur **Définir des URL supplémentaires** .
+    b. Cliquez sur **Définir des URL supplémentaires**.
 
-    c. Dans la zone de texte **État de relais** , entrez une valeur de chaîne. Contactez l’[équipe de support technique de RFPIO](https://www.rfpio.com/contact/) pour obtenir cette valeur.
+    c. Dans la zone de texte **État de relais**, entrez une valeur de chaîne. Contactez l’[équipe de support technique de RFPIO](https://www.rfpio.com/contact/) pour obtenir cette valeur.
 
     ![Capture d’écran montrant Définir des URL supplémentaires.](common/idp-preintegrated-relay.png)
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     ![image](common/both-preintegrated-signon.png)
 
-    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://www.app.rfpio.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://www.app.rfpio.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de connexion actuels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de RFPIO](https://www.rfpio.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-7. Dans la section **Configurer RFPIO** , copiez l’URL ou les URL appropriées en fonction de vos exigences.
+7. Dans la section **Configurer RFPIO**, copiez l’URL ou les URL appropriées en fonction de vos exigences.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -140,15 +140,15 @@ Pour configurer l’authentification unique Azure Active Directory avec RFPIO, p
 
     ![Capture d’écran montrant la flèche Bas située en bas du volet.](./media/rfpio-tutorial/app1.png)
 
-1. Cliquez sur **Paramètres de l’organisation** . 
+1. Cliquez sur **Paramètres de l’organisation**. 
 
     ![Capture d’écran montrant la sélection de Organization Settings.](./media/rfpio-tutorial/app2.png)
 
-1. Cliquez sur **FONCTIONNALITÉS ET INTÉGRATION** .
+1. Cliquez sur **FONCTIONNALITÉS ET INTÉGRATION**.
 
     ![Capture d’écran montrant la sélection de Features and Integration dans Settings.](./media/rfpio-tutorial/app4.png)
 
-1. Dans **Configuration SAML SSO** , cliquez sur **Modifier** .
+1. Dans **Configuration SAML SSO**, cliquez sur **Modifier**.
 
     ![Capture d’écran affichant la section SAML SSO Configuration avec le bouton Edit mis en évidence.](./media/rfpio-tutorial/app3.png)
 
@@ -156,22 +156,22 @@ Pour configurer l’authentification unique Azure Active Directory avec RFPIO, p
 
     ![Capture d’écran affichant la section SAML SSO Configuration avec l’option SAML activée.](./media/rfpio-tutorial/app5.png)
     
-    a. Copiez le contenu du **fichier XML de métadonnées téléchargé** et collez-le dans le champ **Configuration de l’identité** .
+    a. Copiez le contenu du **fichier XML de métadonnées téléchargé** et collez-le dans le champ **Configuration de l’identité**.
 
     > [!NOTE]
-    >Pour copier le contenu du fichier **XML des métadonnées de fédération** téléchargé, utilisez **Notepad++** ou **XML Editor** .
+    >Pour copier le contenu du fichier **XML des métadonnées de fédération** téléchargé, utilisez **Notepad++** ou **XML Editor**.
 
-    b. Cliquez sur **Valider** .
+    b. Cliquez sur **Valider**.
 
-    c. Après avoir cliqué sur **Valider** , activez **SAML(Enabled)** .
+    c. Après avoir cliqué sur **Valider**, activez **SAML(Enabled)** .
 
-    d. Cliquez sur **Envoyer** .
+    d. Cliquez sur **Envoyer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -183,39 +183,39 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à RFPIO.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **RFPIO** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **RFPIO**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **RFPIO** .
+2. Dans la liste des applications, sélectionnez **RFPIO**.
 
     ![Lien RFPIO dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-rfpio-test-user"></a>Créer un utilisateur de test RFPIO
 
@@ -225,27 +225,27 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Capture d’écran montrant la flèche Bas située en bas du volet.](./media/rfpio-tutorial/app1.png)
 
-1. Cliquez sur **Paramètres de l’organisation** . 
+1. Cliquez sur **Paramètres de l’organisation**. 
 
     ![Capture d’écran montrant la sélection de Organization Settings.](./media/rfpio-tutorial/app2.png)
 
-1. Cliquez sur **MEMBRES DE L’ÉQUIPE** .
+1. Cliquez sur **MEMBRES DE L’ÉQUIPE**.
 
     ![Capture d’écran affichant l’élément Team Members sélectionné dans Settings.](./media/rfpio-tutorial/app6.png)
 
-1. Cliquez sur **AJOUTER DES MEMBRES** .
+1. Cliquez sur **AJOUTER DES MEMBRES**.
 
     ![Capture d’écran montrant le bouton Add Members.](./media/rfpio-tutorial/app7.png)
 
-1. Dans la section **Ajouter de nouveaux membres** . Procédez comme suit :
+1. Dans la section **Ajouter de nouveaux membres**. Procédez comme suit :
 
     ![Capture d’écran montrant l’ajout de nouveaux membres, où vous pouvez indiquer les valeurs décrites.](./media/rfpio-tutorial/app8.png)
 
-    a. Entrez l’ **adresse e-mail** dans le champ **Entrer une adresse e-mail par ligne** .
+    a. Entrez l’**adresse e-mail** dans le champ **Entrer une adresse e-mail par ligne**.
 
     b. Veuillez sélectionner le **Rôle** selon vos exigences.
 
-    c. Cliquez sur **AJOUTER DES MEMBRES** .
+    c. Cliquez sur **AJOUTER DES MEMBRES**.
 
     > [!NOTE]
     > Le titulaire du compte Azure Active Directory reçoit un e-mail contenant un lien à suivre pour confirmer son compte et l’activer.

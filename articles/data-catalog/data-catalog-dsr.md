@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d68a9539420c77cc23722e1b7b7175d08459e9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439082"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674629"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un outil d’inscription par simple clic, ou en entrant manuellement les informations directement dans le portail web Azure Data Catalog. Le tableau ci-dessous récapitule toutes les sources de données actuellement prises en charge par le catalogue, ainsi que les fonctionnalités de publication disponibles pour chacune d’elles. Sont également répertoriés les outils de données externes que chaque source de données peut initier à partir du portail. Le deuxième tableau contient une spécification plus technique de chaque propriété de connexion de source de données.
 

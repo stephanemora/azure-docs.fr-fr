@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471869"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772577"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
@@ -76,7 +76,7 @@ Utilisez la page **Espace de noms** pour votre Azure HPC Cache. La page Espace d
 
 Cliquez sur le nom du chemin d’accès que vous souhaitez modifier, puis créez le nouveau chemin dans la fenêtre d’édition qui s’affiche.
 
-![Capture d’écran de la page Espace de noms après sélection d’un chemin d’accès d’espace de noms Blob. Les champs d’édition s’affichent dans un volet à droite.](media/edit-namespace-blob.png)
+![Capture d’écran de la page Espace de noms après sélection d’un chemin d’accès d’espace de noms Blob. Les champs d’édition s’affichent dans un volet à droite.](media/update-namespace-blob.png)
 
 Après avoir apporté les modifications souhaitées, cliquez sur **OK** pour mettre à jour la cible de stockage ou cliquez sur **Annuler** pour abandonner les modifications.
 

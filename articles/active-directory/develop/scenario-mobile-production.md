@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121032"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675955"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Préparer des applications mobiles pour la production
 
@@ -34,18 +34,9 @@ Pour chaque type de Bibliothèque d’authentification Microsoft (MSAL), vous po
 - [Wiki iOS MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [Wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigate-and-investigate-issues"></a>Atténuer et examiner les problèmes
-
-Pour mieux diagnostiquer des problèmes dans votre application, collectez des données. Pour plus d’informations sur les types de données que vous pouvez collecter, voir [Journalisation dans les applications MSAL](./msal-logging.md).
-
-Voici quelques suggestions pour la collecte de données :
-
-- Les utilisateurs peuvent demander de l’aide lorsqu’ils rencontrent des problèmes. Une meilleure pratique consiste à capturer et à stocker temporairement les journaux. Indiquez un emplacement où les utilisateurs peuvent charger les journaux. MSAL fournit des extensions de journalisation permettant de capturer des informations détaillées sur l’authentification.
-
-- Si une télémétrie est disponible, activez-la via MSAL pour recueillir des données sur la façon dont les utilisateurs se connectent à votre application.
-
-## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour essayer des exemples supplémentaires, voir [Applications clientes publiques mobiles et de bureau](sample-v2-code.md#desktop-and-mobile-public-client-apps).

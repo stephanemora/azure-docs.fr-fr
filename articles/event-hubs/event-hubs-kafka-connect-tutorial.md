@@ -4,10 +4,10 @@ description: Cet article fournit des informations sur l’utilisation de Kafka C
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.openlocfilehash: f82dcdafa7921f4a994361371536b2f1ace7cbc5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935153"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs"></a>Intégrer la prise en charge Apache Kafka Connect à Azure Event Hubs

@@ -4,10 +4,10 @@ description: Découvrez comment spécifier un groupe de ressources pour les mach
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483361"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
@@ -112,4 +112,4 @@ Comment utiliser cette API :
 Voir les articles suivants : 
 
 - [Définir des stratégies pour un laboratoire](devtest-lab-set-lab-policy.md)
-- [Forum Aux Questions (FAQ)](devtest-lab-faq.md)
+- [Forum aux questions](devtest-lab-faq.md)

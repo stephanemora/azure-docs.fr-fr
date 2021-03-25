@@ -1,18 +1,14 @@
 ---
 title: Identifier les appareils nécessaires
 description: En savoir plus sur les appliances matérielles et virtuelles pour les capteurs certifiés Defender pour IoT et la console de gestion locale.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 242e88e92d6197fd018c56fa55a4dd8166f5d027
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149294"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782756"
 ---
 # <a name="identify-required-appliances"></a>Identifier les appareils nécessaires
 
@@ -272,27 +268,6 @@ Cette section détaille les appliances supplémentaires qui ont été certifiée
 Une fois que vous avez acheté l’appliance, accédez à **Defender pour IoT** > **ISO des capteurs de réseau** > **Installation** pour télécharger le logiciel.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="ISO des capteurs de réseau.":::
-
-## <a name="enterprise-deployment-dell-poweredge-r340-xl"></a>Déploiement d’entreprise : Dell PowerEdge R340 XL
-
-| Composant | Spécifications techniques |
-|--|--|
-| Châssis | Serveur rack 1U
-| Dimensions | 42,8 x 434 x 596 mm/1,67 x 17,09 x 23,5 po |
-| Poids | Maximum 13,6 kg/29,98 lb |
-| Processeur | Intel Xeon E-2144G 3,6 GHz, 8 Mo de cache, 4C/8T, Turbo (71 W) |
-| Circuit microprogrammé | Intel C246 |
-| Mémoire | 32 Go = 2 x DDR4 ECC UDIMM 16 Go 2 666 MT/s |
-| Stockage | 3 x Disque dur SATA 2 To 7,2 K RPM 6 Gbits/s 512n 3,5 po enfichable à chaud – RAID 5 |
-| Contrôleur de réseau | Intégré : 2 x Broadcom BCM5720 1 Go<br>Carte LOM intégrée : carte de port iDRAC 1 Go Broadcom BCM5720 <br><br>Externe : 1 x Adaptateur serveur 1 Go Intel Ethernet i350 QP, profil bas |
-| Gestion | iDRAC9 Entreprise |
-| Accès sur l’appareil | Deux ports USB 3.0 à l’arrière <br> Un USB 3.0 frontal |
-| Power | Double alimentation enfichable à chaud 350 W |
-| Support du rack | Rails coulissants ReadyRails II pour un montage sans outil dans des racks à quatre montants avec des trous carrés ou ronds non filetés ou pour un montage avec outil dans des racks à quatre montants avec des trous filetés, avec support pour le bras de gestion des câbles sans outil en option. |
-
-## <a name="dell-r340-bom"></a>Nomenclature Dell R340
-
-:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Nomenclature Dell R340.":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

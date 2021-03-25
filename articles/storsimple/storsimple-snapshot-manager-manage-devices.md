@@ -15,38 +15,38 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96022970"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
 ## <a name="overview"></a>Vue d’ensemble
-Vous pouvez utiliser les nœuds du volet **Étendue** du Gestionnaire d’instantanés StorSimple afin de vérifier les données importées de l’appareil StorSimple et d’actualiser les appareils de stockage connectés. Par ailleurs, lorsque vous cliquez sur le nœud **Appareils**, vous pouvez consulter une liste des appareils connectés et des informations de statut correspondantes dans le volet **Résultats**.
+Vous pouvez utiliser les nœuds du volet **Étendue** du Gestionnaire d’instantanés StorSimple afin de vérifier les données importées de l’appareil StorSimple et d’actualiser les appareils de stockage connectés. De plus, lorsque vous cliquez sur le nœud **Périphériques**, une liste répertoriant les périphériques connectés et les informations d'états correspondantes s'affiche dans le volet **Résultats**.
 
 ![Appareils connectés](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
 **Figure 1 : Appareil connecté du Gestionnaire d’instantanés StorSimple** 
 
-En fonction de vos sélections **Affichage**, le volet **Résultats** indique les informations suivantes à propos de chaque appareil. (Pour plus d’informations sur la configuration d’une vue, accédez au [Menu Affichage](storsimple-use-snapshot-manager.md#view-menu).)
+Selon les sélections de votre **Vue**, le volet **Résultats** affiche les informations suivantes pour chaque périphérique. (Pour plus d’informations sur la configuration d’une vue, accédez au [Menu Affichage](storsimple-use-snapshot-manager.md#view-menu).)
 
 | Colonne de résultats | Description |
 |:--- |:--- |
-| Name |Le nom de l’appareil, tel que configuré dans le portail Azure Classic |
+| Nom |Le nom de l’appareil, tel que configuré dans le portail Azure Classic |
 | Modèle |Le numéro de modèle de l’appareil |
 | Version |La version du logiciel installé sur l’appareil |
 | Statut |La disponibilité de l’appareil |
 | Dernière synchronisation |Date et heure de la dernière synchronisation de l’appareil |
 | Numéro de série |Le numéro de série de l’appareil |
 
-Si vous cliquez avec le bouton droit sur le nœud **Appareils** du volet **Étendue**, vous pouvez sélectionner les actions suivantes :
+Si vous cliquez avec le bouton droit sur le nœud **Appareils** dans le volet **Étendue**, vous pourrez sélectionner les actions suivantes :
 
 * Ajout ou remplacement d’un appareil
 * Connexion d’un appareil et vérification des importations
 * Actualisation des appareils connectés
 
-Si vous cliquez sur le nœud **Appareils** puis cliquez avec le bouton droit sur le volet **Résultats**, vous pouvez sélectionner les actions suivantes :
+Si vous cliquez sur le nœud **Périphériques**, puis cliquez avec le bouton droit sur le nom d'un périphérique dans le volet **Résultats**, vous pourrez sélectionner les actions suivantes :
 
 * Authentification d’un appareil
 * Afficher les détails sur l’appareil
@@ -55,7 +55,7 @@ Si vous cliquez sur le nœud **Appareils** puis cliquez avec le bouton droit sur
 * Modification du mot de passe d’un appareil
 
 > [!NOTE]
-> L’ensemble de ces actions sont également disponibles dans le volet **Actions** .
+> Toutes ces actions sont également disponibles dans le volet **Actions**.
 
 
 Ce didacticiel explique comment utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer les appareils et effectuer les tâches suivantes :
@@ -79,14 +79,14 @@ Exécutez la procédure suivante pour ajouter ou remplacer un appareil StorSimp
 
 #### <a name="to-add-or-replace-a-device"></a>Pour ajouter ou remplacer un appareil
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, cliquez avec le bouton droit sur le nœud **Appareils**, puis cliquez sur **Configurer un appareil**. La boîte de dialogue **Configurer un appareil** apparaît.
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur le nœud **Appareils**, puis cliquez sur **Configurer un appareil**. La boîte de dialogue **Configurer un appareil** s'affiche.
    
     ![Configurer un appareil StorSimple](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. Dans la liste déroulante **Appareil** , sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel. 
 4. Dans la zone de texte **Mot de passe** , entrez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail Azure Classic. Cliquez sur **OK**. Le Gestionnaire d’instantanés StorSimple recherche l’appareil que vous avez identifié. 
    
    * Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion.
-   * Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple renvoie un message d’erreur. Cliquez sur **OK** pour fermer le message d’erreur, puis cliquez sur **Annuler** pour fermer la boîte de dialogue **Configurer un appareil**.
+   * Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple renvoie un message d’erreur. Cliquez sur **OK** pour fermer le message d'erreur, puis sur **Annuler** pour fermer la boîte de dialogue **Configurer un appareil**.
 
 ## <a name="connect-a-device-and-verify-imports"></a>Connexion d’un appareil et vérification des importations
 Appliquez la procédure suivante pour connecter un appareil StorSimple et vérifier que les groupes de volumes existants qui présentent des sauvegardes associées sont importés.
@@ -96,12 +96,12 @@ Appliquez la procédure suivante pour connecter un appareil StorSimple et véri
    
    * Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple renvoie un message d’erreur. 
    
-   * Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Lorsque vous sélectionnez un appareil, il apparaît dans le volet **Résultats**, et le champ de statut indique que l’appareil est **Disponible**. Le Gestionnaire d’instantanés StorSimple importe les groupes de volumes configurés pour l’appareil, à condition que les groupes de volumes présentent des sauvegardes associées. Les stratégies de sauvegarde ne sont pas importées. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés.
+   * Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Lorsque vous sélectionnez un périphérique, il s'affiche dans le volet **Résultats** et le champ d'état indique que ce périphérique est **Disponible**. Le Gestionnaire d’instantanés StorSimple importe les groupes de volumes configurés pour l’appareil, à condition que les groupes de volumes présentent des sauvegardes associées. Les stratégies de sauvegarde ne sont pas importées. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés.
 2. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-3. Cliquez sur le nœud supérieur du volet **Étendue**, puis cliquez sur **Basculer l’affichage des importations**.
+3. Cliquez avec le bouton droit sur le premier nœud du volet **Étendue**, puis cliquez sur **Activer/Désactiver l'affichage des importations**.
    
     ![Sélectionner Basculer l’affichage des importations](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. La boîte de dialogue **Basculer l’affichage des importations** apparaît ; elle indique le statut des groupes de volumes et des sauvegardes importés. Cliquez sur **OK**.
+4. La boîte de dialogue **Activer/Désactiver l'affichage des importations** s'affiche, indiquant le statut des groupes de volumes et sauvegardes importés. Cliquez sur **OK**.
 
 Une fois que les groupes de volumes et les sauvegardes ont été importés, vous pouvez utiliser le Gestionnaire d’instantanés StorSimple pour les gérer de la manière dont vous géreriez des groupes de volumes et des sauvegardes créés et configurés avec le Gestionnaire d’instantanés StorSimple. 
 
@@ -110,11 +110,11 @@ Exécutez la procédure suivante afin de synchroniser les appareils StorSimple c
 
 #### <a name="to-refresh-connected-devices"></a>Pour actualiser les appareils connectés
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
-2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Appareils**, puis cliquez sur **Actualiser la liste des appareils**. Cette action synchronise les appareils connectés avec le Gestionnaire d’instantanés StorSimple, ce qui vous permet de consulter les groupes de volumes et les sauvegardes, notamment les récents ajouts. 
+2. Dans le volet **Étendue**, cliquez avec le bouton droit sur **Appareils**, puis sélectionnez **Actualiser la liste des appareils**. Cette action synchronise les appareils connectés avec le Gestionnaire d’instantanés StorSimple, ce qui vous permet de consulter les groupes de volumes et les sauvegardes, notamment les récents ajouts. 
    
     ![Actualiser les appareils StorSimple](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
 
-L’action **Actualiser la liste des appareils** permet de récupérer les nouveaux groupes de volumes et les sauvegardes associées des appareils connectés. Contrairement à l’action **Relancer l’analyse des volumes** disponible pour le nœud **Volumes**, l’action **Actualiser la liste des appareils** ne restaure pas le registre de sauvegarde.
+L'action **Actualiser la liste des appareils** récupère tous les nouveaux groupes de volumes et toutes les sauvegardes associées depuis les périphériques connectés. Contrairement à l’action **Relancer l’analyse des volumes** disponible pour le nœud **Volumes**, l’action **Actualiser la liste des appareils** ne restaure pas le registre de sauvegarde.
 
 ## <a name="authenticate-a-device"></a>Authentification d’un appareil
 Exécutez la procédure suivante afin d’authentifier un appareil StorSimple avec le Gestionnaire d’instantanés StorSimple.
@@ -122,8 +122,8 @@ Exécutez la procédure suivante afin d’authentifier un appareil StorSimple av
 #### <a name="to-authenticate-a-device"></a>Pour authentifier un appareil
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, cliquez sur **Appareils**.
-3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom de l’appareil, puis cliquez sur **Authentifier**.
-4. La boîte de dialogue **Authentifier** apparaît. Saisissez le mot de passe de l’appareil, puis cliquez sur **OK**.
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom du périphérique, puis cliquez sur **Authentifier**.
+4. La boîte de dialogue **Authentifier** s'affiche. Entrez le mot de passe du périphérique, puis cliquez sur **OK**.
    
     ![Boîte de dialogue Authentifier](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
 
@@ -133,14 +133,14 @@ Exécutez la procédure suivante pour consulter les détails sur un appareil St
 #### <a name="to-view-and-resynchronize-device-details"></a>Pour afficher et synchroniser de nouveau les détails sur l’appareil
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, cliquez sur **Appareils**.
-3. Dans le volet **Résultats**, cliquez sur le nom de l’appareil, puis cliquez sur **Détails**.
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom du périphérique, puis cliquez sur **Détails**.
 
 4. La boîte de dialogue **Informations sur l’appareil** s’affiche. Cette zone indique le nom, le modèle, la version, le numéro de série, le statut, le nom qualifié iSCSI cible, ainsi que la date et l’heure de la dernière synchronisation.
 
-* Cliquez sur **Resynchroniser** pour synchroniser l’appareil.
-* Cliquez sur **OK** ou sur **Annuler** pour fermer la boîte de dialogue.
+* Cliquez sur **Resync** pour synchroniser le périphérique.
+* Cliquez sur **OK** ou **Annuler** pour fermer la boîte de dialogue.
   
-  ![Informations sur l’appareil](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png) 
+  ![Détails sur l'appareil](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png) 
 
 ## <a name="refresh-an-individual-device"></a>Actualisation d’un appareil
 Exécutez la procédure suivante pour synchroniser de nouveau un appareil StorSimple avec le Gestionnaire d’instantanés StorSimple.
@@ -148,7 +148,7 @@ Exécutez la procédure suivante pour synchroniser de nouveau un appareil StorS
 #### <a name="to-refresh-a-device"></a>Pour actualiser un appareil
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple. 
 2. Dans le volet **Étendue**, cliquez sur **Appareils**. 
-3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom de l’appareil, puis cliquez sur **Actualiser l’appareil**. L’appareil est synchronisé avec le Gestionnaire d’instantanés StorSimple.
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom du périphérique, puis cliquez sur **Actualiser le périphérique**. L’appareil est synchronisé avec le Gestionnaire d’instantanés StorSimple.
 
 ## <a name="delete-a-device-configuration"></a>Suppression de la configuration d’un appareil
 Utilisez la procédure suivante pour supprimer une configuration d’appareil StorSimple du Gestionnaire d’instantanés StorSimple.
@@ -156,7 +156,7 @@ Utilisez la procédure suivante pour supprimer une configuration d’appareil St
 #### <a name="to-delete-a-device-configuration"></a>Pour supprimer une configuration d’appareil
 1. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, cliquez sur **Appareils**. 
-3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom de l’appareil, puis cliquez sur **Supprimer**. 
+3. Dans le volet **Résultats**, cliquez avec le bouton droit sur le nom du périphérique, puis cliquez sur **Supprimer**. 
 4. Le message suivant s’affiche. Cliquez sur **Oui** pour supprimer la configuration, ou sur **Non** pour annuler la suppression.
    
     ![Supprimer la configuration de l’appareil](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_DeleteDevice.png)
@@ -175,7 +175,7 @@ Vous devez entrer un mot de passe pour authentifier un appareil StorSimple avec 
 1. Démarrez le Gestionnaire d’instantanés StorSimple.
 2. Dans le volet **Étendue**, cliquez sur **Appareils**. Une liste des appareils configurés apparaît dans le volet **Résultats** .
 3. Sélectionnez l’appareil, cliquez avec le bouton droit, puis cliquez sur **Authentifier**.
-4. Dans la fenêtre **Authentifier** saisissez le nouveau mot de passe.
+4. Dans la fenêtre **Authentifier**, entrez le nouveau mot de passe.
 5. Sélectionnez l’appareil, cliquez avec le bouton droit, puis sélectionnez **Actualiser l’appareil**. L’appareil est synchronisé avec le Gestionnaire d’instantanés StorSimple.
 
 ## <a name="replace-a-failed-device"></a>Remplacement d’un appareil défaillant
@@ -191,18 +191,18 @@ Si un appareil StorSimple défaillant est remplacé par un appareil de secours 
 1. Arrêtez le service de gestion Microsoft StorSimple :
    
    1. Démarrez le Gestionnaire de serveur.
-   2. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
+   2. Dans le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
    3. Dans la fenêtre **Services**, sélectionnez le **Service de gestion Microsoft StorSimple**.
-   4. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Arrêter le service**.
+   4. Dans le volet de droite, sous **Service de gestion StorSimple de Microsoft**, cliquez sur **Arrêter le service**.
 2. Supprimez les informations de configuration relatives à l’ancien appareil :
    
    1. Dans l’Explorateur de fichiers, accédez à C:\ProgramData\Microsoft\StorSimple\BACatalog.
    2. Supprimez les fichiers du dossier BACatalog.
 3. Redémarrez le service de gestion Microsoft StorSimple :
    
-   1. Sur le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
+   1. Dans le tableau de bord du Gestionnaire de serveur, dans le menu **Outils**, sélectionnez **Services**.
    2. Dans la fenêtre **Services**, sélectionnez le **Service de gestion Microsoft StorSimple**.
-   3. Dans le volet droit, sous **Service de gestion Microsoft StorSimple**, cliquez sur **Redémarrer le service**.
+   3. Dans le volet de droite, sous **Service de gestion StorSimple de Microsoft**, cliquez sur **Redémarrer le service**.
 4. Démarrez le Gestionnaire d’instantanés StorSimple.
 5. Pour configurer le nouvel appareil StorSimple, exécutez la procédure décrite dans Étape 2 : Connexion d’un appareil StorSimple de la page [Déployer le Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-deployment.md).
 6. Cliquez avec le bouton droit sur le nœud de niveau supérieur du volet **Étendue** (Gestionnaire d’instantanés StorSimple dans l’exemple), puis cliquez sur **Basculer l’affichage des importations**. 

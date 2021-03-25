@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021926"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674969"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>Introduction
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
 
@@ -38,7 +41,7 @@ Lorsque vous utilisez le menu « Ouvrir dans... » pour les sources de données 
 | Excel |.odc |Excel 2010 ou version ultérieure |
 | Excel (1 000 premiers) |.odc |Excel 2010 ou version ultérieure |
 | Power Query |.xlsx |Excel 2016 ou Excel 2010 ou Excel 2013 avec la macro complémentaire Power Query pour Excel installée |
-| Power BI Desktop |.pbix |Power BI Desktop juillet 2016 ou version ultérieure |
+| Power BI Desktop |.pbix |Power BI Desktop juillet 2016 ou version ultérieure |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 ou version ultérieure avec les outils SQL Server installés |
 | Gestionnaire de rapports |http:// |Voir la [configuration de navigateur requise pour SQL Server Reporting Services](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 

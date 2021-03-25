@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065318"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950466"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -306,7 +306,7 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
 |ruleSetVersion     | Version d’ensemble de règles utilisée. Les valeurs disponibles sont 2.2.9 et 3.0.     |
 |ruleId     | ID de règle de l’événement de déclenchement.        |
 |message     | Message convivial pour l’événement de déclenchement. La section Détails vous fournit plus d’informations.        |
-|action     |  Action effectuée sur la requête. Les valeurs disponibles sont Correspondance et Bloqué.      |
+|action     |  Action effectuée sur la requête. Les valeurs disponibles sont Blocked (Bloqué) et Allowed (Autorisé) (pour les règles personnalisées), Matched (Mis en correspondance) (quand une règle correspond à une partie de la requête), et Detected (Détecté) et Blocked (Bloqué) (il s’agit de deux règles obligatoires, selon que le pare-feu WAF est en mode de détection ou de prévention).      |
 |site     | Site pour lequel le journal a été généré. Actuellement, seul Global est répertorié car les règles sont globales.|
 |details     | Détails de l’événement de déclenchement.        |
 |details.message     | Description de la règle.        |

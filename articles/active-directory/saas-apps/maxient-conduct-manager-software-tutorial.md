@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458198"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Maxient Conduct Manager Software
@@ -40,7 +40,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer Azure AD pour une utilisation avec Maxient Conduct Manager Software.
 
 
-* Maxient Conduct Manager Software prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité** .
+* Maxient Conduct Manager Software prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -50,10 +50,10 @@ Dans ce tutoriel, vous allez configurer Azure AD pour une utilisation avec Maxie
 Pour configurer l’intégration de Maxient Conduct Manager Software dans Azure AD, vous devez ajouter Maxient Conduct Manager Software à partir de la galerie dans votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Maxient Conduct Manager Software** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Maxient Conduct Manager Software** dans la zone de recherche.
 1. Sélectionnez **Maxient Conduct Manager Software** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
@@ -71,44 +71,44 @@ Pour configurer et tester l’authentification unique Azure AD avec Maxient Cond
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Maxient Conduct Manager Software** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Maxient Conduct Manager Software**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer** .
+1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://cm.maxient.com/<SCHOOLCODE>`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
     > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez votre représentant de support/implémentation Maxient pour obtenir la valeur.
 
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération d’application** , puis enregistrez-la sur votre ordinateur.  Vous devez fournir cette URL à votre représentant de support/implémentation Maxient.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.  Vous devez fournir cette URL à votre représentant de support/implémentation Maxient.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 ### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Affecter tous les utilisateurs pour qu’ils puissent s’authentifier auprès de Maxient Conduct Manager Software
 
-Dans cette section, vous allez accorder l’accès pour que tous les comptes s’authentifient à l’aide du système Azure auprès de Maxient Conduct Manager Software.  Il est important de noter que cette étape est **OBLIGATOIRE** pour que Maxient fonctionne correctement.  Maxient utilise votre système Azure AD pour *authentifier* les utilisateurs. L’ *autorisation* des utilisateurs est effectué dans le système Maxient pour la fonction particulière qu’ils essaient d’exécuter. Maxient n’utilise pas les attributs de votre annuaire pour prendre ces décisions.
+Dans cette section, vous allez accorder l’accès pour que tous les comptes s’authentifient à l’aide du système Azure auprès de Maxient Conduct Manager Software.  Il est important de noter que cette étape est **OBLIGATOIRE** pour que Maxient fonctionne correctement.  Maxient utilise votre système Azure AD pour *authentifier* les utilisateurs. L’*autorisation* des utilisateurs est effectué dans le système Maxient pour la fonction particulière qu’ils essaient d’exécuter. Maxient n’utilise pas les attributs de votre annuaire pour prendre ces décisions.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **Maxient Conduct Manager Software** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Maxient Conduct Manager Software**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez tous les utilisateurs (ou les groupes appropriés) et **affectez** -les pour qu’ils puissent s’authentifier auprès de Maxient.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez tous les utilisateurs (ou les groupes appropriés) et **affectez**-les pour qu’ils puissent s’authentifier auprès de Maxient.
 
 ## <a name="test-with-maxient"></a>Tester avec Maxient 
 
-Si vous n’avez pas encore ouvert de ticket de support auprès d’un représentant du support technique/implémentation de Maxient, envoyez un e-mail à [support@maxient.com](mailto:support@maxient.com) avec l’objet « Authentification basée sur le campus/configuration Azure - \<\<School Name\>\> ». Dans le corps de l’e-mail, indiquez l’ **URL des métadonnées de fédération d’application** . Le personnel Maxient répondra avec un lien de test pour vérifier que les attributs appropriés sont publiés.  
+Si vous n’avez pas encore ouvert de ticket de support auprès d’un représentant du support technique/implémentation de Maxient, envoyez un e-mail à [support@maxient.com](mailto:support@maxient.com) avec l’objet « Authentification basée sur le campus/configuration Azure - \<\<School Name\>\> ». Dans le corps de l’e-mail, indiquez l’**URL des métadonnées de fédération d’application**. Le personnel Maxient répondra avec un lien de test pour vérifier que les attributs appropriés sont publiés.  
     
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

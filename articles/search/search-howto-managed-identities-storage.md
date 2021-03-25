@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358369"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée
@@ -34,7 +34,7 @@ Quand une identité managée affectée par le système est activée, Azure crée
 
 ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activer l’identité managée affectée par le système")
 
-Après avoir sélectionné **Enregistrer** , vous verrez un ID d’objet qui a été attribué à votre service de recherche.
+Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a été attribué à votre service de recherche.
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
  
@@ -44,7 +44,7 @@ Au cours de cette étape, vous allez accorder à votre service Recherche cogniti
 
 1. Dans le portail Azure, accédez au compte de stockage qui contient les données que vous souhaitez indexer.
 2. Sélectionnez **Contrôle d’accès (IAM)**
-3. Sélectionnez **Ajouter** , puis **Ajouter une attribution de rôle**.
+3. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**.
 
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-storage.png "Ajouter une attribution de rôle")
 
@@ -75,9 +75,9 @@ Lors de l’indexation d’un compte de stockage, la source de données doit avo
     * Stockage Table Azure : `azuretable`
     * Azure Data Lake Storage Gen2 : **type** est fourni une fois que vous vous êtes inscrit à la préversion à l’aide de [ce formulaire](https://aka.ms/azure-cognitive-search/mi-preview-request).
 * **credentials**
-    * Le format d’ **informations d’identification** est différent selon que vous utilisez ou non une identité managée. Vous indiquerez ici un ResourceId qui n’a pas de clé de compte ni de mot de passe. Le ResourceId doit inclure l’ID d’abonnement du compte de stockage, le groupe de ressources du compte de stockage et le nom du compte de stockage.
+    * Le format d’**informations d’identification** est différent selon que vous utilisez ou non une identité managée. Vous indiquerez ici un ResourceId qui n’a pas de clé de compte ni de mot de passe. Le ResourceId doit inclure l’ID d’abonnement du compte de stockage, le groupe de ressources du compte de stockage et le nom du compte de stockage.
     * Format de l’identité managée : 
-        * *ResourceId=/subscriptions/ **votre ID d’abonnement** /resourceGroups/ **le nom de votre groupe de ressources** /providers/Microsoft.Storage/storageAccounts/ **le nom de votre compte de stockage** /;*
+        * *ResourceId=/subscriptions/**votre ID d’abonnement**/resourceGroups/**le nom de votre groupe de ressources**/providers/Microsoft.Storage/storageAccounts/**le nom de votre compte de stockage**/;*
 * **container** spécifie le nom d’un conteneur ou d’une table dans votre compte de stockage. Par défaut, tous les objets blob du conteneur sont récupérables. Si vous souhaitez indexer uniquement les objets blob dans un répertoire virtuel particulier, vous pouvez spécifier ce répertoire à l’aide du paramètre facultatif **query**.
 
 Exemple de création d’un objet source de données blob à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) :

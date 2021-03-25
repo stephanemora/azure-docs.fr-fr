@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: e60e8c73c9f1da617851cc67fb2dbab7171f1cb0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutoriel : Intégration d’Azure Active Directory à InstaVR Viewer
@@ -50,11 +50,11 @@ Pour configurer l’intégration d'InstaVR Viewer à Azure AD, vous devez ajoute
 
 **Pour ajouter InstaVR Viewer à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -62,13 +62,13 @@ Pour configurer l’intégration d'InstaVR Viewer à Azure AD, vous devez ajoute
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **InstaVR Viewer** , sélectionnez **InstaVR Viewer** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **InstaVR Viewer**, sélectionnez **InstaVR Viewer** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![InstaVR Viewer dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec InstaVR Viewer, avec un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec InstaVR Viewer, avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur InstaVR Viewer associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec InstaVR Viewer, vous devez suivre les indications des sections suivantes :
@@ -86,23 +86,23 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **InstaVR Viewer** , sélectionnez **Authentification unique** .
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **InstaVR Viewer**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL InstaVR Viewer](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
 
     > [!NOTE]
     > Il n’existe pas de modèle fixe pour l’URL de connexion. Elle est générée lorsque le client InstaVR Viewer procède à l'empaquetage web. Elle est unique pour chaque client et package. Pour obtenir l'URL de connexion exacte, vous devez vous connecter à votre instance InstaVR Viewer et procéder à un empaquetage web.
@@ -112,11 +112,11 @@ Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procé
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Vous devez remplacer cette valeur par la valeur de l'identificateur réelle, ce qui est expliqué plus loin dans ce tutoriel.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **certificat (en base64)** et le **fichier de métadonnées de fédération**  en fonction des options définies par rapport à vos besoins, puis enregistrez-les sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **certificat (en base64)** et le **fichier de métadonnées de fédération**  en fonction des options définies par rapport à vos besoins, puis enregistrez-les sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadata-certificatebase64.png)
 
-6. Dans la section **Configurer InstaVR Viewer** , copiez la ou les URL appropriées correspondant à vos besoins.
+6. Dans la section **Configurer InstaVR Viewer**, copiez la ou les URL appropriées correspondant à vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -130,7 +130,7 @@ Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procé
 
 1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous au site de votre entreprise InstaVR Viewer en tant qu’administrateur.
 
-2. Cliquez sur l' **icône Utilisateur** , puis sélectionnez **Compte** .
+2. Cliquez sur l'**icône Utilisateur**, puis sélectionnez **Compte**.
 
     ![Capture d’écran montrant votre site InstaVR Viewer avec un utilisateur sélectionné.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
@@ -138,15 +138,15 @@ Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procé
 
     ![Capture d’écran montrant la page SAML Auth dans laquelle vous pouvez entrer les valeurs décrites à cette étape.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
-    a. Dans la zone de texte **URL SSO** , collez l’ **URL de connexion** que vous avez copiée sur le portail Azure.
+    a. Dans la zone de texte **URL SSO**, collez l’**URL de connexion** que vous avez copiée sur le portail Azure.
 
-    b. Dans la zone de texte **URL de déconnexion** , collez l’ **URL de déconnexion** que vous avez copiée sur le portail Azure.
+    b. Dans la zone de texte **URL de déconnexion**, collez l’**URL de déconnexion** que vous avez copiée sur le portail Azure.
 
-    c. Dans la zone de texte **ID d'entité** , collez l’ **Identificateur Azure AD** que vous avez copié sur le portail Azure.
+    c. Dans la zone de texte **ID d'entité**, collez l’**Identificateur Azure AD** que vous avez copié sur le portail Azure.
 
-    d. Pour charger votre fichier de certificat téléchargé, cliquez sur **Mettre à jour** .
+    d. Pour charger votre fichier de certificat téléchargé, cliquez sur **Mettre à jour**.
 
-    e. Pour charger votre fichier de métadonnées de fédération téléchargé, cliquez sur **Mettre à jour** .
+    e. Pour charger votre fichier de métadonnées de fédération téléchargé, cliquez sur **Mettre à jour**.
 
     f. Copiez la valeur **ID d’entité** et collez-la dans la zone de texte **Identificateur (ID d’entité)** de la section **Configuration SAML de base** du portail Azure.
 
@@ -154,7 +154,7 @@ Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procé
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -166,40 +166,40 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à InstaVR Viewer.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis sélectionnez **InstaVR Viewer** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **InstaVR Viewer**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, entrez et sélectionnez **InstaVR Viewer** .
+2. Dans la liste des applications, entrez et sélectionnez **InstaVR Viewer**.
 
     ![Lien InstaVR Viewer dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-instavr-viewer-test-user"></a>Créer un utilisateur de test InstaVR Viewer
 
@@ -209,15 +209,15 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans InstaVR 
 
 1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous au site de votre entreprise InstaVR Viewer en tant qu’administrateur.
 
-2. Dans le volet de navigation de gauche, sélectionnez **Package** , puis **Créer un package web** .
+2. Dans le volet de navigation de gauche, sélectionnez **Package**, puis **Créer un package web**.
 
     ![Capture d’écran montrant le site d’entreprise InstaVR Viewer avec les options Select Package et Make package for Web sélectionnées.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
-3. Sélectionnez **Télécharger** .
+3. Sélectionnez **Télécharger**.
 
     ![Capture d’écran montrant l’icône Download sélectionnée.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
-4. Sélectionnez **Ouvrir la page hébergée** , après quoi elle sera redirigée vers Azure AD à des fins de connexion.
+4. Sélectionnez **Ouvrir la page hébergée**, après quoi elle sera redirigée vers Azure AD à des fins de connexion.
 
     ![Capture d’écran montrant l’option Open Hosted Page sélectionnée.](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 

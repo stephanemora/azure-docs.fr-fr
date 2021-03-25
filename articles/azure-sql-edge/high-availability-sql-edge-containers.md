@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 56b9f06547f737bc05d573f98ce1dbac2ba48758
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90929907"
 ---
 # <a name="high-availability-for-azure-sql-edge-containers"></a>Haute disponibilité pour les conteneurs Azure SQL Edge
@@ -32,7 +32,7 @@ Dans le diagramme précédent, `azure-sql-edge` est un conteneur dans un [Pod](h
 
 Dans le diagramme suivant, le conteneur `azure-sql-edge` a échoué. En tant qu’orchestrateur, Kubernetes garantit le nombre correct d’instances saines dans le jeu de réplicas et démarre un nouveau conteneur en fonction de la configuration. L’orchestrateur démarre un nouveau pod sur le même nœud et `azure-sql-edge` se reconnecte au même stockage persistant. Le service se connecte à `azure-sql-edge` recréé.
 
-![Azure SQL Edge dans un cluster Kubernetes après l’échec du pod](media/deploy-kubernetes/kubernetes-sql-edge-after-pod-fail.png)
+![Azure SQL Edge dans un cluster Kubernetes après la défaillance d'un pod](media/deploy-kubernetes/kubernetes-sql-edge-after-pod-fail.png)
 
 Dans le diagramme suivant, le nœud hébergeant le conteneur `azure-sql-edge` a échoué. L’orchestrateur démarre un nouveau pod sur un nœud différent et `azure-sql-edge` se reconnecte au même stockage persistant. Le service se connecte à `azure-sql-edge` recréé.
 

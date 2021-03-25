@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99832621"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutoriel : Créer une instance IoT Edge pour l’analytique vidéo (machine virtuelle Linux)
@@ -20,8 +20,8 @@ ms.locfileid: "99832621"
 Azure IoT Edge est un service entièrement géré qui permet de bénéficier de l’intelligence du cloud localement en déployant et en exécutant les ressources suivantes :
 
 * logique personnalisée ;
-* services Azure ;
-* intelligence artificielle.
+* Services Azure
+* Intelligence artificielle
 
 Dans IoT Edge, ces services s’exécutent directement sur des appareils IoT multiplateformes, ce qui vous permet d’exécuter votre solution IoT en toute sécurité et à grande échelle, tant dans le cloud que hors connexion.
 
