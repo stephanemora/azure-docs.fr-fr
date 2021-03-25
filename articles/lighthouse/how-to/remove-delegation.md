@@ -4,10 +4,10 @@ description: Découvrez comment supprimer l’accès aux ressources qui ont ét�
 ms.date: 02/16/2021
 ms.topic: how-to
 ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555781"
 ---
 # <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation

@@ -13,16 +13,16 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 9e47171fc20ba07823e73f71713307e3a0e37278
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448402"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488922"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un fournisseur d’identité SAML dans Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) prend en charge la fédération avec des fournisseurs d’identité SAML 2.0. Cet article explique comment activer la connexion avec un compte d’utilisateur de fournisseur d’identité SAML, ce qui permet aux utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes, comme [ADFS](identity-provider-adfs2016-custom.md) ou [Salesforce](identity-provider-salesforce-saml.md).
+Azure Active Directory B2C (Azure AD B2C) prend en charge la fédération avec des fournisseurs d’identité SAML 2.0. Cet article explique comment activer la connexion avec un compte d’utilisateur de fournisseur d’identité SAML, ce qui permet aux utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes, comme [ADFS](identity-provider-adfs2016-custom.md) ou [Salesforce](identity-provider-salesforce-saml.md).
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -136,7 +136,7 @@ Mettez à jour les éléments XML suivants avec la valeur appropriée :
 
 ## <a name="map-the-claims"></a>Mapper les revendications
 
-L’élément **OutputClaims** contient une liste de revendications qui est retournée par le fournisseur d’identité SAML. Mappez le nom de la revendication qui est définie dans votre stratégie sur le nom d’assertion qui est défini dans le fournisseur d’identité. Contactez votre fournisseur d’identité pour obtenir la liste des revendications (assertions). Pour plus d’informations, consultez [Mappage des revendications](identity-provider-generic-saml-options.md#claims-mapping).
+L’élément **OutputClaims** contient une liste de revendications que le fournisseur d’identité SAML retourne. Mappez le nom de la revendication qui est définie dans votre stratégie sur le nom d’assertion qui est défini dans le fournisseur d’identité. Contactez votre fournisseur d’identité pour obtenir la liste des revendications (assertions). Pour plus d’informations, consultez [Mappage des revendications](identity-provider-generic-saml-options.md#claims-mapping).
 
 Dans l’exemple ci-dessus, *Contoso-SAML2* comprend les revendications retournées par un fournisseur d’identité SAML :
 
@@ -205,9 +205,16 @@ L’exemple suivant montre l’adresse URL des métadonnées SAML d’un profi
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+Avec un [domaine personnalisé](custom-domain.md), utilisez le format suivant :
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 Remplacez les valeurs suivantes :
 
-- **your-tenant** par le nom de votre locataire, par exemple, your-tenant.onmicrosoft.com.
+- **your-tenant-name** avec le nom de votre locataire, par exemple your-tenant.onmicrosoft.com.
+- **your-domain-name** avec votre nom de domaine personnalisé, tel que login.contoso.com.
 - **your-policy** par le nom de votre stratégie. Par exemple, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** par le nom du profil technique de votre fournisseur d’identité SAML. Par exemple, Contoso-SAML2.
 

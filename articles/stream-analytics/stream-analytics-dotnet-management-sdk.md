@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012629"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232883"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Kit de développement logiciel (SDK) .NET de gestion : Configurer et exécuter des tâches analytics à l’aide de l’API Azure Stream Analytics pour .NET
 Découvrez comment configurer et exécuter des travaux d’analyse à l’aide de l’API Stream Analytics pour .NET avec le Kit de développement logiciel (SDK) Management .NET. configurer un projet, créer des sources d’entrée et de sortie, des transformations, et démarrer et arrêter des tâches. Pour vos tâches d’analyse, vous pouvez diffuser des données à partir du stockage d’objets blob ou d’un hub d’événements.
@@ -207,6 +207,12 @@ La méthode **TestConnection** teste si le travail Stream Analytics est en mesur
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+Le résultat de l’appel TestConnection est un objet *ResourceTestResult* qui contient deux propriétés :
+
+- *status* : il peut s’agir de l’une des chaînes suivantes : [« TestNotAttempted », « TestSucceeded », « TestFailed »]
+- *error* : il s’agit du type ErrorResponse contenant les propriétés suivantes :
+   - *code* : propriété obligatoire de type String. La valeur standard est System.Net.HttpStatusCode reçue lors du test.
+   - *message* : propriété obligatoire de type String représentant l’erreur. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Création d’une cible de sortie Stream Analytics
 La création d’une cible de sortie est similaire à la création d’une source d’entrée Stream Analytics. Tout comme les sources d’entrée, les cibles de sortie sont liées à une tâche spécifique. Pour utiliser la même cible de sortie pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.

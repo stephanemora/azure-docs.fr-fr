@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387850"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200816"
 ---
 # <a name="understanding-resource-sets"></a>Présentation des jeux de ressources
 
@@ -21,7 +21,7 @@ Cet article vous aide à comprendre comment Azure Purview utilise des jeux de re
 
 Les systèmes de traitement de données à l’échelle stockent généralement une table unique sur un disque en tant que fichiers multiples. Ce concept est représenté dans Azure Purview à l’aide de jeux de ressources. Un jeu de ressources est un objet unique dans le catalogue qui représente un grand nombre de ressources dans le stockage.
 
-Supposons, par exemple, que votre cluster Spark a rendu persistant un DataFrame dans une source de données Azure Data Lake Storage (ADLS) Gen2. Bien que dans Spark, le tableau ressemble à une ressource logique unique, sur le disque, il y a probablement des milliers de fichiers Parquet, chacun représentant une partition du contenu total de DataFrame. Les données IoT et les données de journal web sont confrontées au même défi. Imaginez que vous avez un capteur qui génère des fichiers journaux plusieurs fois par seconde. Cela ne prendra pas trop de temps tant que vous n’aurez pas de centaines de milliers de fichiers journaux à partir de ce capteur unique.
+Supposons par exemple que votre cluster Spark a rendu persistant un DataFrame dans une source de données Azure Data Lake Storage (ADLS) Gen2. Bien que dans Spark, le tableau ressemble à une ressource logique unique, sur le disque, il y a probablement des milliers de fichiers Parquet, chacun représentant une partition du contenu total de DataFrame. Les données IoT et les données de journal web sont confrontées au même défi. Imaginez que vous avez un capteur qui génère des fichiers journaux plusieurs fois par seconde. Cela ne prendra pas trop de temps tant que vous n’aurez pas de centaines de milliers de fichiers journaux à partir de ce capteur unique.
 
 Pour résoudre le problème de mappage d’un grand nombre de ressources de données à une seule ressource logique, Azure Purview utilise des jeux de ressources.
 

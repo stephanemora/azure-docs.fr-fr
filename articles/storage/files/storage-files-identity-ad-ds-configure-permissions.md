@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 02b8d72ab88f9eca2e1fac4858c14826dae57dbe
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629170"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470765"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Troisième partie : configurer les autorisations au niveau des répertoires et des fichiers sur SMB 
 
@@ -93,9 +93,19 @@ Une fois votre partage de fichiers monté avec la clé de compte de stockage, vo
 
 Si vous avez des répertoires ou des fichiers dans des serveurs de fichiers locaux avec des listes de contrôle d’accès discrétionnaire Windows configurées sur les identités AD DS, vous pouvez les copier sur Azure Files en conservant les ACL avec des outils de copie de fichiers traditionnels comme Robocopy ou [Azure AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases). Si vos répertoires et fichiers sont hiérarchisés pour Azure Files par le biais d’Azure File Sync, vos ACL sont reportées et conservées dans leur format natif.
 
+### <a name="configure-windows-acls-with-icacls"></a>Configurer des ACL Windows avec icacls
+
+Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple par vos propres valeurs.
+
+```
+icacls <mounted-drive-letter>: /grant <user-email>:(f)
+```
+
+Pour plus d’informations sur l’utilisation de la commande icacls pour définir des ACL Windows et sur les différents types d’autorisation pris en charge, consultez les [informations de référence sur la ligne de commande pour icacls](/windows-server/administration/windows-commands/icacls).
+
 ### <a name="configure-windows-acls-with-windows-file-explorer"></a>Configurer des ACL Windows avec l’Explorateur de fichiers Windows
 
-Utilisez l’Explorateur de fichiers Windows pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine.
+Utilisez l’Explorateur de fichiers Windows pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. Si vous n’êtes pas en mesure de charger correctement les informations de domaine AD dans l’Explorateur de fichiers Windows, cela est probablement dû à la configuration d’approbation de votre environnement AD local. L’ordinateur client n’a pas pu atteindre le contrôleur de domaine AD inscrit pour l’authentification Azure Files. Dans ce cas, utilisez icacls pour la configuration des ACL Windows.
 
 1. Ouvrez l’Explorateur de fichiers Windows, cliquez avec le bouton droit sur le fichier/répertoire, puis sélectionnez **Propriétés**.
 1. Sélectionnez l'onglet **Sécurité** .
@@ -106,15 +116,6 @@ Utilisez l’Explorateur de fichiers Windows pour accorder des autorisations com
 1.    Dans l’onglet **Sécurité**, sélectionnez toutes les autorisations que vous souhaitez accorder au nouvel utilisateur.
 1.    Sélectionnez **Appliquer**.
 
-### <a name="configure-windows-acls-with-icacls"></a>Configurer des ACL Windows avec icacls
-
-Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple par vos propres valeurs.
-
-```
-icacls <mounted-drive-letter>: /grant <user-email>:(f)
-```
-
-Pour plus d’informations sur l’utilisation de la commande icacls pour définir des ACL Windows et sur les différents types d’autorisation pris en charge, consultez les [informations de référence sur la ligne de commande pour icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

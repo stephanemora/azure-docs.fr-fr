@@ -4,10 +4,10 @@ description: Guide du protocole pour les expressions et description d’AMQP 1.0
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624487"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.openlocfilehash: 15b08ea67afe0d307470b5a4fb0f7d26e0f4ea82
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241920"
 ---
 # <a name="stopstart-an-azure-database-for-mysql---flexible-server-preview"></a>Arrêter/Démarrer un serveur flexible Azure Database pour MySQL (préversion)
@@ -30,7 +30,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à arrêter.
 
-2.  Dans la page **Vue d’ensemble** , cliquez sur le bouton **Arrêter** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Arrêter** dans la barre d’outils.
     
     :::image type="content" source="media/how-to-stop-start-server-portal/stop-server.png" alt-text="Arrêtez le serveur flexible."::: 
 
@@ -45,7 +45,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 1.  Dans le [portail Azure](https://portal.azure.com/), choisissez le serveur flexible à démarrer.
 
-2.  Dans la page **Vue d’ensemble** , cliquez sur le bouton **Démarrer** dans la barre d’outils.
+2.  Dans la page **Vue d’ensemble**, cliquez sur le bouton **Démarrer** dans la barre d’outils.
 
     :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Démarrez le serveur flexible.":::  
 

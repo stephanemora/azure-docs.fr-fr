@@ -8,16 +8,23 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 13f78691a3652cc82e261f807c690c04cebec3b4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9356da9516ea17243be8e0e5519ec4b19e06db8a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175514"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200875"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Création et provisionnement d’un appareil IoT Edge avec un module TPM sur Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Cet article explique comment tester le provisionnement automatique sur un appareil Linux IoT Edge à l’aide d’un Module de plateforme sécurisée (TPM). Les appareils Azure IoT Edge peuvent être approvisionnés automatiquement à l’aide du [service de provisionnement des appareils](../iot-dps/index.yml). Si vous ne connaissez pas le processus de provisionnement automatique, révisez la présentation du [provisionnement](../iot-dps/about-iot-dps.md#provisioning-process) avant de poursuivre.
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Actuellement, le provisionnement automatique à l’aide de l’authentification TPM n’est pas pris en charge dans la version 1.2 d’IoT Edge.
+:::moniker-end
 
 Voici les tâches à effectuer :
 
@@ -182,7 +189,7 @@ Suivez la procédure décrite dans [Installer le runtime Azure IoT Edge](how-to-
 
 ## <a name="configure-the-device-with-provisioning-information"></a>Configuration de l’appareil avec des informations de provisionnement
 
-Une fois le runtime installé sur votre appareil, configurez ce dernier avec les informations qu’il utilise pour se connecter au Service Device Provisioning et à IoT Hub.
+Une fois que le runtime est installé sur votre appareil, configurez l’appareil avec les informations qu’il utilise pour se connecter au service Device Provisioning (DPS) et à IoT Hub.
 
 1. Récupérez la valeur **Étendue de l’ID** du Service Device Provisioning et la valeur **ID d’inscription** de l’appareil qui ont été rassemblées dans les sections précédentes.
 

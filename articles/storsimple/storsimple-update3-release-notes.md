@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e081acc357c1b8872dd3a25c552d4cbe9785e212
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007067"
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Notes de publication Update 3 pour votre appareil StorSimple série 8000
@@ -47,7 +47,7 @@ Les tableaux suivants récapitulent les problèmes qui ont été résolus dans U
 | 2 |Volumes épinglés localement |Dans la version précédente, il existait des problèmes liés aux échecs d’E/S, de conversion de volumes et de chemins de données pour les volumes épinglés localement. La cause racine de ces problèmes a été identifiée et ils ont été résolus dans cette version. |Oui |Non |
 | 3 |Surveillance |Il y avait plusieurs problèmes liés aux unités de compte rendu et à la surveillance, ainsi que des graphiques du tableau de bord de l’appareil qui affichaient des informations incorrectes pour les volumes localement épinglés. Ces problèmes ont été résolus dans cette version. |Oui |Non |
 | 4 |E/S à haut volume d’écritures |En utilisant StorSimple pour des charges de travail impliquant des volumes élevés d’écritures, l’utilisateur rencontrait un bogue peu fréquent qui entraînait la hiérarchisation de la plage de travail dans le cloud. Ce bogue est résolu dans cette version. |Oui |Oui |
-| 5 |Backup |Dans certains cas rares, dans les versions précédentes du logiciel, lorsque l’utilisateur effectuait une sauvegarde d’un clone à distance, il rencontrait des erreurs de cloud et l’opération provoquait une erreur. Dans cette version, le problème est résolu et l’opération réussit. |Oui |Oui |
+| 5 |Sauvegarde |Dans certains cas rares, dans les versions précédentes du logiciel, lorsque l’utilisateur effectuait une sauvegarde d’un clone à distance, il rencontrait des erreurs de cloud et l’opération provoquait une erreur. Dans cette version, le problème est résolu et l’opération réussit. |Oui |Oui |
 | 6 |Stratégie de sauvegarde |Dans certains cas rares, dans les versions antérieures du logiciel, il y avait un bogue lié à la suppression d’une stratégie de sauvegarde. Ce problème a été résolu dans cette version. |Oui |Oui |
 
 ## <a name="known-issues-in-update-3"></a>Problèmes connus dans Update 3

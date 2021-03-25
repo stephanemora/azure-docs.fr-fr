@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.openlocfilehash: b8881d3fa7ade08da103c5af4b828a12e74cc355
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99509450"
 ---
 # <a name="how-to-index-plain-text-blobs-in-azure-cognitive-search"></a>Comment indexer des objets en texte brut dans le service Recherche cognitive Azure

@@ -11,17 +11,17 @@ ms.date: 03/04/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: c188a4b7fe8e9223faa1cdeb52ae01ed83b94d84
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99549777"
 ---
 # <a name="use-event-grid-for-app-configuration-data-change-notifications"></a>Utiliser Event Grid pour les notifications de changement de données d’App Configuration
 
 Dans cet article, vous allez voir comment configurer des abonnements à des événements Azure App Configuration afin d’envoyer des événements de modification de paires clé-valeur à un point de terminaison web. Les utilisateurs Azure App Configuration peuvent s’abonner à des événements émis dès que des paires clé-valeur sont modifiées. Ces événements peuvent déclencher des webhooks, des fonctions Azure, des files d’attente de stockage Azure ou tout autre gestionnaire d’événements pris en charge par Azure Event Grid. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/). Vous pouvez également utiliser Azure Cloud Shell.
 

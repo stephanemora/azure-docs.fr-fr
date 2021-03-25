@@ -11,10 +11,10 @@ ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, devx-track-azurecli
 ms.openlocfilehash: ee356f32b6799c6182ec1c9e061a35271a4bbc23
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556973"
 ---
 # <a name="assign-azure-roles-using-azure-cli"></a>Attribuer des rôles Azure à l’aide d’Azure CLI
@@ -23,14 +23,14 @@ ms.locfileid: "100556973"
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour affecter des rôles, vous devez disposer des éléments suivants :
+Pour attribuer des rôles, vous devez disposer des éléments suivants :
 
 - autorisations `Microsoft.Authorization/roleAssignments/write`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire](built-in-roles.md#owner)
 - [Bash Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure)
 
 ## <a name="steps-to-assign-an-azure-role"></a>Procédure d’attribution d’un rôle Azure
 
-L’attribution d’un rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
+L’attribution d’un rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue.
 
 ### <a name="step-1-determine-who-needs-access"></a>Étape 1 : Déterminer qui a besoin d’un accès
 

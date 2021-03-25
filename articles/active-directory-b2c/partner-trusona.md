@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 99368da8b4018e93ad537e4722ffefd476e61291
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99573685"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Intégrer Trusona à Azure Active Directory B2C
@@ -24,7 +24,7 @@ Trusona est un éditeur de logiciels indépendant (ISV) qui fournit des solution
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vérifiez que vous avez :
+Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un [locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.

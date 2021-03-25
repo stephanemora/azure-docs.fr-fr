@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202635"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470896"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -308,6 +308,18 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 **Existe-t-il des API REST pour prendre en charge les ACL Windows de répertoire/fichier Get/Set/Copy ?**
 
     Oui, nous prenons en charge les API REST qui obtiennent, définissent ou copient des ACL NTFS pour des répertoires ou des fichiers lors de l’utilisation de l’API REST [2019-07-07](/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (ou version ultérieure). Nous prenons également en charge les ACL Windows persistantes avec les outils REST : [AzCopy v10.4+](https://github.com/Azure/azure-storage-azcopy/releases).
+
+* <a id="ad-support-rest-apis"></a>
+**Comment supprimer les informations d’identification mises en cache avec une clé de compte de stockage et supprimer les connexions SMB existantes avant d’initialiser une nouvelle connexion avec des informations d’identification Azure AD ou AD ?**
+
+    Vous pouvez suivre le processus en deux étapes ci-dessous pour supprimer les informations d’identification enregistrées associées à la clé de compte de stockage et supprimer la connexion SMB : 
+    1. Exécutez la cmdlet ci-dessous dans Windows Cmd.exe pour supprimer les informations d’identification. Si vous n’en trouvez pas, cela signifie que vous n’avez pas conservé les informations d’identification et que vous pouvez ignorer cette étape.
+    
+       cmdkey /delete:Domain:target=storage-account-name.file.core.windows.net
+    
+    2. Supprimez la connexion existante au partage de fichiers. Vous pouvez spécifier le chemin de montage en tant que lettre de lecteur ou le chemin storage-account-name.file.core.windows.net.
+    
+       net use <drive-letter/share-path> /delete
 
 ## <a name="network-file-system"></a>Système de gestion de fichiers en réseau
 

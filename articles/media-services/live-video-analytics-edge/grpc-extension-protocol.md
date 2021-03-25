@@ -4,10 +4,10 @@ description: Dans cet article, vous allez apprendre à utiliser le protocole d�
 ms.topic: overview
 ms.date: 09/14/2020
 ms.openlocfilehash: f7b5be859702199b07dfa0d6a43a09ca8ff0c42f
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455854"
 ---
 # <a name="grpc-extension-protocol"></a>Protocole d’extension gRPC

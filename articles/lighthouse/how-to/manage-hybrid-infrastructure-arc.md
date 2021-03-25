@@ -1,14 +1,14 @@
 ---
 title: Gérer une infrastructure hybride à grande échelle avec Azure Arc
 description: Apprenez à gérer efficacement les machines et les clusters Kubernetes de vos clients en dehors d’Azure.
-ms.date: 09/22/2020
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336613"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419318"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gérer une infrastructure hybride à grande échelle avec Azure Arc
 
@@ -18,9 +18,9 @@ En tant que fournisseur de services, vous avez peut-être intégré les locatair
 
 Grâce aux [serveurs avec Azure Arc](../../azure-arc/servers/overview.md), les clients peuvent gérer toutes les machines Windows et Linux hébergées en dehors d'Azure sur leur réseau d'entreprise de la même façon qu'ils gèrent des machines virtuelles Azure natives. Dès lors qu’une machine hybride est liée à Azure, elle est connectée et traitée comme ressource dans Azure. Les fournisseurs de services peuvent ensuite gérer ces machines non Azure, ainsi que les ressources Azure de leurs clients.
 
-[Kubernetes avec Azure Arc (préversion)](../../azure-arc/kubernetes/overview.md) permet aux clients de joindre et de configurer des clusters Kubernetes à l’intérieur ou à l’extérieur d’Azure. Lorsqu’un cluster Kubernetes est joint à Azure Arc, il s’affiche dans le portail Azure, avec un ID Azure Resource Manager et une identité managée. Les clusters sont attachés à des abonnements Azure standard, sont situés dans un groupe de ressources et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure.
+[Kubernetes compatible avec Azure Arc](../../azure-arc/kubernetes/overview.md) permet aux clients de joindre et de configurer des clusters Kubernetes à l’intérieur ou à l’extérieur d’Azure. Lorsqu’un cluster Kubernetes est joint à Azure Arc, il s’affiche dans le portail Azure, avec un ID Azure Resource Manager et une identité managée. Les clusters sont attachés à des abonnements Azure standard, sont situés dans un groupe de ressources et peuvent recevoir des étiquettes comme n’importe quelle autre ressource Azure.
 
-Cette rubrique fournit une vue d'ensemble de la façon dont les fournisseurs de services peuvent utiliser les serveurs avec Azure Arc et Kubernetes avec Azure Arc (préversion) de manière évolutive pour gérer l'environnement hybride de leurs clients, avec une visibilité sur tous les locataires clients managés.
+Cette rubrique fournit une vue d’ensemble de la façon dont les fournisseurs de services peuvent utiliser les serveurs Azure Arc et Kubernetes compatible avec Azure Arc de manière scalable pour gérer l’environnement hybride de leurs clients, avec une visibilité sur tous les locataires clients managés.
 
 > [!TIP]
 > Bien que nous faisons référence aux fournisseurs de services et aux clients dans cette rubrique, ces instructions s’appliquent également aux [entreprises utilisant Azure Lighthouse pour gérer plusieurs locataires](../concepts/enterprise.md).
@@ -33,10 +33,7 @@ Lorsque vous affichez les ressources d’un abonnement délégué dans le portai
 
 Par exemple, vous pouvez [vous assurer que le même ensemble de stratégies est appliqué sur les machines hybrides des clients](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md). Vous pouvez également utiliser Azure Security Center pour surveiller la conformité dans tous les environnements hybrides de vos clients ou [utiliser Azure Monitor pour collecter des données directement depuis vos machines hybrides](../../azure-arc/servers/learn/tutorial-enable-vm-insights.md) et les copier dans un espace de travail Log Analytics. Les [extensions de machine virtuelle](../../azure-arc/servers/manage-vm-extensions.md) peuvent être déployées sur des machines virtuelles Windows et Linux non Azure, ce qui simplifie la gestion des machines hybrides du client.
 
-## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes-preview"></a>Gérer des clusters Kubernetes hybrides à grande échelle à l’aide de Kubernetes avec Azure Arc (préversion)
-
-> [!NOTE]
-> Kubernetes avec Azure Arc est actuellement disponible en préversion. Nous ne recommandons pas cette fonctionnalité pour les charges de travail de production.
+## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Gérer des clusters Kubernetes hybrides à grande échelle à l’aide de Kubernetes compatible avec Azure Arc
 
 Vous pouvez gérer les clusters Kubernetes qui ont été [connectés à l’abonnement d’un client avec Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), comme s’ils étaient exécutés sur Azure.
 
@@ -48,9 +45,8 @@ Vous pouvez également surveiller les clusters connectés avec Azure Monitor et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Explorez les démarrages rapides et les exemples dans le [référentiel GitHub d’Azure Arc](https://github.com/microsoft/azure_arc). 
+- Explorez les démarrages rapides et les exemples dans le [référentiel GitHub d’Azure Arc](https://github.com/microsoft/azure_arc).
 - En savoir plus sur les [scénarios pris en charge pour les serveurs avec Azure Arc](../../azure-arc/servers/overview.md#supported-scenarios).
 - En savoir plus sur les [distributions Kubernetes prises en charge par Azure Arc](../../azure-arc/kubernetes/overview.md#supported-kubernetes-distributions).
 - Découvrez comment [déployer une stratégie à grande échelle](policy-at-scale.md).
 - Découvrez comment [utiliser des journaux Azure Monitor à grande échelle](monitor-at-scale.md).
-

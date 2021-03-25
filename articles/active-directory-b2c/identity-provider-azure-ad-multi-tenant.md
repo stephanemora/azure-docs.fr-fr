@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f6e932cb6a6086e4cea6f474f296ca086e48c75e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 5089a289e617aa8c2ec153320763647fc8afac9e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448453"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489034"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -56,6 +56,8 @@ Pour autoriser la connexion des utilisateurs avec un compte Azure AD dans Azure 
     ```
 
     Par exemple : `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+
+    Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-domain-name` par le nom de votre domaine personnalisé et `your-tenant-name` par le nom de votre locataire.
 
 1. Sélectionnez **Inscription**. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
 1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.

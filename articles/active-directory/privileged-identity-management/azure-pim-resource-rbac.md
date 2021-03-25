@@ -15,10 +15,10 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45144f64789a19390984c3f9f6a660e3c3300215
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002491"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management
@@ -64,7 +64,7 @@ Vous pouvez avoir une exigence de conformité selon laquelle vous devez fournir 
 
 1. Sélectionnez **Exporter** pour ouvrir le volet Exporter l’appartenance.
 
-    [![Export membership pane to export all members](media/azure-pim-resource-rbac/export-membership.png "Page Exporter l’appartenance pour exporter tous les membres")](media/azure-pim-resource-rbac/export-membership.png)
+    [![Volet Exporter l’appartenance pour exporter tous les membres](media/azure-pim-resource-rbac/export-membership.png "Page Exporter l’appartenance pour exporter tous les membres")](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Sélectionnez **Exporter tous les membres** pour exporter toutes les attributions de rôle dans un fichier CSV.
 
@@ -84,9 +84,9 @@ L’audit des ressources vous donne une vue d’ensemble de l’activité des r�
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
-    [![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png "Liste des audits de ressources avec filtres")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    [![Liste des audits de ressources avec filtres](media/azure-pim-resource-rbac/rbac-resource-audit.png "Liste des audits de ressources avec filtres")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. Pour **Type d’audit**, sélectionnez **Activer (Attribué + Activé)** .
+1. Pour **Type d’audit**, sélectionnez **Activer (Attribué + Activé)**.
 
     [![Resource audit list filtered by Activate audit type](media/azure-pim-resource-rbac/rbac-audit-activity.png "Liste des audits de ressources filtrée par Activé")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![Resource audit list that is filtered by Activate audit type](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
@@ -108,7 +108,7 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
-    [![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png "Liste d’audits pour l’utilisateur actuel")](media/azure-pim-resource-rbac/my-audit-time.png)
+    [![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png "Liste d’audits pour l’utilisateur actuel")](media/azure-pim-resource-rbac/my-audit-time.png)
 
 > [!NOTE]
 > Pour accéder à l’historique d’audit, vous devez avoir un rôle Administrateur général ou Administrateur de rôle privilégié.
@@ -122,7 +122,7 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
     - Consulter la raison d’un événement d’audit dans la colonne **Motif du statut**.
     - Consulter l’approbateur dans la colonne **Initié par (acteur)** pour l’événement « Demande d’ajout de membre au rôle approuvée ».
 
-    [![Filter the audit log for the PIM service](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrer le journal d’audit pour le service PIM")](media/azure-pim-resource-rbac/filter-audit-logs.png)
+    [![Filtrer le journal d’audit pour le service PIM](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrer le journal d’audit pour le service PIM")](media/azure-pim-resource-rbac/filter-audit-logs.png)
 
 1. Sélectionnez un événement de journal d’audit pour afficher le numéro de ticket sous l’onglet **Activité** du volet **Détails**.
   
@@ -142,4 +142,4 @@ En règle générale, l’événement de journal situé juste au-dessus de l’�
 
 - [Attribuer des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-assign-roles.md)
 - [Approuver ou rejeter des demandes de rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-approval-workflow.md)
-- [Afficher l’activité et l’historique d’audit des rôles Azure AD dans Privileged Identity Management](pim-how-to-use-audit-log.md)
+- [Afficher l’historique d’audit des rôles Azure AD dans Privileged Identity Management](pim-how-to-use-audit-log.md)

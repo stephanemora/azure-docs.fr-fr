@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 56170ffbbfe14248bcfd1f94549a3565873f8646
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005892"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-bandwidth-templates"></a>Utiliser le service StorSimple Device Manager pour gérer les modèles de bande passante StorSimple
@@ -40,9 +40,9 @@ Avec les planifications de limitation de bande passante, vous pouvez :
 
 Le panneau **Modèles de bande passante** affiche tous les modèles de bande passante pour votre service dans un format tabulaire et contient les informations suivantes :
 
-* **Nom** : nom unique affecté au modèle de bande passante lors de sa création.
-* **Planification** : nombre de planifications contenues dans un modèle donné de bande passante.
-* **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
+* **Nom** : nom unique attribué au modèle de bande passante lors de sa création.
+* **Planification** : nombre de planifications contenues dans un modèle de bande passante donné.
+* **Utilisé par** : nombre de volumes utilisant les modèles de bande passante.
 
 Vous trouverez également des informations supplémentaires pour aider à configurer les modèles de bande passante dans :
 
@@ -73,7 +73,7 @@ Pour créer un modèle de bande passante, procédez comme suit.
            > [!NOTE]
            > Les planifications qui se chevauchent ne sont pas autorisées. Si les heures de début et de fin entraînent une planification qui se chevauche, un message d'erreur apparaîtra.
 
-        4. Spécifiez le **Débit de bande passante**. Il s’agit de la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil StorSimple dans les opérations impliquant le cloud (à la fois pour les chargements et les téléchargements). Fournissez un nombre compris entre 1 et 1 000 pour ce champ.
+        4. Spécifiez le **Taux de bande passante**. Il s’agit de la bande passante en mégabits par seconde (Mbits/s) utilisée par votre appareil StorSimple dans les opérations impliquant le cloud (à la fois pour les chargements et les téléchargements). Fournissez un nombre compris entre 1 et 1 000 pour ce champ.
 
             ![Définir une planification de bande passante](./media/storsimple-8000-manage-bandwidth-templates/addbwtemp2.png)
          
@@ -136,23 +136,23 @@ La planification composite démarre ensuite à une heure de votre choix et s’e
 
 **Q**. Qu’advient-il des contrôles de bande passante lorsque vous êtes entre deux planifications ? (Une planification est terminée et une autre n’a pas encore démarré).
 
-**R**. Dans ce cas, aucun contrôle de bande passante n’est utilisé. Cela signifie que le périphérique peut utiliser une bande passante illimitée lors de la hiérarchisation des données vers le cloud.
+**A**. Dans ce cas, aucun contrôle de bande passante n’est utilisé. Cela signifie que le périphérique peut utiliser une bande passante illimitée lors de la hiérarchisation des données vers le cloud.
 
 **Q**. Peut modifier les modèles de bande passante sur un périphérique hors connexion ?
 
-**R**. Vous ne pouvez pas modifier les modèles de bande passante sur les conteneurs de volumes si l’appareil correspondant est hors connexion.
+**A**. Vous ne pouvez pas modifier les modèles de bande passante sur les conteneurs de volumes si l’appareil correspondant est hors connexion.
 
 **Q**. Peut modifier un modèle de bande passante associé à un conteneur de volumes lorsque les volumes associés sont hors connexion ?
 
-**R**. Vous pouvez modifier un modèle de bande passante associé à un conteneur de volumes dont les volumes associés sont hors connexion ? Notez que lorsque les volumes sont hors connexion, aucune donnée n’est hiérarchisée de l’appareil vers le cloud.
+**A**. Vous pouvez modifier un modèle de bande passante associé à un conteneur de volumes dont les volumes associés sont hors connexion ? Notez que lorsque les volumes sont hors connexion, aucune donnée n’est hiérarchisée de l’appareil vers le cloud.
 
 **Q**. Peut-on supprimer un modèle par défaut ?
 
-**R**. Même si vous pouvez le faire, il est déconseillé de supprimer un modèle par défaut. L’utilisation d’un modèle par défaut, y compris les versions modifiées, est suivie. Les données de suivi sont analysées et, au fil du temps, sont utilisées pour améliorer le modèle par défaut.
+**A**. Même si vous pouvez le faire, il est déconseillé de supprimer un modèle par défaut. L’utilisation d’un modèle par défaut, y compris les versions modifiées, est suivie. Les données de suivi sont analysées et, au fil du temps, sont utilisées pour améliorer le modèle par défaut.
 
 **Q**. Comment déterminer que vos modèles de bande passante doivent être modifiés ?
 
-**R**. Lorsque vous commencez à constater que le réseau ralentit ou se retrouve bloqué plusieurs fois par jour, il est temps que vous modifiiez les modèles de bande passante. Si tel est le cas, surveillez le stockage et l’utilisation du réseau en examinant les graphiques des performances d’E/S et de débit du réseau.
+**A**. Lorsque vous commencez à constater que le réseau ralentit ou se retrouve bloqué plusieurs fois par jour, il est temps que vous modifiiez les modèles de bande passante. Si tel est le cas, surveillez le stockage et l’utilisation du réseau en examinant les graphiques des performances d’E/S et de débit du réseau.
 
 À partir des données de débit du réseau, identifiez l’heure et les conteneurs de volumes où le goulot d’étranglement du réseau s’est produit. Si cela se produit lorsque les données sont en cours de hiérarchisation vers le cloud (obtenez ces informations à partir des performances d’E/S de tous les conteneurs de volume pour l’appareil vers le cloud), vous devez modifier les modèles de la bande passante associés à vos conteneurs de volumes.
 
@@ -160,7 +160,7 @@ Une fois que les modèles modifiés sont en cours d’utilisation, vous devez su
 
 **Q**. Que se passe-t-il si plusieurs conteneurs de volumes sur mon appareil ont des planifications qui se chevauchent, mais que différentes limites s’appliquent à chacune ?
 
-**R**. Supposons que vous disposiez d’un appareil avec 3 conteneurs de volumes. Les planifications associées à ces conteneurs se chevauchent totalement. Pour chacun de ces conteneurs, les limites de bande passante utilisées sont respectivement 5, 10 et 15 Mbits/s. Lorsque les E/S se produisent sur l’ensemble de ces conteneurs en même temps, la valeur minimale des 3 limites de bande passante peut s’appliquer : dans ce cas, 5 Mbits/s, car ces demandes sortantes d’E/S partagent la même file d’attente.
+**A**. Supposons que vous disposiez d’un appareil avec 3 conteneurs de volumes. Les planifications associées à ces conteneurs se chevauchent totalement. Pour chacun de ces conteneurs, les limites de bande passante utilisées sont respectivement 5, 10 et 15 Mbits/s. Lorsque les E/S se produisent sur l’ensemble de ces conteneurs en même temps, la valeur minimale des 3 limites de bande passante peut s’appliquer : dans ce cas, 5 Mbits/s, car ces demandes sortantes d’E/S partagent la même file d’attente.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Meilleures pratiques pour les modèles de bande passante
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: b5dd06c148c53517214b47b39f083c99d0f37e0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712196"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465495"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -75,24 +75,24 @@ Découvrez-en plus sur [Azure Arc enabled servers](../azure-arc/servers/overview
 
     À partir de là, choisissez la procédure appropriée ci-dessous en fonction du type de machine que vous intégrez :
 
-    - [Intégrer vos machines virtuelles Azure Stack](#onboard-your-azure-stack-vms)
+    - [Intégrer vos machines virtuelles Azure Stack Hub](#onboard-your-azure-stack-hub-vms)
     - [Intégrer vos machines Linux](#onboard-your-linux-machines)
     - [Intégrer vos machines Windows](#onboard-your-windows-machines)
 
-### <a name="onboard-your-azure-stack-vms"></a>Intégrer vos machines virtuelles Azure Stack
+### <a name="onboard-your-azure-stack-hub-vms"></a>Intégrer vos machines virtuelles Azure Stack Hub
 
-Vous avez besoin des informations de la page **Gestion des agents** pour ajouter des machines virtuelles Azure Stack et pour configurer l’extension de machine virtuelle **Azure Monitor, Update and Configuration Management** sur les machines virtuelles s’exécutant sur votre Azure Stack.
+Vous avez besoin des informations de la page **Gestion des agents** pour ajouter des machines virtuelles Azure Stack Hub et pour configurer l’extension de machine virtuelle **Azure Monitor, Update and Configuration Management** sur les machines virtuelles s’exécutant sur votre instance Azure Stack Hub.
 
 1. Dans la page **Gestion des agents**, copiez **ID de l’espace de travail** et **Clé primaire** dans le Bloc-notes.
-1. Connectez-vous à votre portail **Azure Stack** et ouvrez la page **Machines virtuelles**.
+1. Connectez-vous à votre portail **Azure Stack Hub** et ouvrez la page **Machines virtuelles**.
 1. Sélectionnez la machine virtuelle que vous souhaitez protéger avec Security Center.
     >[!TIP]
-    > Pour plus d’informations sur la façon de créer une machine virtuelle sur Azure Stack, consultez [ce guide de démarrage rapide pour les machines virtuelles Windows](/azure-stack/user/azure-stack-quick-windows-portal) ou [ce guide de démarrage rapide pour les machines virtuelles Linux](/azure-stack/user/azure-stack-quick-linux-portal).
+    > Pour plus d’informations sur la façon de créer une machine virtuelle sur Azure Stack Hub, consultez [ce guide de démarrage rapide pour les machines virtuelles Windows](/azure-stack/user/azure-stack-quick-windows-portal) ou [ce guide de démarrage rapide pour les machines virtuelles Linux](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Sélectionnez **Extensions**. La liste des extensions de machine virtuelle installées sur cette machine virtuelle s’affiche.
 1. Sélectionnez l’onglet **Ajouter**. Le menu **Nouvelle ressource** affiche la liste des extensions de machine virtuelle disponibles.
 1. Sélectionnez l’extension **Azure Monitor, Update and Configuration Management**, puis sélectionnez **Créer**. La page de configuration **Installer l’extension** s’ouvre.
     >[!NOTE]
-    > Si l’extension **Azure Monitor, Update and Configuration Management** n’est pas listée dans votre place de marché, contactez votre opérateur Azure Stack pour qu’elle soit disponible.
+    > Si vous ne voyez pas l’extension **Azure Monitor, Update and Configuration Management** dans votre place de marché, contactez votre opérateur Azure Stack Hub pour qu’il la rendre disponible.
 1. Dans la page de configuration **Installer l’extension**, collez l’**ID de l’espace de travail** et la **Clé de l’espace de travail (clé primaire)** que vous avez copiés dans le Bloc-notes au cours de l’étape précédente.
 1. Sélectionnez **OK** pour achever la configuration. L’état de l’extension indique **Approvisionnement réussi**. Il peut s’écouler une heure avant que la machine virtuelle n’apparaisse dans Security Center.
 

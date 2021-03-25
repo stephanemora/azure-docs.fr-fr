@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: d806d8a04dc1bd8547808d20c77bfec310f7dd06
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992992"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour afficher les tâches du StorSimple Virtual Array
@@ -51,7 +51,7 @@ Pour afficher les détails d’une tâche, procédez comme suit.
 2. Sélectionnez une tâche dans la liste des tâches sous forme de tableau.
    
     ![Panneau Tâches](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. En bas de la page, cliquez sur **Détails**.
+3. Au bas de la page, cliquez sur **Détails**.
 4. La boîte de dialogue **Détails** indique l’état, les détails et les statistiques horaires. La figure suivante illustre la boîte de dialogue **Détails du travail Sauvegarde** .
    
     ![Détails du travail](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677561"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103199909"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure (préversion)
 
@@ -22,12 +22,8 @@ Chaque demande sécurisée adressée à un compte Stockage Azure doit être auto
 
 Lorsque vous désactivez l’autorisation avec clé partagée pour un compte de stockage, le service Stockage Azure rejette toutes les demandes ultérieures adressées à ce compte, qui sont autorisées avec les clés d’accès au compte. Seules les demandes sécurisées autorisées avec Azure AD aboutissent. Pour plus d’informations sur l’utilisation d’Azure AD, consultez [Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> Le service Stockage Azure prend en charge l’autorisation Azure AD uniquement pour les demandes adressées au stockage de blob et de file d’attente. Si vous désactivez l’autorisation avec clé partagée pour un compte de stockage, les demandes adressées aux services Azure Files ou Stockage Table qui utilisent une autorisation avec clé partagée échouent. Étant donné que le portail Azure utilise toujours l’autorisation par clé partagée pour accéder aux données de fichier et de table, si vous interdisez l’autorisation avec une clé partagée pour le compte de stockage, vous ne pourrez pas accéder aux données de fichier ni de table dans le portail Azure.
->
-> Microsoft recommande soit de migrer les données des services Azure Files ou Stockage Table vers un compte de stockage séparé avant de désactiver l’accès au compte avec une clé partagée, soit de ne pas appliquer ce paramètre aux comptes de stockage qui prennent en charge les charges de travail des services Azure Files ou Stockage Table.
->
-> La désactivation de l’accès avec clé partagée pour un compte de stockage n’affecte pas les connexions SMB à Azure Files.
+> [!IMPORTANT]
+> La désactivation de l’autorisation avec clé partagée est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
 
 Cet article explique comment détecter les demandes envoyées avec une autorisation avec clé partagée, et comment corriger l’autorisation avec clé partagée pour votre compte de stockage. Pour savoir comment vous inscrire à la préversion, consultez [À propos de la préversion](#about-the-preview).
 
@@ -41,7 +37,7 @@ Pour plus d’informations sur l’interprétation des demandes effectuées avec
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Surveiller le nombre de demandes autorisées avec clé partagée
 
-Pour suivre la manière dont les demandes adressées à un compte de stockage sont autorisées, utilisez Azure Metrics Explorer dans le portail Azure. Pour plus d’informations sur Metrics Explorer, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Pour suivre la manière dont les demandes adressées à un compte de stockage sont autorisées, utilisez Azure Metrics Explorer dans le portail Azure. Pour plus d’informations sur Metrics Explorer, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Pour créer une métrique qui suit des demandes effectuées avec clé partagée ou signature d’accès partagé, procédez comme suit :
 
@@ -67,7 +63,7 @@ Une fois que vous avez configuré la métrique, les demandes adressées à votre
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Capture d’écran montrant les demandes agrégées autorisées avec une clé partagée":::
 
-Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes autorisées avec une clé partagée sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Vous pouvez également configurer une règle d’alerte pour vous avertir quand un certain nombre de demandes autorisées avec une clé partagée sont effectuées sur votre compte de stockage. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-clients-that-are-authorizing-requests-with-shared-key-or-sas"></a>Analyser les journaux pour identifier les clients qui autorisent les demandes avec clé partagée ou signature d’accès partagé
 
@@ -75,14 +71,14 @@ Les journaux du stockage Azure capturent des détails sur les demandes effectué
 
 Pour journaliser les demandes adressées à votre compte Stockage Azure afin d’évaluer la manière dont elles sont autorisées, vous pouvez utiliser la journalisation du Stockage Azure dans Azure Monitor (préversion). Pour plus d’informations, consultez [Superviser le stockage Azure](../blobs/monitor-blob-storage.md).
 
-La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+La journalisation du stockage Azure dans Azure Monitor prend en charge l’utilisation de requêtes de journal pour analyser les données des journaux. Pour interroger les journaux, vous pouvez utiliser un espace de travail Azure Log Analytics. Pour en savoir plus sur les requêtes de journal, consultez [Tutoriel : Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Créer un paramètre de diagnostic dans le portail Azure
 
 Pour journaliser des données de stockage Azure avec Azure Monitor et les analyser avec Azure Log Analytics, vous devez d’abord créer un paramètre de diagnostic qui indique les types de demandes et les services de stockage pour lesquels vous souhaitez journaliser les données. Pour créer un paramètre de diagnostic dans le portail Azure, suivez ces étapes :
 
 1. Inscrivez-vous à la [journalisation de stockage Azure dans Azure Monitor (préversion)](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Créez un espace de travail Log Analytics dans l’abonnement contenant votre compte Stockage Azure, ou utilisez un espace de travail Log Analytics existant. Une fois que vous avez configuré la journalisation pour votre compte de stockage, les journaux sont disponibles dans l’espace de travail Log Analytics. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Créez un espace de travail Log Analytics dans l’abonnement contenant votre compte Stockage Azure, ou utilisez un espace de travail Log Analytics existant. Une fois que vous avez configuré la journalisation pour votre compte de stockage, les journaux sont disponibles dans l’espace de travail Log Analytics. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Dans la section Supervision, Sélectionnez **Paramètres de diagnostic (préversion)** .
 1. Sélectionnez le service de stockage Azure pour lequel vous souhaitez journaliser les demandes. Par exemple, choisissez **Blob** pour journaliser les demandes dans le stockage Blob.
@@ -95,7 +91,7 @@ Pour journaliser des données de stockage Azure avec Azure Monitor et les analys
 
 Vous pouvez créer un paramètre de diagnostic pour chaque type de ressource Stockage Azure dans votre compte de stockage.
 
-Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Une fois le paramètre de diagnostic créé, les demandes adressées au compte de stockage sont journalisées conformément à ce paramètre. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter les journaux et les métriques des ressources dans Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Pour obtenir des informations de référence sur les champs disponibles dans les journaux de stockage Azure dans Azure Monitor, consultez [Journaux de ressource (préversion)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -110,7 +106,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-Vous pouvez également configurer une règle d’alerte basée sur cette requête pour être informé des demandes autorisées avec clé partagée ou signature d’accès partagé. Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+Vous pouvez également configurer une règle d’alerte basée sur cette requête pour être informé des demandes autorisées avec clé partagée ou signature d’accès partagé. Pour plus d’informations, consultez [Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-authorization-via-shared-key"></a>Corriger une autorisation via une clé partagée
 
@@ -133,30 +129,29 @@ Pour désactiver l’autorisation avec clé partagée pour un compte de stockage
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Capture d’écran montrant comment désactiver l’accès avec clé partagée pour un compte":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Pour désactiver l’autorisation avec clé partagée pour un compte de stockage avec PowerShell, installez le [module Az.Storage PowerShell](https://www.powershellgallery.com/packages/Az.Storage) version 3.4.0 ou ultérieure. Ensuite, configurez la propriété **AllowSharedKeyAccess** pour un compte de stockage nouveau ou existant.
+
+L’exemple suivant montre comment interdire l’accès avec une clé partagée pour un compte de stockage existant avec PowerShell. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Pour désactiver l’autorisation avec clé partagée pour un compte de stockage à l’aide d’Azure CLI, installez Azure CLI version 2.9.1 ou ultérieure. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli). Ensuite, configurez la propriété **allowBlobPublicAccess** pour un compte de stockage nouveau ou existant.
+Pour désactiver l’autorisation avec clé partagée pour un compte de stockage à l’aide d’Azure CLI, installez Azure CLI version 2.20.0 ou ultérieure. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli). Ensuite, configurez la propriété **allowBlobPublicAccess** pour un compte de stockage nouveau ou existant.
 
-L’exemple suivant montre comment définir la propriété **allowSharedKeyAccess** avec Azure CLI. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+L’exemple suivant montre comment interdire l’accès avec une clé partagée pour un compte de stockage existant avec Azure CLI. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```azurecli-interactive
-$storage_account_id=$(az resource show \
+az storage account update \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
-
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowSharedKeyAccess=false
-
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowSharedKeyAccess \
-    --output tsv
+    --allow-shared-key-access false
 ```
 
 ---
@@ -171,7 +166,7 @@ Pour vérifier que l’autorisation avec clé partagée n’est plus acceptée, 
 az storage container create \
     --account-name <storage-account> \
     --name sample-container \
-    --account-key <key>
+    --account-key <key> \
     --auth-mode key
 ```
 
@@ -193,20 +188,20 @@ resources
 
 ## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Autorisations pour autoriser ou interdire l’accès avec clé partagée
 
-Afin de définir la propriété **AllowSharedKeyAccess** pour le compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations incluent l’action **Microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAccounts/\** _. Les rôles intégrés à cette action comprennent :
+Afin de définir la propriété **AllowSharedKeyAccess** pour le compte de stockage, un utilisateur doit disposer des autorisations nécessaires pour créer et gérer des comptes de stockage. Les rôles de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui fournissent ces autorisations comprennent l’action **Microsoft.Storage/storageAccounts/write** ou l’action ***Microsoft.Storage/storageAccounts/\*** . Parmi les rôles intégrés comportant cette action figurent :
 
 - Le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager
 - Le rôle [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) d’Azure Resource Manager
 - Le rôle [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Ces rôles ne fournissent pas d’accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action _*Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
+Ces rôles ne donnent pas accès aux données d’un compte de stockage par le biais d’Azure Active Directory (Azure AD). Toutefois, ils incluent l’action **Microsoft.Storage/storageAccounts/listkeys/action**, qui accorde l’accès aux clés d’accès du compte. Avec cette autorisation, un utilisateur peut utiliser les clés d’accès du compte pour accéder à toutes les données d’un compte de stockage.
 
 Les attributions de rôles doivent être définies au niveau du compte de stockage ou à un niveau supérieur pour permettre à un utilisateur d’autoriser ou d’interdire l’accès avec clé partagée au compte de stockage. Pour plus d’informations sur l’étendue des rôles, consultez [Comprendre l’étendue pour Azure RBAC](../../role-based-access-control/scope-overview.md).
 
-Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Utilisez le principe du moindre privilège pour vous assurer que les utilisateurs disposent des autorisations minimales nécessaires pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Bonnes pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
+Veillez à limiter l’attribution de ces rôles aux seules personnes qui ont besoin de créer un compte de stockage ou de mettre à jour ses propriétés. Appliquez le principe des privilèges minimum pour que les utilisateurs disposent des autorisations nécessaires les plus faibles possibles pour accomplir leurs tâches. Pour plus d’informations sur la gestion de l’accès avec Azure RBAC, consultez [Meilleures pratiques pour Azure RBAC](../../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions, de sorte qu’un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> Les rôles d’administrateur d’abonnement classique Administrateur de service et Co-administrateur incluent l’équivalent du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) d’Azure Resource Manager. Le rôle **Propriétaire** comprend toutes les actions. Par conséquent, un utilisateur disposant de l’un de ces rôles d’administration peut également créer et gérer des comptes de stockage. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Comprendre comment la désactivation de la clé partagée affecte les jetons SAP
 
@@ -236,12 +231,17 @@ Certains outils Azure offrent la possibilité d’utiliser une autorisation Azur
 | Azure IoT Hub | Pris en charge. Pour plus d’informations, consultez [Prise en charge d’IoT Hub pour les réseaux virtuels](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell est un interpréteur de commandes intégré dans le portail Azure. Azure Cloud Shell héberge des fichiers à des fins de persistance dans un partage de fichiers Azure dans un compte de stockage. Ces fichiers deviennent inaccessibles si l’autorisation avec clé partagée est désactivée pour ce compte de stockage. Pour plus d’informations, consultez [Connecter votre stockage Microsoft Azure Files](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Pour exécuter des commandes dans Azure Cloud Shell afin de gérer les comptes de stockage pour lesquels l’accès avec clé partagée est désactivé, commencez par vérifier que vous disposez des autorisations nécessaires pour ces comptes via Azure RBAC. Pour plus d’informations, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?](../../role-based-access-control/overview.md). |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>Transition de charges de travail Azure Files et Stockage Table
+
+Le service Stockage Azure prend en charge l’autorisation Azure AD uniquement pour les demandes adressées au stockage de blob et de file d’attente. Si vous désactivez l’autorisation avec clé partagée pour un compte de stockage, les demandes adressées aux services Azure Files ou Stockage Table qui utilisent une autorisation avec clé partagée échouent. Étant donné que le portail Azure utilise toujours l’autorisation par clé partagée pour accéder aux données de fichier et de table, si vous interdisez l’autorisation avec une clé partagée pour le compte de stockage, vous ne pourrez pas accéder aux données de fichier ni de table dans le portail Azure.
+
+Microsoft recommande soit de migrer les données des services Azure Files ou Stockage Table vers un compte de stockage séparé avant de désactiver l’accès au compte avec une clé partagée, soit de ne pas appliquer ce paramètre aux comptes de stockage qui prennent en charge les charges de travail des services Azure Files ou Stockage Table.
+
+La désactivation de l’accès avec clé partagée pour un compte de stockage n’affecte pas les connexions SMB à Azure Files.
+
 ## <a name="about-the-preview"></a>À propos de la préversion
 
 La préversion pour désactiver l’autorisation avec clé partagée est disponible dans le cloud public Azure. Elle est prise en charge pour les comptes de stockage qui utilisent uniquement le modèle de déploiement Azure Resource Manager. Pour plus d’informations sur les comptes de stockage qui utilisent le modèle de déploiement Azure Resource Manager, consultez [Types de compte de stockage](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Cette préversion est destinée uniquement à une utilisation hors production.
 
 La préversion inclut les limitations décrites dans les sections suivantes.
 

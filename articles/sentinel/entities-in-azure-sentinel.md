@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456165"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Classer et analyser les données à l'aide d'entités dans Azure Sentinel
@@ -111,7 +111,7 @@ Les types d’éléments suivants sont inclus dans la chronologie :
 
 ### <a name="entity-insights"></a>Insights sur l’entité
 
-Les insights d’entité sont des requêtes définie par les chercheurs en matière de sécurité de Microsoft pour aider vos analystes à investiguer plus efficacement. Les insights sont présentées dans la page de l’entité. Elles fournissent des informations de sécurité précieuses sur les hôtes et les utilisateurs, sous la forme de graphiques et de données tabulaires. Les informations étant disponibles ici, vous n’avez pas à passer par Log Analytics. Les insights contiennent des données relatives aux connexions, aux ajouts de groupes, aux événements anormaux, etc. Ils incluent également des algorithmes de Machine Learning avancés pour détecter les comportements anormaux.
+Les insights d’entité sont des requêtes définie par les chercheurs en matière de sécurité de Microsoft pour aider vos analystes à investiguer plus efficacement. Les insights sont présentées dans la page de l’entité. Elles fournissent des informations de sécurité précieuses sur les hôtes et les utilisateurs, sous la forme de graphiques et de données tabulaires. Les informations étant disponibles ici, vous n’avez pas à passer par Log Analytics. Les insights contiennent des données relatives aux connexions, aux ajouts de groupes, aux événements anormaux, et ainsi de suite. Ils incluent également des algorithmes de Machine Learning avancés pour détecter les comportements anormaux.
 
 Les insights reposent sur les sources de données suivantes :
 

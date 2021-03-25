@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 1cb902c4b59193c46dbeca47bb355f0695a0f2c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572805"
 ---
 # <a name="tutorial-monitor-published-apis"></a>Tutoriel : Surveiller les API publiées
@@ -32,7 +32,7 @@ Vous pouvez également utiliser l’[analytique](howto-use-analytics.md) intégr
 ## <a name="prerequisites"></a>Prérequis
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]

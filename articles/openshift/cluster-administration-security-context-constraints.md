@@ -8,10 +8,10 @@ ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 977504c1faec9bd8134646a8cbe31f9eea665edd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100636201"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gérer les contraintes de contexte de sécurité dans Azure Red Hat OpenShift

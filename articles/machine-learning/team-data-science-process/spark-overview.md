@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314749"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
@@ -156,13 +156,13 @@ Vous pouvez lancer le notebook Jupyter à partir du portail Azure. Recherchez vo
 
 ![Tableaux de bord des clusters](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Vous pouvez également accéder à * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ pour accéder aux Jupyter Notebooks. Remplacez la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Pour accéder aux blocs-notes, vous avez besoin du mot de passe de votre compte d’administrateur.
+Vous pouvez également naviguer vers ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** pour accéder aux blocs-notes Jupyter. Remplacez la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Pour accéder aux blocs-notes, vous avez besoin du mot de passe de votre compte d’administrateur.
 
 ![Parcourez Jupyter Notebooks](./media/spark-overview/spark-jupyter-notebook.png)
 
 Sélectionnez PySpark pour afficher un répertoire contenant quelques exemples de notebooks préconfigurés qui utilisent l’API PySpark. Les notebooks contenant les exemples de code de cette suite de rubriques Spark sont disponibles sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Vous pouvez télécharger les notebooks directement de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) sur le serveur de notebooks Jupyter de votre cluster Spark. Sur la page d’accueil de votre Jupyter, cliquez sur le bouton _ *Chargement* * dans la partie droite de l’écran. Cette action ouvre un explorateur de fichiers. Vous pouvez coller l’URL GitHub (contenu brut) du notebook et cliquer sur **Ouvrir**.
+Vous pouvez télécharger les notebooks directement de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) sur le serveur de notebooks Jupyter de votre cluster Spark. Dans la page d’accueil de votre Jupyter, cliquez sur le bouton **Télécharger** dans la partie droite de l’écran. Cette action ouvre un explorateur de fichiers. Vous pouvez coller l’URL GitHub (contenu brut) du notebook et cliquer sur **Ouvrir**.
 
 Le nom de fichier réapparaît dans votre liste de fichiers Jupyter avec un bouton **Charger**. Cliquez sur ce bouton **Télécharger** . Le bloc-notes a été importé. Répétez ces étapes pour télécharger les autres blocs-notes de cette procédure.
 

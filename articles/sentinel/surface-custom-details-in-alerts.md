@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 45f0ef5366d97c275c40d4d436020dbaf3501d42
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456145"
 ---
 # <a name="surface-custom-event-details-in-alerts-in-azure-sentinel"></a>Faire apparaître des détails d'événements personnalisés dans les alertes d'Azure Sentinel 
@@ -39,7 +39,7 @@ La procédure détaillée ci-dessous fait partie de l'Assistant Création de rè
 
 1. Dans le menu de navigation d'Azure Sentinel, sélectionnez **Analytique**.
 
-1. Sélectionnez une règle de requête planifiée, puis cliquez sur **Modifier**. Ou créez une règle en cliquant sur **Créer &#10132; Règle de requête planifiée** en haut de l'écran.
+1. Sélectionnez une règle de requête planifiée, puis cliquez sur **Modifier**. Ou créez une règle en cliquant sur **Créer &#10132; Règle de requête planifiée** en haut de l’écran.
 
 1. Cliquez sur l'onglet **Définir la logique de la règle**.
 
@@ -70,5 +70,5 @@ La procédure détaillée ci-dessous fait partie de l'Assistant Création de rè
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à faire apparaître des détails personnalisés dans les alertes à l'aide des règles analytiques d'Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Bénéficiez d'une vue d'ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
-- Apprenez-en davantage sur les [entités d'Azure Sentinel](entities-in-azure-sentinel.md).
+- Obtenez une vue d’ensemble complète des [règles analytiques de requête planifiée](tutorial-detect-threats-custom.md).
+- Apprenez-en davantage sur les [entités dans Azure Sentinel](entities-in-azure-sentinel.md).

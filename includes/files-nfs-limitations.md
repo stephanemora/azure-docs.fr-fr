@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/04/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 372342611265640a2a64100f003880a430d61ca0
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4b708e80bf335ba8bdce074285857a6f8b77b972
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620939"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103439142"
 ---
 En préversion, NFS présente les limitations suivantes :
 
@@ -25,6 +25,7 @@ En préversion, NFS présente les limitations suivantes :
 - Disponible uniquement pour le niveau Premium.
 - Les partages NFS acceptent uniquement les UID/GID numériques. Pour éviter que vos clients envoient des UID/GID alphanumériques, vous devez désactiver le mappage des ID.
 - Les partages peuvent uniquement être montés à partir d’un compte de stockage sur une machine virtuelle individuelle, en utilisant des liaisons privées. Tenter de monter des partages à partir d’autres comptes de stockage échouera.
+- Il est préférable de s’appuyer sur les autorisations affectées au groupe principal. Parfois, les autorisations allouées au groupe non principal de l’utilisateur peuvent entraîner le refus de l’accès en raison d’un bogue connu.
 
 ### <a name="azure-storage-features-not-yet-supported"></a>Fonctionnalités de stockage Azure pas encore prises en charge
 

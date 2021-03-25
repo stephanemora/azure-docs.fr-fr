@@ -3,12 +3,12 @@ title: Créer un tunnel IPSec dans Azure VMware Solution
 description: Découvrez comment créer un hub Virtual WAN pour établir un tunnel IPSec dans Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: 9f869f04bf165f4791f13c626b63257ea98a7ca9
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 21df674862b65ef6573a8a3fcfd7538b1053f04e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506445"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491836"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Créer un tunnel IPSec dans Azure VMware Solution
 
@@ -38,8 +38,7 @@ Pour créer le tunnel VPN de site à site, vous devez créer une adresse IP publ
    | **Nom** |   |
    | **Type** | Sélectionnez **Standard**, ce qui permet autorise plus que le seul trafic de la passerelle VPN.  |
 
-
-    :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Capture d’écran montrant la page Créer un WAN dans le portail Azure.":::
+   :::image type="content" source="media/create-ipsec-tunnel/create-wan.png" alt-text="Capture d’écran montrant la page Créer un WAN dans le portail Azure.":::
 
 3. Dans le Portail Azure, sélectionnez le Virtual WAN que vous avez créé à l’étape précédente, sélectionnez **Créer un hub virtuel**, entrez les champs requis, puis sélectionnez **Suivant : Site à site**. 
 
@@ -49,7 +48,7 @@ Pour créer le tunnel VPN de site à site, vous devez créer une adresse IP publ
    | **Nom** |    |
    | **Espace d’adressage privé du hub** | Entrez le sous-réseau à l’aide d’un `/24` (minimum).  |
 
-    :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Capture d’écran montrant la page Créer un hub virtuel.":::
+   :::image type="content" source="media/create-ipsec-tunnel/create-virtual-hub.png" alt-text="Capture d’écran montrant la page Créer un hub virtuel.":::
 
 4. Sous l’onglet **Site à site**, définissez la passerelle de site à site en définissant le débit agrégé à partir de la liste déroulante **Unités d’échelle de la passerelle**. 
 
@@ -69,8 +68,7 @@ Pour créer le tunnel VPN de site à site, vous devez créer une adresse IP publ
 
 2. Dans la **Vue d’ensemble** du hub virtuel, sélectionnez **Connectivité** > **VPN (site à site)** , puis sélectionnez **Créer un site VPN**.
 
-
-    :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Capture d’écran de la page Vue d’ensemble du hub virtuel, avec les options VPN (site à site) et Créer un site VPN sélectionnées.":::  
+   :::image type="content" source="media/create-ipsec-tunnel/create-vpn-site-basics.png" alt-text="Capture d’écran de la page Vue d’ensemble du hub virtuel, avec les options VPN (site à site) et Créer un site VPN sélectionnées.":::  
  
 3. Sous l’onglet **Général**, entrez les champs requis, puis sélectionnez **Suivant : Liens**. 
 
@@ -89,48 +87,54 @@ Pour créer le tunnel VPN de site à site, vous devez créer une adresse IP publ
 
 Cette section s’applique uniquement aux VPN basés sur des stratégies. Les configurations VPN basées sur des stratégies (ou itinéraires statiques) reposent sur des fonctionnalités d’appareil VPN sur site dans la plupart des cas. Elles nécessitent la spécification de réseaux locaux et Azure VMware Solution. Pour Azure VMware Solution avec un hub Azure Virtual WAN, vous ne pouvez sélectionner *aucun* réseau. Au lieu de cela, vous devez spécifier toutes les plages de hub Virtual WAN local et Azure VMware Solution appropriées. Ces plages de hub sont utilisées pour spécifier le domaine de chiffrement du point de terminaison local du tunnel VPN de base de stratégie. Le côté Azure VMware Solution requiert uniquement l’activation de l’indicateur du sélecteur de trafic basé sur des stratégies. 
 
-1. Dans le Portail Azure, accédez à votre site de hub Virtual WAN. Sous **Connectivité**, sélectionnez **VPN (site à site)** .
+1. Dans le portail Azure, accédez à votre site de hub Virtual WAN. Sous **Connectivité**, sélectionnez **VPN (site à site)** .
 
-2. Sélectionnez le nom de votre site VPN, puis les points de suspension (...) à l’extrême droite. Sélectionnez ensuite **Modifier la connexion VPN à ce hub**.
+2. Sélectionnez le nom de votre site VPN, puis les points de suspension (...) tout à droite. Sélectionnez ensuite **Modifier la connexion VPN à ce hub**.
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Capture d’écran de la page dans Azure du site du hub Virtual WAN mettant en évidence les points de suspension qui permettent d’accéder à Modifier la connexion VPN à ce hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
+   :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Capture d’écran de la page dans Azure du site du hub Virtual WAN mettant en évidence les points de suspension qui permettent d’accéder à Modifier la connexion VPN à ce hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
 3. Modifiez la connexion entre le site VPN et le hub, puis sélectionnez **Enregistrer**.
    - Sécurité du protocole Internet (IPSec), sélectionnez **Personnalisé**.
    - Utilisez le sélecteur de trafic basé sur des stratégies, sélectionnez **Activer**
    - Spécifiez les détails pour **IKE Phase 1** et **IKE Phase 2 (IPSec)** . 
  
-    :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Capture d’écran de la page Modifier la connexion VPN."::: 
+   :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-connection.png" alt-text="Capture d’écran de la page Modifier la connexion VPN."::: 
  
-    Les sélecteurs de trafic ou les sous-réseaux qui font partie du domaine de chiffrement basé sur des stratégies doivent être :
+   Les sélecteurs de trafic ou les sous-réseaux qui font partie du domaine de chiffrement basé sur des stratégies doivent être :
     
-    - Le hub Virtual WAN /24
-    - Le coud privé Azure VMware Solution /22
-    - Le réseau virtuel Azure connecté (le cas échéant)
+   - Le hub Virtual WAN /24
+   - Le coud privé Azure VMware Solution /22
+   - Le réseau virtuel Azure connecté (le cas échéant)
 
 ## <a name="connect-your-vpn-site-to-the-hub"></a>Connexion de votre site VPN au hub
 
-1. Cochez la case en regard du nom de votre site VPN (voir la capture d’écran précédente **VPN site à site** ), puis sélectionnez **Connecter les sites VPN**. Dans le champ **Clé prépartagée**, entrez la clé précédemment définie pour le point de terminaison local. Si vous n’avez pas de clé définie précédemment, vous pouvez laisser ce champ vide et une clé sera générée automatiquement. 
+1. Sélectionnez le nom de votre site VPN, puis sélectionnez **Connecter des sites VPN**. 
+1. Dans le champ **Clé prépartagée**, entrez la clé précédemment définie pour le point de terminaison local. 
+
+   >[!TIP]
+   >Si vous n’avez pas de clé déjà définie, vous pouvez laisser ce champ vide. Une clé est générée automatiquement pour vous. 
  
-    Activez uniquement **Propager la route par défaut** si vous déployez un pare-feu dans le hub et qu’il s’agit du tronçon suivant pour les connexions via ce tunnel.
+   >[!IMPORTANT]
+   >Activez uniquement **Propager la route par défaut** si vous déployez un pare-feu dans le hub et qu’il s’agit du tronçon suivant pour les connexions via ce tunnel.
 
-    Sélectionnez **Connecter**. Un écran d’état de la connexion indique l’état de création du tunnel.
+1. Sélectionnez **Connecter**. Un écran d’état de la connexion indique l’état de la création du tunnel.
 
-2. Accédez à la vue d’ensemble du Virtual WAN. Ouvrez la page du site VPN et téléchargez le fichier de configuration VPN pour l’appliquer au point de terminaison local.  
+2. Accédez à la vue d’ensemble du Virtual WAN et ouvrez la page du site VPN pour télécharger le fichier de configuration VPN pour le point de terminaison local.  
 
-3. Nous allons maintenant appliquer un correctif à ExpressRoute pour Azure VMware Solution dans le hub Virtual WAN. (Cette étape nécessite la création d’un cloud privé au préalable.)
+3. Appliquez un correctif à ExpressRoute pour Azure VMware Solution dans le hub Virtual WAN. Cette étape nécessite la création d’un cloud privé au préalable.
 
-    Accédez à la section **Connectivité** du cloud privé d’Azure VMware Solution. Sous l’onglet **ExpressRoute**, sélectionnez **+ Demander une clé d’autorisation**. Nommez-la et sélectionnez **Créer**. (La création de la clé peut prendre environ 30 secondes.) Copiez l’ID ExpressRoute et la clé d’autorisation. 
+   [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
 
-    :::image type="content" source="media/create-ipsec-tunnel/express-route-connectivity.png" alt-text="Capture d’écran de la page Connectivité pour le cloud privé, avec l’option Demander une clé d’autorisation mise en évidence sous l’onglet ExpressRoute.":::
+4. Liez Azure VMware Solution et la passerelle VPN dans le hub Virtual WAN. 
+   1. Dans le Portail Azure, ouvrez le Virtual WAN que vous avez créé précédemment. 
+   1. Sélectionnez le hub Virtual WAN créé, puis sélectionnez **ExpressRoute** dans le volet gauche. 
+   1. Sélectionnez **+ Utiliser la clé d’autorisation**.
 
-    > [!NOTE]
-    > La clé d’autorisation disparaît après un certain temps. Copiez-la dès qu’elle apparaît.
+      :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Capture d’écran de la page ExpressRoute pour le cloud privé, avec mise en évidence de l’option Utiliser la clé d’autorisation.":::
 
-4. Ensuite, nous allons lier Azure VMware Solution et la passerelle VPN dans le hub Virtual WAN. Dans le Portail Azure, ouvrez le Virtual WAN que vous avez créé précédemment. Sélectionnez le hub Virtual WAN créé, puis sélectionnez **ExpressRoute** dans le volet gauche. Sélectionnez **+ Utiliser la clé d’autorisation**.
+   1. Collez la clé d’autorisation dans le champ Clé d’autorisation.
+   1. Collez l’ID ExpressRoute dans le champ **URI du circuit pair**. 
+   1. Sélectionnez **Associez automatiquement ce circuit ExpressRoute au hub.** 
+   1. Sélectionnez **Ajouter** pour établir le lien. 
 
-    :::image type="content" source="media/create-ipsec-tunnel/redeem-authorization-key.png" alt-text="Capture d’écran de la page ExpressRoute pour le cloud privé, avec mise en évidence de l’option Utiliser la clé d’autorisation.":::
-
-    Collez la clé d’autorisation dans le champ de clé d’autorisation et l’ID ExpressRoute dans le champ **URI du circuit pair**. Veillez à sélectionner **Associer automatiquement ce circuit ExpressRoute au hub.** Sélectionnez **Ajouter** pour établir le lien. 
-
-5. Pour tester votre connexion, [Créez un segment NSX-T](./tutorial-nsx-t-network-segment.md) et approvisionnez une machine virtuelle sur le réseau. Effectuez des tests en exécutant une commande ping sur les points de terminaison Azure VMware Solution et locaux.
+5. Testez votre connexion en [créant un segment NSX-T](./tutorial-nsx-t-network-segment.md) et en provisionnant une machine virtuelle sur le réseau. Effectuez un test Ping à la fois sur les points de terminaison Azure VMware Solution et sur les points de terminaison locaux.

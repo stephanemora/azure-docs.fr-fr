@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661100"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
@@ -39,7 +39,7 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 |Application | Opérations de création, lecture, mise à jour et suppression (CRUD) sur les applications B2C. |
 |Clé |Opérations CRUD sur les clés stockées dans le conteneur de clé B2C. |
 |Ressource |Opérations CRUD sur les ressources B2C. Par exemple, les stratégies et les fournisseurs d’identité.
-|Authentication |Validation des informations d’identification des utilisateurs et de l’émission des jetons.|
+|Authentification |Validation des informations d’identification des utilisateurs et de l’émission des jetons.|
 
 Pour les activités CRUD des objets utilisateur, reportez-vous à la catégorie **Annuaire principal**.
 
@@ -53,13 +53,13 @@ Le volet des détails de l’activité contient les informations pertinentes sui
 
 |Section|Champ|Description|
 |-------|-----|-----------|
-| Activité | Name | Activité qui a eu lieu. Par exemple, *Émettre un id_token pour l’application*, qui conclut la connexion d’utilisateur réelle. |
+| Activité | Nom | Activité qui a eu lieu. Par exemple, *Émettre un id_token pour l’application*, qui conclut la connexion d’utilisateur réelle. |
 | Initié par (intervenant) | ObjectId | **ID d’objet** de l’application B2C à laquelle l’utilisateur se connecte. Cet identificateur n’est pas visible dans le portail Azure, mais il est accessible via l’API Microsoft Graph. |
 | Initié par (intervenant) | Nom de principal de service | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 | Cible(s) | ObjectId | **ID d’objet** de l’utilisateur qui se connecte. |
-| Détails supplémentaires | TenantId | **ID de locataire** du locataire Azure AD B2C. |
-| Détails supplémentaires | PolicyId | **ID de stratégie** du flux d’utilisateur (stratégie) utilisé pour la connexion de l’utilisateur. |
-| Détails supplémentaires | ApplicationId | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
+| Informations supplémentaires | TenantId | **ID de locataire** du locataire Azure AD B2C. |
+| Informations supplémentaires | PolicyId | **ID de stratégie** du flux d’utilisateur (stratégie) utilisé pour la connexion de l’utilisateur. |
+| Informations supplémentaires | ApplicationId | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Afficher des journaux d’audit dans le portail Azure
 

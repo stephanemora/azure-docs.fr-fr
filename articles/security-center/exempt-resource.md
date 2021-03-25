@@ -3,16 +3,16 @@ title: Exempter une recommandation Azure Security Center d’une ressource, d’
 description: Découvrez comment créer des règles pour exempter les recommandations de sécurité des abonnements ou des groupes d’administration et les empêcher d’avoir un impact sur votre score sécurisé
 author: memildin
 ms.author: memildin
-ms.date: 01/22/2021
+ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d3627f6bcda7a18204c24fc2a1347c4a512c5369
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709374"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103149730"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Exempter une ressource des recommandations et du degré de sécurisation 
 
@@ -30,13 +30,14 @@ Dans ce cas, vous pouvez créer une exemption pour une recommandation pour :
 
 ## <a name="availability"></a>Disponibilité
 
-|Aspect|Détails|
-|----|:----|
-|État de sortie :|PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|Prix :|Il s’agit d’une fonctionnalité de stratégie Azure Premium proposée sans surcoût aux clients Azure Defender. Pour les autres utilisateurs, des frais pourront s’appliquer.|
-|Rôles et autorisations obligatoires :|**Propriétaire de l’abonnement** ou **Contributeur de stratégie** pour créer une exemption<br>Pour créer une règle, vous devez disposer de l’autorisation de modifier des stratégies dans Azure Policy.<br>Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
-|Clouds :|![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)|
-|||
+| Aspect                          | Détails                                                                                                                                                                                                                                                                                                                            |
+|---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| État de sortie :                  | PRÉVERSION<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| Prix :                        | Il s’agit d’une fonctionnalité de stratégie Azure Premium proposée sans surcoût aux clients Azure Defender. Pour les autres utilisateurs, des frais pourront s’appliquer.                                                                                                                                                                 |
+| Rôles et autorisations obligatoires : | **Propriétaire de l’abonnement** ou **Contributeur de stratégie** pour créer une exemption<br>Pour créer une règle, vous devez disposer de l’autorisation de modifier des stratégies dans Azure Policy.<br>Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
+| Limites :                    | Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, Azure Security Benchmark, ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md). |
+| Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Non](./media/icons/no-icon.png) National/souverain (US Gov, Chine Gov, autres Gov)                                                                                                                                                                                         |
+|                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## <a name="define-an-exemption"></a>Définir une exemption
 
@@ -44,6 +45,9 @@ Pour affiner les recommandations de sécurité que Security Center fournit conce
 
 - Marquer une **recommandation** spécifique ou en tant que « atténué » ou « risque accepté ». Vous pouvez créer des exemptions de recommandation pour un abonnement, plusieurs abonnements ou un groupe d’administration entier.
 - Marquer **une ou plusieurs ressources** comme « atténué » ou « risque accepté » pour une recommandation spécifique.
+
+> [!NOTE]
+> Les exemptions ne peuvent être créées que pour les recommandations incluses dans l’initiative par défaut de Security Center, Azure Security Benchmark, ou l’une des initiatives de normes réglementaires fournies. Les recommandations générées à partir d’initiatives personnalisées assignées à vos abonnements ne peuvent pas être exemptées. En savoir plus sur les relations entre les [stratégies, les initiatives et les recommandations](security-policy-concept.md).
 
 > [!TIP]
 > Vous pouvez également créer des exemptions à l’aide de l’API. Pour obtenir un exemple de code JSON et une explication des structures pertinentes, consultez [Structure d’exemption Azure Policy](../governance/policy/concepts/exemption-structure.md).
@@ -161,7 +165,7 @@ Pour en savoir plus, consultez les pages suivantes :
 
 
 
-## <a name="exemption-rule-faq"></a>FAQ sur les règles d’exemption
+## <a name="faq---exemption-rules"></a>FAQ - Règles d’exemption
 
 ### <a name="what-happens-when-one-recommendation-is-in-multiple-policy-initiatives"></a>Que se passe-t-il quand une recommandation figure dans plusieurs initiatives de stratégie ?
 

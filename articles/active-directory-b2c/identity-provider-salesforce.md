@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0981687b03344daf7a447cc4d9e50f0923341340
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952289"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488684"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Salesforce à l’aide d’Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Pour permettre aux utilisateurs de se connecter avec un compte Salesforce dans A
     1. **Nom de l’API** 
     1. **Adresse de contact**  : adresse e-mail de contact Salesforce
 1. Sous **API (activer les paramètres OAuth)** , sélectionnez **Activer les paramètres OAuth**.
-    1. Dans le champ **URL de rappel**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire. Vous devez utiliser uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
+    1. Dans le champ **Callback URL** (URL de rappel), entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé. Vous devez utiliser uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
     1. Dans **Étendues OAuth sélectionnées**, sélectionnez **Accéder à vos informations de base (ID, profil, adresse de messagerie, adresse, téléphone)** , puis **Autoriser l’accès à votre identificateur unique (OpenID)** .
     1. Sélectionnez **Exiger un secret pour le flux de serveur web**.
 1. Sélectionnez **Configurer le jeton d’ID**. 
@@ -94,7 +94,10 @@ Pour permettre aux utilisateurs de se connecter avec un compte Salesforce dans A
 1. Sélectionnez **Enregistrer**.
 1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
 1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
+1. Sélectionnez le bouton **Exécuter le flux utilisateur**.
+1. Sur la page d'inscription ou de connexion, sélectionnez **Salesforce** pour vous connecter avec un compte Salesforce.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end
 
@@ -192,7 +195,15 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
+
+1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Sur la page d'inscription ou de connexion, sélectionnez **Salesforce** pour vous connecter avec un compte Salesforce.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
+
 
 ::: zone-end
 
