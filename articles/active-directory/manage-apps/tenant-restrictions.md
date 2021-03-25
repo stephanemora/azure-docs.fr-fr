@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123018"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589325"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -197,13 +197,13 @@ Pour obtenir des informations spécifiques, consultez la documentation de votre 
 
 ## <a name="blocking-consumer-applications-public-preview"></a>Blocage des applications grand public (préversion publique)
 
-Les applications de Microsoft qui prennent en charge les comptes de consommateurs et les comptes d’entreprises, comme [OneDrive](https://onedrive.live.com/) ou [Microsoft Learn](https://docs.microsoft.com/learn/), peuvent parfois être hébergées sur la même URL.  Cela signifie que les utilisateurs qui doivent accéder à cette URL à des fins professionnelles peuvent également y accéder à des fins personnelles, ce qui n’est peut-être pas autorisé dans le cadre de vos règles de fonctionnement.
+Les applications de Microsoft qui prennent en charge les comptes de consommateurs et les comptes d’entreprises, comme [OneDrive](https://onedrive.live.com/) ou [Microsoft Learn](/learn/), peuvent parfois être hébergées sur la même URL.  Cela signifie que les utilisateurs qui doivent accéder à cette URL à des fins professionnelles peuvent également y accéder à des fins personnelles, ce qui n’est peut-être pas autorisé dans le cadre de vos règles de fonctionnement.
 
 Certaines organisations tentent de résoudre ce problème en bloquant `login.live.com` afin de bloquer l’authentification des comptes personnels.  Cela a plusieurs inconvénients :
 
 1. Le blocage de `login.live.com` bloque l’utilisation de comptes personnels dans les scénarios d’invité B2B, ce qui peut gêner les visiteurs et la collaboration.
-1. [Autopilot requiert l’utilisation de `login.live.com`](https://docs.microsoft.com/mem/autopilot/networking-requirements) pour se déployer. Les scénarios Intune et Autopilot peuvent échouer lorsque `login.live.com` est bloqué.
-1. Les données de télémétrie de l’organisation et les mises à jour Windows qui s’appuient sur le service login.live.com pour les ID d’appareil [cessent de fonctionner](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot requiert l’utilisation de `login.live.com`](/mem/autopilot/networking-requirements) pour se déployer. Les scénarios Intune et Autopilot peuvent échouer lorsque `login.live.com` est bloqué.
+1. Les données de télémétrie de l’organisation et les mises à jour Windows qui s’appuient sur le service login.live.com pour les ID d’appareil [cessent de fonctionner](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Configuration pour les applications grand public
 
@@ -216,7 +216,7 @@ Pour le moment, l’authentification auprès des applications grand public n’a
 La stratégie `restrict-msa` bloque l’utilisation d’applications grand public, mais autorise plusieurs autres types de trafic et d’authentification :
 
 1. Trafic sans utilisateur pour les appareils.  Cela comprend le trafic pour Autopilot, Windows Update et les données de télémétrie de l’organisation.
-1. Authentification B2B de comptes de consommateurs. Les utilisateurs disposant de comptes Microsoft qui sont [invités à collaborer avec un locataire](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) s’authentifient sur login.live.com pour accéder à un locataire de ressources.
+1. Authentification B2B de comptes de consommateurs. Les utilisateurs disposant de comptes Microsoft qui sont [invités à collaborer avec un locataire](../external-identities/redemption-experience.md#invitation-redemption-flow) s’authentifient sur login.live.com pour accéder à un locataire de ressources.
     1. Cet accès est contrôlé à l’aide de l’en-tête `Restrict-Access-To-Tenants` pour autoriser ou refuser l’accès à ce locataire de ressources.
 1. Authentification « PassThrough », utilisée par de nombreuses applications Azure et Office.com, où les applications utilisent Azure AD pour connecter des utilisateurs consommateurs dans un contexte de consommateur.
     1. Cet accès est également contrôlé à l’aide de l’en-tête `Restrict-Access-To-Tenants` pour autoriser ou refuser l’accès au locataire « PassThrough » spécial (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  Si ce locataire n’apparaît pas dans votre liste `Restrict-Access-To-Tenants` de domaines autorisés, Azure AD empêche les comptes de consommateurs de se connecter à ces applications.

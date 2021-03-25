@@ -1,24 +1,24 @@
 ---
 title: Définitions de stratégie intégrées pour les groupes de machines virtuelles identiques Azure
 description: Liste les définitions de stratégie intégrées Azure Policy pour les groupes de machines virtuelles identiques Azure. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3d103cf10051157bc5b08bcfb0b1c91d4de78445
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 2b3dd0f0b98367f3cc90e4d88a26f805749cc123
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102617316"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601905"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Définitions intégrées Azure Policy pour les groupes de machines virtuelles identiques Azure
 
 Cette page est un index des définitions de stratégie intégrées d’[Azure Policy](../governance/policy/overview.md) pour les groupes de machines virtuelles identiques Azure. Pour obtenir des éléments intégrés supplémentaires d’Azure Policy pour d’autres services, consultez [Définitions intégrées d’Azure Policy](../governance/policy/samples/built-in-policies.md).
 
-Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
+Le nom de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien figurant dans la colonne **Version** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 

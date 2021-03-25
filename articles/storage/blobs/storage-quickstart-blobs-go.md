@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544647"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Go
@@ -149,9 +149,9 @@ Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. C
 
 Pour télécharger un fichier vers un objet blob, ouvrez le fichier à l’aide de **os.Open**. Vous pouvez ensuite télécharger le fichier vers le chemin d’accès spécifié à l’aide de l’une des API REST : Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
-Sinon, le kit de développement logiciel offre des [API de niveau supérieur](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) qui s’appuient sur les API REST de bas niveau. Par exemple, la fonction **_UploadFileToBlockBlob_* _ utilise des opérations StageBlock (PutBlock) pour charger simultanément un fichier en plusieurs blocs afin d’optimiser le débit. Si le fichier fait moins de 256 Mo, il utilise Upload (PutBlob) à la place pour effectuer le transfert en une seule transaction.
+Sinon, le kit de développement logiciel offre des [API de niveau supérieur](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) qui s’appuient sur les API REST de bas niveau. Par exemple, la fonction ***UploadFileToBlockBlob*** utilise des opérations StageBlock (PutBlock) pour télécharger simultanément un fichier en plusieurs blocs afin d’optimiser le débit. Si le fichier fait moins de 256 Mo, il utilise Upload (PutBlob) à la place pour effectuer le transfert en une seule transaction.
 
-L’exemple suivant charge le fichier dans votre conteneur nommé _*quickstartblobs-[randomstring]**.
+L’exemple suivant charge le fichier dans votre conteneur nommé **quickstartblobs-[chaîne aléatoire]** .
 
 ```go
 // Create a file to test the upload and download.

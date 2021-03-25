@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083214"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578019"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory
 
@@ -95,16 +95,16 @@ Examinez les champs suivants et assurez-vous qu’ils disposent des valeurs atte
 
 #### <a name="domainjoined--yes"></a>DomainJoined : YES
 
-Ce champ indique si l’appareil est joint à un répertoire Active Directory local ou non. Si la valeur est **NON** , l’appareil ne peut pas effectuer de jonction hybride Azure AD.
+Ce champ indique si l’appareil est joint à un répertoire Active Directory local ou non. Si la valeur est **NON**, l’appareil ne peut pas effectuer de jonction hybride Azure AD.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : Non
 
-Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant qu’appareil personnel (avec la mention *Joint à l’espace de travail* ). Cette valeur doit être **NON** pour un ordinateur appartenant à un domaine qui est également une jonction hybride Azure AD. Si la valeur est **OUI** , un compte professionnel ou scolaire a été ajouté avant l’achèvement d’une jonction hybride Azure AD. Dans ce cas, le compte est ignoré lors de l’utilisation de Windows 10, version 1607 ou ultérieure.
+Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant qu’appareil personnel (avec la mention *Joint à l’espace de travail*). Cette valeur doit être **NON** pour un ordinateur appartenant à un domaine qui est également une jonction hybride Azure AD. Si la valeur est **OUI**, un compte professionnel ou scolaire a été ajouté avant l’achèvement d’une jonction hybride Azure AD. Dans ce cas, le compte est ignoré lors de l’utilisation de Windows 10, version 1607 ou ultérieure.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 
 Ce champ indique si l’appareil est joint. La valeur sera **Oui** si l’appareil est un appareil joint à Azure AD ou un appareil hybride joint à Azure AD.
-Si la valeur est **Non** , la jonction à Azure AD n’est pas encore terminée.
+Si la valeur est **Non**, la jonction à Azure AD n’est pas encore terminée.
 
 Passez aux étapes suivantes pour poursuivre le dépannage.
 
@@ -387,7 +387,7 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Étape 5 : Récupérer les journaux et contacter le Support Microsoft
 
-Téléchargez le fichier Auth.zip à partir de [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Téléchargez le fichier Auth.zip à partir de [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
 
 1. Décompressez les fichiers et renommez les fichiers inclus **start-auth.txt** et **stop-auth.txt** en **start-auth.cmd** et **stop-auth.cmd**.
 1. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande **start-auth.cmd**.
@@ -404,7 +404,7 @@ Téléchargez le fichier Auth.zip à partir de [https://github.com/CSS-Windows/W
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet : OUI et AzureADPrt : YES
 
 Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil.
-Si les valeurs sont **NON** , il peut être dû :
+Si les valeurs sont **NON**, il peut être dû :
 
 - Clé de stockage défectueuse dans le module de plateforme sécurisée (TPM) associé à l’appareil lors de l’inscription (vérifiez KeySignTest pendant l’exécution avec élévation de privilèges).
 - ID de connexion de substitution

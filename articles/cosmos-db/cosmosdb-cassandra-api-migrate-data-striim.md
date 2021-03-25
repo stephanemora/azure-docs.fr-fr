@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 85c0a113f15a1ce94ca1cccc605085dcd003dce4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101661390"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrer des données vers un compte d’API Cassandra Azure Cosmos DB à l’aide de Striim
@@ -43,7 +43,7 @@ Cet article explique comment utiliser Striim pour migrer des données depuis une
 
 1. Dans le volet **Paramètres du cluster Striim**, choisissez le type de déploiement Striim et la taille de la machine virtuelle.
 
-   |Paramètre | Value | Description |
+   |Paramètre | Valeur | Description |
    | ---| ---| ---|
    |Type de déploiement Striim |Standalone | Striim peut s’exécuter dans un type de déploiement **Autonome** ou **Cluster**. Le mode Autonome déploie le serveur Striim sur une seule machine virtuelle et vous pouvez sélectionner la taille des machines virtuelles en fonction de votre volume de données. Le mode Cluster déploie le serveur Striim sur deux machines virtuelles ou plus selon la taille sélectionnée. Les environnements de cluster avec plus de 2 nœuds offrent une haute disponibilité et un basculement automatiques.</br></br> Dans ce didacticiel, vous pouvez sélectionner l’option Autonome. Utilisez la taille de machine virtuelle par défaut « Standard_F4s ». | 
    | Nom du cluster Striim|    <Striim_cluster_Name>|  Nom du cluster Striim.|

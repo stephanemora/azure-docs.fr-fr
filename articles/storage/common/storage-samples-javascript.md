@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
 ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92359745"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Exemples de stockage Azure utilisant les bibliothèques clientes JavaScript v12
@@ -426,7 +426,7 @@ Consultez les guides suivants si vous recherchez des instructions sur l’instal
 Pour plus d’informations sur les exemples pour d’autres langages :
 
 * .NET : [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
-* Java : [Exemples relatifs au service Stockage Azure avec Java](storage-samples-java.md)
+* Java : [exemples de stockage Azure avec Java](storage-samples-java.md)
 * Python : [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)
 * C++ : [Exemples relatifs au service Stockage Azure avec C++](storage-samples-c-plus-plus.md)
 * Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
 ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91761292"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Prise en charge de TLS dans le service Azure IoT Hub Device Provisioning (DPS)

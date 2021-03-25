@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 52aaa11278e5bb523594936c75d6810c1638fa7e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009413"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674935"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>Introduction
 
@@ -33,11 +35,11 @@ En combinant recherche et filtrage, vous pouvez parcourir rapidement les sources
 
 La recherche en texte libre par défaut est simple et intuitive. Cependant, vous pouvez également utiliser la syntaxe de recherche de Data Catalog pour mieux contrôler les résultats de recherche. La recherche avec Data Catalog prend en charge les techniques suivantes :
 
-| Technique | Utilisation | Exemple |
+| Technique | Utiliser | Exemple |
 | --- | --- | --- |
 | Recherche de base |Recherche de base à l’aide d’un ou plusieurs termes de recherche. Les résultats sont constitués de toutes les ressources correspondant à une propriété quelconque avec un ou plusieurs termes spécifiés. |`sales data` |
 | Étendue de la propriété |Retourne des sources de données uniquement si le terme de recherche correspond à la propriété spécifiée. |`name:finance` |
-| opérateurs booléens |Les opérations booléennes permettent d’étendre et de limiter une recherche. |`finance NOT corporate` |
+| Opérateurs booléens |Les opérations booléennes permettent d’étendre et de limiter une recherche. |`finance NOT corporate` |
 | Parenthèses de regroupement |Utilisez des parenthèses pour grouper les parties de la requête à isoler logiquement, notamment lorsque vous appliquez des opérateurs booléens. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Opérateurs de comparaison |Utilisez des comparaisons autres que l’égalité pour les propriétés comportant des types de données numériques et de date. |`modifiedTime > "11/05/2014"` |
 

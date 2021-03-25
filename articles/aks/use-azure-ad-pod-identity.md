@@ -3,13 +3,13 @@ title: Utiliser des identités managées par pod Azure Active Directory dans Azu
 description: Découvrez comment utiliser des identités managées par pod AAD dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: f3d0db5b085fcdb9a24310cb2fe310d390b1790a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176312"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574371"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Utiliser des identités managées par pod Azure Active Directory dans Azure Kubernetes Service (préversion)
 
@@ -24,13 +24,13 @@ Les identités managées par pod Azure Active Directory utilisent des primitives
 
 La ressource suivante doit être installée :
 
-* Azure CLI 2.8.0 (ou une version ultérieure)
-* L’extension `azure-preview` version 0.4.68 ou ultérieure
+* Azure CLI, version 2.20.0 ou ultérieure
+* L’extension `azure-preview` version 0.5.5 ou ultérieure
 
 ### <a name="limitations"></a>Limites
 
-* 50 identités de pods maximum sont autorisées pour un cluster.
-* 50 exceptions d’identités de pods maximum sont autorisées pour un cluster.
+* 200 identités de pods maximum sont autorisées pour un cluster.
+* 200 exceptions d’identités de pods maximum sont autorisées pour un cluster.
 * Les identités managées par pod sont disponibles uniquement sur les pools de nœuds Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Inscrivez `EnablePodIdentityPreview`
@@ -53,19 +53,75 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identities"></a>Créer un cluster AKS avec des identités managées
+## <a name="create-an-aks-cluster-with-azure-cni"></a>Créer un cluster AKS avec Azure CNI
 
-Créer un cluster AKS avec une identité managée et une identité managée par pod activée. Les commande suivantes utilisent [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* et la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*.
+> [!NOTE]
+> Il s’agit de la configuration recommandée par défaut.
+
+Créez un cluster AKS avec Azure CNI et une identité managée par pod activée. Les commande suivantes utilisent [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* et la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster* dans le groupe de ressources *myResourceGroup*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
+az aks create -g myResourceGroup -n myAKSCluster --enable-pod-identity --network-plugin azure
 ```
 
 Utilisez [az aks get-credentials][az-aks-get-credentials] pour vous connecter à votre cluster AKS. Cette commande télécharge et configure également le certificat client `kubectl` sur votre ordinateur de développement.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+
+## <a name="update-an-existing-aks-cluster-with-azure-cni"></a>Mettre à jour un cluster AKS existant avec Azure CNI
+
+Mettez à jour un cluster AKS existant avec Azure CNI pour inclure l’identité managée par pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --network-plugin azure
+```
+## <a name="using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities"></a>Utilisation du plug-in réseau Kubenet avec des identités managées par pod Azure Active Directory 
+
+> [!IMPORTANT]
+> L’exécution d’aad-pod-identity dans un cluster avec Kubenet n’est pas une configuration recommandée en raison de l’implication de sécurité. Suivez les étapes d’atténuation et configurez les stratégies avant d’activer aad-pod-identity dans un cluster avec Kubenet.
+
+## <a name="mitigation"></a>Limitation des risques
+
+Pour atténuer la vulnérabilité au niveau du cluster, vous pouvez utiliser le contrôleur d’admission OpenPolicyAgent conjointement avec le webhook de validation Gatekeeper. Si Gatekeeper est déjà installé dans votre cluster, ajoutez le modèle ConstraintTemplate de type K8sPSPCapabilities :
+
+```
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/capabilities/template.yaml
+```
+Ajoutez un modèle pour limiter la génération de Pods à l’aide de la fonctionnalité NET_RAW :
+
+```
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPCapabilities
+metadata:
+  name: prevent-net-raw
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - "kube-system"
+  parameters:
+    requiredDropCapabilities: ["NET_RAW"]
+```
+
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Créer un cluster AKS avec le plug-in réseau Kubenet
+
+Créez un cluster AKS avec un plug-in réseau Kubenet et une identité managée par pod activée.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Mettre à jour un cluster AKS existant avec le plug-in réseau Kubenet
+
+Mettez à jour un cluster AKS existant avec le plug-in réseau Kubenet pour inclure l’identité managée par pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Créer une identité

@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 499e0aa1ee451969923dbdf5f84be1c844a9aab4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735509"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659322"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Vue d’ensemble du modèle vCore – Azure SQL Database et SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Les options de niveau de service du modèle vCore sont les suivantes : usage gé
 |Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné par SQL Database** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**SQL Managed Instance** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné par SQL Database** :<br/>5 Go - 4 To<br/>**SQL Managed Instance** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
 |IOPS et débit (approximatif)|**SQL Database** : Consultez les limites de ressources pour les [bases de données uniques](resource-limits-vcore-single-databases.md) et les [pools élastiques](resource-limits-vcore-elastic-pools.md).<br/>**SQL Managed Instance** : Consultez [Vue d’ensemble des limites de ressources Azure SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics).|Consultez les limites de ressources pour les [bases de données uniques](resource-limits-vcore-single-databases.md) et les [pools élastiques](resource-limits-vcore-elastic-pools.md).|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’IOPS et le débit réels dépendront de la charge de travail.|
 |Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](read-scale-out.md)|
-|Sauvegardes|[Stockage géo-redondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
+|Sauvegardes|[Stockage géoredondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
 |En mémoire|Non pris en charge|Prise en charge|Non pris en charge|
 |||
 
@@ -204,7 +204,7 @@ Pour plus d’informations, consultez la rubrique relative à la commande [az sq
 
 Le matériel Gen4 est [en cours de retrait](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles bases de données doivent être déployées sur le matériel Gen5.
 
-Gen5 est disponible dans la plupart des régions du monde.
+Gen5 est disponible dans toutes les régions publiques du monde entier.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 

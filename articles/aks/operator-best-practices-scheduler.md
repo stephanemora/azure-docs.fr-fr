@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 087c1d2efc93b8460a3683a4e66916d73fd4e885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87015678"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
@@ -91,7 +91,7 @@ spec:
       app: nginx-frontend
 ```
 
-Vous pouvez également définir un pourcentage (par exemple, *60 %* ), pour compenser automatiquement le scale-up du nombre de pods par le jeu de réplicas.
+Vous pouvez également définir un pourcentage (par exemple, *60 %*), pour compenser automatiquement le scale-up du nombre de pods par le jeu de réplicas.
 
 Vous pouvez définir le nombre maximal d’instances non disponibles dans un jeu de réplicas. Là encore, vous pouvez définir un pourcentage indiquant le nombre maximal de pods indisponibles. Selon le manifeste YAML du budget de perturbation de pod suivant, il ne peut pas y avoir plus de deux pods indisponibles dans le jeu de réplicas :
 

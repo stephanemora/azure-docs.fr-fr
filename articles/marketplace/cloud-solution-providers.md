@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131171"
 ---
 # <a name="cloud-solution-provider-program"></a>Programme des fournisseurs de solution Cloud
@@ -60,11 +60,11 @@ Choisissez parmi les trois options suivantes :
 
 En choisissant cette option, vous choisissez les partenaires du programme CSP qui peuvent revendre votre offre.
 
-Pour choisir les partenaires, sélectionnez **Sélectionner des partenaires CSP**  : un menu s’affiche pour vous permettre d’effectuer une recherche par nom de partenaire ou ID de locataire CSP Azure Active Directory (Azure AD).
+Pour choisir les partenaires, sélectionnez **Sélectionner des partenaires CSP** : un menu s’affiche pour vous permettre d’effectuer une recherche par nom de partenaire ou ID de locataire CSP Azure Active Directory (Azure AD).
 
 ![Menu Sélectionner CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Vous pouvez appliquer des filtres de recherche, comme **Pays** , **Compétence** ou **Qualification**.
+Vous pouvez appliquer des filtres de recherche, comme **Pays**, **Compétence** ou **Qualification**.
 
 ![Filtres Pays/région, Compétence et Qualification pour la recherche de partenaires](media/marketplace-publishers-guide/csp-add-resellers.png)
 
@@ -104,9 +104,9 @@ Si un partenaire du programme CSP n’a pas vendu votre produit à ses clients e
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
 
-2. Pour **Sélectionner la version du produit** , sélectionnez **Gestion des offres en direct**.
-3. Pour **Sélectionner une catégorie qui décrit le mieux le problème** , choisissez la catégorie qui fait référence à votre offre.
-4. Pour **Sélectionner un problème décrivant le mieux le vôtre** , sélectionnez **Mettre à jour l’offre existante**.
+2. Pour **Sélectionner la version du produit**, sélectionnez **Gestion des offres en direct**.
+3. Pour **Sélectionner une catégorie qui décrit le mieux le problème**, choisissez la catégorie qui fait référence à votre offre.
+4. Pour **Sélectionner un problème décrivant le mieux le vôtre**, sélectionnez **Mettre à jour l’offre existante**.
 5. Sélectionnez **Suivant** pour être redirigé vers la **page des détails du problème** pour entrer plus d’informations sur votre problème.
 6. Utilisez **Supprimer l’autorisation CSP** comme titre du problème et renseignez le reste des sections requises.
 
@@ -123,9 +123,9 @@ Si votre offre est actuellement **Option 1 : Tous les partenaires du programme 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
 
-2. Pour **Sélectionner la version du produit** , sélectionnez **Gestion des offres en direct**.
-3. Pour **Sélectionner une catégorie qui décrit le mieux le problème** , choisissez la catégorie qui fait référence à votre offre.
-4. Pour **Sélectionner un problème décrivant le mieux le vôtre** , sélectionnez **Mettre à jour l’offre existante**.
+2. Pour **Sélectionner la version du produit**, sélectionnez **Gestion des offres en direct**.
+3. Pour **Sélectionner une catégorie qui décrit le mieux le problème**, choisissez la catégorie qui fait référence à votre offre.
+4. Pour **Sélectionner un problème décrivant le mieux le vôtre**, sélectionnez **Mettre à jour l’offre existante**.
 5. Sélectionnez **Suivant** pour être redirigé vers la **page des détails du problème** pour entrer plus d’informations sur votre problème.
 6. Utilisez **Supprimer l’autorisation CSP** comme titre du problème et renseignez le reste des sections requises.
 
@@ -134,35 +134,35 @@ Si votre offre est actuellement **Option 1 : Tous les partenaires du programme 
 
 ### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Naviguer à partir de l’option 2 : Partenaires spécifiques du programme CSP que je sélectionne
 
-Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 1 : Tous les partenaires du programme CSP** , suivez les instructions ci-dessous pour créer une demande :
+Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 1 : Tous les partenaires du programme CSP**, suivez les instructions ci-dessous pour créer une demande :
 
 1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
 
-2. Pour **Sélectionner la version du produit** , sélectionnez **Gestion des offres en direct**.
-3. Pour **Sélectionner une catégorie qui décrit le mieux le problème** , choisissez la catégorie qui fait référence à votre offre.
-4. Pour **Sélectionner un problème décrivant le mieux le vôtre** , sélectionnez **Mettre à jour l’offre existante**.
+2. Pour **Sélectionner la version du produit**, sélectionnez **Gestion des offres en direct**.
+3. Pour **Sélectionner une catégorie qui décrit le mieux le problème**, choisissez la catégorie qui fait référence à votre offre.
+4. Pour **Sélectionner un problème décrivant le mieux le vôtre**, sélectionnez **Mettre à jour l’offre existante**.
 5. Sélectionnez **Suivant** pour être redirigé vers la **page des détails du problème** pour entrer plus d’informations sur votre problème.
 6. Utilisez **Supprimer l’autorisation CSP** comme titre du problème et renseignez le reste des sections requises.
 
- Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 3 : Aucun partenaire du programme CSP** , vous ne pouvez accéder à cette option que si les partenaires du programme CSP que vous aviez précédemment autorisés n’ont pas revendu votre offre aux clients finaux. Utilisez les instructions suivantes pour créer une demande :
+ Si votre offre est actuellement **Option 2 : Partenaires spécifiques du programme CSP que je sélectionne** et que vous souhaitez accéder à **Option 3 : Aucun partenaire du programme CSP**, vous ne pouvez accéder à cette option que si les partenaires du programme CSP que vous aviez précédemment autorisés n’ont pas revendu votre offre aux clients finaux. Utilisez les instructions suivantes pour créer une demande :
 
 1. Accédez à la [page de demande de support](https://aka.ms/marketplacepublishersupport). Les premiers menus déroulants sont automatiquement remplis pour vous.
 
    > [!NOTE]
    > Ne changez pas les sélections préremplies des menus déroulants.
 
-2. Pour **Sélectionner la version du produit** , sélectionnez **Gestion des offres en direct**.
-3. Pour **Sélectionner une catégorie qui décrit le mieux le problème** , choisissez la catégorie qui fait référence à votre offre.
-4. Pour **Sélectionner un problème décrivant le mieux le vôtre** , sélectionnez **Mettre à jour l’offre existante**.
+2. Pour **Sélectionner la version du produit**, sélectionnez **Gestion des offres en direct**.
+3. Pour **Sélectionner une catégorie qui décrit le mieux le problème**, choisissez la catégorie qui fait référence à votre offre.
+4. Pour **Sélectionner un problème décrivant le mieux le vôtre**, sélectionnez **Mettre à jour l’offre existante**.
 5. Sélectionnez **Suivant** pour être redirigé vers la **page des détails du problème** pour entrer plus d’informations sur votre problème.
 6. Utilisez **Supprimer l’autorisation CSP** comme titre du problème et renseignez le reste des sections requises.
 
 ### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Naviguer à partir de l’option 3 : Aucun partenaire du programme CSP
 
-Si votre offre est actuellement **Option 3 : Aucun partenaire du programme CSP** , vous pouvez accéder à l’une des deux autres options à tout moment.
+Si votre offre est actuellement **Option 3 : Aucun partenaire du programme CSP**, vous pouvez accéder à l’une des deux autres options à tout moment.
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Partage de la documentation commerciale et de support avec les partenaires du programme CSP
 

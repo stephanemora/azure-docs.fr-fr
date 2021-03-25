@@ -3,15 +3,15 @@ title: Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azur
 description: Mise à l'échelle automatique des hôtes de session Windows Virtual Desktop à l'aide d'Azure Automation
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 12a15ab1a4c7369c448e9f65862121b03ca05bba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f60341ea51f1cf4e856b1b4598887da3dc37ebb2
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078552"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613117"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation
 
@@ -52,6 +52,9 @@ Cela dit, l'outil présente également les limitations suivantes :
 - Cette solution s’applique uniquement aux machines virtuelles hôtes de sessions multiples mises en pool.
 - Cette solution permet de gérer les machines virtuelles de toutes les régions, mais ne peut être utilisée qu’au sein du même abonnement que votre compte Azure Automation et l’application logique Azure.
 - La durée d’exécution maximale d’un travail dans le runbook est de trois heures. Si le démarrage ou l’arrêt des machines virtuelles dans le pool d’hôtes prend plus de temps, le travail échoue. Pour plus d’informations, consultez [Ressources partagées](../automation/automation-runbook-execution.md#fair-share).
+- Au moins une machine virtuelle ou un hôte de session doit être activé pour que l’algorithme de mise à l’échelle fonctionne correctement.
+- L’outil de mise à l’échelle ne prend pas en charge la mise à l’échelle en fonction du processeur ou de la mémoire.
+- La mise à l’échelle ne fonctionne qu’avec les hôtes existants dans le pool d’hôtes. L’outil de mise à l’échelle ne prend pas en charge la mise à l’échelle des nouveaux hôtes de session.
 
 >[!NOTE]
 >L’outil de mise à l’échelle contrôle le mode d’équilibrage de charge du pool d’hôtes qu’il met actuellement à l’échelle. L’outil utilise le mode d’équilibrage de charge à largeur prioritaire pour les heures de pointe et les heures creuses.

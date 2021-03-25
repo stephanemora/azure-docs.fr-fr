@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: adf00d24c05deab149edb95b8087b8522dbda99a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutoriel : Intégration d’Azure Active Directory à Predictix Assortment Planning
@@ -48,11 +48,11 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration de Predictix Assortment Planning à Azure AD, vous devez ajouter Predictix Assortment Planning à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Dans le [portail Azure](https://portal.azure.com), dans le volet de gauche, sélectionnez **Azure Active Directory**  :
+1. Dans le [portail Azure](https://portal.azure.com), dans le volet de gauche, sélectionnez **Azure Active Directory** :
 
     ![Sélectionnez Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** > **Toutes les applications**  :
+2. Accédez à **Applications d’entreprise** > **Toutes les applications** :
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Pour configurer l’intégration de Predictix Assortment Planning à Azure AD, v
 
     ![Sélectionner la nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Predictix Assortment Planning** . Sélectionnez **Predictix Assortment Planning** dans les résultats de la recherche, puis **Ajouter** .
+4. Dans la zone de recherche, entrez **Predictix Assortment Planning**. Sélectionnez **Predictix Assortment Planning** dans les résultats de la recherche, puis **Ajouter**.
 
      ![Résultats de la recherche](common/search-new-app.png)
 
@@ -84,23 +84,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 Pour configurer l’authentification unique Azure AD avec Predictix Assortment Planning, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Predictix Assortment Planning** , sélectionnez **Authentification unique**  :
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Predictix Assortment Planning**, sélectionnez **Authentification unique** :
 
     ![Sélectionner l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique :
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** pour activer l’authentification unique :
 
     ![Sélectionner une méthode d’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , sélectionnez l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**  :
+3. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** :
 
     ![Icône Modifier](common/edit-urls.png)
 
-4. Dans la boîte de dialogue **Configuration SAML de base** , procédez comme suit.
+4. Dans la boîte de dialogue **Configuration SAML de base**, procédez comme suit.
 
     ![Boîte de dialogue Configuration SAML de base](common/sp-identifier.png)
 
-    1. Dans la zone **URL de connexion** , entrez une URL au format suivant :
+    1. Dans la zone **URL de connexion**, entrez une URL au format suivant :
 
         ```https
         https://<sub-domain>.ap.predictix.com/sso/request
@@ -117,19 +117,19 @@ Pour configurer l’authentification unique Azure AD avec Predictix Assortment P
     > [!NOTE]
     > Ces valeurs sont des espaces réservés. Vous devez utiliser l’URL de connexion et l’identificateur réels. Pour obtenir les valeurs, contactez [l’équipe du support technique Predictix Assortment Planning](https://www.infor.com/support). Vous pouvez aussi vous référer aux modèles figurant dans la boîte de dialogue **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , sélectionnez le lien **Télécharger** en regard du **Certificat (Base64)** correspondant à vos besoins, puis enregistrez le certificat sur votre ordinateur :
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, sélectionnez le lien **Télécharger** en regard du **Certificat (Base64)** correspondant à vos besoins, puis enregistrez le certificat sur votre ordinateur :
 
     ![Lien de téléchargement du certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Predictix Assortment Planning** , copiez la ou les URL appropriées, selon vos besoins :
+6. Dans la section **Configurer Predictix Assortment Planning**, copiez la ou les URL appropriées, selon vos besoins :
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    1. **URL de connexion** .
+    1. **URL de connexion**.
 
-    1. **Identificateur Azure AD** .
+    1. **Identificateur Azure AD**.
 
-    1. **URL de déconnexion** .
+    1. **URL de déconnexion**.
 
 ### <a name="configure-predictix-assortment-planning-single-sign-on"></a>Configurer l’authentification unique Predictix Assortment Planning
 
@@ -139,7 +139,7 @@ Pour configurer l’authentification unique côté Predictix Assortment Planning
 
 Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet de gauche du portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs**  :
+1. Dans le volet de gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs** :
 
     ![Sélectionner Tous les utilisateurs](common/users.png)
 
@@ -147,15 +147,15 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     ![Sélectionner Nouvel utilisateur](common/new-user.png)
 
-3. Dans la boîte de dialogue **Utilisateur** , procédez comme suit.
+3. Dans la boîte de dialogue **Utilisateur**, procédez comme suit.
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    1. Dans la zone **Nom** , entrez **BrittaSimon** .
+    1. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    1. Dans la zone **Nom d’utilisateur** , entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
+    1. Dans la zone **Nom d’utilisateur**, entrez **BrittaSimon@\<yourcompanydomain>.\<extension>** . (Par exemple, BrittaSimon@contoso.com.)
 
-    1. Sélectionnez **Afficher le mot de passe** , puis notez la valeur affichée dans la zone **Mot de passe** .
+    1. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
     1. Sélectionnez **Create** (Créer).
 
@@ -163,27 +163,27 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure AD en lui accordant l’accès à Predictix Assortment Planning.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Predictix Assortment Planning** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Predictix Assortment Planning**.
 
     ![Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Predictix Assortment Planning** .
+2. Dans la liste des applications, sélectionnez **Predictix Assortment Planning**.
 
     ![Liste des applications](common/all-applications.png)
 
-3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes**  :
+3. Dans le volet gauche, sélectionnez **Utilisateurs et groupes** :
 
     ![Sélectionner Utilisateurs et groupes](common/users-groups-blade.png)
 
-4. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Sélectionnez Ajouter un utilisateur](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste des utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , sélectionnez **Affecter** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
 
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Créer un utilisateur de test Predictix Assortment Planning
 

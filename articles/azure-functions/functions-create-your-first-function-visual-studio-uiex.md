@@ -7,10 +7,10 @@ ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/23/2021
 ms.locfileid: "102050118"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Démarrage rapide : Créer votre première fonction dans Azure à l’aide de Visual Studio
@@ -21,7 +21,7 @@ Le suivi de ce guide de démarrage rapide génère une dépense de quelques cent
 
 ## <a name="1-prepare-your-environment"></a>1. Préparation de votre environnement
 
-+ Créez un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">compte Azure</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Créez un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">compte Azure</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + Installez [Visual Studio 2019](https://azure.microsoft.com/downloads/) et sélectionnez la charge de travail **Développement Azure** lors de l’installation. 
 

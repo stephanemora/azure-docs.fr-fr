@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/08/2021
 ms.author: duau
 ms.openlocfilehash: 9b916f9942b0459b41d98b952fad072ae48318b3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505429"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutoriel : Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
@@ -154,7 +154,7 @@ Créez un profil Traffic Manager qui vous permet de retourner des points de term
 
     ![Créer un profil Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
-    | Paramètre                 | Valeur                                              |
+    | Paramètre                 | Value                                              |
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage de **Sous-réseau**.                                       |

@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696249"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Inscription et analyse d’Azure Cosmos DB (API SQL)
@@ -24,7 +24,7 @@ Azure Cosmos DB (API SQL) prend en charge les analyses complètes et incrémenti
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Création d’un compte Azure Purview](create-catalog-portal.md).
+- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
 - Vous devez être administrateur de la source de données Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
@@ -67,7 +67,7 @@ Sur l’écran **Inscrire des sources (Azure Cosmos DB (API SQL))** , procédez 
    1. Vous pouvez également sélectionner **Entrer manuellement** et entrer un point de terminaison de service (URL).
 1. Sélectionnez **Terminer** pour inscrire la source de données.
 
-:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="Options d’inscription des sources" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]

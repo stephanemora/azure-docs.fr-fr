@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97589523"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 pour .NET
@@ -117,7 +117,7 @@ Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
 - [`QueueServiceClient`](/dotnet/api/azure.storage.queues.queueserviceclient) : `QueueServiceClient` vous permet de gérer toutes les files d’attente de votre compte de stockage.
 - [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) : la classe `QueueClient` vous permet de gérer et de manipuler une file d’attente individuelle et ses messages.
-- [`QueueMessage`](/dotnet/api/azure.storage.queues.models.queuemessage) : La classe `QueueMessage` représente les objets individuels retournés lors de l’appel de [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) dans une file d’attente.
+- [`QueueMessage`](/dotnet/api/azure.storage.queues.models.queuemessage) : la classe `QueueMessage` représente les objets individuels retournés lors de l’appel de [`ReceiveMessages`](/dotnet/api/azure.storage.queues.queueclient.receivemessages) dans une file d’attente.
 
 ## <a name="code-examples"></a>Exemples de code
 

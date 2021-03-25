@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91315998"
 ---
-# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutoriel : Approvisionner des appareils sur des hubs IoT à charge équilibrée
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutoriel : Provisionner des appareils sur des hubs IoT à charge équilibrée
 
 Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning. Dans ce tutoriel, vous allez apprendre à :
 
@@ -45,11 +45,11 @@ La liste d’inscriptions indique au service Device Provisioning la méthode d�
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Définir la stratégie d’allocation du service Device Provisioning
 
-La stratégie d’allocation est un paramètre du service Device Provisioning qui détermine la façon dont les appareils sont assignés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
+La stratégie d’allocation est un paramètre du service Device Provisioning qui détermine la façon dont les appareils sont assignés à un hub IoT. Trois stratégies d’allocation sont prises en charge : 
 
-1. **Latence la plus faible** : les appareils sont provisionnés dans le hub IoT dont la latence est la plus faible.
-2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés ont tous la même probabilité d’être provisionnés. Il s'agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
-3. **Configuration statique par le biais de la liste d’inscriptions** : le hub IoT spécifié dans la liste d’inscriptions a priorité sur la stratégie d’allocation au niveau du service Device Provisioning.
+1. **Latence la plus faible** : les appareils sont configurés pour un hub IoT en fonction du hub ayant la plus faible latence sur l’appareil.
+2. **Distribution uniformément pondérée** (par défaut) : les hubs IoT liés sont susceptibles d’avoir des appareils approvisionnés dans des proportions égales. Il s'agit du paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre. 
+3. **Configuration statique par le biais de la liste d’inscriptions** : la spécification du hub IoT souhaité dans la liste d’inscriptions est prioritaire sur la stratégie d’allocation au niveau du service Device Provisioning.
 
 Effectuez les étapes suivantes pour définir la stratégie d’allocation :
 

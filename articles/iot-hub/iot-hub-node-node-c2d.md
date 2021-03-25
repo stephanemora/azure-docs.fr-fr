@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91446887"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envoi de messages cloud à appareil avec IoT Hub (Node.js)
@@ -81,10 +81,10 @@ Dans cet exemple, l'appareil appelle la fonction **complete** afin de notifier I
 
 Avec AMQP et HTTPS, mais pas MQTT, l'appareil peut également :
 
-* abandonner un message - IoT Hub conserve alors le message dans la file d'attente de l'appareil pour un traitement ultérieur ;
-* rejeter un message, ce qui le supprime définitivement de la file d'attente de l'appareil.
+* abandonner un message - IoT Hub conserve alors le message dans la file d’attente de l’appareil pour un traitement ultérieur ;
+* rejeter un message, ce qui le supprime définitivement de la file d’attente de l’appareil.
 
-S'il se produit un événement qui empêche l'appareil de traiter, d'abandonner ou de rejeter le message, IoT Hub le met à nouveau en file d'attente après un délai d'attente déterminé. C'est la raison pour laquelle la logique de traitement des messages de l'application pour périphérique doit être *idempotente* pour qu'un message identique reçu plusieurs fois produise le même résultat.
+S’il se produit un événement qui empêche l’appareil de traiter, d’abandonner ou de rejeter le message, IoT Hub le met à nouveau en file d’attente après un délai d’attente déterminé. C’est la raison pour laquelle la logique de traitement des messages de l’application pour périphérique doit être *idempotente* pour qu’un message identique reçu plusieurs fois produise le même résultat.
 
 Pour plus d'informations sur la façon dont IoT Hub traite les messages cloud-à-appareil, y compris sur le cycle de vie des messages cloud-à-appareil, consultez [Envoyer des messages cloud-à-appareil à partir d'un hub IoT](iot-hub-devguide-messages-c2d.md).
   

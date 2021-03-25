@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108505"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720271"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Windows Virtual Desktop
 
@@ -136,3 +136,7 @@ Azure Lighthouse ne prend pas entièrement en charge la gestion d’environnemen
 Vous ne pouvez pas non plus utiliser les abonnements de bac à sable de fournisseur de solutions Cloud avec le service Windows Virtual Desktop. Pour plus d’informations, consultez [Compte de bac à sable d’intégration](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Enfin, si vous avez activé le fournisseur de ressources à partir du compte propriétaire du fournisseur de solutions Cloud, les comptes client du fournisseur de services Cloud ne peuvent pas modifier le fournisseur de ressources.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>À quelle fréquence dois-je activer mes machines virtuelles pour éviter des problèmes d’inscription ?
+
+Une fois que vous avez inscrit une machine virtuelle dans un pool hôte au sein du service Windows Virtual Desktop, l’agent actualise régulièrement le jeton de la machine virtuelle chaque fois que celle-ci est active. Le certificat du jeton d’inscription est valide pendant 90 jours. En raison de cette limite de 90 jours, nous vous recommandons de démarrer vos machines virtuelles tous les 90 jours. La désactivation de votre machine virtuelle dans ce délai limitera l’expiration ou la non-validité de son jeton d’inscription. Si vous avez démarré votre machine virtuelle après 90 jours et que vous rencontrez des problèmes d’inscription, suivez les instructions du [Guide de résolution des problèmes de l’agent Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour supprimer la machine virtuelle du pool hôte, réinstaller l’agent, puis réinscrire la machine virtuelle dans le pool.

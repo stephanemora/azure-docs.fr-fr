@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
 ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92208054"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutoriel : Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
@@ -38,32 +38,32 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>Pour configurer une méthode de routage de trafic prioritaire
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Sur la gauche, sélectionnez **+ Créer une ressource** . Recherchez **Profil Traffic Manager** , puis sélectionnez **Créer** .
+1. Sur la gauche, sélectionnez **+ Créer une ressource**. Recherchez **Profil Traffic Manager**, puis sélectionnez **Créer**.
 
     :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-priority-profile.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
 
-1. Dans la page *Créer un profil Traffic Manager* , configurez les paramètres suivants :
+1. Dans la page *Créer un profil Traffic Manager*, configurez les paramètres suivants :
 
     | Paramètre         | Value                                              |
     | ---             | ---                                                |
     | Name            | Entrez un nom pour votre profil. Ce nom doit être unique dans la zone trafficmanager.net. Pour accéder à votre profil Traffic Manager, vous utilisez le nom DNS `<profilename>.trafficmanager.net`. |    
-    | Méthode de routage  | Sélectionnez **Priorité** . |
+    | Méthode de routage  | Sélectionnez **Priorité**. |
     | Abonnement    | Sélectionnez votre abonnement. |
     | Resource group   | Utilisez un groupe de ressources existant ou créez-en un où placer ce profil. Si vous choisissez de créer un nouveau groupe de ressources, utilisez la liste déroulante *Emplacement du groupe de ressources* pour spécifier l’emplacement du groupe de ressources. Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui est déployé globalement. |
 
 1. Sélectionnez **Créer** pour déployer votre profil Traffic Manager.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-profile-priority.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-profile-priority.png" alt-text="Créer un profil Traffic Manager avec un routage prioritaire":::
 
 ## <a name="add-endpoints"></a>Ajouter des points de terminaison
 
 1. Sélectionnez le profil Traffic Manager dans la liste.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Liste des profils Traffic Manager":::
 
-1. Sélectionnez **Points de terminaison** sous *Paramètres* , puis sélectionnez **+ Ajouter** pour ajouter un nouveau point de terminaison.
+1. Sélectionnez **Points de terminaison** sous *Paramètres*, puis sélectionnez **+ Ajouter** pour ajouter un nouveau point de terminaison.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Ajouter des points de terminaison Traffic Manager":::
 
 1. Sélectionnez ou saisissez les paramètres suivants : 
 
@@ -78,11 +78,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1. Sélectionnez **Ajouter** pour ajouter le point de terminaison. Répétez les étapes 2 et 3 pour ajouter des points de terminaison supplémentaires. N’oubliez pas de définir un numéro de priorité adapté.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Ajouter un point de terminaison de priorité 1":::
 
-1. Dans la page **Points de terminaison** , passez en revue l’ordre de priorité des points de terminaison. Lorsque vous configurez la méthode de routage du trafic par **Priorité** , l’ordre des points de terminaison sélectionnés est important. Vérifiez l’ordre de priorité des points de terminaison.  Le point de terminaison principal doit se trouver en haut de la liste. Vérifiez l’ordre dans lequel il est affiché. Toutes les requêtes seront routées vers le premier point de terminaison, et si Traffic Manager détecte que celui-ci n’est pas sain, le trafic bascule automatiquement vers le point de terminaison suivant. 
+1. Dans la page **Points de terminaison**, passez en revue l’ordre de priorité des points de terminaison. Lorsque vous configurez la méthode de routage du trafic par **Priorité**, l’ordre des points de terminaison sélectionnés est important. Vérifiez l’ordre de priorité des points de terminaison.  Le point de terminaison principal doit se trouver en haut de la liste. Vérifiez l’ordre dans lequel il est affiché. Toutes les requêtes seront routées vers le premier point de terminaison, et si Traffic Manager détecte que celui-ci n’est pas sain, le trafic bascule automatiquement vers le point de terminaison suivant. 
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Liste des points de terminaison en ordre de priorité":::
 
 1. Pour changer l’ordre de priorité des points de terminaison, sélectionnez un point de terminaison, changez sa priorité, puis sélectionnez **Enregistrer** pour enregistrer les paramètres de point de terminaison.
 
@@ -90,19 +90,19 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 1.  Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous avez créé dans la section précédente, puis sélectionnez le profil Traffic Manager dans les résultats affichés.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Recherche d’un profil Traffic Manager":::
 
 1.  La page de vue d’ensemble du **profil Traffic Manager** affiche le nom DNS du profil Traffic Manager que vous venez de créer. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les requêtes sont routées vers le premier point de terminaison, et si Traffic Manager détecte que celui-ci n’est pas sain, le trafic bascule automatiquement vers le point de terminaison suivant.
 
-    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Nom DNS Traffic Manager":::
 
 1. Une fois le profil Traffic Manager opérationnel, modifiez l’enregistrement DNS sur le serveur DNS faisant autorité, afin de faire pointer votre nom de domaine d’entreprise vers le nom de domaine Traffic Manager.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin du profil Traffic Manager, recherchez le profil, puis sélectionnez **Supprimer le profil** .
+Si vous n’avez plus besoin du profil Traffic Manager, recherchez le profil, puis sélectionnez **Supprimer le profil**.
 
-:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Créer un profil Traffic Manager avec routage prioritaire":::
+:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Suppression d’un profil Traffic Manager avec routage prioritaire":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

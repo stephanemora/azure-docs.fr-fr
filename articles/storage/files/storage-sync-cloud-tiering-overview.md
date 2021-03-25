@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204220"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576456"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation Cloud, fonctionnalité facultative d’Azure File Sync, diminue la quantité de stockage local requise tout en conservant les performances d’un serveur de fichiers local.
@@ -39,7 +39,7 @@ Avec la **stratégie de date**, les fichiers froids sont hiérarchisés dans le 
 Pour obtenir plus d’exemples sur la façon dont les stratégies de date et d’espace libre du volume fonctionnent ensemble, consultez [Choisir les stratégies de hiérarchisation Cloud Azure File Sync](storage-sync-choose-cloud-tiering-policies.md).
 
 ### <a name="windows-server-data-deduplication"></a>Déduplication des données Windows Server
-La déduplication des données est prise en charge sur les volumes pour lesquels la hiérarchisation Cloud est activée à partir de Windows Server 2016. Pour plus d’informations, consultez [Planification d’un déploiement Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+La déduplication des données est prise en charge sur les volumes pour lesquels la hiérarchisation Cloud est activée à partir de Windows Server 2016. Pour plus d’informations, consultez [Planification d’un déploiement Azure File Sync](./storage-sync-files-planning.md#data-deduplication).
 
 ### <a name="cloud-tiering-heatmap"></a>Carte thermique de hiérarchisation Cloud
 Azure File Sync surveille l’accès aux fichiers (opérations de lecture et d’écriture) au fil du temps et, en fonction de la fréquence et de la date d’accès, attribue un score thermique à chaque fichier. Il utilise ces scores pour générer un « carte thermique » de votre espace de noms sur chaque point de terminaison de serveur. Cette carte thermique est une liste de tous les fichiers de synchronisation dans un emplacement où la hiérarchisation Cloud est activée, classée par score de chaleur. Les fichiers fréquemment consultés qui ont été récemment ouverts sont considérés comme chauds, tandis que les fichiers qui ont été horodatés et n’ont pas été utilisés pendant un certain temps sont considérés comme froids. 
@@ -109,4 +109,3 @@ Un fichier peut également être partiellement hiérarchisé (ou partiellement r
 ## <a name="next-steps"></a>Étapes suivantes
 * [Choisir des stratégies de hiérarchisation Cloud Azure File Sync](storage-sync-choose-cloud-tiering-policies.md)
 * [Planification d’un déploiement de synchronisation de fichiers Azure](storage-sync-files-planning.md)
-

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.openlocfilehash: bd068f0cf76a8edefca854d72d5240c0becaf8fc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542063"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Gérer un serveur unique Azure Database pour MySQL avec Azure CLI
@@ -72,7 +72,7 @@ az mysql server update --resource-group myresourcegroup --name mydemoserver --ad
 ```
 
 > [!Important]
->  Assurez-vous que le mot de passe dispose de 8 caractères minimum et 128 caractères maximum.
+>  Assurez-vous que le mot de passe compte huit caractères minimum et 128 caractères maximum.
 > Le mot de passe doit contenir des caractères de trois des catégories suivantes : Lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
 
 ## <a name="delete-a-server"></a>Supprimer un serveur
