@@ -16,10 +16,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 429fe39f84a54c22fa97178b85f417d76dc84a8e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359470"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server sur des machines virtuelles Azure (Resource Manager)
@@ -39,7 +39,7 @@ Pour utiliser la mise à jour corrective automatisée, prenez en compte les cond
 
 * Windows Server 2008 R2
 * Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2012 R2
 * Windows Server 2016
 * Windows Server 2019
 

@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcf3e9228c8e651efb8f97067f7ba9eead5959db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789673"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
@@ -53,7 +53,7 @@ Les rôles intégrés qui accordent des autorisations pour appeler des opératio
 | **Administrateur de l'accès utilisateur** | Peut gérer l’accès au compte de stockage.   | Oui, permet à un principal de sécurité d’attribuer des autorisations à lui-même et à d’autres. |
 | **Contributeur de machine virtuelle** | Peut gérer les machines virtuelles, mais pas le compte de stockage auquel elles sont connectées.   | Oui, fournit des autorisations pour voir et regénérer les clés de compte de stockage. |
 
-La troisième colonne du tableau indique si le rôle intégré prend en charge **Microsoft.Storage/storageAccounts/listkeys/action** . Cette action accorde des autorisations pour lire et regénérer les clés de compte de stockage. Les autorisations d’accès aux ressources de gestion Stockage Azure n’incluent pas non plus des autorisations d’accès aux données. Cependant, si un utilisateur a accès aux clés de compte, il peut utiliser les clés de compte pour accéder aux données de Stockage Azure via une autorisation de clé partagée.
+La troisième colonne du tableau indique si le rôle intégré prend en charge **Microsoft.Storage/storageAccounts/listkeys/action**. Cette action accorde des autorisations pour lire et regénérer les clés de compte de stockage. Les autorisations d’accès aux ressources de gestion Stockage Azure n’incluent pas non plus des autorisations d’accès aux données. Cependant, si un utilisateur a accès aux clés de compte, il peut utiliser les clés de compte pour accéder aux données de Stockage Azure via une autorisation de clé partagée.
 
 ### <a name="custom-roles-for-management-operations"></a>Rôles personnalisés pour les opérations de gestion
 

@@ -4,10 +4,10 @@ description: Dans cet article, découvrez comment préparer votre environnement 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98987020"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server

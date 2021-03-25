@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: d1979e43adc76f4125097fc809ef137baee05f53
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 70c1dcc133f01cf72392f444192d977440c55cf4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939574"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866622"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
@@ -18,7 +18,7 @@ ms.locfileid: "98939574"
 
 Pour les applications C# et .NET, la [bibliothèque de client Microsoft HBase REST pour .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) fournit une bibliothèque de client sur l’API REST HBase.
 
-## <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
+## <a name="install-the-sdk"></a>Installer le SDK
 
 Le SDK HBase .NET est fourni sous la forme d’un package NuGet qui peut être installé à partir de la **Console du gestionnaire de package NuGet** de Visual Studio avec la commande suivante :
 
@@ -113,7 +113,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implémente [Cloud BigTable](https://cloud.google.com/bigtable/) afin que le format de données ressemble à l’image qui suit :
 
-![Exemple de sortie de données Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+:::image type="content" source="./media/apache-hbase-rest-sdk/hdinsight-table-roles.png" alt-text="Exemple de sortie de données Apache HBase" border="true":::
 
 ## <a name="select-data"></a>Sélectionner les données
 

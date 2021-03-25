@@ -8,10 +8,10 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 4abfdd0209bd9f13fb7bd902b27a53f65156da2e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381815"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-resource-manager-templates"></a>Configurer et gérer la sauvegarde en continu et la restauration à un instant dans le passé (préversion) – Modèles Azure Resource Manager
@@ -22,7 +22,7 @@ ms.locfileid: "100381815"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La fonctionnalité de restauration à un instant dans le passé d’Azure Cosmos DB (préversion) vous permet de récupérer vos données après une modification accidentelle au sein d’un conteneur, de restaurer un compte, une base de données ou un conteneur supprimé ou de restaurer dans n’importe quelle région (où des sauvegardes existent). Le mode de sauvegarde continue vous permet d’effectuer une restauration à n’importe quel instant dans le passé au cours des 30 derniers jours.
+La fonctionnalité de restauration à un instant dans le passé d’Azure Cosmos DB (préversion) vous permet de récupérer vos données après une modification accidentelle au sein d’un conteneur, de restaurer un compte, une base de données ou un conteneur supprimé, ou de restaurer dans n’importe quelle région (où des sauvegardes existent). Le mode de sauvegarde continue vous permet d’effectuer une restauration à n’importe quel instant dans le passé au cours des 30 derniers jours.
 
 Cet article explique comment approvisionner un compte avec sauvegarde continue et restauration des données à l’aide de modèles Azure Resource Manager.
 

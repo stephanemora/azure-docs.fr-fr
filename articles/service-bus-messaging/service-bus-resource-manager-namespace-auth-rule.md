@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b0ffe022f6c61cf7d06c510c4f8fa5c764d72b42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067186"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Créer une règle d’autorisation Service Bus pour l’espace de noms et la file d’attente à l’aide d’un modèle Azure Resource Manager
@@ -95,7 +95,7 @@ La version de l’API Service Bus du modèle.
 
 ## <a name="resources-to-deploy"></a>Ressources à déployer
 
-Crée un espace de noms Service Bus standard de type **Messagerie**et une règle d'autorisation Service Bus pour l'espace de noms et l'entité.
+Crée un espace de noms Service Bus standard de type **Messagerie** et une règle d'autorisation Service Bus pour l'espace de noms et l'entité.
 
 ```json
 "resources": [

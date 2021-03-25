@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783570"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestion du stockage dans les clouds indépendants Azure avec PowerShell
@@ -51,7 +51,7 @@ Connectez-vous à votre compte qui a accès au cloud auquel vous souhaitez vous 
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Pour accéder au cloud de la Chine, utilisez l’environnement **AzureChinaCloud** . Pour accéder au cloud allemand, utilisez **AzureGermanCloud** .
+Pour accéder au cloud de la Chine, utilisez l’environnement **AzureChinaCloud**. Pour accéder au cloud allemand, utilisez **AzureGermanCloud**.
 
 À ce stade, si vous avez besoin de la liste des emplacements pour créer un compte de stockage ou une autre ressource, vous pouvez interroger les emplacements disponibles pour le cloud sélectionné à l’aide de [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ Le tableau suivant présente les emplacements retournés pour le cloud allemand.
 
 ## <a name="endpoint-suffix"></a>Suffixe de point de terminaison
 
-Le suffixe de point de terminaison pour chacun de ces environnements est différent de celui du point de terminaison du cloud Azure public. Par exemple, le suffixe de point de terminaison blob du cloud Azure public est **blob.core.windows.net** . Pour le cloud Government, le suffixe de point de terminaison blob est **blob.core.usgovcloudapi.net** .
+Le suffixe de point de terminaison pour chacun de ces environnements est différent de celui du point de terminaison du cloud Azure public. Par exemple, le suffixe de point de terminaison blob du cloud Azure public est **blob.core.windows.net**. Pour le cloud Government, le suffixe de point de terminaison blob est **blob.core.usgovcloudapi.net**.
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obtenir le point de terminaison avec Get-AzEnvironment
 
@@ -92,7 +92,7 @@ Cette commande retourne les résultats suivants.
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-Pour récupérer toutes les propriétés de l’environnement spécifié, appelez **Get-AzEnvironment** , puis spécifiez le nom du cloud. L’extrait de code suivant retourne une liste de propriétés. Recherchez **StorageEndpointSuffix** dans cette liste. L’exemple suivant concerne le cloud allemand.
+Pour récupérer toutes les propriétés de l’environnement spécifié, appelez **Get-AzEnvironment**, puis spécifiez le nom du cloud. L’extrait de code suivant retourne une liste de propriétés. Recherchez **StorageEndpointSuffix** dans cette liste. L’exemple suivant concerne le cloud allemand.
 
 ```powershell
 Get-AzEnvironment -Name AzureGermanCloud

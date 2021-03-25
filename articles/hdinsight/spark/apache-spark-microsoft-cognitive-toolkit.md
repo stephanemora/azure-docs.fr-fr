@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: cddbc4b6a5c7a2c787c8305fdf703e34543746f8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6be70f448cec7cf6db2b8152565ad8102d3a3294
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929966"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868747"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Utiliser le modèle de formation approfondie Microsoft Cognitive Toolkit avec un cluster Azure HDInsight Spark
 
@@ -73,7 +73,7 @@ Pour utiliser le Microsoft Cognitive Toolkit avec le cluster Azure HDInsight Spa
 
 1. Dans le bloc-notes Jupyter, sélectionnez **Charger** dans l’angle supérieur droit, puis accédez au téléchargement et sélectionnez le fichier `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
 
-    ![Charger un bloc-notes Jupyter sur un cluster Azure HDInsight Spark](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Charger un bloc-notes Jupyter sur un cluster Azure HDInsight Spark")
+    :::image type="content" source="./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png " alt-text="Charger un bloc-notes Jupyter sur un cluster Azure HDInsight Spark" border="true":::
 
 1. Sélectionnez **Charger** à nouveau.
 
@@ -81,13 +81,13 @@ Pour utiliser le Microsoft Cognitive Toolkit avec le cluster Azure HDInsight Spa
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
+* [Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
 
-* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](apache-spark-use-bi-tools.md)
+* [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
 * [Apache Spark avec Machine Learning : Utiliser Spark dans HDInsight pour analyser la température d’un bâtiment à l’aide de données issues des systèmes de chauffage, de ventilation et de climatisation](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark avec Machine Learning : Utiliser Spark dans HDInsight pour prédire les résultats d’une inspection alimentaire](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Analyse de données de télémétrie Application Insight avec Spark dans HDInsight](apache-spark-analyze-application-insight-logs.md)
 

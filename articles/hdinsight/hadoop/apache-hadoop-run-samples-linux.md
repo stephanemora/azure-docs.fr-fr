@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 5e75a39b1f9e8503097914b0c9e735915f9ae667
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943220"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Exécuter les exemples MapReduce inclus dans HDInsight
@@ -18,7 +18,7 @@ ms.locfileid: "98943220"
 
 Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dans HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 

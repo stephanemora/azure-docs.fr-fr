@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: c73cb99d62295312980fe5f1b248d23efa2eb0c5
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432381"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866520"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
@@ -121,7 +121,7 @@ Vous pouvez utiliser Bootstrap dans un modèle Resource Manager :
 }
 ```
 
-![Hadoop personnalise le modèle Azure Resource Manager de démarrage de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop personnalise le modèle Azure Resource Manager de démarrage de cluster":::
 
 Exemple d'extrait de modèle Resource Manager permettant de modifier la configuration de spark2-defaults afin de nettoyer régulièrement les journaux des événements de l'espace de stockage.  
 

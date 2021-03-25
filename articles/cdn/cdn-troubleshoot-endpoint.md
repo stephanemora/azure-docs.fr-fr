@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d6ad0b8b37bd4f04c22ed52d4ac6717202f22889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192487"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404
@@ -102,5 +102,5 @@ Enfin, nous devons vérifier le champ **Chemin d’accès d’origine**,  qui es
 
 Dans cet exemple de point de terminaison, nous voulions que toutes les ressources du compte de stockage soient disponibles. Nous avons donc laissé le champ **Chemin d’accès d’origine** vide.  Cela signifie qu’une requête auprès de https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt entraîne une connexion entre le point de terminaison et cdndocdemo.core.windows.net qui interroge */publicblob/lorem.txt*.  De même, une requête auprès de https:\//cdndocdemo.azureedge.net/donotcache/status.png amène le point de terminaison à interroger */donotcache/status.png* à partir de l’origine.
 
-Que se passe-t-il si vous ne voulez pas utiliser le CDN pour chaque chemin d’accès de votre origine ?  Supposons que vous vouliez uniquement exposer le chemin d’accès *publicblob*.  Si nous entrons */publicblob* dans le champ **Chemin d’accès d’origine**, le point de terminaison insère */publicblob* avant chaque requête adressée à l’origine.  Cela signifie que la requête auprès de https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt prend la partie de la requête de l’URL */publicblob/lorem.txt*et la fait précéder de */publicblob*. Cela entraîne une requête auprès de */publicblob/publicblob/lorem.txt* à partir de l’origine.  Si ce chemin d’accès ne se résout pas en fichier réel, l’origine retournera un état 404.  L’URL correcte pour récupérer lorem.txt dans cet exemple serait en fait https:\//cdndocdemo.azureedge.net/lorem.txt.  Nous n’incluons pas du tout le chemin */publicblob*, car la partie requête de l’URL est */lorem.txt* et le point de terminaison ajoute */publicblob*. Par conséquent, la requête transmise à l’origine est */publicblob/lorem.txt*.
+Que se passe-t-il si vous ne voulez pas utiliser le CDN pour chaque chemin d’accès de votre origine ?  Supposons que vous vouliez uniquement exposer le chemin d’accès *publicblob*.  Si nous entrons */publicblob* dans le champ **Chemin d’accès d’origine**, le point de terminaison insère */publicblob* avant chaque requête adressée à l’origine.  Cela signifie que la requête auprès de https:\//cdndocdemo.azureedge.net/publicblob/lorem.txt prend la partie de la requête de l’URL */publicblob/lorem.txt* et la fait précéder de */publicblob*. Cela entraîne une requête auprès de */publicblob/publicblob/lorem.txt* à partir de l’origine.  Si ce chemin d’accès ne se résout pas en fichier réel, l’origine retournera un état 404.  L’URL correcte pour récupérer lorem.txt dans cet exemple serait en fait https:\//cdndocdemo.azureedge.net/lorem.txt.  Nous n’incluons pas du tout le chemin */publicblob*, car la partie requête de l’URL est */lorem.txt* et le point de terminaison ajoute */publicblob*. Par conséquent, la requête transmise à l’origine est */publicblob/lorem.txt*.
 

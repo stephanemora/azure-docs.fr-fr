@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103218"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
@@ -38,7 +38,7 @@ Dans le modèle de déploiement classique qui utilise une passerelle VPN, la con
 
 Les réseaux virtuels que vous connectez peuvent être situés dans différents abonnements et différentes régions. Vous pouvez combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagramme représentant une architecture de réseau virtuel à réseau virtuel classique":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagramme représentant les connexions":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>Pourquoi connecter des réseaux virtuels ?
 
@@ -110,17 +110,17 @@ Au cours de cette étape, vous allez créer deux réseaux virtuels classiques, T
 
 **Lorsque vous créez vos réseaux virtuels, tenez compte des paramètres suivants :**
 
-* **Espaces d’adresses du réseau virtuel**  : sur la page Espaces d’adresses du réseau virtuel, indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel.<br>Les espaces d’adressage que vous sélectionnez ne peuvent pas chevaucher les espaces d’adressage des autres réseaux virtuels ou les emplacements locaux auxquels ce réseau virtuel se connectera.
+* **Espaces d’adresses du réseau virtuel** : sur la page Espaces d’adresses du réseau virtuel, indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel.<br>Les espaces d’adressage que vous sélectionnez ne peuvent pas chevaucher les espaces d’adressage des autres réseaux virtuels ou les emplacements locaux auxquels ce réseau virtuel se connectera.
 
-* **Emplacement**  : lors de la création d'un réseau virtuel, associez-le à une région (emplacement) Azure. Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région USA Ouest, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
+* **Emplacement** : lors de la création d'un réseau virtuel, associez-le à une région (emplacement) Azure. Par exemple, si vous souhaitez que vos machines virtuelles déployées sur votre réseau virtuel soient physiquement situées dans la région USA Ouest, sélectionnez cet emplacement. Vous ne pouvez pas modifier l’emplacement associé à votre réseau virtuel après sa création.
 
 **Une fois vos réseaux virtuels créés, vous pouvez ajouter les paramètres suivants :**
 
-* **Espace d’adressage**  : aucun espace d’adressage supplémentaire n’est nécessaire pour cette configuration, mais vous pouvez ajouter un espace d’adressage supplémentaire après avoir créé votre réseau virtuel.
+* **Espace d’adressage** : aucun espace d’adressage supplémentaire n’est nécessaire pour cette configuration, mais vous pouvez ajouter un espace d’adressage supplémentaire après avoir créé votre réseau virtuel.
 
-* **Sous-réseaux**  : les sous-réseaux supplémentaires ne sont pas requis pour cette configuration, mais vous souhaiterez peut-être placer vos machines virtuelles dans un sous-réseau distinct de vos autres instances de rôle.
+* **Sous-réseaux** : les sous-réseaux supplémentaires ne sont pas requis pour cette configuration, mais vous souhaiterez peut-être placer vos machines virtuelles dans un sous-réseau distinct de vos autres instances de rôle.
 
-* **Serveurs DNS**  : entrez le nom du serveur DNS et son adresse IP. Ce paramètre n’entraîne pas la création de serveur DNS. Il vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel.
+* **Serveurs DNS** : entrez le nom du serveur DNS et son adresse IP. Ce paramètre n’entraîne pas la création de serveur DNS. Il vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel.
 
 ### <a name="to-create-a-classic-virtual-network"></a>Pour créer un réseau virtuel classique
 
@@ -145,9 +145,9 @@ Gardez à l'esprit que le site local de chaque réseau virtuel est l'autre rése
 
 Le site local fait généralement référence à votre emplacement local. Il contient l’adresse IP du périphérique VPN avec lequel vous allez créer une connexion et les plages d’adresses IP qui seront acheminées via la passerelle VPN vers le périphérique VPN.
 
-1. Sur la page de votre réseau virtuel, sous **Paramètres** , sélectionnez **Connexions de site à site** .
-1. Dans la page Connexions de site à site, sélectionnez **+ Ajouter** .
-1. Dans la page **Configurer une connexion VPN et une passerelle** , pour **Type de connexion** , gardez l’option **Site à site** sélectionnée.
+1. Sur la page de votre réseau virtuel, sous **Paramètres**, sélectionnez **Connexions de site à site**.
+1. Dans la page Connexions de site à site, sélectionnez **+ Ajouter**.
+1. Dans la page **Configurer une connexion VPN et une passerelle**, pour **Type de connexion**, gardez l’option **Site à site** sélectionnée.
 
    * **Adresse IP de la passerelle VPN :** Adresse IP publique du périphérique VPN pour votre réseau local. Dans le cadre de cet exercice, vous pouvez saisir une adresse fictive car vous ne disposez pas encore de l'adresse IP de la passerelle VPN de l'autre site. Par exemple, 5.4.3.2. Plus tard, lorsque vous aurez configuré la passerelle pour l'autre réseau virtuel, vous pourrez ajuster cette valeur.
 
@@ -156,13 +156,13 @@ Le site local fait généralement référence à votre emplacement local. Il con
 
 ### <a name="to-configure-a-virtual-network-gateway"></a><a name="sku"></a>Pour configurer une passerelle de réseau virtuel
 
-1. Sur la page **Passerelle** , sélectionnez les valeurs suivantes :
+1. Sur la page **Passerelle**, sélectionnez les valeurs suivantes :
 
    * **Taille :** Il s’agit de la référence de passerelle que vous utilisez pour créer votre passerelle de réseau virtuel. Les passerelles VPN classiques utilisent les anciennes références SKU de passerelles. Pour en savoir plus sur les anciennes références SKU de passerelle, consultez la section [Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)](vpn-gateway-about-skus-legacy.md). Vous pouvez sélectionner **Standard** pour cet exercice.
 
-   * **Type de routage :** Sélectionnez le type de routage pour votre passerelle. Cela correspond également au type de VPN. Il est important de sélectionner le type approprié, car vous ne pouvez pas convertir la passerelle d’un type à un autre. Votre périphérique VPN doit être compatible avec le type de routage que vous sélectionnez. Pour plus d’informations sur le type de routage, consultez [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Certains articles font référence aux types de VPN « RouteBased » et « PolicyBased ». « RouteBased » correspond à un routage dynamique, et « PolicyBased » à un routage statique. Pour cette configuration, sélectionnez **Dynamique** .
+   * **Type de routage :** Sélectionnez le type de routage pour votre passerelle. Cela correspond également au type de VPN. Il est important de sélectionner le type approprié, car vous ne pouvez pas convertir la passerelle d’un type à un autre. Votre périphérique VPN doit être compatible avec le type de routage que vous sélectionnez. Pour plus d’informations sur le type de routage, consultez [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Certains articles font référence aux types de VPN « RouteBased » et « PolicyBased ». « RouteBased » correspond à un routage dynamique, et « PolicyBased » à un routage statique. Pour cette configuration, sélectionnez **Dynamique**.
 
-   * **Sous-réseau de passerelle**  : La taille du sous-réseau de passerelle que vous spécifiez dépend de la configuration de la passerelle VPN que vous souhaitez créer. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons d’utiliser un sous-réseau /27 ou /28. Cette opération crée un sous-réseau plus grand qui inclut plusieurs adresses. En choisissant un sous-réseau de passerelle plus vaste, vous disposez de suffisamment d’adresses IP pour prendre en charge d’éventuelles configurations futures.
+   * **Sous-réseau de passerelle** : La taille du sous-réseau de passerelle que vous spécifiez dépend de la configuration de la passerelle VPN que vous souhaitez créer. Bien qu’il soit possible de créer un sous-réseau de passerelle aussi petit que /29, nous vous recommandons d’utiliser un sous-réseau /27 ou /28. Cette opération crée un sous-réseau plus grand qui inclut plusieurs adresses. En choisissant un sous-réseau de passerelle plus vaste, vous disposez de suffisamment d’adresses IP pour prendre en charge d’éventuelles configurations futures.
 
 1. Au bas de la page, sélectionnez **Vérifier + créer** pour confirmer vos paramètres. Sélectionnez **Créer** pour effectuer le déploiement. Selon la référence SKU que vous sélectionnez, cela peut prendre jusqu’à 45 minutes pour créer une passerelle de réseau virtuel.
 1. Pendant la création de cette passerelle, vous pouvez commencer à passer à l'étape suivante.
@@ -173,7 +173,7 @@ Répétez les étapes de [Création d'un site et d'une passerelle ](#localsite) 
 
 ## <a name="update-local-sites"></a><a name="updatelocal"></a>Mettre à jour les sites locaux
 
-Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virtuels, vous devez ajuster les propriétés d' **adresse IP de passerelle VPN** des sites locaux.
+Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virtuels, vous devez ajuster les propriétés d'**adresse IP de passerelle VPN** des sites locaux.
 
 |Nom du réseau virtuel|Site connecté|Adresse IP de la passerelle|
 |:--- |:--- |:--- |
@@ -183,14 +183,14 @@ Une fois vos passerelles de réseau virtuel créées pour les deux réseaux virt
 ### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>Partie 1 : obtenir l’adresse IP publique de passerelle de réseau virtuel
 
 1. Accédez à votre réseau virtuel en accédant au **Groupe de ressources** et en sélectionnant le réseau virtuel.
-1. Sur la page de votre réseau virtuel, dans le volet **Essentials** , à droite, recherchez l' **Adresse IP de la passerelle** et copiez-la dans le presse-papiers.
+1. Sur la page de votre réseau virtuel, dans le volet **Essentials**, à droite, recherchez l'**Adresse IP de la passerelle** et copiez-la dans le presse-papiers.
 
 ### <a name="part-2---modify-the-local-site-properties"></a>Partie 2 : modifier les propriétés des sites locaux
 
 1. Sous Connexions de site à site, sélectionnez la connexion. Par exemple, SiteVNet4.
-1. Sur la page **Propriétés** de la connexion de site à site, sélectionnez **Modifier le site local** .
-1. Dans le champ **Adresse IP de la passerelle VPN** , collez l'adresse IP de la passerelle VPN que vous avez copiée à la section précédente.
-1. Sélectionnez **OK** .
+1. Sur la page **Propriétés** de la connexion de site à site, sélectionnez **Modifier le site local**.
+1. Dans le champ **Adresse IP de la passerelle VPN**, collez l'adresse IP de la passerelle VPN que vous avez copiée à la section précédente.
+1. Sélectionnez **OK**.
 1. Le champ est mis à jour dans le système. Vous pouvez également utiliser cette méthode pour ajouter une adresse IP supplémentaire à acheminer vers ce site.
 
 ### <a name="part-3---repeat-steps-for-the-other-vnet"></a>Partie 3 : répéter les étapes pour l'autre réseau virtuel

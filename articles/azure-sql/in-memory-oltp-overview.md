@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
 ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779949"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance
@@ -101,7 +101,7 @@ Vous pouvez comprendre par programmation si une base de données spécifique pre
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Si la requête renvoie **1** , l’OLTP en mémoire est pris en charge dans cette base de données. Les requêtes suivantes identifient tous les objets à supprimer avant qu'une base de données puisse être rétrogradée au niveau Usage général, Standard ou De base :
+Si la requête renvoie **1**, l’OLTP en mémoire est pris en charge dans cette base de données. Les requêtes suivantes identifient tous les objets à supprimer avant qu'une base de données puisse être rétrogradée au niveau Usage général, Standard ou De base :
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Seuil de la taille des données et du stockage pour l’OLTP en mémoire
 
-l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire* .
+l’OLTP en mémoire inclut des tables optimisées en mémoire, qui sont utilisées pour stocker des données de l’utilisateur. Le volume de ces tables doit tenir dans la mémoire. Étant donné que vous gérez la mémoire directement dans SQL Database, nous disposons du concept de quota pour les données utilisateur. Ce concept est appelé *stockage OLTP en mémoire*.
 
 Chaque niveau tarifaire de base de données unique pris en charge et chaque niveau tarifaire de pool élastique inclut une certaine quantité de stockage OLTP en mémoire.
 
@@ -149,7 +149,7 @@ Toutefois, le passage à un niveau inférieur peut impacter négativement votre 
 
 Avant de rétrograder la base de données vers le niveau Usage général, Standard ou De base, supprimez toutes les tables à mémoire optimisée et tous les types de table, ainsi que tous les modules T-SQL compilés en mode natif.
 
-*Effectuer un scale-down des ressources dans le niveau Critique pour l’entreprise*  : Les données des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau de la base de données ou de l’instance gérée, ou qui est disponible dans le pool élastique. Si vous essayez d’effectuer un scale-down du niveau ou de déplacer la base de données dans un pool qui n’a pas de stockage OLTP en mémoire suffisant, l’opération échoue.
+*Effectuer un scale-down des ressources dans le niveau Critique pour l’entreprise* : Les données des tables à mémoire optimisée doivent tenir dans le stockage OLTP en mémoire qui est associé au niveau de la base de données ou de l’instance gérée, ou qui est disponible dans le pool élastique. Si vous essayez d’effectuer un scale-down du niveau ou de déplacer la base de données dans un pool qui n’a pas de stockage OLTP en mémoire suffisant, l’opération échoue.
 
 ## <a name="in-memory-columnstore"></a>Columnstore en mémoire
 
@@ -180,7 +180,7 @@ Lors de l’utilisation d’index columnstore sans cluster, la table de base est
 
 Le *passage d’une base de données unique au niveau De base ou Standard* n’est peut-être pas possible si le niveau de votre cible est inférieur à S3. Les index columnstore sont pris en charge uniquement sur le niveau tarifaire Critique pour l’entreprise/Premium et sur le niveau Standard, S3 et supérieur, et non sur le niveau De base. Lors de la rétrogradation de votre base de données vers un niveau non pris en charge, votre index columnstore devient indisponible. Le système maintient l’index columnstore, mais il ne tire jamais profit de l’index. Si vous mettez à niveau ultérieurement vers un niveau pris en charge, l’index columnstore est immédiatement prêt à être exploité à nouveau.
 
-Si vous disposez d’un index columnstore **en cluster** , la totalité de la table devient indisponible après le passage à une version antérieure. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *en index* avant de rétrograder votre base de données vers un niveau non pris en charge.
+Si vous disposez d’un index columnstore **en cluster**, la totalité de la table devient indisponible après le passage à une version antérieure. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *en index* avant de rétrograder votre base de données vers un niveau non pris en charge.
 
 > [!Note]
 > SQL Managed Instance prend en charge les index columnstore dans tous les niveaux.

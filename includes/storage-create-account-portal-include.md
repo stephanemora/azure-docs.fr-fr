@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 01/11/2021
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3da4fd26b3f985e034ca60039c09412e8237e965
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98109506"
 ---
 Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :

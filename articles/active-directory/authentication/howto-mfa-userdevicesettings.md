@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc0be7e50c5cce511fafd7d8b407626bd57659bd
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98183130"
 ---
 # <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Gérer les méthodes d'authentification utilisateur d'Azure AD Multi-Factor Authentication

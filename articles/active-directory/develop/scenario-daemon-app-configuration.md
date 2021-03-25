@@ -11,26 +11,22 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 300df35918ea4868664fcb7c5882709eee4090ca
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582888"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103007995"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Application démon appelant des API web - Configuration du code
 
 Découvrez comment configurer le code de votre application démon qui appelle des API web.
 
-## <a name="msal-libraries-that-support-daemon-apps"></a>Bibliothèques MSAL qui prennent en charge les applications démon
+## <a name="microsoft-libraries-supporting-daemon-apps"></a>Bibliothèques Microsoft prenant en charge les applications démon
 
-Ces bibliothèques Microsoft prenant en charge les applications démon :
+Les bibliothèques Microsoft suivantes prennent en charge les applications démon :
 
-  Bibliothèque MSAL | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Les plateformes .NET Core et .NET Framework sont prises en charge pour la génération d’applications démon. (Les plateformes UWP, Xamarin.iOS et Xamarin.Android ne sont pas prises en charge, car elles sont utilisées pour créer des applications clientes publiques.)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Prise en charge des applications démon dans Python.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Prise en charge des applications démon dans Java.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## <a name="configure-the-authority"></a>Configurer l’autorité
 

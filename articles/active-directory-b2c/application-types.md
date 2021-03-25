@@ -12,10 +12,10 @@ ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 07897823a3ba3b83e240e8e8dc005ea13b036fce
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94952044"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Active Directory B2C
@@ -78,7 +78,7 @@ Outre la simplification des connexions, une application de serveur web peut éga
 ## <a name="single-page-applications"></a>Applications monopages
 De nombreuses applications web modernes sont créées en tant qu’applications monopages (« SPA ») côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework d’application monopage, comme Angular, Vue et React. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur.
 
-Azure AD B2C offre **deux** options pour permettre aux applications monopages d’effectuer la connexion des utilisateurs et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
+Azure AD B2C propose **deux** options qui permettent aux applications monopages d’effectuer la connexion des utilisateurs, et d’obtenir des jetons pour accéder aux services back-end ou aux API web :
 
 ### <a name="authorization-code-flow-with-pkce"></a>Flux de code d’autorisation (avec PKCE)
 - [Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./authorization-code-flow.md). Le flux de code d’autorisation permet à l’application d’échanger un code d’autorisation pour obtenir des jetons d’**ID** afin de représenter l’utilisateur authentifié et des jetons d’**accès** nécessaires pour appeler des API protégées. De plus, il retourne des jetons d’**actualisation** qui fournissent à votre application un accès à long terme à des ressources au nom d’utilisateurs sans nécessiter l’intervention de ces utilisateurs. 

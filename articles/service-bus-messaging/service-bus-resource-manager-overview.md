@@ -9,10 +9,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: df8a7fde9114f03521f0e57e072f81a867efcf39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075254"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Création de ressources Service Bus à l’aide de modèles Azure Resource Manager
@@ -48,7 +48,7 @@ La procédure suivante décrit comment utiliser PowerShell pour déployer un mod
 6. Si vous le souhaitez, définissez le mode de déploiement.
 7. Déployez le modèle.
 
-Pour des informations complètes sur le déploiement de modèles Azure Resource Manager, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell][Deploy resources with Azure Resource Manager templates].
+Pour des informations complètes sur le déploiement de modèles Azure Resource Manager, consultez [Déployer des ressources à l’aide de modèles Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>Installer PowerShell
 

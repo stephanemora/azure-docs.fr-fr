@@ -3,16 +3,16 @@ title: Générer votre première fabrique de données Data Factory (REST)
 description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de l’API REST Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9aa3e7f2b5f382e1212955479d8e35f91b458bf0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: eb9ce65985521fb3f82032f04aec62538a157639
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392015"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785460"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -316,7 +316,7 @@ Notez les points suivants :
   3. Exécutez les deux commandes suivantes pour appeler l’API REST afin de créer la fabrique de données et d’imprimer les résultats de l’opération.
 * Pour créer des instances de fabrique de données, vous devez avoir le statut d’administrateur/collaborateur de l’abonnement Azure
 * Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
-* Si vous recevez le message d’erreur : «**L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory**», effectuez l’une des opérations suivantes et essayez de relancer la publication :
+* Si vous recevez le message d’erreur : « **L’abonnement n’est pas inscrit pour utiliser l’espace de noms Microsoft.DataFactory** », effectuez l’une des opérations suivantes et essayez de relancer la publication :
 
   * Dans Azure PowerShell, exécutez la commande suivante pour enregistrer le fournisseur Data Factory :
 
@@ -415,7 +415,7 @@ Dans cette étape, vous créez le jeu de données de sortie pour représenter le
     ```
 
 ## <a name="create-pipeline"></a>Création d’un pipeline
-Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive** . La tranche d’entrée est disponible mensuellement (fréquence : Mois, intervalle : 1), la tranche de sortie est produite mensuellement et la propriété du planificateur pour l’activité est également définie sur Mensuellement. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c'est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
+Dans cette étape, vous créez votre premier pipeline avec une activité **HDInsightHive** . La tranche d’entrée est disponible tous les mois (fréquence : mois, intervalle : 1), la tranche de sortie est produite tous les mois et la propriété du planificateur de l’activité est également mensuelle. Les paramètres pour le jeu de données de sortie et le planificateur d’activité doivent correspondre. À ce stade, c'est le jeu de données de sortie qui pilote la planification : vous devez donc créer un jeu de données de sortie même si l’activité ne génère aucune sortie. Si l’activité ne prend aucune entrée, vous pouvez ignorer la création du jeu de données d’entrée.
 
 Vérifiez que le fichier **input.log** apparaît dans le dossier **adfgetstarted/inputdata** du Stockage Blob Azure, puis exécutez la commande suivante pour déployer le pipeline. Étant donné que les valeurs pour **start** et **end** sont définies sur des valeurs antérieures au moment actuel, et que **isPaused** est défini sur false, le pipeline (activité dans le pipeline) s’exécute immédiatement après le déploiement.
 
@@ -480,7 +480,7 @@ Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traite
 4. Création d’un **pipeline** avec une activité **Hive HDInsight**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données depuis un objet blob Azure vers Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour voir comment utiliser une activité de copie pour copier des données à partir d’un objet blob Azure vers Azure SQL, consultez [Tutoriel : Copier les données d’un objet blob Azure vers Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Voir aussi
 | Rubrique | Description |

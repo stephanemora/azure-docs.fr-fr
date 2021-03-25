@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 03/04/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57826fcff03e79d5617c7eb69aac7d535d3c86f7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 35178ecc9bc736bbaca3adc932022b15cc2fc956
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915706"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632082"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accès conditionnel : Exiger MFA pour les administrateurs
 
@@ -56,7 +56,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
-   1. Sous **Inclure**, sélectionnez **Rôles d’annuaire (préversion)** et choisissez au minimum les rôles suivants :
+   1. Sous **Inclure**, sélectionnez **Rôles d’annuaire** et choisissez des rôles intégrés, tels que :
       * Administrateur d’authentification
       * Administrateur de facturation
       * Administrateur de l’accès conditionnel
@@ -69,12 +69,11 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
       * Administrateur d’utilisateurs
    
       > [!WARNING]
-      > Les stratégies d’accès conditionnel ne prennent pas en charge les utilisateurs affectés à un rôle d’annuaire [étendue à une unité administrative](../roles/admin-units-assign-roles.md) ou à des rôles d’annuaire étendus directement à un objet, par exemple via [des rôles personnalisés](../roles/custom-create.md).
+      > Les stratégies d’accès conditionnel prennent en charge les rôles intégrés. Les stratégies d’accès conditionnel ne sont pas appliquées pour d’autres types de rôles, y compris les [rôles limités à une étendue d’unité administrative](../roles/admin-units-assign-roles.md) ou les [rôles personnalisés](../roles/custom-create.md).
 
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud** et sélectionnez **Terminé**.
-1. Sous **Conditions** > **Applications clientes**, basculez **Configurer** vers **Oui** et sous **Sélectionnez les applications clientes auxquelles cette stratégie s’applique sur** , laissez toutes les valeurs par défaut sélectionnées, puis sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.

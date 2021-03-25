@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: a1b9d03da29b7c89055303fa97fc38c2ef734b23
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381475"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Présentation du déclencheur et des liaisons de Stockage File d'attente Azure pour Azure Functions
@@ -34,7 +34,7 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 | Script C#, Java, JavaScript, Python, PowerShell | L’inscription du [bundle d’extensions]          | Il est recommandé d’utiliser l’[extension Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) avec Visual Studio Code. |
 | Script C# (en ligne uniquement dans le portail Azure)         | Ajout d’une liaison                            | Pour mettre à jour des extensions de liaison existantes sans avoir à republier votre application de fonction, voir [Mettre à jour vos extensions]. |
 
-#### <a name="storage-extension-5x-and-higher"></a>Extension Stockage versions 5.x et ultérieures
+#### <a name="storage-extension-5x-and-higher"></a>Extension Stockage 5.x et ultérieur
 
 Une nouvelle version de l’extension de liaisons de Stockage est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2). Cette préversion introduit la possibilité de [se connecter à l’aide d’une identité au lieu d’un secret](./functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez effectuer une liaison, en remplaçant les types de `WindowsAzure.Storage` et `Microsoft.Azure.Storage` par des types plus récents de [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 

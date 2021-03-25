@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780833"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec Azure SQL Database
@@ -24,7 +24,7 @@ ms.locfileid: "92780833"
 
 Dans ce didacticiel, vous allez déployer et explorer l’application de base de données par locataire SaaS Wingtip Tickets. L’application utilise un modèle de base de données par locataire pour stocker les données de plusieurs locataires. L’application est conçue pour tirer parti des fonctionnalités Azure SQL Database qui simplifient l’activation des scénarios SaaS.
 
-Cinq minutes après avoir sélectionné **Déployer sur Azure** , vous avez une application SaaS multilocataire. L’application comprend une base de données qui s’exécute dans Azure SQL Database. Elle est déployée avec trois exemples de locataire, chacun avec sa propre base de données. Toutes les bases de données sont déployées sur un pool élastique SQL. L’application est déployée sur votre abonnement Azure. Vous avez un accès complet pour explorer et utiliser les composants individuels de l’application. Le code source en C# de l’application et les scripts de gestion sont disponibles dans le [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+Cinq minutes après avoir sélectionné **Déployer sur Azure**, vous avez une application SaaS multilocataire. L’application comprend une base de données qui s’exécute dans Azure SQL Database. Elle est déployée avec trois exemples de locataire, chacun avec sa propre base de données. Toutes les bases de données sont déployées sur un pool élastique SQL. L’application est déployée sur votre abonnement Azure. Vous avez un accès complet pour explorer et utiliser les composants individuels de l’application. Le code source en C# de l’application et les scripts de gestion sont disponibles dans le [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
@@ -32,7 +32,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 > - Déployer l’application Wingtip SaaS.
 > - Obtenir le code source de l’application et les scripts de gestion.
 > - Explorer les serveurs, les pools et les bases de données qui composent l’application.
-> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue* .
+> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue*.
 > - Approvisionner un nouveau locataire.
 > - Surveiller l’activité d’un locataire dans l’application.
 
@@ -55,7 +55,7 @@ Choisissez vos noms maintenant et notez-les.
 
 ### <a name="steps"></a>Étapes
 
-1. Pour ouvrir le modèle de déploiement de base de données par locataire SaaS Wingtip Tickets dans le portail Azure, sélectionnez **Déployer sur Azure** .
+1. Pour ouvrir le modèle de déploiement de base de données par locataire SaaS Wingtip Tickets dans le portail Azure, sélectionnez **Déployer sur Azure**.
 
    [![Image affichant le bouton intitulé « Déployer sur Azure ».](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
@@ -64,15 +64,15 @@ Choisissez vos noms maintenant et notez-les.
     > [!IMPORTANT]
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. Nous vous recommandons de créer un groupe de ressources. N’utilisez pas de groupes de ressources, serveurs ou pools existants. N’utilisez pas cette application, les scripts ou des ressources déployées pour la production. Supprimez ce groupe de ressources lorsque vous en avez terminé avec l’application pour interrompre la facturation associée.
 
-    - **Groupe de ressources**  : Sélectionnez **Création** et indiquez le nom unique que vous avez choisi précédemment pour le groupe de ressources.
+    - **Groupe de ressources** : Sélectionnez **Création** et indiquez le nom unique que vous avez choisi précédemment pour le groupe de ressources.
     - **Emplacement** : Sélectionnez un emplacement dans la liste déroulante.
-    - **Utilisateur**  : Utilisez la valeur du nom d’utilisateur que vous avez choisi précédemment.
+    - **Utilisateur** : Utilisez la valeur du nom d’utilisateur que vous avez choisi précédemment.
 
 1. Déployez l’application.
 
     a. Sélectionnez pour accepter les conditions générales.
 
-    b. Sélectionnez **Achat** .
+    b. Sélectionnez **Achat**.
 
 1. Pour surveiller l’état du déploiement, sélectionnez **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement de l’application Wingtip Tickets SaaS dure environ cinq minutes.
 
@@ -86,10 +86,10 @@ Lors du déploiement de l’application, téléchargez le code source et les scr
 > Le contenu exécutable (scripts et DLL) peut être bloqué par Windows lors du téléchargement et de l’extraction de fichiers .zip à partir d’une source externe. Suivez les étapes pour débloquer le fichier .zip avant d’extraire les scripts. Le déblocage garantit que les scripts sont autorisés à s’exécuter.
 
 1. Accédez au [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
-1. Sélectionnez **Cloner ou télécharger** .
-1. Sélectionnez **Télécharger ZIP** , puis enregistrez le fichier.
-1. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-DbPerTenant-master.zip** , puis sélectionnez **Propriétés** .
-1. Sous l’onglet **Général** , sélectionnez **Débloquer** > **Appliquer** .
+1. Sélectionnez **Cloner ou télécharger**.
+1. Sélectionnez **Télécharger ZIP**, puis enregistrez le fichier.
+1. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-DbPerTenant-master.zip**, puis sélectionnez **Propriétés**.
+1. Sous l’onglet **Général**, sélectionnez **Débloquer** > **Appliquer**.
 1. Sélectionnez **OK** et extrayez les fichiers
 
 Les scripts se trouvent dans le dossier ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules.
@@ -130,7 +130,7 @@ L’application Wingtip utilise [*Azure Traffic Manager*](../../traffic-manager/
 
     | Partie de l’URL        | Description       |
     | :-------------- | :---------------- |
-    | events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* ( *-sa* ), ou les *bases de données multi-locataires* ( *- mt* ). |
+    | events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* ( *-sa*), ou les *bases de données multi-locataires* ( *- mt*). |
     | . *&lt;user&gt;* | *af1* dans l’exemple. |
     | .trafficmanager.net/ | Traffic Manager, URL de base. |
     | fabrikamjazzclub | Identifie le locataire nommé Fabrikam Jazz Club. |
@@ -139,7 +139,7 @@ L’application Wingtip utilise [*Azure Traffic Manager*](../../traffic-manager/
 - Le nom du locataire est analysé à partir de l’URL, par l’application des événements.
 - Le nom du locataire est utilisé pour créer une clé.
 - La clé est utilisée pour accéder au catalogue, afin d’obtenir l’emplacement de la base de données du locataire.
-  - Le catalogue est implémenté à l’aide de la *gestion des cartes de partitions* .
+  - Le catalogue est implémenté à l’aide de la *gestion des cartes de partitions*.
 - L’Events Hub utilise les métadonnées étendues dans le catalogue pour construire la liste des URL d’événement pour chaque locataire.
 
 Dans un environnement de production, vous créez généralement un enregistrement DNS CNAME pour [*pointer un domaine Internet d’entreprise*](../../traffic-manager/traffic-manager-point-internet-domain.md) vers le nom DNS Traffic Manager.
@@ -154,7 +154,7 @@ Maintenant que l’application est déployée, nous allons l’exécuter.
 
 Le script PowerShell *Demo-LoadGenerator* démarre une charge de travail qui s’exécute sur toutes les bases de données de locataires. La charge réelle sur de nombreuses applications SaaS est sporadique et imprévisible. Pour simuler ce type de charge, le générateur produit une charge avec des pics aléatoires ou des pics d’activité sur chaque locataire. Les pics se produisent à intervalles aléatoires. Plusieurs minutes sont nécessaires pour que le modèle de charge émerge. Laissez le générateur s’exécuter pendant au moins trois ou quatre minutes avant de surveiller la charge.
 
-1. Dans PowerShell ISE, ouvrez le script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* .
+1. Dans PowerShell ISE, ouvrez le script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
 2. Appuyez sur F5 pour exécuter le script et démarrer le générateur de charge. Laissez les valeurs de paramètre par défaut pour le moment.
 3. Connectez-vous à votre compte Azure et sélectionnez l’abonnement vous souhaitez utiliser si nécessaire.
 
@@ -170,7 +170,7 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
 
 ### <a name="demo-loadgeneratorps1-actions"></a>Actions de Demo-LoadGenerator.ps1
 
-*Demo-LoadGenerator.ps1* reproduit une charge de travail active des transactions clientes. Les étapes suivantes décrivent la séquence d’actions lancée par *Demo-LoadGenerator.ps1*  :
+*Demo-LoadGenerator.ps1* reproduit une charge de travail active des transactions clientes. Les étapes suivantes décrivent la séquence d’actions lancée par *Demo-LoadGenerator.ps1* :
 
 1. *Demo-LoadGenerator.ps1* démarre *LoadGenerator.ps1* au premier plan.
 
@@ -181,7 +181,7 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
 3. *LoadGenerator.ps1* démarre une tâche PowerShell en arrière-plan pour chaque base de données client :
 
     - Par défaut, les tâches en arrière-plan s’exécutent pendant 120 minutes.
-    - Chaque travail cause une charge UC sur une base de données client en exécutant *sp_CpuLoadGenerator* . L’intensité et la durée de la charge varient en fonction de `$DemoScenario`.
+    - Chaque travail cause une charge UC sur une base de données client en exécutant *sp_CpuLoadGenerator*. L’intensité et la durée de la charge varient en fonction de `$DemoScenario`.
     - *sp_CpuLoadGenerator* effectue une boucle sur une instruction SQL SELECT qui cause une charge UC élevée. L’intervalle de temps entre les problèmes de l’instruction SELECT varie en fonction des valeurs du paramètre pour créer une charge processeur contrôlable. Les niveaux de charge et les intervalles sont aléatoires pour simuler des charges plus réalistes.
     - Ce fichier .sql est stocké sous *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
@@ -200,7 +200,7 @@ Avant de passer à la section suivante, laissez le générateur de charge en cou
 Le déploiement initial crée trois exemples de locataire. Maintenant, vous créez un autre locataire pour voir son impact sur l’application déployée. Dans l’application Wingtip, le flux de travail permettant de provisionner les nouveaux locataires est expliqué dans le [didacticiel sur le provisionnement et l’inscription dans le catalogue](saas-dbpertenant-provision-and-catalog.md). Au cours de cette phase, vous créez un locataire, ce qui prend moins d’une minute.
 
 1. Ouvrez une nouvelle instance de PowerShell ISE.
-2. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* .
+2. Ouvrez ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
 3. Pour exécuter le script, appuyez sur la touche F5. Laissez les valeurs par défaut pour le moment.
 
    > [!NOTE]
@@ -240,13 +240,13 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 
 ## <a name="monitor-the-pool"></a>Surveiller le pool
 
-Au bout de quelques minutes d’exécution de *LoadGenerator.ps1* , une quantité suffisante de données est disponible pour vous permettre de découvrir certaines fonctionnalités de surveillance. Ces fonctionnalités sont intégrées dans les pools et les bases de données.
+Au bout de quelques minutes d’exécution de *LoadGenerator.ps1*, une quantité suffisante de données est disponible pour vous permettre de découvrir certaines fonctionnalités de surveillance. Ces fonctionnalités sont intégrées dans les pools et les bases de données.
 
 Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;** , puis sélectionnez **Pool1** pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
 
    ![Surveiller un pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-- Le premier graphique, intitulé **Utilisation des ressources** , montre l’utilisation eDTU du pool.
+- Le premier graphique, intitulé **Utilisation des ressources**, montre l’utilisation eDTU du pool.
 - Le second graphique montre l’utilisation eDTU des bases de données les plus actives du pool.
 
 Ces deux graphiques illustrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail imprévisibles de l’application SaaS. Les graphiques montrent que quatre bases de données ont chacune des pics d’activité allant jusqu’à 40 eDTU, et pourtant toutes les bases de données sont confortablement prises en charge par un pool de 50 eDTU. Le pool de 50 eDTU peut prendre en charge des charges de travail encore plus lourdes. Si les bases de données sont provisionnées comme des bases de données uniques, chacune d’elle doit être de type S2 (50 DTU) pour pouvoir gérer les pics d’activité. Le coût de quatre bases de données S2 s’élève à presque trois fois celui du pool. Dans des situations réelles, les clients SQL Database exécutent jusqu'à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel sur la surveillance des performances](saas-dbpertenant-performance-monitoring.md).
@@ -265,7 +265,7 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 > - Comment déployer l’application SaaS Wingtip Tickets.
 > - Explorer les serveurs, les pools et les bases de données qui composent l’application.
-> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue* .
+> - Identifier comment les locataires sont mappés à leurs données grâce au *catalogue*.
 > - Approvisionner les nouveaux locataires.
 > - Afficher l’utilisation du pool pour surveiller l’activité des locataires.
 > - Comment supprimer les exemples de ressources pour arrêter la facturation associée.

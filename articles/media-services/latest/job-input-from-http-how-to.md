@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 1073a13f477894e1b35d732fd1cd6191747a62a2
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98955985"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Créer une entrée de travail à partir d’une URL HTTPS

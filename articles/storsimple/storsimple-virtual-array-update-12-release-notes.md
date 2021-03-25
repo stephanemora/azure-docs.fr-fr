@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 1118dfcec67a49365f1f6e5e522e98b97694d052
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94960188"
 ---
 # <a name="storsimple-virtual-array-update-12-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.2
@@ -59,7 +59,7 @@ Aucun problème n’a été signalé concernant Update 1.2. Tous les problèmes
 
 Télécharger KB4502035 et [appliquer la mise à jour via l’interface utilisateur web locale](storsimple-virtual-array-install-update-11.md#use-the-local-web-ui)
 
-## <a name="references"></a>References
+## <a name="references"></a>Références
 
 Vous recherchez une note de version antérieure ? Accédez à :
 * [Notes de version de StorSimple Virtual Array Update 1.1](storsimple-virtual-array-update-11-release-notes.md)

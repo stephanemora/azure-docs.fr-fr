@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: f910054c803093eb62db494a596219c50791d136
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e6bec71c44d7fbcf2841e087af9887d99c94e6f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945339"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867574"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Superviser les performances des clusters dans Azure HDInsight
 
@@ -28,16 +28,16 @@ Pour obtenir une vue d’ensemble des nœuds de votre cluster et de leur charge,
 | --- | --- |
 | Rouge | Au moins un composant maître de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
 | Orange | Au moins un composant secondaire de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
-| Jaune | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de trois minutes. |
+| Yellow | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de trois minutes. |
 | Vert | L’état de fonctionnement est normal. |
 
 Le tableau de bord comporte également des colonnes indiquant le nombre de cœurs et la quantité de RAM de chaque hôte, ainsi que l’utilisation du disque et la charge moyenne.
 
-![Apache Ambari - Vue d’ensemble de l’onglet hôtes](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png" alt-text="Apache Ambari - Vue d’ensemble de l’onglet hôtes":::
 
 Sélectionnez l’un des noms d’hôte pour obtenir une vue d’ensemble détaillée des composants en cours d’exécution sur cet hôte et de leurs métriques. Les métriques sont présentés en fonction d’une chronologie configurable et concernent l’utilisation du processeur, la charge, l’utilisation du disque, l’utilisation de la mémoire, l’utilisation du réseau et les nombres de processus.
 
-![Apache Ambari - Vue d’ensemble des détails de l’hôte](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png" alt-text="Apache Ambari - Vue d’ensemble des détails de l’hôte":::
 
 Pour plus d’informations sur la configuration d’alertes et sur la visualisation des métriques, consultez l’article [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -53,19 +53,19 @@ Lorsque plusieurs locataires partagent un cluster volumineux, ils entrent en con
 
 YARN nous permet également d’allouer des ressources à ces files d’attente et vous indique si toutes vos ressources disponibles sont ou non attribuées. Pour visualiser les informations concernant vos files d’attente, connectez-vous à l’interface utilisateur web Ambari, puis sélectionnez **YARN Queue Manager** (Gestionnaire de files d’attente YARN) dans le menu supérieur.
 
-![Apache Ambari - Gestionnaire de files d’attente YARN](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png" alt-text="Apache Ambari - Gestionnaire de files d’attente YARN":::
 
 La page YARN Queue Manager (Gestionnaire de files d’attente YARN) répertorie vos files d’attente sur la gauche et indique le pourcentage de capacité attribué à chacune.
 
-![Page de détails du Gestionnaire de files d’attente](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png" alt-text="Page de détails du Gestionnaire de files d’attente":::
 
 Pour obtenir une vue d’ensemble plus détaillée de vos files d’attente, dans le tableau de bord Ambari, sélectionnez le service **YARN** (YARN) dans la liste de gauche. Ensuite, dans le menu déroulant **Quick Links** (Liens rapides), sélectionnez **Resource Manager UI** (Interface utilisateur Resource Manager) sous votre nœud actif.
 
-![Liens du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png" alt-text="Liens du menu de l’interface utilisateur Resource Manager":::
 
 Dans l’interface utilisateur Resource Manager, sélectionnez **Scheduler** (Planificateur) à partir du menu de gauche. La liste de vos files d’attente s’affiche sous *Application Queues* (Files d’attente d’application). Cette zone présente la capacité utilisée pour chacune de vos files d’attente, ainsi que l’efficacité de la répartition des travaux entre ces files d’attente, et indique si des travaux sont limités en ressources.
 
-![Apache Hadoop - Menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png" alt-text="Apache Hadoop - Menu de l’interface utilisateur Resource Manager":::
 
 ## <a name="storage-throttling"></a>Limitation du stockage
 
@@ -94,7 +94,7 @@ Dans certains cas, un ralentissement peut se produire en raison d’un espace di
 
 1. Examinez la sortie et recherchez la présence de fichiers volumineux dans le dossier `mnt` ou dans d’autres dossiers. En règle générale, les dossiers `usercache` et `appcache` (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) contiennent des fichiers volumineux.
 
-1. S’il y a des fichiers volumineux, soit un travail en cours est à l’origine de la croissance du fichier, soit un travail précédent ayant échoué peut avoir contribué à ce problème. Pour vérifier si ce comportement est dû à un travail en cours, exécutez la commande suivante :
+1. S’il y a des fichiers volumineux, soit un travail en cours est à l’origine de la croissance du fichier, soit un travail précédent ayant échoué peut avoir contribué à ce problème. Pour vérifier si ce comportement est dû à un travail en cours, exécutez la commande suivante : 
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/

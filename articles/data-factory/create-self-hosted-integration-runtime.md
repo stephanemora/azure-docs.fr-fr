@@ -7,10 +7,10 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389494"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé

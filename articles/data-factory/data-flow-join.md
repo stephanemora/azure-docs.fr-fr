@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93042648"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
@@ -57,7 +57,7 @@ Si vous souhaitez générer explicitement un produit cartésien complet, utilise
 
 ## <a name="configuration"></a>Configuration
 
-1. Dans la liste déroulante **Flux de droite** , choisissez le flux de données que vous joignez.
+1. Dans la liste déroulante **Flux de droite**, choisissez le flux de données que vous joignez.
 1. Sélectionner votre **Type de jointure**
 1. Choisissez les colonnes clés pour lesquelles vous souhaitez faire correspondre la condition de jointure. Par défaut, le flux de données recherche l’équivalence entre une colonne d’un flux et une colonne de l’autre flux. Pour effectuer une comparaison à l’aide d’une valeur calculée, pointez sur la liste déroulante de la colonne, puis sélectionnez **Colonne calculée**.
 

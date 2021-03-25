@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784046"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
@@ -66,7 +66,7 @@ Répondez aux questions suivantes pour sélectionner une solution de transfert d
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Fonctionnalité de transfert de données dans le Portail Microsoft Azure
 
-Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données** . Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
+Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données**. Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
