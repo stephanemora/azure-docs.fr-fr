@@ -2,20 +2,20 @@
 title: Concevoir une stratégie de chargement de données PolyBase pour un pool SQL dédié
 description: Au lieu d’ETL, concevez un processus d’extraction, de chargement et de transformation (ELT) pour charger les données avec un pool SQL dédié.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a2cf0de94641c955ed72a48f28352d13115ef0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 850c03d5cbda8fb11bbc804f2cd2c848a5a2411f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101667564"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589497"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Concevoir une stratégie de chargement de données PolyBase pour un pool SQL dédié dans Azure Synapse Analytics
 

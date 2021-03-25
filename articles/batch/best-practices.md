@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
-ms.date: 02/03/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550859"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561836"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -25,8 +25,8 @@ Les [pools](nodes-and-pools.md#pools) sont les ressources de calcul pour l’ex�
 
 - **Mode d’allocation de pool** Lorsque vous créez un compte Batch, vous pouvez choisir entre deux modes d’allocation de pool : **service Batch** ou **abonnement utilisateur**. Dans la plupart des cas, vous devez utiliser le mode de service Batch par défaut. Les pools sont alloués en arrière-plan dans des abonnements managés par Azure Batch. Dans l’autre mode d’abonnement utilisateur, les machines virtuelles Batch et les autres ressources sont créées directement dans l’abonnement lors de la création d’un pool. Les comptes d’abonnement utilisateur sont principalement utilisés pour permettre un petit sous-ensemble important de scénarios. Pour plus d’informations sur le mode d’abonnement utilisateur, consultez [Configuration supplémentaire pour le mode d’abonnement utilisateur](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **« cloudServiceConfiguration » ou « virtualMachineConfiguration ».**
-    « virtualMachineConfiguration » doit être utilisé. Toutes les fonctionnalités Batch sont prises en charge par les pools « virtualMachineConfiguration ». Toutes les fonctionnalités ne sont pas prises en charge pour les pools « cloudServiceConfiguration », et aucune nouvelle fonctionnalité n’est prévue.
+- **« virtualMachineConfiguration » ou « cloudServiceConfiguration ».**
+    Si vous pouvez créer des pools à l’aide de chaque configuration, vous devez configurer les nouveaux pools à l’aide de « virtualMachineConfiguration » et non de « cloudServiceConfiguration ». Toutes les fonctionnalités Batch, actuelles et nouvelles, seront prises en charge par les pools de configuration de machine virtuelle. Les pools de configuration des Services cloud ne prennent pas en charge toutes les fonctionnalités, et aucune fonctionnalité nouvelle n’est prévue. [Après le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/), vous ne pourrez plus créer de pools « cloudServiceConfiguration » ou ajouter de nouveaux nœuds à des pools existants. Pour plus d’informations, consultez [Migrer la configuration des pools Batch des Services cloud vers une machine virtuelle](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 - **Tenez compte du temps d’exécution des travaux et des tâches lors de la détermination du mappage du travail au pool.**
     Si vous avez des travaux constitués principalement de tâches de courte durée et que le nombre total de tâches attendu est faible, de sorte que le temps d’exécution global prévu du travail n’est pas long, n’allouez pas de nouveau pool pour chaque travail. Le temps de répartition des nœuds diminuera le temps d’exécution du travail.
@@ -238,6 +238,6 @@ Le nettoyage automatisé du répertoire de travail sera bloqué si vous exécute
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un compte Azure Batch à l’aide du portail Azure](batch-account-create-portal.md).
 - Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
 - Apprenez-en davantage sur les [contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota](batch-quota-limit.md).
+- Découvrez comment [détecter et éviter les défaillances dans les opérations d’arrière-plan des pools et des nœuds ](batch-pool-node-error-checking.md).

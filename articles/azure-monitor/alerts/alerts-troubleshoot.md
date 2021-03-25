@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 08ac23fbb29829bf2a7a46e41f9a7f646ad97915
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586316"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Résolution des problèmes relatifs aux alertes Azure Monitor
 
@@ -21,7 +21,7 @@ Azure Monitor vous avertit de façon proactive lorsque des conditions significat
 Si vous rencontrez un problème lors du déclenchement d’une alerte ou si vous ne parvenez pas à déclencher une alerte, consultez les articles ci-dessous. Vous pouvez consulter les alertes déclenchées dans le portail Azure.
 
 - [Résolution des alertes de métrique Azure Monitor dans Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Résolution des alertes de journal Azure Monitor dans Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Résolution des alertes de journal Azure Monitor dans Microsoft Azure](alerts-troubleshoot-log.md)
 
 Si l’alerte se déclenche comme prévu en fonction du portail Azure, mais que les notifications qui conviennent n’interviennent pas, utilisez les informations contenues dans la suite de cet article pour y remédier.
 

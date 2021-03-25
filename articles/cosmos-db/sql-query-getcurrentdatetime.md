@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: b48237b5a7eb836c495612758eeb9eaa45029b26
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 12ce8beab082674cd7672713325d4b3f4322aeae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526583"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587302"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -28,19 +28,19 @@ GetCurrentDateTime ()
 
 ## <a name="return-types"></a>Types de retour
   
-  Retourne la valeur de la chaîne ISO 8601 (date et heure UTC actuelles) au format `YYYY-MM-DDThh:mm:ss.fffffffZ` où :
+Retourne la valeur de la chaîne ISO 8601 (date et heure UTC actuelles) au format `YYYY-MM-DDThh:mm:ss.fffffffZ` où :
   
-  |Format|Description|
-  |-|-|
-  |YYYY|Année à quatre chiffres|
-  |MM|Mois à deux chiffres (01 = janvier, etc.)|
-  |DD|Jour du mois à deux chiffres (01 à 31)|
-  |T|Indicateur de début des éléments de l’heure|
-  |hh|Heure à deux chiffres (00 à 23)|
-  |MM|Minutes à deux chiffres (00 à 59)|
-  |ss|Secondes à deux chiffres (00 à 59)|
-  |.fffffff|Fractions de seconde à 7 chiffres|
-  |Z|Indicateur UTC (temps universel coordonné)||
+|Format|Description|
+|-|-|
+|YYYY|Année à quatre chiffres|
+|MM|Mois à deux chiffres (01 = janvier, etc.)|
+|DD|Jour du mois à deux chiffres (01 à 31)|
+|T|Indicateur de début des éléments de l’heure|
+|hh|Heure à deux chiffres (00 à 23)|
+|MM|Minutes à deux chiffres (00 à 59)|
+|ss|Secondes à deux chiffres (00 à 59)|
+|.fffffff|Fractions de seconde à 7 chiffres|
+|Z|Indicateur UTC (temps universel coordonné)|
   
   Pour plus d’informations sur le format ISO 8601, consultez [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601).
 

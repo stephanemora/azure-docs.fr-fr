@@ -6,10 +6,10 @@ ms.date: 11/04/2020
 ms.custom: devx-track-python
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 42f07b76cefed38aad53caba9ba35c74238540fe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031733"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>Démarrage rapide : Créer une fonction dans Azure avec Python avec Visual Studio Code
@@ -33,7 +33,7 @@ Il existe également une [version basée sur l’interface CLI](create-first-fun
 
 Avant de commencer, veillez à disposer des éléments suivants :
 
-+ Un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">compte Azure</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
++ Un <abbr title="Profil qui gère les informations de facturation pour l’utilisation d’Azure.">compte Azure</abbr> avec un <abbr title="Structure organisationnelle de base dans laquelle vous gérez les ressources dans Azure, généralement associée à une personne ou à un service au sein d’une organisation.">abonnement</abbr>. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version 3.x.
 
@@ -50,7 +50,7 @@ Avant de commencer, veillez à disposer des éléments suivants :
 
 ## <a name="2-create-your-local-project"></a>2. <a name="create-an-azure-functions-project"></a>Créer votre projet local
 
-1. Choisissez l’icône Azure dans la <abbr title="Groupe vertical d’icônes sur le côté gauche de la fenêtre de Visual Studio Code.">barre d’activité</abbr>, puis dans la zone **Azure : Fonctions**, sélectionnez l’icône **Créer un projet...**
+1. Choisissez l’icône Azure dans la <abbr title="Groupe vertical d’icônes sur le côté gauche de la fenêtre de Visual Studio Code.">Barre d’activité</abbr>, puis, dans la zone **Azure : Fonctions**, sélectionnez l’icône **Créer un projet...**
 
     ![Choisir Créer un projet](./media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -119,11 +119,11 @@ Les problèmes les plus courants à résoudre lors de l’exécution d’un proj
 
 Pour publier votre application, connectez-vous à Azure. Si vous êtes déjà connecté, passez à la section suivante.
 
-1. Choisissez l’icône Azure dans la barre d’activité, puis dans la zone **Azure : Fonctions**, choisissez **Se connecter à Azure...**
+1. Choisissez l’icône Azure dans la barre d’activité, puis, dans la zone **Azure : Fonctions**, choisissez **Se connecter à Azure...**
 
     ![Se connecter à Azure dans VS Code](../../includes/media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
-1. Quand vous y êtes invité dans le navigateur, **choisissez votre compte Azure** et **connectez-vous** avec vos informations d’identification de compte Azure.
+1. Quand vous y êtes invité dans le navigateur, **choisissez votre compte Azure** et **connectez-vous** à l’aide de vos informations d’identification de compte Azure.
 
 1. Une fois connecté, fermez la nouvelle fenêtre de navigateur et revenez à Visual Studio Code. 
 
@@ -166,14 +166,14 @@ Le premier déploiement de votre code inclut la création d’une ressource de f
 
 Cette section a créé les ressources Azure et déployé votre code local dans l’application de fonction. Si cela a échoué :
 
-* Passez en revue la sortie et recherchez des informations d’erreur. L’icône en forme de cloche en bas à droite est un autre moyen d’afficher la sortie. 
+* Passez en revue la sortie et recherchez des informations d’erreur. L’icône en forme de cloche dans le coin inférieur droit est une autre façon d’afficher la sortie. 
 * Avez-vous publié dans une application de fonction existante ? Cette action remplace le contenu de cette application dans Azure.
 </details>
 
 
 <br/>
 <details>
-<summary><strong>Quelles ressources ont été créées ?</strong></summary>
+<summary><strong>Quelles ressources ont-elles été créées ?</strong></summary>
 
 Quand vous avez terminé, les ressources Azure suivantes sont créées dans votre abonnement et leurs noms reposent sur le nom de votre application de fonction : 
 * **Groupe de ressources** : Un groupe de ressources est un conteneur logique pour des ressources associées dans une même région.
@@ -212,7 +212,7 @@ Pour en savoir plus sur les coûts de Functions, consultez [Estimation des coût
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Développez cette fonction en ajoutant une <abbr title="Connexion déclarative entre une fonction et d’autres ressources. Une liaison d’entrée fournit des données à la fonction ; une liaison de sortie fournit des données de la fonction à d’autres ressources.">liaison de sortie</abbr>. Cette liaison écrit la chaîne de la requête HTTP dans un message dans une file d’attente de Stockage File d’attente Azure. 
+Développez cette fonction en ajoutant une <abbr title="Connexion déclarative entre une fonction et d’autres ressources. Une liaison d’entrée fournit des données à la fonction ; une liaison de sortie fournit des données de la fonction à d’autres ressources.">binding</abbr>. Cette liaison écrit la chaîne de la requête HTTP dans un message dans une file d’attente de Stockage File d’attente Azure. 
 
 > [!div class="nextstepaction"]
 > [Se connecter à une file d’attente Stockage Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)

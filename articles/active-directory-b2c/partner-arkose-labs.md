@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 46f117b13909c2d9624b88e9f5d9a62c4c646e51
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c2aceedd57bcc7cd88c4e822c7b696e36b28bd8f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500290"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579788"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>Tutoriel : configurer Arkose Labs avec Azure Active Directory B2C
 
@@ -81,13 +81,13 @@ Pour créer un attribut personnalisé, procédez comme suit :
 
 5. Sélectionnez **Créer**
 
-En savoir plus sur les [attributs personnalisés](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-custom-attributes?pivots=b2c-user-flow).
+En savoir plus sur les [attributs personnalisés](./user-flow-custom-attributes.md?pivots=b2c-user-flow).
 
 ### <a name="part-2---create-a-user-flow"></a>Partie 2 : créer un flux d’utilisateur
 
 Le flux d’utilisateur peut être pour l’**inscription** et la **connexion** ou simplement pour l’**inscription**. Le flux d’utilisateur Arkose Labs s’affiche uniquement lors de l’inscription.
 
-1. Consultez les [instructions](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) pour créer un flux d’utilisateur. Si vous utilisez un flux d’utilisateur existant, celui-ci doit être du type de version **Recommandé (préversion de nouvelle génération)** .
+1. Consultez les [instructions](./tutorial-create-user-flows.md) pour créer un flux d’utilisateur. Si vous utilisez un flux d’utilisateur existant, celui-ci doit être du type de version **Recommandé (préversion de nouvelle génération)** .
 
 2. Dans les paramètres de flux d’utilisateur, accédez à **Attributs utilisateur**, puis sélectionnez la revendication **ArkoseSessionToken**.
 
@@ -109,7 +109,7 @@ Suivez les étapes indiquées pour utiliser le code HTML et JavaScript personnal
 
 1. Modifiez le fichier [selfAsserted.html](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose/blob/main/Assets/selfAsserted.html) afin que `<ARKOSE_PUBLIC_KEY>` corresponde à la valeur que vous avez générée pour la validation côté client et utilisée pour charger le script Arkose Labs pour votre compte.
 
-2. Hébergez la page HTML sur un point de terminaison web compatible avec le partage des ressources cross-origin (CORS). [Créez un compte de Stockage Blob Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal) et [configurez CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
+2. Hébergez la page HTML sur un point de terminaison web compatible avec le partage des ressources cross-origin (CORS). [Créez un compte de Stockage Blob Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) et [configurez CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services).
 
   >[!NOTE]
   >Si vous avez votre propre code HTML personnalisé, copiez et collez les éléments `<script>` dans votre page HTML.
@@ -132,7 +132,7 @@ Suivez les étapes indiquées pour utiliser le code HTML et JavaScript personnal
 
    ![Image montrant des mises en page](media/partner-arkose-labs/page-layouts.png)
 
-4. À partir de votre flux d’utilisateur, accédez à **Propriétés**, puis sélectionnez **Activer JavaScript** en appliquant la mise en page (préversion). Pour en savoir plus, consultez [cet article](https://docs.microsoft.com/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-user-flow).
+4. À partir de votre flux d’utilisateur, accédez à **Propriétés**, puis sélectionnez **Activer JavaScript** en appliquant la mise en page (préversion). Pour en savoir plus, consultez [cet article](./javascript-and-page-layout.md?pivots=b2c-user-flow).
 
 ### <a name="part-4---create-and-deploy-your-api"></a>Partie 4 : créer et déployer votre API
 
@@ -157,7 +157,7 @@ Pour redéployer l’instance locale pendant le test, répétez les étapes 1 �
 
 Cet exemple protège le point de terminaison de l’API web à l’aide de [l’authentification HTTP de base](https://tools.ietf.org/html/rfc7617).
 
-Le nom d’utilisateur et le mot de passe sont stockés sous la forme de variables d’environnement et non dans le référentiel. Pour plus d’informations, consultez le fichier [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=macos%2Ccsharp%2Cbash#local-settings-file).
+Le nom d’utilisateur et le mot de passe sont stockés sous la forme de variables d’environnement et non dans le référentiel. Pour plus d’informations, consultez le fichier [local.settings.json](../azure-functions/functions-run-local.md?tabs=macos%2ccsharp%2cbash#local-settings-file).
 
 1. Créer un fichier local.settings.json dans votre dossier racine
 
@@ -186,15 +186,15 @@ Les valeurs **BASIC_AUTH_USERNAME** et **BASIC_AUTH_PASSWORD** sont les informat
 
 #### <a name="deploy-the-application-to-the-web"></a>Déployer l’application sur le web
 
-1. Suivez les étapes mentionnées dans [ce](https://docs.microsoft.com/azure/javascript/tutorial-vscode-serverless-node-04) guide pour déployer votre fonction Azure dans le cloud. Copiez l’URL web du point de terminaison de votre fonction Azure.
+1. Suivez les étapes mentionnées dans [ce](/azure/javascript/tutorial-vscode-serverless-node-04) guide pour déployer votre fonction Azure dans le cloud. Copiez l’URL web du point de terminaison de votre fonction Azure.
 
-2. Après le déploiement, sélectionnez l’option **Charger les paramètres**. Cette option charge vos variables d’environnement dans les [Paramètres de l’application](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#application-settings-in-azure) du service d’application. Ces paramètres de l’application peuvent également être configurés ou [managés via le portail Azure.](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
+2. Après le déploiement, sélectionnez l’option **Charger les paramètres**. Cette option charge vos variables d’environnement dans les [Paramètres de l’application](../azure-functions/functions-develop-vs-code.md?tabs=csharp#application-settings-in-azure) du service d’application. Ces paramètres de l’application peuvent également être configurés ou [managés via le portail Azure.](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
 
-Consultez [cet article](https://docs.microsoft.com/azure/azure-functions/functions-develop-vs-code?tabs=csharp#republish-project-files) pour en savoir plus sur le développement de Visual Studio Code pour Azure Functions.
+Consultez [cet article](../azure-functions/functions-develop-vs-code.md?tabs=csharp#republish-project-files) pour en savoir plus sur le développement de Visual Studio Code pour Azure Functions.
 
 #### <a name="configure-and-enable-the-api-connector"></a>Configurer et activer le connecteur d’API
 
-[Créez un connecteur d’API](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) et activez-le pour votre flux d’utilisateur. La configuration de votre connecteur d’API doit se présenter comme suit :
+[Créez un connecteur d’API](./add-api-connector.md) et activez-le pour votre flux d’utilisateur. La configuration de votre connecteur d’API doit se présenter comme suit :
 
 ![Image montrant comment configurer le connecteur d’API](media/partner-arkose-labs/configure-api-connector.png)
 
@@ -232,6 +232,6 @@ Pour activer le connecteur d’API, dans les paramètres du **connecteur d’API
 
 - [Exemples de code](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-arkose) pour le flux d’utilisateur d’inscription Azure AD B2C
 
-- [Stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

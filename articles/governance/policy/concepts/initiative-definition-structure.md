@@ -1,14 +1,14 @@
 ---
 title: Informations sur la structure d'une définition d'initiative
 description: Explique comment les définitions d'initiative de stratégie permettent de regrouper les définitions de stratégie à des fins de déploiement sur les ressources Azure de votre organisation.
-ms.date: 10/07/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f9c6146e1dde5b5a7f6595c61638319de60a82d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: edd3f25dd528d1a718c9287c9f30988b87fb73e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876173"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587217"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Structure d'une définition d'initiative Azure Policy
 
@@ -119,7 +119,7 @@ Les clients peuvent définir toutes les propriétés et valeurs utiles à leur o
 - `deprecated` (booléen) : indicateur true ou false permettant de déterminer si la définition d'initiative de stratégie a été marquée comme _déconseillée_.
 
 > [!NOTE]
-> Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_, sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**. Pour plus d'informations sur la façon dont les versions d'Azure Policy sont intégrées, consultez [Contrôle des versions des éléments intégrés](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+> Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_, sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**. Pour plus d’informations sur la façon dont les versions d’Azure Policy sont intégrées, consultez [Contrôle des versions des éléments intégrés](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
 
 ## <a name="parameters"></a>Paramètres
 
@@ -282,7 +282,7 @@ Les éléments intégrés créés par Microsoft pour la fonctionnalité Conformi
 Ces informations sont :
 
 - affichées sur le portail Azure dans la présentation d'un **contrôle** sur une initiative Conformité réglementaire ;
-- disponibles via l'API REST (voir le `Microsoft.PolicyInsights`fournisseur de ressources et le [groupe d'opérations policyMetadata](/rest/api/policy-insights/policymetadata/getresource)) ;
+- disponibles via l'API REST (voir le `Microsoft.PolicyInsights`fournisseur de ressources et le [groupe d'opérations policyMetadata](/rest/api/policy/policymetadata/getresource)) ;
 - disponibles via Azure CLI (voir la commande [az policy metadata](/cli/azure/policy/metadata)).
 
 > [!IMPORTANT]

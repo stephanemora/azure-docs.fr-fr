@@ -4,10 +4,10 @@ description: Gestion des groupes intelligents créés sur vos instances d’aler
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 3b736fb7e4002f44ddb5d9a34b0ae3c19e21e35a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042655"
 ---
 # <a name="manage-smart-groups"></a>Gérer les groupes intelligents

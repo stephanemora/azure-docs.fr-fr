@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553746"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582066"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Déployer une machine virtuelle avec le lancement fiable activé (préversion)
 
@@ -134,13 +134,13 @@ Sélectionnez le bouton ci-dessous pour déployer les stratégies dans votre abo
 
 Le modèle ne doit être déployé qu’une seule fois par abonnement. Il installe automatiquement les extensions `GuestAttestation` et `AzureSecurity` sur toutes les machines virtuelles prises en charge. Si vous recevez des erreurs, essayez de redéployer le modèle.
 
-Pour obtenir des recommandations sur vTPM et l’amorçage sécurisé pour les machines virtuelles de lancement fiable, consultez [Ajouter une initiative personnalisée à votre abonnement](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+Pour obtenir des recommandations sur vTPM et l’amorçage sécurisé pour les machines virtuelles de lancement fiable, consultez [Ajouter une initiative personnalisée à votre abonnement](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
  
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Signer des éléments pour l’amorçage sécurisé sur Linux
 
 Dans certains cas, vous devrez peut-être signer des éléments pour l’amorçage sécurisé UEFI.  Par exemple, vous devrez peut-être suivre [la procédure de signature d’éléments pour l’amorçage sécurisé](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) pour Ubuntu. Dans ce cas, vous devez entrer les clés d’inscription de l’utilitaire MOK pour votre machine virtuelle. Pour ce faire, vous devez utiliser la console série Azure pour accéder à l’utilitaire MOK.
 
-1. Activez la console série Azure pour Linux. Pour plus d’informations, consultez [Console série pour Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
+1. Activez la console série Azure pour Linux. Pour plus d’informations, consultez [Console série pour Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Recherchez **Machines virtuelles** et sélectionnez votre machine virtuelle dans la liste.
 1. Dans le menu de gauche, sous **Support + dépannage**, sélectionnez **Console série**. Une page s’ouvre à droite, avec la console série.

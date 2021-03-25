@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: tyao
 ms.openlocfilehash: 805c3ba0360fcffe2bfd4217c0ef625fe61e5d64
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030577"
 ---
 # <a name="connect-azure-front-door-premium-to-a-web-app-origin-with-private-link"></a>Connecter Azure Front Door Premium à une origine d’application web avec Private Link
@@ -47,7 +47,7 @@ Dans cette section, vous allez mapper le service Private Link à un point de ter
 
     | Paramètre | Value |
     | ------- | ----- |
-    | Région | Sélectionnez la région qui est votre origine ou la plus proche de celle-ci. |
+    | Région | Sélectionnez la région qui est la même que votre origine ou la plus proche de celle-ci. |
     | Type de ressource | Sélectionnez **Microsoft.Web/sites**. |
     | Ressource | Sélectionnez **myPrivateLinkService**. |
     | Sous-ressource cible | sites |

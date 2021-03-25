@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: daeb587349d885b3e6820b8da2951c3790eb1ac6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102039578"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Collecter des données à partir de CollectD sur les agents Linux dans Azure Monitor
@@ -122,12 +122,12 @@ Pour conserver un modèle cohérent entre les mesures d’infrastructure déjà 
 | Champ Mesure CollectD | Champ Azure Monitor |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | Aucun |
+| `plugin` | None |
 | `plugin_instance` | Nom de l’instance<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Aucun |
+| `dstypes` | None |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Étapes suivantes

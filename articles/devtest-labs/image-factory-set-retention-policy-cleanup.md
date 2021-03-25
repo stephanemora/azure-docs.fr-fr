@@ -4,16 +4,16 @@ description: Découvrez comment configurer une stratégie de rétention, nettoye
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102550023"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurer une stratégie de rétention dans Azure DevTest Labs
 Cet article couvre la définition d’une stratégie de conservation, le nettoyage de la fabrique et la suppression des anciennes images dans tous les autres DevTest Labs de l’organisation. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Vérifiez que vous avez bien suivi ces articles avant de continuer :
 
 - [Créer une fabrique d’images](image-factory-create.md)
