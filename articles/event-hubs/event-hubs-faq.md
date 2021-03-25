@@ -4,10 +4,10 @@ description: Cet article contient une liste des questions fréquemment posées (
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98696106"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs

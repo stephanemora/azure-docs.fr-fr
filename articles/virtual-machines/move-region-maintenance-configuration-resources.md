@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 88082c441dafdc7571f2b9775bfc07ebe3ca5aa4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730504"
 ---
 # <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Déplacer des ressources d’une configurations de contrôle de maintenance vers une autre région
 
 Suivez cet article pour déplacer des ressources associées à une configuration de contrôle de maintenance vers une autre région Azure. Vous pouvez envisager de déplacer une configuration pour plusieurs raisons. Par exemple, pour tirer parti d’une nouvelle région, pour déployer des fonctionnalités ou des services disponibles dans une région spécifique, pour répondre à des exigences de stratégie et de gouvernance internes ou pour respecter une planification de capacité.
 
-Le [contrôle de maintenance](maintenance-control.md), avec des configurations de maintenance personnalisées, permet de contrôler la façon dont les mises à jour de plateforme sont appliquées aux machines virtuelles et aux hôtes Azure Dedicated Host. Différents scénarios peuvent impliquer le déplacement du contrôle de maintenance entre régions :
+Le [contrôle de maintenance](maintenance-control.md), avec des configurations de maintenance personnalisées, vous permet de contrôler la façon dont les mises à jour de plateforme sont appliquées aux machines virtuelles et aux hôtes dédiés Azure. Différents scénarios peuvent impliquer le déplacement du contrôle de maintenance entre régions :
 
 - Pour déplacer les ressources associées à une configuration de maintenance, mais pas la configuration elle-même, suivez cet article.
 - Pour déplacer votre configuration de contrôle de maintenance, mais pas les ressources associées à la configuration, suivez [ces instructions](move-region-maintenance-configuration.md).

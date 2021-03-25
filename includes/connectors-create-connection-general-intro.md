@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 03/08/2021
 ms.openlocfilehash: 252117d21da199ef702dd090686ac17789d8ebcb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510770"
 ---
 Lorsque vous ajoutez un déclencheur ou une action qui se connecte à un service ou à un système pour la première fois, le Concepteur d’application logique vous invite à créer une *connexion* en fournissant les informations nécessaires, qui varient en fonction de la connexion, par exemple :

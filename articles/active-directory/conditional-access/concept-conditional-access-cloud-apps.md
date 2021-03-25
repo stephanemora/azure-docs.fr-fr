@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2895588a5a82ec2b6c69d33ff6cea39bbe3a0372
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491994"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579142"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
@@ -131,7 +131,7 @@ Les actions utilisateur sont des tâches qui peuvent être effectuées par un ut
 
 - **Inscrire ou joindre des appareils (préversion)** : cette action utilisateur permet aux administrateurs d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs [inscrivent](../devices/concept-azure-ad-register.md) ou [joignent](../devices/concept-azure-ad-join.md) des appareils à Azure AD. Il existe deux points clés à prendre en compte pour cette action utilisateur : 
    - `Require multi-factor authentication` est le seul contrôle d’accès disponible avec cette action utilisateur. Tous les autres sont désactivés. Cette restriction empêche les conflits avec les contrôles d’accès qui dépendent d’Azure AD Device Registration ou ne s’y appliquent pas. 
-   - Quand une stratégie d’accès conditionnel est activée avec cette action utilisateur, vous devez définir **Azure Active Directory** > **Appareils** > **Paramètres d’appareil** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` sur **Non**. Dans le cas contraire, la stratégie d’accès conditionnel n’est pas appliquée correctement avec cette action utilisateur. Pour plus d’informations sur ce paramètre d’appareil, consultez [Configuration des paramètres d’appareil](../device-management-azure-portal.md##configure-device-settings). Cette action utilisateur permet d’exiger l’authentification multifacteur avec une certaine flexibilité lors de l’inscription ou de la jonction d’appareils pour des utilisateurs et des groupes spécifiques ou sous certaines conditions, au lieu d’avoir une stratégie pour tout le locataire dans les Paramètres d’appareil. 
+   - Quand une stratégie d’accès conditionnel est activée avec cette action utilisateur, vous devez définir **Azure Active Directory** > **Appareils** > **Paramètres d’appareil** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` sur **Non**. Dans le cas contraire, la stratégie d’accès conditionnel n’est pas appliquée correctement avec cette action utilisateur. Pour plus d’informations sur ce paramètre d’appareil, consultez [Configuration des paramètres d’appareil](../devices/device-management-azure-portal.md#configure-device-settings). Cette action utilisateur permet d’exiger l’authentification multifacteur avec une certaine flexibilité lors de l’inscription ou de la jonction d’appareils pour des utilisateurs et des groupes spécifiques ou sous certaines conditions, au lieu d’avoir une stratégie pour tout le locataire dans les Paramètres d’appareil. 
    
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,21 +2,21 @@
 title: Facilité de gestion et supervision - Activité des requêtes, utilisation des ressources
 description: Découvrez les capacités disponibles pour gérer et superviser Azure Synapse Analytics. Utilisez le portail Azure et les vues de gestion dynamique (DMV, Dynamic Management Views) pour comprendre l’activité des requêtes et l’utilisation des ressources de votre entrepôt de données.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/09/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 96a076ef144af1d32e9ef3ec2903557b8edff006
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e7f093860e9962db055a7551f5cdb608ecad9b29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586708"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585670"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervision de l’utilisation des ressources et de l’activité des requêtes dans Azure Synapse Analytics
 

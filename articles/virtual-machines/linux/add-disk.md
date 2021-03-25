@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556806"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580383"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Ajouter un disque à une machine virtuelle Linux
 
@@ -148,7 +148,7 @@ Dans cet exemple, nous utilisons l'éditeur nano. Par conséquent, lorsque vous 
 >
 > L’option *nofail* garantit que la machine virtuelle démarre même si le système de fichiers est endommagé ou si le disque n’existe pas au moment du démarrage. Sans cette option, vous pouvez être confronté au comportement décrit dans [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting) (Connexion SSH vers machine virtuelle Linux impossible en raison d’erreurs FSTAB)
 >
-> La console série de machine virtuelle Azure peut servir pour accéder à la console sur votre machine virtuelle si la modification de fstab a entraîné un échec de démarrage. Plus de détails dans la [documentation relative à la console série](../troubleshooting/serial-console-linux.md).
+> La console série de machine virtuelle Azure peut servir pour accéder à la console sur votre machine virtuelle si la modification de fstab a entraîné un échec de démarrage. Plus de détails dans la [documentation relative à la console série](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Prise en charge de TRIM/UNMAP pour Linux dans Azure
 Certains noyaux Linux prennent en charge les opérations TRIM/UNMAP pour ignorer les blocs inutilisés sur le disque. Cette fonctionnalité est particulièrement utile dans le stockage standard pour informer Azure que des pages supprimées ne sont plus valides et peuvent être ignorées. Elle peut vous permettre d’économiser de l’argent si vous créez des fichiers volumineux, puis que vous les supprimez.

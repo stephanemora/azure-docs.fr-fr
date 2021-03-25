@@ -7,16 +7,19 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 85eb4ed0832c9384fcd05154833bc21f83f4adf2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8f57c63868d6f70094cf040a92c0124b46477758
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426346"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490192"
 ---
 # <a name="introduction-to-azure-percept-audio"></a>Présentation d’Azure Percept Audio
 
 Azure Percept Audio est un appareil accessoire qui ajoute des fonctionnalités d’intelligence artificielle vocales au DK Azure Percept. Il contient un processeur audio préconfiguré et une barrette à quatre microphones, ce qui offre la possibilité d’appliquer des commandes vocales, la détection de mots clés et la reconnaissance vocale à champ lointain à des appareils d’écoute locaux avec Azure Cognitive Services. Azure Percept Audio permet aux fabricants d’appareils d’étendre Azure Percept DK au-delà des fonctionnalités de vision, pour créer de nouveaux appareils intelligents commandés par la voix. Il est intégré à l’origine au DK Azure Percept, à Azure Percept Studio et à d’autres services de gestion Azure Edge. Il est disponible à l’achat sur [Microsoft Store en ligne](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+
+> [!div class="nextstepaction"]
+> [Acheter maintenant](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Appareil Azure Percept Audio.":::
 
@@ -67,4 +70,5 @@ Créez une [solution de reconnaissance vocale sans code](./tutorial-no-code-spee
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commandez un appareil Azure Percept Audio auprès de [Microsoft Store en ligne](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Achetez un appareil Azure Percept Audio auprès de Microsoft Store en ligne](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

@@ -3,15 +3,15 @@ title: Configurer le déploiement continu
 description: Découvrez comment activer CI/CD vers Azure App Service à partir de GitHub, BitBucket, Azure Repos ou d’autres dépôts. Sélectionnez le pipeline de build qui répond à vos besoins.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564955"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470266"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 
@@ -116,6 +116,8 @@ Vous pouvez personnaliser le fournisseur de build GitHub Actions comme suit :
 - Plutôt qu’un profil de publication, effectuez le déploiement à l’aide d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) dans Azure Active Directory.
 
 #### <a name="authenticate-with-a-service-principal"></a>S’authentifier avec un principal de service
+
+Cette configuration facultative remplace l’authentification par défaut par les profils de publication dans le fichier de workflow généré.
 
 1. Générez un principal de service à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) dans [Azure CLI](/cli/azure/). Dans l’exemple suivant, remplacez *\<subscription-id>* , *\<group-name>* et *\<app-name>* par vos propres valeurs :
 

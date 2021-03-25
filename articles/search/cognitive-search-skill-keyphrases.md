@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 8aafb08ff0ccc9391071f796450e69f87de279ba
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102547830"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Compétence cognitive Extraction de phrases clés
@@ -41,7 +41,7 @@ Les paramètres respectent la casse.
 |---------------------|-------------|
 | `defaultLanguageCode` | (Facultatif) Code de langue à appliquer aux documents qui ne spécifient pas explicitement une langue.  Si le code de langue par défaut n’est pas spécifié, l’anglais (en) est utilisé comme code de langue par défaut. <br/> Voir la [Liste complète des langues prises en charge](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (Facultatif) Nombre maximal de phrases clés à produire. |
-| `modelVersion`   | (Facultatif) Version du modèle à utiliser pour appeler le service Analyse de texte. Si rien n’est spécifié, c’est la dernière version disponible qui est utilisée par défaut. Nous vous recommandons de ne pas spécifier cette valeur, sauf nécessité absolue. Pour plus d’informations, consultez [Contrôle de version de modèle dans l’API Analyse de texte](../cognitive-services/text-analytics/concepts/model-versioning.md). |
+| `modelVersion`   | (Facultatif) Version du modèle à utiliser pour appeler le service Analyse de texte. Si rien n’est spécifié, la dernière version disponible est utilisée par défaut. Nous vous recommandons de ne pas spécifier cette valeur, sauf nécessité absolue. Pour plus d’informations, consultez [Contrôle de version de modèle dans l’API Analyse de texte](../cognitive-services/text-analytics/concepts/model-versioning.md). |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 

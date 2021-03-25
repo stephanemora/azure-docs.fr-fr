@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9814dc06e7e570a923ba3ea5b3b0df7ade99bb28
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 5ec7d2b243a5eadab2d22dea14ebeac8eabb1722
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653691"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563162"
 ---
 # <a name="use-azure-cli-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Utiliser Azure CLI pour gérer des listes de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -31,7 +31,7 @@ L’héritage des listes ACL est déjà disponible pour les nouveaux éléments 
 
 - Un compte de stockage doté d’un espace de noms hiérarchique activé. Pour créer un test, suivez [ces](create-data-lake-storage-account.md) instructions.
 
-- Azure CLI version `2.6.0` ou ultérieure.
+- Azure CLI version `2.14.0` ou ultérieure.
 
 - Une des autorisations de sécurité suivantes :
 
@@ -137,6 +137,9 @@ Cet exemple définit l’ACL d’un fichier pour l’utilisateur propriétaire, 
 az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
+> [!NOTE]
+> Pour définir l’ACL d’un groupe ou d’un utilisateur spécifique, utilisez leurs ID d’objet respectifs. Par exemple, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ou `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
 L’image suivante montre la sortie après la définition de la liste ACL d’un fichier.
 
 ![Obtenir la sortie de liste ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
@@ -184,6 +187,9 @@ Cet exemple met à jour l’ACL d’un **fichier**.
 ```azurecli
 az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
+
+> [!NOTE]
+> Pour mettre à jour l’ACL d’un groupe ou d’un utilisateur spécifique, utilisez leurs ID d’objet respectifs. Par exemple, `group:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` ou `user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 Vous pouvez également mettre à jour l’utilisateur et le groupe propriétaire d’un répertoire ou d’un fichier en définissant les paramètres `--owner` ou `group` sur l’ID d’entité ou le nom d’utilisateur principal (UPN) d’un utilisateur.
 
