@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 1f37ee36710211e95bcc5d99a095de4303c85281
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172390"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592351"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python en utilisant Azure App Service sur Linux
 
@@ -244,7 +244,7 @@ Vous pouvez également inspecter les fichiers journaux à partir du navigateur s
 
 Pour arrêter le streaming des journaux à tout moment, appuyez sur **Ctrl**+**C** dans le terminal.
 
-Vous rencontrez des problèmes ? [Faites-le nous savoir](https://aka.ms/FlaskCLIQuickstartHelp).
+Vous rencontrez des problèmes ? Consultez d’abord le [Guide de résolution des problèmes](configure-language-python.md#troubleshooting) ; autrement, [faites-le nous savoir](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Gérer l’application Azure
 

@@ -9,10 +9,10 @@ ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336620"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Définir des clés uniques pour un conteneur Azure Cosmos
@@ -26,11 +26,11 @@ Cet article présente les différentes façons de définir des [clés uniques](u
 
 1. [Créez un compte Azure Cosmos](create-sql-api-dotnet.md#create-account) ou sélectionnez-en un existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez le conteneur avec lequel vous voulez travailler.
+1. Ouvrez le volet **Explorateur de données**, puis sélectionnez le conteneur avec lequel vous voulez travailler.
 
 1. Cliquez sur **Nouveau conteneur**.
 
-1. Dans la boîte de dialogue **Ajouter un conteneur** , cliquez sur **+ Ajouter une clé unique** pour ajouter une entrée de clé unique.
+1. Dans la boîte de dialogue **Ajouter un conteneur**, cliquez sur **+ Ajouter une clé unique** pour ajouter une entrée de clé unique.
 
 1. Entrez le ou les chemins de la contrainte de clé unique.
 

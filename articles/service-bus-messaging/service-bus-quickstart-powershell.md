@@ -8,10 +8,10 @@ ms.date: 08/12/2020
 ms.author: spelluru
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 8cf024735c66e6bae9d334e3d8ce8d0a0eed1426
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95799105"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Utiliser Azure PowerShell pour créer un espace de noms Service Bus ainsi qu’une file d'attente
@@ -24,7 +24,7 @@ Ce guide de démarrage rapide vous montre comment créer un espace de noms Servi
 
 Pour suivre ce démarrage rapide, vérifiez que vous disposez d’un abonnement Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer. 
 
-Dans ce guide de démarrage rapide, vous allez utiliser Azure Cloud Shell, que vous pouvez lancer après vous être connecté au portail Azure. Pour en savoir plus sur Azure Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md). Vous pouvez également [installer](/powershell/azure/install-Az-ps) et utiliser Azure PowerShell sur votre machine. 
+Dans ce guide de démarrage rapide, vous allez utiliser Azure Cloud Shell, que vous pouvez lancer après vous être connecté au portail Azure. Pour plus d’informations sur Azure Cloud Shell, consultez [Vue d’ensemble d’Azure Cloud Shell](../cloud-shell/overview.md). Vous pouvez également [installer](/powershell/azure/install-Az-ps) et utiliser Azure PowerShell sur votre machine. 
 
 
 ## <a name="provision-resources"></a>Provisionner les ressources

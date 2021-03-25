@@ -2,16 +2,16 @@
 title: 'Tutoriel : Ajouter des sorties à un fichier Bicep Azure Resource Manager'
 description: Ajoutez des sorties à votre fichier Bicep pour simplifier la syntaxe.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 279417f22ded89db21abddad7a91a4cce520c6bd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b7d7a1414091c516dba2c474e1681ba357b55a1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742853"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594306"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>Tutoriel : Ajouter des sorties à un fichier Bicep Azure Resource Manager
 
@@ -37,7 +37,7 @@ Il déploie un compte de stockage, mais il ne retourne aucune information sur le
 
 Vous pouvez utiliser des sorties pour renvoyer des valeurs à partir du déploiement. Par exemple, il peut être utile d’obtenir les points de terminaison pour votre nouveau compte de stockage.
 
-L’exemple suivant met en évidence la modification apportée à votre fichier Bicep pour ajouter une valeur de sortie. Copiez l’intégralité du fichier et remplacez votre fichier Bicep par son contenu.
+L’exemple suivant montre la modification apportée à votre fichier Bicep pour ajouter une valeur de sortie. Copiez l’intégralité du fichier et remplacez votre fichier Bicep par son contenu.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -45,7 +45,9 @@ Il y a quelques éléments importants à noter concernant la valeur de sortie qu
 
 Le type de valeur renvoyée est défini sur `object`, ce qui signifie qu’il retourne un objet de modèle.
 
-Pour récupérer la propriété `primaryEndpoints` à partir du compte de stockage, vous devez utiliser le nom symbolique du compte de stockage.
+Pour récupérer la propriété `primaryEndpoints` à partir du compte de stockage, vous devez utiliser le nom symbolique du compte de stockage. La fonctionnalité d’autocomplétion de Visual Studio Code présente la liste complète des propriétés :
+
+   ![Propriétés d’objet de nom symbolique Bicep dans Visual Studio Code](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## <a name="deploy-bicep-file"></a>Déployer le fichier Bicep
 

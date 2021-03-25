@@ -5,14 +5,14 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: cbc6999e3ede73b948ce034769966922b4b0f282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010317"
 ---
-# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Échanger des événements entre des consommateurs et des producteurs qui utilisent des protocoles différents : AMQP, Kafka et HTTPS
-Azure Event Hubs prend en charge trois protocoles pour les producteurs et les consommateurs : AMQP, Kafka et HTTPS. Chacun de ces protocoles dispose de sa propre méthode pour représenter les messages, donc bien la question suivante se pose naturellement : si une application envoie des événements à Event Hub dans un protocole et les consomme selon un autre protocole, à quoi ressemblent les différentes parties et valeurs de l’événement lorsqu’ils arrivent chez le contrôle serveur consommateur ? Cet article décrit les meilleures pratiques pour le producteur et le contrôle serveur consommateur pour vous assurer que les valeurs au sein d’un événement sont correctement interprétées par l’application qui les reçoit.
+# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Échanger des événements entre contrôles serveur consommateurs et producteurs qui utilisent différents protocoles : AMQP, Kafka et HTTPS
+Azure Event Hubs prend en charge trois protocoles pour les producteurs et les contrôles serveur consommateurs : AMQP, Kafka et HTTPS. Chacun de ces protocoles dispose de sa propre méthode pour représenter les messages, donc bien la question suivante se pose naturellement : si une application envoie des événements à Event Hub dans un protocole et les consomme selon un autre protocole, à quoi ressemblent les différentes parties et valeurs de l’événement lorsqu’ils arrivent chez le contrôle serveur consommateur ? Cet article décrit les meilleures pratiques pour le producteur et le contrôle serveur consommateur pour vous assurer que les valeurs au sein d’un événement sont correctement interprétées par l’application qui les reçoit.
 
 Plus précisément, les conseils de cet article décrivent ces clients, avec les versions répertoriées utilisées pour développer les extraits de code :
 

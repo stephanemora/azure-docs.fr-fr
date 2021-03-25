@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: 99c36354334701dcd4c7c30c5fd5039c13885525
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358705"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Créer une offre Dynamics 365 pour Business Central
@@ -21,7 +21,7 @@ Cet article explique la procédure de création d’une offre Dynamics 365 Busi
 Avant de commencer, et si vous ne l’avez pas déjà fait, [créez un compte Marketplace commercial dans l’Espace partenaires](create-account.md). Vérifiez que votre compte est inscrit dans le programme du marketplace commercial.
 
 >[!NOTE]
-> Une fois l’offre publiée, les modifications apportées à l’offre sont uniquement mises à jour dans l’Espace partenaires et le magasin en ligne une fois que vous avez renvoyé l’offre en vue de sa publication.
+> Une fois l’offre publiée, les modifications apportées à l’offre sont uniquement mises à jour dans l’Espace partenaires et le magasin en ligne une fois que vous avez envoyé à nouveau l’offre en vue de sa publication.
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
@@ -43,7 +43,7 @@ Entrez un **ID d’offre**. Il s’agit d’un identificateur unique par offre d
 Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
 
 - Ce nom n’est pas utilisé dans la Place de marché et est différent du nom de l’offre et des autres informations présentées aux clients.
-- Vous ne pouvez pas modifier ce nom après avoir sélectionné **Créer**.
+- Ce nom ne peut pas être modifié après que vous ayez sélectionné **Créer**.
 
 Sélectionnez **Créer** pour générer l’offre et continuer.
 
@@ -51,7 +51,7 @@ Sélectionnez **Créer** pour générer l’offre et continuer.
 
 ### <a name="alias"></a>Alias
 
-Entrez un nom descriptif que nous utiliserons pour faire référence à cette offre uniquement dans l’Espace partenaires. Ce nom (pré-rempli avec les informations que vous avez entrées lors de la création de l’offre) n’est pas utilisé dans la marketplace et est différent du nom de l’offre présenté aux clients. Si vous souhaitez mettre à jour le nom de l’offre par la suite, accédez à la page [Annonce de l’offre](#offer-listing).
+Entrez un nom descriptif que nous utiliserons pour faire référence à cette offre uniquement dans l’Espace partenaires. Ce nom (pré-rempli avec les informations que vous avez entrées lors de la création de l’offre) n’est pas utilisé dans la Place de marché et est différent du nom de l’offre présenté aux clients. Si vous souhaitez mettre à jour le nom de l’offre par la suite, accédez à la page [Annonce de l’offre](#offer-listing).
 
 ### <a name="setup-details"></a>Détails de la configuration
 
@@ -62,7 +62,7 @@ Sélectionnez le **Type de package** qui s’applique à votre offre :
 
 Pour **Comment voulez-vous qu’interagissent les clients avec l’offre de liste ?** , sélectionnez l’option que vous souhaitez utiliser pour cette offre.
 
-- **Obtenir maintenant (gratuit)**  : référencez votre offre gratuitement pour les clients.
+- **Obtenez-en une maintenant (gratuit)**  : référencez votre offre gratuitement pour les clients.
 - **Essai gratuit (annonce)**  : référencez votre offre pour les clients avec un lien vers un essai gratuit. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
 
     > [!NOTE]
@@ -139,7 +139,7 @@ Voici un exemple de la façon dont les informations de l’offre s’affichent d
 
 Le **nom** que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
 
-Entrez une courte description de votre offre (100 caractères maximum) pour le **résumé des résultats de la recherche**. Cette description pourra être utilisée dans les résultats de recherche de la place de marché.
+Entrez une courte description de votre offre (100 caractères maximum), pour le **résumé des résultats de la recherche**. Cette description pourra être utilisée dans les résultats de recherche de la place de marché.
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -147,7 +147,7 @@ Entrez une courte description de votre offre (100 caractères maximum) pour le 
 
 [!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
-Vous pouvez éventuellement entrer jusqu’à trois **mots clés de recherche** pour aider les clients à trouver votre offre sur la marketplace. Pour obtenir des résultats optimaux, utilisez également ces mots clés dans votre description.
+Vous pouvez éventuellement entrer jusqu’à trois **mots clés de recherche** pour aider les clients à trouver votre offre sur la place de marché. Pour obtenir des résultats optimaux, utilisez également ces mots clés dans votre description.
 
 Si vous souhaitez permettre aux clients de savoir avec **quels produits spécifiques votre application fonctionne**, saisissez jusqu’à trois noms de produit.
 
@@ -206,7 +206,7 @@ Cette page vous permet de définir où et comment mettre votre offre à disposit
 
 Pour spécifier les marchés sur lesquels votre offre doit être disponible, sélectionnez **Modifier les marchés** pour afficher la fenêtre contextuelle **Sélection du marché**.
 
-Sélectionnez au moins un marché. Choisissez **Sélectionner tout** pour mettre votre offre à disposition sur tous les marchés possibles ou sélectionnez uniquement des marchés spécifiques. Quand vous avez terminé, Sélectionnez **Enregistrer**.
+Sélectionnez au moins un marché. Choisissez **Sélectionner tout** pour mettre votre offre à disposition sur tous les marchés possibles, ou sélectionnez uniquement des marchés spécifiques. Quand vous avez terminé, Sélectionnez **Enregistrer**.
 
 Vos sélections ici s’appliquent uniquement aux nouvelles acquisitions. Si quelqu’un a déjà votre application sur un marché donné et que vous supprimez par la suite ce marché, les personnes qui disposent déjà de cette offre peuvent continuer à l’utiliser, mais aucun nouveau client sur ce marché ne pourra bénéficier de votre offre.
 

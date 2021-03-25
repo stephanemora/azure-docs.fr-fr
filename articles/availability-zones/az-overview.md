@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723773"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596006"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -82,7 +82,7 @@ Si une offre de service n’est pas disponible dans une région spécifique, vou
 | Recommandé | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Piloté par la demande | :heavy_check_mark: | :heavy_check_mark: |
 | Alterner | :heavy_check_mark: | :heavy_check_mark: | Piloté par la demande | Piloté par la demande | N/A | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>Services par catégorie avec zones de disponibilité
+### <a name="services-by-category"></a>Services par catégorie
 
 Comme mentionné précédemment, Azure classe les services en trois catégories : de base, standard et spécialisés. Les catégories de service sont attribuées lors de la mise en disponibilité générale. Souvent, les services démarrent leur cycle de vie en tant que services spécialisés, et les augmentations de la demande et de l’utilisation peuvent leur valoir une promotion au niveau général ou de base. Le tableau suivant répertorie les catégories attribuées aux services de base standard. Notez les points suivants concernant le tableau :
 
@@ -101,7 +101,7 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Adresse IP publique                        | Cache Azure pour Redis                             | 
 > | Azure SQL Database                     | Recherche cognitive Azure                            | 
-> | Azure SQL : Instance gérée           | Azure Cognitive Services                          | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
 > | Stockage sur disque                           | Azure Cognitive Services : Vision par ordinateur         | 
 > | Event Hubs                             | Azure Cognitive Services : Content Moderator       | 
 > | Key Vault                              | Azure Cognitive Services : Face                    | 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f47ca56fa1b40422edeb0d4e11c24be6f60e49e5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72792043"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666359"
 ---
 # <a name="conditional-cognitive-skill"></a>Compétence cognitive conditionnelle
 
@@ -96,7 +96,7 @@ Il existe une seule sortie appelée simplement "output." Elle renvoie la valeur 
 
 ## <a name="examples"></a>Exemples
 
-### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exemple de définition de compétence 1 : Filtrer des documents pour renvoyer uniquement les documents français
+### <a name="sample-skill-definition-1-filter-documents-to-return-only-french-documents"></a>Exemple de définition de compétence 1 : Filtrer les documents pour retourner uniquement les documents français
 
 La sortie suivante renvoie un tableau de phrases ("/document/frenchSentences") si la langue du document est le français. Si la langue n’est pas le français, la valeur est définie sur *null*.
 
@@ -115,7 +115,7 @@ La sortie suivante renvoie un tableau de phrases ("/document/frenchSentences") s
 Si "/document/frenchSentences" est utilisé comme *contexte* d’une autre compétence, cette compétence s’exécute uniquement si "/document/frenchSentences" n’est pas défini sur *null*.
 
 
-### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exemple de définition de compétence 2 : Définir une valeur par défaut pour une valeur qui n’existe pas
+### <a name="sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist"></a>Exemple de définition de compétence 2 : Définir une valeur par défaut pour une valeur qui n’existe pas
 
 La sortie suivante crée une annotation ("/document/languageWithDefault") qui est définie sur la langue du document ou sur "es" si la langue n’est pas définie.
 
@@ -132,9 +132,9 @@ La sortie suivante crée une annotation ("/document/languageWithDefault") qui es
 }
 ```
 
-### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exemple de définition de compétence 3 : Fusionner les valeurs de deux champs dans un même champ
+### <a name="sample-skill-definition-3-merge-values-from-two-fields-into-one"></a>Exemple de définition de compétence 3 : Fusionner les valeurs de deux champs en une seule
 
-Dans cet exemple, certaines phrases ont une propriété *frenchSentiment*. Chaque fois que la propriété *frenchSentiment* est null, nous souhaitons utiliser la valeur *englishSentiment*. Nous attribuons la sortie à un membre qui est appelé *sentiment* ("/document/sentiment/*/sentiment").
+Dans cet exemple, certaines phrases ont une propriété *frenchSentiment*. Chaque fois que la propriété *frenchSentiment* est null, nous souhaitons utiliser la valeur *englishSentiment*. Nous affectons la sortie à un membre qui est appelé *sentiment* (« /document/sentences/*/sentiment »).
 
 ```json
 {
@@ -150,7 +150,7 @@ Dans cet exemple, certaines phrases ont une propriété *frenchSentiment*. Chaqu
 ```
 
 ## <a name="transformation-example"></a>Exemples de transformation
-### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exemple de définition de compétence 4 : Transformation des données sur un seul champ
+### <a name="sample-skill-definition-4-data-transformation-on-a-single-field"></a>Exemple de définition de compétence 4 : Transformation de données sur un seul champ
 
 Dans cet exemple, nous recevons un *sentiment* compris entre 0 et 1. Nous voulons le transformer pour qu’il soit compris entre -1 et 1. Nous pouvons utiliser la compétence conditionnelle pour effectuer cette transformation mineure.
 

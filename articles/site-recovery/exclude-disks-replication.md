@@ -4,10 +4,10 @@ description: Comme exclure des disques de la réplication vers Azure avec Azure 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 15989fbfd65f758eb777c5170c217aba8707e0be
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008257"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exclure des disques de la reprise d’activité
@@ -56,13 +56,13 @@ Les écritures dans un fichier d’échange (pagefile.sys) et les écritures dan
 
 ## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
 
-Nous allons voir comment gérer l’exclusion de disque, le basculement et le basculement d’une machine virtuelle Windows SQL Server source - **SalesDB** _, pour laquelle nous souhaitons exclure tempdb. 
+Nous allons voir comment gérer l’exclusion de disque, le basculement et le basculement d’une machine virtuelle Windows SQL Server source - **SalesDB***, pour laquelle nous souhaitons exclure tempdb. 
 
 ### <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
 
 Nous avons ces disques sur la machine virtuelle Windows source SalesDB.
 
-_ *Nom du disque** | **Disque de système d’exploitation invité** | **Lettre de lecteur** | **Type de données de disque**
+**Nom du disque** | **Disque de système d’exploitation invité** | **Lettre de lecteur** | **Type de données de disque**
 --- | --- | --- | ---
 DB-Disk0-OS | Disk0 | C:\ | Disque de système d’exploitation.
 DB-Disk1| Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1.

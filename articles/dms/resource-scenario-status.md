@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: d51de526205e8ef663dcfd682ec5858e4bc2f645
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183979"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463508"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>État des scénarios de migration pris en charge par Azure Database Migration Service
 
@@ -69,11 +69,11 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 
 | Cible  | Source | Support | Statut |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **Base de données Azure SQL** | SQL Server | X | GA |
-|   | RDS SQL | X | GA |
+| **Base de données Azure SQL** | SQL Server | X |  |
+|   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Base de données Azure SQL MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X | GA |
+|   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Machine virtuelle Azure SQL** | SQL Server | X |   |
 |   | Oracle  | X |  |
@@ -83,9 +83,12 @@ Le tableau suivant présente la prise en charge d’Azure Database Migration Ser
 | **Azure DB pour PostgreSQL - Serveur unique** | PostgreSQL | ✔ | GA |
 |   | Azure DB pour PostgreSQL - Serveur unique | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
-|   | Oracle | ✔ | Préversion publique |
+|   | Oracle | ✔ | Préversion publique (destinée à la dépréciation après le 1er mai 2021) |
 | **Azure DB pour PostgreSQL - Hyperscale (Citus)** | PostgreSQL | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |
+
+> [!IMPORTANT]
+> Le scénario de migration « Oracle vers Azure Database pour PostgreSQL » (actuellement en préversion) ne sera plus disponible après le 1er mai 2021. Nous continuerons à assurer un support via des outils alternatifs (tels que Ora2pg) et fournissons la meilleure expérience de migration pour les migrations d’Oracle vers PostgreSQL. Pour connaître les bonnes pratiques en matière de migration, consultez [Guide de migration d’Oracle vers Azure Database pour PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

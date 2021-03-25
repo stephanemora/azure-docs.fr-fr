@@ -7,10 +7,10 @@ ms.date: 10/20/2020
 ms.topic: how-to
 ms.service: azure-maps
 ms.openlocfilehash: c715c0639e962f76f669515c1d2c826c8cf6cc9e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92524975"
 ---
 # <a name="create-your-azure-maps-account-using-an-arm-template"></a>Créer votre compte Azure Maps à l’aide d’un modèle ARM
@@ -19,7 +19,7 @@ Vous pouvez créer votre compte Azure Maps à l’aide d’un modèle Azure Reso
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure** . Le modèle s’ouvre dans le portail Azure.
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
 
 [![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-maps-create%2Fazuredeploy.json)
 
@@ -52,13 +52,13 @@ La ressource du compte Azure Maps est définie dans ce modèle :
     Sauf si elle est spécifiée, utilisez la valeur par défaut pour créer votre compte Azure Maps.
 
     * **Abonnement** : sélectionnez un abonnement Azure.
-    * **Groupe de ressources**  : sélectionnez **Créer** , entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK** .
-    * **Emplacement** : sélectionnez un emplacement. Par exemple, **USA Ouest 2** .
-    * **Nom du compte**  : entrez un nom pour votre compte Azure Maps, qui doit être globalement unique.
-    * **Niveau tarifaire**  : sélectionnez le niveau tarifaire approprié ; la valeur par défaut du modèle est S0.
+    * **Groupe de ressources** : sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
+    * **Emplacement** : sélectionnez un emplacement. Par exemple, **USA Ouest 2**.
+    * **Nom du compte** : entrez un nom pour votre compte Azure Maps, qui doit être globalement unique.
+    * **Niveau tarifaire** : sélectionnez le niveau tarifaire approprié ; la valeur par défaut du modèle est S0.
 
-3. Sélectionnez **Revoir + créer** . 
-4. Confirmez vos paramètres sur la page de vérification, puis cliquez sur **Créer** . Une fois votre Azure Maps correctement déployé, vous recevez une notification :
+3. Sélectionnez **Revoir + créer**. 
+4. Confirmez vos paramètres sur la page de vérification, puis cliquez sur **Créer**. Une fois votre Azure Maps correctement déployé, vous recevez une notification :
 
     ![Notification du portail de déploiement du modèle ARM](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)
 

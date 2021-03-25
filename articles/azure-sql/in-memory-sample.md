@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786579"
 ---
 # <a name="in-memory-sample"></a>Exemple en mémoire
@@ -82,7 +82,7 @@ Un résultat de **0** signifie que la technologie en mémoire n’est pas prise 
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-Vous pouvez inspecter les tables à mémoire optimisée via **l’Explorateur d’objets** dans SSMS. Cliquez avec le bouton droit sur **Tables** > **Filtre** > **Paramètres de filtre** > **Est à mémoire optimisée** . La valeur est égale à 1.
+Vous pouvez inspecter les tables à mémoire optimisée via **l’Explorateur d’objets** dans SSMS. Cliquez avec le bouton droit sur **Tables** > **Filtre** > **Paramètres de filtre** > **Est à mémoire optimisée**. La valeur est égale à 1.
 
 Vous pouvez aussi interroger les vues de catalogue, telles que :
 
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**Procédure stockée compilée en mode natif**  : Vous pouvez inspecter SalesLT.usp_InsertSalesOrder_inmem via une requête de vue de catalogue :
+**Procédure stockée compilée en mode natif** : Vous pouvez inspecter SalesLT.usp_InsertSalesOrder_inmem via une requête de vue de catalogue :
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
@@ -150,7 +150,7 @@ begin;
 end
 ```
 
-Pour créer la version *_ondisk* du script T-SQL précédent pour ostress.exe, il suffit de remplacer les deux occurrences de la sous-chaîne *_inmem* par *_ondisk* . Ces remplacements affectent les noms des tables et des procédures stockées.
+Pour créer la version *_ondisk* du script T-SQL précédent pour ostress.exe, il suffit de remplacer les deux occurrences de la sous-chaîne *_inmem* par *_ondisk*. Ces remplacements affectent les noms des tables et des procédures stockées.
 
 #### <a name="install-rml-utilities-and-ostress"></a>Installer les utilitaires RML et `ostress`
 
@@ -205,7 +205,7 @@ Lorsque `ostress.exe` est terminé, la durée d’exécution est indiquée sur l
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Réinitialisez, paramétrez *_ondisk* , puis procédez à une nouvelle exécution.
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Réinitialisez, paramétrez *_ondisk*, puis procédez à une nouvelle exécution.
 
 Une fois le résultat de l’exécution de *_inmem* obtenu, effectuez les opérations suivantes pour l’exécution de *_ondisk* :
 
@@ -215,7 +215,7 @@ Une fois le résultat de l’exécution de *_inmem* obtenu, effectuez les opéra
    EXECUTE Demo.usp_DemoReset;
    ```
 
-2. Modifiez la ligne de commande ostress.exe pour remplacer toutes les occurrences de *_inmem* par *_ondisk* .
+2. Modifiez la ligne de commande ostress.exe pour remplacer toutes les occurrences de *_inmem* par *_ondisk*.
 
 3. Réexécutez ostress.exe une deuxième fois, puis enregistrez le résultat de durée.
 
@@ -246,7 +246,7 @@ Pour l’analyse en temps réel sur une charge de travail OLTP, il est souvent p
    - Le script crée la table Dimension et deux tables de faits. Les tables de faits comprennent 3,5 millions de lignes chacune.
    - Le script peut prendre 15 minutes pour s’exécuter.
 
-3. Collez le script T-SQL dans SSMS, puis exécutez-le. Le mot clé **COLUMNSTORE** est essentiel dans l’instruction **CREATE INDEX** , comme dans l’exemple ci-dessous :<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Collez le script T-SQL dans SSMS, puis exécutez-le. Le mot clé **COLUMNSTORE** est essentiel dans l’instruction **CREATE INDEX**, comme dans l’exemple ci-dessous :<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Définissez AdventureWorksLT sur le niveau de compatibilité 130 :<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
 
@@ -254,9 +254,9 @@ Pour l’analyse en temps réel sur une charge de travail OLTP, il est souvent p
 
 #### <a name="key-tables-and-columnstore-indexes"></a>Tables et index columnstore essentiels
 
-- dbo.FactResellerSalesXL_CCI est une table contenant un index columnstore en cluster, ce qui permet la compression avancée au niveau des *données* .
+- dbo.FactResellerSalesXL_CCI est une table contenant un index columnstore en cluster, ce qui permet la compression avancée au niveau des *données*.
 
-- dbo.FactResellerSalesXL_PageCompressed est une table qui possède un index en cluster régulier équivalent, compressé uniquement au niveau de la *page* .
+- dbo.FactResellerSalesXL_PageCompressed est une table qui possède un index en cluster régulier équivalent, compressé uniquement au niveau de la *page*.
 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Requêtes essentielles pour comparer l’index columnstore
 

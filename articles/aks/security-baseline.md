@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: de32de5fc78919154bade3895cab6da82b175a93
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8fd058c88e11764a538f67fe49aba267e706bf11
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740595"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951834"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Base de référence de sécurité Azure pour Azure Kubernetes Service
 
@@ -42,7 +42,7 @@ Vous pouvez implémenter un cluster AKS privé pour vous assurer que le trafic r
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Azure Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
 
 **Définitions Azure Policy intégrées - Microsoft.ContainerService** :
 
@@ -62,7 +62,7 @@ Activez les journaux de flux de groupe de sécurité réseau et envoyez ceux-ci 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
@@ -78,7 +78,7 @@ Utilisez une passerelle d’API pour l’authentification, l’autorisation, la 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications présentant des adresses IP connues comme étant malveillantes
 
@@ -94,7 +94,7 @@ Choisissez d’autoriser ou de refuser un trafic en fonction de paramètres, tel
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
@@ -106,7 +106,7 @@ Network Watcher est activé automatiquement dans la région de votre réseau vir
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions (IDS/IPS) basés sur le réseau
 
@@ -114,13 +114,13 @@ Network Watcher est activé automatiquement dans la région de votre réseau vir
 
 Si la détection des intrusions et/ou la prévention basée sur l’inspection de la charge utile ou l’analyse du comportement n’est pas obligatoire, une Azure Application Gateway avec WAF peut être utilisée et configurée en « mode de détection » pour consigner les alertes et les menaces ou en « mode de prévention » pour bloquer activement les intrusions et les attaques détectées.
 
-- [Comprendre les meilleures pratiques de sécurisation de votre cluster AKS avec un WAF](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
+- [Comprendre les meilleures pratiques de sécurisation de votre cluster AKS avec un WAF](./operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
 
 - [Guide pratique de déploiement d’Azure Application Gateway (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
@@ -138,7 +138,7 @@ Appliquez une balise Azure à des pools de nœuds de votre cluster AKS. Elles so
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -158,11 +158,11 @@ Des informations supplémentaires sont disponibles sur les liens référencés.
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Exemples Azure Policy pour le réseau](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
@@ -180,7 +180,7 @@ Choisissez d’autoriser ou de refuser des chemins d’accès réseau spécifiqu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
@@ -190,15 +190,15 @@ Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modificati
 
 Utilisez les journaux Azure Monitor pour activer et interroger les journaux des principaux composants d’AKS, kube-apiserver et kube-controller-manager. Créez et gérez les nœuds qui exécutent le kubelet et le runtime de conteneurs, et déployez leurs applications par le biais du serveur d’API de Kubernetes managé. 
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Activer et consulter les journaux d'activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
+- [Activer et consulter les journaux d'activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)](./view-control-plane-logs.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
@@ -214,7 +214,7 @@ Vérifiez que les serveurs NTP sont accessibles par les nœuds de cluster si vou
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 
@@ -232,17 +232,17 @@ Exportez ces journaux vers Log Analytics ou une autre plateforme de stockage. Da
 
 Activez ces données et intégrez-les à Azure Sentinel ou à une solution SIEM tierce, en fonction des besoins de votre organisation.
 
-- [Passez en revue le schéma de journal, y compris les rôles de journal, ici](/azure/aks/view-master-logs)
+- [Passez en revue le schéma de journal, y compris les rôles de journal, ici](./view-control-plane-logs.md)
 
-- [Présentation d’Azure Monitor pour conteneurs](/azure/azure-monitor/insights/container-insights-overview)
+- [Présentation d’Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md)
 
-- [Procédure d’activation d’Azure Monitor pour conteneurs](/azure/azure-monitor/insights/container-insights-onboard)
+- [Procédure d’activation d’Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-onboard.md)
 
-- [Activer et consulter les journaux d'activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)](/azure/aks/view-master-logs)
+- [Activer et consulter les journaux d'activité du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)](./view-control-plane-logs.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
@@ -265,11 +265,11 @@ Activez les journaux d’audit sur les principaux composants d’AKS, tels que :
 
 Activez également d’autres journaux d’audit, tels que kube-audit. 
 
-- [Procédure d’activation et de consultation des journaux d’activité du nœud principal Kubernetes dans AKS](/azure/aks/view-master-logs)
+- [Procédure d’activation et de consultation des journaux d’activité du nœud principal Kubernetes dans AKS](./view-control-plane-logs.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4 : Collecter les journaux de sécurité des systèmes d’exploitation
 
@@ -281,17 +281,17 @@ La collecte de données est requise pour fournir une visibilité des mises à jo
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
 **Conseils** : Intégrez vos instances Azure Kubernetes Service (AKS) à Azure Monitor et définissez la période de rétention de l’espace de travail Azure Log Analytics correspondante en fonction des exigences de conformité de votre organisation. 
 
-- [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -301,15 +301,15 @@ Utilisez l’espace de travail Log Analytics d’Azure Monitor pour examiner les
 
 Affichez les journaux générés par les principaux composants d’AKS (kube-apiserver et kube-controllermanager) pour la résolution des problèmes de votre application et de vos services. Activez des données et intégrez-les à Azure Sentinel ou une solution SIEM tierce pour la gestion et la surveillance centralisées des journaux.
 
-- [Procédure d’activation et de consultation des journaux d’activité du nœud principal Kubernetes dans AKS](/azure/aks/view-master-logs)
+- [Procédure d’activation et de consultation des journaux d’activité du nœud principal Kubernetes dans AKS](./view-control-plane-logs.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -323,7 +323,7 @@ Passez en revue les alertes Security Center sur les menaces et les activités ma
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
@@ -333,11 +333,11 @@ Passez en revue les alertes Security Center sur les menaces et les activités ma
 
 - [Guide de référence des alertes de sécurité](../security-center/alerts-reference.md)
 
-- [Alertes pour les conteneurs : clusters Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Alertes pour les conteneurs : clusters Azure Kubernetes Service](../security-center/alerts-reference.md#alerts-akscluster)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="29-enable-dns-query-logging"></a>2.9 : Activer la journalisation des requêtes DNS
 
@@ -349,7 +349,7 @@ Activez la journalisation de requête DNS en appliquant la configuration documen
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10 : Activer l’enregistrement d’audit en ligne de commande
 
@@ -361,7 +361,7 @@ Activez la journalisation de requête DNS en appliquant la configuration documen
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -383,7 +383,7 @@ Utilisez Azure CLI pour des opérations telles que « Obtenir les informations d
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
@@ -395,7 +395,7 @@ Effectuez des requêtes ad hoc afin de découvrir les comptes qui sont membres d
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
@@ -411,17 +411,17 @@ Créez des stratégies et des procédures concernant l’utilisation de comptes 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4 : Utiliser l’authentification unique (SSO) avec Azure Active Directory
 
 **Conseils** : Utilisez l’authentification unique pour l’authentification intégrée d’Azure Kubernetes Service (AKS) avec Azure Active Directory (Azure AD) pour un cluster AKS.
 
-- [Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel](/azure/azure-monitor/insights/container-insights-livedata-overview)
+- [Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel](../azure-monitor/containers/container-insights-livedata-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
@@ -435,7 +435,7 @@ Activez l’authentification multifacteur Azure AD et suivez les recommandations
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
@@ -447,7 +447,7 @@ Activez l’authentification multifacteur Azure AD et suivez les recommandations
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
@@ -459,7 +459,7 @@ Activez l’authentification multifacteur Azure AD et suivez les recommandations
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3.8 : Gérer les ressources Azure uniquement à partir d’emplacements approuvés
 
@@ -473,7 +473,7 @@ Limitez l’accès au serveur d’API AKS à partir d’un ensemble limité de p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
@@ -489,7 +489,7 @@ Utilisez les rôles intégrés AKS avec le contrôle d’accès en fonction du r
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
@@ -507,18 +507,18 @@ Tenez compte des rôles utilisés à des fins de support ou de résolution des p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
 **Conseils** : Intégrez l’authentification utilisateur pour Azure Kubernetes Service (AKS) avec Azure Active Directory (Azure AD). Créez des paramètres de diagnostic pour Azure AD en envoyant les journaux d’audit et de connexion à un espace de travail Azure Log Analytics. Configurez les alertes souhaitées (par exemple, lorsqu’un compte désactivé tente de se connecter) au sein d’un espace de travail Azure Log Analytics.
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Guide pratique pour créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](/azure/azure-monitor/platform/alerts-log)
+- [Guide pratique pour créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 : Alerte en cas d’écart de comportement de connexion à un compte
 
@@ -532,7 +532,7 @@ Tenez compte des rôles utilisés à des fins de support ou de résolution des p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -548,7 +548,7 @@ Tenez compte des rôles utilisés à des fins de support ou de résolution des p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
@@ -566,7 +566,7 @@ Implémentez des abonnements et/ou des groupes d’administration distincts pour
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
@@ -582,7 +582,7 @@ Microsoft gère la plateforme sous-jacente et traite tout le contenu des clients
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -598,7 +598,7 @@ Le trafic de sortie Kubernetes est chiffré sur HTTPS/TLS par défaut. Examinez 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
@@ -611,7 +611,7 @@ Pour garantir la sécurité des données client dans Azure, Microsoft a impléme
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources
 
@@ -625,7 +625,7 @@ Utilisez les rôles intégrés AKS avec Azure RBAC, Contributeur et Propriétair
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Azure Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
 
 **Définitions Azure Policy intégrées - Microsoft.ContainerService** :
 
@@ -640,7 +640,7 @@ Microsoft gère la plateforme sous-jacente et traite tout le contenu des clients
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
@@ -654,7 +654,7 @@ Le chiffrement au repos à l’aide de clés gérées par le client est disponib
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
@@ -664,15 +664,15 @@ Configurez des alertes pour recevoir une notification proactive ou créer un jou
 
 Utilisez le journal d’activité Azure pour surveiller vos clusters AKS et les ressources associées à un niveau élevé. Bénéficier d’une intégration à Prometheus pour afficher les métriques d’application et de charge de travail qu’il collecte à partir des nœuds et Kubernetes à l’aide de requêtes pour créer des alertes personnalisées, des tableaux de bord et une analyse détaillée des performances.
 
-- [Présentation d’Azure Monitor pour conteneurs](/azure/azure-monitor/insights/container-insights-overview)
+- [Présentation d’Azure Monitor pour conteneurs](../azure-monitor/containers/container-insights-overview.md)
 
-- [Procédure d’activation d’Azure Monitor pour les conteneurs](/azure/azure-monitor/insights/container-insights-onboard)
+- [Procédure d’activation d’Azure Monitor pour les conteneurs](../azure-monitor/containers/container-insights-onboard.md)
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
@@ -694,7 +694,7 @@ Utilisez Security Center pour obtenir des recommandations pratiques pour chaque 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
@@ -704,13 +704,13 @@ Notez que le processus de conservation des nœuds Windows Server à jour est dif
 
 - [Comprendre comment les mises à jour sont appliquées aux nœuds de cluster AKS exécutant Linux](node-updates-kured.md)
 
-- [Procédure de mise à niveau d’un pool de nœuds AKS pour des clusters AKS qui utilisent des nœuds Windows Server](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
+- [Procédure de mise à niveau d’un pool de nœuds AKS pour des clusters AKS qui utilisent des nœuds Windows Server](./use-multiple-node-pools.md#upgrade-a-node-pool)
 
 - [Mises à niveau des images de nœud Azure Kubernetes Service (AKS)](node-image-upgrade.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs de logiciels tiers
 
@@ -718,7 +718,7 @@ Notez que le processus de conservation des nœuds Windows Server à jour est dif
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Azure Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
 
 **Définitions Azure Policy intégrées - Microsoft.ContainerService** :
 
@@ -734,7 +734,7 @@ Utilisez la cmdlet PowerShell « Get-AzSecurityTask » pour automatiser la récu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
@@ -744,7 +744,7 @@ Utilisez Common Vulnerability Score System (CVSS) (ou un autre système de scori
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -764,7 +764,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
@@ -774,7 +774,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
@@ -792,11 +792,11 @@ Des teintes, étiquettes ou balises peuvent également être utilisées pour rap
 
 - [Clusters managés - Mettre à jour les étiquettes](/rest/api/aks/managedclusters/updatetags)
 
-- [Spécifier une teinte, un intitulé ou une étiquette pour un pool de nœuds](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
+- [Spécifier une teinte, un intitulé ou une étiquette pour un pool de nœuds](./use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4 : Dresser et tenir un inventaire des ressources Azure approuvées
 
@@ -804,7 +804,7 @@ Des teintes, étiquettes ou balises peuvent également être utilisées pour rap
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -821,7 +821,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
@@ -835,7 +835,7 @@ Suivez les configurations de vos ordinateurs pour vous aider à identifier les p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
@@ -853,7 +853,7 @@ Suivez les configurations de vos ordinateurs pour vous aider à identifier les p
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
@@ -871,7 +871,7 @@ Activez l’analyse adaptative des applications dans Security Center pour les ap
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
@@ -887,11 +887,11 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
@@ -901,7 +901,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
@@ -910,7 +910,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
@@ -934,7 +934,7 @@ Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
@@ -954,7 +954,7 @@ Examinez et implémentez des fonctionnalités et recommandations Kubernetes supp
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -982,7 +982,7 @@ Exportez un modèle de votre configuration AKS en JavaScript Object Notation (JS
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
@@ -996,7 +996,7 @@ Azure applique des correctifs quotidiens (y compris des correctifs de sécurité
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -1020,7 +1020,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
@@ -1030,13 +1030,13 @@ Reportez-vous à la liste des contrôles du CIS (Center for Internet Security) q
 
 - [Durcissement de la sécurité du système d’exploitation hôte du nœud de l’agent AKS](security-hardened-vm-host-image.md)
 
-- [Présentation de la configuration de l’état des clusters AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
+- [Présentation de la configuration de l’état des clusters AKS](./concepts-clusters-workloads.md#control-plane)
 
 - [Présentation du durcissement de la sécurité des hôtes de machines virtuelles AKS](security-hardened-vm-host-image.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
@@ -1052,7 +1052,7 @@ Implémentez des solutions tierces telles que Terraform pour créer un fichier d
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
@@ -1060,7 +1060,7 @@ Implémentez des solutions tierces telles que Terraform pour créer un fichier d
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -1070,11 +1070,11 @@ Créez des stratégies personnalisées pour auditer et appliquer des configurati
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Utiliser des alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Utiliser des alias](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
@@ -1086,11 +1086,11 @@ Reportez-vous à la liste des contrôles du CIS (Center for Internet Security) q
 
 - [Présentation du durcissement de la sécurité des hôtes de machines virtuelles AKS](security-hardened-vm-host-image.md)
 
-- [Présentation de la configuration de l’état des clusters AKS](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
+- [Présentation de la configuration de l’état des clusters AKS](./concepts-clusters-workloads.md#control-plane)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -1100,7 +1100,7 @@ Reportez-vous à la liste des contrôles du CIS (Center for Internet Security) q
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
@@ -1112,7 +1112,7 @@ Recevez une notification dans le tableau de bord de Security Center lorsque des 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
@@ -1124,11 +1124,11 @@ Limitez l’exposition des informations d’identification en ne les définissan
 
 - [Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)](concepts-security.md)
 
-- [Guide pratique pour utiliser Key Vault avec votre cluster AKS](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
+- [Guide pratique pour utiliser Key Vault avec votre cluster AKS](./developer-best-practices-pod-security.md#limit-credential-exposure)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
@@ -1138,13 +1138,13 @@ Notez que les identités managées sont conçues pour être utilisées avec des 
 
 Des principaux du service peuvent également être utilisés dans des clusters AKS. Toutefois, les clusters utilisant des principaux du service peuvent finir par atteindre un état dans lequel le principal du service doit être renouvelé pour que le cluster continue de fonctionner. La gestion des principaux de service ajoute de la complexité : c’est pourquoi il est plus facile d’utiliser à la place des identités managées. Les mêmes exigences d’autorisation s’appliquent aux principaux de service et aux identités managées.
 
-- [Présentation des identités managées et de Key Vault avec Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
+- [Présentation des identités managées et de Key Vault avec Azure Kubernetes Service (AKS)](./developer-best-practices-pod-security.md#limit-credential-exposure)
 
 - [Identité du pod Azure AD](https://github.com/Azure/aad-pod-identity)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -1158,7 +1158,7 @@ Limitez l’exposition des informations d’identification en ne les définissan
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -1170,13 +1170,13 @@ Limitez l’exposition des informations d’identification en ne les définissan
 
 - [Guide de référence des alertes de sécurité](../security-center/alerts-reference.md)
 
-- [Alertes pour les conteneurs : clusters Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Alertes pour les conteneurs : clusters Azure Kubernetes Service](../security-center/alerts-reference.md#alerts-akscluster)
 
-- [Responsabilité partagée d’AKS et ensembles de démons](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
+- [Responsabilité partagée d’AKS et ensembles de démons](./support-policies.md#shared-responsibility)
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2 : Pré-analyser les fichiers à charger sur des ressources Azure non liées au calcul
 
@@ -1186,7 +1186,7 @@ Limitez l’exposition des informations d’identification en ne les définissan
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont à jour
 
@@ -1194,13 +1194,13 @@ Limitez l’exposition des informations d’identification en ne les définissan
 
 - [Guide de référence des alertes de sécurité](../security-center/alerts-reference.md)
 
-- [Alertes pour les conteneurs : clusters Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Alertes pour les conteneurs : clusters Azure Kubernetes Service](../security-center/alerts-reference.md#alerts-akscluster)
 
-- [Responsabilité partagée d’AKS et ensembles de démons](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
+- [Responsabilité partagée d’AKS et ensembles de démons](./support-policies.md#shared-responsibility)
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -1222,7 +1222,7 @@ Supprimez l’état de vos applications avant de sauvegarder. Si vous ne pouvez 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
@@ -1238,11 +1238,11 @@ Effectuez des sauvegardes automatisées régulières des certificats, clés, com
 
 - [Comment sauvegarder des secrets Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Guide pratique pour activer la Sauvegarde Azure](/azure/backup/)
+- [Guide pratique pour activer la Sauvegarde Azure](../backup/index.yml)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
@@ -1250,19 +1250,19 @@ Effectuez des sauvegardes automatisées régulières des certificats, clés, com
 
 Effectuez régulièrement une restauration de données des certificats, clés, comptes de stockage managés et secrets Key Vault avec des commandes PowerShell.
 
-- [Restauration de certificats Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
+- [Restauration de certificats Key Vault](/powershell/module/az.keyvault/restore-azkeyvaultcertificate?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Restauration de clés Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Restauration de clés Key Vault](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Restauration des comptes de stockage gérés par Key Vault](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Restauration de secrets Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
+- [Restauration de secrets Key Vault](/powershell/module/az.keyvault/restore-azkeyvaultsecret?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](/azure/backup/backup-azure-restore-files-from-vm)
+- [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machines virtuelles Azure](../backup/backup-azure-restore-files-from-vm.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés gérées par le client
 
@@ -1272,11 +1272,11 @@ Activez la suppression réversible dans Key Vault pour protéger les clés contr
 
 - [Présentation d’Azure Storage Service Encryption](../storage/common/storage-service-encryption.md)
 
-- [Activer la suppression réversible dans Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -1296,7 +1296,7 @@ Activez la suppression réversible dans Key Vault pour protéger les clés contr
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -1305,7 +1305,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -1315,7 +1315,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -1327,7 +1327,7 @@ Examinez les incidents, après les faits, pour vous assurer que les problèmes s
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -1341,7 +1341,7 @@ Choisissez le connecteur de données Security Center pour diffuser en continu le
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -1351,7 +1351,7 @@ Choisissez le connecteur de données Security Center pour diffuser en continu le
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -1367,9 +1367,9 @@ Choisissez le connecteur de données Security Center pour diffuser en continu le
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

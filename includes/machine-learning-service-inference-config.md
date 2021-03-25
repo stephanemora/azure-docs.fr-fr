@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/28/2020
 ms.author: larryfr
 ms.openlocfilehash: a03f71adc99063fee4374b1436b08adf5bab783d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510985"
 ---
 Les entrées du mappage de document `inferenceconfig.json` correspondent aux paramètres de la classe [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig). Le tableau suivant décrit le mappage entre les entités dans le document JSON et les paramètres de la méthode :
@@ -16,8 +16,8 @@ Les entrées du mappage de document `inferenceconfig.json` correspondent aux par
 | Entité JSON | Paramètre de méthode | Description |
 | ----- | ----- | ----- |
 | `entryScript` | `entry_script` | Chemin vers un fichier local contenant le code à exécuter pour l’image. |
-| `sourceDirectory` | `source_directory` | Facultatif. Chemin vers des dossiers contenant tous les fichiers pour créer l’image, ce qui facilite l’accès à tous les fichiers de ce dossier ou sous-dossier. Vous pouvez charger un dossier entier à partir de votre ordinateur local en tant que dépendances pour le service web. Remarque : vos chemins d'accès entry_script, conda_file et extra_docker_file_steps sont des chemins d'accès relatifs au chemin source_directory. |
-| `environment` | `environment` | Facultatif.  [Environnement](/python/api/azureml-core/azureml.core.environment.environment) Azure Machine Learning.|
+| `sourceDirectory` | `source_directory` | facultatif. Chemin vers des dossiers contenant tous les fichiers pour créer l’image, ce qui facilite l’accès à tous les fichiers de ce dossier ou sous-dossier. Vous pouvez charger un dossier entier à partir de votre ordinateur local en tant que dépendances pour le service web. Remarque : vos chemins d'accès entry_script, conda_file et extra_docker_file_steps sont des chemins d'accès relatifs au chemin source_directory. |
+| `environment` | `environment` | facultatif.  [Environnement](/python/api/azureml-core/azureml.core.environment.environment) Azure Machine Learning.|
 
 Vous pouvez inclure les spécifications complètes d’un [environnement](/python/api/azureml-core/azureml.core.environment.environment) Azure Machine Learning dans le fichier de configuration d’inférence. Si cet environnement n’existe pas dans votre espace de travail, Azure Machine Learning le crée. Dans le cas contraire, Azure Machine Learning met à jour l’environnement, si nécessaire. L’extrait JSON ci-dessous est un exemple :
 

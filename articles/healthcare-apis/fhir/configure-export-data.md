@@ -5,14 +5,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 3/5/2020
+ms.date: 3/18/2021
 ms.author: matjazl
-ms.openlocfilehash: bb728b81d4dad5d880c27d1ebe8f85f1508f8231
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: ee110420c697afb6ecad857ba823c61d03c6be6c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018696"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046981"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurer le paramètre d’exportation et le compte de stockage
 
@@ -20,41 +20,46 @@ API Azure pour FHIR prend en charge la commande $export qui vous permet d’expo
 
 Trois étapes sont nécessaires à la configuration de l’exportation dans API Azure pour FHIR :
 
-1. Activer l’identité managée sur le service API Azure pour FHIR
-2. Créer un compte de stockage Azure (si vous ne l’avez pas déjà fait) et attribuer au compte de stockage une autorisation d’accès à API Azure pour FHIR
-3. Sélectionner le compte de stockage dans API Azure pour FHIR en tant que compte de stockage d’exportation
+1. Activez l’identité managée sur l’API Azure pour le service FHIR.
+2. Création d’un compte de stockage Azure (si vous ne l’avez pas déjà fait) et attribution d’une autorisation d’accès à l’API Azure pour FHIR au compte de stockage.
+3. Sélection du compte de stockage dans l’API Azure pour FHIR en tant que compte de stockage d’exportation.
 
 ## <a name="enabling-managed-identity-on-azure-api-for-fhir"></a>Activation de l’identité managée sur API Azure pour FHIR
 
-La première étape de la configuration d’API Azure pour FHIR en vue de l’exportation consiste à activer l’identité managée à l’échelle du système sur le service. Vous pouvez lire toutes les informations relatives aux identités managées dans Azure [ici](../../active-directory/managed-identities-azure-resources/overview.md).
+La première étape de la configuration d’API Azure pour FHIR en vue de l’exportation consiste à activer l’identité managée à l’échelle du système sur le service. Pour plus d’informations sur les identités gérées dans Azure, consultez [à propos des identités gérées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Pour ce faire, accédez au service API Azure pour FHIR et sélectionnez le panneau Identité. La modification de l’état sur activé permettra d’activer l’identité managée dans le service API Azure pour FHIR.
+Pour ce faire, accédez au service Azure API pour FHIR et sélectionnez **identité**. La modification de l’État en on active l’identité gérée dans l’API Azure pour **le** service FHIR.
 
 ![Activer une identité managée](media/export-data/fhir-mi-enabled.png)
 
-Nous pouvons maintenant passer à l’étape suivante et créer un compte de stockage et attribuer une autorisation à notre service.
+À présent, vous pouvez passer à l’étape suivante en créant un compte de stockage et en attribuant une autorisation à notre service.
 
 ## <a name="adding-permission-to-storage-account"></a>Ajout d’autorisations au compte de stockage
 
-L’étape suivante de l’exportation consiste à attribuer au service API Azure pour FHIR l’autorisation d’écrire dans le compte de stockage.
+L’étape suivante de l’exportation consiste à attribuer l’autorisation pour l’API Azure pour le service FHIR à écrire dans le compte de stockage.
 
-Après avoir créé un compte de stockage, accédez au panneau Access Control (IAM) dans Compte de stockage et sélectionnez Ajouter des attributions de rôles.
+Une fois que vous avez créé un compte de stockage, accédez à **Access Control (IAM)** dans le compte de stockage et sélectionnez **Ajouter une attribution de rôle**.
 
 ![Exporter une attribution de rôle](media/export-data/fhir-export-role-assignment.png)
 
-Ici, nous ajoutons ensuite le rôle Contributeur aux données blob du stockage à notre nom de service.
+C’est ici que vous allez ajouter le **contributeur de stockage** de rôle à notre nom de service, puis sélectionnez **Enregistrer**.
 
 ![Ajout de rôle](media/export-data/fhir-export-role-add.png)
 
-Nous sommes maintenant prêts pour l’étape suivante, dans laquelle nous pouvons sélectionner le compte de stockage dans API Azure pour FHIR comme compte de stockage par défaut pour $export.
+Vous êtes maintenant prêt à sélectionner le compte de stockage dans l’API Azure pour FHIR comme compte de stockage par défaut pour $export.
 
 ## <a name="selecting-the-storage-account-for-export"></a>Sélection du compte de stockage pour $export
 
-La dernière étape consiste à attribuer le compte Stockage Azure vers lequel API Azure pour FHIR exportera les données. Pour ce faire, accédez au panneau Intégration du service API Azure pour FHIR dans le portail Azure et sélectionnez le compte de stockage.
+La dernière étape consiste à affecter le compte de stockage Azure utilisé par l’API Azure pour FHIR pour exporter les données vers. Pour ce faire, accédez à **intégration** dans l’API Azure pour le service FHIR et sélectionnez le compte de stockage.
 
 ![Stockage d’exportation FHIR](media/export-data/fhir-export-storage.png)
 
-Après cela, nous sommes prêts à exporter les données à l’aide de la commande $export.
+Une fois que vous avez terminé cette étape finale, vous êtes maintenant prêt à exporter les données à l’aide de $export commande.
+
+> [!Note]
+> Seuls les comptes de stockage dans le même abonnement que pour l’API Azure pour FHIR peuvent être enregistrés comme destination pour les opérations de $export.
+
+Pour plus d’informations sur la configuration des paramètres de base de données, le contrôle d’accès, l’activation de la journalisation des diagnostics et l’utilisation d’en-têtes personnalisés pour ajouter des données aux journaux d’audit, consultez :
 
 >[!div class="nextstepaction"]
 >[Paramètres supplémentaires](azure-api-for-fhir-additional-settings.md)
