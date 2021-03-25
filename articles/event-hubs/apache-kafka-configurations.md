@@ -4,10 +4,10 @@ description: Cet article fournit des configurations Apache Kafka recommandées p
 ms.topic: reference
 ms.date: 03/03/2021
 ms.openlocfilehash: be009aae41b2cb26ab02fdbe14bc4e18311ad235
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042349"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Configurations recommandées pour les clients Apache Kafka

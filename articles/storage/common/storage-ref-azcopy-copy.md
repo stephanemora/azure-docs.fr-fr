@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879154"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103493762"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -31,6 +31,7 @@ Copie les données sources vers un emplacement de destination. Les directions pr
   - Azure Files (SAS) -> Azure Files (SAS)
   - Azure Files (SAS) -> Objet blob Azure (authentification SAS ou OAuth)
   - Amazon Web Services (AWS) S3 (clé d’accès) -> Objet blob de blocs Azure (SAP ou authentification OAuth)
+  - Google Cloud Storage (clé de compte de service) -> Objet blob de blocs Azure (authentification SAS ou OAuth) [préversion]
 
 Pour plus d’informations, consultez la section des exemples de cet article.
 
@@ -229,6 +230,36 @@ Transférez des fichiers et des répertoires dans le compte de stockage Azure et
 - Les clés et les valeurs sont encodées en URL et les paires clé-valeur sont séparées par une esperluette ('&')
     
 - Lors de la définition des balises sur les objets blob, il existe des autorisations supplémentaires (« t ») dans SAS, sans lesquelles le service renvoie une erreur d’autorisation.
+
+Copiez un seul objet dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez la variable d’environnement GOOGLE_APPLICATION_CREDENTIALS pour la source Google Cloud Storage.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+Copiez un répertoire entier dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez la variable d’environnement GOOGLE_APPLICATION_CREDENTIALS pour la source Google Cloud Storage.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+Copiez un compartiment entier dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez la variable d’environnement GOOGLE_APPLICATION_CREDENTIALS pour la source Google Cloud Storage.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copiez tous les compartiments dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez les variables d’environnement GOOGLE_APPLICATION_CREDENTIALS et GOOGLE_CLOUD_PROJECT=<project-id> pour la source GCS.
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copiez un sous-ensemble de compartiments à l’aide d’un caractère générique (*) dans le nom du compartiment à partir Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAS pour la destination. Tout d’abord, définissez les variables d’environnement GOOGLE_APPLICATION_CREDENTIALS et GOOGLE_CLOUD_PROJECT=<project-id> pour la source Google Cloud Storage.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
 
 ## <a name="options"></a>Options
 

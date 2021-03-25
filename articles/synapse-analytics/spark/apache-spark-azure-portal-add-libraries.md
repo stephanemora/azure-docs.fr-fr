@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176414"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598012"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques pour Apache Spark dans Azure Synapse Analytics
 Les bibliothèques fournissent du code réutilisable que vous pouvez inclure dans vos programmes ou projets. 
@@ -60,10 +60,6 @@ Pour en savoir plus sur ces fonctionnalités, consultez la documentation sur la 
 Souvent, lors de l’analyse interactive des données ou de l’apprentissage automatique, il se peut que vous souhaitiez essayer des packages plus récents ou que vous ayez besoin de packages qui ne sont pas déjà disponibles dans votre pool Apache Spark. Au lieu de mettre à jour la configuration du pool, les utilisateurs peuvent désormais utiliser des packages avec étendue de session pour ajouter, gérer et mettre à jour les dépendances de session.
 
 Les packages avec étendue de session permettent aux utilisateurs de définir les dépendances des packages au démarrage de leur session. Lorsque vous installez un package avec étendue de session, seule la session active peut accéder aux packages spécifiés. Par conséquent, ces packages avec étendue de session n’ont aucune incidence sur les autres sessions ou tâches qui utilisent le même pool Apache Spark. Par ailleurs, ces bibliothèques sont installées en plus des packages du runtime de base et du niveau du pool. 
-
-Ces packages sont ajoutés automatiquement à votre environnement Python. Les packages ne doivent pas être mentionnés dans votre fichier *requirements.txt*.
-
-Notez que cette méthode ne dispose actuellement que de fichiers `*.whl`. N’ajoutez pas de fichiers `*.tar.gz` au conteneur.
 
 Pour en savoir plus sur la gestion des packages avec étendue de session, consultez les guides pratiques suivants :
 

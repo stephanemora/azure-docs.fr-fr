@@ -2,14 +2,14 @@
 title: Gérer les paramètres et les préférences du portail Azure
 description: Vous pouvez changer les paramètres par défaut du portail Azure pour appliquer vos propres préférences. Les paramètres incluent le délai d’expiration des sessions inactives, la vue par défaut, le mode de menu, le contraste, le thème, les notifications et les formats de langue et de région
 keywords: paramètres, délai d’expiration, langue, région
-ms.date: 08/05/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 591b1ce6c2c069f9c0266588bf32f7303bf49708
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 067b9808a91b8e5e22fb940095779b099bad0d58
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588801"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775077"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gérer les paramètres et les préférences du portail Azure
 

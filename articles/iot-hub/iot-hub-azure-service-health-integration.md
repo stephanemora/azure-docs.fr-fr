@@ -13,10 +13,10 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 27fca7b76ab148fc355eb7d52ee0cbcbd3540458
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548399"
 ---
 # <a name="check-iot-hub-service-and-resource-health"></a>Vérifier le service IoT Hub et l’intégrité des ressources
@@ -33,7 +33,7 @@ Pour afficher l’état et l’historique d’état de votre IoT Hub à l’aide
 
 1. Sur le [portail Azure](https://portal.azure.com), accédez à votre déploiement IoT Hub.
 
-1. Dans le volet gauche, sous **Support + résolution des problèmes** , sélectionnez **Resource Health** .
+1. Dans le volet gauche, sous **Support + résolution des problèmes**, sélectionnez **Resource Health**.
 
     :::image type="content" source="./media/iot-hub-azure-service-health-integration/iot-hub-resource-health.png" alt-text="Page Resource Health pour un IoT Hub":::
 
@@ -49,7 +49,7 @@ Pour vérifier l’intégrité de vos IoT Hubs, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Accédez à **Service Health** > **Resource Health** .
+2. Accédez à **Service Health** > **Resource Health**.
 
 3. Dans les champs déroulants, sélectionnez votre abonnement, puis **IoT Hub** comme type de ressource.
 

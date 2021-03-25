@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 262987b5d5cdccec967193d855b17c5c74e16575
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 116c12900f015c849c9492ed67bc11d116286c43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563390"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611927"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Journaux de ressources pour le pare-feu d’applications web Azure
 
@@ -232,7 +232,7 @@ Le journal du pare-feu n’est généré que si vous l’avez activé sur chaque
 |ruleSetVersion     | Version d’ensemble de règles utilisée. Les valeurs disponibles sont 2.2.9 et 3.0.     |
 |ruleId     | ID de règle de l’événement de déclenchement.        |
 |message     | Message convivial pour l’événement de déclenchement. La section Détails vous fournit plus d’informations.        |
-|action     |  Action effectuée sur la requête. Les valeurs disponibles sont bloquées et autorisées.      |
+|action     |  Action effectuée sur la requête. Les valeurs disponibles sont Blocked (Bloqué) et Allowed (Autorisé) (pour les règles personnalisées), Matched (Mis en correspondance) (quand une règle correspond à une partie de la requête), et Detected (Détecté) et Blocked (Bloqué) (il s’agit de deux règles obligatoires, selon que le pare-feu WAF est en mode de détection ou de prévention).      |
 |site     | Site pour lequel le journal a été généré. Actuellement, seul Global est répertorié car les règles sont globales.|
 |details     | Détails de l’événement de déclenchement.        |
 |details.message     | Description de la règle.        |

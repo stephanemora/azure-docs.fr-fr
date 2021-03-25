@@ -4,10 +4,10 @@ description: Cet article explique comment configurer des clusters Linux Service 
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087075"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configurer un cluster Linux Service Fabric sur votre machine de développement Windows
@@ -51,7 +51,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
-    <b>Ubuntu 16.04 LTS :</b>
+    <b>Ubuntu 16.04 LTS :</b>
     ```powershell
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
@@ -124,7 +124,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
  
  Voici les limitations connues d’un cluster local qui s’exécute dans un conteneur sous Mac : 
  
- * Le service DNS ne fonctionne pas et n’est actuellement pas pris en charge dans le conteneur. [Problème no 132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Le service DNS ne fonctionne pas et n’est actuellement pas pris en charge dans le conteneur. [Problème no 132](https://github.com/Microsoft/service-fabric/issues/132).
  * L’exécution d’applications basées sur des conteneurs nécessite l’exécution de Service Fabric sur un hôte Linux. Les applications de conteneur imbriquées ne sont actuellement pas prises en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

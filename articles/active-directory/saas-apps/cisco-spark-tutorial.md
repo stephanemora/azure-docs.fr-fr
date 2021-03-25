@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c2b55fd56677a15f444e1b568517bdf1c32c99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ad6d5308638b112afe2b51c4e149f876651e429d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200799"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592521"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
 
@@ -38,7 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Cisco Webex prend en charge l’authentification unique lancée par le **fournisseur de services**.
-* Cisco Webex prend en charge [**l’attribution d’utilisateurs automatique**](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+* Cisco Webex prend en charge [**l’attribution d’utilisateurs automatique**](./cisco-webex-provisioning-tutorial.md).
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Ajout de Cisco Webex à partir de la galerie
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 ### <a name="create-cisco-webex-test-user"></a>Créer un utilisateur de test Cisco Webex
 
-Dans cette section, un utilisateur appelé B.Simon est créé dans Cisco Webex. Cette application prend en charge l’attribution automatique d’utilisateurs, ce qui permet l’approvisionnement et la suppression des privilèges d’accès automatiques en fonction de vos règles d’entreprise.  Microsoft recommande d’utiliser l’approvisionnement automatique chaque fois que cela est possible. Voir comment activer l’approvisionnement automatique pour [Cisco Webex](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+Dans cette section, un utilisateur appelé B.Simon est créé dans Cisco Webex. Cette application prend en charge l’attribution automatique d’utilisateurs, ce qui permet l’approvisionnement et la suppression des privilèges d’accès automatiques en fonction de vos règles d’entreprise.  Microsoft recommande d’utiliser l’approvisionnement automatique chaque fois que cela est possible. Voir comment activer l’approvisionnement automatique pour [Cisco Webex](./cisco-webex-provisioning-tutorial.md).
 
 Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :
 
@@ -195,7 +195,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion à Cisco Webex pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Cisco Webex dans Mes applications vous redirige vers l’URL de connexion à Cisco Webex. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Cisco Webex dans Mes applications vous redirige vers l’URL de connexion à Cisco Webex. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

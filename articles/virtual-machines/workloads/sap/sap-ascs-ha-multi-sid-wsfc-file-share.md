@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/24/2020
+ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f2e0e96f11203633b756a320d3da503686ed9f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8b1a29b0f94c5009d0535ca92363c25ad5c6c884
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504488"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103493490"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Haute disponibilité multi-SID de l’instance SAP ASCS/SCS avec le clustering de basculement Windows Server et le partage de fichiers sur Azure
 
@@ -59,6 +59,7 @@ _**Figure 1 :** Une instance SAP ASCS/SCS et SOFS déployés dans deux clusters
 > La configuration doit répondre aux conditions suivantes :
 > * Les instances SAP ASCS/SCS partagent le même cluster WSFC.
 > * Différents partages de fichiers Hôte global SAP appartenant à différents SID SAP doivent partager le même cluster SOFS.
+> * Les instances SAP ASCS/SCS et les partages SOFS ne doivent pas être combinés dans le même cluster. 
 > * Chaque SID de système de gestion de base de données (SGBD) a son propre cluster WSFC dédié.
 > * Les serveurs d’applications SAP appartenant au système SAP SID utilisent leurs propres machines virtuelles.
 > * La combinaison d’Enqueue Replication Server 1 et Enqueue Replication Server 2 sur le même cluster n’est pas prise en charge.  

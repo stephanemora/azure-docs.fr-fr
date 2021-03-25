@@ -13,10 +13,10 @@ ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366086"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Infrastructure de consentement d’Azure Active Directory
@@ -54,12 +54,12 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
     **Pour donner son consentement pour les autorisations déléguées d’une application**
 
    1. Accédez à la page **Autorisations des API** de votre application
-   1. Cliquez sur le bouton **Accorder le consentement administrateur** .
+   1. Cliquez sur le bouton **Accorder le consentement administrateur**.
 
       ![Accorder des autorisations pour un consentement administrateur explicite](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
-   > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations** . Sinon, l’application échoue lorsque le jeton d’accès est demandé.
+   > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

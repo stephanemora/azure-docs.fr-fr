@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86208992"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Journal d'audit de votre Azure Data Box et Azure Data Box Heavy
@@ -65,9 +65,9 @@ Les ID d’événements de journal de sécurité suivants sont collectés en tan
 
 Les ID d’événements de journal de sécurité suivants sont collectés en tant que partie des journaux d’audit en package sur votre Data Box.     
 
-- **Microsoft-Azure-DataBox-OOBE-Auditing**-contient les événements qui se produisent dans l’interface utilisateur locale. 
+- **Microsoft-Azure-DataBox-OOBE-Auditing**-contient les événements qui se produisent dans l’interface utilisateur locale. 
 - **Microsoft-Azure-DataBox-reprovision-audit**-contient les événements liés au réapprovisionnement de l’appareil Data Box. La reconfiguration de la Data Box se produit lorsque l’appareil est réinitialisé via l’interface utilisateur locale. Choisissez cette option lorsque vous voulez effacer les données que vous avez copiées en supprimant les partages existants et en recréant les partages dans le cadre du réapprovisionnement ou de la réinitialisation de l’appareil.
-- **Microsoft-Azure-DataBox-HcsMgmt-audit** - contient les événements liés uniquement à l’étape **Préparer l’expédition** avant que l’appareil ne soit renvoyé au centre de données Azure. 
+- **Microsoft-Azure-DataBox-HcsMgmt-audit** - contient les événements liés uniquement à l’étape **Préparer l’expédition** avant que l’appareil ne soit renvoyé au centre de données Azure. 
 - **Microsoft-Azure-DataBox-IfxAudit** - contient les messages consignés par différentes entités du produit sur les travaux, les journaux qui indiquent plus d’informations sur ce qui se passe dans certains flux.
 
 Voici un tableau résumant les différents fournisseurs d’événements et les ID d’événements correspondants qui sont collectés dans chaque cas.

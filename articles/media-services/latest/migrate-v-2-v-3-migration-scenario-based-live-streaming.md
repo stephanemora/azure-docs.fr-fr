@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955290"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598281"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Aide à la migration selon le scénario de streaming en direct
 
@@ -42,7 +42,7 @@ Testez la nouvelle façon de diffuser des événements en direct avec Media Serv
 - Si vous avez besoin d’un démarrage rapide des événements en direct, explorez les nouvelles fonctionnalités du [mode veille](live-events-outputs-concept.md#standby-mode).
 - Si vous voulez transcrire votre événement en direct pendant qu’il se produit, explorez la nouvelle fonctionnalité de [transcription en direct](live-transcription.md).
 - Créez des événements en direct qui ont lieu 24 h/24, 7 j/7 et 365 jours par an dans v3 si vous avez besoin d’une durée de streaming plus longue.
-- Utilisez [Event Grid](monitor-events-portal-how-to.md) pour superviser vos événements en direct.
+- Utilisez [Event Grid](monitoring/monitor-events-portal-how-to.md) pour superviser vos événements en direct.
 
 Pour connaître les étapes spécifiques, consultez les concepts, les tutoriels et les guides pratiques relatifs aux événements en direct ci-dessous.
 
@@ -69,7 +69,7 @@ Pour connaître les étapes spécifiques, consultez les concepts, les tutoriels 
 
 ## <a name="samples"></a>Exemples
 
-Vous pouvez aussi [comparer le code v2 et v3 dans les exemples de code](migrate-v-2-v-3-migration-samples.md).
+Vous pouvez aussi [comparer les codes V2 et V3 dans les exemples de code](migrate-v-2-v-3-migration-samples.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

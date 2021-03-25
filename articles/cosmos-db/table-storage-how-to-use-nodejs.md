@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079697"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Node.js
@@ -133,10 +133,10 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Ajout d'une entité à une table
 
-Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey** , qui sont des identificateurs uniques de l’entité.
+Pour ajouter une entité, commencez par créer un objet qui définit les propriétés de l'entité. Toutes les entités doivent contenir une propriété **PartitionKey** et **RowKey**, qui sont des identificateurs uniques de l’entité.
 
-* **PartitionKey**  : détermine la partition dans laquelle l’entité est stockée.
-* **RowKey**  : identifie de façon unique l’entité dans la partition.
+* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée.
+* **RowKey** : identifie de façon unique l’entité dans la partition.
 
 **PartitionKey** et **RowKey** doivent être des valeurs de chaîne. Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
@@ -221,7 +221,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 
 Avec `replaceEntity` et `mergeEntity`, si l’entité à mettre à jour n’existe pas, l’opération de mise à jour échoue. Par conséquent, si vous souhaitez stocker une entité indépendamment de son existence ou non, utilisez `insertOrReplaceEntity` ou `insertOrMergeEntity`.
 
-Le `result` des opérations de mise à jour réussies contient l’ **Etag** de l’entité mise à jour.
+Le `result` des opérations de mise à jour réussies contient l’**Etag** de l’entité mise à jour.
 
 ## <a name="work-with-groups-of-entities"></a>Utilisation des groupes d'entités
 
@@ -261,15 +261,15 @@ Pour les opérations de traitement par lot réussies, `result` contient les info
 
 Les opérations ajoutées à un traitement par lot peuvent être inspectées en affichant la propriété `operations`. Vous pouvez également utiliser les méthodes suivantes avec les opérations :
 
-* **clear**  : permet de supprimer toutes les opérations d’un lot.
-* **getOperations**  : permet d’obtenir une opération du lot.
-* **hasOperations**  : permet de renvoyer true si le lot contient des opérations.
-* **removeOperations**  : permet de supprimer une opération.
-* **size**  : permet de renvoyer le nombre d’opérations du lot.
+* **clear** : permet de supprimer toutes les opérations d’un lot.
+* **getOperations** : permet d’obtenir une opération du lot.
+* **hasOperations** : permet de renvoyer true si le lot contient des opérations.
+* **removeOperations** : permet de supprimer une opération.
+* **size** : permet de renvoyer le nombre d’opérations du lot.
 
 ## <a name="retrieve-an-entity-by-key"></a>Récupération d'une entité par clé
 
-Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey** , utilisez la méthode **retrieveEntity**.
+Pour envoyer une entité spécifique d’après la valeur **PartitionKey** et **RowKey**, utilisez la méthode **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -285,12 +285,12 @@ Après cette opération, `result` contient l’entité.
 
 Pour interroger une table, utilisez l’objet **TableQuery** pour générer une expression de requête en utilisant les clauses suivantes :
 
-* **select**  : les champs à renvoyer par la requête.
-* **where**  : la clause where.
+* **select** : les champs à renvoyer par la requête.
+* **where** : la clause where.
 
-  * **and**  : une condition where `and`.
-  * **or**  : une condition where `or`.
-* **top**  : le nombre d’éléments à extraire.
+  * **and** : une condition where `and`.
+  * **or** : une condition where `or`.
+* **top** : le nombre d’éléments à extraire.
 
 L’exemple suivant crée une requête qui renvoie les cinq premiers éléments avec une PartitionKey « hometasks ».
 
@@ -393,7 +393,7 @@ Vous pouvez également utiliser `top` avec `continuationToken` pour définir la 
 
 Les signatures d’accès partagé (SAP) sont un moyen sécurisé de fournir un accès précis aux tables sans fournir le nom ni les clés de votre compte de stockage. Elles servent souvent à fournir un accès limité à vos données, par exemple pour autoriser une application mobile à interroger des enregistrements.
 
-Une application approuvée, comme un service cloud, génère une SAP à l’aide de l’élément **generateSharedAccessSignature** du **TableService** , et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
+Une application approuvée, comme un service cloud, génère une SAP à l’aide de l’élément **generateSharedAccessSignature** du **TableService**, et la fournit à une application non approuvée ou semi-approuvée, comme une application mobile. La signature d'accès partagé est générée à l'aide d'une stratégie, qui décrit les dates de début et de fin de validité de la signature, et le niveau d'accès accordé au détenteur de la signature.
 
 L'exemple suivant génère une nouvelle stratégie d'accès partagé qui autorise le détenteur de la signature d'accès partagé à interroger (« r ») la table et expire 100 minutes après son heure de création.
 
@@ -456,7 +456,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks** , puis ajoute les nouvelles stratégies à l’aide de **setTableAcl**. Cette approche permet :
+L’exemple suivant obtient la liste de contrôle d’accès actuelle pour la table **hometasks**, puis ajoute les nouvelles stratégies à l’aide de **setTableAcl**. Cette approche permet :
 
 ```javascript
 var extend = require('extend');

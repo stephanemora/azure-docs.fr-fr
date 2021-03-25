@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040248"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
@@ -38,10 +38,10 @@ Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'u
 
 Voici les opérateurs de critères de correspondance pris en charge :
 
-- **Est égal à**  :  cet opérateur est utilisé pour une correspondance exacte. Par exemple, pour sélectionner l’en-tête **bearerToken** , utilisez l’opérateur d’égalité avec le sélecteur défini sur **bearerToken**.
-- **Commence par**  : cet opérateur correspond à tous les champs qui commencent par la valeur de sélecteur spécifiée.
-- **Se termine par**  :  cet opérateur correspond à tous les champs de demande qui se terminent par la valeur de sélecteur spécifiée.
-- **Contient**  : cet opérateur correspond à tous les champs de demande qui se contiennent la valeur de sélecteur spécifiée.
+- **Est égal à** :  cet opérateur est utilisé pour une correspondance exacte. Par exemple, pour sélectionner l’en-tête **bearerToken**, utilisez l’opérateur d’égalité avec le sélecteur défini sur **bearerToken**.
+- **Commence par** : cet opérateur correspond à tous les champs qui commencent par la valeur de sélecteur spécifiée.
+- **Se termine par** :  cet opérateur correspond à tous les champs de demande qui se terminent par la valeur de sélecteur spécifiée.
+- **Contient** : cet opérateur correspond à tous les champs de demande qui se contiennent la valeur de sélecteur spécifiée.
 - **Est égal à** : Cet opérateur correspond à tous les champs de la requête. * sera la valeur du sélecteur.
 
 Dans tous les cas, la correspondance respecte la casse, et les expressions régulières ne sont pas autorisées en guise de sélecteurs.
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est transmise au WAF, elle n'évaluera pas la chaîne **fdafdasfda** , mais évaluera toujours le nom de paramètre **user%281%29**. 
+Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est transmise au WAF, elle n'évaluera pas la chaîne **fdafdasfda**, mais évaluera toujours le nom de paramètre **user%281%29**. 
 
 ## <a name="waf-request-size-limits"></a>Limites de la taille des demandes adressées au WAF
 

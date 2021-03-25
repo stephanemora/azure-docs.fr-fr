@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
 ms.openlocfilehash: 880aad438d98605d11e5a2a7c314d89bd8beb5c5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101743258"
 ---
 # <a name="connect-your-nxlog-windows-dns-logs-to-azure-sentinel"></a>Connecter vos journaux DNS Windows NXLog à Azure Sentinel
@@ -39,7 +39,7 @@ NXLog peut être configuré pour envoyer des événements au format JSON directe
 
 1. Sélectionnez **Ouvrir la page du connecteur**.
 
-1. Suivez les instructions pas à pas de la rubrique Intégration du *Guide de l'utilisateur NXLog* [Microsoft Azure Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) pour configurer le transfert via l’API REST.
+1. Suivez les instructions pas à pas de la rubrique Intégration du *Guide de l’utilisateur NXLog* [Microsoft Azure Sentinel](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) pour configurer le transfert via l’API REST.
 
 ## <a name="find-your-data"></a>Recherche de données
 

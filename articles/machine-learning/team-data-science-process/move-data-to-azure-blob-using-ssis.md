@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9572d612e7ee8e2fd72850ba14447e8449f0f371
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93322000"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
@@ -37,8 +37,8 @@ Pour une présentation de scénarios canoniques utilisant SSIS pour répondre au
 ## <a name="prerequisites"></a>Prérequis
 Pour exécuter les tâches décrites dans cet article, vous devez disposer d’un abonnement Azure et d’un compte de stockage Azure. Pour charger ou télécharger des données, vous devez connaître le nom et la clé du compte de stockage Azure.
 
-* Pour configurer un **abonnement Azure** , consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
-* Pour obtenir des instructions sur la création d’ **un compte de stockage** et des informations sur le compte et la clé, voir [À propos des comptes de stockage Azure](../../storage/common/storage-account-create.md).
+* Pour configurer un **abonnement Azure**, consultez la section [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Pour obtenir des instructions sur la création d’**un compte de stockage** et des informations sur le compte et la clé, voir [À propos des comptes de stockage Azure](../../storage/common/storage-account-create.md).
 
 Pour utiliser les **connecteurs SSIS** vous devez télécharger :
 

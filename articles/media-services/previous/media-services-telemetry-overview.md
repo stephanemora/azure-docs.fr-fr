@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: b17b5901248056f6000710fa25d2ea1e9df2e2a5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009086"
 ---
 # <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services  
@@ -75,13 +75,13 @@ Cela devrait permettre d’optimiser la plupart des requêtes courantes :
 
 Les données de télémétrie sont stockées en agrégat dans une table, « TelemetryMetrics20160321 », où « 20160321 » est la date de création de la table. Le système de télémétrie crée une table distincte pour chaque nouveau jour basé sur l’heure UTC 00:00. La table est utilisée pour stocker des valeurs récurrentes telles que comme la vitesse de transmission de réception dans une fenêtre de temps donnée, les octets envoyés, etc. 
 
-Propriété|Valeur|Exemples/notes
+Propriété|Value|Exemples/notes
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L’ID de compte est inclus dans la clé de partition afin de simplifier les workflows dans lesquels plusieurs comptes Media Services écrivent sur le même compte de stockage.
 RowKey|{secondes avant minuit}_{valeur aléatoire}|01688_00199<br/><br/>La clé de ligne commence par le nombre de secondes avant minuit pour autoriser les requêtes supérieures de style n au sein d’une partition. Pour plus d’informations, consultez [cet](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) article. 
 Timestamp|Date/Heure|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
 Type|Le type de l’entité offrant les données de télémétrie|Channel/StreamingEndpoint/Archive<br/><br/>Le type d’événement est simplement une valeur de chaîne.
-Name|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpointRequestLog
+Nom|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L’heure à laquelle l’événement de télémétrie est survenu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>L’heure observée est fournie par l’entité envoyant les données de télémétrie (par exemple, un canal). Il peut y avoir des problèmes de synchronisation de l’heure entre les composants, cette valeur est donc approximative
 ServiceID|{ID de service}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Propriétés spécifiques à une entité|Comme définies par l’événement|StreamName: stream1, Bitrate 10123, …<br/><br/>Les propriétés restantes sont définies pour le type d’événement donné. Le contenu de la table Azure est constitué de paires clé / valeur.  (Autrement dit, différentes lignes de la table possèdent différents ensembles de propriétés.)
@@ -96,7 +96,7 @@ Il existe trois types d’entrées de données télémétriques spécifiques à 
 
 **Point de terminaison de streaming**
 
-Propriété|Valeur|Exemples
+Propriété|Value|Exemples
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -115,7 +115,7 @@ E2ELatency|Latence moyenne de bout en bout|250
 
 **Canal en temps réel**
 
-Propriété|Valeur|Exemples/notes
+Propriété|Value|Exemples/notes
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -140,12 +140,12 @@ Healthy|True, si <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingC
 
 **Archive en temps réel**
 
-Propriété|Valeur|Exemples/notes
+Propriété|Value|Exemples/notes
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-Type|Type|Archive
+Type|Type|Archivage
 Nom|Nom|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e

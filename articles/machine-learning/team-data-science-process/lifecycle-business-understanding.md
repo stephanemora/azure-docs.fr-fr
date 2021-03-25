@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710334"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Phase de présentation de l’entreprise du cycle de vie Team Data Science Process
@@ -60,11 +60,11 @@ Deux tâches principales sont traitées dans cette phase :
 
 4. Définissez les mesures de réussite. Par exemple, vous pouvez souhaiter faire une prédiction de la désinscription des clients. Vous avez besoin d’un taux de précision de « x » pour cent d’ici la fin de ce projet de trois mois. Avec ces données, vous pouvez proposer des promotions client pour réduire la désinscription des clients. Les mesures doivent satisfaire à l’acronyme **SMART** : 
 
-   * **S**pécifiques 
-   * **M**esurables
-   * **A**tteignables 
-   * **R**elevant (pertinentes) 
-   * **T**ime-bound (associées à un délai) 
+   * **S** pécifiques 
+   * **M** esurables
+   * **A** tteignables 
+   * **R** elevant (pertinentes) 
+   * **T** ime-bound (associées à un délai) 
 
 ### <a name="identify-data-sources"></a>Identifier les sources de données
 Identifiez les sources de données qui contiennent des exemples connus de réponses à vos questions précises. Recherchez les données suivantes :

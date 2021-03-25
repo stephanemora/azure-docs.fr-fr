@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 049025a5d871f1dd26e5dab498756aa44d2ebfe2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692873"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587863"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introduction à la sécurisation des comptes de service Azure
 
@@ -38,13 +38,13 @@ Pour les services hébergés dans Azure, nous recommandons d'utiliser une identi
 
 ## <a name="managed-identities"></a>Identités managées
 
-Les identités managées sont des identités Azure Active Directory (Azure AD) sécurisées et créées pour fournir une identité aux ressources Azure. Il existe [deux types d'identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) : 
+Les identités managées sont des identités Azure Active Directory (Azure AD) sécurisées et créées pour fournir une identité aux ressources Azure. Il existe [deux types d'identités managées](../managed-identities-azure-resources/overview.md#managed-identity-types) : 
  
 * Les identités managées attribuées par le système peuvent être attribuées directement à une instance d'un service. 
 
 * Les identités managées attribuées par l'utilisateur peuvent être créées en tant que ressources Azure autonomes. 
 
-Pour plus d'informations, consultez [Sécurisation des identités managées](service-accounts-managed-identities.md). Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Pour plus d'informations, consultez [Sécurisation des identités managées](service-accounts-managed-identities.md). Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md)
 
 ## <a name="service-principals"></a>Principaux de service
 
@@ -67,6 +67,3 @@ Pour plus d'informations sur la sécurisation des comptes de service Azure, cons
 [Sécurisation des principaux de service](service-accounts-principal.md)
 
 [Administration des comptes de service Azure](service-accounts-governing-azure.md)
-
-
-
