@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93041906"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
@@ -50,7 +50,7 @@ Pour extraire des images clés à l’aide du site web Video Indexer, chargez et
 
 ![Capture d’écran montrant la liste déroulante « Télécharger » avec l’option « Artefacts » sélectionnée.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
-Décompressez et ouvrez le dossier. Dans le dossier *_KeyframeThumbnail* , vous trouverez toutes les images clés qui ont été extraites de votre vidéo. 
+Décompressez et ouvrez le dossier. Dans le dossier *_KeyframeThumbnail*, vous trouverez toutes les images clés qui ont été extraites de votre vidéo. 
 
 #### <a name="with-the-video-indexer-api"></a>Avec l’API Video Indexer
 

@@ -4,10 +4,10 @@ description: Recherchez et filtrez la télémétrie brute envoyée par votre app
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579553"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
@@ -61,7 +61,7 @@ Les types d'événements sont :
 * **Affichage de page** - [Télémétrie envoyée par le client web](./javascript.md) et utilisée pour créer les rapports d’affichage des pages.
 * **Événement personnalisé** : si vous avez inséré des appels vers TrackEvent() pour [surveiller l’utilisation](./api-custom-events-metrics.md), vous pouvez les rechercher ici.
 * **Exception** : [exceptions non interceptées sur le serveur](./asp-net-exceptions.md) et celles que vous enregistrez avec TrackException().
-* **Dépendance** - [Appels de votre application de serveur ](./asp-net-dependencies.md) à d’autres services tels que des API REST ou des bases de données, et appels AJAX à partir de votre [code client](./javascript.md).
+* **Dépendance** - [Appels de votre application de serveur](./asp-net-dependencies.md) à d’autres services tels que des API REST ou des bases de données, et appels AJAX à partir de votre [code client](./javascript.md).
 * **Disponibilité** : résultats des [tests de disponibilité](./monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrer des valeurs de propriétés

@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109134"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Tutoriel : Configurer des filtres de routage pour l’homologation Microsoft à l’aide du portail Azure
@@ -79,27 +79,27 @@ Un filtre de routage ne peut avoir qu’une seule règle, et cette règle doit �
 
 1. Placez le filtre de routage dans un groupe de ressources. Vérifiez que l’emplacement est le même que celui du circuit ExpressRoute. Sélectionnez **Vérifier + créer**, puis **Créer**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+    :::image type="content" source="./media/how-to-routefilter-portal/create-route-filter-basic.png" alt-text="Capture d’écran montrant la page Créer un filtre de routage avec des exemples de valeurs entrées":::
 
 ### <a name="create-a-filter-rule"></a>Créer une règle de filtre
 
 1. Pour ajouter et mettre à jour des règles, sélectionnez l’onglet Gérer la règle pour votre filtre de routage.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Capture d’écran montrant la page Vue d’ensemble avec l’action Gérer la règle en surbrillance":::
 
 1. Sélectionnez dans la liste déroulante les services auxquels vous souhaitez vous connecter et enregistrer la règle lorsque vous avez terminé.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Capture d’écran montrant la fenêtre Gérer la règle avec des services sélectionnés dans la liste déroulante des communautés de services autorisées":::
 
 ## <a name="attach-the-route-filter-to-an-expressroute-circuit"></a><a name="attach"></a>Joindre le filtre de routage à un circuit ExpressRoute
 
 Associez le filtre de routage à un circuit en sélectionnant le bouton **+ Ajouter un circuit** et en sélectionnant le circuit ExpressRoute dans la liste déroulante.
 
-:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Capture d’écran montrant la page Vue d’ensemble avec l’action Ajouter un circuit sélectionnée":::
 
 Si le fournisseur de connectivité configure l’homologation pour votre circuit ExpressRoute, actualisez le circuit dans la page Circuit ExpressRoute avant de sélectionner le bouton **+ Ajouter un circuit**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Capture d’écran montrant la page Vue d’ensemble avec l’action Actualiser sélectionnée.":::
 
 ## <a name="common-tasks"></a><a name="tasks"></a>Tâches courantes
 
@@ -107,30 +107,30 @@ Si le fournisseur de connectivité configure l’homologation pour votre circuit
 
 Vous pouvez afficher les propriétés d’un filtre de routage lorsque vous ouvrez la ressource dans le portail.
 
-:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+:::image type="content" source="./media/how-to-routefilter-portal/view-route-filter.png" alt-text="Capture d’écran montrant la page Vue d’ensemble":::
 
 ### <a name="to-update-the-properties-of-a-route-filter"></a><a name="updateproperties"></a>Mettre à jour les propriétés d’un filtre de routage
 
 1. Vous pouvez mettre à jour la liste des valeurs de communauté BGP associées à un circuit en sélectionnant le bouton **Gérer la règle**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+    :::image type="content" source="./media/how-to-routefilter-portal/update-route-filter.png" alt-text="Mettre à jour des filtres de routage avec l’action Gérer la règle":::
 
 1. Sélectionnez les communautés de service de votre choix, puis **Enregistrer**.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Capture d’écran montrant la fenêtre Gérer la règle avec des services sélectionnés":::
 
 ### <a name="to-detach-a-route-filter-from-an-expressroute-circuit"></a><a name="detach"></a>Détacher un filtre de routage d’un circuit ExpressRoute
 
 Pour dissocier un circuit du filtre de routage, cliquez avec le bouton droit sur le circuit, puis sélectionnez **Dissocier**.
 
-:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+:::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Capture d’écran montrant la page Vue d’ensemble avec l’action Dissocier en surbrillance":::
 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez supprimer un filtre de routage en sélectionnant le bouton **Supprimer**. Avant de procéder, assurez-vous que le filtre de routage n’est associé à aucun circuit.
 
-:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Capture d’écran montrant la page Filtre de routage":::
+:::image type="content" source="./media/how-to-routefilter-portal/delete-route-filter.png" alt-text="Supprimer un filtre de routage":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

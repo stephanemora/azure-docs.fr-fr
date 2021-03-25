@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 9a7502d48095fe18b983c1971d5145f51e766c95
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93306906"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage Table Azure avec Azure PowerShell 
@@ -38,7 +38,7 @@ Les exemples nécessitent les modules Az PowerShell `Az.Storage (1.1.0 or greate
 > Pour utiliser cette fonctionnalité Azure à partir de PowerShell, vous devez installer le module `Az`. La version actuelle de `AzTable` n’est pas compatible avec l’ancien module AzureRM.
 > Si nécessaire, suivez les [dernières instructions d’installation du module Az](/powershell/azure/install-az-ps).
 
-Après avoir installé ou mis à jour Azure PowerShell, vous devez installer le module **AzTable** , qui contient les commandes permettant de gérer les entités. Pour installer ce module, exécutez PowerShell en tant qu’administrateur et utilisez la commande **Install-Module**.
+Après avoir installé ou mis à jour Azure PowerShell, vous devez installer le module **AzTable**, qui contient les commandes permettant de gérer les entités. Pour installer ce module, exécutez PowerShell en tant qu’administrateur et utilisez la commande **Install-Module**.
 
 > [!IMPORTANT]
 > Pour des raisons de compatibilité de nom de module, nous continuons de publier ce même module sous l’ancien nom `AzureRmStorageTables` dans PowerShell Gallery. Ce document fait uniquement référence au nouveau nom.
@@ -120,7 +120,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 > [!IMPORTANT]
 > L’utilisation de CloudTable est obligatoire quand vous utilisez le module PowerShell **AzTable**. Appelez la commande **Get-AzStorageTable** pour obtenir la référence à cet objet. Cette commande crée aussi la table si elle n’existe pas déjà.
 
-Pour effectuer des opérations sur une table à l’aide de **AzTable** , vous avez besoin d’une référence à la propriété CloudTable d’une table spécifique.
+Pour effectuer des opérations sur une table à l’aide de **AzTable**, vous avez besoin d’une référence à la propriété CloudTable d’une table spécifique.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable

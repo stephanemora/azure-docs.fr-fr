@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305933"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Azure HDInsight Hadoop sur un jeu de données de 1 To
@@ -58,7 +58,7 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
 > [!NOTE]
-> Cette étape est généralement une tâche d’ **administration**.
+> Cette étape est généralement une tâche d’**administration**.
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 
@@ -88,7 +88,7 @@ Les données résident dans un emplacement [Stockage Blob Azure](../../storage/b
 Une autre approche vous permettant d’accéder, d’explorer et de modéliser ces données ne nécessitant aucun téléchargement local est expliquée plus loin dans cette procédure pas à pas lors de la création de tables Hive.
 
 ## <a name="log-in-to-the-cluster-headnode"></a><a name="login"></a>Connexion au nœud principal du cluster
-Pour vous connecter au nœud principal du cluster, utilisez le [portail Azure](https://ms.portal.azure.com) afin de localiser le cluster. Cliquez sur l’icône d’éléphant HDInsight située sur la gauche et double-cliquez ensuite sur le nom de votre cluster. Accédez à l’onglet **Configuration** , double-cliquez sur l’icône CONNECTER en bas de la page et entrez vos informations d’identification pour l’accès à distance lorsque vous y êtes invité ; vous êtes alors redirigé vers le nœud principal du cluster.
+Pour vous connecter au nœud principal du cluster, utilisez le [portail Azure](https://ms.portal.azure.com) afin de localiser le cluster. Cliquez sur l’icône d’éléphant HDInsight située sur la gauche et double-cliquez ensuite sur le nom de votre cluster. Accédez à l’onglet **Configuration**, double-cliquez sur l’icône CONNECTER en bas de la page et entrez vos informations d’identification pour l’accès à distance lorsque vous y êtes invité ; vous êtes alors redirigé vers le nœud principal du cluster.
 
 Une première connexion au nœud principal de cluster ressemble généralement à ceci :
 
@@ -99,7 +99,7 @@ Sur la gauche se trouve la « ligne de commande Hadoop », qui nous permet d’e
 Vous êtes désormais prêt à entamer la première partie de la procédure pas à pas : l’exploration de données à l’aide de Hive et la préparation de données pour Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Création de la base de données et des tables Hive
-Pour créer des tables Hive pour le jeu de données Criteo, ouvrez la * *_ligne de commande Hadoop_* _ sur le bureau du nœud principal, puis saisissez le répertoire Hive en entrant la commande suivante :
+Pour créer des tables Hive pour notre jeu de données Criteo, ouvrez la ***ligne de commande Hadoop*** sur le bureau du nœud principal et saisissez le répertoire Hive en entrant la commande
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Lorsque Hive REPL apparaît avec un signe « hive > », coupez-collez simplem
 
 Le code suivant crée une base de données « criteo » et génère ensuite quatre tables :
 
-_ une *table de comptage* du jour day\_00 au jour day\_20 ;
+* une *table pour la génération de nombres* reposant sur les jours day\_00 à day\_20 ;
 * une *table à utiliser comme jeu de données d’apprentissage* reposant sur day\_21 ; et
 * deux *tables à utiliser comme jeux de données de test* reposant sur day\_22 et day\_23 respectivement.
 
@@ -169,7 +169,7 @@ Toutes ces tables étant externes, vous pouvez pointer vers leurs emplacements d
   ```
 
      Dans la ligne de commande REPL, coupez-collez la requête qu’elle exécute.
-* **Enregistrement des requêtes dans un fichier et Exécution de la commande** : La seconde consiste à enregistrer les requêtes dans un fichier .hql ( [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
+* **Enregistrement des requêtes dans un fichier et Exécution de la commande** : La seconde consiste à enregistrer les requêtes dans un fichier .hql ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), puis à utiliser la commande suivante pour exécuter la requête :
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -506,8 +506,8 @@ Pour le module **Importer des données** , les valeurs des paramètres qui sont 
 4. **Nom du compte utilisateur Hadoop** : nom d’utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
 5. **Mot de passe du compte utilisateur Hadoop** : mot de passe pour le nom d’utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
 6. **Emplacement des données de sortie** : Choisir « Azure »
-7. **Nom du compte de Stockage Azure**  : le compte de stockage associé au cluster
-8. **Clé du compte de Stockage Azure**  : la clé du compte de stockage associé au cluster.
+7. **Nom du compte de Stockage Azure** : le compte de stockage associé au cluster
+8. **Clé du compte de Stockage Azure** : la clé du compte de stockage associé au cluster.
 9. **Nom de conteneur Azure** : si le nom du cluster est « abc », il se nommera tout simplement « abc ».
 
 Dès lors que le module **Importer des données** a récupéré les données (une coche verte est affichée sur le module), enregistrez-les en tant que jeu de données (avec le nom de votre choix). Cela ressemble à :
@@ -533,7 +533,7 @@ Notre expérience Azure Machine Learning Studio (classique) ressemble à ceci :
 Examinez maintenant les composants clés de cette expérience. Faites d’abord glisser nos jeux de données d’entraînement et de test sur le canevas de l’expérience.
 
 #### <a name="clean-missing-data"></a>Nettoyage des données manquantes
-Le module **Nettoyer des données manquantes** , comme son nom l’indique, nettoie les données manquantes via des méthodes qui peuvent être spécifiées par l’utilisateur. Regardez dans ce module pour voir ceci :
+Le module **Nettoyer des données manquantes**, comme son nom l’indique, nettoie les données manquantes via des méthodes qui peuvent être spécifiées par l’utilisateur. Regardez dans ce module pour voir ceci :
 
 ![Nettoyage des données manquantes](./media/hive-criteo-walkthrough/0ycXod6.png)
 
@@ -549,7 +549,7 @@ Pour créer des fonctionnalités de comptage, utilisez le module **Créer une tr
 ![Créer un module de transformation de comptage](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT]
-> Dans la zone **Nombre de colonnes** , entrez les colonnes sur lesquelles vous souhaitez effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Rappelez-vous que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, effectuez un comptage sur chacune d’elles et donnez leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
+> Dans la zone **Nombre de colonnes**, entrez les colonnes sur lesquelles vous souhaitez effectuer un comptage. En règle générale, il s'agit de colonnes catégorielles de grande dimension (comme indiqué). Rappelez-vous que le jeu de données Criteo possède 26 colonnes catégorielles : de Col15 à Col40. Ici, effectuez un comptage sur chacune d’elles et donnez leurs index (de 15 à 40 séparés par des virgules, comme indiqué).
 >
 
 Pour utiliser le module en mode MapReduce (adapté aux grands jeux de données), vous devez accéder à un cluster HDInsight Hadoop (celui utilisé pour l’exploration de la fonctionnalité peut être réutilisé à cet effet) et ses informations d’identification. Les figures précédentes illustrent les valeurs renseignées (remplacez les valeurs fournies à titre d’illustration avec celles adaptées à votre propre cas d’utilisation).
@@ -667,7 +667,7 @@ Notez comment le module **Sélectionner des colonnes dans le jeu de données** p
 
 ![Filtrage avec le module Sélectionner des colonnes dans le jeu de données](./media/hive-criteo-walkthrough/oVUJC9K.png)
 
-Pour obtenir les ports d’entrée et de sortie bleus, vous cliquez simplement sur **préparer le service web** , situé en bas à droite. L’exécution de cette expérience permet également de publier le service web. Pour ce faire, cliquez sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite :
+Pour obtenir les ports d’entrée et de sortie bleus, vous cliquez simplement sur **préparer le service web**, situé en bas à droite. L’exécution de cette expérience permet également de publier le service web. Pour ce faire, cliquez sur l’icône **PUBLIER LE SERVICE WEB** située en bas à droite :
 
 ![Publication du service Web](./media/hive-criteo-walkthrough/WO0nens.png)
 

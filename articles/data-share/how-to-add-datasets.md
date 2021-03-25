@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
 ms.openlocfilehash: 3bfa911921e9bacde2649ee8c4f0d4bc31b56f54
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92910540"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Comment ajouter des jeux de données à un partage existant dans Azure Data Share
@@ -29,7 +29,7 @@ Dans le volet de droite, sélectionnez le type de jeu de données que vous souha
 
 ![Capture d’écran du volet Ajouter un Stockage Blob permettant de sélectionner des données](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-Une fois que vous avez cliqué sur **Ajouter des jeux de données** , les jeux de données sont ajoutés à votre partage. Remarque : Vos consommateurs doivent déclencher un instantané afin de voir les nouveaux jeux de données. Si des paramètres d’instantané sont configurés, les consommateurs voient les nouveaux jeux de données une fois que l’instantané planifié suivant a été pris. Si aucun paramètre d’instantané n’est configuré, le consommateur doit déclencher manuellement une copie complète ou incrémentielle des données pour recevoir les mises à jour. Pour plus d’informations sur les instantanés, consultez [Instantanés](terminology.md).
+Une fois que vous avez cliqué sur **Ajouter des jeux de données**, les jeux de données sont ajoutés à votre partage. Remarque : Vos consommateurs doivent déclencher un instantané afin de voir les nouveaux jeux de données. Si des paramètres d’instantané sont configurés, les consommateurs voient les nouveaux jeux de données une fois que l’instantané planifié suivant a été pris. Si aucun paramètre d’instantané n’est configuré, le consommateur doit déclencher manuellement une copie complète ou incrémentielle des données pour recevoir les mises à jour. Pour plus d’informations sur les instantanés, consultez [Instantanés](terminology.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [ajouter des destinataires à un partage de données existant](how-to-add-recipients.md).

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147077"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>Intégration de partenaire de données météorologiques avec FarmBeats
@@ -77,7 +77,7 @@ Le service d’API sérialise ce dictionnaire et le stocke dans un [coffre de cl
 
 Les informations d’identification sont lues en tant que chaînes sécurisées à partir du coffre de clés. Elles sont fournies sous forme de propriétés étendues dans le répertoire de travail du conteneur Docker. Le chemin d’accès à ce fichier est */mnt/working_dir/activity.json*. 
 
-Le code Docker peut lire les informations d’identification d’ *activity.json* au moment de l’exécution pour accéder aux API côté partenaire pour le client. Dans le fichier JSON, les informations d’identification se présentent comme dans l’exemple de code suivant :
+Le code Docker peut lire les informations d’identification d’*activity.json* au moment de l’exécution pour accéder aux API côté partenaire pour le client. Dans le fichier JSON, les informations d’identification se présentent comme dans l’exemple de code suivant :
 
 ```json
 { 
@@ -117,18 +117,18 @@ Le programme Docker a besoin de deux composants : le démarrage et le travail. 
 
 Le composant de démarrage doit s’exécuter lorsque le client démarre l’inscription Docker sur FarmBeats. Les arguments suivants (`arg1` et `arg2`) sont passés au programme :
 
-- **Point de terminaison de l’API FarmBeats**  : Point de terminaison de l’API FarmBeats pour les demandes d’API. Ce point de terminaison effectue des appels d’API au déploiement FarmBeats.
-- **URL Azure Functions**  : Votre point de terminaison. Cette URL fournit votre jeton d’accès pour les API FarmBeats. Vous pouvez appeler `GET` sur cette URL pour récupérer le jeton d’accès.
+- **Point de terminaison de l’API FarmBeats** : Point de terminaison de l’API FarmBeats pour les demandes d’API. Ce point de terminaison effectue des appels d’API au déploiement FarmBeats.
+- **URL Azure Functions** : Votre point de terminaison. Cette URL fournit votre jeton d’accès pour les API FarmBeats. Vous pouvez appeler `GET` sur cette URL pour récupérer le jeton d’accès.
 
 Le démarrage crée les métadonnées dont les utilisateurs ont besoin pour exécuter vos travaux afin d’extraire des données météorologiques. Pour plus d’informations, consultez l’[implémentation de référence](https://github.com/azurefarmbeats/noaa_docker). 
 
-Si vous personnalisez le fichier *bootstrap_manifest.json* , le programme de démarrage de référence crée les métadonnées requises pour vous. Le programme de démarrage crée les métadonnées suivantes : 
+Si vous personnalisez le fichier *bootstrap_manifest.json*, le programme de démarrage de référence crée les métadonnées requises pour vous. Le programme de démarrage crée les métadonnées suivantes : 
 
  > [!NOTE]
  > Si vous mettez à jour le fichier *bootstrap_manifest.json* comme décrit dans l’[implémentation de référence](https://github.com/azurefarmbeats/noaa_docker), vous n’avez pas besoin de créer les métadonnées suivantes. Le programme de démarrage utilise votre fichier manifeste pour créer les métadonnées nécessaires.
 
-- /**WeatherDataModel**  : Les métadonnées WeatherDataModel représentent des données météorologiques. Elles correspondent aux jeux de données fournis par la source. Par exemple, DailyForecastSimpleModel peut fournir des informations sur la température, l’humidité et les précipitations en moyenne une fois par jour. En revanche, DailyForecastAdvancedModel peut fournir bien plus d’informations avec une précision horaire. Vous pouvez créer autant de modèles de données météorologiques que nécessaire.
-- /**JobType**  : FarmBeats dispose d’un système extensible de gestion des travaux. En tant que fournisseur de données météorologiques, vous disposez de plusieurs jeux de données et API (par exemple, GetDailyForecasts). Vous pouvez activer ces jeux de données et ces API dans FarmBeats à l’aide de JobType. Après avoir créé un type de travail, un client peut déclencher des travaux de ce type afin d’obtenir des données météorologiques pour son emplacement ou sa batterie de serveurs. Pour plus d’informations, consultez les API JobType et Job dans [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
+- /**WeatherDataModel** : Les métadonnées WeatherDataModel représentent des données météorologiques. Elles correspondent aux jeux de données fournis par la source. Par exemple, DailyForecastSimpleModel peut fournir des informations sur la température, l’humidité et les précipitations en moyenne une fois par jour. En revanche, DailyForecastAdvancedModel peut fournir bien plus d’informations avec une précision horaire. Vous pouvez créer autant de modèles de données météorologiques que nécessaire.
+- /**JobType** : FarmBeats dispose d’un système extensible de gestion des travaux. En tant que fournisseur de données météorologiques, vous disposez de plusieurs jeux de données et API (par exemple, GetDailyForecasts). Vous pouvez activer ces jeux de données et ces API dans FarmBeats à l’aide de JobType. Après avoir créé un type de travail, un client peut déclencher des travaux de ce type afin d’obtenir des données météorologiques pour son emplacement ou sa batterie de serveurs. Pour plus d’informations, consultez les API JobType et Job dans [FarmBeats Swagger](https://aka.ms/farmbeatsswagger).
 
 ### <a name="jobs"></a>travaux
 

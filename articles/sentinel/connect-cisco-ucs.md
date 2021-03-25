@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
 ms.openlocfilehash: 15e31b8dc5ac6db5861e3ea0fb5390ddf0a8c945
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100530669"
 ---
 # <a name="connect-your-cisco-unified-computing-system-ucs-to-azure-sentinel"></a>Connecter votre Cisco Unified Computing System (UCS) à Azure Sentinel
@@ -63,7 +63,7 @@ Configurez Cisco UCS pour transférer les messages Syslog à votre espace de tra
 
 Une fois la connexion correctement établie, les données apparaissent dans l’espace de travail Log Analytics sous Syslog.
 
-Pour obtenir des exemples de requêtes utiles, consultez l’onglet **Étapes suivantes**.
+Consultez l’onglet **Étapes suivantes** de la page du connecteur pour obtenir des exemples de requêtes utiles.
 
 ## <a name="validate-connectivity"></a>Valider la connectivité
 

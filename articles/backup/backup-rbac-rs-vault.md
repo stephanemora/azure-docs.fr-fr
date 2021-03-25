@@ -3,13 +3,13 @@ title: Gérer des sauvegardes avec le contrôle d’accès en fonction du rôle 
 description: Le contrôle d’accès en fonction du rôle Azure permet de gérer l’accès aux opérations de gestion des sauvegardes dans le coffre Recovery Services.
 ms.reviewer: utraghuv
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 0dd8d08c4ee79082f47929cf7d453f3f4bbd60ee
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.date: 03/09/2021
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090877"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613440"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilisation du contrôle d’accès en fonction du rôle Azure pour gérer les points de récupération Sauvegarde Azure
 
@@ -28,26 +28,29 @@ Si vous avez besoin de définir vos propres rôles pour un meilleur contrôle, d
 
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Mappage des rôles de sauvegarde intégrés pour les actions de gestion des sauvegardes
 
+### <a name="minimum-role-requirements-for-azure-vm-backup"></a>Exigences de rôle minimum pour la sauvegarde de machine virtuelle Azure
+
 Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle Azure minimum nécessaire correspondant pour effectuer cette opération.
 
-| Opération de gestion | Rôle Azure minimum nécessaire | Étendue requise |
-| --- | --- | --- |
-| Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |
-| Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |
-| | Contributeur de machine virtuelle | Ressource de machine virtuelle |
-| Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Coffre Recovery Services |
-| Restaurer une machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur | Groupe de ressources dans lequel la machine virtuelle sera déployée |
-| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
+| Opération de gestion | Rôle Azure minimum nécessaire | Étendue requise | Alternative |
+| --- | --- | --- | --- |
+| Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |   |
+| Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |   |
+| | Contributeur de machine virtuelle | Ressource de machine virtuelle |  Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Coffre Recovery Services |   |
+| Restaurer une machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |   |
+| | Contributeur | Groupe de ressources dans lequel la machine virtuelle sera déployée |   Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Resources/subscriptions/resourceGroups/write Microsoft.DomainRegistration/domains/write, Microsoft.Compute/virtualMachines/write  Microsoft.Network/virtualNetworks/read Microsoft.Network/virtualNetworks/subnets/join/action |
+| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |   Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
 | Restaurer la sauvegarde de machine virtuelle de disques non managés | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
-| | Contributeur de compte de stockage | Ressource de compte de stockage où les disques vont être restaurés |
+| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée | Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| | Contributeur de compte de stockage | Ressource de compte de stockage où les disques vont être restaurés |   Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Storage/storageAccounts/write |
 | Restaurer des disques managés de la sauvegarde de machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
-| | Contributeur de compte de stockage | Compte de stockage temporaire sélectionné dans le cadre de la restauration pour conserver les données de l’espace de stockage avant de les convertir en disques managés. |
-| | Contributeur | Groupe de ressources vers lequel le(s) disque(s) managé(s) sera (seront) restauré(s) |
+| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |    Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| | Contributeur de compte de stockage | Compte de stockage temporaire sélectionné dans le cadre de la restauration pour conserver les données de l’espace de stockage avant de les convertir en disques managés. |   Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Storage/storageAccounts/write |
+| | Contributeur | Groupe de ressources vers lequel le(s) disque(s) managé(s) sera (seront) restauré(s) | Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Resources/subscriptions/resourceGroups/write|
 | Restaurer des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
+| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée | Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| Restauration inter-région | Opérateur de sauvegarde | Abonnement au coffre Recovery Services | Cela s’ajoute aux autorisations de restauration mentionnées ci-dessus. Spécifiquement pour CRR, au lieu d’un rôle intégré, vous pouvez envisager un rôle personnalisé qui dispose des autorisations suivantes :   "Microsoft.RecoveryServices/locations/backupAadProperties/read" "Microsoft.RecoveryServices/locations/backupCrrJobs/action"         "Microsoft.RecoveryServices/locations/backupCrrJob/action" "Microsoft.RecoveryServices/locations/backupCrossRegionRestore/action"          "Microsoft.RecoveryServices/locations/backupCrrOperationResults/read" "Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read" |
 | Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
 | Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
 | Supprimer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
@@ -58,7 +61,25 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 > [!IMPORTANT]
 > Si vous spécifiez Contributeur de machine virtuelle au niveau de l’étendue d’une ressource de machine virtuelle et sélectionnez **Sauvegarde** dans les paramètres de la machine virtuelle, l’écran **Activer la sauvegarde** s’ouvre même si la machine virtuelle est déjà sauvegardée. Cela est dû au fait que l’appel permettant de vérifier l’état de la sauvegarde fonctionne uniquement au niveau de l’abonnement. Pour éviter cela, accédez au coffre et ouvrez l’affichage des éléments de sauvegarde de la machine virtuelle ou spécifiez le rôle Contributeur de machine virtuelle au niveau de l’abonnement.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Exigences de rôle minimum pour la sauvegarde de partage de fichiers Azure
+### <a name="minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups"></a>Exigences de rôle minimum pour les sauvegardes de charge de travail Azure (sauvegardes SQL et HANA DB)
+
+Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle Azure minimum nécessaire correspondant pour effectuer cette opération.
+
+| Opération de gestion | Rôle Azure minimum nécessaire | Étendue requise | Alternative |
+| --- | --- | --- | --- |
+| Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |   |
+| Activer la sauvegarde des bases de données SQL et/ou HANA | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |   |
+| | Contributeur de machine virtuelle | Ressource de machine virtuelle où la base de source est installée |  Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| Sauvegarde de base de données à la demande | Opérateur de sauvegarde | Coffre Recovery Services |   |
+| Restaurer la base de données ou restaurer sous forme de fichiers | Opérateur de sauvegarde | Coffre Recovery Services |   |
+| | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |   Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| | Contributeur de machine virtuelle | Machine virtuelle cible dans laquelle la base de fichiers sera restaurée ou des fichiers seront créés |   Plutôt qu’un rôle intégré, vous pouvez aussi utiliser un rôle personnalisé qui dispose des autorisations suivantes : Microsoft.Compute/virtualMachines/write |
+| Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Supprimer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Arrêt de la sauvegarde (avec conservation ou suppression des données) lors la sauvegarde d’une machine virtuelle | Contributeur de sauvegarde | Coffre Recovery Services |
+
+### <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Exigences de rôle minimum pour la sauvegarde de partage de fichiers Azure
 
 Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle nécessaire correspondant pour effectuer cette opération de partage Azure File.
 

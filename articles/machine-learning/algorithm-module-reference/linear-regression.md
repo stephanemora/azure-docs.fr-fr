@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93323654"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
@@ -41,7 +41,7 @@ Azure Machine Learning prend en charge divers modèles de régression, en plus d
 
 Pendant des années, les statisticiens ont développé des méthodes de régression de plus en plus sophistiquées. Cela vaut également pour la régression linéaire. Ce module prend en charge deux méthodes pour mesurer les erreurs et ajuster la ligne de régression : la méthode des moindres carrés ordinaires et la méthode de descente de gradient.
 
-- La méthode de **descente de gradient** minimise la quantité d’erreurs à chaque étape du processus d’apprentissage du modèle. Il existe de nombreuses variantes de la méthode de descente de gradient, et son optimisation pour diverses problématiques d’apprentissage a été largement étudiée. Si vous choisissez cette option comme **méthode de solution** , vous pouvez définir une série de paramètres pour contrôler la taille d’étape, le taux d’apprentissage et ainsi de suite. Cette option prend également en charge l’utilisation d’un balayage de paramètre intégré.
+- La méthode de **descente de gradient** minimise la quantité d’erreurs à chaque étape du processus d’apprentissage du modèle. Il existe de nombreuses variantes de la méthode de descente de gradient, et son optimisation pour diverses problématiques d’apprentissage a été largement étudiée. Si vous choisissez cette option comme **méthode de solution**, vous pouvez définir une série de paramètres pour contrôler la taille d’étape, le taux d’apprentissage et ainsi de suite. Cette option prend également en charge l’utilisation d’un balayage de paramètre intégré.
 
 - La méthode des **moindres carrés ordinaires** est l’une des techniques les plus couramment utilisées en matière de régression linéaire. Elle l’est, par exemple, dans les outils d’analyse pour Microsoft Excel.
 
@@ -63,7 +63,7 @@ Ce module prend en charge deux méthodes d’ajustement d’un modèle de régre
 
 1. Ajoutez le module **Modèle de régression linéaire** à votre pipeline dans le concepteur.
 
-    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialiser un modèle** , développez **Régression** , puis faites glisser le module **Modèle de régression linéaire** vers votre pipeline.
+    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialiser un modèle**, développez **Régression**, puis faites glisser le module **Modèle de régression linéaire** vers votre pipeline.
 
 2. Dans le volet **Properties** (Propriétés), dans la liste déroulante **Solution method** (Méthode de la solution), sélectionnez **Ordinary Least Squares** (Moindres carrés ordinaires). Cette option spécifie la méthode de calcul utilisée pour déterminer la ligne de régression.
 
@@ -96,7 +96,7 @@ Une fois l’apprentissage terminé :
 
 1. Ajoutez le module **Modèle de régression linéaire** à votre pipeline dans le concepteur.
 
-    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialiser un modèle** , développez **Régression** , puis faites glisser le module **Modèle de régression linéaire** vers votre pipeline
+    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialiser un modèle**, développez **Régression**, puis faites glisser le module **Modèle de régression linéaire** vers votre pipeline
 
 2. Dans le volet **Properties** (Propriétés), dans la liste déroulante **Solution method** (Méthode de la solution), sélectionnez **Online Gradient Descent** (Descente de gradient en ligne) comme méthode de calcul pour déterminer la ligne de régression.
 
@@ -111,7 +111,7 @@ Une fois l’apprentissage terminé :
 
 5. Pour **Number of training epochs** (Nombre de cycles de formation), tapez une valeur indiquant le nombre d’itérations de l’algorithme sur les exemples. Pour les jeux de données comportant un petit nombre d’exemples, ce nombre doit être suffisamment important pour atteindre la convergence.
 
-6. **Normaliser les fonctionnalités**  : si vous avez déjà normalisé les données numériques utilisées pour l’apprentissage du modèle, vous pouvez désactiver cette option. Par défaut, le module normalise toutes les entrées numériques en les ramenant à une plage comprise entre 0 et 1.
+6. **Normaliser les fonctionnalités** : si vous avez déjà normalisé les données numériques utilisées pour l’apprentissage du modèle, vous pouvez désactiver cette option. Par défaut, le module normalise toutes les entrées numériques en les ramenant à une plage comprise entre 0 et 1.
 
     > [!NOTE]
     > 
@@ -131,7 +131,7 @@ Une fois l’apprentissage terminé :
 
     + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), connectez un jeu de données balisé au module [Entraîner le modèle](train-model.md).  
   
-    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres** , connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
+    + Si vous définissez **Créer un mode d’entraînement** sur **Plage de paramètres**, connectez un jeu de données avec balises et entraînez le modèle en utilisant [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 
@@ -139,7 +139,7 @@ Une fois l’apprentissage terminé :
     > 
     > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
     > 
-    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent dans une plage de valeurs.
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent sur une plage de valeurs.
 
 13. Envoyez le pipeline.
 

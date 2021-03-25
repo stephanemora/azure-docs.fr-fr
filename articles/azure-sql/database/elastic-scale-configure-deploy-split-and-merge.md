@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792070"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
@@ -35,13 +35,13 @@ L’outil de fractionnement et de fusion vous permet de déplacer les données e
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les dll clientes nécessaires) dans le sous-répertoire **content\splitmerge\powershell** .
+Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** où *x.x.xxx.x* correspond au numéro de version. Recherchez les fichiers du service de fractionnement et de fusion dans le sous-répertoire **content\splitmerge\service** et les scripts PowerShell de fractionnement et de fusion (ainsi que les dll clientes nécessaires) dans le sous-répertoire **content\splitmerge\powershell**.
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Créez une base de données Azure SQL Database qui servira de base de données d’état de l’état de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL** . Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
+1. Créez une base de données Azure SQL Database qui servira de base de données d’état de l’état de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 
-1. Vérifiez que votre serveur autorise la connexion des services Azure. Dans le portail, dans **Paramètres du pare-feu** , vérifiez que le paramètre **Autoriser l’accès aux services Azure** a la valeur **Activé** . Cliquez sur l’icône « Enregistrer ».
+1. Vérifiez que votre serveur autorise la connexion des services Azure. Dans le portail, dans **Paramètres du pare-feu**, vérifiez que le paramètre **Autoriser l’accès aux services Azure** a la valeur **Activé**. Cliquez sur l’icône « Enregistrer ».
 
 1. Créez un compte de Stockage Azure pour les sorties de diagnostics.
 
@@ -51,7 +51,7 @@ Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDataba
 
 ### <a name="split-merge-service-configuration"></a>Configuration du service de fractionnement/fusion
 
-1. Dans le dossier où vous avez téléchargé les assemblys de fractionnement et de fusion, créez une copie du fichier *ServiceConfiguration.Template.cscfg* fourni avec *SplitMergeService.cspkg* , puis renommez-la *ServiceConfiguration.cscfg* .
+1. Dans le dossier où vous avez téléchargé les assemblys de fractionnement et de fusion, créez une copie du fichier *ServiceConfiguration.Template.cscfg* fourni avec *SplitMergeService.cspkg*, puis renommez-la *ServiceConfiguration.cscfg*.
 
 1. Ouvrez *ServiceConfiguration.cscfg* dans un éditeur de texte de type Visual Studio qui valide les entrées telles que le format des empreintes numériques de certificat.
 
@@ -66,7 +66,7 @@ Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDataba
 
 1. Entrez cette chaîne de connexion dans le fichier *.cscfg* dans les sections de rôle **SplitMergeWeb** et **SplitMergeWorker** du paramètre ElasticScaleMetadata.
 
-1. Pour le rôle **SplitMergeWorker** , entrez une chaîne de connexion valide pour le stockage Azure pour le paramètre **WorkerRoleSynchronizationStorageAccountConnectionString** .
+1. Pour le rôle **SplitMergeWorker**, entrez une chaîne de connexion valide pour le stockage Azure pour le paramètre **WorkerRoleSynchronizationStorageAccountConnectionString**.
 
 ### <a name="configure-security"></a>Configurer la sécurité
 
@@ -99,17 +99,17 @@ Exécutez la commande suivante à partir de la même fenêtre que celle où make
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>Importation du certificat client dans le magasin personnel
 
-1. Dans l’Explorateur Windows, double-cliquez sur *MyCert.pfx* .
-2. Dans **l’Assistant Importation de certificat** , sélectionnez **Utilisateur actuel** et cliquez sur **Suivant** .
-3. Vérifiez le chemin d’accès au fichier et cliquez sur **Suivant** .
-4. Tapez le mot de passe, laissez l’option **Inclure toutes les propriétés étendues** activée, puis cliquez sur **Suivant** .
-5. Laissez l’option **Sélectionner automatiquement le magasin de certificats…** activée, puis cliquez sur **Suivant** .
-6. Cliquez sur **Terminer** et sur **OK** .
+1. Dans l’Explorateur Windows, double-cliquez sur *MyCert.pfx*.
+2. Dans **l’Assistant Importation de certificat**, sélectionnez **Utilisateur actuel** et cliquez sur **Suivant**.
+3. Vérifiez le chemin d’accès au fichier et cliquez sur **Suivant**.
+4. Tapez le mot de passe, laissez l’option **Inclure toutes les propriétés étendues** activée, puis cliquez sur **Suivant**.
+5. Laissez l’option **Sélectionner automatiquement le magasin de certificats…** activée, puis cliquez sur **Suivant**.
+6. Cliquez sur **Terminer** et sur **OK**.
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Téléchargement du fichier PFX dans le service cloud
 
 1. Accédez au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Services Cloud** .
+2. Sélectionnez **Services Cloud**.
 3. Sélectionnez le service cloud créé ci-dessus pour le service de fractionnement/fusion.
 4. Dans le menu supérieur, cliquez sur **Certificats** .
 5. Cliquez sur **Télécharger** dans la barre inférieure.
@@ -143,8 +143,8 @@ Veuillez noter que pour les déploiements de production, des certificats distinc
 
 1. Accédez au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez le service cloud que vous avez créé précédemment.
-3. Cliquez sur **Overview** .
-4. Choisissez l’environnement de préproduction, puis cliquez sur **Charger** .
+3. Cliquez sur **Overview**.
+4. Choisissez l’environnement de préproduction, puis cliquez sur **Charger**.
 5. Dans la boîte de dialogue, entrez une étiquette de déploiement. Pour Package et Configuration, cliquez sur À partir de local, puis choisissez le fichier *SplitMergeService.cspkg* et le fichier cscfg que vous avez configuré précédemment.
 6. Assurez-vous que la case **Déployer même si un ou plusieurs rôles contiennent une seule instance** est cochée.
 7. Appuyez sur le bouton en forme de coche dans le coin inférieur droit pour commencer le déploiement. Cette opération peut prendre plusieurs minutes.
@@ -181,8 +181,8 @@ Les fichiers de script inclus sont les suivants :
 
 1. *SetupSampleSplitMergeEnvironment.ps1* : configure une couche de données de test pour la fusion et le fractionnement (voir le tableau ci-dessous pour obtenir une description détaillée)
 2. *ExecuteSampleSplitMerge.ps1* : exécute les opérations de test sur la couche de données de test (voir le tableau ci-dessous pour obtenir une description détaillée)
-3. *GetMappings.ps1*  : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
-4. *ShardManagement.psm1*  : script d’assistance qui encapsule l’API ShardManagement
+3. *GetMappings.ps1* : exemple de script de niveau supérieur qui imprime l’état actuel des mappages de partitions.
+4. *ShardManagement.psm1* : script d’assistance qui encapsule l’API ShardManagement
 5. *SqlDatabaseHelpers.psm1* : script d’assistance pour la création et la gestion des bases de données dans SQL Database
 
    <table style="width:100%">
@@ -324,8 +324,8 @@ Pour effectuer une opération de fractionnement/fusion, vous devez déclarer les
 1. Pour chaque table partitionnée, créez un objet **ShardedTableInfo** décrivant le nom du schéma parent de la table (facultatif, la valeur par défaut est « dbo »), le nom de la table et le nom de la colonne de cette table qui comporte la clé de partitionnement.
 2. Pour chaque table de référence, créez un objet **ReferenceTableInfo** décrivant le nom du schéma parent de la table (facultatif, la valeur par défaut est « dbo ») et le nom de la table.
 3. Ajoutez les objets TableInfo ci-dessus à un nouvel objet **SchemaInfo** .
-4. Obtenez une référence à un objet **ShardMapManager** et appelez **GetSchemaInfoCollection** .
-5. Ajoutez **SchemaInfo** à **SchemaInfoCollection** , en fournissant le nom du mappage de partitions.
+4. Obtenez une référence à un objet **ShardMapManager** et appelez **GetSchemaInfoCollection**.
+5. Ajoutez **SchemaInfo** à **SchemaInfoCollection**, en fournissant le nom du mappage de partitions.
 
 Le script SetupSampleSplitMergeEnvironment.ps1 contient un exemple de cette opération.
 
@@ -343,7 +343,7 @@ Si vous ne pouvez pas soumettre les demandes, vous pouvez voir ceci :
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre pour **WorkerRoleSynchronizationStorageAccountConnectionString** . Cette erreur indique généralement que le rôle de travail n’a pas pu initialiser avec succès la base de données de métadonnées à la première utilisation.
+Dans ce cas, vérifiez votre fichier de configuration, notamment le paramètre pour **WorkerRoleSynchronizationStorageAccountConnectionString**. Cette erreur indique généralement que le rôle de travail n’a pas pu initialiser avec succès la base de données de métadonnées à la première utilisation.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

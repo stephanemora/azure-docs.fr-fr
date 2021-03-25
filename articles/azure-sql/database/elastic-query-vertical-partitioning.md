@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792087"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
@@ -63,7 +63,7 @@ Syntaxe :
     CREDENTIAL = <credential_name> ) [;]
 
 > [!IMPORTANT]
-> Le paramètre TYPE doit être défini sur **RDBMS** .
+> Le paramètre TYPE doit être défini sur **RDBMS**.
 
 ### <a name="example"></a>Exemple
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 La requête élastique étend la syntaxe de la table externe existante pour définir des tables externes qui utilisent des sources de données externes de type SGBDR. Une définition de table externe pour le partitionnement vertical couvre les aspects suivants :
 
-* **Schéma**  : le DDL de table externe définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables appartenant à la base de données externe sur lesquelles sont stockées les données réelles.
-* **Référence de base de données distante**  : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie le nom du serveur et le nom de la base de données distante dans lesquels sont stockées les données réelles du tableau.
+* **Schéma** : le DDL de table externe définit un schéma que vos requêtes peuvent utiliser. Le schéma fourni dans votre définition de la table externe doit correspondre au schéma des tables appartenant à la base de données externe sur lesquelles sont stockées les données réelles.
+* **Référence de base de données distante** : le DDL de table externe fait référence à une source de données externe. La source de données externe spécifie le nom du serveur et le nom de la base de données distante dans lesquels sont stockées les données réelles du tableau.
 
 La syntaxe permettant de créer des tables externes à l’aide de sources de données externes comme indiqué dans la section précédente est la suivante :
 
@@ -135,7 +135,7 @@ L’instruction DDL suivante supprime une définition de table externe existante
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Autorisations pour CREATE/DROP EXTERNAL TABLE**  : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires au DDL de table externe, lequel est aussi nécessaire pour faire référence à la source de données sous-jacente.  
+**Autorisations pour CREATE/DROP EXTERNAL TABLE** : les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires au DDL de table externe, lequel est aussi nécessaire pour faire référence à la source de données sous-jacente.  
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 

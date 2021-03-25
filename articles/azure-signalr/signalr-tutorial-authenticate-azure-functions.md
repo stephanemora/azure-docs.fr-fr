@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150911"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutoriel : Authentification d'Azure SignalR Service auprès d'Azure Functions
@@ -333,7 +333,7 @@ Un compte de Stockage Azure est exigé par une application de fonction s’exéc
     | Resource group | Sélectionner le même groupe de ressources |
     | Nom de la ressource | Nom unique pour le compte de Stockage |
     | Emplacement | Sélectionner le même emplacement que celui de vos autres ressources |
-    | Performances | standard |
+    | Performances | Standard |
     | Type de compte | StorageV2 (usage général v2) |
     | Réplication | Stockage localement redondant (LRS) |
     | Niveau d’accès | À chaud |
@@ -463,7 +463,7 @@ L’application web est hébergée à l’aide de la fonctionnalité de sites we
 
     | Nom | Valeur |
     |---|---|
-    | Abonnement | Sélectionnez votre abonnement |
+    | Subscription | Sélectionnez votre abonnement |
     | Compte de stockage | Sélectionner le compte de stockage que vous avez préalablement créé |
     | Dossier à déployer | Sélectionner **Parcourir**, puis sélectionner le dossier *Contenu* |
 

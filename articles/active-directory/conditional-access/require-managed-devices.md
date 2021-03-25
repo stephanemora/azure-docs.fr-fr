@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c11b58954eefda67f981d618b04ab2bd69fa6b43
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077759"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
@@ -30,7 +30,7 @@ Le fait d’exiger des appareils gérés pour accéder aux applications cloud as
 
 - **[Accès conditionnel dans Azure Active Directory](./overview.md)** : cet article fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 - **[Présentation de la gestion des appareils dans Azure Active Directory](../devices/overview.md)** : cet article vous donne une vue d’ensemble des différentes options dont vous disposez pour faire passer les appareils sous le contrôle de l’organisation. 
-- Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’ [extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
+- Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est nécessaire lorsqu’une stratégie d’accès conditionnel exige des informations concernant l’appareil.
 
 >[!NOTE] 
 > Nous vous recommandons d’utiliser une stratégie d’accès conditionnel en fonction de l’appareil d’Azure AD pour obtenir la meilleure mise en œuvre après l’authentification initiale de l’appareil. Cela comprend la fermeture de sessions si l’appareil devient non conforme et sort du flux de code d’appareil.
@@ -60,7 +60,7 @@ Pour inscrire un appareil auprès d’Azure AD, vous avez trois possibilités :
 
 Ces trois options sont décrites dans l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
 
-Pour avoir le statut d’appareil géré, un appareil inscrit doit être soit un **appareil hybride joint à Azure AD** , soit un **appareil marqué comme conforme**.  
+Pour avoir le statut d’appareil géré, un appareil inscrit doit être soit un **appareil hybride joint à Azure AD**, soit un **appareil marqué comme conforme**.  
 
 :::image type="content" source="./media/require-managed-devices/47.png" alt-text="Capture d’écran du volet Octroi d’Azure AD. Accorder l’accès est sélectionné, tout comme les cases à cocher pour que les appareils soient conformes et aient une jointure hybride Azure AD." border="false":::
  
@@ -106,14 +106,14 @@ Les organisations doivent suivre les étapes ci-dessous pour exiger l’utilisat
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
-1. Sous **Affectations** , sélectionnez **Utilisateurs et groupes**
-   1. Sous **Inclure** , sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
    1. Sélectionnez **Terminé**.
-1. Sous **Applications cloud ou actions** > **Inclure** , sélectionnez **Office 365**.
-1. Sous **Conditions** , sélectionnez **Plateformes d’appareils**.
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365**.
+1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
    1. Définissez **Configurer** sur **Oui**.
    1. Incluez **Android** et **iOS**.
-1. Sous **Contrôles d’accès** > **Octroyer** , sélectionnez les options suivantes :
+1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez les options suivantes :
    - **Exiger que l’appareil soit marqué comme conforme**
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer et activer votre stratégie.

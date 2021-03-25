@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88860360"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Déplacer un espace de noms Service Bus vers une autre région
@@ -48,19 +48,19 @@ Déployez le modèle pour créer un espace de noms Service Bus dans la région c
 1. Dans le portail Azure, sélectionnez **Créer une ressource**.
 2. Dans **Rechercher sur la Place de marché**, entrez **template deployment** pour le texte recherché, sélectionnez **Déploiement de modèle (déployer à l’aide de modèles personnalisés)** , puis appuyez sur **Entrée**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Télécharger un modèle Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nouveau déploiement de modèle":::    
 1. Sur la page **Déploiement de modèle**, sélectionnez **Créer**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Télécharger un modèle Resource Manager":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Nouveau déploiement de modèle - Bouton Créer":::        
 1. Sur la page **Déploiement personnalisé**, sélectionnez **Créer votre propre modèle dans l’éditeur**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Télécharger un modèle Resource Manager":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Créer votre propre modèle dans l’éditeur - lien":::            
 1. Sur la page **Modifier un modèle**, sélectionnez **Charger le fichier**, puis suivez les instructions pour charger le fichier **template.json** que vous avez téléchargé dans la section précédente.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Télécharger un modèle Resource Manager":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Sélectionner un modèle":::                
 1. Sélectionnez **Enregistrer** pour enregistrer le modèle. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Télécharger un modèle Resource Manager":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Enregistrer un modèle":::                    
 1. Dans la page **Déploiement personnalisé**, procédez comme suit : 
     1. Sélectionnez un **abonnement** Azure. 
     2. Sélectionnez un **groupe de ressources** ou créez-en un. 
@@ -68,26 +68,26 @@ Déployez le modèle pour créer un espace de noms Service Bus dans la région c
     4. Entrez un nouveau **nom pour l’espace de noms**.
     1. Sélectionnez **Revoir + créer**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Télécharger un modèle Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Déployer le modèle Azure Resource Manager":::
     1. En bas de la page **Vérifier + créer**, sélectionnez **Créer**. 
     
 ## <a name="verify"></a>Vérification
 1. Une fois le déploiement terminé, sélectionnez **Accéder au groupe de ressources**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Télécharger un modèle Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Lien Accéder au groupe de ressources":::    
 1. Sur la page **Groupe de ressources**, sélectionnez l’espace de noms Service Bus. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Télécharger un modèle Resource Manager":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Sélectionner l’espace de noms Service Bus":::    
 1. Sur la page **Espace de noms Service Bus**, vérifiez que les files d’attente, les rubriques et les abonnements sont visibles dans la région source. 
     1. Les **files d’attente** s’affichent dans l’espace de noms en bas du volet droit.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Télécharger un modèle Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Files d’attente de l’espace de noms":::
     2. Basculer vers l’onglet **Rubriques** pour afficher les rubriques de l’espace de noms
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Télécharger un modèle Resource Manager":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Rubriques de l’espace de noms":::
     3. Sélectionnez la rubrique pour vérifier que les abonnements sont créés. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Télécharger un modèle Resource Manager":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Abonnements aux rubriques":::      
     
     
 
