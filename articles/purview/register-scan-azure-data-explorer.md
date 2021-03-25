@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
 ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896110"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Inscription et analyse d’Azure Data Explorer
@@ -24,7 +24,7 @@ Azure Data Explorer prend en charge les analyses complètes et incrémentielles 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Création d’un compte Azure Purview](create-catalog-portal.md).
+- Avant d’inscrire des sources de données, créez un compte Azure Purview. Pour plus d’informations sur la création d’un compte Purview, consultez [Démarrage rapide : Créer un compte Azure Purview](create-catalog-portal.md).
 - Vous devez être administrateur de la source de données Azure Purview.
 
 ## <a name="setting-up-authentication-for-a-scan"></a>Configuration de l’authentification pour une analyse
@@ -40,10 +40,10 @@ Si vous souhaitez appliquer l’authentification par principal de service pour l
 > [!Note]
 > Si vous devez créer un principal de service, procédez comme suit :
 > 1. Accédez au [portail Azure](https://portal.azure.com).
-> 1. Sélectionnez **Azure Active Directory** dans le menu de gauche.
+> 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 > 1. Sélectionnez **Inscriptions d’applications**.
 > 1. Sélectionnez **+ Nouvelle inscription d’application**.
-> 1. Entrez un nom pour **l’application** (nom du principal de service).
+> 1. Entrez un nom pour l’**application** (nom du principal de service).
 > 1. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
 > 1. Pour l’URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ni qu’elle fonctionne.
 > 1. Sélectionnez ensuite **Inscription**.
@@ -51,10 +51,10 @@ Si vous souhaitez appliquer l’authentification par principal de service pour l
 Il est nécessaire de récupérer l’ID d’application et le secret du principal de service :
 
 1. Accédez à votre principal de service sur le [Portail Azure](https://portal.azure.com).
-1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Clé secrète client** dans **Certificats et secrets**.
+1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats et secrets**.
 1. Accédez à votre coffre de clés.
 1. Sélectionnez **Paramètres > Secrets**.
-1. Sélectionnez **+ Générer/importer**, puis entrez le **nom** de votre choix et la **Valeur** comme **Clé secrète client** de votre principal de service.
+1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
 1. Sélectionnez **Créer** pour terminer.
 1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse.
@@ -87,7 +87,7 @@ Sur l’écran **Inscrire des sources (Azure Data Explorer (Kusto))** , procéde
    1. Vous pouvez également sélectionner **Entrer manuellement** et entrer un point de terminaison de service (URL).
 1. Sélectionnez **Terminer** pour inscrire la source de données.
 
-:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="Options d’inscription des sources" border="true":::
+:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
 

@@ -4,10 +4,10 @@ description: Utilisez le contrôle d’accès en fonction du rôle Azure (Azure 
 ms.topic: article
 ms.date: 10/14/2020
 ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207952"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
@@ -36,15 +36,15 @@ Chaque fois que des autorisations sont appliquées, une bonne pratique consiste 
 
 ### <a name="cicd-solutions"></a>Solutions CI/CD
 
-Lorsque vous automatisez des commandes `docker build` à partir de solutions CI/CD, vous avez besoin de fonctionnalités `docker push`. Pour ces scénarios de service sans périphérique de contrôle, nous vous recommandons d’attribuer le rôle **AcrPush** . Ce rôle, contrairement au rôle **Contributeur** plus large, empêche le compte d’effectuer d’autres opérations de registre ou d’accéder à Azure Resource Manager.
+Lorsque vous automatisez des commandes `docker build` à partir de solutions CI/CD, vous avez besoin de fonctionnalités `docker push`. Pour ces scénarios de service sans périphérique de contrôle, nous vous recommandons d’attribuer le rôle **AcrPush**. Ce rôle, contrairement au rôle **Contributeur** plus large, empêche le compte d’effectuer d’autres opérations de registre ou d’accéder à Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Nœuds de l’hôte de conteneur
 
-De même, les nœuds exécutant vos conteneurs ont besoin du rôle **AcrPull** , mais ne devraient pas avoir besoin des fonctionnalités **Lecteur** .
+De même, les nœuds exécutant vos conteneurs ont besoin du rôle **AcrPull**, mais ne devraient pas avoir besoin des fonctionnalités **Lecteur**.
 
 ### <a name="visual-studio-code-docker-extension"></a>Extension Docker de Visual Studio Code
 
-Pour des outils comme l’[extension Docker](https://code.visualstudio.com/docs/azure/docker) de Visual Studio Code, un accès supplémentaire au fournisseur de ressources est nécessaire pour dresser la liste des registres de conteneurs Azure disponibles. Dans ce cas, donnez à vos utilisateurs accès au rôle **Lecteur** ou **Contributeur** . Ces rôles permettent d’effectuer des actions telles que `docker pull`, `docker push`, `az acr list` et `az acr build`, entre autres. 
+Pour des outils comme l’[extension Docker](https://code.visualstudio.com/docs/azure/docker) de Visual Studio Code, un accès supplémentaire au fournisseur de ressources est nécessaire pour dresser la liste des registres de conteneurs Azure disponibles. Dans ce cas, donnez à vos utilisateurs accès au rôle **Lecteur** ou **Contributeur**. Ces rôles permettent d’effectuer des actions telles que `docker pull`, `docker push`, `az acr list` et `az acr build`, entre autres. 
 
 ## <a name="access-resource-manager"></a>Accéder à Resource Manager
 

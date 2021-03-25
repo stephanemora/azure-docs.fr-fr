@@ -4,10 +4,10 @@ description: Cet article explique comment utiliser des sessions pour permettre u
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680751"
 ---
 # <a name="message-sessions"></a>Sessions de message
@@ -34,9 +34,9 @@ Dans le portail, définissez l’indicateur avec la case à cocher suivante :
 ![Capture d’écran de la boîte de dialogue Créer une file d’attente avec l’option Activer les sessions sélectionnée et mise en évidence en rouge.][2]
 
 > [!NOTE]
-> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications clientes ***ne peuvent plus** _ envoyer/recevoir de messages normaux. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en recevant la session.
+> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en recevant la session.
 
-Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment où les sessions et les messages sont reçus, ainsi qu’un modèle basé sur un gestionnaire, similaire à _OnMessage*, qui simplifie la gestion de la boucle de réception.
+Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment de la réception des sessions et des messages, ainsi qu’un modèle basé sur un gestionnaire, similaire à *OnMessage*, qui simplifie la gestion de la boucle de réception.
 
 ### <a name="session-features"></a>Fonctionnalités de session
 

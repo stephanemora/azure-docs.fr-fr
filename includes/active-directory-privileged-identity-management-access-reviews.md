@@ -2,18 +2,18 @@
 title: Fichier include
 description: Fichier include
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9c91eb6cfa18c5302a83347f671e4552befcf3e2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102194002"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623577"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Créer une ou plusieurs révisions d’accès
 
@@ -38,6 +38,7 @@ ms.locfileid: "102194002"
     > [!NOTE]
     > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - La sélection de plusieurs rôles crée plusieurs révisions d’accès. Par exemple, en sélectionnant cinq rôles, vous créez cinq révisions d’accès distinctes.
+    > - Pour les rôles associés à des groupes, l’accès à chaque groupe lié au rôle en cours de révision est examiné dans le cadre de la révision d’accès.
 
     Si vous créez une révision d’accès des **rôles Azure AD**, l’exemple suivant présente une liste Révision d’appartenance.
 
@@ -52,8 +53,8 @@ ms.locfileid: "102194002"
     ![Liste pour les réviseurs des utilisateurs ou membres sélectionnés (auto)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
-    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles.
-    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire.
+    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles. Les groupes affectés au rôle ne feront pas partie de la révision lorsque cette option est sélectionnée.
+    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire. Les groupes affectés au rôle seront examinés par le réviseur de secours, le cas échéant. 
 
 ### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
 

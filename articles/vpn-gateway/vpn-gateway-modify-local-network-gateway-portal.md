@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: cherylmc
 ms.openlocfilehash: 4ff4f1238764d7bdab6e74d29254a6388ea76d78
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92143157"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modifier les paramètres de la passerelle du réseau local à l’aide du portail Azure
@@ -32,7 +32,7 @@ La capture d’écran ci-dessous montre la page **Configuration** d’une ressou
 
 Il s’agit de la page de configuration avec un point de terminaison de nom de domaine complet :
 
-:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/name.png" alt-text="Paramètres d’adresse IP":::
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/name.png" alt-text="Paramètres de nom de domaine complet":::
 
 ## <a name="to-modify-the-gateway-ip-address-or-fqdn"></a><a name="ip"></a>Pour modifier l’adresse IP ou le nom de domaine complet de la passerelle
 
@@ -42,43 +42,43 @@ Il s’agit de la page de configuration avec un point de terminaison de nom de d
 
 Si le périphérique VPN auquel vous souhaitez vous connecter a changé son IP publique, modifiez la passerelle réseau locale en procédant comme suit :
 
-1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres** , sélectionnez **Configuration** .
-2. Dans la zone **Adresse IP** , modifiez l’adresse IP.
+1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres**, sélectionnez **Configuration**.
+2. Dans la zone **Adresse IP**, modifiez l’adresse IP.
 3. Sélectionnez **Enregistrer** pour enregistrer les paramètres.
 
 Si le périphérique VPN auquel vous souhaitez vous connecter a changé son nom de domaine complet (FQDN), modifiez la passerelle réseau locale en procédant comme suit :
 
-1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres** , sélectionnez **Configuration** .
-2. Dans la zone **Nom de domaine complet** , modifiez le nom de domaine.
+1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres**, sélectionnez **Configuration**.
+2. Dans la zone **Nom de domaine complet**, modifiez le nom de domaine.
 3. Sélectionnez **Enregistrer** pour enregistrer les paramètres.
 
 ## <a name="to-modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Pour modifier des préfixes d’adresse IP
 
 Pour ajouter des préfixes d’adresses :
 
-1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres** , sélectionnez **Configuration** .
-2. Ajoutez l’espace d’adressage IP dans la zone *Ajouter une autre plage d’adresses* .
+1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres**, sélectionnez **Configuration**.
+2. Ajoutez l’espace d’adressage IP dans la zone *Ajouter une autre plage d’adresses*.
 3. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 Pour supprimer des préfixes d’adresses :
 
-1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres** , sélectionnez **Configuration** .
+1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres**, sélectionnez **Configuration**.
 2. Sélectionnez **« … »** sur la ligne contenant le préfixe à supprimer.
-3. Sélectionnez **Supprimer** .
+3. Sélectionnez **Supprimer**.
 4. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 ## <a name="to-modify-bgp-settings"></a><a name="bgp"></a>Pour modifier les paramètres de BGP
 
 Pour ajouter ou mettre à jour les paramètres de BGP :
 
-1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres** , sélectionnez **Configuration** .
+1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres**, sélectionnez **Configuration**.
 2. Sélectionnez **Configurer les paramètres de BGP** pour afficher ou mettre à jour les configurations BGP pour cette passerelle de réseau local
 3. Ajouter ou mettre à jour le numéro de système autonome ou l’adresse IP du pair BGP dans les champs correspondants
 4. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 
 Pour supprimer les paramètres BGP :
 
-1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres** , sélectionnez **Configuration** .
+1. Sur la ressource de passerelle de réseau local, dans la section **Paramètres**, sélectionnez **Configuration**.
 2. Désactivez **« Configurer les paramètres de BGP »** pour supprimer l’adresse IP existante de l’ASN BGP et du pair BGP.
 3. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 

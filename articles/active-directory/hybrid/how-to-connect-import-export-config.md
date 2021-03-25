@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681953"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Importer et exporter des paramètres de configuration Azure AD Connect 
@@ -77,10 +77,10 @@ Pour migrer les paramètres :
 
    ![Capture d’écran montrant les répertoires Azure AD Connect.](media/how-to-connect-import-export-config/migrate1.png)
 
-1. Exécutez le script comme indiqué ci-dessous et enregistrez l’intégralité du répertoire de configuration de serveur de niveau inférieur. Copiez ce répertoire sur le nouveau serveur de préproduction. Notez que vous devez copier l’intégralité du dossier **Exported-ServerConfiguration-** _ sur le nouveau serveur.
+1. Exécutez le script comme indiqué ci-dessous et enregistrez l’intégralité du répertoire de configuration de serveur de niveau inférieur. Copiez ce répertoire sur le nouveau serveur de préproduction. Notez que vous devez copier l’intégralité du dossier **Exported-ServerConfiguration-** * sur le nouveau serveur.
 
-   ![Capture d’écran montrant le script dans Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Capture d’écran montrant la copie du dossier Exported-ServerConfiguration-_.](media/how-to-connect-import-export-config/migrate3.png)
+   ![Capture d’écran illustrant le script dans Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
+   ![Capture d’écran qui montre la copie du dossier Exported-ServerConfiguration-*.](media/how-to-connect-import-export-config/migrate3.png)
 
 1. Lancez **Azure AD Connect** en double-cliquant sur l’icône du bureau. Acceptez les termes du contrat de licence logiciel Microsoft, puis sur la page suivante, sélectionnez **Personnaliser**.
 1. Cliquez sur la case à cocher **Importer les paramètres de synchronisation**. Sélectionnez **Parcourir** pour parcourir le dossier Exported-ServerConfiguration-* copié. Sélectionnez le MigratedPolicy. json pour importer les paramètres migrés.

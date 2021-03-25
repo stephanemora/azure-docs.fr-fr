@@ -2,13 +2,13 @@
 title: Utiliser une fonction dans Azure en tant que gestionnaire d’événements pour des événements Azure Event Grid
 description: Décrit comment utiliser des fonctions crées et hébergées par Azure Functions en tant que gestionnaires d’événements pour des événements Event Grid.
 ms.topic: conceptual
-ms.date: 09/18/2020
-ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 03/15/2021
+ms.openlocfilehash: f547b09fe7e62eb3fa9e02bd17298a936350f871
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632510"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496539"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Utiliser une fonction en tant que gestionnaire d’événements pour des événements Event Grid
 
@@ -79,6 +79,9 @@ Vous pouvez utiliser la commande [az eventgrid event-subscription create](/cli/a
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Vous pouvez utiliser la cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) pour configurer les paramètres de traitement par lot en utilisant les paramètres suivants : `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes`.
+
+> [!NOTE]
+> Lorsque vous utilisez le déclencheur Event Grid, le service Event Grid extrait la clé secrète client pour la fonction Azure cible et s’en sert pour remettre les événements à la fonction Azure. Si vous protégez votre fonction Azure avec une application Azure Active Directory, vous devez adopter l’approche de webhook générique et utiliser le déclencheur HTTP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md).

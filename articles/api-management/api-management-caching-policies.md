@@ -4,21 +4,16 @@ description: Découvrez les stratégies de mise en cache disponibles dans Gestio
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 03/08/2021
 ms.author: apimpm
-ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688040"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103233464"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -29,8 +24,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Stratégies de mise en cache
 
 - Stratégies de mise en cache des réponses
-    - [Get from cache](api-management-caching-policies.md#GetFromCache) : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.
-    - [Store to cache](api-management-caching-policies.md#StoreToCache) : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
+    - [Get from cache](#GetFromCache) : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.
+    - [Store to cache](#StoreToCache) : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.
 - Stratégies de mise en cache des valeurs
     - [Get value from cache](#GetFromCacheByKey) : récupère un élément mis en cache par clé.
     - [Store value in cache](#StoreToCacheByKey) : stocke un élément mis en cache par clé.
@@ -40,7 +35,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 La stratégie `cache-lookup` permet d’effectuer une recherche dans le cache et de renvoyer une réponse mise en cache valide si elle est disponible. Cette stratégie peut être appliquée dans les cas où le contenu de la réponse reste statique pendant un certain temps. La mise en cache de la réponse réduit les besoins en bande passante et en calcul imposés par le serveur web principal et limite la latence perçue par les consommateurs de l’API.
 
 > [!NOTE]
-> Cette stratégie doit avoir une stratégie [Store to cache](api-management-caching-policies.md#StoreToCache) correspondante.
+> Cette stratégie doit avoir une stratégie [Store to cache](#StoreToCache) correspondante.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -135,7 +130,7 @@ La stratégie `cache-store` met en cache la réponse en fonction des paramètres
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="true | false" />
 ```
 
 ### <a name="examples"></a>Exemples
@@ -190,7 +185,8 @@ Pour plus d’informations, consultez les pages [Expressions de stratégie](api-
 
 | Nom             | Description                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Durée de vie des entrées mises en cache (en secondes).                                                                                                                                                                                                                                                                                                   | Oui      | N/A               |
+| duration         | Durée de vie des entrées mises en cache (en secondes).     | Oui      | N/A               |
+| cache-response         | Affectez la valeur true pour mettre en cache la réponse HTTP actuelle. Si l’attribut est omis ou possède la valeur false, seules les réponses HTTP avec le code d’état `200 OK` sont mises en cache.                           | Non      | false               |
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.

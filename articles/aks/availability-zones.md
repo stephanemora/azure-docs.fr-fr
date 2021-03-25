@@ -4,13 +4,13 @@ description: Découvrez comment créer un cluster qui distribue les nœuds entre
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 09/04/2020
-ms.openlocfilehash: 3eec8a6c331227d9d6298c46b272a5784080d342
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180324"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583545"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
@@ -29,6 +29,7 @@ La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et confi
 Les clusters AKS peuvent actuellement être créés en utilisant des zones de disponibilité dans les régions suivantes :
 
 * Australie Est
+* Brésil Sud
 * Centre du Canada
 * USA Centre
 * USA Est 
@@ -167,7 +168,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 Nous avons maintenant deux nœuds supplémentaires dans les zones 1 et 2. Vous pouvez déployer une application composée de trois réplicas. Nous allons utiliser NGINX comme exemple :
 
 ```console
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
 

@@ -7,10 +7,10 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 03/02/2021
 ms.openlocfilehash: d99c62e7d88510c351f87d85b4f8c5c271767cb3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747421"
 ---
 # <a name="what-is-azure-managed-instance-for-apache-cassandra-preview"></a>Qu’est-ce qu’Azure Managed Instance pour Apache Cassandra ? (Préversion)
@@ -53,7 +53,7 @@ Le modèle de tarification est flexible, à la demande, basé sur l’instance e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lancez-vous avec l’un de nos guides de démarrage rapide :
+Démarrez avec l’un de nos guides de démarrage rapide :
 
 * [Créer un cluster Managed Instance à partir du portail Azure](create-cluster-portal.md)
 * [Déployer un cluster Apache Spark managé avec Azure Databricks](deploy-cluster-databricks.md)

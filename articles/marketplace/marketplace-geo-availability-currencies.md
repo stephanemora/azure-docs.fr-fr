@@ -6,19 +6,21 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 12/07/2020
-ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 03/08/2021
+ms.openlocfilehash: e583d39e2eed1b08dfeb17cafc1e12c583176d7b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879762"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493031"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilité géographique et prise en charge des devises pour la Place de marché commerciale
 
 ## <a name="supported-geographic-locations"></a>Emplacements géographiques pris en charge
 
 Les offres de la place de marché commerciale peuvent être achetées dans 141 zones géographiques, définies par l’adresse de facturation du client, et les transactions peuvent être effectuées dans 17 devises. Le tableau ci-dessous répertorie les emplacements géographiques pris en charge, leur [code alpha ISO 3166 à deux chiffres](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) et la devise attribuée.
+
+Un fournisseur de solutions cloud peut acheter une offre dans l’Espace partenaires dans la devise de son client final pour pouvoir le facturer dans la même devise. Pour plus d’informations, consultez [cette FAQ](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Nom du pays/de la région               |   ISO-2   |   Devise</br>(Tous les types d’offre)  |    Devise</br>(Offre de services de conseil uniquement)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|

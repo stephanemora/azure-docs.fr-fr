@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bd4dcbdc7ab13d18ef7f2d7102c56d1bd8d8758d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565459"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582100"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tailles de machine virtuelle Azure sans disque temporaire local 
 Cet article fournit des réponses aux questions fréquentes (FAQ) sur les tailles de machine virtuelle Azure qui n’ont pas de disque temporaire local. Pour plus d’informations sur ces tailles de machine virtuelle, consultez les [spécifications des séries Dv4 et  Dsv4 (charges de travail universelles)](dv4-dsv4-series.md) ou les [spécifications des séries Ev4 et Esv4 (charges de travail à mémoire optimisée)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Pour ce faire, procédez comme suit :
    > Suivez les instructions de la section « Déplacement temporaire du fichier pagefile.sys vers le lecteur C » de la rubrique Utilisation du lecteur D: comme lecteur de données sur une machine virtuelle Windows pour déplacer le fichier d’échange du disque temporaire local (lecteur D:) vers le lecteur C:. **Tout écart par rapport aux étapes décrites se soldera par le message d’erreur : «Impossible de redimensionner la machine virtuelle car le passage d’une taille de machine virtuelle de disque de ressources à une taille autre que celle d’un disque de ressources et inversement n’est pas autorisé.**
 
 3. Prenez un instantané de la machine virtuelle en suivant les étapes décrites dans [Créer une capture instantanée à l’aide du portail ou d’Azure CLI](./linux/snapshot-copy-managed-disk.md). 
-4. Utilisez l’instantané pour créer une machine virtuelle sans disque (par exemple, dv4, Dsv4, Ev4, Esv4 Series) en suivant les étapes décrites dans [Créer une machine virtuelle à partir d’une capture instantanée avec l’interface de ligne de commande](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
+4. Utilisez l’instantané pour créer une machine virtuelle sans disque (par exemple, dv4, Dsv4, Ev4, Esv4 Series) en suivant les étapes décrites dans [Créer une machine virtuelle à partir d’une capture instantanée avec l’interface de ligne de commande](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Ces tailles de machine virtuelle prennent-elles en charge les systèmes d’exploitation Linux et Windows ?
 Oui.

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: jlian
-ms.openlocfilehash: 62292a2ee51f8e1838e9cf3376367a02964cad47
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 2a76cede4bc72da9f30564f98ab9bb84028680f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418740"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581488"
 ---
 # <a name="use-ip-filters"></a>Utiliser des filtres IP
 
@@ -85,10 +85,6 @@ Toute tentative de connexion à partir d’une adresse IP qui n’est pas expli
 Les règles de filtre IP sont des règles *d’autorisation* appliquées sans ordre. Seules les adresses IP que vous ajoutez sont autorisées à se connecter à IoT Hub. 
 
 Par exemple, si vous souhaitez accepter des adresses dans la plage `192.168.100.0/22` et rejeter tout le reste, il vous suffit d’ajouter une règle dans la grille avec la plage d’adresses `192.168.100.0/22`.
-
-### <a name="azure-portal"></a>Portail Azure 
-
-Les règles de filtre IP sont également appliquées lors de l’utilisation d’IoT Hub via le portail Azure. Cela est dû au fait que les appels d’API au service IoT Hub sont effectués directement à l’aide de votre navigateur avec vos informations d’identification, ce qui est cohérent avec les autres services Azure. Pour accéder à IoT Hub à l’aide du portail Azure quand le filtre d’IP est activé, ajoutez l’adresse IP de votre ordinateur à la liste verte. 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Récupérer et mettre à jour des filtres IP à l'aide d'Azure CLI
 

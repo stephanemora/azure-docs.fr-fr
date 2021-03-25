@@ -3,16 +3,16 @@ title: Résoudre les problèmes liés à l’orchestration et aux déclencheurs 
 description: Utiliser différentes méthodes pour résoudre des problèmes de déclencheurs de pipeline dans Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 12/15/2020
+ms.date: 03/13/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944909"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103461995"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -28,17 +28,27 @@ Les exécutions de pipeline sont généralement instanciées en transmettant des
  
 Data Factory et l’application de fonction Azure s’exécutent sur un point de terminaison privé. Vous essayez d’exécuter un pipeline qui interagit avec l’application de fonction. Vous avez essayé trois méthodes différentes, mais l’une retourne l’erreur « Requête incorrecte » et les deux autres méthodes retournent l’erreur « 103 Erreur Interdit ».
 
-**Cause** : Data Factory ne prend actuellement pas en charge un connecteur de point de terminaison privé pour les applications de fonction. Azure Functions rejette les appels, car il est configuré pour autoriser uniquement les connexions à partir d’une liaison privée.
+**Cause**
 
-**Résolution** : Créez un point de terminaison **PrivateLinkService** et fournissez le DNS de votre application de fonction.
+Data Factory ne prend actuellement pas en charge un connecteur de point de terminaison privé pour les applications de fonction. Azure Functions rejette les appels, car il est configuré pour autoriser uniquement les connexions à partir d’une liaison privée.
+
+**Résolution :**
+
+Créez un point de terminaison **PrivateLinkService** et fournissez le DNS de votre application de fonction.
 
 ### <a name="a-pipeline-run-is-canceled-but-the-monitor-still-shows-progress-status"></a>L’exécution du pipeline est annulée mais le moniteur continue d’afficher l’état de progression
 
+**Cause**
+
 Quand vous annulez l’exécution d’un pipeline, la surveillance de celui-ci continue souvent d’afficher l’état de progression. Cela est dû à un problème de cache du navigateur. Vous ne disposez peut-être pas des filtres appropriés pour la surveillance.
 
-**Résolution** : Actualisez le navigateur et appliquez les filtres appropriés pour la surveillance.
+**Résolution :**
+
+Actualisez le navigateur et appliquez les filtres appropriés pour la surveillance.
  
 ### <a name="you-see-a-delimitedtextmorecolumnsthandefined-error-when-copying-a-pipeline"></a>Une erreur « DelimitedTextMoreColumnsThanDefined » s’affiche lors de la copie d’un pipeline
+ 
+ **Cause**
  
 Si un dossier que vous copiez contient des fichiers avec des schémas différents, comme un nombre variable de colonnes, des délimiteurs ou paramètres de guillemets différents, ou des problèmes quelconques liés aux données, le pipeline Azure Data Factory peut lever l’erreur suivante :
 
@@ -50,9 +60,13 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-**Résolution** : Sélectionnez l’option **Copie binaire** lors de la création de l’activité Copy. De cette façon, pour les copies en bloc ou la migration de vos données d’un lac de données vers un autre, Data Factory n’ouvre pas les fichiers pour lire le schéma. Au lieu de cela, Data Factory traite chaque fichier sous forme binaire et le copie dans l’autre emplacement.
+**Résolution :**
 
-### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime"></a>L’exécution du pipeline échoue quand vous atteignez la limite de capacité du runtime d’intégration
+Sélectionnez l’option **Copie binaire** lors de la création de l’activité Copy. De cette façon, pour les copies en bloc ou la migration de vos données d’un lac de données vers un autre, Data Factory n’ouvre pas les fichiers pour lire le schéma. Au lieu de cela, Data Factory traite chaque fichier sous forme binaire et le copie dans l’autre emplacement.
+
+### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime-for-data-flow"></a>L’exécution de pipeline échoue quand vous atteignez la limite de capacité du runtime d’intégration pour le flux de données
+
+**Problème**
 
 Message d’erreur :
 
@@ -60,14 +74,18 @@ Message d’erreur :
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**Cause** : Vous avez atteint la limite de capacité du runtime d’intégration. Vous exécutez peut-être une grande quantité de flux de données simultanément à l’aide du même runtime d’intégration. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2).
+**Cause**
 
-**Résolution** :
+Vous avez atteint la limite de capacité du runtime d’intégration. Vous exécutez peut-être une grande quantité de flux de données simultanément à l’aide du même runtime d’intégration. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2).
+
+**Résolution :**
  
 - Exécutez vos pipelines à différents moments de déclenchement.
 - Créez un nouveau runtime d’intégration et répartissez vos pipelines sur plusieurs runtimes d’intégration.
 
-### <a name="you-have-activity-level-errors-and-failures-in-pipelines"></a>Il existe des erreurs et échecs au niveau des activités dans les pipelines
+### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Comment gérer les erreurs et échecs au niveau des activités dans les pipelines
+
+**Cause**
 
 Une orchestration Azure Data Factory autorise une logique conditionnelle et permet aux utilisateurs d’emprunter différents chemins d’accès en fonction du résultat d’une activité précédente. Elle autorise quatre chemins d’accès conditionnels : **En cas de réussite** (réussite par défaut), **En cas d’échec**, **En cas d’achèvement** et **En cas d’omission**. 
 
@@ -75,16 +93,84 @@ Azure Data Factory évalue le résultat de toutes les activités au niveau feuil
 
 **Résolution :**
 
-1. Implémentez les contrôles au niveau de l’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-1. Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
+* Implémentez les contrôles au niveau de l’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+* Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
+* [Surveiller visuellement le pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
 
-## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Surveiller les échecs de pipeline à intervalles réguliers
+### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Guide pratique pour surveiller les échecs de pipeline à intervalles réguliers
+
+**Cause**
 
 Vous devrez peut-être surveiller les pipelines Data Factory à intervalles réguliers, par exemple, de 5 minutes. Vous pouvez interroger et filtrer les exécutions du pipeline à partir d’une fabrique de données à l’aide du point de terminaison. 
 
-Configurez une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à notre système de tickets.
+**Résolution :**
+* Vous pouvez configurer une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à votre système de tickets.
+* [Surveiller visuellement le pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
 
-Pour plus d’informations, consultez [Envoi de notifications à partir de Data Factory, partie 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>Augmenter le degré de parallélisme n’entraîne pas un débit plus élevé
+
+**Cause** 
+
+Le degré de parallélisme dans *ForEach* correspond en fait au degré maximal de parallélisme. Nous ne pouvons pas garantir le lancement simultané d’un nombre spécifique d’exécutions, mais ce paramètre garantit que la valeur définie ne sera jamais dépassée. Considérez ce paramètre comme une limite à utiliser lors du contrôle de l’accès simultané à vos sources et récepteurs.
+
+Faits connus concernant *ForEach*
+ * Foreach comporte une propriété appelée batch count(n), où la valeur par défaut est 20 et la valeur maximale est 50.
+ * Le nombre de lots (batch count), n, sert à construire n files d’attente. Nous aborderons plus tard en détail la façon dont ces files d’attente sont construites.
+ * Chaque file d’attente s’exécute séquentiellement, mais plusieurs files d’attente peuvent s’exécuter en parallèle.
+ * Les files d’attente sont créées au préalable. Cela signifie qu’il n’y a aucun rééquilibrage des files d’attente pendant l’exécution.
+ * À tout moment, un élément au maximum est traité par file d’attente. Cela signifie qu’au maximum n éléments sont traités à un moment donné.
+ * Le temps de traitement total de foreach est égal au temps de traitement de la file d’attente la plus longue. Cela signifie que l’activité foreach dépend de la façon dont les files d’attente sont construites.
+ 
+**Résolution :**
+
+ * Vous ne devez pas utiliser l’activité *SetVariable* dans une commande *For Each* exécutée en parallèle.
+ * En tenant compte de la façon dont les files d’attente sont construites, le client peut améliorer les performances de foreach en définissant plusieurs commandes *foreach*, où chaque commande foreach aura des éléments avec un temps de traitement similaire. Cela permet de s’assurer que les longues exécutions sont traitées en parallèle plutôt que séquentiellement.
+
+ ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>L’état du pipeline est mis en file d’attente ou bloqué pendant une longue période
+ 
+ **Cause**
+ 
+ Cela peut se produire pour diverses raisons, telles que l’atteinte des limites de concurrence, les interruptions de service, les pannes réseau, etc.
+ 
+ **Résolution :**
+ 
+* Limite de concurrenciel : si votre pipeline a une stratégie de concurrencel, vérifiez qu’il n’y a pas d’anciennes exécutions de pipeline en cours. La concurrence de pipeline maximale autorisée dans Azure Data Factory est de 10 pipelines. 
+* Limites de surveillance : accédez au canevas de création ADF, sélectionnez votre pipeline, puis déterminez si une propriété de concurrence lui est assignée. Si c’est le cas, accédez à la page de surveillance et assurez-vous qu’il n’y a aucune exécution en cours sur les 45 derniers jours. Si vous trouvez une exécution en cours, vous pouvez l’annuler. Cela aura pour effet de démarrer la nouvelle exécution de pipeline.
+* Problèmes temporaires : il est possible que votre exécution ait été impactée par un problème réseau temporaire, des échecs des informations d’identification, des interruptions de service, etc.  Dans ce cas, Azure Data Factory possède un processus de récupération interne qui supervise toutes les exécutions et les démarre en cas de problème. Ce processus est exécuté toutes les heures. Si votre exécution reste bloquée pendant plus d’une heure, créez un cas de support.
+ 
+### <a name="longer-start-up-times-for-activities-in-adf-copy-and-data-flow"></a>Heures de démarrage plus longues pour les activités dans la copie ADF et Data Flow
+
+**Cause**
+
+Cela peut se produire si vous n’avez pas implémenté la fonctionnalité temps réel pour Data Flow ou SHIR optimisé.
+
+**Résolution :**
+
+* Si le démarrage de chaque activité de copie prend jusqu’à 2 minutes et que le problème se produit principalement à la jonction du réseau virtuel (plutôt que dans le runtime d’intégration Azure), il peut s’agir d’un problème de performances de copie. Pour passer en revue les étapes de dépannage, accédez à [Amélioration des performances de copie.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
+* Vous pouvez utiliser la fonctionnalité temps réel pour réduire le temps de démarrage du cluster pour les activités de flux de données. Consultez [Runtime d'intégration Data Flow](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime).
+
+ ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Atteinte des problèmes de capacité dans le runtime d'intégration auto-hébergé (SHIR, Self Hosted Integration Runtime)
+ 
+ **Cause**
+ 
+Cela peut se produire si vous n’avez pas effectué de scale-up du SHIR en fonction de votre charge de travail.
+
+**Résolution :**
+
+* Si vous rencontrez un problème de capacité provenant du runtime d’intégration auto-hébergé, mettez à niveau la machine virtuelle pour augmenter le nœud afin d’équilibrer les activités. Si vous recevez un message d’erreur relatif à une erreur ou défaillance générale de l’IR auto-hébergé, à une mise à niveau de l’IR auto-hébergé ou à des problèmes de connectivité de l’IR auto-hébergé, ce qui peut générer une longue file d’attente, consultez [Résoudre les problèmes liés au runtime d’intégration auto-hébergé](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide).
+
+### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Messages d’erreur dus à des files d’attente longues pour la copie ADF et Data Flow
+
+**Cause**
+
+Des messages d’erreur liés à de longues files d’attente peuvent apparaître pour différentes raisons. 
+
+**Résolution :**
+* Si vous recevez un message d’erreur de n’importe quelle source ou destination via des connecteurs, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de connecteur](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide).
+* Si vous recevez un message d’erreur sur le flux de données de mappage, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de flux de données](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide).
+* Si vous recevez un message d’erreur sur d’autres activités, telles que Databricks, les activités personnalisées ou HDI, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’activité](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide).
+* Si vous recevez un message d’erreur sur l’exécution des packages SSIS, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’exécution de package Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) et le [Guide de résolution des problèmes de gestion du runtime d’intégration.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

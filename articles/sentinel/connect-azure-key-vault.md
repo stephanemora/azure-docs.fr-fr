@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: yelevin
 ms.openlocfilehash: 00e634ec62d1fda4b1f2763a8c69b8e950d54beb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505186"
 ---
 # <a name="connect-azure-key-vault-diagnostics-logs"></a>Connecter les journaux de diagnostic Azure Key Vault
@@ -47,11 +47,11 @@ Ce connecteur utilise Azure Policy pour appliquer une configuration de streaming
 
     1. Sous l'onglet **De base**, cliquez sur le bouton affichant trois points sous **Étendue** pour sélectionner votre abonnement (et éventuellement un groupe de ressources). Vous pouvez également ajouter une description.
 
-    1. Sous l'onglet **Paramètres**, choisissez votre espace de travail Azure Sentinel dans la liste déroulante **Espace de travail Log Analytics**. Les autres champs déroulants représentent les types de journaux de diagnostic disponibles. Conservez la valeur « True » pour tous les types de journaux que vous souhaitez ingérer.
+    1. Sous l’onglet **Paramètres**, choisissez votre espace de travail Azure Sentinel dans la liste déroulante **Espace de travail Log Analytics**. Les champs de liste déroulante restants représentent les types de journaux de diagnostic disponibles. Conservez la valeur « True » pour tous les types de journaux que vous souhaitez ingérer.
 
-    1. Pour appliquer la stratégie à vos ressources existantes, sélectionnez l'onglet **Correction** et cochez la case **Créer une tâche de correction**.
+    1. Pour appliquer la stratégie à vos ressources existantes, sélectionnez l’onglet **Correction** et cochez la case **Créer une tâche de correction**.
 
-    1. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**. Votre stratégie est maintenant attribuée à l'étendue que vous avez choisie.
+    1. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**. Votre stratégie est maintenant affectée à l’étendue que vous avez choisie.
 
 > [!NOTE]
 >

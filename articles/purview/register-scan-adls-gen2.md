@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882397"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Inscrire et analyser Azure Data Lake Storage Gen2
@@ -44,8 +44,8 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 
 1. Accédez à votre compte de stockage ADLS Gen2.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
-1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour attribuer cette attribution de rôle à votre compte Purview.
+1. Sélectionnez **+ Ajouter**.
+1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
 
 > [!Note]
 > Pour plus d’informations, consultez les étapes sous [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory](../storage/common/storage-auth-aad.md)
@@ -58,15 +58,15 @@ Lorsque la méthode d’authentification sélectionnée est **Clé de compte**, 
 1. Sélectionnez **Paramètres > Clés d’accès**
 1. Copiez votre *clé* et enregistrez-la quelque part pour les étapes suivantes
 1. Accédez à votre coffre de clés.
-1. Sélectionnez **Paramètres > Secrets**
-1. Sélectionnez **+ Générer/importer** et entrez le **nom** et la **valeur** comme pour la *clé* de votre compte de stockage.
-1. Sélectionnez **Créer** pour terminer
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une nouvelle connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse
+1. Sélectionnez **Paramètres > Secrets**.
+1. Sélectionnez **+ Générer/importer**, puis entrez le **Nom** et la **Valeur** comme *clé* de votre compte de stockage.
+1. Sélectionnez **Créer** pour terminer.
+1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
+1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide de la clé pour configurer votre analyse.
 
 #### <a name="service-principal"></a>Principal du service
 
-Pour utiliser un principal de service, vous pouvez en utiliser un existant ou en créer un. 
+Vous pouvez utiliser un principal de service existant ou en créer un nouveau. 
 
 > [!Note]
 > Si vous devez créer un principal de service, procédez comme suit :
@@ -74,27 +74,27 @@ Pour utiliser un principal de service, vous pouvez en utiliser un existant ou en
 > 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**.
 > 1. Sélectionnez **Inscriptions d’applications**.
 > 1. Sélectionnez **+ Nouvelle inscription d’application**.
-> 1. Entrez un nom pour **l’application** (nom du principal de service).
+> 1. Entrez un nom pour l’**application** (nom du principal de service).
 > 1. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
-> 1. Pour URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ou qu’elle fonctionne.
+> 1. Pour l’URI de redirection, sélectionnez **Web** et entrez l’URL de votre choix. Il n’est pas nécessaire qu’elle soit réelle ni qu’elle fonctionne.
 > 1. Sélectionnez ensuite **Inscription**.
 
-Il est nécessaire de capturer l’ID d’application et le secret du principal de service :
+Il est nécessaire de récupérer l’ID d’application et le secret du principal de service :
 
-1. Accédez à votre principal de service dans le [portail Azure](https://portal.azure.com)
-1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats & secrets**.
+1. Accédez à votre principal de service sur le [Portail Azure](https://portal.azure.com).
+1. Copiez les valeurs **ID d’application (client)** dans **Vue d’ensemble** et **Secret client** dans **Certificats et secrets**.
 1. Accédez à votre coffre de clés.
-1. Sélectionnez **Paramètres > Secrets**
-1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme le **Secret client** de votre principal de service
-1. Sélectionnez **Créer** pour terminer
-1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une nouvelle connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Sélectionnez **Paramètres > Secrets**.
+1. Sélectionnez **+ Générer/importer** et entrez le **nom** de votre choix et la **valeur** comme **secret client** de votre principal de service.
+1. Sélectionnez **Créer** pour terminer.
+1. Si votre coffre de clés n’est pas encore connecté à Purview, vous devrez [créer une connexion de coffre de clés](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. Enfin, [créez des informations d’identification](manage-credentials.md#create-a-new-credential) à l’aide du principal de service pour configurer votre analyse
 
 ##### <a name="granting-the-service-principal-access-to-your-adls-gen2-account"></a>Accorder au principal de service l’accès à votre compte ADLS Gen2
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **Ajouter**.
+1. Sélectionnez **+ Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom ou ID d’objet de votre principal de service dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre principal de service.
 ### <a name="firewall-settings"></a>Paramètres du pare-feu
 
@@ -113,7 +113,7 @@ Il est nécessaire de capturer l’ID d’application et le secret du principal 
 Pour inscrire un nouveau compte ADLS Gen2 dans votre catalogue de données, procédez comme suit :
 
 1. Accédez à votre compte Purview
-2. Sélectionnez **Sources** dans la barre de navigation à gauche
+2. Sélectionnez **Sources** dans le volet de navigation de gauche.
 3. Sélectionnez **Inscrire**.
 4. Sous **Inscrire des sources**, sélectionnez **Azure Data Lake Storage Gen2**
 5. Sélectionnez **Continue** (Continuer)
@@ -124,7 +124,7 @@ Dans l’écran **Inscrire des sources (Azure Data Lake Storage Gen2)** , procé
 2. Choisissez votre abonnement pour filtrer les comptes de stockage
 3. Sélectionner un compte de stockage
 4. Sélectionnez une collection ou créez-en une (facultatif)
-5. **Terminer** pour inscrire la source de données.
+5. Utilisez **Terminer** pour inscrire la source de données.
 
 :::image type="content" source="media/register-scan-adls-gen2/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
@@ -132,5 +132,5 @@ Dans l’écran **Inscrire des sources (Azure Data Lake Storage Gen2)** , procé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Parcourir le catalogue de données Azure Purview](how-to-browse-catalog.md)
-- [Effectuer une recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)
+- [Navigation dans le catalogue de données Azure Purview](how-to-browse-catalog.md)
+- [Recherche dans le catalogue de données Azure Purview](how-to-search-catalog.md)

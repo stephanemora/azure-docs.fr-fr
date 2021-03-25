@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fb81960b573b5b7d28f44f7a7482c28b4ef284be
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496454"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580349"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -108,7 +108,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 
 Azure Disk Encryption nécessite la présence des modules dm-crypt et vfat sur le système. La suppression ou la désactivation de vfat de l’image par défaut empêchera le système de lire le volume de clés et d’obtenir la clé nécessaire pour déverrouiller les disques lors des redémarrages suivants. Les étapes de renforcement du système qui suppriment le module vfat du système ou qui appliquent une extension des points de montage/dossiers du système d’exploitation sur les lecteurs de données ne sont pas compatibles avec Azure Disk Encryption. 
 
-Avant d’activer le chiffrement, vous devez lister correctement les disques de données à chiffrer dans /etc/fstab. Utilisez l’option « nofail » lors de la création d’entrées et choisissez un nom d’appareil de bloc persistant (car les noms d’appareil au format « /dev/sdX » ne peuvent pas être associés au même disque entre les redémarrages, en particulier après le chiffrement. Pour plus d’informations sur ce comportement, consultez : [Résoudre les problèmes liés aux changements de noms d’appareil des machines virtuelles Linux](../troubleshooting/troubleshoot-device-names-problems.md)).
+Avant d’activer le chiffrement, vous devez lister correctement les disques de données à chiffrer dans /etc/fstab. Utilisez l’option « nofail » lors de la création d’entrées et choisissez un nom d’appareil de bloc persistant (car les noms d’appareil au format « /dev/sdX » ne peuvent pas être associés au même disque entre les redémarrages, en particulier après le chiffrement. Pour plus d’informations sur ce comportement, consultez : [Résoudre les problèmes liés aux changements de noms d’appareil des machines virtuelles Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)).
 
 Vérifiez que les paramètres /etc/fstab sont correctement configurés pour le montage. Pour configurer ces paramètres, exécutez la commande mount -a, ou redémarrez la machine virtuelle et déclenchez le remontage de cette façon. Une fois cette opération effectuée, consultez la sortie de la commande lsblk pour vérifier que le lecteur est toujours monté. 
 

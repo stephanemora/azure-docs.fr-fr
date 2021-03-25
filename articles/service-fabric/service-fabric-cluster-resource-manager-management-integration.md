@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: ae80ac5833e90164fc4ff92010fd1830ae932cd2
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92174043"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Intégration de Cluster Resource Manager à la gestion de cluster Service Fabric
@@ -66,7 +66,7 @@ Voici ce que nous apprend ce message d’intégrité :
 
 1. Tous les réplicas proprement dits sont sains ; Chacun possède `AggregatedHealthState : Ok`.
 2. La contrainte de distribution de domaine de mise à niveau n’est actuellement pas respectée. Cela signifie qu’un domaine de mise à niveau particulier compte plus de réplicas que prévu pour cette partition.
-3. L’identité du nœud qui contient le réplica à l’origine de la violation. Dans ce cas, il s’agit du nœud nommé *Node.8* .
+3. L’identité du nœud qui contient le réplica à l’origine de la violation. Dans ce cas, il s’agit du nœud nommé *Node.8*.
 4. Si cette partition fait actuellement l’objet d’une mise à niveau (« Currently Upgrading -- false »).
 5. La stratégie de distribution pour ce service : « Distribution Policy -- Packing ». Ceci est régi par la [stratégie de positionnement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution`. *Packing* indique que, dans ce cas, DomainDistribution n’était _pas_ obligatoire. Nous savons donc que la stratégie de positionnement n’a pas été spécifiée pour ce service. 
 6. La date et l’heure du rapport (10/08/2015 19:13:02)
@@ -83,12 +83,12 @@ En pareil cas, les rapports d’intégrité de Cluster Resource Manager vous aid
 ## <a name="constraint-types"></a>Types de contrainte
 Examinons les différentes contraintes qui apparaissent dans ces rapports d’intégrité. Les messages de contrôle d’intégrité liés à ces contraintes s’affichent quand les réplicas ne peuvent pas être placés.
 
-* **ReplicaExclusionStatic** et **ReplicaExclusionDynamic**  : ces contraintes indiquent qu’une solution a été rejetée, car deux objets de service de la même partition auraient dû être placés sur le même nœud. Cette opération n’est pas autorisée, car une défaillance de ce nœud aurait un trop fort impact sur cette partition. ReplicaExclusionStatic et ReplicaExclusionDynamic appliquent pratiquement la même règle et les différences importent peu. Si vous constatez qu’une séquence d’élimination de contrainte contient la contrainte ReplicaExclusionDynamic ou ReplicaExclusionStatic, Cluster Resource Manager considère qu’il n’y a pas suffisamment de nœuds. Les solutions restantes doivent utiliser ces placements non valides, qui ne sont pas autorisés. Les autres contraintes de la séquence indiquent généralement pourquoi les nœuds sont éliminés en premier lieu.
-* **PlacementConstraint**  : si vous voyez ce message, cela signifie que certains nœuds ne correspondant pas aux contraintes de placement du service ont été éliminés. Nous avons suivi les contraintes de placement actuellement configurées dans le cadre de ce message. Ceci est normal si une contrainte de placement est définie. Cependant, si la contrainte de placement entraîne à tort l’élimination d’un trop grand nombre de nœuds, c’est de cette façon que vous le remarquerez.
-* **NodeCapacity**  : cette contrainte signifie que Cluster Resource Manager n’a pas pu placer les réplicas sur les nœuds indiqués, car ils auraient été mis en surcapacité.
-* **Affinity**  : cette contrainte indique que les réplicas n’ont pas été placés sur les nœuds affectés pour ne pas enfreindre la contrainte d’affinité. Plus d’informations sur la contrainte Affinity, lisez [cet article](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** et **UpgradeDomain**  : cette contrainte élimine des nœuds si le placement du réplica sur les nœuds indiqués se traduit par une compression dans un domaine de mise à niveau ou d’erreur spécifique. Plusieurs exemples décrivant cette contrainte sont présentés dans la rubrique [Contraintes des domaines d’erreur et de mise à niveau, et comportement résultant](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**  : cette contrainte ne doit normalement pas retirer des nœuds de la solution, car elle s’exécute par défaut en tant qu’optimisation. La contrainte d’emplacement par défaut est aussi présente pendant les mises à niveau. À ces occasions, elle déplace les services à l’emplacement d’origine qui était le leur au moment où la mise à niveau a démarré.
+* **ReplicaExclusionStatic** et **ReplicaExclusionDynamic** : ces contraintes indiquent qu’une solution a été rejetée, car deux objets de service de la même partition auraient dû être placés sur le même nœud. Cette opération n’est pas autorisée, car une défaillance de ce nœud aurait un trop fort impact sur cette partition. ReplicaExclusionStatic et ReplicaExclusionDynamic appliquent pratiquement la même règle et les différences importent peu. Si vous constatez qu’une séquence d’élimination de contrainte contient la contrainte ReplicaExclusionDynamic ou ReplicaExclusionStatic, Cluster Resource Manager considère qu’il n’y a pas suffisamment de nœuds. Les solutions restantes doivent utiliser ces placements non valides, qui ne sont pas autorisés. Les autres contraintes de la séquence indiquent généralement pourquoi les nœuds sont éliminés en premier lieu.
+* **PlacementConstraint** : si vous voyez ce message, cela signifie que certains nœuds ne correspondant pas aux contraintes de placement du service ont été éliminés. Nous avons suivi les contraintes de placement actuellement configurées dans le cadre de ce message. Ceci est normal si une contrainte de placement est définie. Cependant, si la contrainte de placement entraîne à tort l’élimination d’un trop grand nombre de nœuds, c’est de cette façon que vous le remarquerez.
+* **NodeCapacity** : cette contrainte signifie que Cluster Resource Manager n’a pas pu placer les réplicas sur les nœuds indiqués, car ils auraient été mis en surcapacité.
+* **Affinity** : cette contrainte indique que les réplicas n’ont pas été placés sur les nœuds affectés pour ne pas enfreindre la contrainte d’affinité. Plus d’informations sur la contrainte Affinity, lisez [cet article](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** et **UpgradeDomain** : cette contrainte élimine des nœuds si le placement du réplica sur les nœuds indiqués se traduit par une compression dans un domaine de mise à niveau ou d’erreur spécifique. Plusieurs exemples décrivant cette contrainte sont présentés dans la rubrique [Contraintes des domaines d’erreur et de mise à niveau, et comportement résultant](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation** : cette contrainte ne doit normalement pas retirer des nœuds de la solution, car elle s’exécute par défaut en tant qu’optimisation. La contrainte d’emplacement par défaut est aussi présente pendant les mises à niveau. À ces occasions, elle déplace les services à l’emplacement d’origine qui était le leur au moment où la mise à niveau a démarré.
 
 ## <a name="blocklisting-nodes"></a>Mise des nœuds en liste de blocage
 Cluster Resource Manager peut aussi afficher un message de contrôle d’intégrité quand des nœuds sont mis en liste de blocage. La mise des nœuds en liste de blocage peut être considérée comme une contrainte provisoire qui s’applique automatiquement. Les nœuds sont mis en liste de blocage quand ils subissent des défaillances à répétition pendant le lacement d’instances de ce type de service. Les nœuds sont mis en liste de blocage par type de service, si bien qu’un nœud peut être placé dans une liste de blocage pour un type de service, mais pas pour un autre. 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558965"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582151"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Résoudre les problèmes d’approvisionnement des machines virtuelles avec cloud-init
 
@@ -56,11 +56,11 @@ En cas d’échec de l’approvisionnement de la machine virtuelle, Azure affich
 
 Pendant que la machine virtuelle est en cours d’exécution, vous aurez besoin des journaux de la machine virtuelle pour comprendre la raison de l’échec de l’approvisionnement.  Pour comprendre la raison de l’échec de l’approvisionnement d’une machine virtuelle, n’arrêtez pas la machine virtuelle. Laissez la machine virtuelle en cours d’exécution. Vous devez conserver l’état d’exécution de la machine virtuelle qui a échoué afin de collecter les journaux. Pour collecter les journaux, utilisez l’une des méthodes suivantes :
 
-- [Console série](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Console série](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode)
 
 - [Activez les diagnostics de démarrage](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) avant de créer la machine virtuelle, puis les [afficher](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) au cours du démarrage.
 
-- [Exécutez la commande AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) pour attacher et monter le disque du système d’exploitation, ce qui vous permet de collecter ces journaux :
+- [Exécutez la commande AZ VM Repair](/troubleshoot/azure/virtual-machines/repair-linux-vm-using-azure-virtual-machine-repair-commands) pour attacher et monter le disque du système d’exploitation, ce qui vous permet de collecter ces journaux :
 ```bash
 /var/log/cloud-init*
 /var/log/waagent*
@@ -108,7 +108,7 @@ Une fois que vous avez trouvé une erreur ou un avertissement, remontez dans le 
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Si vous avez accès à la [Console série ](../troubleshooting/serial-console-grub-single-user-mode.md), vous pouvez réexécutez la commande que cloud-init essayait d’exécuter.
+Si vous avez accès à la [Console série ](/troubleshoot/azure/virtual-machines/serial-console-grub-single-user-mode), vous pouvez réexécutez la commande que cloud-init essayait d’exécuter.
 
 La journalisation de `/var/log/cloud-init.log` peut également être reconfigurée dans /etc/cloud/cloud.cfg.d/05_logging.cfg. Pour plus d’informations sur la journalisation de cloud-init, consultez la [documentation cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 

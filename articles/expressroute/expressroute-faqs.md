@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 1be7331b0c2309350316d1c88c54e6018400463c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 417a6a55f0114ec35554e598b456f4fb67eb1c1b
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789345"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574456"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -40,9 +40,9 @@ Pour plus d'informations sur la tarification, consultez la page [Tarification](h
 
 Oui, la bande passante du circuit ExpressRoute utilise un canal duplex. Par exemple, si vous achetez un circuit ExpressRoute de 200 Mbits/s, vous obtenez 200 Mbits/s pour le trafic d’entrée et 200 Mbits/s pour le trafic de sortie.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si j’achète un circuit ExpressRoute d’une bande passante donnée, la connexion VPN que j’achète auprès de mon fournisseur de services réseau doit-elle être de la même vitesse ?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-private-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si j’achète un circuit ExpressRoute d’une bande passante donnée, la connexion privée que j’achète auprès de mon fournisseur de services réseau doit-elle être de la même vitesse ?
 
-Non. Vous pouvez acheter une connexion VPN de n’importe quelle vitesse chez votre fournisseur de services. Toutefois, votre connexion à Azure est limitée à la bande passante du circuit ExpressRoute que vous achetez.
+Non. Vous pouvez acheter une connexion privée de n’importe quelle vitesse auprès de votre fournisseur de services. Toutefois, votre connexion à Azure est limitée à la bande passante du circuit ExpressRoute que vous achetez.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Si j’achète un circuit ExpressRoute d’une bande passante donnée, puis-je utiliser plus que la bande passante fournie ?
 
@@ -60,7 +60,7 @@ La passerelle ExpressRoute publie le ou les *espaces d’adressage* du réseau v
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Combien de préfixes peuvent être publiés d’un réseau virtuel vers un serveur local sur un Peering privé ExpressRoute ?
 
-Au maximum 200 préfixes publiés sur une connexion ExpressRoute unique, ou via VNET Peering utilisent le transit de passerelle. Par exemple, si vous avez 199 espaces d’adressage sur un seul réseau virtuel connecté à un circuit ExpressRoute, tous ces préfixes sont publiés localement. Ou bien, si vous avez un réseau virtuel activé pour autoriser le transit par passerelle avec 1 espace d’adressage et 150 réseaux virtuels spoke activés à l’aide de l’option « Autoriser la passerelle distante », le réseau virtuel déployé avec la passerelle publie 151 préfixes localement.
+Au maximum 1 000 préfixes publiés sur une connexion ExpressRoute unique, ou via VNET Peering utilisent le transit de passerelle. Par exemple, si vous avez 999 espaces d’adressage sur un seul réseau virtuel connecté à un circuit ExpressRoute, tous ces préfixes sont publiés localement. Ou bien, si vous avez un réseau virtuel activé pour autoriser le transit par passerelle avec 1 espace d’adressage et 500 réseaux virtuels spoke activés à l’aide de l’option « Autoriser la passerelle distante », le réseau virtuel déployé avec la passerelle publie 501 préfixes localement.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Que se passe-t-il si je dépasse la limite de préfixes sur une connexion ExpressRoute ?
 
@@ -104,6 +104,7 @@ Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous 
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Serveur Multi-Factor Authentication (hérité)
 * Traffic Manager
+* Logic Apps
 
 ### <a name="public-peering"></a>Peering public
 
@@ -258,9 +259,13 @@ Si vous publiez des itinéraires par défaut, nous forçons le réacheminement d
 
 Oui. Les machines virtuelles qui sont déployées dans des réseaux virtuels connectés à un même circuit ExpressRoute peuvent communiquer entre elles. Nous vous recommandons de configurer [l’appairage de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) pour faciliter cette communication.
 
-### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>Puis-je utiliser une connectivité de site à site pour les réseaux virtuels conjointement avec ExpressRoute ?
+### <a name="can-i-set-up-a-site-to-site-vpn-connection-to-my-virtual-network-in-conjunction-with-expressroute"></a>Puis-je configurer une connexion VPN de site à site à mon réseau virtuel conjointement avec ExpressRoute ?
 
 Oui. ExpressRoute peut coexister avec des réseaux VPN de site à site. Voir [Configurer la coexistence de connexions de site à site et ExpressRoute](expressroute-howto-coexist-resource-manager.md).
+
+### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Comment faire pour activer le routage entre ma connexion VPN de site à site et mon ExpressRoute ?
+
+Si vous souhaitez activer le routage entre votre branche connectée à Expressoute et votre branche connectée à une connexion VPN de site à site, vous devez configurer [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Pourquoi une adresse IP publique est-elle associée à la passerelle ExpressRoute sur un réseau virtuel ?
 

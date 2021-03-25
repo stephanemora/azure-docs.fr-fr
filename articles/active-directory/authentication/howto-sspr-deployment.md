@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500510"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579193"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planification du déploiement de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -322,7 +322,7 @@ Les journaux d’audit pour l’inscription et la réinitialisation de mot de pa
 
 ### <a name="authentication-methods--usage-and-insights"></a>Méthodes d'authentification - Utilisation et insights
 
-[Utilisation et insights](./howto-authentication-methods-usage-insights.md) vous permet de comprendre comment les méthodes d'authentification des fonctionnalités comme Azure AD MFA et SSPR fonctionnent au sein de votre organisation. Cette fonctionnalité de création de rapports permet à votre organisation d'identifier les méthodes inscrites et d'en savoir plus sur leur utilisation.
+[Utilisation et insights](./howto-authentication-methods-activity.md) vous permet de comprendre comment les méthodes d'authentification des fonctionnalités comme Azure AD MFA et SSPR fonctionnent au sein de votre organisation. Cette fonctionnalité de création de rapports permet à votre organisation d'identifier les méthodes inscrites et d'en savoir plus sur leur utilisation.
 
 ### <a name="troubleshoot"></a>Dépanner
 
