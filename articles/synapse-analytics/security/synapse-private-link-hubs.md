@@ -1,19 +1,19 @@
 ---
 title: Se connecter à Synapse Studio à l’aide de liaisons privées
 description: Cet article explique comment vous connecter à votre Azure Synapse Studio à l’aide de liaisons privées.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97586973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586622"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Se connecter à Azure Synapse Studio à l’aide de hubs Azure Private Link 
 
@@ -37,7 +37,9 @@ Vous devez connecter votre réseau virtuel Azure à la ressource de hub de liais
 
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Capture d’écran montrant la page Connexions des points de terminaison privés.":::
 
-Veillez à choisir le type de ressource « Microsoft.Synapse/privateLinkHubs » sous l’onglet « Ressource ». :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Capture d’écran montrant la page « Créer un point de terminaison privé » avec « Type de ressource » sélectionné.":::
+Veillez à choisir le type de ressource « Microsoft.Synapse/privateLinkHubs » sous l’onglet « Ressource ».
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="Capture d’écran montrant la page « Créer un point de terminaison privé » avec « Type de ressource » sélectionné.":::
 
 Dans l’onglet « Configuration », sélectionnez « privatelink.azuresynapse.net » pour Zones DNS privé lors de l’intégration avec votre réseau virtuel et votre zone DNS privée.
 

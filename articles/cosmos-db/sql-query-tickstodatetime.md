@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: f40286a39694307ac43ecd60f6861d509f760990
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9adf525f4edb4104978bae32bbbef15ffb131f68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340791"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587251"
 ---
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,17 +36,17 @@ Valeur numérique signée indiquant le nombre actuel de cycles de 100 nanosecon
 
 Retourne une valeur de chaîne ISO 8601 de date et heure UTC au format `YYYY-MM-DDThh:mm:ss.fffffffZ` où :
   
-  |Format|Description|
-  |-|-|
-  |YYYY|Année à quatre chiffres|
-  |MM|Mois à deux chiffres (01 = janvier, etc.)|
-  |DD|Jour du mois à deux chiffres (01 à 31)|
-  |T|Indicateur de début des éléments de l’heure|
-  |hh|Heure à deux chiffres (00 à 23)|
-  |MM|Minutes à deux chiffres (00 à 59)|
-  |ss|Secondes à deux chiffres (00 à 59)|
-  |.fffffff|Fractions de seconde à 7 chiffres|
-  |Z|Indicateur UTC (temps universel coordonné)||
+|Format|Description|
+|-|-|
+|YYYY|Année à quatre chiffres|
+|MM|Mois à deux chiffres (01 = janvier, etc.)|
+|DD|Jour du mois à deux chiffres (01 à 31)|
+|T|Indicateur de début des éléments de l’heure|
+|hh|Heure à deux chiffres (00 à 23)|
+|MM|Minutes à deux chiffres (00 à 59)|
+|ss|Secondes à deux chiffres (00 à 59)|
+|.fffffff|Fractions de seconde à 7 chiffres|
+|Z|Indicateur UTC (temps universel coordonné)|
   
   Pour plus d’informations sur le format ISO 8601, consultez [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601).
 

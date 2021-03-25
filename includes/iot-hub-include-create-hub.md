@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: cf651a1a09662e3084a8a9bdb6365b69b6ea52b5
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99580243"
 ---
 Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](https://portal.azure.com).
@@ -45,7 +45,7 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
 1. Sélectionnez **Suivant : Gestion** pour poursuivre la création de votre hub.
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Définir la taille et la mise à l’échelle d’un nouveau hub à l’aide du portail Azure.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Définissez la taille et la mise à l’échelle d’un nouveau hub avec le portail Azure.":::
 
     Vous pouvez accepter les paramètres par défaut ici. Si vous le souhaitez, vous pouvez modifier les champs suivants :
 
@@ -64,7 +64,7 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
     Les étiquettes sont des paires nom/valeur. Vous pouvez affecter la même étiquette à plusieurs ressources et groupes de ressources pour catégoriser les ressources et regrouper la facturation. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide de balises](../articles/azure-resource-manager/management/tag-resources.md).
 
-    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Affecter des étiquettes pour le hub à l’aide du portail Azure.":::
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Affectez des étiquettes pour le hub à l’aide du portail Azure.":::
 
 1. Sélectionnez **Suivant : Vérifier + créer** pour passer en revue vos choix. Un écran semblable au suivant s’affiche, mais avec les valeurs que vous avez sélectionnées lors de la création du hub.
 

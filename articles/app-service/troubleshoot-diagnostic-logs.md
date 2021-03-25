@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452252"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950176"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -116,7 +116,7 @@ Dans votre code d’application, vous utilisez les fonctionnalités de journalis
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure). Pour plus d’informations sur la journalisation du kit SDK WebJobs, consultez [Prise en main du kit SDK Azure WebJobs](/azure/app-service/webjobs-sdk-get-started#enable-console-logging)
+- Par défaut, ASP.NET Core utilise le fournisseur de journalisation [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices). Pour plus d’informations, consultez l’article [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/) (Journalisation ASP.NET Core dans Azure). Pour plus d’informations sur la journalisation du kit SDK WebJobs, consultez [Prise en main du kit SDK Azure WebJobs](./webjobs-sdk-get-started.md#enable-console-logging)
 
 ## <a name="stream-logs"></a>Diffuser les journaux d’activité en continu
 

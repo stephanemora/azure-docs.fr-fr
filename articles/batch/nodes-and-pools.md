@@ -2,13 +2,13 @@
 title: Nœuds et pools dans Azure Batch
 description: En savoir plus sur les nœuds de calcul et les pools et leur utilisation dans un flux de travail Azure Batch du point de vue du développeur.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/11/2021
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183656"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563893"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nœuds et pools dans Azure Batch
 
@@ -65,7 +65,7 @@ Lorsque vous créez un pool Batch, vous pouvez spécifier la configuration de ma
 Deux types de configurations de pool sont disponibles dans Batch.
 
 > [!IMPORTANT]
-> Les pools doivent être configurés à l’aide de la « configuration de la machine virtuelle » et non de la « configuration des services cloud ». Toutes les fonctionnalités Batch sont prises en charge par les pools « Configuration de la machine virtuelle », et de nouvelles fonctionnalités sont en cours d’ajout. Les pools « Configuration des services cloud » ne prennent pas en charge toutes les fonctionnalités, et aucune nouvelle capacité n’est prévue.
+> Si vous pouvez créer des pools à l’aide de chaque configuration, vous devez configurer les nouveaux pools à l’aide d’une configuration de machine virtuelle et non une configuration de services Cloud. Toutes les fonctionnalités Batch, actuelles et nouvelles, seront prises en charge par les pools de configuration de machine virtuelle. Les pools de configuration des Services cloud ne prennent pas en charge toutes les fonctionnalités, et aucune fonctionnalité nouvelle n’est prévue. [Après le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/), vous ne pourrez plus créer de pools « CloudServiceConfiguration » ni ajouter de nouveaux nœuds aux pools existants.
 
 ### <a name="virtual-machine-configuration"></a>Configuration de la machine virtuelle
 
@@ -76,13 +76,13 @@ L’[agent de nœud de Batch](https://github.com/Azure/Batch/blob/master/changel
 ### <a name="cloud-services-configuration"></a>Configuration des Services cloud
 
 > [!WARNING]
-> Les pools de configuration des services Cloud sont déconseillés. Utilisez à la place des pools de configuration de machines virtuelles.
+> Les pools de configuration des services Cloud sont [déconseillés](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Utilisez à la place des pools de configuration de machines virtuelles. Pour plus d’informations, consultez [Migrer la configuration des pools Batch des Services cloud vers une machine virtuelle](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 La **configuration des Services cloud** indique que le pool est composé de nœuds Azure Cloud Services. Les Services cloud fournissent uniquement des nœuds de calcul Windows.
 
 Les systèmes d’exploitation disponibles pour les pools Configuration des Services cloud sont répertoriés dans la [matrice de compatibilité entre les versions du système d’exploitation invités Azure et les kits de développement logiciel (SDK)](../cloud-services/cloud-services-guestos-update-matrix.md), et les tailles de nœuds de calcul disponibles sont répertoriés dans [Tailles pour Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Lorsque vous créez un pool qui contient des nœuds Microsoft Azure Cloud Services, vous spécifiez la taille du nœud et sa *famille de systèmes d’exploitation* (laquelle détermine les versions de .NET installées avec le système d’exploitation concerné). Les Services cloud sont déployés plus rapidement sur Azure que les machines virtuelles exécutant Windows. Si vous souhaitez créer des nœuds de calcul Windows, vous pouvez constater que Cloud Services propose un délai de déploiement moins important.
 
-Comme avec les rôles de travail dans Cloud Services, vous pouvez spécifier une *Version du système d’exploitation* (pour plus d’informations sur les rôles de travail, consultez l’article [Vue d’ensemble de Services cloud](../cloud-services/cloud-services-choose-me.md)). Nous vous recommandons de spécifier `Latest (*)` comme *version du système d’exploitation* afin que les nœuds soient automatiquement mis à niveau et qu’aucun travail supplémentaire ne soit requis pour gérer ces nouvelles versions. La principale raison de sélectionner une version de système d’exploitation spécifique est d’assurer la compatibilité des applications, ce qui permet aux tests de compatibilité descendante d’être réalisés avant d’autoriser la mise à jour de la version. Une fois validée, la *version du système d’exploitation* du pool peut être mise à jour et la nouvelle image du système d’exploitation peut être installée. Toutes les tâches en cours d’exécution sont interrompues et remises en file d’attente.
+Comme avec les rôles de travail dans les Services cloud, vous pouvez spécifier une *Version du système d’exploitation*. Nous vous recommandons de spécifier `Latest (*)` comme *version du système d’exploitation* afin que les nœuds soient automatiquement mis à niveau et qu’aucun travail supplémentaire ne soit requis pour gérer ces nouvelles versions. La principale raison de sélectionner une version de système d’exploitation spécifique est d’assurer la compatibilité des applications, ce qui permet aux tests de compatibilité descendante d’être réalisés avant d’autoriser la mise à jour de la version. Une fois validée, la *version du système d’exploitation* du pool peut être mise à jour et la nouvelle image du système d’exploitation peut être installée. Toutes les tâches en cours d’exécution sont interrompues et remises en file d’attente.
 
 ### <a name="node-agent-skus"></a>Références SKU de l’agent de nœud
 
@@ -208,3 +208,4 @@ Si vous ajoutez des certificats à un pool existant, vous devez redémarrer ses 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [travaux et la tâches](jobs-and-tasks.md).
+- Découvrez comment [détecter et éviter les défaillances dans les opérations d’arrière-plan des pools et des nœuds ](batch-pool-node-error-checking.md).

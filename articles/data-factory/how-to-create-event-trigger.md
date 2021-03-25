@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7dde05e02421ef8d2ea46fd0d50687ede6e5d884
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff8c549f74b59706de5203f2d2e46867d6cb1d0a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727779"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177780"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement de stockage
 
@@ -26,7 +26,6 @@ Pour afficher une présentation de dix minutes et la démonstration de cette fon
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > L’intégration décrite dans cet article dépend [d’Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Vérifiez que votre abonnement est inscrit auprès du fournisseur de ressources Event Grid. Pour plus d’informations, consultez [Types et fournisseurs de ressources](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). Vous devez pouvoir effectuer l’action *Microsoft.EventGrid/eventSubscriptions/* *. Cette action fait partie du rôle intégré Contributeur EventGrid EventSubscription.
 
@@ -34,11 +33,11 @@ Pour afficher une présentation de dix minutes et la démonstration de cette fon
 
 Cette section vous montre comment créer un déclencheur d’événements de stockage dans l’interface utilisateur d’Azure Data Factory.
 
-1. Allez à **Canevas de création**
+1. Basculez sur l’onglet **Modifier**, indiqué par un symbole de crayon. 
 
-1. Dans le coin inférieur gauche, cliquez sur le bouton **Déclencheurs**
+1. Sélectionnez **Déclencheur** dans le menu, puis sélectionnez **Nouveau/Modifier**. 
 
-1. Cliquez sur **+ nouveau** pour ouvrir le panneau Créer un déclencheur
+1. Sur la page **Ajouter des déclencheurs**, sélectionnez **Choisir un déclencheur…** , puis **+Nouveau**. 
 
 1. Sélectionnez le type de déclencheur **Événement de stockage**
 
@@ -107,4 +106,5 @@ Cette section fournit des exemples de paramètres de déclencheur d’événemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Découvrez comment référencer les métadonnées d’un déclencheur dans le pipeline avec la section [Référencer les métadonnées de déclencheur dnas l’exécution de pipeline](how-to-use-trigger-parameterization.md)

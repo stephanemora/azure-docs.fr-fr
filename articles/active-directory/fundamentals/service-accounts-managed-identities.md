@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032351"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587829"
 ---
 # <a name="securing-managed-identities"></a>Sécurisation des identités managées
 
@@ -50,11 +50,11 @@ Azure dispose d'un plan de contrôle et d'un plan de données. Le plan de contr�
 
 Une fois que le système cible accepte le jeton pour l'authentification, il peut prendre en charge différents mécanismes d'autorisation pour son plan de contrôle et son plan de données.
 
-Toutes les opérations du plan de contrôle d'Azure sont gérées par [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) et utilisent le [contrôle d'accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). Dans le plan de données, chaque système cible dispose de son propre mécanisme d'autorisation. Le service Stockage Azure prend en charge Azure RBAC sur le plan de données. Par exemple, les applications qui utilisent Azure App Services peuvent lire les données à partir de Stockage Azure, et les applications qui utilisent Azure Kubernetes Service peuvent lire les secrets stockés dans Azure Key Vault.
+Toutes les opérations du plan de contrôle d'Azure sont gérées par [Azure Resource Manager](../../azure-resource-manager/management/overview.md) et utilisent le [contrôle d'accès en fonction du rôle Azure](../../role-based-access-control/overview.md). Dans le plan de données, chaque système cible dispose de son propre mécanisme d'autorisation. Le service Stockage Azure prend en charge Azure RBAC sur le plan de données. Par exemple, les applications qui utilisent Azure App Services peuvent lire les données à partir de Stockage Azure, et les applications qui utilisent Azure Kubernetes Service peuvent lire les secrets stockés dans Azure Key Vault.
 
-Pour plus d'informations sur le plan de contrôle et le plan de données, consultez [Opérations du plan de contrôle et du plan de données - Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+Pour plus d'informations sur le plan de contrôle et le plan de données, consultez [Opérations du plan de contrôle et du plan de données - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-À terme, tous les services Azure prendront en charge les identités managées. Pour plus d'informations, consultez [Services prenant en charge les identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+À terme, tous les services Azure prendront en charge les identités managées. Pour plus d'informations, consultez [Services prenant en charge les identités managées pour les ressources Azure](../managed-identities-azure-resources/services-support-managed-identities.md).
 
 ##  
 
@@ -116,7 +116,7 @@ Pour ce faire, vous pouvez énumérer les membres de vos groupes à privilèges 
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Vous devez savoir à quelles ressources l'identité managée accède](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell).
+* [Vous devez savoir à quelles ressources l'identité managée accède](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## <a name="move-to-managed-identities"></a>Passer aux identités managées
 
@@ -126,11 +126,11 @@ Si vous utilisez un principal de service ou un compte d'utilisateur Azure AD, d�
 
 **Pour plus d'informations sur la création d'identités managées, consultez :** 
 
-[Créer une identité managée attribuée par l'utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) 
+[Créer une identité managée attribuée par l'utilisateur](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 
 
-[Activer une identité managée attribuée par le système lors de la création d'une ressource](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Activer une identité managée attribuée par le système lors de la création d'une ressource](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Activer une identité managée attribuée par le système sur une ressource existante](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Activer une identité managée attribuée par le système sur une ressource existante](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Pour plus d'informations sur les comptes de service, consultez :**
 
@@ -146,4 +146,3 @@ Si vous utilisez un principal de service ou un compte d'utilisateur Azure AD, d�
 
  
 
- 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: duau
 ms.openlocfilehash: 6e588c7c0381c6825bcf75cbbe28a1dd6b865940
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101678558"
 ---
 # <a name="about-azure-route-server-preview-support-for-expressroute-and-azure-vpn"></a>À propos de la prise en charge d’ExpressRoute et de VPN Azure par Azure Route Server (préversion)

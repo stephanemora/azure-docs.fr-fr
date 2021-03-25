@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674137"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585432"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Concevoir des tables avec Synapse SQL dans Azure Synapse Analytics
 
 Ce document inclut des concepts clés liés à l’élaboration de tables avec un pool SQL dédié et un pool SQL serverless.  
 
-Le [pool SQL serverless](on-demand-workspace-overview.md) est un service de requête sur les données de votre lac de données. Il ne dispose pas d’espace de stockage local pour l’ingestion de données. Le [pool SQL dédié](best-practices-sql-pool.md) représente une collection de ressources analytiques en cours de provisionnement quand Synapse SQL est utilisé. La taille du pool SQL dédié est déterminée par les unités d’entreposage de données (DWU).
+Le [pool SQL serverless](on-demand-workspace-overview.md) est un service de requête sur les données de votre lac de données. Il ne dispose pas d’espace de stockage local pour l’ingestion de données. Le [pool SQL dédié](best-practices-dedicated-sql-pool.md) représente une collection de ressources analytiques en cours de provisionnement quand Synapse SQL est utilisé. La taille du pool SQL dédié est déterminée par les unités d’entreposage de données (DWU).
 
 Le tableau suivant liste les rubriques pertinentes pour le pool SQL dédié et le pool SQL serverless :
 

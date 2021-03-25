@@ -9,20 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: f14328567fdc9840b0a3d07aa23fe2496fd537ca
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102213094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596737"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
-
->Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -31,12 +29,112 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Résolution des bogues
 * Fonctionnalités dépréciées
 
-## <a name="known-issues"></a>Problèmes connus
+## <a name="march-2021"></a>Mars 2021
 
-> [!NOTE]
-> Vous pouvez utiliser le [portail Azure](https://portal.azure.com/) pour gérer les [événements en direct](live-events-outputs-concept.md) v3, voir des [actifs multimédias](assets-concept.md) et des travaux v3, obtenir des informations sur l’accès aux API, et chiffrer du contenu. Pour toutes les autres tâches de gestion (par exemple gérer les transformations et les travaux), utilisez l’[API REST](/rest/api/media/accountfilters), l’[interface CLI](/cli/azure/ams) ou l’un des [kits SDK](media-services-apis-overview.md#sdks) pris en charge.
->
-> Pour plus d’informations, consultez [les limitations du portail Azure pour Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+### <a name="new-language-support-added-to-the-audioanalyzer-preset"></a>Prise en charge de nouvelles langues ajoutée à la présélection AudioAnalyzer
+
+Des langues supplémentaires pour la transcription vidéo et le sous-titrage sont désormais disponibles dans la présélection AudioAnalyzer (en modes De base et Standard).
+
+* Anglais (Australie), 'en-AU'
+* Français (Canada), 'fr-CA'
+* Arabe standard moderne (Bahreïn), 'ar-BH'
+* Arabe (Égypte), 'ar-EG'
+* Arabe (Irak), 'ar-IQ'
+* Arabe (Israël), 'ar-IL'
+* Arabe (Jordanie), 'ar-JO'
+* Arabe (Koweït), 'ar-KW'
+* Arabe (Liban), 'ar-LB'
+* Arabe (Oman), 'ar-OM'
+* Arabe (Qatar), 'ar-QA'
+* Arabe (Arabie saoudite), 'ar-SA'
+* Danois, 'da-DK'
+* Norvégien, 'nb-NO'
+* Suédois, 'sv-SE'
+* Finnois, 'fi-FI'
+* Thaï, 'th-TH'
+* Turc, 'tr-TR'
+
+Consultez les dernières langues disponibles dans l'[article Analyser des fichiers vidéo et audio.](analyzing-video-audio-files-concept.md)
+
+## <a name="february-2021"></a>Février 2021
+
+### <a name="hevc-encoding-support-in-standard-encoder"></a>Prise en charge de l’encodage HEVC dans l’encodeur standard
+
+L’encodeur standard prend désormais en charge l’encodage 8 bits HEVC (H.265). Le contenu HEVC peut être fourni et empaqueté via l’empaqueteur dynamique à l’aide du format 'hev1'.  
+
+Un nouvel encodage .NET personnalisé avec l’exemple HEVC est disponible dans le [dépôt GitHub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC).
+En plus de l’encodage personnalisé, les nouvelles présélections d’encodage HEVC intégrées suivantes sont désormais disponibles :
+
+- H265ContentAwareEncoding
+- H265AdaptiveStreaming
+- H265SingleBitrate720P
+- H265SingleBitrate1080p
+- H265SingleBitrate4K
+
+Les clients qui utilisaient précédemment HEVC dans l’encodeur Premium de l’API v2 doivent effectuer une migration pour utiliser la nouvelle prise en charge de l’encodage HEVC dans l’encodeur standard.
+
+### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Annonce de l’abandon de l’API et des SDK Azure Media Services v2
+
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>Mise à jour requise des kits SDK et de l’API REST Azure Media Services vers v3 d’ici le 29 février 2024
+
+Étant donné que la version 3 des kits SDK clients pour .NET et Java, et de l’API REST Azure Media Services offre plus de fonctionnalités que la version 2, nous allons abandonner la version 2 de l’API REST Azure Media Services et des kits SDK clients pour .NET et Java.
+
+Nous vous encourageons à anticiper cette transition pour bénéficier des meilleures fonctionnalités de la version 3 de l’API REST Azure Media Services et des kits SDK clients pour .NET et Java.
+La version 3 offre les avantages suivants :
+ 
+- Prise en charge des événements en direct 24 h/24, 7 j/7
+- API REST ARM, SDK clients pour .NET core, Node.js, Python, Java, Go et Ruby.
+- Clés gérées par le client, intégration du stockage approuvé, prise en charge des liens privés et [bien plus encore](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+
+#### <a name="action-required"></a>Action requise
+
+Pour limiter les perturbations au niveau de vos charges de travail, consultez le [guide de migration](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) pour faire passer votre code de la version 2 de l’API et des SDK à la version 3 avant le 29 février 2024.
+**Après le 29 février 2024**, Azure Media Services n’acceptera plus le trafic sur l’API REST version 2, l’API de gestion de compte ARM version 2015-10-01 ou à partir des SDK clients .NET version 2. Cela inclut tous les SDK clients open source tiers pouvant appeler l’API version 2.  
+
+Consultez [l’annonce officielle sur les mises à jour Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
+
+### <a name="standard-encoder-support-for-v2-api-features"></a>Prise en charge de l’encodeur standard pour les fonctionnalités de l’API v2
+
+En plus de la nouvelle prise en charge de l’encodage HEVC (H.265), les fonctionnalités suivantes sont désormais disponibles dans la version 2020-05-01 de l’API d’encodage.
+
+- La combinaison de plusieurs fichiers d’entrée est désormais possible à l’aide de la nouvelle prise en charge de **JobInputClip**.
+    - Un exemple est disponible pour .NET, montrant comment [combiner deux ressources](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets).
+- La sélection de la piste audio permet aux clients de sélectionner et de mapper des pistes audio entrantes et de les acheminer vers la sortie pour l’encodage
+    - Consultez l'[API REST OpenAPI pour plus d’informations](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) sur **AudioTrackDescriptor** et la sélection de pistes
+- Sélection de pistes pour l’encodage : permet aux clients de choisir des pistes à partir d’un fichier source ABR ou d’une archive en direct comportant plusieurs pistes de débit binaire. Très utile pour générer des fichiers MP4 à partir de fichiers d’archive d’événements en direct.
+    - Voir [VideoTrackDescriptor](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L1562)
+- Fonctionnalités d’édition des visages (flou) ajoutées à FaceDetector
+    - Voir les modes [Rédiger](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L634) et [Combiné](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L649) de la présélection FaceDetector
+
+### <a name="new-client-sdk-releases-for-2020-05-01-version-of-the-azure-media-services-api"></a>Nouvelles versions du Kit de développement logiciel (SDK) client pour la version 2020-05-01 de l’API Azure Media Services
+
+Les nouvelles versions du Kit de développement logiciel (SDK) client pour toutes les langues disponibles sont désormais intégrées aux fonctionnalités ci-dessus.
+Effectuez une mise à jour vers les Kits de développement logiciel (SDK) clients les plus récents dans vos bases de code à l’aide de votre gestionnaire de package.
+
+- [Package du Kit de développement logiciel (SDK) .NET 3.0.4](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/)
+- [Node.js Typescript version 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Python azure-mgmt-media 3.1.0](https://pypi.org/project/azure-mgmt-media/)
+- [Java SDK 1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
+
+### <a name="new-security-features-available-in-the-2020-05-01-version-of-the-azure-media-services-api"></a>Nouvelles fonctionnalités de sécurité disponibles dans la version 2020-05-01 de l’API Azure Media Services
+
+- **[Clés gérées par le client](concept-use-customer-managed-keys-byok.md)** : Les clés de contenu et autres données stockées dans les comptes créés avec l’API de version « 2020-05-01 » sont chiffrées à l’aide d’une clé de compte. Les clients peuvent fournir une clé pour chiffrer la clé de compte.
+
+- **[Stockage approuvé](concept-trusted-storage.md)**  : Media Services peut être configuré pour accéder à Stockage Azure à l’aide d’une identité managée associée au compte Media Services. Lorsque les comptes de stockage sont accessibles à l’aide d’une identité managée, les clients peuvent configurer des listes de contrôle d’accès réseau plus restrictives sur le compte de stockage, sans bloquer les scénarios Media Services.
+
+- **[Identités managées](concept-managed-identities.md)**  : Les clients peuvent autoriser l’attribution d’une identité managée affectée par le système pour un compte Media Services afin de fournir un accès aux coffres de clés (pour les clés gérées par le client) et aux comptes de stockage (pour le stockage approuvé).
+
+### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Exemples Node.js Typescript mis à jour à l’aide du SDK isomorphe pour JavaScript
+
+Les exemples Node.js ont été mis à jour pour utiliser la dernière version du Kit de développement logiciel (SDK) isomorphe. Les exemples montrent désormais l’utilisation de Typescript. En outre, un nouvel exemple de streaming en direct a été ajouté pour Node.js/Typescript.
+
+Consultez les exemples les plus récents dans le dépôt GitHub **[media-services-v3-node-tutorials](https://github.com/Azure-Samples/media-services-v3-node-tutorials)** .
+
+### <a name="new-live-stand-by-mode-to-support-faster-startup-from-warm-state"></a>Nouveau mode de mise en attente en direct pour prendre en charge un démarrage plus rapide à partir d’un état actif
+
+Les événements en direct prennent désormais en charge un mode de facturation à moindre coût pour la « mise en attente ». Cela permet aux clients de pré-allouer des événements en direct à un coût inférieur pour la création de « pools chauds ». Les clients peuvent ensuite utiliser les événements en direct en attente pour passer à l’état d’exécution plus rapidement qu’à partir d’un démarrage à froid.  Cela réduit considérablement le temps de démarrage du canal et permet une allocation rapide du pool chaud des machines fonctionnant sous un mode de tarification inférieur.
+Consultez [ici](https://azure.microsoft.com/pricing/details/media-services) les dernières informations sur la tarification.
+Pour plus d’informations sur l’état de mise en attente et les autres états des événements en direct, consultez l’article [États et facturation des événements en direct.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
 
 ## <a name="december-2020"></a>Décembre 2020
 
@@ -72,7 +170,8 @@ L’encodage en direct permet désormais de générer des fragments de fréquenc
 ## <a name="august-2020"></a>Août 2020
 
 ### <a name="dynamic-encryption"></a>Chiffrement dynamique
-La prise en charge du chiffrement PIFF 1.1 (PlayReady Protected Interoperable File Format) hérité est désormais disponible dans le Packager dynamique. Cela offre la prise en charge des jeux Smart TV hérités de Samsung et LG qui implémentaient les premières ébauches de la norme CENC (Common Encryption) publiées par Microsoft.  Le format PIFF 1.1 est également connu comme le format de chiffrement précédemment pris en charge par la bibliothèque de client Silverlight. Aujourd’hui, le seul scénario de cas d’usage pour ce format de chiffrement est le ciblage du marché Smart TV hérité où il reste un nombre non négligeable de Smart TV dans certaines régions qui prennent uniquement en charge Smooth Streaming avec le chiffrement PIFF 1.1. 
+
+La prise en charge du chiffrement PIFF 1.1 (PlayReady Protected Interoperable File Format) hérité est désormais disponible dans le Packager dynamique. Cela offre la prise en charge des jeux Smart TV hérités de Samsung et LG qui implémentaient les premières ébauches de la norme CENC (Common Encryption) publiées par Microsoft.  Le format PIFF 1.1 est également connu comme le format de chiffrement précédemment pris en charge par la bibliothèque de client Silverlight. Aujourd’hui, le seul scénario de cas d’usage pour ce format de chiffrement est le ciblage du marché Smart TV hérité où il reste un nombre non négligeable de Smart TV dans certaines régions qui prennent uniquement en charge Smooth Streaming avec le chiffrement PIFF 1.1.
 
 Pour utiliser la nouvelle prise en charge du chiffrement PIFF 1.1, remplacez la valeur de chiffrement par « piff » dans le chemin d’URL du localisateur de streaming. Pour plus d’informations, consultez la [vue d’ensemble de protection du contenu](content-protection-overview.md).
 Par exemple : `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
@@ -237,7 +336,7 @@ Vous pouvez désormais utiliser Azure Monitor pour afficher les données de tél
 * Utilisez les journaux de diagnostic Azure Monitor pour surveiller les requêtes envoyées par le point de terminaison de remise des clés Media Services. 
 * Surveillez les métriques émises par les [points de terminaison de streaming](streaming-endpoint-concept.md) Media Services.   
 
-Pour plus d’informations, consultez [Superviser les métriques et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md).
+Pour plus d’informations, consultez [Superviser les métriques et les journaux de diagnostic Media Services](monitoring/monitor-media-services-data-reference.md).
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Prise en charge de plusieurs pistes audio dans l’empaquetage dynamique 
 
@@ -273,7 +372,7 @@ Vous pouvez désormais spécifier une liste de filtres de comptes ou d’actifs,
 
 Media Services v3 est désormais pris en charge dans les clouds nationaux Azure. Toutes les fonctionnalités ne sont pas encore disponibles dans tous les clouds. Pour en savoir plus, consultez [Clouds et régions dans lesquels Azure Media Services v3 existe](azure-clouds-regions.md).
 
-L'événement [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) a été ajouté aux schémas Azure Event Grid de Media Services.
+L'événement [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) a été ajouté aux schémas Azure Event Grid de Media Services.
 
 ## <a name="january-2019"></a>Janvier 2019
 
