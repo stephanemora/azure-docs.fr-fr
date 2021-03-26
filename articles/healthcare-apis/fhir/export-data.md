@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a5b3daa499546f3a30b5a4d133d77786a1916b6a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045300"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559194"
 ---
 # <a name="how-to-export-fhir-data"></a>Comment exporter des données FHIR
 
@@ -47,8 +47,7 @@ En outre, la vérification de l’état d’exportation à l’aide de l’URL r
 
 Actuellement, nous prenons en charge $export pour les comptes de stockage avec ADLS Gen2, avec la limitation suivante :
 
-- L’utilisateur ne peut pas tirer parti des [espaces de noms hiérarchiques](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace), mais il n’existe pas de moyen de cibler l’exportation vers un sous-répertoire spécifique au sein du conteneur. Seul le ciblage d’un conteneur spécifique (un dossier y est alors créé à chaque exportation) est possible.
-
+- L’utilisateur ne peut pas tirer parti des [espaces de noms hiérarchiques](../../storage/blobs/data-lake-storage-namespace.md), mais il n’existe pas de moyen de cibler l’exportation vers un sous-répertoire spécifique au sein du conteneur. Seul le ciblage d’un conteneur spécifique (un dossier y est alors créé à chaque exportation) est possible.
 - Une fois l’exportation terminée, plus rien n’est exporté dans ce dossier, car les exportations suivantes à destination de ce même conteneur se trouvent dans un nouveau dossier.
 
 
