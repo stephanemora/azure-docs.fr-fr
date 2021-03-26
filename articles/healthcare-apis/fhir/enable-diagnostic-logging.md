@@ -9,28 +9,28 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
 ms.date: 03/03/2021
-ms.openlocfilehash: d8f7a2b2f31fb192147c1950866cff77064a3671
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a884dac90273e98868fed6bfe1cbed23b939d286
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103019156"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557698"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Activer la journalisation des diagnostics dans l’API Azure pour FHIR
 
 Dans cet article, vous allez apprendre à activer la journalisation des diagnostics dans l’API Azure pour FHIR et à passer en revue des exemples de requêtes pour ces journaux. L’accès aux journaux de diagnostic est essentiel pour tout service de santé dans lequel la conformité aux exigences réglementaires (telles que HIPAA) est indispensable. La fonctionnalité de l’API Azure pour FHIR qui active les journaux de diagnostic s’appelle [**Paramètres de diagnostic**](../../azure-monitor/essentials/diagnostic-settings.md) dans le portail Azure. 
 
-## <a name="view-and-download-fhir-metrics-data"></a>Afficher et télécharger des données de métriques FHIR
+## <a name="view-and-download-fhir-metrics-data"></a>Afficher et télécharger les données de métriques FHIR
 
-Vous pouvez afficher les métriques sous surveillance | Mesures à partir du portail. Les métriques incluent le nombre de demandes, la latence moyenne, le nombre d’erreurs, la taille des données, le nombre de demandes utilisées, le nombre de requêtes qui ont dépassé la capacité et la disponibilité (en%). La capture d’écran ci-dessous montre le RUs utilisé pour un exemple d’environnement avec très peu d’activités au cours des 7 derniers jours. Vous pouvez télécharger les données au format JSON.
+Vous pouvez afficher les métriques sous Surveillance | Mesures dans le portail. Les métriques portent sur le nombre de demandes, la latence moyenne, le nombre d’erreurs, la taille des données, les unités de requête utilisées, le nombre de demandes au-delà de la capacité et la disponibilité (en %). La capture d’écran ci-dessous montre les unités de requête utilisées pour un exemple d’environnement avec très peu d’activités au cours des 7 derniers jours. Vous pouvez télécharger les données au format Json.
 
-   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="API Azure pour les métriques FHIR à partir du portail" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Métriques de l’API Azure pour FHIR en provenance du portail" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
 
 ## <a name="enable-audit-logs"></a>Activer les journaux d’audit
 1. Pour activer la journalisation des diagnostics dans l’API Azure pour FHIR, sélectionnez votre service Azure API pour FHIR dans le portail Azure 
 2. Accédez à **Paramètres de diagnostic**. 
 
-   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Ajoutez les paramètres de diagnostic Azure FHIR." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Ajoutez des paramètres de diagnostic FHIR Azure." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Sélectionnez **+ Ajouter un paramètre de diagnostic**.
 
@@ -42,7 +42,7 @@ Vous pouvez afficher les métriques sous surveillance | Mesures à partir du por
     2. **Envoyez les journaux à Event Hub** pour ingestion par un service tiers ou une solution d’analytique personnalisée. Vous devez créer un espace de noms et une stratégie Event Hub pour pouvoir configurer cette étape.
     3. **Envoyez les journaux vers l’espace de travail Log Analytics** dans Azure Monitor. Vous devrez créer votre espace de travail Logs Analytics avant de pouvoir sélectionner cette option.
 
-6. Sélectionnez **AuditLogs** et/ou **AllMetrics**. Les métriques incluent le nom du service, la disponibilité, la taille des données, la latence totale, les demandes totales, le nombre total d’erreurs et l’horodatage. Vous trouverez plus de détails sur les [mesures prises en charge](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
+6. Sélectionnez **AuditLogs** et/ou **AllMetrics**. Les métriques incluent le nom du service, la disponibilité, la taille des données, la latence totale, les demandes totales, le nombre total d’erreurs et l’horodatage. Vous trouverez plus de détails sur les [métriques prises en charge](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Paramètres des diagnostics Azure FHIR. Sélectionnez AuditLogs et/ou AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -50,7 +50,7 @@ Vous pouvez afficher les métriques sous surveillance | Mesures à partir du por
 
 
 > [!Note] 
-> L’affichage des premiers journaux dans Log Analytics peut prendre jusqu’à 15 minutes. En outre, si l’API Azure pour FHIR est déplacée d’un groupe de ressources ou d’un abonnement à un autre, mettez à jour le paramètre une fois le déplacement terminé. 
+> L’affichage des premiers journaux dans Log Analytics peut prendre jusqu’à 15 minutes. En outre, si l’API Azure pour FHIR est déplacée d’un groupe de ressources ou d’un abonnement vers un autre, mettez à jour le paramètre une fois le déplacement terminé. 
  
 Pour plus d’informations sur l’utilisation des journaux de diagnostic, reportez-vous à la [documentation sur les journaux de ressources d’Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
