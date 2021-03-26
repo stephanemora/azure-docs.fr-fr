@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100582643"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Base de référence de sécurité Azure pour Service Fabric
@@ -978,7 +978,7 @@ Si vous n’utilisez pas Windows Defender, reportez-vous à la documentation de 
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2 : Pré-analyser les fichiers à charger sur des ressources Azure non liées au calcul
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources qui stockent des données mais qui ne sont pas des ressources de calcul. Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Service Fabric), mais ne s’exécute pas sur du contenu client.
+**Aide** : Non applicable. Cette recommandation concerne les ressources conçues pour stocker des données, et non à des fins de calcul. Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Service Fabric), mais ne s’exécute pas sur du contenu client.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -986,7 +986,7 @@ Si vous n’utilisez pas Windows Defender, reportez-vous à la documentation de 
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
-**Aide** : Non applicable. Cette recommandation concerne les ressources qui stockent des données mais qui ne sont pas des ressources de calcul. Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Service Fabric), mais ne s’exécute pas sur du contenu client.
+**Aide** : Non applicable. Cette recommandation concerne les ressources conçues pour stocker des données, et non à des fins de calcul. Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure (par exemple, Service Fabric), mais ne s’exécute pas sur du contenu client.
 
 **Supervision Azure Security Center** : Non applicable
 

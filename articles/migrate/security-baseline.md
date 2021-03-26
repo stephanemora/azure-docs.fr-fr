@@ -7,10 +7,10 @@ ms.date: 12/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: e10413987a12b32a5f1ca507aa272bab01b20797
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101094815"
 ---
 # <a name="azure-security-baseline-for-azure-migrate"></a>Base de référence de sécurité Azure pour Azure Migrate
@@ -69,7 +69,7 @@ Authentification sans mot de passe – Trois options d’authentification sans m
 
 Pour les utilisateurs administrateurs et privilégiés, assurez-vous que le niveau le plus élevé de méthode d’authentification forte est utilisé, puis déployez la stratégie d’authentification forte appropriée pour les autres utilisateurs.
 
-- [Comment activer l’authentification multifacteur dans Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
+- [Guide pratique pour activer l’authentification multifacteur dans Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
 - [Introduction aux options d’authentification sans mot de passe pour Azure Active Directory](../active-directory/authentication/concept-authentication-passwordless.md) 
 

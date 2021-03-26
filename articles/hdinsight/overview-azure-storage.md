@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938939"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865466"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Vue d’ensemble de Stockage Azure dans HDInsight
 
@@ -24,7 +24,7 @@ Si vous choisissez de sécuriser votre compte de stockage à l’aide des restri
 
 Le schéma suivant résume l’architecture HDInsight de Stockage Azure :
 
-![`HDInsight Storage Architecture`](./media/overview-azure-storage/storage-architecture.png "Architecture de stockage HDInsight")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="Architecture de stockage HDInsight" border="false":::
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet, par exemple :
 
@@ -40,7 +40,7 @@ Voici quelques points à prendre en compte quand vous utilisez un compte Stockag
 
 * **Conteneurs publics ou blobs publics dans les comptes de stockage qui ne sont pas connectés à un cluster :** vous avez l’autorisation d’accès en lecture seule aux blobs dans les conteneurs.
   
-  > [!NOTE]  
+  > [!NOTE]
   > Les conteneurs publics vous permettent d’obtenir une liste de tous les objets blob disponibles dans ce conteneur, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Conteneurs privés dans des comptes de stockage qui ne sont pas connectés à un cluster :** vous ne pouvez pas accéder aux blobs se trouvant dans les conteneurs, sauf si vous définissez le compte de stockage quand vous envoyez des travaux WebHCat.

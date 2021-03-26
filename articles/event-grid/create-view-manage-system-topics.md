@@ -4,10 +4,10 @@ description: Cet article explique comment afficher une rubrique système existan
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115109"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Créer, afficher et gérer des rubriques système Event Grid dans le portail Azure
@@ -20,7 +20,7 @@ Vous pouvez créer une rubrique système pour une ressource Azure (compte de sto
 - À l’aide de la page **Rubriques système Event Grid**. Les étapes suivantes permettent de créer une rubrique système à l’aide de la page **Rubrique système Event Grid**. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la zone de recherche située en haut, saisissez**Rubriques système Event Grid**, puis appuyez sur **Entrée**. 
+2. Dans la zone de recherche située en haut, saisissez **Rubriques système Event Grid**, puis appuyez sur **Entrée**. 
 
     ![Rechercher des rubriques système](./media/create-view-manage-system-topics/search-system-topics.png)
 3. Dans la page **Rubriques système Event Grid**, sélectionnez **+ Ajouter** dans la barre d’outils.
@@ -50,7 +50,7 @@ Vous pouvez créer une rubrique système pour une ressource Azure (compte de sto
 Procédez comme suit pour afficher toutes les rubriques système Event Grid existantes. 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Dans la zone de recherche située en haut, saisissez**Rubriques système Event Grid**, puis appuyez sur **Entrée**. 
+2. Dans la zone de recherche située en haut, saisissez **Rubriques système Event Grid**, puis appuyez sur **Entrée**. 
 
     ![Rechercher des rubriques système](./media/create-view-manage-system-topics/search-system-topics.png)
 3. Dans la page **Rubriques système Event Grid**, vous voyez toutes les rubriques système. 

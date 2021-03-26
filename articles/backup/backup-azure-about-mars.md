@@ -4,10 +4,10 @@ description: Découvrir comment l’agent MARS prend en charge les scénarios de
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562597"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>À propos de l’agent Microsoft Azure Recovery Services (MARS)

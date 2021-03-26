@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 03/18/2021
 ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462914"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
@@ -27,7 +27,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | ---- | ----- | ----- |
 | Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
 | Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
-| Flux de travail par région et par abonnement | 1 000 | |
+| Flux de travail par région et par abonnement | 1 000 | |
 | Déclencheurs par flux de travail | 10 | Lors de l’utilisation du mode Code, et non du concepteur |
 | Limite de cas de basculement d’étendue | 25 | |
 | Variables par workflow | 250 | |
@@ -325,14 +325,14 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
-| Artefact | Gratuit | De base | standard |
+| Artefact | Gratuit | De base | Standard |
 |----------|------|-------|----------|
-| Contrats commerciaux EDI | 10 | 1 | 1 000 |
-| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
-| Cartes | 25 | 500 | 1 000 |
-| Schémas | 25 | 500 | 1 000 |
-| Assemblys | 10 | 25 | 1 000 |
-| Certificats | 25 | 2 | 1 000 |
+| Contrats commerciaux EDI | 10 | 1 | 1 000 |
+| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
+| Cartes | 25 | 500 | 1 000 |
+| Schémas | 25 | 500 | 1 000 |
+| Assemblys | 10 | 25 | 1 000 |
+| Certificats | 25 | 2 | 1 000 |
 | Configurations par lots | 5 | 1 | 50 |
 ||||
 
@@ -351,7 +351,7 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
 |------------------|------|-------|----------|-------|
 | appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |

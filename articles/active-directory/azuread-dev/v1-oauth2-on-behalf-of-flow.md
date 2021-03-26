@@ -15,10 +15,10 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88117734"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
@@ -111,8 +111,8 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête. |
 | client_id |Obligatoire | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_secret |Obligatoire | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
-| resource |Obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
-| requested_token_use |Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
+| resource |obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| requested_token_use |obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
 #### <a name="example"></a>Exemple
@@ -142,12 +142,12 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | Paramètre | Type | Description |
 | --- | --- | --- |
 | grant_type |Obligatoire | Type de la demande de jeton. Une demande OBO utilise un jeton d’accès JWT : la valeur doit donc être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
-| assertion |Obligatoire | Valeur du jeton utilisé dans la demande. |
+| assertion |obligatoire | Valeur du jeton utilisé dans la demande. |
 | client_id |Obligatoire | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_assertion_type |Obligatoire |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion |Obligatoire | Jeton web JSON que vous créez et que vous signez avec le certificat inscrit comme informations d’identification pour votre application. Pour plus d’informations sur le format de l’assertion et sur la façon d’inscrire votre certificat, consultez [Informations d’identification des certificats](../develop/active-directory-certificate-credentials.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).|
-| resource |Obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
-| requested_token_use |Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
+| resource |obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| requested_token_use |obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
 Ces paramètres sont presque les mêmes que pour la demande par secret partagé, sauf que le `client_secret parameter` est remplacé par deux paramètres : `client_assertion_type` et `client_assertion`.
@@ -255,8 +255,8 @@ Une demande de service à service pour obtenir une assertion SAML contient les p
 | assertion |Obligatoire | Valeur du jeton d’accès utilisé dans la requête.|
 | client_id |Obligatoire | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_secret |Obligatoire | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
-| resource |Obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Il s’agit de la ressource qui sera l’audience du jeton SAML. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
-| requested_token_use |Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
+| resource |obligatoire | URI de l’ID d’application du service de destination (ressource sécurisée). Il s’agit de la ressource qui sera l’audience du jeton SAML. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| requested_token_use |obligatoire | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | requested_token_type | Obligatoire | Spécifie le type de jeton demandé. La valeur peut être **urn:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1**, en fonction des exigences de la ressource. |
 
 La réponse contient un jeton SAML encodé en UTF8 et Base64url.

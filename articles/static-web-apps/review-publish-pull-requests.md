@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: f8f2e352ae458e3e2825c9701437ea652ba07375
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825666"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172738"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Passer en revue les demandes de tirage (pull request) dans les environnements de préproduction dans Azure Static Web Apps (préversion)
 
@@ -33,7 +33,7 @@ L’utilisation d’environnements de préproduction présente de nombreux avant
 - Effectuez des vérifications d’intégrité avant le déploiement en production.
 
 > [!NOTE]
-> Pendant la préversion, seul un [environnement intermédiaire](quotas.md) est autorisé à la fois.
+> Pendant la préversion, seul un [maximum de trois environnements intermédiaires](quotas.md) sont autorisés à la fois.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -51,11 +51,11 @@ Commencez par modifier votre référentiel. Vous pouvez le faire directement sur
 
 1. Accédez à votre dossier _app_ et modifiez du texte. Par exemple, vous pouvez modifier un titre ou un paragraphe. Lorsque vous avez trouvé le fichier que vous souhaitez modifier, cliquez sur **Edit** pour effectuer la modification.
 
-    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Créer une branche à l’aide de l’interface GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/edit-file.png" alt-text="Bouton Edit pour modifier un fichier dans l’interface de GitHub":::
 
 1. Une fois votre modification effectuée, cliquez sur **Commit changes** pour valider les modifications apportées à la branche.
 
-    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Créer une branche à l’aide de l’interface GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/commit-changes.png" alt-text="Bouton Commit changes dans l’interface de GitHub":::
 
 ## <a name="create-a-pull-request"></a>Créer une demande de tirage (pull request)
 
@@ -63,13 +63,13 @@ Ensuite, créez une requête de tirage (pull request) à partir de cette modific
 
 1. Dans votre projet GitHub, ouvrez l’onglet **Pull request** (Demande de tirage).
 
-    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Créer une branche à l’aide de l’interface GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/tab.png" alt-text="Onglet Pull request (Demande de tirage) d’un référentiel GitHub":::
 
 1. Cliquez sur le bouton **Compare & pull request** (Comparer et demander un tirage) de votre branche.
 
 1. Vous pouvez éventuellement entrer des informations sur vos modifications, puis cliquer sur **Create pull request** (Créer une demande de tirage).
 
-    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Créer une branche à l’aide de l’interface GitHub":::
+    :::image type="content" source="./media/review-publish-pull-requests/open.png" alt-text="Création d’une demande de tirage dans GitHub":::
 
 Vous pouvez affecter des réviseurs et ajouter des commentaires pour discuter de vos modifications si nécessaire.
 
@@ -82,7 +82,7 @@ Une fois la demande de tirage créée, le workflow de déploiement [GitHub Actio
 
 Lorsque le workflow a terminé la génération et le déploiement de votre application, le bot GitHub ajoute un commentaire à votre demande de tirage contenant l’URL de l’environnement de préproduction. Vous pouvez cliquer sur ce lien pour afficher vos modifications indexées.
 
-:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Créer une branche à l’aide de l’interface GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/bot-comment.png" alt-text="Commentaire de demande de tirage avec l’URL de préproduction":::
 
 Cliquez sur l’URL générée pour voir les modifications.
 
@@ -96,7 +96,7 @@ Une fois les modifications approuvées, vous pouvez publier vos modifications en
 
 Cliquez sur **Merge pull request** (Fusionner la demande de tirage) :
 
-:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Créer une branche à l’aide de l’interface GitHub":::
+:::image type="content" source="./media/review-publish-pull-requests/merge.png" alt-text="Bouton Merge pull request (Fusionner la demande de tirage) dans l’interface de GitHub":::
 
 La fusion copie vos modifications dans la branche suivie (la branche de « production »). Ensuite, le workflow de déploiement démarre sur la branche suivie et les modifications sont publiées après la nouvelle génération de votre application.
 
@@ -109,7 +109,7 @@ Les versions indexées de votre application sont actuellement accessibles publiq
 > [!WARNING]
 > Soyez prudent lors de la publication de contenu sensible dans des versions indexées, car l’accès à des environnements de préproduction n’est pas restreint.
 
-Le nombre d’environnements de préproduction disponibles pour chaque application déployée avec Static Web Apps dépend du niveau de référence SKU que vous utilisez. Par exemple, avec le niveau Gratuit, vous pouvez avoir 1 environnement de préproduction en plus de l’environnement de production.
+Le nombre d’environnements de préproduction disponibles pour chaque application déployée avec Static Web Apps dépend du niveau de référence SKU que vous utilisez. Par exemple, avec le niveau Gratuit, vous pouvez avoir 3 environnements de préproduction en plus de l’environnement de production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

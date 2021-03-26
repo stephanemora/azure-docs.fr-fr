@@ -3,15 +3,15 @@ title: Stratégies d’intégration Dapr de Gestion des API Azure | Microsoft Do
 description: Apprenez-en davantage sur les stratégies de Gestion des API Azure pour interagir avec des extensions de microservices Dapr.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 10/23/2020
+ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560236"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646807"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Stratégies d’intégration Dapr de Gestion des API
 
@@ -45,21 +45,21 @@ template:
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Envoyer une demande à un service
 
-Cette stratégie définit l’URL cible de la demande actuelle sur `http://localhost:3500/v1.0/invoke/{app-id}/method/{method-name}`, en remplaçant les paramètres de modèle par les valeurs spécifiées dans la déclaration de stratégie.
+Cette stratégie définit l’URL cible de la demande actuelle sur `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}`, en remplaçant les paramètres de modèle par les valeurs spécifiées dans la déclaration de stratégie.
 
 La stratégie part du principe que Dapr s’exécute dans un conteneur sidecar se trouvant dans le même pod que la passerelle. Lors de la réception de la demande, le runtime Dapr effectue la détection du service et l’appel réel, en ce compris la traduction de protocole possible entre HTTP et gRPC, les nouvelles tentatives, le suivi distribué et la gestion des erreurs.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
-<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" />
+<set-backend-service backend-id="dapr" dapr-app-id="app-id" dapr-method="method-name" dapr-namespace="ns-name" />
 ```
 
 ### <a name="examples"></a>Exemples
 
 #### <a name="example"></a>Exemple
 
-L’exemple suivant illustre l’appel de la méthode nommée « back » sur le microservice nommé « echo ». La stratégie `set-backend-service` définit l’URL de destination. La stratégie `forward-request` distribue la demande au runtime Dapr, qui le remet au microservice.
+L’exemple suivant illustre l’appel de la méthode nommée « back » sur le microservice nommé « echo ». La stratégie `set-backend-service` définit l’URL de destination sur `http://localhost:3500/v1.0/invoke/echo.echo-app/method/back`. La stratégie `forward-request` distribue la demande au runtime Dapr, qui le remet au microservice.
 
 La stratégie `forward-request` est présentée ici par souci de clarté. La stratégie est généralement « héritée » de l’étendue globale via le mot clé `base`.
 
@@ -67,7 +67,7 @@ La stratégie `forward-request` est présentée ici par souci de clarté. La str
 <policies>
     <inbound>
         <base />
-        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" />
+        <set-backend-service backend-id="dapr" dapr-app-id="echo" dapr-method="back" dapr-namespace="echo-app" />
     </inbound>
     <backend>
         <forward-request />
@@ -92,8 +92,9 @@ La stratégie `forward-request` est présentée ici par souci de clarté. La str
 | Attribut        | Description                     | Obligatoire | Default |
 |------------------|---------------------------------|----------|---------|
 | id de principal       | Doit être défini sur « dapr »           | Oui      | N/A     |
-| dapr-app-id      | Nom du microservice cible. Correspond au paramètre [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
+| dapr-app-id      | Nom du microservice cible. Utilisé pour former le paramètre [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
 | dapr-method      | Nom de la méthode ou URL à appeler sur le microservice cible. Correspond au paramètre [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) dans Dapr.| Oui | N/A |
+| dapr-namespace   | Nom de l’espace de noms dans lequel réside le microservice cible. Utilisé pour former le paramètre [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) dans Dapr.| Non | N/A |
 
 ### <a name="usage"></a>Usage
 

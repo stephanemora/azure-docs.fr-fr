@@ -4,10 +4,10 @@ description: Authentifiez des applications dans Service Bus avec l’authentific
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 7b287b209fbcd5bc2782505095aeae4390107803
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98060212"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus

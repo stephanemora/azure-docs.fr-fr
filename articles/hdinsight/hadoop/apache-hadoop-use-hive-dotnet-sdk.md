@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 032c070a9485fc4720ae7966a0991bc0c5ae3921
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927242"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867846"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight
 
@@ -21,7 +21,7 @@ Découvrez comment envoyer des requêtes Apache Hive avec le Kit de développeme
 > [!NOTE]  
 > Les étapes décrites dans cet article doivent être effectuées à partir d'un client Windows. Pour plus d’informations sur l’utilisation d’un client Linux, OS X ou Unix pour utiliser Hive, utilisez le sélecteur d’onglet en haut de l’article.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -135,7 +135,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
 
 Le résultat de l’application devrait être similaire à :
 
-![Résultat de la tâche HDInsight Hadoop Hive](./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png" alt-text="Résultat de la tâche HDInsight Hadoop Hive" border="true":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 

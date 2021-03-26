@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221126"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Comprendre le code Apache Spark pour les développeurs U-SQL
@@ -28,7 +28,7 @@ Cette section fournit des conseils de haut niveau sur la transformation des scri
 
 Avant de commencer à migrer les scripts U-SQL d’Azure Data Lake Analytics vers Spark, il est utile de comprendre la philosophie générale du langage et du traitement des deux systèmes.
 
-U-SQL est un langage de requête déclaratif de type SQL qui utilise un paradigme de flux de données et vous permet d’incorporer et d’effectuer facilement un scale-out du code utilisateur écrit dans écrit en.NET (par exemple C#), Python et R. Les extensions utilisateur peuvent implémenter des expressions simples ou des fonctions définies par l’utilisateur, mais elles peuvent également fournir à l’utilisateur la possibilité d’implémenter des opérateurs définis par l’utilisateur qui implémentent des opérateurs personnalisés pour effectuer des transformations au niveau de l’ensemble de lignes, des extractions et l’écriture de la sortie.
+U-SQL est un langage de requête déclaratif de type SQL qui utilise un paradigme de flux de données et vous permet d’incorporer et de faire évoluer facilement le code utilisateur écrit dans écrit en.NET (par exemple C#), Python et R. Les extensions utilisateur peuvent implémenter des expressions simples ou des fonctions définies par l’utilisateur, mais elles peuvent également fournir à l’utilisateur la possibilité d’implémenter des opérateurs définis par l’utilisateur qui implémentent des opérateurs personnalisés pour effectuer des transformations au niveau de l’ensemble de lignes, des extractions et l’écriture de la sortie.
 
 Spark est une infrastructure Scale-out qui offre plusieurs liaisons de langage Scala, Java, Python, .NET, etc. et dans laquelle vous écrivez principalement votre code dans l’un de ces langages, créez des abstractions de données appelées jeux de données distribués résilients (RDD), des trames et jeux de données, puis utilisez un langage spécifique à un domaine (DSL) de type LINQ pour les transformer. Il fournit également SparkSQL sous la forme d’un sous-langage déclaratif sur les abstractions de trames et jeux de données. Le DSL prévoit deux catégories d’opérations, de transformations et d’actions. L’application de transformations aux abstractions de données n’exécutera pas la transformation, mais générera à la place le plan d’exécution qui sera soumis pour évaluation avec une action (par exemple, en écrivant le résultat dans une table ou un fichier temporaire, ou en imprimant le résultat).
 
@@ -50,7 +50,7 @@ Les programmes Spark sont similaires en ce sens que vous utiliseriez des connect
 
 ## <a name="transform-net-code"></a>Transformer le code .NET
 
-Le langage d’expression d’U-SQL est C# et il offre plusieurs moyens d’effectuer un scale-out du code .NET personnalisé.
+Le langage d’expression d’U-SQL est C# et il offre plusieurs moyens de faire évoluer le code .NET personnalisé.
 
 Dans la mesure où Spark ne prend pas en charge l’exécution de code .NET en mode natif, vous devrez réécrire vos expressions dans une expression Spark, Scala, Java ou Python équivalente ou trouver un moyen d’appeler votre code .NET. Si votre script utilise des bibliothèques .NET, vous disposez des options suivantes :
 

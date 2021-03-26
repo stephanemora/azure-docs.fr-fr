@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: adf3c5b5cd40a9ea3f07ba9c92cfc4544ca60f1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154744"
 ---
 # <a name="single-page-applications"></a>Applications monopages
@@ -47,9 +47,9 @@ Dans ce scénario, quand l’utilisateur se connecte, le JavaScript frontal util
 
 Consultez les [exemples de code pour les scénarios d’application monopage](sample-v1-code.md#single-page-applications). Veillez à consulter régulièrement cette page à laquelle nous ajoutons fréquemment de nouveaux exemples.
 
-## <a name="app-registration"></a>Inscription d'application
+## <a name="app-registration"></a>Inscriptions des applications
 
-* Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
+* Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
 * Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans l'annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilise l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.
 
 Après avoir inscrit l’application, vous devez la configurer pour qu’elle utilise le protocole d’octroi implicite OAuth 2.0. Par défaut, ce protocole est désactivé pour les applications. Pour activer le protocole d’octroi implicite OAuth2 pour votre application, modifiez son manifeste d’application à partir du portail Azure et définissez la valeur « oauth2AllowImplicitFlow » sur true. Pour plus d’informations, consultez l’article [Manifeste d’application](../develop/reference-app-manifest.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

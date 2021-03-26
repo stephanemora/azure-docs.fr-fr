@@ -1,25 +1,15 @@
 ---
 title: Envoyer des messages de sécurité des appareils Defender pour IoT
 description: Découvrez comment envoyer vos messages de sécurité à l’aide de Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/8/2021
-ms.author: shhazam
 ms.custom: devx-track-js
-ms.openlocfilehash: d59121f2dbae208ba045a9c2e6d66245296537a0
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: dcda7f4c1d078fa32a5ab8c7b7ce690ab2134afe
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820685"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781634"
 ---
 # <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité à l’aide du SDK
 

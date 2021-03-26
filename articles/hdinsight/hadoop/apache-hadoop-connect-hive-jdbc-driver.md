@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: d23b376384262c208fed70306e62634592d0b46b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6073000f2f14f835e2bfbd91b41619101c36b10f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946769"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866843"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Apache Hive par le biais du pilote JDBC dans HDInsight
 
@@ -38,7 +38,7 @@ Remplacez `CLUSTERNAME` par le nom de votre cluster HDInsight :
 
 Vous pouvez également établir la connexion via **Interface utilisateur Ambari > Hive > Configurations > Avancées**.
 
-![Obtient la chaîne de connexion JDBC via Ambari](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
+:::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png" alt-text="Obtient la chaîne de connexion JDBC via Ambari" border="true":::
 
 ### <a name="host-name-in-connection-string"></a>Nom d’hôte dans la chaîne de connexion
 
@@ -74,32 +74,32 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 3. Démarrez l’application SQuirreL SQL. Dans la partie gauche de la fenêtre, sélectionnez **Pilotes**.
 
-    ![Onglet Pilotes dans la partie gauche de la fenêtre](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-squirreldrivers.png" alt-text="Onglet Pilotes dans la partie gauche de la fenêtre" border="true":::
 
 4. Parmi les icônes en haut de la boîte de dialogue **Pilotes**, sélectionnez l’icône **+** pour créer un pilote.
 
-    ![Application SQuirreL SQL - Icône de création de pilote](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-driversicons.png" alt-text="Application SQuirreL SQL - Icône de création de pilote" border="true":::
 
 5. Dans la boîte de dialogue Ajouter un pilote, ajoutez les informations suivantes :
 
-    |Propriété | Valeur |
+    |Propriété | Value |
     |---|---|
     |Nom|Hive|
     |Exemple d’URL|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
     |Chemin de la classe supplémentaire|Utilisez le bouton **Ajouter** pour ajouter tous les fichiers jar téléchargés précédemment.|
     |Nom de la classe|org.apache.hive.jdbc.HiveDriver|
 
-   ![Boîte de dialogue d’ajout de pilote avec des paramètres](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png)
+   :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-add-driver.png" alt-text="Boîte de dialogue d’ajout de pilote avec des paramètres" border="true":::
 
    Sélectionnez **OK** pour enregistrer ces paramètres.
 
 6. Dans la partie gauche de la fenêtre SQL SQuirreL, sélectionnez **Alias**. Sélectionnez ensuite l’icône **+** pour créer un alias de connexion.
 
-    ![`SQuirreL SQL : Boîte de dialogue d’ajout de nouvel alias`](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-new-aliases.png" alt-text="`SQuirreL SQL : Boîte de dialogue d’ajout de nouvel alias`" border="true":::
 
 7. Dans la boîte de dialogue **Ajouter un Alias**, utilisez les valeurs suivantes :
 
-    |Propriété |Valeur |
+    |Propriété |Value |
     |---|---|
     |Nom|Hive sur HDInsight|
     |Pilote|Sélectionnez le pilote **Hive** dans la liste déroulante.|
@@ -107,7 +107,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
     |User Name|Nom de compte de connexion de votre cluster HDInsight. Le nom par défaut est **admin**.|
     |Mot de passe|Mot de passe du compte de connexion du cluster.|
 
-    ![Boîte de dialogue d’ajout d’alias avec des paramètres](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png" alt-text="Boîte de dialogue d’ajout d’alias avec des paramètres" border="true":::
 
     > [!IMPORTANT]
     > Utilisez le bouton **Test** pour vérifier que la connexion fonctionne. Quand la boîte de dialogue **Se connecter à : Hive sur HDInsight** s’affiche, sélectionnez **Connexion** pour effectuer le test. Si le test réussit, la boîte de dialogue **Connexion réussie** s’affiche. Si une erreur se produit, consultez [Résolution de problèmes](#troubleshooting).
@@ -116,7 +116,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 8. Dans la liste déroulante **Se connecter à** en haut de SQuirreL SQL, sélectionnez **Hive sur HDInsight**. Lorsque vous y êtes invité, sélectionnez **Connexion**.
 
-    ![boîte de dialogue de connexion avec des paramètres](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-connect-dialog.png" alt-text="boîte de dialogue de connexion avec des paramètres" border="true":::
 
 9. Une fois connecté, entrez la requête suivante dans la boîte de dialogue Requête SQL, puis sélectionnez l’icône **Exécuter** (représentant une personne qui court). La zone de résultats doit afficher les résultats de la requête.
 
@@ -124,7 +124,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
     select * from hivesampletable limit 10;
     ```
 
-    ![boîte de dialogue requête sql, incluant les résultats](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-sqlquery-dialog.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-sqlquery-dialog.png" alt-text="boîte de dialogue requête sql, incluant les résultats" border="true":::
 
 ## <a name="connect-from-an-example-java-application"></a>Connexion à partir d’un exemple d’application Java
 

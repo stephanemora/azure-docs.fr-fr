@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 3ade41c51cbb8065734e8957cfc8b9f0c22b2df3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98673364"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Statistiques des tables pour le pool SQL dédié dans Azure Synapse Analytics
@@ -546,7 +546,7 @@ La fonction DBCC SHOW_STATISTICS() présente les données contenues dans un obje
 Métadonnées de l’en-tête sur les statistiques. L’histogramme affiche la distribution des valeurs dans la première colonne de l’objet de statistiques. Le vecteur de densité mesure la corrélation entre les colonnes.
 
 > [!NOTE]
-> Le pool SQL dédié calcule les estimations de cardinalité avec certaines données de l’objet de statistiques.
+> Le pool SQL dédié calcule les évaluations de cardinalité avec certaines données dans l’objet de statistiques.
 
 ### <a name="show-header-density-and-histogram"></a>Afficher l’en-tête, la densité et l’histogramme
 
