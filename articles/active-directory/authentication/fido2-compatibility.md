@@ -12,10 +12,10 @@ manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f90edd5729ff5229be09bc3798082c33bdeead2
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102632099"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Prise en charge par navigateur de l’authentification FIDO2 sans mot de passe
@@ -26,7 +26,7 @@ Azure Active Directory permet d’utiliser des [clés de sécurité FIDO2](./con
 
 Ce tableau indique la prise en charge de l’authentification sur Azure Active Directory (Azure AD) et sur des comptes Microsoft (MSA). Les comptes Microsoft sont créés par les consommateurs pour des services tels que Xbox, Skype ou Outlook.com. Les types d’appareils pris en charge sont **USB**, **NFC** (Near-Field communication) et **BLE** (Bluetooth Low Energy).
 
-| Système d''exploitation | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
+| Système d’exploitation | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![Chrome prend en charge USB sur Windows pour les comptes AAD.][y] | ![Chrome prend en charge NFC sur Windows pour les comptes AAD.][y] | ![Chrome prend en charge BLE sur Windows pour les comptes AAD.][y] | ![Edge prend en charge USB sur Windows pour les comptes AAD.][y] | ![Edge prend en charge NFC sur Windows pour les comptes AAD.][y] | ![Edge prend en charge BLE sur Windows pour les comptes AAD.][y] | ![Firefox prend en charge USB sur Windows pour les comptes AAD.][y] | ![Firefox prend en charge NFC sur Windows pour les comptes AAD.][y] | ![Firefox prend en charge BLE sur Windows pour les comptes AAD.][y] |
