@@ -48,13 +48,13 @@
     - name: Analyser des vidéos en temps réel
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
     - name: Guide pratique pour configurer des réseaux virtuels
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: "Effectuer une mise à niveau de Read\_v2.x vers Read\_v3.x"
       href: upgrade-api-versions.md
     - name: "Guide pratique pour configurer l’authentification\_AAD"
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Guide pratique pour utiliser des clés gérées par le client
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../encryption/cognitive-services-encryption-keys-portal.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Déployer Vision par ordinateur
       items:
         - name: Conteneurs
@@ -155,7 +155,7 @@
     - name: Prise en charge de la région
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Modules LEARN
-      href: 'https://docs.microsoft.com/en-us/learn/paths/explore-computer-vision-microsoft-azure/'
+      href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: Support et aide
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
     - name: Conformité

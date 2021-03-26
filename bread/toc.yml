@@ -204,7 +204,13 @@
       topicHref: /azure/vmware-cloudsimple/
     - name: Documentation du portail Azure
       tocHref: /azure/azure-portal/
-      topicHref: /azure/azure-portal/\
+      topicHref: /azure/azure-portal/
+    - name: Documentation du portail Azure
+      tocHref: /azure/virtual-machines/
+      topicHref: /azure/azure-portal/index
+    - name: Documentation du portail Azure
+      tocHref: /power-bi
+      topicHref: /azure/azure-portal/index
     - name: Internet des Objets
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
