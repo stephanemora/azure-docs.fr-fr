@@ -11,10 +11,10 @@ ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
 ms.openlocfilehash: 17d430946f3cba1aa4680d1eaf8979fa4338bc22
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788398"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Configurer un version TLS minimale dans Azure SQL Managed Instance

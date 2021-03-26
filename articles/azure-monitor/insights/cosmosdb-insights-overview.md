@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725760"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explorer Azure Monitor pour Azure Cosmos DB
 
@@ -87,13 +87,51 @@ Sélectionnez **Capacité** en haut de la page et la portion **Capacité** du mo
 
 Comme avec le classeur de vue d’ensemble, la sélection de la liste déroulante en regard d’une ressource Azure Cosmos DB dans la colonne **Abonnement** affiche une répartition avec les conteneurs individuels qui composent la base de données.
 
-### <a name="operations"></a>Opérations 
+### <a name="operations"></a>Opérations
 
-Sélectionnez **Opérations** en haut de la page et la portion **Opérations** du modèle de classeur s’ouvrira. Elle vous donne la possibilité de voir vos requêtes décomposées selon le type des requêtes effectuées. 
+Sélectionnez **Opérations** en haut de la page et la portion **Opérations** du modèle de classeur s’ouvrira. Elle vous donne la possibilité de voir vos requêtes décomposées selon le type des requêtes effectuées.
 
 Par conséquent, dans l’exemple ci-dessous, vous constatez que `eastus-billingint` reçoit principalement des demandes de lecture, mais un petit nombre de requêtes upsert et de création. De son côté, `westeurope-billingint` est en lecture seule du point de vue des requêtes, au moins au cours des quatre dernières heures auxquelles le classeur est actuellement étendu par le biais de son paramètre d’intervalle de temps.
 
-![Classeur d’opérations](./media/cosmosdb-insights-overview/operation.png) 
+![Classeur d’opérations](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Affichage à partir d’une ressource Azure Cosmos DB
+
+1. Recherchez ou sélectionnez l’un de vos comptes Azure Cosmos DB existants.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Rechercher Azure Cosmos DB." border="true":::
+
+2. Une fois que vous avez accédé à votre compte Azure Cosmos DB, dans la section Supervision, sélectionnez **Insights (préversion)** ou **Classeurs** pour effectuer une analyse plus poussée du débit, des demandes, du stockage, de la disponibilité, de la latence, de la gestion du système et du compte.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Vue d’ensemble de Cosmos DB Insights." border="true":::
+
+### <a name="time-range"></a>Plage temporelle
+
+Par défaut, le champ **Intervalle de temps** affiche les données des **Dernières 24 heures**. Vous pouvez modifier l’intervalle de temps pour afficher les données allant des 5 dernières minutes jusqu’aux sept derniers jours. Le sélecteur d’intervalle de temps comprend également un mode **Personnalisé** qui vous permet de taper les dates de début et de fin pour afficher un intervalle de temps personnalisé en fonction des données disponibles pour le compte sélectionné.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Intervalle de temps Cosmos DB." border="true":::
+
+### <a name="insights-overview"></a>Vue d’ensemble Insights
+
+L’onglet **Vue d’ensemble** fournit les métriques les plus courantes pour le compte Azure Cosmos DB sélectionné, notamment :
+
+* Total de requêtes
+* Demandes ayant échoué (429s)
+* Consommation RU normalisée (max.)
+* Utilisation des données et de l’index
+* Métriques de compte Cosmos DB par collection
+
+**Nombre total de demandes :** ce graphique fournit une vue du nombre total de demandes pour le compte, réparties par code d’état. Les unités en bas du graphique représentent la somme des demandes totales durant la période.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Graphe du nombre total de demandes Cosmos DB." border="true":::
+
+**Demandes ayant échoué (429s)**  : ce graphique fournit une vue des demandes ayant échoué avec le code d’état 429. Les unités en bas du graphique représentent la somme des demandes totales ayant échoué durant la période.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Graphe des demandes ayant échoué Cosmos DB." border="true":::
+
+**Consommation RU normalisée (max.)**  : ce graphique fournit le pourcentage maximal compris entre 0 et 100 % des unités de consommation RU normalisée durant la période spécifiée.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Consommation RU normalisée Cosmos DB." border="true":::
 
 ## <a name="pin-export-and-expand"></a>Épingler, exporter et développer
 

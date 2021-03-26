@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 224ebae58a5688f81d1b64b4a9c81d5abd8a9690
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930061"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868849"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Apache Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
 
@@ -175,7 +175,7 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
 
     La sortie est la suivante :
 
-    ![Sortie de requête SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Sortie de requête SQL")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="Sortie de requête SQL" border="true":::
 
 3. Vous pouvez également utiliser Matplotlib, une bibliothèque permettant de construire une visualisation des données, pour créer un tracé. Étant donné que le tracé doit être créé à partir du tableau de données **countResultsdf** conservé localement, l’extrait de code doit commencer par la commande magique `%%local`. Cette action garantit l'exécution locale du code sur le serveur Jupyter.
 
@@ -348,7 +348,7 @@ Vous pouvez désormais construire une visualisation finale pour faciliter l’ex
 
     Vous devez normalement voir la sortie suivante.
 
-    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs des pourcentages d’inspections alimentaires qui ont échoué.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Sortie des résultats Spark Machine Learning")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Sortie de l’application de Machine Learning Spark : graphique en secteurs des pourcentages d’inspections alimentaires qui ont échoué." border="true":::
 
     Dans ce graphique, un résultat « positif » fait référence à l’inspection de produits alimentaires ayant échoué, tandis qu’un résultat négatif fait référence à une inspection réussie.
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d2e2680f1d679a4bd1e967e32a409b59ad992c01
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c7538cf052fcf51d03d1ac854d4da50db02004ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448096"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488555"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte WeChat à l’aide d’Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Pour autoriser la connexion des utilisateurs avec un compte WeChat dans Azure Ac
 1. Connectez-vous à [https://open.weixin.qq.com/](https://open.weixin.qq.com/) avec vos informations d’identification WeChat.
 1. Cliquez sur **管理中心** (centre de gestion).
 1. Suivez les étapes d’inscription d’une nouvelle application.
-1. Dans le champ **授权回调域** (URL de rappel), entrez `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Par exemple, si le nom de votre locataire est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+1. Dans le champ **授权回调域** (URL de rappel), entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé.
 1. Copiez l’**ID de l’application** et la **clé de l’application**. Vous avez besoin des deux pour configurer le fournisseur d’identité dans votre locataire.
 
 ::: zone pivot="b2c-user-flow"

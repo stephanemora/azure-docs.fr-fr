@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 11/27/2020
 ms.openlocfilehash: 6876cf1e5044246492e249d8a61060cbeac46f96
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98217955"
 ---
 # <a name="apply-security-updates-to-azure-kubernetes-service-aks-nodes-automatically-using-github-actions"></a>Appliquer automatiquement des correctifs de sécurité aux nœuds Azure Kubernetes service (AKS) à l’aide de GitHub Actions

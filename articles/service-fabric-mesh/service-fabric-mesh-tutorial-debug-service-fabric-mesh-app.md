@@ -7,16 +7,16 @@ ms.date: 10/31/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 9e3dc16481340c0266cd398d0970e2147648e17f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625447"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutoriel : Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
 
 > [!IMPORTANT]
-> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements ne seront plus autorisés par le biais de l’API Service Fabric Mesh. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
+> La préversion d’Azure Service Fabric Mesh a été mise hors service. Les nouveaux déploiements par le biais de l’API Service Fabric Mesh ne seront plus autorisés. La prise en charge des déploiements existants se poursuivra jusqu’au 28 avril 2021.
 > 
 > Pour plus détails, consultez [Mise hors service de la préversion d’Azure Service Fabric Mesh](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 

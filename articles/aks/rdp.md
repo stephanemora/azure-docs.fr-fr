@@ -5,12 +5,12 @@ description: Découvrez comment créer une connexion RDP avec des nœuds Windows
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 4cfac73c66969148927897de7ed6da0c56aa276a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4b6ccc05d1cb49a77a2867dfc1c5fe5f45134dd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173815"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951910"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec RDP à des nœuds Windows Server de cluster AKS (Azure Kubernetes Service) à des fins de maintenance ou de résolution des problèmes
 
@@ -20,7 +20,7 @@ Cet article vous montre comment créer une connexion RDP avec des nœuds AKS en 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article part de l’hypothèse que vous disposez déjà d’un cluster AKS avec un nœud Windows Server. Si vous avez besoin d’un cluster AKS, consultez l’article traitant de la [création d’un cluster AKS avec un conteneur Windows à partir d’Azure CLI][aks-windows-cli]. Vous avez besoin du nom d’utilisateur et du mot de passe de l’administrateur Windows du nœud Windows Server dont vous souhaitez résoudre les problèmes. Si vous ne les connaissez pas, vous pouvez les réinitialiser en suivant la procédure [Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows](../virtual-machines/troubleshooting/reset-rdp.md). Vous avez aussi besoin d’un client RDP comme [Bureau à distance Microsoft][rdp-mac].
+Cet article part de l’hypothèse que vous disposez déjà d’un cluster AKS avec un nœud Windows Server. Si vous avez besoin d’un cluster AKS, consultez l’article traitant de la [création d’un cluster AKS avec un conteneur Windows à partir d’Azure CLI][aks-windows-cli]. Vous avez besoin du nom d’utilisateur et du mot de passe de l’administrateur Windows du nœud Windows Server dont vous souhaitez résoudre les problèmes. Si vous ne les connaissez pas, vous pouvez les réinitialiser en suivant la procédure [Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows](/troubleshoot/azure/virtual-machines/reset-rdp). Vous avez aussi besoin d’un client RDP comme [Bureau à distance Microsoft][rdp-mac].
 
 Azure CLI version 2.0.61 ou ultérieure doit également être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 

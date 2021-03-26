@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783757"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guide de sécurité Explorateur Stockage Azure
@@ -81,7 +81,7 @@ Les clés de compte de stockage accordent un accès illimité aux services et au
 
 Certains rôles Azure accordent des autorisations pour récupérer des clés de compte de stockage. Les personnes disposant de ces rôles peuvent contourner efficacement les autorisations accordées ou refusées par le contrôle RBAC Azure. Nous vous recommandons de ne pas accorder cette autorisation, sauf si elle est nécessaire.
 
-Explorateur Stockage tentera d’utiliser les clés de compte de stockage, si elles sont disponibles, pour authentifier les demandes. Vous pouvez désactiver cette fonctionnalité dans Paramètres ( **Services > Comptes de stockage > Désactiver l’utilisation des clés** ). Certaines fonctionnalités ne prennent pas en charge le contrôle RBAC Azure, comme l’utilisation de comptes de stockage classiques. De telles fonctionnalités nécessitent toujours des clés et ne sont pas concernées par ce paramètre.
+Explorateur Stockage tentera d’utiliser les clés de compte de stockage, si elles sont disponibles, pour authentifier les demandes. Vous pouvez désactiver cette fonctionnalité dans Paramètres (**Services > Comptes de stockage > Désactiver l’utilisation des clés**). Certaines fonctionnalités ne prennent pas en charge le contrôle RBAC Azure, comme l’utilisation de comptes de stockage classiques. De telles fonctionnalités nécessitent toujours des clés et ne sont pas concernées par ce paramètre.
 
 Si vous devez utiliser des clés pour accéder à vos ressources de stockage, nous vous recommandons de suivre les instructions suivantes :
 

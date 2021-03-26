@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519705"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594731"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -249,7 +249,7 @@ Lorsque vous utilisez `customize` :
 - En cas d’échec d’un personnalisateur, l’ensemble du composant de personnalisation échoue et renvoie une erreur.
 - Il est vivement recommandé de tester rigoureusement le script avant de l’utiliser dans un modèle. Le débogage du script sur votre propre machine virtuelle en sera simplifié.
 - Ne placez pas de données sensibles dans les scripts. 
-- Les emplacements de script doivent être accessibles publiquement, sauf si vous utilisez [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
+- Les emplacements de script doivent être accessibles publiquement, sauf si vous utilisez [MSI](./image-builder-user-assigned-identity.md).
 
 ```json
         "customize": [
@@ -417,7 +417,7 @@ Propriétés du personnalisateur de fichier :
 - **sourceUri** - Point de terminaison de stockage accessible, il peut s’agir de GitHub ou de Stockage Azure. Vous pouvez uniquement télécharger un fichier, pas un répertoire complet. Si vous devez télécharger un répertoire, utilisez un fichier compressé, puis décompressez-le à l’aide du personnalisateur de l’interpréteur de commandes ou PowerShell. 
 
 > [!NOTE]
-> Si la valeur sourceUri est un compte de Stockage Azure, que l’objet blob est marqué, ou non, comme public, vous devez accorder les autorisations d’identité managée de l’utilisateur pour un accès en lecture sur l’objet blob. Pour définir les autorisations de stockage, consultez cet [exemple](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group).
+> Si la valeur sourceUri est un compte de Stockage Azure, que l’objet blob est marqué, ou non, comme public, vous devez accorder les autorisations d’identité managée de l’utilisateur pour un accès en lecture sur l’objet blob. Pour définir les autorisations de stockage, consultez cet [exemple](./image-builder-user-assigned-identity.md#create-a-resource-group).
 
 - **destination** - Nom de destination complet et nom du fichier. Le chemin d’accès et les sous-répertoires référencés doivent exister, utilisez les personnalisateurs de l’interpréteur de commandes ou PowerShell pour les définir au préalable. Vous pouvez utiliser les personnalisateurs de script pour créer le chemin d’accès. 
 
@@ -456,7 +456,7 @@ Propriétés de personnalisation :
 - **updateLimit** : facultatif, définit le nombre de mises à jour pouvant être installées, par défaut 1 000.
  
 > [!NOTE]
-> Le personnalisateur de Windows Update peut échouer si des redémarrages de Windows sont en suspens ou si des installations d’applications sont en cours. En général, vous pouvez voir cette erreur dans le fichier customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Nous vous recommandons vivement d’ajouter un redémarrage de Windows et/ou de laisser aux applications suffisamment de temps pour effectuer leurs installations à l’aide des commandes [sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ou wait dans les scripts ou commandes inline avant d’exécuter Windows Update.
+> Le personnalisateur de Windows Update peut échouer si des redémarrages de Windows sont en suspens ou si des installations d’applications sont en cours. En général, vous pouvez voir cette erreur dans le fichier customization.log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`. Nous vous recommandons vivement d’ajouter un redémarrage de Windows et/ou de laisser aux applications suffisamment de temps pour effectuer leurs installations à l’aide des commandes [sleep](/powershell/module/microsoft.powershell.utility/start-sleep) ou wait dans les scripts ou commandes inline avant d’exécuter Windows Update.
 
 ### <a name="generalize"></a>Généraliser 
 Le générateur d’images Azure exécute également du code de « déprovisionnement » à la fin de chaque phase de personnalisation d’image, pour « généraliser » l’image. La généralisation est un processus dans lequel l’image est configurée pour pouvoir être réutilisée afin de créer plusieurs machines virtuelles. Pour les machines virtuelles Windows, le générateur d’images Azure utilise Sysprep. Pour Linux, le générateur d’images Azure exécute « waagent-deprovision ». 

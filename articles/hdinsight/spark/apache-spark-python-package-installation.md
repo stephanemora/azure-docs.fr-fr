@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929819"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868713"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gérer en toute sécurité l’environnement Python sur Azure HDInsight avec une action de script
 
@@ -104,7 +104,7 @@ Le cluster HDInsight dépend de l’environnement Python intégré, Python 2.7 
 
     1. Ouvrez l’interface utilisateur Ambari, accédez à la page Spark2, onglet configurations.
 
-        ![Modifier la configuration Spark et Livy via Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Modifier la configuration Spark et Livy via Ambari" border="true":::
 
     2. Développez Advanced livy2-env, puis ajoutez les instructions ci-dessous en bas. Si vous avez installé l’environnement virtuel avec un préfixe différent, modifiez le chemin d’accès correspondant.
 
@@ -113,7 +113,7 @@ Le cluster HDInsight dépend de l’environnement Python intégré, Python 2.7 
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Modifier la configuration Livy via Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Modifier la configuration Livy via Ambari" border="true":::
 
     3. Développez spark2-env Avancé, remplacez l’instruction export PYSPARK_PYTHON existante en bas. Si vous avez installé l’environnement virtuel avec un préfixe différent, modifiez le chemin d’accès correspondant.
 
@@ -121,11 +121,11 @@ Le cluster HDInsight dépend de l’environnement Python intégré, Python 2.7 
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Modifier la configuration Spark via Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Modifier la configuration Spark via Ambari" border="true":::
 
     4. Enregistrez les modifications, puis redémarrez les services affectés. Ces modifications nécessitent un redémarrage du service Spark2. L’interface utilisateur Ambari affiche un rappel de redémarrage obligatoire. Cliquez sur Redémarrer pour redémarrer tous les services affectés.
 
-        ![Redémarrer les services](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="Redémarrer les services" border="true":::
 
     5. Définissez deux propriétés sur votre session Spark pour vous assurer que le travail pointe vers la configuration Spark mise à jour : `spark.yarn.appMasterEnv.PYSPARK_PYTHON` et `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON`. 
 
@@ -153,7 +153,7 @@ Le cluster HDInsight dépend de l’environnement Python intégré, Python 2.7 
 
     Vous pouvez confirmer deux fois l’environnement Python dans Jupyter Notebook en exécutant le code ci-dessous :
 
-    ![Vérifier la version de Python dans Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Vérifier la version de Python dans Jupyter Notebook" border="true":::
 
 ## <a name="known-issue"></a>Problème connu
 

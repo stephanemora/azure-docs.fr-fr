@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321885"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Échantillonner des données dans des tables Hive Azure HDInsight
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 Dans cet exemple, la chaîne `<sample rate, 0-1>` spécifie la proportion d’enregistrements que les utilisateurs veulent échantillonner.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Échantillonnage aléatoire par groupe
-Lorsque vous échantillonnez des données catégorielles, vous pouvez choisir d’inclure ou d’exclure toutes les instances d’une valeur spécifique de la valeur catégorielle. Ce type d’échantillonnage est appelé « échantillonnage par groupe ». Par exemple, si vous disposez d’une valeur catégorielle «  *État*  », qui présente les valeurs, comme NY, MA, CA, NJ et PA, vous voulez que les enregistrements de chaque État soient toujours regroupés, qu’ils soient ou non échantillonnés.
+Lorsque vous échantillonnez des données catégorielles, vous pouvez choisir d’inclure ou d’exclure toutes les instances d’une valeur spécifique de la valeur catégorielle. Ce type d’échantillonnage est appelé « échantillonnage par groupe ». Par exemple, si vous disposez d’une valeur catégorielle « *État* », qui présente les valeurs, comme NY, MA, CA, NJ et PA, vous voulez que les enregistrements de chaque État soient toujours regroupés, qu’ils soient ou non échantillonnés.
 
 Voici un exemple de requête effectuant un échantillonnage par groupe :
 

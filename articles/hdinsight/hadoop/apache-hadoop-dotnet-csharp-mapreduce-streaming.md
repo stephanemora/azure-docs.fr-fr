@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 6e2758fd650547978924c25f8f3faf1e3e7194f6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8093db9c53d9c34014d1b315d53539b3f2cffb30
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699383"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866707"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utiliser C# avec streaming MapReduce sur Apache Hadoop dans HDInsight
 
@@ -150,7 +150,7 @@ Ensuite, vous devez charger les applications *mapper* et *reducer* sur le stocka
 
 1. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte **(compte de stockage par défaut)** est répertoriée.
 
-   ![Compte de stockage, cluster HDInsight, explorateur de serveurs, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Compte de stockage, cluster HDInsight, explorateur de serveurs, Visual Studio" border="true":::
 
    * Si l’entrée **(compte de stockage par défaut)** peut être développée, vous utilisez un **compte de stockage Azure** en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée, puis double-cliquez sur le **(conteneur par défaut)** .
 
@@ -160,7 +160,7 @@ Ensuite, vous devez charger les applications *mapper* et *reducer* sur le stocka
 
     * Si vous utilisez un **compte de stockage Azure**, sélectionnez l’icône **Télécharger un objet Blob**.
 
-        ![Icône de chargement de HDInsight pour le mappeur, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="Icône de chargement de HDInsight pour le mappeur, Visual Studio" border="true":::
 
         Dans la boîte de dialogue **Télécharger un nouveau fichier**, sous **Nom de fichier**, sélectionnez **Parcourir**. Dans la boîte de dialogue **Télécharger un objet Blob**, accédez au dossier *bin\debug* pour le projet *mapper*, puis sélectionnez le fichier *mapper.exe*. Enfin, sélectionnez **Ouvrir**, puis **OK** pour terminer le téléchargement.
 

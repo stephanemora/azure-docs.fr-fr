@@ -9,10 +9,10 @@ ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100097"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Approvisionner le débit standard (manuel) sur un conteneur Azure Cosmos - API SQL
@@ -28,7 +28,7 @@ Si vous utilisez une autre API, consultez les articles [API pour MongoDB](how-to
 
 1. [Créez un compte Azure Cosmos](create-sql-api-dotnet.md#create-account) ou sélectionnez un compte Azure Cosmos existant.
 
-1. Ouvrez le volet **Explorateur de données** , puis sélectionnez **Nouveau conteneur**. Fournissez ensuite les détails suivants :
+1. Ouvrez le volet **Explorateur de données**, puis sélectionnez **Nouveau conteneur**. Fournissez ensuite les détails suivants :
 
    * Indiquez si vous créez une base de données ou si vous utilisez une base de données existante.
    * Entrez un ID de conteneur.

@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Découvrez comment installer et configurer un contrôleur d’entrée NGINX pour un réseau privé interne dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 976c5581ad217064da37b0b092d2d634d30cb7e5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 03/16/2021
+ms.openlocfilehash: 3201f510db9970b7db548ee6a3348fa68d278248
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729159"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601463"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS)
 
@@ -91,7 +91,7 @@ Aucune règle d’entrée n’a encore été créée. Par conséquent, la page 4
 
 ## <a name="run-demo-applications"></a>Exécuter des applications de démonstration
 
-Pour voir le contrôleur d’entrée en action, exécutons deux applications de démonstration dans votre cluster AKS. Pour cet exemple, utilisez `kubectl apply` en vue de déployer deux instances d’une application *Hello world*.
+Pour voir le contrôleur d’entrée à l’œuvre, exécutons deux applications de démonstration dans votre cluster AKS. Pour cet exemple, utilisez `kubectl apply` en vue de déployer deux instances d’une application *Hello world*.
 
 Créez un fichier *aks-helloworld.yaml* et copiez-le dans l’exemple de YAML suivant :
 
@@ -232,7 +232,7 @@ ingress.extensions/hello-world-ingress created
 Pour tester les itinéraires du contrôleur d’entrée, accédez aux deux applications avec un client web. Si nécessaire, vous pouvez rapidement tester cette fonctionnalité uniquement interne à partir d’un pod sur le cluster AKS. Créez un pod de test et attachez-y une session Terminal :
 
 ```console
-kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
+kubectl run -it --rm aks-ingress-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --namespace ingress-basic
 ```
 
 Installez `curl` dans le pod en utilisant `apt-get` :

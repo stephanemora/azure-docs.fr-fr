@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330612"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrer l’implémentation d’Azure DevTest Labs
@@ -29,7 +29,7 @@ La première chose à faire lors du déploiement d’une solution Azure DevTest 
 1. Définir **les plages d’adresses IP initiales** qui sont assignées à l’abonnement DevTest dans Azure. Cette étape nécessite de prévoir l’utilisation attendue en nombre de machines virtuelles afin de pouvoir fournir un bloc assez grand pour une expansion future.
 2. Identifier les **méthodes d’accès souhaité** dans les DevTest Labs (par exemple, l’accès externe / interne). Un point clé de cette étape consiste à déterminer si les machines virtuelles ont des adresses IP publiques (autrement dit, accessibles directement à partir d’internet).
 3. Identifier et établir des **méthodes de connectivité** en local et avec le reste de l’environnement cloud Azure. Si le routage forcé avec ExpressRoute est activé, il est probable que les machines virtuelles nécessitent des configurations de proxy appropriées pour traverser le pare-feu d’entreprise.
-4. Si les machines virtuelles doivent être **jointes à un domaine** , déterminer si elles rejoignent un domaine basé sur le cloud (Services d’annuaire AAD par exemple) ou un domaine local. Pour les VM en local, déterminer quelle unité d’organisation (UO) dans Active Directory est jointe par les machines virtuelles. En outre, vérifier que les utilisateurs ont accès aux jonctions (ou établir un compte de service qui a la possibilité de créer des enregistrements machine dans le domaine)
+4. Si les machines virtuelles doivent être **jointes à un domaine**, déterminer si elles rejoignent un domaine basé sur le cloud (Services d’annuaire AAD par exemple) ou un domaine local. Pour les VM en local, déterminer quelle unité d’organisation (UO) dans Active Directory est jointe par les machines virtuelles. En outre, vérifier que les utilisateurs ont accès aux jonctions (ou établir un compte de service qui a la possibilité de créer des enregistrements machine dans le domaine)
 
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>Phase 2 : déployer le laboratoire pilote
 Une fois la topologie du réseau en place, le premier laboratoire/pilote peut être créé en suivant les étapes suivantes :

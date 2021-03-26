@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036450"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471522"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Erreurs d’état du connecteur dans le tableau de bord d’ITSMC
 
@@ -88,3 +88,11 @@ Les sections suivantes décrivent les erreurs courantes qui apparaissent dans la
 
 * Quand une nouvelle instance d’ITSMC est créée, elle démarre la synchronisation des informations à partir du système ITSM, telles que des modèles d’élément de travail et des éléments de travail. [Synchronisez ITSMC pour générer un nouveau jeton d’actualisation](./itsmc-resync-servicenow.md).
 * [Passez en revue les détails de votre connexion dans ITSMC](./itsmc-connections-servicenow.md#create-a-connection) et vérifiez qu’ITSMC peut [se synchroniser](./itsmc-resync-servicenow.md).
+
+
+## <a name="ip-restrictions"></a>Restrictions d’adresse IP
+**Erreur** : « Failed to add ITSM Connection named "XXX" due to Bad Request. Error: Bad request. Invalid parameters provided for connection. Http Exception: Status Code Forbidden. »
+
+**Cause** : l’adresse IP de l’application ITSM n’autorise pas les connexions ITSM à partir d’outils ITSM de partenaires.
+
+**Résolution**: Pour répertorier les adresses IP ITSM afin d’autoriser les connexions ITSM d’outils ITSM de partenaires, nous vous recommandons de répertorier l’ensemble de la plage d’adresses IP publiques de la région Azure à laquelle appartient l’espace de travail LogAnalytics. [détails ici](https://www.microsoft.com/download/details.aspx?id=56519) Pour les régions EUS/WEU/EUS2/WUS2/USA Centre Sud, le client peut répertorier la balise réseau ActionGroup uniquement.

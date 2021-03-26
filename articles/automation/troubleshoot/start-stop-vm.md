@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053582"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953848"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Résoudre les problèmes liés à Start/Stop VMs during off-hours
 
@@ -149,7 +149,7 @@ Consultez la liste suivante pour connaître les solutions possibles :
   ```
 
 * Pour démarrer et arrêter des machines virtuelles, le compte d’identification du compte Automation doit disposer des autorisations appropriées sur la machine virtuelle. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application du principal de service utilisé par le compte d’identification. Vous pouvez récupérer cette valeur en accédant à votre compte Automation dans le portail Azure. Sélectionnez **Comptes d’identification** sous **Paramètres du compte**, puis sélectionnez le compte d’identification approprié.
-* Si la machine virtuelle rencontre un problème de démarrage ou de désallocation, il peut y avoir un problème sur la machine virtuelle elle-même. Une mise à jour qui est appliquée lorsque la machine virtuelle tente de s’arrêter, un service qui se bloque, etc. constituent des exemples. Accédez à la ressource de votre machine virtuelle et vérifiez les **Journaux d’activité** pour voir s’ils indiquent des erreurs. Vous pouvez également essayer de vous connecter à la machine virtuelle pour voir s’il existe des erreurs dans les journaux des événements. Pour en savoir plus sur le dépannage de votre machine virtuelle, voir [Résolution des problèmes liés aux machines virtuelles Azure](../../virtual-machines/troubleshooting/index.yml).
+* Si la machine virtuelle rencontre un problème de démarrage ou de désallocation, il peut y avoir un problème sur la machine virtuelle elle-même. Une mise à jour qui est appliquée lorsque la machine virtuelle tente de s’arrêter, un service qui se bloque, etc. constituent des exemples. Accédez à la ressource de votre machine virtuelle et vérifiez les **Journaux d’activité** pour voir s’ils indiquent des erreurs. Vous pouvez également essayer de vous connecter à la machine virtuelle pour voir s’il existe des erreurs dans les journaux des événements. Pour en savoir plus sur le dépannage de votre machine virtuelle, voir [Résolution des problèmes liés aux machines virtuelles Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 * Vérifiez les [flux de tâches](../automation-runbook-execution.md#job-statuses) afin de détecter d’éventuelles erreurs. Dans le portail, accédez à votre compte Automation, puis sélectionnez **Tâches** sous **Automatisation des processus**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Scénario : Mon runbook personnalisé ne parvient pas à démarrer ou à arrêter mes machines virtuelles

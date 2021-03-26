@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
 ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087823"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recommandations automatisées pour Azure Cosmos DB
@@ -23,7 +23,7 @@ Tous les services cloud comme Azure Cosmos DB reçoivent des mises à jour fréq
 
 Vous pouvez afficher les recommandations pour Azure Cosmos DB de différentes manières :
 
-- L’un des moyens de consulter les recommandations est d’accéder à l’onglet Notifications. S’il existe de nouvelles recommandations, une barre de message est affichée. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte Azure Cosmos. Dans votre compte Azure Cosmos, ouvrez le volet **Notifications** , puis sélectionnez l’onglet **Recommandations**. Vous pouvez sélectionner le message et afficher les recommandations.  
+- L’un des moyens de consulter les recommandations est d’accéder à l’onglet Notifications. S’il existe de nouvelles recommandations, une barre de message est affichée. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte Azure Cosmos. Dans votre compte Azure Cosmos, ouvrez le volet **Notifications**, puis sélectionnez l’onglet **Recommandations**. Vous pouvez sélectionner le message et afficher les recommandations.  
 
    :::image type="content" source="./media/automated-recommendations/cosmos-db-pane-recommendations.png" alt-text="Afficher les recommandations à partir du volet Azure Cosmos DB":::
 

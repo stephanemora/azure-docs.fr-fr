@@ -4,10 +4,10 @@ description: Découvrez comment déployer des instances de conteneur Azure pour 
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93127006"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
@@ -37,8 +37,8 @@ D’autres régions seront également prises en charge au fil du temps.
 
 Pour utiliser des GPU dans une instance de conteneur, vous devez spécifier une *ressource GPU* avec les informations suivantes :
 
-* **Nombre** : nombre de GPU : **1** , **2** ou **4**.
-* **Référence SKU** : référence SKU du GPU : **K80** , **P100** ou **V100**. Chaque référence SKU est mappée au GPU NVIDIA Tesla dans l’une des familles de machines virtuelles Azure compatibles GPU suivantes :
+* **Nombre** : nombre de GPU : **1**, **2** ou **4**.
+* **Référence SKU** : référence SKU du GPU : **K80**, **P100** ou **V100**. Chaque référence SKU est mappée au GPU NVIDIA Tesla dans l’une des familles de machines virtuelles Azure compatibles GPU suivantes :
 
   | SKU | Famille de machines virtuelles |
   | --- | --- |
@@ -69,7 +69,7 @@ Lors du déploiement des ressources GPU, définissez des ressources UC et mémoi
     
 ## <a name="yaml-example"></a>Exemple YAML
 
-Une façon d’ajouter des ressources GPU est de déployer un groupe de conteneurs en utilisant un [fichier YAML](container-instances-multi-container-yaml.md). Copiez le YAML suivant dans un nouveau fichier nommé *gpu-deploy-aci.yaml* , puis enregistrez le fichier. Ce YAML crée un groupe de conteneurs nommé *gpucontainergroup* et spécifie une instance de conteneur avec un GPU K80. L’instance exécute un exemple d’application d’ajout de vecteur CUDA. Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
+Une façon d’ajouter des ressources GPU est de déployer un groupe de conteneurs en utilisant un [fichier YAML](container-instances-multi-container-yaml.md). Copiez le YAML suivant dans un nouveau fichier nommé *gpu-deploy-aci.yaml*, puis enregistrez le fichier. Ce YAML crée un groupe de conteneurs nommé *gpucontainergroup* et spécifie une instance de conteneur avec un GPU K80. L’instance exécute un exemple d’application d’ajout de vecteur CUDA. Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
 
 ```YAML
 additional_properties: {}
@@ -91,7 +91,7 @@ properties:
   restartPolicy: OnFailure
 ```
 
-Déployez le groupe de conteneurs avec la commande [az container create][az-container-create], en spécifiant le nom du fichier YAML dans le paramètre `--file`. Vous devez fournir le nom d’un groupe de ressources et un emplacement pour le groupe de conteneurs tel que *eastus* , qui prend en charge les ressources GPU.  
+Déployez le groupe de conteneurs avec la commande [az container create][az-container-create], en spécifiant le nom du fichier YAML dans le paramètre `--file`. Vous devez fournir le nom d’un groupe de ressources et un emplacement pour le groupe de conteneurs tel que *eastus*, qui prend en charge les ressources GPU.  
 
 ```azurecli
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus

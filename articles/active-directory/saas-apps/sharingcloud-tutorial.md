@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 7ae447a9577feba8b43b5b03a757ec4095ee2cb4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: f663a81a86aae2fe11611aa1d6ab19f89ebcf6d1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177910"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950040"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharingcloud"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SharingCloud
 
@@ -26,14 +26,13 @@ Dans ce tutoriel, vous allez découvrir comment intégrer SharingCloud à Azure�
 * Permettre à vos utilisateurs de se connecter automatiquement à SharingCloud avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Si vous souhaitez en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement SharingCloud pour lequel l’authentification unique (SSO) est activée.
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Sapient pour lequel l’authentification unique est activée
+
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -46,30 +45,19 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 Pour configurer l’intégration de SharingCloud à Azure AD, vous devez ajouter SharingCloud à votre liste d’applications SaaS managées, à partir de la galerie.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](common/select-azuread.png)
-    
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-    
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-
-    ![Bouton Nouvelle application](common/add-new-app.png)
-    
 1. Dans la section **Ajouter à partir de la galerie**, tapez **SharingCloud** dans la zone de recherche.
-
-    ![SharingCloud dans la liste des résultats](common/search-new-app.png)
-    
 1. Sélectionnez **SharingCloud** dans le volet des résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sharingcloud"></a>Configurer et tester l’authentification unique Azure AD pour SharingCloud
+
+## <a name="configure-and-test-azure-ad-sso-for-sharingcloud"></a>Configurer et tester l’authentification unique Azure AD pour SharingCloud
 
 Configurez et testez l’authentification unique Azure AD auprès de SharingCloud à l’aide d’un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SharingCloud associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec SharingCloud, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD auprès de SharingCloud, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
@@ -82,15 +70,9 @@ Pour configurer et tester l’authentification unique Azure AD avec SharingCloud
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SharingCloud**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
-    
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-    
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **SharingCloud**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** à côté de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -98,15 +80,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     Chargez le fichier de métadonnées avec le fichier XML fourni par SharingCloud. Pour obtenir le fichier, contactez l’[équipe du support client de SharingCloud](mailto:support@sharingcloud.com).
 
-    ![image](common/upload-metadata.png)
+    ![Capture d’écran de l’interface utilisateur de configuration SAML de base avec le lien **Upload metadata file** ( Charger le fichier de métadonnées) en évidence.](common/upload-metadata.png)
     
     Sélectionnez le fichier de métadonnées fourni, puis cliquez sur **Charger**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Capture d’écran de l’interface utilisateur du fichier de métadonnées, avec l’icône de sélection de fichier et le bouton **Upload** (Charger) en évidence.](common/browse-upload-metadata.png)
 
 1. L’application SharingCloud attend les assertions SAML dans un certain format, ce qui oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/edit_attribute.png)
+    ![Capture d’écran de l’interface utilisateur Attributs d’utilisateur avec l’icône de modification en évidence.](common/edit_attribute.png)
 
 1. En plus de ce qui précède, l’application SharingCloud s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
@@ -119,10 +101,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône **Copier** pour copier l’**URL des métadonnées de fédération d’application** à partir des options données selon vos besoins.
 
     ![URL de métadonnées à copier](common/copy_metadataurl.png)
-
-## <a name="configure-sharingcloud-sso"></a>Configurer l’authentification unique SharingCloud
-
-Pour configurer l’authentification unique côté **SharingCloud**, vous devez envoyer l’**URL des métadonnées de fédération** copiée à du portail Azure à [l’équipe du support technique de SharingCloud](mailto:support@sharingcloud.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -143,16 +121,14 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SharingCloud**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-   ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-sharingcloud-sso"></a>Configurer l’authentification unique SharingCloud
+
+Pour configurer l’authentification unique côté **SharingCloud**, vous devez envoyer l’**URL des métadonnées de fédération** copiée à du portail Azure à [l’équipe du support technique de SharingCloud](mailto:support@sharingcloud.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-sharingcloud-test-user"></a>Créer l’utilisateur de test SharingCloud
 
@@ -160,9 +136,21 @@ Dans cette section, un utilisateur nommé Britta Simon est créé dans SharingCl
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-* Accédez directement à votre URL SharingCloud pour lancer le processus de connexion.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
+
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
+
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à SharingCloud, d’où vous pouvez lancer le flux de connexion.  
+
+* Accédez directement à l’URL de connexion SharingCloud pour lancer le processus de connexion.
+
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+
+* Cliquez sur **Tester cette application** dans le portail Azure ; vous devez être automatiquement connecté à l’instance de SharingCloud pour laquelle vous avez configuré l’authentification unique. 
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette SharingCloud dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance de SharingCloud pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Après avoir configuré SharingCloud, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-

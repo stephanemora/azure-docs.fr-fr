@@ -9,10 +9,10 @@ ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
 ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99052820"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Utilisation de la SNAT pour les connexions sortantes
@@ -119,7 +119,7 @@ Lorsque vous utilisez un équilibreur de charge interne Standard, il n’y a pas
 
  | Associations | Méthode | Protocoles IP |
  | ------------ | ------ | ------------ |
- |None </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
+ |Aucun </br> Équilibreur de charge de base | [SNAT](#snat) avec adresse IP dynamique au niveau de l’instance| TCP </br> UDP | 
 
  #### <a name="description"></a>Description
 

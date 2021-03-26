@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025906"
 ---
 # <a name="intents-in-your-luis-app"></a>Intentions dans votre application LUIS
@@ -25,7 +25,7 @@ Définissez un ensemble d’intentions qui correspondent aux actions que les uti
 Intentions de l’application de voyage   |   Exemples d’énoncés   |
 ------|------|
  RéserverVol     |   « Réserve-moi un vol pour Rio la semaine prochaine » <br/> « Emmène-moi à Rio le 24 » <br/> « J’ai besoin d’un billet d’avion pour Rio de Janeiro dimanche prochain »    |
- Salutations     |   « Salut » <br/>« Bonjour » <br/>« Bonsoir »  |
+ Greeting     |   « Salut » <br/>"Hello" <br/>« Bonsoir »  |
  BulletinMétéo | « Quel temps fait-il à Boston ? » <br/> « Montre-moi les prévisions pour ce week-end » |
  None         | « Trouve-moi une recette de cookies »<br>« Les Lakers ont-ils gagné ? » |
 
@@ -49,7 +49,7 @@ L’intention correspond à l’action que l’application doit effectuer pour l
 
 <a name="how-do-intents-relate-to-entities"></a>
 
-Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez des entités afin de représenter les paramètres requis pour exécuter l’action.
+ Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez des entités afin de représenter les paramètres requis pour exécuter l’action.
 
 |Intentionnel   | Entité | Exemple d’énoncé   |
 |------------------|------------------------------|------------------------------|

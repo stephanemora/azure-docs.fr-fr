@@ -3,12 +3,12 @@ title: Chiffrement des données de sauvegarde à l’aide de clés gérées par 
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369456"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716735"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -237,7 +237,7 @@ InfrastructureEncryptionState : Disabled
 >
 > - Le coffre de clés se trouve dans la même région que le coffre Recovery Services
 >
-> - La suppression réversible et la protection contre le vidage ont été activées pour le coffre de clés
+> - La suppression réversible et la protection contre le vidage sont activées pour le coffre de clés
 >
 > - Le coffre Recovery Services dispose des autorisations nécessaires pour accéder au coffre de clés.
 

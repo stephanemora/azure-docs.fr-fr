@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: d352fc86f4451f60951b84929ad5d9450c1003d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 72c82e8f425b05dde37352225dd7167b089ba48a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942787"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868458"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
 
@@ -113,7 +113,7 @@ Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka sur l’I
 
 Le diagramme suivant illustre les flux de communication entre Spark et Kafka :
 
-![Diagramme des clusters Spark et Kafka dans un réseau virtuel Azure](./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagramme des clusters Spark et Kafka dans un réseau virtuel Azure" border="false":::
 
 > [!NOTE]  
 > Le service Kafka est limité à la communication au sein du réseau virtuel. L’accès aux autres services sur le cluster, tels que SSH et Ambari, se fait via Internet. Pour plus d’informations sur les ports publics disponibles avec HDInsight, consultez [Ports et URI utilisés par HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -137,7 +137,7 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il co
 
 2. Utilisez les informations suivantes pour renseigner les entrées dans la section **Modèle personnalisé** :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | --- | --- |
     | Abonnement | Votre abonnement Azure |
     | Resource group | Le groupe de ressources qui contient les ressources. |
@@ -149,7 +149,7 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il co
     | Nom d’utilisateur SSH | L’utilisateur SSH à créer pour l’accès aux clusters. |
     | Mot de passe SSH | Le mot de passe de l’utilisateur SSH. |
 
-    ![Capture d’écran du modèle personnalisé](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
+    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Capture d’écran du modèle personnalisé":::
 
 3. Passez en revue les **termes et conditions**, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
 

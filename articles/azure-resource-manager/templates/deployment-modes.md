@@ -3,12 +3,12 @@ title: Modes de déploiement
 description: Explique comment spécifier s’il faut utiliser un mode de déploiement complet ou incrémentiel avec Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 45eee255cec06925095ed0696c669b5c205f8b56
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3f1f74c0495e0d43671712281a35a7e74fd7d821
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724406"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888836"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -114,7 +114,7 @@ L’exemple suivant montre un modèle lié dans le mode de déploiement incréme
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2017-05-10",
+    "apiVersion": "2020-10-01",
     "name": "linkedTemplate",
     "properties": {
       "mode": "Incremental",

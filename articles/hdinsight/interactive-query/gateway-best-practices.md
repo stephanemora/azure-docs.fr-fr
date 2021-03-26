@@ -4,12 +4,12 @@ description: Découvrez comment parcourir les meilleures pratiques pour exécute
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933107"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869784"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Présentation approfondie de la passerelle et meilleures pratiques pour Apache Hive dans Azure HDInsight
 
@@ -21,7 +21,7 @@ La passerelle HDInsight est la seule partie d’un cluster HDInsight qui est pub
 
 Le diagramme suivant fournit une illustration approximative de la façon dont la Passerelle fournit une abstraction devant toutes les différentes possibilités de résolution de l’hôte dans HDInsight.
 
-![Host Resolution Diagram](./media/gateway-best-practices/host-resolution-diagram.png "Diagramme de résolution de l’hôte")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Host Resolution Diagram" border="true":::
 
 ## <a name="motivation"></a>Motivation
 
@@ -39,7 +39,7 @@ La dégradation des performances de la Passerelle autour des requêtes d’une t
 
 Le schéma suivant illustre les étapes impliquées dans une requête SELECT.
 
-![Result Diagram](./media/gateway-best-practices/result-retrieval-diagram.png "Diagramme des résultats")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Result Diagram" border="true":::
 
 Apache Hive est une abstraction relationnelle sur un système de fichiers compatible HDFS. Cette abstraction signifie que les instructions **SELECT** dans Hive correspondent aux opérations **READ** sur le système de fichiers. Les opérations **READ** sont traduites dans le schéma approprié avant d’être signalées à l’utilisateur. La latence de ce processus augmente avec la taille des données et le nombre total de tronçons requis pour atteindre l’utilisateur final.
 
@@ -53,9 +53,9 @@ Il existe plusieurs moyens d’atténuer et de comprendre les problèmes de perf
 
 * Utilisez la clause **LIMIT** lors de l’exécution de requêtes **SELECT** volumineuses. La clause **LIMIT** permet de réduire le nombre total de lignes signalées à l’hôte client. La clause **LIMIT** concerne uniquement la génération de résultats et ne modifie pas le plan de requête. Pour appliquer la clause **LIMIT** au plan de requête, utilisez la configuration `hive.limit.optimize.enable`. **LIMIT** peut être combinée à un décalage à l’aide de la forme d’argument **LIMIT x,y**.
 
-* Nommez les colonnes qui vous intéressent lorsque vous exécutez des requêtes **SELECT** au lieu d’utiliser **SELECT \** _. Si vous sélectionnez moins de colonnes, la quantité de données lues diminue.
+* Nommez les colonnes qui vous intéressent lorsque vous exécutez des requêtes **SELECT** au lieu d’utiliser **SELECT\*** . Si vous sélectionnez moins de colonnes, la quantité de données lues diminue.
 
-_ Essayez d’exécuter la requête qui vous intéresse par le biais d’Apache Beeline. Si la récupération des résultats via Apache Beeline prend beaucoup de temps, attendez-vous à des retards lorsque vous récupérez les mêmes résultats via des outils externes.
+* Essayez d’exécuter la requête qui vous intéresse par le biais d’Apache Beeline. Si la récupération des résultats via Apache Beeline prend beaucoup de temps, attendez-vous à des retards lorsque vous récupérez les mêmes résultats via des outils externes.
 
 * Testez une requête Hive de base pour vous assurer qu’une connexion à la Passerelle HDInsight peut être établie. Essayez d’exécuter une requête de base à partir de deux outils externes ou plus pour vous assurer qu’aucun outil ne rencontre de problème.
 

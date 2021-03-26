@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
 ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793277"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
@@ -60,16 +60,16 @@ Déployez l’application pour les trois clients fournis :
     > Certaines authentifications et pare-feu de serveur sont volontairement non sécurisés à des fins de démonstration. **Créez un groupe de ressources** pour chaque déploiement d’application.  N’utilisez pas un groupe de ressources existant. N’utilisez pas cette application, ni les ressources qu’elle crée, pour la production. Supprimez tous les groupes de ressources lorsque vous en avez terminé avec les applications pour interrompre la facturation associée.
 
     Il est préférable d’utiliser uniquement des lettres minuscules, des chiffres et des traits d’union dans les noms de ressource.
-    * Pour **Groupe de ressources** , sélectionnez Création et indiquez un nom en minuscules pour le groupe de ressources. **wingtip-sa-\<venueName\>-\<user\>** est le modèle recommandé.  Pour \<venueName\>, entrez le nom du lieu sans espaces. Pour \<user\>, entrez la valeur utilisateur ci-dessous.  Avec ce modèle, des noms de groupes de ressources pourraient être *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* , *wingtip-sa-fabrikamjazzclub-af1* .
+    * Pour **Groupe de ressources**, sélectionnez Création et indiquez un nom en minuscules pour le groupe de ressources. **wingtip-sa-\<venueName\>-\<user\>** est le modèle recommandé.  Pour \<venueName\>, entrez le nom du lieu sans espaces. Pour \<user\>, entrez la valeur utilisateur ci-dessous.  Avec ce modèle, des noms de groupes de ressources pourraient être *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Sélectionnez un **Emplacement** dans la liste déroulante.
 
-    * Pour **Utilisateur** , nous vous recommandons de choisir une valeur d’utilisateur courte, comme vos initiales plus un chiffre : par exemple, *af1* .
+    * Pour **Utilisateur**, nous vous recommandons de choisir une valeur d’utilisateur courte, comme vos initiales plus un chiffre : par exemple, *af1*.
 
 
-3. **Déployez l’application** .
+3. **Déployez l’application**.
 
     * Cliquez pour accepter les conditions générales.
-    * Cliquez sur **Achat** .
+    * Cliquez sur **Achat**.
 
 4. Surveillez l’état des trois déploiements en cliquant sur **Notifications** (l’icône représentant une cloche à droite de la zone de recherche). Le déploiement des applications prend environ cinq minutes.
 
@@ -102,7 +102,7 @@ Examinons quelques-unes des ressources qui ont été déployées :
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des groupes de ressources.
 2. Vous devrez voir les trois groupes de ressources client.
-3. Ouvrez le groupe de ressources **wingtip-sa-fabrikam-&lt;user&gt;** qui contient les ressources pour le déploiement du Fabrikam Jazz Club.  Le serveur **fabrikamjazzclub-&lt;user&gt;** contient la base de données **fabrikamjazzclub** .
+3. Ouvrez le groupe de ressources **wingtip-sa-fabrikam-&lt;user&gt;** qui contient les ressources pour le déploiement du Fabrikam Jazz Club.  Le serveur **fabrikamjazzclub-&lt;user&gt;** contient la base de données **fabrikamjazzclub**.
 
 Chaque base de données client est une base de données *autonome* de 50 DTU.
 

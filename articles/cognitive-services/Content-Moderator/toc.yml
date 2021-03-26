@@ -21,7 +21,7 @@
 - name: Exemples
   items:
     - name: Exemples de navigateur
-      href: 'https://docs.microsoft.com/samples/browse/?terms=content%20moderator'
+      href: /samples/browse/?terms=content+moderator
     - name: Exemples du kit SDK .NET
       href: samples-dotnet.md
     - name: Exemples du kit SDK Python
@@ -119,11 +119,11 @@
     - name: Prise en charge de la région
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Modules Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?terms=content%20moderator'
+      href: /learn/browse/?terms=content+moderator
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
     - name: Azure Government et Azure mondial
-      href: 'https://docs.microsoft.com/en-us/azure/azure-government/compare-azure-government-global-azure'
+      href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Mises à jour Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformité

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93074795"
 ---
 # <a name="overview-of-the-developer-portal"></a>Présentation du portail des développeurs
@@ -43,7 +43,7 @@ Le portail des développeurs peut être personnalisé et mis en forme à l’aid
 
 ## <a name="extensibility"></a><a name="managed-vs-self-hosted"></a> Extensibilité
 
-Votre service de gestion des API intègre un portail des développeurs **géré** , toujours à jour. Vous pouvez y accéder à partir de l’interface du portail Azure.
+Votre service de gestion des API intègre un portail des développeurs **géré**, toujours à jour. Vous pouvez y accéder à partir de l’interface du portail Azure.
 
 Si vous avez besoin de l’étendre avec une logique personnalisée, ce qui n’est pas pris en charge par défaut, vous pouvez modifier sa base de code. La base de code du portail est [disponible dans un référentiel GitHub][1]. Par exemple, vous pouvez implémenter un nouveau widget, qui s’intègre à un système de prise en charge tiers. Lorsque vous implémentez de nouvelles fonctionnalités, vous pouvez choisir l’une des options suivantes :
 
