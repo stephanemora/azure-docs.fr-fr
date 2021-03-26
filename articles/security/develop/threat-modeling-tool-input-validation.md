@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c816fbad05831c83c891c70849986b38cb7fdbeb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97589540"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastructure de sécurité : validation des entrées | Mesures d’atténuation 
@@ -43,7 +43,7 @@ ms.locfileid: "97589540"
 | **Informations de référence**              | [Sécurité XSLT](/previous-versions/windows/desktop/ms763800(v=vs.85)), [Propriété XsltSettings.EnableScript](/dotnet/api/system.xml.xsl.xsltsettings.enablescript) |
 | **Étapes** | XSLT prend en charge les scripts dans les feuilles de style à l’aide de l’élément `<msxml:script>`. Cela permet d’utiliser des fonctions personnalisées dans une transformation XSLT. Le script est exécuté dans le cadre du processus exécutant la transformation. Le script XSLT doit être désactivé dans les environnements non approuvés afin d’empêcher l’exécution de code non approuvé. *Si vous utilisez .NET :* les scripts XSLT sont désactivés par défaut. Cependant, vous devez vous assurer qu’ils n’ont pas été explicitement activés par le biais de la propriété `XsltSettings.EnableScript`.|
 
-### <a name="example"></a> Exemple 
+### <a name="example"></a>Exemple 
 
 ```csharp
 XsltSettings settings = new XsltSettings();

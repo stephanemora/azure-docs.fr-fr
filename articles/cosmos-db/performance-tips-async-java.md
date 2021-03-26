@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperf-fy21q2
 ms.openlocfilehash: bd009ae4909c8cb016a31323294df3a359eb7c51
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033661"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Conseils sur les performances pour le Kit de développement logiciel (SDK) Java asynchrone v2 Azure Cosmos DB
@@ -86,17 +86,17 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
   Dans le SDK Java asynchrone v2 Azure Cosmos DB, le mode direct est le meilleur choix pour améliorer les performances des bases de données avec la plupart des charges de travail. 
 
-  * ***Vue d’ensemble du mode direct** _
+  * ***Vue d’ensemble du mode direct***
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration de l’architecture du mode direct" border="false":::
   
-  L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 _ *canaux** côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, d’une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins par le **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** l’achemine vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
+  L’architecture côté client utilisée en mode direct permet une utilisation prévisible du réseau et un accès multiplexé aux réplicas Azure Cosmos DB. Le diagramme ci-dessus montre comment le mode direct route les demandes des clients vers les réplicas dans le back-end Cosmos DB. L’architecture du mode direct alloue jusqu’à 10 **canaux** côté client par réplica de base de données. Un canal est une connexion TCP précédée d’une mémoire tampon des requêtes, d’une profondeur de 30 requêtes. Les canaux appartenant à un réplica sont alloués dynamiquement en fonction des besoins par le **point de terminaison de service** du réplica. Quand l’utilisateur émet une requête en mode direct, **TransportClient** l’achemine vers le point de terminaison de service approprié en fonction de la clé de partition. La **file d’attente des requêtes** met en mémoire tampon les requêtes avant le point de terminaison de service.
 
-  * ***Options de configuration de ConnectionPolicy pour le mode direct** _
+  * ***Options de configuration de ConnectionPolicy pour le mode direct***
 
     Pour commencer, utilisez les paramètres de configuration recommandés ci-dessous. Si vous rencontrez des problèmes sur ce point particulier, contactez l’[équipe Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com).
 
-    Si vous utilisez Azure Cosmos DB comme base de données de référence (c’est-à-dire si la base de données est utilisée pour de nombreuses opérations de lecture de point et quelques opérations d’écriture), il peut être acceptable de définir _idleEndpointTimeout* sur 0 (c’est-à-dire pas de délai d’expiration).
+    Si vous utilisez Azure Cosmos DB comme base de données de référence (c’est-à-dire si la base de données est utilisée pour de nombreuses opérations de lecture de point et quelques opérations d’écriture), il peut être acceptable de définir *idleEndpointTimeout* sur 0 (c’est-à-dire pas de délai d’expiration).
 
 
     | Option de configuration       | Default    |
@@ -115,13 +115,13 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***Conseils de programmation pour le mode direct** _
+* ***Conseils de programmation pour le mode direct***
 
   Consultez l’article de référence [Résolution des problèmes](troubleshoot-java-async-sdk.md) du kit de développement logiciel (SDK) Azure Cosmos DB Async Java v2 pour résoudre tous les problèmes liés au kit SDK.
   
   Voici quelques conseils de programmation importants lors de l’utilisation du mode direct :
   
-  _ **Utilisez le multithreading dans votre application pour bénéficier d’un transfert de données TCP efficace** : après avoir effectué une requête, votre application doit s’abonner pour recevoir les données sur un autre thread. Sinon, une opération « semi-duplex » imprévue est effectuée et les requêtes suivantes sont bloquées en attendant la réponse de la requête précédente.
+  * **Utilisez le multithreading dans votre application pour bénéficier d’un transfert de données TCP efficace** : après avoir effectué une requête, votre application doit s’abonner pour recevoir les données sur un autre thread. Sinon, une opération « semi-duplex » imprévue est effectuée et les requêtes suivantes sont bloquées en attendant la réponse de la requête précédente.
   
   * **Exécutez les charges de travail nécessitant beaucoup de ressources système sur un thread dédié** : pour des raisons similaires à celles du conseil précédent, il est conseillé de placer les opérations comme le traitement de données complexes dans un thread distinct. Une requête qui extrait des données d’un autre magasin de données (par exemple, si le thread utilise simultanément des magasins de données Azure Cosmos DB et Spark) risque de subir une plus grande latence ; nous vous recommandons de créer un thread supplémentaire qui attend une réponse de l’autre magasin de données.
   
@@ -133,19 +133,19 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
   Le Kit de développement logiciel (SDK) Java asynchrone v2 Azure Cosmos DB prend en charge les requêtes parallèles, qui vous permettent d’interroger une collection partitionnée en parallèle. Pour plus d’informations, voir les [exemples de code](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) concernant l’utilisation des kits SDK. Les requêtes parallèles sont conçues pour améliorer la latence des requêtes et le débit sur leur équivalent série.
 
-  * ***Optimisation de setMaxDegreeOfParallelism\:** _
+  * ***Optimisation de setMaxDegreeOfParallelism\:***
     
     Les requêtes parallèles interrogent plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. Utilisez donc le paramètre setMaxDegreeOfParallelism pour définir le nombre de partitions qui augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez utiliser le paramètre setMaxDegreeOfParallelism pour définir un nombre élevé, et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme degré maximal de parallélisme.
 
     Il est important de noter que les requêtes parallèles produisent de meilleurs résultats si les données sont réparties de manière homogène entre toutes les partitions. Si la collection est partitionnée de telle façon que toutes les données retournées par une requête, ou une grande partie d’entre elles, sont concentrées sur quelques partitions (une partition dans le pire des cas), les performances de la requête sont altérées par ces partitions.
 
-  _ ***Optimisation de setMaxBufferedItemCount\:** _
+  * ***Optimisation de setMaxBufferedItemCount\:***
     
     Une requête parallèle est conçue pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. setMaxBufferedItemCount limite le nombre de résultats pré-extraits. Définir le paramètre setMaxBufferedItemCount sur le nombre de résultats retournés attendu (ou un nombre plus élevé) permet à la requête d’optimiser la pré-extraction.
 
     La pré-extraction fonctionne de la même façon, quel que soit le paramètre MaxDegreeOfParallelism, et il existe une seule mémoire tampon pour les données de toutes les partitions.
 
-_ **Implémentation de l’interruption à intervalles définis par getRetryAfterInMilliseconds**
+* **Implémentation de l’interruption à intervalles définis par getRetryAfterInMilliseconds**
 
   Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application client doit s’interrompre pour l’intervalle de nouvelle tentative spécifié sur le serveur. Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative.
 

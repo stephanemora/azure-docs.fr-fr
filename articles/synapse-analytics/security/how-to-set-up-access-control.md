@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368997"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472262"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse 
 
@@ -124,7 +124,7 @@ Pour exécuter des pipelines et effectuer des tâches système, Synapse exige qu
 
 ## <a name="step-5-grant-synapse-administrators-the-azure-contributor-role-on-the-workspace"></a>ÉTAPE 5 : Accorder aux administrateurs de Synapse le rôle Contributeur Azure sur l’espace de travail 
 
-Pour créer des pools SQL, des pools Apache Spark et des runtimes d’intégration, les utilisateurs doivent avoir au moins un accès Contributeur Azure à l’espace de travail. Le rôle Contributeur permet également à ces utilisateurs de gérer les ressources, y compris la suspension et la mise à l’échelle.
+Pour créer des pools SQL, des pools Apache Spark et des runtimes d’intégration, les utilisateurs doivent avoir au moins le rôle de Contributeur Azure à l’espace de travail. Le rôle Contributeur permet également à ces utilisateurs de gérer les ressources, y compris la suspension et la mise à l’échelle. Si vous utilisez le portail Azure ou Synapse Studio pour créer des pools SQL, des pools Apache Spark et des runtimes d’intégration, vous devez disposer du rôle de Contributeur Azure au niveau du groupe de ressources. 
 
 - Ouvrez le portail Azure
 - Recherchez l’espace de travail, `workspace1`.

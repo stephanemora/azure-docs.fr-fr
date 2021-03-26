@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 author: timlt
 ms.author: timlt
@@ -7,10 +7,10 @@ ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
 ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102244791"
 ---
 Dans les sections suivantes, vous allez configurer un terminal et utiliser Azure CLI pour créer un hub IoT. Pour configurer un terminal qui exécute des commandes Azure CLI, vous pouvez utiliser Azure Cloud Shell dans le navigateur ou utiliser un terminal local.

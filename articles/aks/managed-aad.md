@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: ca8b9a511de1b71e5d03b8aac7631fc8f524500f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2cf72da8f7ca82c37088cd6456f094ada2580982
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177934"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103418961"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Intégration d’Azure Active Directory géré par AKS
 
@@ -36,7 +36,7 @@ Pour en savoir plus sur le flux de l’intégration d’Azure AD, consultez la [
 * Si vous utilisez [helm](https://github.com/helm/helm), version minimale de helm 3.3.
 
 > [!Important]
-> Vous devez utiliser Kubectl avec une version minimale 1.18.1 ou kubelogin. Si vous n’utilisez pas la version appropriée, vous remarquerez des problèmes d’authentification.
+> Vous devez utiliser Kubectl avec une version minimale 1.18.1 ou kubelogin. La différence entre les versions mineures de Kubernetes et kubectl ne doit pas être supérieure à 1 version. Si vous n’utilisez pas la version appropriée, vous remarquerez des problèmes d’authentification.
 
 Pour installer kubectl et kubelogin, utilisez les commandes suivantes :
 

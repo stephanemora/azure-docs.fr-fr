@@ -1,7 +1,7 @@
 ---
 title: Conversion d’un peering Direct hérité en ressource Azure avec PowerShell
 titleSuffix: Azure
-description: Convertissez un peering Direct hérité en ressource Azure avec PowerShell.
+description: Conversion d’un peering Direct hérité en ressource Azure avec PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -10,10 +10,10 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: d3e7cdf11e1e1e033b4e72b9579d8c63b28e6c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89071684"
 ---
 # <a name="convert-a-legacy-direct-peering-to-an-azure-resource-by-using-powershell"></a>Conversion d’un peering Direct hérité en ressource Azure avec PowerShell

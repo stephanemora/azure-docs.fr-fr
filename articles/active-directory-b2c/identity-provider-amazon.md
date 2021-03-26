@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5880b6f44caec053aef292960cecbf64f25c6743
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448572"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489149"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C
 
@@ -38,12 +38,17 @@ ms.locfileid: "102448572"
 
 Pour permettre la connexion des utilisateurs avec un compte Amazon dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application dans [Services et technologies Amazon Developer](https://developer.amazon.com). Pour plus d’informations, consultez [S’inscrire pour se connecter avec Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Si vous ne disposez pas encore d’un compte Amazon, vous pouvez en créer un à l’adresse [https://www.amazon.com/](https://www.amazon.com/).
 
-> [!NOTE]  
-> Utilisez les URL suivantes à l’**étape 8** ci-dessous, en remplaçant `your-tenant-name` par le nom de votre locataire. Quand vous entrez le nom de votre locataire, utilisez uniquement des minuscules même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
-> - Dans **Origines autorisées**, entrez `https://your-tenant-name.b2clogin.com`. 
-> - Dans **URL de retour autorisées**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
-
-[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
+1. Connectez-vous à la [console de développement Amazon](https://developer.amazon.com/dashboard) avec les informations d’identification de votre compte Amazon.
+1. Si ce n’est déjà fait, cliquez sur **S’inscrire**, suivez la procédure d’inscription pour développeur et acceptez la politique d’utilisation.
+1. Dans le tableau de bord, sélectionnez **connexion avec Amazon**.
+1. Sélectionnez **Create a New Security Profile** (Créer un profil de sécurité).
+1. Entrez un **nom de profil de sécurité**, une **description du profil de sécurité** et l’**URL de l’avis de confidentialité et de consentement**, par exemple `https://www.contoso.com/privacy` L’URL de l’avis de confidentialité est une page gérée qui fournit aux utilisateurs des informations sur la confidentialité. Ensuite, cliquez sur **Enregistrer**.
+1. Dans la section **Connexion avec les configurations Amazon**, sélectionnez le **nom du profil de sécurité** que vous avez créé, cliquez sur l’icône **Gérer** et sélectionnez **Paramètres web**.
+1. Dans la section **Paramètres web**, copiez les valeurs **ID client**. Sélectionnez **Afficher le secret** pour obtenir la clé secrète client et copiez-la. Vous en aurez besoin pour configurer un compte Amazon en tant que fournisseur d’identité dans votre locataire. **Client Secret** est une information d’identification de sécurité importante.
+1. Dans les **paramètres web**, sélectionnez **Modifier**. 
+    1. Dans **Origines autorisées**, entrez `https://your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name`.
+    1.  Dans **URL de retour autorisées**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.  Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.  Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé.
+1. Sélectionnez **Enregistrer**.
 
 ::: zone pivot="b2c-user-flow"
 

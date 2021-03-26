@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201751"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224654"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -61,7 +61,7 @@ La chaîne de connexion est obligatoire. Vous pouvez trouver votre chaîne de co
 }
 ```
 
-Vous pouvez également définir la chaîne de connexion à l'aide de la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Vous pouvez également définir la chaîne de connexion à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING` (qui sera alors prioritaire si la chaîne de connexion est également spécifiée dans la configuration json).
 
 Si vous ne définissez pas la chaîne de connexion, l’agent Java sera désactivé.
 
@@ -81,7 +81,7 @@ Si vous souhaitez définir le nom du rôle cloud :
 
 Si le nom du rôle cloud n’est pas défini, le nom de la ressource Application Insights sera utilisé pour étiqueter le composant sur la cartographie d’application.
 
-Vous pouvez également définir le nom de rôle cloud à l'aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_NAME`.
+Vous pouvez également définir le nom du rôle cloud à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_NAME` (qui sera alors prioritaire si le nom du rôle cloud est également spécifié dans la configuration json).
 
 ## <a name="cloud-role-instance"></a>Instance de rôle cloud
 
@@ -98,7 +98,7 @@ Si vous souhaitez définir l'instance de rôle cloud sur autre chose que le nom 
 }
 ```
 
-Vous pouvez également définir l'instance de rôle cloud à l'aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_INSTANCE`.
+Vous pouvez également définir l’instance du rôle cloud à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_INSTANCE` (qui sera alors prioritaire si l’instance du rôle cloud est également spécifiée dans la configuration json).
 
 ## <a name="sampling"></a>échantillonnage
 
@@ -117,7 +117,7 @@ Voici un exemple montrant comment définir l’échantillonnage de façon à cap
 }
 ```
 
-Vous pouvez également définir le pourcentage d’échantillonnage à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
+Vous pouvez également définir le pourcentage d’échantillonnage à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (qui sera alors prioritaire si le pourcentage d’échantillonnage est également spécifié dans la configuration json).
 
 > [!NOTE]
 > Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
@@ -150,9 +150,6 @@ Si vous souhaitez collecter des métriques JMX supplémentaires :
 `attribute` est le nom d’attribut à l’intérieur du MBean JMX que vous souhaitez collecter.
 
 Les valeurs de métrique JMX numériques et booléennes sont prises en charge. Les métriques JMX booléennes sont mappées à `0` pour false et à `1` pour true.
-
-[//]: # "NOTE: Not documenting APPLICATIONINSIGHTS_JMX_METRICS here"
-[//]: # "json embedded in env var is messy, and should be documented only for codeless attach scenario"
 
 ## <a name="custom-dimensions"></a>Dimensions personnalisées
 
@@ -187,9 +184,11 @@ Pour plus d’informations, consultez la documentation du [processeur de télém
 
 Les journalisations Log4j, Logback et java.util.logging sont instrumentées automatiquement, et la journalisation effectuée via ces frameworks de journalisation est collectée automatiquement.
 
-La journalisation n’est capturée que si elle respecte, premièrement, le seuil configuré des infrastructures de journalisation, et deuxièmement, le seuil configuré d’Application Insights.
+La journalisation est capturée uniquement si elle est conforme au niveau configuré pour le framework de journalisation, et si elle correspond également au niveau configuré pour Application Insights.
 
-Le seuil d’Application Insights par défaut est `INFO`. Si vous souhaitez modifier ce seuil :
+Par exemple, si votre infrastructure de journalisation est configurée pour consigner `WARN` (et versions ultérieures) à partir du package `com.example`, et que Application Insights est configuré pour capturer `INFO` (et versions ultérieures), alors Application Insights capturera uniquement `WARN` (et versions ultérieures) à partir du package `com.example`.
+
+Le niveau par défaut configuré pour Application Insights est `INFO`. Si vous souhaitez modifier ce seuil :
 
 ```json
 {
@@ -201,7 +200,7 @@ Le seuil d’Application Insights par défaut est `INFO`. Si vous souhaitez modi
 }
 ```
 
-Vous pouvez également définir le seuil à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL`.
+Vous pouvez également définir le niveau à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (qui sera alors prioritaire si le niveau est également spécifié dans la configuration json).
 
 Voici les valeurs de `level` valides que vous pouvez spécifier dans le fichier `applicationinsights.json`, et leurs correspondances avec les niveaux de journalisation dans les différents frameworks de journalisation :
 
@@ -284,7 +283,7 @@ Par défaut, Application Insights Java 3.0 envoie une métrique de pulsation to
 ```
 
 > [!NOTE]
-> Vous ne pouvez pas réduire la fréquence de la pulsation, car les données de pulsation sont également utilisées pour suivre l’utilisation d’Application Insights.
+> Vous ne pouvez pas augmenter l’intervalle à plus de 15 minutes, car les données de pulsation sont également utilisées pour assurer le suivi de l’utilisation d’Application Insights.
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
@@ -300,6 +299,30 @@ Si votre application se trouve derrière un pare-feu et n’est pas en mesure de
 ```
 
 Application Insights Java 3.0 respecte également le `-Dhttps.proxyHost` et le `-Dhttps.proxyPort` globaux s’ils sont définis.
+
+## <a name="metric-interval"></a>Intervalle de métrique
+
+Cette fonctionnalité est en préversion.
+
+Par défaut, les métriques sont capturées toutes les 60 secondes.
+
+À partir de la version 3.0.3-BETA, vous pouvez modifier cet intervalle :
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+Le paramètre s’applique à toutes ces métriques :
+
+* Compteurs de performances par défaut, par exemple processeur et mémoire
+* Métriques personnalisées par défaut, par exemple le minutage du nettoyage de la mémoire
+* Métriques JMX configurées ([voir ci-dessus](#jmx-metrics))
+* Métriques Micrometer ([voir ci-dessus](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
 
 [//]: # "NOTEZ que la prise en charge d’OpenTelemetry est en préversion privée jusqu’à ce que l’API OpenTelemetry atteigne soit la version 1.0"
 
@@ -349,7 +372,7 @@ Par défaut, Application Insights Java 3.0 se connecte au niveau `INFO` au fichi
 
 `maxHistory` est le nombre de fichiers journaux remplacés et conservés (en plus du fichier journal actuel).
 
-Depuis la version 3.0.2, vous pouvez également définir le `level` des autodiagnostics à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
+À partir de la version 3.0.2, vous pouvez également définir l’autodiagnostic `level` à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (qui sera alors prioritaire si l’autodiagnostic `level` est également spécifié dans la configuration json).
 
 ## <a name="an-example"></a>Exemple
 

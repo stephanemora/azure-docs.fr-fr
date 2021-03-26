@@ -3,14 +3,14 @@ title: Gérer les règles de pare-feu - Portail Azure - Azure Database for Maria
 description: Découvrez comment créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a708326db1a782cf3ded5f9108e1b87c6d53fe20
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665053"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure
@@ -44,7 +44,7 @@ Des règles de réseau virtuel (VNet) peuvent également être utilisées pour s
 Pour autoriser des applications provenant d’Azure à se connecter à votre serveur Azure Database for MariaDB, les connexions Azure doivent être activées. Par exemple, pour héberger une application Azure Web Apps ou une application qui s’exécute sur une machine virtuelle Azure, ou pour vous connecter à partir d’une passerelle de gestion des données Azure Data Factory. Les ressources ne doivent pas obligatoirement se trouver sur le même réseau virtuel (VNET) ou dans le même groupe de ressources pour que la règle de pare-feu autorise ces connexions. Quand une application à partir d’Azure tente de se connecter à votre serveur de base de données, le pare-feu vérifie que les connexions Azure sont autorisées. Il existe deux méthodes pour activer ces types de connexions. Un paramètre de pare-feu avec des adresses de début et de fin égales à 0.0.0.0 indique que ces connexions sont autorisées. Dans le portail, vous pouvez également affecter la valeur **ON** à l’option **Autoriser l’accès aux services Azure** à partir du volet **Sécurité de la connexion**, puis cliquer sur **Enregistrer**. Si la tentative de connexion n’est pas autorisée, la demande n’atteint pas le serveur Azure Database for MariaDB.
 
 > [!IMPORTANT]
-> Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
+> Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions provenant des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
 > 
 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Gérer les règles de pare-feu existantes dans le Portail Azure

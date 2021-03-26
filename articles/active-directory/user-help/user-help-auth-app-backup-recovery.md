@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530899"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Sauvegarder et récupérer des informations d’identification de compte avec l’application Microsoft Authenticator
@@ -87,17 +87,17 @@ Pour des comptes Microsoft personnels, vous pouvez prouver votre identité en sa
 
 1. Appuyez sur la vignette du compte que vous récupérez, puis sur l’option de connexion pour procéder à la récupération. Entrez votre mot de passe, puis confirmez votre adresse e-mail ou votre numéro de téléphone comme vérification supplémentaire.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Capture d’écran montrant l’application Microsoft Authenticator avec les vignettes de comptes disponibles." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Capture d’écran montrant le code de mot de passe à usage unique de Microsoft Authenticator." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Pour effectuer une vérification supplémentaire des comptes professionnels ou scolaires
 
 1. Dans l’écran **Comptes** de l’application Microsoft Authenticator, appuyez sur le compte à récupérer pour l’ouvrir en plein écran.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Capture d’écran montrant l’application Microsoft Authenticator avec les vignettes de comptes disponibles." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Application Microsoft Authenticator avec illustration des vignettes de compte disponibles" border="true":::
 
 1. Dans l’affichage plein écran, appuyez sur l’option permettant d’analyser un code QR pour effectuer une récupération complète.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Capture d’écran montrant l’application Microsoft Authenticator avec les vignettes de comptes disponibles." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Authenticator présente un mot de passe à usage unique sous forme de code de vérification" border="true":::
 
 >[!NOTE]
 >Pour plus d’informations sur les codes QR et leur obtention, consultez [Bien démarrer avec l’application Microsoft Authenticator](./user-help-auth-app-download-install.md) ou [Configurer les informations de sécurité pour utiliser une application d’authentification](./security-info-setup-auth-app.md), selon que votre administrateur a activé des informations de sécurité ou non.

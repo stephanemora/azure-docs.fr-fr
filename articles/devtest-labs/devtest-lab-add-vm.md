@@ -4,10 +4,10 @@ description: Découvrez comment ajouter le portail Azure pour ajouter une machin
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 07efcf93b963009494021b90e6c730c4615301ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297621"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Ajouter une machine virtuelle à un laboratoire dans Azure DevTest Labs

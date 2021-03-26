@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 67d3fafb9b4b93ae52bdb09d673bf65cad30b816
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966154"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.2 et 0.1
@@ -44,12 +44,12 @@ Update 0.2 inclut toutes les modifications de Update 0.1 en plus du correctif d�
 ## <a name="whats-new-in-the-update-01"></a>Nouveautés d’Update 0.1
 Update 0.1 contient les améliorations et correctifs de bogues suivants. 
 
-* **Résilience améliorée en cas d’indisponibilité du cloud** : cette version corrige plusieurs bogues autour de la récupération d’urgence, de la sauvegarde, de la restauration et de la hiérarchisation en cas d’interruption de la connectivité du cloud. 
-* **Performances de restauration améliorées** : cette version comporte des correctifs de bogues qui ont considérablement réduit la durée d’exécution des tâches de restauration.
-* **Optimisation de la récupération d’espace automatisée** : quand des données sont supprimées dans des volumes alloués de façon dynamique, les blocs de stockage non utilisés doivent être récupérés. Cette version améliore le processus de récupération d’espace à partir du cloud de manière à accélérer la disponibilité de l’espace inutilisé par rapport aux versions précédentes.
-* **Nouvelles images de disque virtuel** : de nouveaux VHD, VHDX et VMDK sont désormais disponibles via le portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
-* **Amélioration de la précision de l’état des tâches sur le portail** : dans la version antérieure du logiciel, les rapports d’état des tâches générés sur le portail n’étaient pas précis. Ce problème a été résolu dans cette version.
-* **Expérience de jonction de domaine** : correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
+* **Résilience optimisée en cas de panne du cloud**: cette version corrige plusieurs bogues autour de la récupération d’urgence, de la sauvegarde, de la restauration et de la hiérarchisation en cas d’interruption de la connectivité au cloud. 
+* **Amélioration des performances de restauration**: cette version comporte des correctifs de bogues qui ont considérablement réduit la durée d’exécution des tâches de restauration.
+* **Optimisation automatique de la récupération d’espace**: lorsque des données sont supprimées dans des volumes alloués de façon dynamique, les blocs de stockage inutilisés doivent être récupérés. Cette version améliore le processus de récupération d’espace à partir du cloud de manière à accélérer la disponibilité de l’espace inutilisé par rapport aux versions précédentes.
+* **Nouvelles images de disque virtuel**: de nouveaux VHD, VHDX et VMDK sont désormais disponibles par le bais du portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
+* **Amélioration la précision de l’état des tâches dans le portail**: dans la version antérieure du logiciel, les rapports d’état de la tâche générés dans le portail n’étaient pas précis. Ce problème a été résolu dans cette version.
+* **Expérience de jonction de domaine**: correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
 
 ## <a name="issues-fixed-in-the-update-01"></a>Problèmes résolus dans Update 0.1
 Le tableau suivant récapitule les problèmes corrigés dans cette version.
@@ -72,7 +72,7 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 | **3.** |Stratégie de groupe |Lorsqu’un appareil est joint à un domaine, le fait d’appliquer une stratégie de groupe peut avoir un impact négatif sur son fonctionnement. |Assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Active Directory et qu'aucun objet de stratégie de groupe (GPO) ne lui est appliqué. |
 | **4.** |Interface utilisateur web locale |Si les fonctionnalités de sécurité améliorées sont activées dans Internet Explorer (IE ESC), certaines pages de l’interface utilisateur web locale, comme Dépannage ou Maintenance, peuvent ne pas fonctionner correctement. Les boutons sur ces pages peuvent également ne pas fonctionner. |Désactivez les fonctionnalités de sécurité améliorées d'Internet Explorer. |
 | **5.** |Interface utilisateur web locale |Sur une machine virtuelle Hyper-V, les interfaces réseau de l'interface utilisateur web sont affichées sous forme d'interfaces 10 Gbits/s. |Ce comportement est le reflet de Hyper-V. Hyper-V affiche toujours 10 Gbits/s pour les cartes de réseau virtuel. |
-| **6.** |Partages ou volumes à plusieurs niveaux |Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d'octets est activé, la hiérarchisation StorSimple ne fonctionnera pas. |Mesures recommandées : <br></br>Désactivez le verrouillage de plage d'octets dans la logique de votre application.<br></br>Choisissez de placer les données de cette application dans des volumes épinglés localement par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient* : si le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, sachez que le volume épinglé localement peut être en ligne même avant la fin de la restauration. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
+| **6.** |Partages ou volumes à plusieurs niveaux |Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d'octets est activé, la hiérarchisation StorSimple ne fonctionnera pas. |Mesures recommandées :  <br></br>Désactivez le verrouillage de plage d'octets dans la logique de votre application.<br></br>Choisissez de placer les données de cette application dans des volumes épinglés localement par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient*: si le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, soyez conscient que le volume localement épinglé peut être en ligne avant même que la restauration ne soit terminée. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
 | **7.** |Partages à plusieurs niveaux |L'utilisation de fichiers volumineux peut entraîner montée en charge de niveau lente. |Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage. |
 | **8.** |Capacité utilisée pour les partages |Vous pouvez constater la consommation du partage en l'absence de données sur le partage. Ceci est dû au fait que la capacité utilisée pour les partages inclut des métadonnées. | |
 | **9.** |Récupération d'urgence |La récupération d'urgence d'un serveur de fichiers ne peut s'effectuer que dans le même domaine que celui de l'appareil source. La récupération d'urgence vers un appareil cible dans un autre domaine n'est pas prise en charge dans cette version. |Ceci sera implémenté dans une version ultérieure. |

@@ -2,13 +2,13 @@
 title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager (modèles ARM) pour le déploiement de ressources.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 03/12/2021
+ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621837"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419981"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -17,6 +17,12 @@ Avec la migration vers le cloud, de nombreuses équipes ont adopté des méthode
 Pour relever ces défis, vous pouvez automatiser les déploiements et utiliser la pratique de l’infrastructure en tant que code. Dans le code, vous définissez l’infrastructure qui doit être déployée. Le code d’infrastructure devient partie intégrante de votre projet. Tout comme le code d’application, vous stockez le code d’infrastructure dans un dépôt source et vous gérez ses versions. Toute personne de votre équipe peut exécuter le code et déployer des environnements similaires.
 
 Pour implémenter une infrastructure en tant que code pour vos solutions Azure, utilisez des modèles Azure Resource Manager (modèles ARM). Le modèle est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration de votre projet. Le modèle utilise la syntaxe déclarative, qui vous permet d’indiquer ce que vous envisagez de déployer sans avoir à écrire la séquence de commandes de programmation pour le créer. Dans le modèle, vous spécifiez les ressources à déployer et les propriétés de ces ressources.
+
+Nous avons ajouté un nouveau langage pour le développement des modèles ARM. Ce langage se nomme Bicep, et il est actuellement en préversion. Les modèles Bicep et JSON offrent les mêmes fonctionnalités. Vous pouvez convertir un modèle d’un langage à l’autre. Bicep fournit une syntaxe qui est plus facile à utiliser pour créer des modèles. Pour plus d’informations, consultez [Qu’est-ce que Bicep (préversion) ?](bicep-overview.md).
+
+Pour en savoir plus sur la prise en main des modèles ARM, visionnez la vidéo suivante.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## <a name="why-choose-arm-templates"></a>Pourquoi choisir les modèles ARM ?
 
@@ -68,7 +74,7 @@ Le modèle comprend les sections suivantes :
 
 * [Fonctions définies par l’utilisateur](template-user-defined-functions.md) - Créez des fonctions personnalisées qui simplifient votre modèle.
 
-* [Ressources](template-syntax.md#resources) - Spécifiez les ressources à déployer.
+* [Ressources](resource-declaration.md) - Spécifiez les ressources à déployer.
 
 * [Sorties](template-outputs.md) - Retournez des valeurs à partir des ressources déployées.
 
@@ -109,6 +115,15 @@ REQUEST BODY
 ```
 
 Notez que la **apiVersion** que vous définissez dans le modèle pour la ressource est utilisée comme version d’API pour l’opération REST. Vous pouvez déployer le modèle à plusieurs reprises et être sûr qu’il continuera à fonctionner. En utilisant la même version d’API, vous n’avez pas à vous soucier des changements cassants qui peuvent être introduits dans les versions ultérieures.
+
+Pour déployer un modèle, utilisez l’une des options suivantes :
+
+* [Azure portal](deploy-portal.md)
+* [Azure CLI](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [REST API](deploy-rest.md)
+* [Bouton dans le dépôt GitHub](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
 
 ## <a name="template-design"></a>Conception de modèle
 

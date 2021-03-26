@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 1/12/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: a182ca3ba70b9faa1ba67fdb6c91a4eaf8e766ef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691193"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601370"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -252,7 +252,7 @@ Certaines propriétés de fichiers ne peuvent pas être définies ou modifiées�
 Les options suivantes sont définies par défaut et ne peuvent pas être modifiées :
 
 - `MULTI_USER`
-- `ENABLE_BROKER ON`
+- `ENABLE_BROKER`
 - `AUTO_CLOSE OFF`
 
 Les options suivantes ne peuvent pas être modifiées :
@@ -466,11 +466,17 @@ Pour plus d’informations sur les instructions de restauration, consultez [Inst
 
 ### <a name="service-broker"></a>Service Broker
 
-Le Service Broker entre instances n’est pas pris en charge :
+L’échange de messages Service Broker entre les instances est pris en charge uniquement entre des instances Azure SQL Managed Instances :
 
-- `sys.routes`: Comme prérequis, vous devez sélectionner l’adresse à partir de sys.routes. L’adresse doit être LOCAL sur tous les itinéraires. Voir [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Voir [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Voir [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE` : vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` autre que `LOCAL` ou le nom DNS d’une autre Managed instance SQL.
+- `ALTER ROUTE` : vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` autre que `LOCAL` ou le nom DNS d’une autre Managed instance SQL.
+
+La sécurité du transport est prise en charge, pas la sécurité du dialogue :
+- `CREATE REMOTE SERVICE BINDING`n’est pas pris en charge.
+
+Service Broker est activé par défaut et ne peut pas être désactivé. Les options ALTER DATABASE suivantes ne sont pas prises en charge :
+- `ENABLE_BROKER`
+- `DISABLE_BROKER`
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procédures stockées, fonctions et déclencheurs
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015398"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil
@@ -219,7 +219,7 @@ Vous pouvez désactiver l’alarme sonore en appuyant sur le bouton muet du pann
 Le tableau suivant décrit les différentes conditions d’alarme.
 
 ### <a name="alarm-conditions"></a>Conditions d’alarme
-| Statut | severity | Alarme | LED du panneau de commande |
+| État | Gravité | Alarme | LED du panneau de commande |
 | --- | --- | --- | --- |
 | Alerte PCM : perte d’alimentation CC d’un seul PCM |Erreur : aucune perte de redondance |S1 |Panne de module |
 | Alerte PCM : perte d’alimentation CC d’un seul PCM |Erreur : perte de redondance |S1 |Panne de module |

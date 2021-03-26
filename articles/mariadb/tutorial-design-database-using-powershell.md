@@ -3,16 +3,16 @@ title: 'Tutoriel : Concevoir un serveur - Azure PowerShell - Azure Database for
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database for MariaDB à l’aide de PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 56d901ad05aa589ecf7f2ae97251be2b853f6c55
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9b4500df459e4d4ef67f97dc4fa923988f30401b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664499"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-powershell"></a>Tutoriel : Concevoir une base de données Azure Database for MariaDB à l’aide de PowerShell

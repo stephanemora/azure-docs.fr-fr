@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563073"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Déployer des sites web Next.js au rendu statique sur Azure Static Web Apps (préversion)
@@ -136,7 +136,7 @@ La procédure suivante vous indique comment lier Azure Static Web Apps à l’ap
 
 1. Accéder au [portail Azure](https://portal.azure.com)
 1. Cliquez sur **Create a Resource** (Créer une ressource).
-1. Recherchez **Static Web Apps**.
+1. Recherchez **Applications web statiques**
 1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))
 1. Cliquez sur **Créer**
 

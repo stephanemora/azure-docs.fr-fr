@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574430"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Base de référence de sécurité Azure pour Network Watcher
@@ -164,7 +164,7 @@ Network Watcher doit être activé
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4 : Collecter les journaux de sécurité des systèmes d’exploitation
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -499,7 +499,7 @@ Pour utiliser les fonctionnalités de Network Watcher, le compte avec lequel vou
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -507,7 +507,7 @@ Pour utiliser les fonctionnalités de Network Watcher, le compte avec lequel vou
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -579,7 +579,7 @@ Appliquez également des restrictions quant au type de ressources pouvant être 
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -617,7 +617,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -639,7 +639,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -657,7 +657,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
-**Aide** : Non applicable. Cette recommandation a trait aux ressources de calcul.
+**Conseils** : Non applicable. Cette recommandation a trait aux ressources de calcul.
 
 **Supervision d’Azure Security Center** : Non applicable
 

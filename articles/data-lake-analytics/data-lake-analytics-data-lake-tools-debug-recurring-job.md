@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 05/20/2018
 ms.openlocfilehash: b95d4b0a082e8eac191d610c9516e5ce72180b4c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219171"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Résoudre des problèmes liés à une tâche périodique anormale
@@ -65,4 +65,4 @@ Prêtez attention aux grandes différences entre ces deux tâches. Elles sont pr
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre des problèmes d’asymétrie des données](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-* [Déboguer du code C# défini par l’utilisateur pour des tâches U-SQL ayant échoué](data-lake-analytics-debug-u-sql-jobs.md)
+* [Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué](data-lake-analytics-debug-u-sql-jobs.md)

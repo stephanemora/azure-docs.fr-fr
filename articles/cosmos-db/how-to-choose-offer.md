@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
 ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93089636"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Comment choisir entre le débit approvisionné standard (manuel) et le débit approvisionné avec mise à l’échelle automatique 
@@ -117,18 +117,18 @@ En général, si l’utilisation moyenne sur l’ensemble des 730 heures pendant
 La mise à l’échelle automatique facture le plus grand nombre de RU/s mises à l’échelle pendant une heure. Lors de l’analyse de la consommation de RU normalisée dans le temps, il est important d’utiliser l’utilisation la plus élevée par heure dans le calcul de la moyenne. 
 
 Pour calculer la moyenne de l’utilisation la plus élevée sur toutes les heures :
-1. Définissez l’ **agrégation** sur la métrique de consommation de RU normalisée sur **Max**.
+1. Définissez l’**agrégation** sur la métrique de consommation de RU normalisée sur **Max**.
 1. Sélectionnez la **granularité temporelle** sur 1 heure.
 1. Accédez aux **options graphiques**.
 1. Sélectionnez l’option de graphique à barres. 
-1. Sous **Partager** , sélectionnez l’option **Télécharger vers Excel**. À partir de la feuille de calcul générée, calculez l’utilisation moyenne sur toutes les heures. 
+1. Sous **Partager**, sélectionnez l’option **Télécharger vers Excel**. À partir de la feuille de calcul générée, calculez l’utilisation moyenne sur toutes les heures. 
 
 :::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Pour afficher la consommation de RU normalisée par heure, 1) sélectionnez une granularité temporelle de 1 heure ; 2) modifiez les paramètres de graphique ; 3) sélectionnez l’option de graphique à barres ; 4) sous Partager, sélectionnez l’option Télécharger vers Excel pour calculer la moyenne sur toutes les heures. ":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Mesurer et surveiller votre utilisation
 Par la suite, une fois que vous avez choisi le type de débit, vous devez surveiller votre application et effectuer les ajustements nécessaires. 
 
-Lorsque vous utilisez la mise à l’échelle automatique, utilisez Azure Monitor pour afficher le nombre maximal de RU/s approvisionnées avec mise à l’échelle automatique ( **Débit maximal avec mise à l’échelle automatique** ) et les RU/s sur lesquelles le système est actuellement mis à l’échelle ( **Débit approvisionné** ). Vous trouverez ci-dessous un exemple de charge de travail variable ou imprévisible utilisant la mise à l’échelle automatique. Notez qu’en l’absence de trafic, le système met à l’échelle les RU/s vers la valeur minimale de 10 % du nombre maximal de RU/s, soit respectivement 5 000 RU/s et 50 000 RU/s. 
+Lorsque vous utilisez la mise à l’échelle automatique, utilisez Azure Monitor pour afficher le nombre maximal de RU/s approvisionnées avec mise à l’échelle automatique (**Débit maximal avec mise à l’échelle automatique**) et les RU/s sur lesquelles le système est actuellement mis à l’échelle (**Débit approvisionné**). Vous trouverez ci-dessous un exemple de charge de travail variable ou imprévisible utilisant la mise à l’échelle automatique. Notez qu’en l’absence de trafic, le système met à l’échelle les RU/s vers la valeur minimale de 10 % du nombre maximal de RU/s, soit respectivement 5 000 RU/s et 50 000 RU/s. 
 
 :::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exemple de charge de travail utilisant la mise à l’échelle automatique, avec une mise à l’échelle automatique de 50 000 RU/s maximum et un débit compris entre 5 000 et 50 000 RU/s":::
 

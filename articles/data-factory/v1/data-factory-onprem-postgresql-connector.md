@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 8ca8770944a12c6e0dd3e4f95d286758ebee5f9e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387272"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
@@ -71,9 +71,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | server |Nom du serveur PostgreSQL. |Oui |
 | database |Nom de la base de données PostgreSQL. |Oui |
 | schéma |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non |
-| authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont : Anonyme, De base et Windows. |Oui |
+| authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |Oui |
 | username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
+| mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données

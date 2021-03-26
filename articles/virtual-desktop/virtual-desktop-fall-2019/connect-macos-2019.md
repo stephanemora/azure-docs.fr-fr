@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008438"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Se connecter à Windows Virtual Desktop (classique) avec le client macOS
@@ -34,14 +34,14 @@ Pour s’abonner à un flux :
 
 1. Sélectionnez **Add Workspace** (Ajouter un espace de travail) sur la page principale pour vous connecter au service et récupérer vos ressources.
 2. Entrez l’URL du flux. Il peut s’agir d’une URL ou d’une adresse e-mail :
-   - Si vous utilisez une URL, utilisez celle que votre administrateur vous a donnée. Normalement, l’URL est <https://rdweb.wvd.microsoft.com>.
+   - Si vous utilisez une URL, utilisez celle que votre administrateur vous a donnée. En règle générale, l’URL est <https://rdweb.wvd.microsoft.com>.
    - Pour utiliser l’e-mail, entrez votre adresse e-mail. Cela indique au client de rechercher une URL associée à votre adresse e-mail si votre administrateur a configuré le serveur de cette manière.
 3. Sélectionnez **Ajouter**.
 4. Connectez-vous avec votre compte d’utilisateur quand vous y êtes invité.
 
-Une fois connecté, vous devez voir la liste des ressources disponibles.
+Une fois que vous êtes connecté, la liste des ressources disponibles doit s’afficher.
 
-Une fois que vous êtes abonné à un flux, son contenu est mis à jour automatiquement et régulièrement. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
+Une fois que vous êtes abonné à un flux, son contenu est automatiquement mis à jour de façon régulière. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,18 +2,18 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 4a9454abc2c4e41d711a4aef6a30438a72d27edb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 41a5f05f016a876894949c35a6610b2b49f9eb9d
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750171"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488096"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
-- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Une ressource Communication Services déployée. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - Un `User Access Token` pour activer le client d’appel. Pour en savoir plus, consultez [Comment obtenir un `User Access Token`](../../access-tokens.md)
 - Facultatif : Suivez le guide de démarrage rapide pour [prendre en main l’ajout des appels à votre application](../getting-started-with-calling.md)
@@ -26,7 +26,6 @@ ms.locfileid: "101750171"
 > Ce document utilise la version 1.0.0-beta.6 de la bibliothèque de client appelante.
 
 Utilisez la commande `npm install` pour installer les bibliothèques clientes Azure Communication Services d’appel et communes pour JavaScript.
-Ce document référence des types dans la version 1.0.0-beta.5 de la bibliothèque appelante.
 
 ```console
 npm install @azure/communication-common --save
@@ -63,14 +62,14 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-an-outgoing-call"></a>Passer un appel sortant
 
-Pour créer et démarrer un appel, vous devez utiliser l’une des API sur CallAgent et fournir un utilisateur que vous avez créé par le biais de la bibliothèque cliente d’administration de Communication Services.
+Pour créer et démarrer un appel, vous devez utiliser l’une des API sur CallAgent et fournir un utilisateur que vous avez créé par le biais de la bibliothèque de client Communication Services Identity.
 
 La création et le démarrage de l’appel sont synchrones. L’instance d’appel vous permet de vous abonner à des événements d’appel.
 
 ## <a name="place-a-call"></a>Passer un appel
 
 ### <a name="place-a-11-call-to-a-user-or-pstn"></a>Passer un appel 1:1 à un utilisateur ou à un RTC
-Pour passer un appel à un autre utilisateur de Communication Services, appelez la méthode `startCall` sur `callAgent`, et transmettez le CommunicationUserIdentifier de l’appelé que vous avez [créé avec la bibliothèque d’administration de Communication Services](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+Pour passer un appel à un autre utilisateur de Communication Services, appelez la méthode `startCall` sur `callAgent`, et transmettez le CommunicationUserIdentifier de l’appelé que vous avez [créé avec la bibliothèque d’administration de Communication Services Identity](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -254,10 +253,10 @@ Pour activer ou désactiver le son du point de terminaison local, vous pouvez ut
 
 ```js
 
-//mute local device 
+//mute local device
 await call.mute();
 
-//unmute local device 
+//unmute local device
 await call.unmute();
 
 ```
@@ -401,7 +400,7 @@ Pour répertorier les flux vidéo et les flux de partage d’écran des particip
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
- 
+
 Pour afficher un `RemoteVideoStream`, vous devez vous abonner à un événement `isAvailableChanged`.
 Si la propriété `isAvailable` prend la valeur `true`, un participant distant envoie un flux.
 Quand cela se produit, créez une instance de `Renderer`, puis une nouvelle instance `RendererView` à l’aide de la méthode `createView` asynchrone.  Vous pouvez ensuite attacher `view.target` à un élément d’interface utilisateur quelconque.
@@ -561,6 +560,8 @@ console.log(result.video);
 
 ## <a name="call-recording-management"></a>Gestion de l’enregistrement des appels
 
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+
 L’enregistrement des appels est une fonctionnalité étendue de l’API `Call` principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité d’enregistrement :
 
 ```js
@@ -581,7 +582,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-               
+
 ```
 
 ## <a name="call-transfer-management"></a>Gestion des transferts d’appels

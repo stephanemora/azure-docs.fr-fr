@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92787140"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migration de bases de données existantes pour effectuer un scale-out
@@ -72,7 +72,7 @@ Pour un modèle de client unique, créez une carte de partitions de **mappage de
 
 ![Mappage de liste][1]
 
-Le modèle multi-locataire affecte plusieurs locataires à une seule base de données (et vous pouvez distribuer des groupes de locataires sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage** .
+Le modèle multi-locataire affecte plusieurs locataires à une seule base de données (et vous pouvez distribuer des groupes de locataires sur plusieurs bases de données). Utilisez ce modèle lorsque vous pensez que chaque client va avoir de faibles besoins en termes de données. Dans ce modèle, attribuez une plage de clients à une base de données à l’aide du **mappage de plage**.
 
 ![Mappage de plage][2]
 

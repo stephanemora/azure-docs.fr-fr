@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391539"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613242"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Choisir comment autoriser l’accès à des données de blobs dans le portail Azure
 
@@ -66,9 +66,9 @@ Les rôles personnalisés peuvent prendre en charge différentes combinaisons de
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Accédez aux objets blob dans le Portail Azure
 
-Pour afficher les données d’objet blob sur le portail, accédez à la **Vue d’ensemble** pour votre compte de stockage, puis cliquez sur les liens pour **Objet blob**. Vous pouvez également naviguer jusqu’à la section **Service Blob** dans le menu.
+Pour afficher les données d’objet blob sur le portail, accédez à la **Vue d’ensemble** pour votre compte de stockage, puis cliquez sur les liens pour **Objet blob**. Vous pouvez également naviguer jusqu’à la section **Conteneurs** dans le menu.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Capture d’écran montrant comment accéder aux données d’objet blob dans le portail Azure":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Capture d’écran montrant comment accéder aux données d’objet blob dans le portail Azure":::
 
 ## <a name="determine-the-current-authentication-method"></a>Déterminer la méthode d’authentification actuelle
 

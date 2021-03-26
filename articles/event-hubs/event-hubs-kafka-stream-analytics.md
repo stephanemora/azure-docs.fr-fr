@@ -4,10 +4,10 @@ description: 'Tutoriel : Cet article décrit comment traiter les événements K
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319393"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutoriel : Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
@@ -120,7 +120,7 @@ La requête dans le travail Stream Analytics parcourt les données sans effectue
 2. Sélectionnez **+ Ajouter** dans la barre d’outils, puis **Stockage Blob**
 3. Dans la page Paramètres de sortie du stockage Blob, effectuez les actions suivantes : 
     1. Spécifiez un **alias** pour la sortie. 
-    2. Sélectionnez votre **abonnement**Azure. 
+    2. Sélectionnez votre **abonnement** Azure. 
     3. Sélectionnez votre **compte de stockage Azure**. 
     4. Entrez un **nom pour le conteneur** qui stocke les données de sortie de la requête Stream Analytics.
     5. Sélectionnez **Enregistrer**.

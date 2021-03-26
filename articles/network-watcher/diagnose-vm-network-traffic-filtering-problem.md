@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: e78c4a2f30cac1d6c503da6d1d2fdbc1105065e0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492503"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
@@ -40,14 +40,14 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 2. Sélectionnez **Calcul**, puis **Windows Server 2016 Datacenter** ou une version d’**Ubuntu Server**.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-    |Paramètre|Valeur|
+    |Paramètre|Value|
     |---|---|
     |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux exigences de complexité définies.|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Emplacement| Sélectionnez **USA Est**.|
+    |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -82,7 +82,7 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
     | Machine virtuelle   | Sélectionner myVm                                                                                       |
     | interface réseau | myvm - le nom de l’interface réseau créée par le portail lorsque vous avez créé la machine virtuelle est différent. |
     | Protocol          | TCP                                                                                               |
-    | Sens         | Règle de trafic sortant                                                                                          |
+    | Sens         | Sortant                                                                                          |
     | Adresse IP locale  | 10.0.0.4                                                                                          |
     | Port local      | 60000                                                                                                |
     | Adresse IP distante | 13.107.21.200 : l’une des adresses de <www.bing.com>.                                             |

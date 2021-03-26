@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92325917"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migrer vers le nouveau portail des développeurs
@@ -57,7 +57,7 @@ Lorsque vous migrez depuis le portail déconseillé, gardez à l’esprit les mo
 - Si vous avez modifié les modèles de notification par e-mail par défaut pour inclure une URL du portail déconseillé qui est explicitement définie, modifiez-les pour qu’ils utilisent le paramètre « URL du portail » ou pointent vers l’URL du nouveau portail. Si les modèles utilisent le paramètre « URL du portail » intégré à la place, aucune modification n’est requise.
 - *Problèmes* et *Applications* ne sont pas pris en charge dans le nouveau portail des développeurs.
 - L’intégration directe à Facebook, Microsoft, Twitter et Google comme fournisseurs d’identité n’est pas prise en charge dans le nouveau portail des développeurs. Vous pouvez intégrer ces fournisseurs à l’aide d’Azure AD B2C.
-- Si vous utilisez la délégation, modifiez l’URL de retour dans vos applications et utilisez le [point de terminaison d’API *Recevoir un jeton d’accès partagé*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) au lieu du point de terminaison *Générer l’URL SSO* .
+- Si vous utilisez la délégation, modifiez l’URL de retour dans vos applications et utilisez le [point de terminaison d’API *Recevoir un jeton d’accès partagé*](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) au lieu du point de terminaison *Générer l’URL SSO*.
 - Si vous utilisez Azure AD en tant que fournisseur d’identité :
 
     - Modifiez l’URL de retour dans votre application pour qu’elle pointe vers le nouveau domaine du portail des développeurs.
@@ -67,7 +67,7 @@ Lorsque vous migrez depuis le portail déconseillé, gardez à l’esprit les mo
 
     - Modifiez l’URL de retour dans votre application pour qu’elle pointe vers le nouveau domaine du portail des développeurs.
     - Modifiez le suffixe `/signin-aad` de l’URL de retour dans votre application en `/signin`.
-    - Incluez *Prénom* , *Nom de famille* et *ID d’objet de l’utilisateur* dans les revendications d’application.
+    - Incluez *Prénom*, *Nom de famille* et *ID d’objet de l’utilisateur* dans les revendications d’application.
 
 - Si vous utilisez OAuth 2.0 dans la console de test interactive, modifiez l’URL de retour dans votre application pour qu’elle pointe vers le domaine du nouveau portail des développeurs et modifiez le suffixe :
 

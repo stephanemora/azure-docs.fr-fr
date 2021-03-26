@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/07/2020
 ms.author: kumud
 ms.openlocfilehash: bc2d7bb7ba17a4a47fecf2144157f79f5367fca7
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98059165"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statistiques de latence aller-retour réseau Azure

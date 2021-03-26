@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 85d7114f419266124d0d23368b24700af025758a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94961037"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modifier les paramètres d’interface réseau DATA 0 sur votre appareils de la gamme StorSimple 8000
@@ -38,7 +38,7 @@ Après avoir lu ce didacticiel, vous pourrez :
 Vous pouvez reconfigurer les paramètres réseau de DATA 0 en vous connectant à l'interface Windows PowerShell de votre appareil StorSimple et en ouvrant une session de l'Assistant Installation. Pour modifier les paramètres de DATA 0, procédez comme suit :
 
 #### <a name="to-modify-data-0-network-settings-through-setup-wizard"></a>Pour modifier les paramètres réseau de DATA 0 via l’Assistant Installation
-1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
+1. **Dans le menu de la console série, sélectionnez l**'option 1 Se connecter avec un accès complet. Lorsque vous y êtes invité, fournissez le **mot de passe administrateur de l’appareil**. Le mot de passe par défaut est `Password1`.
 2. À l’invite de commandes, tapez :
    
     `Invoke-HcsSetupWizard`
@@ -51,7 +51,7 @@ Vous pouvez reconfigurer les paramètres réseau de DATA 0 en vous connectant �
 Vous pouvez également reconfigurer l’interface réseau DATA 0 via l’applet de commande `Set-HcsNetInterface` . L’applet de commande est exécutée à partir de l’interface Windows PowerShell de votre appareil StorSimple. Lorsque vous utilisez cette procédure, les adresses IP fixes du contrôleur peuvent également être configurées. Pour modifier les paramètres de DATA 0, procédez comme suit : 
 
 #### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Pour modifier les paramètres réseau de DATA 0 via l’applet de commande Set-HcsNetInterface
-1. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**. Lorsque vous y êtes invité, fournissez le mot de passe administrateur de l’appareil. Le mot de passe par défaut est `Password1`.
+1. **Dans le menu de la console série, sélectionnez l**'option 1 Se connecter avec un accès complet. Lorsque vous y êtes invité, fournissez le mot de passe administrateur de l’appareil. Le mot de passe par défaut est `Password1`.
 2. À l’invite de commandes, tapez :
    
     `Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`

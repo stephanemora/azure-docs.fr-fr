@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6dda65be98934ce90e985b241078ae8019afb7e0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 292a244a4804f97e8622d6841c33b153af373290
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361262"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489166"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter AD FS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ ms.locfileid: "100361262"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article explique comment activer la connexion d’un compte d’utilisateur AD FS à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Vous allez activer la connexion en ajoutant un [profil technique de fournisseur d’identité SAML](saml-identity-provider-technical-profile.md) à une stratégie personnalisée.
+Cet article explique comment activer la connexion d’un compte d’utilisateur AD FS à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Pour activer la connexion, vous devez ajouter un [fournisseur d’identité SAML](identity-provider-generic-saml.md) à une stratégie personnalisée.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -62,7 +62,7 @@ Vous devez enregistrer votre certificat dans votre client Azure AD B2C.
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte AD FS, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
-Vous pouvez définir un compte AD FS en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie. Pour plus d’informations, voir [Définir un profil technique de fournisseur d’identité SAML](saml-identity-provider-technical-profile.md).
+Vous pouvez définir un compte AD FS en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie. Pour plus d’informations, consultez [Définition d’un fournisseur d’identité SAML](identity-provider-generic-saml.md).
 
 1. Ouvrez le fichier *TrustFrameworkExtensions.xml*.
 1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
@@ -71,10 +71,10 @@ Vous pouvez définir un compte AD FS en tant que fournisseur de revendications 
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -156,9 +156,16 @@ Pour utiliser AD FS comme fournisseur d’identité dans AAD B2C, vous devez cr
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
+Avec un [domaine personnalisé](custom-domain.md), utilisez le format suivant :
+
+```
+https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
+```
+
 Remplacez les valeurs suivantes :
 
-- **your-tenant** par le nom de votre locataire, par exemple, your-tenant.onmicrosoft.com.
+- **your-tenant-name** avec le nom de votre locataire, par exemple your-tenant.onmicrosoft.com.
+- **your-domain-name** avec votre nom de domaine personnalisé, tel que login.contoso.com.
 - **your-policy** par le nom de votre stratégie. Par exemple, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** par le nom du profil technique de votre fournisseur d’identité SAML. Par exemple, Contoso-SAML2.
 
@@ -199,8 +206,10 @@ Ouvrez un navigateur et accédez à l’URL. Veillez à taper l’URL est correc
 1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
 1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
 1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Sur la page d’inscription ou de connexion, sélectionnez **Contoso AD FS** pour vous connecter avec le fournisseur d’identité Contoso AD FS.
 
 Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
+
 ## <a name="troubleshooting-ad-fs-service"></a>Dépannage du service AD FS  
 
 AD FS est configuré pour utiliser le journal des applications Windows. Si vous rencontrez des difficultés lors de la configuration d’AD FS en tant que fournisseur d’identité SAML à l’aide de stratégies personnalisées dans Azure AD B2C, vous pouvez consulter le journal des événements AD FS :
@@ -217,7 +226,7 @@ Cette erreur indique que la demande SAML envoyée par Azure AD B2C n’est pas s
 
 #### <a name="option-1-set-the-signature-algorithm-in-azure-ad-b2c"></a>Option 1 : Définir l’algorithme de signature dans Azure AD B2C  
 
-Vous pouvez configurer la manière de signer la demande SAML dans Azure AD B2C. Les métadonnées [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) contrôlent la valeur du paramètre `SigAlg` (chaîne de requête ou paramètre d’envoi) dans la demande SAML. L’exemple suivant configure Azure AD B2C pour utiliser l’algorithme de signature `rsa-sha256`.
+Vous pouvez configurer la manière de signer la demande SAML dans Azure AD B2C. Les métadonnées [XmlSignatureAlgorithm](identity-provider-generic-saml.md) contrôlent la valeur du paramètre `SigAlg` (chaîne de requête ou paramètre d’envoi) dans la demande SAML. L’exemple suivant configure Azure AD B2C pour utiliser l’algorithme de signature `rsa-sha256`.
 
 ```xml
 <Metadata>

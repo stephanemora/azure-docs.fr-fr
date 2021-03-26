@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 65d3badc02efbb02df50189885c28a8abe851415
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 397fff3fafad52b3b989049096fb2d3e1fa2cba1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050445"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488514"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C
 
@@ -45,8 +45,12 @@ Pour permettre aux utilisateurs disposant d'un compte Twitter dans Azure AD B2C 
 1. Sous **Paramètres d'authentification**, sélectionnez **Modifier**.
     1. Cochez la case **Activer l'authentification OAuth à 3 branches**.
     1. Cochez la case **Demander une adresse e-mail aux utilisateurs**.
-    1. Dans le champ **URL de rappel**, entrez `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Remplacez `your-tenant` par le nom de votre locataire et `your-user-flow-Id` par l’identificateur de votre flux d’utilisateur. Par exemple : `b2c_1a_signup_signin_twitter`. Lorsque vous entrez le nom de votre locataire et l'ID du flux d'utilisateurs, utilisez uniquement des minuscules, même s'ils sont en majuscules dans Azure AD B2C.
-    1. Dans le champ **URL du site web**, entrez `https://your-tenant.b2clogin.com`. Remplacez `your-tenant` par le nom de votre locataire. Par exemple : `https://contosob2c.b2clogin.com`.
+    1. Dans le champ **URL de rappel**, entrez `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`.  Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Lorsque vous entrez le nom de votre locataire et l'ID du flux d'utilisateurs, utilisez uniquement des minuscules, même s'ils sont en majuscules dans Azure AD B2C. Remplacez :
+        - `your-tenant-name` par le nom de votre locataire.
+        - `your-domain-name` par votre domaine personnalisé.
+        - `your-user-flow-Id` par l’identificateur de votre flux d’utilisateur. Par exemple : `b2c_1a_signup_signin_twitter`. 
+    
+    1. Dans le champ **URL du site web**, entrez `https://your-tenant.b2clogin.com`. Remplacez `your-tenant` par le nom de votre locataire. Par exemple : `https://contosob2c.b2clogin.com`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name`.
     1. Entrez une URL pour les **Conditions d'utilisation du service**, par exemple `http://www.contoso.com/tos`. L’URL de stratégie est une page que vous tenez à jour pour fournir les conditions générales de votre application.
     1. Entrez une URL pour la **Politique de confidentialité**, par exemple `http://www.contoso.com/privacy`. L’URL de stratégie est une page que vous tenez à jour pour fournir des informations de confidentialité pour votre application.
     1. Sélectionnez **Enregistrer**.
@@ -72,7 +76,10 @@ Pour permettre aux utilisateurs disposant d'un compte Twitter dans Azure AD B2C 
 1. Sélectionnez **Enregistrer**.
 1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
 1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
+1. Sélectionnez le bouton **Exécuter le flux d’utilisateur**.
+1. À partir de la page d’inscription ou de connexion, sélectionnez **Twitter** pour vous connecter avec un compte Twitter.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end
 
@@ -167,7 +174,13 @@ Vous pouvez définir un compte Twitter en tant que fournisseur de revendications
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
 
+1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. À partir de la page d’inscription ou de connexion, sélectionnez **Twitter** pour vous connecter avec un compte Twitter.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end

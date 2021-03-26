@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 01/23/2017
 ms.openlocfilehash: 553850173f463a05b13768eb3b9e17703bfa2886
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212283"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemples du cache Azure pour Redis
@@ -39,7 +39,7 @@ L’exemple [How to use Azure Cache for Redis with Python](cache-python-get-star
 
 L’exemple [Work with .NET objects in the cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) montre comment sérialiser des objets .NET afin de pouvoir les lire et les écrire depuis une instance du cache Azure pour Redis. 
 
-## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Utiliser le cache Azure pour Redis comme un fond de panier de scale-out pour ASP.NET SignalR
+## <a name="use-azure-cache-for-redis-as-a-scale-out-backplane-for-aspnet-signalr"></a>Utiliser le cache Azure pour Redis comme un fond de panier de montée en puissance pour ASP.NET SignalR
 L’exemple [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) montre comment utiliser le cache Azure pour Redis comme fond de panier SignalR. Pour plus d’informations sur le fond de panier, consultez [SignalR Scaleout with Redis](https://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Cache Azure pour Redis - exemple de requête client

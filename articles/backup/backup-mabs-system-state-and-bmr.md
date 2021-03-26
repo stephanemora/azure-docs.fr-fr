@@ -4,10 +4,10 @@ description: Utilisez le serveur de sauvegarde Azure pour sauvegarder l’état 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021620"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète à l’aide du serveur de sauvegarde Azure
@@ -23,23 +23,23 @@ Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectu
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application que l’état du système et une récupération complète peuvent protéger, consultez [Qu’est-ce que le serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).
 
-|Sauvegarde|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète|
+|Backup|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète du système|
 |----------|---------|---------------------------|------------------------------------|-------|
-|**Données de fichier**<br /><br />Sauvegarde des données régulières<br /><br />Récupération complète/sauvegarde de l’état du système|Données de fichiers perdues|O|N|N|
-|**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
+|**Données de fichier**<br /><br />Sauvegarde régulière des données<br /><br />Sauvegarde complète/de l’état du système|Données de fichier perdues|O|N|N|
+|**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Système d'exploitation perdu ou endommagé|N|O|O|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (volumes de données intacts)|N|N|O|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (volumes de données perdus)|O|N|O<br /><br />Récupération complète, suivie d’une récupération régulière des données de fichiers sauvegardées|
 |**Données SharePoint**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Site perdu, listes, éléments de liste, documents|O|N|N|
-|**Données SharePoint**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
+|**Données SharePoint**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Système d'exploitation perdu ou endommagé|N|O|O|
 |**Données SharePoint**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de batterie de serveurs<br /><br />Récupération complète/sauvegarde de l’état du système|Récupération d'urgence|N|N|N|
 |Windows Server 2012 R2 Hyper-V<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure de l’hôte ou de l’invité Hyper-V<br /><br />Récupération complète/Sauvegarde de l’état du système|Machine virtuelle perdue|O|N|N|
-|Hyper-V<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure de l’hôte ou de l’invité Hyper-V<br /><br />Récupération complète/Sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
+|Hyper-V<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure de l’hôte ou de l’invité Hyper-V<br /><br />Récupération complète/Sauvegarde de l’état du système|Système d'exploitation perdu ou endommagé|N|O|O|
 |Hyper-V<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure de l’hôte ou de l’invité Hyper-V<br /><br />Récupération complète/Sauvegarde de l’état du système|Hôte Hyper-V perdu (machines virtuelles intactes)|N|N|O|
 |Hyper-V<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure de l’hôte ou de l’invité Hyper-V<br /><br />Récupération complète/Sauvegarde de l’état du système|Hôte Hyper-V perdu (machines virtuelles perdues)|N|N|O<br /><br />Récupération complète, suivie d’une récupération régulière du Serveur de sauvegarde Azure|
 |SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Données d’application perdues|O|N|N|
-|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
-|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux d’activité des transactions intacts)|N|N|O|
-|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux d’activité des transactions perdus)|N|N|O<br /><br />Récupération complète, suivie d’une récupération régulière du Serveur de sauvegarde Azure|
+|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Système d'exploitation perdu ou endommagé|N|O|O|
+|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux des transactions intacts)|N|N|O|
+|SQL Server/Exchange<br /><br />Sauvegarde d’application effectuée par le Serveur de sauvegarde Azure<br /><br />Récupération complète/sauvegarde de l’état du système|Serveur perdu (base de données/journaux des transactions perdus)|N|N|O<br /><br />Récupération complète, suivie d’une récupération régulière du Serveur de sauvegarde Azure|
 
 ## <a name="how-system-state-backup-works"></a>Fonctionnement de la sauvegarde de l’état du système
 

@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: 60d8dc45fb26ea210b1827a6938716474faa0304
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895611"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>Sécuriser une application monopage avec connexion de l’utilisateur
@@ -27,19 +27,19 @@ Le guide suivant concerne une application hébergée sur un serveur de contenu o
 
 Créez l’application web dans Azure AD pour que les utilisateurs se connectent. L’application web délègue l’accès des utilisateurs aux API REST Azure Maps.
 
-1. Dans le portail Azure, dans la liste des services Azure, sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription** .  
+1. Dans le portail Azure, dans la liste des services Azure, sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.  
 
     > [!div class="mx-imgBorder"]
     > ![Inscription d’application](./media/how-to-manage-authentication/app-registration.png)
 
-2. Entrez un **Nom** , choisissez un **Type de compte de support** , fournissez un URI de redirection qui représente l’URL à laquelle Azure AD émettra le jeton et est l’URL où le contrôle de carte est hébergé. Pour obtenir un exemple détaillé, consultez [Exemples Azure AD Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Sélectionnez ensuite **Inscription** .  
+2. Entrez un **Nom**, choisissez un **Type de compte de support**, fournissez un URI de redirection qui représente l’URL à laquelle Azure AD émettra le jeton et est l’URL où le contrôle de carte est hébergé. Pour obtenir un exemple détaillé, consultez [Exemples Azure AD Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples/tree/master/src/ImplicitGrant). Sélectionnez ensuite **Inscription**.  
 
-3. Pour affecter des autorisations d’API déléguées à Azure Maps, accédez à l’application. Ensuite, sous **Inscriptions d’applications** , sélectionnez **Autorisations d’API** > **Ajouter une autorisation** . Sous **API utilisées par que mon organisation** , recherchez et sélectionnez **Azure Maps** .
+3. Pour affecter des autorisations d’API déléguées à Azure Maps, accédez à l’application. Ensuite, sous **Inscriptions d’applications**, sélectionnez **Autorisations d’API** > **Ajouter une autorisation**. Sous **API utilisées par que mon organisation**, recherchez et sélectionnez **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Ajouter des autorisations d’API d’application](./media/how-to-manage-authentication/app-permissions.png)
 
-4. Cochez la case en regard de **Accéder à Azure Maps** , puis sélectionnez **Ajouter des autorisations** .
+4. Cochez la case en regard de **Accéder à Azure Maps**, puis sélectionnez **Ajouter des autorisations**.
 
     > [!div class="mx-imgBorder"]
     > ![Sélectionner des autorisations d’API d’application](./media/how-to-manage-authentication/select-app-permissions.png)

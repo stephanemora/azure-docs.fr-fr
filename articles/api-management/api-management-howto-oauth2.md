@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
 ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077249"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
@@ -47,11 +47,11 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
     > [!NOTE]
     > Ces champs sont utilisés pour identifier le serveur d'autorisation OAuth 2.0 dans l'instance de service Gestion des API actuelle, et leurs valeurs ne proviennent pas du serveur OAuth 2.0.
 
-3. Entrez l' **URL de la page d'enregistrement client**. Cette page est l'endroit où les utilisateurs créent et gèrent leurs comptes ; elle varie en fonction du fournisseur OAuth 2.0 utilisé. L’ **URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur (par exemple, `https://contoso.com/login`). Certaines organisations ne configurent pas cette fonctionnalité ou ne l’utilisent pas, même si le fournisseur OAuth 2.0 la prend en charge. Si la gestion des utilisateurs de comptes de votre fournisseur OAuth 2.0 n’a pas été configurée, entrez un espace réservé d’URL ici, par exemple l’URL de votre société ou une URL comme `https://placeholder.contoso.com`.
+3. Entrez l' **URL de la page d'enregistrement client**. Cette page est l'endroit où les utilisateurs créent et gèrent leurs comptes ; elle varie en fonction du fournisseur OAuth 2.0 utilisé. L’**URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge la gestion des comptes utilisateur (par exemple, `https://contoso.com/login`). Certaines organisations ne configurent pas cette fonctionnalité ou ne l’utilisent pas, même si le fournisseur OAuth 2.0 la prend en charge. Si la gestion des utilisateurs de comptes de votre fournisseur OAuth 2.0 n’a pas été configurée, entrez un espace réservé d’URL ici, par exemple l’URL de votre société ou une URL comme `https://placeholder.contoso.com`.
 
     ![Nouveau serveur OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. La section suivante du formulaire inclut les paramètres **Types d’accès accordé aux autorisations** , **URL de point de terminaison d’autorisation** et **Méthode de demande d’autorisation**.
+4. La section suivante du formulaire inclut les paramètres **Types d’accès accordé aux autorisations**, **URL de point de terminaison d’autorisation** et **Méthode de demande d’autorisation**.
 
     Spécifiez le paramètre **Types d’accès accordé aux autorisations** en sélectionnant les types souhaités. **code d'autorisation** est spécifié par défaut.
 
@@ -61,17 +61,17 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     La **Méthode de demande d’autorisation** spécifie comment la demande d'autorisation est envoyée au serveur OAuth 2.0. Par défaut, la méthode **GET** est sélectionnée.
 
-5. Vous devez ensuite spécifier les paramètres **URL de point de terminaison de jeton** , **Méthodes d’authentification du client** , **Méthode d’envoi des jetons d’accès** et **Étendue par défaut**.
+5. Vous devez ensuite spécifier les paramètres **URL de point de terminaison de jeton**, **Méthodes d’authentification du client**, **Méthode d’envoi des jetons d’accès** et **Étendue par défaut**.
 
     ![Capture d’écran montrant l’écran Ajouter un service OAuth2.](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Pour un serveur OAuth 2.0 Azure Active Directory, l’ **URL de point de terminaison de jeton** a le format suivant, où `<TenantID>` a le format `yourapp.onmicrosoft.com`.
+    Pour un serveur OAuth 2.0 Azure Active Directory, l’**URL de point de terminaison de jeton** a le format suivant, où `<TenantID>` a le format `yourapp.onmicrosoft.com`.
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    Le paramètre par défaut pour **Méthodes d’authentification du client** est **De base** , et le paramètre par défaut pour **Méthode d’envoi des jetons d’accès** est **En-tête d’autorisation**. Ces valeurs sont configurées dans cette section du formulaire, ainsi que le paramètre **Étendue par défaut**.
+    Le paramètre par défaut pour **Méthodes d’authentification du client** est **De base**, et le paramètre par défaut pour **Méthode d’envoi des jetons d’accès** est **En-tête d’autorisation**. Ces valeurs sont configurées dans cette section du formulaire, ainsi que le paramètre **Étendue par défaut**.
 
-6. La section **Informations d’identification du client** inclut les paramètres **ID client** et **Clé secrète client** , qui sont obtenus lors du processus de création et de configuration de votre serveur OAuth 2.0. Une fois que les paramètres **ID client** et **Clé secrète client** ont été spécifiés, le **redirect_uri** pour le **code d’autorisation** est généré. Cette URI est utilisée pour configurer l'URL de réponse dans la configuration de votre serveur OAuth 2.0.
+6. La section **Informations d’identification du client** inclut les paramètres **ID client** et **Clé secrète client**, qui sont obtenus lors du processus de création et de configuration de votre serveur OAuth 2.0. Une fois que les paramètres **ID client** et **Clé secrète client** ont été spécifiés, le **redirect_uri** pour le **code d’autorisation** est généré. Cette URI est utilisée pour configurer l'URL de réponse dans la configuration de votre serveur OAuth 2.0.
 
     Dans le nouveau portail des développeurs, le suffixe URI se présente sous la forme suivante :
 
@@ -80,7 +80,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     ![Capture d’écran montrant où ajouter les informations d’identification du client pour le nouveau service OAuth2.](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Si le paramètre **Types d’accès accordés aux autorisations** est défini sur **Mot de passe du propriétaire des ressources** , la section **Informations d’identification du mot de passe du propriétaire des ressources** permet de spécifier ces informations d’identification ; sinon, vous pouvez la laisser vide.
+    Si le paramètre **Types d’accès accordés aux autorisations** est défini sur **Mot de passe du propriétaire des ressources**, la section **Informations d’identification du mot de passe du propriétaire des ressources** permet de spécifier ces informations d’identification ; sinon, vous pouvez la laisser vide.
 
     Une fois le formulaire complété, cliquez sur **Créer** pour enregistrer la configuration du serveur d’autorisation OAuth 2.0 de Gestion des API. Après l'enregistrement de la configuration du serveur, vous pouvez configurer les API pour utiliser cette configuration, tel qu'expliqué dans la section suivante.
 
@@ -90,7 +90,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     ![API OAuth 2.0](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Cliquez sur le nom de l’API souhaitée, puis sur **Paramètres**. Faites défiler l’écran jusqu’à la section **Sécurité** , puis cochez la case **OAuth 2.0**.
+2. Cliquez sur le nom de l’API souhaitée, puis sur **Paramètres**. Faites défiler l’écran jusqu’à la section **Sécurité**, puis cochez la case **OAuth 2.0**.
 
     ![Paramètres OAuth 2.0](./media/api-management-howto-oauth2/oauth-06.png)
 
@@ -111,7 +111,7 @@ Cliquez sur **API** dans le menu supérieur et sélectionnez **API Echo**.
 > [!NOTE]
 > Si vous n'avez qu'une API configurée ou visible dans votre compte, cliquez sur des API pour accéder directement aux opérations associées.
 
-Sélectionnez l’opération **Ressource GET** , cliquez sur **Ouvrir la console** , puis sélectionnez **Code d’autorisation** dans la liste déroulante.
+Sélectionnez l’opération **Ressource GET**, cliquez sur **Ouvrir la console**, puis sélectionnez **Code d’autorisation** dans la liste déroulante.
 
 ![Open console][api-management-open-console]
 

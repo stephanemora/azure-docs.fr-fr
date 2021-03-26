@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ms.openlocfilehash: 5fad3e4862b0c40c9edd00a5b9d47b245e529396
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536730"
 ---
 # <a name="convert-word-to-vector-module"></a>Module Vectoriser des mots

@@ -10,10 +10,10 @@ ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069657"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage

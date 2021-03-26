@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531647"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights Gen1
@@ -65,9 +65,9 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
    |**Messages non valides reçus en entrée**     | Nombre de messages non valides lus à partir de la totalité des Event Hubs Azure ou des sources d’événements Azure IoT Hub.      |
    |**Messages reçus en entrée**   | Nombre de messages lus à partir de la totalité des Event Hubs ou des sources d’événements IoT Hub.        |
    |**Octets stockés en entrée**     | Taille totale des événements stockés et disponibles pour la requête. La taille est calculée uniquement sur la valeur de propriété.        |
-   |**Événements stockés en entrée**     |   Nombre d’événements aplatis stockés et disponibles pour la requête.      |
-   |**Retard des messages reçus en entrée**    |  Différence en secondes entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée.      |
-   |**Décalage du nombre des messages reçus en entrée**    |  Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée.      |
+   |**Événements stockés en entrée**     |   Nombre d’événements aplatis stockés et disponibles pour la requête.      |
+   |**Retard des messages reçus en entrée**    |  Différence en secondes entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée.      |
+   |**Décalage du nombre des messages reçus en entrée**    |  Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée.      |
 
    Sélectionnez **Terminé**.
 
