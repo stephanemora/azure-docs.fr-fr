@@ -2,13 +2,13 @@
 title: Niveaux de service Premium et Standard d’Azure Service Bus
 description: Cet article décrit les niveaux de service Standard et Premium d’Azure Service Bus. Compare ces niveaux de service et indique les différences techniques.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90966795"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636507"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -28,7 +28,7 @@ Les principales différences sont répertoriées dans le tableau suivant.
 
 La **messagerie Service Bus Premium** isole les ressources au niveau processeur et mémoire, ce qui permet d’exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter 1, 2, 4 ou 8 unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. Au final, les performances de votre solution Service Bus sont prévisibles et répétables.
 
-Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, mais aussi supérieures. La messagerie Service Bus Premium s’appuie sur le moteur de stockage introduit dans [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). La messagerie Premium offre des performances de pointe bien supérieures à celles de la couche Standard.
+Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, mais aussi supérieures. La messagerie Premium offre des performances de pointe bien supérieures à celles de la couche Standard.
 
 ## <a name="premium-messaging-technical-differences"></a>Différences techniques de la messagerie Premium
 
@@ -40,9 +40,7 @@ La messagerie Premium-Messaging ne prend pas en charge les files d’attente et 
 
 ### <a name="express-entities"></a>Entités Express
 
-La messagerie Premium-Messaging s’exécutant dans un environnement d’exécution isolé, les entités express ne sont pas prises en charge dans les espaces de noms Premium. Pour en savoir plus sur la fonctionnalité express, consultez la propriété [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
-
-Si vous avez du code s’exécutant dans la messagerie Standard et que vous souhaitez le faire passer au niveau Premium, vérifiez que la propriété [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) est définie sur **false** (la valeur par défaut).
+La messagerie Premium-Messaging s’exécutant dans un environnement d’exécution isolé, les entités express ne sont pas prises en charge dans les espaces de noms Premium. Une entité Express conserve temporairement un message en mémoire avant de l’écrire dans un stockage persistant. Si du code s’exécute sous la messagerie Standard et que vous souhaitez le porter au niveau Premium, assurez-vous que la fonctionnalité d’entité Express est désactivée.
 
 ## <a name="premium-messaging-resource-usage"></a>Utilisation des ressources Premium Messaging
 En règle générale, toute opération sur une entité peut entraîner l’utilisation du processeur et de la mémoire. Voici quelques-unes de ces opérations : 
@@ -69,8 +67,8 @@ Un certain nombre de facteurs doivent être pris en compte pour déterminer le n
 
 - Commencez par ***1 ou 2 unités de messagerie*** allouées à votre espace de noms.
 - Étudiez les métriques d’utilisation du processeur dans les [métriques d’utilisation des ressources](service-bus-metrics-azure-monitor.md#resource-usage-metrics) pour votre espace de noms.
-    - Si l’utilisation du processeur est ***inférieure à 20 %***, vous pourrez peut-être ***réduire*** le nombre d’unités de messagerie allouées à votre espace de noms.
-    - Si l’utilisation du processeur est ***supérieure à 70 %***, votre application profitera d’une ***augmentation*** du nombre d’unités de messagerie allouées à votre espace de noms.
+    - Si l’utilisation du processeur est **inférieure à 20 %** , vous pourrez peut-être *_réduire_* le nombre d’unités de messagerie allouées à votre espace de noms.
+    - Si l’utilisation du processeur est **supérieure à 70 %** , votre application profitera d’une *_augmentation_* du nombre d’unités de messagerie allouées à votre espace de noms.
 
 Pour configurer un espace de noms Service Bus afin qu'il se mette automatiquement à l'échelle (augmentation ou diminution des unités de messagerie), consultez [Mettre automatiquement à jour les unités de messagerie](automate-update-messaging-units.md).
 

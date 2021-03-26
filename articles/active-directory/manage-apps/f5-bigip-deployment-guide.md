@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730654"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition dans Azure IaaS pour un accès hybride sécurisé
@@ -248,7 +248,7 @@ Par défaut, les réseaux virtuels Azure et les sous-réseaux associés sont des
  |Adresses IP de destination|Liste séparée par des virgules de toutes les adresses IP privées secondaires de la machine virtuelle BIG-IP|
  |Ports de destination| 80,443|
  |Protocole| TCP |
- |Action| Autoriser|
+ |Action| Allow|
  |Priority|Valeur disponible la plus basse entre 100 et 4096|
  |Nom | Nom descriptif, par exemple : `BIG-IP-VM_Web_Services_80_443`|
 

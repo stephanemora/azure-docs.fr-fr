@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616114"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954671"
 ---
 # <a name="management-of-azure-automation-data"></a>Gestion des données Azure Automation
 
@@ -56,7 +56,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 | Rapports sur le nœud |Le rapport sur un nœud est définitivement supprimé définitivement 90 jours après la génération d’un nouveau rapport pour ce même nœud. |
 | Runbooks |Un runbook est définitivement supprimé 30 jours après qu’un utilisateur a supprimé la ressource ou 30 jours après qu’un utilisateur a supprimé le compte qui contenait la ressource<sup>1</sup>. |
 
-<sup>1</sup>Le runbook peuvent être récupéré dans la fenêtre de 30 jours en ouvrant un incident de support Azure auprès du support Microsoft Azure. Accédez au [site de support Azure](/support/options) et sélectionnez **Soumettre une demande de support**.
+<sup>1</sup>Le runbook peuvent être récupéré dans la fenêtre de 30 jours en ouvrant un incident de support Azure auprès du support Microsoft Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) et sélectionnez **Soumettre une demande de support**.
 
 ## <a name="data-backup"></a>Sauvegarde de données
 

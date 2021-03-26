@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
 ms.openlocfilehash: 5ce459e2820cfd2ea5cacb036f5d6885c9c5afa0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933358"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK REST Apache Phoenix Query Server
@@ -20,7 +20,7 @@ Cet article décrit comment utiliser le Kit de développement logiciel (SDK) RES
 
 Pour plus d’informations, consultez [Référence des mémoires tampons de protocole Apache Calcite Avatica](https://calcite.apache.org/avatica/docs/protobuf_reference.html).
 
-## <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
+## <a name="install-the-sdk"></a>Installer le SDK
 
 Le pilote Microsoft .NET pour le serveur de requêtes Apache Phoenix est fourni sous la forme d’un package NuGet qui peut être installé à partir de la **Console du gestionnaire de package NuGet** de Visual Studio avec la commande suivante :
 

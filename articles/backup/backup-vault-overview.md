@@ -4,10 +4,10 @@ description: Une vue d’ensemble des coffres de sauvegarde.
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92091285"
 ---
 # <a name="backup-vaults-overview"></a>Vue d’ensemble des coffres de sauvegarde
@@ -16,7 +16,7 @@ Cet article décrit les fonctionnalités d’un coffre de sauvegarde. Un coffre 
 
 - **Fonctionnalités enrichies pour sécuriser les données de sauvegarde** : Avec les coffres de sauvegarde, Sauvegarde Azure fournit des fonctionnalités de sécurité pour protéger les sauvegardes cloud. Ces fonctionnalités de sécurité vous garantissent de pouvoir sécuriser vos sauvegardes et récupérer en toute sécurité des données même si des serveurs de production et de sauvegarde sont compromis. [En savoir plus](backup-azure-security-feature.md)
 
-- **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : Azure RBAC fournit un contrôle de gestion des accès affiné dans Azure. [Azure offre différents rôles intégrés](../role-based-access-control/built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres de sauvegarde sont compatibles avec Azure RBAC, qui restreint l’accès aux sauvegardes et restaurations à l’ensemble défini de rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
+- **Contrôle d’accès en fonction du rôle Azure (Azure RBAC)**  : Azure RBAC offre un contrôle très précis de la gestion des accès dans Azure. [Azure offre différents rôles intégrés](../role-based-access-control/built-in-roles.md), et Sauvegarde Microsoft Azure comprend trois [rôles intégrés pour gérer les points de récupération](backup-rbac-rs-vault.md). Les coffres de sauvegarde sont compatibles avec Azure RBAC, qui restreint l’accès aux sauvegardes et restaurations à l’ensemble défini de rôles d’utilisateur. [En savoir plus](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Paramètres de stockage dans le coffre de sauvegarde
 
@@ -47,14 +47,14 @@ Connectez-vous au portail Azure sur <https://portal.azure.com>.
 ### <a name="create-backup-vault"></a>Créer un coffre de sauvegarde
 
 1. Tapez **Coffres de sauvegarde** dans la zone de recherche.
-1. Sous **Services** , sélectionnez **Coffres de sauvegarde** .
-1. Dans la page **Coffres de sauvegarde** , sélectionnez **Ajouter** .
-1. Sous l’onglet **Général** , sous **Détails du projet** , vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer un groupe de ressources** . Tapez *myResourceGroup* comme nom.
+1. Sous **Services**, sélectionnez **Coffres de sauvegarde**.
+1. Dans la page **Coffres de sauvegarde**, sélectionnez **Ajouter**.
+1. Sous l’onglet **Général**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer un groupe de ressources**. Tapez *myResourceGroup* comme nom.
 
   ![Créer un groupe de ressources](./media/backup-vault-overview/new-resource-group.png)
 
-1. Sous **Détails de l’instance** , tapez *myVault* pour **Nom du coffre de sauvegarde** , puis choisissez votre région, dans le cas présent *USA Est* pour **Région** .
-1. Choisissez maintenant votre **Redondance du stockage** . La redondance du stockage ne peut pas être changée une fois que des éléments sont protégés dans le coffre.
+1. Sous **Détails de l’instance**, tapez *myVault* pour **Nom du coffre de sauvegarde**, puis choisissez votre région, dans le cas présent *USA Est* pour **Région**.
+1. Choisissez maintenant votre **Redondance du stockage**. La redondance du stockage ne peut pas être changée une fois que des éléments sont protégés dans le coffre.
 1. Si vous utilisez Azure comme principal point de terminaison du stockage de sauvegarde, nous vous recommandons de continuer à utiliser le paramètre **Géoredondant** par défaut.
 1. Sinon, choisissez l’option **Redondant en local** qui réduit les coûts de stockage Azure.
 1. Informez-vous sur la redondance [géo](../storage/common/storage-redundancy.md#geo-redundant-storage) et [locale](../storage/common/storage-redundancy.md#locally-redundant-storage).
@@ -98,17 +98,17 @@ Lorsqu’il n’y a plus d’éléments dans le coffre, sélectionnez **Supprime
 
 ![Supprimer un coffre](./media/backup-vault-overview/delete-vault.png)
 
-1. Sélectionnez **Oui** pour confirmer la suppression du coffre. Le coffre est supprimé. Le portail revient au menu de service **Nouveau** .
+1. Sélectionnez **Oui** pour confirmer la suppression du coffre. Le coffre est supprimé. Le portail revient au menu de service **Nouveau**.
 
 ## <a name="monitor-and-manage-the-backup-vault"></a>Superviser et gérer le coffre de sauvegarde
 
-Cette section explique comment utiliser le tableau de bord **Vue d’ensemble** des coffres de sauvegarde pour superviser et gérer vos coffres de sauvegarde. Le volet Vue d’ensemble contient deux vignettes : **Travaux** et **Instances** .
+Cette section explique comment utiliser le tableau de bord **Vue d’ensemble** des coffres de sauvegarde pour superviser et gérer vos coffres de sauvegarde. Le volet Vue d’ensemble contient deux vignettes : **Travaux** et **Instances**.
 
 ![Vue d’ensemble du tableau de bord](./media/backup-vault-overview/overview-dashboard.png)
 
 ### <a name="manage-backup-instances"></a>Gérer les instances de sauvegarde
 
-Dans la vignette **Travaux** , vous voyez un récapitulatif de tous les travaux liés à la sauvegarde et à la restauration dans votre coffre de sauvegarde. La sélection de l’un des nombres dans cette vignette vous permet de voir des informations supplémentaires sur les travaux pour un type de source de données, un type d’opération et un état spécifiques.
+Dans la vignette **Travaux**, vous voyez un récapitulatif de tous les travaux liés à la sauvegarde et à la restauration dans votre coffre de sauvegarde. La sélection de l’un des nombres dans cette vignette vous permet de voir des informations supplémentaires sur les travaux pour un type de source de données, un type d’opération et un état spécifiques.
 
 ![Instances de sauvegarde](./media/backup-vault-overview/backup-instances.png)
 

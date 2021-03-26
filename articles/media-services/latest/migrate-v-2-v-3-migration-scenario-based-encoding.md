@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 915fdcb059d9e7bf9e1853040b90b82a0457652e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612493"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598403"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’encodage
 
@@ -76,7 +76,7 @@ Cliquez sur l’image ci-dessous pour afficher une version plus volumineuse.
         - ressource(s) de sortie ;
         - Un groupe de ressources
         - nom du compte AMS.  
-1. Utilisez [Event Grid](monitor-events-portal-how-to.md) pour surveiller votre travail.
+1. Utilisez [Event Grid](monitoring/monitor-events-portal-how-to.md) pour surveiller votre travail.
 1. Envoyez le travail.
 
 ## <a name="custom-presets-from-v2-to-v3-encoding"></a>Présélections personnalisées de l’encodage v2 à l’encodage V3

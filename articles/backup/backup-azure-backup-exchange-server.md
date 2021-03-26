@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91271645"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Sauvegarder un serveur Exchange dans Azure Backup avec System Center 2012 R2 DPM
@@ -108,7 +108,7 @@ Pour installer l’agent de protection DPM sur le serveur Exchange, procédez co
 1. Pour récupérer une base de données Exchange, sélectionnez **Récupération** dans la console Administrateur DPM.
 2. Localisez la base de données Exchange que vous souhaitez récupérer.
 3. Sélectionnez un point de récupération en ligne dans la liste déroulante *Heure de récupération* .
-4. Sélectionnez **Récupérer** pour lancer l’**Assistant Récupération**.
+4. Cliquez sur **Récupérer** pour lancer l’**Assistant Récupération**.
 
 Pour les points de récupération en ligne, il existe cinq types de récupération :
 

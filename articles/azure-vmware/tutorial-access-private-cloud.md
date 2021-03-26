@@ -2,25 +2,25 @@
 title: Tutoriel - Accéder à votre cloud privé
 description: Découvrez comment accéder à un cloud privé Azure VMware Solution
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: 456767a9edd78a70a0aba45c7b44a2150a2217a1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/13/2021
+ms.openlocfilehash: f2af1cffda08bf4b9c62e63f32d36cc9bbd7024a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045001"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103494391"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Accéder à un cloud privé Azure VMware Solution
 
-Azure VMware Solution ne vous permet pas de gérer votre cloud privé avec votre vCenter local. Vous devez procéder à une configuration supplémentaire et disposer d’une connexion à une instance vCenter locale via une jumpbox. 
+Azure VMware Solution ne vous permet pas de gérer votre cloud privé avec votre vCenter local. Vous devez vous connecter à l’instance Azure VMware Solution vCenter via une jumpbox. 
 
-Dans ce tutoriel, vous allez créer une jumpbox dans le groupe de ressources que vous avez créé dans le [tutoriel précédent](tutorial-configure-networking.md) et vous connecter à vCenter. La jumpbox est une machine virtuelle Windows (VM) sur le même réseau virtuel que vous avez créé.  Elle permet d’accéder à vCenter et NSX Manager. 
+Dans ce tutoriel, vous allez créer une jumpbox dans le groupe de ressources que vous avez créé dans le [tutoriel précédent](tutorial-configure-networking.md), et vous connecter à l’Azure VMware Solution vCenter. Cette jumpbox est une machine virtuelle Windows sur le réseau virtuel que vous avez créé.  Elle donne accès au vCenter et au NSX Manager. 
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Créer une machine virtuelle Windows à utiliser pour se connecter à vCenter
-> * Vous connecter à vCenter à partir de votre machine virtuelle
+> * Créer une machine virtuelle Windows pour accéder à l’Azure VMware Solution vCenter
+> * Vous connecter au vCenter à partir de cette machine virtuelle
 
 ## <a name="create-a-new-windows-virtual-machine"></a>Créer une machine virtuelle Windows
 
@@ -28,14 +28,11 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="connect-to-the-local-vcenter-of-your-private-cloud"></a>Se connecter au vCenter local de votre cloud privé
 
-1. À partir de la jumpbox, connectez-vous au client vSphere avec VMware vCenter SSO à l’aide d’un nom d’utilisateur d’administrateur cloud et vérifiez que l’interface utilisateur s’affiche correctement.
+1. À partir de la jumpbox, connectez-vous au client vSphere avec VMware vCenter SSO à l’aide d’un nom d’utilisateur d’administrateur cloud, et vérifiez que l’interface utilisateur s’affiche correctement.
 
 1. Dans le portail Azure, sélectionnez votre cloud privé, puis **Gérer** > **Identité**. 
 
    Les URL et les informations d’identification de l’utilisateur pour le cloud privé vCenter et NSX-T Manager s’affichent.
-
-   >[!TIP]
-   >Sélectionnez **Générer un nouveau mot de passe** pour générer de nouveaux mots de passe vCenter et NSX-T.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Affichez les URL et les informations d’identification vCenter et NSX Manager du cloud privé." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 

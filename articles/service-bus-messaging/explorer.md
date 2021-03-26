@@ -3,12 +3,12 @@ title: Utiliser Azure Service Bus Explorer pour effectuer des opérations de don
 description: Cet article fournit des informations sur l’utilisation de l’Azure Service Bus Explorer basé sur le portail pour accéder à des données Azure Service Bus.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 06bc2ffffc6b467aa730e16599099bc95117dac9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 0b5274c492a1dfb2523c52d7aea2b7ebf8eae675
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092215"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738954"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utiliser l’Explorateur Service Bus pour effectuer des opérations de données sur Service Bus (préversion)
 
@@ -25,7 +25,7 @@ L’Explorateur Azure Service Bus étend la fonctionnalité du portail au-delà 
 > [!NOTE]
 > Cet article met en évidence la fonctionnalité de l’Explorateur Azure Service Bus qui se trouve sur le Portail Azure.
 >
-> L’outil Explorateur Azure Service Bus ne correspond ***pas** _ à l’outil OSS [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) de la communauté.
+> L’outil Explorateur Azure Service Bus n’est ***pas*** l’outil OSS [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) détenu par la communauté.
 >
 
 ## <a name="prerequisites"></a>Prérequis
@@ -37,18 +37,18 @@ Pour utiliser l’outil Service Bus Explorer, vous devez effectuer les tâches s
     - [Démarrage rapide – Créer des files d’attente](service-bus-quickstart-portal.md)
     - [Démarrage rapide – Créer des rubriques](service-bus-quickstart-topics-subscriptions-portal.md)
 - Vérifiez que vous êtes membre de l’un de ces rôles sur l’espace de noms : 
-    - [Propriétaire des données Service Bus](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
-    - [Contributeur](/azure/role-based-access-control/built-in-roles#contributor) 
-    - [Propriétaire](/azure/role-based-access-control/built-in-roles#owner)
+    - [Propriétaire des données Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
+    - [Contributeur](../role-based-access-control/built-in-roles.md#contributor) 
+    - [Propriétaire](../role-based-access-control/built-in-roles.md#owner)
 
 
 ## <a name="using-the-service-bus-explorer"></a>Utilisation de Service Bus Explorer
 
 Pour utiliser Azure Service Bus Explorer, vous devez accéder à l’espace de noms Service Bus sur lequel vous souhaitez effectuer des opérations d’envoi, d’aperçu et d’affichage.
 
-Si vous cherchez à effectuer des opérations sur une file d’attente, choisissez _ *Files d’attente** dans le menu de navigation. Si vous cherchez à effectuer des opérations sur une rubrique (et ses abonnements associés), choisissez **Rubriques**. 
+Si vous cherchez à effectuer des opérations sur une file d’attente, choisissez **Files d’attente** dans le menu de navigation. Si vous cherchez à effectuer des opérations sur une rubrique (et ses abonnements associés), choisissez **Rubriques**. 
 
-:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png"alt-text="Sélection d’entité":::
+:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Sélection d’entité":::
 
 Après avoir choisi **Files d’attente** ou **Rubriques**, sélectionnez la file d’attente ou la rubrique souhaitée.
 
@@ -58,11 +58,11 @@ Sélectionnez **Service Bus Explorer (préversion)** dans le menu de navigation 
 
 ### <a name="sending-a-message-to-a-queue-or-topic"></a>Envoi d’un message à une file d’attente ou à une rubrique
 
-Pour envoyer un message à une **File d’attente** ou à une **Rubrique**, cliquez sur l’onglet **_Envoyer_* _ dans Service Bus Explorer.
+Pour envoyer un message à une **File d’attente** ou à une **Rubrique**, cliquez sur l’onglet **_Envoyer_** dans Service Bus Explorer.
 
 Pour composer un message ici : 
 
-1. Choisissez le _ *Type de contenu** « Texte/brut », « Application/XML » ou « Application/JSON ».
+1. Choisissez le **Type de contenu** « Texte/Brut », « Application/Xml » ou « Application/Json ».
 2. Ajoutez le **Contenu** du message. Assurez-vous qu’il correspond au **Type de contenu** défini précédemment.
 3. Définissez les **Propriétés avancées** (facultatif) : ID de corrélation, ID de message, Étiquette, ReplyTo, Durée de vie (TTL) et Heure planifiée de mise en file d’attente (pour les Messages planifiés).
 4. Définissez les **Propriétés personnalisées**. Il peut s’agir de toute propriété utilisateur définie par rapport à une clé de dictionnaire.
@@ -86,23 +86,23 @@ Lorsque l’opération d’envoi s’est terminée avec succès,
 La fonction de réception sur Service Bus Explorer permet de recevoir un seul message à la fois. L’opération de réception s’effectue à l’aide du mode **ReceiveAndDelete**.
 
 > [!IMPORTANT]
-> Notez que l’opération de réception effectuée par Service Bus Explorer est une **_réception destructrice_* _, c’est-à-dire que le message est supprimé de la file d’attente quand il est affiché dans l’outil Service Bus Explorer.
+> Notez que l’opération Recevoir effectuée par Service Bus Explorer est une ***réception destructrice***, c’est-à-dire que le message est supprimé de la file d’attente quand il est affiché sur l’outil Service Bus Explorer.
 >
-> Pour parcourir les messages sans les supprimer de la file d’attente, vous pouvez utiliser la fonctionnalité _*_Aperçu_*_.
+> Pour parcourir les messages sans les supprimer de la file d’attente, envisagez d’utiliser la fonctionnalité ***Aperçu***.
 >
 
 Pour recevoir un message d’une File d’attente (ou de sa sous-file d’attente de lettres mortes) : 
 
-1. Cliquez sur l’onglet _*_Recevoir_*_ de Service Bus Explorer.
-2. Regardez s’il existe des _ *Messages actifs** ou des **Messages de lettres mortes** à recevoir dans les métriques.
+1. Cliquez sur l’onglet ***Recevoir*** du Service Bus Explorer.
+2. Vérifiez les métriques pour voir s’il existe des **Messages actifs** ou des **Messages de lettres mortes** à recevoir.
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. Choisissez entre la **_File d’attente_* _ et la sous-file d’attente _*_Lettre morte_*_.
+3. Choisissez entre la ***File d’attente** _ et la sous-file d’attente _ *_Lettre morte_**.
 
     :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
 
-4. Cliquez sur le bouton _*_Recevoir_*_, puis sur _*_Oui_*_ pour confirmer l’opération « Recevoir et supprimer ».
+4. Cliquez sur le bouton ***Recevoir** _, puis sur _ *_Oui_** pour confirmer l’opération « Recevoir et supprimer ».
 
 
 Lorsque l’opération de réception aboutit, les détails du message s’affichent dans la grille comme ci-dessous. Vous pouvez sélectionner le message dans la grille pour afficher ses détails.
@@ -114,19 +114,19 @@ Lorsque l’opération de réception aboutit, les détails du message s’affich
 
 La fonctionnalité d’aperçu vous permet d’utiliser Service Bus Explorer pour afficher les 32 premiers messages d’une file d’attente ou la file d’attente de lettres mortes.
 
-1. Pour afficher un aperçu du message dans une file d’attente, cliquez sur l’onglet _*_Aperçu_*_ dans Service Bus Explorer.
+1. Pour lire le message dans une file d’attente, cliquez sur l’onglet ***Aperçu*** dans le Service Bus Explorer.
 
     :::image type="content" source="./media/service-bus-explorer/peek-tab-selected.png" alt-text="PeekTab":::
 
-2. Regardez s’il existe des _ *Messages actifs** ou des **Messages de lettres mortes** à afficher dans les métriques.
+2. Vérifiez les métriques pour voir s’il existe des **Messages actifs** ou des **Messages de lettres mortes** dont afficher l’aperçu.
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. Choisissez ensuite entre la **_File d’attente_* _ et la sous-file d’attente _*_Lettre morte_*_.
+3. Choisissez ensuite entre la ***File d’attente** _ et la sous-file d’attente _ *_Lettre morte_**.
 
     :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
 
-4. Cliquez sur le bouton _*_Aperçu_*_. 
+4. Cliquez sur le bouton ***Aperçu***. 
 
 Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 messages s’affichent dans la grille comme ci-dessous. Pour afficher les détails d’un message particulier, sélectionnez-le dans la grille. 
 
@@ -134,28 +134,28 @@ Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 m
 
 > [!NOTE]
 >
-> Comme l’aperçu n’est pas une opération destructrice, le message n’est _ *pas** supprimé de la file d’attente.
+> Comme l’affichage d’aperçu n’est pas une opération destructrice, le message **n’est pas** supprimé de la file d’attente.
 >
 
 ### <a name="receiving-a-message-from-a-subscription"></a>Réception d’un message d’un abonnement
 
-Comme pour une file d’attente, l’opération **_Recevoir_* _ peut être effectuée sur un abonnement (ou son entité de lettres mortes). Toutefois, étant donné qu’un abonnement se trouve dans le contexte de la rubrique, l’opération de réception est effectuée en accédant au Service Bus Explorer pour une rubrique donnée.
+À l’instar d’une file d’attente, l’opération ***Recevoir*** peut être effectuée par rapport à un abonnement (ou à son entité de lettres mortes). Toutefois, étant donné qu’un abonnement se trouve dans le contexte de la rubrique, l’opération de réception est effectuée en accédant au Service Bus Explorer pour une rubrique donnée.
 
 > [!IMPORTANT]
-> Notez que l’opération de réception effectuée par Service Bus Explorer est une _*_réception destructrice_*_, c’est-à-dire que le message est supprimé de la file d’attente quand il est affiché dans l’outil Service Bus Explorer.
+> Notez que l’opération de réception effectuée par le Service Bus Explorer est une ***réception destructrice***, c’est-à-dire que le message est supprimé de la file d’attente quand il est affiché dans l’outil Service Bus Explorer.
 >
-> Pour parcourir les messages sans les supprimer de la file d’attente, vous pouvez utiliser la fonctionnalité _*_Aperçu_*_.
+> Pour parcourir les messages sans les supprimer de la file d’attente, envisagez d’utiliser la fonctionnalité ***Aperçu***.
 >
 
-1. Cliquez sur l’onglet _*_Recevoir_*_ et sélectionnez _*_l’Abonnement_*_ spécifique dans le sélecteur de liste déroulante.
+1. Cliquez sur l’onglet ***Recevoir** _ et sélectionnez _ *_l’abonnement_** spécifique dans le sélecteur de liste déroulante.
 
     :::image type="content" source="./media/service-bus-explorer/receive-subscription-tab-selected.png" alt-text="ReceiveTabSelected":::
 
-2. Choisissez entre _*_l’Abonnement_*_ et la sous-entité _*_Lettres mortes_*_.
+2. Choisissez entre ***Abonnement** _ et la sous-entité _ *_Lettre morte_**.
 
     :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
 
-3. Cliquez sur le bouton _*_Recevoir_*_, puis sur _*_Oui_*_ pour confirmer l’opération « Recevoir et supprimer ».
+3. Cliquez sur le bouton ***Recevoir** _, puis sur _ *_Oui_** pour confirmer l’opération « Recevoir et supprimer ».
 
 Lorsque l’opération de réception aboutit, le message reçu s’affiche dans la grille comme ci-dessous. Pour afficher les détails du message, cliquez dessus.
 
@@ -163,17 +163,17 @@ Lorsque l’opération de réception aboutit, le message reçu s’affiche dans 
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Affichage de l’aperçu d’un message d’un abonnement
 
-Pour parcourir simplement les messages d’un abonnement ou de sa sous-entité de lettres mortes, la fonctionnalité _*_Aperçu_*_ peut également être utilisée sur l’abonnement.
+Pour simplement parcourir les messages d’un abonnement ou de sa sous-entité de lettres mortes, la fonctionnalité ***Aperçu*** peut également être utilisée sur l’abonnement.
 
-1. Cliquez sur l’onglet _*_Aperçu_*_ et sélectionnez _*_l’Abonnement_*_ spécifique dans le sélecteur de liste déroulante.
+1. Cliquez sur l’onglet ***Aperçu** _ et sélectionnez _ *_l’Abonnement_** spécifique dans le sélecteur de liste déroulante.
 
     :::image type="content" source="./media/service-bus-explorer/peek-subscription-tab-selected.png" alt-text="PeekTabSelected":::
 
-2. Choisissez entre _*_l’Abonnement_*_ et la sous-entité _*_Lettres mortes_*_.
+2. Choisissez entre ***l’Abonnement** _ et la sous-entité _ *_Lettre morte_**.
 
     :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
 
-3. Cliquez sur le bouton _*_Aperçu_*_.
+3. Cliquez sur le bouton ***Aperçu***.
 
 Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 messages s’affichent dans la grille comme ci-dessous. Pour afficher les détails d’un message particulier, sélectionnez-le dans la grille. 
 
@@ -181,7 +181,7 @@ Une fois l’opération d’affichage de l’aperçu terminée, jusqu’à 32 m
 
 > [!NOTE]
 >
-> Comme l’aperçu n’est pas une opération destructrice, le message n’est _ *pas** supprimé de la file d’attente.
+> Comme l’affichage d’aperçu n’est pas une opération destructrice, le message **n’est pas** supprimé de la file d’attente.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

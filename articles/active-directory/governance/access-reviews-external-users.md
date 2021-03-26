@@ -3,7 +3,7 @@ title: Utiliser Azure AD Identity Governance pour examiner et supprimer les util
 description: Utiliser les révisions d’accès pour étendre ou supprimer l’accès des membres des organisations partenaires
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
-ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: ajburnle
+ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677313"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176958"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Utiliser Azure Active Directory (Azure AD) Identity Governance pour examiner et supprimer les utilisateurs externes qui n’ont plus accès aux ressources
 
@@ -59,20 +59,21 @@ L’établissement d’une culture de révision axée sur le propriétaire de la
 
 ## <a name="create-access-reviews-for-external-identities"></a>Créer des révisions d’accès pour les identités externes
 
-Les utilisateurs qui n’ont plus accès à aucune ressource de votre locataire peuvent être supprimés s’ils ne travaillent plus avec votre organisation. Avant de bloquer et de supprimer ces identités externes, vous souhaiterez peut-être contacter ces utilisateurs externes et vérifier que vous n’avez pas négligé un projet ou un accès permanent dont ils ont encore besoin. Lorsque vous créez un groupe qui contient toutes les identités externes, car vous avez constaté que les membres n’ont accès à aucune ressource de votre locataire, vous pouvez utiliser les révisions d’accès afin que tous les externes attestent eux-mêmes s’ils ont ou non encore besoin de l’accès. Dans le cadre du processus, le créateur de la vérification dans les révisions d’accès peut utiliser la fonction **Exiger la raison lors de l’approbation** pour obliger les utilisateurs externes à fournir une justification de l’accès continu, grâce à laquelle vous pouvez savoir où et comment ils ont encore besoin d’accéder à votre locataire. Vous pouvez également activer la fonctionnalité **Contenu supplémentaire pour l’e-mail du réviseur** , afin d’informer les utilisateurs qu’ils perdront leur accès s’ils ne répondent pas et que, s’ils ont toujours besoin d’un accès, une justification est nécessaire. Si vous souhaitez continuer et laisser les révisions d’accès **désactiver et supprimer** des identités externes dans le cas où les utilisateurs ne répondent pas ou ne fournissent pas de raison valable pour conserver l’accès, vous pouvez utiliser l’option Désactiver et supprimer, comme décrit dans la section suivante.
+Les utilisateurs qui n’ont plus accès à aucune ressource de votre locataire peuvent être supprimés s’ils ne travaillent plus avec votre organisation. Avant de bloquer et de supprimer ces identités externes, vous souhaiterez peut-être contacter ces utilisateurs externes et vérifier que vous n’avez pas négligé un projet ou un accès permanent dont ils ont encore besoin. Lorsque vous créez un groupe qui contient toutes les identités externes, car vous avez constaté que les membres n’ont accès à aucune ressource de votre locataire, vous pouvez utiliser les révisions d’accès afin que tous les externes attestent eux-mêmes s’ils ont ou non encore besoin de l’accès. Dans le cadre du processus, le créateur de la vérification dans les révisions d’accès peut utiliser la fonction **Exiger la raison lors de l’approbation** pour obliger les utilisateurs externes à fournir une justification de l’accès continu, grâce à laquelle vous pouvez savoir où et comment ils ont encore besoin d’accéder à votre locataire. Vous pouvez également activer la fonctionnalité **Contenu supplémentaire pour l’e-mail du réviseur**, afin d’informer les utilisateurs qu’ils perdront leur accès s’ils ne répondent pas et que, s’ils ont toujours besoin d’un accès, une justification est nécessaire. Si vous souhaitez continuer et laisser les révisions d’accès **désactiver et supprimer** des identités externes dans le cas où les utilisateurs ne répondent pas ou ne fournissent pas de raison valable pour conserver l’accès, vous pouvez utiliser l’option Désactiver et supprimer, comme décrit dans la section suivante.
 
 ![limitation de l’étendue de la révision aux utilisateurs invités uniquement](media/access-reviews-external-users/guest-users-only.png)
 
 Une fois la révision terminée, la page **Résultats** affiche une vue d’ensemble de la réponse fournie par chaque identité externe. Vous pouvez choisir d’appliquer les résultats automatiquement et de laisser les révisions d’accès les désactiver et les supprimer. Vous pouvez également examiner les réponses fournies et décider si vous souhaitez supprimer l’accès d’un utilisateur ou le recontacter et obtenir des informations supplémentaires avant de prendre une décision. Si certains utilisateurs ont toujours accès aux ressources que vous n’avez pas encore examinées, vous pouvez utiliser la révision dans le cadre de la détection et enrichir votre prochain cycle de révision et d’attestation.
 
-## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Désactiver et supprimer des identités externes à l’aide des révisions d’accès Azure AD (préversion)
+## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews"></a>Désactiver et supprimer des identités externes à l’aide des révisions d’accès Azure AD
 
-Outre la possibilité de supprimer les identités externes indésirables de ressources telles que les groupes ou les applications, les révisions d’accès Azure AD peuvent empêcher des identités externes de se connecter à votre locataire et supprimer les identités externes de votre locataire après 30 jours. Une fois que vous avez sélectionné **Empêcher l’utilisateur de se connecter pendant 30 jours, puis supprimer l’utilisateur du locataire** , la révision reste dans l’état « application » pendant 30 jours. Durant cette période, les paramètres, les résultats, les réviseurs ou les journaux d’audit dans le cadre de la révision actuelle ne seront pas visibles ou configurables. 
+Outre la possibilité de supprimer les identités externes indésirables de ressources telles que les groupes ou les applications, les révisions d’accès Azure AD peuvent empêcher des identités externes de se connecter à votre locataire et supprimer les identités externes de votre locataire après 30 jours. Une fois que vous avez sélectionné **Empêcher l’utilisateur de se connecter pendant 30 jours, puis supprimer l’utilisateur du locataire**, la révision reste dans l’état « application » pendant 30 jours. Durant cette période, les paramètres, les résultats, les réviseurs ou les journaux d’audit dans le cadre de la révision actuelle ne seront pas visibles ou configurables. 
 
 ![paramètres une fois l’opération terminée](media/access-reviews-external-users/upon-completion-settings.png)
 
-Lors de la création d’une révision d’accès, dans la section « Paramètres Une fois l’opération terminée », pour **Action à appliquer aux utilisateurs refusés** , vous pouvez définir **Empêcher les utilisateurs de se connecter pendant 30 jours, puis supprimer l’utilisateur du locataire**.
-Ce paramètre, actuellement disponible en préversion, vous permet d’identifier, de bloquer et de supprimer des identités externes de votre locataire Azure AD. Les identités externes qui sont révisées et dont l’accès continu est refusé par le réviseur seront bloquées et supprimées, quel que soit l’accès aux ressources ou l’appartenance au groupe dont elles disposent. Il est préférable d’utiliser ce paramètre en dernière étape, après avoir vérifié que les utilisateurs externes en cours de révision n’ont plus accès aux ressources et peuvent être supprimés de votre locataire en toute sécurité ou si vous souhaitez vous assurer qu’ils sont supprimés, quel que soit leur accès permanent. La fonctionnalité « Désactiver et supprimer » bloque d’abord l’utilisateur externe, ce qui l’empêche de se connecter à votre locataire et d’accéder aux ressources. L’accès aux ressources n’est pas révoqué à ce stade et, au cas où vous souhaiteriez réintégrer l’utilisateur externe, sa capacité à se connecter peut être reconfigurée. Si aucune autre action n’est effectuée, une identité externe bloquée sera supprimée du répertoire au bout de 30 jours, ce qui supprimera le compte ainsi que son accès.
+Lors de la création d’une révision d’accès, dans la section « Paramètres Une fois l’opération terminée », pour **Action à appliquer aux utilisateurs refusés**, vous pouvez définir **Empêcher les utilisateurs de se connecter pendant 30 jours, puis supprimer l’utilisateur du locataire**.
+
+Ce paramètre vous permet d’identifier, de bloquer et de supprimer des identités externes de votre locataire Azure AD. Les identités externes qui sont révisées et dont l’accès continu est refusé par le réviseur seront bloquées et supprimées, quel que soit l’accès aux ressources ou l’appartenance au groupe dont elles disposent. Il est préférable d’utiliser ce paramètre en dernière étape, après avoir vérifié que les utilisateurs externes en cours de révision n’ont plus accès aux ressources et peuvent être supprimés de votre locataire en toute sécurité ou si vous souhaitez vous assurer qu’ils sont supprimés, quel que soit leur accès permanent. La fonctionnalité « Désactiver et supprimer » bloque d’abord l’utilisateur externe, ce qui l’empêche de se connecter à votre locataire et d’accéder aux ressources. L’accès aux ressources n’est pas révoqué à ce stade et, au cas où vous souhaiteriez réintégrer l’utilisateur externe, sa capacité à se connecter peut être reconfigurée. Si aucune autre action n’est effectuée, une identité externe bloquée sera supprimée du répertoire au bout de 30 jours, ce qui supprimera le compte ainsi que son accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

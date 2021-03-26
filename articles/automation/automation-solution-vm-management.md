@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b71e5b1a8ba5f3ee8f883c71a7221e01d4af4fb6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102559356"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597706"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Vue d’ensemble de Start/Stop VMs during off-hours
 
@@ -91,7 +91,8 @@ Vous pouvez activer des machines virtuelles pour la fonctionnalité Start/Stop V
 | Microsoft.Authorization/permissions/read |Abonnement|
 | Microsoft.Authorization/roleAssignments/read | Abonnement |
 | Microsoft.Authorization/roleAssignments/write | Abonnement |
-| Microsoft.Authorization/roleAssignments/delete | Abonnement || Microsoft.Automation/automationAccounts/connections/read | Groupe de ressources |
+| Microsoft.Authorization/roleAssignments/delete | Abonnement |
+| Microsoft.Automation/automationAccounts/connections/read | Groupe de ressources |
 | Microsoft.Automation/automationAccounts/certificates/read | Groupe de ressources |
 | Microsoft.Automation/automationAccounts/write | Groupe de ressources |
 | Microsoft.OperationalInsights/workspaces/write | Groupe de ressources |
@@ -167,7 +168,7 @@ N’activez pas toutes les planifications, car sinon des actions de planificatio
 |Scheduled_StopVM | Défini quotidiennement par l'utilisateur | Exécute le runbook **ScheduledStopStart_Parent** avec un paramètre de `Stop` tous les jours à l’heure spécifiée.  Arrête automatiquement toutes les machines virtuelles répondant aux règles définies par les ressources de variables.  Activez la planification associée, **Scheduled-StartVM**.|
 |Scheduled_StartVM | Défini quotidiennement par l'utilisateur | Exécute le runbook **ScheduledStopStart_Parent** avec une valeur de paramètre de `Start` tous les jours à l’heure spécifiée. Démarre automatiquement toutes les machines virtuelles répondant aux règles définies par les ressources de variables.  Activez la planification associée, **Scheduled-StopVM**.|
 |Sequenced-StopVM | 01:00 (UTC), tous les vendredis | Exécute le runbook **Sequenced_StopStop_Parent** avec une valeur de paramètre de `Stop` tous les vendredis à l’heure spécifiée.  Arrête séquentiellement (dans l’ordre croissant) toutes les machines virtuelles avec la balise **SequenceStop** définie par les variables appropriées. Pour plus d’informations sur les valeurs de balises et les variables de ressources, consultez [Runbooks](#runbooks).  Activez la planification associée, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 13:00 (UTC), tous les lundis | Exécute le runbook **SequencedStopStart_Parent** avec une valeur de paramètre de `Start` tous les lundis à l’heure spécifiée. Démarre séquentiellement (dans l’ordre décroissant) toutes les machines virtuelles avec la balise **SequenceStart** définie par les variables appropriées. Pour plus d’informations sur les valeurs de balises et les ressources de variables, consultez [Runbooks](#runbooks). Activez la planification associée, **Sequenced-StopVM**.
+|Sequenced-StartVM | 13:00 (UTC), tous les lundis | Exécute le runbook **SequencedStopStart_Parent** avec une valeur de paramètre de `Start` tous les lundis à l’heure spécifiée. Démarre séquentiellement (dans l’ordre décroissant) toutes les machines virtuelles avec la balise **SequenceStart** définie par les variables appropriées. Pour plus d’informations sur les valeurs de balises et les ressources de variables, consultez [Runbooks](#runbooks). Activez la planification associée, **Sequenced-StopVM**.|
 
 ## <a name="use-the-feature-with-classic-vms"></a>Utiliser la fonctionnalité avec des machines virtuelles classiques
 
