@@ -1,19 +1,14 @@
 ---
 title: Kit SDK Horizon
-titleSuffix: Azure Defender for IoT
 description: Le Kit de développement logiciel (SDK) Horizon permet aux développeurs Azure Defender pour IoT de concevoir des plug-ins de dissecteur qui décodent le trafic réseau afin que les programmes d’analyse de réseau de Defender pour IoT puissent le traiter.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523360"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782484"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissecteur de protocole propriétaire Horizon
 
@@ -1640,6 +1635,6 @@ Pour surveiller :
 
 sélectionnez le bouton Surveiller pour votre plug-in dans la Vue d’ensemble.
 
-## <a name="next-steps"></a>Étapes suivantes
+Étapes suivantes
 
 Configurer votre [API Horizon](references-horizon-api.md)

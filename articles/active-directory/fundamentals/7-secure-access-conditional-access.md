@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64209a4d9ca200c69783a4ae317b38beef8ded89
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222307"
 ---
 # <a name="manage-external-access-with-conditional-access-policies"></a>Gérer l’accès externe avec les stratégies d’accès conditionnel 
@@ -112,7 +112,7 @@ Consultez les articles suivants sur la sécurisation de l’accès externe aux r
 
 4. [Utiliser des groupes pour la sécurité](4-secure-access-groups.md)
 
-5. [Transition vers Azure AD B2B](5-secure-access-b2b.md)
+5. [Transition vers Azure AD B2B](5-secure-access-b2b.md)
 
 6. [Sécuriser l’accès avec la gestion des droits d’utilisation](6-secure-access-entitlement-managment.md)
 

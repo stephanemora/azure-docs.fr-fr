@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698839"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598386"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Étape 1 : Comprendre les avantages de la migration vers l’API Media Services v3
 
@@ -58,8 +58,8 @@ Des améliorations significatives ont été apportées à Media Services avec la
 |**Protection du contenu** ||
 | La [protection du contenu](content-key-policy-concept.md)  prend en charge les fonctionnalités à plusieurs clés. | Les clients peuvent maintenant utiliser plusieurs clés de chiffrement de contenu sur leurs localisateurs de streaming. |
 | **Surveillance** | |
-| Prise en charge des notifications [Azure EventGrid](reacting-to-media-services-events.md) | Les notifications EventGrid sont enrichies de fonctionnalités. Il existe plus de types de notifications, une prise en charge élargie du SDK pour la réception des notifications dans votre propre application et d’autres services Azure existants pouvant jouer le rôle de gestionnaires d’événements. |
-| [Prise en charge et intégration d’Azure Monitor dans le portail Azure](monitor-events-portal-how-to.md) | Les clients peuvent visualiser l’utilisation du quota de leur compte Media Services, voir les statistiques en temps réel des points de terminaison de streaming, mais aussi ingérer et archiver des statistiques pour des événements en direct. Les clients peuvent maintenant définir des alertes et prendre les mesures nécessaires en fonction de données de métriques en temps réel. |
+| Prise en charge des notifications [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Les notifications EventGrid sont enrichies de fonctionnalités. Il existe plus de types de notifications, une prise en charge élargie du SDK pour la réception des notifications dans votre propre application et d’autres services Azure existants pouvant jouer le rôle de gestionnaires d’événements. |
+| [Prise en charge et intégration d’Azure Monitor dans le portail Azure](monitoring/monitor-events-portal-how-to.md) | Les clients peuvent visualiser l’utilisation du quota de leur compte Media Services, voir les statistiques en temps réel des points de terminaison de streaming, mais aussi ingérer et archiver des statistiques pour des événements en direct. Les clients peuvent maintenant définir des alertes et prendre les mesures nécessaires en fonction de données de métriques en temps réel. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
