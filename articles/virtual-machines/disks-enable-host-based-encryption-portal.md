@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cdb22805e2e68893d3883272b66c2cfac13c807e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573600"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721866"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilisez le portail Azure pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
@@ -27,9 +27,6 @@ Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
 
-### <a name="supported-regions"></a>Régions prises en charge
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 ### <a name="supported-vm-sizes"></a>Tailles des machines virtuelles prises en charge
 
@@ -37,7 +34,24 @@ Quand vous activez le chiffrement sur l’hôte, les données stockées sur l’
 
 ## <a name="prerequisites"></a>Prérequis
 
-Afin de pouvoir utiliser le chiffrement sur l'hôte pour vos machines virtuelles ou groupes de machines virtuelles identiques, vous devez activer la fonctionnalité dans votre abonnement. Envoyez un e-mail à encryptionAtHost@microsoft.com avec vos ID d’abonnement pour activer la fonctionnalité.
+Vous devez activer la fonctionnalité pour votre abonnement avant d’utiliser la propriété EncryptionAtHost pour votre machine virtuelle/groupe de machines virtuelles identiques. Suivez les étapes ci-dessous pour activer la fonctionnalité pour votre abonnement :
+
+1. **Portail Azure**: Sélectionnez l’icône Cloud Shell dans le [portail Azure](https://portal.azure.com) :
+
+    ![Icône permettant de lancer Cloud Shell à partir du portail Azure](../Cloud-Shell/media/overview/portal-launch-icon.png)
+    
+2.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+3.  Vérifiez que l’état de l’inscription est Inscrit (cela prend quelques minutes) à l’aide de la commande ci-dessous avant d’essayer la fonctionnalité.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 Connectez-vous au portail Azure à l’aide du [lien fourni](https://aka.ms/diskencryptionupdates).
 

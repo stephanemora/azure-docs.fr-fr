@@ -1,22 +1,22 @@
 ---
 title: Configuration requise pour le kit SDK Azure Kinect Sensor
 description: Découvrez la configuration requise pour le kit SDK Azure Kinect Sensor sur Windows et Linux.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.custom:
 - CI 115266
 - CSSTroubleshooting
 manager: dcscontentpm
 ms.prod: kinect-dk
-ms.date: 03/12/2020
+ms.date: 03/05/2021
 ms.topic: article
 keywords: Azure, Kinect, configuration requise, CPU, GPU, USB, processeur, configuration, config, minimum, exigences
-ms.openlocfilehash: 5cf313114b62532ee3f2b3d7a5142f79218954c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 558c1b9ca264874fa808aeba5f1e8a809a8f722d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276786"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656972"
 ---
 # <a name="azure-kinect-sensor-sdk-system-requirements"></a>Configuration requise pour le kit SDK Azure Kinect Sensor
 
@@ -52,7 +52,7 @@ La configuration d’un PC hôte de suivi des corps est plus stricte que la conf
 
 - Processeur Intel&reg;​​ CoreTM i5 de septième génération (quadricœur 2,4 GHz ou plus rapide)
 - 4 Go de mémoire
-- NVIDIA GEFORCE GTX 1070 ou supérieure
+- NVIDIA GEFORCE GTX 1050 ou équivalent
 - Port USB3 dédié
 
 La configuration minimale recommandée suppose un mode de profondeur K4A_DEPTH_MODE_NFOV_UNBINNED à 30 images par seconde pour le suivi de 5 personnes. Les processeurs ainsi que les GPU NVIDIA d’entrée de gamme ou plus anciens peuvent également fonctionner selon votre cas d’usage.

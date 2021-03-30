@@ -12,10 +12,10 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934750"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
@@ -48,7 +48,7 @@ Une fois que votre modèle a été publié, vous pouvez récupérer les informat
 
 Dans ce guide, vous utiliserez une image locale, aussi copiez l’URL sous **Si vous avez un fichier image** à un emplacement temporaire. Copiez aussi la valeur __Prediction-Key__ correspondante.
 
-## <a name="create-the-application"></a>Création de l'application
+## <a name="create-the-application"></a>Créer l’application
 
 1. Dans Visual Studio, créez une application console C#.
 

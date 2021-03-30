@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303605"
 ---
 # <a name="how-personalizer-works"></a>Fonctionnement de Personalizer
@@ -20,8 +20,8 @@ La ressource Personalizer, votre _boucle d’apprentissage_, utilise le Machine 
 
 Vous envoyez des _actions avec caractéristiques_ et des _caractéristiques de contexte_ à l’API de classement. L’API de **classement** décide d’utiliser :
 
-* _Exploiter_ : Le modèle actuel pour déterminer la meilleure action en fonction des données antérieures.
-* _Explorer_ : Sélectionne une action différente de l’action classée en premier. Vous [configurez ce pourcentage](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) pour votre ressource Personalizer dans le Portail Azure.
+* _Exploit_ : le modèle actuel pour déterminer la meilleure action en fonction des données antérieures.
+* _Explore_ : sélectionne une action différente de l’action classée en premier. Vous [configurez ce pourcentage](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) pour votre ressource Personalizer dans le Portail Azure.
 
 Vous déterminez le score de récompense et envoyez ce score à l’API de récompense. L’API de **récompense** :
 
@@ -39,7 +39,7 @@ L’illustration suivante montre l’architecture du flux des appels des API de 
     * Personalizer décide d’exploiter le modèle actuel ou d’explorer de nouveaux choix pour le modèle.
     * Le résultat du classement est envoyé à EventHub.
 1. Le meilleur résultat est retourné à votre système comme _ID d’action récompensée_.
-    Votre système présente ce contenu et détermine un score de récompense en fonction de vos propres règles d’entreprise.
+    Votre système présente ce contenu et détermine un score de récompense basé sur vos propres règles métier.
 1. Votre système renvoie le score de récompense à la boucle d’apprentissage.
     * Quand Personalizer reçoit la récompense, elle est envoyée à EventHub.
     * Le classement et la récompense sont mis en corrélation.

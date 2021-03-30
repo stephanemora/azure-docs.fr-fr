@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582314"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104669302"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Application web qui appelle des API web : Configuration de code
 
@@ -28,15 +28,11 @@ Comme illustré dans le scénario [Application web qui connecte des utilisateurs
 
 Les scénarios [Application web qui connecte des utilisateurs](scenario-web-app-sign-user-overview.md) ne couvraient que la première étape. Vous allez ici apprendre à modifier votre application web afin qu'elle appelle les API web en plus de connecter les utilisateurs.
 
-## <a name="libraries-that-support-web-app-scenarios"></a>Bibliothèques qui prennent en charge les scénarios relatifs aux applications web
+## <a name="microsoft-libraries-supporting-web-apps"></a>Bibliothèques Microsoft prenant en charge les applications web
 
-Les bibliothèques suivantes de Microsoft Authentication Library (MSAL) prennent en charge le flux de code d'autorisation pour les applications web :
+Les bibliothèques Microsoft suivantes prennent en charge les applications web :
 
-| Bibliothèque MSAL | Description |
-|--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Prise en charge des plateformes .NET Framework et .NET Core. Les plateformes UWP (plateforme Windows universelle), Xamarin.iOS et Xamarin.Android ne sont pas prises en charge car elles sont utilisées pour créer des applications clientes publiques. <br/><br/>Pour les applications web ASP.NET Core et les API web, MSAL.NET est encapsulé dans une bibliothèque de niveau supérieur nommée [Microsoft.Identity.Web](https://aka.ms/ms-identity-web). |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL pour Python | Prise en charge des applications web Python. |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL pour Java | Prise en charge des applications web Java. |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Sélectionnez l'onglet correspondant à la plateforme qui vous intéresse :
 
