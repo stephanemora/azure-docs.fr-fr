@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3766f29f26a6b2ffeb385cffc971b1ac7a1556cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182574"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102634700"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -759,7 +759,7 @@ Si vous avez des abonnements au niveau tarifaire gratuit, ce changement affecter
 
 Apprenez-en davantage sur les [recommandations relatives aux identités et aux accès](recommendations-reference.md#recs-identityandaccess).
 
-Apprenez-en davantage sur la [surveillance des identités et des accès](security-center-identity-access.md).
+Apprenez-en davantage sur la [gestion de la mise en œuvre de l’authentification multifacteur (MFA) sur vos abonnements](security-center-identity-access.md).
 
 
 

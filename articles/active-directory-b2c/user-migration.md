@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661151"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010165"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrer des utilisateurs vers Azure AD B2C
 
@@ -50,7 +50,7 @@ Le flux de migration fluide comporte ainsi deux phases : la *prémigration* et 
 ### <a name="phase-1-pre-migration"></a>Phase 1 : Prémigration
 
 1. Votre application de migration lit les comptes d’utilisateur de l’ancien fournisseur d’identité.
-1. L’application de migration crée les comptes d’utilisateur correspondants dans votre annuaire Azure AD B2C, mais *ne définit pas les mots de passe*.
+1. L’application de migration crée les comptes d’utilisateur correspondants dans votre répertoire Azure AD B2C, mais *définit des mots de passe aléatoires*.
 
 ### <a name="phase-2-set-credentials"></a>Phase 2 : Définition des informations d’identification
 

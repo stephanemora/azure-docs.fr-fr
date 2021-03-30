@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 84caa287803fa64b12d9da4c2afb1f8dd1418e13
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 6a486057a265b02ce30059940c8c98837ec43f8e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455278"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617639"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Encodage vidéo et audio avec Media Services
 
@@ -95,20 +95,25 @@ Media Services prend en charge les préréglages d’encodage intégrés suivant
 
 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) est utilisé pour définir un préréglage intégré pour l’encodage de la vidéo en entrée avec l’encodeur standard.
 
-Les préréglages suivants sont actuellement pris en charge :
+Les préréglages intégrés suivants sont actuellement pris en charge :
 
 - **EncoderNamedPreset.AACGoodQualityAudio** : produit un fichier MP4 unique contenant seulement le contenu audio stéréo encodé à 192 kbits/s.
-- **EncoderNamedPreset.AdaptiveStreaming** (recommandé) : Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncoding** : expose un préréglage pour l’encodage sensible au contenu. Étant donné un contenu d’entrée, le service tente de déterminer automatiquement le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la remise par streaming adaptatif. Les algorithmes sous-jacents continueront à évoluer au fil du temps. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées. Pour plus d’informations, consultez [Encodage sensible au contenu](content-aware-encoding.md).
-
+- **EncoderNamedPreset.AdaptiveStreaming** (recommandé) : prend en charge l’encodage à débit adaptatif H.264. Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).
+- **EncoderNamerPreset.H265AdaptiveStreaming** : similaire à la présélection d’AdaptiveStreaming, mais utilise le codec HEVC (H.265). Produit un ensemble de fichiers MP4 alignés sur le groupe d’images avec une vidéo H.265 et un son AAC stéréo. Génère automatiquement une échelle de vitesse de transmission basée sur la résolution d’entrée, la vitesse de transmission et la fréquence d’images. Le préréglage généré automatiquement ne dépassera jamais la résolution d’entrée. Par exemple, si l’entrée est en 720p, la sortie restera au mieux en 720p.
+- **EncoderNamedPreset.ContentAwareEncoding** : expose un préréglage pour l’encodage sensible au contenu H.264. Étant donné un contenu d’entrée, le service tente de déterminer automatiquement le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la remise par streaming adaptatif. Les algorithmes sous-jacents continueront à évoluer au fil du temps. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées. Pour plus d’informations, consultez [Encodage sensible au contenu](content-aware-encoding.md).
+- **EncoderNamedPreset.H265ContentAwareEncoding** : expose un préréglage pour l’encodage sensible au contenu HEVC (H.265). Produit un ensemble de fichiers MP4 à alignés sur le groupe d’images à l’aide de l’encodage sensible au contenu. Étant donné un contenu d’entrée, le service effectue une analyse initiale légère du contenu d’entrée et utilise les résultats pour déterminer le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la livraison par diffusion en continu adaptative. Ce préréglage est particulièrement efficace pour les vidéos de complexité faible ou moyenne, où les fichiers de sortie auront des vitesses de transmission inférieures, mais une qualité qui permettra aux viewers d’avoir une bonne expérience. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées.
   > [!NOTE]
-  > Veillez à utiliser **ContentAwareEncoding**, et non ContentAwareEncodingExperimental.
+  > Veillez à utiliser **ContentAwareEncoding**, et non ContentAwareEncodingExperimental, qui est désormais déconseillé.
+
 - **EncoderNamedPreset.H264MultipleBitrate1080** produit un ensemble de huit fichiers MP4 alignés sur GOP, de 6000 kbits/s à 400 kbits/s, et un contenu audio AAC stéréo. La résolution commence à 1 080p et descend à 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p** produit un ensemble de six fichiers MP4 alignés sur GOP, de 3400 kbits/s à 400 kbits/s, et un contenu audio AAC stéréo. La résolution commence à 720p et descend à 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de cinq fichiers MP4 alignés sur GOP, de 1600 kbits/s à 400 kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.
 - **EncoderNamedPreset.H264SingleBitrate1080p** : produit un fichier MP4 où la vidéo est encodée avec le codec H.264 à 6750 kbits/s et une hauteur d’image de 1080 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 64 kbits/s.
 - **EncoderNamedPreset.H264SingleBitrate720p** : produit un fichier MP4 où la vidéo est encodée avec le codec H.264 à 4500 kbits/s et une hauteur d’image de 720 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 64 kbits/s.
 - **EncoderNamedPreset.H264SingleBitrateSD** : produit un fichier MP4 où la vidéo est encodée avec le codec H.264 à 2200 kbits/s et une hauteur d’image de 480 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 64 kbits/s.
+- **EncoderNamedPreset.H265SingleBitrate720P** : produit un fichier MP4 où la vidéo est encodée avec le codec HEVC (H.265) à 1800 kbits/s et une hauteur d’image de 720 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 128 kbits/s.
+- **EncoderNamedPreset.H265SingleBitrate1080p** : produit un fichier MP4 où la vidéo est encodée avec le codec HEVC (H.265) à 3500 kbits/s et une hauteur d’image de 1080 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 128 kbits/s.
+- **EncoderNamedPreset.H265SingleBitrate4K** : produit un fichier MP4 où la vidéo est encodée avec le codec HEVC (H.265) à 9500 kbits/s et une hauteur d’image de 2160 pixels, et le contenu audio stéréo est encodé avec le codec AAC-LC à 128 kbits/s.
 
 Pour afficher la liste des préréglages la plus récente, consultez [Préréglages intégrés à utiliser pour l’encodage de vidéos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -135,6 +140,7 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 - [Personnaliser des préréglages avec l’interface CLI](custom-preset-cli-howto.md)
 - [Personnaliser des préréglages avec REST](custom-preset-rest-howto.md)
 
+
 ## <a name="preset-schema"></a>Schéma de préréglage
 
 Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
@@ -142,6 +148,7 @@ Dans Media Services v3, les présélections sont des entités fortement typées 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 
 Pour mettre à l’échelle le traitement multimédia, consultez [Mettre à l’échelle avec l’interface CLI](media-reserved-units-cli-how-to.md).
+Pour les comptes créés avec la version **2020-05-01** de l’API ou via le portail Azure, la mise à l’échelle et les unités réservées Multimédia ne sont plus nécessaires. La mise à l’échelle sera automatique et gérée par le service en interne.
 
 ## <a name="billing"></a>Facturation
 

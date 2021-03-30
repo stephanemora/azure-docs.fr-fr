@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021845"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562329"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notes de publication : Kit de développement logiciel (SDK) Speech Devices
 
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
+
+## <a name="speech-devices-sdk-1150"></a>SDK Speech Devices 1.15.0 :
+
+- Mise à niveau vers la nouvelle version de Microsoft Audio Stack (MAS) avec formation de faisceaux et réduction du bruit améliorées pour le message.
+- Réduction de la taille des binaires jusqu’à 70 % en fonction de la cible.
+- Prise en charge d’[Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) avec la [version binaire](https://aka.ms/sdsdk-download-APAudio).
+- Mise à jour du composant [SDK Speech](./speech-sdk.md) vers la version 1.15.0. Pour plus d’informations, consultez ses [notes de publication](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>SDK Speech Devices 1.11.0 :
 

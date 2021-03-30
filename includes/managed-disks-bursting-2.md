@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178373"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623422"
 ---
 ## <a name="disk-level-bursting"></a>Bursting de disque
 
@@ -147,7 +147,7 @@ Lorsque la machine virtuelle démarre, elle pousse ses capacités au maximum pou
 
 Après le démarrage, vous démarrez une application qui a une charge de travail non critique. L’application nécessite un débit de 15 Mo/s qui est réparti uniformément entre tous les disques.
 
-![L’application envoie une requête à la machine virtuelle demandant un débit de 15 Mo/s. Cette machine virtuelle accepte la requête et envoie à son tour une requête à chacun de ses disques demandant un débit de 5 Mo/s. Chaque disque renvoie alors 5 Mo/s, et la machine virtuelle renvoie 15 Mo/s à l’application.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![L’application envoie une requête à la machine virtuelle demandant un débit de 15 Mo/s. Cette machine virtuelle accepte la requête et envoie à son tour une requête à chacun de ses disques demandant un débit de 5 Mo/s. Chaque disque répond alors avec un débit de 5 Mo/s, et la machine virtuelle renvoie 15 Mo/s à l’application.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 L’application doit ensuite effectuer un traitement par lots nécessitant 360 Mo/s. La machine virtuelle Standard_L8s_v2 passe en mode rafale pour traiter cette demande, puis les requêtes. Le disque du système d’exploitation ne nécessite uniquement 20 Mo/s. Les 340 Mo/s restants sont traités par les disques de données P4 en mode bursting.
 

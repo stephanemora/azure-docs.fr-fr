@@ -1,5 +1,5 @@
 ---
-title: Stratégie de contrôle de version - Azure Database pour MySQL - Serveur unique et Serveur flexible (préversion)
+title: Stratégie de prise en charge des versions – Azure Database pour MySQL - Serveur unique et Serveur flexible (préversion)
 description: Décrit la stratégie relative aux versions principales et mineures de MySQL prises en charge dans Azure Database pour MySQL
 author: sr-msft
 ms.author: srranga
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732868"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465655"
 ---
-# <a name="azure-database-for-mysql-versioning-policy"></a>Stratégie de contrôle de version Azure Database pour MySQL
+# <a name="azure-database-for-mysql-version-support-policy"></a>Stratégie de prise en charge des versions Azure Database pour MySQL
 
 Cette page décrit la stratégie de contrôle de version d’Azure Database pour MySQL et s’applique aux modes de déploiement Azure Database pour MySQL - Serveur unique et Azure Database pour MySQL - Serveur flexible (préversion).
 
@@ -29,10 +29,11 @@ Azure Database pour MySQL prend actuellement en charge les versions majeures et 
 
 | Version | Serveur unique <br/> Version mineure actuelle |Serveur flexible (préversion) <br/> Version mineure actuelle  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Non pris en charge|
+|MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Mise hors service) | Non pris en charge|
 |MySQL version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
+Découvrez la stratégie de prise en charge des versions pour les versions mises hors service dans la [documentation relative à la stratégie de prise en charge des versions](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql).
 
 ## <a name="major-version-support"></a>Prise en charge de la version principale
 Chaque version principale de MySQL est prise en charge par Azure Database pour MySQL à partir de la date du début de la prise en charge de la version par Azure et jusqu’à ce que la version soit supprimée par la communauté MySQL, comme indiqué dans la [stratégie de contrôle de version](https://www.mysql.com/support/eol-notice.html).

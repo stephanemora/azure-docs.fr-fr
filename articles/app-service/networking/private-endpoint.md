@@ -4,17 +4,17 @@ description: Connexion privée à une application web avec Azure Private Endpoin
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 03/16/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763025"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655901"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilisation de points de terminaison privés pour une application web Azure
 
@@ -118,9 +118,9 @@ Lorsque vous utilisez Azure Functions dans le cadre d’un plan Elastic Premium 
 
 Vous pouvez connecter jusqu’à 100 points de terminaison privés à une application web donnée.
 
-Les emplacements ne peuvent pas utiliser de point de terminaison privé.
-
 La fonctionnalité de débogage à distance n’est pas disponible lorsque le point de terminaison privé est activé pour l’application web. Nous vous recommandons de déployer le code sur un emplacement et de le déboguer à distance à cet endroit.
+
+L’accès FTP est fourni par le biais de l’IP publique entrante. Le point de terminaison privé ne prend pas en charge l’accès FTP à l’application web.
 
 Nous améliorons régulièrement la fonctionnalité de liaison privée et le point de terminaison privé. Pour obtenir des informations à jour sur les limitations, voir [cet article][pllimitations].
 

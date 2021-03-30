@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738189"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491246"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -57,7 +57,7 @@ Les autres résultats sont vraisemblablement moins bons. Il se peut que les maju
 
 **Q : Pourquoi existe-t-il différents modèles de base ?**
 
-**R** : Le service Speech vous offre le choix entre plusieurs modèles de base. Chaque nom de modèle contient la date à laquelle il a été ajouté. Lorsque vous commencez l’apprentissage d’un modèle personnalisé, utilisez le modèle le plus récent pour obtenir la meilleure précision possible. Les anciens modèles de base restent disponibles pendant un certain temps après qu’un nouveau modèle a été mis à disposition. Vous pouvez continuer à utiliser le modèle avec lequel vous avez travaillé jusqu’à ce qu’il soit mis hors service (cf. [Cycle de vie des modèles](custom-speech-overview.md#model-lifecycle)). Il est néanmoins recommandé de basculer vers le dernier modèle de base pour une meilleure précision.
+**R** : Le service Speech vous offre le choix entre plusieurs modèles de base. Chaque nom de modèle contient la date à laquelle il a été ajouté. Lorsque vous commencez l’apprentissage d’un modèle personnalisé, utilisez le modèle le plus récent pour obtenir la meilleure précision possible. Les anciens modèles de base restent disponibles pendant un certain temps après qu’un nouveau modèle a été mis à disposition. Vous pouvez continuer à utiliser le modèle avec lequel vous travaillez jusqu’à sa mise hors service (voir [Cycle de vie des modèles et des points de terminaison](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Il est néanmoins recommandé de basculer vers le dernier modèle de base pour une meilleure précision.
 
 **Q : Puis-je mettre à jour un modèle existant (empilement de modèles) ?**
 
@@ -71,7 +71,7 @@ L’ancien et le nouveau jeux de données doivent être combinés dans un seul f
 
 Si vous avez adapté et déployé un modèle, ce déploiement reste en l’état. Vous pouvez désactiver le modèle déployé, le réadapter à l’aide de la version plus récente du modèle de base, puis le redéployer pour une meilleure précision.
 
-Les modèles de base et les modèles personnalisés sont mis hors service après un certain temps (cf. [Cycle de vie des modèles](custom-speech-overview.md#model-lifecycle)).
+Les modèles de base et les modèles personnalisés sont mis hors service après un certain temps (voir [Cycle de vie des modèles et des points de terminaison](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
 
 **Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
 

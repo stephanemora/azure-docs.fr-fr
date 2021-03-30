@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
-ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/10/2021
+ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690609"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609921"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Sauvegardes automatisées - Azure SQL Database et SQL Managed Instance
 
@@ -140,9 +140,12 @@ Pour SQL Database et SQL Managed Instance, vous pouvez configurer une conservati
 
 Pour plus d’informations sur la conservation à long terme, consultez [Conservation des sauvegardes à long terme](long-term-retention-overview.md).
 
-## <a name="storage-costs"></a>Coûts de stockage
+## <a name="backup-storage-costs"></a>Coûts du stockage de sauvegarde
 
 Le prix du stockage de sauvegarde varie et dépend de votre modèle d’achat (DTU ou vCore), de l’option de redondance de stockage de sauvegarde choisie et également de votre région. Le stockage de sauvegarde est facturé par Go/mois consommés. Pour connaître la tarification, consultez la page [Tarification Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) et la page [Tarification Azure SQL Managed Instance](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+
+> [!NOTE]
+> La facture Azure n’indiquera que l’excédent de stockage de sauvegarde consommé, et non la consommation totale de stockage de sauvegarde. Par exemple, dans un scénario hypothétique, si vous avez configuré 4 To de stockage de données, vous obtiendrez 4 To d’espace de stockage de sauvegarde gratuit. Si vous avez utilisé le total de 5,8 To d’espace de stockage de sauvegarde, la facture Azure n’indiquera que 1,8 To, car seul le stockage de sauvegarde excédentaire utilisé est facturé.
 
 ### <a name="dtu-model"></a>Modèle DTU
 
@@ -446,7 +449,7 @@ Vous trouverez une liste complète des définitions de stratégies intégrées p
 Pour appliquer les exigences en matière de résidence des données au niveau de l’organisation, ces stratégies peuvent être attribuées à un abonnement. Une fois ces dernières attribuées au niveau de l’abonnement, les utilisateurs de l’abonnement en question ne pourront pas créer de base de données ni d’instance gérée avec un stockage de sauvegarde géoredondant via Portail Azure ou Azure PowerShell. 
 
 > [!IMPORTANT]
-> Les stratégies Azure ne sont pas appliquées lors de la création d’une base de données via T-SQL. Pour appliquer la résidence des données lors de la création d’une base de données à l’aide de T-SQL, [utilisez « LOCAL » ou « ZONE » comme entrée pour le paramètre BACKUP_STORAGE_REDUNDANCY dans l’instruction CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Les stratégies Azure ne sont pas appliquées lors de la création d’une base de données via T-SQL. Pour appliquer la résidence des données lors de la création d’une base de données à l’aide de T-SQL, [utilisez « LOCAL » ou « ZONE » comme entrée pour le paramètre BACKUP_STORAGE_REDUNDANCY dans l’instruction CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Découvrez comment attribuer des stratégies à l’aide du [portail Azure](../../governance/policy/assign-policy-portal.md) ou d’[Azure PowerShell](../../governance/policy/assign-policy-powershell.md).
 
@@ -458,4 +461,5 @@ Découvrez comment attribuer des stratégies à l’aide du [portail Azure](../.
 - Apprenez-en davantage sur la [restauration d’une base de données à un point dans le temps à l’aide de PowerShell](scripts/restore-database-powershell.md).
 - Pour plus d’informations sur la façon de configurer, gérer et restaurer depuis la conservation à long terme de sauvegardes automatisées dans Stockage Blob Azure avec le portail Azure, consultez [Gestion de la rétention des sauvegardes à long terme à l’aide du Portail Azure](long-term-backup-retention-configure.md).
 - Pour plus d’informations sur la façon de configurer, gérer et restaurer des données à partir d’une conservation à long terme de sauvegardes automatisées dans Stockage Blob Azure avec PowerShell, voir [Gestion de la rétention des sauvegardes à long terme à l’aide de PowerShell](long-term-backup-retention-configure.md).
+- Pour tout savoir sur la consommation du stockage de sauvegarde sur Azure SQL Managed Instance, consultez [Explication de la consommation du stockage de sauvegarde sur Managed Instance](https://aka.ms/mi-backup-explained).
 - Pour savoir comment ajuster la rétention et les coûts de stockage de sauvegarde pour Azure SQL Managed Instance, consultez [Réglage des coûts de stockage de sauvegarde sur Managed Instance](https://aka.ms/mi-backup-tuning).

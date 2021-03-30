@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675338"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496199"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
 
@@ -147,10 +147,14 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configurer des instances SAP ASCS/SCS et un partage de fichiers avec montée en puissance parallèle dans deux clusters
 
-Vous pouvez déployer des instances SAP ASCS/SCS dans un cluster avec leur propre rôle de cluster SAP \<SID\>. Dans ce cas, vous devez configurer le partage de fichiers avec montée en puissance parallèle sur un autre cluster, avec un autre rôle de cluster.
+Vous devez déployer les instances SAP ASCS/SCS dans un cluster distinct, avec leur propre rôle de cluster SAP \<SID\>. Dans ce cas, vous devez configurer le partage de fichiers avec montée en puissance parallèle sur un autre cluster, avec un autre rôle de cluster.
+
 
 > [!IMPORTANT]
->Dans ce scénario, l’instance SAP ASCS/SCS est configurée pour accéder à l’hôte global SAP à l’aide du chemin d’accès UNC \\\\&lt;hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+> L’installation doit remplir les conditions suivantes : les instances SAP ASCS/SCS et le partage SOFS doivent être déployés dans des clusters distincts.    
+>
+> [!IMPORTANT] 
+> Dans ce scénario, l’instance SAP ASCS/SCS est configurée pour accéder à l’hôte global SAP à l’aide du chemin d’accès UNC \\\\&lt;hôte global SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 >
 
 ![Figure 5 : Instance SAP ASCS/SCS et partage de fichiers avec scale-out dans deux clusters][sap-ha-guide-figure-8007]

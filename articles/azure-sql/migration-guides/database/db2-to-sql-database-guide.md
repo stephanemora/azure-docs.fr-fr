@@ -1,6 +1,6 @@
 ---
 title: 'DB2 vers SQL Database : Guide de migration'
-description: Suivez ce guide pour migrer vos bases de données DB2 vers Azure SQL Database.
+description: Ce guide vous apprend à migrer vos bases de données DB2 vers Azure SQL Database à l’aide de l’outil Assistant Migration SQL Server pour DB2 (SSMA pour DB2).
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356342"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563940"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guide de migration : DB2 vers SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -143,11 +143,8 @@ L’approche de test pour la migration de base de données comprend les activit�
 1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
 1. **Exécuter des tests de performances**: exécutez un test de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
-   > [!NOTE]
-   > Pour obtenir de l’aide sur le développement et l’exécution de tests de validation post-migration, envisagez d’utiliser la Solution de qualité des données disponible dans le partenaire [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
-
-## <a name="leverage-advanced-features"></a>Tirer profit des fonctionnalités avancées 
+## <a name="leverage-advanced-features"></a>Tirer parti des fonctionnalités avancées 
 
 Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Database, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680601"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563774"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Déployer un cluster Azure Service Fabric avec des types de nœuds sans état (préversion)
 Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment donné, des services avec état peuvent être placés sur les nœuds. Les types de nœuds sans état assouplissent cette hypothèse pour un type de nœud, ce qui permet au type de nœud d’utiliser d’autres fonctionnalités, telles que l’accélération des opérations de scale-out, la prise en charge des mises à niveau automatiques du système d’exploitation sur la durabilité Bronze et le scale-out de plus de 100 nœuds dans un même groupe de machines virtuelles identiques.
@@ -72,9 +72,13 @@ Pour définir un ou plusieurs types de nœuds comme sans état dans une ressourc
 Pour activer les types de nœuds sans état, vous devez configurer la ressource de groupe de machines virtuelles identiques sous-jacente de la façon suivante :
 
 * La propriété **singlePlacementGroup** de la valeur doit être définie sur **false** si vous devez effectuer une mise à l’échelle sur plus de 100 machines virtuelles.
-* Le paramètre **upgradePolicy** du groupe identique dont le **mode** doit être défini sur **Continue**.
+* Le **mode** **upgradePolicy** du groupe identique doit être défini sur **Continue**.
 * Le mode de mise à niveau Continue nécessite la configuration de l’extension Intégrité de l’application ou des sondes d’intégrité. Configurez la sonde d’intégrité avec la configuration par défaut pour les types de nœuds sans état comme indiqué ci-dessous. Une fois les applications déployées sur le type de nœud, les ports d’extension de sonde d’intégrité/d’intégrité peuvent être modifiés pour surveiller l’intégrité de l’application.
 
+>[!NOTE]
+> Il est nécessaire que le nombre de domaines d’erreur de la plateforme soit mis à jour à 5 lorsqu’un type de nœud sans état repose sur un groupe de machines virtuelles identiques qui s’étend sur plusieurs zones. Consultez ce [modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) pour plus de détails.
+> 
+> **platformFaultDomainCount:5**
 ```json
 {
     "apiVersion": "2018-10-01",

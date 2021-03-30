@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433214"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103462675"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Interroger le graphe de jumeaux Azure Digital Twins
 
@@ -36,8 +36,10 @@ Obtenir les jumeaux numériques d’après leurs **propriétés** (y compris l�
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> L’ID d’un jumeau numérique s’interroge à l’aide du champ de métadonnées `$dtId`.
+Comme le montre la requête ci-dessus, l’ID d’un jumeau numérique est interrogé à l’aide du champ de métadonnées `$dtId`.
+
+>[!TIP]
+> Si vous utilisez Cloud Shell pour exécuter une requête avec des champs de métadonnées qui commencent par `$`, vous devez placer le `$` dans une séquence d’échappement avec un accent grave pour signaler à Cloud Shell qu’il ne s’agit pas d’une variable et qu’il doit être consommé comme littéral dans le texte de la requête.
 
 Vous pouvez également obtenir des jumeaux en fonction de **la définition ou non d’une certaine propriété**. Voici une requête qui récupère les jumeaux dont la propriété *Location* a été définie :
 

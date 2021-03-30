@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427732"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466409"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -167,7 +167,7 @@ Vous n’avez pas besoin d’autoriser explicitement la connectivité Internet p
 1. L’agent MARS utilise le service VSS pour prendre un instantané des volumes sélectionnés pour la sauvegarde.
     - L’agent MARS utilise uniquement l’opération d’écriture système Windows pour capturer l’instantané.
     - L’agent n’utilisant aucun enregistreur VSS d’application, il ne capture pas d’instantané de cohérence d’application.
-1. Après avoir pris l’instantané avec VSS, l’agent MARS crée un disque dur virtuel dans le dossier de cache que vous avez spécifié quand vous avez configuré la sauvegarde. L’agent stocke également des sommes de contrôle pour chaque bloc de données.
+1. Après avoir pris l’instantané avec VSS, l’agent MARS crée un disque dur virtuel dans le dossier de cache que vous avez spécifié quand vous avez configuré la sauvegarde. L’agent stocke également des sommes de contrôle pour chaque bloc de données. Ces sommes sont ensuite utilisées pour détecter les blocs modifiés lors des sauvegardes incrémentielles suivantes.
 1. Les sauvegardes incrémentielles s’exécutent conformément à la planification que vous spécifiez, sauf si vous exécutez une sauvegarde à la demande.
 1. Dans les sauvegardes incrémentielles, les fichiers modifiés sont identifiés et un nouveau disque dur virtuel est créé. Le disque dur virtuel est compressé et chiffré, puis envoyé au coffre.
 1. Une fois la sauvegarde incrémentielle terminée, le nouveau disque dur virtuel est fusionné avec le disque dur virtuel créé après la réplication initiale. Ce disque dur virtuel fusionné fournit le dernier état à utiliser pour la comparaison dans le cadre de la sauvegarde en cours.

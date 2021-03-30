@@ -1,5 +1,5 @@
 ---
-title: Autorisations de rôles personnalisés pour les attributions d’accès aux applications d’entreprise - Azure Active Directory | Microsoft Docs
+title: Créer des rôles personnalisés pour gérer les applications d’entreprise dans Azure Active Directory
 description: Créez et attribuez des rôles Azure AD personnalisés pour l’accès aux applications d’entreprise dans Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -13,14 +13,14 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 1a76e2d37e9dcdd285a8608fdbfd715bfb834eb8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741143"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467746"
 ---
-# <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Attribuer des rôles personnalisés pour gérer les applications d’entreprise dans Azure Active Directory
+# <a name="create-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Créer des rôles personnalisés pour gérer les applications d’entreprise dans Azure Active Directory
 
 Cet article explique comment créer un rôle personnalisé avec des autorisations pour gérer les attributions d’applications d’entreprise pour les utilisateurs et groupes dans Azure Active Directory (Azure AD). Pour connaître les éléments des attributions de rôles et la signification des termes tels que le sous-type, l’autorisation et le jeu de propriétés, consultez [Vue d’ensemble des rôles personnalisés](custom-overview.md).
 
@@ -89,18 +89,16 @@ Pour plus d’informations, consultez [Créer et attribuer un rôle personnalis�
 Tout d’abord, installez le module Azure AD PowerShell à partir de la [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importez ensuite le module de préversion Azure AD PowerShell à l’aide de la commande suivante :
 
 ```powershell
-PowerShell
-import-module azureadpreview
+Import-Module -Name AzureADPreview
 ```
 
 Pour vérifier que le module est prêt à l’emploi, faites correspondre la version retournée par la commande suivante à celle répertoriée ici :
 
 ```powershell
-PowerShell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### <a name="create-a-custom-role"></a>Créer un rôle personnalisé

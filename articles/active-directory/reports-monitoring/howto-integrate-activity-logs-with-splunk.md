@@ -13,16 +13,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/10/2020
+ms.date: 03/10/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 351669453a5ce6930d3eb912e95e530d14febf61
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335848"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102634224"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Procédure : Intégrer des journaux d’activité Azure Active Directory à Splunk à l’aide d’Azure Monitor
 
@@ -34,7 +34,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 - Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
--  [Module complémentaire Microsoft Azure pour Splunk](https://splunkbase.splunk.com/app/3757/) 
+-  Le [module complémentaire Splunk pour Microsoft Cloud Services](https://splunkbase.splunk.com/app/3110/#/details). 
 
 ## <a name="integrate-azure-active-directory-logs"></a>Intégrer des journaux d’activité Azure Active Directory 
 

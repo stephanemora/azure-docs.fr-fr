@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 09/02/2020
-ms.openlocfilehash: bef59ea9e7de77e7f9a80cc3950762ea70238b87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/10/2021
+ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380377"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630778"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Comment tester et publier une offre SaaS sur la place de marché commerciale
 
@@ -42,17 +42,19 @@ Une fois que l’offre est prête à être approuvée, nous vous enverrons un e-
 
 La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** pour une offre SaaS, avec deux liens d’aperçu sous le bouton **Démarrer**. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez faites lors de la création de l’offre.
 
-![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent.](media/publish-status-publisher-signoff.png)
+![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent. Le lien Afficher le rapport de validation s’affiche également sous Validation automatique.](./media/review-publish-offer/publish-status-saas.png)
 
 Pour afficher un aperçu de votre offre, procédez comme suit.
 
-1. Sur la page **Vue d’ensemble de l’offre**, sélectionnez un lien d’aperçu sous le bouton **Démarrer**. 
+1. Sur la page **Vue d’ensemble de l’offre**, sélectionnez un lien d’aperçu sous le bouton **Démarrer**.
 
 1. Pour valider le flux d’achat et d’installation de bout en bout, achetez votre offre en préversion. Commencez par informer Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour vous assurer que nous ne vous imputions pas de frais.
 
 1. Si votre offre SaaS prend en charge la [facturation contrôlée à l’aide du service de contrôle de la place de marché commerciale](./partner-center-portal/saas-metered-billing.md), examinez et suivez les meilleures pratiques de test détaillées dans les [API de facturation contrôlée de la place de marché](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
 1. Passez en revue et suivez les instructions de test dans [API de traitement SaaS version 2 dans la place de marché commerciale de Microsoft](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing) pour vous assurer que votre offre est correctement intégrée avec les API avant de la publier en ligne.
+
+1. Si l’étape de validation de l’offre a généré des avertissements, un lien **Afficher le rapport de validation** s’affiche sur la page **Vue d’ensemble de l’offre**. Veillez à consulter le rapport et à résoudre les problèmes avant de cliquer sur le bouton **Démarrer**. Dans le cas contraire, la certification risque d’échouer et de retarder la mise en ligne de votre offre.
 
 1. Si vous devez apporter des changements à l’offre après en avoir affiché l’aperçu et l’avoir testée, vous pouvez la modifier et soumettre à la publication une nouvelle préversion. Pour plus d’informations, consultez [Mettre à jour une offre existante dans la Place de marché commerciale](./partner-center-portal/update-existing-offer.md).
 
@@ -67,6 +69,6 @@ Maintenant que vous avez choisi de rendre votre offre disponible dans la place d
 
 Une fois ces vérifications terminées, votre offre est publiée sur la place de marché.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
-[Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md)
+- [Accéder aux rapports analytiques de la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/analytics.md)

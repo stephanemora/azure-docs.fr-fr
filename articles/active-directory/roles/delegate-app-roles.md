@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea9662b6f5890c6240e91b26cf641d6166d560a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d1e8a0f1919da125a571429e1efff06589c7e85a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051189"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466709"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Déléguer des autorisations d’inscription d’application dans Azure Active Directory
 
@@ -30,7 +30,7 @@ Cet article explique comment utiliser des autorisations accordées par des rôle
 - [Attribution d’un rôle d’administrateur intégré](#assign-built-in-application-admin-roles) qui autorise l’accès à la gestion de la configuration dans Azure AD pour toutes les applications. Il s’agit de la méthode recommandée pour permettre aux experts informatiques de gérer des autorisations de configuration d’application étendues sans accorder l’accès pour gérer d’autres parties de Azure AD qui ne sont pas liées à la configuration de l’application.
 - [Création d’un rôle personnalisé](#create-and-assign-a-custom-role-preview) qui définit des autorisations très spécifiques et l’affecte à une personne soit au niveau d’une application unique en tant que propriétaire limité ou au niveau de l’étendue du répertoire (toutes les applications) en tant qu’administrateur limité.
 
-Il est important de considérer l’octroi de l’accès à l’aide de l’une des méthodes ci-dessus pour deux raisons. Tout d’abord, la délégation de la possibilité d’effectuer des tâches d’administration réduit la charge de l’administrateur général. Deuxièmement, l’utilisation d’autorisations limitées améliore votre position de sécurité et réduit le risque d’accès non autorisé. Des problèmes et des instructions générales en lien avec la délégation sont abordés dans [Déléguer l’administration dans Azure Active Directory](concept-delegation.md).
+Il est important de considérer l’octroi de l’accès à l’aide de l’une des méthodes ci-dessus pour deux raisons. Tout d’abord, la délégation de la possibilité d’effectuer des tâches d’administration réduit la charge de l’administrateur général. Deuxièmement, l’utilisation d’autorisations limitées améliore votre position de sécurité et réduit le risque d’accès non autorisé. Pour obtenir des instructions sur la planification de la sécurité des rôles, consultez [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](security-planning.md).
 
 ## <a name="restrict-who-can-create-applications"></a>Restreindre qui peut créer des applications
 

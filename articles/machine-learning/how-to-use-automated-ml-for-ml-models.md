@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520629"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562720"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Créer, examiner et déployer des modèles de machine learning automatisé avec Azure Machine Learning
 
@@ -37,7 +37,7 @@ Pour une expérience basée sur du code Python, [configurez vos expériences de 
 
 ## <a name="get-started"></a>Bien démarrer
 
-1. Connectez-vous à Azure Machine Learning à l’adresse https://ml.azure.com. 
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com). 
 
 1. Sélectionnez votre abonnement et votre espace de travail. 
 
@@ -198,6 +198,11 @@ Pour obtenir des explications sur un modèle particulier :
 ## <a name="deploy-your-model"></a>Déployer votre modèle
 
 Une fois le meilleur modèle disponible, déployez-le en tant que service web pour prédire de nouvelles données.
+
+>[!TIP]
+> Si vous cherchez à déployer un modèle qui a été généré par le biais du package `automl` avec le Kit de développement logiciel (SDK) Python, vous devez [enregistrer votre modèle](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) dans l’espace de travail. 
+>
+> Une fois que vous avez enregistré le modèle, recherchez-le dans Studio en sélectionnant **Modèles** dans le volet gauche. Une fois que vous avez ouvert votre modèle, vous pouvez sélectionner le bouton **Déployer** en haut de l’écran, puis suivre les instructions décrites à l’**étape 2** de la section **Déployer votre modèle**.
 
 Machine Learning automatisé vous aide à déployer le modèle sans écrire de code :
 

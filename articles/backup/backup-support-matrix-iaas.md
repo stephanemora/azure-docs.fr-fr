@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710666"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609785"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -72,6 +72,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux.
 Sauvegarder des machines virtuelles Azure Linux avec l’agent de machine virtuelle Linux Azure Linux | Sauvegarde avec cohérence des fichiers.<br/><br/> Sauvegarde cohérente au niveau application à l’aide de [scripts personnalisés](backup-azure-linux-app-consistent.md).<br/><br/> Pendant la restauration, vous pouvez créer une machine virtuelle, restaurer un disque et l’utiliser pour créer une machine virtuelle, ou restaurer un disque et l’utiliser pour remplacer un disque sur une machine virtuelle existante. Vous pouvez également restaurer des fichiers et des dossiers individuels.
 Sauvegarder des machines virtuelles Azure Linux avec l’agent MARS | Non pris en charge.<br/><br/> L’agent MARS ne peut être installé que sur des machines Windows.
 Sauvegarder des machines virtuelles Azure Linux avec DPM/MABS | Non pris en charge.
+Sauvegarder des machines virtuelles Azure Linux avec des points de montage Docker | Actuellement, Sauvegarde Azure ne prend pas en charge l’exclusion des points de montage Docker, car ceux-ci sont montés sur différents chemins d’accès à chaque fois.
 
 ## <a name="operating-system-support-linux"></a>Prise en charge du système d’exploitation (Linux)
 
@@ -170,6 +171,7 @@ Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volu
 [Disques partagés](../virtual-machines/disks-shared-enable.md) | Non pris en charge.
 Disques SSD Ultra | Non pris en charge. Pour plus d’informations, consultez ces [limitations](selective-disk-backup-restore.md#limitations).
 [Disques temporaires](../virtual-machines/managed-disks-overview.md#temporary-disk) | Les disques temporaires ne sont pas sauvegardés par Sauvegarde Azure.
+NVMe/disques éphémères | Non pris en charge.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 

@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: fa68db4bd166ebe1acd1ae85fca2d7e51236a4c4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522051"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103561938"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Déployer des modèles Machine Learning sur Azure
 
@@ -145,6 +145,7 @@ Pour plus d’informations sur `az ml model register`, consultez la [documentati
 
     Pour plus d’informations, consultez la documentation sur [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-).
 
+    Pour déployer un modèle inscrit à partir d’un `AutoMLRun`, nous vous recommandons de le faire via le [bouton de déploiement en un clic dans Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 ### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
 
 Vous pouvez inscrire un modèle en indiquant son chemin local. Vous pouvez fournir le chemin d’un dossier ou d’un seul fichier. Vous pouvez utiliser cette méthode pour inscrire les modèles qui ont été entraînés avec Azure Machine Learning et téléchargés. Vous pouvez également utiliser cette méthode pour inscrire des modèles entraînés en dehors d’Azure Machine Learning.
@@ -368,6 +369,7 @@ Pour plus d’informations, consultez la documentation sur [WebService.delete()]
 * [Créer des applications clientes pour utiliser des services web](how-to-consume-web-service.md)
 * [Mettre à jour un service web](how-to-deploy-update-web-service.md)
 * [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
+* [Déploiement en un clic pour les exécutions de ML automatisé dans Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Utiliser TLS pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)

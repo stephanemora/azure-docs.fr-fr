@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0f028f264d02d7300bb888e2053708ef6b06ea51
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563334"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721560"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
@@ -97,8 +97,8 @@ Pour inscrire l’application, effectuez les étapes suivantes :
     |-|-|
     |ID client| Utilisez l'**ID d’application (client)** de l’inscription de l’application. |
     |URL de l’émetteur| Utilisez `<authentication-endpoint>/<tenant-id>/v2.0`, puis remplacez *\<authentication-endpoint>* par le [point de terminaison d’authentification de votre environnement cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (par exemple, « https://login.microsoftonline.com  » pour Azure global), puis *\<tenant-id>* par l’**ID du répertoire (locataire)** dans lequel l’inscription de l’application a été créée. Cette valeur sert à rediriger les utilisateurs vers le bon locataire Azure AD, mais aussi à télécharger les métadonnées appropriées pour déterminer les clés de signature de jetons et la valeur de revendication de l’émetteur de jeton qui conviennent, par exemple. Pour les applications qui utilisent Azure AD v1 et pour les applications Azure Functions, omettez `/v2.0` dans l’URL.|
-    |Clé secrète client (facultative)| Utilisez la clé secrète client que vous avez générée lors de l’inscription de l’application.|
-    |Audiences de jeton autorisées| S’il s’agit d’une application cloud ou serveur et que vous souhaitez autoriser les jetons d’authentification d’une application web, ajoutez l’**URI d’ID d’application** de l’application web ici. **L’ID client** configuré est *toujours* implicitement considéré comme une audience autorisée. |
+    |Clé secrète client (facultative)| Utilisez la clé secrète client que vous avez générée lors de l’inscription de l’application. Avec une clé secrète client, le flux hybride est utilisé et App Service retourne les jetons d’accès et d’actualisation. Lorsque la clé secrète client n’est pas définie, le flux implicite est utilisé et seul un jeton d’ID est retourné. Ces jetons sont envoyés par le fournisseur et stockés dans le magasin de jetons EasyAuth.|
+    |Audiences de jeton autorisées| S’il s’agit d’une application cloud ou serveur et que vous souhaitez autoriser les jetons d’authentification d’une application web, ajoutez l’**URI d’ID d’application** de l’application web ici. **L’ID client** configuré est *toujours* implicitement considéré comme une audience autorisée.|
 
 2. Sélectionnez **OK**, puis cliquez sur **Enregistrer**.
 

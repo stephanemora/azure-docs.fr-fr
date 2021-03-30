@@ -5,17 +5,17 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88066200"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Cet article vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP](https://github.com/Azure/azure-sdk-for-php). Parmi les scénarios présentés :
+Cet article vous montre comment utiliser les rubriques et les abonnements Service Bus. Les exemples sont écrits en PHP et utilisent le [kit SDK Azure pour PHP](https://github.com/Azure/azure-sdk-for-php). Parmi les scénarios présentés :
 
 - Création de rubriques et d’abonnements 
 - Création de filtres d’abonnement 
@@ -261,7 +261,7 @@ for($i = 0; $i < 5; $i++){
 Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. La taille maximale de la rubrique est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
-Le meilleur moyen pour recevoir les messages d’un abonnement est d’utiliser une méthode `ServiceBusRestProxy->receiveSubscriptionMessage`. Les messages peuvent être reçus dans deux modes différents : [*ReceiveAndDelete* et *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** est la valeur par défaut.
+Le meilleur moyen pour recevoir les messages d’un abonnement est d’utiliser une méthode `ServiceBusRestProxy->receiveSubscriptionMessage`. Les messages peuvent être reçus dans deux modes : [*ReceiveAndDelete* et *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** est la valeur par défaut.
 
 Lorsque le mode [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) est utilisé, la réception est une opération unique : lorsque Service Bus reçoit une demande de lecture pour un message figurant dans un abonnement, il marque le message comme étant consommé et le renvoie à l’application. Le mode [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) * est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application peut tolérer le non-traitement d’un message après un échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, quand l’application redémarre et recommence à consommer des messages, elle a manqué le message consommé avant l’incident.
 

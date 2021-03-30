@@ -1,6 +1,6 @@
 ---
 title: 'DB2 vers SQL Managed Instance : Guide de migration'
-description: Suivez ce guide pour migrer vos bases de données DB2 vers Azure SQL Managed Instance.
+description: Ce guide vous apprend à migrer vos bases de données DB2 vers Azure SQL Managed Instance à l’aide de l’outil Assistant Migration SQL Server pour DB2.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9ad838b8c5f54d3ecdd5c8ce56b197cdb6cec1ba
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359181"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563859"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Guide de migration : DB2 vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -142,9 +142,6 @@ L’approche de test pour la migration de base de données comprend les activit�
 1. **Configurer un environnement de test**: l’environnement de test doit contenir une copie de la base de données source et de la base de données cible. Veillez à isoler l’environnement de test.
 1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
 1. **Exécuter des tests de performances**: exécutez un test de performances sur la source et sur la cible, puis analysez et comparez les résultats.
-
-   > [!NOTE]
-   > Pour obtenir de l’aide sur le développement et l’exécution de tests de validation post-migration, envisagez d’utiliser la Solution de qualité des données disponible dans le partenaire [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Tirer parti des fonctionnalités avancées 

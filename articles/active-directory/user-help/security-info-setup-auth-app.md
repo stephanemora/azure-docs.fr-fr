@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e383896e50ccf06ef6d1b5caaeb0ef36ece2ce3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c947bee0b702797a86d1e038f74c6c10e2b23eb4
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348294"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197473"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurer l’application Microsoft Authenticator comme méthode de vérification
 
@@ -46,8 +46,8 @@ Les méthodes relatives aux informations de sécurité sont utilisées pour la v
 
 Selon les paramètres de votre organisation, vous pouvez peut-être utiliser une application d’authentification comme méthode d’informations de sécurité. Vous n’êtes pas obligé d’utiliser l’application Microsoft Authenticator et vous pouvez choisir une autre application au cours du processus de configuration. Cet article, cependant, utilise l’application Microsoft Authenticator.
 
->[!Important]
-> Si vous avez configuré l’application Microsoft Authenticator sur 5 appareils ou 5 jetons (modules de sécurité) matériels, vous ne pourrez pas en configurer un sixième et le message d’erreur suivant peut s’afficher.
+> [!IMPORTANT]
+> Si vous avez configuré l’application Microsoft Authenticator sur cinq appareils différents ou si vous avez utilisé cinq jetons matériels, vous ne pourrez pas en configurer un sixième et le message d’erreur suivant peut s’afficher :
 > 
 > **Vous ne pouvez pas configurer Microsoft Authenticator, car vous disposez déjà de cinq applications d’authentificateur ou jetons matériels. Veuillez contacter votre administrateur pour supprimer l’une de vos applications d’authentificateur ou l’un de vos jetons matériels.**
 
@@ -57,7 +57,7 @@ Selon les paramètres de votre organisation, vous pouvez peut-être utiliser une
 
     ![Page Mon profil, avec les liens des informations de sécurité mis en évidence](media/security-info/securityinfo-myprofile-page.png)
 
-2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** dans la page **Informations de sécurité**.
+2. Sélectionnez **Informations de sécurité** dans le menu de gauche ou utilisez le lien dans le volet **Informations de sécurité**. Si vous êtes déjà inscrit, vous êtes invité à effectuer une vérification à deux facteurs. Ensuite, sélectionnez **Ajouter une méthode** dans le volet **Informations de sécurité**.
 
     ![Page Informations de sécurité, avec l'option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
