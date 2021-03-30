@@ -1,9 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Champs obligatoires. En savoir plus sur aka.ms/skyeye/meta.
-titre : Transformations et travaux dans Azure Media Services : Description d’Azure Media Services : Découvrez comment créer des transformations pour décrire les règles de traitement de vos vidéos dans Azure Media Services.
-services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
-
-ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 08/19/2019 ms.author: inhenkel
+titre : Transformations et travaux dans Azure Media Services : Description d’Azure Media Services : Les transformations décrivent les règles de traitement de vos vidéos dans Azure Media Services.
+services: media-services author: IngridAtMicrosoft manager: femila ms.service: media-services ms.topic: conceptual ms.date: 03/22/2021 ms.author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformations et travaux dans Media Services
@@ -77,7 +75,7 @@ Utilisez un [élément multimédia en tant qu’entrée de travail](job-input-fr
 
 ### <a name="checking-job-progress"></a>Vérification de la progression des travaux
 
-La progression et l’état des travaux peuvent être obtenus en surveillant les événements avec Event Grid. Pour plus d’informations, consultez la section relative à la [surveillance des événements à l’aide d’Event Grid](job-state-events-cli-how-to.md).
+La progression et l’état des travaux peuvent être obtenus en surveillant les événements avec Event Grid. Pour plus d’informations, consultez la section relative à la [surveillance des événements à l’aide d’Event Grid](monitoring/job-state-events-cli-how-to.md).
 
 ### <a name="updating-jobs"></a>Mise à jour des travaux
 
@@ -90,12 +88,6 @@ Le schéma suivant illustre l’objet de **travail** et les objets qu’il réf�
 Cliquez sur l’image pour l’afficher en plein écran.  
 
 [![Schéma illustrant l’objet de travail et les objets qu’il référence avec les relations de dérivation de classe entre les objets.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## <a name="configure-media-reserved-units"></a>Configurer des unités réservées Multimédia
-
-Pour les travaux d’analyse audio et vidéo déclenchés par Media Services v3 ou Video Indexer, nous vous recommandons de provisionner votre compte avec des unité réservées Multimédia (MRU) 10 S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support à l’aide du [Portail Azure](https://portal.azure.com/).
-
-Pour plus de détails, voir [Mise à l’échelle du traitement multimédia avec l’interface CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

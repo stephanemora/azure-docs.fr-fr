@@ -6,14 +6,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98844a7dab673fb98dcdb639fbc48c0f6035fbba
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942929"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865109"
 ---
-# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Démarrage rapide : Exécuter des requêtes Apache HBase dans Azure HDInsight à l'aide de HBase Shell
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Démarrage rapide : Exécuter des requêtes Apache HBase dans Azure HDInsight avec HBase Shell
 
 Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Apache HBase Shell pour créer une table HBase, insérer des données, puis interroger la table.
 
@@ -29,11 +29,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour la plupart des utilisateurs, les données s’affichent sous la forme tabulaire :
 
-![Données tabulaires Apache HBase HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png" alt-text="Données tabulaires Apache HBase HDInsight" border="true":::
 
 Dans HBase (une implémentation de [Cloud BigTable](https://cloud.google.com/bigtable/)), certaines données ont l’aspect suivant :
 
-![Données BigTable Apache HBase HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png" alt-text="Données BigTable Apache HBase HDInsight" border="true":::
 
 Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utiliser Apache HBase Shell pour créer des tables HBase, et insérer et interroger des données.
 

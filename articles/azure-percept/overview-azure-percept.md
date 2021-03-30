@@ -5,14 +5,14 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: eca0c28b016b2e57f6fe47495c90bf113f0179a6
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490107"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953588"
 ---
 # <a name="introduction-to-azure-percept"></a>Introduction à Azure Percept
 
@@ -28,24 +28,24 @@ Les problématiques de l’intégration rencontrées quand vous tentez de déplo
 
 Les principaux composants d’Azure Percept sont les suivants :
 
-1. Des programmes de conception de référence et de certification du matériel pour l’IA.
-
-    - Fournit à l’écosystème des développeurs de matériel des modèles et des pratiques recommandées pour le développement de matériel IA en périphérie qui peut être intégré facilement aux services IA et IoT d’Azure.
-
-2. Un DK (devkit) Azure Percept.
+1. [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - Un kit de développement suffisamment flexible pour gérer un large éventail de scénarios de prototypage à destination des constructeurs d’appareils, des développeurs de solutions et des clients.
 
         > [!div class="nextstepaction"]
         > [Acheter maintenant](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-3. Des services et des workflows pour accélérer le développement de modèles et de solutions IA en périphérie.
+1. Des services et des workflows pour accélérer le développement de modèles et de solutions IA en périphérie.
 
     - Des workflows de développement et des modèles prédéfinis accessibles depuis [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Des services de développement de modèles.
-    - Des services de gestion des appareils à grande échelle.
+    - Des services de gestion des appareils pour la mise à l’échelle.
     - Sécurité de bout en bout.
+
+1. Des programmes de conception de référence et de certification du matériel pour l’IA.
+
+    - Fournit à l’écosystème des développeurs de matériel des modèles et des pratiques recommandées pour le développement de matériel IA en périphérie qui peut être intégré facilement aux services IA et IoT d’Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Bien démarrer avec le [DK Azure Percept](./overview-azure-percept-dk.md). 
+En savoir plus sur [Azure Percept DK](./overview-azure-percept-dk.md) et [Azure Percept Studio](./overview-azure-percept-studio.md).

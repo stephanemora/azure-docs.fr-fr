@@ -1,23 +1,22 @@
 ---
-title: Gestion du provisionnement des utilisateurs pour les applications d’entreprise dans Azure AD
-description: Découvrez comment gérer l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise à l’aide d’Azure Active Directory
+title: Gestion du provisionnement des utilisateurs pour les applications d’entreprise dans Azure Active Directory
+description: Découvrez comment gérer l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise à l’aide d’Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 5dceeb11ed9a4d6af88650a6146f58db412748d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555621"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579414"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 
@@ -63,9 +62,7 @@ Sélectionnez **Tester la connexion** pour tester les informations d’identific
 
 Développez **Mappages** pour afficher et modifier les attributs utilisateur qui circulent entre Azure AD et l’application cible lorsque des comptes d’utilisateur sont configurés ou mis à jour.
 
-Il existe un ensemble préconfiguré de mappages entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent également des objets groupe. Sélectionnez un mappage dans la table pour ouvrir l’éditeur de mappage sur la droite, où vous pouvez les afficher et les personnaliser.
-
-![Affiche l'écran Mappage d’attributs](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+Il existe un ensemble préconfiguré de mappages entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent également des objets groupe. Sélectionnez un mappage dans la table pour ouvrir l’éditeur de mappage, où vous pouvez les afficher et les personnaliser.
 
 Les personnalisations prises en charge sont notamment les suivantes :
 
@@ -79,10 +76,10 @@ Les personnalisations prises en charge sont notamment les suivantes :
 
 ### <a name="settings"></a>Paramètres
 
-Vous pouvez démarrer et arrêter le service d’approvisionnement d’Azure AD pour l’application sélectionnée dans la zone **Paramètres** de l’écran **Approvisionnement**. Vous pouvez aussi choisir de vider le cache d’approvisionnement et de redémarrer le service.
+Développez **Paramètres** pour définir une adresse e-mail afin de recevoir des notifications, et choisir de recevoir ou non des alertes en cas d’erreur. Vous pouvez également sélectionner l’étendue des utilisateurs à synchroniser. Vous pouvez choisir de synchroniser tous les utilisateurs et groupes ou uniquement ceux qui sont attribués.
+
+### <a name="provisioning-status"></a>État de l’approvisionnement 
 
 Si c’est la première fois que l’approvisionnement est activé pour une application, activez le service en définissant le paramètre **État de la configuration** sur **Activé**. Avec cette modification, le service de provisionnement d’Azure AD doit exécuter un cycle initial. Il lit les utilisateurs affectés dans la section **Utilisateurs et groupes**, interroge l’application cible à leur sujet, puis effectue les actions d’approvisionnement définies dans la section **Mappages** d’Azure AD. Au cours de ce processus, le service d’approvisionnement stocke des données en cache sur les comptes d’utilisateur qu’il gère, de sorte que les opérations d’annulation de l’approvisionnement n’ont aucun effet sur les comptes non gérés des applications cibles qui n’ont jamais été concernés par l’affectation. Après le cycle initial, le service de provisionnement synchronise automatiquement les objets utilisateur et groupe toutes les 40 minutes.
 
 Changez **État de la configuration** pour **Désactivé** pour suspendre le service d’approvisionnement. Dans cet état, Azure ne crée, met à jour ou supprime aucun objet utilisateur ou groupe dans l’application. Changez de nouveau l’état pour **Activé** et le service reprend où il s’était arrêté.
-
-**Effacer l’état en cours et redémarrer la synchronisation** déclenche un cycle initial. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](application-provisioning-when-will-provisioning-finish-specific-user.md).

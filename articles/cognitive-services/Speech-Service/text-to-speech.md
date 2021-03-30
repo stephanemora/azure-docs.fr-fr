@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 653f9fcd9d3d8d6347d961603acc6eb481ee7f41
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599533"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869172"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
@@ -40,6 +40,11 @@ Dans cette vue d’ensemble, vous allez découvrir les avantages et les capacit�
 * Voix neuronales : les réseaux neuronaux profonds sont utilisés pour surmonter les limites de la synthèse vocale traditionnelle en ce qui concerne les accents toniques et les intonations dans le langage parlé. La prédiction prosodique et la synthèse vocale sont effectuées de façon simultanée, ce qui aboutit à un résultat plus fluide et plus naturel. Les voix neurales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants vocaux plus naturelles et plus agréables, pour convertir des textes numériques comme les livres électroniques en livres audio et pour améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute lorsque vous interagissez avec des systèmes d’intelligence artificielle. Vous trouverez une liste complète des voix neuronales dans [Langues prises en charge](language-support.md#text-to-speech).
 
 * Ajuster les styles de voix avec SSML : SSML (Speech Synthesis Markup Language) est un langage de balisage basé sur XML, utilisé pour personnaliser les résultats de la reconnaissance vocale. Avec SSML, vous pouvez ajuster la tonalité, ajouter des pauses, améliorer la prononciation, accélérer ou ralentir le débit des paroles, augmenter ou réduire le volume, et attribuer plusieurs voix à un même document. Consultez [cet article](speech-synthesis-markup.md) pour savoir comment ajuster les styles de voix.
+
+* Visèmes : Les [visèmes](how-to-speech-synthesis-viseme.md) sont les principaux éléments de parole observés, y compris la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier. Les visèmes ont une corrélation forte avec les voix et les phonèmes. À l’aide des événements de visème dans le kit de développement logiciel (SDK) Speech, vous pouvez générer des données d’animation faciale qui peuvent être utilisées pour animer des visages dans la communication, l’enseignement, le divertissement et le service à la clientèle.
+
+> [!NOTE]
+> Visème fonctionne uniquement pour la voix `en-US-AriaNeural` dans la région USA Ouest (`westus`) et sera disponible pour toutes les voix `en-US` d’ici fin avril 2021.
 
 ## <a name="get-started"></a>Prise en main
 

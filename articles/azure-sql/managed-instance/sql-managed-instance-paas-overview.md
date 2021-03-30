@@ -10,13 +10,13 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: 81d4527817d637e7b764cc83160153d974ced5c0
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 01/14/2021
+ms.openlocfilehash: dca4d699ac1253753c82949cb480d95a1dde26e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103600959"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594102"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Qu'est-ce qu'Azure SQL Managed Instance ?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ Le diagramme suivant présente les principales fonctionnalités de SQL Managed I
 Azure SQL Managed Instance est conçu pour les clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou provenant d’environnements IaaS, générés automatiquement ou fournis par un éditeur de logiciels indépendant, afin de gérer complètement un environnement cloud PaaS avec le moins d’efforts de migration possible. Avec le service [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) entièrement automatisé, les clients peuvent effectuer une migration « lift-and-shift » de leurs instances SQL Server existantes vers une instance SQL Managed Instance compatible avec SQL Server et qui offre une isolation totale des instances des clients avec une prise en charge native des réseaux virtuels. Pour plus d’informations sur les options et les outils de migration, consultez [Vue d’ensemble de la migration : SQL Server vers Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Avec Software Assurance, vous pouvez échanger vos licences existantes pour bénéficier de tarifs réduits sur SQL Managed Instance à l’aide d’[Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une haute sécurité et une surface de programmabilité riche.
 
 > [!TIP]
-> Comment pouvons-nous améliorer Azure SQL ? [Répondez à l’enquête](https://aka.ms/AzureSQLSurvey).
+> Comment pouvons-nous améliorer Azure SQL ? [Répondez à l’enquête](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="key-features-and-capabilities"></a>Fonctionnalités principales
 
@@ -79,8 +79,8 @@ Le [modèle d’achat vCore](../database/service-tiers-vcore.md) pour SQL Manage
 
 Dans le modèle vCore, vous pouvez choisir entre différentes générations de matériel.
 
-- Les processeurs logiques **Gen4** sont basés sur des processeurs Intel® E5-2673 v3 (Haswell) de 2,4 GHz, un disque SSD attaché, des cœurs physiques, 7 Go de RAM par cœur et des tailles de calcul comprises entre 8 et 24 vCores.
-- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel® E5-2673 v4 (Broadwell) de 2,3 GHz, Intel® SP-8160 (Skylake) et Intel® 8272CL (Cascade Lake) de 2,5 GHz, un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de calcul comprises entre 4 et 80 cœurs.
+- Les processeurs logiques **Gen4** sont basés sur des processeurs Intel&reg; E5-2673 v3 (Haswell) de 2,4 GHz, un disque SSD attaché, des cœurs physiques, 7 Go de RAM par cœur et des tailles de calcul comprises entre 8 et 24 vCores.
+- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel&reg; E5-2673 v4 (Broadwell) de 2,3 GHz, Intel&reg; SP-8160 (Skylake) et Intel&reg; 8272CL (Cascade Lake) de 2,5 GHz, un disque SSD NVMe rapide, un cœur logique avec technologie Hyper-thread, et des tailles de calcul comprises entre 4 et 80 cœurs.
 
 Vous trouverez des informations sur les différences entre les générations de matériel dans les [limites de ressources de SQL Managed Instance](resource-limits.md#hardware-generation-characteristics).
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b773241fdff41323272422f99e88f0d01e884055
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321959"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889550"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -32,7 +32,7 @@ Cette rubrique fournit des instructions pour les procédures suivantes :
 La bibliothèque cliente Python a été testée dans les environnements suivants :
 
 * Windows, Mac et Linux
-* Python 2.7, 3.3 et 3.4
+* Python 2.7 et 3.6+
 
 Il a une dépendance sur les packages suivants :
 
@@ -73,7 +73,7 @@ Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquem
 
 ![Capture d’écran montrant les paramètres de la page UTILISATEURS d’Azure Machine Learning Studio.][security]
 
-Si votre rôle n’est pas défini en tant que **Propriétaire** , vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l’espace de travail de vous fournir l’extrait de code.
+Si votre rôle n’est pas défini en tant que **Propriétaire**, vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l’espace de travail de vous fournir l’extrait de code.
 
 Pour obtenir le jeton d’autorisation, vous pouvez choisir l’une des options suivantes :
 

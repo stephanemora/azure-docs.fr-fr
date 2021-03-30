@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769149d49d4d233c5c202f570ceb871365728c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22f2ed2704f752ff2ca7a5bc21e856b076f0f70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671221"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584089"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Fonctionnalités Transact-SQL prises en charge dans Azure Synapse SQL
 
@@ -51,7 +51,7 @@ Les fonctionnalités prises en charge des langages de requête utilisés dans Sy
 
 |   | Dédié | Sans serveur |
 | --- | --- | --- |
-| **Instruction SELECT** | Oui. Les clauses de requête Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true) et [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) ne sont pas prises en charge. | Oui. Les clauses de requête Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), ainsi que les indicateurs de requête, ne sont pas pris en charge. |
+| **Instruction SELECT** | Oui. Les clauses de requête Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) et OFFSET/FETCH ne sont pas prises en charge. | Oui. Les clauses de requête Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG SETS, ainsi que les indicateurs de requête, ne sont pas pris en charge. |
 | **Instruction INSERT** | Oui | Non |
 | **Instruction UPDATE** | Oui | Non |
 | **Instruction DELETE** | Oui | Non |
@@ -158,5 +158,5 @@ Les données qui sont analysées peuvent être stockées dans différents format
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les bonnes pratiques concernant les pools SQL dédiés et les pools SQL serverless, consultez les articles suivants :
 
-- [Bonnes pratiques pour les pools SQL dédiés](best-practices-sql-pool.md)
-- [Bonnes pratiques pour les pools SQL serverless](best-practices-sql-on-demand.md)
+- [Bonnes pratiques pour les pools SQL dédiés](best-practices-dedicated-sql-pool.md)
+- [Bonnes pratiques pour les pools SQL serverless](best-practices-serverless-sql-pool.md)

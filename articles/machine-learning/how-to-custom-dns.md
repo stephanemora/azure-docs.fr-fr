@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/20/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 66a709f15191a8142f10f15d825276ea2ba4b83f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: a5224aab8db65cf22e952185d07147f6f007e088
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487982"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956279"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
@@ -37,33 +37,22 @@ Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point
 
 - Éventuellement, [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="fqdns-in-use"></a>FQDN en cours d’utilisation
-### <a name="these-fqdns-are-in-use-in-the-following-regions-eastus-southcentralus-and-westus2"></a>Ces noms de domaine complets sont utilisés dans les régions suivantes : eastus, southcentralus et westus2.
-La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail :
+## <a name="public-regions"></a>Régions publiques
+
+La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail s’il se trouve dans une région publique :
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
-* `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
-* `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
-* Si vous créez une instance de calcul, vous devez également ajouter une entrée pour `<instance-name>.<region>.instances.azureml.ms` avec l’adresse IP privée du point de terminaison privé de l’espace de travail.
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
-    
-### <a name="these-fqdns-are-in-use-in-all-other-public-regions"></a>Ces noms de domaine complets sont utilisés dans toutes les autres régions publiques
-La liste suivante contient les noms de domaine complets (FQDN) utilisés par votre espace de travail :
-
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
-* `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+    > Le nom de l’espace de travail pour ce nom de domaine complet peut être tronqué. La troncation est effectuée pour conserver la longueur du nom de domaine complet inférieure ou égale à 63 caractères.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
     > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
 
-### <a name="azure-china-21vianet-regions"></a>Régions cloud Azure China 21Vianet
+## <a name="azure-china-21vianet-regions"></a>Régions cloud Azure China 21Vianet
 
 Les noms de domaine complets suivants sont destinés aux régions Azure China 21Vianet :
 

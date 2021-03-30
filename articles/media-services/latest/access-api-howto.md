@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 00808c25ac84da852cce6169fb210767ee2b56cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b59276cc340f133c0f270e8ab95051b3c392e1c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265879"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581284"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtenir des informations d’identification pour accéder à l’API Media Services
 
@@ -37,7 +37,7 @@ Cet article décrit les étapes permettant d’obtenir des informations d’iden
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure. Si vous n’avez pas de compte, commencez avec un [essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Un compte Azure. Si vous n’avez pas de compte, commencez avec un [essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 - Un compte Media Services. Pour plus d’informations, consultez [Création d’un compte Azure Media Services à l’aide du portail Azure](create-account-howto.md).
 
 ## <a name="portal"></a>[Portail](#tab/portal/)
@@ -47,7 +47,7 @@ Cet article décrit les étapes permettant d’obtenir des informations d’iden
 La page **Accès d’API** vous permet de sélectionner la méthode d’authentification que vous souhaitez utiliser pour vous connecter à l’API. Elle fournit également les valeurs dont vous avez besoin pour vous connecter à l’API.
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Media Services.
-2. Sélectionnez le panneau **Accès d’API (nouveau)** dans la barre de navigation de gauche.
+2. Sélectionnez le panneau **Accès d’API** dans la barre de navigation de gauche.
 3. Sous **Se connecter à l’API Media Services**, sélectionnez la version de l’API Media Services à laquelle vous souhaitez vous connecter (V3 est la dernière version du service).
 
 ### <a name="service-principal-authentication--recommended"></a>Authentification d’un principal du service (recommandée)
