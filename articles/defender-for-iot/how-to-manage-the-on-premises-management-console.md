@@ -1,18 +1,14 @@
 ---
 title: Gérer la console de gestion locale
 description: Découvrez les options de la console de gestion locale, telles que la sauvegarde et la restauration, la définition du nom d’hôte et la configuration d’un proxy pour les capteurs.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 871c74eee4b74538a8a09188953916ff7376bc8d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523938"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781719"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gérer la console de gestion locale
 
@@ -55,13 +51,13 @@ Les règles de transfert à des tiers ne sont pas validées. Exemples : informa
 
 #### <a name="ssl-certificates"></a>Certificats SSL
 
-Le capteur Defender pour IoT et la console de gestion locale utilisent des certificats SSL et TLS pour les fonctions suivantes : 
+Le capteur Defender pour IoT et la console de gestion locale utilisent SSL et des certificats TLS pour les fonctions suivantes : 
 
- - Sécuriser les communications entre les utilisateurs et la console web de l’appliance. 
+ - sécuriser les communications entre les utilisateurs et la console web de l’appliance ; 
  
- - Sécuriser les communications avec l’API REST sur le capteur et la console de gestion locale.
+ - sécuriser les communications avec l’API REST sur le capteur et la console de gestion locale ;
  
- - Sécuriser les communications entre les capteurs et une console de gestion locale. 
+ - sécuriser les communications entre les capteurs et une console de gestion locale. 
 
 Une fois installée, l’appliance génère un certificat auto-signé local pour permettre l’accès préliminaire à la console web. Les certificats SSL et TLS d’entreprise peuvent être installés à l’aide de l’outil de ligne de commande [`cyberx-xsense-certificate-import`](#cli-commands). 
 
@@ -105,7 +101,7 @@ Les certificats suivants sont pris en charge :
 - Généré localement sur l’appliance (auto-signé localement) 
 
   > [!IMPORTANT]
-  > Nous vous déconseillons d’utiliser des certificats auto-signés. Ce type de connexion n’est pas sécurisé et doit être utilisé uniquement pour les environnements de test. Étant donné que le propriétaire du certificat ne peut pas être validé et que la sécurité de votre système ne peut pas être maintenue, les certificats auto-signés ne doivent jamais être utilisés pour les réseaux de production.
+  > Nous vous déconseillons d’utiliser des certificats auto-signés. Cette connexion n’est pas sécurisée et doit être utilisée uniquement pour les environnements de test. Étant donné que le propriétaire du certificat ne peut pas être validé et que la sécurité de votre système ne peut pas être maintenue, les certificats auto-signés ne doivent jamais être utilisés pour les réseaux de production.
 
 ### <a name="supported-ssl-certificates"></a>Certificats SSL pris en charge 
 
@@ -134,7 +130,7 @@ Les paramètres suivants sont pris en charge :
 
  > [!Note]
  > Utilisation d’une longueur de clé de 4096 bits :
- > - L’établissement d’une liaison SSL au début de chaque connexion est plus lente.  
+ > - L’établissement d'une liaison SSL au début de chaque connexion est plus lente.  
  > - L’utilisation de l’UC augmente pendant l’établissement de liaisons. 
 
 **Chaîne d’approbation**
@@ -188,7 +184,7 @@ Vous pouvez utiliser OpenSSL pour convertir le fichier en fichier `.pem` avec 
 
 **.der : PEM à codage binaire**
 
-Pour encoder la syntaxe ASN.1 en binaire, vous pouvez utiliser un fichier `.pem`, qui est simplement un fichier `.der` encodé en base64. 
+Pour encoder la syntaxe ASN.1 en binaire, vous pouvez utiliser un fichier `.pem` , qui est simplement un fichier `.der` encodé en base64. 
 
 OpenSSL peut convertir ces fichiers en `.pem` :  `openssl x509 -inform der -in to-convert.der -out converted.pem`.  
 
@@ -200,7 +196,7 @@ Les autorités de certification les produisent comme un moyen d’annuler l’au
 
 #### <a name="cli-commands"></a>Commandes CLI
 
-Utilisez la commande CLI `cyberx-xsense-certificate-import` pour importer des certificats. Pour utiliser cet outil, vous devez charger des fichiers de certificat sur l’appareil à l’aide d’outils tels que WinSCP ou wget.
+Utilisez la commande CLI `cyberx-xsense-certificate-import` pour importer des certificats. Pour utiliser cet outil, vous devez charger des fichiers de certificat sur l’appareil à l’aide d’outils tels que WinSCP ou Wget.
 
 La commande prend en charge les indicateurs d’entrée suivants :
 
@@ -415,7 +411,21 @@ La procédure suivante décrit la mise à jour de la version du logiciel de la c
 
 1. Sélectionnez le fichier que vous avez téléchargé à partir de la page **Mises à jour** de Defender pour IoT.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="mail-server-settings"></a>Paramètres du serveur de messagerie
+
+Définissez les paramètres du serveur de messagerie SMTP pour la console de gestion locale.
+
+Pour les définir :
+
+1. Connectez-vous à l’interface CLI destinée à la gestion locale avec les informations d’identification d’administration.
+1. Tapez ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Sélectionnez Enter (Entrer). Les invites suivantes s’affichent.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Entrez le nom du serveur SMTP et l’expéditeur, puis sélectionnez Entrée.
+
+## <a name="see-also"></a>Voir aussi
 
 [Gérer les capteurs depuis la console de gestion](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

@@ -1,7 +1,7 @@
 ---
 title: Plug-in Microsoft Enterprise SSO pour les appareils Apple
 titleSuffix: Microsoft identity platform | Azure
-description: Découvrez le plug-in d’authentification unique de Microsoft Azure Active Directory pour les appareils iOS, iPadOS et macOS.
+description: Découvrez le plug-in d’authentification unique Azure Active Directory pour appareils iOS, iPadOS et macOS.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,79 +13,81 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 96fbf23128896f23beee70a6b3d32b4b87a454ea
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 24a538686e101d40daba008f30a72ffc5078047a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674516"
 ---
-# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise SSO pour les appareils Apple (préversion)
+# <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise Single Sign-On pour appareils Apple (préversion)
 
 >[!IMPORTANT]
 > Cette fonctionnalité [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-Le *plug-in Microsoft Enterprise SSO pour les appareils Apple* fournit une authentification unique (SSO) pour les comptes Azure Active Directory (Azure AD) sur macOS, iOS et iPadOS, dans toutes les applications qui prennent en charge la fonctionnalité [Enterprise Single Sign-on](https://developer.apple.com/documentation/authenticationservices) d’Apple. Cela comprend les applications plus anciennes dont votre entreprise peut dépendre, mais qui ne prennent pas encore en charge les protocoles ou les bibliothèques d’identités les plus récents. Microsoft a travaillé en étroite collaboration avec Apple pour développer ce plug-in et ainsi rendre plus facile l’utilisation de votre application tout en offrant la meilleure protection que peuvent offrir Apple et Microsoft.
+Le *plug-in Microsoft Enterprise SSO pour appareils Apple* fournit une authentification unique (SSO) pour les comptes Azure Active Directory (Azure AD) sur macOS, iOS et iPadOS, dans toutes les applications qui prennent en charge la fonctionnalité [Enterprise Single Sign-on](https://developer.apple.com/documentation/authenticationservices) d’Apple. Le plug-in fournit une authentification unique même pour d’anciennes applications dont votre entreprise peut dépendre, mais qui ne prennent pas encore en charge les bibliothèques d’identité ou les protocoles les plus récents. Microsoft a travaillé en étroite collaboration avec Apple pour développer ce plug-in afin de faciliter l’utilisation de votre application tout en offrant la meilleure protection disponible.
 
-Le plug-in Enterprise SSO est disponible sous la forme d’une fonctionnalité intégrée dans les applications suivantes :
+Le plug-in Enterprise SSO est actuellement une fonctionnalité intégrée dans les applications suivantes :
 
-* [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) - iOS, iPadOS
-* Le [portail d’entreprise](/mem/intune/apps/apps-company-portal-macos) Microsoft Intune - macOS
+* [Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) : iOS, iPadOS.
+* [Portail d’entreprise](/mem/intune/apps/apps-company-portal-macos) Microsoft Intune : macOS.
 
 ## <a name="features"></a>Fonctionnalités
 
 Le plug-in Microsoft Enterprise SSO pour les appareils Apple offre les avantages suivants :
 
-- Il fournit l’authentification unique pour les comptes Azure AD dans toutes les applications qui prennent en charge la fonctionnalité Enterprise Single Sign-On d’Apple.
+- Il fournit l’authentification unique pour les comptes de Azure AD dans toutes les applications qui prennent en charge la fonctionnalité Apple Enterprise Single Sign-On.
 - Il peut être activé par n’importe quelle solution de gestion des appareils mobiles (MDM).
 - Il étend l’authentification unique aux applications qui n’utilisent pas encore les bibliothèques de plateforme d’identités Microsoft.
-- Il étend l’authentification unique aux applications qui utilisent OAuth2, OpenID Connect et SAML.
+- Il étend l’authentification unique aux applications qui utilisent OAuth 2, OpenID Connect et SAML.
 
 ## <a name="requirements"></a>Spécifications
 
-Pour utiliser le plug-in Microsoft Enterprise SSO pour les appareils Apple :
+Pour utiliser le plug-in Microsoft Enterprise Single Sign-On pour des appareils Apple :
 
-- L’appareil doit **prendre en charge** les applications qui comprennent le plug-in Microsoft Enterprise SSO pour appareils Apple. L’une des ces applications doit être **installée** sur l’appareil :
-  - iOS 13.0+ : [application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md)
-  - iPadOS 13.0+ : [application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md)
-  - macOS 10.15+ : [application Portail d’entreprise Intune](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
-- L’appareil doit être **inscrit à MDM** (par exemple, auprès de Microsoft Intune).
-- La configuration doit être **envoyée (push) à l’appareil** afin d’y activer le plug-in Microsoft Enterprise SSO pour appareils Apple. Cette contrainte de sécurité est requise par Apple.
+- L’appareil doit avoir et *prendre en charge* une application comprenant le plug-in Microsoft Enterprise SSO pour appareils Apple :
+  - iOS 13.0 et versions ultérieures : [application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md).
+  - iPados 13.0 et versions ultérieures : [application Microsoft Authenticator](../user-help/user-help-auth-app-overview.md).
+  - macOS 10.15 et versions ultérieures : [application Portail d’entreprise Intune](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
+- L’appareil doit être *inscrit dans MDM*, par exemple par le biais de Microsoft Intune.
+- La configuration doit être *envoyée (push) à l’appareil* afin d’activer le plug-in Enterprise Single Sign-On. Apple requiert cette contrainte de sécurité.
 
-### <a name="ios-requirements"></a>Configuration requise pour iOS :
-- iOS version 13.0 ou ultérieure doit être installé sur l’appareil.
-- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Dans la préversion publique, ces applications correspondent à l’[application Microsoft Authenticator](/intune/user-help/user-help-auth-app-overview.md).
+Configuration requise pour iOS :
+- iOS 13.0 ou version ultérieure doit être installé sur l’appareil.
+- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Au cours de la période de préversion publique, cette application est l’[application Microsoft Authenticator](/intune/user-help/user-help-auth-app-overview.md).
 
 
-### <a name="macos-requirements"></a>Configuration requise pour macOS :
-- macOS 10.15 ou ultérieur doit être installé sur l’appareil. 
-- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Dans la préversion publique, ces applications comprennent l’[application Portail d’entreprise Intune](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
+Configuration requise pour macOS :
+- macOS 10.15 ou version ultérieure doit être installé sur l’appareil. 
+- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Au cours de la pérdioe de préversion publique, cette application est l’[application Portail d’entreprise Intune](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
 
-## <a name="enable-the-sso-plug-in-with-mobile-device-management-mdm"></a>Activer le plug-in SSO avec la gestion des appareils mobiles (MDM)
+## <a name="enable-the-sso-plug-in"></a>Activer le plug-in SSO
 
+Utilisez les informations suivantes pour activer le plug-in SSO à l’aide de MDM.
 ### <a name="microsoft-intune-configuration"></a>Configuration de Microsoft Intune
 
-Si vous utilisez Microsoft Intune comme service MDM, vous pouvez utiliser des paramètres de profil de configuration intégrés pour activer le plug-in Microsoft Enterprise SSO.
+Si vous utilisez Microsoft Intune comme service MDM, vous pouvez utiliser des paramètres de profil de configuration intégrés pour activer le plug-in Microsoft Enterprise SSO :
 
-Tout d’abord, configurez les paramètres de l’[extension d’application d’authentification unique](/mem/intune/configuration/device-features-configure#single-sign-on-app-extension) dans le profil de configuration, puis [attribuez le profil à un utilisateur ou à un groupe d’appareils](/mem/intune/configuration/device-profile-assign) (s’il n’a pas déjà été attribué).
+1. Configurez les paramètres d’[extension d’application SSO](/mem/intune/configuration/device-features-configure#single-sign-on-app-extension) d’un profil de configuration. 
+1. Si le profil n’est pas attribué, [attribuez-le à un utilisateur ou à un groupe d’appareils](/mem/intune/configuration/device-profile-assign).
 
 Les paramètres de profil qui activent le plug-in SSO seront automatiquement appliqués aux appareils du groupe la prochaine fois qu’un appareil effectuera un check-in dans Intune.
 
 ### <a name="manual-configuration-for-other-mdm-services"></a>Configuration manuelle des autres services MDM
 
-Si vous n’utilisez pas Microsoft Intune pour la gestion des appareils mobiles, utilisez les paramètres suivants pour configurer le plug-in Microsoft Enterprise SSO pour appareils Apple.
+Si vous n’utilisez pas Intune pour MDM, utilisez les paramètres suivants pour configurer le plug-in Microsoft Enterprise SSO pour appareils Apple :
 
-#### <a name="ios-settings"></a>Paramètres iOS :
+Paramètres iOS :
 
 - **ID d’extension** : `com.microsoft.azureauthenticator.ssoextension`
-- **ID d’équipe** : (ce champ n’est pas nécessaire pour iOS)
+- **ID d’équipe** : ce champ n’est pas nécessaire pour iOS.
 
-#### <a name="macos-settings"></a>Paramètres macOS :
+Paramètres macOS :
 
 - **ID d’extension** : `com.microsoft.CompanyPortalMac.ssoextension`
 - **ID de l’équipe** : `UBF8T346G9`
 
-#### <a name="common-settings"></a>Paramètres communs :
+Paramètres communs :
 
 - **Type** : Rediriger
   - `https://login.microsoftonline.com`
@@ -98,150 +100,158 @@ Si vous n’utilisez pas Microsoft Intune pour la gestion des appareils mobiles,
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
   
-### <a name="additional-configuration-options"></a>Options de configuration supplémentaires
-Des options de configuration supplémentaires peuvent être ajoutées pour étendre la fonctionnalité SSO à d’autres applications.
+### <a name="more-configuration-options"></a>Autres options de configuration
+Vous pouvez ajouter d’autres options de configuration pour étendre la fonctionnalité SSO à d’autres applications.
 
 #### <a name="enable-sso-for-apps-that-dont-use-a-microsoft-identity-platform-library"></a>Activer l’authentification unique pour les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft
 
-Le plug-in SSO permet à n’importe quelle application de participer à l’authentification unique, même si elle n’a pas été développée à l’aide d’un SDK Microsoft tel que la bibliothèque d’authentification Microsoft (MSAL).
+Le plug-in SSO permet à n’importe quelle application de participer à l’authentification unique, même si elle n’a pas été développée à l’aide d’un Kit de développement logiciel (SDK) Microsoft tel que Microsoft Authentication Library (MSAL).
 
-Le plug-in SSO est installé automatiquement par les appareils qui ont téléchargé l’application Microsoft Authenticator sur iOS ou iPadOS, ou l’application Portail d’entreprise Intune sur macOS, et qui sont inscrits auprès de votre organisation. Votre organisation utilise probablement l’application Authenticator pour des scénarios tels que l’authentification multifacteur, l’authentification sans mot de passe et l’accès conditionnel. Elle peut être activée pour vos applications à l’aide de n’importe quel fournisseur MDM, bien que Microsoft facilite sa configuration dans Microsoft Endpoint Manager d’Intune. Une liste verte est utilisée pour configurer ces applications afin qu’elles utilisent le plug-in SSO.
+Le plug-in SSO est installé automatiquement par les appareils qui :
+* ont téléchargé l’application Authenticator sur iOS ou iPados, ou téléchargé l’application Portail d’entreprise Intune sur macOS ;
+* sont inscrits auprès de votre organisation. 
+
+Votre organisation utilise probablement l’application Authenticator pour des scénarios tels que l’authentification multifacteur (MFA), l’authentification sans mot de passe et l’accès conditionnel. À l’aide d’un fournisseur MDM, vous pouvez activer le plug-in SSO pour vos applications. Microsoft a facilité la configuration du plug-in à l’intérieur de Microsoft Endpoint Manager dans Intune. Une liste d’autorisation est utilisée pour configurer ces applications afin qu’elles utilisent le plug-in d’authentification unique.
 
 >[!IMPORTANT]
-> Seules les applications qui utilisent des technologies réseau Apple natives ou des vues WebView sont prises en charge. Si une application est livrée avec sa propre implémentation de couche réseau, le plug-in plug-in Microsoft Enterprise SSO n’est pas pris en charge.  
+> Le plug-in Microsoft Enterprise Single Sign-On ne prend en charge que les applications qui utilisent des technologies réseau ou des vues web natives Apple. Il ne prend pas en charge les applications qui intègrent leur propre implémentation de couche réseau.  
 
-Utilisez les paramètres suivants afin de configurer le plug-in Microsoft Enterprise SSO pour les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft :
+Utilisez les paramètres suivants pour configurer le plug-in Microsoft Enterprise SSO pour les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft.
 
-Si vous souhaitez spécifier une liste d’applications :
+Pour fournir une liste d’applications spécifiques, utilisez les paramètres suivants :
 
 - **Clé** : `AppAllowList`
 - **Type** : `String`
-- **Valeur** : Liste délimitée par des virgules des ID d’ensemble d’applications pour les applications qui sont autorisées à participer à l’authentification unique
+- **Valeur** : liste délimitée par des virgules d’ID de bundles d’applications pour les applications autorisées à participer à l’authentification unique.
 - **Exemple** : `com.contoso.workapp, com.contoso.travelapp`
 
-Ou si vous souhaitez spécifier une liste de préfixes :
+Pour fournir une liste de préfixes, utilisez les paramètres suivants :
 - **Clé** : `AppPrefixAllowList`
 - **Type** : `String`
-- **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Notez que cela permet à toutes les applications dont le nom commence par un préfixe donné de participer à l’authentification unique.
+- **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Ce paramètre permet à toutes les applications qui commencent par un préfixe particulier de participer à l’authentification unique.
 - **Exemple** : `com.contoso., com.fabrikam.`
 
-[Les applications avec consentement](./application-consent-experience.md) autorisées par l’administrateur MDM à participer à l’authentification unique peuvent obtenir en mode silencieux un jeton pour l’utilisateur final. Par conséquent, il est important d’ajouter uniquement des applications approuvées à la liste d’autorisation. 
+[Les applications approuvées](./application-consent-experience.md) que l’administrateur MDM autorise à participer à l’authentification unique peuvent obtenir en mode silencieux un jeton pour l’utilisateur final. Par conséquent, n’ajoutez que des applications approuvées à liste d’autorisation. 
 
 >[!NOTE]
-> Vous n’avez pas besoin d’ajouter les applications qui utilisent MSAL ou ASWebAuthenticationSession à cette liste. Elles sont activées par défaut. 
+> Vous n’avez pas besoin d’ajouter des applications qui utilisent MSAL ou ASWebAuthenticationSession à la liste des applications qui peuvent participer à l’authentification unique. Elles sont activées par défaut. 
 
-##### <a name="how-to-discover-app-bundle-identifiers-on-ios-devices"></a>Comment découvrir des identificateurs de bundles d’applications sur des appareils iOS
+##### <a name="find-app-bundle-identifiers-on-ios-devices"></a>Découvrir des identificateurs de bundles d’applications sur des appareils iOS
 
-Apple ne fournit pas de méthode simple pour découvrir les ID de bundles dans l’App Store. Pour découvrir les ID de bundles des applications que vous souhaitez utiliser pour l’authentification unique, le plus simple est de demander à votre fournisseur ou à votre développeur d’applications. Si ce n’est pas disponible, vous pouvez utiliser votre configuration MDM pour découvrir les ID de bundles. 
+Apple n’offre aucun moyen simple d’accéder aux ID de bundles à partir de l’App Store. Pour découvrir les ID de bundles des applications que vous souhaitez utiliser pour l’authentification unique, le plus simple est de demander à votre fournisseur ou à votre développeur d’applications. Si cette option n’est pas disponible, vous pouvez utiliser votre configuration MDM pour découvrir les ID de bundles. 
 
-Activez temporairement l’indicateur suivant dans votre configuration MDM :
+1. Activez temporairement l’indicateur suivant dans votre configuration MDM :
 
-- **Clé** : `admin_debug_mode_enabled`
-- **Type** : `Integer`
-- **Valeur** : 1 ou 0
+    - **Clé** : `admin_debug_mode_enabled`
+    - **Type** : `Integer`
+    - **Valeur** : 1 ou 0
+1. Quand cet indicateur est actif, connectez-vous aux applications iOS sur l’appareil dont vous souhaitez connaître l’ID de bundle. 
+1. Dans l’application Authenticator, sélectionnez **Aide** > **Envoyer des journaux** > **Afficher les journaux**. 
+1. Dans le fichier journal, recherchez la ligne suivante : `[ADMIN MODE] SSO extension has captured following app bundle identifiers` : Elle doit contenir tous les identificateurs de bundles d’applications visibles par l’extension SSO. 
 
-Quand cet indicateur est actif, connectez-vous aux applications iOS de l’appareil dont vous souhaitez connaître l’ID de bundle. Ensuite, ouvrez l’application Microsoft Authenticator -> Aide -> Envoyer les journaux -> Afficher les journaux. 
+Utilisez les ID de bundles pour configurer l’authentification unique pour les applications. 
 
-Dans le fichier journal, recherchez la ligne suivante :
+#### <a name="allow-users-to-sign-in-from-unknown-applications-and-the-safari-browser"></a>Autoriser les utilisateurs à se connecter à partir d’applications inconnues et du navigateur Safari
 
-`[ADMIN MODE] SSO extension has captured following app bundle identifiers:`
+Par défaut, le plug-in Microsoft Enterprise SSO ne fournit l’authentification unique aux applications autorisées que lorsqu’un utilisateur s’est connecté à partir d’une application qui utilise une bibliothèque de plateforme d’identités Microsoft telle que MSAL ou la Bibliothèque d’authentification Active Directory (ADAL). Le plug-in Microsoft Enterprise SSO peut également acquérir des informations d’identification partagées lorsqu’il est appelé par une autre application qui utilise une bibliothèque de plateforme d’identités Microsoft, dans le cadre d’une nouvelle acquisition de jetons.
 
-Elle doit contenir tous les identificateurs de bundles d’applications qui sont visibles par l’extension SSO. Vous pouvez ensuite utiliser ces identificateurs afin de configurer l’authentification unique pour ces applications. 
+Lorsque vous activez l’indicateur `browser_sso_interaction_enabled`, les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft peuvent effectuer l’amorçage initial et obtenir des informations d’identification partagées. Le navigateur Safari peut également effectuer l’amorçage initial et obtenir des informations d’identification partagées. 
 
-#### <a name="allow-user-to-sign-in-from-unknown-applications-and-the-safari-browser"></a>Autoriser l’utilisateur à se connecter à partir d’applications inconnues et du navigateur Safari
+Si le plug-in Microsoft Enterprise SSO ne dispose pas encore d’informations d’identification partagées, il essaiera d’en obtenir chaque fois qu’une connexion sera demandée à partir d’une URL Azure AD dans le navigateur Safari, ASWebAuthenticationSession, SafariViewController ou une autre application native autorisée. 
 
-Par défaut, le plug-in Microsoft Enterprise SSO ne fournit l’authentification unique aux applications autorisées que lorsqu’un utilisateur s’est connecté à partir d’une application qui utilise une bibliothèque de plateforme d’identités Microsoft (ADAL ou MSAL, par exemple). Le plug-in Microsoft Enterprise SSO peut également acquérir des informations d’identification partagées lorsqu’il est appelé par une autre application qui utilise une bibliothèque de plateforme d’identités Microsoft, dans le cadre d’une nouvelle acquisition de jetons.
-
-L’activation de l’indicateur `browser_sso_interaction_enabled` permet aux applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft d’effectuer l’amorçage initial et d’obtenir des informations d’identification partagées. Cela permet également au navigateur Safari d’effectuer l’amorçage initial et d’obtenir des informations d’identification partagées. Si le plug-in plug-in Microsoft Enterprise SSO ne dispose pas encore d’informations d’identification partagées, il essaiera d’en obtenir chaque fois qu’une connexion est demandée à partir d’une URL Azure AD dans le navigateur Safari, ASWebAuthenticationSession, SafariViewController ou une autre application native autorisée.  
+Utilisez les paramètres suivants pour activer l’indicateur : 
 
 - **Clé** : `browser_sso_interaction_enabled`
 - **Type** : `Integer`
 - **Valeur** : 1 ou 0
 
-Sur macOS, ce paramètre est nécessaire pour obtenir une expérience cohérente dans toutes les applications. Sur iOS et iPadOS, ce paramètre n’est pas nécessaire car la plupart des applications utilisent l’application Microsoft Authenticator pour la connexion. Toutefois, si certaines de vos applications n’utilisent pas Microsoft Authenticator sur iOS ou iPadOS, cet indicateur permettra d’améliorer l’expérience. Nous vous recommandons donc d’activer ce paramètre. Il est désactivé par défaut.
+macOS requiert ce paramètre afin d’offrir une expérience cohérente dans toutes les applications. iOS et iPadOS ne requièrent pas ce paramètre car la plupart des applications utilisent l’application Authenticator pour la connexion. Toutefois, nous vous recommandons d’activer ce paramètre car, si certaines de vos applications n’utilisent pas l’application Authenticator sur iOS ou iPados, cet indicateur améliore l’expérience. Ce paramètre est désactivé par défaut.
 
-#### <a name="disable-asking-for-mfa-on-initial-bootstrapping"></a>Ne plus exiger l’authentification MFA lors de l’amorçage initial
+#### <a name="disable-asking-for-mfa-during-initial-bootstrapping"></a>Désactiver la demande d’authentification multifacteur lors de l’amorçage initial
 
-Par défaut, le plug-in Microsoft Enterprise SSO demande toujours à l’utilisateur de s’authentifier avec l’authentification MFA lors de l’amorçage initial et lorsqu’il souhaite obtenir des informations d’identification partagées, même si cela n’est pas obligatoire pour l’application que l’utilisateur vient de lancer. Cela permet d’utiliser facilement les informations d’identification partagées dans toutes les autres applications, sans avoir à demander à l’utilisateur de s’authentifier avec l’authentification MFA si celle-ci devient obligatoire plus tard. Cela réduit le nombre de fois où l’utilisateur est invité à s’authentifier sur l’appareil, ce qui est généralement une bonne chose.
+Par défaut, le plug-in Microsoft Enterprise SSO demande toujours à l’utilisateur de procéder à une authentification multifacteur lors de l’amorçage initial et lors de l’obtention des informations d’identification partagées. L’utilisateur est invité à effectuer une authentification multifacteur, même si celle-ci n’est pas requise pour l’application qu’il a ouverte. Ce comportement permet d’utiliser facilement les informations d’identification partagées dans toutes les autres applications sans devoir afficher une invite à l’utilisateur si une authentification multifacteur est requise ultérieurement. Étant donné que l’utilisateur reçoit globalement moins d’invites, cette configuration est généralement une bonne décision.
 
-L’activation de `browser_sso_disable_mfa` désactive cette option, et invite l’utilisateur à s’authentifier uniquement lorsque l’authentification MFA est exigée par une application ou une ressource. 
+L’activation de `browser_sso_disable_mfa` a pour effet de désactiver la MFA lors de l’amorçage initial et lors de l’obtention des informations d’identification partagées. Dans ce cas, l’utilisateur reçoit une invite uniquement si une MFA est requise par une application ou une ressource. 
+
+Pour activer l’indicateur, utilisez les paramètres suivants :
 
 - **Clé** : `browser_sso_disable_mfa`
 - **Type** : `Integer`
 - **Valeur** : 1 ou 0
 
-Nous vous recommandons de ne pas activer cet indicateur, car cela réduit le nombre de fois où l’utilisateur est invité à s’authentifier sur l’appareil. Si votre organisation utilise rarement l’authentification MFA, vous pouvez alors activer cet indicateur. Cela dit, l’utilisation fréquente de l’authentification MFA est recommandée. C’est la raison pour laquelle elle est désactivée par défaut.
+Nous vous recommandons de laisser cet indicateur désactivé, car il réduit le nombre de fois que l’utilisateur est invité à se connecter. Si votre organisation utilise rarement la MFA, vous pouvez activer l’indicateur. Toutefois, nous vous recommandons d’utiliser la MFA plus fréquemment à la place. C’est la raison pour laquelle l’indicateur est désactivé par défaut.
 
-#### <a name="disable-oauth2-application-prompts"></a>Désactiver les invites d’application OAuth2
+#### <a name="disable-oauth-2-application-prompts"></a>Désactiver les invites d’application OAuth 2
 
-Le plug-in plug-in Microsoft Enterprise SSO fournit l’authentification unique en ajoutant les informations d’identification partagées aux demandes réseau provenant des applications autorisées. Toutefois, certaines applications OAuth2 peuvent appliquer à tort les invites de l’utilisateur final au niveau de la couche protocole. Si cela se produit, vous verrez que les informations d’identification partagées sont ignorées pour ces applications et que votre utilisateur est invité à se connecter, même si le plug-in Microsoft Enterprise SSO fonctionne pour d’autres applications.  
+Le plug-in Microsoft Enterprise SSO fournit l’authentification unique en ajoutant les informations d’identification partagées aux demandes réseau provenant des applications autorisées. Toutefois, certaines applications OAuth 2 peuvent appliquer à tort les invites de l’utilisateur final au niveau de la couche de protocole. Si vous rencontrez ce problème, vous verrez également que les informations d’identification partagées sont ignorées pour ces applications. L’utilisateur est invité à se connecter même si le plug-in Microsoft Enterprise Single Sign-On fonctionne pour d’autres applications.  
 
-L’activation de l’indicateur `disable_explicit_app_prompt` restreint la capacité des applications natives et des applications web à forcer une invite de l’utilisateur final sur la couche de protocole et à contourner l’authentification unique.
+L’activation de l’indicateur `disable_explicit_app_prompt` restreint la capacité des applications natives et des applications web à forcer une invite d’utilisateur final sur la couche de protocole et à contourner l’authentification unique. Pour activer l’indicateur, utilisez les paramètres suivants :
 
 - **Clé** : `disable_explicit_app_prompt`
 - **Type** : `Integer`
 - **Valeur** : 1 ou 0
 
-Nous vous recommandons d’activer cet indicateur pour obtenir une expérience plus cohérente sur toutes les applications. Il est désactivé par défaut. 
+Nous vous recommandons d’activer cet indicateur pour bénéficier d’une expérience cohérente dans toutes les applications. Elle est désactivée par défaut. 
 
-#### <a name="enable-sso-through-cookies-for-specific-application"></a>Activer l’authentification unique par le biais de cookies pour une application donnée
+#### <a name="enable-sso-through-cookies-for-a-specific-application"></a>Activer l’authentification unique via des cookies pour une application donnée
 
-Certaines applications peuvent être incompatibles avec l’extension SSO, cela dit, elles sont rares. Les applications qui ont des paramètres réseau avancés peuvent rencontrer des problèmes inattendus lorsque l’authentification unique est activée (par exemple, vous pouvez voir une erreur indiquant que la requête réseau a été annulée ou interrompue). 
+Quelques applications peuvent être incompatibles avec l’extension SSO. Spécifiquement, des applications qui ont des paramètres réseau avancés peuvent rencontrer des problèmes inattendus quand elles sont activées pour l’authentification unique. Par exemple, vous pouvez voir une erreur indiquant que la demande réseau a été annulée ou interrompue. 
 
-Si vous rencontrez des problèmes lorsque vous vous authentifiez avec la méthode décrite dans la section `Enable SSO for apps that don't use MSAL`, vous pouvez essayer une autre configuration pour ces applications. 
-
-Utilisez les paramètres suivants afin de configurer le plug-in Microsoft Enterprise SSO pour ces applications :
+Si vous rencontrez des problèmes de connexion à l’aide de la méthode décrite dans la section [Applications n’utilisant pas la MSAL](#applications-that-dont-use-msal), essayez une autre configuration. Utilisez ces paramètres pour configurer le plug-in :
 
 - **Clé** : `AppCookieSSOAllowList`
 - **Type** : `String`
-- **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Notez que cela permet à toutes les applications dont le nom commence par un préfixe donné de participer à l’authentification unique.
+- **Valeur** : liste délimitée par des virgules comprenant les préfixes des ID de bundles d’applications pour les applications qui sont autorisées à participer à l’authentification unique. Toutes les applications qui commencent par les préfixes répertoriés seront autorisées à participer à l’authentification unique.
 - **Exemple** : `com.contoso.myapp1, com.fabrikam.myapp2`
 
-Notez que les applications où est activée l’authentification unique et qui utilisent ce mécanisme doivent être ajoutées à `AppCookieSSOAllowList` et `AppPrefixAllowList`.
+Les applications activées pour l’authentification unique à l’aide de cette configuration doivent être ajoutées à `AppCookieSSOAllowList` et à `AppPrefixAllowList`.
 
-Nous vous recommandons d’essayer cette option uniquement pour les applications qui rencontrent des échecs de connexion inattendus. 
+N’essayez cette configuration que pour les applications qui rencontrent des échecs de connexion inattendus. 
 
 #### <a name="use-intune-for-simplified-configuration"></a>Utiliser Intune pour une configuration simplifiée
 
-Comme nous l’avons vu précédemment, vous pouvez utiliser Microsoft Intune en tant que service MDM pour faciliter la configuration du plug-in Microsoft Enterprise SSO, notamment l’activation du plug-in et l’ajout de vos anciennes applications à la liste verte pour que celles-ci puissent bénéficier de l’authentification unique. Pour plus d’informations, consultez la [documentation sur la configuration d’Intune](/intune/configuration/ios-device-features-settings).
+Vous pouvez utiliser Intune comme service MDM pour faciliter la configuration du plug-in Microsoft Enterprise SSO. Par exemple, vous pouvez utiliser Intune pour activer le plug-in et ajouter d’anciennes applications à une liste d’autorisation afin qu’elles bénéficient de l’authentification unique. 
 
-## <a name="using-the-sso-plug-in-in-your-application"></a>Utilisation du plug-in SSO dans votre application
+Pour plus d’informations, consultez la [documentation sur la configuration d’Intune](/intune/configuration/ios-device-features-settings).
 
-La [bibliothèque d’authentification Microsoft (MSAL) pour les appareils Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) de version 1.1.0 ou ultérieure prend en charge le plug-in Microsoft Enterprise SSO pour les appareils Apple. Il s’agit de la méthode recommandée pour ajouter la prise en charge du plug-in Microsoft Enterprise SSO, car elle vous permet de bénéficier de toutes les fonctionnalités de la plateforme d’identités Microsoft.
+## <a name="use-the-sso-plug-in-in-your-application"></a>Utiliser le plug-in SSO dans votre application
 
-Si vous créez une application pour des scénarios de travail Frontline, consultez [Mode d’appareil partagé pour les appareils iOS](msal-ios-shared-devices.md) pour une configuration supplémentaire de cette fonctionnalité.
+La [bibliothèque MSAL pour appareils Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versions 1.1.0 et ultérieures prend en charge le plug-in Microsoft Enterprise SSO pour appareils Apple. Il s’agit de la méthode recommandée pour ajouter la prise en charge du plug-in Microsoft Enterprise Single Sign-On. Elle vous garantit de disposer de toutes les fonctionnalités de la plateforme d’identités Microsoft.
 
-## <a name="how-the-sso-plug-in-works"></a>Fonctionnement du plug-in SSO
+Si vous créez une application pour des scénarios d’employé de terrain, consultez [Mode d’appareil partagé pour les appareils iOS](msal-ios-shared-devices.md) pour accéder aux informations de configuration.
 
-Le plug-in plug-in Microsoft Enterprise SSO s’appuie sur l’[infrastructure d’authentification unique d’Apple](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Les fournisseurs d’identité intégrés à l’infrastructure peuvent intercepter le trafic réseau pour leurs domaines et améliorer ou modifier le mode de traitement de ces demandes. Par exemple, le plug-in SSO peut afficher une interface utilisateur supplémentaire pour collecter les informations d’identification de l’utilisateur final en toute sécurité, exiger l’authentification MFA ou fournir en mode silencieux des jetons à l’application.
+## <a name="understand-how-the-sso-plug-in-works"></a>Comprendre le fonctionnement du plug-in SSO
 
-Les applications natives peuvent également implémenter des opérations personnalisées et communiquer directement avec le plug-in SSO.
-Vous pouvez en savoir plus sur l’infrastructure d’authentification unique dans cette [vidéo 2019 WWDC d’Apple](https://developer.apple.com/videos/play/tech-talks/301/)
+Le plug-in Microsoft Enterprise SSO s’appuie sur l’[infrastructure Apple Enterprise SSO](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc). Les fournisseurs d’identité qui rejoignent l’infrastructure peuvent intercepter le trafic réseau pour leurs domaines et améliorer ou modifier le mode de traitement de ces demandes. Par exemple, le plug-in SSO peut afficher davantage d’interfaces utilisateur pour collecter les informations d’identification de l’utilisateur final en toute sécurité, exiger l’authentification MFA ou fournir en mode silencieux des jetons à l’application.
 
-### <a name="applications-that-use-a-microsoft-identity-platform-library"></a>Applications qui utilisent une bibliothèque de plateforme d’identités Microsoft
+Des applications natives peuvent également implémenter des opérations personnalisées et communiquer directement avec le plug-in SSO. Pour plus d’informations, consultez cette [vidéo d’Apple sur la conférence mondiale des développeurs 2019](https://developer.apple.com/videos/play/tech-talks/301/).
 
-La [bibliothèque d’authentification Microsoft (MSAL) pour les appareils Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) de version 1.1.0 ou ultérieure prend en charge le plug-in Microsoft Enterprise SSO pour les appareils Apple et de façon native pour les comptes scolaires et professionnels. 
+### <a name="applications-that-use-msal"></a>Applications utilisant la MSAL
 
-Aucune configuration particulière n’est nécessaire si vous avez suivi [toutes les étapes recommandées](./quickstart-v2-ios.md) et utilisé le [format d’URI de redirection](./redirect-uris-ios.md) par défaut. Lorsqu’elle exécutée sur un appareil sur lequel est présent le plug-in SSO, MSAL l’appelle automatiquement pour toutes les demandes de jeton interactives et silencieuses, ainsi que l’énumération de compte et les opérations de suppression de compte. Étant donné que MSAL implémente le protocole de plug-in SSO natif qui repose sur les opérations personnalisées, cette configuration assure l’expérience native la plus fluide pour l’utilisateur final. 
+La [bibliothèque MSAL pour appareils Apple](https://github.com/AzureAD/microsoft-authentication-library-for-objc) versions 1.1.0 et ultérieures prend en charge le plug-in Microsoft Enterprise SSO pour appareils Apple en mode natif pour les comptes professionnels et scolaires. 
 
-Si le plug-in SSO n’est pas activé par MDM, mais que l’application Microsoft Authenticator est présente sur l’appareil, MSAL utilise l’application Microsoft Authenticator pour toutes les demandes de jeton interactives. Le plug-in SSO partage l’authentification unique avec l’application Microsoft Authenticator.
+Aucune configuration particulière n’est nécessaire si vous avez suivi [toutes les étapes recommandées](./quickstart-v2-ios.md) et utilisé le [format d’URI de redirection](./redirect-uris-ios.md) par défaut. Sur les appareils disposant du plug-in SSO, la MSAL appelle automatiquement celui-ci pour toutes les demandes de jeton interactives et silencieuses. Elle l’appelle également pour les opérations d’énumération des comptes et de suppression de compte. Étant donné que la MSAL implémente un protocole de plug-in SSO natif reposant sur des opérations personnalisées, cette configuration offre l’expérience native la plus fluide pour l’utilisateur final. 
 
-### <a name="applications-that-dont-use-a-microsoft-identity-platform-library"></a>Applications qui n’utilisent pas une bibliothèque de plateforme d’identités Microsoft
+Si le plug-in SSO n’est pas activé par MDM, mais que l’application Microsoft Authenticator est présente sur l’appareil, la MSAL utilise plutôt l’application Authenticator pour toutes les demandes de jeton interactives. Le plug-in SSO partage l’authentification unique avec l’application Authenticator.
 
-Les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft (par exemple, comme MSAL) peuvent toujours bénéficier de l’authentification unique si un administrateur les ajoute explicitement à la liste verte. 
+### <a name="applications-that-dont-use-msal"></a>Applications n’utilisant pas la MSAL
 
-Aucune modification de code n’est nécessaire dans ces applications tant que les conditions suivantes sont satisfaites :
+Les applications qui n’utilisent pas de bibliothèque de plateforme d’identités Microsoft, telle que MSAL, peuvent toujours bénéficier de l’authentification unique si un administrateur les ajoute à la liste d’autorisation. 
 
-- L’application utilise les infrastructures Apple pour exécuter des requêtes réseau (par exemple, [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview), [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession)) 
-- L’application utilise des protocoles standard pour communiquer avec Azure AD (par exemple, OAuth2, SAML, WS-Federation)
-- L’application ne collecte pas de nom d’utilisateur et de mot de passe en texte clair dans l’interface utilisateur native
+Vous n’avez pas besoin de modifier le code de ces applications tant que les conditions suivantes sont réunies :
 
-Dans ce cas, l’authentification unique est fournie lorsque l’application crée une requête réseau et ouvre un navigateur web pour connecter l’utilisateur. Lorsque l’utilisateur est redirigé vers une URL de connexion Azure AD, le plug-in SSO valide l’URL et vérifie s’il existe des informations d’identification SSO disponibles pour cette URL. S’il en existe, le plug-in SSO transmet les informations d’identification SSO à Azure AD, ce qui permet à l’application de terminer la requête réseau sans demander à l’utilisateur d’entrer ses informations d’identification. En outre, si l’appareil est connu d’Azure AD, le plug-in SSO transmet également le certificat de l’appareil pour répondre à la vérification de l’accès conditionnel en fonction de l’appareil. 
+- L’application utilise des infrastructures Apple pour exécuter des demandes réseau. Ces infrastructure sont par exemple [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) et [NSURLSession](https://developer.apple.com/documentation/foundation/nsurlsession). 
+- L’application utilise des protocoles standard pour communiquer avec Azure AD. Ces protocoles incluent, par exemple, OAuth 2, SAML et WS-Federation.
+- L’application ne collecte pas les noms d’utilisateur et mots de passe en texte clair dans l’interface utilisateur native.
 
-Pour prendre en charge l’authentification unique pour les applications non-MSAL, le plug-in SSO implémente un protocole similaire au plug-in de navigateur Windows décrit dans [Qu’est-ce qu’un jeton d’actualisation principal](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
+Dans ce cas, l’authentification unique est fournie lorsque l’application crée une requête réseau et ouvre un navigateur web pour connecter l’utilisateur. Quand un utilisateur est redirigé vers une URL de connexion à Azure AD, le plug-in SSO valide l’URL et vérifie l’existence d’informations d’identification SSO pour cette URL. S’il trouve les informations d’identification, le plug-in SSO les transmet à Azure AD, ce qui permet à l’application de terminer la demande réseau sans demander à l’utilisateur d’entrer ses informations d’identification. En outre, si l’appareil est connu d’Azure AD, le plug-in SSO transmet le certificat de l’appareil pour répondre au contrôle d’accès conditionnel en fonction de l’appareil. 
 
-En comparaison avec les applications basées sur MSAL, le plug-in SSO agit plus en toute transparence pour les applications non-MSAL en s’intégrant à l’expérience de connexion de navigateur existante fournie par les applications. L’utilisateur final voit son expérience habituelle, avec l’avantage de ne pas avoir à effectuer d’autres connexions dans chacune des applications. Par exemple, au lieu d’afficher le sélecteur de compte natif, le plug-in SSO ajoute des sessions SSO à l’expérience du sélecteur de compte basé sur le web. 
+Pour prendre en charge l’authentification unique pour les applications non-MSAL, le plug-in SSO implémente un protocole similaire au plug-in de navigateur Windows décrit dans [Qu’est-ce qu’un jeton d’actualisation principal ?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
+
+Comparé à des applications basées sur MSAL, le plug-in SSO agit de manière plus transparence pour des applications non-MSAL. Il s’intègre à l’expérience de connexion du navigateur existante que les applications fournissent. 
+
+L’utilisateur final voit l’expérience familière et n’a pas besoin de se reconnecter dans chaque application. Par exemple, au lieu d’afficher le sélecteur de compte natif, le plug-in SSO ajoute des sessions SSO à l’expérience du sélecteur de compte basé sur le web. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le mode d’appareil partagé sur iOS, consultez [Mode d’appareil partagé pour les appareils iOS](msal-ios-shared-devices.md).
+Découvrez le [Mode d’appareil partagé pour les appareils iOS](msal-ios-shared-devices.md).

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709405"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496471"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -54,6 +54,11 @@ Oui. Les points de terminaison privés peuvent se connecter à des ressources Az
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Puis-je modifier mon interface réseau (NIC) de point de terminaison privé ?
 Lors de la création d’un point de terminaison privé, une carte NIC en lecture seule est assignée. Non modifiable, elle sera conservée pendant tout le cycle de vie du point de terminaison privé.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>Comment assurer la disponibilité en utilisant des points de terminaison privés en cas de défaillance régionale ?
+
+Les points de terminaison privés sont des ressources hautement disponibles avec un contrat SLA de 99,99 % [[SLA pour Azure Private Link]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). Toutefois, étant donné qu’il s’agit de ressources régionales, toute panne de la région Azure peut avoir un impact sur la disponibilité. Pour garantir la disponibilité en cas de défaillances régionales, plusieurs points de terminaison privés connectés à la même ressource de destination peuvent être déployés dans différentes régions. De cette façon, si une région tombe en panne, vous pouvez toujours acheminer le trafic de vos scénarios de récupération via le point de terminaison privé dans une autre région pour accéder à la ressource de destination. Pour plus d’informations sur la façon dont les défaillances régionales sont gérées côté service de destination, consultez la documentation de service sur le basculement et la récupération. Le trafic de Private Link suit la résolution de Azure DNS pour le point de terminaison de destination. 
+
 
 ## <a name="private-link-service"></a>Service Liaison privée
  

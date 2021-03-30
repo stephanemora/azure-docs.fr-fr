@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.openlocfilehash: 8b97221de4921e06ddfab610618f37683b990181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87132736"
 ---
 # <a name="what-is-reinforcement-learning"></a>Qu’est-ce que l’apprentissage par renforcement ?
@@ -62,7 +62,7 @@ Personalizer utilise actuellement [Vowpal Wabbit](https://github.com/VowpalWabbi
 * [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
 * [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)
 * [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799)
-* [Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW)
+* [Prédiction de perte résiduelle : renforcement : formation sans commentaires incrémentiels](https://openreview.net/pdf?id=HJNMYceCW)
 * [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)
 * [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206)
 

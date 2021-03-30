@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 920f6a4fec1ec8a260a98641888268e4955bbf44
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8b85307f01a11366a2147c947f26658f548932e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718775"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467712"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
@@ -25,9 +25,11 @@ Azure Database pour MySQL prend actuellement en charge les versions majeures et 
 
 | Version | Serveur unique <br/> Version mineure actuelle |Serveur flexible (préversion) <br/> Version mineure actuelle  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Non pris en charge|
+|MySQL version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Mise hors service) | Non pris en charge|
 |MySQL version 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL Version 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
+
+Découvrez la stratégie de prise en charge des versions pour les versions mises hors service dans la [documentation relative à la stratégie de prise en charge des versions](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql).
 
 ## <a name="managing-updates-and-upgrades"></a>Gestion des mises à jour et des mises à niveau
 Le service gère automatiquement les correctifs pour les mises à jour des versions des correctifs de bogues. Par exemple, 5.7.20 à 5.7.21.  

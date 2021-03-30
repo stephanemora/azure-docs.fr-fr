@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 5b9b0c6a0fe08ccff9da59539b926270cd0e1d44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032852"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606954"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -705,6 +705,10 @@ Par défaut, la collecte des journaux des conteneurs de l'espace de noms kube-sy
 
 Pour savoir comment procéder à la mise à niveau de l'agent, consultez [Gestion de l'agent](containers/container-insights-manage-agent.md).
 
+### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>Pourquoi les lignes de journal d’une taille supérieure à 16 Ko sont-elles fractionnées en plusieurs enregistrements dans Log Analytics ?
+
+L’agent utilise le [pilote de journalisation de fichier JSON de Docker](https://docs.docker.com/config/containers/logging/json-file/) pour capturer les conteneurs stdout et stderr. Ce pilote de journalisation fractionne les lignes de journal [d’une taille supérieure à 16 Ko](https://github.com/moby/moby/pull/22982) en plusieurs lignes quand elles sont copiées à partir des conteneurs stdout ou stderr dans un fichier.
+
 ### <a name="how-do-i-enable-multi-line-logging"></a>Comment puis-je activer la journalisation multiligne?
 
 Actuellement la solution Container insights ne prend pas en charge la journalisation multiligne, mais il existe des solutions de contournement. Vous pouvez configurer tous les services sur le format JSON. Docker/Moby utilisera ensuite une seule ligne pour l'écriture.
@@ -821,6 +825,29 @@ Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en
 
 Dans ce cas, l’option **Essayer maintenant** s’affiche quand vous ouvrez la machine virtuelle et sélectionnez **Insights** dans le volet de gauche, même après son installation sur la machine virtuelle.  Mais aucune option ne vous est proposée, contrairement à ce qui aurait eu lieu si cette machine virtuelle n’avait pas été intégrée à VM Insights. 
 
+## <a name="sql-insights-preview"></a>Insights SQL (préversion)
+
+### <a name="what-versions-of-sql-server-are-supported"></a>Quelles versions de SQL Server sont prises en charge ?
+Consultez [Versions prises en charge](insights/sql-insights-overview.md#supported-versions) pour connaître les versions de SQL prises en charge.
+
+### <a name="what-sql-resource-types-are-supported"></a>Quels types de ressources SQL sont pris en charge ?
+
+- Azure SQL Database. Une seule base de données, pas plusieurs bases de données dans un pool élastique.
+- Azure SQL Managed Instance 
+- Machines virtuelles Azure SQL ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) et machines virtuelles Azure sur lesquelles SQL Server est installé.
+
+### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>Quels sont les systèmes d’exploitation pris en charge pour la machine exécutant SQL Server ?
+Tout système d’exploitation prenant en charge l’exécution de la version prise en charge de SQL.
+
+### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>Quels sont les systèmes d’exploitation pris en charge pour le serveur de surveillance à distance ?
+
+Ubuntu 18.04 est actuellement le seul système d’exploitation pris en charge.
+
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Où seront stockées les données de surveillance dans Log Analytics 
+Toutes les données de surveillance sont stockées dans la table **InsightsMetrics**. La colonne **Origin** a la valeur *solutions.AZM.ms/Telegraf/SqlInsights*. La colonne **Namespace** a des valeurs qui commencent par *sqlserver_* .
+
+### <a name="how-often-is-data-collected"></a>À quelle fréquence les données sont-elles collectées ? 
+Pour plus de détails sur la fréquence de collecte des différentes données, consultez [Données collectées par SQL Insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne trouvez pas de réponse à votre question ici, vous pouvez consulter les forums suivants pour plus de questions et réponses.

@@ -1,18 +1,18 @@
 ---
 title: Liste des classifications prises en charge
 description: Cette page répertorie les classifications système prises en charge dans Azure Purview.
-author: animukherjee
+author: anmuk601
 ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 2/5/2021
-ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/05/2021
+ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988303"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200800"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classifications prises en charge dans Azure Purview
 
@@ -59,7 +59,9 @@ Mis en forme :
 - trait d’union
 - quatre chiffres
 - trait d’union
-- chiffre non mis en forme : neuf chiffres consécutifs commençant par 0, 1, 2, 3, 6, 7 ou 8
+- un chiffre
+
+Non mis en forme : neuf chiffres consécutifs commençant par 0, 1, 2, 3, 6, 7 ou 8
 
 ### <a name="keywords"></a>Mots clés
 
