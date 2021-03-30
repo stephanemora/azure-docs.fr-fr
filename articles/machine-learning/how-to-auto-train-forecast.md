@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 161d565aa1d2dd08434ebd8ea155ac5a92e09ac0
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503502"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802911"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 
@@ -132,7 +132,7 @@ Modèles| Description | Avantages
 ----|----|---
 Prophet (préversion)|Prophet fonctionne mieux avec les séries chronologiques ayant des effets saisonniers forts et plusieurs saisons de données historiques. Pour tirer parti de ce modèle, installez-le en local à l’aide de `pip install fbprophet`. | Précis, rapide et robuste aux valeurs hors norme, aux données manquantes et aux évolutions profondes des séries chronologiques.
 Auto-ARIMA (préversion)|La moyenne mobile intégrée auto-régressive (ARIMA) est idéale pour les données fixes, c’est-à-dire les données dont les propriétés statistiques, comme la moyenne et la variance, sont constantes sur la totalité du jeu. Par exemple, quand on lance une pièce de monnaie, la probabilité d'obtenir face est de 50 %, que ce soit aujourd'hui, demain ou l'année prochaine.| Idéal pour les séries univariées, car les valeurs passées sont utilisées pour prédire les valeurs futures.
-ForecastTCN (préversion)| ForecastTCN est un modèle de réseau neuronal conçu pour traiter les tâches de prévision les plus exigeantes, capturant les tendances non linéaires locales et globales dans les données, ainsi que les relations entre les séries chronologiques.|Capable de mobiliser des tendances complexes dans les données et de s’adapter facilement aux jeux de données les plus volumineux.
+ForecastTCN (préversion)| ForecastTCN est un modèle de réseau neuronal conçu pour s’attaquer aux tâches de prévision les plus exigeantes. Il capture des tendances locales et globales non linéaires dans vos données, et des relations entre les séries chronologiques.|Capable de mobiliser des tendances complexes dans les données et de s’adapter facilement aux jeux de données les plus volumineux.
 
 ### <a name="configuration-settings"></a>Paramètres de configuration
 
@@ -146,11 +146,12 @@ Ces paramètres supplémentaires sont résumés dans le tableau suivant. Consult
 |`forecast_horizon`|Définit le nombre de périodes à venir que vous souhaitez prévoir. L’horizon est exprimé en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple mensuelles ou hebdomadaires) que l’analyste doit prévoir.|✓|
 |`enable_dnn`|[Activez les DNN de prévisions]().||
 |`time_series_id_column_names`|La ou les noms de colonne utilisés pour identifier de manière unique la série chronologique dans des données qui ont plusieurs lignes avec le même horodatage. Si les identificateurs de série chronologique ne sont pas définis, le jeu de données est supposé être une série chronologique. Pour en savoir plus sur les séries chronologiques uniques, consultez [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
-|`freq`| Fréquence du jeu de données de série chronologique. Ce paramètre représente la fréquence attendue des événements, par exemple tous les jours, toutes les semaines, tous les ans, etc. Elle doit constituer un [alias de décalage Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
+|`freq`| Fréquence du jeu de données de série chronologique. Ce paramètre représente la fréquence attendue des événements, par exemple tous les jours, toutes les semaines, tous les ans, etc. Elle doit constituer un [alias de décalage Pandas](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). En savoir plus sur la [fréquence].(#frequency--target-data-aggregation)||
 |`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Le décalage est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. ||
 |`feature_lags`| Les fonctionnalités à décaler seront automatiquement déterminées par Machine Learning automatisé lorsque `target_lags` sont définis et `feature_lags` est défini sur `auto`. L’activation des décalages de fonctionnalités peut contribuer à améliorer l’exactitude. Les décalages de fonctionnalités sont désactivés par défaut. ||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle. En savoir plus sur l’[agrégation de fenêtres dynamiques cibles](#target-rolling-window-aggregation).||
-|`short_series_handling_config`| Permet une gestion courte des séries chronologiques pour éviter toute défaillance due à des données insuffisantes au cours de l’apprentissage. Le paramètre de gestion des séries courtes est défini sur `auto` par défaut. Découvrez-en plus sur la [gestion des séries courtes](#short-series-handling).|
+|`short_series_handling_config`| Permet une gestion courte des séries chronologiques pour éviter toute défaillance due à des données insuffisantes au cours de l’apprentissage. Le paramètre de gestion des séries courtes est défini sur `auto` par défaut. Découvrez-en plus sur la [gestion des séries courtes](#short-series-handling).||
+|`target_aggregation_function`| Fonction à utiliser pour agréger la colonne cible de la série chronologique pour se conformer à la fréquence spécifiée par le paramètre `freq`. Le paramètre `freq` doit être défini pour pouvoir utiliser `target_aggregation_function`. La valeur par défaut est `None`. Pour la plupart des scénarios, l’utilisation de `sum` est suffisante.<br> En savoir plus sur l’[agrégation de colonnes cibles](#frequency--target-data-aggregation). 
 
 
 Le code suivant, 
@@ -258,12 +259,36 @@ Si vous utilisez le studio Azure Machine Learning pour votre expérience, consul
 
 Des configurations facultatives supplémentaires sont disponibles pour les tâches de prévisions, telles que l’activation du Deep Learning et la spécification d’une agrégation de fenêtres dynamiques cibles. 
 
+### <a name="frequency--target-data-aggregation"></a>Fréquence et agrégation des données cibles
+
+Tirez parti du paramètre de fréquence, `freq`, pour éviter les défaillances causées par des données irrégulières, c’est-à-dire des données qui ne suivent pas une cadence définie, par exemple horaire ou quotidienne. 
+
+Pour des données très irrégulières ou des besoins différents de l’entreprise, les utilisateurs peuvent éventuellement définir la fréquence de prévision souhaitée, `freq` et spécifier la `target_aggregation_function` pour agréger la colonne cible de la série chronologique. Tirez parti de ces deux paramètres dans votre objet `AutoMLConfig` pour potentiellement réduire le temps de préparation des données. 
+
+Lorsque le paramètre `target_aggregation_function` est utilisé,
+* Les valeurs de la colonne cible sont agrégées en fonction de l’opération spécifiée. En général, `sum` est approprié pour la plupart des scénarios.
+
+* Les colonnes de prédiction numériques dans vos données sont agrégées par somme, moyenne, valeur minimale et valeur maximale. Par conséquent, le ML automatisé génère de nouvelles colonnes suffixées avec le nom de la fonction d’agrégation et applique l’opération d’agrégation sélectionnée. 
+
+* Pour les colonnes de prédiction catégoriques, les données sont agrégées par mode, la catégorie la plus visible dans la fenêtre.
+
+* Les colonnes de prédiction de date sont agrégées par valeur minimale, valeur maximale et mode. 
+
+Les opérations d’agrégation prises en charge pour les valeurs des colonnes cibles sont les suivantes :
+
+|Fonction | description
+|---|---
+|`sum`| Somme des valeurs cibles
+|`mean`| Moyenne des valeurs cibles
+|`min`| Valeur minimale d’une cible  
+|`max`| Valeur maximale d’une cible  
+
 ### <a name="enable-deep-learning"></a>Activez le Deep Learning
 
 > [!NOTE]
 > Le support DNN pour les prévisions dans le Machine Learning automatisé est en **préversion** et n’est pas pris en charge pour les exécutions locales.
 
-Vous pouvez également tirer parti du Deep Learning avec des réseaux neuronaux profonds, DNN, pour améliorer les scores de votre modèle. Le Deep Learning du ML automatisé permet de prévoir des données de série chronologique univariées et multivariées.
+Vous pouvez également appliquer le Deep Learning avec des réseaux neuronaux profonds, DNN, pour améliorer les scores de votre modèle. Le Deep Learning du ML automatisé permet de prévoir des données de série chronologique univariées et multivariées.
 
 Les modèles Deep Learning ont trois capacités intrinsèques :
 1. Ils peuvent apprendre de mappages arbitraires des entrées aux sorties.
@@ -286,7 +311,7 @@ Pour activer DNN pour une expérience AutoML créée dans le studio Azure Machin
 Pour obtenir un exemple de code détaillé utilisant des DNN, consultez [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
 ### <a name="target-rolling-window-aggregation"></a>Agrégation de fenêtres dynamiques cibles
-La dernière valeur de la cible constitue souvent la meilleure information dont un prédicteur peut disposer.  Les agrégations de fenêtres dynamiques cibles permettent d’ajouter une agrégation dynamique de valeurs de données comme caractéristiques. Le fait de générer ces nouvelles caractéristiques et de les utiliser comme données contextuelles supplémentaires contribue à la précision du modèle d’apprentissage.
+La dernière valeur de la cible constitue souvent la meilleure information dont un prédicteur peut disposer.  Les agrégations de fenêtres dynamiques cibles permettent d’ajouter une agrégation dynamique de valeurs de données comme caractéristiques. Le fait de générer ces caractéristiques et de les utiliser comme données contextuelles supplémentaires contribue à la précision du modèle d’apprentissage.
 
 Par exemple, imaginons que vous souhaitiez prédire la demande d’énergie. Nous pouvons ajouter une caractéristique de fenêtre dynamique de trois jours pour tenir compte des modifications thermiques des espaces chauffés. Dans cet exemple, créez cette fenêtre en définissant `target_rolling_window_size= 3` dans le constructeur `AutoMLConfig`. 
 
@@ -349,7 +374,7 @@ Vous pouvez également utiliser le paramètre `forecast_destination` dans la fon
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_pipeline.forecast(
+label_fcst, data_trans = fitted_model.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
@@ -373,7 +398,7 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-Répétez les étapes nécessaires pour charger ces données futures dans une trame de données, puis exécutez `best_run.predict(test_data)` pour prédire les valeurs futures.
+Répétez les étapes nécessaires pour charger ces données futures dans une trame de données, puis exécutez `best_run.forecast(test_data)` pour prédire les valeurs futures.
 
 > [!NOTE]
 > Les prédictions de l’exemple ne sont pas prises en charge pour les prévisions avec le ML automatisé lorsque `target_lags` et/ou `target_rolling_window_size` sont activés.

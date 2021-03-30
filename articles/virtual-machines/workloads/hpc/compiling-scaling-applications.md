@@ -5,19 +5,25 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470737"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721283"
 ---
 # <a name="scaling-hpc-applications"></a>Mise à l’échelle d’applications HPC
 
 Pour bénéficier de performances de scale-out et de montée en puissance optimales pour les applications HPC sur Azure, vous devez régler les performances et effectuer différentes tentatives d’optimisation en fonction d’une charge de travail spécifique. Cette section et les pages spécifiques à la série de machines virtuelles offrent des conseils généraux pour la mise à l’échelle de vos applications.
+
+## <a name="application-setup"></a>Configuration des applications
+Le [référentiel azurehpc](https://github.com/Azure/azurehpc) contient de nombreux exemples de :
+- Configuration et exécution optimale des [applications](https://github.com/Azure/azurehpc/tree/master/apps).
+- Configuration des [systèmes de fichiers et des clusters](https://github.com/Azure/azurehpc/tree/master/examples).
+- [Didacticiels](https://github.com/Azure/azurehpc/tree/master/tutorials) sur la prise en main facile de certains workflows d’application courants.
 
 ## <a name="optimally-scaling-mpi"></a>Mise à l’échelle optimale de MPI 
 
@@ -48,6 +54,9 @@ Les suggestions suivantes s’appliquent pour une mise à l’échelle optimale 
 - Pour des exécutions à plus grande échelle, nous vous recommandons d’utiliser des transports UD, ou des transports hybrides RC+UD. De nombreuses bibliothèques/bibliothèques de runtime MPI effectuent cette opération en interne (comme UCX ou MVAPICH2). Vérifier vos configurations de transport pour les exécutions à grande échelle.
 
 ## <a name="compiling-applications"></a>Compilation d’applications
+<br>
+<details>
+<summary>Cliquez pour développer</summary>
 
 Bien qu’elle ne soit pas nécessaire, la compilation des applications avec les indicateurs d’optimisation appropriés fournit les meilleures performances de montée en puissance sur des machines virtuelles HB et HC.
 
@@ -96,6 +105,7 @@ Pour HPC, AMD recommande le compilateur GCC 7.3 ou une version ultérieure. Les 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+</details>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486656"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773043"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Bien démarrer avec la Traduction de documentation (préversion)
 
@@ -20,7 +20,10 @@ ms.locfileid: "102486656"
 ## <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]
-> En général, quand vous créez une ressource Cognitive Services dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice ou une clé d’abonnement monoservice. Toutefois, la Traduction de documentation est actuellement prise en charge dans la ressource Translator (monoservice) uniquement, et n’est **pas** incluse dans la ressource Cognitive Services (multiservice).
+>
+> 1. En général, quand vous créez une ressource Cognitive Services dans le portail Azure, vous avez la possibilité de créer une clé d’abonnement multiservice ou une clé d’abonnement monoservice. Toutefois, la Traduction de documentation est actuellement prise en charge dans la ressource Translator (monoservice) uniquement, et n’est **pas** incluse dans la ressource Cognitive Services (multiservice).
+> 2. La traduction de documentation est actuellement disponible dans le **Plan de service standard S1**. _Voir_ [Tarification de Cognitive Services - Traducteur](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+>
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
@@ -29,8 +32,6 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 * Une ressource du service [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (et **pas** une ressource Cognitive Services).
 
 * Un [**compte de stockage Blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Vous allez créer des conteneurs pour stocker et organiser vos données de blob dans votre compte de stockage.
-
-* Un [**formulaire de Traduction de documentation (préversion)** ](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) renseigné pour permettre à votre abonnement Azure d’utiliser la nouvelle fonctionnalité Traduction de documentation.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>Obtenir votre nom de domaine personnalisé et votre clé d’abonnement
 

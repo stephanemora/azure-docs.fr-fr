@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a708f0c1884073a2f2ea73092d25006415c59d5f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677742"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655221"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -157,7 +157,8 @@ Dans l’écran **Inscrire des sources (Azure SQL Database)** , procédez comme 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> La suppression de votre analyse ne supprime pas vos ressources des analyses Azure SQL Database précédentes.
+> * La suppression de votre analyse ne supprime pas vos ressources des analyses Azure SQL Database précédentes.
+> * La ressource n’est plus mise à jour avec les modifications de schéma si votre table source est modifiée et que vous relancez l’analyse de la table source après avoir modifié la description sous l’onglet Schéma de Purview.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

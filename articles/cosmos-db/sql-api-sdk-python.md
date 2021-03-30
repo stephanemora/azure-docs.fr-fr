@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505050"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799511"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,17 +38,26 @@ ms.locfileid: "102505050"
 > * [Exécuteur en bloc – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| Page| Lien |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentation de l’API**|[Documentation de référence sur l’API Python](/python/api/azure-cosmos/)|
+|**Documentation de l’API**|[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Instructions d’installation du Kit de développement logiciel (SDK)**|[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Prise en main**|[Bien démarrer avec le Kit de développement logiciel (SDK) Python](create-sql-api-python.md)|
-|**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) et [Python 3.5.3+](https://www.python.org/downloads/)|
+|**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) et [Python 3.6+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Historique des mises en production
 
-### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+## <a name="420"></a>4.2.0
+
+**Résolution des bogues**
+- Correction du bogue dans lequel le jeton de continuation n’est pas respecté quand query_iterable est utilisé pour obtenir des résultats par page.
+- Correction du bogue dans lequel les jetons de ressources ne sont pas respectés pour les lectures et les suppressions de documents. 
+
+**Nouvelles fonctionnalités**
+- Ajout de la prise en charge du passage de `partitionKey` lors de l’interrogation du flux de modification.
+
+## <a name="410"></a>4.1.0
 
 - Ajout d’un avertissement de désapprobation pour le mode d’indexation « différé ». Le serveur principal n’autorise plus la création de conteneurs avec ce mode et les définit comme cohérents à la place.
 
@@ -56,13 +65,14 @@ ms.locfileid: "102505050"
 - Ajout de la possibilité de définir la durée de vie de stockage analytique lors de la création d’un conteneur.
 
 **Résolution des bogues**
-- Correction de la prise en charge des dictionnaires en tant qu’entrées pour les API get_client.
+- Correction de la prise en charge des `dicts` en tant qu’entrées pour les API get_client.
 - Correction de la compatibilité avec Python 2/3 dans les itérateurs de requête.
-- Correction de l’erreur d’indicateur de type (problème #12570).
-- Correction du bogue qui avait pour effet que les en-têtes d’options n’étaient pas été ajoutés à la fonction upsert_item. Problème #11791 - Merci @aalapatirvbd.
-- Correction de l’erreur qui était déclenchée en cas d’utilisation d’un ID de type autre que chaîne dans un élément. L’erreur TypeError est désormais déclenchée à la place de l’erreur AttributeError (problème #11793).
+- Correction de l’erreur d’indicateur de type.
+- Correction du bogue qui avait pour effet que les en-têtes d’options n’étaient pas été ajoutés à la fonction upsert_item. 
+- Correction de l’erreur qui était déclenchée en cas d’utilisation d’un ID de type autre que chaîne dans un élément. L’erreur TypeError est désormais déclenchée à la place de l’erreur AttributeError.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * Version stable.
 * Ajout de HttpLoggingPolicy au pipeline pour permettre le passage dans un enregistreur d’événements personnalisé pour les requêtes et les en-têtes de réponse.
@@ -80,8 +90,8 @@ ms.locfileid: "102505050"
 * Ajout de la prise en charge des requêtes Distinct, Offset et Limit.
 * Contexte d’exécution par défaut de la requête de document actuellement utilisé pour :
 
-  * Requêtes ChangeFeed
-  * Requêtes à partition unique (partitionkey ; partitionKeyRangeId est présent parmi les options)
+  * Requêtes de flux de modification
+  * requêtes sur une seule partition (`partitionkey`, `partitionKeyRangeId` est présent dans les options)
   * Requêtes sans document.
 
 * Erreurs pour les agrégats sur plusieurs partitions, avec la valeur « Activer la requête entre les partitions » définie sur true, mais sans la présence de mot clé « value ».
@@ -324,6 +334,8 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 
 | Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
+| [4.2.0](#420) |09 octobre 2020 |--- |
+| [4.1.0](#410) |10 août 2020 |--- |
 | [4.0.0](#400) |20 mai 2020 |--- |
 | [3.0.2](#302) |15 novembre 2018 |--- |
 | [3.0.1](#301) |04 octobre 2018 |--- |

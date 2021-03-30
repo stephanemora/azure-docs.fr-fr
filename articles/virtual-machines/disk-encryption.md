@@ -2,26 +2,26 @@
 title: Chiffrement côté serveur de disques managés Azure
 description: Le Stockage Azure protège vos données en les chiffrant au repos avant de les rendre persistantes dans des clusters de stockage. Vous pouvez utiliser des clés gérées par le client pour gérer le chiffrement avec vos propres clés, ou vous appuyer sur des clés gérées par Microsoft pour le chiffrement de vos disques managés.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103014381"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721849"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Chiffrement côté serveur de stockage sur disque Azure
 
-Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. SSE chiffre automatiquement vos données stockées sur des disques managés Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. 
+La plupart des disques managés Azure sont chiffrés avec le chiffrement de Stockage Azure, qui utilise le chiffrement côté serveur (SSE) pour protéger vos données et vous aider à répondre aux engagements de votre organisation en matière de sécurité et de conformité. Le chiffrement Stockage Azure chiffre automatiquement vos données stockées sur des disques managés Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. Toutefois, les disques sur lesquels le chiffrement est activé sur l’hôte ne sont pas chiffrés par le biais du Stockage Azure. Pour les disques sur lesquels le chiffrement est activé sur l’hôte, le serveur qui héberge votre machine virtuelle fournit le chiffrement de vos données, et les données chiffrées sont transmises dans le Stockage Azure.
 
 Les données dans les disque managés Azure sont chiffrées en toute transparence à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles, et sont conformes à la norme FIPS 140-2. Pour plus d’informations sur les modules cryptographiques des disque managés Azure, consultez [API de chiffrement : nouvelle génération](/windows/desktop/seccng/cng-portal)
 
-Le chiffrement côté serveur n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. 
+Le chiffrement Stockage Azure n’a pas d’impact sur les performances des disques managés et n’entraîne aucun coût supplémentaire. Pour plus d’informations sur le chiffrement du Stockage Azure, voir [Chiffrement du stockage Azure](/azure/storage/common/storage-service-encryption).
 
 > [!NOTE]
 > Les disques temporaires ne sont pas des disques managés et ne sont pas chiffrés par SSE, sauf si vous activez le chiffrement à l’hôte.

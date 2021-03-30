@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/28/2020
-ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 03/19/2021
+ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421309"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656904"
 ---
 # <a name="export-data-module"></a>Module Exporter les données
 
@@ -51,7 +51,10 @@ Avant d’exporter vos données, vous devez d’abord inscrire un magasin de don
 
     Si elle est sélectionnée, le système exécutera à nouveau le module pour régénérer la sortie.
 
-1. Définissez le chemin d’accès du magasin de données où se trouvent les données. Le chemin d’accès est un chemin d’accès relatif. Les chemins d’accès vides ou les chemins d’accès d’URL ne sont pas autorisés.
+1. Définissez le chemin d’accès du magasin de données où se trouvent les données. Le chemin d’accès est un chemin d’accès relatif. Prenons `data/testoutput` comme exemple, ce qui signifie que les données d’entrée d’**Exporter les données** seront exportées vers `data/testoutput` dans le magasin de données que vous avez défini dans les **Paramètres de sortie** du module.
+
+    > [!NOTE]
+    > Les chemins d’accès vides ou les **chemins d’accès d’URL** ne sont pas autorisés.
 
 
 1. Pour **Format de fichier**, sélectionnez le format dans lequel les données doivent être stockées.

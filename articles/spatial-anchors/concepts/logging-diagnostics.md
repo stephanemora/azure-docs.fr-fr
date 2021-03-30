@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: da8ffd7ff0b8473ce558943bb420b36f26c3fc32
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95494639"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Journalisation et diagnostics dans Azure Spatial Anchors
@@ -43,8 +43,8 @@ Deux rappels sont particulièrement intéressants pour l’utilisateur. L’exem
 
 Ces rappels d’événement sont fournis pour traiter les journaux et les erreurs de la session :
 
-- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel) : spécifie le niveau de détail que le runtime doit envoyer en ce qui concerne les événements.
-- [OnLogDebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug) : fournit les événements de journalisation de débogage standard.
+- [LogLevel](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.loglevel) : Spécifie le niveau de détail que le runtime doit envoyer en ce qui concerne les événements.
+- [OnLogDebug](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.onlogdebug) : fournit les événements de journalisation de débogage standard.
 - [Erreur](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.error) : fournit les événements de journalisation que le runtime considère comme des erreurs.
 
 ## <a name="diagnostics-logging"></a>Journalisation des diagnostics
@@ -108,6 +108,6 @@ private async Task CreateAndSubmitBundle()
 ### <a name="parts-of-a-diagnostics-bundle"></a>Contenu d’un ensemble de diagnostics
 L’ensemble de diagnostics peut contenir les informations suivantes :
 
-- **Images clés** : images de l’environnement capturées pendant la session une fois les diagnostics capturés.
-- **Journaux d’activité** : événements de journalisation enregistrés par le runtime.
+- **Images clés** : Images de l’environnement capturées pendant la session une fois les diagnostics capturés.
+- **Journaux**: Événements de journalisation enregistrés par le runtime.
 - **Métadonnées de session** : métadonnées qui identifient la session.

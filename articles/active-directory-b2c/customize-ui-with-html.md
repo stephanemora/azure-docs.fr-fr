@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050541"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104675823"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur avec des modèles HTML dans Azure Active Directory B2C
 
@@ -363,26 +363,31 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 Ce projet contient les modèles suivants :
-- [Bleu océan](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Gris ardoise](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Bleu océan](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Gris ardoise](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Classique](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Ressources de modèle](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 Pour utiliser l’exemple :
 
-1. Clonez le référentiel sur votre ordinateur local. Choisissez un dossier de modèles `/ocean_blue` ou `/slate_gray`.
-1. Chargez tous les fichiers du dossier de modèles et du dossier `/assets` dans le stockage Blob, comme décrit dans les sections précédentes.
-1. Ensuite, ouvrez chaque fichier `\*.html` dans la racine de `/ocean_blue` ou `/slate_gray`, remplacez toutes les instances d’URL relatives par les URL des fichiers css, images et de polices que vous avez chargés à l’étape 2. Par exemple :
+1. Clonez le référentiel sur votre ordinateur local. Choisissez un dossier de modèles `/AzureBlue`, `/MSA` ou `/classic`.
+1. Chargez tous les fichiers du dossier de modèles et du dossier `/src` dans le stockage Blob, comme décrit dans les sections précédentes.
+1. Ensuite, ouvrez chaque fichier `\*.html` dans le dossier de modèles. Remplacez ensuite toutes les instances des URL `https://login.microsoftonline.com` par l’URL que vous avez chargée à l’étape 2. Par exemple :
+    
+    De :
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    Pour
+    Par :
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. Enregistrez les fichiers `\*.html` et chargez-les dans le stockage Blob.
 1. Modifiez à présent la stratégie, en la faisant pointer vers votre fichier HTML, comme indiqué précédemment.
 1. Si vous constatez qu’il manque des polices, des images ou des feuilles de style CSS, vérifiez vos références dans la stratégie d’extensions et les fichiers \*.html.

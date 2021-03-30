@@ -1,24 +1,24 @@
 ---
-title: Configurer l’analyse des dépendances sans agent dans l’outil d’évaluation de serveur Azure Migrate
-description: Configurez l’analyse des dépendances sans agent dans l’outil d’évaluation de serveur Azure Migrate.
+title: Configurer l’analyse des dépendances sans agent dans Azure Migrate
+description: Configurez l’analyse des dépendances sans agent dans Azure Migrate.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: c3aa2aea764af8469152b007e60427724fea398a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7966750d7c3e0f12bb9404a4d78bbc27e4075c52
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045851"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786581"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Analyser les dépendances de serveur (sans agent)
 
-Cet article explique comment configurer une analyse des dépendances sans agent à l’aide de l’outil d’évaluation de serveur d’Azure Migrate. L’[analyse des dépendances](concepts-dependency-visualization.md) vous aide à identifier et à comprendre les dépendances des serveurs à des fins l’évaluation et de migration vers Azure.
+Cet article explique comment configurer une analyse des dépendances sans agent à l’aide de l’outil Azure Migrate : découverte et évaluation. L’[analyse des dépendances](concepts-dependency-visualization.md) vous aide à identifier et à comprendre les dépendances des serveurs à des fins l’évaluation et de migration vers Azure.
 
 > [!IMPORTANT]
-> L’analyse des dépendances sans agent est actuellement en préversion pour les serveurs s’exécutant dans votre environnement VMware, découverts avec l’outil d’évaluation de serveur d’Azure Migrate.
+> L’analyse des dépendances sans agent est actuellement en préversion pour les serveurs s’exécutant dans votre environnement VMware, découverts avec l’outil Azure Migrate : découverte et évaluation.
 > Cette préversion est couverte par le support client et peut être utilisée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -30,7 +30,7 @@ Cet article explique comment configurer une analyse des dépendances sans agent 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-- Assurez-vous que vous avez [créé un projet Azure Migrate](./create-manage-projects.md) auquel vous avez ajouté l’outil d’évaluation de serveur Azure Migrate.
+- Assurez-vous que vous avez [créé un projet](./create-manage-projects.md) auquel vous avez ajouté l’outil Azure Migrate : découverte et évaluation.
 - Examinez la [configuration requise de VMware](migrate-support-matrix-vmware.md#vmware-requirements) pour une analyse des dépendances.
 - Examinez la [configuration requise de l’appliance](migrate-support-matrix-vmware.md#azure-migrate-appliance-requirements) avant de configurer celle-ci.
 - [Examinez la configuration requise de l’analyse des dépendances](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) avant d’activer celle-ci sur les serveurs.
@@ -41,7 +41,7 @@ Cet article explique comment configurer une analyse des dépendances sans agent 
 2. Passez en revue les URL Azure auxquelles l’appliance devra accéder dans les clouds [publics](migrate-appliance.md#public-cloud-urls) et les [clouds Government](migrate-appliance.md#government-cloud-urls).
 3. [Passez en revue les données](migrate-appliance.md#collected-data---vmware) que l’appliance collecte pendant la découverte et l’évaluation.
 4. [Notez](migrate-support-matrix-vmware.md#port-access-requirements) les conditions d’accès aux ports pour l’appliance.
-5. [Déployez l’appliance Azure Migrate](how-to-set-up-appliance-vmware.md) pour démarrer la découverte. Pour déployer l’appliance, vous téléchargez et importez un modèle OVA dans VMware afin de créer un serveur s’exécutant dans votre vCenter Server. Après avoir déployé l’appliance, vous devez l’inscrire auprès du projet Azure Migrate et la configurer pour lancer la découverte.
+5. [Déployez l’appliance Azure Migrate](how-to-set-up-appliance-vmware.md) pour démarrer la découverte. Pour déployer l’appliance, vous téléchargez et importez un modèle OVA dans VMware afin de créer un serveur s’exécutant dans votre vCenter Server. Après avoir déployé l’appliance, vous devez l’inscrire auprès du projet et la configurer pour lancer la découverte.
 6. Quand vous configurez l’appliance, vous devez spécifier les éléments suivants dans le gestionnaire de configuration de l’appliance :
     - détails du vCenter Server auquel vous souhaitez vous connecter ;
     - informations d’identification de vCenter Server étendues pour découvrir les serveurs dans votre environnement VMware ;
@@ -50,7 +50,7 @@ Cet article explique comment configurer une analyse des dépendances sans agent 
 ## <a name="verify-permissions"></a>Vérification des autorisations
 
 - Vous devez [créer un compte vCenter Server en lecture seule](./tutorial-discover-vmware.md#prepare-vmware) pour la découverte et l’évaluation. Le compte en lecture seule nécessite des privilèges pour **Machines virtuelles** > **Opérations d’invité** afin de pouvoir interagir avec les serveurs pour la collecte des données de dépendance.
-- Vous avez besoin d’un compte d’utilisateur pour permettre à l’outil l’évaluation du serveur d’accéder au serveur pour la collecte des données de dépendance. [Découvrez](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) la configuration requise de compte pour les serveurs Windows et Linux.
+- Vous avez besoin d’un compte d’utilisateur pour permettre à Azure Migrate d’accéder au serveur pour la collecte des données de dépendance. [Découvrez](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) la configuration requise de compte pour les serveurs Windows et Linux.
 
 ### <a name="add-credentials-and-initiate-discovery"></a>Ajouter les informations d’identification et lancer la découverte
 
@@ -67,7 +67,7 @@ Cet article explique comment configurer une analyse des dépendances sans agent 
 
 Choisissez les serveurs sur lesquels vous voulez activer la découverte de dépendances.
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Serveurs découverts**.
 2. Choisissez le **Nom de l’appliance** dont vous voulez examiner la découverte.
 1. Vous pouvez voir l’état de validation des serveurs dans la colonne **Dépendances (sans agent)** .
 1. Cliquez sur la liste déroulante **Analyse des dépendances**.
@@ -81,7 +81,7 @@ Vous pouvez visualiser les dépendances environ six heures après avoir activé 
 
 ## <a name="visualize-dependencies"></a>Visualiser les dépendances
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Serveurs découverts**.
 1. Choisissez le **Nom de l’appliance** dont vous voulez examiner la découverte.
 1. Recherchez le serveur dont vous souhaitez examiner les dépendances.
 1. Dans la colonne **Dépendances (sans agent)** , cliquez sur **Afficher les dépendances**.
@@ -100,7 +100,7 @@ Vous pouvez visualiser les dépendances environ six heures après avoir activé 
 
 ## <a name="export-dependency-data"></a>Exporter les données de dépendance
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Serveurs découverts**.
 2. Cliquez sur la liste déroulante **Analyse des dépendances**.
 3. Cliquez sur **Exporter les dépendances d’application**.
 4. Dans la page **Exporter les dépendances d’application**, choisissez le nom de l’appliance qui découvre les serveurs souhaités.
@@ -132,7 +132,7 @@ Port de destination | Numéro de port sur le serveur de destination
 
 Sélectionnez les serveurs sur lesquels vous voulez arrêter la découverte des dépendances.
 
-1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
+1. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Serveurs découverts**.
 1. Choisissez le **Nom de l’appliance** dont vous voulez examiner la découverte.
 1. Cliquez sur la liste déroulante **Analyse des dépendances**.
 1. Cliquez sur **Supprimer des serveurs**.
@@ -157,7 +157,7 @@ Téléchargez le module PowerShell à partir du dépôt [Exemples Azure PowerSh
     Connect-AzAccount -EnvironmentName AzureUSGovernment
     ```
 
-2. Sélectionnez l’abonnement dans lequel vous avez créé le projet Azure Migrate 
+2. Sélectionnez l’abonnement dans lequel vous avez créé le projet 
 
     ```PowerShell
     select-azsubscription -subscription "Fabrikam Demo Subscription"
@@ -171,7 +171,7 @@ Téléchargez le module PowerShell à partir du dépôt [Exemples Azure PowerSh
 
 ### <a name="enable-or-disable-dependency-data-collection"></a>Activer ou désactiver la collecte de données de dépendance
 
-1. Récupérez la liste des serveurs découverts dans votre projet Azure Migrate à l’aide des commandes suivantes. Dans l’exemple ci-dessous, le nom du projet est FabrikamDemoProject et le groupe de ressources auquel il appartient est FabrikamDemoRG. La liste des serveurs est enregistrée dans FabrikamDemo_VMs.csv
+1. Récupérez la liste des serveurs découverts dans votre projet à l’aide des commandes suivantes. Dans l’exemple ci-dessous, le nom du projet est FabrikamDemoProject et le groupe de ressources auquel il appartient est FabrikamDemoRG. La liste des serveurs est enregistrée dans FabrikamDemo_VMs.csv
 
     ```PowerShell
     Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
@@ -212,7 +212,7 @@ Azure Migrate propose un modèle de Power BI que vous pouvez utiliser pour visua
         Connect-AzAccount -EnvironmentName AzureUSGovernment
         ```
 
-    - Sélectionnez l’abonnement dans lequel vous avez créé le projet Azure Migrate
+    - Sélectionnez l’abonnement dans lequel vous avez créé le projet
 
         ```PowerShell
         select-azsubscription -subscription "Fabrikam Demo Subscription"

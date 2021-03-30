@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217395"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786479"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](./app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](./asp-net-exceptions.md) dans le portail Application Insights.
@@ -24,7 +24,10 @@ Les captures instantanées de débogage sont stockées pendant 15 jours. Cette s
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Activer le Débogueur de capture instantanée Application Insights pour votre application
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
-* les applications .NET core 2.0 et ASP.NET Core 2.0 s’exécutant sous Windows.
+* les applications .NET Core et ASP.NET Core qui exécutent .NET Core 2.1 (LTS) ou 3.1 (LTS) sur Windows.
+* les applications .NET 5.0 sur Windows.
+
+Nous vous déconseillons d’utiliser .NET Core 2.0, 2.2 ou 3.0, car ces versions ne sont plus prises en charge.
 
 Les environnements suivants sont pris en charge :
 

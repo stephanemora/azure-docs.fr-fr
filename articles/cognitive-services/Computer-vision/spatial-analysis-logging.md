@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186020"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722699"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -60,7 +60,7 @@ Après avoir configuré Azure Monitor, vous devrez créer des informations d’i
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -105,16 +105,16 @@ Une fois le module Telegraf déployé, les métriques signalées sont accessible
 
 | Nom de l'événement | Description|
 |------|---------|
-|archon_exit    |Envoyé lorsqu’un utilisateur modifie l’état du module d’analyse spatiale de la valeur *en cours d’exécution* à *arrêté*.  |
-|archon_error   |Envoyé lorsque l’un des processus à l’intérieur du conteneur plante. Il s'agit d'une erreur critique.  |
-|InputRate  |Rythme auquel le graphique traite l’entrée vidéo. Signalé toutes les 5 minutes. | 
+|archon_exit     |Envoyé lorsqu’un utilisateur modifie l’état du module d’analyse spatiale de la valeur *en cours d’exécution* à *arrêté*.  |
+|archon_error     |Envoyé lorsque l’un des processus à l’intérieur du conteneur plante. Il s'agit d'une erreur critique.  |
+|InputRate     |Rythme auquel le graphique traite l’entrée vidéo. Signalé toutes les 5 minutes. | 
 |OutputRate     |Rythme auquel le graphique génère des insights d’IA. Signalé toutes les 5 minutes. |
 |archon_allGraphsStarted | Envoyé lorsque tous les graphiques ont fini de démarrer. |
-|archon_configchange    | Envoyé lorsqu’une configuration de graphique a changé. |
+|archon_configchange     | Envoyé lorsqu’une configuration de graphique a changé. |
 |archon_graphCreationFailed     |Envoyé lorsque le graphique avec le `graphId` signalé ne parvient pas à démarrer. |
-|archon_graphCreationSuccess    |Envoyé lorsque le graphique avec le `graphId` signalé démarre avec succès. |
-|archon_graphCleanup    | Envoyé lorsque le graphique avec le `graphId` signalé se nettoie et se termine. |
-|archon_graphHeartbeat  |Pulsation envoyée toutes les minutes pour chaque graphique d’une compétence. |
+|archon_graphCreationSuccess     |Envoyé lorsque le graphique avec le `graphId` signalé démarre avec succès. |
+|archon_graphCleanup     | Envoyé lorsque le graphique avec le `graphId` signalé se nettoie et se termine. |
+|archon_graphHeartbeat     |Pulsation envoyée toutes les minutes pour chaque graphique d’une compétence. |
 |archon_apiKeyAuthFail |Envoyé lorsque la clé de ressource Vision par ordinateur ne parvient pas à authentifier le conteneur pendant plus de 24 heures, pour les raisons suivantes : Hors quota, non valide, hors connexion. |
 |VideoIngesterHeartbeat     |Envoyé toutes les heures pour indiquer que la vidéo est diffusée à partir de la source vidéo, avec le nombre d’erreurs au cours de cette heure. Signalé pour chaque graphique. |
 |VideoIngesterState | Les rapports *arrêtés* ou *démarrés* pour la diffusion vidéo.  Signalé pour chaque graphique. |
@@ -216,9 +216,9 @@ Les journaux sont téléchargés à la demande à l’aide de la méthode IoT Ed
 
 
 1. Accédez à la page du portail IoT Hub, sélectionnez **Appareils Edge**, puis sélectionnez votre appareil et votre module de diagnostic. 
-2. Accédez à la page de détails du module et cliquez sur l’onglet **_Méthode directe_* _.
+2. Accédez à la page de détails du module et cliquez sur l’onglet ***Méthode directe***.
 3. Entrez `getRTCVLogs` pour Nom de la méthode et une chaîne de format json dans la charge utile. Vous pouvez entrer `{}`, qui est une charge utile vide. 
-4. Définissez les délais d’expiration de connexion et de méthode, puis cliquez sur _*Appeler la méthode**.
+4. Définissez les délais d’expiration de connexion et de méthode, puis cliquez sur **Appeler la méthode**.
 5. Sélectionnez votre conteneur cible, puis créez une chaîne json de charge utile à l’aide des paramètres décrits dans la section **Syntaxe de journalisation**. Cliquez sur **Appeler la méthode** pour effectuer la requête.
 
 >[!NOTE]
@@ -245,7 +245,7 @@ Le tableau suivant répertorie les attributs de la réponse à la requête.
 
 | Mot clé | Description|
 |--|--|
-|DoPost| *true* ou *false*. Indique si les journaux ont été chargés ou non. Lorsque vous choisissez de ne pas charger les journaux, l’API retourne des informations ***de façon synchrone** _. Lorsque vous choisissez de charger les journaux, l’API retourne 200 si la demande est valide, et démarre le chargement des journaux de façon _*_asynchrone_*_.|
+|DoPost| *true* ou *false*. Indique si les journaux ont été chargés ou non. Lorsque vous choisissez de ne pas charger les journaux, l’API retourne des informations ***de façon synchrone** _. Lorsque vous choisissez de charger les journaux, l’API retourne 200 si la demande est valide, et démarre le chargement des journaux de façon _*_asynchrone_**.|
 |TimeFilter| Filtre de temps appliqué aux journaux.|
 |ValueFilters| Filtres de mots clés appliqués aux journaux. |
 |TimeStamp| Heure de début de l’exécution de la méthode. |
@@ -298,7 +298,7 @@ Le tableau suivant répertorie les attributs de la réponse à la requête.
 }
 ```
 
-Vérifiez les lignes, les heures et les tailles du journal extrait. Si ces paramètres semblent corrects, remplacez _*_DoPost_*_ par `true` pour envoyer les journaux avec les mêmes filtres aux destinations. 
+Vérifiez les lignes, les heures et les tailles du journal extrait. Si ces paramètres semblent corrects, remplacez ***DoPost*** par `true` pour envoyer les journaux avec les mêmes filtres aux destinations. 
 
 Vous pouvez exporter les journaux à partir du stockage d’objets Blob Azure lors de la résolution des problèmes. 
 
@@ -316,7 +316,7 @@ La section suivante est fournie pour vous aider à déboguer et vérifier l’é
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Accédez au point de terminaison de l’API Kubernetes. 
 
-1. Dans l’interface utilisateur locale de votre appareil, accédez à la page _ *Appareils**. 
+1. Dans l’interface utilisateur locale de votre appareil, accédez à la page **Appareils**. 
 2. Sous **Points de terminaison de l’appareil**, copiez le point de terminaison du service d’API Kubernetes. Ce point de terminaison est une chaîne au format suivant : `https://compute..[device-IP-address]`.
 3. Enregistrez la chaîne de point de terminaison. Vous allez l’utiliser ultérieurement lors de la configuration de `kubectl` pour accéder au cluster Kubernetes.
 
@@ -363,7 +363,7 @@ Une fois le cluster Kubernetes créé, vous pouvez utiliser l’outil de ligne d
     New-HcsKubernetesUser -UserName
     ```
 
-3. Ajoutez le fichier *config* au dossier *.kube* dans votre profil utilisateur sur l’ordinateur local.   
+3. Ajoutez le fichier *config* au dossier *.kube* dans votre profil utilisateur sur l’ordinateur local.    
 
 4. Associez l’espace de noms à l’utilisateur que vous avez créé.
 
@@ -400,6 +400,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Génère un fichier de configuration Kubernetes. Lors de l’utilisation de la commande, copiez les informations dans un fichier nommé *config*. N’enregistrez pas le fichier avec une extension.        |
 | `Get-HcsApplianceInfo` | Retourne des informations sur votre appareil. |
 | `Enable-HcsSupportAccess` | Génère des informations d’identification d’accès pour démarrer une session de support. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Comment obtenir un ticket de support pour l’analyse spatiale 
+
+Si vous avez besoin d’une prise en charge supplémentaire pour trouver une solution à un problème que vous rencontrez avec le conteneur d’analyse spatiale, procédez comme suit pour remplir et envoyer un ticket de support. Notre équipe reviendra vers vous avec des conseils supplémentaires. 
+
+### <a name="fill-out-the-basics"></a>Remplir les informations de base 
+Créez un ticket de support sur la page [Nouvelle demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Suivez les invites pour renseigner les paramètres suivants :
+
+![Fonctions de base du support](./media/support-ticket-page-1-final.png)
+
+1. Définissez le **Type de problème** sur `Technical`.
+2. Sélectionnez l’abonnement que vous utilisez pour déployer le conteneur d’analyse spatiale.
+3. Sélectionnez `My services`, et `Cognitive Services` comme service.
+4. Sélectionnez la ressource que vous utilisez pour déployer le conteneur d’analyse spatiale.
+5. Rédigez une brève description détaillant le problème auquel vous êtes confronté. 
+6. Sélectionnez `Spatial Analysis` comme type de problème.
+7. Sélectionnez le sous-type adéquat dans le menu déroulant.
+8. Sélectionnez **Suivant : Solutions** pour passer à la page suivante.
+
+### <a name="recommended-solutions"></a>Solutions recommandées
+L’étape suivante offre des solutions recommandées pour le type de problème que vous avez sélectionné. Ces solutions résolvent les problèmes les plus courants, mais si elles ne sont pas utiles pour votre cas, sélectionnez **Suivant : Détails** pour passer à l’étape suivante.
+
+### <a name="details"></a>Détails
+Sur cette page, ajoutez des détails supplémentaires sur le problème auquel vous êtes confronté. Veillez à inclure le plus de détails possible, car cela permettra à nos ingénieurs de mieux cerner le problème. Incluez votre méthode de contact préférée et la gravité du problème afin que nous puissions vous contacter de manière appropriée, puis sélectionnez **Suivant : Examiner et créer** pour passer à l’étape suivante. 
+
+### <a name="review-and-create"></a>Examiner et créer 
+Passez en revue les détails de votre demande de support pour vous assurer que tout est exact et qu’elle représente le problème de manière efficace. Une fois que vous êtes prêt, sélectionnez **Créer** pour envoyer le ticket à notre équipe. Vous recevrez une confirmation par e-mail une fois votre ticket reçu, et notre équipe reviendra vers vous dès que possible. Vous pouvez voir l’état de votre ticket sur le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

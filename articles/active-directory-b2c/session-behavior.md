@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175105"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579737"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ Vous pouvez configurer le comportement de la session Azure AD B2C, notamment le
   - **Client** : il s’agit du paramètre par défaut. L’utilisation de ce paramètre permet à plusieurs applications et flux d’utilisateur dans votre locataire B2C de partager la même session utilisateur. Par exemple, quand un utilisateur se connecte à une application, il peut également se connecter sans problème à une autre en y accédant.
   - **Application**: ce paramètre vous permet de maintenir une session utilisateur exclusivement pour une application, indépendamment des autres applications. Par exemple, vous pouvez utiliser ce paramètre si vous voulez que l’utilisateur se connecte à Contoso Pharmacy, que l’utilisateur y soit ou non déjà connecté.
   - **Stratégie** : ce paramètre vous permet de maintenir une session utilisateur exclusivement pour un flux d’utilisateur, indépendamment des applications qui l’utilisent. Par exemple, si l’utilisateur s’est déjà connecté et a effectué une étape d’authentification multifacteur, il peut obtenir l’accès à des parties plus sécurisées de plusieurs applications tant que la session liée au flux d’utilisateur n’expire pas.
-  - **Désactivé** : ce paramètre oblige l’utilisateur à réexécuter tout le flux d’utilisateur à chaque exécution de la stratégie.
+  - **Supprimé** : ce paramètre oblige l’utilisateur à réexécuter tout le flux d’utilisateur à chaque exécution de la stratégie.
 - **Maintenir la connexion** : étend la durée de vie de la session à l’aide d’un cookie persistant. Si cette fonctionnalité est activée et que l’utilisateur la sélectionne, la session reste active même après que l’utilisateur a fermé et rouvert le navigateur. La session est révoquée uniquement quand un utilisateur se déconnecte. La fonctionnalité Maintenir la connexion s’applique uniquement à la connexion avec des comptes locaux. La fonctionnalité Maintenir la connexion est prioritaire sur la durée de vie de la session.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ Lors d’une demande de déconnexion, Azure AD B2C effectue les opérations suiv
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Tente de se déconnecter des fournisseurs d’identité fédérés :
-   - OpenId Connect : si le point de terminaison de configuration connu du fournisseur d’identité spécifie un emplacement `end_session_endpoint`.
+   - OpenId Connect : si le point de terminaison de configuration connu du fournisseur d’identité spécifie un emplacement `end_session_endpoint`. La demande de déconnexion ne passe pas le paramètre `id_token_hint`. Si le fournisseur d’identité fédérée requiert ce paramètre, la demande de déconnexion échoue.
    - OAuth2 : si les [métadonnées du fournisseur d’identité](oauth2-technical-profile.md#metadata) contiennent l’emplacement `end_session_endpoint`.
    - SAML : si les [métadonnées du fournisseur d’identité](identity-provider-generic-saml.md) contiennent l’emplacement `SingleLogoutService`.
 4. Si vous le souhaitez, se déconnecte d’autres applications. Pour plus d’informations, consultez la section [Déconnexion unique](#single-sign-out).

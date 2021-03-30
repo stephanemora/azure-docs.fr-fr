@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94649260"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
@@ -34,8 +34,9 @@ Cet article fournit des instructions pour créer et configurer une stratégie IP
 
 > [!IMPORTANT]
 > 1. Notez que la stratégie IPsec/IKE fonctionne uniquement sur les références (SKU) de passerelle suivantes :
->    * ***VpnGw1, VpnGw2, VpnGw3** _ (basé sur un itinéraire) _ ***Standard** _ et _*_HighPerformance_*_ (basé sur un itinéraire)
-> 2. Vous ne pouvez spécifier qu’_*_une_*_ seule combinaison de stratégies pour une connexion donnée.
+>    * ***VpnGw1, VpnGw2, VpnGw3*** (basée sur le routage)
+>    * ***Standard** _ et _ *_HighPerformance_** (basée sur le routage)
+> 2. Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
 > 3. Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 > 4. Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Des connexions S2S ou de réseau virtuel à réseau virtuel ne peuvent pas être établies si les stratégies ne sont pas compatibles.
 
@@ -55,7 +56,7 @@ Les instructions fournies dans cet article expliquent comment établir et config
 
 Le tableau suivant répertorie les algorithmes de chiffrement et les forces de clé pris en charge et configurables par les clients :
 
-| _ *IPsec/IKEv2**  | **Options**    |
+| **IPsec/IKEv2**  | **Options**    |
 | ---  | --- 
 | Chiffrement IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Intégrité IKEv2  | SHA384, SHA256, SHA1, MD5  |

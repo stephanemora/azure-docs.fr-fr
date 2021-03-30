@@ -4,10 +4,10 @@ description: Découvrez comment configurer un cluster Service Fabric sécurisé 
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791809"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
@@ -19,7 +19,7 @@ ms.locfileid: "98791809"
 
 Un [cluster Azure Service Fabric](service-fabric-deploy-anywhere.md) est un ensemble de machines virtuelles connecté au réseau, sur lequel vos microservices sont déployés et gérés.  Un cluster Service Fabric s’exécutant dans Azure est une ressource Azure et il est déployé à l’aide d’Azure Resource Manager. Cet article décrit comment déployer un cluster Service Fabric sécurisé dans Azure à l’aide du gestionnaire des ressources. Vous pouvez utiliser un modèle de cluster par défaut ou personnalisé.  Si vous ne disposez pas d’un modèle personnalisé, vous pouvez [apprendre à en créer un](service-fabric-cluster-creation-create-template.md).
 
-Le type de sécurité choisi pour sécuriser le cluster (p. ex. : identité Windows, X509 etc.) doit être spécifié lors de la création initiale du cluster, et ne peut être modifié par la suite. Avant de configurer un cluster, lisez les [scénarios de sécurité du cluster Service Fabric][service-fabric-cluster-security]. Dans Azure, Service Fabric utilise un certificat x509 pour sécuriser votre cluster et ses points de terminaison, authentifier les clients et chiffrer les données. Azure Active Directory est également recommandé pour sécuriser l’accès aux points de terminaison de gestion. Pour plus d’informations, consultez [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
+Le type de sécurité choisi pour sécuriser le cluster (par exemple, identité Windows, X509, etc.) doit être spécifié pour la création initiale du cluster et ne peut pas être modifié par la suite. Avant de configurer un cluster, lisez les [scénarios de sécurité du cluster Service Fabric][service-fabric-cluster-security]. Dans Azure, Service Fabric utilise un certificat x509 pour sécuriser votre cluster et ses points de terminaison, authentifier les clients et chiffrer les données. Azure Active Directory est également recommandé pour sécuriser l’accès aux points de terminaison de gestion. Pour plus d’informations, consultez [Configurer Azure AD pour authentifier les clients](service-fabric-cluster-creation-setup-aad.md).
 
 Si vous créez un cluster de production pour exécuter des charges de travail de production, nous vous recommandons de commencer par lire la [liste de vérification de disponibilité de la production](service-fabric-production-readiness-checklist.md).
 
@@ -162,7 +162,7 @@ Utilisez la commande suivante pour créer un cluster, si vous disposez d’un ce
 S’il s’agit d’un certificat signé d’une autorité de certification que vous allez également utiliser à d’autres fins, il est recommandé de fournir un groupe de ressources distinct pour votre coffre de clés. Nous vous recommandons de placer ce coffre de clés dans son propre groupe de ressources. Vous pouvez ainsi supprimer les groupes de ressources de calcul et de stockage, y compris le groupe de ressources contenant votre cluster Service Fabric, sans risquer de perdre vos clés et secrets. **Le groupe de ressources qui contient votre coffre de clés *doit se trouver dans la même région* que le cluster qui l’utilise.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Utiliser le modèle de type de nœud Node 1 5 par défaut qui est fourni dans le module
-Le modèle utilisé est disponible dans les [exemples Azure : modèle Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) et [modèle Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+Le modèle utilisé est disponible dans les [exemples Azure : modèle Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) et le [modèle Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Déployer le cluster à l’aide de PowerShell :
 

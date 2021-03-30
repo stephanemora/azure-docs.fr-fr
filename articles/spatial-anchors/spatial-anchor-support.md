@@ -9,10 +9,10 @@ ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95494707"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Options de support d’Azure Spatial Anchors
@@ -31,7 +31,7 @@ Pour ouvrir un ticket de support technique pour Azure Spatial Anchors au sein du
 
 1. Remplissez les champs d’un ticket de support comme suit :
 
-- Type de problème : Techniques
+- Type de problème : technique
 - Service : Spatial Anchors
 
 ![Champs d’un ticket de support sur le portail Microsoft Azure](./media/spatial-anchor-support3.png)

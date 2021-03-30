@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259217"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104603996"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory
 
@@ -30,11 +30,11 @@ Cet article concerne uniquement les applications configurées pour utiliser l’
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Certificat généré automatiquement pour les applications de la galerie et celles ne figurant pas dans la galerie
 
-Lorsque vous ajoutez une nouvelle application à partir de la galerie et configurez une authentification SAML (en sélectionnant **Authentification unique** > **SAML** dans la page de présentation de l’application), Azure AD génère un certificat d’une validité de trois ans pour l’application. Pour télécharger le certificat actif en tant que fichier de certificat de sécurité ( **.cer**), retournez à cette page (**Authentification basée sur SAML**) et sélectionnez un lien de téléchargement dans l’en-tête **Certificat de signature SAML**. Vous pouvez choisir entre le certificat brut (binaire) ou le certificat Base64 (texte codé en base 64). Pour les applications de la galerie, cette section peut également afficher un lien permettant de télécharger le certificat en tant qu’élément XML de métadonnées de fédération (un fichier **.xml**), selon la configuration de l’application.
+Lorsque vous ajoutez une nouvelle application à partir de la galerie et configurez une authentification SAML (en sélectionnant **Authentification unique** > **SAML** dans la page de présentation de l’application), Azure AD génère un certificat d’une validité de trois ans pour l’application. Pour télécharger le certificat actif en tant que fichier de certificat de sécurité (**.cer**), retournez à cette page (**Authentification basée sur SAML**) et sélectionnez un lien de téléchargement dans l’en-tête **Certificat de signature SAML**. Vous pouvez choisir entre le certificat brut (binaire) ou le certificat Base64 (texte codé en base 64). Pour les applications de la galerie, cette section peut également afficher un lien permettant de télécharger le certificat en tant qu’élément XML de métadonnées de fédération (un fichier **.xml**), selon la configuration de l’application.
 
 ![Options de téléchargement du certificat de signature SAML actif](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
-Vous pouvez également télécharger un certificat actif ou inactif en sélectionnant l'icône **Modifier** **Certificat de signature SAML** de l'en-tête (un crayon), qui affiche la page **Certificat de signature SAML**. Sélectionnez les points de suspension ( **...** ) en regard du certificat que vous voulez télécharger, puis choisissez un format de certificat. Vous avez aussi la possibilité de télécharger le certificat au format PEM (Privacy Enhanced Mail). Ce format est identique à Base64 mais avec une extension de nom de fichier **.pem**, qui n'est pas reconnue dans Windows comme un format de certificat.
+Vous pouvez également télécharger un certificat actif ou inactif en sélectionnant l'icône **Modifier****Certificat de signature SAML** de l'en-tête (un crayon), qui affiche la page **Certificat de signature SAML**. Sélectionnez les points de suspension (**...**) en regard du certificat que vous voulez télécharger, puis choisissez un format de certificat. Vous avez aussi la possibilité de télécharger le certificat au format PEM (Privacy Enhanced Mail). Ce format est identique à Base64 mais avec une extension de nom de fichier **.pem**, qui n'est pas reconnue dans Windows comme un format de certificat.
 
 ![Options de téléchargement du certificat de signature SAML (actif et inactif)](./media/manage-certificates-for-federated-single-sign-on/all-certificate-download-options.png)
 
@@ -77,7 +77,7 @@ Téléchargez ensuite le nouveau certificat au bon format, chargez-le dans l'app
 
 1. Dans les instructions, notez le format d'encodage requis pour le chargement du certificat.
 1. Suivez les instructions de la section précédente intitulée [Certificat généré automatiquement pour les applications de la galerie et celles ne figurant pas dans la galerie](#auto-generated-certificate-for-gallery-and-non-gallery-applications). Cette étape télécharge le certificat au format d'encodage requis pour le chargement par l'application.
-1. Pour passer au nouveau certificat, retournez à la page **Certificat de signature SAML** puis, dans la nouvelle ligne de certificat enregistrée, sélectionnez les points de suspension ( **...** ) et choisissez **Définir comme certificat actif**. L'état du nouveau certificat devient **Actif**, et le certificat précédemment actif devient **Inactif**.
+1. Pour passer au nouveau certificat, retournez à la page **Certificat de signature SAML** puis, dans la nouvelle ligne de certificat enregistrée, sélectionnez les points de suspension (**...**) et choisissez **Définir comme certificat actif**. L'état du nouveau certificat devient **Actif**, et le certificat précédemment actif devient **Inactif**.
 1. Continuez à suivre les instructions de configuration de l’authentification SAML de l'application que vous avez affichées précédemment afin de charger le certificat de signature SAML au bon format d'encodage.
 
 ## <a name="add-email-notification-addresses-for-certificate-expiration"></a>Ajouter des adresses e-mail de notification d’expiration du certificat
@@ -90,6 +90,8 @@ Azure AD enverra un e-mail de notification 60, 30 et 7 jours avant expiration d
 1. Pour chaque adresse e-mail à supprimer, sélectionnez l'icône **Supprimer**(une poubelle) en regard de l'adresse e-mail.
 1. Sélectionnez **Enregistrer**.
 
+Vous pouvez ajouter jusqu’à 5 adresses de messagerie à la liste de notification (y compris l’adresse de messagerie de l’administrateur qui a ajouté l’application). Si vous avez besoin d’un plus grand nombre de personnes à notifier, utilisez des e-mails de liste de distribution.
+
 Vous recevez l’e-mail de notification de la part de aadnotification@microsoft.com. Pour éviter que l’e-mail ne soit traité comme un courrier indésirable, ajoutez cette adresse e-mail à vos contacts.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Renouvellement d’un certificat arrivant à expiration
@@ -99,7 +101,7 @@ Si un certificat est sur le point d'expirer, vous pouvez le renouveler en utilis
 1. Suivez les instructions de la section [Créer un certificat](#create-a-new-certificate) précédente, en utilisant une date qui chevauche le certificat existant. Cette date limite le temps d'arrêt causé par l'expiration du certificat.
 1. Si l’application peut automatiquement remplacer un certificat, activez le nouveau certificat en procédant comme suit :
    1. Retournez à la page **Certificat de signature SAML**.
-   1. Dans la ligne de certificat nouvellement enregistrée, sélectionnez les points de suspension ( **...** ), puis choisissez **Définir comme certificat actif**.
+   1. Dans la ligne de certificat nouvellement enregistrée, sélectionnez les points de suspension (**...**), puis choisissez **Définir comme certificat actif**.
    1. Ignorez les deux étapes suivantes.
 
 1. Si l'application ne peut gérer qu'un seul certificat à la fois, choisissez un intervalle de temps d'arrêt pour effectuer l'étape suivante. (Sinon, si l'application ne sélectionne pas automatiquement le nouveau certificat mais peut gérer plusieurs certificats de signature, vous pouvez effectuer l'étape suivante à tout moment.)
