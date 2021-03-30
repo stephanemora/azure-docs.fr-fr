@@ -1,13 +1,13 @@
 ---
-title: 'Démarrage rapide : Envoyer et recevoir des événements avec Go – Azure Event Hubs'
+title: 'Démarrage rapide : Envoyer et recevoir des événements avec Go - Azure Event Hubs'
 description: 'Démarrage rapide : Cet article décrit la procédure à suivre pour créer une application Go qui envoie des événements d’Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87002452"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Démarrage rapide : Envoyer ou recevoir des événements d’Event Hubs à l’aide de Go
@@ -162,7 +162,7 @@ import (
 
 ### <a name="create-service-principal"></a>Créer un principal du service
 
-Créez un principal du service en suivant les instructions fournies dans [Créer un principal du service avec Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Enregistrer les informations d’identification fournies dans votre environnement avec les noms suivants : Le SDK Azure pour Go et le package Event Hubs sont tous deux préconfigurés pour rechercher ces noms de variables.
+Créez un principal du service en suivant les instructions fournies dans [Créer un principal du service avec Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Enregistrez les informations d’identification fournies dans votre environnement avec les noms suivants : Azure SDK pour Go et le package Event Hubs sont tous les deux préconfigurés pour rechercher ces noms de variables.
 
 ```bash
 export AZURE_CLIENT_ID=

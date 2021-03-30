@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954510"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596720"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signaler des pistes audio descriptives
 
@@ -80,7 +80,7 @@ Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c
 
 Le travail passe généralement par les états suivants : **Planifié**, **En attente**, **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 
-Pour plus d’informations, consultez [Traitement des événements Event Grid](reacting-to-media-services-events.md).
+Pour plus d’informations, consultez [Traitement des événements Event Grid](monitoring/reacting-to-media-services-events.md).
 
 ## <a name="upload-the-audio-only-mp4-file"></a>Charger le fichier MP4 audio uniquement
 

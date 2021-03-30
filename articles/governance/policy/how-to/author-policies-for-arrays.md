@@ -3,12 +3,12 @@ title: Créer des stratégies pour les propriétés de tableau sur des ressource
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220743"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721611"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -448,7 +448,8 @@ Le fait que l’expression `where` soit évaluée par rapport à la **totalité*
       "field": "tags.env",
       "equals": "prod"
     }
-  }
+  },
+  "equals": 0
 }
 ```
 
@@ -457,40 +458,60 @@ Le fait que l’expression `where` soit évaluée par rapport à la **totalité*
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-Les expressions count imbriquées sont également autorisées :
+Des expressions count imbriquées peuvent être utilisées pour appliquer des conditions aux champs de tableau imbriqués. Par exemple, la condition suivante vérifie que le tableau `objectArray[*]` a exactement 2 membres avec `nestedArray[*]` qui contient 1 ou plusieurs membres :
 
 ```json
 {
   "count": {
     "field": "Microsoft.Test/resourceType/objectArray[*]",
     "where": {
-      "allOf": [
-        {
-          "field": "Microsoft.Test/resourceType/objectArray[*].property",
-          "equals": "value2"
-        },
-        {
-          "count": {
-            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-            "where": {
-              "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-              "equals": 3
-            },
-            "greater": 0
-          }
-        }
-      ]
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]"
+      },
+      "greaterOrEquals": 1
     }
-  }
+  },
+  "equals": 2
 }
 ```
- 
-| Itération de la boucle externe | Valeurs sélectionnées | Itération de la boucle interne | Valeurs sélectionnées |
-|:---|:---|:---|:---|
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1` |
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
+
+| Itération | Valeurs sélectionnées | Résultat de l’évaluation count imbriquée |
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` a 2 membres => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` a 2 membres => `true` |
+
+Étant donné que les deux membres de `objectArray[*]` ont un tableau enfant `nestedArray[*]` avec 2 membres, l’expression outer count retourne `2`.
+
+Exemple plus complexe : vérifiez que le tableau `objectArray[*]` a exactement 2 membres avec `nestedArray[*]` avec tous les membres égaux à `2` ou `3` :
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+        "where": {
+            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+            "in": [ 2, 3 ]
+        }
+      },
+      "greaterOrEquals": 1
+    }
+  },
+  "equals": 2
+}
+```
+
+| Itération | Valeurs sélectionnées | Résultat de l’évaluation count imbriquée
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` contient `2` => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` contient `3` => `true` |
+
+Étant donné que les deux membres de `objectArray[*]` ont un tableau enfant `nestedArray[*]` qui contient `2` ou `3`, l’expression outer count retourne `2`.
+
+> [!NOTE]
+> Les expressions count de champs imbriqués peuvent seulement faire référence à des tableaux imbriqués. Par exemple, l’expression count faisant référence à `Microsoft.Test/resourceType/objectArray[*]` peut avoir une expression count imbriquée ciblant le tableau imbriqué `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]`, mais elle ne peut pas avoir d’expression count imbriquée ciblant `Microsoft.Test/resourceType/stringArray[*]`.
 
 #### <a name="accessing-current-array-member-with-template-functions"></a>Accès au membre du tableau actuel avec des fonctions de modèle
 

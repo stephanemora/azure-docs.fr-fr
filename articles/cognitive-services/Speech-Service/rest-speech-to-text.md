@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032821"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606903"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -51,7 +51,8 @@ Consultez les informations de référence complètes sur l’API REST de reconna
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>API REST de reconnaissance vocale pour audio court
 
-En guise d’alternative au [Kit de développement logiciel (SDK)](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser. L’API REST pour audio court étant très limitée, elle ne doit être utilisée que dans les cas où le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) ne peut pas l’être.
+En guise d’alternative au [Kit de développement logiciel (SDK)](speech-sdk.md), le service Speech vous permet de convertir la parole en texte à l’aide d’une API REST.
+L’API REST pour audio court étant très limitée, elle ne doit être utilisée que dans les cas où le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) ne peut pas l’être.
 
 Avant d’utiliser l’API REST de reconnaissance vocale pour audio court, prenez en compte les aspects suivants :
 
@@ -341,3 +342,4 @@ Réponse classique pour la reconnaissance avec évaluation de la prononciation 
 - [Personnaliser les modèles acoustiques](./how-to-custom-speech-train-model.md)
 - [Personnaliser les modèles de langage](./how-to-custom-speech-train-model.md)
 - [Familiarisez-vous avec la transcription par lot](batch-transcription.md)
+
