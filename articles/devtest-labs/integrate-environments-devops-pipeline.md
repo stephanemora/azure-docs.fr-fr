@@ -4,10 +4,10 @@ description: Découvrez comment intégrer des environnements Azure DevTest Labs 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483021"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Intégrer des environnements à vos pipelines CI/CD Azure DevOps
@@ -25,14 +25,14 @@ Pour pouvoir intégrer votre pipeline CI/CD à Azure DevTest Labs, installez l�
 Cette section décrit comment créer et configurer un lab dans lequel déployer l’environnement Azure.
 
 1. [Créez un lab](devtest-lab-create-lab.md) si vous n’en avez pas déjà. 
-2. Configurez le lab et créez un modèle d’environnement en suivant les instructions de cet article : [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
+2. Configurez le laboratoire et créez un modèle d’environnement en suivant les instructions de l’article suivant : [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
 3. Pour cet exemple, utilisez un modèle de démarrage rapide Azure existant : [https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/](https://azure.microsoft.com/resources/templates/201-web-app-redis-cache-sql-database/).
 4. Copiez le dossier **201-web-app-redis-cache-sql-database** dans le dossier **ArmTemplate** du dépôt configuré à l’étape 2.
 
 ## <a name="create-a-release-definition"></a>Création d’une définition de version
 Pour créer la définition de mise en production, effectuez les étapes suivantes :
 
-1.  Sous l’onglet **Mises en production** du **hub Build et mise en production**, sélectionnez le bouton **+ (signe plus)** .
+1.  Sous l’onglet **Mises en production** du **hub Build et mise en production**, sélectionnez le bouton **+ (signe plus)**.
 2.  Dans la fenêtre **Créer une définition de mise en production**, sélectionnez le modèle **Vide**, puis sélectionnez **Suivant**.
 3.  Sélectionnez **Choisir plus tard**, puis sélectionnez **Créer** pour créer une définition de mise en production avec un environnement par défaut et aucun artefact lié.
 4.  Pour ouvrir le menu contextuel, dans la nouvelle définition de mise en production, sélectionnez les **points de suspension (...)** à côté du nom de l’environnement, puis sélectionnez **Configurer les variables**.

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: 4135bfe528c33a2beaeb21438181deb5b19ad12e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85505492"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
@@ -19,7 +19,7 @@ ms.locfileid: "85505492"
 
 Cet article explique comment ajouter ou supprimer des nœuds de cluster, et d’autres opérations de base sur le cluster. Si vous avez besoin de changer les paramètres du cluster ou de superviser son fonctionnement, utilisez le [Panneau de configuration Avere](avere-vfxt-cluster-gui.md).
 
-Selon la tâche de gestion à effectuer, vous pouvez être amené à utiliser un des trois outils suivants : le panneau de configuration Avere, le script de gestion de cluster de la ligne de commande vfxt.py et le portail Azure.
+Selon la tâche de gestion à effectuer, vous pouvez utiliser l’un des trois outils suivants : le Panneau de configuration Avere, le script de gestion de cluster par ligne de commande vfxt.py ou le portail Azure.
 
 Ce tableau récapitule les outils disponibles pour les différentes tâches.
 
@@ -40,7 +40,7 @@ Vous trouverez ci-dessous des instructions détaillées pour chaque outil.
 
 Quand vous fermez ou arrêtez une machine virtuelle Azure, les frais de calcul ne vous sont plus facturés, mais vous continuez à payer le stockage pour cette machine virtuelle. Si vous fermez définitivement un nœud vFXT ou le cluster vFXT entier, vous devez supprimer les machines virtuelles associées à l’aide du portail Azure.
 
-Dans le portail Azure, un nœud *arrêté* (qui peut être redémarré) apparaît avec l’état **Arrêté** dans le portail Azure. Un nœud *supprimé* apparaît avec l’état **Arrêté (désalloué)** , et n’entraîne plus de frais de calcul ou de stockage.
+Dans le portail Azure, un nœud *arrêté* (qui peut être redémarré) apparaît avec l’état **Arrêté** dans le portail Azure. Un nœud *supprimé* apparaît avec l’état **Arrêté (désalloué)**, et n’entraîne plus de frais de calcul ou de stockage.
 
 Avant de supprimer une machine virtuelle, assurez-vous que toutes les données modifiées du cache ont été écrites dans un stockage back-end. Utilisez le Panneau de configuration Avere ou le script vfxt.py pour arrêter ou fermer le cluster.
 
@@ -87,7 +87,7 @@ Vous pouvez utiliser le script vfxt.py pour effectuer les tâches de gestion du 
 
 Comme le Panneau de configuration Avere, vfxt.py tente de s’assurer que les données modifiées sont enregistrées dans le stockage back-end permanent avant de fermer ou détruire le cluster ou le nœud. Ceci en fait une option plus sûre que le portail Azure.
 
-Un guide d’utilisation de vfxt.py complet est disponible sur GitHub : [Gestion des clusters cloud avec vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
+Un guide complet consacré à l'utilisation de vfxt.py est disponible sur GitHub : [Gestion des clusters cloud avec vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Ajouter des nœuds au cluster avec vfxt.py
 

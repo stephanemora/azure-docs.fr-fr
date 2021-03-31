@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 68cad32be177fa20794399157fca89e87c2f8f59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74157672"
 ---
 # <a name="performance-guide-for-azure-signalr-service"></a>Guide des performances pour Azure SignalR Service
@@ -27,7 +27,7 @@ Dans ce guide, nous allons présenter les facteurs qui affectent les performance
 
 *Bande passante* : taille totale de tous les messages en 1 seconde.
 
-*Mode par défaut* : mode de fonctionnement par défaut quand une instance d’Azure SignalR Service a été créée. Azure SignalR Service s’attend à ce que le serveur d’applications établisse une connexion avec lui avant d’accepter des connexions clientes.
+*Mode par défaut* : mode de fonctionnement par défaut quand une instance Azure SignalR Service a été créée. Azure SignalR Service s’attend à ce que le serveur d’applications établisse une connexion avec lui avant d’accepter des connexions clientes.
 
 *Mode serverless* : mode dans lequel Azure SignalR Service accepte uniquement des connexions clientes. Aucune connexion serveur n’est autorisée.
 
@@ -66,7 +66,7 @@ Dans le mode par défaut d’Azure SignalR Service, les machines virtuelles du s
 
 ### <a name="performance-factors"></a>Facteurs de performances
 
-En théorie, la capacité d’Azure SignalR Service est limitée par les ressources de calcul : Processeur, mémoire et réseau. Par exemple, plus il y a de connexions à Azure SignalR Service, plus le service utilise de mémoire. Pour le trafic de messages plus grands (où, par exemple, chaque message représente plus de 2 048 octets), Azure SignalR Service doit dépenser plus de cycles processeur. Parallèlement, la bande passante réseau Azure impose aussi une limite pour le trafic maximal.
+En théorie, la capacité d’Azure SignalR Service est limitée par les ressources de calcul : processeur, mémoire et réseau. Par exemple, plus il y a de connexions à Azure SignalR Service, plus le service utilise de mémoire. Pour le trafic de messages plus grands (où, par exemple, chaque message représente plus de 2 048 octets), Azure SignalR Service doit dépenser plus de cycles processeur. Parallèlement, la bande passante réseau Azure impose aussi une limite pour le trafic maximal.
 
 Le type de transport est un autre facteur qui affecte les performances. Les trois types sont [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events) et [Long-Polling](https://en.wikipedia.org/wiki/Push_technology). 
 
@@ -80,7 +80,7 @@ En mode par défaut, le serveur d’applications peut également devenir un goul
 
 En mode serverless, le client envoie un message par le biais d’une opération HTTP Post, action moins efficace que le recours à WebSocket.
 
-Un autre facteur est le protocole : JSON et [MessagePack](https://msgpack.org/index.html). MessagePack présente une taille plus petite et offre une vitesse de livraison plus rapide que JSON. Cependant, MessagePack n’améliore pas nécessairement les performances. Les performances d’Azure SignalR Service ne sont pas sensibles aux protocoles, car elles ne décodent pas la charge utile d’un message pendant son transfert depuis les clients vers les serveurs ou vice versa.
+Un autre facteur est protocol : JSON et [MessagePack](https://msgpack.org/index.html). MessagePack présente une taille plus petite et offre une vitesse de livraison plus rapide que JSON. Cependant, MessagePack n’améliore pas nécessairement les performances. Les performances d’Azure SignalR Service ne sont pas sensibles aux protocoles, car elles ne décodent pas la charge utile d’un message pendant son transfert depuis les clients vers les serveurs ou vice versa.
 
 En résumé, les facteurs suivants affectent les capacités entrante et sortante :
 
@@ -122,16 +122,16 @@ Le cas d’usage **écho** offre la bande passante entrante maximale, car il a l
 
 |       Écho                        | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | **Bande passante entrante** | **2 Mbits/s**    | **4 Mbits/s**    | **10 Mbits/s**   | **20 Mbits/s**    | **40 Mbits/s**    | **100 Mbits/s**   | **200 Mbits/s**    |
 | Bande passante sortante | 2 Mbits/s   | 4 Mbits/s   | 10 Mbits/s  | 20 Mbits/s   | 40 Mbits/s   | 100 Mbits/s  | 200 Mbits/s   |
 
 
 |     Diffusion             | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Bande passante entrante  | 4 Kbits/s   | 4 Kbits/s   | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s    |
-| **Bande passante sortante** | **4 Mbits/s**    | **8 Mbits/s**    | **20 Mbits/s**    | **40 Mbits/s**    | **80  Mbits/s**    | **200 Mbits/s**    | **400  Mbits/s**   |
+| **Bande passante sortante** | **4 Mbits/s**    | **8 Mbits/s**    | **20 Mbits/s**    | **40 Mbits/s**    | **80 Mbits/s**    | **200 Mbits/s**    | **400  Mbits/s**   |
 
 La *bande passante entrante* et la *bande passante sortante* sont la taille totale des messages par seconde.  Voici leurs formules :
 ```
@@ -147,7 +147,7 @@ La *bande passante entrante* et la *bande passante sortante* sont la taille tota
 
 - *sendInterval* : durée d’envoi d’un message. En règle générale, elle est d’une seconde par message, ce qui signifie qu’un message est envoyé toutes les secondes. Un intervalle plus petit signifie l’envoi de davantage de messages dans un laps de temps. Par exemple, 0,5 seconde par message signifie l’envoi de deux messages par seconde.
 
-- *Connexions* : seuil maximal validé pour Azure SignalR Service pour chaque niveau. Si le nombre de connexions est augmenté, il peut subir une limitation de connexion.
+- *Connections* : seuil maximal validé pour Azure SignalR Service pour chaque niveau. Si le nombre de connexions est augmenté, il peut subir une limitation de connexion.
 
 #### <a name="evaluation-for-complex-use-cases"></a>Évaluation pour les cas d’usage complexes
 
@@ -213,8 +213,8 @@ Le comportement du cas d’usage **écho** détermine que la bande passante entr
 
 |       Écho                        | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Bande passante entrante/sortante | 2 Mbits/s   | 4 Mbits/s   | 10 Mbits/s  | 20 Mbits/s   | 40 Mbits/s   | 100 Mbits/s  | 200 Mbits/s   |
 
 Dans ce cas d’usage, chaque client appelle le hub défini dans le serveur d’applications. Le hub appelle simplement la méthode définie du côté du client d’origine. Ce hub est le hub le plus léger pour le cas d’usage **écho**.
@@ -231,7 +231,7 @@ Même pour ce hub simple, la pression du trafic sur le serveur d’applications 
 
 |    Écho          | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -249,7 +249,7 @@ Le tableau suivant récapitule les connexions clientes maximales, le nombre de m
 
 |     Diffusion             | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Bande passante entrante  | 4 Kbits/s   | 4 Kbits/s   | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s     |
@@ -259,7 +259,7 @@ Les clients impliqués dans la diffusion qui publient des messages ne sont pas p
 
 |   Diffusion      | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -275,9 +275,9 @@ Le cas d’usage **envoi au groupe** a un modèle de trafic semblable au cas d�
 
 Le nombre de membres par groupe et de groupes sont deux facteurs qui affectent les performances. Pour simplifier l’analyse, nous définissons deux types de groupes :
 
-- **Petit groupe** : chaque groupe comporte 10 connexions. Le nombre de groupes est égal à (nombre de connexions maximal) / 10. Par exemple, pour l’unité 1, si le nombre de connexions s’élève à 1 000, nous avons 1 000 / 10 = 100 groupes.
+- **Small group** : chaque groupe comporte 10 connexions. Le nombre de groupes est égal à (nombre de connexions maximal) / 10. Par exemple, pour l’unité 1, si le nombre de connexions s’élève à 1 000, nous avons 1 000 / 10 = 100 groupes.
 
-- **Grand groupe** : le nombre de groupes est toujours de 10. Le nombre de membres par groupe est égal à (nombre de connexions maximal) / 10. Par exemple, pour l’unité 1, si le nombre de connexions s’élève à 1 000, chaque groupe a 1000 / 10 = 100 membres.
+- **Big group** : le nombre de groupes est toujours de 10. Le nombre de membres par groupe est égal à (nombre de connexions maximal) / 10. Par exemple, pour l’unité 1, si le nombre de connexions s’élève à 1 000, chaque groupe a 1000 / 10 = 100 membres.
 
 Le cas d’usage **envoi au groupe** implique un coût de routage pour Azure SignalR Service, car il doit rechercher les connexions cibles par le biais d’une structure de données distribuée. Plus le nombre de connexions d’envoi augmente, plus le coût s’accroît.
 
@@ -287,10 +287,10 @@ Le coût de routage est important pour l’envoi de message à de nombreux petit
 
 |   Envoi à un petit groupe     | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
-| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000 | 100 000
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000 | 100 000
 | Nombre de membres par groupe        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
-| Nombre de groupes               | 100   | 200   | 500    | 1 000  | 2 000  | 5 000  | 10 000 
-| Messages entrants par seconde  | 200   | 400   | 1 000  | 2 500  | 4 000  | 7 000  | 7 000   |
+| Nombre de groupes               | 100   | 200   | 500    | 1 000  | 2 000  | 5 000  | 10 000 
+| Messages entrants par seconde  | 200   | 400   | 1 000  | 2 500  | 4 000  | 7 000  | 7 000   |
 | Bande passante entrante  | 400 Kbits/s  | 800 Kbits/s  | 2 Mbits/s     | 5 Mbits/s     | 8 Mbits/s     | 14 Mbits/s    | 14 Mbits/s     |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 25 000 | 40 000 | 70 000 | 70 000  |
 | Bande passante sortante | 4 Mbits/s    | 8 Mbits/s    | 20 Mbits/s    | 50 Mbits/s     | 80 Mbits/s    | 140 Mbits/s   | 140 Mbits/s    |
@@ -299,7 +299,7 @@ De nombreuses connexions clientes appelant le hub, le nombre de serveurs d’app
 
 |  Envoi à un petit groupe   | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -311,8 +311,8 @@ Pour le cas d’usage **envoi à un grand groupe**, la bande passante sortante d
 
 |    Envoi à un grand groupe      | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000
-| Nombre de membres par groupe        | 100   | 200   | 500    | 1 000  | 2 000  | 5 000   | 10 000 
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000
+| Nombre de membres par groupe        | 100   | 200   | 500    | 1 000  | 2 000  | 5 000   | 10 000 
 | Nombre de groupes               | 10    | 10    | 10     | 10     | 10     | 10      | 10
 | Messages entrants par seconde  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Bande passante entrante  | 80 Kbits/s   | 40 Kbits/s   | 40 Kbits/s    | 20 Kbits/s    | 40 Kbits/s    | 40 Kbits/s     | 40 Kbits/s     |
@@ -323,7 +323,7 @@ Le nombre de connexions d’envoi n’est pas supérieur à 40. La charge pesant
 
 |  Envoi à un grand groupe  | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 > [!NOTE]
@@ -345,15 +345,15 @@ Le tableau suivant est un récapitulatif statistique après de nombreux cycles d
 
 |   Envoi à la connexion   | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50          | Unité 100         |
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
-| Connexions                        | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000          | 100 000         |
-| Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 8,000  | 9 000  | 20 000 | 20 000 |
+| Connexions                        | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000          | 100 000         |
+| Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 8,000  | 9 000  | 20 000 | 20 000 |
 | Bande passante entrante/sortante | 2 Mbits/s    | 4 Mbits/s    | 10 Mbits/s   | 16 Mbits/s    | 18 Mbits/s    | 40 Mbits/s       | 40 Mbits/s       |
 
 Ce cas d’usage nécessite une charge élevée côté serveur d’applications. Le tableau suivant indique le nombre de serveurs d’applications suggéré.
 
 |  Envoi à la connexion  | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
 > [!NOTE]
@@ -369,21 +369,21 @@ Le tableau suivant indique le nombre d’applications web suggéré pour le cas 
 
 |   Écho           | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 Le tableau suivant indique le nombre d’applications web suggéré pour le cas d’usage ASP.NET SignalR **diffusion**.
 
 |  Diffusion       | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
 Le tableau suivant indique le nombre d’applications web suggéré pour le cas d’usage ASP.NET SignalR **envoi à un petit groupe**.
 
 |  Envoi à un petit groupe     | Unité 1 | Unité 2 | Unité 5 | Unité 10 | Unité 20 | Unité 50 | Unité 100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
-| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
+| Connexions      | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Nombre de serveurs d’applications | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
 ### <a name="serverless-mode"></a>Mode serverless
@@ -397,7 +397,7 @@ Tous les clients établissent des connexions WebSocket avec Azure SignalR Servic
 
 |   Diffusion par le biais de l’API REST     | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Bande passante entrante  | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s     | 4 Kbits/s     | 4 Kbits/s      | 4 Kbits/s      |
@@ -408,7 +408,7 @@ Le test d’évaluation attribue des noms d’utilisateur à tous les clients av
 
 |   Envoi à l’utilisateur par le biais de l’API REST | Unité 1 | Unité 2 | Unité 5  | Unité 10 | Unité 20 | Unité 50  | Unité 100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
-| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
+| Connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 300   | 600   | 900    | 1 300  | 2 000  | 10 000  | 18 000  |
 | Messages sortants par seconde | 300   | 600   | 900    | 1 300  | 2 000  | 10 000  | 18 000 |
 | Bande passante entrante  | 600 Kbits/s  | 1,2 Mbits/s  | 1,8Mbits/s   | 2,6 Mbits/s   | 4 Mbits/s     | 10 Mbits/s     | 36 Mbits/s    |
@@ -416,15 +416,15 @@ Le test d’évaluation attribue des noms d’utilisateur à tous les clients av
 
 ## <a name="performance-test-environments"></a>Environnements du test de performances
 
-Pour tous les cas d’usage répertoriés plus haut, nous avons effectué les tests de performances dans un environnement Azure. Nous avons utilisé au plus 50 machines virtuelles clientes et 20 machines virtuelles de serveur d’applications. Voici quelques détails :
+Pour tous les cas d’usage répertoriés plus haut, nous avons effectué les tests de performances dans un environnement Azure. Nous avons utilisé au plus 50 machines virtuelles clientes et 20 machines virtuelles de serveur d’applications. Voici plus de détails :
 
-- Taille des machines virtuelles clientes : StandardDS2V2 (2 processeurs virtuels, 7 Go de mémoire)
+- Taille de la machine virtuelle du client : StandardDS2V2 (2 processeurs virtuels, 7 G de mémoire)
 
-- Taille des machines virtuelles de serveur d’applications : StandardF4sV2 (4 processeurs virtuels, 8 Go de mémoire)
+- Taille de la machine virtuelle du serveur d’applications : StandardF4sV2 (4 processeurs virtuels, 8 G de mémoire)
 
 - Connexions serveur avec le SDK Azure SignalR : 15
 
-## <a name="performance-tools"></a>Outils d’analyse des performances
+## <a name="performance-tools"></a>Outils d'analyse des performances
 
 Vous trouverez les outils de performances pour Azure SignalR Service sur [GitHub](https://github.com/Azure/azure-signalr-bench/).
 
