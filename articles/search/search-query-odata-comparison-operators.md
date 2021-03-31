@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934869"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Opérateurs de comparaison OData dans Recherche cognitive Azure : `eq`, `ne`, `gt`, `lt`, `ge`, `le`
@@ -32,15 +32,15 @@ L’opération la plus basique dans une [expression de filtre OData](query-odata
 
 Opérateurs d’égalité :
 
-- `eq`: teste si un champ est **égal à** une valeur constante
-- `ne`: teste si un champ n’est **pas égal à** une valeur constante
+- `eq` : teste si un champ est **égal à** une valeur constante
+- `ne` : teste si un champ n’est **pas égal à** une valeur constante
 
 Opérateurs de plage :
 
-- `gt`: teste si un champ est **supérieur à** une valeur constante
-- `lt`: teste si un champ est **inférieur à** une valeur constante
-- `ge`: teste si un champ est **supérieur ou égal à** une valeur constante
-- `le`: teste si un champ est **inférieur ou égal à** une valeur constante
+- `gt` : teste si un champ est **supérieur à** une valeur constante
+- `lt` : teste si un champ est **inférieur à** une valeur constante
+- `ge` : teste si un champ est **supérieur ou égal à** une valeur constante
+- `le` : teste si un champ est **inférieur ou égal à** une valeur constante
 
 Vous pouvez utiliser plusieurs opérateurs de plage en association avec les [opérateurs logiques](search-query-odata-logical-operators.md) afin de tester si un champ est compris dans une certaine plage de valeurs. Consultez les [exemples](#examples) disponibles plus loin dans cet article.
 
@@ -89,7 +89,7 @@ Les types de données des deux côtés d’un opérateur de comparaison doivent 
 | `Edm.Int32` | `Edm.Int64` | n/a |
 | `Edm.Int32` | `Edm.Int32` | n/a |
 
-Pour les comparaisons qui ne sont pas autorisées, notamment la comparaison d’un champ de type `Edm.Int64` à `NaN`, l’API REST Recherche cognitive Azure renvoie une erreur « HTTP 400 : demande incorrecte ».
+Pour les comparaisons qui ne sont pas autorisées, notamment la comparaison d’un champ de type `Edm.Int64` à `NaN`, l’API REST Recherche cognitive Azure renvoie une erreur « HTTP 400 : mauvaise requête ».
 
 > [!IMPORTANT]
 > Même si les comparaisons de types numériques sont flexibles, nous vous recommandons vivement d’écrire des comparaisons dans des filtres afin que la valeur constante soit du même type de données que la variable ou la fonction à laquelle elle est comparée. Cela est particulièrement important lorsque des valeurs à virgule flottante et entières sont mélangées, car les conversions implicites peuvent entraîner une perte de précision.
@@ -102,10 +102,10 @@ Lorsque vous utilisez des opérateurs de comparaison, il est important de se rap
 
 | Opérateur | Résultat lorsque seul le champ ou la variable est `null` | Résultat lorsque seule la constante est `null` | Résultat lorsque le champ/la variable et la constante sont `null` |
 | --- | --- | --- | --- |
-| `gt` | `false` | HTTP 400 : erreur de demande incorrecte | HTTP 400 : erreur de demande incorrecte |
-| `lt` | `false` | HTTP 400 : erreur de demande incorrecte | HTTP 400 : erreur de demande incorrecte |
-| `ge` | `false` | HTTP 400 : erreur de demande incorrecte | HTTP 400 : erreur de demande incorrecte |
-| `le` | `false` | HTTP 400 : erreur de demande incorrecte | HTTP 400 : erreur de demande incorrecte |
+| `gt` | `false` | HTTP 400 : Erreur mauvaise requête | HTTP 400 : Erreur mauvaise requête |
+| `lt` | `false` | HTTP 400 : Erreur mauvaise requête | HTTP 400 : Erreur mauvaise requête |
+| `ge` | `false` | HTTP 400 : Erreur mauvaise requête | HTTP 400 : Erreur mauvaise requête |
+| `le` | `false` | HTTP 400 : Erreur mauvaise requête | HTTP 400 : Erreur mauvaise requête |
 | `eq` | `false` | `false` | `true` |
 | `ne` | `true` | `true` | `false` |
 
@@ -168,5 +168,5 @@ Rooms/any(room: room/Type eq 'Deluxe Room')
 
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

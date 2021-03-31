@@ -8,10 +8,10 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129914"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurer la reprise d’activité des machines virtuelles VMware sur Azure avec PowerShell
@@ -172,7 +172,7 @@ Pour cet exemple, nous avons les éléments suivants :
    1     ConfigurationServer
    ```
 
-   Dans la sortie ci-dessus, ***$ProcessServers[0]*** correspond à *ScaleOut-ProcessServer*, et ***$ProcessServers[1]*** correspond au rôle de serveur de traitement sur *ConfigurationServer*.
+   Dans la sortie ci-dessus, * **$ProcessServers[0]** _ correspond à _ScaleOut-ProcessServer*, et * **$ProcessServers[1]**_ correspond au rôle de serveur de traitement sur _ConfigurationServer*
 
 3. Identifiez les comptes qui ont été définis sur le serveur de configuration.
 
@@ -189,7 +189,7 @@ Pour cet exemple, nous avons les éléments suivants :
    3         LinuxAccount
    ```
 
-   Dans la sortie ci-dessus, ***$AccountHandles[0]*** correspond au compte *vCenter_account*, ***$AccountHandles[1]*** au compte *WindowsAccount*, et ***$AccountHandles[2]*** au compte *LinuxAccount*.
+   Dans la sortie ci-dessus, * **$AccountHandles[0]** _ correspond au compte _vCenter_account*, * **$AccountHandles[1]**_ au compte _WindowsAccount* et * **$AccountHandles[2]**_ au compte _LinuxAccount*
 
 ## <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
@@ -342,7 +342,7 @@ Vous aurez besoin des détails suivants pour protéger une machine virtuelle dé
 * Élément protégeable à répliquer.
 * Compte de stockage vers lequel répliquer la machine virtuelle (uniquement si vous effectuez la réplication vers un compte de stockage). 
 * Un stockage de journal est nécessaire pour protéger les machines virtuelles sur un compte de stockage Premium ou un disque managé.
-* Serveur de traitement à utiliser pour la réplication. La liste des serveurs de traitement disponibles a été récupérée et enregistrée dans les variables ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* et ***$ProcessServers[1]*** *(ConfigurationServer)* .
+* Serveur de traitement à utiliser pour la réplication. La liste des serveurs de processus disponibles a été récupérée et enregistrée dans les variables * **$ProcessServers[0]** _  _(ScaleOut-ProcessServer)* et * **$ProcessServers[1]**_ _(ConfigurationServer)*.
 * Compte à utiliser pour installer (push) le logiciel du service Mobilité sur les machines. La liste des comptes disponibles a été récupérée et stockée dans la variable ***$AccountHandles***.
 * Mappage de conteneur de protection pour la stratégie de réplication à utiliser pour la réplication.
 * Groupe de ressources dans lequel les machines virtuelles doivent être créées lors du basculement.

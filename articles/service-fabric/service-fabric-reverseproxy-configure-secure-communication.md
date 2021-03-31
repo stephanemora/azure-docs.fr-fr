@@ -4,10 +4,10 @@ description: Configurez le proxy inverse pour permettre la communication de bout
 ms.topic: conceptual
 ms.date: 08/10/2017
 ms.openlocfilehash: b01ce559b3c790164992d6618149afa9df069466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256133"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Se connecter à un service sécurisé avec le proxy inverse
@@ -20,7 +20,7 @@ Cet article explique comment établir une connexion sécurisée entre le proxy i
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Établissement d’une connexion sécurisée entre le proxy inverse et les services 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Authentification du proxy inverse auprès des services :
-Le proxy inverse s’identifie lui-même auprès des services avec son certificat. Pour les clusters Azure, le certificat est spécifié avec la propriété ***reverseProxyCertificate*** dans la section [Type de ressource](../azure-resource-manager/templates/template-syntax.md) de [**Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) du Modèle Resource Manager. Pour les clusters autonomes, le certificat est spécifié avec la propriété ***ReverseProxyCertificate*** ou ***ReverseProxyCertificateCommonNames*** dans la section **Security** du fichier ClusterConfig.json. Pour plus d’informations, consultez [Activer le proxy inverse sur des clusters autonomes](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+Le proxy inverse s’identifie lui-même auprès des services avec son certificat. Pour les clusters Azure, le certificat est spécifié avec la propriété ***reverseProxyCertificate** _dans la section [_ *Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [Type de ressource](../azure-resource-manager/templates/template-syntax.md) du modèle Resource Manager. Pour les clusters autonomes, le certificat est spécifié avec la propriété **_ReverseProxyCertificate_ *_ ou la propriété _* _ReverseProxyCertificateCommonNames_ *_dans la section _* Securité** du fichier ClusterConfig.json. Pour plus d’informations, consultez [Activer le proxy inverse sur des clusters autonomes](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
 
 Les services peuvent implémenter la logique qui vérifie le certificat présenté par le serveur proxy inverse. Les services peuvent spécifier les détails du certificat client accepté en tant que paramètres de configuration dans le package de configuration. Celui-ci peut être lu au moment de l’exécution et utilisé pour valider le certificat présenté par le proxy inverse. Reportez-vous à [Gestion des paramètres d’application](service-fabric-manage-multiple-environment-app-configuration.md) pour ajouter les paramètres de configuration. 
 
