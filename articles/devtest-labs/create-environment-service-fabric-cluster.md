@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484007"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs
@@ -21,7 +21,7 @@ DevTest Labs peut créer des environnements de test autonomes tels que définis 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
 Les clusters Service Fabric sont créés à l’aide des environnements dans DevTest Labs. Chaque environnement est défini par un modèle Azure Resource Manager dans un référentiel Git. Le [référentiel Git public](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) de DevTest Labs contient le modèle Resource Manager permettant de créer un cluster Service Fabric dans le dossier [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). 
 
-1. Commencez par créer un labo dans Azure DevTest Labs à l’aide des instructions de l’article suivant : [Créez un labo](devtest-lab-create-lab.md). Notez que l’option **Environnements publics** est **activée** par défaut. 
+1. Commencez par créer un laboratoire dans Azure DevTest Labs en suivant les instructions fournies dans l’article suivant : [Créer un labo](devtest-lab-create-lab.md). Notez que l’option **Environnements publics** est **activée** par défaut. 
 2. Vérifiez que le fournisseur Service Fabric est inscrit pour votre abonnement en procédant comme suit :
     1. Sélectionnez **Abonnements** dans le menu de navigation de gauche, puis sélectionnez votre **abonnement**
     2. Dans la page **Abonnement**, sélectionnez **Fournisseurs de ressources** dans la section **Paramètres** du menu de gauche. 

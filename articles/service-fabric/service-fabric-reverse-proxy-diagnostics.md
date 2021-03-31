@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: kavyako
 ms.openlocfilehash: bbc1fe5a76ecb5720bc49e0a082d5e9151b403d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75645461"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse
@@ -77,7 +77,7 @@ Voici quelques exemples sur la façon d’interpréter les journaux d’activit�
     
     Voici un exemple d’événement où le proxy inverse retourne le code 404, car il n’est pas parvenu à trouver le point de terminaison de service correspondant.
     Les entrées de charge utile intéressantes ici sont :
-   * **processRequestPhase** : indique la phase au cours du traitement de requêtes pendant laquelle la défaillance s’est produite, ***TryGetEndpoint***, c’est-à-dire pendant la tentative d’extraction du point de terminaison de service pour transférer. 
+   * **processRequestPhase** : indique la phase au cours du traitement de requêtes pendant laquelle la défaillance s’est produite, **_TryGetEndpoint_**, c’est-à-dire pendant la tentative d’extraction du point de terminaison de service pour transférer. 
    * **errorDetails** : liste les critères de recherche du point de terminaison. Ici, vous pouvez voir que listenerName a spécifié = **FrontEndListener** alors que la liste de points de terminaison de réplica ne contient qu’un écouteur portant le nom **OldListener**.
     
      ```
