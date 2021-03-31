@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/17/2021
+ms.openlocfilehash: b6ae6c003284b93390bb4f53345d3ba0f8d35e21
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454583"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952556"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -53,7 +53,6 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspectez le contenu de pages de base de données de bas niveau|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
-> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Planificateur de travaux pour PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examinez le mappage d’espace libre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | Préchauffe les données de relation|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | Suit les statistiques d’exécution de toutes les instructions SQL exécutées|
@@ -103,7 +102,6 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspectez le contenu de pages de base de données de bas niveau|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
-> |[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36)                        | 1.2             | Planificateur de travaux pour PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examinez le mappage d’espace libre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | Préchauffe les données de relation|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | Suit les statistiques d’exécution de toutes les instructions SQL exécutées|
@@ -128,31 +126,9 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink et postgres_fdw
-[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) et [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) vous permettent de vous connecter d’un serveur PostgreSQL à un autre ou à une autre base de données dans le même serveur. Le serveur d’envoi doit autoriser les connexions sortantes vers le serveur de réception. Le serveur de réception doit autoriser les connexions à partir du serveur d’envoi.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) et [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) vous permettent de vous connecter d’un serveur PostgreSQL à un autre ou à une autre base de données dans le même serveur. Le serveur flexible prend en charge les connexions entrantes et sortantes vers n’importe quel serveur PostgreSQL. Le serveur d’envoi doit autoriser les connexions sortantes vers le serveur de réception. De même, le serveur de réception doit autoriser les connexions à partir du serveur d’envoi. 
 
 Nous vous recommandons de déployer vos serveurs avec [intégration au réseau virtuel](concepts-networking.md) si vous envisagez d’utiliser ces deux extensions. Par défaut, l’intégration au réseau virtuel autorise les connexions entre les serveurs dans le réseau virtuel. Vous pouvez également choisir d’utiliser des [groupes de sécurité réseau de réseau virtuel](../../virtual-network/manage-network-security-group.md) pour personnaliser l’accès.
-
-## <a name="pg_cron"></a>pg_cron
-
-[pg_cron](https://github.com/citusdata/pg_cron/tree/b6e7dc9627515bf00e2086f168b3faa660e5fd36) est un planificateur de travaux simple basé sur cron pour PostgreSQL qui s’exécute dans la base de données en tant qu’extension. Vous pouvez utiliser l’extension pg_cron pour exécuter des tâches de maintenance planifiées dans une base de données PostgreSQL. Par exemple, vous pouvez exécuter le vide périodique d’une table ou supprimer d’anciens travaux de données.
-
-`pg_cron` peut exécuter plusieurs travaux en parallèle, mais il exécute au plus une instance d’un travail à la fois. Si une deuxième exécution est censée démarrer avant la fin de la première, la deuxième exécution est mise en file d’attente et démarrée dès que la première exécution est terminée. Cela garantit que les travaux s’exécutent exactement autant de fois que prévu, et qu’ils ne s’exécutent pas simultanément avec eux-mêmes.
-
-Exemples :
-
-Pour supprimer les anciennes données le samedi à 3h30 (GMT)
-```
-SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
-```
-Pour exécuter un vide tous les jours à 10h00 (GMT)
-```
-SELECT cron.schedule('0 10 * * *', 'VACUUM');
-```
-
-Pour déplanifier toutes les tâches de pg_cron
-```
-SELECT cron.unschedule(jobid) FROM cron.job;
-```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

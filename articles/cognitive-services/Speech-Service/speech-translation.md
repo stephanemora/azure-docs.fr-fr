@@ -12,22 +12,18 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduction vocale
-ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015203"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954958"
 ---
 # <a name="what-is-speech-translation"></a>Qu’est-ce que la traduction vocale ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Dans cette vue d’ensemble, vous découvrez les avantages et les fonctionnalités du service de traduction vocale, qui permet de traduire en temps réel les flux audio multilingues de parole en parole et de parole en texte. Avec le SDK Speech, vos applications, outils et appareils ont accès à une transcription de la source et à une traduction en sortie pour l’audio fourni. Des résultats de transcription et de traduction intermédiaires sont retournés dès que de la parole est détectée, et les résultats finaux peuvent être convertis en synthèse vocale.
-
-Le moteur de traduction de Microsoft repose sur deux approches différentes : la traduction automatique statistique (SMT) et la traduction automatique neuronale (NMT). La SMT s’appuie sur une analyse statistique avancée pour estimer la meilleure traduction possible compte tenu du contexte fourni par quelques mots. Avec la NMT, le recours aux réseaux neuronaux vise à offrir une traduction plus précise et naturelle en traduisant les mots à partir du contexte complet des phrases.
-
-Aujourd’hui, Microsoft utilise la NMT pour la traduction dans les langues les plus courantes. Tous les [langues disponibles pour la traduction de parole en parole](language-support.md#speech-translation) sont alimentées par la NMT. La traduction de parole en texte peut utiliser la SMT ou la NMT en fonction de la paire de langues. Quand la langue cible est prise en charge par la NMT, la traduction complète s’appuie sur la NMT. Quand la langue cible n’est pas prise en charge par la NMT, la traduction combine la NMT et la SMT en utilisant l’anglais comme « pivot » entre les deux langues.
+Dans cette vue d’ensemble, vous découvrez les avantages et les fonctionnalités du service de traduction vocale, qui permet de traduire en temps réel les flux audio [multilingues de parole en parole](language-support.md#speech-translation) et de parole en texte. Avec le SDK Speech, vos applications, outils et appareils ont accès à une transcription de la source et à une traduction en sortie pour l’audio fourni. Des résultats de transcription et de traduction intermédiaires sont retournés dès que de la parole est détectée, et les résultats finaux peuvent être convertis en synthèse vocale.
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
