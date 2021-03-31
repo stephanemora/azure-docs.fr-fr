@@ -1,16 +1,16 @@
 ---
-title: "Démarrage rapide : Recevoir des événements à l'aide d'Apache Storm - Azure Event Hubs"
-description: 'Démarrage rapide : Cet article fournit des informations à propos de l’utilisation d’Apache Storm pour recevoir des événements depuis Azure Event Hubs.'
+title: "Démarrage rapide : recevoir des événements à l'aide d'Apache Storm - Azure Event Hubs"
+description: 'Démarrage rapide : cet article fournit des informations à propos de l’utilisation d’Apache Storm pour recevoir des événements depuis Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087575"
 ---
-# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Démarrage rapide : Recevoir des événements d’Event Hubs avec Apache Storm
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Démarrage rapide : recevoir des événements d’Event Hubs avec Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Azure Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 

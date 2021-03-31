@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85850364"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exposer un service AKS via HTTP ou HTTPS à l’aide d’Application Gateway 
@@ -21,8 +21,8 @@ Ces tutoriels aident à illustrer l’utilisation des [ressources d’entrée de
 ## <a name="prerequisites"></a>Prérequis
 
 - Installer le graphique Helm `ingress-azure`.
-  - [**Déploiement « greenfield »** ](ingress-controller-install-new.md) : Si vous partez de zéro, reportez-vous à ces instructions d’installation, qui décrivent les étapes à suivre pour déployer un cluster AKS à l’aide d’Application Gateway et y installer le contrôleur d’entrée de la passerelle d’application.
-  - [**Déploiement « brownfield »** ](ingress-controller-install-existing.md) : Si vous disposez déjà d’un cluster AKS et d’Application Gateway, reportez-vous à ces instructions pour installer le contrôleur d’entrée de passerelle d’application sur le cluster AKS.
+  - [**Déploiement Greenfield**](ingress-controller-install-new.md) : si vous partez de zéro, reportez-vous à ces instructions d’installation, qui décrivent les étapes à suivre pour déployer un cluster AKS à l’aide d’Application Gateway et y installer le contrôleur d’entrée de la passerelle d’application.
+  - [**Déploiement Brownfield**](ingress-controller-install-existing.md) : si vous disposez déjà d’un cluster AKS et d’Application Gateway, reportez-vous à ces instructions pour installer le contrôleur d’entrée de la passerelle d’application sur le cluster AKS.
 - Si vous souhaitez utiliser le protocole HTTPS sur cette application, vous aurez besoin d’un certificat x509 et de sa clé privée.
 
 ## <a name="deploy-guestbook-application"></a>Déployer l’application `guestbook`

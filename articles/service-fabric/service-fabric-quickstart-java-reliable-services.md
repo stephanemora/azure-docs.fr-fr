@@ -1,17 +1,17 @@
 ---
-title: 'Démarrage rapide : Créer une application Java sur Azure Service Fabric'
+title: 'Démarrage rapide : créer une application Java sur Azure Service Fabric'
 description: Dans le cadre de ce démarrage rapide, vous créez une application Java pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric.
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529846"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Démarrage rapide :  Déployer une application Java dans Azure Service Fabric sur Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Démarrage rapide : déployer une application Java dans Azure Service Fabric sur Linux
 
 Dans ce guide de démarrage rapide, vous déployez une application Java sur Azure Service Fabric à l’aide de l’IDE Eclipse sur un ordinateur de développement Linux. Lorsque vous avez terminé, vous disposez d’une application de vote avec un frontend Java qui enregistre les résultats de vote dans un service backend avec état dans le cluster.
 
@@ -32,7 +32,7 @@ Dans une fenêtre Commande, exécutez la commande suivante pour cloner le réfé
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="run-the-application-locally"></a>Exécuter l’application localement
+## <a name="run-the-application-locally"></a>Exécuter localement l’application
 
 1. Démarrez le cluster local en exécutant la commande suivante :
 
@@ -71,7 +71,7 @@ Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et es
 Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple : `https://localhost:19080`.
-2. Cliquez sur le bouton de sélection ( **...** ) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis sélectionnez **Scale Service** (Mettre à l’échelle le service).
+2. Cliquez sur le bouton de sélection (**...**) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis sélectionnez **Scale Service** (Mettre à l’échelle le service).
 
     ![Mettre à l’échelle un service dans Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
@@ -97,4 +97,4 @@ Dans ce démarrage rapide, vous avez appris comment :
 Pour en savoir plus sur l’utilisation des applications Java dans Service Fabric, passez au tutoriel sur les applications Java.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer et déployer une application avec un service frontal API Web Java et un service principal avec état](./service-fabric-tutorial-create-java-app.md)
+> [Déployer une application Java](./service-fabric-tutorial-create-java-app.md)

@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb84eae2db01180865db54250598f45c7b2ddca0
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97746233"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation Azure AD
@@ -33,7 +33,7 @@ Un utilisateur qui a besoin d’accéder à un package d’accès peut soumettre
 
 ![Diagramme du processus d’approbation](./media/entitlement-management-process/request-process.png)
 
-| State | Description |
+| État | Description |
 | --- | --- |
 | Envoyée | L’utilisateur soumet une demande. |
 | Approbation en attente | Si la stratégie d’un package d’accès exige une approbation, la demande passe à l’approbation en attente. |
@@ -71,21 +71,21 @@ Le tableau suivant fournit plus de détails sur chacune de ces notifications par
 
 | # | Objet de l’e-mail | Moment de l’envoi | Envoyé à |
 | --- | --- | --- | --- |
-| 1 | Action demandée : Approuver ou refuser une demande transférée d’ici le *[date]* | Cet e-mail sera envoyé aux approbateurs de substitution de la phase 1 (une fois la demande remontée) pour leur demander d’agir. | Approbateurs de substitution de la phase 1 |
-| 2 | Action demandée : Approuver ou refuser la demande d’ici le *[date]* | Cet e-mail sera envoyé au premier approbateur, si l’escalade est désactivée, pour lui demander d’agir. | Premier approbateur |
-| 3 | Rappel : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est désactivée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
+| 1 | Action requise : approuver ou refuser une demande transférée d’ici le *[date]* | Cet e-mail sera envoyé aux approbateurs de substitution de la phase 1 (une fois la demande remontée) pour leur demander d’agir. | Approbateurs de substitution de la phase 1 |
+| 2 | Action requise : approuver ou refuser une demande d’ici le *[date]* | Cet e-mail sera envoyé au premier approbateur, si l’escalade est désactivée, pour lui demander d’agir. | Premier approbateur |
+| 3 | Rappel : approuver ou refuser la demande d’ici le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est désactivée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
 | 4 | Approuver ou refuser la demande avant *[heure]* le *[date]* | Cet e-mail sera envoyé au premier approbateur (si l’escalade est activée) pour lui demander d’agir. | Premier approbateur |
-| 5 | Rappel d’action requise : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est activée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
+| 5 | Rappel d’action requise : approuver ou refuser la demande d’ici le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est activée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
 | 6 | La demande a expiré pour *[package d’accès]* | Cet e-mail sera envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 après l’expiration de la demande. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 7 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de phase 1 à la fin d’une demande. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 8 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 d’une demande en deux phases lorsque la phase 1 est approuvée. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 9 | Demande refusée pour *[package d’accès]* | Cet e-mail est envoyé au demandeur lorsque sa demande est refusée. | Demandeur |
 | 10 | Votre demande a expiré pour *[package d’accès]* | Cet e-mail est envoyé au demandeur à la fin d’une demande en une ou deux phases. L’e-mail informe le demandeur que la demande a expiré. | Demandeur |
-| 11 | Action demandée : Approuver ou refuser la demande d’ici le *[date]* | Cet e-mail sera envoyé au deuxième approbateur, si l’escalade est désactivée, pour lui demander d’agir. | Deuxième approbateur |
-| 12 | Rappel d’action requise : Approuver ou refuser la demande d’ici le *[date]* | Cet e-mail de rappel sera envoyé au deuxième approbateur, si l’escalade est désactivée. La notification lui demande d’agir s’il ne l’a pas encore fait. | Deuxième approbateur |
-| 13 | Action demandée : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail sera envoyé au deuxième approbateur, si l’escalade est activée, pour lui demander d’agir. | Deuxième approbateur |
-| 14 | Rappel d’action requise : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au deuxième approbateur, si l’escalade est activée. La notification lui demande d’agir s’il ne l’a pas encore fait. | Deuxième approbateur |
-| 15 | Action demandée : Approuver ou refuser une demande transférée d’ici le *[date]* | Cet e-mail sera envoyé aux approbateurs de substitution de la phase 2, si l’escalade est activée, pour leur demander d’agir. | Approbateurs de substitution de la phase 2 |
+| 11 | Action requise : approuver ou refuser une demande d’ici le *[date]* | Cet e-mail sera envoyé au deuxième approbateur, si l’escalade est désactivée, pour lui demander d’agir. | Deuxième approbateur |
+| 12 | Rappel d’action requise : approuver ou refuser la demande d’ici le *[date]* | Cet e-mail de rappel sera envoyé au deuxième approbateur, si l’escalade est désactivée. La notification lui demande d’agir s’il ne l’a pas encore fait. | Deuxième approbateur |
+| 13 | Action requise : approuver ou refuser la demande d’ici le *[date]* pour *[demandeur]* | Cet e-mail sera envoyé au deuxième approbateur, si l’escalade est activée, pour lui demander d’agir. | Deuxième approbateur |
+| 14 | Rappel d’action requise : approuver ou refuser la demande d’ici le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au deuxième approbateur, si l’escalade est activée. La notification lui demande d’agir s’il ne l’a pas encore fait. | Deuxième approbateur |
+| 15 | Action requise : approuver ou refuser une demande transférée d’ici le *[date]* | Cet e-mail sera envoyé aux approbateurs de substitution de la phase 2, si l’escalade est activée, pour leur demander d’agir. | Approbateurs de substitution de la phase 2 |
 | 16 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au deuxième approbateur et aux approbateurs de substitution de la phase 2 lors de l’approbation de la demande. | Deuxième approbateur, approbateurs de substitution de la phase 2 |
 | 17 | Une demande a expiré pour *[access_package]* | Cet e-mail sera envoyé au deuxième approbateur ou aux approbateurs de substitution, après l’expiration de la demande. | Deuxième approbateur, approbateurs de substitution de la phase 2 |
 | 18 | Vous avez maintenant accès à *[package d’accès]* | Cet e-mail est envoyé aux utilisateurs finaux pour leur indiquer qu’ils peuvent commencer à utiliser leur accès. | Demandeur |

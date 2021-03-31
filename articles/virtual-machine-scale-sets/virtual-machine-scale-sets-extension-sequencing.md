@@ -10,10 +10,10 @@ ms.date: 01/30/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 3271041b9f4db100cd05588129c7d714d4478f10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83121029"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
@@ -243,7 +243,7 @@ az vmss extension set \
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Vous ne pouvez pas ajouter d’extension avec des dépendances ?
 1. Assurez-vous que les extensions spécifiées dans provisionAfterExtensions sont définies dans le modèle de groupe identique.
-2. Vérifiez qu’il n’y a pas de dépendances circulaires présentes. Par exemple, la séquence suivante n’est pas autorisée : ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
+2. Vérifiez qu’il n’y a pas de dépendances circulaires présentes. Par exemple, la séquence suivante n’est pas autorisée : ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
 3. Vérifiez que chaque extension sur laquelle il existe des dépendances a une propriété « settings » définie sous l’élément « properties » de l’extension. Par exemple, si ExtensionB doit être provisionnée après ExtensionA, ExtensionA doit avoir la propriété « settings » spécifiée sous « properties » dans ExtensionA. Vous pouvez spécifier une propriété « settings » vide si l’extension n’a pas de paramètres obligatoires.
 
 ### <a name="not-able-to-remove-extensions"></a>Vous ne pouvez pas supprimer les extensions ?
