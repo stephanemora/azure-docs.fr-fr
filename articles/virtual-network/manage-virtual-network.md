@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596645"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102612522"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -53,7 +53,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
      > Si un réseau virtuel comporte des plages d’adresses qui chevauchent celles d’un autre réseau virtuel ou local, il est impossible de connecter les deux réseaux. Avant de définir une plage d’adresses, demandez-vous si vous souhaiteriez peut-être connecter le réseau virtuel à d’autres réseaux virtuels ou locaux par la suite. Microsoft recommande de configurer des plages d’adresses de réseau virtuel avec un espace d’adressage privé ou public appartenant à votre organisation.
      >
 
-     - **Nom du sous-réseau** : Le nom du sous-réseau doit être unique au sein du réseau virtuel. Vous ne pouvez pas modifier le nom du sous-réseau une fois celui-ci créé. Lorsque vous créez un réseau virtuel, le portail exige que vous définissiez un sous-réseau, même si un réseau virtuel ne doit pas obligatoirement comprendre des sous-réseaux. Dans le portail, vous ne pouvez définir qu’un seul sous-réseau lorsque vous créez un réseau virtuel. Vous pouvez ajouter des sous-réseaux au réseau virtuel une fois celui-ci créé. Pour ajouter un sous-réseau à un réseau virtuel, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md). Vous pouvez créer un réseau virtuel comprenant plusieurs sous-réseaux en utilisant PowerShell ou Azure CLI.
+     - **Nom du sous-réseau** : Le nom du sous-réseau doit être unique au sein du réseau virtuel. Vous ne pouvez pas modifier le nom du sous-réseau une fois celui-ci créé. Lorsque vous créez un réseau virtuel, le portail exige que vous définissiez un sous-réseau, même si un réseau virtuel ne doit pas obligatoirement comprendre des sous-réseaux. Dans le portail, vous pouvez définir un ou plusieurs sous-réseaux lorsque vous créez un réseau virtuel. Vous pouvez ajouter des sous-réseaux au réseau virtuel une fois celui-ci créé. Pour ajouter un sous-réseau à un réseau virtuel, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md). Vous pouvez créer un réseau virtuel comprenant plusieurs sous-réseaux en utilisant PowerShell ou Azure CLI.
 
        >[!TIP]
        >Les administrateurs créent parfois des sous-réseaux distincts pour filtrer ou contrôler le routage du trafic entre ceux-ci. Avant de définir des sous-réseaux, réfléchissez à la manière dont vous pourriez vouloir filtrer et router le trafic entre ceux-ci. Pour en savoir plus sur le filtrage du trafic entre des sous-réseaux, voir [Filtrer le trafic réseau avec les groupes de sécurité réseau](./network-security-groups-overview.md). Azure route automatiquement le trafic entre sous-réseaux, mais vous pouvez remplacer les itinéraires par défaut d’Azure. Pour en savoir plus sur le routage du trafic de sous-réseau par défaut Azure, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).

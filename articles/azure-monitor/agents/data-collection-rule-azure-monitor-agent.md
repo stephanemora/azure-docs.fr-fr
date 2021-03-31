@@ -4,13 +4,13 @@ description: Explique comment créer une règle de collecte de données pour col
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723637"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721526"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurer la collecte de données pour l’agent Azure Monitor (version préliminaire)
 
@@ -68,6 +68,34 @@ Cliquez sur **Ajouter une source de données**, puis sur **Vérifier + créer** 
 > [!NOTE]
 > Une fois que la règle de collecte des données et les associations ont été créées, il peut falloir jusqu’à 5 minutes pour que les données soient envoyées aux destinations.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>Limiter la collecte de données avec des requêtes XPath personnalisées
+Étant donné que vous êtes facturé pour toutes les données collectées dans un espace de travail Log Analytics, vous devez veiller à collecter uniquement les données dont vous avez besoin. En utilisant la configuration de base dans le portail Azure, vous ne disposez que d’une capacité limitée pour filtrer les événements à collecter. Pour les journaux système et d’application, il s’agit de tous les journaux avec une gravité particulière. Pour les journaux de sécurité, il s’agit de tous les journaux de réussite ou d’échec d’audit.
+
+Pour spécifier des filtres supplémentaires, vous devez utiliser la configuration personnalisée et spécifier un XPath qui filtre les événements dont vous n’avez pas besoin. Les entrées XPath sont écrites sous la forme `LogName!XPathQuery`. Par exemple, vous souhaiterez peut-être retourner uniquement les événements du journal des événements d’application avec l’ID d’événement 1035. Le XPathQuery pour ces événements serait `*[System[EventID=1035]]`. Étant donné que vous souhaitez récupérer les événements du journal des événements de l’application, le XPath est `Application!*[System[EventID=1035]]`
+
+Consultez les [Limitations de XPath 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations) pour obtenir la liste des limitations dans le XPath pris en charge par le journal des événements Windows.
+
+> [!TIP]
+> Utilisez l’applet de commande PowerShell `Get-WinEvent` avec le paramètre `FilterXPath` pour tester la validité d’une XPathQuery. Le script suivant donne un exemple.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - Si des événements sont retournés, la requête est valide.
+> - Si vous recevez le message *Aucun événement correspondant aux critères de sélection spécifiés n’a été trouvé*, il se peut que la requête soit valide, mais qu’il n’existe aucun événement correspondant sur l’ordinateur local.
+> - Si vous recevez le message *La requête spécifiée n’est pas valide*, la syntaxe de la requête n’est pas valide. 
+
+Le tableau suivant présente des exemples de filtrage d’événements à l’aide d’un XPath personnalisé.
+
+| Description |  XPath |
+|:---|:---|
+| Collecter uniquement les événements système avec l’ID d’événement = 4648 |  `System!*[System[EventID=4648]]`
+| Collecter uniquement les événements système avec l’ID d’événement = 4648 et le nom de processus consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Collecter tous les événements critiques, d’erreur, d’avertissement et d’informations à partir du journal des événements système, à l’exception de l’ID d’événement = 6 (pilote chargé) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Collecter tous les événements de sécurité de réussite et d’échec, à l’exception de l’ID d’événement 4624 (connexion réussie) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>Créer une règle et une association à l’aide de l’API REST
 
@@ -83,6 +111,8 @@ Suivez les étapes ci-dessous pour créer une règle de collecte de données et 
 ## <a name="create-association-using-resource-manager-template"></a>Créer une association à l’aide d’un modèle Resource Manager
 
 Vous ne pouvez pas créer une règle de collecte de données à l’aide d’un modèle Resource Manager, mais vous pouvez créer une association entre une machine virtuelle Azure ou un serveur avec Azure Arc à l’aide d’un modèle Resource Manager. Pour des exemples de modèles, consultez [Exemples de modèle Resource Manager pour les règles de collecte de données dans Azure Monitor](./resource-manager-data-collection-rules.md).
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

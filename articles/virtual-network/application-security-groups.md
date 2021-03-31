@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 4d8ffe8451b2b2a08ab30761eaf3a928b5e117b3
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: e60d8490632a29e96dccf9cc8ff0365baf671bb6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537626"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802622"
 ---
 # <a name="application-security-groups"></a>Groupes de sécurité d’application
 
@@ -57,7 +57,7 @@ Les règles spécifiant un groupe de sécurité d’application en tant que sour
 Les groupes de sécurité d’application ont les contraintes suivantes :
 
 -    Le nombre de groupes de sécurité d’application que vous pouvez avoir dans un abonnement, ainsi que d’autres paramètres relatifs aux groupes de sécurité d’application, sont limités. Pour plus d’informations, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
-- Vous pouvez spécifier un groupe de sécurité d’application en tant que source et destination dans une règle de sécurité. Vous ne pouvez pas spécifier plusieurs groupes de sécurité d’application dans la source ou la destination.
+- Dans le portail Azure, vous pouvez spécifier un seul groupe de sécurité d’application en tant que source et destination dans une règle de sécurité. Dans l’API REST (y compris PowerShell/Azure CLI), vous pouvez spécifier plusieurs groupes de sécurité des applications dans la source ou la destination.
 - Toutes les interfaces réseau affectées à un groupe de sécurité d’application doivent exister dans le même réseau virtuel que celui où se trouve la première interface réseau affectée au groupe de sécurité d’application. Par exemple, si la première interface réseau assignée à un groupe de sécurité d’application nommé *AsgWeb* se trouve dans le réseau virtuel nommé *VNet1*, toutes les interfaces réseau suivantes affectées à *AsgWeb* doivent exister dans *VNet1*. Vous ne pouvez pas ajouter d’interfaces réseau à partir de différents réseaux virtuels au même groupe de sécurité d’application.
 - Si vous spécifiez un groupe de sécurité d’application en tant que source et destination dans une règle de sécurité, les interfaces réseau dans les deux groupes de sécurité d’application doivent se trouver dans le même réseau virtuel. Par exemple, si *AsgLogic* contient des interfaces réseau de *VNet1*, et si *AsgDb* contient des interfaces réseau de *VNet2*, vous ne pouvez pas assigner *AsgLogic* en tant que source et *AsgDb* en tant que destination dans une règle. Toutes les interfaces réseau pour les groupes de sécurité d’application source et destination doivent exister dans le même réseau virtuel.
 

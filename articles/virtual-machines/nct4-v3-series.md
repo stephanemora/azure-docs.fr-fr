@@ -7,12 +7,12 @@ author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
-ms.openlocfilehash: 2a799fed92bea627d5974f27d5328b6c62825556
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d73bd81f15263c79e16b574eb961d4ae0ac61175
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102562399"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103417805"
 ---
 # <a name="ncast4_v3-series"></a>NCasT4_v3-series 
 
@@ -28,7 +28,7 @@ Les machines virtuelles de la série NCasT4_v3 sont alimentées par [processeurs
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
-Interconnexion Nvidia/NVLink : Non pris en charge<br>
+Interconnexion Nvidia/NVLink : Pris en charge<br>
 <br>
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
@@ -46,6 +46,8 @@ Interconnexion Nvidia/NVLink : Non pris en charge<br>
 Pour tirer parti des fonctionnalités GPU des machines virtuelles de série NCasT4_V3 Azure sous Windows ou Linus, des pilotes graphiques NVIDIA doivent être installés.
 
 Pour installer manuellement les pilotes graphiques NVIDIA, consultez [Installer les pilotes GPU NVIDIA sur les machines virtuelles de série N exécutant Windows](./windows/n-series-driver-setup.md) pour connaître les systèmes d’exploitation pris en charge, les pilotes et les étapes d’installation et de vérification.
+
+L’extension de pilote du GPU NVIDIA Azure déploie les pilotes CUDA sur les machines virtuelles de la série NCasT4_v3. Pour les charges de travail graphiques et de visualisation, installez manuellement les pilotes GRID pris en charge par Azure.
 
 ## <a name="other-sizes"></a>Autres tailles
 

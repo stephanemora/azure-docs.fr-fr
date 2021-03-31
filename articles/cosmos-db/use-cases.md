@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073755"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799392"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Cas d’utilisation courants d’Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Les cas d'utilisation IoT présentent généralement les mêmes schémas pour la
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Architecture de référence IoT d’Azure Cosmos DB" border="false":::
 
-Des paquets de données peuvent être reçus par Azure Event Hubs qui offre un débit d’ingestion de données élevé à faible latence. Les données reçues qui doivent être traitées pour un aperçu en temps réel peuvent être transférées dans Azure Stream Analytics en vue d’une analyse en temps réel. Les données peuvent être chargées dans Azure Cosmos DB pour une interrogation ad hoc. Une fois que les données sont chargées dans Azure Cosmos DB, celles-ci sont prêtes à être interrogées. De plus, les nouvelles données et modifications apportées aux données existantes peuvent être lues sur un flux de modification. Un flux de modification est un journal persistant, constitué exclusivement d’ajouts, qui stocke les modifications apportées aux conteneurs de Cosmos dans un ordre séquentiel. La totalité des données ou seulement les modifications qui ont été apportées à ces données peuvent être utilisées dans Azure Cosmos DB comme données de référence pour l’analyse en temps réel. En outre, les données peuvent être davantage affinées et traitées en connectant des données d’Azure Cosmos DB à HDInsight pour les tâches Pig, Hive ou Map/Reduce.  Les données affinées sont ensuite chargées à nouveau dans Azure Cosmos DB pour la création de rapports.   
+Des paquets de données peuvent être reçus par Azure Event Hubs qui offre un débit d’ingestion de données élevé à faible latence. Les données reçues qui doivent être traitées pour un aperçu en temps réel peuvent être transférées dans Azure Stream Analytics en vue d’une analyse en temps réel. Les données peuvent être chargées dans Azure Cosmos DB pour une interrogation ad hoc. Une fois que les données sont chargées dans Azure Cosmos DB, celles-ci sont prêtes à être interrogées. De plus, les nouvelles données et modifications apportées aux données existantes peuvent être lues sur un flux de modification. Un flux de modification est un journal persistant, constitué exclusivement d’ajouts, qui stocke les modifications apportées aux conteneurs de Cosmos dans un ordre séquentiel. Ensuite, la totalité des données ou seulement les modifications qui ont été apportées à ces données peuvent être utilisées dans Azure Cosmos DB comme données de référence pour l’analyse en temps réel. En outre, les données peuvent être davantage affinées et traitées en connectant des données d’Azure Cosmos DB à HDInsight pour les tâches Pig, Hive ou Map/Reduce.  Les données affinées sont ensuite chargées à nouveau dans Azure Cosmos DB pour la création de rapports.   
 
 Pour un exemple de solution IoT utilisant Azure Cosmos DB, EventHubs et Storm, consultez le [référentiel d’exemples de Storm et HDInsight sur GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 

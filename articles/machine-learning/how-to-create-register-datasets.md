@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: a8f1ca1da54c816199a0504eb17fa0a7bbfc441b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522187"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103417635"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -182,9 +182,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 Pour réutiliser et partager des jeux de données dans des expériences de votre espace de travail, [inscrivez votre jeu de données](#register-datasets).
 
+## <a name="wrangle-data"></a>Data wrangling
+Une fois que vous avez créé et [inscrit](#register-datasets) votre jeu de données, vous pouvez le charger dans votre notebook pour le data wrangling et l’[exploration](#explore-data) des données avant d’effectuer l’apprentissage du modèle. 
+
+Si vous n’avez pas besoin d’effectuer une exploration des données ou un data wrangling, découvrez comment utiliser des jeux de données dans vos scripts d’apprentissage pour soumettre des expériences ML dans [Effectuer l’apprentissage avec des jeux de données](how-to-train-with-datasets.md).
+
+### <a name="filter-datasets-preview"></a>Filtrer les jeux de données (préversion)
+Les capacités de filtrage dépendent du type de jeu de données dont vous disposez. 
+> [!IMPORTANT]
+> Le filtrage de jeux de données à l’aide de la méthode de la préversion publique, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-), est une fonctionnalité d’évaluation [expérimentale](/python/api/overview/azure/ml/#stable-vs-experimental) et peut changer à tout moment. 
+> 
+**Pour TabularDatasets**, vous pouvez conserver ou supprimer des colonnes avec les méthodes [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) et [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-).
+
+Pour filtrer les lignes en utilisant une valeur de colonne spécifique dans un TabularDataset, utilisez la méthode [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) (préversion). 
+
+Les exemples suivants retournent un jeu de données non inscrit en fonction des expressions spécifiées.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**Dans FileDatasets**, chaque ligne correspond à un chemin d’accès à un fichier, de sorte que le filtrage par valeur de colonne n’est pas utile. Toutefois, vous pouvez utiliser [filter()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) pour filtrer les lignes par métadonnées, par exemple CreationTime, Size, etc.
+
+Les exemples suivants retournent un jeu de données non inscrit en fonction des expressions spécifiées.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+Les **jeux de données étiquetés** créés à partir de [projets d’étiquetage des données](how-to-create-labeling-projects.md) sont un cas particulier. Ces jeux de données sont un type de TabularDataset constitué de fichiers image. Pour ces types de jeux de données, vous pouvez utiliser [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) pour filtrer les images par métadonnées et par valeurs de colonne, par exemple `label` et `image_details`.
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## <a name="explore-data"></a>Explorer des données
 
-Une fois que vous avez créé et [inscrit](#register-datasets) votre jeu de données, vous pouvez le charger dans votre notebook pour l’exploration des données avant d’effectuer l’apprentissage du modèle. Si vous n’avez pas besoin d’effectuer une exploration des données, découvrez comment utiliser des jeux de données dans vos scripts d’apprentissage pour soumettre des expériences ML dans [Apprentissage avec des jeux de données](how-to-train-with-datasets.md).
+Une fois que vous avez terminé votre data wrangling, vous pouvez [inscrire](#register-datasets) votre jeu de données, puis le charger dans votre notebook pour l’exploration des données avant la formation du modèle.
 
 Pour les FileDataset, vous pouvez **monter** ou **télécharger** votre jeu de données, et appliquer les bibliothèques Python que vous utiliseriez normalement pour l’exploration des données. [En savoir plus sur le montage et le téléchargement](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-using-azure-resource-manager"></a>Créer des jeux de données à l'aide d'Azure Resource Manager
 
-Les modèles disponibles à l'adresse [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) peuvent être utilisés pour créer des jeux de données.
+De nombreux modèles sont disponibles à l’adresse [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) et peuvent être utilisés pour créer des jeux de données.
 
 Pour plus d'informations sur l'utilisation de ces modèles, consultez [Utiliser un modèle Azure Resource Manager afin de créer un espace de travail pour Azure Machine Learning](how-to-create-workspace-template.md).
 

@@ -3,13 +3,13 @@ title: Créer un tableau de bord du portail Azure à l’aide d’un modèle Azu
 description: Découvrez comment créer un tableau de bord du portail Azure à l’aide d’un modèle Azure Resource Manager.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745721"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658321"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Démarrage rapide : Créer un tableau de bord dans le portail Azure à l’aide d’un modèle ARM
 
@@ -30,9 +30,13 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 Le tableau de bord que vous créez dans la prochaine partie de ce guide de démarrage rapide nécessite une machine virtuelle existante. Créez une machine virtuelle en effectuant les étapes suivantes.
 
-1. Dans le portail Azure, sélectionnez Cloud Shell.
+1. Dans le portail Azure, sélectionnez **Cloud Shell**.
 
     ![Sélectionner Cloud Shell sur le ruban du portail Azure](media/quick-create-template/cloud-shell.png)
+
+1. Dans la fenêtre **Cloud Shell**, sélectionnez **PowerShell**.
+
+    ![Sélectionner PowerShell dans la fenêtre de terminal](media/quick-create-template/powershell.png)
 
 1. Copiez la commande suivante, puis entrez-la à l’invite de commandes pour créer un groupe de ressources.
 
@@ -85,19 +89,7 @@ Le portail Azure est utilisé pour déployer le modèle. Outre le portail Azure,
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 
-Vérifiez que le tableau de bord a été correctement créé et que vous pouvez voir les données de la machine virtuelle.
-
-1. Dans le portail Azure, sélectionnez **Tableau de bord**.
-
-    ![Navigation du portail Azure jusqu’au tableau de bord](media/quick-create-template/navigate-to-dashboards.png)
-
-1. Dans la page Tableau de bord, sélectionnez **Tableau de bord Machine virtuelle simple**.
-
-    ![Accéder au tableau de bord Machine virtuelle simple](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Examinez le tableau de bord créé par le modèle ARM. Vous pouvez voir qu’une partie du contenu est statique, mais il y a également des graphiques qui indiquent les performances de la machine virtuelle que vous avez créée au début.
-
-    ![Examiner le tableau de bord Machine virtuelle simple](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

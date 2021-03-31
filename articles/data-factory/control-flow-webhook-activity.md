@@ -3,22 +3,25 @@ title: Activité Webhook dans Azure Data Factory
 description: L’activité de webhook interrompt l’exécution du pipeline jusqu’à ce qu’elle valide le jeu de données attaché avec certains critères spécifiés par l’utilisateur.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4c3ff5d7139f4167769f78aa858c7d7a693539a3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361483"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785935"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité Webhook dans Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Une activité de webhook peut contrôler l’exécution des pipelines dans votre code personnalisé. Grâce à l’activité de webhook, le code des clients peut appeler un point de terminaison et lui passer une URL de rappel. L’exécution du pipeline attend l’appel du rappel avant de passer à l’activité suivante.
+
+> [!IMPORTANT]
+> L’activité WebHook vous permet désormais de retracer l’état d’erreur et les messages personnalisés à l’activité et au pipeline. Affectez à _reportStatusOnCallBack_ la valeur true et incluez _StatusCode_ et _Error_ dans la charge utile de rappel. Pour plus d’informations, consultez la section [Remarques supplémentaires](#additional-notes).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -37,6 +40,7 @@ Une activité de webhook peut contrôler l’exécution des pipelines dans votre
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",

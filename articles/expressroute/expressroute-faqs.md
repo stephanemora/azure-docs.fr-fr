@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 417a6a55f0114ec35554e598b456f4fb67eb1c1b
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574456"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587277"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -204,7 +204,7 @@ Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous p
 
 Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements de peering ExpressRoute et que les circuits sont créés à différents emplacements de peering, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement de peering, vous pouvez lier jusqu’à quatre circuits au même réseau virtuel.
 
-### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
+### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment faire pour connecter mes réseaux virtuels à un circuit ExpressRoute ?
 
 Étapes élémentaires :
 
@@ -298,6 +298,15 @@ Vous devez également effectuer un suivi avec votre fournisseur de connectivité
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Comment modifier la bande passante d’un circuit ExpressRoute ?
 
 Vous pouvez mettre à jour de la bande passante du circuit ExpressRoute à l’aide de l’API REST ou l’applet de commande PowerShell.
+
+### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>J’ai reçu une notification concernant la maintenance sur mon circuit ExpressRoute. Quel est l’impact technique de cette maintenance ?
+
+Vous devriez constater un impact minimal ou nul pendant la maintenance si vous faites fonctionner votre circuit en [mode actif/actif](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). Nous procédons à la maintenance des connexions primaire et secondaire de votre circuit séparément. La maintenance planifiée est généralement effectuée en dehors des heures de bureau dans le fuseau horaire de la localisation du peering et vous ne pouvez pas sélectionner une heure de maintenance.
+
+### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>J’ai reçu une notification concernant une mise à niveau ou une maintenance logicielle sur ma passerelle ExpressRoute. Quel est l’impact technique de cette maintenance ?
+
+Vous devriez constater un impact minimal ou nul durant une opération de mise à niveau ou de maintenance logicielles sur votre passerelle. La passerelle ExpressRoute est composée de plusieurs instances et, lors des mises à niveau, les instances sont mises hors connexion une à une. Si cela peut occasionner une baisse temporaire du débit réseau pour le réseau virtuel, la passerelle elle-même ne subira aucun temps d’arrêt.
+
 
 ## <a name="expressroute-premium"></a>ExpressRoute Premium
 
