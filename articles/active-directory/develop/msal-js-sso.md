@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84690776"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Authentification unique avec MSAL.js
@@ -116,7 +116,7 @@ Par conception, le fichier MSAL.js nécessite l’appel d’une méthode de conn
 
 Dans certains cas, les applications ont accès au jeton d’ID ou au contexte de l’utilisateur authentifié via une authentification initiée par une autre application, et souhaitent tirer parti de l’authentification unique pour acquérir des jetons sans avoir à se connecter d’abord, via MSAL.js.
 
-Voici un exemple : Un utilisateur est connecté à une application web parente qui héberge une autre application JavaScript, exécutée en tant que module complémentaire ou plug-in.
+Voici un exemple de cela : un utilisateur est connecté à une application web parente qui héberge une autre application JavaScript, exécutée en tant que module complémentaire ou plug-in.
 
 L’expérience d’authentification unique de ce scénario peut être obtenue comme suit :
 

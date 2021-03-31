@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0277d4ce263610576178e3844a0665ab6506fbfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689315"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579159"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Prérequis pour la synchronisation cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser la synchronisation cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -33,10 +33,10 @@ Vous avez besoin des éléments suivants pour utiliser la synchronisation cloud 
 Un compte de service managé de groupe est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN), la possibilité de déléguer la gestion à d’autres administrateurs et cette fonctionnalité s’étend sur plusieurs serveurs.  Azure AD Connect Cloud Sync prend en charge et utilise un gMSA pour l’exécution de l’agent.  Vous serez invité à fournir des informations d’identification d’administration lors de l’installation, afin de créer ce compte.  Le compte s’affiche sous la forme (domain\provAgentgMSA$).  Pour plus d’informations sur un gMSA, consultez [Comptes de service managés de groupe](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Prérequis pour gMSA :
-1.  Le schéma Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2012.
+1.  Le schéma Active Directory dans la forêt du domaine gMSA doit être mis à jour vers Windows Server 2016.
 2.  Les [modules RSAT PowerShell](/windows-server/remote/remote-server-administration-tools) sur un contrôleur de domaine
-3.  Au moins un contrôleur de domaine dans le domaine doit exécuter Windows Server 2012.
-4.  Un serveur joint à un domaine sur lequel l’agent est en cours d’installation doit être configuré avec Windows Server 2012 ou une version ultérieure.
+3.  Au moins un contrôleur de domaine dans le domaine doit exécuter Windows Server 2016.
+4.  Un serveur joint à un domaine sur lequel l’agent est en cours d’installation doit être configuré avec Windows Server 2016 ou version ultérieure.
 
 ### <a name="custom-gmsa-account"></a>Compte gMSA personnalisé
 Si vous créez un compte gMSA personnalisé, vous devez vous assurer que le compte dispose des autorisations suivantes.

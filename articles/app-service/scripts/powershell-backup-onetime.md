@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Sauvegarder une application'
+title: 'PowerShell : Sauvegarder une application'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment sauvegarder une application.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: 8d41d491edd5fc6acf0b3b93d92771d0a99ece90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079963"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Sauvegarder une application web à l’aide de PowerShell

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Achieve3000 | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Achieve3000 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Achieve3000.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313366"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Achieve3000
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Achieve3000
 
 Ce tutoriel explique comment intégrer Achieve3000 avec Azure Active Directory (Azure AD). Quand vous intégrez Achieve3000 à Azure AD, vous pouvez :
 
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique côté **Achieve3000**, vous devez e
 
 ### <a name="create-achieve3000-test-user"></a>Créer un utilisateur de test Achieve3000
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Achieve3000. Contactez l’ [équipe du support technique Achieve3000](https://www.achieve3000.com/contact-us/) pour ajouter des utilisateurs à la plateforme Achieve3000. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Achieve3000. Pour ajouter des utilisateurs dans la plateforme Achieve3000, collaborez avec l’[équipe du support technique Achieve3000](https://www.achieve3000.com/contact-us/). Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

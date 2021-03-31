@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: ce58fc69496f54c078b0a0a55a8a3c7cad82a051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81391706"
 ---
-# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Démarrage rapide : Déployer une application du catalogue de services à l’aide du portail Microsoft Azure
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Démarrage rapide : Déployer une application du catalogue de services via le portail Microsoft Azure
 
 Dans le [démarrage rapide précédent](publish-service-catalog-app.md), vous avez publié une définition d’application managée. Dans ce démarrage rapide, vous allez créer une application de catalogue de services à partir de cette définition.
 
@@ -54,7 +54,7 @@ Une fois l’application de catalogue de services déployée, vous avez deux nou
 
 1. Affichez le groupe de ressources **applicationGroup** pour voir l’application de catalogue de services.
 
-   ![Afficher l’application](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Voir l’application](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Affichez le groupe de ressources **applicationGroup{caractères-hachage}** pour voir les ressources de l’application de catalogue de services.
 

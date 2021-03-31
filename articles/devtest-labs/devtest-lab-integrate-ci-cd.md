@@ -4,10 +4,10 @@ description: Découvrez comment intégrer Azure DevTest Labs à votre pipeline d
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 96f99d41d0a7ea07bf3854292f9c3bd6245414b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288927"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Intégrer Azure DevTest Labs dans votre pipeline CI/CD Azure Pipelines
@@ -129,7 +129,7 @@ L'étape suivante consiste à créer la machine virtuelle avec l'image de réfé
    
    |Champ|Valeur|
    |---|---|
-   |**Abonnement Azure RM**|Sélectionnez une connexion ou un abonnement au service dans la liste déroulante **Connexions au service Azure disponibles** ou **Abonnements Azure disponibles**, puis sélectionnez **Autoriser** si nécessaire.<br /><br />**Remarque :** Pour plus d’informations sur la création d’une connexion d’autorisations plus restreinte à votre abonnement Azure, consultez [Point de terminaison de service Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
+   |**Abonnement Azure RM**|Sélectionnez une connexion ou un abonnement au service dans la liste déroulante **Connexions au service Azure disponibles** ou **Abonnements Azure disponibles**, puis sélectionnez **Autoriser** si nécessaire.<br /><br />**Remarque :** pour plus d’informations sur la création d’une connexion d’autorisations plus restreinte à votre abonnement Azure, consultez [Point de terminaison de service Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Nom du labo**|Sélectionnez le nom d’un labo existant dans lequel la machine virtuelle de labo sera créée.|
    |**Nom du modèle**|Entrez le chemin complet et le nom du fichier de modèle que vous avez enregistré dans votre dépôt de code source. Vous pouvez utiliser les propriétés intégrées pour simplifier le chemin, par exemple :<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Paramètres du modèle**|Entrez les paramètres des variables que vous avez définies précédemment :<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
@@ -143,7 +143,7 @@ Exécutez le script que vous avez créé pour collecter les détails de la machi
    
 1. Sous **Ajouter des tâches**, sélectionnez **Azure PowerShell**, puis **Ajouter**. 
    
-1. Sélectionnez **Script Azure PowerShell : FilePath** dans le volet gauche. 
+1. Dans le volet gauche, sélectionnez **Script Azure PowerShell : FilePath**. 
    
 1. Dans le volet de droite, remplissez le formulaire comme suit :
    
@@ -173,7 +173,7 @@ La tâche suivante consiste à créer, dans votre instance Azure DevTest Labs, u
    |**Nom du labo**|Sélectionnez le nom d’un labo existant dans lequel l’image sera créée.|
    |**Nom de l’image personnalisée**|Entrez un nom pour l'image personnalisée.|
    |**Description** (facultatif)|Entrez une description afin de faciliter la sélection de l’image appropriée ultérieurement.|
-   |**Machine virtuelle de labo source** > **ID de machine virtuelle de labo source**|Si vous avez modifié le nom par défaut de la variable LabVMId, entrez-le ici. La valeur par défaut est **$(labVMId)** .|
+   |**Machine virtuelle de labo source** > **ID de machine virtuelle de labo source**|Si vous avez modifié le nom par défaut de la variable LabVMId, entrez-le ici. La valeur par défaut est **$(labVMId)**.|
    |**Variables de sortie** > **ID de l’image personnalisé**|Vous pouvez modifier le nom par défaut de la variable si nécessaire.|
    
 ### <a name="deploy-your-app-to-the-devtest-labs-vm-optional"></a>Déployer votre application sur la nouvelle machine virtuelle DevTest Labs (facultatif)
@@ -193,7 +193,7 @@ La dernière tâche consiste à supprimer la machine virtuelle que vous avez dé
 1. Configurez la tâche comme indiqué ci-dessous :
    
    - Sous **Abonnement Azure RM**, sélectionnez votre connexion ou abonnement au service. 
-   - Pour **Lab VM ID** (ID de machine virtuelle de labo), si vous avez modifié le nom par défaut de la variable LabVMId, entrez-le ici. La valeur par défaut est **$(labVMId)** .
+   - Pour **Lab VM ID** (ID de machine virtuelle de labo), si vous avez modifié le nom par défaut de la variable LabVMId, entrez-le ici. La valeur par défaut est **$(labVMId)**.
    
 ### <a name="save-the-release-pipeline"></a>Enregistrer le pipeline de mise en production
 

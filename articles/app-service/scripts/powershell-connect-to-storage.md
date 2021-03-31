@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Se connecter à un compte de stockage'
+title: 'PowerShell : Se connecter à un compte de stockage'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment connecter une application à un compte de stockage.
 tags: azure-service-management
 ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 9c182c797515288038ae6a23d6d939d5ec855011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073911"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>Connecter une application App Service à un compte de stockage

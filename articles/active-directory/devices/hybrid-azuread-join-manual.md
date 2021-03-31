@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346b997b5e0c785d066ce3a1edaab8cbea10212
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644117"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577986"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride
 
@@ -74,6 +74,9 @@ Si votre organisation utilise une configuration gérée (non fédérée) avec Ac
 Pour les appareils Windows 10 exécutant la version 1703 ou antérieure, si votre organisation nécessite un accès à Internet via un proxy sortant, vous devez implémenter la découverte automatique de proxy web (WPAD) pour permettre aux ordinateurs Windows 10 de s’inscrire à Azure AD.
 
 Tout d’abord, pour Windows 10 1803, même si un appareil tente une jonction Azure AD hybride dans un domaine fédéré par le biais d’AD FS et échoue, et si Azure AD Connect est configuré pour synchroniser les objets ordinateur/d’appareil avec Azure AD, l’appareil essaie d’effectuer la jonction Azure AD hybride en utilisant l’ordinateur/appareil synchronisé.
+
+> [!NOTE]
+> Afin que la jointure de synchronisation pour l’inscription de l’appareil réussisse, dans la configuration de l’inscription de l’appareil, n’excluez pas les attributs d’appareil par défaut de votre configuration de synchronisation Azure AD Connect. Pour en savoir plus sur les attributs d’appareil par défaut synchronisés avec Azure AD, consultez [Attributs synchronisés par Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Pour vérifier si l’appareil est en mesure d’accéder aux ressources Microsoft ci-dessus sous le compte système, vous pouvez utiliser le script [Tester la connectivité de l’inscription des appareils](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 

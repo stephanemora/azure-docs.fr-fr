@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503609"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574643"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -98,30 +98,30 @@ Quelques exceptions et limites s’appliquent quant au choix d’une taille de m
 
 Pour en savoir plus sur les séries prises en charge et les restrictions, consultez le tableau suivant.
 
-| **Série de machines virtuelles prises en charge**  | **Restrictions** |
-|------------|------------|
-| D | Aucun. |
-| DDSv4 | Aucun. |
-| Dv2 | Aucun. |  
-| Dv3 | Aucun.|
-| DSv2 | Aucun. | 
-| DSv3 | Aucun.|
-| EAv4 | Aucun. |
-| Ev3 | Aucun. |
-| FSv2 | Aucun. | 
-| H | Aucun. |
-| HB | Nécessite une approbation. |
-| HBv2 | Nécessite une approbation. |  
-| Service de calcul hôte | Nécessite une approbation. |  
-| M | Nécessite une approbation. |
-| NC | Aucun. |  
-| NC Promo | Aucun. |
-| NCsv2 | Nécessite une approbation. |
-| NCsv3 | Nécessite une approbation. |  
-| NDs | Nécessite une approbation. |
-| NDv2 | Nécessite une approbation. |
-| NV | Aucun. |
-| NVv3 | Nécessite une approbation. | 
+| **Série de machines virtuelles prises en charge**  | **Restrictions** | **Catégorie** | **Pris en charge par** |
+|------------|------------|------------|------------|
+| D | Aucun. | Usage général | Clusters et instance de calcul |
+| DDSv4 | Aucun. | Usage général | Clusters et instance de calcul |
+| Dv2 | Aucun. | Usage général | Clusters et instance de calcul |
+| Dv3 | Aucun.| Usage général | Clusters et instance de calcul |
+| DSv2 | Aucun. | Usage général | Clusters et instance de calcul |
+| DSv3 | Aucun.| Usage général | Clusters et instance de calcul |
+| EAv4 | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
+| Ev3 | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
+| FSv2 | Aucun. | Optimisé pour le calcul | Clusters et instance de calcul |
+| H | Aucun. | Calcul haute performance | Clusters et instance de calcul |
+| HB | Nécessite une approbation. | Calcul haute performance | Clusters et instance de calcul |
+| HBv2 | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
+| Service de calcul hôte | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
+| M | Nécessite une approbation. | Mémoire optimisée | Clusters et instance de calcul |
+| NC | Aucun. |  GPU | Clusters et instance de calcul |
+| NC Promo | Aucun. | GPU | Clusters et instance de calcul |
+| NCsv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul |
+| NCsv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul |  
+| NDs | Nécessite une approbation. | GPU | Clusters et instance de calcul | 
+| NDv2 | Nécessite une approbation. | GPU | Clusters et instance de calcul | 
+| NV | Aucun. | GPU | Clusters et instance de calcul | 
+| NVv3 | Nécessite une approbation. | GPU | Clusters et instance de calcul | 
 
 
 Même si Azure Machine Learning prend en charge ces séries de machines virtuelles, elles peuvent ne pas être disponibles dans toutes les régions Azure. Pour vérifier si les séries de machines virtuelles sont disponibles, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

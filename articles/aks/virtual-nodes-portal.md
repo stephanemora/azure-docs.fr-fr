@@ -3,14 +3,14 @@ title: Créer des nœuds virtuels à l’aide du portail dans Azure Kubernetes S
 description: Découvrez comment utiliser le Portail Azure pour créer un cluster Azure Kubernetes Service (AKS) qui s’appuie sur des nœuds virtuels pour exécuter des pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 06a3e7263b2e03cfc37f7ba3c733e07536b5d473
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: c1ecaa88dd5329d86818565983a6ba891a6d8424
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102501802"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577821"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels sur le Portail Azure
 
@@ -54,15 +54,15 @@ Sélectionnez **Créer une ressource** > **Kubernetes Service** dans le coin sup
 Sur la page **Bases**, configurez les options suivantes :
 
 - *DÉTAILS DU PROJET* : Choisissez un abonnement Azure, puis sélectionnez ou créez un groupe de ressources Azure, comme *myResourceGroup*. Entrez un **nom du cluster Kubernetes**, tel que *myAKSCluster*.
-- *DÉTAILS DU CLUSTER* : Sélectionnez une région, une version de Kubernetes et le préfixe du nom DNS du cluster AKS.
+- *DÉTAILS DU CLUSTER* : sélectionnez une région et une version de Kubernetes pour le cluster AKS.
 - *POOL DE NŒUDS PRINCIPAL* : Sélectionnez une taille de machine virtuelle pour les nœuds AKS. Elle ne sera **pas modifiable** une fois le cluster AKS déployé.
      - Sélectionnez également le nombre de nœuds à déployer dans le cluster. Dans le cadre de cet article, définissez **Nombre de nœuds** sur *1*. Le nombre de nœuds est **modifiable** après le déploiement du cluster.
 
-Cliquez sur **Suivant : Mise à l'échelle**.
+Cliquez sur **Suivant : Pools de nœuds**.
 
-Sur la page **Mise à l’échelle**, sélectionnez *Activé* sous **Nœuds virtuels**.
+Dans la page **Pools de nœuds**, sélectionnez *Activer les nœuds virtuels*.
 
-![Créer un cluster AKS et activer les nœuds virtuels](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="Dans un navigateur, montre la création d’un cluster avec des nœuds virtuels activés sur le portail Azure. L’option « Activer les nœuds virtuels » est mise en surbrillance.":::
 
 Une identité de cluster est créée par défaut. Cette identité de cluster est utilisée pour la communication entre les clusters et l’intégration à d’autres services Azure. Par défaut, cette identité de cluster est une identité managée. Pour plus d’informations, consultez [Utiliser des identités managées](use-managed-identity.md). Vous pouvez également utiliser un principal de service comme identité de cluster.
 
@@ -158,7 +158,7 @@ Le pod reçoit une adresse IP interne du sous-réseau de réseau virtuel Azure d
 Pour tester le pod en cours d’exécution sur le nœud virtuel, accédez à l’application de démonstration avec un client web. Comme le pod possède une adresse IP interne, vous pouvez tester facilement cette connectivité à partir d’un autre pod sur le cluster AKS. Créez un pod de test et attachez-y une session Terminal :
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Installez `curl` dans le pod en utilisant `apt-get` :

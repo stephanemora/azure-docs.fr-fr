@@ -1,7 +1,7 @@
 ---
 title: Mode d’appareil partagé pour les appareils iOS
 titleSuffix: Microsoft identity platform | Azure
-description: Apprenez à activer le mode Appareil partagé pour permettre aux employés de terrain de partager un appareil iOS
+description: Découvrez comment activer le mode Appareil partagé pour permettre aux employés de terrain de partager un appareil iOS
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561061"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578785"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Mode d’appareil partagé pour les appareils iOS
 
@@ -230,6 +230,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour voir le mode Appareil partagé en action, l’exemple de code suivant sur GitHub fournit un exemple d’exécution d’une application FirstLine Worker sur un appareil iOS en mode Appareil partagé :
+Pour voir le mode Appareil partagé en action, l’exemple de code suivant sur GitHub fournit un exemple d’exécution d’une application d’employés de terrain sur un appareil iOS en mode Appareil partagé :
 
 [Exemple d’API Microsoft Graph MSAL iOS Swift](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

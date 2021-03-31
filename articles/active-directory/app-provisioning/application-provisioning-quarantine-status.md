@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/24/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256303"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579499"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionnement d’application en état de quarantaine
 
@@ -85,7 +85,7 @@ Tout d’abord, résolvez le problème qui a provoqué la mise en quarantaine de
 
 Une fois que vous avez résolu le problème, redémarrez le travail de provisionnement. Certaines modifications apportées aux paramètres de provisionnement de l’application, comme des mappages d’attributs ou des filtres d’étendue, redémarrent automatiquement le provisionnement. La barre de progression dans la page **Provisionnement** de l’application indique à quel moment le dernier provisionnement a démarré. Si vous avez besoin de redémarrer manuellement le travail de provisionnement, utilisez l’une des méthodes suivantes :  
 
-- Utilisez le portail Azure pour redémarrer le travail de provisionnement. Dans la page **Provisionnement** de l’application, sous **Paramètres**, sélectionnez l’État **Effacer l’état en cours et redémarrer la synchronisation**, puis définissez **État du provisionnement** sur **Activé**. Cette action redémarre complètement le service de provisionnement, ce qui peut prendre un certain temps. Un cycle initial complet se réexécute, ce qui permet de supprimer les entiercements, de sortir l’application de quarantaine et d’effacer tous les filigranes.
+- Utilisez le portail Azure pour redémarrer le travail de provisionnement. Dans la page **Approvisionnement** de l’application, sélectionnez **Redémarrer l’approvisionnement**. Cette action redémarre complètement le service de provisionnement, ce qui peut prendre un certain temps. Un cycle initial complet se réexécute, ce qui permet de supprimer les entiercements, de sortir l’application de quarantaine et d’effacer tous les filigranes. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, tel qu’indiqué dans cet article, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Utilisez Microsoft Graph pour [redémarrer le travail de provisionnement](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Vous bénéficiez d’un contrôle total sur ce que vous redémarrez. Vous pouvez choisir d’effacer les entiercements (pour redémarrer le compteur d’entiercements qui augmente jusqu’à l’état de quarantaine), de supprimer la quarantaine (pour sortir l’application de quarantaine) ou d’effacer les filigranes. Utilisez la requête suivante :
  
