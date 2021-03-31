@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a7be682f921efdfae486e8f6545758964a941ae
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 90ad35757834c14abdffb017ff31b3296074ca24
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098857"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802435"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Déployer des machines virtuelles Azure Spot à l’aide d’Azure CLI
 
@@ -33,7 +33,7 @@ Pour créer des machines virtuelles Azure Spot, vous devez exécuter Azure CLI v
 
 Connectez-vous à Azure avec la commande [az login](/cli/azure/reference-index#az-login).
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -41,7 +41,7 @@ az login
 
 Cet exemple montre comment déployer une machine virtuelle Azure Spot Linux qui ne sera pas supprimée en fonction du prix. La stratégie d’éviction est définie pour désallouer la machine virtuelle, afin qu’elle puisse être redémarrée ultérieurement. Si vous souhaitez supprimer la machine virtuelle et le disque sous-jacent quand la machine virtuelle est supprimée, définissez `--eviction-policy` avec `Delete`.
 
-```azurecli
+```azurecli-interactive
 az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
@@ -58,7 +58,7 @@ az vm create \
 
 Une fois la machine virtuelle créée, vous pouvez effectuer une requête pour voir le prix de facturation maximal pour toutes les machines virtuelles du groupe de ressources.
 
-```azurecli
+```azurecli-interactive
 az vm list \
    -g mySpotGroup \
    --query '[].{Name:name, MaxPrice:billingProfile.maxPrice}' \
@@ -67,21 +67,55 @@ az vm list \
 
 ## <a name="simulate-an-eviction"></a>Simuler une éviction
 
-Vous pouvez [simuler l’éviction](/rest/api/compute/virtualmachines/simulateeviction) d’une machine virtuelle Azure Spot afin de tester l’efficacité de la réponse de votre application en vue d’une éviction soudaine. 
+Vous pouvez simuler l’éviction d’une machine virtuelle spot Azure à l’aide de REST, de PowerShell ou de CLI, afin de tester l’efficacité de la réponse de votre application à une éviction soudaine.
 
-Remplacez les éléments suivants par vos informations : 
+Dans la plupart des cas, vous pouvez utiliser l’API REST [Machines virtuelles – Simuler une éviction](/rest/api/compute/virtualmachines/simulateeviction) pour faciliter le test automatisé des applications. Pour REST, un `Response Code: 204` signifie que l’éviction simulée a réussi. Vous pouvez combiner des évictions simulées avec le [service d’événement planifié](scheduled-events.md) pour automatiser la manière dont votre application répondra lors de l’éviction de la machine virtuelle.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Pour voir les événements planifiés en action, regardez [Azure Friday – Utilisation d’événements planifiés Azure pour préparer la maintenance de machines virtuelles](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Test rapide
+
+Pour un test rapide montrant le fonctionnement d’une éviction simulée, nous allons examiner l’interrogation du service d’événement planifié pour voir à quoi ressemble la simulation d’une éviction à l’aide d’Azure CLI.
+
+Le service d’événement planifié est activé pour votre service la première fois que vous effectuez une demande d’événements. 
+
+Accédez à distance à votre machine virtuelle, puis ouvrez une invite de commandes. 
+
+Dans l’invite de commandes sur votre machine virtuelle, tapez :
+
 ```
-`Response Code: 204` signifie que l’éviction simulée a réussi. 
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
 
-**Étapes suivantes**
+Cette première réponse peut prendre jusqu’à 2 minutes. À partir de maintenant, ils devraient afficher la sortie presque immédiatement.
+
+À partir d’un ordinateur sur lequel Azure CLI est installé (comme votre ordinateur local), simulez une éviction à l’aide de la commande [az vm simulation-eviction](https://docs.microsoft.com/cli/azure/vm#az_vm_simulate_eviction). Remplacez le nom du groupe de ressources et le nom de la machine virtuelle par les vôtres 
+
+```azurecli-interactive
+az vm simulate-eviction --resource-group mySpotRG --name mySpot
+```
+
+La sortie de la réponse contiendra `Status: Succeeded` si la demande a été effectuée avec succès.
+
+Revenez rapidement à votre connexion à distance à votre machine virtuelle spot et interrogez à nouveau le point de terminaison Scheduled Events. Répétez la commande suivante jusqu’à obtenir une sortie contenant plus d’informations :
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Lorsque le service d’événement planifié reçoit la notification d’éviction, vous obtenez une réponse ressemblant à ceci :
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Vous pouvez voir `"EventType":"Preempt"`, et la ressource est la ressource de machine virtuelle `"Resources":["myspotvm"]`. 
+
+Vous pouvez également voir à quel moment la machine virtuelle sera supprimée en vérifiant la valeur `"NotBefore"`. La machine virtuelle ne sera pas supprimée avant l’heure indiquée. Cela indique la fenêtre pendant laquelle votre application peut se fermer normalement.
+
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez également créer une machine virtuelle Azure Spot à l’aide d’[Azure PowerShell](../windows/spot-powershell.md), du [portail](../spot-portal.md) ou d’un [modèle](spot-template.md).
 

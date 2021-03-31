@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c28790b2ef423a3d0f996d7c6030b04198756eb1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054852"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102607609"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Résoudre les problèmes de connectivité SMTP sortante dans Azure
 
@@ -76,6 +76,10 @@ Pour les abonnements des types suivants qui ont été créés après le 15 nove
 Si vous souhaitez pouvoir envoyer des e-mails à partir de machines virtuelles Azure directement à des fournisseurs de messagerie externes (sans utiliser de relais SMTP authentifié), vous pouvez en faire la demande en ouvrant une demande de support en utilisant le type de problème suivant : **Technique** > **Réseau virtuel** > **Connectivité** > **Impossible d’envoyer un e-mail (SMTP/Port 25)** . Veillez à ajouter des informations supplémentaires sur la raison pour laquelle votre déploiement doit envoyer des e-mails directement aux fournisseurs de messagerie au lieu d’utiliser un relais authentifié. Les demandes seront revues et approuvées à la discrétion de Microsoft. Les demandes sont accordées uniquement après l’exécution de contrôles antifraude supplémentaires. 
 
 Lorsqu’un abonnement est exempté et que les machines virtuelles ont été arrêtées et redémarrées dans le portail Azure, toutes les machines virtuelles de cet abonnement sont exemptées. L’exemption s’applique uniquement à l’abonnement demandé et au trafic de machine virtuelle acheminé directement vers Internet.
+
+## <a name="changing-subscription-type"></a>Modification du type d’abonnement
+
+Si vous modifiez le type d’abonnement ou si votre abonnement Fournisseur de solutions Azure Cloud ou de paiement à l’utilisation est approuvé, vous devez arrêter, libérer, puis redémarrer votre machine virtuelle pour que la nouvelle stratégie prenne effet. De même, si vous avez un type d’abonnement autorisé par défaut et que vous passez à un type d’abonnement non autorisé, le port 25 peut être bloqué en raison des modifications apportées au déploiement.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

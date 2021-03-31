@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 694868f2a75cc66bf9e3ede9d12e30a2cc3d7af9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8a64956deb7849568e70e94c9b58170df60db1e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185935"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775734"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Arrêt TLS avec certificats Key Vault
 
@@ -47,10 +47,19 @@ L’intégration d’Application Gateway avec Key Vault nécessite un processus 
 
 1. **Configurer votre coffre de clés**
 
-   Vous importez ensuite un certificat existant ou vous en créez un dans votre coffre de clés. Ce certificat sera utilisé par les applications qui s’exécutent au moyen de la passerelle d’application. Dans cette étape, vous pouvez également utiliser un secret de coffre de clés, qui est stocké dans un fichier PFX encodé en Base64 et sans mot de passe. Nous vous recommandons d’utiliser un type de certificat en raison de la fonctionnalité de renouvellement automatique disponible avec les objets de type de certificat dans le coffre de clés. Une fois que vous avez créé un certificat ou un secret, vous définissez des stratégies d’accès dans le coffre de clés pour autoriser l’identité qui disposera d’un accès *get* au secret.
+   Vous importez ensuite un certificat existant ou vous en créez un dans votre coffre de clés. Ce certificat sera utilisé par les applications qui s’exécutent au moyen de la passerelle d’application. Dans cette étape, vous pouvez également utiliser un secret de coffre de clés qui permet également le stockage d’un fichier PFX encodé en Base64 sans mot de passe. Nous vous recommandons d’utiliser un type « Certificat » en raison de la fonctionnalité de renouvellement automatique disponible avec ce type d’objets dans le coffre de clés. Une fois que vous avez créé un Certificat ou un Secret, vous devez définir des stratégies d’accès dans le coffre de clés pour autoriser l’identité à laquelle octroyer un accès get au secret.
    
    > [!IMPORTANT]
-   > Application Gateway nécessite actuellement que Key Vault autorise l’accès à partir de tous les réseaux pour tirer parti de l’intégration. Il ne prend pas en charge l’intégration de Key Vault lorsque ce dernier est configuré pour autoriser uniquement les points de terminaison privés et certains accès aux réseaux. Nous travaillons actuellement à la prise en charge des réseaux privés et de certains autres réseaux pour permettre une intégration complète de Key Vault à Application Gateway. 
+   > Depuis le 15 mars 2021, Key Vault reconnaît Azure Application Gateway comme l’un des services de confiance, ce qui vous permet de créer une limite de réseau sécurisée dans Azure. Cela vous donne la possibilité de refuser au trafic en provenance de tous les réseaux (y compris le trafic Internet) l’accès à Key Vault tout en le rendant accessible pour une ressource Application Gateway dans votre abonnement. 
+
+   > Vous pouvez configurer votre Application Gateway dans un réseau restreint de Key Vault de la manière suivante. <br />
+   > a) sous le panneau Mise en réseau de Key Vault, <br />
+   > b) choisissez un point de terminaison privé et des réseaux sélectionnés sous l’onglet « Pare-feu et réseaux virtuels », <br/>
+   > c) puis, à l’aide de Réseaux virtuels, ajoutez le réseau virtuel et le sous-réseau de votre Application Gateway. Pendant le processus, configurez également le point de terminaison de service « Microsoft.keyvault » en activant sa case à cocher. <br/>
+   > d) Enfin, sélectionnez « Oui » pour autoriser les services approuvés à contourner le pare-feu du Key Vault. <br/>
+   > 
+   > ![Pare-feu du Key Vault](media/key-vault-certs/key-vault-firewall.png)
+
 
    > [!NOTE]
    > Si vous déployez la passerelle d’application à l’aide d’un modèle Resource Manager, que ce soit en utilisant Azure CLI ou PowerShell, ou via une application Azure déployée à partir du portail Azure, le certificat SSL est stocké dans le coffre de clés en tant que fichier PFX codé en Base64. Vous devez effectuer les étapes décrites dans [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](../azure-resource-manager/templates/key-vault-parameter.md). 

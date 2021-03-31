@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 40751401760d877fe3feab39f3fea1f2fbeee54b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664215"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608178"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Démarrage rapide : Déballer et assembler vos composants Azure Percept DK
 
@@ -32,7 +32,7 @@ Une fois que vous avez reçu votre appareil Azure Percept DK, consultez ce guid
 1. Connectez les composants du devkit.
 
     > [!NOTE]
-    > Le port de l’adaptateur se trouve sur le côté droit de la carte porteuse. Les ports restants (2 USB-A, 1 USB-C, 1 HDMI et 1 Ethernet) et le bouton de réinitialisation se trouvent sur le côté gauche de la carte porteuse.
+    > Le port de l’adaptateur se trouve sur le côté droit de la carte porteuse. Les ports restants (2 USB-A, 1 USB-C et 1 Ethernet) et le bouton d’alimentation se trouvent sur le côté gauche de la carte porteuse.
 
     1. Vissez à la main les deux antennes Wi-Fi sur la carte porteuse.
 
@@ -44,11 +44,17 @@ Une fois que vous avez reçu votre appareil Azure Percept DK, consultez ce guid
 
     1. Connectez l’adaptateur et le câble d’alimentation à la carte porteuse et à une prise murale. Pour sécuriser entièrement le connecteur du câble d’alimentation qui est relié à la carte porteuse, utilisez un tournevis P7 (non inclus dans le devkit) pour serrer les vis du connecteur.
 
-    1. Lorsque vous branchez le câble d’alimentation sur une prise murale, l’appareil se met automatiquement sous tension. Le bouton de réinitialisation situé sur le côté gauche de la carte porteuse s’allume alors. Vous devez attendre que l’appareil démarre.
+    1. Lorsque vous branchez le câble d’alimentation sur une prise murale, l’appareil se met automatiquement sous tension. Le bouton d’alimentation situé sur le côté gauche de la carte porteuse s’allume alors. Vous devez attendre que l’appareil démarre.
 
         > [!NOTE]
-        > Le bouton de réinitialisation sert à mettre hors tension ou à réinitialiser l’appareil lorsque celui-ci est branché sur une prise d’alimentation. En cas de panne de courant, l’appareil est automatiquement réinitialisé puis rallumé.
+        > Le bouton d’alimentation sert à mettre hors tension ou à redémarrer l’appareil lorsque celui-ci est branché sur une prise d’alimentation. En cas de panne de courant, l’appareil redémarre automatiquement.
+
+Pour une démonstration visuelle de l’assembly DevKit, regardez la vidéo suivante, de 0:00 à 0:50 :
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que votre devkit est branché et sous tension, consultez la procédure pas à pas concernant l’installation d’Azure Percept DK pour terminer la configuration de l’appareil. La procédure d’installation vous permet de connecter votre devkit à un réseau Wi-Fi, de configurer une connexion SSH, de créer un hub IoT et de provisionner votre devkit dans votre compte Azure. Une fois que vous avez terminé la configuration de l’appareil, vous êtes prêt à passer au prototypage.
+Maintenant que votre devkit est branché et sous tension, consultez [Procédure pas à pas concernant l’installation d’Azure Percept DK](./quickstart-percept-dk-set-up.md) pour terminer la configuration de l’appareil. La procédure d’installation vous permet de connecter votre devkit à un réseau Wi-Fi, de configurer une connexion SSH, de créer un hub IoT et de provisionner votre devkit dans votre compte Azure. Une fois que vous avez terminé la configuration de l’appareil, vous êtes prêt à passer au prototypage.

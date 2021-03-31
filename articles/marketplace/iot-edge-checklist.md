@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/01/2021
-ms.openlocfilehash: 4782e6c0ed866c467051fc1811a60df0010a3db1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c1d4c9be1f76e62be3c17d4dec22479db003b77a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743085"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608255"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>Liste de vérification préalable à la certification pour les modules IoT Edge
 
@@ -74,6 +74,7 @@ Vérifiez les éléments suivants :
 - La chaîne de connexion de gestion des prospects est présente.
 - Politique de confidentialité présente
 - Conditions d’utilisation présentes
+- Ajoutez le lien vers les appareils IoT Edge pris en charge à partir du [catalogue d’appareils Azure IoT](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

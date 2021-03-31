@@ -3,31 +3,29 @@ title: Tickets de caisse - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Découvrez les concepts liés à l’analyse des tickets de caisse avec l’API Form Recognizer - utilisation et limites.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546004"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467355"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles de Deep Learning qui comprennent les reçus dans le but d’en extraire des informations clés. L’API Receipt extrait les informations clés des recettes de vente en anglais, telles que le nom du partenaire, la date de transaction, le total de la transaction, les postes, etc. 
+Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles de Deep Learning pour extraire des informations clés des tickets de caisse.
 
-## <a name="understanding-receipts"></a>Comprendre les tickets de caisse 
+## <a name="understanding-receipts"></a>Comprendre les tickets de caisse
 
-De nombreuses entreprises et personnes continuent de s’appuyer sur l’extraction manuelle des données à partir de leurs recettes de vente, qu’il s’agisse de rapports sur les dépenses commerciales, de remboursement, d’audit, d’imposition, de budgétisation, de marketing ou autres. Souvent, dans ces scénarios, les images du ticket de caisse physique sont requises à des fins de validation.  
+Beaucoup d’entreprises et de particuliers s’appuient encore sur les données extraites manuellement des tickets de caisse. L’extraction automatique des données de ces tickets de caisse peut être compliquée. Les tickets de caisse peuvent être froissés, difficiles à lire, comporter des éléments manuscrits et contenir des images de mauvaise qualité provenant de smartphones. En outre, les champs et les modèles de ticket de caisse peuvent varier considérablement selon le marché, la région et le commerçant. Ces difficultés d’extraction des données et de détection des champs font du traitement des tickets de caisse un problème unique.  
 
-L’extraction automatique de données à partir de ces tickets de caisse peut être compliquée. Les tickets de caisse peuvent être froissés et difficiles à lire, les parties imprimées ou manuscrites et les images des tickets de caisse sur les smartphones peuvent être de mauvaise qualité. En outre, les champs et les modèles de ticket de caisse peuvent varier considérablement selon le marché, la région et le commerçant. Ces défis, tant au niveau de l’extraction des données que de la détection des champs, font du traitement des tickets de caisse un problème unique.  
-
-Grâce à la reconnaissance optique de caractères (OCR) et à notre modèle de ticket de caisse prédéfini, l’API Receipt permet de traiter ces scénarios et d’extraire des données des tickets de caisse, par exemple le nom du commerçant, le pourboire, le total, les postes, etc. Avec cette API, il n’est pas nécessaire d’entraîner un modèle ; il suffit d’envoyer le reçu à l’API Analyze Receipt afin que les données soient extraites.
+L’API Receipt utilise la reconnaissance optique de caractères (OCR) et notre modèle prédéfini pour permettre de vastes scénarios de traitement des tickets de caisse. Grâce à l’API Receipt, il n’est pas nécessaire d’effectuer l’apprentissage d’un modèle. Envoyez l’image du ticket de caisse à l’API d’analyse des tickets de caisse et les données sont extraites.
 
 ![exemple de ticket de caisse](./media/receipts-example.jpg)
 
@@ -73,12 +71,12 @@ Pour tester le service de ticket de caisse de Form Recognizer, accédez à l’o
 
 ## <a name="input-requirements"></a>Critères des entrées
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="supported-locales"></a>Paramètres régionaux pris en charge 
 
 * **Receipt v2.0 intégré** (GA) prend en charge les tickets de caisse de ventes dans les paramètres régionaux EN-US
-* **Receipt v2.1-preview.2 intégré** (préversion publique) ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse suivants : 
+* **Receipt v2.1-preview.3 intégré** (préversion publique) ajoute une prise en charge supplémentaire pour les paramètres régionaux de ticket de caisse suivants : 
   * EN-AU 
   * EN-CA 
   * EN-GB 
@@ -87,12 +85,12 @@ Pour tester le service de ticket de caisse de Form Recognizer, accédez à l’o
   > [!NOTE]
   > Entrée de langue 
   >
-  > Receipt v2.1-preview.2 intégré compte un paramètre de demande facultatif permettant de spécifier les paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais d’Australie (EN-AU), du Canada (EN-CA), de Grande-Bretagne (EN-GB) et d’Inde (EN-IN), vous pouvez spécifier les paramètres régionaux pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans Receipt v2.1-preview.2, le modèle utilise par défaut est le modèle EN-US.
+  > Receipt v2.1-preview.3 intégré compte un paramètre de demande facultatif permettant de spécifier les paramètres régionaux de tickets de caisse provenant de marchés anglophones supplémentaires. Pour les tickets de caisse en anglais d’Australie (EN-AU), du Canada (EN-CA), de Grande-Bretagne (EN-GB) et d’Inde (EN-IN), vous pouvez spécifier les paramètres régionaux pour obtenir des résultats améliorés. Si aucun paramètre régional n’est spécifié dans Receipt v2.1-preview.3, le modèle utilise par défaut est le modèle EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>Opération Analyser le ticket de caisse
 
-L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) prend une image ou un fichier PDF d’un ticket de caisse comme entrée et en extrait les valeurs d’intérêt et le texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync) prend une image ou un fichier PDF d’un ticket de caisse comme entrée et en extrait les valeurs d’intérêt et le texte. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
@@ -100,16 +98,16 @@ L’[analyse de ticket de caisse](https://westcentralus.dev.cognitive.microsoft.
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Opération obtenir le résultat de l’analyse du ticket de caisse
 
-La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse du ticket de caisse](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse du ticket de caisse. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
-|status | string | notStarted : L’opération d’analyse n’a pas commencé. |
+|status | string | notStarted : L’opération n’a pas commencé. |
 | |  | running : L’opération d’analyse est en cours. |
 | |  | failed : L’opération d’analyse a échoué. |
 | |  | succeeded : L’opération d’analyse a réussi. |
 
-Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON inclut les résultats de compréhension de ticket de caisse et de reconnaissance de texte. Le résultat de compréhension de ticket de caisse est organisé sous la forme d’un dictionnaire de valeurs de champ nommé, où chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mot correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
+Quand le champ d’**état** a la valeur de **réussite**, la réponse JSON inclut les résultats de compréhension de ticket de caisse et de reconnaissance de texte. Le résultat de la compréhension de ticket de caisse est organisé comme un dictionnaire de valeurs de champs nommés. Chaque valeur contient le texte extrait, la valeur normalisée, le cadre englobant, la confiance et les éléments de mots correspondants. Le résultat de reconnaissance de texte est organisé sous la forme d’une hiérarchie de lignes et de mots, avec du texte, un cadre englobant et des informations de confiance.
 
 ![exemples de résultats de ticket de caisse](./media/contoso-receipt-2-information.png)
 
@@ -447,18 +445,17 @@ Voici un exemple de réponse JSON correcte :
 }
 ```
 
-
 ## <a name="customer-scenarios"></a>Scénarios clients  
 
-Les données extraites avec l’API Receipt peuvent être utilisées pour effectuer diverses tâches. Voici quelques exemples de ce que nos clients ont accompli avec l’API Receipt. 
+Les données extraites avec l’API Receipt peuvent être utilisées pour effectuer diverses tâches. Vous trouverez ci-dessous quelques exemples de ce que les clients ont accompli grâce à l’API Receipt.
 
 ### <a name="business-expense-reporting"></a>Notes de frais professionnels  
 
 Souvent, le classement des dépenses commerciales implique de consacrer du temps à la saisie manuelle de données à partir d’images de ticket de caisse. Avec l’API Receipt, vous pouvez utiliser les champs extraits pour automatiser partiellement ce processus et analyser rapidement vos tickets de caisse.  
 
-Étant donné que l’API Receipt a une sortie JSON simple, vous pouvez utiliser les valeurs de champ extraites de plusieurs façons. Intégrez les applications de dépenses internes pour préremplir les notes de frais. Pour en savoir plus sur ce scénario, lisez comment Acumatica utilise l’API Receipt pour [faire de la déclaration de dépenses un processus moins fastidieux](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
+L’API Receipt est une simple sortie JSON qui vous permet d’utiliser les valeurs de champ extraites de plusieurs façons. Intégrez les applications de dépenses internes pour préremplir les notes de frais. Pour en savoir plus sur ce scénario, lisez comment Acumatica utilise l’API Receipt pour [faire de la déclaration de dépenses un processus moins fastidieux](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
-### <a name="auditing-and-accounting"></a>Audit et comptabilité 
+### <a name="auditing-and-accounting"></a>Audit et comptabilité
 
 La sortie de l’API Receipt peut également être utilisée pour effectuer une analyse sur un grand nombre de dépenses à différents stades de la note de frais et du processus de remboursement. Vous pouvez traiter les tickets de caisse pour les trier en vue d’un audit manuel ou d’approbations rapides.  
 
@@ -472,9 +469,13 @@ L’API Receipt alimente également la [fonctionnalité de traitement de tickets
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez un [démarrage rapide de Form Recognizer](quickstarts/client-library.md) pour commencer à écrire une application de traitement de tickets avec Form Recognizer dans le langage de développement de votre choix.
+ Commencez à écrire une application de traitement de tickets de caisse avec Form Recognizer dans le langage de développement de votre choix.
+
+> [!div class="nextstepaction"]
+> [Suivre un démarrage rapide Form Recognizer](quickstarts/client-library.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Qu’est-ce que Form Recognizer ?](./overview.md)
-* [Documentation de référence sur l’API REST](./index.yml)
+* [Qu’est-ce que Form Recognizer ?](overview.md)
+* [Informations de référence sur l’API Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
+>

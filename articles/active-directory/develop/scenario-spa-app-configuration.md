@@ -12,26 +12,22 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5cbb576a7fcfb2daf492a149130aa7c99fe10ac5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fe73832ec5eaee62a2dc2d397c12f82334e2efd8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753617"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010698"
 ---
 # <a name="single-page-application-code-configuration"></a>Application monopage : Configuration de code
 
 En savoir plus sur la configuration du code de votre application monopage (SPA).
 
-## <a name="msal-libraries-for-spas-and-supported-authentication-flows"></a>Bibliothèques MSAL pour les SPA et les flux d’authentification pris en charge
+## <a name="microsoft-libraries-supporting-single-page-apps"></a>Bibliothèques Microsoft prenant en charge les applications monopages 
 
-La plateforme d’identité Microsoft fournit la bibliothèque d’authentification Microsoft suivante pour JavaScript (MSAL.js) pour prendre en charge le flux implicite et le flux de code d’autorisation avec PKCE à l’aide des pratiques de sécurité recommandées par le secteur :
+Les bibliothèques Microsoft suivantes prennent en charge les applications monopages :
 
-| Bibliothèque MSAL | Flux | Description |
-|--------------|------|-------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (2.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) | Flux du code d’autorisation (PKCE) | Bibliothèque JavaScript brute à utiliser dans n’importe quelle application web côté client qui est créée par l’intermédiaire de frameworks JavaScript ou SPA, tels que Angular, Vue.js and React.js. |
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js (1.x)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core) | Flux implicite | Bibliothèque JavaScript brute à utiliser dans n’importe quelle application web côté client qui est créée par l’intermédiaire de frameworks JavaScript ou SPA, tels que Angular, Vue.js and React.js. |
-| ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Flux implicite | Wrapper de la bibliothèque MSAL.js principale pour simplifier l’utilisation dans les applications monopages qui sont créées à l’aide du framework Angular. |
+[!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 
 ## <a name="application-code-configuration"></a>Configuration du code de l’application
 

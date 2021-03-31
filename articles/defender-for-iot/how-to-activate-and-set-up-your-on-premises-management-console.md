@@ -1,18 +1,14 @@
 ---
 title: Activer et configurer votre console de gestion locale
-description: L’activation et la configuration de la console de gestion garantissent que les capteurs sont inscrits auprès d’Azure et envoient des informations à la console de gestion locale, et que la console de gestion locale effectue des tâches de gestion sur les capteurs connectés.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/12/2021
+description: L’activation de la console de gestion garantit que les capteurs sont inscrits auprès d’Azure et envoient des informations à la console de gestion locale, et que la console de gestion locale effectue des tâches de gestion sur les capteurs connectés.
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 89ce6da3521248ff7373e23ae8831106cbee74de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522578"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784626"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Activer et configurer votre console de gestion locale 
 
@@ -30,24 +26,32 @@ L’activation et la configuration de la console de gestion locale garantissent 
 
 Pour vous connecter à la console de gestion :
 
-- Ouvrez un navigateur web et entrez l’adresse IP et le mot de passe que vous avez reçus pour la console de gestion locale lors de l’installation du système. Si vous avez oublié votre mot de passe, sélectionnez **Récupérer le mot de passe** et consultez [Récupération du mot de passe](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Accédez à l’adresse IP que vous avez reçue pour la console de gestion locale lors de l’installation du système.
+ 
+1. Entrez le nom d’utilisateur et le mot de passe que vous avez reçus pour la console de gestion locale lors de l’installation du système. 
 
-## <a name="upload-an-activation-file"></a>Charger un fichier d’activation
 
-Après la première connexion, activez la console de gestion locale en téléchargeant un fichier d’activation à partir de la page **Tarification** du portail Azure Defender pour IoT. Ce fichier contient l’ensemble des appareils validés définis pendant le processus d’intégration. **Appareils validés** indique le nombre d’appareils que Defender pour IoT peut surveiller par abonnement.
+Si vous avez oublié votre mot de passe, sélectionnez l’option **Récupérer le mot de passe**, et consultez [Récupération du mot de passe](how-to-manage-the-on-premises-management-console.md#password-recovery) pour obtenir des instructions sur la récupération de votre mot de passe.
 
-Pour charger un fichier d’activation :
+## <a name="get-and-upload-an-activation-file"></a>Obtenir et charger un fichier d’activation
 
-1. Accédez à la page **Tarification** de Defender pour IoT.
+Une fois que vous vous êtes connecté pour la première fois, vous devez activer la console de gestion locale en obtenant et en chargeant un fichier d’activation. 
+
+Pour obtenir un fichier d’activation :
+
+1. Accédez à la page **Tarification** du portail Azure Defender pour IoT. 
+1. Sélectionnez l’abonnement auquel associer la console de gestion locale.
 1. Sélectionnez l’onglet **Télécharger le fichier d’activation de la console de gestion**. Le fichier d’activation est téléchargé.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Télécharger le fichier d’activation.":::
 
-1. Sélectionnez **Paramètres système** à partir de la console de gestion.
-1. Sélectionnez **Activation**.
-1. Sélectionnez **Choisir un fichier** et sélectionnez le fichier que vous avez enregistré.
+Pour charger un fichier d’activation :
 
-Après l’activation initiale, le nombre d’appareils analysés peut dépasser le nombre d’appareils validés définis lors de l’intégration. Cela peut se produire, par exemple, si vous connectez d’autres capteurs à la console de gestion. S’il y a une différence entre le nombre d’appareils analysés et le nombre d’appareils validés, un avertissement s’affiche dans la console de gestion. Dans ce cas, vous devez charger un nouveau fichier d’activation.
+1. Accédez à la page **Paramètres système** de la console de gestion locale.
+1. Sélectionner l’icône **Activation** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false":::.
+1. Sélectionnez **Choisir un fichier**, puis sélectionnez le fichier que vous avez téléchargé.
+
+Après l’activation initiale, le nombre d’appareils surveillés pourrait dépasser le nombre d’appareils validés définis lors de l’intégration. Cela se produit si vous connectez d’autres capteurs à la console de gestion. S’il y a un écart entre le nombre d’appareils surveillés et le nombre d’appareils validés, un avertissement s’affiche sur la console de gestion. Dans ce cas, chargez un nouveau fichier d’activation.
 
 ## <a name="set-up-a-certificate"></a>Configuration d'un certificat
 
@@ -316,6 +320,6 @@ Pour annuler l’attribution d’un capteur et le supprimer :
 
 3. Pour supprimer le capteur non attribué du site, sélectionnez le capteur dans la liste des capteurs non attribués, puis sélectionnez :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Résoudre les problèmes du capteur et de la console de gestion locale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

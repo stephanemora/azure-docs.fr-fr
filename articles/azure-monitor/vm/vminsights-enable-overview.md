@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046667"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102634156"
 ---
 # <a name="enable-vm-insights-overview"></a>Activer la vue d’ensemble de VM Insights
 
@@ -54,6 +54,7 @@ VM Insights prend en charge tout système d’exploitation prenant en charge l�
 > [!IMPORTANT]
 > La fonctionnalité d’intégrité des invités de VM Insights prend en charge un nombre plus restreint de systèmes d’exploitation quand elle est en préversion publique. Pour une liste détaillée, consultez [Activer l’intégrité des invités de VM Insights (préversion)](../vm/vminsights-health-enable.md).
 
+### <a name="linux-considerations"></a>Considérations relatives à Linux
 Consultez la liste suivante de considérations sur la prise en charge par Linux de l’agent Dependency qui prend en charge VM Insights :
 
 - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.
@@ -61,7 +62,22 @@ Consultez la liste suivante de considérations sur la prise en charge par Linux 
 - Les noyaux personnalisés, y compris les recompilations de noyaux standard, ne sont pas pris en charge.
 - Pour les distributions Debian autres que la version 9.4, la fonctionnalité de mappage n’est pas prise en charge et la fonctionnalité Performances n’est disponible qu’à partir du menu Azure Monitor. Elle n’est pas directement accessible à partir du volet gauche de la machine virtuelle Azure.
 - Le noyau CentOSPlus est pris en charge.
-- Le noyau Linux doit être corrigé pour la vulnérabilité Spectre. Pour plus d’informations, consultez le fournisseur de votre distribution Linux.
+
+Le noyau Linux doit être corrigé pour les vulnérabilités Spectre et Meltdown. Pour plus d’informations, consultez le fournisseur de votre distribution Linux. Exécutez la commande suivante pour vérifier si les vulnérabilités Spectre/Meltdown ont été atténuées :
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+La sortie de cette commande doit ressembler à ce qui suit et spécifier si un ordinateur est vulnérable à l’un ou l’autre problème. Si ces fichiers sont introuvables, la machine n’a pas été corrigée.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
 VM Insights requiert un espace de travail Log Analytics. Pour plus d’informations sur la configuration de cet espace de travail, consultez [Configurer l’espace de travail Log Analytics pour VM Insights](vminsights-configure-workspace.md).
 ## <a name="agents"></a>Agents

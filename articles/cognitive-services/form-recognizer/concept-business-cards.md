@@ -3,19 +3,19 @@ title: Cartes de visite - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Découvrez les concepts liés à l’analyse des cartes de visite avec l’API Form Recognizer - utilisation et limites.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546021"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466987"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modèle de cartes de visite prédéfini Form Recognizer 
 
@@ -52,19 +52,19 @@ L’API Carte de visite peut également retourner tout le texte reconnu de la ca
 
 ### <a name="input-requirements"></a>Spécifications relatives aux entrées 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-business-card-operation"></a>Opération d’analyse de carte de visite
 
-L’opération d’[analyse de carte de visite](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) prend une image ou un fichier PDF de carte de visite comme entrée et extrait les valeurs présentant un intérêt. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+L’opération d’[analyse de carte de visite](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) prend une image ou un fichier PDF de carte de visite comme entrée et extrait les valeurs présentant un intérêt. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>Opération d’obtention du résultat de l’analyse de la carte de visite
 
-La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse de la carte de visite](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse de carte de visite. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
+La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse de la carte de visite](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse de carte de visite. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes. Vous appelez cette opération de façon itérative jusqu’à ce qu’elle retourne avec la valeur **succeeded**. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
 
 |Champ| Type | Valeurs possibles |
 |:-----|:----:|:----|
@@ -386,7 +386,7 @@ Suivez le [guide de démarrage rapide](./QuickStarts/client-library.md) pour imp
 
 ## <a name="customer-scenarios"></a>Scénarios de client  
 
-Les données extraites avec l’API Carte de visite peuvent être utilisées pour effectuer diverses tâches. L’extraction de ces informations de contact permet de gagner automatiquement du temps à ceux ayant des rôles répondant aux clients. Voici quelques exemples de ce que nos clients ont accompli avec l’API Carte de visite :
+Les données extraites avec l’API Carte de visite peuvent être utilisées pour effectuer diverses tâches. L’extraction automatique de ces coordonnées permet aux utilisateurs en contact avec la clientèle de gagner du temps. Voici quelques exemples de ce que nos clients ont accompli avec l’API Carte de visite :
 
 * Extraction d’informations de contact des cartes de visite et création rapide de contacts téléphoniques. 
 * Intégration à CRM pour créer automatiquement des contacts à l’aide d’images de carte de visite. 
@@ -402,4 +402,4 @@ La [fonctionnalité de traitement des cartes de visite AI Builder](/ai-builder/p
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que Form Recognizer ?](./overview.md)
-* [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

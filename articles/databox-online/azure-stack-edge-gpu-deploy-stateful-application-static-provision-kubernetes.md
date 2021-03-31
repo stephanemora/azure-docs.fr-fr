@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520708"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102610482"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Utiliser kubectl pour exécuter une application avec état Kubernetes à l’aide d’une ressource PersistentVolume sur votre appareil Azure Stack Edge Pro
 
@@ -21,7 +21,7 @@ ms.locfileid: "102520708"
 
 Cet article explique comment déployer une application avec état à instance unique dans Kubernetes à l’aide d’un volume persistant PersistentVolume (PV) et d’un déploiement. Le déploiement utilise des commandes `kubectl` sur un cluster Kubernetes existant et déploie l’application MySQL. 
 
-Cette procédure est destinée à ceux qui ont étudié le [stockage Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) et connaissent les concepts du [stockage Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Cette procédure est destinée à ceux qui ont étudié le [stockage Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) et connaissent les concepts du [stockage Kubernetes](https://kubernetes.io/docs/concepts/storage/). 
 
 Azure Stack Edge Pro prend également en charge l’exécution de conteneurs Azure SQL Edge. Ceux-ci peuvent être déployés de la façon détaillée ici pour MySQL. Pour plus d’informations, consultez [Azure SQL Edge](../azure-sql-edge/overview.md).
 
@@ -62,7 +62,8 @@ Vous êtes prêt à déployer une application avec état sur votre appareil Azur
 Pour approvisionner un PV de manière statique, vous devez créer un partage sur votre appareil. Procédez comme suit pour provisionner une ressource PV sur votre partage SMB. 
 
 > [!NOTE]
-> L’exemple spécifique utilisé dans ce guide pratique ne fonctionne pas avec les partages NFS. En général, les partages NFS peuvent être provisionnés sur votre appareil Azure Stack Edge avec des applications sans base de données.
+> - L’exemple spécifique utilisé dans ce guide pratique ne fonctionne pas avec les partages NFS. En général, les partages NFS peuvent être provisionnés sur votre appareil Azure Stack Edge avec des applications sans base de données.
+> - Pour déployer des applications avec état qui utilisent des volumes de stockage afin de fournir un stockage persistant, nous vous recommandons d’utiliser `StatefulSet`. Cet exemple utilise `Deployment` avec un seul réplica et convient au développement et aux tests. 
 
 1. Indiquez si vous souhaitez créer un partage Edge ou un partage local Edge. Suivez les instructions dans [Ajouter un partage](azure-stack-edge-manage-shares.md#add-a-share) pour créer un partage. Veillez à cocher la case **Utiliser le partage avec le computing en périphérie**.
 

@@ -1,17 +1,17 @@
 ---
 title: Questions fréquentes (FAQ) sur l’appliance Azure Migrate
 description: Retrouvez les réponses aux questions courantes sur l’appliance Azure Migrate.
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/22/2021
+ms.openlocfilehash: 74d8018ea4cb2cad5b6726b8abb6bf2f17b8e57c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043063"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778523"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -24,13 +24,13 @@ Cet article répond à des questions courantes sur l’appliance Azure Migrate. 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Qu’est-ce que l’appliance Azure Migrate ?
 
-L’appliance Azure Migrate est une appliance légère utilisée par l’outil Azure Migrate: Utilisation de l’outil d’évaluation pour détecter et évaluer des serveurs physiques ou virtuels à partir d’un environnement local ou n’importe quel cloud. Azure Migrate : Server Migration utilise aussi l’appliance pour la migration sans agent de machines virtuelles VMware locales.
+L’appliance Azure Migrate est une appliance légère utilisée par l’outil Azure Migrate: découverte et évaluation pour détecter et évaluer des serveurs physiques ou virtuels à partir d’un environnement local ou de n’importe quel cloud. L’outil Azure Migrate : migration du serveur utilise aussi l’appliance pour la migration sans agent de serveurs locaux s’exécutant dans un environnement VMware.
 
 Voici plus d’informations sur l’appliance Azure Migrate :
 
-- L’appliance est déployée localement en tant que machine virtuelle ou physique.
-- Elle détecte les machines locales et envoie en continu des métadonnées et des données de performances sur les machines à Azure Migrate.
-- La découverte de l’appliance se fait sans agent. Rien n’est installé sur les machines découvertes.
+- L’appliance est déployée localement en tant que serveur physique ou serveur virtualisé.
+- L’appliance découvre les serveurs locaux et envoie continuellement les métadonnées et données de performances des serveurs à Azure Migrate.
+- La découverte de l’appliance se fait sans agent. Rien n’est installé sur les serveurs découverts.
 
 [En savoir plus](migrate-appliance.md) sur l’appliance.
 
@@ -54,11 +54,11 @@ L’appliance peut se connecter via Internet ou en utilisant Azure ExpressRoute.
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L’analyse de l’appliance affecte-t-elle les performances ?
 
-L’appliance Azure Migrate profile les machines locales en continu pour mesurer les données de performances. Ce profilage n’a quasiment aucun impact sur les performances des machines profilées.
+L’appliance Azure Migrate profile les serveurs locaux en continu pour mesurer les données de performances. Ce profilage n’a quasiment aucun impact sur les performances des serveurs profilés.
 
-## <a name="can-i-harden-the-appliance-vm"></a>Peut-on renforcer la machine virtuelle de l’appliance ?
+## <a name="can-i-harden-the-appliance"></a>Puis-je renforcer l’appliance ?
 
-Quand vous utilisez le modèle téléchargé pour créer la machine virtuelle de l’appliance, vous pouvez ajouter des composants (par exemple un antivirus) au modèle si vous conservez les règles de communication et de pare-feu nécessaires à l’appliance Azure Migrate.
+Quand vous utilisez le modèle téléchargé pour créer l’appliance, vous pouvez ajouter des composants (par exemple un antivirus) au modèle si vous conservez les règles de communication et de pare-feu nécessaires à l’appliance Azure Migrate.
 
 ## <a name="what-network-connectivity-is-required"></a>Quelle est la connectivité réseau nécessaire ?
 
@@ -66,24 +66,24 @@ L’appliance doit avoir accès aux URL Azure. [Examinez](migrate-appliance.md#u
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quelles données l’appliance collecte-t-elle ?
 
-Pour plus d’informations sur les données recueillies par l’appliance Azure Migrate sur les machines virtuelles, consultez les articles suivants :
+Pour plus d’informations sur les données que l’appliance Azure Migrate collecte sur les serveurs, consultez les articles suivants :
 
-- **Machine virtuelle VMware** : [Examinez](migrate-appliance.md#collected-data---vmware) les données collectées.
-- **Machine virtuelle Hyper-V** : [Examinez](migrate-appliance.md#collected-data---hyper-v) les données collectées.
+- **Serveurs dans un environnement VMware**: [révision](migrate-appliance.md#collected-data---vmware) des données collectées.
+- **Serveurs dans un environnement Hyper-V**: [révision](migrate-appliance.md#collected-data---hyper-v) des données collectées.
 - **Serveurs physiques ou virtuels** : [révision](migrate-appliance.md#collected-data---physical) des données collectées.
 
 ## <a name="how-is-data-stored"></a>Comment les données sont stockées ?
 
-Les données recueillies par l’appliance Azure Migrate sont stockées à l’emplacement Azure où vous avez créé le projet Azure Migrate.
+Les données collectées par l’appliance Azure Migrate sont stockées dans l’emplacement Azure où vous avez créé le projet.
 
 Voici plus d’informations sur la façon dont les données sont stockées :
 
-- Les données recueillies sont stockées de façon sécurisée dans CosmosDB dans un abonnement Microsoft. Les données sont supprimées quand vous supprimez le projet Azure Migrate. Le stockage est géré par Azure Migrate. Vous ne pouvez pas choisir un compte de stockage spécifique pour les données recueillies.
-- Si vous utilisez la [visualisation des dépendances](concepts-dependency-visualization.md), les données recueillies sont stockées dans un espace de travail Azure Log Analytics créé dans l’abonnement Azure. Ces données sont supprimées quand vous supprimez l’espace de travail Log Analytics de votre abonnement. 
+- Les données recueillies sont stockées de façon sécurisée dans CosmosDB dans un abonnement Microsoft. Les données sont supprimées quand vous supprimez le projet. Le stockage est géré par Azure Migrate. Vous ne pouvez pas choisir un compte de stockage spécifique pour les données recueillies.
+- Si vous utilisez la [visualisation des dépendances](concepts-dependency-visualization.md), les données recueillies sont stockées dans un espace de travail Azure Log Analytics créé dans l’abonnement Azure. Ces données sont supprimées quand vous supprimez l’espace de travail Log Analytics de votre abonnement.
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>Quelle est la quantité de données chargée pendant le profilage continu ?
 
-Le volume de données envoyées à Azure Migrate dépend de plusieurs paramètres. Par exemple, un projet Azure Migrate qui a 10 machines (chacune avec un disque et une carte réseau) envoie environ 50 Mo de données par jour. Cette valeur est approximative ; la valeur réelle varie en fonction du nombre de points de données pour les disques et les cartes réseau. Si le nombre de machines, de disques ou de cartes réseau augmente, l’augmentation des données envoyées est non linéaire.
+Le volume de données envoyées à Azure Migrate dépend de plusieurs paramètres. Par exemple, un projet incluant 10 serveurs (chacun avec un disque et une carte réseau) envoie environ 50 Mo de données par jour. Cette valeur est approximative ; la valeur réelle varie en fonction du nombre de points de données pour les disques et les cartes réseau. Si le nombre de serveurs, de disques ou de cartes réseau augmente, l’augmentation des données envoyées est non linéaire.
 
 ## <a name="is-data-encrypted-at-rest-and-in-transit"></a>Les données sont-elles chiffrées au repos et en transit ?
 
@@ -98,39 +98,39 @@ Oui, elles le sont dans les deux cas :
 Ces étapes décrivent comment l’appliance se connecte au serveur VMware vCenter :
 
 1. L’appliance se connecte vCenter Server (port 443) en utilisant les informations d’identification fournies lors de sa configuration.
-2. L’appliance utilise VMware PowerCLI pour interroger vCenter Server afin de recueillir des métadonnées sur les machines virtuelles managées par vCenter Server.
-3. L’appliance collecte des données de configuration sur les machines virtuelles (cœurs, mémoire, disques, cartes réseau) ainsi que l’historique des performances de chaque machine virtuelle pour le mois dernier.
-4. Les métadonnées recueillies sont envoyées à l’outil Azure Migrate: Server Assessment (sur Internet par le biais du protocole HTTPS) pour l’évaluation.
+2. L’appliance utilise VMware PowerCLI pour interroger vCenter Server afin de recueillir des métadonnées sur les serveurs managés par vCenter Server.
+3. L’appliance collecte des données de configuration sur les serveurs (cœurs, mémoire, disques, cartes réseau) ainsi que l’historique des performances de chaque serveur pour le mois dernier.
+4. Les métadonnées recueillies sont envoyées à l’outil Azure Migrate: découverte et évaluation (sur Internet par le biais du protocole HTTPS) pour l’évaluation.
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>L’appliance Azure Migrate peut-elle se connecter à plusieurs serveurs vCenter ?
 
-Non. Il existe un mappage un-à-un entre une [appliance Azure Migrate](migrate-appliance.md) et vCenter Server. Pour découvrir des machines virtuelles sur plusieurs instances de vCenter Server, vous devez déployer plusieurs appliances. 
+Non. Il existe un mappage un-à-un entre une [appliance Azure Migrate](migrate-appliance.md) et vCenter Server. Pour découvrir des serveurs sur plusieurs instances vCenter Server, vous devez déployer plusieurs appliances.
 
-## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Un projet Azure Migrate peut-il avoir plusieurs appliances ?
+## <a name="can-a-project-have-multiple-appliances"></a>Un projet peut-il avoir plusieurs appliances ?
 
 Plusieurs appliances peuvent être inscrites pour un même projet. Toutefois, une appliance ne peut être inscrite qu’auprès d’un seul projet.
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>L’appliance Azure Migrate/de réplication peut-elle se connecter au même vCenter ?
 
-Oui. Vous pouvez ajouter à la fois l’appliance Azure Migrate (utilisée pour l’évaluation et la migration VMware sans agent) et l’appliance de réplication (utilisée pour la migration basée sur agent des machines virtuelles VMware) vers le même serveur vCenter. Mais assurez-vous que vous ne configurez pas les deux appliances sur la même machine virtuelle, car cela n’est pas pris en charge actuellement.
+Oui. Vous pouvez ajouter à la fois l’appliance Azure Migrate (utilisée pour l’évaluation et la migration VMware sans agent) et l’appliance de réplication (utilisée pour la migration basée sur agent des serveurs s’exécutant dans VMware) au même serveur vCenter. Mais assurez-vous que vous ne configurez pas les deux appliances sur le même serveur, car cela n’est pas pris en charge actuellement.
 
-## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles ou de serveurs puis-je découvrir avec une appliance ?
+## <a name="how-many-servers-can-i-discover-with-an-appliance"></a>Combien de serveurs puis-je découvrir avec une appliance ?
 
-Vous pouvez détecter jusqu’à 10 000 machines virtuelles VMware, jusqu’à 5 000 machines virtuelles Hyper-V et jusqu’à 1000 serveurs physiques avec une seule appliance. Si vous avez davantage de machines dans votre environnement local, découvrez comment [mettre à l’échelle une évaluation Hyper-V](scale-hyper-v-assessment.md), [mettre à l’échelle une évaluation VMware](scale-vmware-assessment.md) et [mettre à l’échelle une évaluation de serveur physique](scale-physical-assessment.md).
+Vous pouvez détecter jusqu’à 10 000 serveurs dans un environnement VMware, jusqu’à 5 000 serveurs dans un environnement Hyper-V et jusqu’à 1 000 serveurs physiques avec une seule appliance. Si vous avez davantage de serveurs dans votre environnement local, découvrez comment [mettre à l’échelle une évaluation Hyper-V](scale-hyper-v-assessment.md), [mettre à l’échelle une évaluation VMware](scale-vmware-assessment.md) et [mettre à l’échelle une évaluation de serveur physique](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>Peut-on supprimer une appliance ?
 
 La suppression d’une appliance du projet n’est actuellement pas prise en charge.
 
-La seule façon de supprimer l’appliance consiste à supprimer le groupe de ressources qui contient le projet Azure Migrate associé à l’appliance.
+La seule façon de supprimer l’appliance consiste à supprimer le groupe de ressources contenant le projet associé à l’appliance.
 
 Toutefois, la suppression du groupe de ressources a pour effet de supprimer également les autres appliances inscrites, l’inventaire détecté, les évaluations et tous les autres composants Azure du groupe de ressources associés au projet.
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>Puis-je utiliser l’appliance avec un autre abonnement ou projet ?
 
-Pour utiliser l’appliance avec un autre abonnement ou projet, vous devez reconfigurer l’appliance existante en exécutant le script du programme d’installation PowerShell pour le scénario spécifique (VMware/Hyper-V/Physical) sur la machine de l’appliance. Le script nettoie les composants et les paramètres de l’appliance existante pour déployer une nouvelle appliance. Veillez à effacer le cache du navigateur avant de commencer à utiliser le gestionnaire de configuration de l’appliance nouvellement déployée.
+Pour utiliser l’appliance avec un autre abonnement ou projet, vous devez reconfigurer l’appliance existante en exécutant le script du programme d’installation PowerShell pour le scénario spécifique (VMware/Hyper-V/Physical) sur l’appliance. Le script nettoie les composants et les paramètres de l’appliance existante pour déployer une nouvelle appliance. Veillez à effacer le cache du navigateur avant de commencer à utiliser le gestionnaire de configuration de l’appliance nouvellement déployée.
 
-En outre, vous ne pouvez pas réutiliser une clé de projet Azure Migrate existante sur une appliance reconfigurée. Veillez à générer une nouvelle clé à partir de l’abonnement ou du projet souhaité pour terminer l’inscription de l’appliance.
+En outre, vous ne pouvez pas réutiliser une clé de projet existante sur une appliance reconfigurée. Veillez à générer une nouvelle clé à partir de l’abonnement ou du projet souhaité pour terminer l’inscription de l’appliance.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Puis-je configurer l’appliance sur une machine virtuelle Azure ?
 
@@ -138,7 +138,7 @@ Non. Actuellement, cette option n’est pas prise en charge.
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Puis-je lancer une détection sur un hôte ESXi ?
 
-Non. Pour découvrir des machines virtuelles VMware, vous devez disposer de vCenter Server.
+Non. Pour découvrir des serveurs dans un environnement VMware, vous devez disposer de vCenter Server.
 
 ## <a name="how-do-i-update-the-appliance"></a>Comment mettre à jour l’appliance ?
 
@@ -148,7 +148,7 @@ Seuls l’appliance et les agents de l’appliance sont mis à jour par ces mise
 
 ## <a name="can-i-check-agent-health"></a>Puis-je vérifier l’intégrité de l’agent ?
 
-Oui. Dans le portail, accédez à la page **Intégrité de l’agent** pour l’outil Azure Migrate: Server Assessment ou Azure Migrate : d’Azure Migrate. Vous pouvez y vérifier l’état de la connexion entre Azure et les agents de détection et d’évaluation sur l’appliance.
+Oui. Dans le portail, accédez à la page **Intégrité de l’agent** pour l’outil Azure Migrate: découverte et évaluation ou Azure Migrate : migration de serveur. Vous pouvez y vérifier l’état de la connexion entre Azure et les agents de détection et d’évaluation sur l’appliance.
 
 ## <a name="can-i-add-multiple-server-credentials-on-vmware-appliance"></a>Puis-je ajouter plusieurs informations d’identification de serveur sur une appliance VMware ?
 
@@ -160,7 +160,7 @@ Vous pouvez fournir des informations d’identification d’authentification de 
 ## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quels types de propriétés de connexion SQL Server Azure Migrate prend-il en charge pour la découverte SQL ?
 Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur TRUE). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
-Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [Plus d’informations](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
+Si aucun certificat n'est présent sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

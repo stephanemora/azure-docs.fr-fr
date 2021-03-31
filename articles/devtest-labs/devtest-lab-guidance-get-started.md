@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1adb9b009a250942bab7e9b0e3b4b3e52840341c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85481593"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Scénarios courants d’utilisation d’Azure DevTest Labs
@@ -66,7 +66,7 @@ Un labo dans Azure DevTest Labs est un conteneur de choix pour les activités 
 Pour plus d’informations, consultez [Utiliser Azure DevTest Labs à des fins de formation](devtest-lab-training-lab.md).  
 
 ## <a name="proof-of-concept-vs-scaled-deployment"></a>Déploiements de type « preuve de concept » et déploiements « à l’échelle »
-Pour explorer DevTest Labs, vous pouvez utiliser deux types de cheminements : un déploiement de type « preuve de concept » et un déploiement de type « à l’échelle ».  
+Pour explorer DevTest Labs, il existe deux chemins généraux : déploiement à l’échelle ou déploiement de preuve de concept.  
 
 Un **déploiement à l’échelle** consiste en des semaines/mois d’examen et de planification dans le but de déployer DevTest Labs dans toute l’entreprise pour des centaines voire des milliers de développeurs.
 

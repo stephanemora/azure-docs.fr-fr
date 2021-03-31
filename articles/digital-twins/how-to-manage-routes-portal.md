@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715715"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779934"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -151,6 +151,9 @@ Vous pouvez restreindre les types d’événements envoyés en définissant un f
 Pour ajouter un filtre d’événements lors de la création d’un itinéraire d’événement, utilisez la section _Ajouter un filtre d’itinéraires d’événements_ de la page *Créer un itinéraire d’événement*. 
 
 Vous pouvez sélectionner l’une des options de filtre courantes de base ou utiliser les options de filtre avancées pour écrire vos propres filtres personnalisés.
+
+>[!NOTE]
+> Les filtres sont **sensibles à la casse** et doivent correspondre à la casse de la charge utile (qui peut ne pas nécessairement correspondre à la casse du modèle).
 
 #### <a name="use-the-basic-filters"></a>Utiliser les filtres de base
 

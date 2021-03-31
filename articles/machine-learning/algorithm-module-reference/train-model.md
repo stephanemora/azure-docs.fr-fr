@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/10/2021
+ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751935"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224324"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
@@ -66,6 +66,28 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
     > Si vous avez une colonne d’ID qui correspond à l’ID de chaque ligne, ou une colonne de texte, qui contient trop de valeurs uniques, le module **Entraîner le modèle** peut retourner une erreur telle que « Le nombre de valeurs uniques dans la colonne : « {nom_colonne} » est supérieur à la valeur autorisée ».
     >
     > Cela est dû au fait que la colonne a atteint le seuil de valeurs uniques, ce qui peut entraîner une insuffisance de mémoire. Vous pouvez utiliser [Modifier les métadonnées](edit-metadata.md) pour marquer cette colonne comme **Effacer la caractéristique** afin qu’elle ne soit pas utilisée durant l’entraînement, ou le [module d’extraction des caractéristiques de N-grammes du texte](extract-n-gram-features-from-text.md) pour prétraiter la colonne de texte. Pour plus d’informations sur l’erreur, consultez [Codes d’erreur pour le concepteur](././designer-error-codes.md).
+
+## <a name="model-interpretability"></a>Interprétabilité du modèle
+
+L’interprétabilité du modèle permet de comprendre le modèle ML et de présenter la base sous-jacente de la prise de décision d’une manière compréhensible pour les humains.
+
+Actuellement, le module **Effectuer l’apprentissage du modèle** prend en charge [l’utilisation du package d’interprétabilité pour expliquer les modèles ML](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Les algorithmes intégrés suivants sont pris en charge :
+
+- Régression linéaire
+- Régression de réseau neuronal
+- Régression logistique à deux classes
+- Machine à vecteurs de support à deux classes
+- Forêt d’arbres de décision multiclasse
+
+Pour générer des explications de modèle, vous pouvez sélectionner **Vrai** dans la liste déroulante de l’option **Explication de modèle** dans le module Effectuer l’apprentissage du modèle. Par défaut, elle est définie sur Faux dans le module **Effectuer l’apprentissage du modèle**. Notez que la génération d’explications nécessite un coût de calcul supplémentaire.
+
+![Capture d’écran montrant la case à cocher pour Explication du modèle](./media/module/train-model-explanation-checkbox.png)
+
+Une fois l’exécution du pipeline terminée, vous pouvez consulter l’onglet **Explications** dans le volet droit du module **Effectuer l’apprentissage du modèle** et explorer les performances du modèle, le jeu de données et l’importance des fonctionnalités.
+
+![Capture d’écran montrant les graphiques pour Explication du modèle](./media/module/train-model-explanations-tab.gif)
+
+Pour en savoir plus sur l’utilisation des explications de modèle dans Azure Machine Learning, consultez le guide pratique relatif à l’[interprétation des modèles ML](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Résultats
 

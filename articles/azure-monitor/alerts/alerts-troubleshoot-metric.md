@@ -4,13 +4,13 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037861"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103466495"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -138,11 +138,9 @@ Pour éviter que le déploiement échoue quand vous tentez de valider les défin
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exporter le modèle Azure Resource Manager d’une règle d’alerte de métrique via le Portail Azure
 
 L’exportation du modèle Azure Resource Manager d’une règle d’alerte de métrique vous aide à comprendre sa syntaxe et ses propriétés JSON, et elle peut être utilisée pour automatiser les déploiements futurs.
-1. Accédez à la section **Groupes de ressources** dans le portail et sélectionnez le groupe de ressources contenant la règle.
-2. Dans la section Vue d’ensemble, cochez la case **Afficher les types masqués**.
-3. Dans le filtre **Type**, sélectionnez *microsoft.insights/metricalerts*.
-4. Sélectionnez la règle d’alerte concernée pour afficher ses détails.
-5. Sous **Paramètres**, sélectionnez **Exporter le modèle**.
+1. Dans le portail Azure, ouvrez la règle d’alerte pour en voir les détails.
+2. Cliquez sur **Propriétés**.
+3. Sous **Automation**, sélectionnez **Exporter le modèle**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota de règles d'alerte de métrique trop bas
 

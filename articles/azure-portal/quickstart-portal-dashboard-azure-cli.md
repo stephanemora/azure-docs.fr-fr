@@ -4,16 +4,18 @@ description: 'Démarrage rapide : Découvrez comment créer un tableau de bord 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 12/4/2020
-ms.openlocfilehash: ede915df5cd2967c3b6b700bcb9174c89af8f233
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ddfee1932c6887c6ca7593ca7a28c03e68e09899
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745653"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613209"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Démarrage rapide : Créer un tableau de bord sur le portail Azure avec Azure CLI
 
-Dans le portail Azure, un tableau de bord est une vue ciblée et organisée de vos ressources cloud.
+Dans le portail Azure, un tableau de bord est une vue ciblée et organisée de vos ressources cloud. Cet article est consacré au processus d’utilisation d’Azure CLI pour créer un tableau de bord.
+Le tableau de bord affiche les performances d’une machine virtuelle, ainsi que des liens et des informations statiques.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -103,19 +105,7 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Vérifiez que vous pouvez voir les données sur la machine virtuelle à partir du portail Azure.
-
-1. Dans le portail Azure, sélectionnez **Tableau de bord**.
-
-   ![Navigation du portail Azure jusqu’au tableau de bord](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Dans la page Tableau de bord, sélectionnez **Tableau de bord Machine virtuelle simple**.
-
-   ![Accéder au tableau de bord Machine virtuelle simple](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Vérifiez le tableau de bord. Vous pouvez voir qu’une partie du contenu est statique, mais il y a également des graphiques qui indiquent les performances de la machine virtuelle.
-
-   ![Examiner le tableau de bord Machine virtuelle simple](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -1,18 +1,14 @@
 ---
 title: Résoudre les problèmes du capteur et de la console de gestion locale
 description: Dépannez votre capteur et la console de gestion locale pour éliminer les problèmes que vous pourriez rencontrer.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/14/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 83ffec959a5b38e9f4fd4d7d0dcfd3b1b9faa096
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523717"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785442"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Résoudre les problèmes du capteur et de la console de gestion locale
 
@@ -54,7 +50,7 @@ Pour récupérer votre mot de passe :
 1. Sélectionnez **Suivant**, et votre utilisateur et le mot de passe généré par le système pour votre console de gestion s’affichent alors.
 
     > [!NOTE]
-    > Lorsque vous vous connectez pour la première fois à un capteur ou à une console de gestion locale, il sera lié à l’abonnement avec lequel vous vous êtes connecté. Si vous devez réinitialiser le mot de passe pour l’utilisateur CyberX ou Support, vous devez sélectionner cet abonnement. Pour plus d’informations sur la récupération d’un mot de passe d’utilisateur CyberX ou Support, consultez [Réinitialisation du mot de passe d’un utilisateur pour le capteur ou la console de gestion locale](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console).
+    > Lorsque vous vous connectez pour la première fois à un capteur ou à une console de gestion locale, il sera lié à l’abonnement avec lequel vous vous êtes connecté. Si vous devez réinitialiser le mot de passe pour l’utilisateur CyberX ou Support, vous devez sélectionner cet abonnement. Pour plus d’informations sur la récupération d’un mot de passe utilisateur CyberX ou Support, consultez [Réinitialisation des mots de passe](how-to-create-and-manage-users.md#resetting-passwords).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Examiner un manque de trafic
 
@@ -283,7 +279,7 @@ Les journaux exportés sont ajoutés à la liste **Journaux archivés**. Envoyez
 
 La liste des journaux archivés peut contenir jusqu’à cinq éléments. Si le nombre d’éléments de la liste dépasse ce nombre, l’élément le plus ancien est supprimé.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 - [Afficher les alertes](how-to-view-alerts.md)
 
