@@ -1,5 +1,5 @@
 ---
-title: 'Normaliser des données : Informations de référence sur les modules'
+title: 'Normaliser les données : référence de module'
 titleSuffix: Azure Machine Learning
 description: Apprenez à utiliser le module Normaliser des données d’Azure Machine Learning afin de transformer un jeu de données par le biais de la *normalisation*.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: de0a23ca9dea210d91fe259b06622226549ba3b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890437"
 ---
 # <a name="normalize-data-module"></a>Module Normaliser des données
@@ -54,7 +54,7 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
     > [!TIP]
     > Pour vous assurer que les colonnes d'un type spécifique sont fournies comme entrée, essayez d'utiliser le module [Sélectionner des colonnes dans un jeu de données](./select-columns-in-dataset.md) avant le module **Normaliser des données**.
 
-4. **Utiliser 0 pour les colonnes constantes quand activé** :  sélectionnez cette option lorsqu'une colonne numérique contient une seule valeur immuable. Cette colonne ne sera ainsi pas utilisée lors des opérations de normalisation.
+4. **Utiliser 0 pour les colonnes constantes quand activé** : sélectionnez cette option lorsqu'une colonne numérique contient une seule valeur immuable. Cette colonne ne sera ainsi pas utilisée lors des opérations de normalisation.
 
 5. Dans la liste déroulante **Méthode de transformation**, choisissez la fonction mathématique à appliquer à toutes les colonnes sélectionnées. 
   
@@ -66,7 +66,7 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
   
       La moyenne et l'écart type sont calculés séparément pour chaque colonne. L'écart type de population est utilisé.
   
-    - **MinMax** : le normalisateur Min-Max redimensionne linéairement chaque fonction à l'intervalle [0,1].
+    - **MinMax** : la normalisation Min-max remet à l'échelle de manière linéaire toutes les caractéristiques de l'intervalle [0,1].
     
       Le redimensionnement à l'intervalle [0,1] s'effectue en décalant les valeurs de chaque fonction afin que la valeur minimale soit 0, puis en divisant par la nouvelle valeur maximale (qui correspond à la différence entre les valeurs maximale et minimale d'origine).
       
