@@ -4,18 +4,18 @@ description: Télécharger et installer la passerelle de données locale pour po
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: article
-ms.date: 05/15/2020
-ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.topic: how-to
+ms.date: 03/16/2021
+ms.openlocfilehash: 4b2559ad20036870c6df5c0662bb973f35155bfa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054769"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576796"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
-Pour pouvoir vous [connecter à des sources de données locales à partir d’Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), téléchargez et installez la [passerelle de données locale](https://aka.ms/on-premises-data-gateway-installer) sur un ordinateur local. La passerelle fonctionne comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. Vous pouvez utiliser la même installation de passerelle pour d’autres services cloud, comme Power BI, Power Automate, Power Apps et Azure Analysis Services. Pour plus d’informations sur l’utilisation de la passerelle avec ces services, consultez ces articles :
+Pour pouvoir vous [connecter à des sources de données locales à partir d’Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), téléchargez et installez la [passerelle de données locale](https://aka.ms/on-premises-data-gateway-installer) sur un ordinateur local. La passerelle fonctionne comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. Vous pouvez utiliser la même installation de passerelle pour d’autres services cloud, comme Power Automate, Power BI, Power Apps et Azure Analysis Services. Pour plus d’informations sur l’utilisation de la passerelle avec ces services, consultez ces articles :
 
 * [Passerelle de données locale Microsoft Power Automate](/power-automate/gateway-reference)
 * [Passerelle de données locale Microsoft Power BI](/power-bi/service-gateway-onprem)
@@ -71,7 +71,12 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
   * Si vous prévoyez d’utiliser l’authentification Windows, veillez à installer la passerelle sur un ordinateur membre du même environnement Active Directory que vos sources de données.
 
-  * La région que vous sélectionnez pour l’installation de votre passerelle est le même emplacement que celui que vous devez sélectionner quand vous créez plus tard la ressource de passerelle Azure pour votre application logique. Par défaut, cette région est le même emplacement que votre locataire Azure AD qui gère votre compte Azure. Vous pouvez cependant changer l’emplacement lors de l’installation de la passerelle.
+  * La région que vous sélectionnez pour l’installation de votre passerelle est le même emplacement que celui que vous devez sélectionner quand vous créez plus tard la ressource de passerelle Azure pour votre application logique. Par défaut, cette région est le même emplacement que celui de votre locataire Azure AD qui gère votre compte d'utilisateur Azure. Vous pouvez cependant changer l’emplacement lors de l’installation de la passerelle ou ultérieurement.
+
+    > [!IMPORTANT]
+    > Pendant la configuration de la passerelle, la commande **Modifier la région** n’est pas disponible si vous vous êtes connecté avec votre compte Azure Government qui est associé à un locataire Azure Active Directory (Azure AD) dans le [Cloud Azure Government](../azure-government/compare-azure-government-global-azure.md). La passerelle utilise automatiquement la même région que celle du locataire Azure AD de votre compte d’utilisateur.
+    > 
+    > Pour continuer à utiliser votre compte Azure Government, mais configurer la passerelle pour qu’elle fonctionne dans le cloud commercial Azure mutualisé à la place, commencez par vous connecter lors de l’installation de la passerelle avec le nom d’utilisateur `prod@microsoft.com`. Cette solution force la passerelle à utiliser le cloud Azure mutualisé global, tout en vous permettant de continuer à utiliser votre compte Azure Government.
 
   * Si vous mettez à jour votre installation de passerelle, commencez par désinstaller votre passerelle actuelle pour obtenir une interface plus propre.
 
@@ -144,7 +149,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 La passerelle de données locale dépend de la [messagerie Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) pour la connectivité au cloud et établit les connexions sortantes correspondantes à la région Azure associée de la passerelle. Si votre environnement de travail nécessite que le trafic passe par un proxy ou un pare-feu pour accéder à Internet, cette restriction peut empêcher la passerelle de données locale de se connecter au service cloud de passerelle et à la messagerie Azure Service Bus. La passerelle a plusieurs paramètres de communication que vous pouvez ajuster.
 
-C’est le cas, par exemple, lorsque vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales à l’aide de la ressource de passerelle de données locale dans Azure. Si vous avez également un pare-feu qui limite le trafic vers des adresses IP spécifiques, vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes[ de connecteurs gérés correspondantes](logic-apps-limits-and-config.md#outbound)* . *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
+C’est le cas, par exemple, lorsque vous utilisez des connecteurs personnalisés qui accèdent à des ressources locales à l’aide de la ressource de passerelle de données locale dans Azure. Si vous avez également un pare-feu qui limite le trafic vers des adresses IP spécifiques, vous devez configurer l’installation de la passerelle pour autoriser l’accès aux *adresses IP sortantes [ de connecteurs gérés correspondantes](logic-apps-limits-and-config.md#outbound)* . *Toutes* les applications logiques qui se trouvent dans une même région utilisent les mêmes plages d’adresses IP.
 
 Pour plus d’informations, consultez les rubriques suivantes :
 
