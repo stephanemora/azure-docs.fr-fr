@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Airstack | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Airstack | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Airstack.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e0b17c30985617791c1ce55a02f6a60253b43db
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318945"
 ---
-# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutoriel : Intégrer Airstack à Azure Active Directory
+# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutoriel : Intégrer Airstack à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Airstack à Azure Active Directory (Azure AD). Quand vous intégrez Airstack à Azure AD, vous pouvez :
 
@@ -128,7 +128,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ### <a name="create-airstack-test-user"></a>Créer un utilisateur de test Airstack
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Airstack. Collaborez avec l’ [équipe du support technique Airstack](mailto:jsinger@lenovo.com) pour ajouter des utilisateurs dans la plateforme Airstack. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Airstack. Collaborez avec l’[équipe du support technique Airstack](mailto:jsinger@lenovo.com) pour ajouter les utilisateurs à la plateforme Airstack. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

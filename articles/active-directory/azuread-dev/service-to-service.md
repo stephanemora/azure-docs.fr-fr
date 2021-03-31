@@ -14,10 +14,10 @@ ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 179034533d90dbbb6ca362fc6f72996f32873729
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80154761"
 ---
 # <a name="service-to-service-apps"></a>Applications service à service
@@ -44,7 +44,7 @@ Les applications service à service peuvent être une application démon ou serv
 
 1. Tout d’abord, l’application serveur doit s’authentifier auprès d’Azure AD avec sa propre identité, sans intervention humaine par le biais d’une boîte de dialogue interactive d’ouverture de session par exemple. Elle envoie une demande au point de terminaison de jeton du service Azure AD, avec les informations d’identification, l’ID d’application et un URI ID d’application.
 1. Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
-1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Bearer » (Porteur) dans l’en-tête « Authorization » (Autorisation) de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
+1. Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Bearer » (Porteur) dans l’en-tête « Authorization » (Autorisation) de la requête adressée à l’API web. L’API web valide ensuite le jeton JWT et, si la validation réussit, renvoie la ressource souhaitée.
 
 ### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Identité d’utilisateur délégué avec spécification préliminaire « Au nom de » OAuth 2.0
 
@@ -57,9 +57,9 @@ Le flux présenté ci-après part du principe qu’un utilisateur a été authen
 
 ## <a name="code-samples"></a>Exemples de code
 
-Consultez les exemples de code pour les scénarios du type application démon ou serveur vers API web : [Application serveur ou démon vers API web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Consultez les exemples de code pour l’application démon ou serveur aux scénarios d’API Web : [application serveur ou démon à l’API Web](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
-## <a name="app-registration"></a>Inscription d'application
+## <a name="app-registration"></a>Inscriptions des applications
 
 * Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès du démon ou du serveur à ses ressources. Si un type d’identité utilisateur délégué est utilisé, l’application serveur doit sélectionner les autorisations souhaitées. Dans la page **Autorisation d’API** de l’inscription d’application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d’API, choisissez **Autorisations déléguées**, puis sélectionnez vos autorisations. Cette étape n’est pas requise si une identité d’application est utilisée.
 * Application mutualisée : tout d’abord, l’application démon ou serveur est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, les deux API web sont inscrites dans son annuaire.

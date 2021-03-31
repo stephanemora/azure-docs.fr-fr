@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 6af0f2b5221a737687578e939c14cecf3be14509
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88932914"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Présentation des filtres de collection OData dans Recherche cognitive Azure
@@ -149,7 +149,7 @@ Les valeurs du champ `seasons` sont stockées dans une structure appelée **inde
 | fall | 1, 2 |
 | winter | 2, 3 |
 
-Cette structure de données est conçue pour répondre très rapidement à une question : Dans quels documents un terme donné apparaît-il ? Réponse à cette question équivaut davantage à un contrôle d’égalité simple qu’à une boucle sur une collection. En fait, c’est la raison pour laquelle, pour les collections de chaînes, Recherche cognitive Azure autorise uniquement `eq` comme opérateur de comparaison dans une expression lambda pour `any`.
+Cette structure de données est conçue pour répondre très rapidement à une question : dans quels documents un terme donné apparaît-il ? Réponse à cette question équivaut davantage à un contrôle d’égalité simple qu’à une boucle sur une collection. En fait, c’est la raison pour laquelle, pour les collections de chaînes, Recherche cognitive Azure autorise uniquement `eq` comme opérateur de comparaison dans une expression lambda pour `any`.
 
 En partant de l’égalité, nous allons ensuite voir comment il est possible de combiner plusieurs contrôles d’égalité sur la même variable de plage avec `or`. Cela fonctionne grâce à l’algèbre et à [la propriété distributive des quantificateurs](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Cette expression :
 
@@ -203,5 +203,5 @@ Pour obtenir des exemples spécifiques des types de filtres qui sont autorisés 
 - [Résolution de problèmes liés aux filtres de collection OData dans Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md)
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

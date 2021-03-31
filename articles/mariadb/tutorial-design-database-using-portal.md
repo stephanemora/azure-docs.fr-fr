@@ -3,18 +3,18 @@ title: 'Tutoriel : Concevoir une base de données Azure Database for MariaDB - 
 description: Ce didacticiel explique comment créer et gérer une base de données et un serveur Azure Database for MariaDB à l’aide du Portail Azure.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664467"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutoriel : Créer une base de données Azure Database for MariaDB à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Didacticiel : Créer une base de données Azure Database for MariaDB à l’aide du Portail Azure
 
 Azure Database for MariaDB est un service géré que vous pouvez utiliser pour exécuter, gérer et mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. À l’aide du Portail Azure, vous pouvez facilement gérer votre serveur et créer une base de données.
 
@@ -174,10 +174,10 @@ Imaginez que vous avez accidentellement supprimé une table de base de données 
 
    ![Formulaire de restauration](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Point de restauration** : sélectionnez un point dans le temps vers lequel vous souhaitez effectuer une restauration, dans la période listée. Veillez à convertir votre fuseau horaire local en fuseau horaire UTC.
-   - **Restaurer sur un nouveau serveur** : entrez le nom du nouveau serveur sur lequel effectuer la restauration.
-   - **Emplacement** : la région est identique à celle du serveur source et ne peut pas être changée.
-   - **Niveau tarifaire** : le niveau tarifaire est identique à celui du serveur source et ne peut pas être changé.
+   - **Point de restauration** : sélectionnez un point dans le temps vers lequel vous souhaitez effectuer une restauration, dans la période répertoriée. Veillez à convertir votre fuseau horaire local en fuseau horaire UTC.
+   - **Restaurer sur un nouveau serveur** : entrez un nouveau nom de serveur sur lequel effectuer la restauration.
+   - **Emplacement** : la région est identique à celle du serveur source et ne peut pas être modifiée.
+   - **Niveau tarifaire** : le niveau tarifaire est identique à celui du serveur source et ne peut pas être modifié.
    
 3. Sélectionnez **OK** pour [restaurer le serveur à un point dans le temps](./howto-restore-server-portal.md) antérieur au moment de la suppression de la table. La restauration d’un serveur crée une copie du serveur à partir du point dans le temps que vous avez sélectionné. 
 

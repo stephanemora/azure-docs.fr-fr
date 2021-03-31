@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74454696"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutoriel : Envoyer une image conteneur mise à jour à un registre de conteneurs géorépliqué pour les déploiements d’applications web régionaux
@@ -129,11 +129,11 @@ Avec une seule commande `docker push`, vous avez automatiquement mis à jour l�
 
 Dans ce didacticiel, vous avez mis à jour et envoyé une nouvelle version du conteneur d’application web dans le registre géorépliqué. Les webhooks dans Azure Container Registry ont informé Web App pour conteneurs de la mise à jour, ce qui a déclenché une extraction locale à partir du réplica de registre le plus proche.
 
-### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build : génération d’images et correctifs automatisés
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build : génération d’images et correctifs automatisés
 
 Outre la géoréplication, ACR Build est une autre fonctionnalité d’Azure Container Registry vous permettant d’optimiser votre pipeline de déploiement de conteneurs. Commencez par consulter la vue d’ensemble d’ACR Build pour connaître ses fonctionnalités dans les grandes lignes :
 
-[Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Build](container-registry-tasks-overview.md)
+[Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

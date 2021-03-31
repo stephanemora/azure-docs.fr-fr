@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Allocadia | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Allocadia | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Allocadia.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
 ms.openlocfilehash: cfb3da0b711bc1ac3f577a8f5af2a03c8532e925
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318824"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allocadia"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Allocadia
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allocadia"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Allocadia
 
 Ce tutoriel explique comment intégrer Allocadia avec Azure Active Directory (Azure AD). Quand vous intégrez Allocadia avec Azure AD, vous pouvez :
 

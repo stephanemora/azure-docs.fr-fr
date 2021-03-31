@@ -5,13 +5,13 @@ ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7c236025f31e10c00b324e5ff3374bd6504b2b7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324108"
 ---
-# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Démarrage rapide : Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Azure Event Hubs est l’un des gestionnaires d’événements pris en charge. Dans cet article, vous utilisez l’interface de ligne de commande Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique personnalisée et déclencher l’événement pour afficher le résultat. Vous envoyez les événements à un concentrateur d’événements.
 
