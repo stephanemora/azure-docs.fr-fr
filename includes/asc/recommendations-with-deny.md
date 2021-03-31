@@ -2,18 +2,18 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/16/2021
+ms.date: 03/14/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fce7ba090d5aa86c85452ca41ce606d2fa52a6ee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c142f6a00275b4b21b6bbc64e51a5c4d7d957258
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645549"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103468004"
 ---
-- L’accès aux comptes de stockage avec configurations de pare-feu et de réseau virtuel doit être limité
-- Les variables de compte Automation doivent être chiffrées
+- L’accès aux comptes de stockage avec des configurations de pare-feu et de réseau virtuel doit être limité Les comptes de stockage doivent limiter l’accès réseau
+- Les variables de compte Automation doivent être chiffrées Les variables de compte Automation doivent être chiffrées
 - Azure Cache pour Redis doit se trouver dans un réseau virtuel
 - Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos
 - Les espaces de travail Azure Machine Learning doivent être chiffrés avec une clé gérée par le client (CMK)
@@ -31,21 +31,21 @@ ms.locfileid: "100645549"
 - La protection contre la suppression définitive doit être activée sur les coffres de clés
 - La suppression réversible doit être activée sur les coffres de clés
 - Les fonctionnalités Linux à privilèges minimum doivent être appliquées pour les conteneurs
-- Seules les connexions sécurisées à votre cache Redis doivent être activées
+- Seules les connexions sécurisées à votre instance Cache Redis doivent être activées Seules les connexions sécurisées à votre instance Azure Cache pour Redis doivent être activées
 - Le remplacement ou la désactivation du profil AppArmor des conteneurs doit être limité
 - Les conteneurs privilégiés doivent être évités
 - L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée
-- La sécurisation du transfert vers des comptes de stockage doit être activée
-- La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
-- Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
+- La sécurisation du transfert vers des comptes de stockage doit être activée La sécurisation du transfert vers des comptes de stockage doit être activée
+- Les clusters Service Fabric doivent avoir la propriété ClusterProtectionLevel définie sur EncryptAndSign Les clusters Service Fabric doivent avoir la propriété ClusterProtectionLevel définie sur EncryptAndSign
+- Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client
 - Les services doivent écouter uniquement sur les ports autorisés
 - L’accès public au compte de stockage doit être interdit
-- Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
+- Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager
 - Les comptes de stockage doivent utiliser des règles de réseau virtuel pour restreindre l’accès au réseau
 - L’utilisation du réseau hôte et des ports doit être limitée
 - L’utilisation de montages de volume HostPath de pod doit être limitée à une liste connue pour restreindre l’accès aux nœuds à partir de conteneurs compromis
 - La période de validité des certificats stockés dans Azure Key Vault ne doit pas dépasser 12 mois
-- Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
+- Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager
 - Le pare-feu d’applications web (WAF) doit être activé pour Application Gateway
 - Web Application Firewall (WAF) doit être activé pour le service Azure Front Door Service
 

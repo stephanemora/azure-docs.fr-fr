@@ -2,13 +2,13 @@
 title: Nouveautés de l’agent des serveurs activés par Azure Arc
 description: Cet article contient les notes de publication de l’agent des serveurs activés par Azure Arc. Pour la plupart des problèmes résumés, des liens mènent à des informations supplémentaires.
 ms.topic: conceptual
-ms.date: 12/21/2020
-ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.date: 03/15/2021
+ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722519"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470504"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Nouveautés de l’agent des serveurs activés par Azure Arc
 
@@ -18,13 +18,27 @@ L’agent Connected Machine des serveurs activés par Azure Arc reçoit des amé
 - Problèmes connus
 - Résolution des bogues
 
+## <a name="march-2021"></a>Mars 2021
+
+Version 1.4
+
+## <a name="new-feature"></a>Nouvelle fonctionnalité
+
+- Ajout de la prise en charge des points de terminaison privés.
+- Liste élargie des codes de sortie pour azcmagent.
+- Les paramètres de configuration de l’agent peuvent maintenant être lus à partir d’un fichier avec le paramètre --config.
+
+## <a name="fixed"></a>Fixe
+
+Les vérifications des points de terminaison réseau sont maintenant plus rapides.
+
 ## <a name="december-2020"></a>Décembre 2020
 
 Version : 1.3
 
 ### <a name="new-feature"></a>Nouvelle fonctionnalité
 
-Ajout de la prise en charge de Windows Server 2008 R2
+Ajout de la prise en charge de Windows Server 2008 R2.
 
 ### <a name="fixed"></a>Fixe
 
