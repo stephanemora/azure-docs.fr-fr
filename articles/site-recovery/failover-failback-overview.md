@@ -4,10 +4,10 @@ description: En savoir plus sur le basculement et les défaillances dans Azure S
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: b900655d6fdf1143d430ac842bfd84eb1dfdf34c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98070740"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>À propos du basculement/restauration de la récupération d’urgence au niveau local
@@ -18,10 +18,10 @@ Cet article fournit une vue d’ensemble du basculement et de la restauration au
 
 Le basculement et la restauration automatique dans Azure Site Recovery comportent quatre étapes :
 
-- **Étape 1 : Basculement vers un site local** : Après la configuration de la réplication vers Azure pour les machines locales, lorsque votre site local tombe en panne, vous basculez ces machines vers Azure. Une fois le basculement effectué, les machines virtuelles Azure sont créées à partir des données répliquées.
-- **Étape 2 : Reprotéger des machines virtuelles Azure :** Dans Azure, vous reprotégez les machines virtuelles Azure afin qu’elles soient répliquées sur le site local. La machine virtuelle locale (si elle est disponible) est désactivée au cours de la reprotection afin de garantir la cohérence des données.
-- **Étape 3 : Basculement à partir d’Azure**: Lorsque votre site local s’exécute de nouveau normalement, vous exécutez un autre basculement, cette fois pour restaurer les machines virtuelles Azure sur votre site local. Vous pouvez effectuer une restauration automatique vers l’emplacement d’origine à partir duquel vous avez basculé ou vers un autre emplacement.
-- **Étape 4 : Reprotéger les machines locales**: Après une restauration automatique, activez à nouveau la réplication des machines locales vers Azure.
+- **Étape 1 : basculer à partir d’un site local** : après la configuration de la réplication vers Azure pour les machines locales, lorsque votre site local tombe en panne, vous basculez ces machines vers Azure. Une fois le basculement effectué, les machines virtuelles Azure sont créées à partir des données répliquées.
+- **Étape 2 : reprotéger les machines virtuelles Azure** : dans Azure, vous reprotégez les machines virtuelles Azure afin qu’elles commencent à se répliquer sur le site local. La machine virtuelle locale (si elle est disponible) est désactivée au cours de la reprotection afin de garantir la cohérence des données.
+- **Étape 3 : basculer à partir d’Azure** : quand votre site local s’exécute de nouveau normalement, vous opérez un autre basculement, cette fois pour restaurer automatiquement les machines virtuelles Azure sur votre site local. Vous pouvez effectuer une restauration automatique vers l’emplacement d’origine à partir duquel vous avez basculé ou vers un autre emplacement.
+- **Étape 4 : reprotéger les machines locales** : après restauration, réactivez la réplication des machines locales sur Azure.
 
 ## <a name="failover"></a>Basculement
 
@@ -33,8 +33,8 @@ Vous effectuez un basculement dans le cadre de votre stratégie de continuité d
 
 Le basculement est une activité en deux phases :
 
-- **Basculement** : Basculement qui crée et affiche une machine virtuelle Azure à l’aide du point de récupération sélectionné.
-- **Valider** : Après le basculement, vous vérifiez la machine virtuelle dans Azure :
+- **Basculer** : basculement qui crée et affiche une machine virtuelle Azure utilisant le point de récupération sélectionné.
+- **Valider** : après le basculement, vous vérifiez la machine virtuelle dans Azure :
     - Vous pouvez ensuite valider le basculement vers le point de récupération sélectionné ou sélectionner un autre point pour la validation.
     - Une fois le basculement validé, le point de récupération ne peut pas être modifié.
 
@@ -45,7 +45,7 @@ Pour vous connecter aux machines virtuelles Azure créées après le basculement
 
 **Type de basculement** | **Lieu** | **Actions**
 --- | --- | ---
-**Machine virtuelle Azure exécutant Windows** | Sur la machine locale, avant le basculement | **Accès via Internet**: Activer le protocole RDP. Assurez-vous que les règles TCP et UDP sont ajoutées pour le profil **Public** et que RDP est autorisé pour tous les profils dans **Pare-feu Windows** > **Applications autorisées**.<br/><br/> **Accès via un VPN de site à site**: Activer le protocole RDP sur l’ordinateur. Vérifiez que RDP est autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées**, pour les réseaux **Domaine et Privé** .<br/><br/>  Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135)<br/><br/> Vérifiez qu’aucune mise à jour de Windows n’est en attente sur la machine virtuelle quand vous déclenchez un basculement. Windows Update peut démarrer lors du basculement, et vous ne pourrez pas vous connecter à la machine virtuelle tant que les mises à jour ne sont pas terminées.
+**Machine virtuelle Azure exécutant Windows** | Sur la machine locale, avant le basculement | **Accès via Internet** : activez le protocole RDP. Assurez-vous que les règles TCP et UDP sont ajoutées pour le profil **Public** et que RDP est autorisé pour tous les profils dans **Pare-feu Windows** > **Applications autorisées**.<br/><br/> **Accès via un VPN site à site** : activez le protocole RDP sur la machine. Vérifiez que RDP est autorisé dans **Pare-feu Windows** -> **Applications et fonctionnalités autorisées**, pour les réseaux **Domaine et Privé** .<br/><br/>  Vérifiez que la stratégie SAN du système d’exploitation est définie sur la valeur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135)<br/><br/> Vérifiez qu’aucune mise à jour de Windows n’est en attente sur la machine virtuelle quand vous déclenchez un basculement. Windows Update peut démarrer lors du basculement, et vous ne pourrez pas vous connecter à la machine virtuelle tant que les mises à jour ne sont pas terminées.
 **Machine virtuelle Azure exécutant Windows** | Sur la machine virtuelle Azure, après le basculement |  [Ajoutez une adresse IP publique](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) pour la machine virtuelle.<br/><br/> Les règles des groupes de sécurité réseau sur la machine virtuelle basculée (et le sous-réseau Azure auquel elle est connectée) doivent autoriser les connexions entrantes avec le port RDP.<br/><br/> Cochez **Diagnostics de démarrage** pour examiner une capture d’écran de la machine virtuelle. Si vous ne parvenez pas à vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et consultez ces [conseils de résolution des problèmes](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Machine virtuelle Azure exécutant Linux** | Sur la machine locale, avant le basculement | Vérifiez que le service Secure Shell, sur la machine virtuelle, est défini pour démarrer automatiquement au démarrage du système.<br/><br/> Vérifiez que les règles de pare-feu autorisent une connexion SSH à ce dernier.
 **Machine virtuelle Azure exécutant Linux** | Sur la machine virtuelle Azure, après le basculement | Les règles des groupes de sécurité réseau figurant sur la machine virtuelle basculée (et le sous-réseau Azure auquel elle est connectée) doivent autoriser les connexions entrantes avec le port SSH.<br/><br/> [Ajoutez une adresse IP publique](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) pour la machine virtuelle.<br/><br/> Cochez **Diagnostics de démarrage** pour obtenir une capture d’écran de la machine virtuelle.<br/><br/>
@@ -115,7 +115,7 @@ Pour reprotéger et restaurer automatiquement des machines VMware et des serveur
 - **Stratégie de restauration automatique** : pour répliquer vers votre site local, vous avez besoin d’une stratégie de restauration automatique. Cette stratégie est automatiquement créée en même temps que la stratégie de réplication depuis le site local vers Azure.
     - Cette stratégie est automatiquement associée au serveur de configuration.
     - Vous ne pouvez pas modifier cette stratégie.
-    - Valeurs de stratégie : Seuil de RPO - 15 minutes ; Rétention des points de récupération - 24 heures ; Fréquence des instantanés de cohérence des applications - 60 minutes.
+    - Valeurs de la stratégie : seuil de RPO - 15 minutes ; rétention des points de récupération - 24 heures ; fréquence des instantanés de cohérence des applications - 60 minutes.
 
 En savoir plus sur VMware, la reprotection physique et la restauration automatique :
 - [Passer en revue](vmware-azure-reprotect.md#before-you-begin) les exigences supplémentaires pour la reprotection et la restauration automatique.
@@ -124,8 +124,8 @@ En savoir plus sur VMware, la reprotection physique et la restauration automatiq
 
 Lorsque vous reprotégez des machines virtuelles Azure en local, vous pouvez spécifier que vous souhaitez effectuer une restauration automatique vers l’emplacement d’origine ou vers un autre emplacement.
 
-- **Récupération à l’emplacement d’origine** : Cette opération bascule à partir d’Azure vers la même machine locale source, si elle existe. Dans ce scénario, seules les modifications sont répliquées vers le serveur local.
-- **Récupération à un autre emplacement** : Si la machine locale n’existe pas, vous pouvez effectuer une restauration automatique à partir d’Azure vers un autre emplacement. Lorsque vous reprotégez la machine virtuelle Azure en local, la machine locale est créée. La réplication complète des données s’effectue à partir d’Azure vers le site local. --[Passez en revue](concepts-types-of-failback.md) les exigences et limitations relatives à la restauration de l’emplacement.
+- **Récupération d’emplacement d’origine** : cette opération entraîne le basculement d’Azure vers la même machine locale source, si elle existe. Dans ce scénario, seules les modifications sont répliquées vers le serveur local.
+- **Récupération d’autre emplacement** : si la machine locale n’existe pas, vous pouvez effectuer une restauration automatique à partir d’Azure vers un autre emplacement. Lorsque vous reprotégez la machine virtuelle Azure en local, la machine locale est créée. La réplication complète des données s’effectue à partir d’Azure vers le site local. --[Passez en revue](concepts-types-of-failback.md) les exigences et limitations relatives à la restauration de l’emplacement.
 
 
 
@@ -138,17 +138,17 @@ Pour reprotéger et restaurer automatiquement des machines virtuelles Hyper-V à
 - Vous exécutez une restauration automatique planifiée d’Azure vers le site local.
 - Aucun composant spécifique ne doit être configuré pour la restauration automatique des machines virtuelles Hyper-V.
 - Pendant le basculement planifié, vous pouvez sélectionner des options pour synchroniser les données avant la restauration automatique :
-    - **Synchroniser les données avant le basculement** : Cette option réduit le temps d’arrêt pour les machines virtuelles lors de la synchronisation des ordinateurs sans les arrêter.
-        - Phase 1 : Elle prend une capture instantanée de la machine virtuelle Azure et la copie sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
-        - Phase 2 : Elle arrête la machine virtuelle Azure : aucune nouvelle modification ne s’y produit donc. L’ensemble final des modifications d’ordre différentiel est transféré au serveur local et la machine virtuelle locale est démarrée.
-    - **Synchroniser les données pendant le basculement uniquement** : Cette option est plus rapide, car nous pensons que la majeure partie du disque a changé et n’effectue donc pas de calculs de somme de contrôle. Elle effectue un téléchargement du disque. Nous vous recommandons d’utiliser cette option si la machine virtuelle a été exécutée dans Azure pendant un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée.
+    - **Synchroniser les données avant le basculement**: cette option réduit le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées.
+        - Phase 1 : Prend une capture instantanée de la machine virtuelle Azure et la copie sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
+        - Phase 2 : Arrête la machine virtuelle Azure de sorte que plus aucune modification ne se produise. L’ensemble final des modifications d’ordre différentiel est transféré au serveur local et la machine virtuelle locale est démarrée.
+    - **Synchroniser les données uniquement pendant le basculement** : cette option est plus rapide, car nous pensons que la majeure partie du disque a changé et qu’il n’y a donc pas de calcul de somme de contrôle. Elle effectue un téléchargement du disque. Nous vous recommandons d’utiliser cette option si la machine virtuelle a été exécutée dans Azure pendant un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée.
 
 [En savoir plus](hyper-v-azure-failback.md) sur la reprotection Hyper-V et la restauration automatique.
 
 Lorsque vous reprotégez des machines virtuelles Azure en local, vous pouvez spécifier que vous souhaitez effectuer une restauration automatique vers l’emplacement d’origine ou vers un autre emplacement.
 
-- **Récupération à l’emplacement d’origine** : Cette opération bascule à partir d’Azure vers la même machine locale source, si elle existe. Dans ce scénario, vous sélectionnez l’une des options de synchronisation décrites dans la procédure précédente.
-- **Récupération à un autre emplacement** : Si la machine locale n’existe pas, vous pouvez effectuer une restauration automatique à partir d’Azure vers un autre emplacement. Lorsque vous reprotégez la machine virtuelle Azure en local, la machine locale est créée. Avec cette option, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement
+- **Récupération d’emplacement d’origine** : cette opération entraîne le basculement d’Azure vers la même machine locale source, si elle existe. Dans ce scénario, vous sélectionnez l’une des options de synchronisation décrites dans la procédure précédente.
+- **Récupération d’autre emplacement** : si la machine locale n’existe pas, vous pouvez effectuer une restauration automatique à partir d’Azure vers un autre emplacement. Lorsque vous reprotégez la machine virtuelle Azure en local, la machine locale est créée. Avec cette option, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement
 - [Passez en revue](hyper-v-azure-failback.md) les exigences et limitations relatives à la restauration de l’emplacement.
 
 

@@ -8,13 +8,13 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171548"
 ---
-# <a name="tutorial-forward-events-to-iothub"></a>Tutoriel : Transférer des événements vers IoT Hub
+# <a name="tutorial-forward-events-to-iothub"></a>Tutoriel : transférer des événements vers IoTHub
 
 Cet article vous guide tout au long des étapes nécessaires pour transférer des événements Event Grid vers d’autres modules IoT Edge, IoTHub à l’aide d’itinéraires. Vous pouvez le faire pour les raisons suivantes :
 

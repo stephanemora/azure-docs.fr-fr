@@ -8,13 +8,13 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171446"
 ---
-# <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutoriel : Publier, s'abonner à des événements localement
+# <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutoriel : publier, s’abonner à des événements localement
 
 Cet article vous guide tout au long des étapes nécessaires pour publier et s’abonner à des événements avec Event Grid sur IoT Edge.
 

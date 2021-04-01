@@ -4,10 +4,10 @@ description: Cet article vous montre comment créer une fabrique d’images pers
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 14c8338d6a5ae21847da3a9c774ea6dcdac33ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85482069"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créer une fabrique d’images personnalisées dans Azure DevTest Labs
@@ -49,4 +49,4 @@ Pour les scénarios plus complexes, il existe une autre implémentation à l’a
 - Les scripts PowerShell doivent être réutilisables, afin de permettre la création rapide de fabriques supplémentaires au besoin
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article suivant dans cette section : [Exécuter une fabrique d’images depuis Azure DevOps](image-factory-set-up-devops-lab.md)
+Passez à l’article suivant de cette section : [Exécuter une fabrique d’images depuis Azure DevOps](image-factory-set-up-devops-lab.md)
