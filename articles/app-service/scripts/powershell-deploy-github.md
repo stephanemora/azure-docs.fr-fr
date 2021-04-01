@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Déployer du code à partir de GitHub'
+title: 'PowerShell : Déployer du code à partir de GitHub'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment déployer du code à partir de GitHub.
 tags: azure-service-management
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 303cb562d4489412cf16a3c064cdb7770c19bdd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073750"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>Créer une application web et déployer du code à partir de GitHub

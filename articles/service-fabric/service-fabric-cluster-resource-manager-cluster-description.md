@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5d27a09f0ff38ec7422636ef0933552aa310c387
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92911764"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
@@ -64,7 +64,7 @@ Il est préférable d’avoir le même nombre de nœuds à chaque niveau de prof
 
 Dans Azure, le choix du domaine d’erreur qui contient un nœud est géré automatiquement. Mais en fonction du nombre de nœuds que vous configurez, vous pouvez malgré tout vous retrouver avec des domaines d’erreur contenant plus de nœuds que d’autres.
 
-Supposez, par exemple, que vous avez cinq domaines d’erreur dans le cluster, mais que vous provisionnez sept nœuds pour un type de nœud ( **NodeType** ) donné. Dans ce cas, les deux premiers domaines d’erreur se retrouvent avec davantage de nœuds. Si vous continuez à déployer plus d’instances de **NodeTypes** avec seulement deux instances, le problème s’aggrave. C’est pourquoi le nombre de nœuds dans chaque type de nœud doit de préférence être un multiple du nombre de domaines d’erreur.
+Supposez, par exemple, que vous avez cinq domaines d’erreur dans le cluster, mais que vous provisionnez sept nœuds pour un type de nœud (**NodeType**) donné. Dans ce cas, les deux premiers domaines d’erreur se retrouvent avec davantage de nœuds. Si vous continuez à déployer plus d’instances de **NodeTypes** avec seulement deux instances, le problème s’aggrave. C’est pourquoi le nombre de nœuds dans chaque type de nœud doit de préférence être un multiple du nombre de domaines d’erreur.
 
 ## <a name="upgrade-domains"></a>Domaines de mise à niveau
 
@@ -119,7 +119,7 @@ Par exemple, supposez que vous avez un cluster avec six nœuds, configuré avec 
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
 
-Maintenant, supposez que vous créez un service en attribuant à **TargetReplicaSetSize** (ou, pour un service sans état, à **InstanceCount** ) la valeur 5. Les réplicas se trouvent sur N1-N5. En fait, N6 n’est jamais utilisé, quel que soit le nombre de services équivalents que vous créez. Mais pourquoi ? Examinons la différence entre la disposition actuelle et ce qui se passerait si N6 était choisi.
+Maintenant, supposez que vous créez un service en attribuant à **TargetReplicaSetSize** (ou, pour un service sans état, à **InstanceCount**) la valeur 5. Les réplicas se trouvent sur N1-N5. En fait, N6 n’est jamais utilisé, quel que soit le nombre de services équivalents que vous créez. Mais pourquoi ? Examinons la différence entre la disposition actuelle et ce qui se passerait si N6 était choisi.
 
 Voici la disposition que nous obtenons et le nombre total de réplicas par domaine d’erreur et de mise à niveau :
 
@@ -473,7 +473,7 @@ Comme pour les contraintes de placement et les propriétés de nœud, Service Fa
 
 ## <a name="capacity"></a>Capacité
 
-Si vous désactiviez toutes les fonctions d’ *équilibrage* des ressources, Service Fabric Cluster Resource Manager serait tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble.
+Si vous désactiviez toutes les fonctions d’*équilibrage* des ressources, Service Fabric Cluster Resource Manager serait tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble.
 
 La capacité et la consommation au niveau du service sont toutes deux exprimées en termes de métriques. Par exemple, pour une métrique nommée « ClientConnections », un nœud peut avoir une capacité de 32 768. Les autres nœuds peuvent avoir d’autres limites. Un service s’exécutant sur ce nœud peut indiquer qu’il consomme actuellement 32 256 de la métrique « ClientConnections ».
 
@@ -566,7 +566,7 @@ Il est également possible de spécifier une capacité de surréservation infini
 
 La capacité de mémoire tampon et la capacité de surréservation d’un nœud ne peuvent pas être spécifiées en même temps pour une métrique.
 
-Voici un exemple montrant comment spécifier les capacités de mémoire tampon de nœud ou de surréservation dans *ClusterManifest.xml*  :
+Voici un exemple montrant comment spécifier les capacités de mémoire tampon de nœud ou de surréservation dans *ClusterManifest.xml* :
 
 ```xml
 <Section Name="NodeBufferPercentage">

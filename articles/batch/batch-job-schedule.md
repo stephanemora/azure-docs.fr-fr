@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/20/2020
 ms.custom: seodec18
 ms.openlocfilehash: 7da3c78e00f5d7e41a5396603cf4885a50cb6e5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89146349"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Planifier des travaux pour gagner en efficacité
@@ -31,36 +31,36 @@ L’avantage de la planification des travaux est que vous pouvez spécifier une 
 
 ![Planifier un travail][1]
 
-**ID de planification du travail** : Identificateur unique de cette planification de travail.
+**ID de planification du travail** : l’identificateur unique de la planification de ce travail.
 
-**Nom d'affichage** : Le nom d’affichage du travail n’a pas besoin d’être unique, mais sa longueur maximale est de 1024 caractères.
+**Nom d’affichage** : le nom d’affichage du travail n’a pas besoin d’être unique, mais sa longueur maximale est de 1 024 caractères.
 
-**Ne pas exécuter avant** : Spécifie l’heure à laquelle le travail est exécuté au plus tôt. Si vous ne la définissez pas, la planification est prête à exécuter les travaux immédiatement.
+**Ne pas exécuter jusqu’à** : spécifie l’heure à laquelle le travail est exécuté au plus tôt. Si vous ne la définissez pas, la planification est prête à exécuter les travaux immédiatement.
 
-**Ne pas exécuter après** : Aucun travail n’est exécuté après l’heure définie ici. Si vous ne spécifiez pas d’heure, vous créez une planification de travail périodique qui reste active jusqu’à ce que vous la terminiez explicitement.
+**Ne pas exécuter après** : aucun travail n’est exécuté après l’heure que vous avez définie ici. Si vous ne spécifiez pas d’heure, vous créez une planification de travail périodique qui reste active jusqu’à ce que vous la terminiez explicitement.
 
-**Intervalle de périodicité** : Vous pouvez spécifier le laps de temps entre les travaux. Vous ne pouvez avoir qu’un seul travail planifié à la fois. Par conséquent, s’il est temps de créer un nouveau travail dans le cadre d’une planification de travail, mais que le travail précédent est encore en cours d’exécution, le service Batch ne crée pas le nouveau travail tant que le travail précédent n’est pas terminé.  
+**Intervalle de périodicité** : vous pouvez spécifier le laps de temps entre les travaux. Vous ne pouvez avoir qu’un seul travail planifié à la fois. Par conséquent, s’il est temps de créer un nouveau travail dans le cadre d’une planification de travail, mais que le travail précédent est encore en cours d’exécution, le service Batch ne crée pas le nouveau travail tant que le travail précédent n’est pas terminé.  
 
-**Fenêtre de démarrage** : Ici, vous spécifiez l’intervalle de temps allant du moment où la planification indique qu’un travail doit être créé jusqu’à ce que travail soit terminé. Si le travail en cours ne se termine pas dans sa fenêtre, le travail suivant ne démarre pas.
+**Fenêtre Démarrer** : ici, vous spécifiez l’intervalle de temps allant du moment où la planification indique qu’un travail doit être créé jusqu’à ce que le travail soit terminé. Si le travail en cours ne se termine pas dans sa fenêtre, le travail suivant ne démarre pas.
 
 En bas du formulaire de base, vous allez spécifier le pool sur lequel vous souhaitez que le travail s’exécute. Pour connaître l’ID de votre pool, sélectionnez **Mettre à jour**. 
 
 ![Spécifier le pool][2]
 
 
-**ID de pool** : Identifiez le pool sur lequel vous allez exécuter le travail.
+**ID du pool** : identifier le pool sur lequel exécuter le travail.
 
-**Tâche de configuration du travail** : Sélectionnez **Mettre à jour** pour nommer la tâche du gestionnaire de travaux, ainsi que les tâches de préparation et de lancement du travail, si vous en utilisez.
+**Tâche de configuration des travaux** : sélectionnez **Mettre à jour** pour nommer la tâche du gestionnaire de travaux, ainsi que les tâches de préparation et de lancement du travail, si vous en utilisez.
 
-**Priorité** : Attribuez une priorité au travail.
+**Priorité** : attribuez une priorité au travail.
 
-**Durée maximale de l’horloge** : Définissez la durée maximale pendant laquelle le travail peut s’exécuter. S’il ne se termine pas dans le délai d’exécution,Batch termine le travail. Si vous ne définissez pas cette valeur, il n’y a aucune limite de durée pour le travail.
+**Temps horloge** : définissez la durée maximale pendant laquelle le travail peut s’exécuter. S’il ne se termine pas dans le délai d’exécution,Batch termine le travail. Si vous ne définissez pas cette valeur, il n’y a aucune limite de durée pour le travail.
 
-**Nombre maximal de tentatives de tâche** : Précisez le nombre de fois qu’une tâche peut être retentée jusqu’à un maximum de quatre fois. Ce n’est pas le même que le nombre de nouvelles tentatives qu’un appel d’API peut avoir.
+**Nombre maximal de nouvelle tentative de la tâche** : spécifiez le nombre de nouvelles tentatives d’une tâche jusqu’à un maximum de quatre. Ce n’est pas le même que le nombre de nouvelles tentatives qu’un appel d’API peut avoir.
 
-**Lorsque toutes les tâches sont terminées** : La valeur par défaut est aucune action.
+**Une fois toutes les tâches terminées** : la valeur par défaut est aucune action.
 
-**Lorsqu’une tâche échoue** : La valeur par défaut est aucune action. Une tâche échoue si le nombre de tentatives est épuisé ou si une erreur s’est produite lors du démarrage de la tâche. 
+**Lors de l’échec d’une tâche** : la valeur par défaut est aucune action. Une tâche échoue si le nombre de tentatives est épuisé ou si une erreur s’est produite lors du démarrage de la tâche. 
 
 Après avoir sélectionné **Enregistrer**, si vous accédez à **Planifications de travaux** dans le volet de navigation gauche, vous pouvez suivre l’exécution du travail en sélectionnant **Informations d’exécution**.
 

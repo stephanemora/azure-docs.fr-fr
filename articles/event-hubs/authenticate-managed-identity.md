@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805288"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs
@@ -57,8 +57,8 @@ Pour attribuer un rôle aux ressources Event Hubs, accédez à cette ressource d
 1. Dans le portail Azure, accédez à votre espace de noms Event Hubs, puis affichez la **vue d’ensemble** de l’espace de noms. 
 1. Sélectionnez **Contrôle d’accès (IAM)** dans le menu de gauche pour afficher les paramètres du contrôle d’accès pour le hub d’événements.
 1.  Sélectionnez l’onglet **Attributions de rôles** pour afficher la liste des attributions de rôles.
-3.  Sélectionnez **Ajouter**, puis sélectionnez **Ajouter une attribution de rôle** _.
-4.  Sur la page _ *Ajouter une attribution de rôle**, procédez comme suit :
+3.  Sélectionnez **Ajouter**, puis sélectionnez **Ajouter une attribution de rôle**.
+4.  Sur la page **Ajouter une attribution de rôle**, procédez comme suit :
     1. Pour **Rôle**, sélectionnez le rôle Event Hubs que vous souhaitez attribuer. Dans cet exemple, il s’agit de **Propriétaire de données Azure Event Hubs**.
     1. Pour le champ **Attribuer l’accès à**, sélectionnez **App Service** sous **Identité managée affectée par le système**. 
     1. Sélectionnez l’**abonnement** dans lequel l’identité managée pour l’application web a été créée.
