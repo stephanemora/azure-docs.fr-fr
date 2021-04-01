@@ -4,10 +4,10 @@ description: Cet article vous explique comment traiter des données de votre ins
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85312891"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Traiter des données de votre instance Event Hub avec Azure Stream Analytics 
@@ -44,7 +44,7 @@ Voici les principaux avantages de l’intégration d’Azure Event Hubs et d'Azu
     - Vous pouvez afficher un aperçu des données entrantes au format tableau ou au format brut. 
     - Si les données qui apparaissent ne sont pas à jour, sélectionnez **Actualiser** pour afficher les événements les plus récents. 
 
-        Voici un exemple de données au **format tableau** :   ![Résultats au format tableau](./media/process-data-azure-stream-analytics/snapshot-results.png)
+        Voici un exemple de données au **format table** : ![ résultats dans le format table](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
         Voici un exemple de données au **format brut** : 
 
@@ -73,7 +73,7 @@ Voici les principaux avantages de l’intégration d’Azure Event Hubs et d'Azu
 Lors du test de votre requête, les résultats correspondants mettent environ 6 secondes à charger. Nous mettons tout en œuvre pour améliorer le niveau de performance des tests. Toutefois, lors d'un déploiement en production, Azure Stream Analytics affiche une latence inférieure à une seconde.
 
 ## <a name="streaming-units"></a>Unités de diffusion en continu
-Votre travail Azure Stream Analytics affiche par défaut trois unités de streaming. Pour ajuster ce paramètre, sélectionnez **Mettre à l’échelle**dans le menu de gauche de la page **Travail Stream Analytics** du portail Azure. Pour plus d’informations sur les unités de streaming, consultez [Comprendre et ajuster les unités de streaming](../stream-analytics/stream-analytics-streaming-unit-consumption.md).
+Votre travail Azure Stream Analytics affiche par défaut trois unités de streaming. Pour ajuster ce paramètre, sélectionnez **Mettre à l’échelle** dans le menu de gauche de la page **Travail Stream Analytics** du portail Azure. Pour plus d’informations sur les unités de streaming, consultez [Comprendre et ajuster les unités de streaming](../stream-analytics/stream-analytics-streaming-unit-consumption.md).
 
 ![Mettre à l'échelle les unités de streaming](./media/process-data-azure-stream-analytics/scale.png)
 

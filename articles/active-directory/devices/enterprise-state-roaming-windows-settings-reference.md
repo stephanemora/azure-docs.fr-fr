@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85252965"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
@@ -47,12 +47,12 @@ Les groupes de paramètres suivants sont disponibles pour les utilisateurs finau
 * Préférences linguistiques : Dictionnaire, Paramètres de langue système 
 * Options d’ergonomie : Narrateur, Loupe, Clavier visuel 
 * Autres paramètres Windows : consultez les détails de Paramètres Windows
-* Paramétrage du navigateur Microsoft Edge : Favoris Microsoft Edge, liste de lecture et autres paramètres
+* Paramétrage du navigateur Microsoft Edge : favoris Microsoft Edge, liste de lecture et autres paramètres
 
 ![Synchroniser vos paramètres](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
-> Cet article s’applique au précédent navigateur HTML Microsoft Edge qui a été lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
+> Cet article s’applique au navigateur HTML hérité Microsoft Edge lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 La synchronisation de groupes de paramètres pour le navigateur Microsoft Edge (favoris, liste de lecture) peut être activée ou désactivée par les utilisateurs finaux dans le menu Paramètres du navigateur Microsoft Edge.
 
@@ -73,14 +73,14 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | --- | --- | --- | --- |
 | **Comptes**: avatar du compte |synchronisation |X |Thème |
 | **Comptes**: autres paramètres de compte |X |X | |
-| **Bande passante mobile avancée** : Nom du réseau de partage de connexion Internet (active la découverte automatique des points d’accès Wi-Fi mobiles via Bluetooth) |X |X |Mots de passe |
-| **Données d’application**: les applications individuelles peuvent synchroniser des données |sauvegarde de synchronisation |sauvegarde de synchronisation |interne |
+| **Bande passante mobile avancée** : nom de réseau de partage de connexion Internet (active la découverte automatique des zones réactives Wi-Fi mobiles via Bluetooth) |X |X |Mots de passe |
+| **Données d’application**: les applications individuelles peuvent synchroniser des données |sauvegarde de synchronisation |sauvegarde de synchronisation |internal |
 | **Liste d’applications**: liste des applications installées |X |sauvegarde |Autres |
 | **Bluetooth**: tous les paramètres Bluetooth |X |X | |
-| **Invite de commandes** : Paramètres « Defaults » de l’invite de commandes |synchronisation |X |interne |
-| **Informations d’identification** : Stockage sécurisé des informations d’identification |synchronisation |synchronisation |mot de passe |
+| **Invite de commandes** : paramètres Defaults de l’invite de commandes |synchronisation |X |internal |
+| **Informations d’identification**: stockage sécurisé des informations d’identification |synchronisation |synchronisation |mot de passe |
 | **Date, heure et région**: horaire automatique (synchronisation Internet) |synchronisation |synchronisation |langage |
-| **Date, heure et région** : horloge de 24 heures |synchronisation |X |langage |
+| **Date, heure et région**: 24 heures |synchronisation |X |langage |
 | **Date, heure et région**: date et heure |synchronisation |X |langage |
 | **Date, heure et région**: fuseau horaire | |X |langage |
 | **Date, heure et région**: heure d’été |synchronisation |X |langage |
@@ -95,24 +95,24 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Personnalisation du bureau**: papier peint en diaporama |synchronisation |X |Thème |
 | **Personnalisation du bureau**: paramètres de la barre des tâches (position, masquage automatique, etc.) |synchronisation |X |Thème |
 | **Personnalisation du bureau**: disposition de l’écran d’accueil |X |sauvegarde | |
-| **Appareils**: imprimantes partagées auxquelles vous êtes connectées |X |X |Autres |
-| **Navigateur Microsoft Edge** : liste de lecture |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : favoris |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : paramètres de la barre des favoris <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : afficher le bouton Accueil <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : bloquer les fenêtres publicitaires <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : me demander ce qu’il faut faire avec chaque téléchargement <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : proposer d’enregistrer les mots de passe <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : envoyer les demandes Ne pas me suivre <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : enregistrer les entrées des formulaires <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : afficher les suggestions de recherche et de site au fil de la frappe <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : préférences pour les cookies <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : permettre aux sites d’enregistrer les licences des médias protégés sur mon appareil <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Navigateur Microsoft Edge** : paramètre du lecteur d’écran <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |interne |
-| **Contraste élevé** : Activé ou désactivé |synchronisation |X |options d’ergonomie |
-| **Contraste élevé** : Paramètres du thème |synchronisation |X |options d’ergonomie |
+| **Appareils**: imprimantes partagées auxquelles vous êtes connectées |X |X |autre |
+| **Navigateur Microsoft Edge** : liste de lecture |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : favoris |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : sites les plus consultés <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : paramètres de la barre des favoris <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : afficher le bouton Accueil <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : bloquer les fenêtres publicitaires <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : me demander ce qu’il faut faire avec chaque téléchargement <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : proposer d’enregistrer les mots de passe <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : envoyer les demandes Ne pas me suivre <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : enregistrer les entrées des formulaires <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : afficher les suggestions de recherche et de site au fil de la frappe <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : préférences pour les cookies <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : permettre aux sites d’enregistrer les licences des médias protégés sur mon appareil <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Navigateur Microsoft Edge** : paramètre du lecteur d’écran <sup>[[1]](#footnote-1)</sup> |synchronisation |synchronisation |internal |
+| **Contraste élevé**: activé ou désactivé |synchronisation |X |options d’ergonomie |
+| **Contraste élevé**: paramètres du thème |synchronisation |X |options d’ergonomie |
 | **Internet Explorer**: ouvrir les onglets (URL et titre) |synchronisation |synchronisation |Internet Explorer |
 | **Internet Explorer**: liste de lecture |synchronisation |synchronisation |Internet Explorer |
 | **Internet Explorer**: URL saisies |synchronisation |synchronisation |Internet Explorer |
@@ -125,35 +125,35 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Clavier**: activer un oui rémanent (désactivé par défaut) |synchronisation |X |options d’ergonomie |
 | **Clavier**: activer les clés de filtre (désactivé par défaut) |synchronisation |X |options d’ergonomie |
 | **Clavier**: activer les touches bascules (désactivé par défaut) |synchronisation |X |options d’ergonomie |
-| **Internet Explorer** : langue du domaine : QWERTY chinois (CHS) - activer l’apprentissage automatique |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - activer le classement de candidats dynamique |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - jeu de caractères chinois simplifié |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - jeu de caractères chinois traditionnel |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - pinyin approximatif |synchronisation |sauvegarde |Langage |
-| **Langue** : QWERTY CHS - paires approximatives |synchronisation |sauvegarde |Langage |
-| **Langue** : QWERTY CHS - pinyin complet |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - pinyin double |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - lecture de correction automatique |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - touche bascule C/E, MAJ |synchronisation |X |Langage |
-| **Langue** : QWERTY CHS - touche bascule C/E, Ctrl |synchronisation |X |Langage |
-| **Langue** : WUBI CHS - mode de saisie de caractère unique |synchronisation |X |Langage |
-| **Langue** : WUBI CHS - afficher le codage de candidats restant |synchronisation |X |Langage |
-| **Langue** : WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |synchronisation |X |Langage |
-| **Langue** : Bopomofo CHT - inclure CJK Ext-A |synchronisation |X |Langage |
-| **Langue** : IME japonais - frappe prédictive et mots personnalisés |synchronisation |synchronisation |Langage |
-| **Langue** : IME Coréen (KOR) |X |X |Langage |
-| **Langue**: reconnaissance d’écriture manuscrite |X |X |Langage |
-| **Langue**: profil de langue |synchronisation |sauvegarde |Langage |
-| **Langue**: vérification orthographique et mise en évidence des fautes d’orthographe |synchronisation |sauvegarde |Langage |
-| **Langue**: liste de claviers |synchronisation |sauvegarde |Langage |
+| **Internet Explorer**: langue du domaine : chinois (CHS) QWERTY – activer l’apprentissage automatique |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - activer le classement de candidats dynamique |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - jeu de caractères chinois simplifié |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - jeu de caractères chinois traditionnel |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - pinyin approximatif |synchronisation |sauvegarde |Langue |
+| **Langue**: QWERTY CHS - paires approximatives |synchronisation |sauvegarde |Langue |
+| **Langue**: QWERTY CHS - pinyin complet |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - pinyin double |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - lecture de correction automatique |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - touche bascule C/E, MAJ |synchronisation |X |Langue |
+| **Langue**: QWERTY CHS - touche bascule C/E, Ctrl |synchronisation |X |Langue |
+| **Langue**: WUBI CHS - mode de saisie de caractère unique |synchronisation |X |Langue |
+| **Langue**: WUBI CHS - afficher le codage de candidats restant |synchronisation |X |Langue |
+| **Langue**: WUBI CHS - émission d’un bip sonore lorsque le codage des 4 coins est non valide |synchronisation |X |Langue |
+| **Langue** : Bopomofo CHS - inclure CJK Ext-A |synchronisation |X |Langue |
+| **Langue**: IME japonais - frappe prédictive et mots personnalisés |synchronisation |synchronisation |Langue |
+| **Langue**: coréen (KOR) IME |X |X |Langue |
+| **Langue**: reconnaissance d’écriture manuscrite |X |X |Langue |
+| **Langue**: profil de langue |synchronisation |sauvegarde |Langue |
+| **Langue**: vérification orthographique et mise en évidence des fautes d’orthographe |synchronisation |sauvegarde |Langue |
+| **Langue**: liste de claviers |synchronisation |sauvegarde |Langue |
 | **Écran de verrouillage**: tous les paramètres de verrouillage |X |X | |
 | **Loupe**: activer ou désactiver (bascule maître) |X |X |options d’ergonomie |
 | **Loupe**: activer ou désactiver les couleurs d’inversion (désactivé par défaut) |synchronisation |X |options d’ergonomie |
 | **Loupe**: suivre les éléments sélectionnés au clavier |synchronisation |X |options d’ergonomie |
 | **Loupe**: suivre le curseur de la souris |synchronisation |X |options d’ergonomie |
 | **Loupe**: démarrer lorsque les utilisateurs se connectent (désactivé par défaut) |synchronisation |X |options d’ergonomie |
-| **Souris**: modifier la taille du curseur de la souris |synchronisation |X |Autres |
-| **Souris**: modifier la couleur du curseur de la souris |synchronisation |X |Autres |
+| **Souris**: modifier la taille du curseur de la souris |synchronisation |X |autre |
+| **Souris**: modifier la couleur du curseur de la souris |synchronisation |X |autre |
 | **Souris**: tous les autres paramètres |X |X | |
 | **Narrateur**: lancement rapide |synchronisation |X |options d’ergonomie |
 | **Narrateur**: les utilisateurs peuvent modifier la tonalité du narrateur |synchronisation |X |options d’ergonomie |
@@ -168,17 +168,17 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Options d’ergonomie**: supprimer des images d’arrière-plan (désactivé par défaut) |synchronisation |X |options d’ergonomie |
 | **Alimentation et mise en veille**: tous les paramètres |X |X | |
 | **Personnalisation de l’écran d’accueil** : couleur d’accentuation (téléphone uniquement) |X |synchronisation |Thème |
-| **Frappe**: dictionnaire |synchronisation |sauvegarde |Langage |
-| **Frappe**: correction automatique du mot mal orthographié |synchronisation |sauvegarde |Langage |
-| **Frappe**: mettre en surbrillance les mots mal orthographiés |synchronisation |sauvegarde |Langage |
-| **Frappe**: afficher les suggestions de texte en cours de frappe |synchronisation |sauvegarde |Langage |
-| **Frappe**: ajouter un espace après la sélection d’une suggestion de texte |synchronisation |sauvegarde |Langage |
-| **Frappe**: ajouter un point après un double-clic sur la barre d’espace |synchronisation |sauvegarde |Langage |
-| **Frappe**: mettre une majuscule sur la première lettre de chaque phrase |synchronisation |sauvegarde |Langage |
-| **Frappe**: utiliser des lettres majuscules lorsque je double-clique sur la touche Maj |synchronisation |sauvegarde |Langage |
-| **Frappe**: les touches émettent des sons pendant la frappe |synchronisation |sauvegarde |Langage |
+| **Frappe**: dictionnaire |synchronisation |sauvegarde |Langue |
+| **Frappe**: correction automatique du mot mal orthographié |synchronisation |sauvegarde |Langue |
+| **Frappe**: mettre en surbrillance les mots mal orthographiés |synchronisation |sauvegarde |Langue |
+| **Frappe**: afficher les suggestions de texte en cours de frappe |synchronisation |sauvegarde |Langue |
+| **Frappe**: ajouter un espace après la sélection d’une suggestion de texte |synchronisation |sauvegarde |Langue |
+| **Frappe**: ajouter un point après un double-clic sur la barre d’espace |synchronisation |sauvegarde |Langue |
+| **Frappe**: mettre une majuscule sur la première lettre de chaque phrase |synchronisation |sauvegarde |Langue |
+| **Frappe**: utiliser des lettres majuscules lorsque je double-clique sur la touche Maj |synchronisation |sauvegarde |Langue |
+| **Frappe**: les touches émettent des sons pendant la frappe |synchronisation |sauvegarde |Langue |
 | **Frappe**: données de personnalisation pour le clavier tactile |synchronisation |sauvegarde |Langage |
-| **Wi-Fi** : Profils Wi-Fi (WPA uniquement) |synchronisation |synchronisation |Mots de passe |
+| **Wi-Fi**: profils Wi-Fi (WPA uniquement) |synchronisation |synchronisation |Mots de passe |
 
 ###### <a name="footnote-1"></a>Note 1
 

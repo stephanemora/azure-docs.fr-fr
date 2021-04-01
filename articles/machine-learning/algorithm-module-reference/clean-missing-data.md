@@ -1,5 +1,5 @@
 ---
-title: 'Nettoyage des données manquantes : Informations de référence sur les modules'
+title: 'Nettoyer les données manquantes : référence du module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module de nettoyage des données manquantes dans Azure Machine Learning pour supprimer, remplacer ou déduire les valeurs manquantes.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898832"
 ---
 # <a name="clean-missing-data-module"></a>Module de nettoyage des données manquantes
@@ -71,7 +71,7 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
     > [!WARNING]
     > Cette condition doit être remplie par chaque colonne afin que l’opération spécifiée soit appliquée. Par exemple, supposons que vous avez sélectionné trois colonnes et défini le rapport minimal des valeurs manquantes sur 0,2 (20 %), mais qu’une seule colonne possède 20 % de valeurs manquantes. Dans ce cas, l’opération de nettoyage s’appliquera uniquement à la colonne ayant plus de 20 % de valeurs manquantes. Par conséquent, les autres colonnes resteront inchangées.
     > 
-    > Si vous avez un doute sur le fait que des valeurs manquantes ont été modifiées, sélectionnez l’option **Générer la colonne d’indicateur de valeurs manquantes**. Une colonne est ajoutée au jeu de données pour indiquer si chaque colonne répond ou non aux critères spécifiés pour les plages minimales et maximales.  
+    > Si vous avez un doute à propos de valeurs manquantes qui auraient été modifiées ou non, sélectionnez l'option **Générer la colonne d'indicateur des valeurs manquantes**. Une colonne est ajoutée au jeu de données pour indiquer si chaque colonne répond ou non aux critères spécifiés pour les plages minimales et maximales.  
   
 4. Pour **rapport maximal des valeurs manquantes**, spécifiez le nombre maximal de valeurs manquantes requis pour l’opération à effectuer.   
   
@@ -84,23 +84,23 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
 5. Comme **Mode de nettoyage**, sélectionnez l’une des options suivantes pour le remplacement ou la suppression des valeurs manquantes :  
   
   
-    + **Valeur de substitution personnalisées** : Utilisez cette option pour spécifier une valeur d’espace réservé (par exemple, la valeur 0 ou NA) qui s’applique à toutes les valeurs manquantes. La valeur que vous spécifiez comme remplacement doit être compatible avec le type de données de la colonne.
+    + **Valeur de substitution personnalisée** : utilisez cette option pour spécifier une valeur d’espace réservé (par exemple, la valeur 0 ou N/D) qui s’applique à toutes les valeurs manquantes. La valeur que vous spécifiez comme remplacement doit être compatible avec le type de données de la colonne.
   
-    + **Remplacer par une moyenne** : Calcule la moyenne de la colonne et l’utilise comme valeur de remplacement pour chaque valeur manquante dans la colonne.  
+    + **Remplacer par moyenne** : calcule la moyenne de la colonne et l’utilise comme valeur de remplacement pour chaque valeur manquante dans la colonne.  
   
         S’applique uniquement aux colonnes ayant des types de données Entier, Double ou Booléen.  
   
-    + **Remplacer par une valeur médiane** : Calcule la valeur médiane de la colonne et l’utilise comme valeur de remplacement pour chaque valeur manquante dans la colonne.  
+    + **Remplacer par médiane** : calcule la valeur médiane de la colonne et l’utilise comme remplacement de toute valeur manquante dans la colonne.  
   
         S’applique uniquement aux colonnes ayant des types de données Entier ou Double. 
   
-    + **Remplacer par un mode** : Calcule le mode de la colonne et l’utilise comme valeur de remplacement pour chaque valeur manquante dans la colonne.  
+    + **Remplacer par mode** : calcule le mode de la colonne et l’utilise comme valeur de remplacement de toute valeur manquante dans la colonne.  
   
         S’applique aux colonnes ayant des types de données Entier, Double, Booléen ou Catégorique. 
   
-    + **Supprimer toute la ligne** : Supprime complètement n’importe quelle ligne comportant une ou plusieurs des valeurs manquantes dans le jeu de données. Cela est utile si la valeur manquante peut être considérée comme manquante de façon aléatoire.  
+    + **Supprimer une ligne entière** : supprime complètement n’importe quelle ligne du jeu de données comportant une ou plusieurs valeurs manquantes. Cela est utile si la valeur manquante peut être considérée comme manquante de façon aléatoire.  
   
-    + **Supprimer toute la colonne** : Supprime complètement n’importe quelle colonne comportant une ou plusieurs des valeurs manquantes dans le jeu de données.  
+    + **Supprimer la colonne entière** : supprime complètement toute colonne dans le jeu de données avec une ou plusieurs valeurs manquantes.  
   
     
   
@@ -108,7 +108,7 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
   
     Notez que vous pouvez utiliser cette option uniquement dans les colonnes ayant des types de données Entier, Double, Booléen ou Chaîne.
   
-7. **Générer une colonne d’indicateur de valeur manquante** : Sélectionnez cette option si vous souhaitez générer des indications concernant le fait que les valeurs de la colonne correspondent aux critères du nettoyage de valeurs manquantes. Cette option est particulièrement utile lorsque vous mettez en place une nouvelle opération de nettoyage et que vous souhaitez vous assurer qu’il fonctionne comme prévu.
+7. **Générer une colonne d’indicateur de valeurs manquantes** : sélectionnez cette option si vous voulez indiquer si les valeurs de la colonne répondent ou non aux critères de nettoyage des valeurs manquantes. Cette option est particulièrement utile lorsque vous mettez en place une nouvelle opération de nettoyage et que vous souhaitez vous assurer qu’il fonctionne comme prévu.
   
 8. Envoyez le pipeline.
 
@@ -116,11 +116,11 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
 
 Le module renvoie deux sorties :  
 
--   **Jeu de données nettoyé** : Un jeu de données composé des colonnes sélectionnées, avec des valeurs manquantes gérées comme spécifié, ainsi qu’une colonne d’indicateur, si vous avez sélectionné cette option.  
+-   **Jeu de données nettoyées** : un jeu de données composé des colonnes sélectionnées, avec des valeurs manquantes gérées comme spécifié, ainsi qu’une colonne d’indicateur, si vous avez sélectionné cette option.  
 
     Les colonnes non sélectionnées pour le nettoyage sont également « transmises ».  
   
--  **Transformation de nettoyage**  : Une transformation de données utilisée pour le nettoyage, qui peut être enregistrée dans votre espace de travail et appliquée ultérieurement à de nouvelles données.
+-  **Transformation du nettoyage** : une transformation de données utilisée pour le nettoyage, qui peut être enregistrée dans votre espace de travail et appliquée ultérieurement à de nouvelles données.
 
 ### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Appliquer une opération de nettoyage enregistrée à de nouvelles données  
 
