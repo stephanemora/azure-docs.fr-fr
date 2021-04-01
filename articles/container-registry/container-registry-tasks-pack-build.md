@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92736638"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
@@ -33,7 +33,7 @@ Au minimum, spécifiez les éléments suivants lorsque vous exécutez `az acr pa
 
 `az acr pack build` prend en charge d’autres fonctionnalités des commandes de tâches ACR, notamment les [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables) et les [journaux d’exécution des tâches](container-registry-tasks-logs.md) qui sont diffusés en continu et également enregistrés pour une récupération ultérieure.
 
-## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemple : Créer une image Node.js avec Cloud Foundry Builder
+## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemple : générer une image Node.js avec le générateur Cloud Foundry
 
 L’exemple suivant génère une image conteneur à partir d’une application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) à l’aide du générateur `cloudfoundry/cnb:0.0.34-cflinuxfs3`. Ce générateur étant mis en cache par Azure Container Registry, aucun paramètre `--pull` n’est requis :
 
@@ -45,7 +45,7 @@ az acr pack build \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-Cet exemple génère l'image `node-app` avec la balise `1.0` et l'envoie (push) au registre de conteneurs *myregistry* . Dans cet exemple, le nom du registre cible est explicitement ajouté au nom de l’image. S’il n’est pas spécifié, le nom du serveur de connexion au registre est automatiquement ajouté au nom de l’image.
+Cet exemple génère l'image `node-app` avec la balise `1.0` et l'envoie (push) au registre de conteneurs *myregistry*. Dans cet exemple, le nom du registre cible est explicitement ajouté au nom de l’image. S’il n’est pas spécifié, le nom du serveur de connexion au registre est automatiquement ajouté au nom de l’image.
 
 La sortie de la commande affiche la progression de la génération et de l’envoi de l’image. 
 
@@ -63,7 +63,7 @@ docker run --rm -p 1337:1337 myregistry.azurecr.io/node-app:1.0
 
 Accédez à `localhost:1337` dans votre navigateur favori pour voir l’exemple d’application Web. Appuyez sur `[Ctrl]+[C]` pour arrêter le conteneur.
 
-## <a name="example-build-java-image-with-heroku-builder"></a>Exemple : Créer une image Java avec Heroku Builder
+## <a name="example-build-java-image-with-heroku-builder"></a>Exemple : générer une image Java avec le générateur Heroku
 
 L’exemple suivant génère une image conteneur à partir de l’application Java dans le référentiel [buildpack/sample-java-App](https://github.com/buildpack/sample-java-app), à l’aide du générateur `heroku/buildpacks:18`. Le paramètre `--pull` spécifie que la commande doit extraire la dernière image du générateur. 
 
@@ -75,7 +75,7 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-Cet exemple génère l'image `java-app` marquée avec l’ID d’exécution de la commande et l'envoie (push) au registre de conteneurs *myregistry* .
+Cet exemple génère l'image `java-app` marquée avec l’ID d’exécution de la commande et l'envoie (push) au registre de conteneurs *myregistry*.
 
 La sortie de la commande affiche la progression de la génération et de l’envoi de l’image. 
 
@@ -85,7 +85,7 @@ Une fois l’image créée, vous pouvez l’exécuter avec Docker, si vous l’a
 az acr login --name myregistry
 ```
 
-Exécutez l’image en remplaçant la balise d'image pour *runid*  :
+Exécutez l’image en remplaçant la balise d'image pour *runid* :
 
 ```console
 docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid

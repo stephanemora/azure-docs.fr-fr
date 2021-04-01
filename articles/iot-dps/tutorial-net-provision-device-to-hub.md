@@ -10,15 +10,15 @@ services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: f9a14ee6ee3e10b36d64ec11fc23807efe2bfaf2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966562"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutoriel : Inscrire l’appareil à un hub IoT avec le client du service IoT Hub Provisioning (.NET)
 
-Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide d’une **_inscription individuelle_** et des **_groupes d’inscriptions_** . Ce didacticiel vous explique les procédures suivantes :
+Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide d’une **_inscription individuelle_** et des **_groupes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil
@@ -59,7 +59,7 @@ Il existe deux façons d’inscrire l’appareil auprès du service Device Provi
 
 1. Dans Visual Studio, créez un projet d’application de console Visual C# à l’aide du modèle de projet **d’application de console**. Nommez le projet **DeviceProvisioning**.
     
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **DeviceProvisioning**, puis cliquez sur **Gérer les packages NuGet...** .
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **DeviceProvisioning**, puis cliquez sur **Gérer les packages NuGet...**.
 
 1. Dans la fenêtre **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, puis recherchez **microsoft.azure.devices.provisioning.service**. Sélectionnez l’entrée et cliquez sur **Installer** pour installer le package **Microsoft.Azure.Devices.Provisioning.Service**, puis acceptez les conditions d’utilisation. Cette procédure télécharge, installe et ajoute une référence au package NuGet [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) et ses dépendances.
 

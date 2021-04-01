@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202218"
 ---
 # <a name="general-claims-transformations"></a>Transformations de revendications générales
@@ -90,7 +90,7 @@ Hache le texte brut fourni à l’aide de la valeur salt et d’un secret. L’a
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | Revendication d’entrée à chiffrer. |
 | InputClaim | salt | string | Paramètre salt. Vous pouvez créer une valeur aléatoire à l’aide de la transformation des revendication `CreateRandomString`. |
-| InputParameter | randomizerSecret | string | Pointe vers une **clé de stratégie** Azure AD B2C existante. Pour créer une clé de stratégie : Dans votre locataire Azure AD B2C, sous **Gérer**, sélectionnez **Identity Experience Framework**. Sélectionnez **Clés de stratégie** pour afficher les clés qui sont disponibles dans votre locataire. Sélectionnez **Ajouter**. Pour **Options**, sélectionnez **Manuel**. Fournissez un nom (il est possible que le préfixe *B2C_1A_* soit ajouté automatiquement). Dans la zone de texte **Secret**, entrez un secret à utiliser, tel que 1234567890. Pour **Utilisation de la clé**, sélectionnez **Signature**. Sélectionnez **Create** (Créer). |
+| InputParameter | randomizerSecret | string | Pointe vers une **clé de stratégie** Azure AD B2C existante. Pour créer une clé de stratégie : dans votre locataire Azure AD B2C, sous **Gérer**, sélectionnez **Identity Experience Framework**. Sélectionnez **Clés de stratégie** pour afficher les clés qui sont disponibles dans votre locataire. Sélectionnez **Ajouter**. Pour **Options**, sélectionnez **Manuel**. Fournissez un nom (il est possible que le préfixe *B2C_1A_* soit ajouté automatiquement). Dans la zone de texte **Secret**, entrez un secret à utiliser, tel que 1234567890. Pour **Utilisation de la clé**, sélectionnez **Signature**. Sélectionnez **Create** (Créer). |
 | OutputClaim | Hachage | string | ClaimType généré après que cette transformation de revendication a été appelée. Revendication configurée dans l’inputClaim `plaintext`. |
 
 ```xml
