@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397448"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Annotations pour le contrôleur d’entrée Application Gateway 
@@ -107,8 +107,8 @@ spec:
 
 ## <a name="connection-draining"></a>Drainage de la connexion
 
-`connection-draining`: Cette annotation permet aux utilisateurs de spécifier s’il faut activer le drainage de la connexion.
-`connection-draining-timeout`: Cette annotation permet aux utilisateurs de spécifier un délai d’expiration après lequel Application Gateway mettra fin aux demandes adressées au point de terminaison principal de drainage.
+`connection-draining` : cette annotation permet aux utilisateurs de spécifier s’il faut activer le drainage de connexion.
+`connection-draining-timeout` : cette annotation permet aux utilisateurs de spécifier un délai d’expiration après lequel Application Gateway mettra fin aux requêtes adressées au point de terminaison principal de drainage.
 
 ### <a name="usage"></a>Usage
 
@@ -206,7 +206,7 @@ spec:
 Cette annotation nous permet de spécifier s’il faut exposer ce point de terminaison sur le protocole Internet (IP) privé d’Application Gateway.
 
 > [!NOTE]
-> * Application Gateway ne prend pas en charge plusieurs IP sur le même port (par exemple : 80/443). Une entrée avec l’annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` et une autre avec `appgw.ingress.kubernetes.io/use-private-ip: "true"` sur `HTTP` entraînera l’échec d’AGIC à mettre à jour Application Gateway.
+> * Application Gateway ne prend pas en charge plusieurs IP sur le même port (par exemple : 80/443). Une entrée avec l’annotation `appgw.ingress.kubernetes.io/use-private-ip: "false"` et une autre avec `appgw.ingress.kubernetes.io/use-private-ip: "true"` sur `HTTP` entraînera l’échec d’AGIC à mettre à jour Application Gateway.
 > * Pour Application Gateway sans IP privé, les entrées avec `appgw.ingress.kubernetes.io/use-private-ip: "true"` seront ignorées. Cela se reflétera dans les journaux du contrôleur et les événements d’entrée pour les entrées avec l’avertissement `NoPrivateIP`.
 
 
