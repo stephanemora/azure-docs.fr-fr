@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 83dc9e26e03eb955d88340d1ed21084d4e685ed8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77019636"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de quota de nœuds CloudSimple
@@ -23,12 +23,12 @@ Quatre nœuds est la quantité par défaut disponible à l’achat, lorsque votr
 
 Vous pouvez augmenter le quota de nœuds en envoyant une demande de prise en charge. L’équipe des opérations de service évaluera la requête et travaillera avec vous pour augmenter le quota de nœuds.  Sélectionnez les options suivantes lorsque vous ouvrez un nouveau ticket :
 
-* Type de problème : **Technique**
-* Abonnement : **Votre ID d’abonnement**
-* Type de service : **VMware Solution by CloudSimple**
-* Type de problème : **Quota de nœuds dédiés**
-* Sous-type de problème : **Augmenter le quota de nœuds dédiés**
-* Objet : **Augmentation de quota**
+* Type de problème : **technique**
+* Abonnement : **votre ID d’abonnement**
+* Type de service : **VMware Solution par CloudSimple**
+* Type de problème : **quota de nœuds dédiés**
+* Sous-type de problème : **augmenter le quota de nœuds dédiés**
+* Objet : **augmentation de quota**
 
 Dans les détails du ticket de support, indiquez le nombre requis de nœuds et la référence SKU de nœud.
 
@@ -38,4 +38,4 @@ Dans les détails du ticket de support, indiquez le nombre requis de nœuds et l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Acheter des nœuds](create-nodes.md)
-* [Vue d’ensemble des nœuds CloudSimple](cloudsimple-node.md)
+* [Vue d'ensemble des nœuds CloudSimple](cloudsimple-node.md)

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92122975"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
@@ -25,7 +25,7 @@ Pour accéder à la section **Administration** et l’utiliser, vous devez avoir
 
 Chaque utilisateur doit avoir un compte d’utilisateur avant de pouvoir se connecter et accéder à une application Azure IoT Central. Les comptes Microsoft et les comptes Azure Active Directory sont pris en charge dans Azure IoT Central. Actuellement, les groupes Azure Active Directory ne sont pas pris en charge dans Azure IoT Central.
 
-Pour plus d’informations, consultez les sections [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+Pour en savoir plus, consultez [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Pour ajouter un utilisateur à une application IoT Central, accédez à la page **Utilisateurs** dans la section **Administration**.
     
@@ -96,39 +96,39 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
-| Gérer | Affichage <br/> Autres dépendances : Afficher les instances de service  |
-| Contrôle total | Afficher, Gérer <br/> Autres dépendances : Afficher les instances de service |
+| Gérer | Affichage <br/> Autres dépendances : Afficher les instances d’appareil  |
+| Contrôle total | Afficher, Gérer <br/> Autres dépendances : Afficher les instances d’appareils |
 
 **Autorisations des instances d’appareils**
 
 | Nom | Les dépendances |
 | ---- | -------- |
-| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils |
-| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
-| Créer | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareil et les groupes d’appareils  |
-| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
-| Exécuter des commandes | Mettre à jour, Afficher <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
-| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter des commandes <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
+| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils |
+| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
+| Créer | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
+| Exécuter des commandes | Mettre à jour, Afficher <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter des commandes <br/> Autres dépendances : Afficher les modèles d’appareils et les groupes d’appareils  |
 
 **Autorisations des groupes d’appareils**
 
 | Nom | Les dépendances |
 | ---- | -------- |
-| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils |
-| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils   |
-| Créer | Afficher, Mettre à jour <br/> Autres dépendances :  Afficher les modèles d’appareil et les instances d’appareils   |
-| DELETE | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareil et les instances d’appareils   |
-| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils |
+| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils |
+| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils   |
+| Créer | Afficher, Mettre à jour <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils   |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils   |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils et les instances d’appareils |
 
 **Autorisations de gestion de la connectivité des appareils**
 
 | Nom | Les dépendances |
 | ---- | -------- |
-| Lire l’instance | None <br/> Autres dépendances : Afficher les modèles d’appareil, les groupes d’appareils et les instances d’appareils |
+| Lire l’instance | None <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les instances d’appareils |
 | Gérer l’instance | None |
 | Lire au niveau global | None   |
 | Gérer au niveau global | Lire au niveau global |
-| Contrôle total | Lire l’instance, Gérer l’instance, Lire au niveau global, Gérer au niveau global. <br/> Autres dépendances : Afficher les modèles d’appareil, les groupes d’appareils et les instances d’appareils |
+| Contrôle total | Lire l’instance, Gérer l’instance, Lire au niveau global, Gérer au niveau global. <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les instances d’appareils |
 
 **Autorisations de travaux**
 
@@ -136,10 +136,10 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
-| Créer | Afficher, Mettre à jour <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
-| DELETE | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
-| Execute | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils ; Mettre à jour les instances d’appareils ; Exécuter des commandes sur des instances d’appareils |
-| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils ; Mettre à jour les instances d’appareils ; Exécuter des commandes sur des instances d’appareils |
+| Créer | Afficher, Mettre à jour <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
+| Execute | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils ; Mettre à jour les instances d’appareils ; Exécuter des commandes sur des instances d’appareils |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils ; Mettre à jour les instances d’appareils ; Exécuter des commandes sur des instances d’appareils |
 
 **Autorisations de règles**
 
@@ -147,7 +147,7 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils |
 | Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils |
-| Créer | Afficher, Mettre à jour <br/> Autres dépendances :  Afficher les modèles d’appareils |
+| Créer | Afficher, Mettre à jour <br/> Autres dépendances : Afficher les modèles d’appareils |
 | DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils |
 | Contrôle total | Afficher, Mettre à jour, Créer, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils |
 
@@ -159,17 +159,17 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | ---- | -------- |
 | Affichage | None     |
 | Update | Affichage   |
-| Copier | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+| Copier | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés, les règles |
 | DELETE | Affichage   |
-| Contrôle total | Afficher, Mettre à jour, Copier, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+| Contrôle total | Afficher, Mettre à jour, Copier, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés, les règles |
 
 **Autorisations d’exportation du modèle d’application**
 
 | Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None     |
-| Exporter | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
-| Contrôle total | Afficher, Exporter <br/> Autres dépendances :  Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+| Exporter | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés, les règles |
+| Contrôle total | Afficher, Exporter <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés, les règles |
 
 **Autorisations de facturation**
 
@@ -195,9 +195,9 @@ Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’auto
 | Nom | Les dépendances |
 | ---- | -------- |
 | Affichage | None <br/> Autres dépendances : Afficher les rôles personnalisés |
-| Ajouter | Affichage <br/> Autres dépendances :  Afficher les rôles personnalisés |
-| DELETE | Affichage <br/> Autres dépendances :  Afficher les rôles personnalisés |
-| Contrôle total | Afficher, Ajouter, Supprimer <br/> Autres dépendances :  Afficher les rôles personnalisés |
+| Ajouter | Affichage <br/> Autres dépendances : Afficher les rôles personnalisés |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les rôles personnalisés |
+| Contrôle total | Afficher, Ajouter, Supprimer <br/> Autres dépendances : Afficher les rôles personnalisés |
 
 > [!NOTE]
 > Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.

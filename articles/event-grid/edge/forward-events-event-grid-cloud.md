@@ -8,20 +8,20 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: bfe150a45c70bc5bed18f8e929c9567905cd38f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171599"
 ---
-# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutoriel : Transférer des événements vers le cloud Event Grid
+# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutoriel : transférer des événements vers le cloud Event Grid
 
 Cet article vous guide tout au long des étapes nécessaires pour transférer des événements de périphérie vers Event Grid dans le cloud Azure. Vous pouvez le faire pour les raisons suivantes :
 
 * Réagissez aux événements de périphérie dans le cloud.
 * Transférez les événements à Event Grid dans le cloud et utilisez Azure Event Hubs ou des files d’attente de Stockage Azure pour mettre en mémoire tampon les événements avant de les traiter dans le cloud.
 
- Pour suivre ce didacticiel, vous devez comprendre les concepts d’Event Grid à la [périphérie](concepts.md) et dans [Azure](../concepts.md). Pour accéder à d'autres types de destinations, consultez [Gestionnaires d'événements](event-handlers.md). 
+ Pour suivre ce didacticiel, vous devez comprendre les concepts d’Event Grid à la [périphérie](concepts.md) et dans [Azure](../concepts.md). Pour accéder à d’autres types de destinations, consultez [Gestionnaires d’événements](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Prérequis 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
@@ -38,7 +38,7 @@ Par exemple, si vous avez créé une rubrique nommée `testegcloudtopic` dans la
 
 * **TopicUrl** : `https://testegcloudtopic.westus2-1.eventgrid.azure.net/api/events`
 * **TopicName** : `testegcloudtopic`
-* **SasKey** : Disponible sous l’**AccessKey** de votre rubrique. Utilisez **touche1**.
+* **SasKey** : disponible sous l’**AccessKey** de votre rubrique. Utilisez **touche1**.
 
 ## <a name="create-event-grid-topic-at-the-edge"></a>Créer une rubrique Event Grid à la périphérie
 

@@ -5,13 +5,13 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 3e6e7785278b182cebb21115a70f35ade52303c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247249"
 ---
-# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procédure : Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
+# <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Guide pratique pour déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
 
 Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans les conteneurs en tant que services Service Fabric. Cet article explique comment configurer votre environnement, puis déboguer une application .NET dans un conteneur exécuté dans un cluster Service Fabric local.
 
@@ -45,13 +45,13 @@ Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans les c
 Voici une liste des limitations connues du débogage de conteneurs dans Service Fabric et des résolutions possibles :
 
 * L’utilisation de localhost pour ClusterFQDNorIP ne prend pas en charge la résolution DNS dans les conteneurs.
-    * Résolution : Configurez le cluster local avec le nom de la machine (voir ci-dessus).
+    * Résolution : Configurer le cluster local avec le nom de la machine (voir ci-dessus)
 * L’exécution de Windows 10 sur une machine virtuelle n’obtient aucune réponse DNS en retour dans le conteneur.
-    * Résolution : Désactivez le déchargement de la somme de contrôle UDP pour IPv4 sur la carte réseau des machines virtuelles.
+    * Résolution : Désactiver le déchargement de la somme de contrôle UDP pour IPv4 sur la carte réseau des machines virtuelles
     * L’exécution de Windows 10 dégrade les performances réseau de la machine.
     * https://github.com/Azure/service-fabric-issues/issues/1061
 * La résolution des services dans la même application en utilisant le nom du service DNS ne fonctionne pas sur Windows 10, si l’application a été déployée à l’aide de Docker Compose
-    * Résolution : Utilisez servicename.applicationname pour résoudre les points de terminaison du service
+    * Résolution : Utiliser servicename.applicationname pour résoudre les points de terminaison du service
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * Si vous utilisez IP-address pour ClusterFQDNorIP, le changement de l’adresse IP principale sur l’hôte entraîne l’arrêt de la fonctionnalité DNS.
     * Résolution : Recréez le cluster avec la nouvelle adresse IP principale sur l’hôte ou utilisez le nom de la machine. Cette rupture est intentionnelle.

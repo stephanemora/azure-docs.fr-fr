@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: c7002d8a83e58a9089ee3c3840b0397d63e2f198
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89565580"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Démarrage rapide : Déployer une instance de conteneur dans Azure à l’aide d’Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Démarrage rapide : déployer une instance de conteneur dans Azure à l’aide d’Azure PowerShell
 
 Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker serverless dans Azure. Déployez une application sur une instance de conteneur à la demande lorsque vous n’avez pas besoin d’une plateforme d’orchestration de conteneur complète telle qu’Azure Kubernetes Service.
 
@@ -40,7 +40,7 @@ Commencez par créer un groupe de ressources nommé *myResourceGroup* à l’emp
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-container"></a>Créez un conteneur.
+## <a name="create-a-container"></a>Créer un conteneur
 
 Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure PowerShell, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image conteneur Docker à l’applet de commande [New-AzContainerGroup][New-AzContainerGroup]. Dans ce démarrage rapide, vous utilisez l’image `mcr.microsoft.com/windows/servercore/iis:nanoserver` publique. Cette image contient Microsoft Internet Information Services (IIS) à exécuter dans Nano Server.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Interface CLI : Connecter une application à Redis'
+title: 'Interface CLI : Connecter une application à Redis'
 description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment connecter une application à Azure Cache pour Redis.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: e4d9fc6e597fb51f607a3e2833ae6ddd7d9281fc
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006334"
 ---
 # <a name="connect-an-app-service-app-to-an-azure-cache-for-redis-using-cli"></a>Connecter une application App Service à un Cache Azure pour Redis à l’aide de l’interface CLI

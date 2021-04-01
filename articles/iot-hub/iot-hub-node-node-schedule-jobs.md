@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151434"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Planifier et diffuser des travaux (Node.js)
@@ -33,7 +33,7 @@ Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles 
 
 * Jumeau d’appareil et propriétés : [Bien démarrer avec des jumeaux d’appareils](iot-hub-node-node-twin-getstarted.md) et [Tutoriel : Guide pratique pour utiliser des propriétés de jumeau d’appareil](tutorial-device-twins.md)
 
-* Méthodes directes : [Guide du développeur IoT Hub - Méthodes directes](iot-hub-devguide-direct-methods.md) et [Tutoriel : Méthodes directes](quickstart-control-device-node.md)
+* Méthodes directes : [Guide du développeur IoT Hub – Méthodes directes](iot-hub-devguide-direct-methods.md) et [Tutoriel : méthodes directes](quickstart-control-device-node.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -298,6 +298,6 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Tutoriel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
+Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Tutoriel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
 
-Afin d’approfondir l’apprentissage d’IoT Hub, consultez [Bien démarrer avec Azure IoT Edge](../iot-edge/quickstart-linux.md).
+Afin d’approfondir l’apprentissage de IoT Hub, consultez [Getting started with Azure IoT Edge](../iot-edge/quickstart-linux.md) (Bien démarrer avec Azure IoT Edge).

@@ -4,10 +4,10 @@ description: Découvrez comment tirer parti des tailles de machines virtuelles H
 ms.topic: how-to
 ms.date: 12/17/2018
 ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86147330"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
@@ -88,7 +88,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) configure automatiquement les pilotes GPU et RDMA pour fonctionner de façon fluide avec les charges de travail en conteneur sur Azure Batch. Batch Shipyard est entièrement piloté par les fichiers de configuration. Il existe de nombreux exemples de recettes de configurations disponibles qui activent les charges de travail GPU et RDMA, comme la [recette CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) qui préconfigure les pilotes GPU sur les machines virtuelles de série N et charge le logiciel Microsoft Cognitive Toolkit en tant qu’image Docker.
 
 
-## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Exemple : Pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Windows
+## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Exemple : pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Windows
 
 Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de réseau Windows, vous devez installer des pilotes NVDIA GPU. Les exemples d’étapes suivants utilisent un package d’application pour installer les pilotes NVIDIA GPU. Vous pouvez choisir cette option si votre charge de travail dépend d’une version de pilote GPU spécifique.
 
@@ -97,7 +97,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 3. Chargez le package sur votre compte Batch. Pour connaître les étapes nécessaires, consultez les instructions relatives aux [packages d’applications](batch-application-packages.md). Spécifiez un ID d’application (par exemple, *GPUDriver*) et une version (par exemple, *411.82*).
 1. À l’aide des API Batch ou du portail Azure, créez un pool dans la configuration de machine virtuelle avec le nombre de nœuds et l’échelle souhaités. Le tableau suivant présente des exemples de paramètres pour installer les pilotes NVIDIA GPU en mode silencieux à l’aide d’une tâche de démarrage :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 | ---- | ----- | 
 | **Type d’image** | Place de marché (Linux/Windows) |
 | **Publisher** | MicrosoftWindowsServer |
@@ -105,9 +105,9 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 | **Sku** | 2016-centre-de-données |
 | **Taille du nœud** | NC6 Standard |
 | **Références du package d’application** | GPUDriver, version 411.82 |
-| **Tâche de démarrage activée** | True<br>**Ligne de commande** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identité de l’utilisateur** - Pool autouser, admin<br/>**Attente de la réussite** - True
+| **Tâche de démarrage activée** | Vrai<br>**Ligne de commande** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identité de l’utilisateur** - Pool autouser, admin<br/>**Attente de la réussite** - True
 
-## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemple : Pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Linux
+## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemple : pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Linux
 
 Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de réseau Linux, vous devez installer les pilotes NVIDIA Tesla GPU nécessaires à partir de CUDA Toolkit. Les exemples d’étapes suivants créent et déploient une image Ubuntu 16.04 LTS personnalisée avec les pilotes GPU :
 
@@ -118,14 +118,14 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 4. Créez un compte Batch dans une région qui prend en charge des machines virtuelles NC.
 5. En utilisant les API Batch ou le portail Azure, créez un pool [avec l’image personnalisée](batch-sig-images.md), et le nombre de nœuds et l’échelle souhaités. Le tableau suivant contient des exemples de paramètres de pool pour l’image :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 | ---- | ---- |
 | **Type d’image** | Image personnalisée |
 | **Image personnalisée** | *Nom de l’image* |
 | **Référence de l’agent de nœud** | batch.node.ubuntu 16.04 |
 | **Taille du nœud** | NC6 Standard |
 
-## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemple : Microsoft MPI sur un pool de machines virtuelles H16r Windows
+## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemple : Microsoft MPI sur un pool de machines virtuelles H16r Windows
 
 Pour exécuter des applications Windows MPI sur un pool de nœuds de machine virtuelle H16r Azure, vous devez configurer l’extension HpcVmDrivers et installer [Microsoft MPI](/message-passing-interface/microsoft-mpi). Voici des exemples d’étapes permettant de déployer une image Windows Server 2016 personnalisée avec les pilotes et logiciels nécessaires :
 
@@ -136,29 +136,29 @@ Pour exécuter des applications Windows MPI sur un pool de nœuds de machine vir
 1. Suivez les étapes pour créer une [image de Shared Image Gallery](batch-sig-images.md) pour Batch.
 1. À l’aide des API Batch ou via le portail Azure, créez un pool [utilisant Shared Image Gallery](batch-sig-images.md) et offrant le nombre de nœuds ainsi que l’échelle souhaités. Le tableau suivant contient des exemples de paramètres de pool pour l’image :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 | ---- | ---- |
 | **Type d’image** | Image personnalisée |
 | **Image personnalisée** | *Nom de l’image* |
 | **Référence de l’agent de nœud** | batch.node.windows amd64 |
 | **Taille du nœud** | H16r Standard |
-| **Communication entre les nœuds activée** | True |
+| **Communication entre les nœuds activée** | Vrai |
 | **Nombre maximal de tâches par nœud** | 1 |
 
-## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemple : Intel MPI sur un pool de machines virtuelles H16r Linux
+## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemple : Intel MPI sur un pool de machines virtuelles H16r Linux
 
 Pour exécuter des applications MPI sur un pool de nœuds de série H Linux, une option consiste à utiliser l’image [HPC basée sur CentOS 7.4 ](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) de la Place de marché Azure. Les pilotes RDMA et Intel MPI Linux sont préinstallés. Cette image prend également en charge les charges de travail de conteneur Docker.
 
 En utilisant les API Batch ou le portail Azure, créez un pool à l’aide de cette image avec le nombre de nœuds et l’échelle souhaités. Le tableau suivant contient des exemples de paramètres de pool :
 
-| Paramètre | Valeur |
+| Paramètre | Value |
 | ---- | ---- |
 | **Type d’image** | Place de marché (Linux/Windows) |
 | **Publisher** | OpenLogic |
 | **Offer** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **Taille du nœud** | H16r Standard |
-| **Communication entre les nœuds activée** | True |
+| **Communication entre les nœuds activée** | Vrai |
 | **Nombre maximal de tâches par nœud** | 1 |
 
 ## <a name="next-steps"></a>Étapes suivantes
