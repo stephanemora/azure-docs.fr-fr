@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.openlocfilehash: 9d31bcaad01b9b762e57bd619d45c1f53ffb201e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376800"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
@@ -75,7 +75,7 @@ Pour cette configuration, vous créez une connexion de passerelle VPN via un tun
 
 Le tableau suivant montre comment les réseaux virtuels et les sites locaux sont définis :
 
-| Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |
+| Réseau virtuel | Espace d’adressage | Région | Se connecte au site de réseau local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |USA Ouest | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |USA Est |ClassicVNetLocal (10.0.0.0/24) |
@@ -114,7 +114,7 @@ Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifie
 2. Cliquez sur **Configuration de passerelle facultative** pour ouvrir la page **Configuration de la passerelle**.
 
    ![Ouvrir la page Configuration de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Ouvrir la page Configuration de la passerelle")
-3. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau**. Le **Nom** est déjà configuré avec la valeur requise : **GatewaySubnet**.
+3. Cliquez sur **Sous-réseau - Configurer les paramètres requis** pour ouvrir la page **Ajouter un sous-réseau**. Le **Nom** est déjà configuré avec la valeur requise : **GatewaySubnet**.
 4. La **Plage d’adresses** fait référence à la plage pour le sous-réseau de passerelle. Bien que vous puissiez créer un sous-réseau de passerelle avec une plage d’adresses /29 (3 adresses), nous vous recommandons de créer un sous-réseau de passerelle qui contient plus d’adresses IP. Cela afin d’accueillir des configurations futures nécessitant la disponibilité d’un plus grand nombre d’adresses IP. Si possible, utilisez /27 ou /28. Si vous suivez ces étapes dans le cadre d’un exercice, vous pouvez vous référer aux [exemples de valeurs](#values). Pour cet exemple, nous utilisons « 10.0.0.32/28 ». Cliquez sur **OK** pour créer le sous réseau de passerelle.
 5. Dans la page **Configuration de la passerelle**, le paramètre **Taille** désigne la référence SKU de passerelle. Sélectionnez la référence SKU de passerelle pour votre passerelle VPN.
 6. Vérifiez que **Type de routage** est défini sur **Dynamique**, puis cliquez sur **OK** pour revenir à la page **Nouvelle connexion VPN**.
@@ -170,7 +170,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 **Exemples de valeurs :** Passerelle de réseau local = ClassicVNetLocal
 
-| Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |Adresse IP publique de la passerelle|
+| Réseau virtuel | Espace d’adressage | Région | Se connecte au site de réseau local |Adresse IP publique de la passerelle|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |USA Ouest | RMVNetLocal (192.168.0.0/16) |L’adresse IP publique qui est affectée à la passerelle ClassicVNet|
 | RMVNet | (192.168.0.0/16) |USA Est |ClassicVNetLocal (10.0.0.0/24) |L’adresse IP publique qui est affectée à la passerelle RMVNet.|
@@ -258,7 +258,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Afficher le fichier de configuration réseau
 
-Lorsque vous créez un réseau virtuel dans le portail Azure, le nom complet utilisé par Azure n’est pas visible dans le portail Azure. Par exemple, un réseau virtuel qui semble être nommé « ClassicVNet1 » dans le portail Azure peut avoir un nom beaucoup plus long dans le fichier de configuration réseau. Le nom pourrait être semblable au suivant : « Group ClassicRG ClassicVNet ». Dans ces étapes, vous téléchargez le fichier de configuration réseau et affichez les valeurs.
+Lorsque vous créez un réseau virtuel dans le portail Azure, le nom complet utilisé par Azure n’est pas visible dans le portail Azure. Par exemple, un réseau virtuel qui semble être nommé « ClassicVNet1 » dans le portail Azure peut avoir un nom beaucoup plus long dans le fichier de configuration réseau. Le nom peut ressembler à ceci : « Group ClassicRG1 ClassicVNet1 ». Dans ces étapes, vous téléchargez le fichier de configuration réseau et affichez les valeurs.
 
 Créez un répertoire sur votre ordinateur, puis exportez le fichier de configuration réseau dans ce répertoire. Dans cet exemple, le fichier de configuration réseau est exporté vers C:\AzureNet.
 

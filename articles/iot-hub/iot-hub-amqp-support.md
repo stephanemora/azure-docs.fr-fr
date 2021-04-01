@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730748"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole AMQP
@@ -29,7 +29,7 @@ Pour se connecter à un hub IoT à l’aide d’AMQP, un client peut utiliser la
 
 Les informations suivantes sont requises pour le client du service :
 
-| Information | Valeur |
+| Information | Value |
 |-------------|--------------|
 | Nom d’hôte du hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Nom de clé | `service` |
@@ -131,7 +131,7 @@ for msg in batch:
 
 Comme le montre le code précédent, un message de commentaire cloud-à-appareil a un type de contenu *application/vnd.microsoft.iothub.feedback.json*. Vous pouvez utiliser les propriétés contenues dans le corps JSON du message pour déduire l’état de remise du message d’origine :
 
-* La clé `statusCode` dans le corps de commentaire a l’une des valeurs suivantes : *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected* ou *Purged*.
+* La clé `statusCode` dans le corps du commentaire a l’une des valeurs suivantes : *Success*, *Expired*, *DeliveryCountExceeded*, *Rejected* ou *Purged*.
 
 * La clé `deviceId` dans le corps de commentaire a l’ID de l’appareil cible.
 
@@ -225,7 +225,7 @@ Pour se connecter à un hub IoT à l’aide d’AMQP, un appareil peut utiliser 
 
 Les informations suivantes sont requises pour le client d’appareil :
 
-| Information | Valeur |
+| Information | Value |
 |-------------|--------------|
 | Nom d’hôte du hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Clé d’accès | Clé primaire ou secondaire associée à l’appareil |
@@ -375,6 +375,6 @@ Pour en savoir plus sur le protocole AMQP, consultez la [spécification du proto
 
 Pour en savoir plus sur la messagerie IoT Hub, consultez :
 
-* [Messages cloud-à-appareil](./iot-hub-devguide-messages-c2d.md)
+* [Messages Cloud vers appareil](./iot-hub-devguide-messages-c2d.md)
 * [Prendre en charge des protocoles supplémentaires](iot-hub-protocol-gateway.md)
 * [Prise en charge du protocole MQTT (Message Queuing Telemetry Transport)](./iot-hub-mqtt-support.md)

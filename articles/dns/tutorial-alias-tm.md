@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un enregistrement d’alias pour prendre en charge les noms Apex de domaine – Traffic Manager'
+title: 'Tutoriel : Créer un enregistrement d’alias pour prendre en charge les noms Apex de domaine – Traffic Manager'
 titleSuffix: Azure DNS
 description: Ce tutoriel vous montre comment configurer un enregistrement d’alias Azure DNS pour prendre en charge l’utilisation du nom d’apex de votre domaine avec Traffic Manager.
 services: dns
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77149947"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutoriel : Configurer un enregistrement d’alias pour prendre en charge des noms de domaine d’apex avec Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutoriel : configurer un enregistrement d’alias pour prendre en charge des noms de domaine d’apex avec Traffic Manager 
 
 Vous pouvez créer un enregistrement d’alias pour l’apex de votre nom de domaine pour référencer un profil Azure Traffic Manager. contoso.com en est un exemple. Au lieu d’utiliser un service de redirection, vous pouvez configurer Azure DNS pour référencer un profil Traffic Manager directement à partir de votre zone. 
 
