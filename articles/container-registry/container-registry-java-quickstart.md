@@ -7,13 +7,13 @@ ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018336"
 ---
-# <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Démarrage rapide : Générer des images conteneurs Java et les envoyer (push) à Azure Container Registry
+# <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Démarrage rapide : générer des images conteneurs Java et les envoyer (push) à Azure Container Registry
 
 Ce guide de démarrage rapide vous montre comment générer une application Java conteneurisée et comment l’envoyer (push) à Azure Container Registry à l’aide du plug-in Maven Jib. L’emploi de Maven et de Jib est un exemple d’utilisation des outils de développement pour interagir avec un registre de conteneurs Azure.
 
@@ -149,7 +149,7 @@ Enfin, vous mettez à jour la configuration de votre projet et vous utilisez l�
 
 ## <a name="verify-your-container-image"></a>Vérifier votre image conteneur
 
-Félicitations ! Vous avez généré votre application Java conteneurisée dans le JDK pris en charge pour Azure et l’avez envoyée à votre instance Azure Container Registry. Vous pouvez maintenant tester l’image en la déployant sur Azure App Service ou en la tirant (pull) localement avec la commande (en remplaçant l’espace réservé par la valeur réelle) :
+Félicitations ! Vous avez généré votre application Java conteneurisée dans le JDK pris en charge pour Azure et l’avez envoyée à votre instance Azure Container Registry. Vous pouvez maintenant tester l’image en la déployant sur Azure App Service ou en la tirant (pull) localement avec la commande (en remplaçant l’espace réservé par la valeur réelle) :
 
 ```bash
 docker pull <your registry name>.azurecr.io/gs-spring-boot-docker

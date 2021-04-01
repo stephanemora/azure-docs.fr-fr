@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell : Restaurer une sauvegarde pour un autre abonnement'
+title: 'PowerShell : Restaurer une sauvegarde dans un autre abonnement'
 description: Découvrez comment utiliser Azure PowerShell pour automatiser le déploiement et la gestion d’App Service. Cet exemple montre comment restaurer une sauvegarde dans un autre abonnement.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: a0728d9926cc7f5d8b200a9003353b015dd3a97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075908"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurer une application web à partir d’une sauvegarde dans un autre abonnement à l'aide de PowerShell
@@ -41,7 +41,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 | Commande | Notes |
 |---|---|
-| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Ajoute le compte authentifié à utiliser pour les requêtes d’applet de commande Azure Resource Manager.  |
+| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Ajoute un compte authentifié à utiliser pour les requêtes de cmdlet Azure Resource Manager.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtient une liste des sauvegardes d’une application web. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crée une application web |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restaure une application web à partir d’une sauvegarde. |

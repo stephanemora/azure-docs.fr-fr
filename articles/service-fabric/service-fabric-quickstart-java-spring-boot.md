@@ -1,17 +1,17 @@
 ---
-title: 'Démarrage rapide : Créer une application Spring Boot sur Azure Service Fabric'
+title: Démarrage rapide : créer une application Spring Boot sur Azure Service Fabric
 description: Dans ce guide de démarrage rapide, vous déployez une application Spring Boot sur Azure Service Fabric à l’aide de l’exemple d’application Spring Boot.
 ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529998"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Démarrage rapide : Déployer une application Java Spring Boot sur Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Démarrage rapide : déployer une application Java Spring Boot sur Azure Service Fabric
 
 Dans ce guide de démarrage rapide, vous déployez une application Java Spring Boot sur Azure Service Fabric à l’aide d’outils en ligne de commande familiers sur Linux ou MacOS. Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
 
@@ -103,7 +103,7 @@ Dans le répertoire *gs-spring-boot/complete*, exécutez la commande ci-après p
 
 À ce stade, vous avez créé une application Service Fabric pour l’exemple Getting Started de Spring Boot que vous pouvez déployer sur Service Fabric.
 
-## <a name="run-the-application-locally"></a>Exécuter l’application localement
+## <a name="run-the-application-locally"></a>Exécuter localement l’application
 
 1. Démarrez le cluster local sur des machines Ubuntu en exécutant la commande suivante :
 
@@ -150,13 +150,13 @@ Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et es
 Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://localhost:19080`.
-1. Sélectionnez les points de suspension ( **...** ) en regard du nœud **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis sélectionnez **Scale Service (Mettre le service à l’échelle)** .
+1. Sélectionnez les points de suspension (**...**) en regard du nœud **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis sélectionnez **Scale Service (Mettre le service à l’échelle)**.
 
     ![Service Fabric Explorer - Exemple de mise à l’échelle d’un service](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     Vous pouvez maintenant choisir de mettre à l’échelle le nombre d’instances du service.
 
-1. Définissez le nombre sur **3**, puis sélectionnez **Scale Service (Mettre le service à l’échelle)** .
+1. Définissez le nombre sur **3**, puis sélectionnez **Scale Service (Mettre le service à l’échelle)**.
 
     Une autre façon de mettre à l’échelle le service consiste à utiliser la ligne de commande.
 
@@ -181,7 +181,7 @@ Via cette tâche de gestion simple, vous avez doublé les ressources disponibles
 Pour illustrer le basculement du service, il est possible de simuler un redémarrage du nœud à l’aide de Service Fabric Explorer. Vérifiez qu’une seule instance de votre service est en cours d’exécution.
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://localhost:19080`.
-1. Cliquez sur les points de suspension ( **...** ) en regard du nœud qui exécute l’instance de votre service et redémarrez le nœud.
+1. Cliquez sur les points de suspension (**...**) en regard du nœud qui exécute l’instance de votre service et redémarrez le nœud.
 
     ![Service Fabric Explorer - Redémarrage du nœud](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. L’instance de votre service est alors déplacée dans un autre nœud, sans que votre application subisse d’interruption de service.
@@ -200,4 +200,4 @@ Dans ce démarrage rapide, vous avez appris comment :
 Pour en savoir plus sur l’utilisation des applications Java dans Service Fabric, passez au tutoriel sur les applications Java.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : créer et déployer une application avec un service frontal API Web Java et un service principal avec état](./service-fabric-tutorial-create-java-app.md)
+> [Déployer une application Java](./service-fabric-tutorial-create-java-app.md)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: 73eb1225ffc5fd01f9a27ca99ad2b059d45a36cf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015288"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>Appareil : Kit de développement puce Roobo Smart Audio
+# <a name="device-roobo-smart-audio-dev-kit"></a>Appareil : Kit de développement Roobo Smart Audio
 
 Cet article fournit des informations spécifiques sur l’appareil le kit de développement de Roobo Smart Audio.
 
