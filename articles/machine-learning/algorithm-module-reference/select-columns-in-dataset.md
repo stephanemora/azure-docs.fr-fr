@@ -1,5 +1,5 @@
 ---
-title: 'Sélectionner des colonnes dans le jeu de données : Informations de référence sur les modules'
+title: 'Sélectionner des colonnes dans le jeu de données : référence de module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Sélectionner des colonnes dans le jeu de données d’Azure Machine Learning pour choisir un sous-ensemble de colonnes à utiliser dans des opérations en aval.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: 7926d5dd33df5538713f8de152dbbace2bc29864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890296"
 ---
 # <a name="select-columns-in-dataset-module"></a>Module Sélectionner des colonnes dans le jeu de données
@@ -26,7 +26,7 @@ Ce module est utile lorsque vous devez limiter les colonnes disponibles pour une
 
 Les colonnes dans le jeu de données sont générées dans le même ordre que dans les données d’origine, même si vous les spécifiez dans un ordre différent.
 
-## <a name="how-to-use"></a>Utilisation
+## <a name="how-to-use"></a>Procédure d'utilisation
 
 Ce module n’a aucun paramètre. Vous utilisez le sélecteur de colonne pour choisir les colonnes à inclure ou exclure.
 

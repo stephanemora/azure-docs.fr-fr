@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73509833"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Créer un test Internet Analyzer avec le portail (préversion)
@@ -31,14 +31,14 @@ La préversion publique est disponible dans toutes les régions. Toutefois, le s
 1. Obtenez un accès à la préversion d’Internet Analyzer en suivant les instructions fournies dans la section **Comment faire pour participer à la préversion ?** des [Questions fréquentes (FAQ) sur Internet Analyzer](internet-analyzer-faq.md).
 2. Dans la page d’accueil du [portail Azure](https://preview.portal.azure.com), cliquez sur **+ Créer une ressource**. Internet Analyzer est disponible uniquement dans la préversion du portail Azure.
 3. Dans la page **Nouveau**, lancez une recherche sur « Internet Analyzer » à l’aide du champ *Rechercher dans la Place de marché*.
-4. Cliquez sur **Internet Analyzer (préversion)** . Assurez-vous que l’éditeur est *Microsoft* et la catégorie *Mise en réseau*.
-5. Dans la page **Internet Analyzer (préversion)** , cliquez sur **Créer** pour ouvrir la page **Create an Internet Analyzer** (Créer une ressource Internet Analyzer).
+4. Cliquez sur **Internet Analyzer (préversion)**. Assurez-vous que l’éditeur est *Microsoft* et la catégorie *Mise en réseau*.
+5. Dans la page **Internet Analyzer (préversion)**, cliquez sur **Créer** pour ouvrir la page **Create an Internet Analyzer** (Créer une ressource Internet Analyzer).
 6. Spécifiez les paramètres de configuration suivants pour votre ressource Internet Analyzer :
 
-    * **Abonnement :** Abonnement Azure où est hébergé la nouvelle ressource Internet Analyzer. ***Utilisez le même ID d’abonnement que celui que vous avez utilisé pour demander un accès à la préversion.***
-    * **Groupe de ressources :** Groupe de ressources Azure dans lequel la nouvelle ressource Internet Analyzer sera créée. Si vous n’avez pas de groupe de ressources, vous pouvez en créer un.
-    * **Nom :** Nom du profil de la nouvelle ressource Internet Analyzer.
-    * **Région :** Région publique Azure dans laquelle est créée la ressource. Dans la préversion, seule la région *USA Ouest 2* est disponible.
+    * **Abonnement :** abonnement Azure où est hébergé la nouvelle ressource Internet Analyzer. **_Utilisez le même ID d’abonnement que celui que vous avez utilisé pour demander un accès à la préversion._**
+    * **Groupe de ressources :** groupe de ressources Azure dans lequel la ressource Internet Analyzer sera créée. Si vous n’avez pas de groupe de ressources, vous pouvez en créer un.
+    * **Nom :** nom du profil de la nouvelle ressource Internet Analyzer.
+    * **Région** : région publique Azure dans laquelle est créée la ressource. Dans la préversion, seule la région *USA Ouest 2* est disponible.
 
 7. Lorsque vous avez terminé de spécifier les paramètres du profil, cliquez sur **Vérifier + créer**.
 
@@ -54,7 +54,7 @@ Il est nécessaire de réaliser les étapes de base avant de configurer un test 
     ***Points de terminaison préconfigurés : combinaisons de régions seules et de plusieurs régions Azure***
     * Sélectionnez une région ou un ensemble de régions dans une [liste préconfigurée de points de terminaison Azure](internet-analyzer-faq.md).
     * Ensuite, sélectionnez le type d’application ou l’architecture de distribution de contenu que vous souhaitez évaluer.
-        * Région Azure seule : Accélération de site ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), mise en cache de contenu statique ([Azure CDN pour Microsoft](https://azure.microsoft.com/services/cdn/)) ou aucune.
+        * Région Azure seule : accélération de site ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), mise en cache de contenu statique ([Azure CDN pour Microsoft](https://azure.microsoft.com/services/cdn/)) ou aucune.
         * Plusieurs régions Azure : accélération du site ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), gestion DNS ([Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/))  
 
     ***Points de terminaison personnalisés***
@@ -65,7 +65,7 @@ Il est nécessaire de réaliser les étapes de base avant de configurer un test 
 4. Cliquez sur **Ajouter** pour ajouter le point de terminaison à votre test.
 5. Répétez les étapes 1 à 4 pour configurer votre deuxième point de terminaison. Le point de terminaison B est toujours mesuré par rapport au point de terminaison A. Lorsque vous configurez des points de terminaison, vous devez choisir quel point de terminaison doit être votre contrôle de test.
 6. Cliquez sur le bouton **Enregistrer** pour enregistrer votre test. Une fois que vous avez enregistré un test, vous ne pouvez plus modifier ses points de terminaison.
-7. Sélectionnez le ou les tests que vous souhaitez démarrer, puis cliquez sur **Démarrer le test**. Cela va faire passer vos tests à l’ ***état*** ***En cours d’exécution***. Vous pouvez démarrer des tests à tout moment. Toutefois, le client JavaScript doit être incorporé pour que le test commence à collecter des mesures.
+7. Sélectionnez le ou les tests que vous souhaitez démarrer, puis cliquez sur **Démarrer le test**. Cela va faire passer vos tests à l’**_état_ *_ _* _En cours d’exécution_**. Vous pouvez démarrer des tests à tout moment. Toutefois, le client JavaScript doit être incorporé pour que le test commence à collecter des mesures.
 8. Vous pouvez ajouter d’autres tests à tout moment. Notez que le client JavaScript ne sera pas généré tant qu’un test n’aura pas été créé.
 
 ## <a name="embed-client"></a>Incorporer un client

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/18/2020
 ms.author: derekol
 ms.openlocfilehash: 22cb179925f95fd0762371cc904fcbd02675339a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91540266"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associer un ASN de pair à un abonnement Azure en utilisant le portail
@@ -39,7 +39,7 @@ Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonne
     > [!div class="mx-imgBorder"]
     > ![Lancer l’abonnement](./media/rp-subscriptions-launch.png)
 
-1. Une fois l’abonnement ouvert, sur la gauche, cliquez sur **Fournisseurs de ressources**. Ensuite, dans le volet droit, recherchez *Peering* dans la fenêtre de recherche, ou utilisez la barre de défilement pour rechercher **Microsoft.Peering** et observez l’**État**. Si l’état est ***Registered***, ignorez les étapes ci-dessous et passez à la section **Créer un PeerAsn**. Si l’état est ***NotRegistered***, sélectionnez **Microsoft.Peering**, puis cliquez sur **S’inscrire**.
+1. Une fois l’abonnement ouvert, sur la gauche, cliquez sur **Fournisseurs de ressources**. Ensuite, dans le volet droit, recherchez *Peering* dans la fenêtre de recherche, ou utilisez la barre de défilement pour rechercher **Microsoft.Peering** et observez l’**État**. Si l’état est **_Registered_ *_, ignorez les étapes ci-dessous et passez à la section _* Créer un PeerAsn**. Si l’état est **_NotRegistered_ *_, sélectionnez* Microsoft.Peering**, puis cliquez sur **S’inscrire**.
 
     > [!div class="mx-imgBorder"]
     > ![Démarrage de l’inscription](./media/rp-register-start.png)
@@ -49,7 +49,7 @@ Inscrivez-vous auprès du fournisseur de ressources de Peering dans votre abonne
     > [!div class="mx-imgBorder"]
     > ![Inscription en cours](./media/rp-register-progress.png)
 
-1. Attendez environ une minute que l’inscription se termine. Ensuite, cliquez sur **Actualiser** et vérifiez que l’état est ***Registered***.
+1. Attendez environ une minute que l’inscription se termine. Ensuite, cliquez sur **Actualiser** et vérifiez que l’état est **_Registered_**.
 
     > [!div class="mx-imgBorder"]
     > ![Inscription terminée](./media/rp-register-completed.png)

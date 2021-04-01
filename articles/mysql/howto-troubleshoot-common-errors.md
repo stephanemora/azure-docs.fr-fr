@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631365"
 ---
 # <a name="common-errors"></a>Erreurs courantes
@@ -27,7 +27,7 @@ Certains paramètres de serveur comme require_secure_transport ne sont pas pris 
 
 mysql> show databases; ERREUR 2006 (HY000) : Le serveur MySQL a disparu. Aucune connexion. Tentative de reconnexion... ID de connexion :    64897 Base de données active : *** AUCUNE**_ ERREUR 1184 (08S01) : La connexion 22 à la base de connaissances a été abandonnée : 'db-name' user: 'user' host: 'hostIP' (échec de la commande init_connect)
 
-_ *Résolution* : Vous devez réinitialiser la valeur init_connect sous l’onglet Paramètres du serveur dans le portail Azure, et définir uniquement les paramètres de serveur pris en charge à l’aide du paramètre init_connect. 
+**Résolution** : Vous devez réinitialiser la valeur init_connect sous l’onglet Paramètres du serveur dans le portail Azure, et définir uniquement les paramètres de serveur pris en charge à l’aide du paramètre init_connect. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erreurs dues à l’absence du SUPER privilège et au rôle DBA
