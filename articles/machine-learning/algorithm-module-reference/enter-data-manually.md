@@ -1,5 +1,5 @@
 ---
-title: 'Entrer des données manuellement : sur le module Modifier les métadonnées'
+title: 'Entrer des données manuellement : référence de module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Entrer des données manuellement dans Azure Machine Learning pour créer un petit jeu de données en saisissant des valeurs. Le jeu de données peut avoir plusieurs colonnes.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 3bff9a91f06649487560faef3ab554b2a3d56af3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90908072"
 ---
 # <a name="enter-data-manually-module"></a>Module Entrer des données manuellement
@@ -34,28 +34,28 @@ Ce module peut être utile dans des scénarios tels que les suivants :
   
 1. Pour **DataFormat**, sélectionnez l’une des options suivantes. Ces options déterminent comment les données que vous fournissez doivent être analysées. Les exigences relatives à chaque format sont considérablement différentes. Veillez par conséquent à lire les rubriques connexes.  
   
-   - **ARFF** : Format de fichier de relation d’attribut utilisé par Weka.   
-   - **CSV** : Format de valeurs séparées par des virgules. Pour plus d’informations, consultez [Convertir au format CSV](./convert-to-csv.md).    
-   - **SVMLight** : Format utilisé par Vowpal Wabbit et d’autres infrastructures de Machine Learning.    
-   - **TSV** : Format de valeurs séparées par des tabulations.
+   - **ARFF** : format de fichier de relation d’attribut, utilisé par Weka.   
+   - **CSV** : format de valeurs séparées par des virgules. Pour plus d’informations, consultez [Convertir au format CSV](./convert-to-csv.md).    
+   - **SVMLight** : format utilisé par Vowpal Wabbit et d’autres infrastructures de Machine Learning.    
+   - **TSV** : format de valeurs séparées par des tabulations.
 
    Si vous choisissez un format et ne fournissez pas de données conformes aux spécifications de format, une erreur d’exécution se produit.
   
 1. Cliquez à l’intérieur de la zone de texte **Données** pour commencer à entrer des données. Les formats suivants requièrent une attention particulière :  
   
-   - **CSV** : Pour créer plusieurs colonnes, collez du texte séparé par des virgules, ou entrez plusieurs colonnes en utilisant des virgules entre les champs.
+   - **CSV** : pour créer plusieurs colonnes, collez du texte séparé par des virgules, ou entrez plusieurs colonnes en utilisant des virgules entre les champs.
   
      Si vous sélectionnez l’option **HasHeader**, vous pouvez utiliser la première ligne de valeurs comme en-tête de colonne.  
   
      Si vous désélectionnez cette option, les noms de colonnes (Col1, Col2 et ainsi de suite) sont utilisés. Vous pouvez ajouter ou changer des noms de colonnes ultérieurement à l’aide de [Modifier les métadonnées](./edit-metadata.md).  
   
-   - **TSV** : Pour créer plusieurs colonnes, collez du texte séparé par des tabulations, ou entrez plusieurs colonnes en utilisant des tabulations entre les champs.  
+   - **TSV** : pour créer plusieurs colonnes, collez du texte séparé par des tabulations, ou entrez plusieurs colonnes en utilisant des tabulations entre les champs.  
   
      Si vous sélectionnez l’option **HasHeader**, vous pouvez utiliser la première ligne de valeurs comme en-tête de colonne.  
   
      Si vous désélectionnez cette option, les noms de colonnes (Col1, Col2 et ainsi de suite) sont utilisés. Vous pouvez ajouter ou changer des noms de colonnes ultérieurement à l’aide de [Modifier les métadonnées](./edit-metadata.md).  
   
-   - **ARFF** : Collez dans un fichier de format ARFF existant. Si vous entrez des valeurs directement, veillez à ajouter l’en-tête facultatif et les champs d’attribut obligatoires au début des données. 
+   - **ARFF** : collez dans un fichier de format ARFF existant. Si vous entrez des valeurs directement, veillez à ajouter l’en-tête facultatif et les champs d’attribut obligatoires au début des données. 
 
      Par exemple, les lignes d’en-tête et d’attribut suivantes peuvent être ajoutées à une liste simple. L’en-tête de colonne serait `SampleText`. Notez que le type chaîne n’est pas pris en charge.
     
@@ -67,7 +67,7 @@ Ce module peut être utile dans des scénarios tels que les suivants :
      \<type first data row here>  
      ```
 
-   - **SVMLight** : Entrez ou collez des valeurs en utilisant le format SVMLight.  
+   - **SVMLight** : entrez ou collez des valeurs en utilisant le format SVMLight.  
   
      Par exemple, l’exemple suivant représente les deux premières lignes du jeu de données Blood Donation, au format SVMLight :  
   

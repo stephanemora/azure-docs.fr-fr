@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907858"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Module Allocation de Dirichlet latente
@@ -30,7 +30,7 @@ Ce module prend une colonne de texte et génère les sorties suivantes :
 
 + Une transformation, que vous pouvez enregistrer et réappliquer au nouveau texte utilisé comme entrée
 
-Ce module utilise la bibliothèque scikit-learn. Pour plus d’informations sur scikit-learn, consultez le  [dépôt GitHub](https://github.com/scikit-learn/scikit-learn), qui comprend des tutoriels et une explication de l’algorithme.
+Ce module utilise la bibliothèque scikit-learn. Pour plus d’informations sur Scikit-learn, consultez le [référentiel GitHub](https://github.com/scikit-learn/scikit-learn), qui comprend des tutoriels et une explication de l’algorithme.
 
 ## <a name="more-about-latent-dirichlet-allocation"></a>Informations supplémentaires sur l’Allocation de Dirichlet latente
 

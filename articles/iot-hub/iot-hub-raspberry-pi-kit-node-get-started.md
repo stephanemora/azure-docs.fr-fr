@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-js
 ms.openlocfilehash: c96f674b64401250d45542d0f59f13654cf37caa
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97802522"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connecter Raspberry Pi à Azure IoT Hub (Node.js)
@@ -232,7 +232,7 @@ Mettez Pi sous tension à l’aide du câble micro USB et de l’alimentation. U
 
    Si vous **ne disposez pas du capteur**, définissez la valeur `simulatedData` sur `true` pour que l’exemple d’application crée et utilise des données de capteur simulées.
 
-   *Remarque : L’adresse i2c utilisée dans ce tutoriel est 0x77 par défaut. Selon votre configuration, elle peut également être 0x76 : si vous rencontrez une erreur i2c, essayez de définir la valeur sur 118 pour voir si cela fonctionne mieux. Pour voir l’adresse utilisée par votre capteur, exécutez `sudo i2cdetect -y 1` dans un interpréteur de commandes sur Raspberry Pi*
+   *Remarque : l’adresse i2c utilisée dans ce tutoriel est 0x77 par défaut. Selon votre configuration, elle peut également être 0x76 : si vous rencontrez une erreur i2c, essayez de définir la valeur sur 118 pour voir si cela fonctionne mieux. Pour voir l’adresse utilisée par votre capteur, exécutez `sudo i2cdetect -y 1` dans un interpréteur de commandes sur Raspberry Pi*
 
 2. Enregistrez et quittez en appuyant sur Ctrl-O > Entrée > Ctrl-X.
 
