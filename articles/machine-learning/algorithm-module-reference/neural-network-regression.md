@@ -1,5 +1,5 @@
 ---
-title: 'Régression de réseau neuronal : Informations de référence sur les modules'
+title: 'Régression de réseau neuronal : référence de module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Régression de réseau neuronal dans Azure Machine Learning pour créer un modèle de régression à l’aide d’un algorithme de réseau neuronal personnalisable.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90890359"
 ---
 # <a name="neural-network-regression-module"></a>Module Régression de réseau neuronal
@@ -93,7 +93,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
     > 
     > Si vous transmettez un ensemble unique de valeurs de paramètre au module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md), quand il attend une plage de paramètres pour chaque paramètre, il ignore les valeurs et utilise les valeurs par défaut pour l’apprenant.  
     > 
-    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent dans une plage de valeurs.  
+    > Si vous sélectionnez l’option **Plage de paramètres** et que vous entrez une valeur unique pour un paramètre, cette valeur unique que vous avez spécifiée est utilisée tout au long du balayage, même si d’autres paramètres changent sur une plage de valeurs.  
   
    
 14. Envoyez le pipeline.  

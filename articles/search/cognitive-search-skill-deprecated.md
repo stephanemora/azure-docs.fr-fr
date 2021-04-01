@@ -9,19 +9,19 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 85f3b9862bd8155c1a4b11860dc82d92a2f9e810
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936093"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Compétences cognitives déconseillées dans Recherche cognitive Azure
 
 Ce document décrit les compétences cognitives qui sont considérées comme déconseillées. Utilisez le guide suivant pour le contenu :
 
-* Nom de la compétence : nom de la compétence qui sera déconseillée, il est mappé sur l’attribut @odata.type.
-* Dernière version de l’API disponible : Dernière version de l’API publique Recherche cognitive Azure via laquelle des ensembles de compétences contenant la compétence déconseillée correspondante peuvent être créés/mis à jour.
-* Fin de la prise en charge : dernier jour après lequel la compétence correspondante est considérée non prise en charge. Les compétences créées précédemment doivent continuer à fonctionner, mais il est recommandé aux utilisateurs de migrer hors d’une compétence déconseillée.
+* Nom de la compétence : nom de la compétence qui sera déconseillée, il est mappé sur l’attribut @odata.type.
+* Dernière version de l’API disponible : dernière version de l’API publique de la Recherche cognitive Azure via laquelle l’ensemble de compétences contenant la compétence déconseillée correspondante peut être créée/mise à jour.
+* Fin de la prise en charge : dernier jour après lequel la compétence correspondante est considérée non prise en charge. Les compétences créées précédemment doivent continuer à fonctionner, mais il est recommandé aux utilisateurs de migrer hors d’une compétence déconseillée.
 * Recommandations : chemin de migration vers l’avant pour utiliser une compétence prise en charge. Il est conseillé aux utilisateurs de suivre ces suggestions pour continuer à bénéficier du support technique.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill

@@ -9,10 +9,10 @@ ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
 ms.openlocfilehash: a15c6b5919f428b28daab86fea9c3b6473d19162
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606196"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrer de Couchbase vers l’API SQL Azure Cosmos DB
@@ -39,7 +39,7 @@ Voici les principales fonctionnalités qui opèrent différemment dans Azure Cos
 
 * Dans Azure Cosmos DB, il n’est pas nécessaire que la hiérarchie de niveau supérieur désigne la collection, car le nom de celle-ci existe déjà. Cette fonctionnalité simplifie grandement la structure JSON. Voici un exemple qui montre les différences de modèle de données entre Couchbase et Azure Cosmos DB :
 
-   **Couchbase** : ID de document = "99FF4444"
+   **Couchbase** : document ID = « 99FF4444 »
 
     ```json
     {
@@ -69,7 +69,7 @@ Voici les principales fonctionnalités qui opèrent différemment dans Azure Cos
     }
    ```
 
-   **Azure Cosmos DB** : Fait référence à l’ID dans le document, comme indiqué ci-dessous.
+   **Azure Cosmos DB** : référence à l’ID dans le document, comme indiqué ci-dessous.
 
     ```json
     {

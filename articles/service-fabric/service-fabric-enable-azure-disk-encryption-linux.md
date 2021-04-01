@@ -4,10 +4,10 @@ description: Cet article décrit comment activer le chiffrement de disque pour l
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78252816"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux 
@@ -177,7 +177,7 @@ Avant de procéder au chiffrement sur un groupe de machines virtuelles identique
 
 
 ### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Déployer une application sur un cluster Service Fabric dans Linux
-Pour déployer une application sur votre cluster, suivez les étapes et les instructions dans [Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md).
+Pour déployer une application sur votre cluster, suivez les étapes et les instructions fournies dans [Démarrage rapide : Déployer des conteneurs Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md).
 
 
 ### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Activer le chiffrement de disque pour le groupe de machines virtuelles identiques créé précédemment

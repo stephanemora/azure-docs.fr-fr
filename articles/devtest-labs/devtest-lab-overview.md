@@ -4,10 +4,10 @@ description: Découvrez comment DevTest Labs peut faciliter la création, la ges
 ms.topic: article
 ms.date: 06/20/2020
 ms.openlocfilehash: b7e6493e5fb1c99dfa7962ed464dca3ebc6b0c7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480199"
 ---
 # <a name="about-azure-devtest-labs"></a>À propos d’Azure DevTest Labs
@@ -23,7 +23,7 @@ Avec DevTest Labs, vous pouvez tester les dernières versions de vos application
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
 
-## <a name="capabilities"></a>Fonctionnalités
+## <a name="capabilities"></a>Fonctions
 Dev/Test Labs fournit les fonctionnalités suivantes pour les développeurs travaillant avec des machines virtuelles :
 
 - Créer rapidement des machines virtuelles en suivant moins de cinq étapes simples.
@@ -77,4 +77,4 @@ Utilisez des plug-ins prêts à l’emploi ou l’API pour provisionner des envi
 Voir les articles suivants :
 
 - Pour en savoir plus sur DevTest Labs, consultez [Concepts de DevTest Labs](devtest-lab-concepts.md).
-- Pour une démonstration avec des instructions pas à pas, consultez [Tutoriel : Configurer un labo avec Azure DevTest Labs](tutorial-create-custom-lab.md).
+- Pour obtenir une procédure pas à pas avec des instructions étape par étape, consultez [Tutoriel : configurer un laboratoire à l’aide de Azure DevTest Labs](tutorial-create-custom-lab.md).
