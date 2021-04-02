@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2019
 ms.openlocfilehash: ad047a30b901d71604c775e9882b0f242f094638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "74793031"
 ---
 # <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Référence relative aux paramètres des messages AS2 dans Azure Logic Apps avec Enterprise Integration Pack
@@ -27,7 +27,7 @@ Ce guide de référence décrit les propriétés que vous pouvez définir pour s
 
 | Propriété | Obligatoire | Description |
 |----------|----------|-------------|
-| **Remplacer les propriétés du message** | Non | Remplace les propriétés des messages entrants par vos paramètres de propriété. |
+| **Override message properties** | Non | Remplace les propriétés des messages entrants par vos paramètres de propriété. |
 | **Le message doit être signé** | Non | Spécifie si tous les messages entrants doivent être signés numériquement. Si une signature est nécessaire, dans la liste **Certificat**, sélectionnez un certificat public de partenaire invité existant pour valider la signature dans les messages. Si vous n'avez pas de certificat, apprenez-en davantage sur l'[ajout de certificats](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Le message doit être chiffré** | Non | Spécifie si tous les messages entrants doivent être chiffrés. Les messages non chiffrés sont rejetés. Si un chiffrement est nécessaire, dans la liste **Certificat**, sélectionnez un certificat privé de partenaire hôte existant pour déchiffrer les messages entrants. Si vous n'avez pas de certificat, apprenez-en davantage sur l'[ajout de certificats](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Le message doit être compressé** | Non | Spécifie si tous les messages entrants doivent être compressés. Les messages non compressés sont rejetés. |

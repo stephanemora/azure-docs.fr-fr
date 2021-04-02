@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/24/2020
 ms.openlocfilehash: 584748b23f526e6f03b543b8298927e3f202f743
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82138912"
 ---
 # <a name="azure-media-player-demos"></a>Démonstrations du Lecteur multimédia Azure
@@ -26,7 +26,7 @@ Voici une liste de liens vers des démos du Lecteur multimédia Azure. Vous pouv
 | Fonctionnalités |
 | Insertion de publicité VOD - VAST | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_vast_ads_vod.html) | N/A | Insérer des publicités VAST avant, pendant et après déroulement dans une ressource VOD. |
 | Vitesse de lecture | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_playback_speed.html)| N/A | Permet de contrôler la vitesse de lecture de la vidéo. |
-| Apparence de flush AMP | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Statique](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Active une nouvelle apparence AMP. **Remarque :** Le flush AMP n’est pris en charge que dans les versions d’AMP 2.1.0+ |
+| Apparence de flush AMP | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_flush_skin.html) | [Statique](https://amp.azure.net/libs/amp/latest/samples/videotag_flush_skin.html) | Active une nouvelle apparence AMP. **Remarque :** Le flush AMP n’est pris en charge que dans les versions 2.1.0 et ultérieures d’AMP. |
 | Légendes et sous-titres | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_webvtt.html) | [Statique](https://amp.azure.net/libs/amp/latest/samples/videotag_webvtt.html) | Lecture avec des sous-titres WebVTT.
 | Légendes CEA 708 en direct | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_live_captions.html) | N/A | Lecture avec les légendes CEA 708 entrantes en direct alignées à gauche. |
 | Diffusion en continu avec une solution de secours progressive | [Dynamique](https://amp.azure.net/libs/amp/latest/samples/dynamic_progressiveFallback.html) | [Statique](https://amp.azure.net/libs/amp/latest/samples/videotag_progressiveFallback.html) | Configuration de base de la lecture adaptative avec solution de secours progressive si la diffusion en continu n’est pas prise en charge sur la plateforme. |

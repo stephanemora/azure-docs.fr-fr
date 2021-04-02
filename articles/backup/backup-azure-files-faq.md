@@ -4,10 +4,10 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.date: 04/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91940833"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
@@ -46,7 +46,7 @@ Oui. Toutefois, vous devrez [arrêter la protection sur un partage de fichiers](
 
 Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement être protégés par le même coffre.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 ### <a name="what-should-i-do-if-my-backups-start-failing-due-to-the-maximum-limit-reached-error"></a>Que dois-je faire si mes sauvegardes échouent en raison d’une erreur de limite maximale atteinte ?
 

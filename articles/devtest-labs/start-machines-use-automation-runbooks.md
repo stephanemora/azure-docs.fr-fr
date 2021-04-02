@@ -4,10 +4,10 @@ description: Découvrez comment démarrer des machines virtuelles dans un labo d
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 231e79d594aab7c59fa21f9ee512abaa9ac67043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282260"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Démarrer des machines virtuelles dans un labo dans un certain ordre en utilisant des runbooks Azure Automation
@@ -129,4 +129,4 @@ Pour que ce script s’exécute tous les jours, [créez une planification](../au
 Dans une situation à grande échelle où il existe plusieurs abonnements avec plusieurs labos, stockez les informations des paramètres dans un fichier pour les différents labos et passez le fichier au script à la place des paramètres individuels. Le script devrait alors être modifié, mais l’exécution resterait fondamentalement la même. Bien que cet exemple utilise Azure Automation pour exécuter le script PowerShell, il existe d’autres options, comme l’utilisation d’une tâche dans un pipeline de build/mise en production.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur Azure Automation, consultez l’article suivant : [Présentation d’Azure Automation](../automation/automation-intro.md).
+Consultez l’article suivant pour en savoir plus sur Azure Automation : [Présentation d’Azure Automation](../automation/automation-intro.md).

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 45f18727b53b802ba746da41b47fe955543ed9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75648546"
 ---
 # <a name="create-custom-actions-and-resources-in-azure"></a>Créer des actions et des ressources personnalisées dans Azure
@@ -40,10 +40,10 @@ La troisième partie de ce tutoriel explique comment créer un fournisseur perso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris ce qu’est un fournisseur personnalisé et comment en créer un. Pour passer au tutoriel suivant, consultez [Tutoriel : Configurer Azure Functions pour les fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md).
+Dans ce tutoriel, vous avez appris ce qu’est un fournisseur personnalisé et comment en créer un. Pour passer au tutoriel suivant, consultez [Tutoriel : Configurer Azure Functions pour les fournisseurs personnalisés Azure](./tutorial-custom-providers-function-setup.md).
 
 Si vous cherchez des références ou un guide de démarrage rapide, voici quelques liens utiles :
 
 - [Démarrage rapide : Créer un fournisseur de ressources personnalisé Azure et déployer des ressources personnalisées](./create-custom-provider.md)
-- [Procédure : ajouter des actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
-- [Procédure : ajouter des ressources personnalisées à l’API REST Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Guide pratique pour ajouter des actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
+- [Guide pratique pour ajouter des ressources personnalisées à l’API REST Azure](./custom-providers-resources-endpoint-how-to.md)

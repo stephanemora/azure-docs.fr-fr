@@ -4,10 +4,10 @@ description: Article décrivant les références SKU de machine virtuelle (par �
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82183617"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Références SKU Machines virtuelles prises en charge pour Azure Policy
@@ -16,7 +16,7 @@ Sauvegarde Azure fournit une stratégie intégrée (via Azure Policy) qui peut �
 
 ## <a name="supported-vms"></a>Machines virtuelles prises en charge*
 
-**Nom de la stratégie :** Configurer la sauvegarde sur les machines virtuelles d’un emplacement dans un coffre central existant au même emplacement
+**Nom de stratégie :** Configurer la sauvegarde sur les machines virtuelles d’un emplacement dans un coffre central existant au même emplacement
 
 Éditeur de l’image | Offre de l’image | Référence d’image
 --- | --- | ---
@@ -57,7 +57,7 @@ MicrosoftSQLServer | SQL2014SP2-WS2012R2-BYOL | Toutes les références SKU d’
 MicrosoftSQLServer | SQL2016-WS2012R2-BYOL | Toutes les références SKU d’image
 MicrosoftRServer | MLServer-WS2016 | Toutes les références SKU d’image
 MicrosoftVisualStudio | VisualStudio | Toutes les références SKU d’image
-MicrosoftVisualStudio |  Windows | Toutes les références SKU d’image
+MicrosoftVisualStudio | Windows | Toutes les références SKU d’image
 MicrosoftDynamicsAX | Dynamics | Pre-Req-AX7-Onebox-U8
 microsoft-ads | windows-data-science-vm | Toutes les références SKU d’image
 MicrosoftWindowsDesktop | Windows-10 | Toutes les références SKU d’image

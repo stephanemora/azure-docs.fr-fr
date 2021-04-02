@@ -1,17 +1,17 @@
 ---
-title: 'Tutoriel : Créer une application Java sur Azure Service Fabric'
+title: 'Tutoriel : Créer une application Java sur Azure Service Fabric'
 description: Dans ce tutoriel, vous allez découvrir comment créer une application Reliable Services Java avec un service frontal ainsi qu’un service principal Reliable Services avec état, et déployer l’application sur un cluster.
 ms.topic: tutorial
 ms.date: 09/01/2018
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
 ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532191"
 ---
-# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutoriel : Créer une application avec un service front-end d’API Java et un service back-end avec état sur Azure Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutoriel : Créer une application avec un service front-end d’API Java et un service back-end avec état sur Azure Service Fabric
 
 Ce tutoriel est la première partie d’une série d’étapes. Quand vous avez terminé, vous disposez d’une application Voting avec un front-end Java qui enregistre les résultats de vote dans un service back-end avec état sur Azure Service Fabric. Cette série de didacticiels nécessite une machine de développeur Mac OSX ou Linux. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source pour obtenir l’application terminée](https://github.com/Azure-Samples/service-fabric-java-quickstart) et passer directement au [Guide de l’exemple d’application de vote](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Envisagez également de suivre [Démarrage rapide : Reliable Services en Java](service-fabric-quickstart-java-reliable-services.md).
 
@@ -884,7 +884,7 @@ Dans cette section, les scripts Gradle du projet sont configurés.
 
 2. Exécutez votre cluster Service Fabric local. Cette étape varie en fonction de votre environnement de développement (Mac ou Linux).
 
-    Sur un Mac, exécutez le cluster local à l’aide de la commande suivante : Remplacez la commande passée au paramètre **-v** par le chemin de votre espace de travail.
+    Si vous utilisez un Mac, exécutez le cluster local avec la commande suivante : remplacez la commande passée dans le paramètre **-v** par le chemin d’accès à votre propre espace de travail.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest
