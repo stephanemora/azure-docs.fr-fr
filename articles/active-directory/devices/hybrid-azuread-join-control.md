@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38754b9e349e27afcff58dac27a616e3e4fb5319
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860930"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
@@ -55,12 +55,12 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 
 1. Ouvrez une console de gestion des stratégies de groupe et créez un objet Stratégie de groupe dans votre domaine.
    1. Nommez votre objet de stratégie de groupe nouvellement créé (par exemple, ClientSideSCP).
-1. Modifiez l’objet de stratégie de groupe et recherchez le chemin suivant : **Configuration de l’ordinateur** > **Préférences** > **Paramètres Windows** > **Registre**
+1. Modifiez le GPO et localisez le chemin suivant : **Configuration ordinateur**  >  **Préférences**  >  **Paramètres Windows**  >  **Registre**
 1. Cliquez avec le bouton droit sur le Registre, puis sélectionnez **Nouveau** > **Élément du Registre**
    1. Sous l’onglet **Général**, configurez ce qui suit :
       1. Action : **Mettre à jour**
-      1. Hive : **HKEY_LOCAL_MACHINE**
-      1. Chemin de la clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Ruche :  **HKEY_LOCAL_MACHINE**
+      1. Chemin d'accès clé :**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nom de la valeur : **TenantId**
       1. Type de valeur : **REG_SZ**
       1. Données de la valeur : Le GUID ou **ID de répertoire** de votre instance Azure AD (cette valeur se trouve dans le **portail Azure** > **Azure Active Directory** > **Propriétés** > **ID de répertoire**)
@@ -68,9 +68,9 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 1. Cliquez avec le bouton droit sur le Registre, puis sélectionnez **Nouveau** > **Élément du Registre**
    1. Sous l’onglet **Général**, configurez ce qui suit :
       1. Action : **Mettre à jour**
-      1. Hive : **HKEY_LOCAL_MACHINE**
-      1. Chemin de la clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. Nom de la valeur : **TenantName**
+      1. Ruche :  **HKEY_LOCAL_MACHINE**
+      1. Chemin d'accès clé :**SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
+      1. Nom de la valeur : **TenantId**
       1. Type de valeur : **REG_SZ**
       1. Données de la valeur : Votre **nom de domaine** vérifié si vous utilisez un environnement fédéré comme AD FS. Votre **nom de domaine** vérifié ou votre nom de domaine onmicrosoft.com, par exemple `contoso.onmicrosoft.com`, si vous utilisez un environnement géré
    1. Cliquez sur **OK**
@@ -88,7 +88,7 @@ Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion d
 
 Pour inscrire des ordinateurs Windows de bas niveau, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non-Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) à partir du Centre de téléchargement Microsoft.
 
-Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels tel que  [Microsoft Endpoint Configuration Manager](/configmgr/). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
+Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels, comme  [Microsoft Endpoint Configuration Manager](/configmgr/). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
 
 Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint en mode silencieux l’appareil à Azure AD, au moyen des informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
 
