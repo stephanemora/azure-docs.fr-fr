@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88998235"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push à des téléphones Windows spécifiques à l’aide d’Azure Notification Hubs
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivre le [Tutoriel : Notifications Push vers des applications Windows Phone avec Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). Dans ce didacticiel, vous mettez à jour l’application mobile afin que vous puissiez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories.
+Terminez le [didacticiel : notifications Push vers des applications Windows Phone à l’aide d’Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). Dans ce didacticiel, vous mettez à jour l’application mobile afin que vous puissiez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Ajout d’une sélection de catégories à l’application mobile
 
@@ -252,7 +252,7 @@ Les étapes suivantes permettent l’inscription auprès du hub de notification 
 > [!NOTE]
 > L’URI de canal affecté par le service de notification Push Microsoft (MPNS) pouvant changer à tout moment, vous devez vous inscrire fréquemment aux notifications afin d’éviter les défaillances de notification. Cet exemple s’inscrit aux notifications chaque fois que l’application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
-1. Ouvrez le fichier App.xaml.cs et ajoutez le modificateur `async` à la méthode `Application_Launching`, puis remplacez le code d’inscription Notification Hubs que vous avez ajouté dans le cadre du tutoriel [Prise en main de Notification Hubs] par le code suivant :
+1. Ouvrez le fichier App.xaml.cs et ajoutez le modificateur `async` à la méthode `Application_Launching`, puis remplacez le code d’inscription Notification Hubs que vous avez ajouté dans le cadre du tutoriel [Bien démarrer avec Notification Hubs] par le code suivant :
 
     ```csharp
     private async void Application_Launching(object sender, LaunchingEventArgs e)
