@@ -4,10 +4,10 @@ description: Cet article fournit des instructions pour obtenir une chaîne de co
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86537171"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenir une chaîne de connexion Event Hubs
@@ -37,7 +37,7 @@ Cet article vous guide dans les différentes façons d’obtenir la chaîne de c
 6. Sur la page **Espace de noms Event Hubs**, cliquez sur **Stratégies d’accès partagé** dans le menu de gauche.
 
     ![Élément de menu des stratégies d’accès partagées](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. Sélectionnez une **stratégie d’accès partagé** dans la liste des stratégies. Celle par défaut s’appelle : **RootManageSharedAccessPolicy**. Vous pouvez ajouter une stratégie avec les autorisations appropriées (lecture, écriture) et utiliser cette stratégie. 
+7. Sélectionnez une **stratégie d’accès partagé** dans la liste des stratégies. Le nom par défaut est le suivant : **RootManageSharedAccessPolicy**. Vous pouvez ajouter une stratégie avec les autorisations appropriées (lecture, écriture) et utiliser cette stratégie. 
 
     ![Stratégies d’accès partagé Event Hubs](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. Cliquez sur le bouton **copier** à côté du champ **Clé primaire de la chaîne de connexion**. 
