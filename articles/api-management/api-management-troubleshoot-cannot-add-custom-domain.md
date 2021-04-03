@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75430576"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Échec de la mise à jour des noms d’hôte du service Gestion des API
@@ -28,7 +28,7 @@ Cet article aborde l’erreur « Échec de la mise à jour des noms d’hôte d
 
 Lorsque vous tentez d’ajouter un domaine personnalisé pour votre service Gestion des API à l’aide d’un certificat Azure Key Vault, le message d’erreur suivant s’affiche :
 
-- Échec de la mise à jour des noms d’hôte du service Gestion des API. La requête envoyée à la ressource « https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0  » a échoué avec le code d’état : Forbidden pour RequestId : Message d’exception : L’opération a retourné un code d’état non valide : « Forbidden ».
+- Échec de la mise à jour des noms d’hôte du service Gestion des API. La demande adressée à la ressource https://vaultname.vault.azure.net/secrets/secretname/?api-version=7.0 a échoué avec le StatusCode : Forbidden pour RequestId : Message d’exception : l’opération a retourné un code d’état non valide : Forbidden.
 
 ## <a name="cause"></a>Cause
 
@@ -44,11 +44,11 @@ Pour résoudre ce problème, effectuez les étapes suivantes :
 1. Sélectionnez **Stratégies d’accès**, puis vérifiez qu’il existe un principal de service dont le nom correspond à celui de l’instance du service Gestion des API. Si c’est le cas, sélectionnez le principal de service, et vérifiez que l’autorisation **GET** figure bien sous **Autorisations du secret**.  
     ![Ajout d’une stratégie d’accès pour le principal de service](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Si le service Gestion des API ne figure pas dans la liste, sélectionnez **Ajouter une stratégie d’accès**, puis créez la stratégie d’accès suivante :
-    - **Configurer à partir du modèle** : None
-    - **Sélectionner le principal** : recherchez le nom du service Gestion des API, puis sélectionnez-le dans la liste.
-    - **Autorisations de clé** : None
-    - **Autorisations du secret** : Obtenir
-    - **Autorisations de certificat** : None
+    - **Configurer à partir du modèle** : aucun
+    - **Sélectionner principal** : recherchez le nom du service Gestion des API, puis sélectionnez-le dans la liste.
+    - **Autorisations de clé** : aucune
+    - **Autorisations de secret** : Get
+    - **Autorisations de certificat** : aucune
 1. Sélectionnez **OK** pour créer la stratégie d’accès.
 1. Sélectionnez **Enregistrer** pour enregistrer les modifications.
 

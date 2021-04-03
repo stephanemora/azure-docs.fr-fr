@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
 ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75445750"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggestions pour la création de balises et de versions pour les images de conteneurs
@@ -21,7 +21,7 @@ Lorsque vous déplacez des images de conteneurs vers un registre et que vous les
 
 ## <a name="stable-tags"></a>Balises stables
 
-**Recommandation** : Utilisez des balises stables pour maintenir des **images de base** pour la génération de vos conteneurs. Évitez les déploiements avec des balises stables, car ces balises continuent de recevoir des mises à jour et peuvent introduire des incohérences dans les environnements de production.
+**Recommandation** : utilisez des balises stables pour maintenir des **images de base** pour la génération de vos conteneurs. Évitez les déploiements avec des balises stables, car ces balises continuent de recevoir des mises à jour et peuvent introduire des incohérences dans les environnements de production.
 
 *Les balises stables* signifient qu’un développeur, ou un système de génération, peut continuer à extraire une balise spécifique, qui continue à recevoir des mises à jour. Stable ne signifie pas que le contenu est figé. Au contraire, le terme stable implique que l’image doit être stabilisée pour les besoins de cette version. Pour rester « stable », il est possible d’appliquer des correctifs de sécurité ou des mises à jour de l’infrastructure.
 
@@ -44,7 +44,7 @@ Si une image avec une balise stable est mise à jour, l’image balisée précé
 
 ## <a name="unique-tags"></a>Balises uniques
 
-**Recommandation** : Utilisez des balises uniques pour les **déploiements**, en particulier dans un environnement pouvant évoluer sur plusieurs nœuds. Vous préférerez certainement des déploiements délibérées d’une version cohérente de composants. Si votre conteneur redémarre ou si un orchestrateur fait monter en charge plus d’instances, vos hôtes n’extraireront pas accidentellement une version plus récente, incompatible avec les autres nœuds.
+**Recommandation** : utilisez des balises uniques pour les **déploiements**, en particulier dans un environnement pouvant évoluer sur plusieurs nœuds. Vous préférerez certainement des déploiements délibérées d’une version cohérente de composants. Si votre conteneur redémarre ou si un orchestrateur fait monter en charge plus d’instances, vos hôtes n’extraireront pas accidentellement une version plus récente, incompatible avec les autres nœuds.
 
 Le balisage unique signifie simplement que chaque image poussée vers un registre possède une balise unique. Les balises ne sont pas réutilisés. Il existe plusieurs modèles que vous pouvez suivre pour générer des balises uniques, y compris :
 
@@ -63,7 +63,7 @@ Le verrouillage d’une image déployée vous permet de supprimer les autres ima
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une présentation plus détaillée des concepts décrits dans cet article, consultez le blog [Balisage Docker : Meilleures pratiques pour la création de balises et de versions des images docker](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
+Pour obtenir une présentation plus détaillée des concepts décrits dans cet article, consultez le blog [Balisage Docker : meilleures pratiques de balisage et de contrôle de version des images Docker](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
 Pour aider à optimiser les performances et la rentabilité d’utilisation de votre registre de conteneurs Azure, consultez les [Meilleures pratiques pour Azure Container Registry](container-registry-best-practices.md).
 

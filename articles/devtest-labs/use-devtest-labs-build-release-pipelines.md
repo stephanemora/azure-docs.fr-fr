@@ -4,10 +4,10 @@ description: Découvrez comment utiliser Azure DevTest Labs dans les pipelines d
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88080332"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
@@ -26,7 +26,7 @@ Une fois la build terminée, le **pipeline de mise en production** utilisera les
 
 L’un des principes nécessaires est que toutes les informations nécessaires à la recréation de l’écosystème testé sont disponibles dans les artefacts de build, y compris la configuration des ressources Azure. Comme les ressources Azure entraînent un coût en cas d’utilisation, les entreprises souhaitent contrôler ou suivre l’utilisation de ces ressources. Dans certains cas, les modèles Azure Resource Manager utilisés pour créer et configurer les ressources peuvent être gérés par un autre service que le département informatique. Et, ces modèles peuvent être stockés dans un référentiel différent. Cela résulte en une situation intéressante dans laquelle une build est créée et testée, et le code et la configuration doivent tous deux être stockés dans les artefacts de build pour recréer correctement le système en production. 
 
-En utilisant DevTest Labs pendant la phase de génération et de test, vous pouvez ajouter des modèles Azure Resource Manager et des fichiers de prise en charge aux sources de génération afin que, pendant la phase de mise en production, la configuration exacte utilisée pour le test soit déployée en production. La tâche **Créer un environnement Azure DevTest Labs** avec la configuration appropriée permet d’enregistrer les modèles Resource Manager dans les artefacts de build. Pour cet exemple, vous allez utiliser le code du [Didacticiel : Générez une application Web .NET Core et SQL Database dans Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md), pour déployer et tester l’application Web dans Azure.
+En utilisant DevTest Labs pendant la phase de génération et de test, vous pouvez ajouter des modèles Azure Resource Manager et des fichiers de prise en charge aux sources de génération afin que, pendant la phase de mise en production, la configuration exacte utilisée pour le test soit déployée en production. La tâche **Créer un environnement Azure DevTest Labs** avec la configuration appropriée permet d’enregistrer les modèles Resource Manager dans les artefacts de build. Pour cet exemple, vous allez utiliser le code dans [Tutoriel : Créer une application web .NET Core et SQL Database dans Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md) pour déployer et tester l’application web dans Azure.
 
 ![Flux général](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Quelques éléments doivent être créés au préalable :
 Le pipeline de build crée un environnement DevTest Labs et déploie le code à des fins de test.
 
 ## <a name="set-up-a-build-pipeline"></a>Configurer un pipeline de build
-Dans Azure Pipelines, créez un pipeline de build à l’aide du code du [didacticiel : Créer une application web .NET Core et SQL Database dans Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Utilisez le modèle **ASP.NET Core**, qui exécutera la tâche nécessaire pour générer, tester et publier le code.
+Dans Azure Pipelines, créez un pipeline de build à l’aide du code dans [Tutoriel : Créer une application web .NET Core et SQL Database dans Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Utilisez le modèle **ASP.NET Core**, qui exécutera la tâche nécessaire pour générer, tester et publier le code.
 
 ![Sélectionner le modèle ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -72,7 +72,7 @@ La deuxième tâche (tâche **Peupler l’environnement Azure DevTest Labs**) co
 ![Tâche Peupler un environnement Azure DevTest Labs](./media/use-devtest-labs-build-release-pipelines/populate-environment.png)
 
 ## <a name="app-service-deploy-task"></a>Tâche Déployer App Service
-La troisième tâche est **Déployer Azure App Service**. Le type d’application est défini sur **Application Web** et le nom App Service est défini sur **$(WebSite)** .
+La troisième tâche est **Déployer Azure App Service**. Le type d’application est défini sur **Application Web** et le nom App Service est défini sur **$(WebSite)**.
 
 ![Tâche Déployer App Service](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 

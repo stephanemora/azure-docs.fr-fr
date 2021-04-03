@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84697841"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
@@ -58,14 +58,14 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | Nom de la fonction d’orchestrateur à démarrer. |
 | **`instanceId`**   | URL             | Paramètre facultatif. L’ID de l’instance d’orchestration. S’il n’est pas spécifié, la fonction d’orchestrateur démarre avec un ID d’instance aléatoire. |
-| **`{content}`**    | Contenu de la demande | facultatif. Entrée de la fonction d’orchestrateur au format JSON. |
+| **`{content}`**    | Contenu de la demande | Optionnel. Entrée de la fonction d’orchestrateur au format JSON. |
 
 ### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (acceptée)** : La fonction d’orchestrateur spécifiée a été planifiée pour commencer à s’exécuter. L’en-tête de réponse `Location` contient une URL pour interroger l’état de l’orchestration.
-* **HTTP 400 (requête incorrecte)** : La fonction d’orchestrateur spécifiée n’existe pas, l’ID d’instance spécifié n’était pas valide ou le contenu de la demande n’était pas un contenu JSON valide.
+* **HTTP 202 (Accepté)**  : La fonction d’orchestrateur spécifiée a été planifiée pour commencer à s’exécuter. L’en-tête de réponse `Location` contient une URL pour interroger l’état de l’orchestration.
+* **HTTP 400 (Requête incorrecte)**  : La fonction d’orchestrateur spécifiée n’existe pas, l’ID d’instance spécifié n’était pas valide ou le contenu de la requête n’était pas un contenu JSON valide.
 
 Voici un exemple de demande qui démarre une fonction d’orchestrateur `RestartVMs` et inclut la charge utile d’objet JSON :
 
@@ -107,7 +107,7 @@ Voici un exemple de charge utile de réponse pour une instance d’orchestration
 
 La réponse HTTP est destinée à être compatible avec le *modèle d’interrogation de consommateur*. Elle comprend également les en-têtes de réponse notables suivants :
 
-* **Emplacement** : URL du point de terminaison de l’état. Cette URL contient la même valeur que le champ `statusQueryGetUri`.
+* **Location** : URL du point de terminaison de l’état. Cette URL contient la même valeur que le champ `statusQueryGetUri`.
 * **Retry-After** : Nombre de secondes à attendre entre les opérations d’interrogation. La valeur par défaut est `10`.
 
 Pour plus d’informations sur le modèle d’interrogation HTTP asynchrone, consultez la documentation sur le [suivi des opérations asynchrones HTTP](durable-functions-http-features.md#async-operation-tracking).
@@ -158,11 +158,11 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 200 (OK)** : L’instance spécifiée indique un état terminé.
-* **HTTP 202 (acceptée)** : L’instance spécifiée est en cours d’exécution.
-* **HTTP 400 (requête incorrecte)** : L’instance spécifiée a échoué ou a été arrêtée.
-* **HTTP 404 (introuvable)** : L’instance spécifiée n’existe pas ou n’a pas démarré.
-* **HTTP 500 (erreur interne du serveur)** : L’instance spécifiée a échoué avec une exception non prise en charge.
+* **HTTP 200 (OK)** : l’instance spécifiée est dans un état terminé.
+* **HTTP 202 (acceptée)** : l’instance spécifiée est en cours d’exécution.
+* **HTTP 400 (Bad Request)** : l’instance spécifiée a échoué ou a été arrêtée.
+* **HTTP 404 (Not Found)** : l’instance spécifiée n’existe pas ou n’a pas démarré.
+* **HTTP 500 (Erreur interne du serveur)**: l’instance spécifiée a échoué avec une exception non prise en charge.
 
 La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
@@ -378,8 +378,8 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 
 Les valeurs de code d’état HTTP peuvent être également être retournées.
 
-* **HTTP 200 (OK)** : L’historique d’instance a été vidé avec succès.
-* **HTTP 404 (introuvable)** : L’instance spécifiée n’existe pas.
+* **HTTP 200 (OK)**  : L’historique d’instance a été vidé avec succès.
+* **HTTP 404 (Introuvable)**  : L’instance spécifiée n’existe pas.
 
 La charge utile de réponse pour le cas **HTTP 200** est un objet JSON présentant le champ suivant :
 
@@ -434,14 +434,14 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 | **`runtimeStatus`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances vidées selon l’état de leur runtime. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez l’article [Interrogation des instances](durable-functions-instance-management.md). |
 
 > [!NOTE]
-> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans les instances et/ou les tables d’historique. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
+> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans les instances et/ou les tables d’historique. Vous trouverez plus d’informations sur ces tables dans la documentation [Performances et diminution de la taille des instances dans Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
 
 ### <a name="response"></a>response
 
 Les valeurs de code d’état HTTP peuvent être également être retournées.
 
-* **HTTP 200 (OK)** : L’historique d’instance a été vidé avec succès.
-* **HTTP 404 (introuvable)** : Aucune instance correspondant à l’expression de filtre n’a été trouvée.
+* **HTTP 200 (OK)**  : L’historique d’instance a été vidé avec succès.
+* **HTTP 404 (Introuvable)**  : Aucune instance correspondant à l’expression de filtre n’a été trouvée.
 
 La charge utile de réponse pour le cas **HTTP 200** est un objet JSON présentant le champ suivant :
 
@@ -493,10 +493,10 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (acceptée)** : L’événement déclenché a été accepté pour traitement.
-* **HTTP 400 (requête incorrecte)** : Le contenu de la requête n’était pas de type `application/json` ou n’était pas un objet JSON valide.
-* **HTTP 404 (introuvable)** : L’instance spécifiée est introuvable.
-* **HTTP 410 (absente)** : L’instance spécifiée est terminée ou a échoué et ne peut traiter aucun événement déclenché.
+* **HTTP 202 (Accepted)** : l’événement déclenché a été accepté pour traitement.
+* **HTTP 400 (Bad request)** : le contenu de la demande n’était pas de type `application/json` ou n’était pas un objet JSON valide.
+* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
+* **HTTP 410 (Gone)** : l’instance spécifiée est terminée ou a échoué et ne peut traiter aucun événement déclenché.
 
 Voici un exemple de requête qui envoie la chaîne JSON `"incr"` à une instance en attente d’un événement nommé **operation** :
 
@@ -541,15 +541,15 @@ Les paramètres de la demande pour cette API incluent l’ensemble par défaut m
 | Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
-| **`reason`**      | Chaîne de requête    | facultatif. Motif d’arrêt de l’instance d’orchestration. |
+| **`reason`**      | Chaîne de requête    | Optionnel. Motif d’arrêt de l’instance d’orchestration. |
 
 ### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (acceptée)** : La demande d’arrêt a été acceptée pour traitement.
-* **HTTP 404 (introuvable)** : L’instance spécifiée est introuvable.
-* **HTTP 410 (absente)** : L’instance spécifiée est terminée ou a échoué.
+* **HTTP 202 (Accepted)** : la demande d’arrêt a été acceptée pour traitement.
+* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
+* **HTTP 410 (Gone)** : l’instance spécifiée est terminée ou a échoué.
 
 Voici un exemple de demande qui met fin à une instance en cours d’exécution et affiche la raison **buggy** (bogué) :
 
@@ -590,15 +590,15 @@ Les paramètres de la demande pour cette API incluent l’ensemble par défaut m
 | Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
-| **`reason`**      | Chaîne de requête    | facultatif. Motif de rembobinage de l’instance d’orchestration. |
+| **`reason`**      | Chaîne de requête    | Optionnel. Motif de rembobinage de l’instance d’orchestration. |
 
 ### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 202 (acceptée)** : La demande de rembobinage a été acceptée pour traitement.
-* **HTTP 404 (introuvable)** : L’instance spécifiée est introuvable.
-* **HTTP 410 (absente)** : L’instance spécifiée est terminée.
+* **HTTP 202 (Accepté)** : la requête de rembobinage a été acceptée pour traitement.
+* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
+* **HTTP 410 (Supprimé)** : l’instance spécifiée est terminée.
 
 Voici un exemple de requête qui rembobine une instance ayant échoué et affiche la raison **corrigé** :
 
@@ -633,7 +633,7 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 |-------------------|-----------------|-------------|
 | **`entityName`**  | URL             | Nom (type) de l’entité. |
 | **`entityKey`**   | URL             | Clé (ID unique) de l’entité. |
-| **`op`**          | Chaîne de requête    | facultatif. Nom de l’opération définie par l’utilisateur à appeler. |
+| **`op`**          | Chaîne de requête    | Optionnel. Nom de l’opération définie par l’utilisateur à appeler. |
 | **`{content}`**   | Contenu de la demande | La charge utile de l’événement au format JSON. |
 
 Voici un exemple de requête qui envoie un message « Add » défini par l’utilisateur à une entité `Counter` appelée `steps`. Le contenu du message est la valeur `5`. Si l’entité n’existe pas encore, elle est créée par cette requête :
@@ -652,9 +652,9 @@ Content-Type: application/json
 
 Cette opération a plusieurs réponses possibles :
 
-* **HTTP 202 (acceptée)** : L’opération de signal a été acceptée pour traitement asynchrone.
-* **HTTP 400 (requête incorrecte)** : Le contenu de la requête n’était pas de type `application/json` ou n’était pas un objet JSON valide ou bien sa valeur `entityKey` n’était pas valide.
-* **HTTP 404 (introuvable)** : Le `entityName` spécifié est introuvable.
+* **HTTP 202 (Accepté)**  : L’opération de signal a été acceptée pour traitement asynchrone.
+* **HTTP 400 (Requête incorrecte)**  : Le contenu de la requête n’était pas de type `application/json` ou n’était pas un objet JSON valide ou bien sa valeur `entityKey` n’était pas valide.
+* **HTTP 404 (Introuvable)**  : L’entité `entityName` spécifiée est introuvable.
 
 Une requête HTTP réussie ne contient pas de contenu dans la réponse. Une requête HTTP ayant échoué peut contenir des informations d’erreur au format JSON dans le contenu de la réponse.
 
@@ -677,8 +677,8 @@ GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
 
 Cette opération a deux réponses possibles :
 
-* **HTTP 200 (OK)** : l’entité spécifiée existe.
-* **HTTP 404 (introuvable)** : l’entité spécifiée est introuvable.
+* **HTTP 200 (OK)**  : L’entité spécifiée existe.
+* **HTTP 404 (Introuvable)**  : L’entité spécifiée est introuvable.
 
 Une réponse réussie contient l’état sérialisé JSON de l’entité en tant que contenu.
 
@@ -720,7 +720,7 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 
 | Champ                       | Type de paramètre  | Description |
 |-----------------------------|-----------------|-------------|
-| **`entityName`**            | URL             | facultatif. Lorsqu’elle est spécifiée, filtre la liste des entités retournées par nom (sans respect de la casse). |
+| **`entityName`**            | URL             | Optionnel. Lorsqu’elle est spécifiée, filtre la liste des entités retournées par nom (sans respect de la casse). |
 | **`fetchState`**            | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’état de l’entité sera inclus dans la charge utile de réponse. |
 | **`lastOperationTimeFrom`** | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, il filtre la liste des entités retournées qui ont traité des opérations après l’horodatage ISO8601 donné. |
 | **`lastOperationTimeTo`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, il filtre la liste des entités retournées qui ont traité des opérations avant l’horodatage ISO8601 donné. |

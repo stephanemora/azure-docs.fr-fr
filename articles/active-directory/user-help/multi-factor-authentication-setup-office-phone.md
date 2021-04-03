@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83739207"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurer un téléphone professionnel comme méthode de vérification à deux facteurs
@@ -26,7 +26,7 @@ Vous pouvez configurer un téléphone professionnel comme méthode de vérificat
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configurer votre numéro de téléphone professionnel comme méthode de vérification
 
-1. Dans la page **Vérification de sécurité supplémentaire**, sélectionnez **Téléphone professionnel** dans la zone **Étape 1 : Comment devons-nous contacter**, sélectionnez votre pays ou votre région dans la liste déroulante, tapez votre numéro de téléphone professionnel, puis tapez votre extension, si vous en avez une.
+1. Dans la page **Vérification de sécurité supplémentaire**, sélectionnez **Téléphone de bureau** dans la zone **Étape 1 : Comment devons-nous vous contacter**, sélectionnez votre pays ou votre région dans la liste déroulante, saisissez le numéro de téléphone de votre bureau, puis votre poste, si vous en avez un.
 
     ![Page Vérification de sécurité supplémentaire, avec téléphone d’authentification et appel de téléphone](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone.png)
 

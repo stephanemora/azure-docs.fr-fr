@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "78898471"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Plans et facturation pour Azure Scheduler
@@ -26,7 +26,7 @@ ms.locfileid: "78898471"
 
 Dans Azure Scheduler, une collection de travaux contient un nombre spécifique de travaux. La collection de travaux constitue l’entité facturable et elle est fournie dans des plans Standard, P10 Premium et P20 Premium. Ils sont décrits ci-dessous : 
 
-| Plan de collections de travaux | Nombre max. de travaux par collection | Périodicité maximale | Nombre max. de collections de travaux par abonnement | Limites | 
+| Plan de collections de travaux | Nombre max. de travaux par collection | Périodicité maximale | Nombre max. de collections de travaux par abonnement | limites | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 travaux par collection | Une fois par minute. Impossible d’exécuter les travaux plus souvent qu’une fois par minute. | Chaque abonnement Azure peut comporter jusqu'à 100 collections de travaux Standard. | Accès à l'ensemble complet des fonctionnalités de Scheduler | 
 | **P10 Premium** | 50 travaux par collection | Une fois par minute. Impossible d’exécuter les travaux plus souvent qu’une fois par minute. | Chaque abonnement Azure peut comporter jusqu'à 10 000 collections de travaux P10 Premium. Pour plus de collections, <a href="mailto:wapteams@microsoft.com">contactez-nous</a>. | Accès à l'ensemble complet des fonctionnalités de Scheduler |

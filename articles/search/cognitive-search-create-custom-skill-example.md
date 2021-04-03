@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5755e14e53d359fd8b322939bf1325d21536d593
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89020182"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : Créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
 
 Dans cet exemple, découvrez comment créer une compétence personnalisée d’API web. Cette qualification accepte des emplacements, des chiffres publics et des organisations, et renvoie leurs descriptions. L’exemple utilise une [fonction Azure](https://azure.microsoft.com/services/functions/) pour encapsuler l’[API Recherche d’entités Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) de façon à ce qu’elle implémente l’interface de qualification personnalisée.
 
@@ -34,11 +34,11 @@ Bien que cet exemple utilise une Fonction Azure pour héberger une API web, elle
 
 ### <a name="create-a-function-app"></a>Créer une application de fonction
 
-1. Dans Visual Studio, dans le menu Fichier, sélectionnez **Nouveau** > **Projet**.
+1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet** dans le menu Fichier.
 
-1. Dans la boîte de dialogue Nouveau projet, sélectionnez **Installé**, développez **Visual C#**  > **Cloud**, sélectionnez **Azure Functions**, tapez un Nom pour votre projet, puis cliquez sur **OK**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
+1. Dans la boîte de dialogue Nouveau projet, sélectionnez **Installé**, développez **Visual C#** > **Cloud**, sélectionnez **Azure Functions**, tapez un Nom pour votre projet, puis cliquez sur **OK**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
 
-1. Sélectionnez **Azure Functions v2 (.NET Core)** . Vous pouvez également utiliser la version 1, mais le code écrit ci-dessous est basé sur le modèle v2.
+1. Sélectionnez **Azure Functions v2 (.NET Core)**. Vous pouvez également utiliser la version 1, mais le code écrit ci-dessous est basé sur le modèle v2.
 
 1. Sélectionnez le type **Déclencheur HTTP**
 
@@ -394,7 +394,7 @@ Lorsque vous êtes satisfait du comportement de la fonction, vous pouvez la publ
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
 ```
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de la demande
 ```json
 {
     "values": [
