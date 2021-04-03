@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021518"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
@@ -58,12 +58,12 @@ La création d’un ILB ASE n’est pas très différente de la création d’un
 
 Dans le volet Réseau virtuel, l’option Configuration de réseau virtuel vous permet de choisir entre une adresse IP virtuelle externe ou interne. La valeur par défaut est Externe. Si vous sélectionnez Externe, votre environnement App Service utilise une adresse IP virtuelle accessible via Internet. Si vous sélectionnez Interne, votre environnement App Service est configuré avec un équilibreur de charge interne sur une adresse IP appartenant à votre réseau virtuel. 
 
-Après avoir sélectionné la valeur Interne, vous ne pouvez plus ajouter d’adresses IP à votre environnement App Service et devez alors spécifier le sous-domaine de ce dernier. Dans un environnement App Service avec une adresse IP virtuelle externe, le nom de l’environnement est utilisé dans le sous-domaine pour les applications créées dans cet environnement. Si votre environnement App Service s’appelle **_contosotest_* _ et votre application _*_mytest_*_, le sous-domaine est au format _*_contosotest.p.azurewebsites.net_*_ et l’URL de cette application est _*_mytest.contosotest.p.azurewebsites.net_*_ . Si vous définissez le type d’adresse VIP sur Interne, le nom de votre ASE n’est pas utilisé dans le sous-domaine pour cet ASE. Vous spécifiez explicitement le sous-domaine. Si votre sous-domaine est _*_contoso.corp.net_*_ et que vous créez une application dans cet environnement App Service nommé _*_timereporting_*_, l’URL de cette application est _*_timereporting.contoso.corp.net_*_.
+Après avoir sélectionné la valeur Interne, vous ne pouvez plus ajouter d’adresses IP à votre environnement App Service et devez alors spécifier le sous-domaine de ce dernier. Dans un environnement App Service avec une adresse IP virtuelle externe, le nom de l’environnement est utilisé dans le sous-domaine pour les applications créées dans cet environnement. Si votre environnement App Service s’appelle ***contosotest** _ et votre application _*_mytest_*_, le sous-domaine est au format _*_contosotest.p.azurewebsites.net_*_ et l’URL de cette application est _*_mytest.contosotest.p.azurewebsites.net_**. Si vous définissez le type d’adresse VIP sur Interne, le nom de votre ASE n’est pas utilisé dans le sous-domaine pour cet ASE. Vous spécifiez explicitement le sous-domaine. Si votre sous-domaine est ***contoso.corp.net**_ et que vous créez une application dans cet environnement App Service nommé _*_timereporting_*_ , l’URL de cette application est _*_timereporting.contoso.corp.net_**.
 
 ## <a name="apps-in-an-ilb-ase"></a>Applications d’un ILB ASE
 La création d’une application dans un ILB ASE est identique à la création d’une application dans un ASE standard. 
 
-1. Dans le portail Azure, sélectionnez _ *Créer une ressource->Web + Mobile->Web** ou **Mobile** ou **API App**.
+1. Dans le portail Azure, sélectionnez **Créer une ressource->Web + Mobile->Web** ou **Mobile** ou **API App**.
 2. Entrez le nom de l’application.
 3. Sélectionnez votre abonnement.
 4. Sélectionnez ou créez un groupe de ressources.

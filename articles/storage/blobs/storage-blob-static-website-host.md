@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Héberger un site web statique dans le stockage Blob - Stockage Azure'
+title: 'Didacticiel : Héberger un site web statique dans Stockage Blob - Stockage Azure'
 description: Découvrez comment configurer un compte de stockage pour l’hébergement de sites web statiques et comment déployer un site web statique sur Stockage Azure.
 author: normesta
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94888502"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
-# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutoriel : Héberger un site web statique dans le stockage Blob
+# <a name="tutorial-host-a-static-website-on-blob-storage"></a>Didacticiel : Héberger un site web statique dans Stockage Blob
 
 Dans ce tutoriel, vous allez apprendre à créer et déployer un site web statique sur Stockage Azure. Une fois que vous aurez terminé, vous aurez un site web statique accessible par tous. 
 

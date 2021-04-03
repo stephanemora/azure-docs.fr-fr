@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: d14fdc4e2b2b1dfca8194077acc0453808611946
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97897941"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>Utiliser Azure Application Gateway avec des machines virtuelles VMware dans l’environnement de cloud privé CloudSimple
@@ -71,7 +71,7 @@ Les instructions détaillées pour cela sont disponibles dans [Créer une passer
 
 1. Créez un réseau virtuel dans votre abonnement et votre groupe de ressources.
 2. Créez un sous-réseau (à utiliser comme sous-réseau dédié) au sein de votre réseau virtuel.
-3. Créez une instance Application Gateway standard (activez éventuellement WAF) :  Sur la page d'accueil du portail Azure, cliquez sur **Ressource** > **Réseau** > **Application Gateway** dans le coin supérieur gauche de la page. Sélectionnez la référence et la taille standard et fournissez l’abonnement Azure, le groupe de ressources et les informations relatives à l’emplacement. Si nécessaire, créez une nouvelle adresse IP publique pour cette passerelle d’application et fournissez des détails sur le réseau virtuel et le sous-réseau dédié pour la passerelle d’application.
+3. Créez une instance Application Gateway standard (activez éventuellement WAF) : sur la page d’accueil du portail Azure, cliquez sur **Ressources** > **Réseau** > **Application Gateway** dans le coin supérieur gauche de la page. Sélectionnez la référence et la taille standard et fournissez l’abonnement Azure, le groupe de ressources et les informations relatives à l’emplacement. Si nécessaire, créez une nouvelle adresse IP publique pour cette passerelle d’application et fournissez des détails sur le réseau virtuel et le sous-réseau dédié pour la passerelle d’application.
 4. Ajoutez un pool principal avec des machines virtuelles et ajoutez-le à votre passerelle d’application.
 
 ## <a name="4-create-and-configure-a-web-server-vm-pool-in-your-private-cloud"></a>4. Créer et configurer un pool de machines virtuelles de serveur web dans votre cloud privé
