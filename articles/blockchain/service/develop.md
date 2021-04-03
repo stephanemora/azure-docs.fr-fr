@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348382"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Vue d’ensemble du développement d’Azure Blockchain Service
@@ -44,7 +44,7 @@ Pour plus d’informations, consultez [Démarrage rapide : Utiliser Geth pour ef
 Quorum est un protocole de registre distribué basé sur Ethereum avec une confidentialité des transactions et des contrats ainsi que de nouveaux mécanismes de consensus. Les améliorations clés sur Go-Ethereum sont les suivantes :
 
 * **Confidentialité** - Quorum prend en charge les transactions et les contrats privés via la séparation de l’état public et privé et utilise des échanges de messages chiffrés en peer-to-peer pour un transfert direct de données privées aux participants du réseau.
-* **Autres mécanismes de consensus** - Aucun consensus de preuve de travail ou de preuve de participation n’est nécessaire pour un réseau autorisé. Quorum offre plusieurs mécanismes de consensus qui sont conçus pour les chaînes de consortium telles que RAFTING et IBFT.  Azure Blockchain Service utilise le mécanisme de consensus IBFT.
+* **Autres mécanismes de consensus** - Aucun consensus de preuve de travail ou de preuve de participation n’est nécessaire pour un réseau autorisé. Quorum offre plusieurs mécanismes de consensus qui sont conçus pour les chaînes de consortium telles que RAFTING et IBFT.  Azure Blockchain Service utilise le mécanisme de consensus IBFT.
 * **Permissions de paires** - Les autorisations de nœud et de paire à l’aide de contrats intelligents garantissent que seuls les tiers connus peuvent se connecter au réseau.
 * **Performances plus élevées** - Quorum offre de meilleures performances que Geth publique.
 
@@ -55,7 +55,7 @@ Les explorateurs de bloc sont des navigateurs de blockchain en ligne qui affiche
 * [Epirus Azure Blockchain Service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) de Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
-Vous pouvez également créer votre propre explorateur de bloc à l’aide de Blockchain Data Manager et d’Azure Cosmos DB ; consultez [Tutoriel : Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB](data-manager-cosmosdb.md).
+Vous pouvez également générer votre propre explorateur de blocs à l’aide de Blockchain Data Manager et Azure Cosmos DB ; consultez [Tutoriel : Utiliser Blockchain Data Manager pour envoyer des données à Azure Cosmos DB](data-manager-cosmosdb.md).
 
 ## <a name="tps-measurement"></a>Mesure TPS
 

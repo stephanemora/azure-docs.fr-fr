@@ -4,10 +4,10 @@ description: Exécutez des conteneurs init dans Azure Container Instances pour e
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85954279"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>Exécuter un conteneur init pour les tâches d’installation dans un groupe de conteneurs

@@ -4,16 +4,16 @@ description: Cet article décrit le service d’analyse des erreurs dans Service
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91531375"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduction au service d’analyse des erreurs
 Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Microsoft Azure Service Fabric. Avec le service d’analyse des erreurs, vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.
 
-Les actions sont les erreurs isolées introduites dans un service pour le tester. Un développeur de services peut les utiliser en tant blocs de constructions afin d’écrire des scénarios compliqués. Par exemple :
+Les actions sont les erreurs isolées introduites dans un service pour le tester. Un développeur de services peut les utiliser en tant blocs de constructions afin d’écrire des scénarios compliqués. Exemple :
 
 * Redémarrez un nœud pour simuler différentes situations dans lesquelles une machine ou une machine virtuelle est redémarrée.
 * Déplacez un réplica de votre service avec état pour simuler l’équilibrage de charge, le basculement ou la mise à niveau de l’application.

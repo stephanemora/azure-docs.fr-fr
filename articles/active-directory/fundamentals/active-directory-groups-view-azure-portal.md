@@ -14,15 +14,15 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996726"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Démarrage rapide : Afficher les membres et groupes de votre organisation dans Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Démarrage rapide : Afficher les membres et groupes de votre organisation dans Azure Active Directory
 Vous pouvez afficher les groupes et les membres de groupes existants de votre organisation à l’aide du Portail Azure. Les groupes sont utilisés pour gérer des utilisateurs (membres) qui ont tous besoin des mêmes accès et autorisations pour les services et applications potentiellement limités.
 
 Dans ce démarrage rapide, vous allez afficher tous les groupes existants de votre organisation, ainsi que les membres assignés.
@@ -44,11 +44,11 @@ Créez un groupe nommé _MDM policy - West_ (Stratégie GPM - Ouest). Pour plus 
 
 2. Renseignez la page **Groupe** :
     
-    - **Type du groupe :** Sélectionnez **Sécurité**
+    - **Type de groupe :** sélectionnez **Sécurité**
     
-    - **Nom du groupe :** Tapez _MDM policy - West_ (Stratégie GPM - Ouest)
+    - **Nom du groupe :** saisissez _MDM policy - West_ (Stratégie GPM - Ouest)
     
-    - **Type d’appartenance :** Sélectionnez **Assigné**.
+    - **Type d’appartenance :** sélectionnez **Affecté**.
 
 3. Sélectionnez **Create** (Créer).
 
@@ -59,9 +59,9 @@ Créez un utilisateur nommé _Alain Charon_. Un utilisateur doit exister avant d
 
 2. Renseignez la page **Utilisateur** :
 
-    - **Nom :** Tapez _Alain Charon_.
+    - **Nom :** saisissez _Alain Charon_.
 
-    - **Nom d'utilisateur :** Tapez *alain\@contoso.com*.
+    - **Nom d’utilisateur :** Tapez *alain\@contoso.com*.
 
 3. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**, puis sélectionnez **Créer**.
 
@@ -76,7 +76,7 @@ Maintenant que vous avez un groupe et un utilisateur, vous pouvez ajouter _Alain
 
 4. Sélectionnez **Ajouter des membres**, puis recherchez et sélectionnez **Alain Charon**.
 
-5. Choisissez **Select**.
+5. Choisissez **Sélectionner**.
 
 ## <a name="view-all-groups"></a>Afficher tous les groupes
 Vous pouvez afficher tous les groupes de votre organisation sur la page **Groups - All groups** (Groupes - Tous les groupes) du Portail Azure.
