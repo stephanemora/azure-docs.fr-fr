@@ -1,5 +1,5 @@
 ---
-title: 'Interface CLI : Mapper un domaine personnalisé à une application'
+title: 'Interface CLI : Mapper un domaine personnalisé à une application'
 description: Découvrez comment utiliser Azure CLI pour automatiser le déploiement et la gestion de votre application App Service. Cet exemple montre comment mapper un domaine personnalisé à une application.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: b7fa6955de306906de3be75bf465a955e4463ca2
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006512"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapper un domaine personnalisé à une application App Service à l’aide de l’interface CLI

@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75932614"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Paramètres de stratégie pour le pare-feu d’applications web sur Azure Front Door
@@ -21,7 +21,7 @@ Une stratégie de pare-feu d’applications web (WAF) permet de contrôler l’a
 ## <a name="waf-state"></a>État du pare-feu d’applications web
 
 Une stratégie WAF pour la porte d’entrée peut être dans l’un des deux états suivants :
-- **Activée :** Quand une stratégie est activée, WAF inspecte activement les demandes entrantes et effectue les actions correspondantes conformément aux définitions des règles
+- **Activé :** lorsqu’une stratégie est activée, WAF inspecte activement les requêtes entrantes et effectue les actions correspondantes conformément aux définitions des règles
 - **Désactivé :** : quand une stratégie est désactivée, l’inspection WAF est suspendue. Les demandes entrantes contournent le pare-feu d’applications web et sont envoyées aux serveurs principaux en fonction de routage de porte d’entrée.
 
 ## <a name="waf-mode"></a>Mode WAF

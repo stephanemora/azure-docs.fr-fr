@@ -1,5 +1,5 @@
 ---
-title: 'Service Fabric Cluster Resource Manager : Coût du déplacement'
+title: 'Gestionnaire des ressources clusters Service Fabric : coût du déplacement'
 description: En savoir plus sur le coût du déplacement pour les services Service Fabric, et sur la façon dont il peut être spécifié pour répondre à n’importe quel besoin architectural, y compris une configuration dynamique.
 author: masnider
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0fdcfb02851d56ed996ae4bf32671ab545782733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89005341"
 ---
 # <a name="service-movement-cost"></a>Coût du déplacement de services
@@ -68,7 +68,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>Impact du coût de déplacement
-MoveCost comporte cinq niveaux : Zero, Low, Medium, High et VeryHigh. Les règles suivantes s’appliquent :
+MoveCost a cinq niveaux : zéro, faible, moyen, élevé et VeryHigh. Les règles suivantes s’appliquent :
 
 * À l’exception de Zero et VeryHigh, ces niveaux MoveCost sont liés les uns aux autres. 
 * Un coût de déplacement de zéro signifie que le déplacement est gratuit et ne doit pas compter dans le score de la solution.

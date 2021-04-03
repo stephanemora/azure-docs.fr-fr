@@ -12,10 +12,10 @@ ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
 ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92793175"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
@@ -34,7 +34,7 @@ Les niveaux de service du modèle d'achat DTU se distinguent par une plage de ta
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 
-||De base|Standard|Premium|
+||De base|standard|Premium|
 | :-- | --: |--:| --:|
 |**Charge de travail cible**|Développement et production|Développement et production|Développement et production|
 |**Contrat SLA de durée de fonctionnement**|99,99 %|99,99 %|99,99 %|
@@ -63,7 +63,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-||De base|Standard|Premium|
+||De base|standard|Premium|
 | :-- | --: | --: | --: |
 | **Taille de stockage maximale** | 2 Go | 1 To | 4 To  |
 | **DTU maximales** | 5 | 3000 | 4000 |
@@ -176,7 +176,7 @@ Le débit et le temps de réponse constituent les principaux indicateurs du test
 | Classe de service | Mesure du débit | Temps de réponse requis |
 | --- | --- | --- |
 | Premium |Transactions par seconde |95e centile à 0,5 seconde |
-| Standard |Transactions par minute |90e centile à 1 seconde |
+| standard |Transactions par minute |90e centile à 1 seconde |
 | De base |Transactions par heure |80e centile à 2 secondes |
 
 ## <a name="next-steps"></a>Étapes suivantes

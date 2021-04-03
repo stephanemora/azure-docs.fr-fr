@@ -1,17 +1,17 @@
 ---
-title: 'Démarrage rapide : Envoyer des événements personnalisés à un point de terminaison web - Event Grid, PowerShell'
-description: 'Démarrage rapide : Utilisez Azure Event Grid et PowerShell pour publier une rubrique personnalisée et pour vous abonner aux événements de cette rubrique. Les événements sont gérés par une application web.'
+title: 'Démarrage rapide : envoyer des événements personnalisés à un point de terminaison web - Event Grid, PowerShell'
+description: 'Démarrage rapide : utiliser Azure Event Grid et PowerShell pour publier une rubrique personnalisée et pour vous abonner aux événements de cette rubrique. Les événements sont gérés par une application web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3bd389ff523fd32e73ac19f1131c8c2784e16db5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075611"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers un point de terminaison web avec PowerShell et Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Démarrage rapide : router des événements personnalisés vers un point de terminaison web avec PowerShell et Event Grid
 
 Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure PowerShell pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 

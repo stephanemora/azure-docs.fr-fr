@@ -9,10 +9,10 @@ ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94658636"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
@@ -42,7 +42,7 @@ Dans cet article, vous apprendrez comment :
 * Créer les machines virtuelles
 * Tester le pare-feu
 
-Si vous préférez utiliser le portail Azure pour suivre ce didacticiel, reportez-vous à [Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l'aide du portail Azure](tutorial-hybrid-portal.md).
+Si vous souhaitez plutôt utiliser le Portail Azure pour suivre ce tutoriel, consultez [Tutoriel : déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du Portail Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

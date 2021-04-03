@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: aa0b3a05fb26f6be951b697145d7b22e03b7792d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171616"
 ---
 # <a name="delivery-and-retry"></a>Livraison et nouvelle tentative
@@ -25,11 +25,11 @@ Event Grid assure une distribution fiable. Il tente de livrer chaque message au 
 
 Event Grid attend une réponse pendant jusqu’à 60 secondes après la livraison d’un message. Si le point de terminaison de l’abonné n’accuse pas réception de la réponse, le message est placé dans l’une de nos files d’attente d’interruption en vue de nouvelles tentatives.
 
-Il existe deux files d’attente d’interruption préconfigurées qui déterminent la planification d’une nouvelle tentative. Il s'agit de :
+Il existe deux files d’attente d’interruption préconfigurées qui déterminent la planification d’une nouvelle tentative. Les voici :
 
 | Planifier | Description |
 | ---------| ------------ |
-| 1 minute | La livraison des messages qui se terminent ici est tentée à chaque minute.
+| 1 minute | La livraison des messages qui se terminent ici est tentée à chaque minute.
 | 10 minutes | La livraison des messages qui se terminent ici est tentée toutes les 10 minutes.
 
 ### <a name="how-it-works"></a>Fonctionnement
@@ -41,7 +41,7 @@ Il existe deux files d’attente d’interruption préconfigurées qui détermin
 
 ## <a name="retry-policy-limits"></a>Limites de stratégie de nouvelles tentatives
 
-Deux configurations déterminent la stratégie de nouvelles tentatives. Il s'agit de :
+Deux configurations déterminent la stratégie de nouvelles tentatives. Les voici :
 
 * Nombre maximal de tentatives
 * Durée de vie (TTL) de l’événement
@@ -55,7 +55,7 @@ Il existe deux propriétés, `brokers__defaultMaxDeliveryAttempts` et `broker__d
 | Nom de la propriété | Description |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Nombre maximal de tentatives de livraison d’un événement. Valeur par défaut : 30.
-| `broker__defaultEventTimeToLiveInSeconds` | Durée de vie de l’événement exprimée en secondes, après laquelle un événement est supprimé s’il n’a pas été livré. Valeur par défaut : **7 200** secondes
+| `broker__defaultEventTimeToLiveInSeconds` | Durée de vie de l’événement exprimée en secondes, après laquelle un événement est supprimé s’il n’a pas été livré. Valeur par défaut : **7200** secondes.
 
 ## <a name="configuring-defaults-per-subscriber"></a>Configuration des valeurs par défaut par abonné
 
