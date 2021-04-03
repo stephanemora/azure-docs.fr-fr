@@ -8,10 +8,10 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86220556"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Mise à l’échelle d’applications dans un environnement App Service v1
@@ -39,11 +39,11 @@ Vous pouvez créer plusieurs plans App Service à l’aide de ressources de calc
 ### <a name="scaling-the-number-of-instances"></a>Mise à l'échelle du nombre d'instances
 Lorsque vous créez votre application web dans un environnement App Service, elle ne contient qu’1 instance.  Vous pouvez ensuite effectuer un scale-out pour fournir des ressources de calcul supplémentaires à votre application.   
 
-Si votre environnement Application Service a une capacité suffisante, l'opération est assez simple.  Vous accédez à votre plan App Service qui contient les sites que vous souhaitez mettre à l'échelle et vous sélectionnez Mettre à l'échelle.  Ceci affiche l'interface utilisateur où vous pouvez définir manuellement l'échelle de votre ASP ou configurer des règles de mise à l'échelle automatique pour votre ASP.  Pour mettre à l'échelle manuellement votre application, il vous suffit de définir ***Mise à l'échelle selon*** sur ***un nombre d'instances saisi manuellement***.  À partir de là, faites glisser le curseur vers la quantité souhaitée ou entrez la quantité souhaitée dans la zone à côté du curseur.  
+Si votre environnement Application Service a une capacité suffisante, l'opération est assez simple.  Vous accédez à votre plan App Service qui contient les sites que vous souhaitez mettre à l'échelle et vous sélectionnez Mettre à l'échelle.  Ceci affiche l'interface utilisateur où vous pouvez définir manuellement l'échelle de votre ASP ou configurer des règles de mise à l'échelle automatique pour votre ASP.  Pour mettre à l'échelle manuellement votre application, il vous suffit de définir ***Mise à l'échelle selon** _ sur _*_un nombre d'instances saisi manuellement_**.  À partir de là, faites glisser le curseur vers la quantité souhaitée ou entrez la quantité souhaitée dans la zone à côté du curseur.  
 
 ![Capture d’écran montrant où vous pouvez définir l'échelle de votre ASP ou configurer des règles de mise à l'échelle automatique pour votre ASP.][2] 
 
-Les règles de mise à l'échelle automatique d'un ASP dans un travail ASE fonctionnent de manière normale.  Vous pouvez sélectionner ***Pourcentage UC*** sous ***Mise à l'échelle selon*** et créer des règles de mise à l'échelle automatique de votre ASP basées sur le pourcentage UC ou vous pouvez créer des règles plus complexes à l'aide des ***règles de performances et de planification***.  Pour plus d’informations sur la configuration de la mise à l’échelle automatique, utilisez le guide [Mise à l’échelle d’une application dans Azure App Service][AppScale]. 
+Les règles de mise à l'échelle automatique d'un ASP dans un travail ASE fonctionnent de manière normale.  Vous pouvez sélectionner ***Pourcentage UC** _ sous _*_Mise à l'échelle selon_*_ et créer des règles de mise à l'échelle automatique de votre ASP basées sur le pourcentage UC ou vous pouvez créer des règles plus complexes à l'aide des _*_règles de performances et de planification_**.  Pour plus d’informations sur la configuration de la mise à l’échelle automatique, utilisez le guide [Mise à l’échelle d’une application dans Azure App Service][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Sélection du pool de travaux
 Comme indiqué précédemment, la sélection du pool de travaux s'effectue à partir de l'interface utilisateur du plan App Service (ASP).  Ouvrez le panneau de l'ASP que vous souhaitez mettre à l'échelle et sélectionnez le pool de travaux.  Tous les pools de travaux que vous avez configurés dans votre environnement App Service s'affichent.  Si vous n'avez qu'un pool de travaux, lui seul apparaît.  Pour modifier le pool de travaux dans lequel se trouve votre ASP, il suffit de sélectionner le pool de travaux vers lequel vous souhaitez déplacer votre plan App Service.  

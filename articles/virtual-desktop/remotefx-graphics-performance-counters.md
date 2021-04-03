@@ -7,10 +7,10 @@ ms.date: 05/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: dc5c6499fa47a1e32a517032d5cc2a97b3f2677f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007164"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostic des problèmes de performances graphiques dans le Bureau à distance
@@ -23,8 +23,8 @@ Vous aurez besoin du nom de la session à distance pour identifier les compteurs
 
 1. Ouvrez l’invite de commandes Windows à partir de votre session à distance.
 2. Exécutez la commande **qwinsta** et localisez le nom de votre session.
-    - Si votre session est hébergée dans une machine virtuelle multisession : L’instance de chaque compteur est suivie du même nombre que celui terminant le nom de votre session (par exemple : « rdp-tcp 37 »).
-    - Si votre session est hébergée dans une machine virtuelle prenant en charge des processeurs virtuels (vGPU) : Votre instance de chaque compteur est stockée sur le serveur, et non sur votre machine virtuelle. Vos instances de compteur incluent le nom de la machine virtuelle, et non le nombre figurant dans le nom de la session (par exemple : « Win8 Enterprise VM »).
+    - Si votre session est hébergée dans une machine virtuelle multisession : l’instance de chaque compteur est suivie du même nombre que celui terminant le nom de votre session (par exemple : « rdp-tcp 37 »).
+    - Si votre session est hébergée dans une machine virtuelle prenant en charge des unités de traitement graphique virtuel (vGPU) : l’instance de chaque compteur est stockée sur le serveur, et non sur votre machine virtuelle. Vos instances de compteur incluent le nom de la machine virtuelle, et non le nombre figurant dans le nom de la session (par exemple : « Win8 Enterprise VM »).
 
 >[!NOTE]
 > Tandis que les compteurs comportent le terme « RemoteFX » dans leur nom, ils incluent également des graphiques de bureau à distance dans les scénarios vGPU.

@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171752"
 ---
 # <a name="rest-api"></a>API REST
@@ -86,7 +86,7 @@ Toutes les API retournent une erreur avec la charge utile suivante :
     }
 ```
 
-**Réponse**: HTTP 200
+**Réponse** : HTTP 200
 
 **Charge utile** :
 
@@ -107,7 +107,7 @@ Toutes les API retournent une erreur avec la charge utile suivante :
 
 **Requête** : ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-**Réponse**: HTTP 200
+**Réponse** : HTTP 200
 
 **Charge utile** :
 ```json
@@ -127,7 +127,7 @@ Toutes les API retournent une erreur avec la charge utile suivante :
 
 **Requête** : ``` GET /topics?api-version=2019-01-01-preview ```
 
-**Réponse**: HTTP 200
+**Réponse** : HTTP 200
 
 **Charge utile** :
 ```json
@@ -159,7 +159,7 @@ Toutes les API retournent une erreur avec la charge utile suivante :
 
 **Requête** : ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-**Réponse**: HTTP 200, empty payload
+**Réponse** : HTTP 200, charge utile vide
 
 ## <a name="manage-event-subscriptions"></a>Gérer les abonnements aux événements
 Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JSON pour `EndpointType=EdgeHub / EndpointType=EventGrid` se trouvent dans la section suivante. 
@@ -266,7 +266,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
 }
 ```
 
-**Réponse**: HTTP 200
+**Réponse** : HTTP 200
 
 **Charge utile** :
 
@@ -373,7 +373,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
 
 **Requête** : ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-**Réponse**: HTTP 200
+**Réponse** : HTTP 200
 
 **Charge utile** :
 ```json
@@ -478,7 +478,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
 
 **Requête** : ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
-**Réponse**: HTTP 200
+**Réponse** : HTTP 200
 
 **Charge utile** :
 ```json
@@ -496,7 +496,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
 
 **Requête** : ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-**Réponse**: HTTP 200, no payload
+**Réponse** : HTTP 200, aucune charge utile
 
 
 ## <a name="publish-events-api"></a>Publier l’API des événements
@@ -521,7 +521,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
 ]
 ```
 
-**Réponse**: HTTP 200, empty payload
+**Réponse** : HTTP 200, charge utile vide
 
 
 **Descriptions des champs de charge utile**
@@ -546,7 +546,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
 ]
 ```
 
-**Réponse**: HTTP 200, empty payload
+**Réponse** : HTTP 200, charge utile vide
 
 
 **Restrictions de charge utile**
@@ -688,7 +688,7 @@ TopicName :
 
 ## <a name="set-up-event-hubs-as-a-destination"></a>Configurer Event Hubs en tant que destination
 
-Pour publier sur un Event Hub, définissez `endpointType` sur `eventHub` et indiquez :
+Pour publier sur un hub d’événements, définissez `endpointType` sur `eventHub` et indiquez :
 
 * connectionString : chaîne de connexion pour l'Event Hub spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
 

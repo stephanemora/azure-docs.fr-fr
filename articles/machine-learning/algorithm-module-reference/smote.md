@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
 ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898278"
 ---
 # <a name="smote"></a>SMOTE
@@ -90,7 +90,7 @@ Pour augmenter le nombre de cas, vous pouvez définir la valeur du **Pourcentage
 
 + On obtient souvent de meilleurs résultats en nettoyant les valeurs manquantes ou en appliquant d’autres transformations pour corriger les données avant d’appliquer SMOTE. 
 
-+ Certains chercheurs se sont demandé si SMOTE était efficace sur des données de grande dimension ou des données éparses, comme les données utilisées dans les jeux de données de classification de texte ou de génomique. Cet article offre un bon résumé des effets et de la validité théorique de l’application de SMOTE dans ce type de cas : [Blagus et Lusa : SMOTE for high-dimensional class-imbalanced data](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-106).
++ Certains chercheurs se sont demandé si SMOTE était efficace sur des données de grande dimension ou des données éparses, comme les données utilisées dans les jeux de données de classification de texte ou de génomique. Cet article offre un bon résumé des effets et de la validité théorique de l’application de SMOTE dans ce type de cas :[Blagus et Lusa : SMOTE pour les données de haute dimension à classes déséquilibrées](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-106).
 
 + Si SMOTE n’est pas efficace dans votre jeu de données, vous pouvez envisager d’autres approches :
   + Méthodes pour suréchantillonner les cas minoritaires ou sous-échantillonner les cas majoritaires.

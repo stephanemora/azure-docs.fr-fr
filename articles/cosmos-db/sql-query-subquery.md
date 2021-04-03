@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: f5f209229d17a2587258d21ee90e7560e629d082
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340853"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemples de sous-requêtes SQL pour Azure Cosmos DB
@@ -25,16 +25,16 @@ Cet article décrit les sous-requêtes SQL et leurs cas d’utilisation courants
 
 Il existe deux principaux types de sous-requêtes :
 
-* **Corrélée**  : sous-requête qui référence des valeurs de la requête externe. La sous-requête est évaluée une fois pour chaque ligne que traite la requête externe.
-* **Non corrélée**  : sous-requête indépendante de la requête externe. Elle peut être exécutée indépendamment de la requête externe.
+* **Corrélé** : sous-requête qui référence des valeurs de la requête externe. La sous-requête est évaluée une fois pour chaque ligne que traite la requête externe.
+* **Non corrélé** : sous-requête indépendante de la requête externe. Elle peut être exécutée indépendamment de la requête externe.
 
 > [!NOTE]
 > Azure Cosmos DB prend en charge uniquement les sous-requêtes corrélées.
 
 Les sous-requêtes peuvent également être classées en fonction du nombre de lignes et colonnes qu’elles retournent. Il existe trois types :
 * **Table** : retourne plusieurs lignes et plusieurs colonnes.
-* **Multivaleur**  : retourne plusieurs lignes et une seule colonne.
-* **Scalaire**  : retourne une seule ligne et une seule colonne.
+* **Multivaleur** : retourne plusieurs lignes et une seule colonne.
+* **Scalaire** : retourne une seule ligne et une seule colonne.
 
 Les requêtes SQL dans Azure Cosmos DB retournent toujours une seule colonne (une valeur simple ou un document complexe). Ainsi, seules les sous-requêtes scalaires et multivaleurs sont applicables dans Azure Cosmos DB. Vous pouvez utiliser une sous-requête multivaleur uniquement dans la clause FROM sous forme d’expression relationnelle. Vous pouvez utiliser une sous-requête scalaire comme expression scalaire dans la clause SELECT ou WHERE ou comme expression relationnelle dans la clause FROM.
 
@@ -49,7 +49,7 @@ Les sous-requêtes multivaleurs retournent un ensemble de documents et sont touj
 
 Les sous-requêtes multivaleurs peuvent optimiser des expressions JOIN en envoyant les prédicats après chaque expression de sélection multiple, plutôt qu’après toutes les jointures croisées dans la clause WHERE.
 
-Considérez la requête suivante :
+Considérez la requête suivante :
 
 ```sql
 SELECT Count(1) AS Count

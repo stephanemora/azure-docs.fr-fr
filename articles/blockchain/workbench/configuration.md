@@ -5,10 +5,10 @@ ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: f0ba19bf1d7fdf05014ac199fae9392b5c3249d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87073070"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
@@ -418,7 +418,7 @@ Les identificateurs représentent une collection d’informations utilisées pou
 
 ## <a name="configuration-file-example"></a>Exemple de fichier de configuration
 
-Le transfert de ressources est un scénario de contrat intelligent pour l’achat et la vente de ressources très précieuses, pour lequel un inspecteur et un expert sont nécessaires. Les vendeurs peuvent répertorier leurs ressources en instanciant un contrat intelligent de transfert de ressources. Les acheteurs peuvent faire des offres en effectuant une action sur le contrat intelligent, et d’autres parties peuvent effectuer des actions pour inspecter ou estimer la ressource. Quand la ressource est marquée comme inspectée et estimée, l’acheteur et le vendeur confirmeront une nouvelle fois la vente avant que le contrat ne soit défini sur l’état Terminé. À chaque étape du processus, l’ensemble des participants peuvent connaître l’état du contrat dès qu’il est mis à jour. 
+Le transfert de ressources est un scénario de contrat intelligent pour l’achat et la vente de ressources très précieuses, pour lequel un inspecteur et un expert sont nécessaires. Les vendeurs peuvent répertorier leurs ressources en instanciant un contrat intelligent de transfert de ressources. Les acheteurs peuvent faire des offres en effectuant une action sur le contrat intelligent, et d’autres parties peuvent effectuer des actions pour inspecter ou estimer la ressource. Quand la ressource est marquée comme inspectée et estimée, l’acheteur et le vendeur confirmeront une nouvelle fois la vente avant que le contrat ne soit défini sur l’état Terminé. À chaque étape du processus, l’ensemble des participants peuvent connaître l’état du contrat dès qu’il est mis à jour. 
 
 Pour obtenir plus d’informations, y compris les fichiers de code, consultez [l’exemple de transfert de ressources pour Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 
