@@ -4,10 +4,10 @@ description: DevTest Labs fournit des informations qui permettent de diagnostiqu
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 440ce6a537ac8d6a21ae8010bfbb3c38a82bf01e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85480811"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostiquer les échecs d’artefacts dans le labo 
@@ -41,7 +41,7 @@ Une fois que vous avez créé un artefact, vous pouvez vérifier si la procédur
 
 3. Ouvrez le fichier **status**.
 
-Pour obtenir des instructions sur la recherche des fichiers journaux sur une machine virtuelle **Linux**, consultez l’article suivant : [Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
+Pour obtenir des instructions sur la recherche des fichiers journaux sur une machine virtuelle **Linux**, consultez l’article suivant : [Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting)
 
 
 ## <a name="related-blog-posts"></a>Billets de blog connexes

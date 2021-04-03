@@ -8,10 +8,10 @@ services: web-application-firewall
 ms.date: 09/05/2019
 ms.author: victorh
 ms.openlocfilehash: 158bfe30bf48ee420be8efb9ff32fff0e555d9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79475822"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure Front Door
@@ -26,7 +26,7 @@ Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée 
 
 - **Action :** définit comment acheminer une requête si une règle de pare-feu d'applications web (WAF) est mise en correspondance. Vous pouvez choisir parmi les actions ci-dessous pour qu’elle soit appliquée quand une requête correspond à une règle personnalisée.
 
-    - *Autoriser :*  le pare-feu d'applications web (WAF) transfère la requête au back-end, enregistre une entrée dans ses journaux et s’arrête.
+    - *Autoriser :* le pare-feu d'applications web (WAF) transfère la requête au back-end, enregistre une entrée dans ses journaux et s’arrête.
     - *Bloquer :* la requête est bloquée, le pare-feu d'applications web (WAF) envoie la réponse au client sans la transférer au back-end. Le pare-feu d'applications web (WAF) journalise une entrée dans ses journaux.
     - *Journaliser :* le pare-feu d'applications web (WAF) enregistre une entrée dans ses journaux, puis passe à l’évaluation de la règle suivante.
     - *Rediriger :* le pare-feu d'applications web (WAF) redirige la requête vers un URI spécifié, enregistre une entrée dans ses journaux, puis s’arrête.
@@ -64,9 +64,9 @@ Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée 
     - Légendes et code incorporé
     - Regroupement atomique et quantificateurs de possession
 
-  - **Négation [facultatif] :** Vous pouvez définir la condition *negate* sur la valeur true si le résultat d’une condition doit être inversé.
+  - **Negate [facultatif] :** vous pouvez définir la condition *negate* sur la valeur true si le résultat d’une condition doit être inversé.
       
-  - **Transformation [facultatif] :** Liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
+  - **Transform [facultatif] :** liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
      - Majuscules 
      - Minuscules
      - SupprEspace
@@ -74,7 +74,7 @@ Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée 
      - UrlDecode
      - UrlEncode
      
-   - **Valeur de correspondance :** Les valeurs de la méthode de requête HTTP prises en charge incluent :
+   - **Valeur de correspondance :** les valeurs de la méthode de requête HTTP prises en charge sont les suivantes :
      - GET
      - POST
      - PUT
