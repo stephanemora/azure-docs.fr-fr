@@ -7,10 +7,10 @@ ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77671390"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>Mise à niveau du Débogueur de capture instantanée
@@ -55,7 +55,7 @@ Si vous avez activé le Débogueur de capture instantanée à l’aide de l’ex
     > [!NOTE]
     > Le site sera redémarré dans le cadre du processus de mise à niveau.
 
-   ![Capture d’écran de l’invite d’application de la supervision d’App Service. La zone de texte affiche le message : « Nous allons maintenant appliquer les changements de vos paramètres d’application et installer nos outils pour lier votre ressource Application Insights à l’application web. Cette opération redémarre le site. Voulez-vous continuer ? ».](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![Capture d’écran de l’invite d’application de la supervision d’App Service. La zone de texte affiche le message suivant : « Nous allons maintenant appliquer les changements de vos paramètres d’application et installer nos outils pour lier votre ressource Application Insights à l’application web. Cette opération redémarre le site. Voulez-vous continuer ? ».](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
 9. Cliquez sur **Oui** pour appliquer les modifications, puis attendez la fin du processus.
 

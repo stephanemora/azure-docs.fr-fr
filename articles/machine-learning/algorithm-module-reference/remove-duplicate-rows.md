@@ -1,5 +1,5 @@
 ---
-title: 'Supprimer les lignes en double : Informations de référence sur les modules'
+title: 'Supprimer les lignes en double : référence de module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Supprimer les lignes en double dans Azure Machine Learning pour supprimer les doublons potentiels d’un jeu de données.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: bf35d08128aa8a3e8f545ed7184866694219f2cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905224"
 ---
 # <a name="remove-duplicate-rows-module"></a>Module Supprimer les lignes en double
@@ -24,7 +24,7 @@ Ce module permet de supprimer les doublons potentiels d’un jeu de données.
 
 Par exemple, supposons que vos données se présentent comme suit et représentent plusieurs dossiers de patients. 
 
-| PatientID | Initials| Sexe|Age|Admis|
+| PatientID | Initiales| Sexe|Age|Admis|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Jan|
 |2| F.A.M.| M| 53| Jan|
@@ -42,7 +42,7 @@ Clairement, cet exemple comporte plusieurs colonnes avec des données potentiell
 
 + Vous pouvez également choisir d’autoriser les doublons dans le champ ID et utiliser une autre combinaison de fichiers pour rechercher des dossiers uniques, comme le prénom, le nom, l’âge et le sexe.  
 
-Pour définir les critères déterminant si une ligne est en double ou non, vous spécifiez une seule colonne ou un ensemble de colonnes à utiliser comme **clés**. Deux lignes sont considérées comme des doublons uniquement lorsque les valeurs dans **toutes**  les colonnes de clés sont identiques. Si une ligne ne comporte pas de valeur pour les **clés**, elle n’est pas considérée comme un doublon. Par exemple, si l’âge et le sexe sont définis comme clés dans la table ci-dessus, les lignes 6 et 7 ne sont pas des doublons, étant donné que la valeur d’âge est manquante.
+Pour définir les critères déterminant si une ligne est en double ou non, vous spécifiez une seule colonne ou un ensemble de colonnes à utiliser comme **clés**. Deux lignes sont considérées comme des doublons uniquement lorsque les valeurs dans **toutes** les colonnes de clés sont identiques. Si une ligne ne comporte pas de valeur pour les **clés**, elle n’est pas considérée comme un doublon. Par exemple, si l’âge et le sexe sont définis comme clés dans la table ci-dessus, les lignes 6 et 7 ne sont pas des doublons, étant donné que la valeur d’âge est manquante.
 
 Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie un ensemble de lignes sans doublons dans le jeu de colonnes spécifié.
 
@@ -61,8 +61,8 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
 
     Exemples :
 
-    + « Je veux m’assurer que les ID sont uniques » : choisissez uniquement la colonne ID.
-    + « Je veux m’assurer que la combinaison de prénom, nom et ID est unique » : sélectionnez les trois colonnes.
+    + « Je veux garantir que les ID sont uniques » : choisissez uniquement la colonne ID.
+    + « Je veux m’assurer que la combinaison de prénom, nom et ID est unique » : choisissez les trois colonnes.
 
 4. Utilisez la case à cocher **Retain first duplicate row** (Conserver la première ligne en double) pour indiquer les lignes à renvoyer lorsque des doublons sont détectés :
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92125062"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utiliser Azure Data Box ou Azure Data Box Heavy pour envoyer des données au niveau d’objets blob de Stockage Azure approprié
@@ -33,7 +33,7 @@ Le niveau archive Azure est hors connexion et offre les coûts de stockage les p
 
 Les données de Data Box ou Data Box Heavy sont chargées sur un niveau de stockage associé au compte de stockage. Quand vous créez un compte de stockage, vous pouvez spécifier Froid ou Chaud comme niveau d’accès. En fonction du modèle d’accès de votre charge de travail et du coût, vous pouvez déplacer ces données du niveau par défaut vers un autre niveau de stockage.
 
-Vous ne pouvez hiérarchiser vos données de stockage d’objets que dans des comptes de stockage d’objets blob ou v2 à usage général (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Pour choisir le niveau de stockage approprié pour vos données, passez en revue les considérations détaillées dans [Stockage Blob Azure : niveaux de stockage Premium, chaud, froid et archive](../storage/blobs/storage-blob-storage-tiers.md).
+Vous ne pouvez hiérarchiser vos données de stockage d’objets que dans des comptes de stockage d’objets blob ou v2 à usage général (GPv2). Les comptes Usage général v1 (GPv1) ne prennent pas en charge la hiérarchisation. Pour choisir le niveau de stockage approprié pour vos données, passez en revue les considérations détaillées dans [Stockage Blob Azure Blob : niveaux de stockage chaud, froid et archive](../storage/blobs/storage-blob-storage-tiers.md).
 
 ## <a name="set-a-default-blob-tier"></a>Définir un niveau d’objets blob par défaut
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Configurer la connexion pour une application de bureau'
+title: 'Démarrage rapide : configurer la connexion pour une application de bureau'
 titleSuffix: Azure AD B2C
 description: Dans ce guide de démarrage rapide, vous allez exécuter un exemple d’application Desktop WPF qui utilise Azure Active Directory B2C pour la connexion aux comptes.
 services: active-directory-b2c
@@ -13,13 +13,13 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ebed2f5e8664bd4336219f9387b8d27c8f3a1c59
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78187302"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application de bureau à l’aide d’Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Guide de démarrage rapide : Configurer la connexion pour une application de bureau à l’aide d’Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de cloud pour préserver la protection de votre application, de votre entreprise et de vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts. Dans ce démarrage rapide, vous utiliserez une application de bureau Windows Presentation Foundation (WPF) pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
 

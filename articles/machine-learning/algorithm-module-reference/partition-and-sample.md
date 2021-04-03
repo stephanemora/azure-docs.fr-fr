@@ -1,5 +1,5 @@
 ---
-title: 'Partition et échantillon : informations de référence sur le module'
+title: 'Partition et échantillon : référence du module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Partition et échantillon dans Azure Machine Learning pour effectuer un échantillonnage sur un jeu de données ou créer des partitions à partir de votre jeu de données.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "90898488"
 ---
 # <a name="partition-and-sample-module"></a>Module Partition et échantillon
@@ -51,13 +51,13 @@ Ce module prend en charge les méthodes suivantes permettant de diviser vos donn
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Récupérer les N PREMIÈRES lignes d’un jeu de données
 
-Utilisez ce mode pour récupérer uniquement les *n* premières lignes. Cette option est utile si vous souhaitez tester un pipeline sur un petit nombre de lignes et si vous n’avez pas besoin que les données soient équilibrées ni échantillonnées.
+Utilisez ce mode si vous souhaitez obtenir uniquement la *n* premières lignes. Cette option est utile si vous souhaitez tester un pipeline sur un petit nombre de lignes et si vous n’avez pas besoin que les données soient équilibrées ni échantillonnées.
 
 1. Ajoutez le module **Partition et échantillon** à votre pipeline dans l’interface et connectez le jeu de données.  
 
-1. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : définissez cette option sur **Principal**.
+1. **Mode de partition ou d’échantillon**: définissez cette option sur **Head**.
 
-1. **Number of rows to select** (Nombre de lignes à sélectionner) : Entrez le nombre de lignes à retourner.
+1. **Nombre de lignes à sélectionner**: entrez le nombre de lignes à retourner.
 
    Le nombre de lignes doit être un entier non négatif. Si le nombre de lignes sélectionnées est supérieur au nombre de lignes du jeu de données, l’intégralité du jeu de données est renvoyée.
 
@@ -71,19 +71,19 @@ Cette option prend en charge l’échantillonnage aléatoire simple ou l’écha
 
 1. Ajoutez le module **Partition et échantillon** à votre pipeline et connectez le jeu de données.
 
-1. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : définissez cette option sur **Sampling** (Échantillonnage).
+1. **Mode de partition ou d’échantillon**: définissez cette option sur **Échantillonnage**.
 
-1. **Rate of sampling** (Taux d’échantillonnage) : Entrez une valeur comprise entre 0 et 1. Cette valeur spécifie le pourcentage de lignes du jeu de données source qui doivent être incluses dans le jeu de données de sortie.
+1. **Taux d’échantillonnage**: entrez une valeur comprise entre 0 et 1. Cette valeur spécifie le pourcentage de lignes du jeu de données source qui doivent être incluses dans le jeu de données de sortie.
 
    Par exemple, si vous ne souhaitez que la moitié du jeu de données d’origine, entrez `0.5` pour indiquer que le taux d’échantillonnage doit être de 50 %.
 
    Les lignes du jeu de données d’entrée sont mélangées et placées sélectivement dans le jeu de données de sortie, en fonction du rapport spécifié.
 
-1. **Random seed for sampling** (Valeur de départ aléatoire pour l’échantillonnage) : Si vous le souhaitez, entrez un entier à utiliser comme valeur de départ.
+1. Valeur **initiale aléatoire pour l’échantillonnage**: Si vous le souhaitez, entrez un entier à utiliser comme valeur initiale.
 
    Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. La valeur par défaut est **0**, ce qui signifie qu’une valeur de départ est générée en fonction de l’horloge système. Cette valeur peut entraîner des résultats légèrement différents chaque fois que vous exécutez le pipeline.
 
-1. **Stratified split for sampling** (Fractionnement stratifié pour l’échantillonnage) : Sélectionnez cette option s’il est important que les lignes du jeu de données soient divisées uniformément par colonne clé avant l’échantillonnage.
+1. **Répartition stratifiée pour l'échantillonnage** : Sélectionnez cette option s’il est important que les lignes du jeu de données soient divisées uniformément par colonne clé avant l’échantillonnage.
 
    Pour **Stratification key column for sampling** (Colonne clé de stratification pour l’échantillonnage), sélectionnez une seule *colonne de strate* à utiliser lors de la division du jeu de données. Les lignes dans le jeu de données sont divisées comme suit :
 
@@ -106,27 +106,27 @@ Utilisez cette option lorsque vous souhaitez diviser le jeu de données en sous-
 
 1. Pour **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage), sélectionnez **Assign to Folds** (Attribuer à des plis).
 
-1. **Use replacement in the partitioning** (Utiliser le remplacement dans le partitionnement) : Sélectionnez cette option si vous souhaitez que la ligne échantillonnée soit replacée dans le pool de lignes pour une réutilisation potentielle. Par conséquent, la même ligne peut être attribuée à plusieurs plis.
+1. **Utiliser le remplacement dans le partitionnement** : Sélectionnez cette option si vous souhaitez que la ligne échantillonnée soit replacée dans le pool de lignes pour une réutilisation potentielle. Par conséquent, la même ligne peut être attribuée à plusieurs plis.
 
    Si vous n’utilisez pas le remplacement (l’option par défaut), la ligne échantillonnée n’est pas replacée dans le pool de lignes pour une réutilisation potentielle. Par conséquent, chaque ligne peut être uniquement attribuée à un pli.
 
-1. **Randomized split** (Fractionnement aléatoire) : sélectionnez cette option si vous souhaitez que des lignes soient attribuées de façon aléatoire à des plis.
+1. **Fractionnement aléatoire** : sélectionnez cette option si vous souhaitez que des lignes soient attribuées de façon aléatoire à des plis.
 
    Si vous ne sélectionnez pas cette option, les lignes sont attribuées à des plis au moyen de la méthode tourniquet (round-robin).
 
-1. **Valeur de départ aléatoire** : Si vous le souhaitez, entrez un entier à utiliser comme valeur de départ. Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. Sinon, la valeur par défaut **0** signifie qu’une valeur de départ aléatoire sera utilisée.
+1. **Seed aléatoire** : Si vous le souhaitez, entrez un entier à utiliser comme valeur de départ. Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. Sinon, la valeur par défaut **0** signifie qu’une valeur de départ aléatoire sera utilisée.
 
-1. **Specify the partitioner method** (Spécifier la méthode du partitionneur) : indiquez comment répartir les données dans chaque partition à l’aide des options ci-après :
+1. **Spécifier la méthode de partition** : indiquez comment répartir les données dans chaque partition à l’aide des options ci-après :
 
-   - **Partition evenly** (Répartir uniformément) : utilisez cette option pour placer un nombre égal de lignes dans chaque partition. Pour spécifier le nombre de partitions de sortie, entrez un nombre entier dans la zone **Specify number of folds to split evenly into** (Spécifier le nombre de plis pour un fractionnement uniforme).
+   - **Partitionner de manière égale** : utilisez cette option pour placer un nombre égal de lignes dans chaque partition. Pour spécifier le nombre de partitions de sortie, entrez un nombre entier dans la zone **Specify number of folds to split evenly into** (Spécifier le nombre de plis pour un fractionnement uniforme).
 
-   - **Partition with customized proportions** (Répartir avec des proportions personnalisées) : utilisez cette option pour spécifier la taille de chaque partition sous la forme d’une liste séparée par des virgules.
+   - **Partition avec proportions personnalisées**: utilisez cette option pour spécifier la taille de chaque partition sous la forme d’une liste séparée par des virgules.
 
      Supposons que vous souhaitiez créer trois partitions. La première partition contient 50 % des données. Les deux partitions restantes contiennent chacune 25 % des données. Dans la zone **List of proportions separated by comma** (Liste des proportions séparées par des virgules), entrez les valeurs suivantes : **.5, .25, .25**.
 
      La somme de toutes les tailles de partition doit être de 1.
 
-     Si vous entrez des nombres dont le total est*inférieur à 1*, une partition supplémentaire est créée pour héberger les lignes restantes. Par exemple, si vous entrez les valeurs **.2** et **.3**, une troisième partition est créée pour héberger les 50 % restants de toutes les lignes.
+     Si vous entrez des nombres dont le total est *inférieur à 1*, une partition supplémentaire est créée pour héberger les lignes restantes. Par exemple, si vous entrez les valeurs **.2** et **.3**, une troisième partition est créée pour héberger les 50 % restants de toutes les lignes.
      
      Si vous entrez des nombres dont le total est *supérieur à 1*, une erreur est générée lorsque vous exécutez le pipeline.
 
@@ -144,11 +144,11 @@ Utilisez cette option quand vous avez divisé un jeu de données en plusieurs pa
 
 1. Connectez le module à la sortie d’une instance précédente du module **Partition et échantillon**. Cette instance doit avoir utilisé l’option **Assign to Folds** (Attribuer à des plis) pour générer un certain nombre de partitions.
 
-1. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : Sélectionnez **Pick Fold** (Choisir le pli).
+1. **Mode de partition ou d’échantillon**: sélectionnez **Pick Fold**.
 
-1. **Specify which fold to be sampled from** (Spécifier le pli à partir duquel échantillonner) : sélectionnez une partition à utiliser en entrant son index. Les index de partition sont basés sur 1. Par exemple, si vous avez divisé le jeu de données en trois parties, les partitions auraient les index 1, 2 et 3.
+1. **Spécifiez le pli à échantillonner à partir de**: sélectionnez une partition à utiliser en entrant son index. Les index de partition sont basés sur 1. Par exemple, si vous avez divisé le jeu de données en trois parties, les partitions auraient les index 1, 2 et 3.
 
-   Si vous entrez une valeur d’index non valide, une erreur au moment de la conception est déclenchée : « Error 0018: Dataset contains invalid data » (Erreur 0018 : le jeu de données contient des données non valides).
+   Si vous entrez une valeur d’index non valide, une erreur au moment de la conception est générée : « erreur 0018 : le jeu de données contient des données non valides. »
 
    En plus de regrouper le jeu de données en plis, vous pouvez séparer le jeu de données en deux groupes : un pli cible et tout le reste. Pour ce faire, entrez l’index d’un pli unique, puis sélectionnez l’option **Pick complement of the selected fold** (Choisir le complément du pli sélectionné), afin d’obtenir toutes les données, à l’exception de celles dans le pli spécifié.
 
