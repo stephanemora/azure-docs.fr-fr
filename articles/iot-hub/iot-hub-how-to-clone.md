@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151660"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Comment cloner un hub IoT Azure dans une autre région
@@ -353,7 +353,7 @@ Créer le nouveau hub dans le nouvel emplacement à l’aide du modèle. Si vous
 
 1. Dans la zone de recherche, entrez « déploiement de modèle » et sélectionnez Entrée.
 
-1. Sélectionnez **déploiement de modèle (déployer à l’aide de modèles personnalisés)** . Vous accédez à un écran Template deployment. Sélectionnez **Create** (Créer). L'écran suivant s'affiche :
+1. Sélectionnez **déploiement de modèle (déployer à l’aide de modèles personnalisés)**. Vous accédez à un écran Template deployment. Sélectionnez **Create** (Créer). L'écran suivant s'affiche :
 
    ![Capture d’écran montrant la commande de génération de votre propre modèle](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -373,7 +373,7 @@ Créer le nouveau hub dans le nouvel emplacement à l’aide du modèle. Si vous
 
    **Groupe de ressources** : créez un nouveau groupe de ressources dans un nouvel emplacement. Si vous en avez déjà configuré un nouveau, vous pouvez le sélectionner au lieu d’en créer un autre.
 
-   **Emplacement** : Si vous avez sélectionné un groupe de ressources existant, il est renseigné pour correspondre à l’emplacement du groupe de ressources. Si vous avez créé un nouveau groupe de ressources, il s’agit de son emplacement.
+   **Emplacement** : si vous avez sélectionné un groupe de ressources existant, ce champ indique l’emplacement de celui-ci. Si vous avez créé un nouveau groupe de ressources, il s’agit de son emplacement.
 
    **Case J’accepte** : cela signifie que vous acceptez de payer pour la ou les ressources que vous créez.
 
@@ -413,7 +413,7 @@ L’application cible .NET Core, ce qui vous permet de l’exécuter sur Windows
 
 ### <a name="downloading-the-sample"></a>Téléchargement de l’exemple
 
-1. Utilisez les exemples C# IoT à partir de cette page : [Exemples Azure IoT pour C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Téléchargez le fichier zip et décompressez-le sur votre ordinateur. 
+1. Utilisez les exemples IoT C# de cette page : [Exemples Azure IOT pour C#](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/). Téléchargez le fichier zip et décompressez-le sur votre ordinateur. 
 
 1. Le code pertinent se trouve dans ./iot-hub/Samples/service/ImportExportDevicesSample. Vous n’avez pas besoin d’afficher ni de modifier le code pour exécuter l’application.
 
@@ -543,7 +543,7 @@ Vous avez maintenant les variables d’environnement dans un fichier avec les co
 
 1. Sélectionnez F5 pour exécuter l'application. Une fois l’exécution terminée, vous pouvez afficher les résultats.
 
-### <a name="view-the-results"></a>View the results 
+### <a name="view-the-results"></a>Afficher les résultats 
 
 Vous pouvez afficher les appareils dans le [Portail Azure](https://portal.azure.com) et vérifier qu’ils se trouvent dans le nouvel emplacement.
 

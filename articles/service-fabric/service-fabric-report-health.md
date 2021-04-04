@@ -7,10 +7,10 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6df434610a8f595ecca7f16e31f8a302373b02f9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001862"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Ajout de rapports d’intégrité Service Fabric personnalisés
@@ -49,9 +49,9 @@ Lorsque la conception de la création des rapports d’intégrité est claire, l
 ## <a name="health-client"></a>Client de contrôle d’intégrité
 Les rapports d’intégrité sont envoyés au gestionnaire d’intégrité par le biais d’un client de contrôle d’intégrité, qui réside dans le client Fabric. Le gestionnaire de contrôle d’intégrité enregistre les rapports dans le magasin d’intégrité. Le client de contrôle d’intégrité peut être configuré à l’aide des paramètres suivants :
 
-* **HealthReportSendInterval** : délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au gestionnaire d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Valeur par défaut : 30 secondes.
-* **HealthReportRetrySendInterval** : intervalle auquel le client de contrôle d’intégrité retourne les rapports d’intégrité cumulés au gestionnaire d’intégrité. Valeur par défaut : 30 secondes, minimum : 1 seconde.
-* **HealthOperationTimeout** : délai d’expiration d’un message de rapport envoyé au gestionnaire d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le gestionnaire d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
+* **HealthReportSendInterval**: délai qui s’écoule entre le moment où le rapport est ajouté au client et celui où il est envoyé au gestionnaire d’intégrité. Il est utilisé pour regrouper les rapports dans un seul message, au lieu d’envoyer un message pour chaque rapport. Ce regroupement améliore les performances. Par défaut : 30 secondes.
+* **HealthReportRetrySendInterval**: intervalle auquel le client de contrôle d’intégrité renvoie les rapports d’intégrité cumulés au gestionnaire d’intégrité. Par défaut : 30 secondes, minimum : 1 seconde.
+* **HealthOperationTimeout**: délai d’expiration pour un message de rapport envoyé au gestionnaire d’intégrité. Si un message expire, le client de contrôle d’intégrité réessaie de l’envoyer jusqu’à ce que le gestionnaire d’intégrité confirme que le rapport a été traité. Par défaut : deux minutes.
 
 > [!NOTE]
 > Lorsque les rapports sont traités par lot, le client Fabric doit être maintenu actif pendant au moins l’intervalle HealthReportSendInterval pour s’assurer qu’ils sont envoyés. Si le message est perdu ou si le gestionnaire d’intégrité n’est pas en mesure de d’appliquer les rapports en raison d’erreurs transitoires, le client Fabric doit être maintenu actif plus longtemps pour lui donner une chance de réessayer.

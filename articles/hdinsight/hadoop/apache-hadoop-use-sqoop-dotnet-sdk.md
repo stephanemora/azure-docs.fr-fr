@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
 ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928339"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec le SDK .NET pour Apache Hadoop dans HDInsight
@@ -32,7 +32,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 ## <a name="set-up"></a>Configurer
 
-1. Démarrez Visual Studio et créez une application console C#.
+1. Démarrez Visual Studio et créez une application console C#.
 
 1. Accédez à **Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**, puis exécutez la commande suivante :
 
@@ -112,7 +112,7 @@ De Hive vers SQL Server.  Cet exemple exporte des données à partir de la table
 
 ## <a name="sqoop-import"></a>Importation de Sqoop
 
-De SQL Server à Stockage Azure. Cet exemple dépend de l’exportation ci-dessus effectuée.  Cet exemple importe des données de la table `mobiledata` dans SQL Database vers le répertoire `wasb:///tutorials/usesqoop/importeddata` sur le compte de stockage par défaut du cluster.
+Depuis SQL Server vers Stockage Azure. Cet exemple dépend de l’exportation ci-dessus effectuée.  Cet exemple importe des données de la table `mobiledata` dans SQL Database vers le répertoire `wasb:///tutorials/usesqoop/importeddata` sur le compte de stockage par défaut du cluster.
 
 1. Remplacez le code ci-dessus dans le bloc `//sqoop start //sqoop end` par le code suivant :
 

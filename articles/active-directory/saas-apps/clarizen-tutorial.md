@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Clarizen | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Clarizen.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672936"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutoriel : Intégration d’Azure Active Directory à Clarizen
+# <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Didacticiel : Intégration d’Azure Active Directory à Clarizen
 
 Dans ce didacticiel, vous allez apprendre à intégrer Clarizen à Azure Active Directory (Azure AD).
 L’intégration de Clarizen dans Azure AD vous offre les avantages suivants :
@@ -140,13 +140,13 @@ Pour configurer l’authentification unique Azure AD auprès de Clarizen, effect
 
     a. Sélectionnez **Activer l'authentification fédérée**.
 
-    b. Cliquez sur **Upload** pour charger votre certificat téléchargé.
+    b. Cliquez sur **Télécharger** pour télécharger votre certificat.
 
     c. Dans la zone **URL de connexion**, entrez la valeur de l’**URL de connexion** indiquée dans la fenêtre de configuration de l’application Azure AD.
 
     d. Dans la zone **URL de déconnexion**, entrez la valeur de l’**URL de déconnexion** indiquée dans la fenêtre de configuration de l’application Azure AD.
 
-    e. Sélectionnez **Use POST**.
+    e. Sélectionnez **Utiliser POST**.
 
     f. Cliquez sur **Enregistrer**.
 
@@ -215,7 +215,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Clarizen, vous devez
 
     ![Clic sur « People »](./media/clarizen-tutorial/create_aaduser_001.png "Personnes")
 
-3. Cliquez sur **Invite User**.
+3. Cliquez sur **Inviter des utilisateurs**.
 
     ![Bouton « Invite User »](./media/clarizen-tutorial/create_aaduser_002.png "Inviter des utilisateurs")
 
