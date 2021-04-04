@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: f5da05c7f3c6878b0804799360e512676b9002d3
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899046"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Configurer le chiffrement vSAN pour un cloud privé CloudSimple
@@ -40,10 +40,10 @@ Le cluster de serveurs KMS s’exécute dans votre réseau virtuel Azure et l’
 Le processus de déploiement comprend les étapes suivantes :
 
 1. [Vérifier que les conditions préalables sont remplies](#verify-prerequisites-are-met)
-2. [Portail CloudSimple : obtenir des informations de peering ExpressRoute](#cloudsimple-portal-obtain-expressroute-peering-information)
+2. [Portail CloudSimple : obtenir des informations sur le Peering ExpressRoute](#cloudsimple-portal-obtain-expressroute-peering-information)
 3. [Portail Azure : Connecter votre réseau virtuel au cloud privé](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
 4. [Portail Azure : déployer un cluster HyTrust KeyControl dans votre réseau virtuel](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
-5. [HyTrust WebUI : configurer le serveur KMIP](#hytrust-webui-configure-the-kmip-server)
+5. [HyTrust WebUI : configurer un serveur KMIP](#hytrust-webui-configure-the-kmip-server)
 6. [Interface utilisateur de vCenter : configurer le chiffrement vSAN pour utiliser le cluster KMS dans votre réseau virtuel Azure](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
 
 ### <a name="verify-prerequisites-are-met"></a>Vérifier que les conditions préalables sont remplies
@@ -56,11 +56,11 @@ Vérifier les éléments suivants avant le déploiement :
 * Une instance Azure Resource Manager et un réseau virtuel ont déjà été créés.
 * Un cloud privé CloudSimple a déjà été créé.
 
-### <a name="cloudsimple-portal-obtain-expressroute-peering-information"></a>Portail CloudSimple : obtenir des informations de peering ExpressRoute
+### <a name="cloudsimple-portal-obtain-expressroute-peering-information"></a>Portail CloudSimple : obtenir des informations sur le Peering ExpressRoute
 
 Pour continuer l’installation, vous avez besoin de la clé d’autorisation et de l’URI du circuit pair pour ExpressRoute ainsi que de l’accès à votre abonnement Azure. Ces informations sont disponibles sur la page Connexion au réseau virtuel du portail CloudSimple. Pour recevoir des instructions, consultez [Configurer une connexion entre un réseau virtuel et le cloud privé](virtual-network-connection.md). Si vous avez du mal à obtenir ces informations, ouvrez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="azure-portal-connect-your-virtual-network-to-your-private-cloud"></a>Portail Azure : Connecter votre réseau virtuel à votre cloud privé
+### <a name="azure-portal-connect-your-virtual-network-to-your-private-cloud"></a>Portail Azure : connecter votre réseau virtuel à votre cloud privé
 
 1. Créez une passerelle de réseau virtuel pour votre réseau virtuel en suivant les instructions données dans [Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide du portail Azure](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 2. Liez votre réseau virtuel au circuit CloudSimple ExpressRoute en suivant les instructions données dans [Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
@@ -69,7 +69,7 @@ Pour continuer l’installation, vous avez besoin de la clé d’autorisation et
 
 ![Fournissez un URI de circuit pair CS lors de la création du réseau virtuel](media/vsan-azureportal01.png) 
 
-### <a name="azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network"></a>Portail Azure : déployer un cluster HyTrust KeyControl dans votre réseau virtuel
+### <a name="azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network"></a>Portail Azure : déployer un cluster HyTrust KeyControl dans l’Azure Resource Manager de votre réseau virtuel
 
 Pour déployer un cluster HyTrust KeyControl dans Azure Resource Manager dans votre réseau virtuel, effectuez les tâches suivantes. Consultez la [documentation de HyTrust](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0) pour plus d'informations.
 

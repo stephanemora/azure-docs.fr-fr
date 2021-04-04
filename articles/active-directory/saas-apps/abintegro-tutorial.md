@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Abintegro | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Abintegro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Abintegro.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.openlocfilehash: d8c785295380d3a90fde41f52b002f4686decad6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587334"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Abintegro
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-abintegro"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Abintegro
 
 Dans ce tutoriel, vous allez apprendre à intégrer Abintegro à Azure Active Directory (Azure AD). Quand vous intégrez Abintegro à Azure AD, vous pouvez :
 

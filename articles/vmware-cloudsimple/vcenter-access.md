@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 2e62042a84f7ac2615762e3d9b036e4340bd8c73
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97899114"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>Accéder au portail vCenter de votre cloud privé
@@ -66,5 +66,5 @@ Vous pouvez ouvrir le portail vCenter de votre cloud privé à partir du portail
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer et gérer des réseaux locaux virtuels ou des sous-réseaux pour vos clouds privés](create-vlan-subnet.md)
+* [Créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés](create-vlan-subnet.md)
 * [Modèle d’autorisation de cloud privé CloudSimple de VMware vCenter](learn-private-cloud-permissions.md)

@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/11/2019
 ms.openlocfilehash: ab03ea8a88187289f5dce55f8a396a9d51346a3f
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217675"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics est mis à niveau vers .NET Framework v4.7.2
@@ -43,7 +43,7 @@ Vérifiez la possibilité que des problèmes majeurs de compatibilité descendan
 
 Dans la plupart des cas, vous ne devez pas être affecté par l’incompatibilité descendante.
 
-## <a name="timeline"></a>Chronologie
+## <a name="timeline"></a>Durée
 
 Vous pouvez vérifier le déploiement du nouveau runtime ici [Résolution des problèmes de runtime](runtime-troubleshoot.md) et en examinant tout travail réussi effectué antérieurement.
 
@@ -58,32 +58,32 @@ Les incompatibilités descendantes les plus courantes et que l’outil de vérif
 - La propriété IAsyncResult.CompletedSynchronously doit être correcte pour que la tâche obtenue se termine
   - Lors de l’appel de TaskFactory.FromAsync, l’implémentation de la propriété IAsyncResult.CompletedSynchronously doit être correcte pour que la tâche obtenue se termine. Autrement dit, la propriété doit retourner la valeur true si, et uniquement si, l’implémentation s’est terminée de façon synchrone. Auparavant, la propriété n’était pas vérifiée.
   - Bibliothèques impactées : mscorlib, System.Threading.Tasks
-  - Action suggérée : vérifiez que TaskFactory.FromAsync retourne la valeur true correctement
+  - Action suggérée : Vérifiez que TaskFactory.FromAsync retourne la valeur true correctement
 
 - DataObject.GetData récupère maintenant les données au format UTF-8
   - Pour les applications qui ciblent le .NET Framework 4 ou qui s’exécutent sur le .NET Framework 4.5.1 ou versions antérieures, DataObject.GetData récupère les données au format HTML sous forme de chaîne ASCII. Par conséquent, les caractères non-ASCII (caractères dont les codes ASCII sont supérieurs à 0x7F) sont représentés par deux caractères aléatoires.#N##N#Pour les applications qui ciblent le .NET Framework 4.5 ou version ultérieure et qui s’exécutent sur le .NET Framework 4.5.2, `DataObject.GetData` récupère les données formatées HTML au format UTF-8, qui permet la représentation correcte des caractères supérieurs à 0x7F.
-  - Bibliothèques affectées : Glo
-  - Action suggérée : s’assurer que les données récupérées ont le format souhaité
+  - Bibliothèques affectées : Glo
+  - Action suggérée : S’assurer que les données récupérées ont le format souhaité
 
 - XmlWriter lève des paires de substitution non valides
   - Pour les applications qui ciblent .NET Framework 4.5.2 ou les versions antérieures, l’écriture d’une paire de substitution non valide à l’aide de la gestion des exceptions de secours ne lève pas toujours une exception. Pour les applications qui ciblent .NET Framework 4.6, toute tentative d’écriture d’une paire de substitution non valide lève une `ArgumentException`.
-  - Bibliothèques affectées : System.Xml, System.Xml.ReaderWriter
-  - Action suggérée : vérifiez que vous n’écrivez pas une paire de substitution non valide qui provoquera l’exception d’argument
+  - Bibliothèques impactées : System.Xml, System.Xml.ReaderWriter
+  - Action suggérée : Vérifiez que vous n’écrivez pas une paire de substitution non valide qui provoquera l’exception d’argument
 
 - HtmlTextWriter n’affiche pas correctement l’élément `<br/>`
   - À partir de .NET Framework 4.6, l’appel de `HtmlTextWriter.RenderBeginTag()` et de `HtmlTextWriter.RenderEndTag()` avec un élément `<BR />` insère correctement un seul `<BR />` (au lieu de deux)
-  - Bibliothèques affectées : System.Web
-  - Action suggérée : veillez à insérer la quantité de `<BR />` que vous souhaitez obtenir afin qu’aucun comportement aléatoire ne se produise dans le travail de production
+  - Bibliothèques impactées : System.Web
+  - Action suggérée : Veillez à insérer la quantité de `<BR />` que vous souhaitez obtenir afin qu’aucun comportement aléatoire ne se produise dans le travail de production
 
 - L’appel de CreateDefaultAuthorizationContext avec un argument Null a été modifié
   - L’implémentation du AuthorizationContext retourné par un appel au `CreateDefaultAuthorizationContext(IList<IAuthorizationPolicy>)` avec un argument authorizationPolicies Null a changé son implémentation dans .NET Framework 4.6.
-  - Bibliothèques affectées : System.IdentityModel
-  - Action suggérée : assurez-vous que vous gérez le nouveau comportement attendu lorsqu’il existe une stratégie d’autorisation Null
+  - Bibliothèques impactées : System.IdentityModel
+  - Action suggérée : Assurez-vous que vous gérez le nouveau comportement attendu lorsqu’il existe une stratégie d’autorisation Null
   
 - L’algorithme RSACng charge désormais correctement les clés RSA de taille de clé non standard
   - Dans les versions .NET Framework antérieures à la version 4.6.2, les clients avec des tailles de clé non standard pour les certificats RSA ne peuvent pas accéder à ces clés via les méthodes d’extension `GetRSAPublicKey()` et `GetRSAPrivateKey()`. Une `CryptographicException` comportant le message « la taille de clé demandée n’est pas prise en charge » est générée. Ce problème a été résolu avec .NET Framework 4.6.2. De même, `RSA.ImportParameters()` et `RSACng.ImportParameters()` fonctionnent désormais avec des tailles de clé non standard sans générer de `CryptographicException`.
   - Bibliothèques impactées : mscorlib, System.Core
-  - Action suggérée : vérifier que les clés RSA fonctionnent comme prévu
+  - Action suggérée : Vérifier que les clés RSA fonctionnent comme prévu
 
 - Les vérifications des signes deux-points dans les chemins d’accès sont plus strictes
   - Dans .NET Framework 4.6.2, un certain nombre de modifications ont été apportées pour prendre en charge les chemins d’accès précédemment non pris en charge (à la fois en termes de longueur et de format). Les vérifications de bonne syntaxe de séparateur de lecteur (le signe deux-points) ont été rendues plus correctes, ce qui a eu pour effet secondaire de bloquer certains chemins d’URI dans quelques API de sélection de chemin d’accès, où ils étaient tolérés.
@@ -93,9 +93,9 @@ Les incompatibilités descendantes les plus courantes et que l’outil de vérif
 - appels aux constructeurs ClaimsIdentity
   - À compter de .NET Framework 4.6.2, la façon dont les constructeurs `T:System.Security.Claims.ClaimsIdentity` avec un paramètre `T:System.Security.Principal.IIdentity` définissent la propriété `P:System.Security.Claims.ClaimsIdentify.Actor` est modifiée. Si l’argument `T:System.Security.Principal.IIdentity` est un objet `T:System.Security.Claims.ClaimsIdentity` et que la propriété `P:System.Security.Claims.ClaimsIdentify.Actor` de cet objet `T:System.Security.Claims.ClaimsIdentity` n’est pas `null`, la propriété `P:System.Security.Claims.ClaimsIdentify.Actor` est attachée à l’aide de la méthode `M:System.Security.Claims.ClaimsIdentity.Clone`. Dans Framework 4.6.1 et versions antérieures, la propriété `P:System.Security.Claims.ClaimsIdentify.Actor` est attachée en tant que référence existante. En raison de cette modification, à compter de .NET Framework 4.6.2, la propriété `P:System.Security.Claims.ClaimsIdentify.Actor` du nouvel objet `T:System.Security.Claims.ClaimsIdentity` n’est pas égale à la propriété `P:System.Security.Claims.ClaimsIdentify.Actor` de l’argument `T:System.Security.Principal.IIdentity` du constructeur. Dans .NET Framework 4.6.1 et les versions antérieures, elle est égale.
   - Bibliothèques impactées : mscorlib
-  - Action suggérée : vérifier que ClaimsIdentity fonctionne comme prévu sur le nouveau runtime
+  - Action suggérée : Vérifier que ClaimsIdentity fonctionne comme prévu sur le nouveau runtime
 
 - La sérialisation des caractères de contrôle avec DataContractJsonSerializer est désormais compatible avec ECMAScript V6 et V8
   - Dans .NET Framework 4.6.2 et les versions antérieures, le DataContractJsonSerializer n’a pas sérialisé certains caractères de contrôle spéciaux, tels que \b, \f et \t, d’une manière compatible avec les normes ECMAScript V6 et V8. À partir de .NET Framework 4.7, la sérialisation de ces caractères de contrôle est compatible avec ECMAScript V6 et V8.
-  - Bibliothèques affectées : System.Runtime.Serialization.Json
-  - Action suggérée : garantir le même comportement avec DataContractJsonSerializer
+  - Bibliothèques impactées : System.Runtime.Serialization.Json
+  - Action suggérée : Garantir le même comportement avec DataContractJsonSerializer

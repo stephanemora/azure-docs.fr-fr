@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: mbullwin
 ms.openlocfilehash: 777e3261bd6f842861ed6622b78589eedaaf65d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92043195"
 ---
 Dans la requête, utilisez le paramètre `@StartTime` afin d’obtenir des données de métrique pour un horodatage. Metrics Advisor remplace le paramètre par une chaîne de format `yyyy-MM-ddTHH:mm:ss` lors de l’exécution de la requête.
