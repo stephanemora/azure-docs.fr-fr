@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 349a77d2f2cd5e1c492de63919d84efb436a51a3
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97673679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutoriel : Intégration d’Azure Active Directory à Autotask Endpoint Backup
@@ -30,7 +30,7 @@ L’intégration d’Autotask Endpoint Backup à Azure AD vous offre les avantag
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Autotask Endpoint Backup, vous avez besoin des éléments suivants :
 

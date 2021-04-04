@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Décrit la préparation de votre projet avec Azure Dev Spaces
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 ms.openlocfilehash: d2da69dd8a8c2683ff584dfd0ffc61cb023f2ece
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91968155"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Préparation d’un projet pour Azure Dev Spaces
@@ -36,7 +36,7 @@ La commande `prep` examinera les fichiers de votre projet et tentera de créer l
 
 Vous *devez* exécuter la commande `prep` depuis un répertoire contenant le code source. Exécuter la commande `prep` depuis le répertoire adéquat permet aux outils côté client d'identifier le langage et de créer un Dockerfile approprié pour conteneuriser votre application. Vous pouvez également exécuter la commande `prep` à partir d'un répertoire contenant un fichier *pom.xml* pour les projets Java.
 
-Si vous exécutez la commande `prep` à partir d'un répertoire qui ne contient aucun code source, les outils côté client ne généreront aucun Dockerfile. Ils afficheront également le message d'erreur suivant : *Impossible de générer Dockerfile en raison d’un langage non pris en charge*. Cette erreur se produit également si les outils côté client ne reconnaissent pas le type de projet.
+Si vous exécutez la commande `prep` à partir d'un répertoire qui ne contient aucun code source, les outils côté client ne généreront aucun Dockerfile. Vous verrez également une erreur indiquant : *Impossible de générer Dockerfile en raison d’un langage non pris en charge*. Cette erreur se produit également si les outils côté client ne reconnaissent pas le type de projet.
 
 Lorsque vous exécutez la commande `prep`, vous avez la possibilité de spécifier l'indicateur `--enable-ingress`. Cet indicateur demande au contrôleur de créer un point d'accès Internet pour ce service. Si vous ne spécifiez pas cet indicateur, le service n'est accessible que depuis le cluster ou via le tunnel localhost créé par les outils côté client. Vous pouvez activer ou désactiver ce comportement après avoir exécuté la commande `prep` en mettant à jour le graphique Helm généré.
 

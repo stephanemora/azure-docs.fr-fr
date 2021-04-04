@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 06d2305c209011e4fb1b8ee05a016d2e15a49833
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898026"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Choisir une solution d'équilibrage de charge pour les clouds privés CloudSimple
@@ -25,7 +25,7 @@ Vous pouvez choisir un équilibreur de charge virtuel ou logiciel dans votre clo
 
 Vous pouvez déployer des appliances d'équilibrage de charge virtuelles dans votre environnement VMware via l'interface vCenter et les configurer pour l’analyse frontale du trafic des applications.
 
-Voici certains fournisseurs populaires : NginX : http://nginx.org/en/docs/http/load_balancing.html F5- BigIP - Traffic Manager : https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC : https://www.citrix.com/products/citrix-adc/
+Voici quelques-uns des fournisseurs populaires : NginX : http://nginx.org/en/docs/http/load_balancing.html F5-BigIP - Traffic Manager : https://www.f5.com/products/big-ip-services/virtual-editions Citrix ADC : https://www.citrix.com/products/citrix-adc/
 
 ## <a name="azure-l7-load-balancer"></a>Équilibreur de charge Azure L7
 

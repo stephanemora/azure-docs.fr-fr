@@ -10,10 +10,10 @@ ms.date: 12/19/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
 ms.openlocfilehash: be26c6fe03dac9b9ff9dbff4a2bdce391ec0837e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96024161"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Utiliser le DevKit IoT AZ3166 avec Azure Functions et Cognitive Services pour créer un traducteur
@@ -47,12 +47,12 @@ Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâche
 
 ## <a name="use-speech-service-with-azure-functions"></a>Utiliser le service Speech avec Azure Functions
 
-1. Dans VS Code, cliquez sur `F1`, puis tapez et sélectionnez **Azure IoT Device Workbench : Approvisionner les services Azure...** ![Provisionner les services Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
+1. Dans VS Code, cliquez sur `F1`, puis saisissez et sélectionnez **Azure IoT Device Workbench : Approvisionner les services Azure…** ![Provisionner les services Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/provision.png)
 
 1. Suivez les étapes permettant de terminer le provisionnement d’Azure IoT Hub et d’Azure Functions.
    ![Étapes du provisionnement](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
-   Notez le nom de l’appareil Azure IoT Hub que vous avez créé.
+   Prenez note du nom de l’appareil IoT Hub Azure que vous avez créé.
 
 1. Ouvrez `Functions\DevKitTranslatorFunction.cs` et mettez à jour les lignes de code suivantes avec le nom d’appareil et la clé du service Speech dont vous avez pris note.
    ```csharp
@@ -66,10 +66,10 @@ Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâche
    const string deviceName = "";
    ```
 
-1. Cliquez sur `F1`, puis tapez et sélectionnez **Azure IoT Device Workbench : Déployer sur Azure...** Si VS Code invite à confirmer l’opération de redéploiement, cliquez sur **Oui**.
+1. Cliquez sur `F1`, puis saisissez et sélectionnez **Azure IoT Device Workbench : Déployer dans Azure…** Si VS Code invite à confirmer l’opération de redéploiement, cliquez sur **Oui**.
    ![Avertissement de déploiement](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-warning.png)
 
-1. Vérifiez que le déploiement a réussi.
+1. Assurez-vous que le déploiement a réussi.
    ![Déploiement réussi](media/iot-hub-arduino-iot-devkit-az3166-translator/deploy-success.png)
 
 1. Dans le portail Azure, accédez à la section **Applications de fonctions**, recherchez l’application Azure Function que vous venez de créer. Cliquez sur `devkit_translator`, puis sur **</> Récupérer l’URL de la fonction** pour copier l’URL.
@@ -91,7 +91,7 @@ Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâche
 
    ![Mode de configuration du DevKit](media/iot-hub-arduino-iot-devkit-az3166-translator/devkit-configuration-mode.png)
 
-1. Cliquez sur `F1`, puis tapez et sélectionnez **Azure IoT Device Workbench : Configurer les paramètres de l’appareil... > Configurer la chaîne de connexion d’appareil**. Sélectionnez **Sélectionner la chaîne de connexion d'appareil IoT Hub** pour la configurer dans le DevKit.
+1. Cliquez sur `F1`, puis saisissez et sélectionnez **Azure IoT Device Workbench : Configurer les paramètres de l’appareil… > Configurer la chaîne de connexion de l’appareil**. Sélectionnez **Sélectionner la chaîne de connexion d'appareil IoT Hub** pour la configurer dans le DevKit.
    ![Configurer la chaîne de connexion](media/iot-hub-arduino-iot-devkit-az3166-translator/configure-connection-string.png)
 
 1. La notification s’affiche une fois l’opération effectuée avec succès.
@@ -102,13 +102,13 @@ Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâche
 
 ## <a name="test-the-project"></a>Tester le projet
 
-Après l’initialisation de l’application, suivez les instructions sur l’écran de DevKit. La langue source par défaut est le chinois.
+Une fois l’application initialisée, suivez les instructions affichées sur l’écran du kit de développement. La langue source par défaut est le chinois.
 
-Pour sélectionner une autre langue pour la traduction :
+Pour sélectionner une autre langue pour la traduction :
 
-1. Appuyez sur le bouton A pour entrer dans le mode de configuration.
+1. Appuyez sur le bouton A pour passer en mode setup.
 
-2. Appuyez sur le bouton B pour faire défiler toutes les langues source prises en charge.
+2. Appuyez sur le bouton B pour faire défiler toutes les langues sources prises en charge.
 
 3. Appuyez sur le bouton A pour confirmer votre choix de langue source.
 
@@ -120,11 +120,11 @@ Pour sélectionner une autre langue pour la traduction :
 
 ![Résultat de la traduction](media/iot-hub-arduino-iot-devkit-az3166-translator/translation-result.jpg)
 
-Sur l’écran affichant le résultat de la traduction, vous pouvez :
+Dans l’écran affichant le résultat de la traduction, vous pouvez effectuer les opérations suivantes :
 
-- Appuyez sur les boutons A et B pour faire défiler et sélectionnez la langue source.
+- Appuyer sur les boutons A et B pour faire défiler l’écran et sélectionner la langue source.
 
-- Appuyez sur le bouton B pour parler. Pour envoyer le message vocal et obtenir le texte traduit, relâchez le bouton B.
+- Appuyer sur le bouton B pour parler. Pour envoyer la parole enregistrée et recevoir le texte traduit, relâchez le bouton B.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

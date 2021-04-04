@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Concevoir un serveur - Azure CLI - Azure Database pour MySQL'
+title: 'Didacticiel : Concevoir un serveur - Azure CLI - Azure Database pour MySQL'
 description: Ce tutoriel explique comment créer et gérer un serveur et une base de données Azure Database pour MySQL avec Azure CLI depuis la ligne de commande.
 author: savjani
 ms.author: pariks
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 8546ba5c80a4c8909876ff755bc094f1aec96482
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96437080"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutoriel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide d’Azure CLI
 
 Azure Database pour MySQL est un service de base de données relationnelle dans le cloud de Microsoft basé sur le moteur de base de données MySQL Community Edition. Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 
@@ -32,7 +32,7 @@ Azure Database pour MySQL est un service de base de données relationnelle dans 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
+- Cet article demande la version 2.0 ou ultérieure d’Azure CLI. Si vous utilisez Azure Cloud Shell, la version la plus récente est déjà installée.
 
 Si vous possédez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource existe ou est facturée. Sélectionnez un ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive

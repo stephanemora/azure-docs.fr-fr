@@ -9,10 +9,10 @@ description: Utilisez un référentiel Helm privé dans un espace Azure Dev.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs, Helm
 manager: gwallace
 ms.openlocfilehash: 7c5f28595df2e552fd48033b44e4e1f0ea4ec306
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91960335"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Utiliser un référentiel Helm privé dans Azure Dev Spaces

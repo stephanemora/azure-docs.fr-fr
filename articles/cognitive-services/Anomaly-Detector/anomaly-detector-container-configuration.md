@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
 ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363712"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurer des conteneurs Détecteur d’anomalies
@@ -45,7 +45,7 @@ Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effec
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : Gestion des ressources du **Détecteur d’anomalies** , sous **Clés**
+* Portail Azure : gestion des ressources du **Détecteur d’anomalies**, sous **Clés**
 
 ## <a name="applicationinsights-setting"></a>Paramètre ApplicationInsights
 
@@ -57,7 +57,7 @@ Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de 
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : Vue d’ensemble du **Détecteur d’anomalies** , avec l’étiquette `Endpoint`
+* Portail Azure : Présentation du **Détecteur d’anomalies**, étiqueté `Endpoint`
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
@@ -97,8 +97,8 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 Les exemples suivants utilisent les paramètres de configuration pour illustrer comment écrire et utiliser des commandes `docker run`.  Une fois en cours d’exécution, le conteneur continue à s’exécuter jusqu’à ce que vous l’[arrêtiez](anomaly-detector-container-howto.md#stop-the-container).
 
-* **Caractère de continuation de ligne**  : Les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne pour un interpréteur de commandes bash. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. Par exemple, le caractère de continuation de ligne pour les fenêtres est un accent circonflexe, `^`. Remplacez la barre oblique inverse par l’accent circonflexe. 
-* **Ordre des arguments**  : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs Docker.
+* **Caractère de continuation de ligne** : les commandes Docker dans les sections suivantes utilisent la barre oblique inverse, `\`, comme caractère de continuation de ligne pour un interpréteur de commandes bash. Remplacez-la ou supprimez-la en fonction des exigences de votre système d’exploitation hôte. Par exemple, le caractère de continuation de ligne pour les fenêtres est un accent circonflexe, `^`. Remplacez la barre oblique inverse par l’accent circonflexe. 
+* **Ordre des arguments** : Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs Docker.
 
 Remplacez la valeur entre accolades, `{}`, par vos propres valeurs :
 

@@ -4,10 +4,10 @@ description: Informations de référence pour le fichier YAML pris en charge par
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: d0ec8d13eebba1c60f5a52f8c43bdd8b90eeb913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87084758"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>Informations de référence YAML : Azure Container Instances

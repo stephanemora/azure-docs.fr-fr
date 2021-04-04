@@ -4,10 +4,10 @@ description: Cet article fournit des informations conceptuelles sur les journaux
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.openlocfilehash: 36ade14932b5d25c7a1fe05632da671de68ba3bb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96574984"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Journaux de diagnostic pour des rubriques/domaines Azure Event Grid
