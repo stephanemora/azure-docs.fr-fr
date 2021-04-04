@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241733"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gérer la haute disponibilité redondante interzone dans le serveur flexible (préversion) Azure Database pour MySQL
@@ -32,7 +32,7 @@ Cette page fournit des instructions sur la façon d’activer ou de désactiver 
 
 Cette section fournit des détails spécifiques pour les champs à haute disponibilité. Vous pouvez suivre ces étapes pour déployer la haute disponibilité lors de la création de votre serveur flexible.
 
-1.  Dans le [portail Azure](https://portal.azure.com/), choisissez Serveur flexible, puis cliquez sur **Créer**.  Pour plus d’informations sur la façon de remplir les champs tels que **Abonnement** , **Groupe de ressources** , **Nom du serveur** , **Région** , etc., consultez la documentation relative à la création de serveur.
+1.  Dans le [portail Azure](https://portal.azure.com/), choisissez Serveur flexible, puis cliquez sur **Créer**.  Pour plus d’informations sur la façon de remplir les champs tels que **Abonnement**, **Groupe de ressources**, **Nom du serveur**, **Région**, etc., consultez la documentation relative à la création de serveur.
 
 2.  Activez la case à cocher **Haute disponibilité redondante interzone** dans l’option Disponibilité.
 
@@ -41,9 +41,9 @@ Cette section fournit des détails spécifiques pour les champs à haute disponi
 4.  Si l’option haute disponibilité est cochée, le niveau modulable ne sera pas un choix possible. Vous pouvez choisir les niveaux de calcul **Usage général** ou **Mémoire optimisée**.
 
     > [!IMPORTANT]
-    > Nous prenons uniquement en charge la haute disponibilité redondante interzone pour les niveaux tarifaires * *_Usage général_* _ et _*_Mémoire optimisée_*_.
+    > Nous prenons uniquement en charge la haute disponibilité redondante interzone pour les niveaux tarifaires ***Usage général** _ et _ *_Mémoire optimisée_*-.
 
-5.  Dans la liste déroulante, sélectionnez la _ *taille de calcul* * de votre choix.
+5.  Dans la liste déroulante, sélectionnez la **taille de calcul** de votre choix.
 
 6.  Sélectionnez **Taille de stockage** dans Gio à l’aide de la barre glissante, puis **Période de rétention des sauvegardes** comprise entre 7 et 35 jours.   
 
@@ -65,5 +65,5 @@ Suivez ces étapes pour désactiver la haute disponibilité de votre serveur fle
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   En savoir plus sur la [continuité de l’activité](./concepts-business-continuity.md)
+-   Découvrir la [continuité de l’activité](./concepts-business-continuity.md)
 -   Découvrir la [haute disponibilité avec redondance interzone](./concepts-high-availability.md)
