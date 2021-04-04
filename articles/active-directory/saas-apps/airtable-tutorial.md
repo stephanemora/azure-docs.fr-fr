@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Airtable | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Airtable | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Airtable.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
 ms.openlocfilehash: f73e372318e690e1446eef1974c7a93c79d4e2d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318977"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Airtable
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Airtable
 
 Dans ce tutoriel, vous allez apprendre à intégrer Airtable à Azure Active Directory (Azure AD). Quand vous intégrez Airtable à Azure AD, vous pouvez :
 

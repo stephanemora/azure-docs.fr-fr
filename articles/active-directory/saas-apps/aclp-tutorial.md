@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à ACLP | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à ACLP | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ACLP.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bb91322df315d60adddf184905d0c619f5be8d6a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313559"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutoriel : Intégration d’Azure Active Directory à ACLP
+# <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutoriel : Intégration d’Azure Active Directory à ACLP
 
 Dans ce tutoriel, vous allez apprendre à intégrer ACLP à Azure Active Directory (Azure AD).
 L’intégration d’ACLP à Azure AD vous offre les avantages suivants :
@@ -166,7 +166,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 ### <a name="create-aclp-test-user"></a>Créer un utilisateur de test ACLP
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ACLP. Collaborez avec l’ [équipe du support technique ACLP](mailto:mrichards@sans.org) pour ajouter les utilisateurs à la plateforme ACLP. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans ACLP. Collaborez avec l’[équipe du support technique ACLP](mailto:mrichards@sans.org) pour ajouter les utilisateurs à la plateforme ACLP. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92314623"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push localisées vers des applications Windows à l’aide d’Azure Notification Hubs
@@ -32,7 +32,7 @@ ms.locfileid: "92314623"
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce didacticiel vous montre comment envoyer des notifications localisées vers des appareils mobiles inscrits auprès du service Notification Hubs. Dans le didacticiel, vous mettez à jour les applications créées dans le [Tutoriel : Envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) pour prendre en charge les scénarios suivants :
+Ce didacticiel vous montre comment envoyer des notifications localisées vers des appareils mobiles inscrits auprès du service Notification Hubs. Dans le didacticiel, vous mettez à jour les applications créées dans le [didacticiel : envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) pour prendre en charge les scénarios suivants :
 
 - L'application Windows Store permet aux appareils clients de spécifier une langue et de s'abonner à différentes catégories de dernières nouvelles.
 - L’application back-end diffuse les notifications à l’aide des fonctionnalités de **balise** et de **modèle** d’Azure Notification Hubs.
@@ -48,9 +48,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivre le [Tutoriel : Envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+Terminez le [didacticiel : envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
-Dans le [Tutoriel : Envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), vous avez créé une application ayant utilisée des **balises** pour s’abonner aux notifications de différentes **catégories** d’actualité. Dans ce didacticiel, vous utilisez la fonctionnalité de **modèle** de Notification Hubs pour facilement envoyer des notifications de dernières nouvelles **localisées**.
+Dans le [didacticiel : envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), vous avez créé une application ayant utilisée des **balises** pour s’abonner aux notifications de différentes **catégories** d’actualité. Dans ce didacticiel, vous utilisez la fonctionnalité de **modèle** de Notification Hubs pour facilement envoyer des notifications de dernières nouvelles **localisées**.
 
 À un haut niveau, les modèles permettent de spécifier le format dans lequel un appareil particulier reçoit une notification. Le modèle spécifie le format de charge utile exact en se référant aux propriétés qui font partie du message envoyé par le serveur principal de votre application. Dans ce didacticiel, l’application de serveur principal envoie un message indépendant de paramètres régionaux contenant toutes les langues prises en charge :
 
@@ -78,7 +78,7 @@ Pour en savoir plus sur les modèles, consultez [Modèles Push](notification-hub
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Mettre à jour l’application Windows pour prendre en charge les informations des paramètres régionaux
 
-1. Ouvrez la solution Visual Studio que vous avez créée pour le [Tutoriel : Envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+1. Ouvrez la solution Visual Studio que vous avez créée au cours du [didacticiel : envoyer des notifications à des appareils spécifiques (plateforme Windows universelle)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 2. Mettez à jour le fichier `MainPage.xaml` de la solution pour y ajouter une zone de liste modifiable de paramètres régionaux :
 
     ```xml
