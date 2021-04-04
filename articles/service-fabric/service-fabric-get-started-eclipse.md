@@ -7,10 +7,10 @@ ms.date: 04/06/2018
 ms.author: rapatchi
 ms.custom: devx-track-java
 ms.openlocfilehash: b85206f9b1e92607bba7b6f141b700922c129b65
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656918"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric pour le développement d’applications Java sous Eclipse
@@ -32,7 +32,7 @@ Vous pouvez installer un plug-in Service Fabric sur Eclipse. Ce plug-in peut aid
 
 Installez Eclipse Neon ou ultérieur à partir du [site d’Eclipse](https://www.eclipse.org).  Installez également la version 2.2.1 ou ultérieure du Buildship (le plug-in Service Fabric n’est pas compatible avec les versions antérieures de Buildship) :
 -   Pour vérifier les versions des composants installés, dans Eclipse, accédez à **Aide** > **About Eclipse (Au sujet d’Eclipse)**  > **Détails de l’installation**.
--   Pour mettre à jour Buildship, consultez [Eclipse Buildship : plug-ins Eclipse pour Gradle][buildship-update].
+-   Pour mettre à jour Buildship, consultez [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship : plug-in Eclipse pour Gradle).
 -   Pour vérifier et installer les mises à jour pour Eclipse, accédez à **Aide** > **Rechercher les mises à jour**.
 
 Installez le plug-in Service Fabric : dans Eclipse, accédez à **Aide** > **Installer un nouveau logiciel**.
@@ -109,7 +109,7 @@ Pour savoir comment déboguer votre application dans Eclipse en utilisant le clu
 Vous pouvez également déployer votre application dans le cluster local à l’aide de la commande **Publier une application** :
 
 1. Cliquez avec le bouton droit de la souris sur votre application Service Fabric, puis sélectionnez **Service Fabric**.
-2. Dans le menu contextuel, cliquez sur **Publier une application...** .
+2. Dans le menu contextuel, cliquez sur **Publier une application...**.
 3. Dans la fenêtre **Publier une application**, choisissez **PublishProfiles/Local.json** comme profil cible, puis cliquez sur **Publier**.
 
     ![Boîte de dialogue Publier - Local](./media/service-fabric-get-started-eclipse/localjson.png)
@@ -148,7 +148,7 @@ Pour publier votre application dans le cloud, suivez les étapes ci-dessous :
      ```
 
 2. Cliquez avec le bouton droit de la souris sur votre application Service Fabric, puis sélectionnez **Service Fabric**.
-3. Dans le menu contextuel, cliquez sur **Publier une application...** .
+3. Dans le menu contextuel, cliquez sur **Publier une application...**.
 3. Dans la fenêtre **Publier une application**, choisissez **PublishProfiles/Cloud.json** comme profil cible, puis cliquez sur **Publier**.
 
     ![Boîte de dialogue Publier - Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
@@ -158,7 +158,7 @@ Pour publier votre application dans le cloud, suivez les étapes ci-dessous :
 
 Sur les clusters Linux sécurisés, si votre application contient des services Reliable Services, vous devez également configurer un certificat que vos services pourront utiliser pour appeler les API du runtime Service Fabric. Pour en savoir plus, consultez [Configurer une application Reliable Services à exécuter sur les clusters Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-Pour savoir rapidement comment déployer une application Reliable Services de Service Fabric écrite en Java sur un cluster Linux sécurisé, consultez [Démarrage rapide : Déployer une application Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
+Pour savoir rapidement comment déployer une application Reliable Services de Service Fabric écrite en Java sur un cluster Linux sécurisé, consultez l’article [Démarrage rapide : Déployer une application Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Déployer une application Service Fabric en utilisant des configurations d’exécution Eclipse
 
@@ -198,7 +198,7 @@ Pour ajouter un service Service Fabric à une application Service Fabric existan
 
 ## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Modifier les versions de manifeste de votre application Java Service Fabric
 
-Pour modifier les versions de manifeste, cliquez avec le bouton droit sur le projet, accédez à **Service Fabric** et sélectionnez **Modifier les versions de manifeste...**  à partir de la liste déroulante du menu. Dans l’Assistant, vous pouvez mettre à jour les versions du manifeste d’application, du manifeste de service et des packages **Code**, **Config** et **Data**.
+Pour modifier les versions de manifeste, cliquez avec le bouton droit sur le projet, accédez à **Service Fabric** et sélectionnez **Modifier les versions de manifeste...** à partir de la liste déroulante du menu. Dans l’Assistant, vous pouvez mettre à jour les versions du manifeste d’application, du manifeste de service et des packages **Code**, **Config** et **Data**.
 
 Si vous activez l’option **Mettre à jour automatiquement les versions des applications et des services**, puis que vous mettez à jour une version, les versions des manifestes seront automatiquement mises à jour. Par exemple, vous commencez par cocher la case, vous changez la version du **Code** de 0.0.0 à 0.0.1, puis vous cliquez sur **Terminer**. La version du manifeste de service et du manifeste d’application sera automatiquement mise à jour à 0.0.1.
 
@@ -212,7 +212,7 @@ Pour mettre à niveau votre application à l’aide d’Eclipse, vous pouvez cr�
 
 1.  Accédez à **Exécuter** > **Configurations d’exécution**. Dans le volet de gauche, cliquez sur la petite flèche à gauche de **Projet Gradle**.
 2.  Cliquez avec le bouton droit de la souris sur **ServiceFabricDeployer**, puis sélectionnez **Dupliquer**. Entrez un nouveau nom pour cette configuration, par exemple, **ServiceFabricUpgrader**.
-3.  Dans le volet de droite, sous l’onglet **Arguments**, remplacez **-Pconfig='deploy'** par **-Pconfig='upgrade'** , puis cliquez sur **Appliquer**.
+3.  Dans le volet de droite, sous l’onglet **Arguments**, remplacez **-Pconfig='deploy'** par **-Pconfig='upgrade'**, puis cliquez sur **Appliquer**.
 
 Ce processus crée et enregistre un profil de configuration d’exécution que vous pouvez utiliser à tout moment pour mettre à niveau votre application. Il permet également d’obtenir la dernière version mise à jour du type d’application à partir du fichier de manifeste d’application.
 
@@ -223,7 +223,7 @@ Nous avons récemment déplacé les bibliothèques Java Service Fabric vers un r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment créer une application Reliable Services écrite en Java et comment la déployer localement et dans Azure, consultez [Démarrage rapide : Déployer une application Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
+- Pour savoir comment créer une application Reliable Services écrite en Java et comment la déployer en local et sur Azure, consultez [Démarrage rapide : Déployer une application Reliable Services Java](./service-fabric-quickstart-java-reliable-services.md).
 - Pour savoir comment déboguer une application sur votre cluster local, consultez l’article [Débogage de votre application Java Service Fabric avec Eclipse](./service-fabric-debugging-your-application-java.md).
 - Pour savoir comment surveiller et diagnostiquer les applications Service Fabric, consultez la page [Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

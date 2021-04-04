@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542204"
 ---
 # <a name="patternany-entity"></a>Entité Pattern.any
@@ -25,7 +25,7 @@ Les entités pattern.any doivent être marquées dans les exemples de modèles [
 
 * La fin de l’entité peut être confondue avec le reste du texte de l’énoncé.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 Si une application cliente recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un modèle d’énoncé utilisant pattern.any pour cette recherche de livre est `Was {BookTitle} written by an American this year[?]`.
 
@@ -35,7 +35,7 @@ Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L�
 |--|
 |`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>**L’Homme qui prenait sa femme pour un chapeau** a-t-il été écrit par un Americain cette année ?|
 |`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>**Nature morte avec pivert** a-t-il été par un Américain cette année ?|
-|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>La **singulière tristesse du gâteau au citron** est-il un roman écrit par un Américain cette année ?|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>La **Singulière tristesse du gâteau au citron** a-t-il été écrit par un Américain cette année ?|
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**Le Petit Prince** a-t-il été écrit par un Américain cette année ?|
 ||
 
@@ -43,7 +43,7 @@ Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L�
 
 ## <a name="example-json"></a>Exemple JSON
 
-Considérez la requête suivante :
+Considérez la requête suivante :
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
