@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
 ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656612"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurer des alertes sur des événements de journalisation de ressource de la passerelle VPN
@@ -20,7 +20,7 @@ Cet article vous permet de configurer des alertes basées sur des événements d
 
 Les journaux de ressources suivants sont disponibles dans Azure :
 
-|***Nom** _ | _*_Description_*_ |
+|***Nom** _ | _ *_Description_** |
 |--- | --- |
 |GatewayDiagnosticLog | Contient des journaux de ressources pour des événements de configuration de passerelle, des modifications principales et des événements de maintenance. |
 |TunnelDiagnosticLog | Contient des événements de changement d’état de tunnel. Les événements de connexion/déconnexion de tunnel affichent une brève explication du changement d’état, le cas échéant |
@@ -33,7 +33,7 @@ Les journaux de ressources suivants sont disponibles dans Azure :
 L’exemple de procédure suivant crée une alerte pour un événement de déconnexion qui implique un tunnel VPN de site à site :
 
 
-1. Dans le portail Azure, recherchez _ *Log Analytics** sous **Tous les services** et sélectionnez **Espaces de travail Log Analytics**.
+1. Dans le portail Azure, recherchez **Log Analytics** sous **Tous les services** et sélectionnez **Espaces de travail Log Analytics**.
 
    ![Sélections permettant d’accéder aux espaces de travail Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Créer")
 
