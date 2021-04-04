@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92740014"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide des entités durables en .NET pour les développeurs
 
 Dans cet article, nous décrivons en détail les interfaces disponibles pour le développement d’entités durables avec .NET, notamment à l’aide d’exemples et de conseils généraux. 
 
-Les fonctions d’entité fournissent aux développeurs d’applications serverless un moyen pratique d’organiser l’état de l’application en tant que collection d’entités affinées. Pour plus d’informations sur les concepts sous-jacents, consultez l’article [Entités durables : Concepts](durable-functions-entities.md).
+Les fonctions d’entité fournissent aux développeurs d’applications serverless un moyen pratique d’organiser l’état de l’application en tant que collection d’entités affinées. Pour plus d’informations sur les concepts sous-jacents, consultez l’article [Entités durables : concepts](durable-functions-entities.md).
 
 Nous proposons deux API pour définir des entités :
 
@@ -67,7 +67,7 @@ public class Counter
 }
 ```
 
-La fonction `Run` contient le texte réutilisable nécessaire à l’utilisation de la syntaxe basée sur les classes. Il doit s’agir d’une fonction Azure *statique* . Elle s’exécute une fois pour chaque message d’opération traité par l’entité. Quand `DispatchAsync<T>` est appelé et que l’entité n’est pas déjà en mémoire, il construit un objet de type `T` et renseigne ses champs à partir du dernier JSON persistant trouvé dans le stockage (le cas échéant). Il appelle ensuite la méthode avec le nom correspondant.
+La fonction `Run` contient le texte réutilisable nécessaire à l’utilisation de la syntaxe basée sur les classes. Il doit s’agir d’une fonction Azure *statique*. Elle s’exécute une fois pour chaque message d’opération traité par l’entité. Quand `DispatchAsync<T>` est appelé et que l’entité n’est pas déjà en mémoire, il construit un objet de type `T` et renseigne ses champs à partir du dernier JSON persistant trouvé dans le stockage (le cas échéant). Il appelle ensuite la méthode avec le nom correspondant.
 
 > [!NOTE]
 > L’état d’une entité basée sur la classe est **créé implicitement** avant que l’entité ne traite une opération. Il peut être **supprimé explicitement** dans une opération via l’appel de `Entity.Current.DeleteState()`.
