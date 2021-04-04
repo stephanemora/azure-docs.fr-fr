@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute : Tables ARP - Dépannage : classique'
+title: 'Azure ExpressRoute : Tables ARP - Dépannage : classique'
 description: Cette page fournit des instructions sur l'obtention des tables ARP pour un circuit ExpressRoute - modèle de déploiement classique.
 services: expressroute
 author: duongau
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: duau
 ms.openlocfilehash: 7c83b6d25936e184c70d4bf0a51636a3986bf4b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89394837"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement classique

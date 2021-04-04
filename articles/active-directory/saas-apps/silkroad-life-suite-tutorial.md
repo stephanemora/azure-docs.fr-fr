@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 89d086ce136885e203e300f04bdbf3ade0affeb3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92516050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Didacticiel : Intégration d’Azure Active Directory à SilkRoad Life Suite
@@ -49,11 +49,11 @@ Pour configurer l’intégration de SilkRoad Life Suite dans Azure AD, vous dev
 
 **Pour ajouter SilkRoad Life Suite à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Pour configurer l’intégration de SilkRoad Life Suite dans Azure AD, vous dev
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **SilkRoad Life Suite** , sélectionnez **SilkRoad Life Suite** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **SilkRoad Life Suite**, sélectionnez **SilkRoad Life Suite** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![SilkRoad Life Suite dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SilkRoad Life Suite, avec un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SilkRoad Life Suite, avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, vous devez établir une relation entre l’utilisateur Azure AD et l’utilisateur SilkRoad Life Suite associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec SilkRoad Life Suite, vous devez suivre les indications des sections suivantes :
@@ -85,28 +85,28 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, effectuez les étapes suivantes :
 
-1. Sur le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **SilkRoad Life Suite** , sélectionnez **Authentification unique** .
+1. Sur le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **SilkRoad Life Suite**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , si vous disposez d’un **fichier de métadonnées du fournisseur de services** , suivez les étapes ci-dessous :
+4. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
 
     > [!NOTE]
     > Le **fichier de métadonnées du fournisseur de services** est expliqué plus loin dans ce tutoriel.
 
-    a. Cliquez sur **Charger un fichier de métadonnées** .
+    a. Cliquez sur **Charger un fichier de métadonnées**.
 
     ![Capture d’écran montrant la Configuration SAML de base avec le lien Charger un fichier de métadonnées.](common/upload-metadata.png)
 
-    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger** .
+    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
 
     ![Capture d’écran montrant une boîte de dialogue dans laquelle vous pouvez sélectionner et charger un fichier.](common/browse-upload-metadata.png)
 
@@ -117,20 +117,20 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
     > [!Note]
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
 
-    d. Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<subdomain>.silkroad-eng.com/Authentication/`.
+    d. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.silkroad-eng.com/Authentication/`.
 
-5. Dans la section **Configuration SAML de base** , si vous ne disposez pas d’un **fichier de métadonnées du fournisseur de services** , effectuez les étapes suivantes :
+5. Dans la section **Configuration SAML de base**, si vous ne disposez pas d’un **fichier de métadonnées du fournisseur de services**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL SilkRoad Life Suite](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL de connexion** , tapez une URL au format suivant : `https://<subdomain>.silkroad-eng.com/Authentication/`.
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.silkroad-eng.com/Authentication/`.
 
-    b. Dans la zone de texte **Identificateur** , tapez une URL au format suivant :
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
 
     - `https://<subdomain>.silkroad-eng.com/Authentication/SP`
     - `https://<subdomain>.silkroad.com/Authentication/SP`
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant :
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
 
     - `https://<subdomain>.silkroad-eng.com/Authentication/`
     - `https://<subdomain>.silkroad.com/Authentication/`
@@ -138,11 +138,11 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique SilkRoad Life Suite](https://www.silkroad.com/locations/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-7. Dans la section **Configurer SilkRoad Life Suite** , copiez la ou les URL appropriées en fonction de vos besoins.
+7. Dans la section **Configurer SilkRoad Life Suite**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -163,15 +163,15 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
 
     ![Capture d’écran affichant l’élément Federation Details sélectionné dans Service Provider.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
-1. Cliquez sur **Download Federation Metadata** (Télécharger les métadonnées de fédération), puis enregistrez le fichier de métadonnées sur votre ordinateur. Dans la section **Configuration SAML de base** du portail Azure, utilisez les métadonnées de fédération téléchargées pour le **fichier de métadonnées de fournisseur de services** .
+1. Cliquez sur **Download Federation Metadata**(Télécharger les métadonnées de fédération), puis enregistrez le fichier de métadonnées sur votre ordinateur. Dans la section **Configuration SAML de base** du portail Azure, utilisez les métadonnées de fédération téléchargées pour le **fichier de métadonnées de fournisseur de services**.
 
     ![Capture d’écran affichant le lien de téléchargement des métadonnées de fédération.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
-1. Dans votre application **SilkRoad** , cliquez sur **Authentication Sources** (Sources d’authentification).
+1. Dans votre application **SilkRoad**, cliquez sur **Authentication Sources** (Sources d’authentification).
 
     ![Capture d’écran montrant l’élément Authentication Sources sélectionné.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
-1. Cliquez sur **Add Authentication Source** (Ajouter une source d’authentification).
+1. Cliquez sur **Add Authentication Source**(Ajouter une source d’authentification).
 
     ![Capture d’écran montrant le lien d’ajout d’une source d’authentification.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
@@ -181,7 +181,7 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
   
     a. Sous **Option 2 - Metadata File** (Option 2 - Fichier de métadonnées), cliquez sur **Browse** (Parcourir) pour charger le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
   
-    b. Cliquez sur **Create Identity Provider using File Data** .
+    b. Cliquez sur **Create Identity Provider using File Data**.
 
 1. Dans la section **Authentication Sources** (Sources d’authentification), cliquez sur **Edit** (Modifier).
 
@@ -191,21 +191,21 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
 
     ![Capture d’écran montrant la boîte de dialogue Edit Authentication Source, dans laquelle vous pouvez entrer les valeurs décrites.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
-    a. Pour l’option **Enabled** , sélectionnez **Yes** .
+    a. Pour l’option **Enabled**, sélectionnez **Yes**.
 
-    b. Dans la zone de texte **EntityId** , collez la valeur de l’ **identificateur Azure AD** que vous avez copiée dans le portail Azure.
+    b. Dans la zone de texte **EntityId**, collez la valeur de l’**identificateur Azure AD** que vous avez copiée dans le portail Azure.
 
-    c. Dans la zone de texte **IdP Description** (Description IdP), entrez une description de votre configuration (par exemple : *Authentification unique Azure AD* ).
+    c. Dans la zone de texte **IdP Description** (Description IdP), entrez une description de votre configuration (par exemple : *Authentification unique Azure AD*).
 
     d. Dans la zone de texte **Metadata File** (Fichier de métadonnées), chargez le fichier de **métadonnées** que vous avez téléchargé à partir du portail Azure.
   
-    e. Dans la zone de texte **IdP Name** (Nom IdP), entrez un nom spécifique de votre configuration (par exemple : *Azure SP* ).
+    e. Dans la zone de texte **IdP Name** (Nom IdP), entrez un nom spécifique de votre configuration (par exemple : *Azure SP*).
   
-    f. Dans la zone de texte **Logout Service URL** (URL de service de déconnexion), collez l’ **URL de déconnexion** que vous avez copiée dans le portail Azure.
+    f. Dans la zone de texte **Logout Service URL** (URL de service de déconnexion), collez l’**URL de déconnexion** que vous avez copiée dans le portail Azure.
 
-    g. Dans la zone de texte **Sign-on service URL** (URL du service de connexion), collez l’ **URL de connexion** que vous avez copiée à partir du portail Azure.
+    g. Dans la zone de texte **Sign-on service URL** (URL du service de connexion), collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    h. Cliquez sur **Enregistrer** .
+    h. Cliquez sur **Enregistrer**.
 
 1. Désactivez toutes les autres sources d’authentification.
 
@@ -215,7 +215,7 @@ Pour configurer l’authentification unique Azure AD avec SilkRoad Life Suite, 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -227,40 +227,40 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez `brittasimon@yourcompanydomain.extension`  
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SilkRoad Life Suite.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **SilkRoad Life Suite** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **SilkRoad Life Suite**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **SilkRoad Life Suite** .
+2. Dans la liste des applications, sélectionnez **SilkRoad Life Suite**.
 
     ![Lien SilkRoad Life Suite dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-silkroad-life-suite-test-user"></a>Créer un utilisateur de test SilkRoad Life Suite
 

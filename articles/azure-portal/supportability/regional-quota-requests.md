@@ -7,13 +7,13 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: eadf740c6b5caccbf678a1238f993d4ec0b34095
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745415"
 ---
-# <a name="standard-quota-increase-limits-by-region"></a>Quota standard : augmenter les limites par région
+# <a name="standard-quota-increase-limits-by-region"></a>Quota standard : augmenter les limites par régions
 
 Azure Resource Manager prend en charge deux types de quotas de processeurs virtuels pour les machines virtuelles :
 
@@ -41,7 +41,7 @@ Vous pouvez demander une augmentation de la limite de quota standard des process
 
 Pour demander une augmentation des quotas de processeurs virtuels par région à partir de **Aide + support** :
 
-1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Aide + support**.
+1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Aide + support**.
 
    ![Lien « Aide et support »](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
