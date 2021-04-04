@@ -5,19 +5,19 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
 ms.openlocfilehash: 750232b19bd5ef0674a9df79fdf3972a679eda7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946792"
 ---
-# <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scénario : Erreur 502 de l’interface utilisateur Apache Ambari dans Azure HDInsight
+# <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scénario : erreur 502 de l’interface utilisateur Apache Ambari dans Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problème
 
-Lorsque vous essayez d’accéder à l’interface utilisateur Apache Ambari pour votre cluster HDInsight, vous recevez un message similaire à celui-ci : « 502 - Le serveur web a reçu une réponse non valide lors de son utilisation en tant que passerelle ou serveur proxy. »
+Lorsque vous essayez d’accéder à l’interface utilisateur Apache Ambari pour votre cluster HDInsight, vous recevez un message semblable à celui-ci : « 502 - Le serveur web a reçu une réponse erronée lors de son utilisation en tant que passerelle ou serveur proxy ».
 
 ## <a name="cause"></a>Cause
 

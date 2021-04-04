@@ -1,18 +1,18 @@
 ---
-title: 'Azure HDInsight : Exemples d’interface de ligne de commande Azure'
+title: 'Azure HDInsight : Exemples Azure CLI'
 description: Exemples Azure CLI pour les tâches couramment effectuées dans Azure HDInsight.
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946887"
 ---
-# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight : Exemples d’interface de ligne de commande Azure
+# <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight : Exemples Azure CLI
 
 > [!div class="op_single_selector"]
 > [Exemples .NET](hdinsight-sdk-dotnet-samples.md)
@@ -25,7 +25,7 @@ Cet article fournit des exemples de scripts pour les tâches courantes. Pour cha
 
 * Azure CLI. Pour connaître les étapes nécessaires, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli).
 
-* Facultatif : Bash. Les exemples de cet article utilisent l’interpréteur de commandes Bash sur Windows 10. Pour connaître les étapes d’installation, consultez [Guide d’installation de sous-systèmes Windows pour Linux sur Windows 10](/windows/wsl/install-win10).  Les exemples peuvent fonctionner dans l’invite de commandes Windows, après quelques modifications mineures.
+* Facultatif : Bash. Les exemples de cet article utilisent l’interpréteur de commandes Bash sur Windows 10. Pour connaître les étapes d’installation, consultez [Guide d’installation de sous-systèmes Windows pour Linux sur Windows 10](/windows/wsl/install-win10).  Les exemples peuvent fonctionner dans l’invite de commandes Windows, après quelques modifications mineures.
 
 ## <a name="az-login"></a>az login
 
