@@ -9,10 +9,10 @@ ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
 ms.openlocfilehash: e2b998432f6c4417da0242d86347ed43acb5071a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94968228"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importer et exporter un fichier de zone DNS en utilisant l’interface CLI Azure
@@ -54,14 +54,14 @@ Les remarques suivantes fournissent des informations techniques supplémentaires
 * La directive `$TTL` , facultative, est prise en charge. Quand aucune directive `$TTL` n’est spécifiée, les enregistrements sans durée de vie explicite sont importés avec une durée de vie de 3 600 secondes par défaut. Lorsque deux enregistrements du même jeu d’enregistrements spécifient des TTL différentes, la moindre valeur est utilisée.
 * La directive `$ORIGIN` , facultative, est prise en charge. Quand aucune directive `$ORIGIN` n’est définie, la valeur utilisée par défaut est le nom de zone tel qu’il est spécifié sur la ligne de commande (avec le point final).
 * Les directives `$INCLUDE` et `$GENERATE` ne sont pas prises en charge.
-* Les types d’enregistrements pris en charge sont les suivants : A, AAAA, CAA, CNAME, MX, NS, SOA, SRV et TXT.
+* Les types d’enregistrements A, AAAA, CAA, CNAME, MX, NS, SOA, SRV et TXT sont pris en charge.
 * L’enregistrement SOA est créé automatiquement par Azure DNS lors de la création d’une zone. Quand vous importez un fichier de zone, tous les paramètres SOA sont pris dans le fichier de zone, *sauf* le paramètre `host`. Ce paramètre utilise la valeur fournie par Azure DNS. Ce paramètre doit en effet faire référence au serveur de noms principal fourni par Azure DNS.
 * Le jeu d’enregistrements du serveur de noms, à l’extrémité de la zone, est créé automatiquement par Azure DNS au moment de la création de la zone. Seule la durée de vie de ce jeu d’enregistrements est importée. Ces enregistrements contiennent les noms de serveurs de nom fournis par Azure DNS. Les données d’enregistrement ne sont pas remplacées par les valeurs contenues dans le fichier de zone importé.
 * Pour la version préliminaire publique, Azure DNS prend uniquement en charge les enregistrements à chaîne unique. Les enregistrements TXT MultiString sont concaténés et tronqués à 255 caractères.
 
 ### <a name="cli-format-and-values"></a>Format et valeurs de l’interface CLI
 
-Le format de la commande de l’interface CLI Azure pour importer une zone DNS est :
+Le format de la commande de l’interface CLI Azure pour importer une zone DNS est : 
 
 ```azurecli
 az network dns zone import -g <resource group> -n <zone name> -f <zone file name>

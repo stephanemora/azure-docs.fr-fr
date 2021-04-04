@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
 ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610299"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Caractérisation de données dans le Machine Learning automatisé
@@ -65,11 +65,11 @@ Le tableau suivant récapitule les techniques appliquées automatiquement à vos
 
 |Étapes&nbsp;de caractérisation| Description |
 | ------------- | ------------- |
-|**Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance** _ |Supprime ces fonctionnalités des ensembles de formation et de validation. S’applique aux fonctionnalités dont toutes les valeurs sont manquantes, avec la même valeur sur toutes les lignes, ou avec une cardinalité élevée (par exemple, les codes de hachage, les ID, ou les GUID).|
-|_*Imputer des valeurs manquantes**_ |Pour les fonctionnalités numériques, remplacement par la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, remplacement par la valeur la plus fréquente.|
-|_*Générer plus de fonctionnalités**_ |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br><br> _Pour les tâches de prévision,* ces fonctionnalités DateHeure supplémentaires sont créées : Année ISO, Semestre - semestre, Mois civil comme chaîne, Semaine, Jour de la semaine comme chaîne, Jour du trimestre, Jour de l’année, AM/PM (0 si l’heure se situe avant midi (12 pm), sinon 1), AM/PM comme chaîne, Heure de la journée (base de 12 heures)<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes. En savoir plus sur [comment cela se passe avec BERT.](#bert-integration)|
-|**Transformer et encoder** _|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>L’encodage one-hot est utilisé pour les fonctionnalités catégoriques de faible cardinalité. L’encodage one-hot-hash est utilisé pour les fonctionnalités catégoriques de haute cardinalité.|
-|_ *Incorporations de mots**|Caractériseur de texte convertissant les vecteurs de jetons de texte en vecteurs de phrase à l’aide d’un modèle déjà formé. Le vecteur d’incorporation de chaque mot d’un document est agrégé avec le reste pour produire un vecteur de fonctionnalité de document.|
+|**Supprimer les caractéristiques de cardinalité élevée ou d’absence de variance*** |Supprime ces fonctionnalités des ensembles de formation et de validation. S’applique aux fonctionnalités dont toutes les valeurs sont manquantes, avec la même valeur sur toutes les lignes, ou avec une cardinalité élevée (par exemple, les codes de hachage, les ID, ou les GUID).|
+|**Imputer des valeurs manquantes*** |Pour les fonctionnalités numériques, remplacement par la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, remplacement par la valeur la plus fréquente.|
+|**Générer plus de fonctionnalités** _ |Pour les caractéristiques de type date/heure : Année, Mois, Jour, Jour de la semaine, Jour de l’année, Trimestre, Semaine de l’année, Heure, Minute, Seconde.<br><br> _Pour les tâches de prévision,* ces fonctionnalités DateHeure supplémentaires sont créées : Année ISO, Semestre - semestre, Mois civil comme chaîne, Semaine, Jour de la semaine comme chaîne, Jour du trimestre, Jour de l’année, AM/PM (0 si l’heure se situe avant midi (12 pm), sinon 1), AM/PM comme chaîne, Heure de la journée (base de 12 heures)<br/><br/>Pour les caractéristiques de type texte : Fréquence des termes basée sur les unigrammes, les bigrammes et les trigrammes. En savoir plus sur [comment cela se passe avec BERT.](#bert-integration)|
+|**Transformer et encoder***|Les fonctionnalités numériques avec très peu de valeurs uniques sont transformées en fonctionnalités catégorielles.<br/><br/>L’encodage one-hot est utilisé pour les fonctionnalités catégoriques de faible cardinalité. L’encodage one-hot-hash est utilisé pour les fonctionnalités catégoriques de haute cardinalité.|
+|**Incorporations de mots**|Caractériseur de texte convertissant les vecteurs de jetons de texte en vecteurs de phrase à l’aide d’un modèle déjà formé. Le vecteur d’incorporation de chaque mot d’un document est agrégé avec le reste pour produire un vecteur de fonctionnalité de document.|
 |**Distance de cluster**|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques. Génère de nouvelles fonctionnalités *k*, une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
 
 ## <a name="data-guardrails"></a>Garde-fous des données

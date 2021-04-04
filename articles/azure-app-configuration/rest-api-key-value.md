@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932555"
 ---
 # <a name="key-values"></a>Clés-valeurs
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|Correspond aux étiquettes qui commencent par **prod**|
 |`label=prod,test`|Correspond aux étiquettes **prod** ou **test** (limité à 5 CSV)|
 
-**_Caractères réservés_* _
+***Caractères réservés***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 Si un caractère réservé fait partie de la valeur, il doit être placé dans une séquence d’échappement à l’aide de `\{Reserved Character}`. Les caractères non réservés peuvent également être placés dans une séquence d’échappement.
 
-***Validation de filtre** _
+***Validation de filtre***
 
 Si une erreur de validation de filtre se produit, la réponse est HTTP `400` avec les détails de l’erreur :
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *Exemples**
+**Exemples**
 
 - Tous
 

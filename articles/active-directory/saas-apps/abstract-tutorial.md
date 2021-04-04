@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Abstract | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Abstract | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Abstract.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587806"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutoriel : Intégrer Abstract à Azure Active Directory
