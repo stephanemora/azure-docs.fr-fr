@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
 ms.openlocfilehash: 9ff64f57e61002101b4e2c560bdcd91863cc461e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91626951"
 ---
 # <a name="tutorial-import-and-publish-your-first-api"></a>Tutoriel : Importer et publier votre première API
@@ -51,7 +51,7 @@ Cette section montre comment importer et publier une API back-end de la spécifi
    :::image type="content" source="media/import-and-publish/create-api.png" alt-text="Création d'une API":::
 
 
-   |Paramètre|Value|Description|
+   |Paramètre|Valeur|Description|
    |-------|-----|-----------|
    |**Spécification OpenAPI**|*https:\//conferenceapi.azurewebsites.net?format=json*|Service qui implémente l’API. Gestion des API transmet les demandes à cette adresse.|
    |**Nom complet**|Une fois que vous avez entré l’URL de service précédente, le service Gestion des API remplit ce champ en fonction du contenu JSON.|Nom affiché dans le [portail des développeurs](api-management-howto-developer-portal.md).|

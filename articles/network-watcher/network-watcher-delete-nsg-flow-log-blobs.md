@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 1b73b8fa14271619d07fca63b01e4197f4f7c8cb
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98017848"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Supprimer les blobs de stockage pour les journaux de flux des groupes de sécurité réseau dans Network Watcher
@@ -126,9 +126,9 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
 ```
 
 1. Entrez les paramètres appropriés suivants dans le script :
-   - **SubscriptionId** [Obligatoire] : ID de l’abonnement duquel vous souhaitez supprimer les blobs des journaux de flux des groupes de sécurité réseau.
-   - **Location** [Obligatoire] : _chaîne d’emplacement_ de la région des groupes de sécurité réseau pour lesquels vous souhaitez supprimer les blobs de flux. Cette information est disponible sur le portail Azure ou sur [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Confirm** [Obligatoire] : passez l’indicateur Confirm si vous souhaitez confirmer manuellement la suppression de chaque blob de stockage.
+   - **SubscriptionId** [obligatoire] : ID de l’abonnement duquel vous souhaitez supprimer les blobs des journaux de flux des groupes de sécurité réseau.
+   - **Location** [obligatoire] : _chaîne d’emplacement_ de la région des groupes de sécurité réseau pour lesquels vous souhaitez supprimer les blobs de flux. Cette information est disponible sur le portail Azure ou sur [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Confirm** [facultatif] : passez l’indicateur Confirm si vous souhaitez confirmer manuellement la suppression de chaque blob de stockage.
 
 1. Exécutez le script enregistré comme dans l’exemple suivant où le fichier de script a été enregistré sous le nom **Delete-NsgFlowLogsBlobs.ps1** :
    ```

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: e10ca98e0c9257187288d02483ed81915a7b321d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92894718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Didacticiel : Intégration d’Azure Active Directory à Ziflow
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Ziflow dans Azure AD, vous devez ajouter Zif
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,7 +61,7 @@ Pour configurer l’intégration de Ziflow dans Azure AD, vous devez ajouter Zif
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Ziflow** , sélectionnez **Ziflow** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Ziflow**, sélectionnez **Ziflow** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Ziflow dans la liste des résultats](common/search-new-app.png)
 
@@ -89,30 +89,30 @@ Pour configurer l'authentification unique Azure AD auprès de Ziflow, procédez 
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Ziflow](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `urn:auth0:ziflow-production:<UniqueID>`
 
     > [!NOTE]
     > Les valeurs ci-dessus ne sont pas réelles. Vous allez remplacer l'ID unique dans Identificateur et URL de connexion par la valeur réelle. La procédure est expliquée plus loin dans le didacticiel.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Ziflow** , copiez les URL appropriées, selon vos besoins.
+6. Dans la section **Configurer Ziflow**, copiez les URL appropriées, selon vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -134,25 +134,25 @@ Pour configurer l'authentification unique Azure AD auprès de Ziflow, procédez 
 
     ![Configuration de Ziflow - Connexion](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-4. Sur la page **Authentification unique** , effectuez les opérations suivantes :
+4. Sur la page **Authentification unique**, effectuez les opérations suivantes :
 
     ![Configuration de Ziflow - Authentification unique](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
     a. Sélectionnez **Type** dans **SAML2.0**.
 
-    b. Dans la zone de texte **URL de connexion** , collez la valeur de l' **URL de connexion** que vous avez copiée à partir du portail Azure.
+    b. Dans la zone de texte **URL de connexion**, collez la valeur de l'**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     c. Téléchargez le certificat codé en base 64 que vous avez téléchargé à partir du portail Azure, dans le **Certificat de signature X509**.
 
-    d. Dans la zone de texte **URL de déconnexion** , collez la valeur de l' **URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte **URL de déconnexion**, collez la valeur de l'**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    e. Dans la section **Paramètres de configuration de votre fournisseur d'identificateur** , copiez l'ID unique en surbrillance et ajoutez-le à l'identificateur et à l'URL de connexion dans la section **Configuration SAML de base** du portail Azure.
+    e. Dans la section **Paramètres de configuration de votre fournisseur d'identificateur**, copiez l'ID unique en surbrillance et ajoutez-le à l'identificateur et à l'URL de connexion dans la section **Configuration SAML de base** du portail Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs**.
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -164,11 +164,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
 
@@ -176,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Ziflow.
 
-1. Sur le portail Azure, sélectionnez **Applications d'entreprise** , **Toutes les applications** , puis **Ziflow**.
+1. Sur le portail Azure, sélectionnez **Applications d'entreprise**, **Toutes les applications**, puis **Ziflow**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -188,15 +188,15 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer**.
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-ziflow-test-user"></a>Créer un utilisateur de test Ziflow
 
@@ -210,7 +210,7 @@ Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
     ![Configuration de Ziflow - Personnes](./media/ziflow-tutorial/tutorial_ziflow_people.png)
 
-3. Cliquez sur **Ajouter** , puis sur **Continuer**.
+3. Cliquez sur **Ajouter**, puis sur **Continuer**.
 
     ![Capture d’écran montrant l’option Add user sélectionnée.](./media/ziflow-tutorial/tutorial_ziflow_add.png)
 
@@ -218,11 +218,11 @@ Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
     ![Capture d’écran montrant la boîte de dialogue Add a user dans laquelle vous pouvez entrer les valeurs décrites.](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
-    a. Dans la zone de texte **E-mail** , entrez l’adresse e-mail de l’utilisateur, comme brittasimon@contoso.com.
+    a. Dans la zone de texte **E-mail**, entrez l’adresse e-mail de l’utilisateur, comme brittasimon@contoso.com.
 
-    b. Dans la zone de texte **Prénom** , saisissez le prénom de l’utilisateur, par exemple Britta.
+    b. Dans la zone de texte **Prénom**, saisissez le prénom de l’utilisateur, par exemple Britta.
 
-    c. Dans la zone de texte **Nom** , saisissez le nom de famille de l’utilisateur, par exemple Simon.
+    c. Dans la zone de texte **Nom**, saisissez le nom de famille de l’utilisateur, par exemple Simon.
 
     d. Sélectionnez votre rôle Ziflow.
 

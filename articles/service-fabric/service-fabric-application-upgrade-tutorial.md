@@ -4,10 +4,10 @@ description: Cet article vous présente l'expérience de déploiement d'une appl
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: acde2f4e51bee29d2eefb0d5fbb54fbe421a41f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95996234"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Didacticiel sur la mise à niveau d'une application Service Fabric à l'aide de Visual Studio
