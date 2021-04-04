@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92320568"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>Tutoriel : Envoyer des notifications vers des appareils spécifiques exécutant des applications de plateforme Windows universelle
@@ -49,7 +49,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivre le [Tutoriel : Envoyer des notifications à des applications de plateforme Windows universelle avec Azure Notification Hubs][get-started] avant de commencer ce tutoriel.  
+Terminez le [didacticiel : envoyer des notifications à des applications de plateforme Windows universelle à l’aide d’Azure Notification Hubs][get-started] avant de commencer ce didacticiel.  
 
 ## <a name="add-category-selection-to-the-app"></a>Ajout d’une sélection de catégories à l’application
 
@@ -81,7 +81,7 @@ La première étape consiste à ajouter des éléments d’interface utilisateur
     </Grid>
     ```
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter** > **Classe**. Sous **Ajouter un nouvel élément**, nommez la classe *Notifications* , puis sélectionnez **Ajouter**. Si nécessaire, ajoutez le modificateur `public` à la définition de la classe.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter** > **Classe**. Sous **Ajouter un nouvel élément**, nommez la classe *Notifications*, puis sélectionnez **Ajouter**. Si nécessaire, ajoutez le modificateur `public` à la définition de la classe.
 
 1. Ajoutez les instructions `using` suivantes au nouveau fichier :
 
@@ -197,7 +197,7 @@ Dans cette section, vous allez vous inscrire auprès du hub de notification au d
 1. Pour utiliser la classe `notifications` pour vous abonner en fonction des catégories, ouvrez le fichier *App.xaml.cs* et mettez à jour la méthode `InitNotificationsAsync`.
 
     ```csharp
-    // *** Remove or comment out these lines **_
+    // *** Remove or comment out these lines ***
     //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     //var hub = new NotificationHub("your hub name", "your listen connection string");
     //var result = await hub.RegisterNativeAsync(channel.Uri);

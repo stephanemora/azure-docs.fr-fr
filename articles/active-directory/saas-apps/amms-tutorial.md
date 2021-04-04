@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AMMS | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à AMMS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AMMS.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 4fdfe26104e4b69212b7bf6870582ef4cbb4de2b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318759"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutoriel : Intégration d’Azure Active Directory à AMMS
+# <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutoriel : Intégration d’Azure Active Directory à AMMS
 
 Dans ce tutoriel, vous allez apprendre à intégrer AMMS à Azure Active Directory (Azure AD).
 L’intégration d’AMMS à Azure AD vous offre les avantages suivants :
@@ -168,7 +168,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-amms-test-user"></a>Créer un utilisateur de test AMMS
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans AMMS. Collaborez avec l’ [équipe du support technique AMMS](mailto:techsupport@microwestsoftware.com) pour ajouter des utilisateurs dans la plateforme AMMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans AMMS. Collaborez avec l’[équipe du support technique AMMS](mailto:techsupport@microwestsoftware.com) pour ajouter les utilisateurs à la plateforme AMMS. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

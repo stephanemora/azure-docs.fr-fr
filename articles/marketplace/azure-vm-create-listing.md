@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94629595"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>Comment configurer les détails d’une liste d’offres de machines virtuelles
@@ -88,7 +88,7 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 ### <a name="logos"></a>Logos
 
-Fournissez un fichier PNG pour le logo de **Grande taille**. L'Espace partenaires l'utilisera pour créer un logo de **Petite taille**  et un logo de **Taille moyenne**. Ultérieurement, vous pourrez éventuellement les remplacer par d'autres images.
+Fournissez un fichier PNG pour le logo de **Grande taille**. L'Espace partenaires l'utilisera pour créer un logo de **Petite taille**  et un logo de **Taille moyenne**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
 
 - **Grande taille** (de 216 x 216 à 350 x 350 px, obligatoire)
 - **Taille moyenne** (90 x 90 px, facultatif)

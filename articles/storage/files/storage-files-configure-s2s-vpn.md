@@ -8,10 +8,10 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0fa3fb8040fd79d68f9260ab520d3b6823ab363d
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629289"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Configurer un VPN site à site pour une utilisation avec Azure Files
@@ -48,15 +48,15 @@ Dans la table des matières du portail Azure, sélectionnez **Créer une ressour
 
 Pour déployer une passerelle VPN Azure, vous devez renseigner les champs suivants :
 
-- **Name** : Nom de la ressource Azure pour la passerelle VPN. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
-- **Région** : Région dans laquelle la passerelle VPN sera déployée.
-- **Type de passerelle** : Pour déployer un VPN site à site, vous devez sélectionner **VPN**.
-- **Type de VPN** : Selon votre périphérique VPN, vous avez le choix entre *Basé sur itinéraires** ou **Basé sur des stratégies**. Les VPN basés sur itinéraires prennent en charge IKEv2, tandis que les VPN basés sur des stratégies prennent en charge uniquement IKEv1. Pour en savoir plus sur les deux types de passerelles VPN, voir [À propos des passerelles VPN basées sur le routage et les stratégies](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
-- **SKU** : La référence (SKU) contrôle le nombre de tunnels de site à site autorisés et les performances souhaitées du VPN. Pour sélectionner la référence (SKU) appropriée dans votre cas d’utilisation, consultez la liste des [références SKU de passerelle](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). La référence SKU de la passerelle VPN peut être modifiée ultérieurement si nécessaire.
-- **Réseau virtuel** : Réseau virtuel que vous avez créé dans la section précédente.
-- **Adresse IP publique** : Adresse IP de la passerelle VPN qui sera exposée à Internet. Il est probable que vous deviez créer une adresse IP, mais vous pouvez également utiliser une adresse IP inutilisée existante si cela est approprié. Si vous sélectionnez **Créer nouveau**, une nouvelle ressource Azure d’adresse IP est créée dans le même groupe de ressources que la passerelle VPN, et le **nom de l’adresse IP publique** est celui de l’adresse IP nouvellement créée. Si vous sélectionnez **Utiliser l’existante**, vous devez sélectionner l’adresse IP inutilisée existante.
-- **Activer le mode actif/actif** : Ne sélectionnez **Activée** que si vous créez une configuration de passerelle active/active. Autrement, conservez la sélection **Désactivée**. Pour en savoir plus sur le mode actif/actif, voir [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](../../vpn-gateway/vpn-gateway-highlyavailable.md).
-- **Configurer un ASN BGP** : Ne sélectionnez **Activée** que si votre configuration requiert spécifiquement ce paramètre. Pour en savoir plus sur ce paramètre, voir [À propos du protocole BGP avec la passerelle VPN Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Nom** : le nom de la ressource Azure pour la passerelle VPN. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
+- **Région** : la région dans laquelle la passerelle VPN sera déployée.
+- **Type de passerelle** : dans le but de déployer un VPN site à site, vous devez sélectionner **VPN**.
+- **Type de VPN** : selon votre périphérique VPN, vous avez le choix entre *Basé sur itinéraires** ou **Basé sur des stratégie** s. Les VPN basés sur itinéraires prennent en charge IKEv2, tandis que les VPN basés sur des stratégies prennent en charge uniquement IKEv1. Pour en savoir plus sur les deux types de passerelles VPN, voir [À propos des passerelles VPN basées sur le routage et les stratégies](../../vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md#about)
+- **SKU** : la référence SKU contrôle le nombre de tunnels de site à site autorisés et les performances souhaitées du VPN. Pour sélectionner la référence (SKU) appropriée dans votre cas d’utilisation, consultez la liste des [références SKU de passerelle](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku). La référence SKU de la passerelle VPN peut être modifiée ultérieurement si nécessaire.
+- **Réseau virtuel** : le réseau virtuel créé à l’étape précédente.
+- **Adresse IP publique** : l’adresse IP de la passerelle VPN qui sera exposée à Internet. Il est probable que vous deviez créer une adresse IP, mais vous pouvez également utiliser une adresse IP inutilisée existante si cela est approprié. Si vous sélectionnez **Créer nouveau**, une nouvelle ressource Azure d’adresse IP est créée dans le même groupe de ressources que la passerelle VPN, et le **nom de l’adresse IP publique** est celui de l’adresse IP nouvellement créée. Si vous sélectionnez **Utiliser l’existante**, vous devez sélectionner l’adresse IP inutilisée existante.
+- **Activer le mode active-active** : ne sélectionnez **Activé** que si vous créez une configuration de passerelle active/active. Autrement, conservez la sélection **Désactivée** cochée. Pour en savoir plus sur le mode actif/actif, voir [Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels](../../vpn-gateway/vpn-gateway-highlyavailable.md).
+- **Configurer l’ASN BGP** : ne sélectionnez **Activé** que si votre configuration requiert spécifiquement ce paramètre. Pour en savoir plus sur ce paramètre, voir [À propos du protocole BGP avec la passerelle VPN Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 Sélectionnez **Vérifier + créer** pour créer la passerelle VPN. La création et le déploiement complets d’une passerelle VPN peuvent prendre jusqu’à 45 minutes.
 
@@ -65,13 +65,13 @@ Une passerelle de réseau local est une ressource Azure représentant votre appl
 
 Pour le déploiement de la ressource de passerelle de réseau local, vous devez renseigner les champs suivants :
 
-- **Name** : Nom de la ressource Azure pour la passerelle de réseau local. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
-- **Adresse IP** : Adresse IP publique de votre passerelle locale.
-- **Espace d’adressage** : Plage d’adresses du réseau que cette passerelle de réseau local représente. Vous pouvez ajouter plusieurs plages d’espace d’adressage, mais vous devez vous assurer que les plages que vous spécifiez ici ne se chevauchent pas avec des plages ou autres réseaux auxquels vous souhaitez vous connecter. 
-- **Configurer les paramètres BGP** : Ne configurez les paramètres BGP que si votre configuration en a besoin. Pour en savoir plus sur ce paramètre, voir [À propos du protocole BGP avec la passerelle VPN Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
-- **Abonnement**: Abonnement souhaité. Ce ne doit pas nécessairement être l’abonnement utilisé pour la passerelle VPN ou le compte de stockage.
-- **Groupe de ressources** : Groupe de ressources souhaité. Ce ne doit pas nécessairement être le groupe de ressources utilisé pour la passerelle VPN ou le compte de stockage.
-- **Emplacement** : Région Azure dans laquelle la ressource de passerelle de réseau local doit être créée. Ce doit être la région que vous avez sélectionnée pour la passerelle VPN et le compte de stockage.
+- **Nom** : le nom de la ressource Azure pour la passerelle du réseau local. Vous pouvez choisir n’importe quel nom que vous jugez utile pour votre gestion.
+- **Adresse IP** : l’adresse IP publique de votre passerelle locale.
+- **Espace d’adresse** : plages d’adresses du réseau que cette passerelle de réseau local représente. Vous pouvez ajouter plusieurs plages d’espace d’adressage, mais vous devez vous assurer que les plages que vous spécifiez ici ne se chevauchent pas avec des plages ou autres réseaux auxquels vous souhaitez vous connecter. 
+- **Configurer des paramètres BGP** : ne configurez les paramètres BGP que si votre configuration en a besoin. Pour en savoir plus sur ce paramètre, voir [À propos du protocole BGP avec la passerelle VPN Azure](../../vpn-gateway/vpn-gateway-bgp-overview.md).
+- **Abonnement** : abonnement souhaité. Ce ne doit pas nécessairement être l’abonnement utilisé pour la passerelle VPN ou le compte de stockage.
+- **Groupe de ressources** : groupe de ressources souhaité. Ce ne doit pas nécessairement être le groupe de ressources utilisé pour la passerelle VPN ou le compte de stockage.
+- **Emplacement** : région Azure dans laquelle la ressource de passerelle de réseau local doit être créée. Ce doit être la région que vous avez sélectionnée pour la passerelle VPN et le compte de stockage.
 
 Sélectionnez **Créer** pour créer la ressource de passerelle de réseau local.  
 
@@ -81,13 +81,13 @@ Les étapes spécifiques pour configurer votre appliance de réseau local varien
 ## <a name="create-the-site-to-site-connection"></a>Créer la connexion de site à site
 Pour terminer le déploiement d’un VPN S2S, vous devez créer une connexion entre votre appliance de réseau local (représentée par la ressource de passerelle de réseau local) et la passerelle VPN. Pour ce faire, accédez à la passerelle VPN que vous avez créée ci-dessus. Dans la table des matières de la passerelle VPN, sélectionnez **Connexions**, puis cliquez sur **Ajouter**. Dans le volet **Ajouter une connexion** qui s’affiche, vous devez renseigner les champs suivants :
 
-- **Name** : Le nom de la connexion. Une passerelle VPN pouvant héberger plusieurs connexions, choisissez un nom utile pour votre gestion, qui distingue cette connexion particulière.
-- **Type de connexion** : Étant donné qu’il s’agit d’une connexion S2S, sélectionnez **Site à site (IPsec)** dans la liste déroulante.
-- **Passerelle de réseau virtuel** : Ce champ est sélectionné automatiquement pour la passerelle VPN à laquelle vous établissez la connexion et ne peut pas être modifié.
-- **Passerelle de réseau local** : Il s’agit de la passerelle de réseau local que vous souhaitez connecter à votre passerelle VPN. Le volet de sélection qui s’affiche devrait avoir le nom de la passerelle de réseau local que vous avez créée ci-dessus.
-- **Clé partagée** : Combinaison de lettres et de chiffres utilisée pour établir le chiffrement de la connexion. La même clé partagée doit être utilisée à la fois dans le réseau virtuel et les passerelles de réseau local. Si votre périphérique de passerelle n’en fournit pas, vous pouvez en créer un ici et le fournir à votre périphérique.
+- **Nom** : nom de la connexion. Une passerelle VPN pouvant héberger plusieurs connexions, choisissez un nom utile pour votre gestion, qui distingue cette connexion particulière.
+- **Type de connexion** : étant donné qu’il s’agit d’une connexion S2S, sélectionnez **Site à site (IPsec)** dans la liste déroulante.
+- **Passerelle réseau virtuel** : ce champ est sélectionné automatiquement pour la passerelle VPN à laquelle vous établissez la connexion et ne peut pas être modifié.
+- **Passerelle réseau local** : il s’agit de la passerelle réseau local que vous souhaitez connecter à votre passerelle VPN. Le volet de sélection qui s’affiche devrait avoir le nom de la passerelle de réseau local que vous avez créée ci-dessus.
+- **Clé partagée** : combinaison de lettres et de chiffres utilisée pour établir le chiffrement de la connexion. La même clé partagée doit être utilisée à la fois dans le réseau virtuel et les passerelles de réseau local. Si votre périphérique de passerelle n’en fournit pas, vous pouvez en créer un ici et le fournir à votre périphérique.
 
-Sélectionnez **OK** pour créer la connexion. Vous pouvez vérifier que la connexion a été correctement établie via la page **Connexions**.
+Sélectionnez **OK** pour établir la connexion. Vous pouvez vérifier que la connexion a été correctement établie via la page **Connexions**.
 
 ## <a name="mount-azure-file-share"></a>Monter le partage de fichiers Azure 
 La dernière étape de la configuration d’un VPN S2S consiste à vérifier qu’elle fonctionne pour Azure Files. Pour ce faire, vous pouvez monter votre partage de fichiers Azure en local avec votre système d’exploitation préféré. Consultez les instructions de montage correspondant au système d’exploitation ici :
