@@ -4,10 +4,10 @@ description: Cet article fournit des informations sur l’authentification d’u
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92518226"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus

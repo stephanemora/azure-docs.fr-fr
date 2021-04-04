@@ -4,10 +4,10 @@ description: Décrit comment résoudre les erreurs de modèle non valide quand v
 ms.topic: troubleshooting
 ms.date: 05/22/2020
 ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185791"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
