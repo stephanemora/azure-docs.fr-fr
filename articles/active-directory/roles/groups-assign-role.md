@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742945"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Attribuer un rôle à un groupe de Cloud dans Azure Active Directory
@@ -32,7 +32,7 @@ L’attribution d’un groupe à un rôle Azure AD est similaire à l’affectat
 
 1. Sélectionnez **Azure Active Directory** > **rôles et administrateurs**, puis sélectionnez le rôle que vous souhaitez attribuer.
 
-1. Sur la page **_nom du rôle_ *_, sélectionnez > _* Ajouter une affectation**.
+1. Sur la page ***nom du rôle** _, sélectionnez > _*Ajouter une affectation**.
 
    ![Ajouter la nouvelle affectation de rôle](./media/groups-assign-role/add-assignment.png)
 
