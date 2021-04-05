@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: fb597cc71d228a1daaaa4e52d76b301764ff9292
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899301"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Surveiller l’activité de VMware Solution by CloudSimple
@@ -50,9 +50,9 @@ Les colonnes d’informations suivantes sont disponibles pour les alertes. Cliqu
 ------------ | ------------- |
 | Type d’alerte | Catégorie de l’alerte.|
 | Temps | Heure à laquelle l’alerte s’est produite. |
-| severity | Signification de l’alerte.|
+| Gravité | Signification de l’alerte.|
 | Nom de la ressource | Nom affecté à la ressource, tel que le nom du cloud privé. |
-| Type de ressource | Catégorie de la ressource : Cloud privé, rack de cloud. |
+| Type de ressource | Catégorie de ressource : cloud privé, rack cloud. |
 | ID de ressource | Identificateur de la ressource. |
 | Description | Description de ce qui a déclenché l’alerte. |
 | Reconnu | Indique si la réception de l’alerte a été confirmée. |
@@ -67,9 +67,9 @@ Les colonnes d’informations suivantes sont disponibles pour les alertes. Cliqu
 ------------ | ------------- |
 | Temps | Date et heure auxquelles l’événement s’est produit. |
 | Type d'événement | Code numérique identifiant l’événement. |
-| severity | Gravité de l'événement.|
+| Gravité | Gravité de l'événement.|
 | Nom de la ressource | Nom affecté à la ressource, tel que le nom du cloud privé. |
-| Type de ressource | Catégorie de la ressource : Cloud privé, rack de cloud. |
+| Type de ressource | Catégorie de ressource : cloud privé, rack cloud. |
 | Description | Description de ce qui a déclenché l’alerte. |
 
 ## <a name="tasks"></a>Tâches
@@ -84,7 +84,7 @@ Les colonnes d’informations suivantes sont disponibles pour les alertes. Cliqu
 | Opération | Action exécutée par la tâche. |
 | Utilisateur | Utilisateur affecté pour terminer la tâche. |
 | Nom de la ressource | Nom attribué à la ressource. |
-| Type de ressource | Catégorie de la ressource : Cloud privé, rack de cloud. |
+| Type de ressource | Catégorie de ressource : cloud privé, rack cloud. |
 | ID de ressource | Identificateur de la ressource. |
 | Démarrer | Heure de début de la tâche. |
 | End | Heure de fin de la tâche. |
@@ -104,7 +104,7 @@ Les colonnes d’informations suivantes sont disponibles pour les alertes. Cliqu
 | Opération | Action exécutée par la tâche. |
 | Utilisateur | Utilisateur à qui la tâche est affectée. |
 | Nom de la ressource | Nom attribué à la ressource. |
-| Type de ressource | Catégorie de la ressource : Cloud privé, rack de cloud. |
+| Type de ressource | Catégorie de ressource : cloud privé, rack cloud. |
 | ID de ressource | Identificateur de la ressource. |
 | Résultats | Résultat de l’activité, par exemple **Réussie**. |
 | Durée | Durée d’exécution de la tâche. |

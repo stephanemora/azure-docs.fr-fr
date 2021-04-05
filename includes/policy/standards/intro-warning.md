@@ -6,10 +6,10 @@ ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
 ms.openlocfilehash: 640a70c2bb419e65620c19f6dc986b0c602bf1e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "89481691"
 ---
 Le titre de chaque définition de stratégie intégrée est un lien vers la définition de la stratégie dans le portail Azure. Utilisez le lien de la colonne **Version de la stratégie** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy).

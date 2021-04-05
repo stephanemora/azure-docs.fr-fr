@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3fedfbe55fd8ea3d2b4cc910df631e40bc74e210
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899063"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Connecter un réseau virtuel Azure à CloudSimple à l’aide d’ExpressRoute
@@ -23,12 +23,12 @@ Vous pouvez étendre le réseau de votre cloud privé à votre réseau virtuel e
 
 Une clé d’autorisation est requise pour connecter ExpressRoute à votre cloud privé et à votre réseau virtuel Azure. Pour obtenir une clé, envoyer un ticket avec <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">Support</a>.  Utilisez les informations suivantes dans votre demande :
 
-* Type de problème : **Technique**
+* Type de problème : **Technique**
 * Abonnement : **Sélectionnez l’abonnement dans lequel le service CloudSimple est déployé**
-* Service : **VMware Solution by CloudSimple**
+* Service : **Solution VMware par CloudSimple**
 * Type de problème : **Demande de service**
-* Sous-type de problème : **Clé d’autorisation pour la connexion au réseau virtuel Azure**
-* Objet : **Demande de clé d’autorisation pour la connexion au réseau virtuel Azure**
+* Sous-type de problème : **Clé d’autorisation pour la connexion au réseau virtuel Azure**
+* Objet : **Demande de clé d’autorisation pour la connexion au réseau virtuel Azure**
 
 ## <a name="get-peering-information-from-cloudsimple-portal"></a>Recevoir des informations de peering à partir du portail CloudSimple
 

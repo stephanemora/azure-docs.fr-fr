@@ -8,10 +8,10 @@ ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 383b5bb5c7295fe54efda883e47b9b2338286de5
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624723"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Prise en charge des zones de disponibilité pour les environnements App Service
@@ -49,9 +49,9 @@ Les applications déployées sur un ASE ILB zonal continuent à s’exécuter et
 
 Les ASE ILB zonaux doivent être créés à l’aide de modèles ARM. Une fois qu’un ASE ILB zonal est créé via un modèle ARM, vous pouvez l’afficher et interagir avec via le portail Azure et l’interface CLI.  Un modèle ARM n’est nécessaire que pour la création initiale d’un ASE ILB zonal.
 
-La seule modification nécessaire dans un modèle ARM pour spécifier un environnement ASE ILB zonal est la nouvelle propriété ***zones** _. La propriété _*_zones_*_ doit être définie sur la valeur « 1 », « 2 » ou « 3 » selon la zone de disponibilité logique dans laquelle l’environnement ASE ILB doit être épinglé.
+La seule modification nécessaire dans un modèle ARM pour spécifier un environnement ASE ILB zonal est la nouvelle propriété ***zones** _. La propriété _ *_zones_** doit être définie sur la valeur « 1 », « 2 » ou « 3 » selon la zone de disponibilité logique à laquelle l’environnement ASE ILB doit être épinglé.
 
-L’exemple d’extrait de modèle ARM ci-dessous montre la nouvelle propriété _*_zones_*_ spécifiant que l’environnement ASE ILB doit être épinglé à la zone 2.
+L’exemple d’extrait de modèle ARM ci-dessous montre la nouvelle propriété ***zones*** spécifiant que l’ASE ILB doit être épinglé à la zone 2.
 
 ```
    "resources": [
@@ -89,6 +89,6 @@ Les clients garantissent la résidence des données dans une région unique en s
 
 Les clients peuvent valider qu’un App Service Environment est correctement configuré pour stocker des données dans une seule région en procédant comme suit : 
 
-1. Dans l’[Explorateur de ressources](https://resources.azure.com), accédez à la ressource ARM pour App Service Environment.  Les environnements ASE sont répertoriés sous _providers/Microsoft.Web/hostingEnvironments*.
+1. Dans l’[Explorateur de ressources](https://resources.azure.com), accédez à la ressource ARM pour App Service Environment.  Les ASE sont répertoriés sous *providers/Microsoft.Web/hostingEnvironments*.
 2. Si une propriété *zones* existe dans la vue de la syntaxe JSON ARM et qu’elle contient un tableau JSON à valeur unique avec la valeur « 1 », « 2 » ou « 3 », l’ASE est déployé par zone et les données client restent dans la même région.
 2. Si aucune propriété *zones* n’est présente ou si la propriété n’a pas de valeur de zone valide comme indiqué précédemment, l’ASE n’est pas déployé de manière zonale et les données client ne sont pas exclusivement stockées dans la même région.
