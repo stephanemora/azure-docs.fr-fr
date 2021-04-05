@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013540"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
@@ -127,7 +127,7 @@ Le widget **Formulaire d’inscription : OAuth** représente un formulaire util
 ## <a name="next-steps"></a>Étapes suivantes
 
 *  [Vue d’ensemble d’Azure Active Directory B2C]
-*  [Azure Active Directory B2C : Structure de stratégie extensible]
+*  [Azure Active Directory B2C : infrastructure de stratégie extensible]
 *  [Utiliser un compte Microsoft comme fournisseur d’identité dans Azure Active Directory B2C]
 *  [Utiliser un compte Google comme fournisseur d’identité dans Azure Active Directory B2C]
 *  [Utiliser un compte LinkedIn comme fournisseur d’identité dans Azure Active Directory B2C]
@@ -196,7 +196,7 @@ Le widget **Formulaire d’inscription : OAuth** représente un formulaire util
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [Vue d’ensemble d’Azure Active Directory B2C]: ../active-directory-b2c/overview.md
 [Comment autoriser des comptes de développeurs avec Azure Active Directory]: ./api-management-howto-aad.md
-[Azure Active Directory B2C : Structure de stratégie extensible]: ../active-directory-b2c/user-flow-overview.md
+[Azure Active Directory B2C : infrastructure de stratégie extensible]: ../active-directory-b2c/user-flow-overview.md
 [Utiliser un compte Microsoft comme fournisseur d’identité dans Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-microsoft-account.md
 [Utiliser un compte Google comme fournisseur d’identité dans Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-google.md
 [Utiliser un compte Facebook comme fournisseur d’identité dans Azure Active Directory B2C]: ../active-directory-b2c/identity-provider-facebook.md

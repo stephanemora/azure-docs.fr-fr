@@ -15,15 +15,15 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 9b19beae43f1d4a5b0788d9d7662828355c3dd2c
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895884"
 ---
 # <a name="what-is-azure-network-watcher"></a>Présentation d’Azure Network Watcher
 
-Azure Network Watcher offre des outils permettant d’effectuer un monitoring et des diagnostics, d’afficher les métriques et d’activer et de désactiver les journaux d’activité pour les ressources se trouvant sur un réseau virtuel Azure. Network Watcher est conçu pour superviser et réparer l’intégrité réseau des produits IaaS (infrastructure as a service), y compris les machines virtuelles, les réseaux virtuels, les passerelles d’application, les équilibreurs de charge, etc. Remarque : Il n’est ni conçu ni utilisable pour la supervision PaaS ou l’analytique web. 
+Azure Network Watcher offre des outils permettant d’effectuer un monitoring et des diagnostics, d’afficher les métriques et d’activer et de désactiver les journaux d’activité pour les ressources se trouvant sur un réseau virtuel Azure. Network Watcher est conçu pour superviser et réparer l’intégrité réseau des produits IaaS (infrastructure as a service), y compris les machines virtuelles, les réseaux virtuels, les passerelles d’application, les équilibreurs de charge, etc. Remarque : il n’est ni conçu ni utilisable pour la supervision PaaS ou l’analytique web. 
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -89,7 +89,7 @@ Ces informations sont utiles pour planifier les futurs déploiements de ressourc
 
 Les Groupes de sécurité réseau (NSG) autorisent ou refusent le trafic entrant ou sortant vers une interface réseau dans une machine virtuelle. La fonctionnalité de *journal des flux NSG* permet de consigner l’adresse IP source et de destination, le port et le protocole, et d’indiquer si le trafic a été autorisé ou refusé par un Groupe de sécurité réseau. Pour analyser les journaux d’activité, vous pouvez utiliser différents outils, par exemple, Power BI et la fonctionnalité *d’analyse de trafic*. L’analyse de trafic offre de riches visualisations des données écrites dans les journaux de flux NSG. L’illustration suivante montre certaines des informations et des visualisations présentées par l’analyse de trafic à partir de données de journal de flux NSG :
 
-![Traffic Analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+![Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
 Pour en savoir plus sur les journaux de flux NSG, complétez le tutoriel [Enregistrer le trafic réseau vers et depuis une machine virtuelle](network-watcher-nsg-flow-logging-portal.md), et découvrez comment implémenter l’[analyse du trafic](traffic-analytics.md).
 
@@ -98,7 +98,7 @@ Pour en savoir plus sur les journaux de flux NSG, complétez le tutoriel [Enregi
 Il est possible d’activer la journalisation des diagnostics pour des ressources réseau Azure, par exemple, des groupes de sécurité réseau, des adresses IP publiques, des équilibreurs de charge, des passerelles de réseau virtuel et des passerelles d’application. La fonctionnalité de *journaux de diagnostic* permet d’activer et de désactiver les journaux de diagnostic de n’importe quelle ressource réseau qui en génère, au sein d’une même interface. Pour afficher les journaux de diagnostic, vous pouvez utiliser des outils comme Microsoft Power BI et les journaux Azure Monitor. Pour plus d’informations sur l’analyse des journaux de diagnostic réseau Azure, consultez [Solutions réseau Azure dans les journaux Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Activation automatique de Network Watcher
-Lorsque vous créez ou mettez à jour un réseau virtuel dans votre abonnement, Network Watcher sera automatiquement activé dans la région de votre réseau virtuel. L’activation automatique de Network Watcher n’a aucun impact sur vos ressources ni sur les frais associés. Pour plus d’informations, consultez [Créer une instance Network Watcher](network-watcher-create.md).
+Lorsque vous créez ou que vous mettez à jour un réseau virtuel dans votre abonnement, Network Watcher est activé automatiquement dans la région de votre réseau virtuel. L’activation automatique de Network Watcher n’a aucun impact sur vos ressources ni sur les coûts associés. Pour plus d’informations, consultez [Créer une instance Network Watcher](network-watcher-create.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
