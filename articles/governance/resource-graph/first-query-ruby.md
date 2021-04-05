@@ -4,10 +4,10 @@ description: Dans ce guide de démarrage rapide, vous suivez les étapes pour ac
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 41769359eaa1f930d34b0a182f35da38a6f5109d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920035"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de Ruby

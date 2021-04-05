@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94365565"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
@@ -26,7 +26,7 @@ Les récompenses sont envoyées à Personalizer par l’[API Reward](/rest/api/c
 
 Les récompenses sont envoyées une fois que le comportement de l’utilisateur a eu lieu, parfois plusieurs jours plus tard. La configuration du délai maximal après lequel Personalizer considère qu’un événement ne reçoit aucune récompense ou reçoit une récompense par défaut s’effectue avec le [Temps d’attente des récompenses](#reward-wait-time) dans le portail Azure.
 
-Si le score de récompense pour un événement n’a pas été reçu dans le **Temps d’attente des récompenses** , la **récompense par défaut** est appliquée. En règle générale, la **[récompense par défaut](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** est configurée sur zéro.
+Si le score de récompense pour un événement n’a pas été reçu dans le **Temps d’attente des récompenses**, la **récompense par défaut** est appliquée. En règle générale, la **[récompense par défaut](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** est configurée sur zéro.
 
 
 ## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportements et données à prendre en compte pour les récompenses
@@ -72,8 +72,8 @@ Vous pouvez également appeler l’API Reward en utilisant le même ID d’évé
 
 Valeurs d’agrégation :
 
-*  **First**  : prend le premier score de récompense reçu pour l’événement et ignore le reste.
-* **Sum**  : prend tous les scores de récompense collectés pour l’ID d’événement et les additionne.
+*  **Premièrement** : prend le premier score de récompense reçu pour l’événement et ignore le reste.
+* **Somme** : prend tous les scores de récompense collectés pour l’ID d’événement et les additionne.
 
 Toutes les récompenses pour un événement, qui sont reçues une fois que le **Temps d’attente des récompenses** s’est écoulé, sont ignorées et n’affectent pas l’apprentissage des modèles.
 
@@ -81,15 +81,15 @@ En additionnant les scores de récompense, votre récompense finale peut se trou
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Meilleures pratiques pour le calcul du score de récompense
 
-* **Prendre en compte les réels indicateurs d’une personnalisation réussie** : il est facile de raisonner en termes de clics, mais une bonne récompense repose sur ce que vous souhaitez que vos utilisateurs *réalisent* et non sur ce que vous souhaitez que les personnes *fassent*.  Par exemple, offrir des récompenses en cas de clics peut entraîner la sélection d’un contenu « piège à clics ».
+* **Considérez les vrais indicateurs de la personnalisation réussie** : il est facile de raisonner en termes de clics, mais une bonne récompense repose sur ce que vous souhaitez que vos utilisateurs *réalisent* et non sur ce que vous souhaitez que les personnes *fassent*.  Par exemple, offrir des récompenses en cas de clics peut entraîner la sélection d’un contenu « piège à clics ».
 
-* **Utiliser un score de récompense pour la qualité du fonctionnement de la personnalisation** : avec un peu de chance, la personnalisation d’une suggestion de film a pour effet que l’utilisateur regarde le film et lui accorde une note élevée. Étant donné que la classification des films dépend de nombreuses choses (la qualité de l’action, l’humeur de l’utilisateur), cela n’est pas un bon indicateur du bon fonctionnement de la *personnalisation*. Toutefois, si un utilisateur regarde les premières minutes du film, cela peut constituer un meilleur signal de l’efficacité de la personnalisation. Et l’envoi d’une récompense de 1 au bout de 5 minutes représentera un signal encore meilleur.
+* **Utiliser une récompense sur la qualité de la personnalisation** : avec un peu de chance, la personnalisation d’une suggestion de film donne envie à l’utilisateur de regarder le film et de lui accorder une note élevée. Étant donné que la classification des films dépend de nombreuses choses (la qualité de l’action, l’humeur de l’utilisateur), cela n’est pas un bon indicateur du bon fonctionnement de la *personnalisation*. Toutefois, si un utilisateur regarde les premières minutes du film, cela peut constituer un meilleur signal de l’efficacité de la personnalisation. Et l’envoi d’une récompense de 1 au bout de 5 minutes représentera un signal encore meilleur.
 
-* **Les récompenses s’appliquent uniquement aux RewardActionID** : Personalizer applique les récompenses pour comprendre l’efficacité de l’action spécifiée dans RewardActionID. Si vous choisissez d’afficher les autres actions et que l’utilisateur clique dessus, la récompense doit être de zéro.
+* **Les récompenses ne s’appliquent qu’aux RewardActionID** : le Personalizer applique les récompenses pour comprendre l’efficacité de l’action spécifiée dans RewardActionID. Si vous choisissez d’afficher les autres actions et que l’utilisateur clique dessus, la récompense doit être de zéro.
 
-* **Envisager les conséquences inattendues** : créez des fonctions de récompense qui aboutissent à des résultats responsables avec une [déontologie et une utilisation responsable](ethics-responsible-use.md).
+* [Prendre en considération les conséquences imprévues](ethics-responsible-use.md) : créez des fonctions de récompense qui aboutissent à des résultats responsables avec une **déontologie et une utilisation responsable**.
 
-* **Utiliser les récompenses incrémentielles** : l’ajout de récompenses partielles pour les comportements utilisateur moins significatifs permet à Personalizer d’obtenir de meilleure récompenses. Cette récompense incrémentielle permet à l’algorithme de savoir qu’il est sur le point d’inciter l’utilisateur à avoir le comportement souhaité.
+* **Utiliser des récompenses incrémentielles** : l’ajout de récompenses partielles pour les comportements utilisateur moins significatifs permet à Personalizer d’obtenir de meilleures récompenses. Cette récompense incrémentielle permet à l’algorithme de savoir qu’il est sur le point d’inciter l’utilisateur à avoir le comportement souhaité.
     * Si vous affichez une liste de films, si l’utilisateur pointe sur le premier film pendant un certain temps pour voir plus d’informations, vous pouvez déterminer que l’utilisateur a manifesté un certain engagement. Le comportement peut compter avec un score de récompense de 0,1.
     * Si l’utilisateur a ouvert la page puis l’a fermée, le score de récompense peut être 0,2.
 

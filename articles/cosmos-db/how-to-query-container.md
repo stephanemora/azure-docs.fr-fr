@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
 ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335889"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Interroger un conteneur Azure Cosmos
@@ -59,9 +59,9 @@ Les kits SDK Azure Cosmos DB 1.9.0 (et versions ultérieures) prennent en charg
 
 Vous pouvez gérer l’exécution de requêtes parallèles en réglant les paramètres suivants :
 
-- **MaxConcurrency** : définit le nombre maximal de connexions réseau simultanées aux partitions du conteneur. Si vous affectez la valeur `-1` à cette propriété, le kit SDK gère le degré de parallélisme. Si la  `MaxConcurrency` est définie sur `0`, il existe une seule connexion réseau aux partitions du conteneur.
+- **MaxConcurrency** : définit le nombre maximal de connexions réseau simultanées aux partitions du conteneur. Si vous affectez la valeur `-1` à cette propriété, le kit SDK gère le degré de parallélisme. Si la  `MaxConcurrency` est définie sur `0`, il existe une seule connexion réseau aux partitions du conteneur.
 
-- **MaxBufferedItemCount**  : limite la latence des requêtes par rapport à l’utilisation de la mémoire côté client. Si cette option est omise ou si elle a la valeur -1, le kit SDK gère le nombre d’éléments mis en mémoire tampon durant l’exécution de requêtes parallèles.
+- **MaxBufferedItemCount** : limite la latence des requêtes par rapport à l’utilisation de la mémoire côté client. Si cette option est omise ou si elle a la valeur -1, le kit SDK gère le nombre d’éléments mis en mémoire tampon durant l’exécution de requêtes parallèles.
 
 En raison de la capacité d’Azure Cosmos DB à paralléliser les requêtes entre les partitions, la latence des requêtes est généralement correctement mise à l’échelle lorsque le système ajoute des [partitions physiques](partitioning-overview.md#physical-partitions). Toutefois, les frais de RU augmenteront considérablement avec le nombre total de partitions physiques.
 
@@ -106,4 +106,4 @@ Vous devez essayer d’éviter les requêtes sur plusieurs partitions si votre c
 Consultez les articles suivants pour en savoir plus sur le partitionnement dans Azure Cosmos DB :
 
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partitionnement dans Azure Cosmos DB)
-- [Create a synthetic partition key](synthetic-partition-keys.md) (Créer une clé de partition synthétique)
+- [Clés de partition synthétiques dans Azure Cosmos DB](synthetic-partition-keys.md)
