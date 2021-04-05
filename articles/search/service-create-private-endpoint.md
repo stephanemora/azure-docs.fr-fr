@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100545528"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Créer un point de terminaison privé pour une connexion sécurisée à Recherche cognitive Azure
@@ -46,7 +46,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau pour
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Subscription | Sélectionnez votre abonnement|
+    | Abonnement | Sélectionnez votre abonnement|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et cliquez sur **OK** |
     | Nom | Entrez *MyVirtualNetwork* |
     | Région | Sélectionnez la région de votre choix |
@@ -85,7 +85,7 @@ Dans cette section, vous allez créer un service Recherche cognitive Azure avec 
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | Emplacement | Sélectionnez **USA Ouest**.|
     | Nom | Entrez *myPrivateEndpoint*.  |

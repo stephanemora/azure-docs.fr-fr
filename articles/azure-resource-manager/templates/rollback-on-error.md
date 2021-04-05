@@ -4,10 +4,10 @@ description: Spécifiez qu’un déploiement ayant échoué doit être restauré
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99492210"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>Restaurer en cas d’erreur vers un déploiement réussi

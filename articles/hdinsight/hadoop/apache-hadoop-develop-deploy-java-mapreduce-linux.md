@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
 ms.openlocfilehash: 7c1a6623883cbee46ba98982808f3c392dc50ffa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946641"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Développer des programmes MapReduce Java pour Apache Hadoop sur HDInsight
@@ -33,7 +33,7 @@ IF NOT EXIST C:\HDI MKDIR C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Création d’un projet Maven
+## <a name="create-a-maven-project"></a>Créer un projet Maven
 
 1. Entrez la commande suivante pour créer un projet Maven nommé **wordcountjava** :
 
@@ -44,8 +44,8 @@ cd C:\HDI
     Cette commande crée un répertoire du nom spécifié par le paramètre `artifactID` (**wordcountjava** dans cet exemple). Le répertoire contient les éléments suivants :
 
     * `pom.xml` - Le [modèle d’objet du projet (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) qui contient les informations et la configuration utilisées pour générer le projet.
-    * src\main\java\org\apache\hadoop\examples: contient votre code d’application.
-    * src\test\java\org\apache\hadoop\examples: contient des tests pour votre application.
+    * src\main\java\org\apache\hadoop\examples : contient le code de votre application.
+    * src\test\java\org\apache\hadoop\examples : contient des tests pour votre application.
 
 1. Supprimez l’exemple de code généré. Supprimez les fichiers d’application et de test générés `AppTest.java` et `App.java` en entrant les commandes ci-dessous :
 

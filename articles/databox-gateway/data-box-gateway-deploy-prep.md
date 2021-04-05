@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101706093"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutoriel : Préparer le déploiement d’Azure Data Box Gateway
@@ -112,14 +112,14 @@ Pour créer une ressource Data Box Gateway, effectuez les étapes suivantes dans
 
     Entrez ou sélectionnez les **détails du projet** suivants.
     
-    |Paramètre  |Value  |
+    |Paramètre  |Valeur  |
     |---------|---------|
     |Abonnement    |Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Gateway. L’abonnement est lié à votre compte de facturation.|
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).|
 
    Entrez ou sélectionnez les **détails de l’instance** suivants.
 
-    |Paramètre  |Value  |
+    |Paramètre  |Valeur  |
     |---------|---------|
     |Nom   |Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit comporter entre 2 et 50 caractères, et être constitué uniquement de lettres, de chiffres et de traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre. |
     |Région  |Sélectionnez la région dans laquelle vous souhaitez déployer la ressource. Choisissez un endroit proche de la région géographique où vous souhaitez déployer votre appareil. <br> Pour obtenir la liste complète des régions où les ressources Data Base Gateway/Azure Stack Edge sont disponibles, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). <br> Pour Azure Government, toutes les régions administratives listées dans les [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) sont disponibles.|

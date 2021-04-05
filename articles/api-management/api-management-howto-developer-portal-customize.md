@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/16/2020
 ms.author: apimpm
 ms.openlocfilehash: 90544fbafe7393630c3f3fbc694ae367eccb7f90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96012973"
 ---
 # <a name="tutorial-access-and-customize-the-developer-portal"></a>Tutoriel : Accéder et personnaliser le portail des développeurs
