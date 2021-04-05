@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: jodowns
 ms.openlocfilehash: 9c67944717888439c0d6bd84e1615f51dd91fcac
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101097816"
 ---
 # <a name="ddos-protection-on-azure-front-door-standardpremium-preview"></a>Protection DDoS sur Azure Front Door Standard/Premium (préversion)
@@ -63,4 +63,4 @@ Si vous avez besoin d’une protection renforcée, vous pouvez activer [la prote
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [créer une instance de Front Door Standard/Premium](create-front-door-portal.md).
+Découvrez comment [créer une instance Front Door Standard/Premium](create-front-door-portal.md).

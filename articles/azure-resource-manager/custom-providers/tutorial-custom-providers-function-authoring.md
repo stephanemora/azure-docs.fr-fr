@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
 ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200207"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Créer un point de terminaison RESTful pour des fournisseurs personnalisés
@@ -23,11 +23,11 @@ Un fournisseur personnalisé implique qu’un contrat soit passé entre Azure et
 
 Dans ce tutoriel, vous allez mettre à jour l’application de fonction afin qu’elle fonctionne comme un point de terminaison RESTful pour le fournisseur personnalisé. Dans Azure, les ressources et les actions sont modélisées selon la spécification RESTful de base :
 
-- **PUT** : Créer une nouvelle ressource
-- **GET (instance)**  : Récupère une ressource existante
-- **DELETE** : Supprime une ressource existante
-- **POST** : Déclenche une action
-- **GET (collection)**  : Liste toutes les ressources existantes
+- **PUT** : créer une ressource
+- **GET (instance)**  : récupérer une ressource existante
+- **DELETE** : supprimer une ressource existante
+- **POST** : déclencher une action
+- **GET (collection)**  : lister toutes les ressources existantes
 
  Dans ce tutoriel, vous allez utiliser le stockage Table Azure. Vous pouvez toutefois utiliser n’importe quel service de base de données ou de stockage.
 
@@ -370,4 +370,4 @@ Si vous avez perdu le fil à un moment ou à un autre de ce tutoriel, vous trouv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un point de terminaison RESTful qui fonctionne avec le point de terminaison d’un fournisseur personnalisé Azure. Pour apprendre à créer un fournisseur personnalisé, lisez l’article [Tutoriel : Création d’un fournisseur personnalisé](./tutorial-custom-providers-create.md).
+Dans cet article, vous avez créé un point de terminaison RESTful qui fonctionne avec le point de terminaison d’un fournisseur personnalisé Azure. Pour découvrir comment créer un fournisseur personnalisé, consultez l’article [Tutoriel : Création d’un fournisseur personnalisé](./tutorial-custom-providers-create.md).

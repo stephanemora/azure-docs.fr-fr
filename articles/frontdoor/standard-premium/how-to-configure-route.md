@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: 94c22ffd423c32ba5f489298267464ca36abaecd
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101097631"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Configurer une route Azure Front Door Standard/Premium
@@ -52,7 +52,7 @@ Pour configurer un groupe d’origines, consultez [Configurer une origine Azure 
 
     :::image type="content" source="../media/how-to-configure-route/add-route-page.png" alt-text="Capture d’écran de la page Ajouter une route." lightbox="../media/how-to-configure-route/add-route-page-expanded.png"::: 
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | --- | --- |
     | Nom | Entrez un nom unique pour la nouvelle route. |   
     | Domain| Sélectionnez un ou plusieurs domaines qui ont été validés et qui ne sont pas associés à une autre route. |

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97674183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Didacticiel : Intégration d’Azure Active Directory à Central Desktop
@@ -30,7 +30,7 @@ L’intégration de Central Desktop à Azure AD vous offre les avantages suivant
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Central Desktop, vous avez besoin des éléments suivants :
 
@@ -141,7 +141,7 @@ Pour configurer l’authentification unique Azure AD avec Central Desktop, effec
 
     ![Paramètres d’authentification unique](./media/central-desktop-tutorial/ic769564.png "Single Sign On Settings")
 
-    a. Sélectionnez **Activer l’authentification unique SAMLv2**.
+    a. Sélectionnez **Enable SAML v2 Single Sign On**.
 
     b. Dans la zone **SSO URL**, collez la valeur **Identificateur Azure AD** copiée à partir du portail Azure.
 
@@ -233,7 +233,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être prov
 
     ![Adresses e-mail des nouveaux membres](./media/central-desktop-tutorial/ic781052.png "Adresses e-mail des nouveaux membres")
 
-4. Sélectionnez **Add Internal member(s)** .
+4. Sélectionnez **Add Internal member(s)**.
 
     ![Ajouter un membre interne](./media/central-desktop-tutorial/ic781053.png "Ajouter un membre interne")
 
