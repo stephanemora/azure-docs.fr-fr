@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Menlo Security | Microsoft Docs"
+title: 'Tutoriel : Intégration d’Azure Active Directory à Menlo Security | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Menlo Security.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: e10045eb14f6a72648fb9534ade077faaa4ef918
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92517291"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutoriel : Intégration d'Azure Active Directory à Menlo Security
+# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutoriel : Intégration d’Azure Active Directory à Menlo Security
 
 Dans ce tutoriel, vous allez apprendre à intégrer Menlo Security à Azure Active Directory (Azure AD).
 L’intégration de Menlo Security à Azure AD vous fait bénéficier des avantages suivants :
@@ -49,11 +49,11 @@ Pour configurer l’intégration de Menlo Security à Azure AD, vous devez ajou
 
 **Pour ajouter Menlo Security à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Pour configurer l’intégration de Menlo Security à Azure AD, vous devez ajou
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Menlo Security** , sélectionnez **Menlo Security** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Menlo Security**, sélectionnez **Menlo Security** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Menlo Security dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Menlo Security pour un utilisateur de test appelé **Britta Simon** .
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Menlo Security pour un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Menlo Security associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec Menlo Security, vous devez suivre les indications des sections suivantes :
@@ -85,34 +85,34 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Menlo Security, effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Menlo Security** , sélectionnez **Authentification unique** .
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Menlo Security**, sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
     ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base** , effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Menlo Security](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion** , saisissez une URL au format suivant : `https://<subdomain>.menlosecurity.com/account/login`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<subdomain>.menlosecurity.com/account/login`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Menlo Security](https://www.menlosecurity.com/menlo-contact). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Menlo Security** , copiez la ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Menlo Security**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -124,23 +124,23 @@ Pour configurer l’authentification unique Azure AD avec Menlo Security, effec
 
 ### <a name="configure-menlo-security-single-sign-on"></a>Configurer l’authentification unique Menlo Security
 
-1. Pour configurer l’authentification unique du côté de **Menlo Security** , connectez-vous au site web **Menlo Security** en tant qu’administrateur.
+1. Pour configurer l’authentification unique du côté de **Menlo Security**, connectez-vous au site web **Menlo Security** en tant qu’administrateur.
 
-2. Sous **Settings** , accédez à **Authentication** et effectuez les opérations suivantes :
+2. Sous **Settings**, accédez à **Authentication** et effectuez les opérations suivantes :
     
     ![Configure Single Sign-On](./media/menlosecurity-tutorial/menlo_user_setup.png)
 
-    a. Cochez la case **Enable user authentication using SAML** .
+    a. Cochez la case **Enable user authentication using SAML**.
 
-    b. Définissez **Allow External Access** sur **Yes** .
+    b. Définissez **Allow External Access** sur **Yes**.
 
-    c. Sous **SAML Provider** , sélectionnez **Azure Active Directory** .
+    c. Sous **SAML Provider**, sélectionnez **Azure Active Directory**.
 
-    d. **Point de terminaison SAML 2.0**  : Collez l’ **URL de connexion** que vous avez copiée du portail Azure.
+    d. **SAML 2.0 Endpoint** : collez l’**URL de connexion** que vous avez copiée du portail Azure.
 
-    e. **Identificateur du service (émetteur)**  : Collez l’ **identificateur Azure AD** que vous avez copié du portail Azure.
+    e. **Service Identifier (Issuer)**  : collez l’**identificateur Azure AD** que vous avez copié à partir du portail Azure.
 
-    f. **Certificat X.509**  : ouvrez le **certificat (en base64)** téléchargé à partir du portail Azure dans le Bloc-notes et copiez-le dans cette zone.
+    f. **X.509 Certificate** : ouvrez le **certificat (en base64)** téléchargé à partir du portail Azure dans le Bloc-notes et copiez-le dans cette zone.
 
     g. Cliquez sur **Enregistrer** pour enregistrer les paramètres.
 
@@ -148,7 +148,7 @@ Pour configurer l’authentification unique Azure AD avec Menlo Security, effec
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
@@ -160,40 +160,40 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur** , tapez **brittasimon\@domainedevotreentreprise.extension** .  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple : BrittaSimon@contoso.com
 
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Cliquez sur **Créer** .
+    d. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Menlo Security.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Menlo Security** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Menlo Security**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste d’applications, sélectionnez **Menlo Security** .
+2. Dans la liste d’applications, sélectionnez **Menlo Security**.
 
     ![Lien Menlo Security dans la liste des applications](common/all-applications.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Volet Ajouter une attribution](common/add-assign-user.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ### <a name="create-menlo-security-test-user"></a>Créer un utilisateur de test Menlo Security
 

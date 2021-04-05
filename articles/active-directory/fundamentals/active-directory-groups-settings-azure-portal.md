@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c346877d29c5fef03b45c895cbf8d462f90d0979
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92369129"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modifier les informations de votre groupe avec Azure Active Directory
