@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895187"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Gérer vos machines virtuelles de cloud privé CloudSimple dans Azure
@@ -25,7 +25,7 @@ Les contrôles suivants sont disponibles à partir de la page **Vue d’ensemble
 
 | Control | Description |
 | ------------ | ------------- |
-| Se connecter | Connectez-vous à la machine virtuelle spécifiée.  |
+| Connecter | Connectez-vous à la machine virtuelle spécifiée.  |
 | Démarrer | Démarre la machine virtuelle spécifiée.  |
 | Redémarrer | Arrête puis met hors tension la machine virtuelle spécifiée.  |
 | Arrêter | Arrête la machine virtuelle spécifiée.  |
@@ -56,7 +56,7 @@ Pour ajouter un disque de machine virtuelle, ouvrez la page **Disques** de la ma
    | Nom | Entrez un nom pour identifier le disque.  |
    | Taille | Sélectionnez une des tailles disponibles.  |
    | Contrôleur SCSI | Sélectionnez un contrôleur SCSI. Les contrôleurs disponibles varient en fonction des systèmes d’exploitation pris en charge.  |
-   | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> - Indépendant persistant : Toutes les données écrites sur le disque sont écrites de façon permanente.<br> - Indépendant non persistant : Les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle.  Ce mode vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la [documentation de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
+   | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> - Indépendant persistant : toutes les données écrites sur le disque sont écrites de façon permanente.<br> - Indépendant non persistant : les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle.  Ce mode vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la [documentation de VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html). |
 
 Pour supprimer un disque, sélectionnez-le, puis cliquez sur **Supprimer**.
 
