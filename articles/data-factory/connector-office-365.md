@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100393001"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données dans Azure depuis Office 365 avec Azure Data Factory

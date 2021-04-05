@@ -1,18 +1,18 @@
 ---
-title: 'Tutoriel : HDInsight Apache Storm vers Stockage – Azure/Data Lake'
+title: 'Tutoriel : HDInsight Apache Storm vers Stockage – Azure/Data Lake'
 description: Didacticiel - Découvrez comment utiliser Apache Storm pour écrire dans le stockage compatible HDFS pour Azure HDInsight.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932558"
 ---
-# <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutoriel : Écrire dans Apache Hadoop HDFS à partir d'Apache Storm sur Azure HDInsight
+# <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Tutoriel : Écrire dans Apache Hadoop HDFS à partir d’Apache Storm sur Azure HDInsight
 
 Ce didacticiel montre comment utiliser Apache Storm pour écrire des données dans le stockage compatible HDFS utilisé par Apache Storm sur HDInsight. HDInsight peut utiliser à la fois Stockage Azure et Azure Data Storage comme stockage compatible HDFS. Storm fournit un composant [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) qui écrit des données dans le stockage HDFS. Ce document fournit des informations sur l’écriture dans ces deux types de stockages à partir du composant HdfsBolt.
 
@@ -97,11 +97,11 @@ bolts:
 
 Ce code YAML définit les éléments suivants :
 
-* `syncPolicy`: définit quand les fichiers sont synchronisés/vidés dans le système de fichiers. Dans cet exemple, tous les 1 000 tuples.
-* `fileNameFormat`: définit le modèle de chemin et de nom de fichier à utiliser lors de l’écriture de fichiers. Dans cet exemple, le chemin d’accès est fourni au moment de l’exécution à l’aide d’un filtre, avec l’extension de fichier `.txt`.
-* `recordFormat`: définit le format interne des fichiers écrits. Dans cet exemple, les champs sont délimités par le caractère `|`.
-* `rotationPolicy`: définit le moment de rotation des fichiers. Dans cet exemple, aucune rotation n’est effectuée.
-* `hdfs-bolt`: utilise les composants précédents comme paramètres de configuration pour la classe `HdfsBolt`.
+* `syncPolicy` : définit quand les fichiers sont synchronisés/vidés sur le système de fichiers. Dans cet exemple, tous les 1 000 tuples.
+* `fileNameFormat` : définit le modèle de chemin d’accès et de nom de fichier à utiliser lors de l’écriture de fichiers. Dans cet exemple, le chemin d’accès est fourni au moment de l’exécution à l’aide d’un filtre, avec l’extension de fichier `.txt`.
+* `recordFormat` : définit le format interne des fichiers écrits. Dans cet exemple, les champs sont délimités par le caractère `|`.
+* `rotationPolicy` : définit le moment de rotation des fichiers. Dans cet exemple, aucune rotation n’est effectuée.
+* `hdfs-bolt` : utilise les composants précédents comme paramètres de configuration pour la classe `HdfsBolt`.
 
 Pour plus d’informations sur le framework Flux, voir [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 

@@ -1,6 +1,6 @@
 ---
 title: Créer une rubrique d’espace de noms Azure Service Bus en utilisant un modèle
-description: 'Démarrage rapide : Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager'
+description: 'Démarrage rapide : créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager'
 documentationcenter: .net
 author: spelluru
 ms.topic: quickstart
@@ -9,19 +9,19 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 706432c039bc38e9799828ae752d6ad0c92ffde3
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704603"
 ---
-# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
+# <a name="quickstart-create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Démarrage rapide : créer un espace de noms Service Bus par rubrique et abonnement à l’aide d’un modèle Azure Resource Manager
 
 Cet article montre comment utiliser un modèle Azure Resource Manager qui crée un espace de noms Service Bus ainsi qu’une rubrique et un abonnement au sein de cet espace de noms. L’article explique comment spécifier les ressources à déployer et définir les paramètres qui sont spécifiés durant l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins
 
 Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Pour le modèle complet, consultez le [modèle d'espace de noms Service Bus par rubrique et abonnement][Service Bus namespace with topic and subscription] .
+Pour le modèle complet, consultez le modèle [Espace de noms Service Bus avec rubrique et abonnement][Service Bus namespace with topic and subscription].
 
 > [!NOTE]
 > Les modèles Azure Resource Manager suivants sont disponibles au téléchargement et au déploiement.

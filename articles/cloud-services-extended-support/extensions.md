@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: f9029a36dc3b778e139b4553524e8e2ca6b4bbad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98757167"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Extensions pour Cloud Services (support étendu)
@@ -40,5 +40,5 @@ Pour plus d’informations, consultez [Appliquer l’extension Diagnostics Azure
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez les [questions fréquentes (FAQ)](faq.md) sur Cloud Services (support étendu).
-- Déployez une instance de Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
+- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

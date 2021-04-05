@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93086276"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>Approvisionner le débit des conteneurs et des bases de données et la mise à l’échelle automatique sur des ressources de l’API Cassandra d’Azure Cosmos DB

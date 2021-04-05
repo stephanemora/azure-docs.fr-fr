@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ms.openlocfilehash: 1cc7df755198461643703cac988c8c31f2ac25db
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182884"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
@@ -39,10 +39,10 @@ En outre, lorsque vous utilisez des App Services derrière une passerelle d’ap
 
 ## <a name="sample-configuration"></a>Exemple de configuration
 
-- Écouteur HTTP : De base ou de multi-sites
-- Pool d’adresses IP back-end : App Service
-- Paramètres HTTP : **Choisir le nom d’hôte à partir de l’adresse du serveur principal** activé
-- Sonde : **Choisir le nom d’hôte à partir des paramètres HTTP** activé
+- Écouteur HTTP : de base ou multi-site
+- Pool d’adresses principales : App Service
+- Paramètres HTTP : **choisir le nom d’hôte à partir de l’adresse du serveur principal** activé
+- Sonde d'intégrité : **choisir le nom d’hôte à partir des paramètres HTTP** activé
 
 ## <a name="cause"></a>Cause
 
@@ -78,14 +78,14 @@ X-Powered-By: ASP.NET
 ```
 Dans l’exemple précédent, notez que l’en-tête de réponse a un code d’état 301 pour la redirection. L’en-tête d’emplacement contient le nom d’hôte App Service au lieu du nom d’hôte d’origine `www.contoso.com`.
 
-## <a name="solution-rewrite-the-location-header"></a>Solution : Réécrire l’en-tête d’emplacement
+## <a name="solution-rewrite-the-location-header"></a>Solution : réécrire l’en-tête de l’emplacement
 
 Définissez le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour ce faire, créez une [règle de réécriture](./rewrite-http-headers.md) avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Elle doit aussi exécuter une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour plus d’informations, voir les instructions de [réécriture de l’en-tête d’emplacement](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
 > La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour les [références (SKU) Standard_v2 et WAF_v2](./application-gateway-autoscaling-zone-redundant.md) d’Application Gateway. Si vous utilisez la référence (SKU) v1, nous vous recommandons de [migrer de v1 vers v2](./migrate-v1-v2.md). Vous pouvez utiliser la réécriture et d’autres [fonctionnalités avancées](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence (SKU) v2.
 
-## <a name="alternate-solution-use-a-custom-domain-name"></a>Autre solution : Ajouter un nom de domaine personnalisé
+## <a name="alternate-solution-use-a-custom-domain-name"></a>Autre solution : utilisez un nom de domaine personnalisé
 
 Si vous utilisez la référence (SKU) v1, vous ne pouvez pas réécrire l’en-tête d’emplacement. Cette fonctionnalité est disponible uniquement pour la référence (SKU) v2. Pour résoudre le problème de redirection, vous devrez transmettre le nom d’hôte reçu par la passerelle d’application à l’App Service au lieu de modifier l’hôte.
 
