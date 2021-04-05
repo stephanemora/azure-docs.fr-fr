@@ -7,10 +7,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 01/14/2021
 ms.openlocfilehash: 3b951cd0878bda4a3f65f9208f6997419a10d537
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200258"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Informations de référence sur le point de terminaison RESTful C# de fournisseur personnalisé
@@ -258,5 +258,5 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 - [Présentation des fournisseurs de ressources personnalisés Azure](overview.md)
 - [Tutoriel : Créer un fournisseur de ressources personnalisé Azure et déployer des ressources personnalisées](./create-custom-provider.md)
-- [Procédure : ajouter des actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
+- [Guide pratique pour Ajout d’actions personnalisées à l’API REST Azure](./custom-providers-action-endpoint-how-to.md)
 - [Reference : Informations de référence sur les caches de ressources personnalisées](proxy-cache-resource-endpoint-reference.md)
