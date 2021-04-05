@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
 ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92896971"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Tutoriel : Se connecter à une application web avec Azure Private Endpoint
@@ -46,9 +46,9 @@ Dans cette section, vous allez créer un réseau virtuel, un sous-réseau et un 
 
 L’hôte bastion sera utilisé pour se connecter de façon sécurisée à la machine virtuelle afin de tester le point de terminaison privé.
 
-1. En haut à gauche de l’écran, sélectionnez **Créer une ressource > Réseau > Réseau virtuel** , ou recherchez **Réseau virtuel** à partir de la zone de recherche.
+1. En haut à gauche de l’écran, sélectionnez **Créer une ressource > Réseau > Réseau virtuel**, ou recherchez **Réseau virtuel** à partir de la zone de recherche.
 
-2. Dans **Créer un réseau virtuel** , entrez ou sélectionnez les informations suivantes sous l’onglet **Général**  :
+2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
 
     | **Paramètre**          | **Valeur**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -59,17 +59,17 @@ L’hôte bastion sera utilisé pour se connecter de façon sécurisée à la ma
     | Nom             | Entrez **myVNet**                                    |
     | Région           | Sélectionnez **Europe Ouest** |
 
-3. Sélectionnez l’onglet **Adresses IP** , ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
+3. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
-4. Sous l’onglet **Adresses IP** , entrez les informations suivantes :
+4. Sous l’onglet **Adresses IP**, entrez les informations suivantes :
 
     | Paramètre            | Valeur                      |
     |--------------------|----------------------------|
     | Espace d’adressage IPv4 | Entrez **10.1.0.0/16** |
 
-5. Sous **Nom de sous-réseau** , sélectionnez le mot **par défaut**.
+5. Sous **Nom de sous-réseau**, sélectionnez le mot **par défaut**.
 
-6. Dans **Modifier le sous-réseau** , entrez les informations suivantes :
+6. Dans **Modifier le sous-réseau**, entrez les informations suivantes :
 
     | Paramètre            | Valeur                      |
     |--------------------|----------------------------|
@@ -80,16 +80,16 @@ L’hôte bastion sera utilisé pour se connecter de façon sécurisée à la ma
 
 8. Sélectionnez l'onglet **Sécurité** .
 
-9. Sous **BastionHost** , sélectionnez **Activer**. Entrez les informations suivantes :
+9. Sous **BastionHost**, sélectionnez **Activer**. Entrez les informations suivantes :
 
     | Paramètre            | Valeur                      |
     |--------------------|----------------------------|
     | Nom du bastion | Entrez **myBastionHost** |
     | Espace d’adressage AzureBastionSubnet | Entrez **10.1.1.0/24** |
-    | Adresse IP publique | Sélectionnez **Créer nouveau**. </br> Pour **Nom** , entrez **myBastionIP**. </br> Sélectionnez **OK**. |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. </br> Pour **Nom**, entrez **myBastionIP**. </br> Sélectionnez **OK**. |
 
 
-8. Sélectionnez l’onglet **Vérifier + créer** , ou sélectionnez le bouton **Vérifier + créer**.
+8. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton **Vérifier + créer**.
 
 9. Sélectionnez **Create** (Créer).
 
@@ -98,11 +98,11 @@ L’hôte bastion sera utilisé pour se connecter de façon sécurisée à la ma
 Dans cette section, vous allez créer une machine virtuelle qui sera utilisée pour tester le point de terminaison privé.
 
 
-1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle** , ou recherchez **Machine virtuelle** dans la zone de recherche.
+1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle**, ou recherchez **Machine virtuelle** dans la zone de recherche.
    
-2. Dans **Créer une machine virtuelle** , tapez ou sélectionnez les valeurs sous l’onglet **De base**  :
+2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -119,11 +119,11 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
     | Mot de passe | Entrez un mot de passe |
     | Confirmer le mot de passe | Entrez à nouveau le mot de passe |
 
-3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques** , puis **Suivant : Mise en réseau**.
+3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -140,11 +140,11 @@ Dans cette section, vous allez créer une machine virtuelle qui sera utilisée p
 
 Dans cette section, vous allez créer une application web.
 
-1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Stockage** > **Application web** , ou recherchez **Application web** dans la zone de recherche.
+1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Stockage** > **Application web**, ou recherchez **Application web** dans la zone de recherche.
 
-2. Sous l’onglet **Général** de la page **Application web** , entrez ou sélectionnez les informations suivantes.
+2. Sous l’onglet **Général** de la page **Application web**, entrez ou sélectionnez les informations suivantes.
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -167,17 +167,17 @@ Dans cette section, vous allez créer une application web.
 
 ## <a name="create-private-endpoint"></a>Créer un point de terminaison privé
 
-1. Dans le menu de gauche, sélectionnez **Toutes les ressources** > **mywebapp** , ou le nom que vous avez choisi lors de la création.
+1. Dans le menu de gauche, sélectionnez **Toutes les ressources** > **mywebapp**, ou le nom que vous avez choisi lors de la création.
 
 2. Dans la vue d’ensemble de l’application web, sélectionnez **Paramètres** > **Réseau**.
 
-3. Dans **Réseau** , sélectionnez **Configurer vos connexions de point de terminaison privé**.
+3. Dans **Réseau**, sélectionnez **Configurer vos connexions de point de terminaison privé**.
 
-4. Dans l’écran **Connexions de points de terminaison privé** , sélectionnez **+ Ajouter**.
+4. Dans l’écran **Connexions de points de terminaison privé**, sélectionnez **+ Ajouter**.
 
-5. Dans l’écran **Ajouter un point de terminaison privé** , entrez ou sélectionnez les informations suivantes :
+5. Dans l’écran **Ajouter un point de terminaison privé**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Name | Entrez **mywebappendpoint**. |
     | Abonnement | Sélectionnez votre abonnement. |
@@ -198,7 +198,7 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
 
 3. Sélectionnez **myVM**.
 
-4. Dans la page de vue d’ensemble pour **myVM** , sélectionnez **Se connecter** , puis **Bastion**.
+4. Dans la page de vue d’ensemble pour **myVM**, sélectionnez **Se connecter**, puis **Bastion**.
 
 5. Sélectionnez le bouton bleu **Utiliser le bastion**.
 
@@ -226,7 +226,7 @@ Dans cette section, vous allez utiliser la machine virtuelle que vous avez cré�
 
     :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Page 403 concernant l’adresse externe de l’application web." border="true":::
 
-11. Dans la connexion bastion à **myVM** , ouvrez Internet Explorer.
+11. Dans la connexion bastion à **myVM**, ouvrez Internet Explorer.
 
 12. Entrez l’URL de votre application web : **https://\<webapp-name>.azurewebsites.net**.
 
