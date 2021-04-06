@@ -12,10 +12,10 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: references_regions
 ms.openlocfilehash: 4ecf8a578343a10e7c1ddb0ac5e9345a652bc9af
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97511703"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>L’activation des fonctionnalités de l’espace de travail Synapse sur un pool SQL dédié (anciennement SQL DW) dans votre région.

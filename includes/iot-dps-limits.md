@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: bbe928084a758335e5fa3b0531726c77a6d599b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85839062"
 ---
 Le tableau suivant répertorie les limites qui s’appliquent aux ressources du 	Service Azure IoT Hub Device Provisioning.
@@ -33,6 +33,6 @@ Le Service Device Provisioning limite les demandes lorsque les quotas suivants s
 
 | Limitation | Valeur par unité |
 | --- | --- |
-| Opérations | 200/min/service |
+| Operations | 200/min/service |
 | Inscriptions d’appareil | 200/min/service |
 | Opération d’interrogation des appareils | 5/10 s/appareil |

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ca566c554c02d20d21bd7eba87dfbcbf1f746da
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97606485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutoriel : Intégration d’Azure Active Directory avec Infogix Data3Sixty Govern
@@ -117,11 +117,11 @@ Pour configurer l’authentification unique Azure AD avec Infogix Data3Sixty Go
 
 6. L’application Infogix Data3Sixty Govern attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
 
-    ![Capture d’écran montrant Attributs utilisateur avec l’icône Modifier sélectionnée.](common/edit-attribute.png)
+    ![Capture d’écran montrant User Attributes avec l’icône Edit sélectionnée.](common/edit-attribute.png)
 
 7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | Name | Attribut source|
+    | Nom | Attribut source|
     | -----------| -------------- |
     | firstname  | user.givenname |
     | lastname | user.surname |
