@@ -8,22 +8,22 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516604"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801585"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
 
 Lorsque vous créez des alertes, vous pouvez choisir la syntaxe [Analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche cognitive Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites via des expressions **`$filter`** . 
 
-La syntaxe Lucene complète est utilisée pour des expressions de requête transmises dans le paramètre **`search`** d’une requête [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents), à ne pas confondre avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour les expressions [ **`$filter`**](search-filters.md) et [ **`$orderby`** ](search-query-odata-orderby.md) dans la même demande. Les paramètres OData ont une syntaxe et des règles différente pour la construction de requêtes, l’échappement de chaînes, et ainsi de suite.
+Pour utiliser la syntaxe Lucene complète, vous devez affecter à queryType la valeur « full » et transmettre une expression de requête configurée pour une recherche approximative à l’aide de caractères génériques, ou l’un des autres formulaires de requête pris en charge par la syntaxe complète. Dans REST, des expressions de requête sont fournies dans le paramètre **`search`** d’une demande de [Rechercher des documents (API REST)](/rest/api/searchservice/search-documents).
 
 ## <a name="example-full-syntax"></a>Exemple (syntaxe complète)
 
-Définissez le paramètre **`queryType`** pour spécifier la syntaxe Lucene complète. L’exemple suivant appelle une recherche dans le champ et un promotion de terme. Cette requête recherche des hôtels où le champ de catégorie contient le terme « budget ». Tout document contenant l’expression « recently renovated » est classé plus haut en raison de la valeur de promotion de terme (3).  
+L’exemple suivant est une demande de recherche construite à l’aide de la syntaxe complète. Cet exemple illustre une recherche dans le champ et une promotion de terme. Il recherche des hôtels où le champ de catégorie contient le terme « budget ». Tout document contenant l’expression « recently renovated » est classé plus haut en raison de la valeur de promotion de terme (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,9 +34,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-Le paramètre **`searchMode`** est approprié dans cet exemple. Quand des opérateurs se trouvent sur la requête, vous devez généralement définir `searchMode=all` pour garantir que *tous* les critères sont satisfaits.  
+Bien qu’il ne soit spécifique d’aucun type de requête, le paramètre **`searchMode`** est pertinent dans cet exemple. Quand des opérateurs se trouvent sur la requête, vous devez généralement définir `searchMode=all` pour garantir que *tous* les critères sont satisfaits.  
 
-Pour obtenir des exemples supplémentaires, consultez [Exemples de syntaxe de requête Lucene](search-query-lucene-examples.md). Pour plus d’informations sur la demande et les paramètres de requête, consultez [Rechercher des documents (API REST)](/rest/api/searchservice/Search-Documents).
+Pour obtenir des exemples supplémentaires, consultez [Exemples de syntaxe de requête Lucene](search-query-lucene-examples.md). Pour plus d’informations sur la demande et les paramètres de requête, dont searchMode, consultez [Rechercher des documents (API REST)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Principes de base de la syntaxe  
 

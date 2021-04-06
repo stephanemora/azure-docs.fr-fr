@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: b791d3f37809c2eca53f5a3cd34f7c44dd11ce40
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98028877"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
@@ -38,7 +38,7 @@ Le réseau virtuel et les préfixes d’adresse de sous-réseau spécifient les 
 
 Une fois que vous avez déployé votre premier groupe de conteneurs avec cette méthode, vous pouvez déployer dans le même sous-réseau en spécifiant les noms du réseau virtuel et du sous-réseau, ou le profil réseau créé automatiquement par Azure pour vous. Comme Azure délègue le sous-réseau à Azure Container Instances, vous ne pouvez déployer *que* des groupes de conteneurs dans le sous-réseau.
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 La commande [az container create][az-container-create] suivante spécifie les paramètres pour un nouveau réseau virtuel et un nouveau sous-réseau. Fournissez le nom d’un groupe de ressources créé dans une région où des déploiements de groupe de conteneurs dans un réseau virtuel sont [disponibles](container-instances-region-availability.md). Cette commande déploie le conteneur Microsoft [aci-helloworld][aci-helloworld] public qui exécute un petit serveur web Node.js qui gère une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
 
@@ -65,7 +65,7 @@ Pour déployer un groupe de conteneurs dans un réseau virtuel existant :
    * ID de ressource de réseau virtuel et ID de ressource de sous-réseau, ce qui permet d’utiliser un réseau virtuel d’un groupe de ressources différent
    * Nom ou ID du profil réseau que vous pouvez obtenir en utilisant [az network profile list][az-network-profile-list]
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 L’exemple suivant déploie un deuxième groupe de conteneurs sur le sous-réseau créé précédemment et vérifie la communication entre les deux instances de conteneur.
 
@@ -120,10 +120,10 @@ Vous pouvez également déployer un groupe de conteneurs sur un réseau virtuel 
 
 Par exemple, lors de l’utilisation d’un fichier YAML, vous pouvez effectuer un déploiement sur un réseau virtuel avec un sous-réseau délégué à Azure Container Instances. Spécifiez les propriétés suivantes :
 
-* `ipAddress`: paramètres d’adresse IP privée pour le groupe de conteneurs.
+* `ipAddress` : paramètres d’adresse IP privée pour le groupe de conteneurs.
   * `ports`: ports à ouvrir, le cas échéant.
   * `protocol`: protocole (TCP ou UDP) du port ouvert.
-* `networkProfile`: paramètres réseau pour le réseau virtuel et le sous-réseau.
+* `networkProfile` : paramètres réseau pour le réseau virtuel et le sous-réseau.
   * `id`: ID complet de ressource Resource Manager du `networkProfile`.
 
 Pour obtenir l’ID du profil réseau, exécutez la commande [az network profile list][az-network-profile-list], en spécifiant le nom du groupe de ressources contenant votre réseau virtuel et le sous-réseau délégué.

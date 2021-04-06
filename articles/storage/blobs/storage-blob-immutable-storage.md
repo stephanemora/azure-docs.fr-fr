@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430936"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800718"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -63,13 +63,15 @@ Pour plus d’informations sur la façon de définir et de verrouiller des strat
 ## <a name="time-based-retention-policies"></a>Stratégies de rétention limitée dans le temps
 
 > [!IMPORTANT]
-> Une stratégie de rétention limitée dans le temps doit être *verrouillée* pour que l’objet blob ait un état immuable conforme (protégé contre l’écriture et la suppression) conformément entre autres à la réglementation SEC 17a-4(f). Il est recommandé de verrouiller la stratégie au bout d’un délai raisonnable, en général en moins de 24 heures. L’état initial de la stratégie de rétention définie dans le temps est *déverrouillé*, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant de la verrouiller. Tant que l’état *déverrouillé* protège l’immuabilité du conteneur, nous conseillons de ne pas utiliser l’état *déverrouillé* pour d’autres raisons que des évaluations de fonctionnalités à court terme. 
+> Une stratégie de rétention limitée dans le temps doit être *verrouillée* pour que l’objet blob ait un état immuable conforme (protégé contre l’écriture et la suppression) conformément entre autres à la réglementation SEC 17a-4(f). Microsoft recommande de verrouiller la stratégie au bout d’un délai raisonnable, en général inférieur à 24 heures. L’état initial de la stratégie de rétention définie dans le temps est *déverrouillé*, ce qui vous permet de tester la fonctionnalité et d’apporter des modifications à la stratégie avant de la verrouiller. Tant que l’état *déverrouillé* protège l’immuabilité, nous recommandons de ne pas utiliser l’état *déverrouillé* pour d’autres raisons que des évaluations de fonctionnalités à court terme.
+>
+> Une fois verrouillée, une stratégie de rétention limitée dans le temps ne peut plus être supprimée ; seul un maximum de cinq prolongations de la période de rétention effective est autorisé. La période de rétention ne peut pas être réduite.
 
 Lorsqu’une stratégie de conservation limitée dans le temps est appliquée à un conteneur, tous les objets blob de ce conteneur conserveront l’état immuable pendant la période de conservation *effective*. La durée de rétention effective pour les objets blob est égale à la différence entre l’**heure de création** de l’objet blob et l’intervalle de rétention spécifié par l’utilisateur. Dans la mesure où les utilisateurs peuvent étendre la période de conservation, le stockage immuable utilise la valeur la plus récente de la période de conservation spécifiée par l’utilisateur pour calculer la durée de conservation effective.
 
 Par exemple, supposons qu’un utilisateur crée une stratégie de rétention limitée dans le temps avec une période de conservation de cinq ans. Un objet blob existant dans ce conteneur, _testblob1_, a été créé il y a un an. Autrement dit, la durée de rétention effective de _testblob1_ est de quatre ans. Quand un nouvel objet blob, _testblob2_, est chargé dans le conteneur, la durée de rétention effective de _testblob2_ est de cinq ans à partir du moment où il est créé.
 
-Une stratégie de rétention limitée dans le temps et déverrouillée est recommandée à des fins de test uniquement et une stratégie doit être verrouillée conformément à la réglementation SEC 17a-4(f) et à d’autres réglementations. Une fois verrouillée, une stratégie de rétention limitée dans le temps ne peut plus être supprimée ; seul un maximum de cinq prolongations de la période de rétention effective est autorisé.
+Une stratégie de rétention limitée dans le temps et déverrouillée est recommandée à des fins de test uniquement et une stratégie doit être verrouillée conformément à la réglementation SEC 17a-4(f) et à d’autres réglementations.
 
 Les limites suivantes s’appliquent aux stratégies de rétention :
 

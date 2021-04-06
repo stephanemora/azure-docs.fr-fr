@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98020534"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparaison des fonctionnalités Azure Stream Analytics
@@ -25,7 +25,7 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 
 |Fonctionnalité  |Portail  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Multiplateforme     |Mac</br>Linux</br> Windows         | Windows        |Mac</br>Linux</br> Windows          |
+|Multiplateforme     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br> Windows          |
 |Création de script     |Oui         |Oui         |Oui         |
 |Script Intellisense     |Mise en surbrillance de la syntaxe         |Mise en surbrillance de la syntaxe</br>Complétion de code</br>Marqueur d’erreur         |Mise en surbrillance de la syntaxe</br>Complétion de code</br>Marqueur d’erreur         |
 |Définir tous les types d'entrées, de sorties et de configurations de projet     |Oui         |Oui         |Oui         |
@@ -39,11 +39,11 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 |Envoyer, lancer et arrêter des tâches     |Oui         |Oui         |Oui         |
 |Afficher les métriques de tâche et le diagramme     |Oui         |Oui         |Ouvrir dans le portail         |
 |Afficher les erreurs d’exécution de tâches     |Oui         |Oui         |Non          |
-|Journaux d’activité de ressources     |Oui         |Non          |Non          |
+|Journaux d’activité de ressources     |Oui         |Non         |Non          |
 |Propriétés de message personnalisées     |Oui         |Oui         |Non        |
 |Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Non |
 |UDF et UDA JavaScript     |Oui         |Oui         |Windows uniquement         |
-|Machine Learning Service     |Oui        |Oui         |Non          |
+|Machine Learning Service     |Oui        |Oui         |Non         |
 |Azure Machine Learning Studio (classique)|Oui, mais la requête ne peut pas être testée        |Oui |Non          |
 |Niveau de compatibilité     |1.0</br>1.1</br>1.2 (valeur par défaut)         |1.0</br>1.1</br>1.2 (valeur par défaut)           |1.0</br>1.1</br>1.2 (valeur par défaut)           |
 |Fonctions de détection d’anomalie ML intégrées     |Oui         |Oui         |Oui         |
@@ -65,7 +65,7 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 |Répertorier les travaux et afficher les entités de travail     |Oui         |Oui         |Non          |
 |Afficher les métriques de tâche et le diagramme     |Oui         |Partiel         |Non          |
 |Afficher les erreurs d’exécution de tâches     |Oui         |Partiel         |Non          |
-|Prise en charge de CI/CD     |Non          |Non          |Non          |
+|Prise en charge de CI/CD     |Non          |Non         |Non         |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

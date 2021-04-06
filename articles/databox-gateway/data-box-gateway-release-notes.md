@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/11/2020
 ms.author: alkohli
 ms.openlocfilehash: 2984f7990b9570c5ec57633de7f7e50162fb6f46
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96580965"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notes de mise à disponibilité générale d’Azure Data Box Edge/Azure Data Box Gateway
@@ -44,7 +44,7 @@ Le tableau suivant résume les problèmes connus pour la version actuelle de Dat
 | --- | --- | --- | --- |
 | **1.** |Types de fichier | Les types de fichiers suivants ne sont pas pris en charge : fichiers de caractères, fichiers de blocs, sockets, pipes et liens symboliques.  |La copie de ces fichiers entraîne la création de fichiers de longueur nulle sur le partage NFS. Ces fichiers restent dans un état d’erreur et sont également signalés dans le fichier *error.xml*. <br> Si des liens symboliques existent vers des répertoires, ces derniers ne sont jamais marqués hors connexion. Par conséquent, vous pouvez ne pas voir la croix grise sur les répertoires, qui indique qu’ils sont hors connexion et que tout le contenu associé a été complètement chargé vers Azure. |
 | **2.** |Suppression | En raison d’un bogue dans cette version, si un partage NFS est supprimé, le partage peut ne pas être supprimé. L’état du partage indique *Suppression*.  |Cela ne se produit que lorsque le partage utilise un nom de fichier non pris en charge. |
-| **3.** |Copier | Échec de la copie des données avec l’erreur :  Impossible de terminer l’opération demandée du fait d’une limitation du système de fichiers.  |Les autres flux de données associés à une taille de fichier supérieure à 128 Ko ne sont pas pris en charge.   |
+| **3.** |Copier | La copie des données échoue avec Erreur :  L'opération demandée n'a pas pu être réalisée en raison d'une limitation du système de fichiers.  |Les autres flux de données associés à une taille de fichier supérieure à 128 Ko ne sont pas pris en charge.   |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
