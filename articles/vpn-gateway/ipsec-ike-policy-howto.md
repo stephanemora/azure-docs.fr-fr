@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878542"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel : Portail Azure
@@ -28,8 +28,10 @@ Cet article fournit des instructions sur la création et la configuration d’un
 ### <a name="considerations"></a>Considérations
 
 * La stratégie IPsec/IKE fonctionne uniquement sur les références (SKU) de passerelle suivantes :
-  * ***VpnGw1 à 5 et VpnGw1AZ à 5AZ** _ _ ***Standard** _ et _*_HighPerformance_*_ _ Vous pouvez uniquement spécifier ***une** _ combinaison de stratégies pour une connexion donnée.
-  _ Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
+  * ***VpnGw1~5 et VpnGw1AZ~5AZ***
+  * ***Standard** _ et _ *_HighPerformance_**
+* Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
+* Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.
 * Consulter les spécifications de votre fournisseur de périphérique VPN pour vous assurer que la stratégie est prise en charge sur vos périphériques VPN locaux. Des connexions S2S ou de réseau virtuel à réseau virtuel ne peuvent pas être établies si les stratégies ne sont pas compatibles.
 
 ## <a name="workflow"></a><a name ="workflow"></a>Flux de travail

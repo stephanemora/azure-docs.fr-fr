@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181616"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800767"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutoriel : Configurer RingCentral pour le provisionnement automatique d’utilisateurs
 
@@ -46,15 +46,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>Étape 2. Configurer RingCentral pour prendre en charge l’approvisionnement avec Azure AD
 
-1. Connectez-vous à la [console d’administration RingCentral](https://login.ringcentral.com/sw.html). Accédez à **Outils > Intégration d’annuaire**.
-
-    ![Console d’administration RingCentral](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  Choisissez **SCIM** sous **Sélectionner le fournisseur d’annuaire**. (À l’avenir, il y aura une option appelée Azure Active Directory). Cliquez sur **Activer le service SCIM**.
-
-    ![RingCentral - Ajouter SCIM](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  Contactez l’équipe de support RingCentral à l’adresse matthew.hunt@ringcentral.com pour obtenir un **Jeton d’authentification SCIM**. Vous devez entrer cette valeur dans le champ Jeton secret de l’onglet Provisionnement de votre application RingCentral sur le portail Azure.
+Un compte administrateur [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) est nécessaire pour autoriser la connexion dans la section Informations d’identification de l’administrateur à l’étape 5.
 
 > [!NOTE]
 > Pour attribuer des licences aux utilisateurs, reportez-vous au lien vidéo [ici](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language).
@@ -94,9 +86,13 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://platform.ringcentral.com/scim/v2` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à RingCentral. Si la connexion échoue, vérifiez que votre compte RingCentral dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, cliquez sur **Autoriser**. Vous êtes redirigé vers la page de connexion de RingCentral. Entrez votre adresse e-mail/numéro de téléphone et votre mot de passe, puis cliquez sur le bouton **Sign In**. Cliquez sur **Authorize** dans la page **Access Request** de RingCentral. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à RingCentral. Si la connexion échoue, vérifiez que votre compte RingCentral dispose des autorisations d’administrateur et réessayez.
 
-    ![Capture d’écran des champs de texte URL du locataire et Jeton secret avec l’option Tester la connexion en évidence.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Access](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![Autoriser](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur de provisionnement et sélectionnez la case à cocher **Envoyer une notification par e-mail en cas de défaillance**.
 
@@ -151,6 +147,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 ## <a name="change-log"></a>Journal des modifications
 
 * 10/09/2020 : suppression de la prise en charge des attributs « displayName » et « manager ».
+* 15/03/2021 : mise à jour de la méthode d’autorisation du jeton de porteur permanent vers un flux d’octroi de code OAuth.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

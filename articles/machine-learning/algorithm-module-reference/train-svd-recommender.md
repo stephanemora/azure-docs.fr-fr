@@ -1,5 +1,5 @@
 ---
-title: 'Entraîner le générateur de recommandations SVD : Informations de référence sur les modules'
+title: "Effectuer l'apprentissage du générateur de recommandations SVD : référence du module"
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Entraîner le générateur de recommandations SVD dans Azure Machine Learning pour former un conseiller bayésien à l’aide de l’algorithme SVD.
 services: machine-learning
@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: 77407f253bb347160ea331bd7384d8085f21b040
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890237"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654456"
 ---
 # <a name="train-svd-recommender"></a>Entraîner le générateur de recommandations SVD
 
 Cet article décrit comment utiliser le module Entraîner le générateur de recommandations SVD dans le concepteur Azure Machine Learning. Utilisez ce module pour entraîner un modèle de recommandation basé sur l’algorithme SVD (décomposition à valeur unique).  
 
-Le module Entraîner le générateur de recommandations SVD lit un jeu de données de triplets utilisateur-élément-notation. Il retourne un générateur de recommandations SVD formé. Vous pouvez ensuite utiliser le modèle formé pour prédire des évaluations ou générer des recommandations à l’aide du module [Noter le générateur de recommandations SVD](score-svd-recommender.md).  
+Le module Entraîner le générateur de recommandations SVD lit un jeu de données de triplets utilisateur-élément-notation. Il retourne un générateur de recommandations SVD formé. Vous pouvez ensuite utiliser le modèle formé pour prédire des évaluations ou générer des suggestions à l’aide du module [Noter le générateur de recommandations SVD](score-svd-recommender.md).  
 
 
   
@@ -35,7 +35,7 @@ Il existe deux approches principales pour les systèmes générateurs de recomma
 
 Le générateur de recommandations SVD utilise les identificateurs des utilisateurs et des éléments, ainsi qu’une matrice d’évaluations données par les utilisateurs aux éléments. Il s’agit d’un *générateur de recommandations collaboratif*. 
 
-Pour plus d’informations sur le générateur de recommandations SVD, consultez le document de recherche associé : [Techniques de factorisation de matrice pour les systèmes de recommandation](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
+Pour plus d’informations sur le générateur de recommandations SVD, consultez l’article de recherche [Techniques de factorisation de la matrice pour les systèmes de générateur de recommandations](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
 
 ## <a name="how-to-configure-train-svd-recommender"></a>Comment configurer le module Entraîner le générateur de recommandations SVD  
@@ -50,7 +50,7 @@ Avant d’utiliser le module, vos données d’entrée doivent être au format a
 
 Le jeu de données **Notations de films** dans le concepteur Azure Machine Learning (sélectionnez **Jeux de données**, puis **Exemples**) illustre le format attendu :
 
-![Notations de films](media/module/movie-ratings-dataset.png)
+![Classifications des films](media/module/movie-ratings-dataset.png)
 
 À partir de cet exemple, vous pouvez voir qu’un utilisateur unique a évalué plusieurs films. 
 
@@ -70,6 +70,9 @@ Le jeu de données **Notations de films** dans le concepteur Azure Machine Learn
   
 5.  Envoyez le pipeline.  
 
+## <a name="results"></a>Résultats
+
+Une fois l’exécution du pipeline effectuée, si vous souhaitez utiliser le modèle à des fins de scoring, connectez le module [Effectuer l'apprentissage d’un générateur de recommandations SVD](train-svd-recommender.md) à [Noter le générateur de recommandations SVD](score-svd-recommender.md), pour prédire les valeurs des nouveaux exemples d’entrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

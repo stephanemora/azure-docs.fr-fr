@@ -10,12 +10,12 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f157b44e92289d0e9c5b88108550c144344c5206
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102211139"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800742"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
@@ -35,6 +35,9 @@ Pour la protection de bout en bout de vos données de blobs, Microsoft recommand
 Lorsque vous activez la suppression réversible de conteneur, vous pouvez spécifier une période de rétention pour les conteneurs supprimés qui est comprise entre 1 et 365 jours. La période de conservation par défaut est 7 jours. Pendant la période de rétention, vous pouvez récupérer un conteneur supprimé en appelant l’opération **Restore Container**.
 
 Lorsque vous restaurez un conteneur, cela a également pour effet de restaurer les blobs qu’il contient ainsi que leurs versions. Toutefois, vous ne pouvez utiliser une suppression réversible de conteneur que pour restaurer des blobs que si le conteneur proprement dit a été supprimé. Pour restaurer un blob supprimé quand son conteneur parent n’a pas été supprimé, vous devez utiliser la suppression réversible ou le contrôle de version de blob.
+
+> [!WARNING]
+> Une suppression réversible de conteneur ne permet de restaurer que des conteneurs entiers et les blobs qu’ils contenaient au moment de la suppression. Une suppression réversible de conteneur ne permet pas de restaurer un blob supprimé au sein d’un conteneur.
 
 Le diagramme suivant montre comment restaurer un conteneur supprimé quand la suppression réversible de conteneur est activée :
 

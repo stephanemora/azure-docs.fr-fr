@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: 12ab5a9598cc0222f5a3e64985be2e2ea9e7e2fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96014854"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Remplacer un composant matériel sur votre appareil StorSimple série 8000
@@ -43,7 +43,7 @@ Le tableau suivant décrit les icônes de sécurité utilisées dans ces didacti
 | ![Icône Risque d’électrocution](./media/storsimple-hardware-component-replacement/Electric.png) |**Risque d’électrocution** |Indique un voltage élevé. |
 | ![Icône Poids élevé](./media/storsimple-hardware-component-replacement/Weight.png) |**Poids élevé** | |
 | ![Icône Aucune pièce remplaçable par l’utilisateur](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png) |**Aucune pièce remplaçable par l’utilisateur** |Accès réservé au personnel formé à cet effet. |
-| ![Icône Lire les instructions](./media/storsimple-hardware-component-replacement/ReadInstructions.png) |**Lire toutes les instructions avant de commencer** | |
+| ![Icône Lire les instructions](./media/storsimple-hardware-component-replacement/ReadInstructions.png) |**Lire toutes les instructions au préalable** | |
 | ![Icône Risque de basculement](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Risque de basculement** | |
 
 ### <a name="before-you-begin"></a>Avant de commencer
@@ -57,7 +57,7 @@ Avant d’essayer de remplacer un composant, tenez compte des informations suiva
 * Raccordez-vous à la terre correctement en utilisant une décharge  électrostatique ou un tapis antistatique lors de la manipulation des modules et des composants de votre appareil StorSimple.
 * Ne touchez pas les circuits. Utilisez les poignées et les guides fournis lors de la manipulation des composants dont les circuits sont apparents.
 
-![Icône d’avertissement](./media/storsimple-hardware-component-replacement/Warning.png) ![Icône de remarque](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **REMARQUE :**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **INFORMATION :**
 
 Quand vous remplacez un module, **ne laissez JAMAIS une baie vide à l’arrière du boîtier**. Procurez-vous un module de remplacement ou un module vide avant de retirer le composant qui pose problème.
 
@@ -67,10 +67,10 @@ Votre appareil StorSimple série 8000 est constitué de plusieurs modules enfich
 
 Les principaux composants matériels de votre appareil sont résumés dans les tableaux suivants. Cliquez sur le lien dans la colonne **Procédure de remplacement** pour accéder au didacticiel associé.
 
-| Components | Nombre présent | Module enfichable ? | Procédure de remplacement |
+| Composants | Nombre présent | Module enfichable ? | Procédure de remplacement |
 |:--- |:--- |:--- |:--- |
 | Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-8000-chassis-replacement.md) |
-| Contrôleurs principaux |2 |Oui |[Remplacer un module de contrôleur sur votre appareil StorSimple](storsimple-8000-controller-replacement.md) |
+| Contrôleurs principaux |2 |Oui |[Remplacement d’un module de contrôleur sur votre appareil StorSimple](storsimple-8000-controller-replacement.md) |
 | PCM (Module d’alimentation et de refroidissement) 764 W |2 |Oui |[Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Batterie de secours |2 |Oui |[Remplacer le module de batterie de secours sur votre appareil StorSimple](storsimple-8000-battery-replacement.md) |
 | Lecteurs de disque |12 |Oui |[Remplacer un lecteur de disque sur votre appareil StorSimple](storsimple-8000-disk-drive-replacement.md) |
@@ -79,7 +79,7 @@ Les principaux composants matériels de votre appareil sont résumés dans les t
 
 Le boîtier principal et le boîtier EBOD diffèrent quant à leurs modules d’E-S. En outre, les PCM ont des consommations en watts différentes. Les PCM du boîtier principal consomment 764 W, tandis que ceux du boîtier EBOD consomment 580 W. Les PCM du boîtier principal contiennent également un module de batterie de secours.
 
-| Components | Nombre présent | Module enfichable ? | Procédure de remplacement |
+| Composants | Nombre présent | Module enfichable ? | Procédure de remplacement |
 |:--- |:--- |:--- |:--- |
 | Châssis |1 |Non |[Remplacer le châssis sur votre appareil StorSimple](storsimple-8000-chassis-replacement.md) |
 | Contrôleurs EBOD |2 |Oui |[Remplacer un contrôleur EBOD sur votre appareil StorSimple](storsimple-8000-ebod-controller-replacement.md) |
@@ -135,7 +135,7 @@ Les unités remplaçables sur site suivantes sont disponibles pour votre apparei
 * Module de batterie de secours
 * Kit de rail de montage en rack
 
-[Contactez le Support Microsoft](storsimple-8000-contact-microsoft-support.md) pour commander une de ces unités de remplacement.
+Veuillez [contacter le support Microsoft](storsimple-8000-contact-microsoft-support.md) pour commander l'une de ces unités de remplacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
