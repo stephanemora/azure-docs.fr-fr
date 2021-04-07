@@ -12,18 +12,19 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256117"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
 
 Par défaut, le moteur de provisionnement Azure AD supprime de manière réversible ou désactive les utilisateurs qui sortent de l’étendue. Cependant, dans certains scénarios, comme le provisionnement entrant d’utilisateurs de Workday vers AD, ce comportement par défaut peut ne pas convenir et vous pouvez souhaiter le remplacer.  
 
-Cet article explique comment utiliser l’API Microsoft Graph et son Afficheur pour définir l’indicateur ***SkipOutOfScopeDeletions** _ qui contrôle le traitement des comptes qui sortent de l’étendue. _ Si ***SkipOutOfScopeDeletions** _ est défini sur 0 (false), les comptes en dehors de l’étendue seront désactivés dans la cible.
-_ Si ***SkipOutOfScopeDeletions** _ est défini sur 1 (true), les comptes en dehors de l’étendue ne seront pas désactivés dans la cible. Cet indicateur est défini au niveau de l’_application d’approvisionnement* et peut être configuré à l’aide de l’API Graph. 
+Cet article explique comment utiliser l’API Microsoft Graph et son Afficheur pour définir l’indicateur ***SkipOutOfScopeDeletions*** qui contrôle le traitement des comptes qui sortent de l’étendue. 
+* Si ***SkipOutOfScopeDeletions*** est défini sur 0 (false), les comptes en dehors de l’étendue seront désactivés dans la cible.
+* Si ***SkipOutOfScopeDeletions** _ est défini sur 1 (true), les comptes en dehors de l’étendue ne seront pas désactivés dans la cible. Cet indicateur est défini au niveau de l’_application d’approvisionnement* et peut être configuré à l’aide de l’API Graph. 
 
 Du fait que cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes suivantes incluent des captures d’écran de l’application Workday. Cependant, la configuration peut aussi être utilisée avec *toutes les autres applications*, comme ServiceNow, Salesforce et Dropbox.
 
@@ -68,9 +69,9 @@ Voici le bloc JSON à ajouter au mappage.
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>Étape 4 : Mettre à jour le point de terminaison secrets avec l’indicateur SkipOutOfScopeDeletions
 
-Dans l’Afficheur Graph, exécutez la commande ci-dessous pour mettre à jour le point de terminaison secrets avec l’indicateur **_SkipOutOfScopeDeletions_* _. 
+Dans l’Afficheur Graph, exécutez la commande ci-dessous pour mettre à jour le point de terminaison secrets avec l’indicateur ***SkipOutOfScopeDeletions***. 
 
-Dans l’URL ci-dessous, remplacez [servicePrincipalId] par la valeur _ *ServicePrincipalId** extraite à l’[étape 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
+Dans l’URL ci-dessous, remplacez [servicePrincipalId] par la valeur **ServicePrincipalId** extraite à l’[étape 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id). 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

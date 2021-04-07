@@ -9,10 +9,10 @@ ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
 ms.openlocfilehash: da36cb5c5d2db20b89f80d381f48632c7528c193
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96002451"
 ---
 1. Pour créer un cache, connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Créer une ressource**.
@@ -38,7 +38,7 @@ ms.locfileid: "96002451"
 
 1. Sous l’onglet **Réseau**, sélectionnez votre méthode de connectivité.
 
-1. Sélectionnez l’onglet **Suivant : Avancé** ou cliquez sur le bouton **Suivant : Avancé** en bas de la page.
+1. Sélectionnez le bouton **Suivant : Avancé** ou cliquez sur le bouton **Suivant : Avancé** en bas de la page.
 
 1. Sous l’onglet **Avancé** d’une instance de cache de base ou standard, sélectionnez Activer/désactiver si vous souhaitez activer un port non-TLS. Vous pouvez également sélectionner la version de Redis que vous souhaitez utiliser, soit la 4, soit la 6 (préversion).
 

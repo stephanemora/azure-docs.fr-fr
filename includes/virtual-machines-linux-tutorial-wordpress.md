@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 76a080d40721fa78ad703f77f6dbe7a3363ab77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68857373"
 ---
 ## <a name="install-wordpress"></a>Installer WordPress
@@ -21,7 +21,7 @@ Ce programme d’installation de WordPress est destiné uniquement à la preuve 
 
 ### <a name="install-the-wordpress-package"></a>Installez le package WordPress
 
-Exécutez la commande suivante :
+Exécutez la commande suivante :
 
 ```bash
 sudo apt install wordpress
@@ -37,7 +37,7 @@ Dans un répertoire de travail, créez un fichier texte `wordpress.sql` pour con
 sudo sensible-editor wordpress.sql
 ```
 
-Ajoutez les commandes suivantes, en remplaçant *yourPassword* par le mot de passe de base de données de votre choix (laissez les autres valeurs inchangées). Si vous aviez configuré une stratégie de sécurité MySQL pour valider la force du mot de passe, vérifiez que le mot de passe répond à ces exigences. Enregistrez le fichier .
+Ajoutez les commandes suivantes, en remplaçant *yourPassword* par le mot de passe de base de données de votre choix (laissez les autres valeurs inchangées). Si vous aviez configuré une stratégie de sécurité MySQL pour valider la force du mot de passe, vérifiez que le mot de passe répond à ces exigences. Enregistrez le fichier.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -85,6 +85,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Vous pouvez désormais terminer l’installation de WordPress et publier sur la plateforme. Ouvrez un navigateur web et accédez à `http://yourPublicIPAddress/wordpress`. Remplacez l’adresse IP publique de votre machine virtuelle. Elle doit ressembler à cette image.
+Vous pouvez désormais terminer l’installation de WordPress et publier sur la plateforme. Ouvrez un navigateur et accédez à `http://yourPublicIPAddress/wordpress`. Remplacez l’adresse IP publique de votre machine virtuelle. Elle doit ressembler à cette image.
 
 ![Page d’installation de WordPress](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

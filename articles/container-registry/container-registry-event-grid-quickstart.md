@@ -5,13 +5,13 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919661"
 ---
-# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
 Azure Event Grid est un service de routage d’événements entièrement géré qui permet une consommation d’événements uniforme avec un modèle publication-abonnement. Dans ce guide de démarrage rapide, vous utilisez l’interface CLI Azure pour créer un registre de conteneurs, pour vous abonner aux événements du registre, puis pour déployer un exemple d’application web pour recevoir les événements. Enfin, vous déclenchez des événements `push` et `delete` pour l’image de conteneur et vous visualisez la charge utile des événements dans l’exemple d’application.
 
@@ -200,7 +200,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 ![Navigateur web montrant l’exemple d’application avec des événements ImagePushed et ImageDeleted][sample-app-03]
 
-Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
+Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

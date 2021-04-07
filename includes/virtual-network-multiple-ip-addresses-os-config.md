@@ -9,10 +9,10 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 93caf39216ef0479ec2799267a9ba8181f37f802
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84194223"
 ---
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
@@ -23,7 +23,7 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
 <details>
   <summary>Développez</summary>
 
-1. Tapez *ipconfig /all*à l’invite de commandes.  Seule l’adresse IP privée *principale* est visible (via DHCP).
+1. Tapez *ipconfig /all* à l’invite de commandes.  Seule l’adresse IP privée *principale* est visible (via DHCP).
 2. Saisissez *ncpa.cpl* dans l’invite de commandes pour ouvrir la fenêtre **Connexions réseau**.
 3. Ouvrez les propriétés de la carte réseau appropriée : **Ethernet**.
 4. Double-cliquez sur Internet Protocol version 4 (IPv4).
@@ -40,7 +40,7 @@ Connectez-vous à une machine virtuelle que vous avez créée à l’aide de plu
 
     * Cliquez sur **OK** pour fermer les paramètres TCP/IP, puis sur **OK** à nouveau pour fermer les paramètres de la carte réseau. Votre connexion RDP est rétablie.
 
-6. Tapez *ipconfig /all*à l’invite de commandes. Vérifiez que toutes les adresses IP que vous avez ajoutées sont affichées et que le protocole DHCP est désactivé.
+6. Tapez *ipconfig /all* à l’invite de commandes. Vérifiez que toutes les adresses IP que vous avez ajoutées sont affichées et que le protocole DHCP est désactivé.
 7. Configurez Windows pour utiliser l’adresse IP privée de la configuration IP principale dans Azure en tant qu’adresse IP principale pour Windows. Pour plus d’informations, consultez [Aucun accès à Internet à partir de la machine virtuelle Windows Azure qui possède plusieurs adresses IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
 ### <a name="validation-windows-server"></a>Validation (Windows Server)
