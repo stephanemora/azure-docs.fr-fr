@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b5895d016e2d9d9b471218bc083ea7585254b45
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258679"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
@@ -51,15 +51,15 @@ Cet article utilise les valeurs suivantes :
 - URL externe : `https://spsites-demo1984.msappproxy.net/`
 - Compte du pool d’applications pour l’application web SharePoint : `Contoso\spapppool`
 
-## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Étape 1 : Configurer une application dans Azure AD qui utilise le proxy d’application
+## <a name="step-1-configure-an-application-in-azure-ad-that-uses-application-proxy"></a>Étape 1 : Configurer une application dans Azure AD qui utilise le proxy d’application
 
 Dans cette étape, vous allez créer une application dans votre locataire Azure Active Directory qui utilise le proxy d’application. Vous définissez l’URL externe et spécifiez l’URL interne, les deux étant utilisées ultérieurement dans SharePoint.
 
 1. Créez l’application comme décrit avec les paramètres suivants. Pour obtenir des instructions pas à pas, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **URL interne** : URL interne SharePoint qui sera définie ultérieurement dans SharePoint, par exemple `https://sharepoint`.
-   * **Pré-authentification** : Azure Active Directory
-   * **Traduire les URL dans les en-têtes** : Non
-   * **Traduisez les URL dans le corps de l’application** : Non
+   * **Préauthentification** : Azure Active Directory
+   * **Traduire les URL dans les en-têtes** : Non
+   * **Traduire les URL dans le corps de l’application** : Non
 
    ![Publier SharePoint en tant qu’application](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
@@ -74,7 +74,7 @@ Dans cette étape, vous allez créer une application dans votre locataire Azure 
 
 1. Pour terminer la configuration de votre application, accédez à la section **Utilisateurs et groupes** et affectez des utilisateurs pouvant accéder à cette application. 
 
-## <a name="step-2-configure-the-sharepoint-web-application"></a>Étape 2 : Configurer l’application web SharePoint
+## <a name="step-2-configure-the-sharepoint-web-application"></a>Étape 2 : Configurer l’application web SharePoint
 
 L’application web SharePoint doit être configurée avec Kerberos et les mappages d’accès de substitution appropriés pour fonctionner correctement avec le proxy d’application Azure AD. Il existe deux options possibles :
 
@@ -198,9 +198,9 @@ Vous êtes maintenant prêt à vous connecter à SharePoint à l’aide de l’U
 
 ## <a name="troubleshoot-sign-in-errors"></a>Résoudre les erreurs de connexion
 
-Si la connexion au site ne fonctionne pas, vous pouvez obtenir plus d’informations sur le problème dans les journaux du connecteur : À partir de l’ordinateur exécutant le connecteur, ouvrez l’observateur d’événements, accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** et inspectez le journal **Admin**.
+Si la connexion au site ne fonctionne pas, vous pouvez obtenir plus d’informations sur le problème dans les journaux du connecteur : À partir de l’ordinateur exécutant le connecteur, ouvrez l’observateur d’événements, accédez à **Journaux des applications et des services** > **Microsoft** > **AadApplicationProxy** > **Connecteur** et inspectez le journal **Admin**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utilisation des domaines personnalisés dans le proxy d’application Azure AD](application-proxy-configure-custom-domain.md)
+* [Utilisation des domaines personnalisés dans le proxy d'application Azure AD](application-proxy-configure-custom-domain.md)
 * [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)

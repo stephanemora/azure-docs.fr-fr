@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895697"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Configurer une connexion haute disponibilité entre un site local et une passerelle VPN CloudSimple
 
 Les administrateurs réseau peuvent configurer une connexion VPN de site à site IPsec haute disponibilité entre leur environnement local et une passerelle VPN CloudSimple.
 
-Ce guide présente les étapes de configuration d’un pare-feu local pour une connexion VPN de site à site IPsec haute disponibilité. Les étapes détaillées sont spécifiques du type de pare-feu local. En guise d’exemples, ce guide présente les étapes pour deux types de pare-feu : Cisco ASA et Palo Alto Networks.
+Ce guide présente les étapes de configuration d’un pare-feu local pour une connexion VPN de site à site IPsec haute disponibilité. Les étapes détaillées sont spécifiques du type de pare-feu local. En guise d’exemples, ce guide présente les étapes pour deux types de pare-feu : Cisco ASA et Palo Alto Networks.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -152,11 +152,11 @@ Connectez-vous au pare-feu Palo Alto, sélectionnez **Réseau** > **Interfaces**
 * Nom de l’interface. Le premier champ est renseigné automatiquement avec le mot clé « tunnel ». Dans le champ adjacent, entrez un nombre compris entre 1 et 9999. Cette interface sera utilisée comme interface du tunnel principal pour transporter le trafic de site à site entre le centre de données local et le cloud privé.
 * Commentaire. Entrez des commentaires pour faciliter l’identification de l’objectif du tunnel.
 * Profil NetFlow. Conservez la valeur par défaut.
-* Config. Attribuer l’interface à : Routeur virtuel : Sélectionnez **par défaut**. 
-        Zone de sécurité : Sélectionnez la zone pour le trafic LAN approuvé. Dans cet exemple, le nom de la zone pour le trafic LAN est « Trust ».
+* Config. Attribuer l’interface à : Routeur virtuel : sélectionnez **par défaut**. 
+        Zone de sécurité : sélectionnez la zone pour le trafic LAN approuvé. Dans cet exemple, le nom de la zone pour le trafic LAN est « Trust ».
 * IPv4. Cliquez sur **Ajouter**, puis ajoutez toute adresse IP /32 inutilisée non redondante dans votre environnement, qui sera affectée à l’interface du tunnel principal et utilisée pour surveiller les tunnels (comme expliqué plus loin).
 
-Étant donné que cette configuration est destinée à un VPN haute disponibilité, deux interfaces de tunnel sont requises : Une principale et une secondaire. Répétez les étapes précédentes pour créer l’interface du tunnel secondaire. Sélectionnez un autre ID de tunnel et une autre adresse IP /32 inutilisée.
+Étant donné que cette configuration est destinée à un VPN haute disponibilité, deux interfaces de tunnel sont requises : une principale et une secondaire. Répétez les étapes précédentes pour créer l’interface du tunnel secondaire. Sélectionnez un autre ID de tunnel et une autre adresse IP /32 inutilisée.
 
 ### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Configurer des itinéraires statiques pour les sous-réseaux de cloud privé à atteindre sur le VPN de site à site
 
@@ -263,7 +263,7 @@ Onglet Général :
 * Adresse IP de destination. Entrez une adresse IP appartenant au sous-réseau de cloud privé CloudSimple autorisée sur la connexion de site à site. Assurez-vous que les interfaces de tunnel (telles que tunnel.20 – 10.64.5.2/32 et tunnel.30 – 10.64.6.2/32) sur Palo Alto sont autorisées à atteindre l’adresse IP du cloud privé CloudSimple via le VPN de site à site. Consultez la configuration suivante pour les ID de proxy.
 * Profil. Sélectionnez le profil du moniteur.
 
-Onglet ID de proxy : Cliquez sur **IPv4** > **Ajouter**, puis configurez les éléments suivants :
+Onglet ID de proxy : cliquez sur **IPv4** > **Ajouter**, puis configurez les éléments suivants :
 
 * ID du proxy. Entrez un nom pour le trafic intéressant. Plusieurs ID de proxy peuvent être transportés dans un seul tunnel IPsec.
 * Local. Spécifiez les sous-réseaux locaux sur site qui sont autorisés à communiquer avec les sous-réseaux de cloud privé via le VPN de site à site.

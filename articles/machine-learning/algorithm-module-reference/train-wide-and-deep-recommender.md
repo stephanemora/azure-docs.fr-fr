@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: d7dd7105ddb0d6503faefb996b84c0e53a62ce49
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421173"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104655374"
 ---
 # <a name="train-wide--deep-recommender"></a>Générateur de recommandations Train Wide and Deep
 Cet article explique comment utiliser le module **Générateur de recommandations Train Wide and Deep** dans le concepteur Azure Machine Learning afin d’effectuer la formation d’un modèle de recommandation. Ce module est basé sur l’apprentissage Wide and Deep, proposé par Google.
@@ -136,6 +136,10 @@ Par exemple, un jeu de caractéristiques d’éléments typique peut se présent
      La normalisation par lot est une technique permettant de combattre le problème d’écart de covariable interne pendant la formation des réseaux. En général, elle peut contribuer à améliorer la vitesse, les performances et la stabilité des réseaux. 
 
 17.  Exécuter le pipeline.
+
+## <a name="results"></a>Résultats
+
+Une fois l’exécution du pipeline effectuée, si vous souhaitez utiliser le modèle à des fins de scoring, connectez le module [Effectuer l'apprentissage d’un générateur de recommandations Wide and Deep](train-wide-and-deep-recommender.md) à [Noter le générateur de recommandations Wide and Deep](score-wide-and-deep-recommender.md), pour prédire les valeurs des nouveaux exemples d’entrée.
 
 ##  <a name="technical-notes"></a>Notes techniques
 

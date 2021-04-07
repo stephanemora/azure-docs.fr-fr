@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.openlocfilehash: 2cc6556f681ece170bdfe02b985f56274c0faa1e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936968"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scénario : Problèmes de connectivité Apache Phoenix dans Azure HDInsight
@@ -19,7 +19,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 Impossible de se connecter à Apache HBase avec Apache Phoenix. Les raisons peuvent varier.
 
-## <a name="cause-incorrect-ip"></a>Cause : IP incorrecte
+## <a name="cause-incorrect-ip"></a>Cause : adresse IP incorrecte
 
 Adresse IP incorrecte du nœud Zookeeper actif.
 
@@ -29,7 +29,7 @@ L’adresse IP du nœud Zookeeper actif peut être identifiée à partir de l�
 
 ---
 
-## <a name="cause-systemcatalog-table-offline"></a>Cause : Table SYSTEM.CATALOG hors connexion
+## <a name="cause-systemcatalog-table-offline"></a>Cause : table SYSTEM.CATALOG hors connexion
 
 Lors de l’exécution de commandes telles que `!tables`, vous recevez un message d’erreur semblable à celui-ci :
 

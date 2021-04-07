@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: e7d4770af38081353fc58eec9957f50e2b6a7348
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b33005b7f0d08e6da963457813b012199d89f5f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372788"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655031"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Démarrage rapide : Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory 
 
@@ -39,7 +39,8 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 1. Sélectionnez **Intégration**, puis **Data Factory**. 
    
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Sélection de Data Factory dans le volet Nouveau":::
+
 1. Dans la page **Créer une fabrique de données**, sous l’onglet **De base**, sélectionnez l’**Abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
 
@@ -55,8 +56,8 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
  
 1. Pour **Nom**, entrez **ADFTutorialDataFactory**.
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, **&lt;votrenom&gt;ADFTutorialDataFactory**), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour en savoir plus sur les règles d’affectation des noms d’artefacts Data Factory.
-  
-   ![Erreur quand le nom n’est pas disponible](./media/doc-common-process/name-not-available-error.png)
+
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Message d’erreur de nom en double pour la nouvelle fabrique de données.":::
 
 1. Pour **Version**, sélectionnez **V2**.
 
@@ -66,7 +67,7 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 
 1. Sélectionnez la vignette **Créer et surveiller** pour démarrer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un autre onglet du navigateur.
    
-   ![Page d’accueil de la fabrique de données, avec la vignette « Créer et surveiller »](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Créer et superviser.":::
    
    > [!NOTE]
    > Si vous constatez que le navigateur web est bloqué à l’étape « Autorisation », décochez la case **Bloquer les cookies et les données de site tiers**. Sinon, gardez-la cochée, créez une exception pour **login.microsoftonline.com**, puis réessayez d’ouvrir l’application.
@@ -79,7 +80,7 @@ Dans cette procédure, vous créez un service lié qui associe votre compte de S
 
 1. Dans la page Services liés, sélectionnez **+ Nouveau** pour créer un service lié.
 
-   ![Nouveau service lié](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Nouveau service lié.":::
    
 1. Dans la page **Nouveau service lié**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Continuer**. 
 
@@ -93,7 +94,7 @@ Dans cette procédure, vous créez un service lié qui associe votre compte de S
 
    d. Sélectionnez **Créer** pour enregistrer le service lié. 
 
-      ![Service lié](./media/quickstart-create-data-factory-portal/linked-service.png)
+      :::image type="content" source="./media/quickstart-create-data-factory-portal/linked-service.png" alt-text="Service lié.":::
 
 
 ## <a name="create-datasets"></a>Créez les jeux de données
@@ -109,13 +110,13 @@ Dans les paramètres du service lié, vous avez spécifié le compte de Stockage
 
 1. Cliquez sur le bouton **+** (plus), puis sélectionnez **Jeu de données**.
 
-   ![Menu pour la création d’un jeu de données](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-dataset-menu.png" alt-text="Menu pour la création d’un jeu de données.":::
 
 1. Dans la page **Nouveau jeu de données**, sélectionnez **Stockage Blob Azure**, puis **Continuer**. 
 
 1. Dans la page **Sélectionner le format**, choisissez le type de format de vos données, puis sélectionnez **Continuer**. Dans ce cas, sélectionnez **Binaire** lorsque la copie s’effectue en l’état sans analyser le contenu.
 
-   ![Sélectionner le format](./media/quickstart-create-data-factory-portal/select-format.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/select-format.png" alt-text="Sélectionner le format.":::   
    
 1. Dans la page **Définir les propriétés**, effectuez les étapes suivantes :
 
@@ -129,7 +130,8 @@ Dans les paramètres du service lié, vous avez spécifié le compte de Stockage
     
     e. Sélectionnez **OK**.   
 
-    ![Définir les propriétés pour InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png" alt-text="Définir les propriétés pour InputDataset.":::
+
 1. Répétez les étapes pour créer le jeu de données de sortie :  
 
     a. Cliquez sur le bouton **+** (plus), puis sélectionnez **Jeu de données**.
@@ -144,7 +146,7 @@ Dans les paramètres du service lié, vous avez spécifié le compte de Stockage
 
     f. Sélectionnez **OK**.   
 
-    ![Définir les propriétés pour OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png" alt-text="Définir les propriétés pour OutputDataset.":::    
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline 
 Dans cette procédure, vous créez et validez un pipeline avec une activité de copie qui utilise les jeux de données d’entrée et de sortie. L’activité de copie copie les données du fichier que vous avez spécifié dans les paramètres du jeu de données d’entrée dans le fichier que vous avez spécifié dans les paramètres du jeu de données de sortie. Si le jeu de données d’entrée ne spécifie qu’un dossier (et pas le nom de fichier), l’activité de copie copie tous les fichiers dans le dossier source vers la destination. 
@@ -155,7 +157,7 @@ Dans cette procédure, vous créez et validez un pipeline avec une activité de 
 
 1. Dans la boîte à outils **Activités**, développez **Move & Transform** (Déplacer et transformer). Faites glisser l’activité **Copier des données** depuis la boîte à outils **Activités** vers la surface du concepteur de pipeline. Vous pouvez également rechercher des activités dans la boîte à outils **Activités**. Spécifiez **CopyFromBlobToBlob** pour le **Nom**.
 
-   ![Création d’une activité de copie de données](./media/quickstart-create-data-factory-portal/copy-activity.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-activity.png" alt-text="Création d’une activité de copie de données.":::   
 
 1. Basculez vers l’onglet **Source** dans les paramètres de l’activité de copie et sélectionnez **InputDataset** pour le **Jeu de données source**.
 
@@ -163,7 +165,7 @@ Dans cette procédure, vous créez et validez un pipeline avec une activité de 
 
 1. Pour valider les paramètres du pipeline, cliquez sur **Valider** sur la barre d’outils pour le pipeline au-dessus du canevas. Vérifiez que le pipeline a été validé avec succès. Pour fermer la sortie de validation, sélectionnez le bouton Validation dans le coin supérieur droit. 
 
-   ![Valider un pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-validate.png"   alt-text="Valider un pipeline.":::
 
 ## <a name="debug-the-pipeline"></a>Déboguer le pipeline
 Dans cette étape, vous déboguez le pipeline avant de le déployer vers Data Factory. 
@@ -172,7 +174,7 @@ Dans cette étape, vous déboguez le pipeline avant de le déployer vers Data Fa
     
 1. Vérifiez que vous voyez l’état de l’exécution du pipeline dans l’onglet **Sortie** des paramètres du pipeline. 
  
-    ![Sortie de l’exécution du pipeline](./media/quickstart-create-data-factory-portal/pipeline-output.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-output.png" alt-text="Sortie de l’exécution du pipeline":::
 
 1. Vérifiez qu’un fichier de sortie apparaît bien dans le dossier de **sortie** du conteneur **adftutorial**. Si le dossier de sortie n’existe pas, le service Data Factory le crée automatiquement. 
 
@@ -181,7 +183,7 @@ Dans cette procédure, vous déployez des entités (services liés, jeux de donn
 
 1. Avant de déclencher un pipeline, vous devez publier des entités dans Data Factory. Pour les publier, sélectionnez **Publier tout** dans la partie supérieure. 
 
-    ![Publier tout](./media/quickstart-create-data-factory-portal/publish-all.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/publish-all.png" alt-text="Publier tout.":::    
 
 1. Pour déclencher le pipeline manuellement, sélectionnez **Ajouter un déclencheur** dans la barre d’outils du pipeline, puis sélectionnez **Déclencher maintenant**. Dans la page **Exécution de pipeline**, sélectionnez **OK**.
 
@@ -189,12 +191,12 @@ Dans cette procédure, vous déployez des entités (services liés, jeux de donn
 
 1. Basculez vers l’onglet **Surveiller** sur la gauche. Utilisez le bouton **Actualiser** pour actualiser la liste.
 
-   ![Onglet pour la surveillance des exécutions de pipelines](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png" alt-text="Onglet pour la surveillance des exécutions de pipelines"::: 
 1. Sélectionnez le lien **CopyPipeline** pour voir l’état d’exécution de l’activité de copie dans cette page. 
 
 1. Pour afficher les détails de l’opération de copie, sélectionnez le lien **Détails** (image en forme de lunettes). Pour plus d’informations sur les propriétés, consultez [Vue d’ensemble de l’activité de copie](copy-activity-overview.md). 
 
-   ![Détails de l’opération de copie](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-operation-details.png" alt-text="Détails de l’opération de copie.":::
 1. Vérifiez qu’un nouveau fichier apparaît bien dans le dossier de **sortie**. 
 1. Vous pouvez revenir à la vue **Exécutions du pipeline** à partir de la vue **Exécutions d’activités** en sélectionnant le lien **Toutes les exécutions de pipelines**. 
 
@@ -213,7 +215,7 @@ Cette procédure est facultative dans ce didacticiel. Vous pouvez créer un *dé
 
 1. Dans la page **Nouveau déclencheur**, cochez la case **Activé**, puis sélectionnez **OK**. 
 
-   ![Paramètre Nouveau déclencheur](./media/quickstart-create-data-factory-portal/trigger-settings-next.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/trigger-settings-next.png" alt-text="Paramètre Nouveau déclencheur.":::   
 1. Lisez le message d’avertissement, puis sélectionnez **OK**.
 
 1. Sélectionnez **Publier tout** pour publier les changements sur Data Factory. 

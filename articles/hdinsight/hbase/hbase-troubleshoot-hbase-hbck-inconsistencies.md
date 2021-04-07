@@ -5,21 +5,21 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/08/2019
 ms.openlocfilehash: cbe4231bbecdf279c637cd334336437a020188d4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936979"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scénario : la commande `hbase hbck` retourne des incohérences dans Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Problème : La région n’est pas dans `hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Problème : la région n’est pas dans `hbase:meta`
 
 Région xxx sur HDFS, mais non listée dans `hbase:meta` ou déployée sur un serveur de région.
 
-### <a name="cause"></a>Cause
+### <a name="cause"></a>Cause :
 
 Varie.
 
@@ -38,11 +38,11 @@ Varie.
     ```
 ---
 
-## <a name="issue-region-is-offline"></a>Problème : La région est hors connexion
+## <a name="issue-region-is-offline"></a>Problème : la région est hors connexion
 
 Région XXX non déployée sur un RegionServer. Cela signifie que la région est dans `hbase:meta`, mais hors connexion.
 
-### <a name="cause"></a>Cause
+### <a name="cause"></a>Cause :
 
 Varie.
 
@@ -56,9 +56,9 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ---
 
-## <a name="issue-regions-have-the-same-startend-keys"></a>Problème : Les régions ont les mêmes clés de début/fin
+## <a name="issue-regions-have-the-same-startend-keys"></a>Problème : les régions ont les mêmes clés de début/fin
 
-### <a name="cause"></a>Cause
+### <a name="cause"></a>Cause :
 
 Varie.
 
@@ -78,7 +78,7 @@ Dans ce scénario, vous devez fusionner RegionA et RegionC, définir RegionD ave
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Problème : Impossible de charger `.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Problème : impossible de charger `.regioninfo`
 
 Impossible de charger `.regioninfo` pour la région `/hbase/data/default/tablex/regiony`.
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 263d27f4236ba43f6514f6a084e58cfe0a13a9d2
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 0197b533f80ccb1524de2bbb9fc5c642f2626bbc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199511"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655255"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -84,7 +84,7 @@ Le tableau suivant répertorie les adresses IP de la passerelle Azure Database p
 | Centre-USA Ouest | 13.78.145.25     | | |
 | Europe Ouest |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | USA Ouest |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
-| USA Ouest 2 | 13.66.226.202  | | |
+| USA Ouest 2 | 13.66.136.192 | 13.66.226.202  | | 
 ||||
 
 ## <a name="connection-redirection"></a>Redirection de connexion
@@ -110,7 +110,7 @@ Seuls les nœuds de passerelle sont mis hors service. Lorsque les utilisateurs s
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Comment déterminer si vos connexions sont dirigées vers d'anciens ou de nouveaux nœuds de passerelle ?
 Effectuez un test ping sur le nom de domaine complet de votre serveur, par exemple ``ping xxx.mysql.database.azure.com``. Si l'adresse IP renvoyée est l'une de celles qui sont répertoriées sous Adresses IP de passerelle (en cours de mise hors service) dans le document ci-dessus, cela signifie que votre connexion passe par l'ancienne passerelle. En revanche, si l'adresse IP renvoyée est l'une de celles qui sont répertoriées sous Adresses IP de passerelle, cela signifie que votre connexion passe par la nouvelle passerelle.
 
-Vous pouvez également effectuer un test [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) ou TCPPing sur le serveur de base de données à partir de votre application cliente avec le port 3306 et vous assurer que l'adresse IP renvoyée ne correspond pas à l'une des adresses IP en cours de mise hors service.
+Vous pouvez également effectuer un test [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) ou TCPPing sur le serveur de base de données à partir de votre application cliente avec le port 3306 et vous assurer que l’adresse IP renvoyée ne correspond pas à l'une des adresses IP en cours de mise hors service.
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Comment savoir quand la maintenance est terminée ? Et recevrai-je une autre notification lorsque les anciennes adresses IP seront mises hors service ?
 Vous recevrez un e-mail pour vous informer du début des travaux de maintenance. La maintenance peut prendre jusqu'à un mois en fonction du nombre de serveurs que nous devons migrer dans toutes les régions. Préparez votre client pour qu'il se connecte au serveur de base de données à l'aide du nom de domaine complet ou en utilisant la nouvelle adresse IP figurant dans le tableau ci-dessus. 
