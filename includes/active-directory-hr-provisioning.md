@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: be33e492f44f6926f2ae2d133cf112245fba15f1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93134950"
 ---
 ## <a name="cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Application RH cloud pour l’attribution d’utilisateurs Azure Active Directory
@@ -22,7 +22,7 @@ Azure AD utilise cette intégration pour activer les workflows suivants d’appl
 
 - **Approvisionnement des utilisateurs vers Active Directory :** approvisionnez les ensembles d’utilisateurs sélectionnés dans une application RH cloud dans un ou plusieurs domaines Active Directory (AD).
 - **Approvisionnement des utilisateurs du cloud uniquement vers Azure AD :** dans les scénarios où Active Directory n’est pas utilisé, approvisionnez les utilisateurs directement à partir de l’application RH du cloud vers Azure AD.
-- **Mise à jour de l’application RH cloud**  : mettez à jour les adresses e-mail et les attributs de nom d’utilisateur à partir d’Azure AD sur l’application RH cloud.
+- **Mise à jour de l’application RH cloud** : mettez à jour les adresses e-mail et les attributs de nom d’utilisateur à partir d’Azure AD sur l’application RH cloud.
 
 
 ## <a name="enabled-hr-scenarios"></a>Scénarios RH activés

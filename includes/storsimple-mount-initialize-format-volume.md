@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 7c4392aa67fd5e995e93b2e5b0c188f07f598aa4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95556534"
 ---
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Pour monter, initialiser et formater un volume
@@ -22,10 +22,10 @@ ms.locfileid: "95556534"
 8. Dans la fenêtre **Gestion des disques** , les volumes montés sont affichés comme indiqué dans l’illustration suivante. Cliquez avec le bouton droit sur le volume détecté (cliquez sur le nom du disque), puis cliquez sur **En ligne**.
    
      ![Initialisation du formatage de volume](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png) 
-9. Cliquez une nouvelle fois avec le bouton droit sur le volume détecté (cliquez sur le nom du disque), puis cliquez sur **Initialiser**.
+9. Cliquez avec le bouton droit sur le volume (cliquez sur le nom du disque), puis cliquez sur **Initialiser**.
 10. Pour formater un volume simple, procédez comme suit :
     
-    1. Sélectionnez le volume, cliquez dessus avec le bouton droit (cliquez sur la zone de droite), puis cliquez sur **Nouveau volume simple**.
+    1. Sélectionnez le volume, cliquez dessus avec le bouton droit (cliquez dans la partie droite), puis cliquez sur **Nouveau volume simple**.
     2. Dans l’Assistant Nouveau volume simple, spécifiez la lettre de lecteur et la taille du volume et configurez le volume comme système de fichiers NTFS.
     3. Spécifiez une taille d’unité d’allocation 64 Ko. Cette taille d’unité d’allocation fonctionne bien avec les algorithmes de déduplication utilisés dans la solution StorSimple.
     4. Effectuez un formatage rapide.

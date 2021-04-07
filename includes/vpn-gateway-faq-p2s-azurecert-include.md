@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93376009"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -52,4 +52,4 @@ Vous pouvez utiliser votre solution de PKI d’entreprise (votre PKI interne), A
     * Pour le certificat client :
 
       * Lorsque vous créez la clé privée, spécifiez la longueur 4096.
-      * Lors de la création du certificat, pour le paramètre *-extensions* , spécifiez *usr_cert*.
+      * Lors de la création du certificat, pour le paramètre *-extensions*, spécifiez *usr_cert*.

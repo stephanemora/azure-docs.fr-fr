@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 3129bbe171329ecf37f8712394cedf9b70188220
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005812"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Pour installer des mises à jour par le biais du portail Azure
 
 1. Accédez à votre gestionnaire de périphériques StorSimple et sélectionnez **Périphériques**. Dans la liste des périphériques connectés à votre service, sélectionnez et cliquez sur le périphérique que vous souhaitez mettre à jour.
 
-    ![Dans Récent, le Gestionnaire de périphériques MySSDevManager est mis en surbrillance et sélectionné, Appareils est mis en surbrillance et sélectionné, et l’appareil MYSSIS1103 est mis en surbrillance et sélectionné.](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate1m.png) 
+    ![Dans Récent, le Gestionnaire d’appareils MySSDevManager est mis en surbrillance et sélectionné, Appareils est mis en surbrillance et sélectionné, et l’appareil MYSSIS1103 est mis en surbrillance et sélectionné.](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate1m.png) 
 
 2. Dans le panneau **Paramètres**, cliquez sur **Mises à jour de l’appareil**.
 
@@ -35,7 +35,7 @@ ms.locfileid: "96005812"
 
 5. Dans le panneau **Nouvelles mises à jour**, passez en revue les notes de publication. Notez également qu’une fois que les mises à jour sont téléchargées, vous devez confirmer l’installation. Cliquez sur **OK**.
 
-    ![Le volet Nouvelles mises à jour indique « Une fois les mises à jour téléchargées, vous devez confirmer l'installation. » Le bouton OK est mis en surbrillance.](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
+    ![Le volet Nouvelles mises à jour indique « Une fois les mises à jour téléchargées, vous devez confirmer l’installation. » Le bouton OK est mis en surbrillance.](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 
 6. Un message s’affichera au début et à la fin du téléchargement.
 
@@ -47,7 +47,7 @@ ms.locfileid: "96005812"
 
 6. Dans le panneau **Nouvelles mises à jour**, vous êtes averti que la mise à jour peut perturber le fonctionnement de l’appareil. Dans la mesure où Virtual Array est un appareil à nœud unique, il redémarre après la mise à jour. Cela perturbe les éventuelles E/S en cours. Cliquez sur **OK** pour installer les mises à jour.
 
-    ![Le message dans le volet indique « Votre appareil subira un temps d’arrêt lors de l’installation de ces mises à jour ». Le bouton OK est mis en surbrillance.](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate12m.png)
+    ![Le message dans le volet Nouvelles mises à jour indique « Votre appareil subira un temps d’arrêt lors de l’installation de ces mises à jour ». Le bouton OK est mis en surbrillance.](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate12m.png)
 
 7. Vous êtes averti lorsque le travail d’installation démarre.
 

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,27 +9,27 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96010766"
 ---
 |**Génération<br>de passerelle<br>VPN** |**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> connexions SSTP** | **P2S<br> connexions IKEv2/OpenVPN** | **Agrégat<br>Référence de débit** | **BGP** | **Redondant interzone** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
-|**Génération1**|**De base**   | Bande passante 10    | Bande passante 128  | Non pris en charge  | 100 Mbits/s  | Non pris en charge| Non |
-|**Génération1**|**VpnGw1**  | Bande passante 30*   | Bande passante 128  | Bande passante 250       | 650 Mbits/s  | Prise en charge | Non |
-|**Génération1**|**VpnGw2**  | Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1 Gbit/s    | Prise en charge | Non |
-|**Génération1**|**VpnGw3**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 1,25 Gbits/s | Prise en charge | Non |
-|**Génération1**|**VpnGw1AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 250       | 650 Mbits/s  | Prise en charge | Oui |
-|**Génération1**|**VpnGw2AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1 Gbit/s    | Prise en charge | Oui |
-|**Génération1**|**VpnGw3AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 1,25 Gbits/s | Prise en charge | Oui |
+|**Génération1**|**De base**   | Bande passante 10    | Bande passante 128  | Non pris en charge  | 100 Mbits/s  | Non pris en charge| Non |
+|**Génération1**|**VpnGw1**  | Bande passante 30*   | Bande passante 128  | Bande passante 250       | 650 Mbits/s  | Pris en charge | Non |
+|**Génération1**|**VpnGw2**  | Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1 Gbit/s    | Pris en charge | Non |
+|**Génération1**|**VpnGw3**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 1,25 Gbits/s | Pris en charge | Non |
+|**Génération1**|**VpnGw1AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 250       | 650 Mbits/s  | Pris en charge | Oui |
+|**Génération1**|**VpnGw2AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1 Gbit/s    | Pris en charge | Oui |
+|**Génération1**|**VpnGw3AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 1,25 Gbits/s | Pris en charge | Oui |
 |        |            |            |           |                |           |           |     |
-|**Génération2**|**VpnGw2**  | Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Prise en charge | Non |
-|**Génération2**|**VpnGw3**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Prise en charge | Non |
-|**Génération2**|**VpnGw4**  | Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Prise en charge | Non |
-|**Génération2**|**VpnGw5**  | Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Prise en charge | Non |
-|**Génération2**|**VpnGw2AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Prise en charge | Oui |
+|**Génération2**|**VpnGw2**  | Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Pris en charge | Non |
+|**Génération2**|**VpnGw3**  | Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Pris en charge | Non |
+|**Génération2**|**VpnGw4**  | Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Pris en charge | Non |
+|**Génération2**|**VpnGw5**  | Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Pris en charge | Non |
+|**Génération2**|**VpnGw2AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Pris en charge | Oui |
 |**Génération2**|**VpnGw3AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Prise en charge | Oui |
 |**Génération2**|**VpnGw4AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Prise en charge | Oui |
 |**Génération2**|**VpnGw5AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Prise en charge | Oui |
@@ -48,7 +48,7 @@ ms.locfileid: "96010766"
 
 Pour aider nos clients à comprendre les performances relatives des références SKU à l’aide de différents algorithmes, nous avons utilisé les outils disponibles publiquement iPerf et CTSTraffic pour mesurer les performances. Le tableau ci-dessous liste les résultats des tests de performances des références SKU VpnGw de génération 1. Comme vous pouvez le voir, les meilleures performances sont obtenues quand nous utilisons l’algorithme GCMAES256 pour le chiffrement IPsec et pour l’intégrité. Nous obtenons des performances moyennes lors de l’utilisation d’AES256 pour le chiffrement IPsec et de SHA256 pour l’intégrité. Quand nous utilisons DES3 pour le chiffrement IPsec et SHA256 pour l’intégrité, nous obtenons les performances les plus faibles.
 
-|**Génération**|**Référence (SKU)**   | **Algorithmes<br>utilisés** | **Débit<br>observé** | **Paquets par seconde<br>observés** |
+|**Generation**|**Référence (SKU)**   | **Algorithmes<br>utilisés** | **Débit<br>observé** | **Paquets par seconde<br>observés** |
 |---           |---       | ---                 | ---            | ---                    |
 |**Génération1**|**VpnGw1**| GCMAES256<br>AES256 et SHA256<br>DES3 et SHA256| 650 Mbits/s<br>500 Mbits/s<br>120 Mbits/s   | 58 000<br>50 000<br>50 000|
 |**Génération1**|**VpnGw2**| GCMAES256<br>AES256 et SHA256<br>DES3 et SHA256| 1 Gbit/s<br>500 Mbits/s<br>120 Mbits/s | 90 000<br>80 000<br>55 000|
