@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: v-erkel
 ms.openlocfilehash: f96a0fa264124f9d050e667b003d98579da63b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87092335"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache - Copie manuelle
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Créer des manifestes de fichiers
 
-Une fois que vous avez compris les approches ci-dessus (plusieurs threads de copie par destination, plusieurs destinations par client, plusieurs clients par système de fichiers source accessible via le réseau), tenez compte de la recommandation suivante, celle de générer des manifestes de fichiers, puis de les utiliser avec les commandes de copie dans plusieurs clients.
+Une fois que vous avez compris les approches ci-dessus (plusieurs threads de copie par destination, plusieurs destinations par client, plusieurs clients par système de fichiers source accessible via le réseau), tenez compte de la recommandation suivante : générez des manifestes de fichiers, puis utilisez-les avec des commandes de copie sur plusieurs clients.
 
 Ce scénario utilise la commande UNIX ``find`` pour créer des manifestes de fichiers ou répertoires :
 

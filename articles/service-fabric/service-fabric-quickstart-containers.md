@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87089615"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Démarrage rapide : Déployer des conteneurs Windows sur Service Fabric
@@ -146,7 +146,7 @@ Ouvrez un navigateur et accédez à l’adresse que vous avez indiquée dans le 
 
  La page web IIS par défaut s’affiche : ![Page web IIS par défaut][iis-default]
 
-## <a name="clean-up"></a>Nettoyage
+## <a name="clean-up"></a>Nettoyer
 
 Vous continuez à être facturé tant que le cluster est en cours d’exécution. Songez à [supprimer votre cluster](./service-fabric-tutorial-delete-cluster.md).
 

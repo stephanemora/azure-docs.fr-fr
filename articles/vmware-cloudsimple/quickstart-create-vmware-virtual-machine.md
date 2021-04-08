@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Utiliser des machines virtuelles VMware sur Azure'
+title: 'Démarrage rapide : Consommer des machines virtuelles VMware sur Azure'
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Découvrez comment configurer et utiliser des machines virtuelles VMware à partir du portail Azure en utilisant Azure VMware Solution by CloudSimple
 author: sharaths-cs
@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77019551"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Démarrage rapide – Utiliser des machines virtuelles VMware sur Azure
@@ -75,7 +75,7 @@ Créez une machine virtuelle sur votre cloud privé à partir de l’interface u
     | Nom | Entrez un nom pour identifier le disque.  |
     | Taille | Sélectionnez une des tailles disponibles.  |
     | Contrôleur SCSI | Sélectionnez un contrôleur SCSI pour le disque.  |
-    | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> - Indépendant persistant : Toutes les données écrites sur le disque sont écrites de façon permanente.<br> - Indépendant non persistant : Les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle.  Le mode indépendant non persistant vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentation de VMware</a>.
+    | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> Indépendant persistant : toutes les données écrites sur le disque sont écrites de façon permanente.<br> Indépendant non persistant : les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle.  Le mode indépendant non persistant vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentation de VMware</a>.
 
 7. Une fois la validation terminée, passez en revue les paramètres et cliquez sur **Créer**. Pour apporter des modifications, cliquez sur les onglets situés en haut.
 

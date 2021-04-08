@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: storage
 author: tamram
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 12/20/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: aec1faa4de1149f08fb6fbc1cc5bf3aa2ab6becd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75371772"
 ---
 Une signature d’accès partagé (SAP) vous permet d’accorder un accès limité aux conteneurs et aux objets blob de votre compte de stockage. Lorsque vous créez une SAP, vous spécifiez ses contraintes, notamment les ressources de Stockage Azure auxquelles un client est autorisé à accéder, les autorisations dont ils disposent sur ces ressources et la durée de validité de la SAP.
 
-Chaque SAP est signée avec une clé. Vous pouvez signer une SAP de l’une des deux méthodes suivantes :
+Chaque SAP est signée avec une clé. Vous pouvez signer une SAP grâce à l’une des deux méthodes suivantes :
 
 - Avec une clé créée à l’aide des informations d’identification d’Azure Active Directory (Azure AD). Une SAP signée avec des informations d’identification d’Azure AD est une SAP de *délégation d’utilisateur*.
 - Avec la clé du compte de stockage. Une *SAP de service* et une *SAP de compte* sont signées avec la clé du compte de stockage.
