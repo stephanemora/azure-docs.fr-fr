@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/08/2021
 ms.reviewer: cynthn
 ms.openlocfilehash: 81c6fb2e7f25abc9a236c80d1412b84fd6761872
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103021956"
 ---
 # <a name="updates-and-maintenance-overview"></a>Présentation des mises à jour et de la maintenance
