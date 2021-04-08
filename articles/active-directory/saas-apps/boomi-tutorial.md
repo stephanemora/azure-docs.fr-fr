@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 15db3e5182c39f756d4e9cd63378c3b86ab1eb32
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c58566c628eedd1dbc3d86ae6a142156cbf31211
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449547"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104585194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Boomi
 
@@ -155,17 +155,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     f. Cliquez sur le bouton **Enregistrer** .
 
-### <a name="create-boomi-test-user"></a>Créer un utilisateur de test Boomi
+### <a name="create-boomi-test-user&quot;></a>Créer un utilisateur de test Boomi
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Boomi, vous devez les provisionner dans Boomi. En l’occurrence, cet approvisionnement est une tâche manuelle.
 
-### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
+### <a name=&quot;to-provision-a-user-account-perform-the-following-steps&quot;></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
 1. Connectez-vous à votre site d’entreprise Boomi en tant qu’administrateur.
 
 1. Après connexion, accédez à **Gestion des utilisateurs** et allez dans **Utilisateurs**.
 
-    ![Capture d’écran montrant la page User Management avec Users sélectionné.](./media/boomi-tutorial/user.png "Utilisateurs")
+    ![Capture d’écran montrant la page User Management avec Users sélectionné.](./media/boomi-tutorial/user.png &quot;Utilisateurs")
 
 1. Cliquez sur l’icône **+** , et la boîte de dialogue **Ajouter/gérer les rôles utilisateur** s’ouvre.
 
@@ -194,9 +194,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur Tester cette application dans le portail Azure. Vous êtes alors connecté automatiquement à l’instance de Boomi pour laquelle vous avez configuré l’authentification SSO.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Boomi dans Mes applications, vous devez être automatiquement connecté à l’instance de Boomi pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Boomi dans Mes applications, vous devez être automatiquement connecté à l’instance de Boomi pour laquelle vous avez configuré l’authentification SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez configuré Boomi, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Une fois que vous avez configuré Boomi, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

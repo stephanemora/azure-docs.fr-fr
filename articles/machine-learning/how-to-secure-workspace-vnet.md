@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 6d23b0204cc597898eb2202a329d93ff349f8c13
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: a923f65e5c6183d045f4b7455e0a01edda75d499
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518532"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584333"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -56,16 +56,12 @@ Azure Private Link vous permet de vous connecter à votre espace de travail à l
 
 Pour plus d’informations sur la configuration d’un espace de travail Private Link, consultez [Comment configurer Private Link](how-to-configure-private-link.md).
 
+> [!Warning]
+> La sécurisation d’un espace de travail avec des points de terminaison privés ne suffit pas à garantir une sécurité de bout en bout. Vous devez suivre les étapes décrites dans le reste de cet article et dans la série d’articles traitant des réseaux virtuels pour sécuriser des composants individuels de votre solution.
+
 ## <a name="secure-azure-storage-accounts-with-service-endpoints"></a>Sécuriser des comptes de stockage Azure avec des points de terminaison de service
 
 Azure Machine Learning prend en charge les comptes de stockage configurés pour utiliser des points de terminaison de service ou de points de terminaison privés. Dans cette section, vous allez découvrir comment sécuriser un compte de stockage Azure à l’aide de points de terminaison de service. Pour les points de terminaison privés, consultez la section suivante.
-
-> [!IMPORTANT]
-> Vous pouvez placer le _compte de stockage par défaut_ pour Azure Machine Learning ou les _comptes de stockage autres que ceux par défaut_ dans un réseau virtuel.
->
-> Le compte de stockage par défaut est automatiquement configuré lorsque vous créez un espace de travail.
->
-> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
 
 Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau virtuel, effectuez les étapes suivantes :
 
@@ -73,18 +69,18 @@ Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau v
 
    [![Image du portail Azure montrant le stockage Azure lié à l’espace de travail Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. Dans la page du compte de service de stockage, sélectionnez __Pare-feu et réseaux virtuels__.
+1. Dans la page du compte de service de stockage, sélectionnez __Mise en réseau__.
 
-   ![La zone « Pare-feu et réseaux virtuels » de la page Stockage Azure dans le portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+   ![Zone Mise en réseau sur la page Stockage Azure dans le portail Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. Dans la page __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
+1. Sous l’onglet __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
     1. Sélectionnez __Réseaux sélectionnés__.
     1. Cliquez sur __Réseaux virtuel__ puis choisissez le lien __Ajouter un réseau virtuel existant__. Cette action ajoute le réseau virtuel où réside votre capacité de calcul (voir l’étape 1).
 
         > [!IMPORTANT]
         > Le compte de stockage doit se trouver dans les mêmes réseau virtuel et sous-réseau que les instances de calcul ou clusters utilisés pour l'apprentissage ou l'inférence.
 
-    1. Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché. Cela n’autorise pas tous les services Azure à accéder à votre compte de stockage.
+    1. Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché. Cette modification n’a pas pour effet de donner à tous les services Azure accès à votre compte de stockage.
     
         * Les ressources de certains services, **inscrites dans votre abonnement**, peuvent accéder au compte de stockage **dans le même abonnement** pour des opérations spécifiques. C’est, par exemple, le cas de l’écriture de journaux ou de la création de sauvegardes.
         * Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en __attribuant un rôle Azure__ à son identité managée attribuée par le système.
@@ -101,12 +97,12 @@ Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau v
 ## <a name="secure-azure-storage-accounts-with-private-endpoints"></a>Sécuriser des comptes de stockage Azure avec des points de terminaison privés
 
 Azure Machine Learning prend en charge les comptes de stockage configurés pour utiliser des points de terminaison de service ou de points de terminaison privés. Si le compte de stockage utilise des points de terminaison privés, vous devez configurer deux points de terminaison privés pour votre compte de stockage par défaut :
-1. un point de terminaison privé avec une sous-ressource cible d’un objet **blob** ;
-1. un point de terminaison privé avec une sous-ressource cible d’un **fichier** (fileShare).
+1. un point de terminaison privé avec une sous-ressource cible **blob** ;
+1. un point de terminaison privé avec une sous-ressource cible **fichier** (partage de fichiers).
 
 ![Capture d’écran montrant la page de configuration du point de terminaison privé avec les options d’objets blob et de fichier](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
-Pour configurer le point de terminaison privé d’un compte de stockage qui n’est **pas** le stockage par défaut, sélectionnez le type de **de sous-ressource cible** qui correspond au compte de stockage que vous souhaitez ajouter.
+Pour configurer un point de terminaison privé pour un compte de stockage qui n’est **pas** le stockage par défaut, sélectionnez le type de **sous-ressource cible** correspondant au compte de stockage que vous souhaitez ajouter.
 
 Pour plus d’informations, consultez [Utiliser des points de terminaison privés pour le stockage Azure](../storage/common/storage-private-endpoints.md)
 
@@ -118,7 +114,7 @@ Pour accéder aux données à l’aide du kit de développement logiciel (SDK), 
 
 ### <a name="disable-data-validation"></a>Désactiver la validation des données
 
-Par défaut, Azure Machine Learning effectue des vérifications de la validité des données et des informations d’identification quand vous tentez d’accéder à des données à l’aide du SDK. Si les données se trouvent derrière un réseau virtuel, Azure Machine Learning ne peut pas effectuer ces vérifications. Pour éviter cela, vous devez créer des magasins de données et des jeux de données qui ignorent la validation.
+Par défaut, Azure Machine Learning effectue des vérifications de la validité des données et des informations d’identification quand vous tentez d’accéder à des données à l’aide du SDK. Si les données se trouvent derrière un réseau virtuel, Azure Machine Learning ne peut pas effectuer ces vérifications. Pour éviter cela, vous devez créer des magasins de données et jeux de données qui ignorent la validation.
 
 ### <a name="use-datastores"></a>Utiliser des magasins de données
 
@@ -179,7 +175,7 @@ Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning a
 1. Sous l’onglet __Pare-feux et réseaux virtuels__, effectuez les actions suivantes :
     1. Sous __Autoriser l’accès depuis__, cliquez sur __Point de terminaison privé et réseaux sélectionnés__.
     1. Sous __Réseaux virtuels__, sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre calcul d’expérimentation.
-    1. Sous __Autoriser les services Microsoft approuvés pour contourner ce pare-feu ?__ , sélectionnez __Oui__.
+    1. Sous __Autoriser les services Microsoft approuvés pour contourner ce pare-feu__, sélectionnez __Oui__.
 
    [![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
@@ -195,7 +191,13 @@ Pour utiliser Azure Container Registry dans un réseau virtuel, vous devez rempl
 
     Lorsque ACR se trouve derrière un réseau virtuel, Azure Machine Learning ne peut pas l'utiliser pour créer directement les images Docker. Le cluster de calcul est alors utilisé pour créer les images.
 
+    > [!IMPORTANT]
+    > Le cluster de calcul utilisé pour créer des images Docker doit être en mesure d’accéder aux référentiels de packages utilisés pour l’apprentissage et le déploiement de vos modèles. Il se peut que vous deviez ajouter des règles de sécurité réseau qui autorisent l’accès aux référentiels publics, [utiliser des packages Python privés](how-to-use-private-python-packages.md), ou utiliser des [images Docker personnalisées](how-to-train-with-custom-image.md) incluant déjà les packages.
+
 Une fois ces conditions remplies, procédez comme suit pour activer Azure Container Registry.
+
+> [!TIP]
+> Si vous n’avez pas utilisé un Azure Container Registry (ACR) existant lors de la création de l’espace de travail, il se peut qu’il n’y en ait pas. Par défaut, l’espace de travail ne crée pas d’instance ACR tant qu’il n’en a pas besoin. Pour forcer la création d’une instance, formez ou déployez un modèle à l’aide de votre espace de travail avant de suivre les étapes décrites dans cette section.
 
 1. Recherchez le nom de l'instance Azure Container Registry de votre espace de travail en utilisant l'une des méthodes suivantes :
 
@@ -217,6 +219,8 @@ Une fois ces conditions remplies, procédez comme suit pour activer Azure Contai
 
 1. Limitez l'accès à votre réseau virtuel en suivant les étapes décrites dans [Configurer l'accès réseau pour le registre](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). Lors de l'ajout du réseau virtuel, sélectionnez le réseau virtuel et le sous-réseau de vos ressources Azure Machine Learning.
 
+1. Configurez l’ACR pour l’espace de travail afin d’[autoriser l’accès de services approuvés](../container-registry/allow-access-trusted-services.md).
+
 1. Utilisez le kit de développement logiciel (SDK) Python Azure Machine Learning pour configurer un cluster de calcul de manière à créer les images Docker. L'extrait de code suivant illustre comment procéder :
 
     ```python
@@ -225,6 +229,8 @@ Une fois ces conditions remplies, procédez comme suit pour activer Azure Contai
     ws = Workspace.from_config()
     # Update the workspace to use an existing compute cluster
     ws.update(image_build_compute = 'mycomputecluster')
+    # To switch back to using ACR to build (if ACR is not in the VNet):
+    # ws.update(image_build_compute = None)
     ```
 
     > [!IMPORTANT]
@@ -240,3 +246,5 @@ Cet article est le deuxième volet d’une série de cinq articles sur les rése
 * [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
 * [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)
+
+Consultez également l’article sur l’utilisation du [DNS personnalisé](how-to-custom-dns.md) pour la résolution de noms.

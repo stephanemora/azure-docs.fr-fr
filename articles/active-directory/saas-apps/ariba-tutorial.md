@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: jeedes
 ms.openlocfilehash: 3ecbe96e0385bff6199094af7138017df500175b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101647245"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Didacticiel : Intégration d’Azure Active Directory à Ariba
@@ -77,7 +77,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Informations d’authentification unique dans Domaine et URL Ariba](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : 
     
     ```http
     https://<subdomain>.sourcing.ariba.com

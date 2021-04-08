@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : Utiliser l’outil d’URL pour obtenir une réponse de la base de connaissances - QnA Maker'
+title: Utiliser l’outil d’URL pour obtenir une réponse de la base de connaissances - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Ce guide de démarrage rapide vous aide à obtenir une réponse de votre base de connaissances à l’aide d’un outil de test d’URL comme cURL ou Postman.
+description: Cet article vous aide à obtenir une réponse de votre base de connaissances à l’aide d’un outil de test d’URL, comme cURL ou Postman.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: eddae69c0946ab135540b77d3cc89937079e6293
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 46657cfaf513cdd2dd0ecfd284602d2277781626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016251"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583069"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Démarrage rapide : Obtenir des réponses de la base de connaissances
+# <a name="get-an-answer-from-a-knowledge-base"></a>Obtenir une réponse d’une base de connaissances
 
 
 ::: zone pivot="url-test-tool-curl"

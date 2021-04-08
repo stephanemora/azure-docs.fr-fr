@@ -7,10 +7,10 @@ ms.date: 10/29/2018
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2674d1285544e4bc9b6fcb3d0b2e6f4b607786a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791609"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
@@ -238,7 +238,7 @@ Il est important de s’assurer que les données critiques soient sauvegardées 
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Sous le capot : détails supplémentaires sur la sauvegarde et la restauration
 Voici des détails supplémentaires sur la sauvegarde et la restauration.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Sauvegarde
 Le gestionnaire d’état fiable offre la possibilité de créer des sauvegardes cohérentes sans bloquer les opérations de lecture ou d’écriture. Pour ce faire, il utilise un point de contrôle et un mécanisme de persistance de journal.  Le gestionnaire d’état fiable prend des points de contrôle (légers) approximatifs à certains points pour soulager la pression dans le journal des transactions et améliorer les temps de récupération.  Lorsque `BackupAsync` est appelé, le gestionnaire d’état fiable demande à tous les objets fiables de copier leurs derniers fichiers de point de contrôle dans un dossier de sauvegarde local.  Ensuite, le gestionnaire d’état fiable copie tous les enregistrements de journal à partir du pointeur de démarrage vers le dernier enregistrement de journal dans le dossier de sauvegarde.  Comme tous les enregistrements sont inclus dans la sauvegarde et que le gestionnaire d’état fiable conserve les journaux WAL (write-ahead log), toutes les transactions validées (`CommitAsync` a réussi) sont incluses dans la sauvegarde.
 
 Une transaction validée après l’appel de `BackupAsync` peut figurer ou non dans la sauvegarde.  Une fois que le dossier de sauvegarde local a été rempli par la plateforme (c’est-à-dire que la sauvegarde locale est effectuée par le runtime), le rappel de sauvegarde du service est appelé.  Ce rappel est chargé de déplacer le dossier de sauvegarde vers un emplacement externe comme Azure Storage.

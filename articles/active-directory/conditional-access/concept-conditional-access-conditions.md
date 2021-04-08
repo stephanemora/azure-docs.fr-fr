@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab840b46503aed1a318e3b39a4e8fe3e4d11735c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362418"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579125"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
 Dans une stratégie d’accès conditionnel, un administrateur peut s’aider des signaux des conditions telles que le risque, la plateforme d’appareil ou l’emplacement pour prendre de meilleures décisions en matière de stratégie. 
 
-[ ![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
+[![Définir une stratégie d’accès conditionnel et spécifier les conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Il est possible de combiner plusieurs conditions pour créer des stratégies d’accès conditionnel spécifiques parfaitement adaptées aux besoins.
 
@@ -174,11 +174,11 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 
 ### <a name="exchange-activesync-clients"></a>Clients Exchange ActiveSync
 
-- Les organisations peuvent uniquement sélectionner des clients Exchange ActiveSync lors de l’affectation d’une stratégie à des utilisateurs ou groupes. La sélection des options **Tous les utilisateurs**, **Tous les utilisateurs invités et externes** ou **Rôles d’annuaire** a pour effet de bloquer l’ensemble des utilisateurs.
+- Les organisations peuvent uniquement sélectionner des clients Exchange ActiveSync lors de l’affectation d’une stratégie à des utilisateurs ou groupes. La sélection des options **Tous les utilisateurs**, **Tous les utilisateurs invités et externes** ou **Rôles d’annuaire** a pour effet de soumettre tous les utilisateurs à la stratégie.
 - Quand une stratégie affectée à des clients Exchange ActiveSync est créée, **Exchange Online** doit être la seule application cloud affectée à la stratégie. 
 - Les organisations peuvent limiter l’étendue de cette stratégie à des plateformes spécifiques à l’aide de la condition **Plateformes d’appareils**.
 
-Si le contrôle d’accès affecté à la stratégie a l’option **Demander une application cliente approuvée** activée, l’utilisateur est invité à installer et à utiliser le client mobile Outlook. Si l’**authentification multifacteur** est exigée pour les utilisateurs, ceux-ci sont bloqués, car l’authentification de base ne prend pas en charge l’authentification multifacteur.
+Si le contrôle d’accès affecté à la stratégie a l’option **Demander une application cliente approuvée** activée, l’utilisateur est invité à installer et à utiliser le client mobile Outlook. Dans le cas où **l’authentification multifacteur**, les **conditions d’utilisation** ou les **contrôles personnalisés** sont requis, les utilisateurs affectés sont bloqués, car l’authentification de base ne prend pas en charge ces contrôles.
 
 Pour plus d’informations, consultez les articles suivants :
 
