@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
 ms.openlocfilehash: 82f5e8b4a0c06517381857f0d914bcb65ba41d35
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394609"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
@@ -34,12 +34,12 @@ Deux ou plusieurs jetons SAP sont requis pour chaque flux de travail envoyé au 
 
 Les SAP pour les fichiers d’entrée doivent avoir les propriétés suivantes :
  - Portée (compte, conteneur, blob) : blob
- - Expiration : 48 heures à partir de maintenant
+ - Expiration : dans 48 heures
  - Autorisations : lecture
 
 Les SAP pour le conteneur de sortie doivent avoir les propriétés suivantes :
  - Portée (compte, conteneur, blob) : conteneur
- - Expiration : 48 heures à partir de maintenant
+ - Expiration : dans 48 heures
  - Autorisations : lecture, écriture, suppression
 
 
@@ -47,7 +47,7 @@ Les SAP pour le conteneur de sortie doivent avoir les propriétés suivantes :
 Il existe deux façons de créer un jeton SAP, à l’aide de l’Explorateur Stockage Azure ou par programme.  Si vous écrivez du code, vous pouvez construire la SAP vous-même, ou utiliser le kit de développement logiciel (SDK) Stockage Azure dans le langage de votre choix.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuration : Créer une SAP avec l’Explorateur Stockage Azure
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configuration : créer une SAP à l’aide de l’Explorateur Stockage Azure
 
 L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est un outil pour gérer les ressources que vous avez stockées dans le stockage Azure.  Vous pouvez obtenir plus d’informations sur l’utilisation de l’Explorateur Stockage Azure [ici](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
@@ -56,7 +56,7 @@ Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du
  ![Explorateur Stockage, envoi d’une signature d’accès partagé à Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur Stockage, envoi d’une signature d’accès partagé à Genomics")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configuration : créer une SAP par programmation
+### <a name="set-up-create-a-sas-programmatically"></a>Configuration : Créer une SAP par programmation
 
 Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](../storage/common/storage-sas-overview.md), [Python](../storage/blobs/storage-quickstart-blobs-python.md), and [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md). 
 

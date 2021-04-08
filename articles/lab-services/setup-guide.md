@@ -4,10 +4,10 @@ description: Si vous êtes un créateur de laboratoire, ce guide peut vous aider
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 07f0d92ebd926616f1318b430bec2de32f753f7c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95021726"
 ---
 # <a name="lab-setup-guide"></a>Guide de configuration d’un laboratoire

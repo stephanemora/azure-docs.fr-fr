@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: 60b0a1e07099c48474d6890480be663f2058797f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96464234"
 ---
 1. Ouvrez une fenêtre de navigateur et accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`. Cette action peut prendre quelques minutes après la mise sous tension de l’appareil.
