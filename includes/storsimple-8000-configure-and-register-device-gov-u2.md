@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 338332eb90fda9afe7655f9f2ad19ed726419b6c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95557267"
 ---
 ### <a name="to-configure-and-register-the-device"></a>Configuration et inscription de l’appareil
@@ -23,7 +23,7 @@ ms.locfileid: "95557267"
 5. Procédez comme suit pour configurer les paramètres réseau minimum requis pour votre appareil.
    
    > [!IMPORTANT]
-   > Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil. Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
+   > Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil.  Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
    
    1. À l’invite de commandes, tapez votre mot de passe. Le mot de passe par défaut de l’appareil est **Password1**.
    2. Tapez la commande suivante :
@@ -79,9 +79,9 @@ ms.locfileid: "95557267"
 15. Revenez au portail Azure Government et procédez comme suit :
     
     1. Accédez à votre service StorSimple Device Manager.
-    2. Cliquez sur **Appareils**. Dans la liste des appareils, identifiez l'appareil que vous déployez. Vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**.
+    2. Cliquez sur **Périphériques**. Dans la liste des appareils, identifiez l'appareil que vous déployez. Vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**.
             
-        Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
+        Si l'état de l'appareil est **Hors connexion**, attendez deux ou trois minutes, le temps que l'appareil passe en ligne.
        
         Si l’appareil est toujours déconnecté après quelques minutes, vous devez vous assurer que votre réseau de pare-feu a été configuré comme décrit dans [Configuration réseau requise pour votre appareil StorSimple](../articles/storsimple/storsimple-8000-system-requirements.md).
        

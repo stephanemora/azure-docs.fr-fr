@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 3705f58a37c109ebe0b774603c60e246fc174f25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80673316"
 ---
 À présent, vous pouvez utiliser le nouveau paramètre `msg` pour écrire dans la liaison de sortie à partir de votre code de fonction. Ajoutez la ligne de code suivante avant la réponse de réussite pour ajouter la valeur de `name` à la liaison de sortie `msg`.

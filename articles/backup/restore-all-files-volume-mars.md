@@ -4,10 +4,10 @@ description: Découvrez comment restaurer tous les fichiers d’un volume à l�
 ms.topic: conceptual
 ms.date: 01/17/2021
 ms.openlocfilehash: 44c12809fc94f78721ab1788cb352076dfebabe4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98612584"
 ---
 # <a name="restore-all-the-files-in-a-volume-using-the-mars-agent"></a>Restaurer tous les fichiers d’un volume à l’aide de l’agent MARS

@@ -4,10 +4,10 @@ description: Cet article fournit une introduction à la mise à niveau d'une app
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98792012"
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric

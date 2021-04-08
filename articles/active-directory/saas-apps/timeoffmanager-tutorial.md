@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608814"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à TimeOffManager
@@ -140,13 +140,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-timeoffmanager-sso"></a>Configurer l’authentification unique TimeOffManager
+## <a name="configure-timeoffmanager-sso&quot;></a>Configurer l’authentification unique TimeOffManager
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise TimeOffManager en tant qu’administrateur.
 
 2. Accédez à **Account \> Account Options \> Single Sign-On Settings**.
    
-    ![Capture d’écran montrant Single Sign-On Settings sélectionné dans Account Options.](./media/timeoffmanager-tutorial/ic795917.png "Paramètres d’authentification unique")
+    ![Capture d’écran montrant Single Sign-On Settings sélectionné dans Account Options.](./media/timeoffmanager-tutorial/ic795917.png &quot;Paramètres d’authentification unique")
 
 3. Dans la section **Single Sign-On Settings** , procédez comme suit :
    
