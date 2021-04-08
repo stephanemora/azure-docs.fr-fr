@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
 ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92124673"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Résoudre les problèmes liés à Azure Data Box et Azure Data Box Heavy
@@ -104,7 +104,7 @@ Il s’agit d’erreurs liées aux noms de conteneurs et de partages.
 - Dans la page Connexion et copie de l’interface utilisateur web locale de l’appareil, téléchargez et consultez les fichiers d’erreur pour identifier les noms de dossiers problématiques. 
 - Renommez le répertoire ou les conteneurs pour vous assurer qu’ils sont conformes aux conventions d’affectation de noms Azure.
 
-Pour plus d’informations, consultez les conventions d’affectation de noms Azure pour les  [répertoires](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) et les [conteneurs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
+Pour plus d’informations, consultez les conventions d’affectation de noms Azure pour les [annuaires](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) et les [conteneurs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Erreurs liées à la limite de taille des conteneurs ou des partages
 

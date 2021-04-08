@@ -4,10 +4,10 @@ description: Cet article décrit les étapes à suivre pour enregistrer des imag
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476238"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires
@@ -36,8 +36,8 @@ Quand vous voyez la nouvelle tâche dans la liste, sélectionnez-la, puis rensei
 ## <a name="generalized-vs-specialized-custom-images"></a>Images personnalisées généralisées et spécialisées
 Dans le [portail Azure](https://portal.azure.com), quand vous créez une image personnalisée à partir d’une machine virtuelle, vous avez le choix de créer une image personnalisée généralisée ou spécialisée.
 
-- **Image personnalisée spécialisée :** Sysprep ou le déprovisionnement n’a PAS été exécuté sur la machine. L’image est donc une copie exacte du disque du système d’exploitation sur la machine virtuelle existante (un instantané).  Quand une machine virtuelle est créée à partir de cette image personnalisée, elle comporte les mêmes fichiers, applications, comptes d’utilisateur, nom d’ordinateur, etc.
-- **Image personnalisée généralisée :** Sysprep ou un déprovisionnement a été exécuté sur la machine.  Quand ce processus est exécuté, il supprime les comptes d’utilisateur, le nom d’ordinateur, les ruches du Registre utilisateur, etc. dans le but de généraliser l’image, c’est-à-dire de la rendre personnalisable lors de la création d’une autre machine virtuelle.  Quand vous généralisez une machine virtuelle (en exécutant Sysprep), le processus détruit la machine virtuelle actuelle, qui n’est alors plus opérationnelle.
+- **Image personnalisée spécialisée :** Sysprep/Deprovision n’a PAS été exécuté sur la machine. L’image est donc une copie exacte du disque du système d’exploitation sur la machine virtuelle existante (un instantané).  Quand une machine virtuelle est créée à partir de cette image personnalisée, elle comporte les mêmes fichiers, applications, comptes d’utilisateur, nom d’ordinateur, etc.
+- **Image personnalisée généralisée :** Sysprep/Deprovision a été exécuté sur la machine.  Quand ce processus est exécuté, il supprime les comptes d’utilisateur, le nom d’ordinateur, les ruches du Registre utilisateur, etc. dans le but de généraliser l’image, c’est-à-dire de la rendre personnalisable lors de la création d’une autre machine virtuelle.  Quand vous généralisez une machine virtuelle (en exécutant Sysprep), le processus détruit la machine virtuelle actuelle, qui n’est alors plus opérationnelle.
 
 Le script d’alignement des images personnalisées dans la fabrique d’images enregistre les disques durs virtuels des machines virtuelles qui ont été créées à l’étape précédente (celles identifiées par une étiquette placée sur la ressource dans Azure).
 
@@ -86,4 +86,4 @@ Cette tâche prend les images personnalisées présentes dans la fabrique d’im
 Une fois que la tâche de build de la distribution est terminée, mettez en file d’attente une nouvelle build pour vérifier que tout fonctionne correctement. Une fois que la build est terminée, les nouvelles images personnalisées sont affichées dans le lab de destination qui a été spécifié dans le fichier de configuration Labs.json.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans l’article suivant de la série, vous mettez à jour la fabrique d’images par le biais d’une stratégie de conservation et d’un processus de nettoyage : [Définir la stratégie de conservation et exécuter des scripts de nettoyage](image-factory-set-retention-policy-cleanup.md).
+Dans l’article suivant de la série, vous mettez à jour la fabrique d’images avec une stratégie de rétention et un processus de nettoyage : [Définir la stratégie de conservation et exécuter des scripts de nettoyage](image-factory-set-retention-policy-cleanup.md).

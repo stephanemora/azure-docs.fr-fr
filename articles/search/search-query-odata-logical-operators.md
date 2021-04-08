@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88917871"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Opérateurs logiques OData dans Recherche cognitive Azure - `and`, `or`, `not`
 
 Les [expressions de filtre OData](query-odata-filter-orderby-syntax.md) dans Recherche cognitive Azure sont des expressions booléennes qui s’évaluent à `true` ou `false`. Vous pouvez écrire un filtre complexe en rédigeant une série de [filtres plus simples](search-query-odata-comparison-operators.md) et en les composant des opérateurs logiques de l’[algèbre booléen](https://en.wikipedia.org/wiki/Boolean_algebra) :
 
-- `and`: Un opérateur binaire qui s’évalue à `true` si ses sous-expressions droites et gauches s’évaluent à `true`.
-- `or`: Un opérateur binaire qui s’évalue à `true` si l’une de ses sous-expressions droite ou gauche s’évaluent à `true`.
-- `not`: Un opérateur unaire qui s’évalue à `true` si sa sous-expression s’évalue à `false`, et vice versa.
+- `and` : un opérateur binaire qui s’évalue à `true` si ses sous-expressions droite et gauche s’évaluent à `true`.
+- `or` : un opérateur binaire qui s’évalue à `true` si l’une de ses sous-expressions droite ou gauche s’évalue à `true`.
+- `not` : un opérateur unaire qui s’évalue à `true` si sa sous-expression s’évalue à `false`, et vice versa.
 
 Ces opérateurs, ainsi que les [opérateurs de collection`any` et `all`](search-query-odata-collection-operators.md), vous permettent de construire des filtres qui peuvent exprimer des critères de recherche complexes.
 
@@ -119,5 +119,5 @@ Correspondance des documents pour les hôtels à Vancouver, au Canada, qui compr
 
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
 - [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
 - [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](/rest/api/searchservice/Search-Documents)

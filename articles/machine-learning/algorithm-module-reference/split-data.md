@@ -1,5 +1,5 @@
 ---
-title: Information de référence sur sur le module Fractionner les données
+title: 'Fractionner les données : référence de module'
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Fractionner les données dans Azure Machine Learning pour diviser un jeu de données en deux jeux distincts.
 services: machine-learning
@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: a4c93b12ad654e54a7f3c7ee0e75507d5cb45e90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90907823"
 ---
 # <a name="split-data-module"></a>Module Fractionner les données
@@ -32,13 +32,13 @@ Ce module est utile quand vous devez séparer des données en jeux d’entraîne
 
 1. Ajoutez le module **Fractionner les données** à votre pipeline dans le concepteur. Ce module est disponible sous **Transformation des données**, dans la catégorie **Échantillonner et fractionner**.
 
-1. **Mode de fractionnement** : Choisissez l’un des modes suivants, selon le type de données dont vous disposez et la manière dont vous souhaitez les diviser. Chaque mode de fractionnement s'accompagne de différentes options.
+1. **Mode de fractionnement** : Choisissez l’un des modes suivants, selon le type de données dont vous disposez et la manière dont vous souhaitez les diviser. Chaque mode de fractionnement s'accompagne de différentes options.
 
-   - **Fractionner les lignes** : Utilisez cette option pour diviser simplement les données en deux parties. Vous pouvez spécifier le pourcentage de données de chaque fractionnement. Par défaut, les données sont divisées à 50/50.
+   - **Fractionner les lignes** : Utilisez cette option pour diviser simplement les données en deux parties. Vous pouvez spécifier le pourcentage de données de chaque fractionnement. Par défaut, les données sont divisées à 50/50.
 
      Vous pouvez également rendre aléatoire la sélection des lignes de chaque groupe et utiliser l’échantillonnage stratifié. Dans l’échantillonnage stratifié, vous devez sélectionner une seule colonne de données pour laquelle vous souhaitez que les valeurs soient équitablement réparties entre les deux jeux de données de résultats.  
 
-   - **Fractionnement Expression régulière** : choisissez cette option si vous souhaitez diviser votre jeu de données en testant une seule colonne pour une valeur.
+   - **Fractionnement Expression régulière** Choisissez cette option si vous souhaitez diviser votre jeu de données en testant une seule colonne pour une valeur.
 
      Par exemple, si vous analysez les sentiments, vous pouvez vérifier la présence d’un nom de produit particulier dans un champ de texte. Vous pouvez ensuite diviser le jeu de données en lignes avec le nom de produit cible et en lignes sans le nom de produit cible.
 
@@ -58,7 +58,7 @@ Ce module est utile quand vous devez séparer des données en jeux d’entraîne
   
 1. Sélectionnez l'option **Fractionnement aléatoire** si vous souhaitez rendre aléatoire la sélection de données dans les deux groupes. Cette option est recommandée quand vous créez des jeux de données d’entraînement et de test.
 
-1. **Valeur de départ aléatoire** : entrez une valeur entière positive pour démarrer la séquence pseudoaléatoire d’instances à utiliser. Cette valeur de départ par défaut est utilisée dans tous les modules qui génèrent des nombres aléatoires. 
+1. **Valeur de départ aléatoire** : Entrez une valeur entière positive pour démarrer la séquence pseudoaléatoire d’instances à utiliser. Cette valeur de départ par défaut est utilisée dans tous les modules qui génèrent des nombres aléatoires. 
 
    La spécification d’une valeur de départ rend les résultats reproductibles. Pour répéter les résultats d’une opération de fractionnement, vous devez spécifier une valeur de départ pour le générateur de nombres aléatoires. Sinon, la valeur de départ aléatoire est définie sur **0** par défaut, ce qui signifie qu’elle est obtenue à partir de l’horloge système. Dès lors, la répartition des données peut légèrement varier chaque fois que vous effectuez un fractionnement. 
 
@@ -95,7 +95,7 @@ Cet exemple place dans le premier jeu de données toutes les lignes qui contienn
 
 ### <a name="substring"></a>Substring
 
-Cet exemple recherche la chaîne spécifiée dans n’importe quelle position dans la deuxième colonne du jeu de données. La position est indiquée ici par la valeur d’index 1. La correspondance respecte la casse.
+Cet exemple recherche la chaîne spécifiée dans n’importe quelle position dans la deuxième colonne du jeu de données. La position est indiquée ici par la valeur d’index 1. La recherche de correspondance respecte la casse.
 
 ```text
 (\1) ^[a-f]
@@ -145,7 +145,7 @@ Par exemple, dans une colonne de date qui utilise le format `mmddyyyy`, l’expr
 
 ### <a name="column-index"></a>Index de colonne
 
-L’expression suivante montre comment utiliser l’index de colonne pour sélectionner toutes les lignes de la première colonne du jeu de données qui contiennent des valeurs inférieures ou égales à 30, mais différentes de 20.
+L'expression suivante montre comment utiliser l'index de colonne pour sélectionner toutes les lignes dans la première colonne du jeu de données, qui contiennent des valeurs inférieures ou égales à 30, mais différentes de 20.
 
 ```text
 (\0)<=30 & !=20

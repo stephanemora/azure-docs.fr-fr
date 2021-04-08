@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88815660"
 ---
 Lorsque vous publiez votre offre sur la Place de marché commerciale via l’Espace partenaires, vous devez connecter votre offre à votre système CRM. Ainsi, vous pouvez recevoir les coordonnées du client dès lors que celui-ci montre de l’intérêt pour votre produit ou le déploie.
