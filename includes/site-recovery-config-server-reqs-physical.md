@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 3a8a7be6f437687a4de31ce8e0ac62588f64e2eb
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96016899"
 ---
 **Configuration requise des serveurs de configuration/traitement pour la réplication de serveurs physiques**

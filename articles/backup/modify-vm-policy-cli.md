@@ -4,10 +4,10 @@ description: Découvrez comment mettre à jour la stratégie existante de sauveg
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98728576"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>Mettre à jour la stratégie existante de sauvegarde des machines virtuelles à l’aide de CLI

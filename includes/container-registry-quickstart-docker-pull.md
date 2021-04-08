@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -9,10 +9,10 @@ ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: c99bfd9fb69beb7b5b7088ebea84082d744b12e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96019999"
 ---
 ## <a name="run-image-from-registry"></a>Exécuter l’image à partir du registre

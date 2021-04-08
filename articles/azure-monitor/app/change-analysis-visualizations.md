@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734619"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655848"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualisations pour Analyse des changements d’application (préversion)
 
@@ -22,11 +22,11 @@ Recherchez Analyse des changements dans la barre de recherche du portail Azure p
 
 ![Capture d’écran de la recherche de l’Analyse des changements sur le Portail Azure](./media/change-analysis/search-change-analysis.png)
 
-Toutes les ressources sous un abonnement sélectionné s’affichent avec les modifications effectuées au cours des dernières 24 heures. Pour optimiser les performances de chargement de la page, le service affiche 10 ressources à la fois. Sélectionnez la page suivante pour afficher plus de ressources. Nous travaillons actuellement à la suppression de cette limitation.
+Toutes les ressources sous un abonnement sélectionné s’affichent avec les modifications effectuées au cours des dernières 24 heures. Toutes les modifications sont affichées avec l’ancienne valeur et la nouvelle valeur pour fournir un aperçu en un clin d’œil.
 
 ![Capture d’écran du panneau Analyse des changements sur le Portail Azure](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Cliquez sur une ressource pour afficher toutes ses modifications. Au besoin, explorez une modification pour afficher les détails et les insights de cette modification au format json.
+Cliquez sur une modification pour afficher l’extrait Resource Manager complet et d’autres propriétés.
 
 ![Capture d’écran des détails de la modification](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ L’interface utilisateur prend en charge la sélection de plusieurs abonnements
 
 ![Capture d’écran de filtre d’abonnement prenant en charge la sélection de plusieurs abonnements](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnostiquer et résoudre les problèmes d’application web
-
-Dans Azure Monitor, l’Analyse des changements est également intégrée à l’expérience en libre-service **Diagnostiquer et résoudre les problèmes**. Accédez à cette expérience à partir de la page **Vue d’ensemble** de votre application App Service.
-
-![Capture d’écran du bouton « Vue d’ensemble » et du bouton « Diagnostiquer et résoudre les problèmes »](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Analyse des changements d’application dans l’outil Diagnostiquer et résoudre les problèmes
 
@@ -69,6 +64,13 @@ L’analyse des changements d’application est un détecteur autonome dans les 
 5. Les données modifiées sont également disponibles dans les détecteurs d’**application web arrêtée** et **d’incident de l’application**. Vous verrez un graphique qui résume les types de modifications au fil du temps ainsi que des détails sur ces modifications. Par défaut, les modifications effectuées au cours des dernières 24 heures s’affichent pour vous aider à résoudre des problèmes immédiats.
 
      ![Capture d’écran de la vue de comparaison des modifications](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>Outil Diagnostiquer et résoudre les problèmes
+L’Analyse des changements est disponible sous la forme d’une carte d’aperçu dans l’outil Diagnostiquer et résoudre les problèmes. Si une ressource rencontre des problèmes et que des modifications ont été découvertes au cours des 72 dernières heures, la carte d’aperçu affiche le nombre de modifications. Cliquez sur le lien Détails des changements pour accéder à la vue filtrée de l’interface utilisateur autonome Analyse des changements.
+
+![Capture d’écran de l’affichage d’aperçu des changements dans l’outil Diagnostiquer et résoudre les problèmes.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Diagnostiquer et résoudre les problèmes d’une machine virtuelle
 

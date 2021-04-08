@@ -13,10 +13,10 @@ ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98600131"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
@@ -128,14 +128,14 @@ Ces paramètres de sécurité par défaut gratuits permettent l’inscription à
 | Code de vérification provenant d’une application mobile ou d’un jeton matériel | X* | X |
 | Message texte vers le téléphone |   | X |
 | Appel vers le téléphone |   | X |
-| Mots de passe d'application |   | X**_ |
+| Mots de passe d'application |   | X*** |
 
-- _* Les utilisateurs peuvent utiliser des codes de vérification de l’application Microsoft Authenticator, mais ils peuvent uniquement s’inscrire à l’aide de l’option de notification.
-- **_ Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
+- ** Les utilisateurs peuvent utiliser des codes de vérification de l’application Microsoft Authenticator, mais ils peuvent uniquement s’inscrire à l’aide de l’option de notification.
+- *** Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
 
 ### <a name="disabled-mfa-status"></a>État MFA désactivé
 
-Si votre organisation utilisait précédemment Azure AD Multi-Factor Authentication par utilisateur, ne vous inquiétez pas de ne pas voir les utilisateurs à l’état _ *Activé** ou **Appliqué** lorsque vous examinez la page d’état de MFA. L’état **Désactivé** est approprié pour les utilisateurs utilisant les paramètres de sécurité par défaut ou Azure AD Multi-Factor Authentication basé sur l’accès conditionnel.
+Si votre organisation utilisait précédemment Azure AD Multi-Factor Authentication par utilisateur, ne vous inquiétez pas de ne pas voir les utilisateurs à l’état **Activé** ou **Appliqué** lorsque vous examinez la page d’état de MFA. L’état **Désactivé** est approprié pour les utilisateurs utilisant les paramètres de sécurité par défaut ou Azure AD Multi-Factor Authentication basé sur l’accès conditionnel.
 
 ### <a name="conditional-access"></a>Accès conditionnel
 
