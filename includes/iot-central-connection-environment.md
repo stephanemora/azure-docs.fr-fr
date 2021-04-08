@@ -9,10 +9,10 @@ ms.date: 11/03/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a3c85a7c76115ff72e5042788ad83fd31f601c9c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96122674"
 ---
 Définissez les variables d’environnement pour configurer l’exemple. L'extrait de code suivant montre comment définir les variables d’environnement dans une invite de commandes Windows. Si vous utilisez un interpréteur de commandes **bash**, remplacez les commandes `set` par les commandes`export` :

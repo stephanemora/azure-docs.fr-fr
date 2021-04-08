@@ -9,10 +9,10 @@ ms.date: 10/30/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e3ad8fcb6cd5cf68b02ac522d0e5ef5a18ba8a3c
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93144991"
 ---
 Les connexions d’authentification par certificat Azure natif de point à site utilisent les éléments suivants, que vous pouvez configurer dans cet exercice :

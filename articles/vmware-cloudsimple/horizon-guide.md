@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 513af1ba2e354412278fb88af4ee6527c236fae3
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895595"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Utiliser le site du cloud privé CloudSimple pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon
@@ -73,7 +73,7 @@ Les sections suivantes contiennent des instructions pour configurer un déploiem
 * Accessibilité IP entre les sous-réseaux des utilisateurs finaux de votre environnement local et les sous-réseaux du cloud privé CloudSimple
 * AD/DHCP/DNS installés pour votre cloud privé
 
-#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portail CloudSimple : Créer un réseau local virtuel/sous-réseau dédié pour les pools de bureaux
+#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>Portail CloudSimple : créer un VLAN/sous-réseau dédié pour des pools de bureaux
 
 Créez un réseau local virtuel (VLAN) pour les pools de bureaux Horizon et attribuez-lui un CIDR de sous-réseau. Pour plus d'informations, consultez [Créer et gérer des réseaux VLAN/sous-réseaux](create-vlan-subnet.md). Il s'agit du réseau sur lequel toutes les machines virtuelles de bureau seront exécutées.
 
@@ -85,7 +85,7 @@ Suivez les meilleures pratiques de sécurité standard pour sécuriser votre dé
 
 Vous pouvez appliquer ces meilleures pratiques en configurant des [règles de pare-feu](firewall.md) à partir du portail CloudSimple.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>Portail CloudSimple : Configurer des règles de pare-feu pour sécuriser le plan de gestion Horizon
+#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>Portail CloudSimple : configurer des règles de pare-feu pour sécuriser le plan de gestion Horizon
 
 Configurez les règles suivantes sur le portail CloudSimple. Pour plus d'informations, consultez [Configurer des règles et tables de pare-feu](firewall.md).
 
@@ -93,23 +93,23 @@ Configurez les règles suivantes sur le portail CloudSimple. Pour plus d'informa
 
 2. Créez des règles de pare-feu E-O entre le réseau VLAN de gestion Horizon et le réseau VLAN du pool de bureaux dans le cloud privé.
 
-#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>Portail CloudSimple : Créer une adresse IP publique pour Unified Access Gateway
+#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>Portail CloudSimple : créer une adresse IP publique pour Unified Access Gateway
 
 Créez une adresse IP publique pour l'appliance Unified Access Gateway afin d'activer les connexions clientes de bureau à partir d'Internet. Pour plus d'informations, consultez [Allouer des adresses IP publiques](public-ips.md).
 
 Au terme de l'installation, l'adresse IP publique est attribuée et répertoriée sur la page Adresses IP publiques.
 
-#### <a name="cloudsimple-portal-escalate-privileges"></a>Portail CloudSimple : Élever les privilèges
+#### <a name="cloudsimple-portal-escalate-privileges"></a>Portail CloudSimple : réaffecter des privilèges
 
 L'utilisateur « cloudowner » par défaut ne dispose pas des privilèges suffisants pour installer Horizon dans l'instance de vCenter du cloud privé ; les privilèges vCenter de l'utilisateur doivent donc être élevés. Pour plus d'informations, consultez [Élever les privilèges](escalate-private-cloud-privileges.md).
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>Interface utilisateur de vCenter : Créer un utilisateur dans le cloud privé pour l'installation d'Horizon
+#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>Interface utilisateur de vCenter : créer un utilisateur dans un cloud privé pour l’installation d’Horizon
 
 1. Connectez-vous à vCenter à l'aide des informations d'identification de l'utilisateur « cloudowner ».
 2. Créez un nouvel utilisateur, « horizon-soln-admin », dans vCenter et ajoutez-le au groupe Administrateurs de vCenter.
 3. Déconnectez-vous de vCenter en tant qu'utilisateur « cloudowner » et reconnectez-vous en tant qu'utilisateur « horizon-soln-admin ».
 
-#### <a name="vcenter-ui-install-vmware-horizon"></a>Interface utilisateur de vCenter : Installer VMware Horizon
+#### <a name="vcenter-ui-install-vmware-horizon"></a>Interface utilisateur de vCenter : installer VMware Horizon
 
 Comme mentionné précédemment dans la section consacrée à l'architecture logique, la solution Horizon contient les composants suivants :
 

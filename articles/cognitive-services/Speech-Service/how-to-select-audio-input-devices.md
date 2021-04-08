@@ -12,13 +12,13 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ms.custom: devx-track-js
 ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026605"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Procédure : Sélectionner un périphérique d’entrée audio avec le SDK Speech
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Guide pratique : sélectionner un appareil d’entrée audio avec le kit de développement logiciel (SDK) Speech
 
 La version 1.3.0 du SDK Speech introduit une API pour sélectionner l’entrée audio. Cet article décrit comment obtenir les ID des appareils audio connectés à un système. Vous pouvez ensuite les utiliser dans le SDK Speech en configurant le périphérique audio par le biais de l’objet `AudioConfig` :
 

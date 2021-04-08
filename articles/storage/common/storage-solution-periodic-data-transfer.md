@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96573916"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Solutions de transfert périodique de données
@@ -45,7 +45,7 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 | Fonctionnalité                  | AzCopy                                 | API REST Stockage Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Facteur de forme                 | Outil en ligne de commande de Microsoft       | Le développement se fait par rapport aux API <br> REST avec les bibliothèques clientes Azure |
-| Installation ponctuelle initiale     | Minimales                                | Effort de développement modéré et variable    |
+| Installation ponctuelle initiale     | Minimal                                | Effort de développement modéré et variable    |
 | Format de données                 | Blobs, Fichiers et Tables Azure | Blobs, Fichiers et Tables Azure   |
 | Performances                 | Déjà optimisé                      | Optimisé au fil du développement                  |
 | Tarifs                     | Gratuit, des frais de sortie de données s'appliquent      | Gratuit, des frais de sortie de données s'appliquent        |
