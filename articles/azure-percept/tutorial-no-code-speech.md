@@ -7,18 +7,18 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 76333e11916641be71c72ce6142cd59b496a17e9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098024"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023161"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Créer un Assistant vocal avec le DK Azure Percept et Azure Percept Audio
 
 Dans ce tutoriel, vous allez créer un Assistant vocal à partir d’un modèle en vue de l’utiliser avec votre DK Azure Percept et Azure Percept Audio. La démonstration de l’Assistant vocal s’exécute dans [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) et contient une sélection d’objets virtuels contrôlés par la voix. Pour contrôler un objet, prononcez votre mot clé (qui est le mot ou la phrase courte qui sort de veille votre appareil), suivi d’une commande. Chaque modèle répond à un ensemble de commandes spécifiques.
 
-Ce guide explique comment configurer vos appareils, créer un Assistant vocal et les ressources [Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview) nécessaires, tester votre Assistant vocal, configurer votre mot clé et créer des mots clés personnalisés.
+Ce guide explique comment configurer vos appareils, créer un Assistant vocal et les ressources [Speech Services](../cognitive-services/speech-service/overview.md) nécessaires, tester votre Assistant vocal, configurer votre mot clé et créer des mots clés personnalisés.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -172,7 +172,7 @@ Une fois que vous avez créé votre commande personnalisée, vous devez accéder
 
     :::image type="content" source="./media/tutorial-no-code-speech/speech-studio.png" alt-text="Capture d’écran de l’écran d’accueil de Speech Studio.":::
 
-Pour plus d’informations sur le développement de commandes personnalisées, consultez la [documentation Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands).
+Pour plus d’informations sur le développement de commandes personnalisées, consultez la [documentation Speech Service](../cognitive-services/speech-service/custom-commands.md).
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 

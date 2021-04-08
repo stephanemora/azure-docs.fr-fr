@@ -1,31 +1,31 @@
 ---
-title: Découvrir des serveurs physiques avec Azure Migrate Server Assessment
-description: Apprenez à découvrir des serveurs physiques locaux avec l’outil Azure Migrate Server Assessment.
+title: Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
+description: Apprenez à découvrir des serveurs physiques locaux avec l’outil de découverte et d’évaluation d’Azure Migrate.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 4f6dc61b0e05fcb16a03a1183518069b98aa575f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541340"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771411"
 ---
-# <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutoriel : Découvrir les serveurs physiques avec Server Assessment
+# <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 
 Dans le cadre de votre migration vers Azure, vous devez découvrir vos serveurs avant de les évaluer en vue de leur migration.
 
-Ce tutoriel vous montre comment découvrir des serveurs physiques locaux avec l’outil Azure Migrate Server Assessment, à l’aide d’une appliance Azure Migrate légère. Vous allez déployer l’appliance comme un serveur physique afin de découvrir de façon continue les métadonnées relatives aux machines et aux performances.
+Ce tutoriel vous montre comment découvrir des serveurs physiques locaux avec l’outil Azure Migrate : découverte et évaluation, en utilisant une appliance Azure Migrate légère. Vous allez déployer l’appliance comme un serveur physique afin de découvrir de façon continue les métadonnées relatives aux serveurs et aux performances.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer un compte Azure
 > * Préparer des serveurs physiques en vue de leur découverte
-> * Créer un projet Azure Migrate.
+> * Crée un projet.
 > * Configurer l’appliance Azure Migrate
 > * Démarrer la découverte en continu
 
@@ -40,13 +40,13 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 
 **Prérequis** | **Détails**
 --- | ---
-**Appliance** | Vous avez besoin d’une machine sur laquelle exécuter l’appliance Azure Migrate. La machine doit disposer des éléments suivants :<br/><br/> - Windows Server 2016, installé<br/> _(Actuellement, le déploiement de l’appliance est pris en charge uniquement sur Windows Server 2016.)_<br/><br/> -16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
+**Appliance** | Vous avez besoin d’un serveur sur lequel exécuter l’appliance Azure Migrate. Le serveur doit avoir :<br/><br/> - Windows Server 2016, installé<br/> _(Actuellement, le déploiement de l’appliance est pris en charge uniquement sur Windows Server 2016.)_<br/><br/> -16 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque<br/><br/> - Une adresse IP statique ou dynamique, avec un accès à Internet, directement ou via un proxy.
 **Serveurs Windows** | Autorisez les connexions entrantes sur le port WinRM 5985 (HTTP) pour que l’appliance puisse tirer (pull) les métadonnées de configuration et de performances.
 **Serveurs Linux** | Autorisez les connexions entrantes via le port 22 (TCP).
 
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 
-Pour créer un projet Azure Migrate et inscrire l’appliance Azure Migrate, vous avez besoin d’un compte avec :
+Pour créer un projet et inscrire l’appliance Azure Migrate, vous avez besoin d’un compte avec :
 - Des autorisations de niveau Contributeur ou Propriétaire sur un abonnement Azure
 - Des autorisations permettant d’inscrire des applications Azure Active Directory (AAD).
 
@@ -56,7 +56,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Zone de recherche pour rechercher l’abonnement Azure](./media/tutorial-discover-physical/search-subscription.png)
 
-2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet Azure Migrate. 
+2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet.
 3. Dans l’abonnement, sélectionnez **Contrôle d’accès (IAM)**  > **Vérifier l’accès**.
 4. Dans **Vérifier l’accès**, recherchez le compte d’utilisateur correspondant.
 5. Dans **Ajouter une attribution de rôle**, cliquez sur **Ajouter**.
@@ -73,13 +73,13 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Vérifier dans les paramètres utilisateur que les utilisateurs peuvent inscrire des applications Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-9. Si les paramètres « Inscriptions d’applications » ont la valeur « Non », demandez au locataire/à l’administrateur général d’affecter l’autorisation nécessaire. L’administrateur général/le locataire peuvent également attribuer le rôle **Développeur d’applications** à un compte pour permettre l’inscription d’une application AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+9. Si les paramètres « Inscriptions d’applications » ont la valeur « Non », demandez au locataire ou à l’administrateur général d’affecter l’autorisation nécessaire. L’administrateur général/le locataire peuvent également attribuer le rôle **Développeur d’applications** à un compte pour permettre l’inscription d’une application AAD. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-physical-servers"></a>Préparer les serveurs physiques
 
 Configurez un compte que l’appliance peut utiliser pour accéder aux serveurs physiques.
 
-- Pour les **serveurs Windows**, utilisez un compte de domaine pour les ordinateurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+- Pour les **serveurs Windows**, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
 - Pour les **serveurs Linux**, vous devez disposer d’un compte racine sur les serveurs Linux que vous voulez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
 
 **Commande** | **Objectif**
@@ -92,7 +92,7 @@ chmod a+r /sys/class/dmi/id/product_uuid | Collecter le GUID du BIOS
 
 ## <a name="set-up-a-project"></a>Configuration d’un projet
 
-Configurez un nouveau projet Azure Migrate.
+Configurez un nouveau projet.
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez **Azure Migrate**.
 2. Sous **Services**, sélectionnez **Azure Migrate**.
@@ -103,7 +103,7 @@ Configurez un nouveau projet Azure Migrate.
    ![Zones pour le nom et la région du projet](./media/tutorial-discover-physical/new-project.png)
 
 7. Sélectionnez **Create** (Créer).
-8. Attendez quelques minutes, le temps nécessaire au déploiement du projet Azure Migrate. L’outil **Azure Migrate Server Assessment** est ajouté par défaut au nouveau projet.
+8. Attendez quelques minutes, le temps nécessaire au déploiement du projet. L’outil **Azure Migrate : découverte et évaluation** est ajouté par défaut au nouveau projet.
 
 ![Page montrant l’outil Server Assessment ajouté par défaut](./media/tutorial-discover-physical/added-tool.png)
 
@@ -112,22 +112,23 @@ Configurez un nouveau projet Azure Migrate.
 
 ## <a name="set-up-the-appliance"></a>Configurer l’appliance
 
-L’appliance Azure Migrate effectue la découverte du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate. L’appliance peut être configurée en exécutant un script PowerShell qui peut être téléchargé à partir du projet Azure Migrate.
+L’appliance Azure Migrate effectue la découverte du serveur, puis envoie la configuration et les métadonnées de performances du serveur à Azure Migrate. L’appliance peut être configurée en exécutant un script PowerShell qui peut être téléchargé à partir du projet.
 
 Pour configurer l’appliance, vous devez :
-1. Fournir un nom d’appliance et générer une clé de projet Azure Migrate sur le portail.
+
+1. Fournissez un nom d’appliance et générez une clé de projet sur le portail.
 2. Télécharger un fichier compressé avec le script du programme d’installation Azure Migrate à partir du portail Azure.
 3. Extraire le contenu du fichier compressé. Lancer la console PowerShell avec des privilèges administratifs.
 4. Exécuter le script PowerShell pour lancer l’application web de l’appliance.
-5. Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate en utilisant la clé de projet Azure Migrate.
+5. Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet en utilisant la clé de projet.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Générer la clé de projet Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Générer la clé de projet
 
-1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
-2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Physiques ou autres (AWS, GCP, Xen, etc.)** .
-3. Dans **1 : Générer une clé de projet Azure Migrate**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de serveurs physiques ou virtuels. Le nom doit être alphanumérique et se composer au maximum de 14 caractères.
-1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des machines pendant la création des ressources.
-1. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
+1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : découverte et évaluation**, sélectionnez **Découvrir**.
+2. Dans **Découvrir des serveurs** > **Vos serveurs sont-ils virtualisés ?** , sélectionnez **Physiques ou autres (AWS, GCP, Xen, etc.)** .
+3. Dans **1 : Générer une clé de projet**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte des serveurs virtuels ou physiques. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
+1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des serveurs pendant la création de ressources.
+1. Une fois les ressources Azure créées, une **clé de projet** est générée.
 1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
 
 ### <a name="2-download-the-installer-script"></a>2. Télécharger le script du programme d’installation
@@ -138,7 +139,7 @@ Dans **2 : Télécharger l’appliance Azure Migrate**, cliquez sur **Télécha
 
 Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
-1. Sur l’ordinateur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
+1. Sur le serveur où vous avez téléchargé le fichier, ouvrez une fenêtre de commande d’administrateur.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation du cloud public : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
@@ -170,7 +171,7 @@ Le script du programme d’installation effectue les opérations suivantes :
 
 Exécutez le script comme suit :
 
-1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un ordinateur d’une appliance Azure Migrate existante.
+1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.  Veillez à ne pas exécuter le script sur un serveur disposant d’une appliance Azure Migrate.
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
@@ -188,13 +189,13 @@ Si vous rencontrez des problèmes, vous pouvez accéder aux journaux de script d
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que la machine virtuelle de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
+Vérifiez que l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
 
 ### <a name="4-configure-the-appliance"></a>4. Configurer l’appliance
 
 Configurez l’appliance pour la première fois.
 
-1. Ouvrez un navigateur sur une machine qui peut se connecter à l’appliance, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
+1. Ouvrez un navigateur sur un serveur qui peut se connecter à l’appliance, puis ouvrez l’URL de l’application web de l’appliance : **https://*nom ou adresse IP de l’appliance* : 44368**.
 
    Vous pouvez aussi ouvrir l’application à partir du bureau en cliquant sur le raccourci de l’application.
 2. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
@@ -205,11 +206,11 @@ Configurez l’appliance pour la première fois.
         - Seuls les proxys HTTP sont pris en charge.
         - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte de serveur fonctionne correctement.
-    - **Installer les mises à jour** : L’évaluation de serveur Azure Migrate vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
+    - **Installer les mises à jour** : Azure Migrate : découverte et évaluation vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Collez la **clé de projet Azure Migrate** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Évaluation de serveur > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : découverte et évaluation > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
 1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
 
     ![Boîte de dialogue modale indiquant le code de l’appareil](./media/tutorial-discover-vmware/device-code.png)
@@ -229,24 +230,24 @@ Configurez l’appliance pour la première fois.
 À présent, connectez-vous à partir de l’appliance aux serveurs physiques à découvrir, puis démarrez la découverte.
 
 1. À l’**Étape 1 : Fournir des informations d’identification pour la découverte des serveurs physiques ou virtuels Windows et Linux**, cliquez sur **Ajouter des informations d’identification**.
-1. Pour le serveur Windows, sélectionnez le type de source **Windows Server**, spécifiez un nom convivial pour les informations d’identification, puis ajoutez le nom d’utilisateur et le mot de passe. Cliquez sur **Enregistrer**.
-1. Si vous utilisez l’authentification par mot de passe pour le serveur Linux, sélectionnez le type de source **Serveur Linux (basé sur un mot de passe)** , spécifiez un nom convivial pour les informations d’identification, puis ajoutez le nom d’utilisateur et le mot de passe. Cliquez sur **Enregistrer**.
+1. Pour le serveur Windows, sélectionnez le type de source **Windows Server**, spécifiez un nom convivial pour les informations d’identification, puis ajoutez le nom d’utilisateur et le mot de passe. Cliquez sur **Save**(Enregistrer).
+1. Si vous utilisez l’authentification par mot de passe pour le serveur Linux, sélectionnez le type de source **Serveur Linux (basé sur un mot de passe)** , spécifiez un nom convivial pour les informations d’identification, puis ajoutez le nom d’utilisateur et le mot de passe. Cliquez sur **Save**(Enregistrer).
 1. Si vous utilisez l’authentification par clé SSH pour le serveur Linux, vous pouvez sélectionner le type de source **Serveur Linux (par clé SSH)** , spécifier un nom convivial pour les informations d’identification, ajouter le nom d’utilisateur, puis rechercher et sélectionner le fichier de clé privée SSH. Cliquez sur **Save**(Enregistrer).
 
-    - Azure Migrate prend en charge la clé privée SSH générée par la commande ssh-keygen à l’aide des algorithmes RSA, DSA, ECDSA et ed25519.
-    - Actuellement, Azure Migrate ne prend pas en charge la clé SSH basée sur une phrase secrète. Utilisez une clé SSH sans phrase secrète.
+    - Azure Migrate prend en charge la clé privée SSH générée par la commande ssh-keygen avec les algorithmes RSA, DSA, ECDSA et ed25519.
+    - Azure Migrate ne prend pas en charge la clé SSH basée sur une phrase secrète. Utilisez une clé SSH sans phrase secrète.
     - Actuellement, Azure Migrate ne prend pas en charge le fichier de clé privée SSH généré par PuTTy.
     - Azure Migrate prend en charge le format OpenSSH du fichier de clé privée SSH, comme indiqué ci-dessous :
     
     ![Format de clé privée SSH pris en charge](./media/tutorial-discover-physical/key-format.png)
 
-1. Si vous souhaitez ajouter plusieurs informations d’identification à la fois, cliquez sur **Ajouter** pour enregistrer et ajouter d’autres informations d’identification. Plusieurs informations d’identification sont prises en charge pour la découverte de serveurs physiques.
+1. Si vous souhaitez ajouter plusieurs informations d’identification à la fois, cliquez sur **Ajouter** pour enregistrer et ajouter d’autres informations d'identification. Plusieurs informations d’identification sont prises en charge pour la découverte de serveurs physiques.
 1. Dans **Étape 2 : Fournir les détails du serveur physique ou virtuel**, cliquez sur **Ajouter une source de découverte** pour spécifier l’**adresse IP/nom de domaine complet** du serveur ainsi que le nom convivial des informations d’identification pour se connecter au serveur.
 1. Vous pouvez soit **ajouter un seul élément** à la fois, soit **ajouter plusieurs éléments** simultanément. Il existe également une option permettant de fournir les détails du serveur via **Importer au format CSV**.
 
 
     - Si vous choisissez **Ajouter un seul élément**, vous pouvez choisir le type de système d’exploitation, attribuer un nom convivial aux informations d’identification, ajouter l’**adresse IP/nom de domaine complet** du serveur, puis cliquer sur **Enregistrer**.
-    - Si vous choisissez **Ajouter plusieurs éléments**, vous pouvez ajouter plusieurs enregistrements à la fois en spécifiant l’**adresse IP/nom de domaine complet** du serveur avec le nom convivial des informations d’identification dans la zone de texte. **Vérifiez** les enregistrements ajoutés, puis cliquez sur **Enregistrer**.
+    - Si vous choisissez **Ajouter plusieurs éléments**, vous pouvez ajouter plusieurs enregistrements à la fois en spécifiant l’**adresse IP/nom de domaine complet** du serveur avec le nom convivial des informations d’identification dans la zone de texte. Vérifiez les enregistrements ajoutés, puis cliquez sur **Enregistrer**.
     - Si vous choisissez **Importer au format CSV** _(sélectionné par défaut)_ , vous pouvez télécharger un fichier de modèle CSV, compléter le fichier avec l’**adresse IP/nom de domaine complet** du serveur et le nom convivial des informations d’identification. Importez ensuite le fichier dans l’appliance, **vérifiez** les enregistrements dans le fichier, puis cliquez sur **Enregistrer**.
 
 1. Dès que vous cliquez sur Enregistrer, l’appliance tente de valider la connexion aux serveurs ajoutés et affiche l’**état de validation** de chaque serveur dans le tableau.
@@ -263,7 +264,7 @@ Ceci démarre la découverte. Il faut environ deux minutes par serveur pour que 
 Une fois la découverte terminée, vous pouvez vérifier que les serveurs apparaissent dans le portail.
 
 1. Ouvrez le tableau de bord Azure Migrate.
-2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
+2. Dans la page **Azure Migrate - Serveurs** > **Azure Migrate : découverte et évaluation**, cliquez sur l’icône qui affiche le nombre de **Serveurs découverts**.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Évaluer des serveurs physiques](tutorial-assess-physical.md) en vue de leur migration vers des machines virtuelles Azure

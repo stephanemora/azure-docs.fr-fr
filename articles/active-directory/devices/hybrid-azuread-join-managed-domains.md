@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4545e92767a427b8cd89af07ed4d06053685977a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644916"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578003"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer la jointure hybride Azure Active Directory pour des domaines managés
 
@@ -58,6 +58,9 @@ Familiarisez-vous avec les articles suivants :
 > Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines managés.
 
 Vérifiez qu’Azure AD Connect a synchronisé les objets ordinateur des appareils qui doivent devenir membres d’Azure AD Hybride. Si les objets ordinateur appartiennent à des unités d’organisation spécifiques, configurez ces unités d’organisation pour les synchroniser dans Azure AD Connect. Pour en savoir plus sur la synchronisation des objets ordinateur à l’aide d’Azure AD Connect, consultez [Filtrage basé sur une unité d’organisation](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+
+> [!NOTE]
+> Afin que la jointure de synchronisation pour l’inscription de l’appareil réussisse, dans la configuration de l’inscription de l’appareil, n’excluez pas les attributs d’appareil par défaut de votre configuration de synchronisation Azure AD Connect. Pour en savoir plus sur les attributs d’appareil par défaut synchronisés avec AAD, consultez [Attributs synchronisés par Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Depuis la version 1.1.819.0, Azure AD Connect inclut un Assistant pour configurer la jointure Azure AD hybride. L’Assistant simplifie considérablement le processus de configuration. L’Assistant configure les SCP (points de connexion de service) pour l’inscription des appareils.
 
