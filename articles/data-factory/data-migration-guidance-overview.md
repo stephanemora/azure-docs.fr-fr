@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019
 ms.openlocfilehash: 4e7421cb8ea4b0c14e4f4b59a688cdb1afe7d462
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367705"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Utilisez Azure Data Factory pour migrer des données de votre lac de données ou de votre entrepôt de données vers Azure
@@ -33,7 +33,7 @@ Azure Data Factory peut déplacer des pétaoctets (Po) de données pour la migra
   - Azure Data Factory utilise une méthode de paiement à l’utilisation. Ainsi, vous payez uniquement pour le temps réellement passé à exécuter la migration des données vers Azure.  
 - Azure Data Factory peut effectuer un chargement de données historiques unique et des chargements incrémentiels planifiés.
 - Azure Data Factory utilise le runtime d’intégration Azure (IR) pour déplacer des données entre des points de terminaison de lac de données et d’entrepôt de données accessibles publiquement. Il peut également utiliser un runtime d’intégration auto-hébergé pour déplacer des données de points de terminaison de lac de données et d’entrepôt de données au sein d’un réseau virtuel Microsoft Azure ou derrière un pare-feu.
-- Azure Data Factory offre une sécurité de niveau entreprise : Vous pouvez utiliser Windows Installer (MSI) ou l’identité du service pour une intégration de service à service sécurisée ou Azure Key Vault pour la gestion des informations d’identification.
+- Azure Data Factory offre une sécurité à l’échelle de l’entreprise : utilisez le programme d’installation Windows (MSI) ou l’identité de service pour une intégration de service à service sécurisée, ou tirez parti des Azure Key Vault pour la gestion des informations d’identification.
 - Azure Data Factory offre une expérience de création sans code et un tableau de bord de supervision intégré enrichi.  
 
 ## <a name="online-vs-offline-data-migration"></a>Migration des données en ligne et hors connexion
@@ -43,7 +43,7 @@ Azure Data Factory est un outil de migration de données en ligne standard perme
 Vous devez prendre en compte trois points importants quand vous choisissez votre approche de migration (en ligne ou hors connexion) :  
 
 - Taille des données à migrer
-- Bande passante réseau
+- Bande passante du réseau
 - Fenêtre de migration
 
 Supposons, par exemple, que vous envisagiez d’utiliser Azure Data Factory pour effectuer la migration de vos données sous deux semaines (votre *fenêtre de migration*). Notez la ligne de coupe rose/bleue dans le tableau suivant. La cellule rose la plus basse d’une colonne indique la combinaison taille des données/bande passante réseau dont la fenêtre de migration est la plus proche de deux semaines (tout en restant inférieure). (Toutes les combinaisons taille/bande passante figurant dans une cellule bleue correspondent à une fenêtre de migration en ligne supérieure à deux semaines.) 

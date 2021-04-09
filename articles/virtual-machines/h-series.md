@@ -1,19 +1,19 @@
 ---
 title: Série H - Machines virtuelles Azure
 description: Spécifications pour les machines virtuelles de la série H.
-author: ju-shim
+author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 7a5ff47bb5de6d54564a86c0700ad69aa450887d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b3e3beb51256bbf22d29d74b51c52ca3a6bee0c4
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566139"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774777"
 ---
 # <a name="h-series"></a>Série H
 
@@ -40,10 +40,21 @@ Les machines virtuelles de la série H sont optimisées pour les applications tr
 
 <sup>1</sup> Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR.
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 > [!NOTE]
-> Parmi les [machines virtuelles compatibles RDMA](sizes-hpc.md#rdma-capable-instances), les séries H ne sont pas compatibles avec SR-IOV. Par conséquent, les [images de machine virtuelle](./workloads/hpc/configure.md#vm-images) prises en charge, les exigences de [pilote InfiniBand](./workloads/hpc/enable-infiniband.md) et les [bibliothèques MPI](./workloads/hpc/setup-mpi.md) prises en charge sont différentes de celles des machines virtuelles compatibles SR-IOV.
+> Parmi les [machines virtuelles compatibles RDMA](sizes-hpc.md#rdma-capable-instances), celles de la série H ne sont pas compatibles avec SR-IOV. Par conséquent, les [images de machine virtuelle](./workloads/hpc/configure.md#vm-images) prises en charge, les exigences de [pilote InfiniBand](./workloads/hpc/enable-infiniband.md) et les [bibliothèques MPI](./workloads/hpc/setup-mpi.md) prises en charge sont différentes de celles des machines virtuelles compatibles SR-IOV.
+
+## <a name="software-specifications"></a>Spécifications logicielles
+
+| Spécifications logicielles     |Machine virtuelle série HC           |
+|-----------------------------|-----------------------|
+| Taille de travail MPI max            | 4 800 cœurs (300 machines virtuelles dans un seul groupe de machines virtuelles identiques avec singlePlacementGroup=true)  |
+| Prise en charge MPI                 | Intel MPI 5.x, MS-MPI  |
+| Prise en charge du système d’exploitation pour non-SRIOV RDMA   | CentOS/RHEL 6.5 - 7.4, SLES 12 SP4+, WinServer 2012 - 2016  |
+| Prise en charge d’Orchestrator        | CycleCloud, Batch, AKS  |
+
+[!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>Autres tailles
 
@@ -56,7 +67,6 @@ Les machines virtuelles de la série H sont optimisées pour les applications tr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [la configuration de vos machines virtuelles](./workloads/hpc/configure.md), [l’activation d’InfiniBand](./workloads/hpc/enable-infiniband.md), [la configuration de MPI](./workloads/hpc/setup-mpi.md) et l’optimisation des applications HPC pour Azure dans l’article relatif aux [charges de travail HPC](./workloads/hpc/overview.md).
-- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Consultez les dernières annonces, des exemples de charge de travail HPC et les résultats des performances sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).
 - Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.

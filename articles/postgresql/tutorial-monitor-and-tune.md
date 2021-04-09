@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93336977"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutoriel : Superviser et optimiser Azure Database pour PostgreSQL (serveur unique)
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutoriel : Superviser et optimiser Azure Database pour PostgreSQL - Serveur unique
 
 Azure Database pour PostgreSQL a des fonctionnalités qui vous aident à comprendre et à améliorer les performances de votre serveur. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -27,10 +27,10 @@ Azure Database pour PostgreSQL a des fonctionnalités qui vous aident à compren
 Vous avez besoin d’un serveur Azure Database pour PostgreSQL avec PostgreSQL version 9.6 ou 10. Vous pouvez suivre les étapes du [tutoriel consacré à la création](tutorial-design-database-using-azure-portal.md) pour créer un serveur.
 
 > [!IMPORTANT]
-> **Magasin des requêtes** , **Analyse des performances des requêtes** et **Recommandation sur les performances** sont en préversion publique.
+> **Magasin des requêtes**, **Analyse des performances des requêtes** et **Recommandation sur les performances** sont en préversion publique.
 
 ## <a name="enabling-data-collection"></a>Activation de la collecte des données
-Le [Magasin des requêtes](concepts-query-store.md) capture un historique des statistiques sur les requêtes et les attentes sur votre serveur, et les stocke dans la base de données **azure_sys** sur votre serveur. Il s’agit d’une fonctionnalité avec option d’adhésion. Pour l’activer :
+Le [Magasin des requêtes](concepts-query-store.md) capture un historique des statistiques sur les requêtes et les attentes sur votre serveur, et les stocke dans la base de données **azure_sys** sur votre serveur. Il s’agit d’une fonctionnalité avec option d’adhésion. Pour l’activer :
 
 1. Ouvrez le portail Azure.
 
@@ -83,7 +83,7 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 
 4. La fenêtre **Recommandations sur les performances** affiche une liste de recommandations si des recommandations ont été trouvées. 
 
-5. Une recommandation montre des informations sur les éléments **Base de données** , **Table** , **Colonne** et **Taille de l’index** pertinents.
+5. Une recommandation montre des informations sur les éléments **Base de données**, **Table**, **Colonne** et **Taille de l’index** pertinents.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Résultat des recommandations sur les performances":::
 

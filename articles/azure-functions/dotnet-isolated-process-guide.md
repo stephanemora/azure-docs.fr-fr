@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: dacf3436ce98d839ad5b45361f1573c98c62d3e7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563640"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774930"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guide d’exécution des fonctions sur .NET 5.0 dans Azure
 
@@ -68,31 +68,36 @@ Vous trouverez ces packages d’extension sous [Microsoft.Azure.Functions.Worker
 
 ## <a name="start-up-and-configuration"></a>Démarrage et configuration 
 
-Lorsque vous utilisez des fonctions isolées .NET, vous avez accès au démarrage de votre application de fonction, qui se trouve généralement dans Program.cs. Vous devez créer et démarrer votre propre instance d’hôte. Ainsi, vous disposez également d’un accès direct au pipeline de configuration de votre application. Vous pouvez plus facilement injecter des dépendances et exécuter des intergiciels lors d’une exécution hors processus. 
+Lorsque vous utilisez des fonctions isolées .NET, vous avez accès au démarrage de votre application de fonction, qui se trouve généralement dans Program.cs. Vous devez créer et démarrer votre propre instance d’hôte. Ainsi, vous disposez également d’un accès direct au pipeline de configuration de votre application. En cas d’exécution hors processus, vous pouvez ajouter plus facilement des configurations, injecter des dépendances et exécuter votre propre intergiciel. 
 
-Le code suivant présente un exemple de pipeline `HostBuilder` :
+Le code suivant présente un exemple de pipeline [HostBuilder] :
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-Un `HostBuilder` est utilisé pour générer et renvoyer une instance `IHost` entièrement initialisée que vous exécutez de façon asynchrone pour démarrer votre application de fonction. 
+Un [HostBuilder] est utilisé pour générer et renvoyer une instance [IHost] entièrement initialisée que vous exécutez de façon asynchrone pour démarrer votre application de fonction. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### <a name="configuration"></a>Configuration
 
-L’accès au pipeline du générateur d’hôte vous permet de définir des configurations spécifiques à l’application lors de l’initialisation. Ces configurations s’appliquent à votre application de fonction s’exécutant dans un processus distinct. Pour apporter des modifications à l’hôte Functions ou au déclencheur et à la configuration de liaison, vous devez toujours utiliser le [fichier host.json](functions-host-json.md).      
+La méthode [ConfigureFunctionsWorkerDefaults] est utilisée pour ajouter les paramètres requis pour que l’application de fonction s’exécute hors processus, ce qui comprend les fonctionnalités suivantes :
 
-L’exemple suivant montre comment ajouter une configuration `args`, lue en tant qu’arguments de ligne de commande : 
- 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
++ Ensemble de convertisseurs par défaut.
++ Définissez la valeur par défaut de [JsonSerializerOptions] sur ignorer la casse des noms de propriétés.
++ Intégration à la journalisation Azure Functions.
++ Fonctionnalités et intergiciel de liaison de sortie.
++ Intergiciel d’exécution de fonction.
++ Prise en charge par défaut de gRPC. 
 
-La méthode `ConfigureAppConfiguration` est utilisée pour configurer le reste du processus de génération et l’application. Cet exemple utilise également un élément [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true) qui facilite l’ajout de plusieurs éléments de configuration. `ConfigureAppConfiguration` renvoie la même instance de [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) que vous pouvez également appeler à différenes reprises pour ajouter plusieurs éléments de configuration. Vous pouvez accéder à l’ensemble complet des configurations depuis [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) et [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
-Pour en savoir plus sur la configuration, consultez [Configuration dans ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
+L’accès au pipeline du générateur d’hôte vous permet également de définir des configurations spécifiques à l’application lors de l’initialisation. Vous pouvez appeler la méthode [ConfigureAppConfiguration] sur [HostBuilder] une ou plusieurs fois pour ajouter les configurations requises par votre application de fonction. Pour en savoir plus sur la configuration, consultez [Configuration dans ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
+
+Ces configurations s’appliquent à votre application de fonction s’exécutant dans un processus distinct. Pour apporter des modifications à l’hôte Functions ou au déclencheur et à la configuration de liaison, vous devez toujours utiliser le [fichier host.json](functions-host-json.md).   
 
 ### <a name="dependency-injection"></a>Injection de dépendances
 
-L’injection de dépendances est simplifiée par rapport aux bibliothèques de classes .NET. Plutôt que de devoir créer une classe de démarrage pour inscrire les services, il vous suffit d’appeler `ConfigureServices` sur le générateur d’hôte et d’utiliser les méthodes d’extension sur [`IServiceCollection`](/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true) pour injecter des services spécifiques. 
+L’injection de dépendances est simplifiée par rapport aux bibliothèques de classes .NET. Plutôt que de devoir créer une classe de démarrage pour inscrire les services, il vous suffit d’appeler [ConfigureServices] sur le générateur d’hôte et d’utiliser les méthodes d’extension sur [IServiceCollection] pour injecter des services spécifiques. 
 
 L’exemple suivant injecte une dépendance de service singleton :  
  
@@ -100,31 +105,35 @@ L’exemple suivant injecte une dépendance de service singleton :
 
 Pour plus d’informations, consultez [Injection de dépendances dans ASP.net Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-<!--### Middleware
+### <a name="middleware"></a>Middleware
 
-.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
+Le processus isolé.NET prend également en charge l’inscription d’intergiciel, à nouveau à l’aide d’un modèle similaire à ce qui existe dans ASP.NET. Ce modèle vous donne la possibilité d’injecter une logique dans le pipeline d’appel, et avant et après l’exécution des fonctions.
 
-While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
+La méthode d’extension [ConfigureFunctionsWorkerDefaults] a une surcharge qui vous permet d’inscrire votre propre intergiciel, comme vous pouvez le voir dans l’exemple suivant.  
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
+
+Pour obtenir un exemple plus complet de l’utilisation d’un intergiciel personnalisé dans votre application de fonction, consultez l'[exemple de référence d’intergiciel personnalisé](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
 ## <a name="execution-context"></a>Contexte d’exécution
 
-Le processus isolé .NET transmet un objet `FunctionContext` à vos méthodes de fonction. Cet objet vous permet d’obtenir une instance [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) pour écrire dans les journaux en appelant la méthode `GetLogger` et en fournissant une chaîne `categoryName`. Pour en savoir plus, consultez [Journalisation](#logging). 
+Le processus isolé .NET transmet un objet [FunctionContext] à vos méthodes de fonction. Cet objet vous permet d’obtenir une instance [ILogger] pour écrire dans les journaux en appelant la méthode [GetLogger] et en fournissant une chaîne `categoryName`. Pour en savoir plus, consultez [Journalisation](#logging). 
 
 ## <a name="bindings"></a>Liaisons 
 
-Les liaisons sont définies à l’aide d’attributs sur les méthodes, paramètres et types de retour. Une méthode de fonction est une méthode dotée d’un `Function` et d’un attribut de déclencheur appliqué à un paramètre d’entrée, comme indiqué dans l’exemple suivant :
+Les liaisons sont définies à l’aide d’attributs sur les méthodes, paramètres et types de retour. Une méthode de fonction est une méthode dotée d’un attribut `Function` et d’un attribut de déclencheur appliqué à un paramètre d’entrée, comme indiqué dans l’exemple suivant :
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 L’attribut de déclencheur spécifie le type de déclencheur et lie les données d’entrée à un paramètre de méthode. L’exemple de fonction précédent est déclenché par un message de file d’attente, qui est lui-même transmis à la méthode dans le paramètre `myQueueItem`.
 
 L’attribut `Function` marque une méthode comme point d’entrée de la fonction. Le nom doit être unique au sein d’un projet, commencer par une lettre et ne contenir que des lettres, des chiffres, `_` et `-`, jusqu’à 127 caractères. Les modèles de projets créent souvent une méthode nommée `Run`, mais le nom de la méthode peut être n’importe quel nom de méthode C# valide.
 
-Les projets isolés .NET s’exécutant dans un processus de travail distinct, les liaisons ne peuvent pas tirer parti des classes de liaison riches, comme `ICollector<T>`, `IAsyncCollector<T>` et `CloudBlockBlob`. En outre, il n’existe pas de prise en charge directe des types hérités des kits de développement logiciel (SDK) de service sous-jacents, comme [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) et [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Au lieu de cela, les liaisons reposent sur des chaînes, des tableaux et des types sérialisables, comme des objets POCO (Plain Old Class Objects). 
+Les projets isolés .NET s’exécutant dans un processus de travail distinct, les liaisons ne peuvent pas tirer parti des classes de liaison riches, comme `ICollector<T>`, `IAsyncCollector<T>` et `CloudBlockBlob`. En outre, il n’existe pas de prise en charge directe des types hérités des kits de développement logiciel (SDK) de service sous-jacents, comme [DocumentClient] et [BrokeredMessage]. Au lieu de cela, les liaisons reposent sur des chaînes, des tableaux et des types sérialisables, comme des objets POCO (Plain Old Class Objects). 
 
-Pour les déclencheurs HTTP, vous devez utiliser `HttpRequestData` et `HttpResponseData` afin d’accéder aux données de requête et de réponse. En effet, vous n’avez pas accès aux objets de requête et de réponse HTTP d’origine lors d’une exécution hors processus. 
+Pour les déclencheurs HTTP, vous devez utiliser [HttpRequestData] et [HttpResponseData] afin d’accéder aux données de requête et de réponse. En effet, vous n’avez pas accès aux objets de requête et de réponse HTTP d’origine lors d’une exécution hors processus.
+
+Pour obtenir un ensemble complet d’exemples de référence pour l’utilisation de déclencheurs et de liaisons lors de l’exécution hors processus, consultez l'[exemple de référence des extensions de liaison](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions). 
 
 ### <a name="input-bindings"></a>Liaisons d’entrée
 
@@ -134,35 +143,35 @@ Une fonction peut avoir zéro ou plusieurs liaisons d’entrée susceptibles de 
 
 Pour écrire dans une liaison de sortie, vous devez appliquer un attribut de liaison de sortie à la méthode de fonction qui a défini la manière d’écrire dans le service lié. La valeur renvoyée par la méthode est écrite dans la liaison de sortie. Par exemple, l’exemple suivant écrit une valeur de chaîne dans une file d’attente de messages nommée `functiontesting2` à l’aide d’une liaison de sortie :
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Liaisons de sortie multiples
 
 Les données écrites dans une liaison de sortie correspondent toujours à la valeur renvoyée de la fonction. S’il vous faut écrire dans plusieurs liaisons de sortie, vous devez créer un type de retour personnalisé. Ce type de retour doit présenter l’attribut de liaison de sortie appliqué à une ou plusieurs propriétés de la classe. L’exemple suivant écrit dans une réponse HTTP et une liaison de sortie de file d’attente :
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" id="docsnippet_multiple_outputs":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
 
 ### <a name="http-trigger"></a>Déclencheur HTTP
 
-Les déclencheurs HTTP traduisent le message de requête HTTP entrant en objet `HttpRequestData` qui est transmis à la fonction. Cet objet fournit les données de la requête, notamment `Headers`, `Cookies`, `Identities`, `URL`, et un message facultatif `Body`. Cet objet est une représentation de l’objet de requête HTTP, et non de la demande elle-même. 
+Les déclencheurs HTTP traduisent le message de requête HTTP entrant en objet [HttpRequestData] qui est transmis à la fonction. Cet objet fournit les données de la requête, notamment `Headers`, `Cookies`, `Identities`, `URL`, et un message facultatif `Body`. Cet objet est une représentation de l’objet de requête HTTP, et non de la demande elle-même. 
 
-De même, la fonction renvoie un objet `HttpReponseData`, qui fournit les données utilisées pour créer la réponse HTTP, y compris le message `StatusCode`, `Headers`, voire un message `Body` .  
+De même, la fonction renvoie un objet [HttpReponseData], qui fournit les données utilisées pour créer la réponse HTTP, y compris le message `StatusCode`, `Headers`, voire un message `Body`.  
 
 Le code suivant correspond à un déclencheur HTTP. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Journalisation
 
-Au sein d’un processus isolé .NET, vous pouvez écrire dans les journaux à l’aide d’une instance [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) obtenue à partir d’un objet `FunctionContext` transmis à votre fonction. Appelez la méthode `GetLogger`, en transmettant une valeur de chaîne correspondant au nom de la catégorie dans laquelle les journaux sont écrits. La catégorie correspond généralement au nom de la fonction spécifique à partir de laquelle les journaux sont écrits. Pour en savoir plus sur les catégories, consultez l’[article relative à la surveillance](functions-monitoring.md#log-levels-and-categories). 
+Au sein d’un processus isolé .NET, vous pouvez écrire dans les journaux à l’aide d’une instance [ILogger] obtenue à partir d’un objet [FunctionContext] transmis à votre fonction. Appelez la méthode [GetLogger], en transmettant une valeur de chaîne correspondant au nom de la catégorie dans laquelle les journaux sont écrits. La catégorie correspond généralement au nom de la fonction spécifique à partir de laquelle les journaux sont écrits. Pour en savoir plus sur les catégories, consultez l’[article relative à la surveillance](functions-monitoring.md#log-levels-and-categories). 
 
-L’exemple suivant montre comment obtenir un `ILogger` et écrire des journaux à l’intérieur d’une fonction :
+L’exemple suivant montre comment obtenir un [ILogger] et écrire des journaux à l’intérieur d’une fonction :
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
-Utilisez différentes méthodes de `ILogger` pour écrire différents niveaux de journalisation, tels que `LogWarning` ou `LogError`. Pour en savoir plus sur les niveaux de journalisation, consultez l’[article relatif à la surveillance](functions-monitoring.md#log-levels-and-categories).
+Utilisez différentes méthodes de [ILogger] pour écrire différents niveaux de journalisation, tels que `LogWarning` ou `LogError`. Pour en savoir plus sur les niveaux de journalisation, consultez l’[article relatif à la surveillance](functions-monitoring.md#log-levels-and-categories).
 
-Un [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) est également fourni lors de l’utilisation de l'[injection de dépendances](#dependency-injection).
+Un [ILogger] est également fourni lors de l’utilisation de l'[injection de dépendances](#dependency-injection).
 
 ## <a name="differences-with-net-class-library-functions"></a>Différences par rapport aux fonctions de la bibliothèque de classes .NET
 
@@ -171,18 +180,18 @@ Cette section décrit l’état actuel des différences fonctionnelles et compor
 | Fonctionnalité/Comportement |  In-process (.NET Core 3.1) | Hors processus (.NET 5.0) |
 | ---- | ---- | ---- |
 | Versions .NET | LTS (.NET Core 3.1) | Actuellement (.NET 5.0) |
-| Packages principaux | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
-| Packages d’extension de liaison | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Sous [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
-| Journalisation | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) transmis à la fonction | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) obtenu depuis `FunctionContext` |
+| Packages principaux | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
+| Packages d’extension de liaison | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Sous [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
+| Journalisation | [ILogger] transmis à la fonction | [ILogger] obtenu à partir de [FunctionContext] |
 | Jetons d’annulation | [Pris en charge](functions-dotnet-class-library.md#cancellation-tokens) | Non pris en charge |
 | Liaisons de sortie | Paramètres de sortie | Valeurs de retour |
-| Types de liaisons de sortie |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true) et autres types spécifiques au client | Types simples, types sérialisables JSON et tableaux. |
+| Types de liaisons de sortie |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage] et autres types spécifiques au client | Types simples, types sérialisables JSON et tableaux. |
 | Liaisons de sortie multiples | Prise en charge | [Pris en charge](#multiple-output-bindings) |
-| Déclencheur HTTP | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
+| Déclencheur HTTP | [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
 | Fonctions durables | [Pris en charge](durable/durable-functions-overview.md) | Non pris en charge | 
 | Liaisons impératives | [Pris en charge](functions-dotnet-class-library.md#binding-at-runtime) | Non pris en charge |
 | Artefact function.json | Généré | Non généré |
-| Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) et [initialisation personnalisée](#configuration) |
+| Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) et initialisation personnalisée |
 | Injection de dépendances | [Pris en charge](functions-dotnet-dependency-injection.md)  | [Pris en charge](#dependency-injection) |
 | Middleware | Non pris en charge | Prise en charge |
 | Heures de démarrage froid | Standard | Délai plus long en raison du démarrage juste-à-temps. Exécution sur Linux plutôt que Windows pour limiter les possibles retards. |
@@ -196,3 +205,21 @@ Pour plus d’informations sur les solutions de contournement des problèmes d�
 
 + [En savoir plus sur les déclencheurs et les liaisons](functions-triggers-bindings.md)
 + [En savoir plus sur les meilleures pratiques pour Azure Functions](functions-best-practices.md)
+
+
+[HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder?view=dotnet-plat-ext-5.0&preserve-view=true
+[IHost]: /dotnet/api/microsoft.extensions.hosting.ihost?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
+[ConfigureAppConfiguration]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureappconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true
+[IServiceCollection]: /dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureservices?view=dotnet-plat-ext-5.0&preserve-view=true
+[FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
+[ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true
+[GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger?view=azure-dotnet&preserve-view=true
+[DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
+[HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
+[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true
+[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true
+[JsonSerializerOptions]: /api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true
