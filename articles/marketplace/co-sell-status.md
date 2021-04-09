@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/24/2021
-ms.openlocfilehash: 9c788109b014be244560fb652de830ba14a44d68
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 03/17/2021
+ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225011"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104593354"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Vérifier le statut de co-vente d’une offre de la Place de marché commerciale
 
@@ -33,7 +34,7 @@ Le tableau suivant montre tous les statuts de co-vente possibles. Pour plus d’
 | Pas de co-vente prête | Les [conditions minimales requises pour le statut Prêt pour la co-vente](co-sell-requirements.md#requirements-for-co-sell-ready-status) ne sont pas remplies. |
 | Prêt pour la co-vente | Toutes les [conditions requises pour le statut Prêt pour la co-vente](co-sell-requirements.md#requirements-for-co-sell-ready-status) sont remplies. |
 | Co-vente Azure IP avec incentives | Les exigences en matière de co-vente sont satisfaites, en plus de [ces exigences supplémentaires](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
-| Incentive Biz Apps ISV Connect Premium  | Ce statut s’applique aux offres Dynamics 365 et Power Apps. Il indique que toutes les [conditions requises pour ce statut](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) sont remplies. |
+| Co-vente d'applications métier avec incentives | Ce statut s’applique aux offres Dynamics 365 et Power Apps dans le [programme ISV Connect](business-applications-isv-program.md). Il indique que toutes les [conditions requises pour ce statut](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status) sont remplies. |
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes

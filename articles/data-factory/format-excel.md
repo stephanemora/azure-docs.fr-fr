@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
 ms.openlocfilehash: bef29bc958253be0498442f842dda67105ce799b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100386524"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Format Excel dans Azure Data Factory
@@ -113,7 +113,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Liste de fichiers             | Si votre source pointe ou non vers un fichier texte qui liste les fichiers à traiter | non       | `true` ou `false`                                         | fileList                          |
 | Colonne où stocker le nom du fichier | Crée une colonne avec le nom et le chemin du fichier source       | non       | String                                                    | rowUrlColumn                      |
 | Après l’exécution          | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non       | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
-| Filtrer par date de dernière modification   | Choisir pour filtrer les fichiers en fonction de leur date de dernière modification | non       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Filtrer par date de dernière modification   | Pour filtrer les fichiers en fonction de leur date de dernière modification | non       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemple de source

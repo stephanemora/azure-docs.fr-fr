@@ -4,12 +4,12 @@ description: Exemples d’utilisation du fournisseur Azure Application Insights 
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 987d5b78c5fe680f43ff6a001e7a31a8ae9f6124
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e7d0bd6f7d93eac944e0d53a8e898463bf9887f9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931459"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104592266"
 ---
 # <a name="applicationinsightsloggerprovider-for-microsoftextensionlogging"></a>ApplicationInsightsLoggerProvider pour Microsoft.Extension.Logging
 
@@ -484,13 +484,13 @@ Modifiez Program.cs et appsettings.json comme suit :
    }
    ```
 
-ce code n’est requis que lorsque vous utilisez un fournisseur de journalisation autonome. Pour la surveillance régulière d’Application Insights, la clé d’instrumentation est chargée automatiquement à partir du chemin de configuration *ApplicationInsights: Instrumentationkey*. Appsettings.json doit ressembler à ceci :
+ce code n’est requis que lorsque vous utilisez un fournisseur de journalisation autonome. Pour la surveillance régulière d’Application Insights, la clé d’instrumentation est chargée automatiquement à partir du chemin de configuration *ApplicationInsights: InstrumentationKey*. Appsettings.json doit ressembler à ceci :
 
    ```json
    {
      "ApplicationInsights":
        {
-           "Instrumentationkey":"putrealikeyhere"
+           "InstrumentationKey":"putrealikeyhere"
        }
    }
    ```

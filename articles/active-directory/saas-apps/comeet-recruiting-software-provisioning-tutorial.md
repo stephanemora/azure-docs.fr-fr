@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Comeet Recruiting Software pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Comeet Recruiting Software pour le provisionnement automatique des utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur dans Comeet Recruiting Software.
 services: active-directory
 author: zchia
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006710"
 ---
-# <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutoriel : Configurer l’approvisionnement automatique d’utilisateurs sur Comeet Recruiting Software
+# <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutoriel : Configurer Comeet Recruiting Software pour le provisionnement automatique des utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Comeet Recruiting Software et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le retrait automatiques d’utilisateurs et/ou de groupes sur Comeet Recruiting Software.
 

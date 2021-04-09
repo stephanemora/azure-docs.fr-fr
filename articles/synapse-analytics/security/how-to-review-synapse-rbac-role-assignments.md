@@ -9,10 +9,10 @@ ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9065ca9c7638f3d2bda36e4831b81963936f4b45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100102153"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Guide pratique pour passer en revue les attributions de rôles RBAC Synapse

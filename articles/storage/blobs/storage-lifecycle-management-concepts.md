@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
 ms.openlocfilehash: 1b568687ffe646a91544c1bb75d26d552a23f49c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96005280"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Optimiser les coûts en automatisant les niveaux d’accès au stockage Blob Azure

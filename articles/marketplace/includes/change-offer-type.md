@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 02/03/2021
 ms.openlocfilehash: d9e98a6a689fcab341ddb2c5193f06149fc2c8b0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100097248"
 ---
 Le changement d’un type d’offre peut ne nécessiter qu’une simple modification puis une republication. Toutefois, cela nécessite parfois la création d’une nouvelle offre, comme indiqué ici.

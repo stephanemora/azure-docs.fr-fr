@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 882ba60e16f770651a1d9fe3b02b61be2b4c34c8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99531402"
 ---
 Vous allez utiliser le module Live Video Analytics sur IoT Edge pour détecter les mouvements dans le flux vidéo en direct entrant et envoyer des événements à IoT Hub. Pour voir ces événements, effectuez les étapes suivantes :

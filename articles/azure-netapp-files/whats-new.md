@@ -12,22 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/19/2021
 ms.author: b-juche
-ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571027"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955226"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
 Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les dernières fonctionnalités et améliorations. 
 
+## <a name="march-2021"></a>Mars 2021
+
+* [Partages d’autorité de certification SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (préversion)  
+
+    Le basculement transparent SMB permet d’effectuer des opérations de maintenance sur le service Azure NetApp Files sans interrompre la connectivité aux applications du serveur qui stockent et accèdent aux données sur les volumes SMB. Pour prendre en charge le basculement transparent SMB, Azure NetApp Files prend désormais en charge l’option de partages d’autorité de certification SMB pour une utilisation avec des applications SQL Server, plutôt que SMB exécuté sur des machines virtuelles Azure. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. L’activation de cette fonctionnalité fournit des améliorations SQL Server significatives en matière de performances, de mise à l’échelle et d’avantages de coût pour [Instance unique, Instance de cluster de basculement toujours active et les déploiements de groupes de disponibilité toujours actifs](azure-netapp-files-solution-architectures.md#sql-server). Consultez[Avantages de l’utilisation d’Azure NetApp Files pour le déploiement de SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).
+
+* [Redimensionnement automatique d’un volume de destination de réplication inter-régions](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    Dans une relation de réplication inter-régions, un volume de destination est automatiquement redimensionné en fonction de la taille du volume source. Par conséquent, vous n’avez pas besoin de redimensionner le volume de destination séparément. Ce comportement de redimensionnement automatique est applicable lorsque les volumes sont dans une relation de réplication active ou lorsque le peering de réplication est interrompu avec l'opération de resynchronisation. Pour que cette fonctionnalité fonctionne, vous devez garantir une marge suffisante dans les pools de capacité pour les volumes source et de destination.
+
 ## <a name="december-2020"></a>Décembre 2020
 
-* [Outil Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (préversion publique)    
+* [Outil Azure Application Consistent Snapshot](azacsnap-introduction.md)(préversion)    
 
     L’outil Azure Application Consistent Snapshot Tool (AzAcSnap) est un outil en ligne de commande qui vous permet de simplifier la protection des données pour les bases de données tierces (SAP HANA) dans les environnements Linux (par exemple, SUSE et RHEL).   
 
@@ -47,7 +57,7 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
 ## <a name="september-2020"></a>Septembre 2020
 
-* [Réplication inter-région Azure NetApp Files](cross-region-replication-introduction.md) (préversion publique)
+* [Réplication inter-régions Azure NetApp Files](cross-region-replication-introduction.md) (préversion)
 
   Azure NetApp Files prend désormais en charge la réplication inter-région. Grâce à cette nouvelle fonctionnalité de récupération d’urgence, vous pouvez répliquer vos volumes Azure NetApp Files d’une région Azure vers une autre de façon rapide et économique, ce qui protège vos données contre les défaillances régionales imprévisibles. La réplication inter-région Azure NetApp Files tire parti de la technologie NetApp SnapMirror®. Seuls les blocs modifiés sont envoyés sur le réseau dans un format compressé. Cette technologie propriétaire limite le volume de données nécessaire à la réplication dans les différentes régions, réduisant ainsi le coût de transfert des données. Elle réduit également le temps de réplication, ce qui vous permet d’obtenir un objectif de point de restauration (RPO) inférieur.
 

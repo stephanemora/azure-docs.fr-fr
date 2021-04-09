@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -9,10 +9,10 @@ ms.date: 1/31/2020
 ms.author: alkemper
 ms.custom: include file
 ms.openlocfilehash: 7d7f765a6a6dd9ef487b0bade7fa064af00f3149
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96929212"
 ---
 Si vous ne souhaitez plus utiliser les ressources créées dans cet article, supprimez le groupe de ressources que vous avez créé ici afin d’éviter des frais.

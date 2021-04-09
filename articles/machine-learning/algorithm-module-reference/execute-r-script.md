@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
 ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98119007"
 ---
 # <a name="execute-r-script-module"></a>Module Exécuter un script R
@@ -147,7 +147,7 @@ Les jeux de données stockés dans le concepteur sont automatiquement convertis 
 1. Dans la zone de texte **Script R**, tapez ou collez un script R valide.
 
     > [!NOTE]
-    > Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées, ou des modules ou fonctions non importés. Faites également attention à la liste des packages préinstallés à la fin de cet article. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script. par exemple `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Faites preuve de prudence lors de l’écriture de votre script. Assurez-vous qu’il n’existe pas d’erreurs de syntaxe, comme l’utilisation de variables non déclarées, ou des modules ou fonctions non importés. Faites également attention à la liste des packages préinstallés à la fin de cet article. Pour utiliser des packages qui ne sont pas répertoriés, installez-les dans votre script. par exemple `install.packages("zoo&quot;,repos = &quot;http://cran.us.r-project.org")`.
     
     Pour vous aider à commencer, la zone de texte **Script R** est préremplie avec un exemple de code, que vous pouvez modifier ou remplacer.
     
