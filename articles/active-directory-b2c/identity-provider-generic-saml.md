@@ -14,15 +14,15 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: a66486d791968f5752b96ed00374f8662b9c30fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104580043"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un fournisseur d’identité SAML dans Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) prend en charge la fédération avec des fournisseurs d’identité SAML 2.0. Cet article explique comment activer la connexion avec un compte d’utilisateur de fournisseur d’identité SAML, ce qui permet aux utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes, comme [ADFS](./identity-provider-adfs.md) ou [Salesforce](identity-provider-salesforce-saml.md).
+Azure Active Directory B2C (Azure AD B2C) prend en charge la fédération avec des fournisseurs d’identité SAML 2.0. Cet article explique comment activer la connexion avec un compte d’utilisateur de fournisseur d’identité SAML, ce qui permet aux utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes, comme [ADFS](./identity-provider-adfs.md) ou [Salesforce](identity-provider-salesforce-saml.md).
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -136,7 +136,7 @@ Mettez à jour les éléments XML suivants avec la valeur appropriée :
 
 ## <a name="map-the-claims"></a>Mapper les revendications
 
-L’élément **OutputClaims** contient une liste de revendications qui est retournée par le fournisseur d’identité SAML. Mappez le nom de la revendication qui est définie dans votre stratégie sur le nom d’assertion qui est défini dans le fournisseur d’identité. Contactez votre fournisseur d’identité pour obtenir la liste des revendications (assertions). Pour plus d’informations, consultez [Mappage des revendications](identity-provider-generic-saml-options.md#claims-mapping).
+L’élément **OutputClaims** contient une liste de revendications que le fournisseur d’identité SAML retourne. Mappez le nom de la revendication qui est définie dans votre stratégie sur le nom d’assertion qui est défini dans le fournisseur d’identité. Contactez votre fournisseur d’identité pour obtenir la liste des revendications (assertions). Pour plus d’informations, consultez [Mappage des revendications](identity-provider-generic-saml-options.md#claims-mapping).
 
 Dans l’exemple ci-dessus, *Contoso-SAML2* comprend les revendications retournées par un fournisseur d’identité SAML :
 

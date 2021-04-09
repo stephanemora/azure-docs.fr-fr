@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573004"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580179"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -46,7 +46,7 @@ Le diagramme suivant illustre les composants que vous allez configurer dans vos 
 
 ![Projection de groupe de ressources](./media/azure-monitor/resource-group-projection.png)
 
-Pendant ce déploiement, vous allez configurer vos locataires Azure AD B2C et Azure AD dans lesquels l’espace de travail Log Analytics sera hébergé. Le compte utilisé pour exécuter le déploiement doit recevoir le rôle d'[Administrateur général](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) dans ces deux locataires. Il est également important de vérifier que vous êtes connecté au répertoire correct lorsque vous effectuez chaque étape, comme décrit.
+Pendant ce déploiement, vous allez configurer vos locataires Azure AD B2C et Azure AD dans lesquels l’espace de travail Log Analytics sera hébergé. Le rôle d'[administrateur général](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) doit être affecté au compte d’Azure AD B2C sur le locataire Azure AD B2C. Le compte d’Azure AD utilisé pour exécuter le déploiement doit se voir attribuer le rôle de [Propriétaire](../role-based-access-control/built-in-roles.md#owner) dans l’abonnement Azure AD. Il est également important de s’assurer que vous êtes connecté au bon répertoire lorsque vous effectuez chaque étape, comme décrit.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. Créer ou choisir un groupe de ressources
 
@@ -97,7 +97,7 @@ Ensuite, vous allez créer un modèle Azure Resource Manager qui accorde l’acc
 2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire **Azure AD**.
 3. Le bouton **Déployer sur Azure** permet d’ouvrir le portail Azure et de déployer le modèle directement dans le portail. Pour plus d’informations, consultez [Créer un modèle Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
-   [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Lighthouse-samples%2Fmaster%2Ftemplates%2Frg-delegated-resource-management%2FrgDelegatedResourceManagement.json)
+   [![Déployer sur Azure](https://aka.ms/deploytoazurebutton)](   https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
 5. Sur la page **Déploiement personnalisé**, entrez les informations suivantes :
 

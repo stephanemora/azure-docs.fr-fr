@@ -4,10 +4,10 @@ description: Apprenez à utiliser le langage de requête Resource Graph pour exp
 ms.date: 01/27/2021
 ms.topic: conceptual
 ms.openlocfilehash: a76ce2bb34fd6e99fedf5030c4723b6dd5acbb91
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98917722"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph

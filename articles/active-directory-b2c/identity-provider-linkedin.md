@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dd87b58c604b0bb2141c29d3b2227e9a81668a75
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: dfddc024255d90e8a89f49454e42eb5e94df083a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488820"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579975"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C
 
@@ -62,6 +62,8 @@ Pour autoriser la connexion des utilisateurs avec un compte LinkedIn dans Azure 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité LinkedIn à un flux d’utilisateur 
+
+À ce stade, le fournisseur d’identité LinkedIn a été configuré, mais il n’est encore disponible dans aucune des pages de connexion. Pour ajouter le fournisseur d’identité LinkedIn à un flux d’utilisateur :
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Cliquez sur le flux d’utilisateur auquel vous souhaitez ajouter le fournisseur d’identité LinkedIn.

@@ -2,13 +2,13 @@
 title: Concepts – Clusters et clouds privés
 description: Découvrez les principales fonctionnalités des centres de données à définition logicielle Azure VMware Solution et des clusters vSphere.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/13/2021
+ms.openlocfilehash: aff66e01ae4b056eb082d2000611718b1a5cf66a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391386"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104773916"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concepts de cloud privé et de cluster Azure VMware Solution
 
@@ -20,8 +20,6 @@ Cet article décrit tous ces concepts.
 
 ![Image de deux clouds privés dans un abonnement client](./media/hosts-clusters-private-clouds-final.png)
 
->[!NOTE]
->En raison des besoins potentiels moindres d’un environnement de développement, utilisez des clusters plus petits avec des hôtes de capacité inférieure. 
 
 ## <a name="private-clouds"></a>Clouds privés
 
@@ -30,7 +28,7 @@ Les clouds privés contiennent des clusters vSAN créés avec des hôtes Azure n
 Comme avec d’autres ressources, les clouds privés sont installés et gérés à partir d’un abonnement Azure. Le nombre de clouds privés au sein d’un abonnement est évolutif. Au départ, il existe une limite d’un cloud privé par abonnement.
 
 ## <a name="clusters"></a>Clusters
-Pour chaque cloud privé créé, il existe un cluster vSAN par défaut. Vous pouvez ajouter, supprimer et mettre à l’échelle des clusters à l’aide du portail Azure ou via l’API.  Tous les clusters ont une taille par défaut de trois hôtes et peuvent se mettre à l’échelle pour inclure jusqu’à 16 hôtes.  Les hôtes utilisés dans un cluster doivent être du même type.
+Pour chaque cloud privé créé, il existe un cluster vSAN par défaut. Vous pouvez ajouter, supprimer et mettre à l’échelle des clusters à l’aide du portail Azure ou via l’API.  Tous les clusters ont une taille par défaut de trois hôtes et peuvent se mettre à l’échelle pour inclure jusqu’à 16 hôtes. Vous pouvez avoir jusqu’à quatre clusters par cloud privé.
 
 Les clusters d’évaluation sont disponibles pour évaluation et limités à trois hôtes. Il existe un cluster d’évaluation unique par cloud privé. Vous pouvez mettre à l’échelle un cluster d’évaluation à l’aide d’un seul hôte au cours de la période d’évaluation.
 
@@ -38,11 +36,11 @@ Vous utilisez vSphere et NSX-T Manager pour gérer la plupart des autres aspects
 
 ## <a name="hosts"></a>Hôtes
 
-Les clusters de cloud privé Azure VMware Solution utilisent des hôtes d’infrastructure nus hyper-convergés. Le tableau suivant indique les capacités de mémoire RAM, de processeur et de disque de l’ordinateur hôte. 
+Les clusters Azure VMware Solution sont basés sur une infrastructure nue hyperconvergée. Le tableau suivant indique les capacités de mémoire RAM, de processeur et de disque de l’ordinateur hôte.
 
 | Type d’hôte              |             UC             |   RAM (Go)   |  Niveau de cache du vSAN NVMe (To, RAW)  |  Niveau de capacité du vSAN SSD (To, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
-| Haut de gamme (HE)          |  Deux processeurs Intel 18 cœurs cadencés à 2,3 GHz  |     576      |                3.2               |                15,20               |
+| AVS36          |  Deux processeurs Intel 18 cœurs cadencés à 2,3 GHz  |     576      |                3.2               |                15,20               |
 
 Les hôtes utilisés pour créer ou mettre à l’échelle des clusters proviennent d’un pool isolé d’hôtes. Ces hôtes ont passé des tests matériels et toutes leurs données ont été effacées de manière sécurisée. 
 
@@ -50,15 +48,15 @@ Les hôtes utilisés pour créer ou mettre à l’échelle des clusters provienn
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
+## <a name="update-frequency"></a>Fréquence de mise à jour
+
+[!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Maintenance de l’hôte et gestion du cycle de vie
 
 La maintenance et la gestion du cycle de vie de l’hôte n’ont aucune incidence sur la capacité ou les performances des clusters du cloud privé.  Les mises à niveau de microprogramme et la réparation ou le remplacement de matériel sont des exemples de maintenance automatisée de l’hôte.
 
-Microsoft est responsable de la gestion du cycle de vie d’appliances NSX-T, telles que NSX-T Manager et NSX-T Edge. Microsoft est également responsable de l’amorçage de la configuration réseau, par exemple, la création de la passerelle de niveau 0 et l’activation du routage Nord-Sud. Vous êtes responsable de la configuration du SDN NSX-T. Par exemple, des segments réseau, des règles de pare-feu distribuées, des passerelles de niveau 1 et des équilibreurs de charge.
-
-> [!IMPORTANT]
-> Ne modifiez pas la configuration de NSX-T Edge ou de la passerelle de niveau 0, car cela peut entraîner une perte de service.
+Microsoft est responsable de la gestion du cycle de vie d’appliances NSX-T, telles que NSX-T Manager et NSX-T Edge. Microsoft est également responsable du démarrage de la configuration réseau, comme la création de la passerelle de niveau 0 et l’activation du routage Nord-Sud. Vous êtes responsable de la configuration du SDN NSX-T. Par exemple, des segments réseau, des règles de pare-feu distribuées, des passerelles de niveau 1 et des équilibreurs de charge.
 
 ## <a name="backup-and-restoration"></a>Sauvegarde et restauration
 

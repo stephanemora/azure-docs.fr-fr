@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: alkemper
 ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932759"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application .NET Framework
+# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application .NET Framework
 
 La bibliothèque cliente .NET App Configuration permet d’effectuer la mise à jour à la demande d’un ensemble de paramètres de configuration, sans entraîner le redémarrage de l’application. Vous pouvez implémenter cette configuration en obtenant d’abord une instance de `IConfigurationRefresher` parmi les options du fournisseur de configuration, puis en appelant `TryRefreshAsync` sur cette instance, à n’importe quel endroit de votre code.
 

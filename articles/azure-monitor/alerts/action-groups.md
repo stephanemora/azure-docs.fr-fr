@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490328"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772346"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. 
@@ -149,7 +149,7 @@ Si vous ne recevez pas de notifications sur votre *adresse e-mail principale*, v
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Fonction
-Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-get-started.md).
+Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-get-started.md). Pour gérer une demande, votre point de terminaison doit gérer le verbe HTTP POST.
 
 Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
 

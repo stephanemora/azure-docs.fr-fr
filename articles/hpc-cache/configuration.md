@@ -1,30 +1,33 @@
 ---
 title: Configurer les paramètres d’Azure HPC Cache
-description: Explique comment configurer des paramètres supplémentaires pour le cache, tels que MTU et no-root-squash, et comment accéder aux instantanés express à partir des cibles de stockage Blob Azure.
+description: Explique comment configurer des paramètres supplémentaires pour le cache, tels que MTU et la configuration personnalisée de NTP et DNS, et comment accéder aux instantanés express à partir des cibles de stockage Blob Azure.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 02bf862cdc3b20ef3e5fdb024f474267efa0c70d
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760501"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104773230"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurer des paramètres Azure HPC Cache supplémentaires
 
-La page **Configuration** du Portail Azure contient des options permettant de personnaliser plusieurs paramètres. La plupart des utilisateurs n’ont pas besoin de modifier les valeurs par défaut de ces paramètres.
+La page **Mise en réseau** du portail Azure contient des options permettant de personnaliser plusieurs paramètres. La plupart des utilisateurs n’ont pas besoin de modifier les valeurs par défaut de ces paramètres.
 
 Cet article explique également comment utiliser la fonctionnalité d’instantané pour les cibles de stockage Blob Azure. La fonctionnalité d’instantané n’a pas de paramètres configurables.
 
-Pour afficher les paramètres, ouvrez la page **Configuration** du cache dans le Portail Azure.
+Pour afficher les paramètres, ouvrez la page **Mise en réseau** du cache dans le portail Azure.
 
-![capture d’écran de la page de configuration dans le Portail Azure](media/configuration.png)
+![capture d’écran de la page de mise en réseau du portail Azure](media/networking-page.png)
 
-> [!TIP]
-> La [vidéo relative à la gestion d’Azure HPC Cache](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) présente la page de configuration et ses paramètres.
+> [!NOTE]
+> Une version précédente de cette page comprenait un paramètre de squash racine au niveau du cache, mais ce paramètre a été déplacé vers les [stratégies d’accès client](access-policies.md).
+
+<!-- >> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
 
 ## <a name="adjust-mtu-value"></a>Ajuster la valeur MTU
 <!-- linked from troubleshoot-nas article -->
@@ -42,21 +45,41 @@ Si vous ne souhaitez pas modifier les paramètres MTU sur d’autres composants 
 
 Pour plus d’informations sur les paramètres MTU dans les réseaux virtuels Azure, consultez [Optimisation des performances TCP/IP pour les machines virtuelles Azure](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
-## <a name="configure-root-squash"></a>Configurer le squash racine
-<!-- linked from troubleshoot and from access policies -->
+## <a name="customize-ntp"></a>Personnaliser NTP
 
-Le paramètre **Activer le squash racine** contrôle la manière dont Azure HPC Cache traite les requêtes de l’utilisateur racine sur les ordinateurs clients.
+Votre cache utilise par défaut le serveur de temps time.microsoft.com, basé sur Azure. Si vous souhaitez que votre cache utilise un autre serveur NTP, spécifiez-le dans la section **Configuration NTP**. Utilisez un nom de domaine complet ou une adresse IP.
 
-Lorsque le squash racine est activé, les utilisateurs racine d’un client sont automatiquement mappés à l’utilisateur « nobody » lorsqu’ils envoient des demandes via Azure HPC Cache. Cela empêche également les requêtes de clients d’utiliser les bits d’autorisation set-UID.
+## <a name="set-a-custom-dns-configuration"></a>Définir une configuration DNS personnalisée
 
-Si le squash racine est désactivé, une requête de l’utilisateur racine client (UID 0) est transmise à un système de stockage NFS principal en tant que racine. Cette configuration peut permettre un accès inapproprié aux fichiers.
+> [!CAUTION]
+> Ne modifiez pas la configuration DNS de votre cache si vous n’en avez pas besoin. Les erreurs de configuration peuvent avoir des conséquences désastreuses. Si votre configuration ne peut pas résoudre les noms de service Azure, l’instance de cache HPC deviendra inaccessible de façon définitive.
 
-La définition du squash racine sur le cache peut aider à compenser le paramètre ``no_root_squash`` requis sur les systèmes NAS utilisés comme cibles de stockage. (En savoir plus sur la [configuration requise pour les cibles de stockage NFS](hpc-cache-prerequisites.md#nfs-storage-requirements).) Il peut également améliorer la sécurité lorsqu’il est utilisé avec des cibles de stockage Blob Azure.
+Azure HPC Cache est automatiquement configuré pour utiliser le système Azure DNS, sécurisé et pratique. Toutefois, certaines configurations inhabituelles requièrent que le cache utilise un système DNS local distinct au lieu du système Azure. La section **Configuration DNS** de la page **Mise en réseau** est utilisée pour spécifier ce type de système.
 
-Le paramètre par défaut est **Oui**. (Les caches créés avant avril 2020 peuvent avoir le paramètre par défaut **Non**.)
+Vérifiez auprès de vos représentants Azure ou consultez le service et le support de Microsoft pour déterminer si vous devez ou non utiliser une configuration DNS de cache personnalisée.
 
-> [!TIP]
-> Vous pouvez également définir le squash racine pour certaines exportations de stockage en personnalisant les [stratégies d’accès du client](access-policies.md#root-squash).
+Si vous configurez votre propre système DNS local pour Azure HPC Cache, vous devez vous assurer que la configuration peut résoudre les noms de point de terminaison Azure pour les services Azure. Vous devez configurer votre environnement DNS personnalisé pour transférer certaines demandes de résolution de noms à Azure DNS ou à un autre serveur, le cas échéant.
+
+Vérifiez que votre configuration DNS peut résoudre correctement ces éléments avant de l’utiliser pour Azure HPC Cache :
+
+* ``*.core.windows.net``
+* Les services de téléchargement de la liste de révocation de certificats (CRL) et de vérification du protocole OCSP (Online Certificate Status Protocol). Une liste partielle est fournie dans la [section relative aux règles de pare-feu](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) à la fin de cet [article sur Azure TLS](../security/fundamentals/tls-certificate-changes.md), mais vous devez consulter un représentant technique de Microsoft pour comprendre toutes les exigences
+* Le nom de domaine complet de votre serveur NTP (time.microsoft.com ou un serveur personnalisé)
+
+Si vous devez définir un serveur DNS personnalisé pour votre cache, utilisez les champs fournis :
+
+* **Domaine de recherche DNS** (facultatif) : Entrez votre domaine de recherche, par exemple, ``contoso.com``. Une valeur unique est autorisée, ou vous pouvez le laisser vide.
+* **Serveur(s) DNS** : Entrez jusqu’à trois serveurs DNS. Spécifiez-les par leur adresse IP.
+
+<!-- 
+  > [!NOTE]
+  > The cache will use only the first DNS server it successfully finds. -->
+
+Envisagez d’utiliser un cache de test pour vérifier et affiner votre configuration DNS avant de l’utiliser dans un environnement de production.
+
+### <a name="refresh-storage-target-dns"></a>Actualiser le DNS des cibles de stockage
+
+Si votre serveur DNS met à jour les adresses IP, les cibles de stockage NFS associées deviennent temporairement indisponibles. Lisez comment mettre à jour les adresses IP de votre système DNS personnalisé dans [Modifier les cibles de stockage](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Afficher les instantanés pour les cibles de stockage blob
 
@@ -73,10 +96,10 @@ Cette fonctionnalité n’est disponible que pour les cibles de stockage Blob Az
 
 Les instantanés sont pris toutes les huit heures, à 0:00, 08:00 et 16:00 (UTC).
 
-Azure HPC Cache stocke des instantanés quotidiens, hebdomadaires et mensuels jusqu’à ce qu’ils soient remplacés par de nouveaux. Les limites sont les suivantes :
+Azure HPC Cache stocke des instantanés quotidiens, hebdomadaires et mensuels jusqu’à ce qu’ils soient remplacés par de nouveaux. Les limites de rétention de capture instantanée sont les suivantes :
 
-* jusqu’à 20 instantanés quotidiens
-* jusqu’à 8 instantanés hebdomadaires
-* jusqu’à 3 instantanés mensuels
+* Jusqu’à 20 instantanés quotidiens
+* Jusqu’à 8 instantanés hebdomadaires
+* Jusqu’à 3 instantanés mensuels
 
-Accédez aux instantanés à partir du répertoire `.snapshot` dans l’espace de noms de votre cible de stockage blob.
+Accédez aux captures instantanées à partir du répertoire `.snapshot` à la racine de votre cible de stockage blob monté.

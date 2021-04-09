@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 624fbd135818a4961f6170a3f63748f73a5bf2dd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98900916"
 ---
 | **Modèle/méthode de déploiement** | **Azure portal** | **PowerShell** | **Azure CLI** |

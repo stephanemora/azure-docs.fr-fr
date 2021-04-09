@@ -8,10 +8,10 @@ ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
 ms.openlocfilehash: 96367b143711c4ec5f3f8d609f048c72c6fded16
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97590849"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure SQL Database et SQL Managed Instance
