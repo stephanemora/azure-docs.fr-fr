@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95561705"
 ---
 > [!NOTE]

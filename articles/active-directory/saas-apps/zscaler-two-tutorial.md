@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 8c3d76f24cce860538dc3bd5dcf29b59708bdb5d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98726219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Two
@@ -88,7 +88,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 6. En plus de ce qui précède, l’application Zscaler Two s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
     
-    | Name | Attribut source |
+    | Nom | Attribut source |
     | ---------| ------------ |
     | memberOf | user.assignedroles |
 
@@ -200,14 +200,14 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     b. Cliquez sur **Activer**.
 
-## <a name="configuring-proxy-settings"></a>Configuration des paramètres de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Pour configurer les paramètres de proxy dans Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Configuration des paramètres de proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Pour configurer les paramètres de proxy dans Internet Explorer
 
 1. Démarrez **Internet Explorer**.
 
 2. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.   
     
-     ![Options Internet](./media/zscaler-two-tutorial/ic769492.png "Options Internet")
+     ![Options Internet](./media/zscaler-two-tutorial/ic769492.png &quot;Options Internet")
 
 3. Cliquez sur l’onglet **Connexions** .   
   
