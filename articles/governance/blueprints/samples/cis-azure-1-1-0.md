@@ -4,10 +4,10 @@ description: Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Fo
 ms.date: 03/11/2021
 ms.topic: sample
 ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103197798"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark v1.1.0

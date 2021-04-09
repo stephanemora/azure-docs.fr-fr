@@ -8,10 +8,10 @@ author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
 ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103232254"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Guide de publication pour les applications managées Azure

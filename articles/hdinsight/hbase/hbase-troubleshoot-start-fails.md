@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.openlocfilehash: c30077d0d8f359e93745b53755f9dae998073d4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936897"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Échec du démarrage d’Apache HBase Master (HMaster) dans Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
-## <a name="scenario-atomic-renaming-failure"></a>Scénario : Échec de renommage atomique
+## <a name="scenario-atomic-renaming-failure"></a>Scénario : défaillance renommage atomique
 
 ### <a name="issue"></a>Problème
 
@@ -37,7 +37,7 @@ Après avoir exécuté ces commandes, HMaster devrait démarrer immédiatement.
 
 ---
 
-## <a name="scenario-no-server-address-listed"></a>Scénario : Aucune adresse de serveur listée
+## <a name="scenario-no-server-address-listed"></a>Scénario : aucune adresse de serveur répertoriée
 
 ### <a name="issue"></a>Problème
 
@@ -68,7 +68,7 @@ HMaster n’a pas pu être initialisé après le redémarrage de HBase.
 
 ---
 
-## <a name="scenario-javaioioexception-timedout"></a>Scénario : java.io.IOException: Timedout
+## <a name="scenario-javaioioexception-timedout"></a>Scénario : java.io.IOException : Timedout
 
 ### <a name="issue"></a>Problème
 
@@ -90,7 +90,7 @@ Vous pourriez rencontrer ce problème si plusieurs tables et régions n’ont pa
 
 ---
 
-## <a name="scenario-frequent-region-server-restarts"></a>Scénario : Redémarrages fréquents de serveurs régionaux
+## <a name="scenario-frequent-region-server-restarts"></a>Scénario : fréquent redémarrages de serveurs régionaux
 
 ### <a name="issue"></a>Problème
 
@@ -122,7 +122,7 @@ Modifiez le délai d’expiration de la session Zookeeper ; non seulement le pa
 
 ---
 
-## <a name="scenario-log-splitting-failure"></a>Scénario : Échec du fractionnement du journal
+## <a name="scenario-log-splitting-failure"></a>Scénario : défaillance fractionnement de journaux
 
 ### <a name="issue"></a>Problème
 

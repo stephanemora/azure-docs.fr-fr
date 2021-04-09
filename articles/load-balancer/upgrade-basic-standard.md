@@ -7,11 +7,11 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 125d4a02d06e2792f9a2a4e646c3788dcf223318
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102612828"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Mettre à niveau l’équilibreur de charge public Azure
@@ -21,9 +21,6 @@ Une mise à niveau se compose de deux phases :
 
 1. Modifier la méthode d’allocation d’adresses IP de dynamique en statique.
 2. Exécuter le script PowerShell pour effectuer la mise à niveau et la migration du trafic.
-
-> [!IMPORTANT]
-> Le script est en cours de maintenance. Vous pouvez consulter [ici](../virtual-network/virtual-network-public-ip-address-upgrade.md) les instructions de mise à niveau des adresses IP publiques des références SKU De base et Standard.
 
 ## <a name="upgrade-overview"></a>Présentation de la mise à niveau
 
@@ -101,7 +98,7 @@ Pour exécuter le script :
     **Exemple**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg&quot; -oldLBName &quot;LBForPublic&quot; -newLbName &quot;LBForUpgrade"
    ```
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Créer une règle de trafic sortant pour une connexion sortante

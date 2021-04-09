@@ -4,18 +4,18 @@ description: L’inventaire du Stockage Azure est un outil qui permet d’obteni
 services: storage
 author: mhopkins-msft
 ms.service: storage
-ms.date: 12/03/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257809"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950924"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Gestion des données d’objets blob avec l’inventaire des objets blob du Stockage Azure (préversion)
 
@@ -24,6 +24,9 @@ La fonctionnalité d’inventaire des objets blob du Stockage Azure offre une vu
 ## <a name="availability"></a>Disponibilité
 
 L’inventaire d’objets blob est pris en charge pour les comptes de stockage universels version 2 (GPv2) et les comptes de stockage d’objets blobs de blocs Premium. Cette fonctionnalité est prise en charge avec ou sans la fonctionnalité d’[espace de noms hiérarchique](data-lake-storage-namespace.md) activée.
+
+> [!IMPORTANT]
+> L’inventaire des blobs est actuellement disponible en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
 
 ### <a name="preview-regions"></a>Régions de la préversion
 
@@ -202,4 +205,5 @@ Exemple d’événement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md)
+- [Calculer le nombre et la taille totale des objets blob par conteneur](calculate-blob-count-size.md)
+- [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md)

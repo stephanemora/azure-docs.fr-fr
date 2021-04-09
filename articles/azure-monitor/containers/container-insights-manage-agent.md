@@ -4,10 +4,10 @@ description: Cet article décrit la gestion des tâches de maintenance les plus 
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 2a0c32ef797a953eca794e16fe0ace5e967f339f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101713794"
 ---
 # <a name="how-to-manage-the-container-insights-agent"></a>Comment gérer l’agent Container Insights

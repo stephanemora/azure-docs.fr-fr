@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800106"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558004"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Comment générer un URI SAS pour une image de machine virtuelle
 
 > [!NOTE]
-> Vous n’avez pas besoin d’un URI SAS pour publier votre machine virtuelle. Il vous suffit de partager une image dans l’Espace partenaires. Reportez-vous à [Créer une machine virtuelle à l’aide d’une base approuvée](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) ou [Créer une machine virtuelle à l’aide de votre propre image](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image).
+> Vous n’avez pas besoin d’un URI SAS pour publier votre machine virtuelle. Il vous suffit de partager une image dans l’Espace partenaires. Reportez-vous à [Créer une machine virtuelle à l’aide d’une base approuvée](./azure-vm-create-using-approved-base.md) ou [Créer une machine virtuelle à l’aide de votre propre image](./azure-vm-create-using-own-image.md).
 
 La génération d’URI de SAS pour vos disques durs virtuels impose les exigences suivantes :
 

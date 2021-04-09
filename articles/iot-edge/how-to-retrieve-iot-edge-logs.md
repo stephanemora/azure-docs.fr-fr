@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103200693"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Récupérer les journaux des déploiements IoT Edge
@@ -76,7 +76,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | items | Tableau JSON | Tableau avec les tuples `id` et `filter`. |
@@ -185,7 +185,7 @@ Cette méthode accepte une charge utile JSON similaire à **GetModuleLogs**, ave
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -199,7 +199,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -302,7 +302,7 @@ Cette méthode accepte une charge utile JSON avec le schéma suivant :
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | schemaVersion | string | Paramètre à définir sur `1.0` |
 | sasURL | chaîne (URI) | [URL de signature d’accès partagé avec accès en écriture au conteneur Stockage Blob Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
@@ -323,7 +323,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |
@@ -381,7 +381,7 @@ Une demande réussie de chargement des journaux retourne un message **« État�
     }
 ```
 
-| Name | Type | Description |
+| Nom | Type | Description |
 |-|-|-|
 | status | string | `NotStarted`, `Running`, `Completed`, `Failed` ou `Unknown`. |
 | message | string | Message en cas d’erreur, chaîne vide dans le cas contraire. |

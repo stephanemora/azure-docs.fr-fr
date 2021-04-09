@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 105fd185900692669fdc40e0c47a03474524e250
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c389cfd2af6fe83ec232e5f205041676ba46bd2a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731100"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558191"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Ligne de base de sécurité Azure pour Azure Cloud Services
 
@@ -36,7 +36,7 @@ L’offre Microsoft Azure Cloud Services (classique) ne peut pas être placée d
 
 - [Vue d’ensemble du groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md)
 
-- [Appairage de réseaux virtuels](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Appairage de réseaux virtuels](./cloud-services-connectivity-and-networking-faq.md#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **Responsabilité** : Customer
 
@@ -89,15 +89,15 @@ Empêchez le trafic entrant via l’URL ou le nom par défaut de vos services cl
 
 Configurez une règle de refus d’application pour les attributions d’administrateur d’abonnement classique. Par défaut, une fois un point de terminaison interne défini, la communication peut s’effectuer à partir de n’importe quel rôle vers le point de terminaison interne d’un rôle sans restriction. Pour restreindre la communication, vous devez ajouter un élément NetworkTrafficRules à l'élément ServiceDefinition dans le fichier de définition de service.
 
-- [Comment bloquer/désactiver le trafic entrant via l’URL par défaut de mon service cloud ?](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [Comment bloquer/désactiver le trafic entrant via l’URL par défaut de mon service cloud ?](./cloud-services-connectivity-and-networking-faq.md#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDoS Protection](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDoS Protection](./cloud-services-connectivity-and-networking-faq.md#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
-- [Bloquer une adresse IP spécifique](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common#block-a-specific-ip-address)
+- [Bloquer une adresse IP spécifique](./cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
@@ -111,7 +111,7 @@ Configurez la journalisation de flux sur un groupe de sécurité réseau. Examin
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions basés sur le réseau (IDS/IPS)
 
@@ -141,7 +141,7 @@ En règle générale, pour protéger des applications web et les protéger contr
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -153,7 +153,7 @@ Notez qu’Azure Policy n’est pas pris en charge avec l’offre Azure Cloud Se
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
@@ -165,7 +165,7 @@ Utilisez le champ « Description » pour les règles de groupe de sécurité r
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
@@ -175,15 +175,15 @@ Rassemblez des informations du journal d’activité, un journal de plateforme d
 
 Créez un paramètre de diagnostic pour envoyer le journal d’activité à Azure Monitor, à Azure Event Hubs afin de le transférer hors d’Azure ou au service Stockage Azure à des fins d’archivage. Configurez Azure Monitor pour les alertes de notification quand des ressources critiques dans Azure Cloud Services sont modifiées. 
 
-- [Journal d’activité Azure](/azure/azure-monitor/platform/activity-log)
+- [Journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Surveillance avec Traffic Manager](../traffic-manager/traffic-manager-monitoring.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
@@ -193,7 +193,7 @@ Créez un paramètre de diagnostic pour envoyer le journal d’activité à Azur
 
 **Conseils** : Microsoft gère les sources de temps des ressources Azure pour Azure Cloud Services. Les clients peuvent créer une règle de réseau pour autoriser l’accès à un serveur de temps utilisé dans leur environnement, sur le port 123 avec le protocole UDP.
 
-- [Accès au serveur NTP](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [Accès au serveur NTP](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
 **Responsabilité** : Partagé
 
@@ -220,7 +220,7 @@ Consultez la documentation Azure Sentinel pour plus d’informations sur les con
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
@@ -233,7 +233,7 @@ La disponibilité, les performances, les échecs et l’utilisation d’Azure Cl
 
 - [Activer les diagnostics dans Visual Studio avant le déploiement](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [Afficher l'historique des modifications](/azure/azure-monitor/platform/activity-log#view-change-history)
+- [Afficher l'historique des modifications](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Application Insights pour le service cloud Azure (classique)](../azure-monitor/app/cloudservices.md)
 
@@ -241,7 +241,7 @@ La disponibilité, les performances, les échecs et l’utilisation d’Azure Cl
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
@@ -269,11 +269,11 @@ L’extension Azure diagnostics collecte et stocke des données dans un compte d
 
 - [Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell](cloud-services-diagnostics-powershell.md)
 
-- [Stocker et afficher des données de diagnostic dans le stockage Azure](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage?&amp;preserve-view=true)
+- [Stocker et afficher des données de diagnostic dans le stockage Azure](./diagnostics-extension-to-storage.md?preserve-view=)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -283,17 +283,17 @@ L’extension Azure diagnostics collecte et stocke des données dans un compte d
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
 **Conseils** : Microsoft Antimalware pour Azure protège Azure Cloud Services et les machines virtuelles. Vous avez la possibilité de déployer des solutions de sécurité tierces supplémentaires, telles que des pare-feu d’applications web, des pare-feu réseau, des logiciels anti-programmes malveillants, des systèmes de détection et de prévention des intrusions (IDS ou IPS), etc.
 
-- [Quelles sont les fonctionnalités et capacités IPS/ID et DDOS de base sur Azure ?](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Quelles sont les fonctionnalités et capacités IPS/ID et DDOS de base sur Azure ?](./cloud-services-configuration-and-management-faq.md#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -315,17 +315,17 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 Passez en revue les différences entre les rôles d’administration d’abonnement classiques. 
 
-- [Différences entre les trois rôles d’administration d’abonnement classiques](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Différences entre les trois rôles d’administration d’abonnement classiques](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
 **Conseils** : il est recommandé de créer des procédures de fonctionnement standard autour de l’utilisation de comptes d’administration dédiés, en fonction des rôles disponibles et des autorisations nécessaires pour exploiter et gérer les ressources Azure Cloud Services.
 
-- [Différences entre les rôles d’administration d’abonnement classiques](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Différences entre les rôles d’administration d’abonnement classiques](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Responsabilité** : Customer
 
@@ -339,7 +339,7 @@ Passez en revue les différences entre les rôles d’administration d’abonnem
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
@@ -347,11 +347,11 @@ Passez en revue les différences entre les rôles d’administration d’abonnem
 
 - [Comprendre les stations de travail sécurisées gérées par Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Guide pratique pour activer l’authentification multifacteur Azure Active Directory (Azure AD)](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Guide pratique pour activer l’authentification multifacteur Azure Active Directory (Azure AD)](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -377,7 +377,7 @@ Consultez la documentation sur les API REST de service cloud Azure, et créez un
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
@@ -389,11 +389,11 @@ Vous pouvez également modifier l’élément « permissionLevel » dans l’�
 
 - [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
-- [Schéma WebRole](https://docs.microsoft.com/azure/cloud-services/schema-csdef-webrole#Certificate)
+- [Schéma WebRole](./schema-csdef-webrole.md#Certificate)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
@@ -403,7 +403,7 @@ Vous pouvez également modifier l’élément « permissionLevel » dans l’�
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -421,7 +421,7 @@ Pour référence, l’API du modèle de déploiement Classic fournit un accès p
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
@@ -431,7 +431,7 @@ Pour référence, l’API du modèle de déploiement Classic fournit un accès p
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
@@ -445,7 +445,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
@@ -457,7 +457,7 @@ Les données d’application stockées sur des disques temporaires ne sont pas c
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
@@ -465,15 +465,15 @@ Les données d’application stockées sur des disques temporaires ne sont pas c
 
 En outre, la fonctionnalité Application Insights vous permet de surveiller la disponibilité, les performances, les échecs et l’utilisation des applications Azure Cloud Services. Elle utilise des données combinées de kits de développement logiciel (SDK) Application Insights avec des données de Diagnostics Azure provenant de vos Azure Cloud Services.
 
-- [Créer, afficher et gérer des alertes de métrique classiques à l’aide d’Azure Monitor](/azure/azure-monitor/platform/alerts-classic-portal)
+- [Créer, afficher et gérer des alertes de métrique classiques à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [Vue d’ensemble des alertes métriques](/azure/azure-monitor/platform/alerts-metric-overview) 
+- [Vue d’ensemble des alertes métriques](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Application Insights pour le service cloud Azure (classique)](../azure-monitor/app/cloudservices.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
@@ -493,7 +493,7 @@ Quand un client choisit une version de système d’exploitation spécifique pou
 
 - [Configuration de service cloud (classique)](cloud-services-how-to-configure-portal.md)
 
-- [Gestion de la version de SE invité](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal#manage-guest-os-version)
+- [Gestion de la version de SE invité](./cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
 **Responsabilité** : Partagé
 
@@ -507,7 +507,7 @@ Cela permet à la solution Update Management d’appliquer des correctifs aux ma
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
@@ -523,11 +523,11 @@ Nous vous suggérons de considérer les scénarios suivants :
 
 Documents associés :
 
-- [Évaluation des risques de vos ressources Azure](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices#risk-evaluation-of-your-azure-resources)
+- [Évaluation des risques de vos ressources Azure](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -539,7 +539,7 @@ Documents associés :
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
@@ -555,7 +555,7 @@ Documents associés :
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -578,7 +578,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
@@ -606,7 +606,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
@@ -634,7 +634,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
@@ -662,7 +662,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
@@ -713,7 +713,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
@@ -727,7 +727,7 @@ Pour plus d’informations, consultez les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -743,7 +743,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -751,7 +751,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
@@ -759,7 +759,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -767,7 +767,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
@@ -775,7 +775,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -785,7 +785,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
@@ -795,7 +795,7 @@ Sur le portail Azure, choisissez Security Center, Calcul et applications, puis A
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
@@ -805,11 +805,11 @@ Vous pouvez sécuriser des secrets, telles les informations d’identification u
 
 En outre, il est recommandé de stocker les clés privées des certificats utilisés dans Azure Cloud Services dans un stockage sécurisé.
 
-- [Configurer le Bureau à distance à partir de PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configurer le Bureau à distance à partir de PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -820,11 +820,11 @@ Pour commencer, spécifiez un mot de passe en texte brut, puis convertissez-le 
 
 Stockez les clés privées des certificats utilisés dans Azure Cloud Services dans un emplacement de stockage sécurisé.
 
-- [Configurer le Bureau à distance à partir de PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configurer le Bureau à distance à partir de PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -840,15 +840,15 @@ Activez l’extension Antimalware avec un script PowerShell dans la tâche de d�
 
 Choisissez la fonctionnalité de contrôle d’application adaptative dans Azure Security Center, une solution de bout en bout intelligente et automatisée. Elle renforce la sécurité de vos machines contre les programmes malveillants, et vous permet de bloquer ou de signaler des tentatives d’exécution d’applications malveillantes, y compris celles pouvant être omises par les solutions de logiciels anti-programme malveillant.
 
-- [Comment puis-je ajouter une extension Antimalware de manière automatisée pour mon offre Azure Cloud Services ?](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Comment puis-je ajouter une extension Antimalware de manière automatisée pour mon offre Azure Cloud Services ?](./cloud-services-configuration-and-management-faq.md#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
-- [Scénarios de déploiement Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
+- [Scénarios de déploiement Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
 - [Contrôles d’application adaptative](../security-center/security-center-adaptive-application.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -868,7 +868,7 @@ Choisissez la fonctionnalité de contrôle d’application adaptative dans Azure
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -878,7 +878,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -888,7 +888,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -898,7 +898,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -910,7 +910,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -920,7 +920,7 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -936,9 +936,9 @@ Marquez clairement les abonnements (par exemple, production, non-production) et 
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

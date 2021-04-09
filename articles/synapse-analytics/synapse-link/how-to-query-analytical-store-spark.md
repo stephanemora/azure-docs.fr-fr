@@ -2,19 +2,20 @@
 title: Interagir avec Azure Cosmos DB à l’aide d’Apache Spark dans Azure Synapse Link
 description: Comment interagir avec Azure Cosmos DB à l'aide d'Apache Spark dans Azure Synapse Link
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 09/15/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: 32e8ad5028920cefd717cdaa5429786c83367f6d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.custom: cosmos-db
+ms.openlocfilehash: 4a8367ea41ea96d8a412af965346684737d190fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671281"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627572"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link"></a>Interagir avec Azure Cosmos DB à l’aide d’Apache Spark dans Azure Synapse Link
 
@@ -28,6 +29,10 @@ Les fonctionnalités suivantes sont prises en charge lors de l'interaction avec 
 * Synapse Apache Spark prend également en charge le flux structuré Spark avec Azure Cosmos DB comme source et comme récepteur. 
 
 Les sections suivantes présentent la syntaxe des fonctionnalités ci-dessus. Les mouvements au sein de l'espace de travail Azure Synapse Analytics sont conçus afin de fournir une expérience prête à l'emploi facile à prendre en main. Les mouvements sont visibles lorsque vous cliquez avec le bouton droit sur un conteneur Azure Cosmos DB dans l'onglet **Données** de l'espace de travail Synapse. Avec les mouvements, vous pouvez rapidement générer du code et l’adapter à vos besoins. Les mouvements sont également bien adaptés pour découvrir des données en un seul clic.
+
+> [!IMPORTANT]
+> Vous devez tenir compte de certaines contraintes dans le schéma analytique qui peuvent entraîner un comportement inattendu dans les opérations de chargement de données.
+> Par exemple, seules les 1000 premières propriétés du schéma transactionnel sont disponibles dans le schéma analytique, les propriétés avec espaces ne sont pas disponibles, etc. Si vous rencontrez des résultats inattendus, vérifiez les [contraintes du schéma du magasin analytique](../../cosmos-db/analytical-store-introduction.md#schema-constraints) pour plus d’informations.
 
 ## <a name="query-azure-cosmos-db-analytical-store"></a>Interroger le magasin analytique Azure Cosmos DB
 

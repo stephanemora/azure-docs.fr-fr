@@ -6,10 +6,10 @@ ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 03/16/2021
 ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104583545"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
@@ -108,7 +108,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 Ensuite, utilisez la commande [kubectl describe][kubectl-describe] pour lister les nœuds du cluster et filtrer sur la valeur *failure-domain.beta.kubernetes.io/zone*. L’exemple suivant est destiné à un interpréteur de commandes Bash.
 
 ```console
-kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
+kubectl describe nodes | grep -e "Name:&quot; -e &quot;failure-domain.beta.kubernetes.io/zone"
 ```
 
 L'exemple de sortie suivant montre les trois nœuds répartis dans la région et les zones de disponibilité spécifiées, notamment *eastus2-1* pour la première zone de disponibilité et *eastus2-2* pour la deuxième zone de disponibilité :
