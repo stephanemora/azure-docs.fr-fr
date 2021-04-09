@@ -13,10 +13,10 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6f13d789cd63bb568bb8940ce614ebdb2dbcdb83
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103199743"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurer une application mobile qui appelle des API web

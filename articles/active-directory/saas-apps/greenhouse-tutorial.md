@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
 ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98731918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Didacticiel : Intégration d’Azure Active Directory avec Greenhouse
@@ -146,7 +146,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     >[!NOTE]
     >Vous pouvez également charger le fichier **XML de métadonnées de fédération** en cliquant sur l’option **Choose File** (Choisir un fichier).
 
-### <a name="create-greenhouse-test-user"></a>Créer l’utilisateur de test Greenhouse
+### <a name="create-greenhouse-test-user&quot;></a>Créer l’utilisateur de test Greenhouse
 
 Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être approvisionnés dans Greenhouse. Dans le cas de Greenhouse, l’approvisionnement est une tâche manuelle.
 
@@ -159,7 +159,7 @@ Pour se connecter à Greenhouse, les utilisateurs d’Azure AD doivent être app
 
 2. Accédez à **Configurer > Utilisateurs > Nouveaux utilisateurs**.
    
-    ![Utilisateurs](./media/greenhouse-tutorial/create-user-1.png "Utilisateurs")
+    ![Utilisateurs](./media/greenhouse-tutorial/create-user-1.png &quot;Utilisateurs")
 
 4. Dans la section **Ajouter de nouveaux utilisateurs**, procédez comme suit :
    

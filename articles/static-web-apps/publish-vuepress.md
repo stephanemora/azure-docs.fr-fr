@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100650442"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutoriel : Publier un site VuePress dans Azure Static Web Apps en préversion
@@ -109,7 +109,7 @@ Les étapes suivantes vous montrent comment créer une nouvelle application Stat
 
 ### <a name="create-the-application"></a>Création de l'application
 
-1. Accéder au [portail Azure](https://portal.azure.com)
+1. Accédez au [portail Azure](https://portal.azure.com).
 1. Cliquez sur **Create a Resource** (Créer une ressource).
 1. Recherchez **Applications web statiques**
 1. Cliquez sur **Static Web Apps (Preview)** (Static Web Apps (préversion))

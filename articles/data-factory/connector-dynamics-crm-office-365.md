@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/08/2021
-ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/17/2021
+ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447433"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597383"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données depuis et vers Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -323,6 +323,7 @@ Pour copier des données dans Dynamics, les propriétés suivantes sont prises e
 | alternateKeyName | Nom de clé de remplacement défini sur votre entité pour exécuter une opération upsert. | Non. |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non. La valeur par défaut est 10. |
 | ignoreNullValues | Indique s’il faut ignorer les valeurs null des données d’entrée autres que les champs clés lors d’une opération d’écriture.<br/><br/>Les valeurs valides sont **TRUE** et **FALSE** :<ul><li>**TRUE** : Conserver les données dans l’objet de destination quand vous effectuez une opération upsert ou de mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.</li><li>**FALSE** : Mettre à jour les données dans l’objet de destination avec la valeur null quand vous effectuez une opération upsert ou de mise à jour. Insérer une valeur null lorsque vous effectuez une opération insert.</li></ul> | Non. La valeur par défaut est **FALSE**. |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 >[!NOTE]
 >La valeur par défaut du récepteur **writeBatchSize** et de l’activité de copie **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** pour le récepteur Dynamics est de 10. Par conséquent, 100 enregistrements sont soumis simultanément à Dynamics par défaut.

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 3ff5d66160ddbb037469378634826fd9eeae0c54
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651644"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Ajouter une identité managée à un type de nœud cluster géré par Service Fabric (préversion)

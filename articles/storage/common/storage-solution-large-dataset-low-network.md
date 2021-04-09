@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 9b83ba106b35a0a3abd035e85f60c4c39bbadd3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98704638"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau faible ou aucune bande passante réseau
@@ -52,7 +52,7 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 |    **Facteur de forme**                  |    5 disques SSD par commande             |    1 x appareil de 50 lb de taille bureau par commande    |    1 x gros appareil d’environ 500 lb par commande    |    Jusqu’à 10 disques HDD/SSD par commande        |
 |    **Temps d’installation initial**           |    Faible <br>(15 minutes)            |    Faible à modéré <br> (< 30 minutes)               |    Modéré<br>(1 à 2 heures)               |    Modéré à difficile<br>(variable) |
 |    **Envoyer des données vers Azure**           |    Oui                          |    Oui                                           |    Oui                                   |    Oui                                 |
-|    **Exporter des données à partir d’Azure**       |    Non                           |    Non                                             |    Non                                     |    Oui                                 |
+|    **Exporter des données à partir d’Azure**       |    Non                           |    Non                                            |    Non                                    |    Oui                                 |
 |    **Chiffrement**                   |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    **Matériel**                     |     Fourni par Microsoft          |    Fourni par Microsoft                            |    Fourni par Microsoft                    |    Fourni par le client                   |
 |    **Interface réseau**            |    USB 3.1/SATA                 |    RJ45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |

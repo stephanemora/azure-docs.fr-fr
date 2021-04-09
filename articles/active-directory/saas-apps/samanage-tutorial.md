@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/11/2021
 ms.author: jeedes
 ms.openlocfilehash: 6dcd5612bd2c5957ae0a397c3463dbb42445a754
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104956041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutoriel : Intégration d’Azure Active Directory à SolarWinds Service Desk (précédemment Samanage)
@@ -90,7 +90,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD 
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -102,7 +102,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SolarWinds.
 
@@ -114,15 +114,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-<a name="configure-solarwinds-single-sign-on"></a>
+<a name=&quot;configure-solarwinds-single-sign-on&quot;></a>
 
-## <a name="configure-solarwinds-sso"></a>Configurer l’authentification unique SolarWinds
+## <a name=&quot;configure-solarwinds-sso&quot;></a>Configurer l’authentification unique SolarWinds
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise SolarWinds en tant qu’administrateur.
 
 2. Cliquez sur **Dashboard** et sélectionnez **Setup** dans le volet de navigation de gauche.
    
-    ![Tableau de bord](./media/samanage-tutorial/tutorial-samanage-1.png "Tableau de bord")
+    ![Tableau de bord](./media/samanage-tutorial/tutorial-samanage-1.png &quot;Tableau de bord")
 
 3. Cliquez sur **Single Sign-On**.
    

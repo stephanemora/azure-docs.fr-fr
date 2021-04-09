@@ -4,10 +4,10 @@ description: Cet article fournit des détails sur la grammaire du filtre SQL. Un
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100652939"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Syntaxe de filtre SQL pour les règles d’abonnement

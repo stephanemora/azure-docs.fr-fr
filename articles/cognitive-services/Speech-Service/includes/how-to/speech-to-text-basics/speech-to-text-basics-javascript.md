@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: cc5e306aa9677c7370d03dbb26ef3fe69293a630
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180046"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104987648"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -62,11 +62,7 @@ La reconnaissance de la parole à partir d’un microphone **n’est pas prise e
 
 ## <a name="recognize-from-file"></a>Reconnaître la voix à partir d’un fichier 
 
-Pour reconnaître la voix à partir d’un fichier audio dans Node.js, vous devez utiliser un modèle de conception alternatif à l’aide d’un flux d’envoi (push), car l’objet `File` JavaScript ne peut pas être utilisé dans un runtime Node.js. Le code suivant :
-
-* Crée un flux d’envoi à l’aide de `createPushStream()`
-* Ouvre le fichier `.wav` en créant un flux de lecture et l’écrit dans le flux d’envoi
-* Crée une configuration audio à l’aide du flux d’envoi
+Pour reconnaître le message d’un fichier audio, créez un `AudioConfig` à l’aide de `fromWavFileInput()` qui accepte un objet `Buffer`. Initialisez ensuite un [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), en transmettant vos `audioConfig` et `speechConfig`.
 
 ```javascript
 const fs = require('fs');
@@ -74,6 +70,31 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
 
 function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
+```
+
+## <a name="recognize-from-in-memory-stream"></a>Reconnaître la voix à partir d’un flux en mémoire
+
+Dans de nombreux cas d’usage, il est probable que vos données audio proviennent d’un stockage d’objets blob, ou qu’elles soient déjà en mémoire comme un [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) ou une structure de données brutes similaire. Le code suivant :
+
+* crée un flux d’envoi (push) à l’aide de `createPushStream()` ;
+* lit un fichier `.wav` à l’aide d’un `fs.createReadStream` à des fins de démonstration, mais si vous avez déjà des données audio dans un `ArrayBuffer`, vous pouvez passer directement à l’écriture du contenu dans le flux d’entrée ;
+* crée une configuration audio à l’aide du flux d’envoi (push).
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+
+function fromStream() {
     let pushStream = sdk.AudioInputStream.createPushStream();
 
     fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
@@ -89,7 +110,7 @@ function fromFile() {
         recognizer.close();
     });
 }
-fromFile();
+fromStream();
 ```
 
 L’utilisation d’un flux d’envoi comme entrée suppose que les données audio sont au format PCM brut (par exemple, les en-têtes sont ignorés).

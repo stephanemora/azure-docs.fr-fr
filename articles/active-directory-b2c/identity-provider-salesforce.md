@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488684"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579924"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Salesforce à l’aide d’Azure Active Directory B2C
 
@@ -87,6 +87,8 @@ Pour permettre aux utilisateurs de se connecter avec un compte Salesforce dans A
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Salesforce à un flux utilisateur 
+
+À ce stade, le fournisseur d’identité Salesforce a été configuré, mais il n’est encore disponible dans aucune des pages de connexion. Pour ajouter le fournisseur d’identité Salesforce à un flux utilisateur :
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Cliquez sur le flux utilisateur auquel vous souhaitez ajouter le fournisseur d’identité Salesforce.

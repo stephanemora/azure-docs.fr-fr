@@ -4,10 +4,10 @@ description: Découvrez comment gérer tous les aspects du cycle de vie des mach
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 2cb9964b68769b1e784cebf62b4d336b355c68fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100572201"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestion du cycle de vie des machines virtuelles du service Azure VMware Solution

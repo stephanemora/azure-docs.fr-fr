@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: 240d3872536e6974d7f65eed22dace6816844e9e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103200203"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gérer l’accès, la puissance et le mode de connectivité d’Azure Stack Edge Pro

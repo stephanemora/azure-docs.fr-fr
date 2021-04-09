@@ -16,10 +16,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98733298"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -196,15 +196,15 @@ La capture d’écran suivante montre le résultat de l’application back-end e
 
 ![Capture d’écran qui montre la sortie de l’application back-end et comment celle-ci envoie une mise à jour.](./media/tutorial-device-twins/BackEnd1.png)
 
-## <a name="receive-state-information"></a>Recevoir des informations d’état
+## <a name="receive-state-information&quot;></a>Recevoir des informations d’état
 
 Votre application back-end reçoit des informations d’état d’un appareil sous la forme de propriétés rapportées. L’appareil définit les propriétés rapportées et les envoie à votre hub. Une application back-end peut lire les valeurs actuelles des propriétés rapportées à partir du jumeau d’appareil stocké dans votre hub.
 
-### <a name="send-reported-properties-from-a-device"></a>Envoyer des propriétés rapportées depuis un appareil
+### <a name=&quot;send-reported-properties-from-a-device&quot;></a>Envoyer des propriétés rapportées depuis un appareil
 
 Vous pouvez envoyer des mises à jour de propriétés rapportées sous la forme d’un correctif. L’extrait de code suivant montre un modèle de correctif envoyé par l’appareil simulé. L’appareil simulé met à jour les champs dans le correctif avant de l’envoyer au hub :
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 &quot;Reported properties patches")]
 
 L’appareil simulé utilise la fonction suivante pour envoyer le correctif contenant les propriétés rapportées au hub :
 
