@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/26/2020
-ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792498"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594255"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Lorsque vous utilisez des groupes de basculement automatique avec une stratégie
 - [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [Azure CLI : Groupe de basculement](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell : Groupe de basculement](scripts/add-database-to-failover-group-powershell.md)
-- [API REST : Groupe de basculement](/rest/api/sql/failovergroups).
+- [API REST : groupe de basculement](/rest/api/sql/failovergroups)
 
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données ou de votre instance sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](active-geo-replication-security-configure.md).
 
@@ -115,7 +115,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
   - Simuler des récupérations d’urgence en production lorsque la perte de données n’est pas acceptable
   - Déplacer les bases de données vers une autre région
-  - Renvoyer les bases de données vers la région primaire une fois la panne éliminée (restauration automatique).
+  - Renvoyer les bases de données vers la région primaire une fois la panne éliminée (restauration automatique)
 
 - **Basculement non planifié**
 
@@ -176,7 +176,7 @@ Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.database.windows
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Utilisation d’un écouteur en lecture seule pour une charge de travail en lecture seule
 
-Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `<fog-name>.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer dans la tentative de lecture de la chaîne de connexion à l’aide de `ApplicationIntent=ReadOnly`.
+Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `<fog-name>.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer une intention de lecture dans la chaîne de connexion à l’aide de `ApplicationIntent=ReadOnly`.
 
 ### <a name="preparing-for-performance-degradation"></a>Préparation à une détérioration des performances
 

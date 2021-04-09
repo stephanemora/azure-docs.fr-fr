@@ -12,27 +12,23 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: cafd42653ca220670081cff102ba8be2de58f4a1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582245"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779951"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Application web qui connecte les utilisateurs : Configuration de code
 
 Découvrez comment configurer le code de votre application web pour connecter les utilisateurs.
 
-## <a name="libraries-for-protecting-web-apps"></a>Bibliothèques pour la protection des applications web
+## <a name="microsoft-libraries-supporting-web-apps"></a>Bibliothèques Microsoft prenant en charge les applications web
 
 <!-- This section can be in an include for web app and web APIs -->
-Les bibliothèques utilisées pour protéger une application web (et une API web) sont les suivantes :
+Les bibliothèques Microsoft suivantes sont utilisées pour protéger une application web (et une API web) :
 
-| Plateforme | Bibliothèque | Description |
-|----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [Extensions des modèles d’identité pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Directement utilisé par ASP.NET et ASP.NET Core, Microsoft Identity Model Extensions pour .NET propose un ensemble de DLL s’exécutant sur .NET Framework et .NET Core. À partir d’une application web ASP.NET ou ASP.NET Core, vous pouvez contrôler la validation de jeton à l’aide de la classe **TokenValidationParameters** (en particulier dans certains scénarios de partenaires). En pratique, la complexité est encapsulée dans la bibliothèque [Microsoft.Identity.Web](https://aka.ms/ms-identity-web) |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Prise en charge des applications web Java |
-| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Prise en charge des applications web Python |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 Sélectionnez l’onglet correspondant à la plateforme qui vous intéresse :
 
@@ -51,6 +47,12 @@ Vous pouvez vous référer à cet exemple pour obtenir tous les détails d’imp
 # <a name="java"></a>[Java](#tab/java)
 
 Les extraits de code de cet article et les suivants proviennent de [l’exemple d’application web Java qui appelle Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp).
+
+Vous pouvez vous référer à cet exemple pour obtenir tous les détails d’implémentation.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Les extraits de code dans cet article et les suivants proviennent de l’[d’application web Node.js connectant les utilisateurs dans ](https://github.com/Azure-Samples/ms-identity-node) exemple dans MSAL Node.
 
 Vous pouvez vous référer à cet exemple pour obtenir tous les détails d’implémentation.
 
@@ -83,7 +85,7 @@ Dans ASP.NET Core, ces paramètres se trouvent dans le fichier [appsettings.json
     // - "https://login.microsoftonline.com/" for Azure public cloud
     // - "https://login.microsoftonline.us/" for Azure US government
     // - "https://login.microsoftonline.de/" for Azure AD Germany
-    // - "https://login.chinacloudapi.cn/" for Azure AD China operated by 21Vianet
+    // - "https://login.partner.microsoftonline.cn/common" for Azure AD China operated by 21Vianet
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD audience among:
@@ -176,6 +178,37 @@ aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
 Dans le portail Azure, les URI de réponse que vous inscrivez sur la page **Authentification** de votre application doivent correspondre aux instances de `redirectUri` que l’application définit. Autrement dit, ils doivent être `http://localhost:8080/msal4jsample/secure/aad` et `http://localhost:8080/msal4jsample/graph/me`.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Ici, les paramètres de configuration se trouvent dans `index.js`
+
+```javascript
+
+const REDIRECT_URI = "http://localhost:3000/redirect";
+
+const config = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/",
+        clientSecret: "Enter_the_Client_Secret_Here"
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: msal.LogLevel.Verbose,
+        }
+    }
+};
+```
+
+Dans le portail Azure, les URI de réponse que vous inscrivez sur la page Authentification de votre application doivent correspondre aux instances de redirectUri que l’application définit (`http://localhost:3000/redirect`).
+
+> [!NOTE]
+> Ce guide de démarrage rapide propose de stocker le secret client dans le fichier de configuration pour que ce soit plus simple. Dans votre application de production, vous allez utiliser d’autres moyens pour stocker votre secret, comme un coffre de clés ou une variable d’environnement.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -319,6 +352,15 @@ Pour plus d’informations, consultez la méthode `doFilter()` dans [AuthFilter.
 
 Pour plus d’informations sur le flux du code d’autorisation déclenché par cette méthode, consultez [Plateforme d’identités Microsoft et flux de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+```javascript
+const msal = require('@azure/msal-node');
+
+// Create msal application object
+const cca = new msal.ConfidentialClientApplication(config);
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 L’exemple Python utilise Flask. L’initialisation de Flask et de MSAL.Python s’effectue dans [app.py#L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
@@ -354,6 +396,10 @@ Passez à l’article suivant de ce scénario, [Connexion et déconnexion](./sce
 # <a name="java"></a>[Java](#tab/java)
 
 Passez à l’article suivant de ce scénario, [Connexion et déconnexion](./scenario-web-app-sign-user-sign-in.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Passez à l’article suivant de ce scénario, [Connexion](./scenario-web-app-sign-user-sign-in.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

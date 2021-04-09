@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
-ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042519"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558276"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique dans le portail Azure pour superviser les requêtes et améliorer les performances de la charge de travail
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -120,7 +120,7 @@ Si un message d’erreur s’affiche indiquant que la gestion automatique des re
 - Le Magasin des requêtes a cessé de fonctionner parce qu’il occupait l’espace de stockage alloué.
 
 Pour résoudre ce problème, vous pouvez envisager de procéder comme suit :
-- Nettoyez le Magasin des requêtes ou modifiez la période de conservation des données en « auto » à l’aide de T-SQL. Découvrez comment [configurer une stratégie de capture et de rétention recommandée pour le Magasin des requêtes](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy).
+- Nettoyez le Magasin des requêtes ou modifiez la période de conservation des données en « auto » à l’aide de T-SQL. Découvrez comment [configurer une stratégie de capture et de rétention recommandée pour le Magasin des requêtes](./query-performance-insight-use.md#recommended-retention-and-capture-policy).
 - Dans SQL Server Management Studio (SSMS), procédez comme suit :
   - Connectez-vous à la base de données Azure SQL.
   - Cliquez avec le bouton droit sur la base de données.

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614885"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558225"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -86,7 +86,7 @@ Ce tableau récapitule les modifications requises.
 --- | --- | --- | ---
 **Configurer la stratégie SAN sur OnlineAll**<br/><br/> Ce paramètre garantit que les volumes Windows sur les machines virtuelles Azure utilisent les mêmes affectations de lettre de lecteur que la machine virtuelle locale. | Configuration automatique pour les machines exécutant Windows Server 2008 R2 ou ultérieur.<br/><br/> Configuration manuelle pour les systèmes d’exploitation antérieurs. | Configuration automatique dans la plupart des cas. | Configuration manuelle.
 **Installer l’intégration d’invité Hyper-V** | [Installation manuelle](prepare-windows-server-2003-migration.md#install-on-vmware-vms) sur les machines exécutant Windows Server 2003. | [Installation manuelle](prepare-windows-server-2003-migration.md#install-on-vmware-vms) sur les machines exécutant Windows Server 2003. | [Installation manuelle](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) sur les machines exécutant Windows Server 2003.
-**Activer la console série Azure**<br/><br/>[Activez la console](../virtual-machines/troubleshooting/serial-console-windows.md) sur les machines virtuelles Azure pour faciliter le dépannage. Vous n’avez pas besoin de redémarrer la machine virtuelle. La machine virtuelle Azure démarre en utilisant l’image de disque. Le démarrage avec une image de disque équivaut à un redémarrage pour la nouvelle machine virtuelle. | Activation manuelle | Activation manuelle | Activation manuelle
+**Activer la console série Azure**<br/><br/>[Activez la console](/troubleshoot/azure/virtual-machines/serial-console-windows) sur les machines virtuelles Azure pour faciliter le dépannage. Vous n’avez pas besoin de redémarrer la machine virtuelle. La machine virtuelle Azure démarre en utilisant l’image de disque. Le démarrage avec une image de disque équivaut à un redémarrage pour la nouvelle machine virtuelle. | Activation manuelle | Activation manuelle | Activation manuelle
 **Se connecter après la migration**<br/><br/> Pour vous connecter après la migration, vous devez effectuer quelques étapes préalablement à la migration. | [Configuration](#prepare-to-connect-to-azure-windows-vms) manuelle. | [Configuration](#prepare-to-connect-to-azure-windows-vms) manuelle. | [Configuration](#prepare-to-connect-to-azure-windows-vms) manuelle.
 
 
@@ -126,7 +126,7 @@ Pour les autres versions, préparez les machines comme cela est résumé dans le
 **Action** | **Détails** | **Version de Linux**
 --- | --- | ---
 **Installer Hyper-V Integration Services pour Linux** | Regénérez l’image init Linux pour qu’elle contienne les pilotes Hyper-V nécessaires. La regénération de l’image init est l’assurance que la machine virtuelle démarrera dans Azure. | Ils sont inclus par défaut dans la plupart des nouvelles versions des distributions Linux.<br/><br/> Si ce n’est pas le cas, installez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus.
-**Activer la journalisation de la console série Azure** | L’activation de la journalisation de la console vous aide à résoudre les problèmes. Vous n’avez pas besoin de redémarrer la machine virtuelle. La machine virtuelle Azure démarre en utilisant l’image de disque. Le démarrage avec une image de disque équivaut à un redémarrage pour la nouvelle machine virtuelle.<br/><br/> Suivez [ces instructions](../virtual-machines/troubleshooting/serial-console-linux.md) pour l’activer.
+**Activer la journalisation de la console série Azure** | L’activation de la journalisation de la console vous aide à résoudre les problèmes. Vous n’avez pas besoin de redémarrer la machine virtuelle. La machine virtuelle Azure démarre en utilisant l’image de disque. Le démarrage avec une image de disque équivaut à un redémarrage pour la nouvelle machine virtuelle.<br/><br/> Suivez [ces instructions](/troubleshoot/azure/virtual-machines/serial-console-linux) pour l’activer.
 **Mettre à jour le fichier de mappage d’appareils** | Mettez à jour le fichier de mappage d’appareils avec les associations entre les volumes et les noms d’appareils de façon à utiliser des identificateurs d’appareils persistants. | Installez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus. (Applicable uniquement dans un scénario VMware basé sur un agent)
 **Mettre à jour les entrées fstab** |  Mettez à jour les entrées fstab pour utiliser des identificateurs de volumes persistants.    | Mettez-les à jour manuellement pour toutes les versions autres que celles indiquées ci-dessus.
 **Supprimer la règle udev** | Supprimez toutes les règles udev qui réservent des noms d’interface basés sur l’adresse mac, etc. | Supprimez-les manuellement pour toutes les versions autres que celles indiquées ci-dessus.
@@ -148,7 +148,7 @@ Le tableau suivant récapitule les étapes accomplies automatiquement pour les s
 
 Apprenez-en davantage sur les étapes nécessaires à l’[exécution d’une machine virtuelle Linux sur Azure](../virtual-machines/linux/create-upload-generic.md) et obtenez des instructions pour certaines distributions Linux très répandues.
 
-Passez en revue la liste des [packages requis](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) pour installer l’agent VM Linux. Azure Migrate installe automatiquement l’agent VM Linux pour RHEL6, RHEL7, CentOS7 (la version 6 doit être prise en charge de façon similaire à RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04 lors de l’utilisation de la méthode de migration VMware sans agent.
+Passez en revue la liste des [packages requis](../virtual-machines/extensions/agent-linux.md#requirements) pour installer l’agent VM Linux. Azure Migrate installe automatiquement l’agent VM Linux pour RHEL6, RHEL7, CentOS7 (la version 6 doit être prise en charge de façon similaire à RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04 lors de l’utilisation de la méthode de migration VMware sans agent.
 
 ## <a name="check-azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 
@@ -187,7 +187,7 @@ Après la migration, effectuez ces étapes sur les machines virtuelles Azure qui
 
 1. Pour vous connecter à la machine virtuelle via Internet, attribuez-lui une adresse IP publique. Pour la machine virtuelle Azure, vous devez utiliser une adresse IP publique différente de celle que vous avez utilisée pour votre ordinateur local. [Plus d’informations](../virtual-network/virtual-network-public-ip-address.md)
 2. Vérifiez que les règles de groupe de sécurité réseau (NSG) de la machine virtuelle autorisent les connexions entrantes sur le port RDP ou SSH.
-3. Cochez [diagnostics de démarrage](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) pour afficher la machine virtuelle.
+3. Cochez [diagnostics de démarrage](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) pour afficher la machine virtuelle.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -200,4 +200,4 @@ Pour les machines virtuelles VMware, la migration de serveur prend en charge la 
 
 - **Machines virtuelles VMware** : Vérifiez la [configuration requise et la prise en charge de la migration](migrate-support-matrix-vmware-migration.md) pour les machines virtuelles VMware.
 - **Machines virtuelles Hyper-V** : Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-hyper-v-migration.md) des machines virtuelles Hyper-V.
-- **Machines physiques** : Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-physical-migration.md) des ordinateurs physiques locaux et des autres serveurs virtualisés. 
+- **Machines physiques** : Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-physical-migration.md) des ordinateurs physiques locaux et des autres serveurs virtualisés.

@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 13044b8f087b403f83516a32a490d2dee8db700f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 989535d0bd6f514e63c7cea9e5fd71912f8fb08b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054100"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104780155"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importation de mises à jour dans Device Update pour IoT Hub – Schéma et autres informations
 Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, veillez à consulter d’abord les [concepts](import-concepts.md) et le [guide pratique](import-update.md). Pour des détails sur le schéma utilisé lors de la construction d’un manifeste d’importation, ainsi que des informations sur les objets associés, voir ci-dessous.
@@ -22,8 +22,8 @@ Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, vei
 | --------- | --------- | --------- | --------- |
 | UpdateId | l'objet `UpdateId` | Identité de la mise à jour. |
 | UpdateType | string | Type de mise à jour : <br/><br/> * Spécifiez `microsoft/apt:1` quand vous effectuez une mise à jour basée sur un package à l’aide d’un agent de référence.<br/> * Spécifiez `microsoft/swupdate:1` quand vous effectuez une mise à jour basée sur une image à l’aide d’un agent de référence.<br/> * Spécifiez `microsoft/simulator:1` quand vous utilisez un exemple de simulateur d’agent.<br/> * Spécifiez un type personnalisé si vous développez un agent personnalisé. | Format: <br/> `{provider}/{type}:{typeVersion}`<br/><br/> Longueur maximale totale de 32 caractères |
-| InstalledCriteria | string | Chaîne interprétée par l’agent pour déterminer si la mise à jour a été appliquée avec succès :  <br/> * Spécifiez la **valeur** de SWVersion pour le type de mise à jour `microsoft/swupdate:1`.<br/> * Spécifiez `{name}-{version}` pour le type de mise à jour `microsoft/apt:1`, dont le nom et la version proviennent du fichier APT.<br/> * Spécifiez le code de hachage du fichier de mise à jour pour le type de mise à jour `microsoft/simulator:1`.<br/> * Spécifiez une chaîne personnalisée si vous développez un agent personnalisé.<br/> | 64 caractères maximum |
-| Compatibilité | Tableau d’objets `CompatibilityInfo` | Informations de compatibilité de l’appareil compatible avec cette mise à jour. | Maximum de 10 éléments |
+| InstalledCriteria | string | Chaîne interprétée par l’agent pour déterminer si la mise à jour a été appliquée avec succès :  <br/> * Spécifiez la **valeur** de SWVersion pour le type de mise à jour `microsoft/swupdate:1`.<br/> * Spécifiez `{name}-{version}` pour le type de mise à jour `microsoft/apt:1`, dont le nom et la version proviennent du fichier APT.<br/> * Spécifiez une chaîne personnalisée si vous développez un agent personnalisé.<br/> | 64 caractères maximum |
+| Compatibilité | Tableau d’`CompatibilityInfo` [objets](#compatibilityinfo-object) | Informations de compatibilité de l’appareil compatible avec cette mise à jour. | Maximum de 10 éléments |
 | CreatedDateTime | date/heure | Date et heure de création de la mise à jour. | Format de date et heure ISO 8601 délimité, en UTC |
 | ManifestVersion | string | Version du schéma du manifeste d’importation. Spécifiez `2.0`, qui sera compatible avec l’interface `urn:azureiot:AzureDeviceUpdateCore:1` et l’interface `urn:azureiot:AzureDeviceUpdateCore:4`. | Doit être `2.0` |
 | Fichiers | Tableau d’objets `File` | Mettre à jour les fichiers de charge utile | Maximum de 5 fichiers |

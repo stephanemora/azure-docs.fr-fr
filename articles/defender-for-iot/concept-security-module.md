@@ -4,10 +4,10 @@ description: Découvrez le concept de jumeaux de micro-agent Defender-IoT et leu
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.openlocfilehash: 1ed6faf03d168ed7a2a2f07733cb7e238d234915
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779169"
 ---
 # <a name="defender-iot-micro-agent"></a>Micro-agent Defender-IoT

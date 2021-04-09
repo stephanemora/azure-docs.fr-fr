@@ -15,12 +15,12 @@ ms.date: 03/13/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32a6034f407bd81e5d2d2ab8227d08a67f034d4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: af5329f33cc4cbaa3309450165e657fc829c828b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99258640"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709495"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Guide pratique : configurer le chiffrement de jeton SAML Azure AD
 
@@ -124,7 +124,7 @@ Quand vous configurez une valeur keyCredential à l’aide de Graph, de PowerShe
 
 1. Utilisez le dernier module Azure AD PowerShell pour vous connecter à votre locataire.
 
-1. Définissez les paramètres de chiffrement de jeton à l’aide de la commande **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
+1. Définissez les paramètres de chiffrement de jeton à l’aide de la commande **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>

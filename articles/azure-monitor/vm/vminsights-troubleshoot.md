@@ -7,10 +7,10 @@ ms.author: bwren
 ms.date: 03/15/2021
 ms.custom: references_regions
 ms.openlocfilehash: 59b4f38efde2416687702647031d2b37553ff8ed
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103555057"
 ---
 # <a name="troubleshoot-vm-insights"></a>Résolution des problèmes de VM Insights

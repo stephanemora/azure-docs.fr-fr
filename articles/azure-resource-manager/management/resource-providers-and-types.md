@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 584f3065d0e696f2ee379a8cf6c048994a1e68d5
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103493133"
 ---
 # <a name="azure-resource-providers-and-types"></a>Fournisseurs et types de ressources Azure

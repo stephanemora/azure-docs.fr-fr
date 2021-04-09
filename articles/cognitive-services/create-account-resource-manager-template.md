@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 161c5779926acad8814ec057f24e36f371738483
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928657"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864361"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Démarrage rapide : Créer une ressource Cognitive Services avec un modèle ARM
 
@@ -137,9 +137,10 @@ az group delete --name $resourceGroupName
 
 ---
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
-* [Authentifier des requêtes auprès d’Azure Cognitive Services](authentication.md)
-* [Qu’est-ce qu’Azure Cognitive Services ?](./what-are-cognitive-services.md)
-* [Prise en charge en langage naturel](language-support.md)
-* [Prise en charge des conteneurs Docker](cognitive-services-container-support.md)
+* Consultez **[Authentifier des requêtes auprès d’Azure Cognitive Services](authentication.md)** qui explique la façon de travailler en toute sécurité avec Cognitive Services.
+* Consultez **[Présentation d’Azure Cognitive Services](./what-are-cognitive-services.md)** pour obtenir la liste des différentes catégories présentes dans Cognitive Services.
+* Consultez **[Prise en charge du langage naturel](language-support.md)** pour afficher la liste des langages naturels pris en charge par Cognitive Services.
+* Consultez **[Utiliser Cognitive Services en tant que conteneurs](cognitive-services-container-support.md)** pour comprendre comment utiliser Cognitive Services en local.
+* Consultez **[Planifier et gérer les coûts pour Cognitive Services](plan-manage-costs.md)** afin d’estimer le coût d’utilisation de Cognitive Services.

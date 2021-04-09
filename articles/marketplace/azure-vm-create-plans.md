@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964425"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956252"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Comment créer des plans pour une offre de machine virtuelle
 
@@ -221,6 +221,8 @@ Les disques de données [sélectionnez **Ajouter un disque de données (16 maxim
 Quel que soit le système d’exploitation que vous utilisez, ajoutez uniquement le nombre minimal de disques de données dont la solution a besoin. Pendant le déploiement, les clients ne peuvent pas supprimer les disques qui font partie d’une image, mais ils peuvent toujours ajouter des disques pendant ou après le déploiement.
 
 Sélectionnez **Enregistrer le brouillon**, puis sélectionnez **← Vue d’ensemble du plan** en haut à gauche pour voir le plan que vous venez de créer.
+
+Une fois l’image de machine virtuelle publiée, vous pouvez la supprimer de votre stockage Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

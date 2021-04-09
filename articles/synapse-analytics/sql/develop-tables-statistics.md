@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674096"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594782"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiques dans SQL Synapse
 
@@ -90,9 +90,9 @@ Vous n’aurez peut-être jamais à mettre à jour les statistiques d’une colo
 
 Toutefois, lorsque votre entrepôt de données indique un seul pays et si vous importez des données d’un nouveau pays ou d'une nouvelle région, il est nécessaire de mettre à jour les statistiques de la colonne de pays ou de région.
 
-Voici certaines recommandations pour la mise à jour des statistiques :
+Voici certaines suggestions pour la mise à jour des statistiques :
 
-|||
+|Type|Recommandation|
 |-|-|
 | **Fréquence des mises à jour des statistiques**  | Classique : Quotidien </br> Après le chargement ou la transformation de données |
 | **Échantillonnage** |  Pour moins d’un milliard de lignes, utilisez le taux d’échantillonnage par défaut (20 %). </br> Pour plus d’un milliard de lignes, utilisez le taux d’échantillonnage de 2 %. |
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Afin d’améliorer davantage les performances des requêtes pour le pool SQL dédié, consultez [Surveiller votre charge de travail](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) et [Bonnes pratiques pour les pools SQL dédiés](best-practices-sql-pool.md#maintain-statistics).
+Afin d’améliorer davantage les performances des requêtes pour le pool SQL dédié, consultez [Surveiller votre charge de travail](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) et [Bonnes pratiques pour les pools SQL dédiés](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-Afin d’améliorer davantage les performances des requêtes pour un pool SQL serverless, consultez [Bonnes pratiques pour les pools SQL serverless](best-practices-sql-on-demand.md)
+Afin d’améliorer davantage les performances des requêtes pour un pool SQL serverless, consultez [Bonnes pratiques pour les pools SQL serverless](best-practices-serverless-sql-pool.md)

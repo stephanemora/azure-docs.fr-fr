@@ -1,18 +1,18 @@
 ---
 title: Power BI et un pool SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link
 description: Apprenez à créer une base de données de pool SQL serverless et des affichages sur Synapse Link pour Azure Cosmos DB, à interroger les conteneurs Azure Cosmos DB et à créer un modèle avec Power BI sur ces affichages.
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.author: acomet
+ms.author: rosouz
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 7a9324923164d6d5cbbdc48bfa60fc444bdc4fb1
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868968"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626246"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Utilisez Power BI et le pool Synapse SQL serverless pour analyser les données Azure Cosmos DB avec Synapse Link 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]

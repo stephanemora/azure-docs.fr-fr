@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736676"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599168"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
@@ -190,7 +190,7 @@ Vous allez utiliser cette colonne pour générer un nuage de mots-clés. Pour co
 > [!NOTE]
 > Pourquoi utiliser les expressions clés extraites pour générer un nuage de mots, plutôt que le texte complet de chaque commentaire ? Les expressions clés nous précisent les mots *importants* des commentaires de nos clients, et non simplement les *mots les plus courants*. En outre, le dimensionnement des mots dans le nuage résultant n’est pas faussé par l’usage fréquent d’un mot dans un nombre de commentaires relativement faible.
 
-Si vous n’avez pas encore installé l’objet visuel personnalisé Word Cloud, installez-le. Dans le panneau Visualisations à droite de l’espace de travail, cliquez sur les points de suspension ( **...** ) et choisissez **Import From Store** (Importer à partir du Store). Recherchez le terme « cloud », puis cliquez sur le bouton **Ajouter** en regard de l’objet visuel Word Cloud. Power BI installe le visuel Word Cloud et vous avertit lorsque l’installation est terminée.
+Si vous n’avez pas encore installé l’objet visuel personnalisé Word Cloud, installez-le. Dans le panneau Visualisations à droite de l’espace de travail, cliquez sur les points de suspension ( **...** ) et choisissez **Import From Market** (Importer à partir du marché). Si le mot « cloud » ne figure pas parmi les outils de visualisation de la liste, vous pouvez rechercher « cloud », puis cliquer sur le bouton **Ajouter** en regard de l’objet visuel Cloud Word (Nuage de mots). Power BI installe le visuel Word Cloud et vous avertit lorsque l’installation est terminée.
 
 ![[Ajout d’un objet visuel personnalisé]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Commencez par cliquer sur l’icône Word Cloud dans le panneau Visualisations.
 
 Un nouveau rapport s’affiche dans l’espace de travail. Faites glisser le champ `keyphrases` du panneau Champs vers le champ Catégorie du volet Visualisations. Le nuage de mots apparaît à l’intérieur du rapport.
 
-Passez maintenant à la page Format du panneau Visualisations. Dans la catégorie Mots vides, activez l’option **Mots vides par défaut** pour éliminer du nuage les mots courants courts tels que « de ». 
+Passez maintenant à la page Format du panneau Visualisations. Dans la catégorie Mots vides, activez l’option **Mots vides par défaut** pour éliminer du nuage les mots courants courts tels que « de ». Toutefois, étant donné que nous visualisons des expressions clés, il est possible qu’elles ne contiennent pas de mots vides.
 
 ![[Activation des mots vides par défaut]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ La fonction Analyse des sentiments ci-après renvoie un score évaluant le carac
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Voici deux versions d’une fonction Détection de langue. La première retourne le code de langue ISO (par exemple, `en` pour l’anglais), alors que la seconde retourne le nom « convivial » de la langue (par exemple, `English`). Vous pouvez constater que seule la dernière ligne du corps diffère entre les deux versions.
@@ -249,8 +248,7 @@ Voici deux versions d’une fonction Détection de langue. La première retourne
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Pour finir, voici une variante de la fonction Expressions clés déjà présentée qui renvoie les expressions sous la forme d’un objet de liste, plutôt qu’au moyen d’une chaîne unique d’expressions séparées par des virgules. 
