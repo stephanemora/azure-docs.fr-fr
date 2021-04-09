@@ -4,18 +4,18 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2d09081533cdb2de5ee97cb000e9844b41a85ac3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97831548"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559364"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -139,7 +139,7 @@ Pour vérifier, accédez à ***Journaux du système et des applications de l’o
 
 Solution :
 
-* Vérifiez les possibilités de distribution de la charge sur les disques de machine virtuelle. Cela permet de réduire la charge sur les disques individuels. Vous pouvez [vérifier la limitation d’IOPS en activant les métriques de diagnostic au niveau du stockage](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Vérifiez les possibilités de distribution de la charge sur les disques de machine virtuelle. Cela permet de réduire la charge sur les disques individuels. Vous pouvez [vérifier la limitation d’IOPS en activant les métriques de diagnostic au niveau du stockage](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Modifiez la stratégie de sauvegarde pour effectuer des sauvegardes pendant les heures creuses, lorsque la charge sur la machine virtuelle est à son niveau le plus bas.
 * Mettez à niveau les disques Azure pour prendre en charge des IOPS supérieures. [En savoir plus ici](../virtual-machines/disks-types.md)
 
@@ -371,12 +371,12 @@ En règle générale, l’agent de machine virtuelle est déjà présent dans le
 #### <a name="windows-vms---set-up-the-agent"></a>Machines virtuelles Windows - Configurer l’agent
 
 * Téléchargez et installez le fichier [MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous avez besoin de privilèges Administrateur pour terminer l’installation.
-* Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, [mettez à jour la propriété de la machine virtuelle](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) pour indiquer que l’agent est installé. Cette étape n’est pas requise pour les machines virtuelles Azure Resource Manager.
+* Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, [mettez à jour la propriété de la machine virtuelle](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) pour indiquer que l’agent est installé. Cette étape n’est pas requise pour les machines virtuelles Azure Resource Manager.
 
 #### <a name="linux-vms---set-up-the-agent"></a>Machines virtuelles Linux - Configurer l’agent
 
 * Installez la dernière version de l’agent à partir du référentiel de distribution. Pour plus de d’informations sur le nom du package, consultez le [référentiel de l’agent Linux](https://github.com/Azure/WALinuxAgent).
-* Pour les machines virtuelles créées à l'aide du modèle de déploiement classique, [mettez à jour la propriété de la machine virtuelle](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) et vérifiez que l'agent est installé. Cette étape n’est pas requise pour les machines virtuelles du Gestionnaire des ressources.
+* Pour les machines virtuelles créées à l'aide du modèle de déploiement classique, [mettez à jour la propriété de la machine virtuelle](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) et vérifiez que l'agent est installé. Cette étape n’est pas requise pour les machines virtuelles du Gestionnaire des ressources.
 
 ### <a name="update-the-vm-agent"></a>Mettre à jour l’agent de machine virtuelle
 

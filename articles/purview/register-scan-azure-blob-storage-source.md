@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98880639"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Inscrire et analyser Stockage Blob Azure
@@ -41,7 +41,7 @@ Lorsque vous choisissez **Identité managée**, pour configurer la connexion, vo
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **+ Ajouter**.
+1. Sélectionnez **Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom de votre compte Azure Purview dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre compte Purview.
 
 > [!Note]
@@ -91,7 +91,7 @@ Il est nécessaire de récupérer l’ID d’application et le secret du princip
 
 1. Accédez à votre compte de stockage.
 1. Dans le menu de navigation de gauche, sélectionnez **Contrôle d’accès (IAM)** . 
-1. Sélectionnez **+ Ajouter**.
+1. Sélectionnez **Ajouter**.
 1. Définissez le **Rôle** sur **Lecteur de données blob de stockage**, puis entrez le nom ou ID d’objet de votre principal de service dans la zone d’entrée **Sélectionner**. Ensuite, sélectionnez **Enregistrer** pour fournir cette attribution de rôle à votre principal de service.
 
 ## <a name="firewall-settings"></a>Paramètres du pare-feu

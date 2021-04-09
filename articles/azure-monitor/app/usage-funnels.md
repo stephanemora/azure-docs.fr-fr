@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: d0e5cb5097a2f8833b10fec16a99b67c5c109fc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c09667e0493fc39e8a2679a698f06301bab6ba45
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583456"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024946"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Découvrir comment les clients utilisent votre application avec les entonnoirs Application Insights
 
@@ -47,6 +47,5 @@ La capture d’écran précédente inclut cinq zones mises en surbrillance. Il s
   * [Utilisateurs, Sessions et Événements](usage-segmentation.md)
   * [Rétention](usage-retention.md)
   * [Classeurs](../visualize/workbooks-overview.md)
-  * [Ajouter du contexte utilisateur](usage-send-user-context.md)
+  * [Ajouter du contexte utilisateur](./usage-overview.md)
   * [Exporter vers Power BI](./export-power-bi.md)
-

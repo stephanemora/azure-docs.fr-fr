@@ -1,46 +1,46 @@
 ---
 title: Configurer une appliance Azure Migrate pour VMware
-description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
+description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des serveurs dans un environnement VMware.
 author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: bac82b2939e5b6a674c75be2cd330dd0fa4b8487
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035764"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865228"
 ---
-# <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
+# <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurer une appliance pour les serveurs dans un environnement VMware
 
-Suivez cet article pour configurer l’appliance Azure Migrate pour l’évaluation avec l’outil [Azure Migrate : Évaluation de serveurs](migrate-services-overview.md#azure-migrate-server-assessment-tool) et pour la migration sans agent en utilisant l’outil [Azure Migrate : Migration de serveurs](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Suivez cet article pour configurer l’appliance Azure Migrate pour l’évaluation avec l’outil [Azure Migrate : découverte et évaluation](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) et pour la migration sans agent en utilisant l’outil [Azure Migrate : Migration de serveurs](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
-L’ [appliance Azure Migrate](migrate-appliance.md) est une appliance légère que les outils d’évaluation et de migration du serveur Azure Migrate utilisent pour découvrir les serveurs s’exécutant dans vCenter Server, envoyer la configuration du serveur et les métadonnées de performances à Azure, ainsi que pour répliquer des serveurs à l’aide d’une migration sans agent.
+L’[appliance Azure Migrate](migrate-appliance.md) est une appliance légère utilisée par Azure Migrate : découverte et évaluation et la migration de servuers pour découvrir les serveurs s’exécutant dans vCenter Server, envoyer la configuration du serveur et les métadonnées de performances à Azure, ainsi que pour répliquer des serveurs à l’aide d’une migration sans agent.
 
 Vous pouvez déployer l’appliance à l’aide de deux méthodes :
 
 - Créer un serveur sur vCenter Server à l’aide d’un modèle OVA téléchargé. Il s’agit de la méthode décrite dans cet article.
 - Configurer l’appliance sur un serveur existant à l’aide d’un script d’installation PowerShell. Utilisez [cette méthode](deploy-appliance-script.md) si vous ne pouvez pas utiliser un modèle OVA ou si vous êtes dans Azure Government.
 
-Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à l’outil d’évaluation de serveur Azure Migrate, inscrivez-la auprès du projet Azure Migrate et configurez-la pour lancer une découverte.
+Après avoir créé l’appliance, vérifiez qu’elle peut se connecter à Azure Migrate : découverte et évaluation, inscrivez-la auprès du projet et configurez-la pour lancer une découverte.
 
 ## <a name="deploy-with-ova"></a>Effectuer un déploiement avec OVA
 
 Pour configurer l’appliance avec un modèle OVA, vous :
-1. Fournissez un nom d'appliance et générez une clé de projet Azure Migrate sur le portail.
+1. Fournissez un nom d’appliance et générez une clé de projet sur le portail.
 1. Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server. Vérifiez que l’OVA est sécurisé.
 1. Créez la machine virtuelle appliance à partir du modèle OVA et vérifiez qu’elle peut se connecter à Azure Migrate.
-1. Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet en utilisant la clé de projet Azure Migrate.
+1. Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet en utilisant la clé de projet.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Générer la clé de projet Azure Migrate
+### <a name="1-generate-the-project-key"></a>1. Générer la clé de projet
 
-1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : Server Assessment**, sélectionnez **Découvrir**.
-2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Oui, avec l’hyperviseur vSphere VMware**.
-3. Dans **1 : Générer une clé de projet Azure Migrate**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de serveurs dans votre environnement VMware. Le nom doit être alphanumérique et compter au maximum de 14 caractères.
+1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : découverte et évaluation**, sélectionnez **Découvrir**.
+2. Dans **Découvrir les serveurs** > **Vos serveurs sont-ils virtualisés ?** , sélectionnez **Oui, avec l’hyperviseur vSphere VMware**.
+3. Dans **1 : Générer une clé de projet**, attribuez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte de serveurs dans votre environnement VMware. Le nom doit être alphanumérique et compter au maximum de 14 caractères.
 1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir pendant la création des ressources.
-1. Une fois les ressources Azure créées, une **clé de projet Azure Migrate** est générée.
+1. Une fois les ressources Azure créées avec succès, une **clé de projet** est générée.
 1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
 
 ### <a name="2-download-the-ova-template"></a>2. Télécharger le modèle OVA
@@ -95,7 +95,7 @@ Configurez l’appliance pour la première fois.
 
 1. Dans la console du client vSphere, cliquez avec le bouton droit sur le serveur, puis sélectionnez **Ouvrir la console**.
 2. Spécifiez la langue, le fuseau horaire et le mot de passe pour l’appliance.
-3. Ouvrez un navigateur sur une machine pouvant se connecter au serveur de l’appliance, puis ouvrez l’URL du gestionnaire de configuration de l’appliance : `https://appliance name or IP address: 44368`.
+3. Ouvrez un navigateur sur un serveur pouvant se connecter au serveur de l’appliance, puis ouvrez l’URL du gestionnaire de configuration de l’appliance : `https://appliance name or IP address: 44368`.
 
    Vous pouvez également ouvrir le gestionnaire de configuration à partir du bureau du serveur de l’appliance en sélectionnant le raccourci du gestionnaire de configuration.
 1. Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
@@ -117,7 +117,7 @@ Configurez l’appliance pour la première fois.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Collez la **clé de projet Azure Migrate** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Évaluation de serveur > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Découverte et évaluation > Découvrir > Gérer des appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
 1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Boîte de dialogue modale indiquant le code de l’appareil":::
@@ -141,7 +141,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
 1. À l’**Étape 1 : Fournir les informations d’identification de vCenter Server**, cliquez sur **Ajouter des informations d’identification** pour attribuer un nom convivial aux informations d’identification, puis ajoutez un **nom d’utilisateur** et un **mot de passe** pour le compte vCenter Server dont l’appliance se servira pour découvrir les serveurs s’exécutant sur le vCenter Server.
     - Vous devriez avoir configuré un compte avec les autorisations requises, comme décrit dans cet article ci-dessus.
-    - Si vous souhaitez étendre la découverte à des objets VMware spécifiques (centres de données vCenter Server, clusters, dossier de clusters, hôtes, dossier d’hôtes ou machines virtuelles individuelles), passez en revue les instructions contenues dans [cet article](set-discovery-scope.md) pour restreindre le compte utilisé par Azure Migrate.
+    - Si vous souhaitez étendre la découverte à des objets VMware spécifiques (centres de données vCenter Server, clusters, dossier de clusters, hôtes, dossier d’hôtes ou serveurs individuels), passez en revue les instructions contenues dans [cet article](set-discovery-scope.md) pour restreindre le compte utilisé par Azure Migrate.
 1. À l’**Étape 2 : Fournir les détails de vCenter Server**, cliquez sur **Ajouter une source de découverte** pour sélectionner le nom convivial des informations d’identification dans la liste déroulante, puis spécifiez l’**adresse IP/nom de domaine complet** du vCenter Server. Vous pouvez laisser le **port** par défaut (443) ou spécifier un port personnalisé sur lequel vCenter Server est à l’écoute, puis cliquez sur **Enregistrer**.
 1. Dès que vous cliquez sur **Enregistrer**, l’appliance tente de valider la connexion au vCenter Server avec les informations d’identification indiquées, et affiche l’**état de validation** dans le tableau pour l’adresse IP/le nom de domaine complet de vCenter Server.
 1. Vous pouvez **revalider** la connectivité à vCenter Server à tout moment avant de lancer la découverte.
@@ -154,8 +154,6 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panneau 3 sur le gestionnaire de configuration de l’appliance pour les détails du serveur":::
 
-> [!Note]
-> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://aka.ms/AzureMigrate/SQL) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
 
 Si vous souhaitez tirer parti de ces fonctionnalités, vous pouvez fournir les informations d’identification du serveur en suivant les étapes ci-dessous. L’appliance tentera de mapper automatiquement les informations d’identification aux serveurs pour exécuter les fonctionnalités de découverte.
 

@@ -3,12 +3,12 @@ title: "Démarrage rapide : Créer un blueprint avec l'API REST"
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ceea54957e52f3b33d2c3fb2af190f15e6c94ec3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915622"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558973"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
@@ -329,7 +329,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
 - Remplacer `{YourMG}` par l’ID de votre groupe d’administration
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 
-1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’ID d’application est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), qui a une autorisation différente.
+1. Octroyez au principal de service Azure Blueprint le rôle **Propriétaire** sur l’abonnement cible. L’ID d’application est statique (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mais l’ID de principal de service varie en fonction du locataire. Vous pouvez demander les détails de votre locataire à l’aide de l’API REST suivante. Elle utilise [l’API Graph Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist), qui a une autorisation différente.
 
    - URI de l’API REST
 
@@ -337,7 +337,7 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. Exécutez le déploiement du blueprint en l’affectant à un abonnement. Du fait que les paramètres **contributors** et **owners** nécessitent l’octroi de l’attribution de rôle à un tableau d’ID d’objet des principaux, utilisez [l’API Graph Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) pour collecter les ID d’objet à utiliser dans le **corps de la demande** pour vos propres utilisateurs, groupes ou principaux de service.
+1. Exécutez le déploiement du blueprint en l’affectant à un abonnement. Du fait que les paramètres **contributors** et **owners** nécessitent l’octroi de l’attribution de rôle à un tableau d’ID d’objet des principaux, utilisez [l’API Graph Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) pour collecter les ID d’objet à utiliser dans le **corps de la demande** pour vos propres utilisateurs, groupes ou principaux de service.
 
    - URI de l’API REST
 

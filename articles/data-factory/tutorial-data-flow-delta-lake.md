@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100416537"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>Transformer des données dans Delta Lake à l’aide de flux de données de mappage
@@ -68,11 +68,11 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
 
     ![Capture d’écran montrant où nommer votre flux de données lorsque vous en créez un.](media/tutorial-data-flow/activity2.png)
 
-## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Générer une logique de transformation dans le canevas de flux de données
+## <a name="build-transformation-logic-in-the-data-flow-canvas&quot;></a>Générer une logique de transformation dans le canevas de flux de données
 
 Vous allez générer deux flux de données dans ce tutoriel. Le premier flux de données est une source simple à réceptionner pour générer un nouveau Delta Lake à partir du fichier CSV des films ci-dessus. Enfin, vous allez créer le modèle de flux ci-dessous pour mettre à jour les données dans Delta Lake.
 
-![Flux final](media/data-flow/data-flow-tutorial-6.png "Flux final")
+![Flux final](media/data-flow/data-flow-tutorial-6.png &quot;Flux final")
 
 ### <a name="tutorial-objectives"></a>Objectifs du tutoriel
 

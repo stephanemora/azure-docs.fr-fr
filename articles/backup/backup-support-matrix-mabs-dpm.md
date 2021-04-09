@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: e888b43ea5641f1943a096f045747d547c52fcfa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986054"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609751"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -60,9 +60,9 @@ DPM/MABS peut être déployé comme décrit dans le tableau suivant.
 
 **Déploiement** | **Support** | **Détails**
 --- | --- | ---
-**Déploiement local** | Serveur physique<br/><br/>Machine virtuelle Hyper-V<br/><br/> Machine virtuelle VMware | Pour plus d’informations, reportez-vous à la [matrice de protection](backup-mabs-protection-matrix.md). 
+**Déploiement local** | Serveur physique, mais pas dans un cluster physique.<br/><br/>Machine virtuelle Hyper-V. Vous pouvez déployer MABS en tant qu’ordinateur invité sur un hyperviseur ou un cluster autonome. MABS ne peut pas être déployé sur le nœud d’un cluster ou d’un hyperviseur autonome. Le serveur de sauvegarde Azure est conçu pour s’exécuter sur un serveur dédié spécialisé.<br/><br/> En tant que machine virtuelle Windows dans un environnement VMware. | Les serveurs MABS locaux ne peuvent pas protéger les charges de travail Azure. <br><br> Pour en savoir plus, consultez l’article relatif à la [matrice de protection](backup-mabs-protection-matrix.md).
 **Déployé comme machine virtuelle Azure Stack** | MABS uniquement | Vous ne pouvez pas utiliser DPM pour sauvegarder des machines virtuelles Azure Stack.
-**Déployé comme machine virtuelle Azure** | Protège les machines virtuelles Azure et les charges de travail qui s'exécutent sur celles-ci. | DPM/MABS exécuté dans Azure ne peut pas sauvegarder les machines locales.
+**Déployé comme machine virtuelle Azure** | Protège les machines virtuelles Azure et les charges de travail qui s'exécutent sur celles-ci. | DPM/MABS exécuté dans Azure ne peut pas sauvegarder les machines locales. Il peut uniquement protéger les charges de travail qui s’exécutent sur des machines virtuelles IaaS Azure.
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>Systèmes d’exploitation pris en charge pour MABS et DPM
 
@@ -87,6 +87,9 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 **Stockage** | Le stockage de sauvegarde moderne (MBS) est pris en charge pour DPM 2016/MABS v2 et versions ultérieures. Il n’est pas disponible pour MABS v1.
 **Mise à niveau de MABS** | Vous pouvez installer directement MABS v3 ou effectuer la mise à niveau vers MABS v3 à partir de MABS v2. [Plus d’informations](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
 **Déplacement de MABS** | Il est possible de déplacer MABS sur un nouveau serveur tout en conservant le stockage si vous utilisez MBS.<br/><br/> Le serveur doit avoir le même nom que l’original. Vous ne pouvez pas changer le nom si vous souhaitez conserver le même pool de stockage et utiliser la même base de données MABS pour stocker les points de récupération de données.<br/><br/> Vous devez effectuer une sauvegarde de la base de données MABS, car vous devrez la restaurer.
+
+>[!NOTE]
+>Le changement de nom du serveur DPM/MABS n’est pas pris en charge.
 
 ## <a name="mabs-support-on-azure-stack"></a>Prise en charge de MABS sur Azure Stack
 
@@ -168,11 +171,19 @@ Aucune connectivité pendant plus de 15 jours | Expiré/déprovisionné | Aucun
 |Condition requise |Détails |
 |---------|---------|
 |Domaine    | Le serveur DPM/MABS doit se trouver dans un domaine Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.        |
-|Approbation de domaines   |  DPM/MABS prend en charge la protection des données sur plusieurs forêts pour autant que vous établissiez une relation d'approbation bidirectionnelle au niveau de la forêt entre les forêts distinctes.   <BR><BR>   DPM/MABS peut protéger des serveurs et des stations de travail sur plusieurs domaines au sein d'une forêt ayant une relation d'approbation bidirectionnelle avec le domaine du serveur DPM/MABS. Pour protéger des ordinateurs dans des groupes de travail ou des domaines non approuvés, consultez [Sauvegarder et restaurer des charges de travail dans des groupes de travail et des domaines non approuvés.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
+|Approbation de domaines   |  DPM/MABS prend en charge la protection des données sur plusieurs forêts pour autant que vous établissiez une relation d'approbation bidirectionnelle au niveau de la forêt entre les forêts distinctes.   <BR><BR>   DPM/MABS peut protéger des serveurs et des stations de travail sur plusieurs domaines au sein d'une forêt ayant une relation d'approbation bidirectionnelle avec le domaine du serveur DPM/MABS. Pour protéger des ordinateurs dans des groupes de travail ou des domaines non approuvés, consultez [Sauvegarder et restaurer des charges de travail dans des groupes de travail et des domaines non approuvés.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains) <br><br> Pour sauvegarder des clusters de serveurs Hyper-V, ceux-ci doivent être placés dans le même domaine que le serveur MABS ou dans un domaine enfant ou approuvé. Vous pouvez sauvegarder des serveurs et des clusters dans une charge de travail ou un domaine non approuvé à l'aide de l'authentification par certificat ou NTLM pour un serveur unique, ou à l'aide de l'authentification par certificat uniquement pour un cluster.  |
 
 ## <a name="dpmmabs-storage-support"></a>Prise en charge du stockage pour DPM/MABS
 
 Les données sauvegardées sur DPM/MABS sont stockées sur un disque local.
+
+Les lecteurs USB ou amovibles ne sont pas pris en charge.
+
+La compression NTFS n’est pas prise en charge sur les volumes DPM/MABS.
+
+BitLocker ne peut être activé qu’après avoir ajouté le disque au pool de stockage. N’activez pas BitLocker avant de l’ajouter.
+
+Le stockage en réseau (NAS) n’est pas pris en charge par le pool de stockage DPM.
 
 **Stockage** | **Détails**
 --- | ---
@@ -199,6 +210,38 @@ Pour plus d’informations sur les différents serveurs et charges de travail qu
 
 - Les charges de travail en cluster sauvegardées par DPM/MABS doivent se trouver dans le même domaine que DPM/MABS ou dans un domaine enfant/approuvé.
 - Vous pouvez utiliser l’authentification NTLM/par certificat pour sauvegarder les données dans des groupes de travail ou des domaines non approuvés.
+
+## <a name="deduplicated-volumes-support"></a>Prise en charge des volumes dédupliqués
+
+>[!NOTE]
+> La prise en charge de la déduplication pour MABS dépend de la prise en charge du système d’exploitation.
+
+### <a name="for-ntfs-volumes"></a>Pour les volumes NTFS
+
+| Système d’exploitation du serveur protégé  | Système d’exploitation du serveur MABS  | Version de MABS  | Prise en charge de la déduplication |
+| ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
+| Windows Server 2019                       | Windows Server 2019                  | MABS v3            | O                    |
+| Windows Server 2016                       | Windows Server 2019                  | MABS v3            | Y*                   |
+| Windows Server 2012 R2                    | Windows Server 2019                  | MABS v3            | N                    |
+| Windows Server 2012                       | Windows Server 2019                  | MABS v3            | N                    |
+| Windows Server 2019                       | Windows Server 2016                  | MABS v3            | O**                  |
+| Windows Server 2016                       | Windows Server 2016                  | MABS v3            | O                    |
+| Windows Server 2012 R2                    | Windows Server 2016                  | MABS v3            | O                    |
+| Windows Server 2012                       | Windows Server 2016                  | MABS v3            | O                    |
+
+- \* Quand vous protégez un volume dédupliqué NTFS WS 2016 avec MABS v3 exécuté sur WS 2019, les récupérations peuvent être affectées. Nous avons un correctif qui permet de faire des récupérations d’une manière non dédupliquée. Contactez le support de MABS si vous avez besoin de ce correctif sur MABS v3 UR1.
+- \** Quand vous protégez un volume dédupliqué NTFS WS 2019 avec MABS v3 exécuté sur WS 2016, les sauvegardes et les restaurations ne seront pas dédupliquées. Cela signifie que les sauvegardes consommeront plus d’espace sur le serveur MABS que le volume dédupliqué NTFS d’origine.
+
+**Problème** : Si vous mettez à niveau le système d’exploitation du serveur protégé de Windows Server 2016 vers Windows Server 2019, la sauvegarde du volume dédupliqué NTFS sera affectée en raison de changements dans la logique de déduplication.
+
+**Solution de contournement** : Contactez le support de MABS si vous avez besoin de ce correctif sur MABS v3 UR1.
+
+### <a name="for-refs-volumes"></a>Pour les volumes ReFS
+
+>[!NOTE]
+> Nous avons identifié quelques problèmes avec les sauvegardes des volumes ReFS dédupliqués. Nous nous efforçons de résoudre ces problèmes, et mettrons à jour cette section dès qu’un correctif sera disponible. En attendant, nous supprimons la prise en charge de la sauvegarde des volumes ReFS dédupliqués à partir de MABS v3.
+>
+> MABS v3 UR1 (et versions ultérieures) prend toujours en charge la protection et la récupération des volumes ReFS standard.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
 ms.openlocfilehash: d5342782c26b5c274699bacc4ea0c7cdf5b7f880
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101649404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Didacticiel : Intégration d’Azure Active Directory à LogicMonitor
@@ -95,7 +95,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -107,7 +107,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à LogicMonitor.
 
@@ -119,13 +119,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-logicmonitor-sso"></a>Configurer l’authentification unique LogicMonitor
+### <a name=&quot;configure-logicmonitor-sso&quot;></a>Configurer l’authentification unique LogicMonitor
 
 1. Connectez-vous à votre site d'entreprise **LogicMonitor** en tant qu'administrateur.
 
 2. Dans le menu situé en haut, cliquez sur **Settings**.
 
-    ![Paramètres](./media/logicmonitor-tutorial/ic790052.png "Paramètres")
+    ![Paramètres](./media/logicmonitor-tutorial/ic790052.png &quot;Paramètres")
 
 3. Dans la barre de navigation située à gauche, cliquez sur **Single Sign On** (Authentification unique).
 

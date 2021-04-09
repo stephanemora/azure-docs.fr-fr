@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601242"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601888"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Bien démarrer avec l’agent Windows Virtual Desktop
 
@@ -32,7 +32,10 @@ L’agent Windows Virtual Desktop est installé initialement de l’une des deux
 
 ## <a name="agent-update-process"></a>Processus de mise à jour de l’agent
 
-Le service Windows Virtual Desktop met à jour automatiquement l’agent chaque fois qu’une mise à jour devient disponible. Les mises à jour de l’agent peuvent inclure de nouvelles fonctionnalités ou corriger des problèmes précédents. Une fois la version initiale de l’agent Windows Virtual Desktop installée, l’agent interroge régulièrement le service Windows Virtual Desktop pour déterminer s’il existe une version plus récente de l’agent et de ses composants. S’il existe une nouvelle version, le chargeur de démarrage de l’agent télécharge automatiquement la dernière version de l’agent, la pile côte à côte et l’agent de surveillance Geneva.
+Le service Windows Virtual Desktop met à jour l’agent chaque fois qu’une mise à jour devient disponible. Les mises à jour de l’agent peuvent inclure de nouvelles fonctionnalités ou des correctifs de problèmes précédents. Une fois la version initiale de l’agent Windows Virtual Desktop installée, l’agent interroge régulièrement le service Windows Virtual Desktop pour déterminer s’il existe une version plus récente de l’agent, de la pile ou du composant d’analyse. Si une version plus récente de l’un des composants a déjà été déployée, le composant mis à jour est installé automatiquement.
+
+Les nouvelles versions de l’agent sont déployées à intervalles réguliers dans des périodes d’une semaine sur tous les abonnements Azure. Ces périodes de mise à jour sont appelées « distributions de versions d’évaluation ». En cas de distribution de version d’évaluation, il se peut que les machines virtuelles de votre pool d’hôtes reçoivent la mise à jour de l’agent à des moments différents. Tous les agents de machine virtuelle dans tous les abonnements seront mis à jour à la fin de la période de déploiement. Le système de distribution de version d’évaluation de Windows Virtual Desktop améliore la fiabilité du service en garantissant la stabilité et la qualité de la mise à jour de l’agent.
+
 
 >[!NOTE]
 >- Lorsque l’agent de surveillance Geneva est mis à jour vers la dernière version, l’ancienne tâche GenevaTask est localisée et désactivée avant la création d’une tâche pour le nouvel agent de surveillance. La version antérieure de l’agent de surveillance n’est pas supprimée si la version la plus récente de l’agent de surveillance rencontre un problème nécessitant de revenir à la version antérieure pour effectuer une correction. Si la dernière version rencontre un problème, l’ancien agent de surveillance est réactivé pour continuer à fournir des données de surveillance. Toutes les versions du moniteur antérieures à la dernière que vous avez installée avant la mise à jour seront supprimées de votre machine virtuelle.

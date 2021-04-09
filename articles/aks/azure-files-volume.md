@@ -5,12 +5,12 @@ description: Découvrir comment créer manuellement un volume avec Azure Files p
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 4e009c5de2e24c1b0bd94fb4c11b0c52a3bc378d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246959"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102609071"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume avec un partage Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,8 @@ Utilisez la commande `kubectl create secret` pour créer le secret. L’exemple 
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
-## <a name="mount-the-file-share-as-a-volume"></a>Monter le partage de fichiers en tant que volume
+## <a name="mount-file-share-as-an-inline-volume"></a>Monter le partage de fichiers comme un volume inlined
+> Remarque : À partir des versions 1.18.15, 1.19.7, 1.20.2 et 1.21.0, l’espace de noms secret dans le volume `azureFile` inlined ne peut être défini que comme espace de nom `default`. Pour spécifier un espace de nom secret différent, utilisez plutôt l’exemple de volume persistant ci-dessous.
 
 Pour monter le partage Azure Files dans votre pod, configurez le volume dans les spécifications du conteneur. Créez un fichier nommé `azure-files-pod.yaml` avec le contenu suivant. Si vous avez renommé le partage de fichier ou le secret, mettez à jour les valeurs *shareName* et *secretName*. Si vous le souhaitez, actualisez `mountPath`. Il s’agit du chemin du partage Azure Files qui a été monté dans le pod. Pour les conteneurs Windows Server, spécifiez un *chemin de montage* en utilisant la convention de chemin Windows, par exemple, *'D:'* .
 
@@ -131,9 +132,10 @@ Volumes:
 [...]
 ```
 
-## <a name="mount-options"></a>Options de montage
+## <a name="mount-file-share-as-an-persistent-volume"></a>Monter le partage de fichiers comme un volume persistant
+ - Options de montage
 
-La valeur par défaut de *fileMode* et *dirMode* est *0755* pour Kubernetes 1.9.1 et versions ultérieures. Si vous utilisez un cluster avec Kubernetes 1.8.5 ou version ultérieure et que vous créez l’objet de volume persistant de manière statique, les options de montage doivent être spécifiées sur l’objet *PersistentVolume*. L’exemple suivant définit *0777* :
+La valeur par défaut de *fileMode* et *dirMode* est *0777* pour Kubernetes 1.15 et versions ultérieures. L’exemple suivant définit *0755* sur l’objet *PersistentVolume* :
 
 ```yaml
 apiVersion: v1
@@ -147,18 +149,17 @@ spec:
     - ReadWriteMany
   azureFile:
     secretName: azure-secret
+    secretNamespace: default
     shareName: aksshare
     readOnly: false
   mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
+  - dir_mode=0755
+  - file_mode=0755
   - uid=1000
   - gid=1000
   - mfsymlinks
   - nobrl
 ```
-
-Si vous utilisez un cluster de version 1.8.0 - 1.8.4, un contexte de sécurité peut être spécifié avec la définition de la valeur *runAsUser* sur *0*. Pour plus d’informations sur le contexte de sécurité Pod, consultez [Configurer un contexte de sécurité][kubernetes-security-context].
 
 Pour mettre à jour vos options de montage, créez un fichier *azurefile-mount-options-pv.yaml* avec un *PersistentVolume*. Par exemple :
 
