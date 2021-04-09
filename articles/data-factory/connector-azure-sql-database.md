@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/15/2021
-ms.openlocfilehash: d64b1413267a62daa46a112e706a4381189baf77
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.date: 03/17/2021
+ms.openlocfilehash: 01f43ceab36b519f3aafbbdc711df15c80481398
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564340"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597434"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -384,6 +384,7 @@ Pour copier des données vers Azure SQL Database, les propriétés suivantes son
 | writeBatchSize | Nombre de lignes à insérer dans la table SQL *par lot*.<br/> La valeur autorisée est **integer** (nombre de lignes). Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne. | Non |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Par exemple : « 00:30:00 » (30 minutes). | Non |
 | disableMetricsCollection | Data Factory collecte des métriques telles que les DTU Azure SQL Database pour effectuer des suggestions et l’optimisation des performances de copie, introduisant un accès de base de données master supplémentaire. Si ce comportement vous préoccupe, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 **Exemple 1 : Ajout de données**
 
@@ -777,7 +778,7 @@ Plus précisément :
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - Si vous exécutez des runtimes d’intégration auto-hébergés sur une machine virtuelle Azure, vous pouvez utiliser l’**authentification d’identité managée** avec l’identité de la machine virtuelle Azure :
+    - Si vous exécutez des runtimes d’intégration auto-hébergés sur une machine virtuelle Azure, vous pouvez utiliser **l’authentification d’identité managée** avec l’identité de la machine virtuelle Azure :
 
         1. Respectez les mêmes [conditions préalables](#managed-identity) pour créer un utilisateur de base de données pour l’identité managée et accorder le rôle approprié dans votre base de données.
         2. Dans le service lié, spécifiez la chaîne de connexion ODBC comme indiqué ci-dessous, puis sélectionnez l’authentification **anonyme**, car la chaîne de connexion elle-même indique `Authentication=ActiveDirectoryMsi`.

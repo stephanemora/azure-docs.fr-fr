@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: f63c5e5764451fd7a03b0e68982db01330d1995c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 01196c34ea6afbaa5a1e3b81ab14dec037e1fed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660297"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595938"
 ---
 # <a name="azure-percept-dk-8020-integration-overview"></a>Vue d’ensemble de l’intégration du DK Azure Percept au système 80/20
 
@@ -22,9 +22,11 @@ Le DK Azure Percept et l’accessoire Audio ont été conçus pour s’intégre
 
 Chaque composant matériel est construit avec les entailles et protrusions pour s’adapter au type d’extrusion 1010. Cette intégration permet aux clients et aux générateurs de solutions d’étendre plus facilement leur preuve de concepts aux environnements de production.
 
-<!---
-## Check out this video for more information on how to use Azure Percept DK with 80/20
---->
+Regardez cette vidéo pour plus d’informations sur l’utilisation d’Azure Percept DK avec 80/20 :
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/Dg6mtD9psLU]  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210704"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104595989"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions
 
@@ -365,6 +365,16 @@ Le déclencheur du minuteur utilise un verrou de stockage pour s’assurer qu’
 ## <a name="retry-behavior"></a>Comportement pour les nouvelles tentatives
 
 À la différence du déclencheur de file d’attente, le déclencheur de minuteur n’effectue pas de nouvelle tentative après l’échec d’une fonction. En cas d’échec d’une fonction, elle n’est pas rappelée avant la prochaine période planifiée.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Appeler manuellement un déclencheur de retardateur
+
+Le déclencheur de retardateur pour Azure Functions fournit un webhook HTTP qui peut être appelé pour déclencher manuellement la fonction. Cela peut être très utile dans les scénarios suivants.
+
+* Tests d’intégration
+* Échanges d’emplacements dans le cadre d’une activité de test d'acceptation de build ou de préparation
+* Déploiement initial d’une fonction pour remplir immédiatement un cache ou une table de recherche dans une base de données
+
+Veuillez consulter [Exécuter manuellement une fonction non déclenchée via HTTP](./functions-manually-run-non-http.md) pour plus de détails sur la façon d’appeler manuellement une fonction déclenchée par un retardateur.
 
 ## <a name="troubleshooting"></a>Dépannage
 

@@ -4,10 +4,10 @@ description: Cet article explique comment détecter et résoudre les problèmes 
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584669"
 ---
 # <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Résoudre les problèmes d'extensions de machine virtuelle liés aux serveurs Azure Arc

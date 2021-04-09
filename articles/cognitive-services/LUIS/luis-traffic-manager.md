@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.openlocfilehash: 37c4bd2af080a76e93bc9599f06e4d502985979f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102609649"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
@@ -366,7 +366,7 @@ Pour gérer le trafic entre les points de terminaison, vous devez insérer un ap
 
 Activez [journaux de diagnostic](../../traffic-manager/traffic-manager-diagnostic-logs.md) pour Traffic Manager afin de connaître la cause de la détérioration de l’état du point de terminaison.
 
-## <a name="clean-up"></a>Nettoyage
+## <a name="clean-up"></a>Nettoyer
 Supprimez les deux clés de point de terminaison LUIS, les trois profils Traffic Manager et le groupe de ressources contenant ces cinq ressources. Utilisez pour cela le Portail Azure. Supprimez les cinq ressources de la liste de ressources, puis supprimez le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes

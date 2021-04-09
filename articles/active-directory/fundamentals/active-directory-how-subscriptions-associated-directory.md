@@ -1,6 +1,6 @@
 ---
 title: Ajouter un abonnement Azure existant à votre locataire - Azure AD
-description: Instructions pour l’ajout d’un abonnement Azure existant à votre locataire Azure Active Directory.
+description: Instructions pour l’ajout d’un abonnement Azure existant à votre locataire Azure Active Directory (Azure AD).
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094291"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594629"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -43,11 +43,11 @@ Avant de pouvoir associer ou ajouter votre abonnement, effectuez les tâches sui
 
 - Passez en revue la liste suivante des modifications qui se produiront après que vous ayez associé ou ajouté votre abonnement, et la façon dont cela peut vous affecter :
 
-  - Les utilisateurs auxquels des rôles ont été attribués à l’aide d’Azure RBAC perdront leur accès
-  - L’administrateur de services fédérés et le coadministrateur perdront leur accès
-  - Si vous avez des coffres de clés, ces derniers seront inaccessibles et vous devrez les corriger après l’association
-  - Si vous disposez d''identités gérées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devez les réactiver ou les recréer après l’association
-  - Si vous disposez d’un Azure Stack inscrit, vous devrez le réinscrire après l’association
+  - Les utilisateurs auxquels des rôles ont été attribués à l’aide d’Azure RBAC perdront leur accès.
+  - L’administrateur de services fédérés et le coadministrateur perdront leur accès.
+  - Si vous avez des coffres de clés, ces derniers seront inaccessibles et vous devrez les corriger après l’association.
+  - Si vous disposez d'identités managées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devez les réactiver ou les recréer après l’association.
+  - Si vous disposez d’un Azure Stack inscrit, vous devrez le réinscrire après l’association.
   - Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../../role-based-access-control/transfer-subscription.md).
 
 - Connectez-vous avec un compte qui :
@@ -55,7 +55,7 @@ Avant de pouvoir associer ou ajouter votre abonnement, effectuez les tâches sui
   - Dispose d’une attribution de rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour l’abonnement. Pour obtenir des informations sur la procédure d’attribution de rôles propriétaire, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
   - Existe à la fois dans l’annuaire actif et dans le nouvel annuaire. L’annuaire actif est associé à l’abonnement. Vous associerez le nouvel annuaire à l’abonnement. Pour plus d’informations sur l’accès à un autre annuaire, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le portail Azure](../external-identities/add-users-administrator.md).
 
-- Veillez à ne pas utiliser d’abonnement de fournisseur de services cloud (CSP) Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft interne ((MS-AZR-0015P), ou Microsoft Imagine (MS-AZR-0144P).
+- Veillez à ne pas utiliser d’abonnement de fournisseur de services cloud (CSP) Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft interne (MS-AZR-0015P) ou Microsoft Azure for Students Starter (MS-AZR-0144P).
 
 ## <a name="associate-a-subscription-to-a-directory"></a>Associer un abonnement à un annuaire<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -65,17 +65,17 @@ Pour associer un abonnement existant à votre annuaire Azure AD, suivez ces éta
 
 1. Sélectionnez **Changer de répertoire**.
 
-   ![Page Abonnements, avec l’option Changer de répertoire en surbrillance](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Capture d’écran qui montre la page Abonnements, avec l’option Modifier le répertoire mis en surbrillance.":::
 
 1. Examinez les avertissements qui s’affichent, puis sélectionnez **Changer**.
 
-   ![Page Changer de répertoire, montrant le nouveau répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Capture d’écran qui montre la page Modifier le répertoire avec un exemple de répertoire et le bouton Modifier mis en surbrillance.":::
 
    Une fois l’annuaire changé pour l’abonnement, un message de réussite s’affiche.
 
 1. Sélectionnez **Changer les annuaires** sur la page de l’abonnement pour accéder à votre nouvel annuaire.
 
-   ![Page du sélecteur de répertoire, avec exemples d’informations](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Capture d’écran montrant la page Sélecteur de répertoire avec des informations d’exemple.":::
 
    Dans certains cas, l’affichage correct dans son intégralité peut prendre plusieurs heures. S’il semble trop long, vérifiez le **Filtre d’abonnement global**. Assurez-vous que l’abonnement déplacé n’est pas masqué. Vous devrez peut-être vous déconnecter du portail Azure et vous reconnecter pour que le nouvel annuaire soit visible.
 
@@ -87,9 +87,9 @@ Après avoir associé un abonnement à un autre annuaire, vous pouvez être amen
 
 - Si vous avez des coffres de clés, vous devez modifier l''ID de locataire des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/general/move-subscription.md).
 
-- Si vous utilisiez des identités managées attribuées par le système pour les ressources, vous devez réactiver ces identités. Si vous utilisiez des identités managées affectées par l’utilisateur pour les ressources, vous devez réactiver ces identités. Après la réactivation ou la recréation des identités managées, vous devez rétablir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](../managed-identities-azure-resources/overview.md).
+- Si vous utilisiez des identités managées attribuées par le système pour les ressources, vous devez réactiver ces identités. Si vous utilisiez des identités managées affectées par l’utilisateur pour les ressources, vous devez réactiver ces identités. Après la réactivation ou la recréation des identités managées, vous devez rétablir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [Que sont les identités managées pour les ressources Azure ?](../managed-identities-azure-resources/overview.md).
 
-- Si vous avez inscrit une instance Azure Stack à l’aide de cet abonnement, vous devez procéder à une réinscription. Pour plus d’informations, consultez [Inscrire Azure Stack auprès d’Azure](/azure-stack/operator/azure-stack-registration).
+- Si vous avez inscrit une instance Azure Stack à l’aide de cet abonnement, vous devez procéder à une réinscription. Pour plus d’informations, consultez [Enregistrez Azure Stack Hub avec Azure](/azure-stack/operator/azure-stack-registration).
 
 - Pour plus d’informations, consultez [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../../role-based-access-control/transfer-subscription.md).
 

@@ -9,10 +9,10 @@ ms.date: 03/15/2021
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 97d80e999ac61a2c2f8f561dc19213419014beb8
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103470994"
 ---
 | Ressource | Limite |

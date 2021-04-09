@@ -4,14 +4,14 @@ description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du por
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590788"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471883"
 ---
 # <a name="manage-your-cache"></a>Gérer votre cache
 
@@ -254,6 +254,20 @@ La page d’aperçu affiche des graphiques pour des statistiques de cache de bas
 ![capture d’écran de trois graphiques linéaires montrant les statistiques mentionnées ci-dessus pour un exemple de cache](media/hpc-cache-overview-stats.png)
 
 Ces graphiques font partie des outils de surveillance et d’analyse intégrés d’Azure. Des outils et des alertes supplémentaires sont disponibles à partir des pages sous l’en-tête **Surveillance** dans la barre latérale du portail. Pour plus d’informations, consultez la section portail de la [documentation Surveillance Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Afficher les avertissements
+
+Si le cache est dans un état non sain, consultez la page **Avertissements**. Cette page présente les notifications du logiciel de cache qui peuvent vous aider à comprendre son état.
+
+Ces notifications n’apparaissent pas dans le journal d’activité, car elles ne sont pas contrôlées par Portail Azure. Elles sont souvent associées à des paramètres personnalisés que vous avez pu définir.
+
+Les types d’avertissements que vous pouvez voir ici sont les suivants :
+
+* Le cache ne peut pas atteindre son serveur NTP
+* Le cache n’a pas réussi à télécharger les informations sur le nom d’utilisateur des groupes étendus.
+* Les paramètres DNS personnalisés ont été modifiés sur une cible de stockage
+
+![capture d’écran de la page Surveillance > Avertissements montrant un message indiquant que les noms d’utilisateur des groupes étendus n’ont pas pu être téléchargés](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

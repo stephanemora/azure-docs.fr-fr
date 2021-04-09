@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
 ms.openlocfilehash: 5ed23889d8648c65ea0887d2f0f3406b50291f12
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101654293"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Secure
@@ -97,7 +97,7 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Secure, effe
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD 
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -109,7 +109,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à TOPdesk - Secure.
 
@@ -121,13 +121,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="configure-topdesk---secure-sso"></a>Configurer l’authentification unique TOPdesk - Secure
+### <a name=&quot;configure-topdesk---secure-sso&quot;></a>Configurer l’authentification unique TOPdesk - Secure
 
 1. Connectez-vous à votre site d'entreprise **TOPdesk - Secure** en tant qu'administrateur.
 
 2. Dans le menu **TOPdesk**, cliquez sur **Settings**.
 
-    ![Paramètres](./media/topdesk-secure-tutorial/ic790598.png "Paramètres")
+    ![Paramètres](./media/topdesk-secure-tutorial/ic790598.png &quot;Paramètres")
 
 3. Cliquez sur **Login Settings**.
 

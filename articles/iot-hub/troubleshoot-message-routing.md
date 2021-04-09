@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
 ms.openlocfilehash: 3abff5645775d724042acba3ee2461c7cad771a7
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103149662"
 ---
 # <a name="troubleshooting-message-routing"></a>Résoudre les problèmes de routage des messages

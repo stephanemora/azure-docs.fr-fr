@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520776"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773111"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
@@ -91,6 +91,8 @@ weighted_accuracy|La précision pondérée est la précision avec laquelle chaqu
 Le ML automatisé ne fait pas la différence entre les métriques binaires et multiclasses. Les mêmes métriques de validation sont signalées si un jeu de données a deux classes ou plus de deux classes. Toutefois, certaines métriques sont destinées à la classification multiclasse. Lorsqu’elles sont appliquées à un jeu de données binaire, ces métriques ne traitent pas les classes comme la classe `true`, comme vous pourriez vous y attendre. Les métriques qui sont clairement destinées à la multiclasse sont suivies d’un suffixe `micro`, `macro` ou `weighted`. `average_precision_score`, `f1_score`, `precision_score`, `recall_score` et `AUC` en sont des exemples.
 
 Par exemple, au lieu de calculer le rappel comme `tp / (tp + fn)`, le rappel multiclasse pondéré (`micro`, `macro` ou `weighted`) fait la moyenne des deux classes d’un jeu de données de classification binaire. Cela revient à calculer le rappel pour la classe `true` et la classe `false` séparément, puis à obtenir la moyenne des deux.
+
+La valeur ML automatisée ne calcule pas les métriques binaires, c’est-à-dire les métriques pour les jeux de données de classification binaire. Toutefois, ces métriques peuvent être calculées manuellement à l’aide de la [matrice de confusion](#confusion-matrix) qui a généré des ML automatisés pour cette exécution particulière. Par exemple, vous pouvez calculer la précision, `tp / (tp + fp)`, avec les valeurs vrai positif et faux positif indiquées dans un graphique à matrice de confusion 2x2.
 
 ## <a name="confusion-matrix"></a>Matrice de confusion
 
