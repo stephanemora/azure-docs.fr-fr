@@ -1,18 +1,18 @@
 ---
-title: Comment planifier un déploiement à grande échelle de serveurs avec Azure Arc
+title: Comment planifier et déployer des serveurs avec Azure Arc
 description: Découvrez comment activer un grand nombre de machines sur des serveurs avec Azure Arc afin de simplifier la configuration de fonctionnalités essentielles de sécurité, de gestion et de surveillance dans Azure.
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103461298"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023280"
 ---
-# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planifier et déployer des serveurs compatibles Arc à l’échelle
+# <a name="plan-and-deploy-arc-enabled-servers"></a>Planifier et déployer des serveurs avec Arc
 
-Le déploiement d’un service d’infrastructure informatique ou d’une application métier est un défi pour toute entreprise. Pour opérer la migration correctement et éviter les mauvaises surprises et les coûts imprévus, vous devez la planifier minutieusement afin de vous assurer que vous êtes aussi prêt que possible. La planification du déploiement à grande échelle de serveurs avec Azure Arc doit couvrir les critères de conception et de déploiement à remplir pour pouvoir accomplir correctement les tâches de prise en charge d’un déploiement à grande échelle.
+Le déploiement d’un service d’infrastructure informatique ou d’une application métier est un défi pour toute entreprise. Pour opérer la migration correctement et éviter les mauvaises surprises et les coûts imprévus, vous devez la planifier minutieusement afin de vous assurer que vous êtes aussi prêt que possible. La planification du déploiement à toute échelle de serveurs avec Azure Arc doit couvrir les critères de conception et de déploiement à remplir pour pouvoir accomplir correctement les tâches.
 
 Pour que le déploiement se déroule sans problème, votre plan doit clairement établir les points suivants :
 
@@ -57,7 +57,7 @@ Au cours de cette phase, des ingénieurs système ou administrateurs activent le
 |Tâche |Detail |Duration |
 |-----|-------|---------|
 | [Créer un groupe de ressources](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Créez un groupe de ressources dédié pour inclure uniquement les serveurs avec Arc et centraliser la gestion et la surveillance de ces ressources. | 1 heure |
-| Appliquer des [étiquettes](../../azure-resource-manager/management/tag-resources.md) pour faciliter l’organisation des machines | Évaluez et développez une [stratégie d’étiquetage](/cloud-adoption-framework/decision-guides/resource-tagging/) alignée sur le l’informatique, susceptible de vous aider à réduire la complexité de la gestion de vos serveurs avec Arc, ainsi qu’à simplifier la prise de décisions de gestion. | Un jour |
+| Appliquer des [étiquettes](../../azure-resource-manager/management/tag-resources.md) pour faciliter l’organisation des machines | Évaluez et développez une [stratégie d’étiquetage](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) alignée sur le l’informatique, susceptible de vous aider à réduire la complexité de la gestion de vos serveurs avec Arc, ainsi qu’à simplifier la prise de décisions de gestion. | Un jour |
 | Concevoir et déployer des [journaux Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) | Évaluez les [considérations relatives à la conception et au déploiement](../../azure-monitor/logs/design-logs-deployment.md) afin de déterminer si votre organisation doit utiliser un espace de travail Log Analytics existant ou en implémenter un autre pour stocker les données de journal collectées à partir de serveurs et de machines hybrides<sup>1</sup>. | Un jour |
 | [Élaborer un plan de gouvernance Azure Policy](../../governance/policy/overview.md) | Déterminez comment vous allez implémenter la gouvernance de serveurs et de machines hybrides au niveau de l’abonnement ou de l’étendue du groupe de ressources avec Azure Policy. | Un jour |
 | Configurer un [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) | Élaborez un plan d’accès pour contrôler qui a accès à la gestion des serveurs avec Arc, et la capacité de ces personnes d’afficher leurs données à partir d’autres services et solutions Azure. | Un jour |
@@ -71,7 +71,7 @@ Ensuite, nous développons la fondation posée en phase 1 en préparant et en d�
 
 |Tâche |Detail |Duration |
 |-----|-------|---------|
-| Télécharger le script d’installation prédéfini | Révisez et personnalisez le script d’installation prédéfini pour le déploiement à grande échelle de l’agent Connected Machine afin de prendre en charge vos exigences de déploiement automatisé.<br><br> Exemples de ressources d’intégration à grande échelle :<br><br> <ul><li> [Script de déploiement de base à grande échelle](onboard-service-principal.md)</ul></li> <ul><li>[Intégration à grande échelle de machines virtuelles Windows Server VMware vSphere](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Intégration à grande échelle de machines virtuelles Linux VMware vSphere](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Intégration à grande échelle d’instances AWS EC2 à l’aide d’Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Déploiement à grande échelle à l’aide d’un accès distant PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (Windows uniquement)</ul></li>| Un ou plusieurs jours selon les exigences, les processus organisationnels (par exemple, gestion des mises en production et des changements) et la méthode d’automatisation utilisée. |
+| Télécharger le script d’installation prédéfini | Révisez et personnalisez le script d’installation prédéfini pour le déploiement à grande échelle de l’agent Connected Machine afin de prendre en charge vos exigences de déploiement automatisé.<br><br> Exemples de ressources d’intégration à grande échelle :<br><br> <ul><li> [Script de déploiement de base à grande échelle](onboard-service-principal.md)</ul></li> <ul><li>[Intégration à grande échelle de machines virtuelles Windows Server VMware vSphere](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[Intégration à grande échelle de machines virtuelles Linux VMware vSphere](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[Intégration à grande échelle d’instances AWS EC2 à l’aide d’Ansible](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[Déploiement à grande échelle à l’aide d’un accès distant PowerShell](./onboard-powershell.md) (Windows uniquement)</ul></li>| Un ou plusieurs jours selon les exigences, les processus organisationnels (par exemple, gestion des mises en production et des changements) et la méthode d’automatisation utilisée. |
 | [Créer un principal du service](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Créez un principal de service pour connecter des machines de manière non interactive à l’aide d’Azure PowerShell ou à partir du portail.| 1 heure |
 | Déployer l’agent Connected Machine sur vos serveurs et machines cibles |Servez-vous de votre outil Automation pour déployer les scripts sur vos serveurs et les connecter à Azure.| Un ou plusieurs jours selon votre plan de mise en production et que vous opérez un déploiement échelonné. |
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ms.openlocfilehash: 13616cf99db39ec4dac1d13e3dcd2cefc5a44614
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942958"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Créer des applications Java pour Apache HBase
@@ -43,7 +43,7 @@ IF NOT EXIST C:\HDI MKDIR C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Création d’un projet Maven
+## <a name="create-a-maven-project"></a>Créer un projet Maven
 
 1. Entrez la commande suivante pour créer un projet Maven nommé **hbaseapp** :
 
@@ -56,9 +56,9 @@ cd C:\HDI
 
     Cette commande crée un répertoire nommé `hbaseapp` à l’emplacement actuel, qui contient un projet Maven de base. La deuxième commande définit le répertoire de travail sur `hbaseapp`. La troisième commande crée le répertoire `conf`, qui sera utilisé ultérieurement. Le répertoire `hbaseapp` contient les éléments suivants :
 
-    * `pom.xml`:  le modèle d’objet du projet ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contient les informations et la configuration utilisées pour générer le projet.
-    * `src\main\java\com\microsoft\examples`: contient votre code d’application.
-    * `src\test\java\com\microsoft\examples`: contient des tests pour votre application.
+    * `pom.xml` : le modèle d’objet du projet ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contient les informations et la configuration utilisées pour générer le projet.
+    * `src\main\java\com\microsoft\examples` : contient votre code d’application.
+    * `src\test\java\com\microsoft\examples` : contient des tests pour votre application.
 
 2. Supprimez l’exemple de code généré. Supprimez les fichiers d’application et de test générés `AppTest.java` et `App.java` en entrant les commandes ci-dessous :
 
@@ -172,7 +172,7 @@ Utilisez la commande suivante pour copier la configuration de HBase à partir du
 scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 ```
 
-## <a name="create-the-application"></a>Création de l'application
+## <a name="create-the-application"></a>Créer l’application
 
 ### <a name="implement-a-createtable-class"></a>Implémenter une classe CreateTable
 

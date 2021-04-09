@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e0125f14570e917b228c5f713e636335755581d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361760"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024266"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partenaires ISV pour Azure Active Directory B2C
 
@@ -26,12 +26,6 @@ Notre réseau de partenaires ISV étend les fonctionnalités de nos solutions et
 >Sur le [site de la communauté Azure Active Directory B2C sur GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/), vous trouverez également des exemples de stratégies personnalisées fournis par la communauté.
 
 ## <a name="identity-verification-and-proofing"></a>Vérification des identités
-
-Avec des partenaires Azure AD B2C, les clients peuvent activer la vérification la confirmation d’identité de leurs utilisateurs finaux avant d’autoriser l’inscription de comptes ou l’accès à ceux-ci. La vérification des identités permet de contrôler des documents, des informations basées sur des connaissances et l’activité.
-
-Un diagramme d’architecture de haut niveau explique le flux.
-
-![Diagramme montrant le flux de vérification et de confirmation d’identité](./media/partner-gallery/third-party-identity-proofing.png)
 
 Microsoft travaille en partenariat avec les fournisseurs de logiciels indépendants (ISV) suivants pour la vérification et la confirmation d’identité.
 

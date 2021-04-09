@@ -2,36 +2,19 @@
 title: Afficher des métriques Azure Event Grid et définir des alertes
 description: Cet article explique comment utiliser le portail Azure pour afficher des métriques des rubriques et abonnements de Azure Event Grid, et créer des alertes sur ces éléments.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f6c119c16452246ec6eeb57ab392b29608938a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577412"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598556"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Surveiller la remise des messages Event Grid 
 Cet article explique comment utiliser le portail pour afficher des métriques des rubriques et abonnements Event Grid et créer des alertes sur ces éléments. 
 
-## <a name="metrics"></a>Mesures
-
-Le portail affiche les métriques pour l’état de la remise des messages d’événement.
-
-Voici quelques-unes des mesures disponibles pour les rubriques :
-
-* **Publication réussie** : événement correctement envoyé à la rubrique et traité avec une réponse 2xx.
-* **Échec de la publication** : événement envoyé à la rubrique mais rejeté avec un code d’erreur.
-* **Sans correspondance** : événement correctement publié dans la rubrique, mais sans correspondance avec un abonnement aux événements. L’événement a été supprimé.
-
-Pour les abonnements, voici quelques-unes des mesures :
-
-* **Remise réussie** : l’événement a été correctement remis au point de terminaison de l’abonnement et a reçu une réponse 2xx.
-* **Échec de la remise** : chaque fois que le service tente d’effectuer une remise et que le gestionnaire d’événements ne retourne pas de code 2xx de réussite, le compteur **Échec de la remise** est incrémenté. Si le service tente de remettre le même événement plusieurs fois et échoue, le compteur **Échec de la remise** est incrémenté à chaque nouvel échec.
-* **Événements expirés** : l’événement n’a pas été remis et toutes les nouvelles tentatives ont été envoyées. L’événement a été supprimé.
-* **Événements correspondants** : l’événement dans la rubrique a été mis en correspondance par l’abonnement aux événements.
-
-    > [!NOTE]
-    > Pour obtenir la liste complète des métriques, consultez [Métriques prises en charge par Azure Event Grid](metrics.md).
+> [!IMPORTANT]
+> Pour obtenir la liste des métriques prises en charge par Azure Event Grid, consultez [Métriques](metrics.md).
 
 ## <a name="view-custom-topic-metrics"></a>Afficher des métriques d’une rubrique personnalisée
 
@@ -48,15 +31,13 @@ Si vous avez publié une rubrique personnalisée, vous pouvez afficher ses métr
 
     :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics.png" alt-text="Afficher les métriques d’événement":::
 
-Vous pouvez créer des graphiques avec des métriques prises en charge à l’aide de l’onglet **Métriques** de la page **Rubrique Event Grid**.
+    Vous pouvez créer des graphiques avec des métriques prises en charge à l’aide de l’onglet **Métriques** de la page **Rubrique Event Grid**.
 
-:::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Rubrique - Page des métriques":::
+    :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Rubrique - Page des métriques":::
 
-Pour plus d’informations sur les métriques, consultez [Métriques dans Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
+    Par exemple, consultez le graphique des métriques pour la métrique **Événements publiés**.
 
-Par exemple, consultez le graphique des métriques pour la métrique **Événements publiés**.
-
-:::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrique des événements publiés":::
+    :::image type="content" source="./media/monitor-event-delivery/custom-topic-metrics-example.png" alt-text="Métrique des événements publiés":::
 
 
 ## <a name="view-subscription-metrics"></a>Afficher les métriques des abonnements
@@ -70,7 +51,7 @@ Par exemple, consultez le graphique des métriques pour la métrique **Événeme
     :::image type="content" source="./media/monitor-event-delivery/event-subscriptions-page.png" alt-text="Sélectionner l’abonnement aux événements à partir de la page Abonnements Event Grid":::        
 
     Pour les rubriques personnalisées, sélectionnez **Rubriques Event Grid** comme **Type de rubrique**. Pour les rubriques système, sélectionnez le type de la ressource Azure, par exemple **Comptes de stockage (blob, GPv2)** . 
-3. Consultez les métriques d’un abonnement sur sa page d’accueil sous forme de graphique. Vous pouvez voir les métriques **Général**, **Erreur**, **Latence** et **Lettres mortes** pour la dernière heure, les 6 dernières heures, les 12 dernières heures, une journée, 7 jours ou 30 jours. 
+3. Consultez les métriques d’un abonnement sur sa page d’accueil sous forme de graphique. Vous pouvez voir les métriques **Général**, **Erreur** et **Latence** pour 1 heure, 6 heures, 12 heures, 1 jour, 7 jours ou 30 jours. 
 
     :::image type="content" source="./media/monitor-event-delivery/subscription-home-page-metrics.png" alt-text="Métriques sur la page d’accueil de l’abonnement":::    
 
@@ -87,12 +68,12 @@ Par exemple, consultez le graphique des métriques pour la métrique **Événeme
 
     :::image type="content" source="./media/monitor-event-delivery/system-topic-overview-metrics.png" alt-text="Afficher les métriques de rubrique système sur la page de présentation":::
 
-Vous pouvez créer des graphiques avec des métriques prises en charge à l’aide de l’onglet **Métriques** de la page **Rubrique Event Grid**.
+    Vous pouvez créer des graphiques avec des métriques prises en charge à l’aide de l’onglet **Métriques** de la page **Rubrique Event Grid**.
 
-:::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Rubrique système - Page des métriques":::
+    :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Rubrique système - Page des métriques":::
 
-Pour plus d’informations sur les métriques, consultez [Métriques dans Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
-
+    > [!IMPORTANT]
+    > Pour obtenir la liste des métriques prises en charge par Azure Event Grid, consultez [Métriques](metrics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :

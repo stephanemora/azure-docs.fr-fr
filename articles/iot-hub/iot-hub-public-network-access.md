@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: b225ad7e12a95b4dcbb8656f54f8a9e9562b2ee8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/22/2021
+ms.openlocfilehash: fbbdaeb796dfa23906c8010a54af14eff6df0b97
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604693"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026638"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gestion de l’accès réseau public pour votre hub IoT
 
@@ -32,7 +32,7 @@ Pour activer l’accès au réseau public, sélectionnez **Tous les réseaux**, 
 
 ## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Accès à IoT Hub après la désactivation de l’accès au réseau public
 
-Une fois que l’accès au réseau public est désactivé, IoT Hub est uniquement accessible via [son point de terminaison privé de réseau virtuel à l’aide d’une liaison privée Azure](virtual-network-support.md).
+Une fois que l’accès au réseau public est désactivé, IoT Hub est uniquement accessible via [son point de terminaison privé de réseau virtuel à l’aide d’une liaison privée Azure](virtual-network-support.md). Cette restriction comprend l’accès via le portail Azure, car les appels d’API au service IoT Hub sont effectués directement à l’aide de votre navigateur avec vos informations d’identification.
 
 ## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Point de terminaison IoT Hub, adresse IP et ports après la désactivation de l’accès au réseau public
 

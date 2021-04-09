@@ -3,13 +3,13 @@ title: Créer un tableau de bord dans le portail Azure avec PowerShell
 description: Découvrez comment créer un tableau de bord dans le portail Azure à l’aide d’Azure PowerShell.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/25/2021
+ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745738"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557443"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>Démarrage rapide : Créer un tableau de bord dans le portail Azure avec PowerShell
 
@@ -104,7 +104,7 @@ Le déploiement de la machine virtuelle commence alors et prend quelques minutes
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -146,19 +146,7 @@ Vérifiez que le tableau de bord a été correctement créé.
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Vérifiez que vous pouvez voir les données relatives à la machine virtuelle à partir du portail Azure.
-
-1. Dans le portail Azure, sélectionnez **Tableau de bord**.
-
-   ![Navigation du portail Azure jusqu’au tableau de bord](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. Dans la page Tableau de bord, sélectionnez **Tableau de bord Machine virtuelle simple**.
-
-   ![Accéder au tableau de bord Machine virtuelle simple](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Vérifiez le tableau de bord. Vous pouvez voir qu’une partie du contenu est statique, mais il y a également des graphiques qui indiquent les performances de la machine virtuelle.
-
-   ![Examiner le tableau de bord Machine virtuelle simple](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -170,6 +158,7 @@ Pour supprimer la machine virtuelle et le tableau de bord associé, supprimez le
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
