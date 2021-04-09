@@ -4,12 +4,12 @@ description: Apprenez à utiliser les serveurs avec Azure Arc afin de gérer les
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175972"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023331"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
@@ -23,7 +23,7 @@ Lorsque vous connectez votre machine à des serveurs avec Azure Arc, vous pouvez
 
 - Affecter des [configurations invité Azure Policy](../../governance/policy/concepts/guest-configuration.md) à l’aide de la même expérience que lors de l’attribution de stratégie pour des machines virtuelles Azure. De nos jours, la plupart des stratégies de configuration d’invité ne s’appliquent pas aux configurations : elles auditent seulement les paramètres à l’intérieur de la machine. Pour comprendre le coût de l’utilisation de stratégies Guest Configuration dans Azure Policy avec des serveurs Arc, consultez le [guide des tarifs](https://azure.microsoft.com/pricing/details/azure-policy/) d’Azure Policy.
 
-- Signalez les changements de configuration relatifs aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows ainsi qu’aux démons Linux sur des serveurs surveillés à l’aide de la fonctionnalité [Suivi des modifications et inventaire](../../automation/change-tracking/overview.md) d’Azure Automation et de [Supervision d’intégrité de fichier dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), et à l’aide d’[Azure Defender pour serveurs](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction) pour les serveurs.
+- Signalez les changements de configuration relatifs aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows ainsi qu’aux démons Linux sur des serveurs surveillés à l’aide de la fonctionnalité [Suivi des modifications et inventaire](../../automation/change-tracking/overview.md) d’Azure Automation et de [Supervision d’intégrité de fichier dans Azure Security Center](../../security-center/security-center-file-integrity-monitoring.md), et à l’aide d’[Azure Defender pour serveurs](../../security-center/defender-for-servers-introduction.md) pour les serveurs.
 
 - Surveillez les performances du système d’exploitation invité de votre machine connectée, et découvrez les composants de l’application afin de surveiller leurs processus et dépendances avec d’autres ressources que l’application communique à l’aide d’[Azure Monitor pour machines virtuelles](../../azure-monitor/vm/vminsights-overview.md).
 

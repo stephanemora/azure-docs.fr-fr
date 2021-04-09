@@ -8,10 +8,10 @@ ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 60486c41ad843cf193ee0648dfcfef66f7668e47
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101674973"
 ---
 # <a name="disk-performance-metrics"></a>Mesures de performances de disque

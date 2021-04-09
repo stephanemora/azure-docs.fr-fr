@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: kkrishna
 ms.openlocfilehash: 174946667885debc348370ef2c6f93206890e9c1
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94628003"
 ---
 Vous pouvez utiliser l’implémentation du cache de jeton MSAL pour permettre aux applications, aux API et aux services en arrière-plan d’utiliser le cache de jeton d’accès afin de continuer à agir au nom des utilisateurs en leur absence. Cela s’avère particulièrement utile si les applications et les services en arrière-plan doivent continuer à travailler au nom de l’utilisateur une fois que celui-ci a quitté l’application web front-end.

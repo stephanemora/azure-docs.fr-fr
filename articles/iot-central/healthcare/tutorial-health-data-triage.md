@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: d227d934eedd31342ce419576fffe7cea17efb1d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101742833"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
@@ -145,7 +145,7 @@ Avant cela, vous devez comprendre la charge utile JSON envoyée de votre apparei
 
 1. Maintenant que vous avez inspecté vos charges utiles JSON, revenez à votre Concepteur d'applications logiques et sélectionnez **+ Nouvelle étape**. Recherchez et ajoutez **Initialiser la variable**, puis entrez les paramètres suivants :
 
-   |Paramètre|Value|
+   |Paramètre|Valeur|
    |---|---|
    |Nom|Nom de l'interface|
    |Type|String|

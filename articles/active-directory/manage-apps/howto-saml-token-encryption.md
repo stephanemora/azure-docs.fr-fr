@@ -16,13 +16,13 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32a6034f407bd81e5d2d2ab8227d08a67f034d4c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258640"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Procédure : Configurer le chiffrement de jeton SAML Azure AD
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Guide pratique : configurer le chiffrement de jeton SAML Azure AD
 
 > [!NOTE]
 > Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -70,7 +70,7 @@ Vous pouvez ajouter le certificat public à la configuration de votre applicatio
 
     ![Importer le fichier .cer qui contient le certificat X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
-1. Une fois le certificat importé et la clé privée configurée pour une utilisation côté application, activez le chiffrement en sélectionnant les points de suspension ( **...** ) en regard de l’état de l’empreinte numérique, puis sélectionnez **Activer le chiffrement des jetons** dans les options du menu déroulant.
+1. Une fois le certificat importé et la clé privée configurée pour une utilisation côté application, activez le chiffrement en sélectionnant les points de suspension (**...**) en regard de l’état de l’empreinte numérique, puis sélectionnez **Activer le chiffrement des jetons** dans les options du menu déroulant.
 
 1. Sélectionnez **Oui** pour confirmer l’activation du certificat de chiffrement de jeton.
 

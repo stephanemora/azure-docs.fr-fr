@@ -4,10 +4,10 @@ description: Cet article explique comment utiliser des règles de pare-feu IP et
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98217241"
 ---
 # <a name="network-security-for-azure-relay"></a>Sécurité réseau pour Azure Relay 

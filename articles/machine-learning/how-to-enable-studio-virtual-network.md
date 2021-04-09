@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: ca3957563f7c7a7021ad994cc323823763c2936e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: da8007a651b62430055f263f082fabf2aa4bf610
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171542"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574286"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Utiliser le studio Azure Machine Learning dans un réseau virtuel Azure
 
@@ -166,3 +166,5 @@ Cet article est le cinquième volet d’une série de cinq articles sur les rés
 * [Partie 2 : Sécuriser les ressources d’espace de travail](how-to-secure-workspace-vnet.md)
 * [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
+
+Consultez également l’article sur l’utilisation du [DNS personnalisé](how-to-custom-dns.md) pour la résolution de noms.

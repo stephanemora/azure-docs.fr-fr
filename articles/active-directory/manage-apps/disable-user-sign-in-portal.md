@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259234"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Désactiver les connexions utilisateur pour une application d’entreprise dans Azure Active Directory
@@ -33,8 +33,8 @@ Il est facile de désactiver une application d’entreprise afin qu’aucun util
 1. Sélectionnez **Tous les services**, entrez **Azure Active Directory** dans la zone de texte, puis sélectionnez **Entrée**.
 1. Dans le volet **Azure Active Directory** -  **_NomRépertoire_ *_ (autrement dit, le volet Azure AD du répertoire que vous gérez), sélectionnez _* Applications d’entreprise**.
 1. Dans le volet **Applications d’entreprise - Toutes les applications**, vous voyez une liste des applications que vous pouvez gérer. Sélectionnez une application.
-1. Dans le volet **_NomApplication_ *_ (autrement dit, le volet intitulé avec le nom de l’application sélectionnée), sélectionnez _* Propriétés**.
-1. Dans le volet **_NomApplication_ *_ - _* Propriétés**, sélectionnez **Non** pour **Activé pour que les utilisateurs se connectent ?** .
+1. Dans le volet ***appname** _ (c’est-à-dire le volet dont le nom de l’application sélectionnée se trouve dans le titre), sélectionnez _*Propriétés**.
+1. Dans le volet ***appname** _ - _ volet *Propriétés**, sélectionnez **Non** pour **Activé pour la connexion des utilisateurs ?** .
 1. Sélectionnez la commande **Enregistrer** .
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Utiliser Azure AD PowerShell pour désactiver une application non répertoriée

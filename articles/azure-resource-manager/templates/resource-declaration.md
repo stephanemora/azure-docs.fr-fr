@@ -4,10 +4,10 @@ description: Explique comment déclarer des ressources à déployer dans un mod�
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: 13f4a08162c40cbb36173627d88a4a8202a4ed26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101743174"
 ---
 # <a name="resource-declaration-in-arm-templates"></a>Déclaration de ressource dans des modèles ARM
