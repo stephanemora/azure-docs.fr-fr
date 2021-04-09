@@ -4,10 +4,10 @@ description: Cet article explique comment obtenir une clé d'accès pour une rub
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: a642affbac79766684dc75a37dae0373450d20e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98632527"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Obtenir des clés d’accès pour des ressources Event Grid (rubriques ou domaines)

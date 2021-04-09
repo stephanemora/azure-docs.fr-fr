@@ -1,5 +1,5 @@
 ---
-title: 'Agent de provisionnement cloud Azure AD Connect : Mise à niveau automatique | Microsoft Docs'
+title: 'Agent d’approvisionnement cloud Azure AD Connect : Mise à niveau automatique | Microsoft Docs'
 description: Cet article décrit la fonctionnalité de mise à niveau automatique intégrée dans l’agent de provisionnement cloud Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26c0b47dd358826b843143aaf23c469d852e93b3
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98612548"
 ---
-# <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Agent de provisionnement cloud Azure AD Connect : Mise à jour automatique
+# <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Agent d’approvisionnement cloud Azure AD Connect : Mise à niveau automatique
 
 La fonctionnalité de mise à niveau automatique vous permet de facilement vous assurer que votre installation de l’agent d'approvisionnement cloud Azure Active Directory (Azure AD) Connect est toujours à jour.
 

@@ -4,10 +4,10 @@ description: Dans cet article, découvrez la manière dont le service Sauvegarde
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733568"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
@@ -121,7 +121,7 @@ Lors de la configuration des sauvegardes de machines virtuelles, nous vous sugg�
 - Si vous restaurez des machines virtuelles à partir d’un seul coffre, nous vous recommandons vivement d’utiliser différents [comptes de stockage v2 à usage général](../storage/common/storage-account-upgrade.md) pour faire en sorte que le compte de stockage cible ne soit pas limité. Par exemple, chaque machine virtuelle doit avoir un compte de stockage distinct. Par exemple, si 10 machines virtuelles sont restaurées, utilisez 10 comptes de stockage distincts.
 - Pour la sauvegarde de machines virtuelles qui utilisent le stockage Premium, avec la restauration instantanée, nous vous recommandons d’allouer *50 %* d’espace libre de l’espace de stockage total alloué, qui est nécessaire **uniquement** pour la première sauvegarde. L’espace libre de 50 % n’est plus une obligation une fois la première sauvegarde terminée.
 - La limite du nombre de disques par compte de stockage dépend de la lourdeur des disques auxquels accèdent les applications s’exécutant sur une machine virtuelle IaaS. En règle générale, si plus de 5 disques sont présents sur un compte de stockage, équilibrez la charge en déplaçant certains disques vers des comptes de stockage distincts.
-- Pour restaurer des machines virtuelles avec des disques managés en utilisant PowerShell, fournissez le paramètre supplémentaire **_TargetResourceGroupName_* _ pour spécifier le groupe de ressources dans lequel les disques managés seront restaurés. [En savoir plus ici](./backup-azure-vms-automation.md#restore-managed-disks).
+- Pour restaurer des machines virtuelles avec des disques managés en utilisant PowerShell, fournissez le paramètre supplémentaire ***TargetResourceGroupName*** pour spécifier le groupe de ressources dans lequel les disques managés seront restaurés. [En savoir plus ici](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Coûts de sauvegarde
 
@@ -131,7 +131,7 @@ La facturation ne commence pas avant la fin de la première sauvegarde réussie.
 
 La facturation pour une machine virtuelle spécifiée ne s’interrompt que si la protection est levée et que toutes les données de sauvegarde sont supprimées. Quand la protection s’arrête et qu’il n’y a aucun travail de sauvegarde actif, la taille de la dernière sauvegarde de machine virtuelle réussie devient la taille de l’instance protégée utilisée pour la facture mensuelle.
 
-Le calcul de la taille d’instance protégée est basé sur la taille _réelle* de la machine virtuelle. La taille de la machine virtuelle correspond à la somme de toutes les données stockées sur celles-ci, à l’exclusion du stockage temporaire. La tarification est basée sur les données réelles stockées sur les disques de données, pas sur la valeur maximale de taille prise en charge pour chaque disque de données attaché à la machine virtuelle.
+Le calcul de la taille d’instance protégée est basé sur la taille *réelle* de la machine virtuelle. La taille de la machine virtuelle correspond à la somme de toutes les données stockées sur celles-ci, à l’exclusion du stockage temporaire. La tarification est basée sur les données réelles stockées sur les disques de données, pas sur la valeur maximale de taille prise en charge pour chaque disque de données attaché à la machine virtuelle.
 
 De même, la facture du stockage de sauvegarde est basée sur la quantité de données stockées sur le service Sauvegarde Azure, qui est la somme des données réelles contenues dans chaque point de récupération.
 
