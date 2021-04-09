@@ -9,10 +9,10 @@ ms.date: 10/20/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8bb227bdc4bbcdf986c2ed64e1f89e1dfa289b83
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102554970"
 ---
 # <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-portal"></a>Tutoriel : Se connecter à un serveur SQL Azure avec Azure Private Endpoint - Portail Azure
@@ -174,7 +174,7 @@ Dans cette section, vous allez créer un serveur SQL dans Azure.
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **CreateSQLEndpointTutorial**. |
     | Emplacement | Sélectionnez **USA Est**. |
     | Name | Entrez **myPrivateSQLendpoint**. |

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fe42b98813f1687c78827b355a707b0147d6d2a4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103017356"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067280"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -64,7 +64,7 @@ La version 3 offre les avantages suivants :
 
 #### <a name="action-required"></a>Action obligatoire :
 
-Pour limiter les perturbations au niveau de vos charges de travail, consultez le [guide de migration](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) pour faire passer votre code de la version 2 de l’API et des SDK à la version 3 avant le 29 février 2024.
+Pour limiter les perturbations au niveau de vos charges de travail, consultez le [guide de migration](../latest/migrate-v-2-v-3-migration-introduction.md) pour faire passer votre code de la version 2 de l’API et des SDK à la version 3 avant le 29 février 2024.
 **Après le 29 février 2024**, Azure Media Services n’acceptera plus le trafic sur l’API REST version 2, l’API de gestion de compte ARM version 2015-10-01 ou à partir des SDK clients .NET version 2. Cela inclut tous les SDK clients open source tiers pouvant appeler l’API version 2.  
 
 Consultez [l’annonce officielle sur les mises à jour Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -252,7 +252,7 @@ L’équipe du SDK Azure a publié une nouvelle version du package [SDK Azure po
 Pour plus d'informations, consultez les pages suivantes :
 
 * Les [exemples de code](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) suivants vous aident à démarrer rapidement :
-  * **vodworkflow_aes.php** : ce fichier PHP indique comment utiliser le chiffrement dynamique AES 128 et le service de remise de clé. Il est basé sur l’exemple .NET décrit dans [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php** : ce fichier PHP indique comment utiliser le chiffrement dynamique AES 128 et le service de remise de clé. Il est basé sur l’exemple .NET décrit dans [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-playready-license-template-overview.md).
   * **vodworkflow_aes.php** : ce fichier PHP indique comment utiliser le chiffrement dynamique PlayReady et le service de remise de licence. Il est basé sur l’exemple .NET décrit dans [Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units.php** : ce fichier PHP indique comment mettre à l’échelle des unités réservées d’encodage.
 

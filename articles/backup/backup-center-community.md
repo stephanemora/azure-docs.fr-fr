@@ -4,10 +4,10 @@ description: Utilisez le Centre de sauvegarde pour accéder à des exemples de m
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.openlocfilehash: b5173f916341497620d521af1bc7e973e0b6e507
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102506262"
 ---
 # <a name="access-community-resources-using-backup-center"></a>Accéder aux ressources de la communauté dans le Centre de sauvegarde

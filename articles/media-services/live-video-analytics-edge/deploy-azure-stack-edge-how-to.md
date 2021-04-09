@@ -3,12 +3,12 @@ title: Déployer Live Video Analytics sur Azure Stack Edge
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: d49167890009d58b21c3678cb89f608bad665abd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5be85e93b81f5cf50284533f21e688384558494
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730267"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561149"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Déployer Live Video Analytics sur Azure Stack Edge
 
@@ -236,7 +236,7 @@ Suivez ces instructions pour vous connecter à votre hub IoT à l’aide de l’
 
 * **Accès à l’API Kubernetes (kubectl)**
 
-    * Suivez la documentation pour configurer votre ordinateur afin d’avoir [accès au cluster Kubernetes](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster).
+    * Suivez la documentation pour configurer votre ordinateur afin d’avoir [accès au cluster Kubernetes](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * Tous les modules IoT Edge déployés utilisent l’espace de noms `iotedge`. Assurez-vous de l’inclure lorsque vous utiliser kubectl.  
 
 * **Journaux de module**

@@ -3,12 +3,12 @@ title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20f7b6dc6c49b972b873ae3b275451829dec5c14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700471"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934170"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -599,7 +599,7 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | Entité | Étendue | Longueur | Caractères valides |
 > | --- | --- | --- | --- |
 > | deployments | resource group | 1-64 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union et points. |
-> | resourcegroups | subscription | 1-90 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union, points et caractères Unicode correspondant à la [documentation sur l’expression régulière](/rest/api/resources/resourcegroups/createorupdate).<br><br>Ne peut pas se terminer par un point. |
+> | resourcegroups | subscription | 1-90 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union, points et caractères Unicode correspondant à la [documentation sur l’expression régulière](/rest/api/resources/resources/resourcegroups/createorupdate).<br><br>Ne peut pas se terminer par un point. |
 > | tagNames | resource | 1-512 | Impossibilité d’utiliser :<br>`<>%&\?/` |
 > | tagNames / tagValues | nom d’étiquette | 1-256 | Tous les caractères. |
 > | templateSpecs | resource group | 1-90 | Caractères alphanumériques, traits de soulignement, parenthèses, traits d’union et points. |

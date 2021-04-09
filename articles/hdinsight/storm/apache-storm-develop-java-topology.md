@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8e51f99496514e40d6c3f85000384a14baf84946
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929123"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865364"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Créer une topologie Apache Storm en Java
 
@@ -38,7 +38,7 @@ mkdir C:\HDI
 cd C:\HDI
 ```
 
-## <a name="create-a-maven-project"></a>Création d’un projet Maven
+## <a name="create-a-maven-project"></a>Créer un projet Maven
 
 Entrez la commande suivante pour créer un projet Maven nommé **WordCount** :
 
@@ -51,9 +51,9 @@ mkdir resources
 
 Cette commande crée un répertoire nommé `WordCount` à l’emplacement actuel, qui contient un projet Maven de base. La deuxième commande change le répertoire de travail actuel par `WordCount`. La troisième commande crée le répertoire `resources`, qui sera utilisé ultérieurement.  Le répertoire `WordCount` contient les éléments suivants :
 
-* `pom.xml`: contient les paramètres du projet Maven.
-* `src\main\java\com\microsoft\example`: contient votre code d’application.
-* `src\test\java\com\microsoft\example`: contient des tests pour votre application.  
+* `pom.xml` : contient les paramètres du projet Maven.
+* `src\main\java\com\microsoft\example` : contient votre code d’application.
+* `src\test\java\com\microsoft\example` : contient des tests pour votre application.  
 
 ### <a name="remove-the-generated-example-code"></a>Supprimer l’exemple de code généré
 
@@ -113,7 +113,7 @@ Ajoutez ensuite le texte XML qui suit après la ligne `<url>https://maven.apache
 </repositories>
 ```
 
-## <a name="add-properties"></a>Ajout de propriétés
+## <a name="add-properties"></a>Ajouter des propriétés
 
 Maven vous permet de définir des valeurs au niveau du projet appelées propriétés. Dans `pom.xml`, ajoutez le texte suivant après la ligne `</repositories>` :
 
@@ -234,11 +234,11 @@ Cet exemple ajoute le répertoire des ressources à la racine du projet (`${base
 
 Une topologie Apache Storm basée sur Java comprend trois composants que vous devez créer (ou référencer) en tant que dépendance.
 
-* **Spouts** : ils lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
+* **Les spouts**: lisent les données provenant de sources externes et émettent des flux de données dans la topologie.
 
-* **Bolts** : Effectue le traitement des flux de données émis par les spouts ou les autres bolts et émettent un ou plusieurs flux.
+* **Les bolts** : effectue le traitement des flux de données émis par les spouts ou d’autres bolts et émettent un ou plusieurs flux.
 
-* **Topologie** : elle définit l’organisation des spouts et des bolts, et fournit le point d’entrée pour la topologie.
+* **La topologie**: définit l’organisation des spouts et des bolts et fournit le point d’entrée pour la topologie.
 
 ### <a name="create-the-spout"></a>Création du spout
 
@@ -317,16 +317,16 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]  
 > Pour obtenir un exemple de spout effectuant des lectures à partir d’une source de données externe, consultez un des exemples suivants :
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java) : exemple de spout qui lit à partir de Twitter.
+> * [TwitterSampleSpout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java) : exemple de spout qui lit à partir de Twitter.
 > * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka) : spout qui lit à partir de Kafka.
 
 ### <a name="create-the-bolts"></a>Création des bolts
 
 Les bolts gèrent le traitement des données. Les bolts peuvent tout faire : calculs, persistance, communication avec des composants externes, etc. Cette topologie utilise deux bolts :
 
-* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
+* **SplitSentence** : fractionne les phrases émises par **RandomSentenceSpout** en mots.
 
-* **WordCount** : compte le nombre d’occurrences de chaque mot.
+* **WordCount**: compte le nombre d’occurrences de chaque mot.
 
 #### <a name="splitsentence"></a>SplitSentence
 
@@ -482,7 +482,7 @@ La topologie relie les spouts et bolts dans un graphique. Le graphique définit 
 
 L’image ci-dessous illustre un diagramme de base des composants de cette topologie.
 
-![schéma montrant la disposition des spouts et bolts](./media/apache-storm-develop-java-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-java-topology/word-count-topology1.png" alt-text="schéma montrant la disposition des spouts et bolts" border="false":::
 
 Pour implémenter la topologie, entrez la commande suivante pour créer un fichier `WordCountTopology.java` et l’ouvrir :
 

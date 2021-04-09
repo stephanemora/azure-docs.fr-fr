@@ -11,18 +11,18 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f83e13155fa851a06c8b7d36b87c3038257c0b3a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467265"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864378"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
+# <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>Entraîner un modèle personnalisé à l’aide de l’exemple d’outil d’étiquetage
 
 Dans ce démarrage rapide, vous allez utiliser l’API REST Form Recognizer avec l’exemple d’outil d’étiquetage pour effectuer l’apprentissage d’un modèle de traitement de documents personnalisé avec des données étiquetées manuellement. Pour en savoir plus sur l’apprentissage supervisé avec Form Recognizer, consultez la section [Effectuer l’apprentissage avec des étiquettes](../overview.md#train-with-labels) de la vue d’ensemble.
 
