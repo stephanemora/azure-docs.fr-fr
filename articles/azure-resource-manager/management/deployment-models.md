@@ -4,10 +4,10 @@ description: Décrit les différences entre le modèle de déploiement de Resour
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185842"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources

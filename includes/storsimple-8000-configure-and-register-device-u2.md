@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: ee92e145acd981bb8c84b43986b90306b994c262
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95559838"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Configuration et inscription de l’appareil
@@ -20,7 +20,7 @@ ms.locfileid: "95559838"
 3. Vous devez choisir la langue que vous souhaitez définir pour votre appareil. Spécifiez la langue, puis appuyez sur **Entrée**.
 
 4. Dans le menu de console en série qui s’affiche, choisissez l’option 1 : **Se connecter avec accès total**.
-     Suivez les étapes 5 à 12 pour configurer les paramètres réseau minimum requis pour votre appareil. **Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil.** Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
+     Suivez les étapes 5 à 12 pour configurer les paramètres réseau minimum requis pour votre appareil. **Ces étapes de configuration doivent être effectuées sur le contrôleur actif de l’appareil.**  Le menu de la console en série indique l’état du contrôleur dans le message de bannière. Si vous n’êtes pas connecté au contrôleur actif, déconnectez-vous, puis connectez-vous à ce contrôleur.
 
 5. À l’invite de commandes, tapez votre mot de passe. Le mot de passe par défaut de l’appareil est **Password1**.
 
@@ -109,7 +109,7 @@ ms.locfileid: "95559838"
 14. Revenez au portail Azure et procédez comme suit :
     
     1. Accédez à votre service StorSimple Device Manager.
-    2. Cliquez sur **Appareils**.
+    2. Cliquez sur **Périphériques**.
     3. Dans la liste tabulaire des appareils, vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **Prêt pour la configuration**.
        
         ![Page Appareils StorSimple](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup2.png)

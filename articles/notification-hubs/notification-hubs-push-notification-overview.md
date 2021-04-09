@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 04/30/2019
 ms.openlocfilehash: ba5a329d12735fbddc86ff2e3725a1e7de6d9d89
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100546463"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Présentation d’Azure Notification Hubs
@@ -71,7 +71,7 @@ L’envoi de notifications Push nécessite une infrastructure complexe qui n’e
 
 - **Dépendance de la plateforme**
   - Le back-end exige une logique dépendante de la plateforme complexe et difficile à gérer pour envoyer des notifications aux appareils sur différentes plateformes, car les PNS ne sont pas unifiés.
-- **Mettre à l'échelle**
+- **Mise à l’échelle**
   - Selon les instructions de PNS, les jetons des appareils doivent être actualisés chaque fois que l’application est lancée. Le serveur principal traite une grande quantité de trafic et d’accès à la base de données simplement pour maintenir les jetons à jour. Lorsque le nombre d’appareils s’accroît pour atteindre des centaines, des milliers voire des millions, le coût de création et de maintenance de cette infrastructure est conséquent.
   - La plupart des PNS ne prennent pas en charge la diffusion sur plusieurs appareils. Une simple diffusion sur un million d’appareils entraîne un million d’appels vers les PNS. La mise à l’échelle de cette quantité de trafic avec une latence minimale est complexe.
 - **Routage**
@@ -93,15 +93,15 @@ Notification Hubs est votre moteur Push prêt à l’emploi et présente les ava
   - Cloud ou locaux.
   - .NET, Node.js, Java, Python, etc.
 - **Ensemble complet de modèles de remise**
-  - Diffuser vers une ou plusieurs plateformes : Vous pouvez diffuser instantanément des contenus vers des millions d’appareils sur plusieurs plateformes avec un seul appel d’API.
-  - Notification Push à un appareil : Vous pouvez cibler des notifications sur des appareils individuels.
-  - Notification Push à un utilisateur : Les étiquettes et les modèles vous aident à atteindre tous les appareils multiplateformes d’un utilisateur.
-  - Notification Push à un segment avec des étiquettes dynamiques : La fonctionnalité des étiquettes vous permet de segmenter les appareils et de leur envoyer des notifications (Push) selon vos besoins, vers un seul segment ou une expression de segments (par exemple, actif ET réside à Seattle PAS nouvel utilisateur). Au lieu d’être limité au mécanisme publish-subscribe, vous pouvez mettre à jour les balises des appareils n’importe où et à tout moment.
-  - Notification Push localisé : La fonctionnalité des modèles permet d’effectuer une localisation sans affecter le code back-end.
-  - Notification Push en mode silencieux : vous pouvez activer le modèle envoi-extraction en envoyant des notifications en mode silencieux aux appareils et en les déclenchant pour effectuer certaines extractions ou actions.
-  - Notification Push planifiée : Vous pouvez planifier l’envoi de notifications à tout moment.
-  - Notification Push directe : Vous pouvez ignorer l’inscription des appareils auprès du service Notification Hubs et envoyer directement des notifications Push par lot à une liste de handles d’appareils.
-  - Notification Push personnalisée : Les variables des notifications Push des appareils vous permettent d’envoyer des notifications Push personnalisées spécifiques à un appareil avec des paires clé-valeur personnalisées.
+  - Diffuser sur une ou plusieurs plateformes : vous pouvez instantanément diffuser des contenus vers des millions d’appareils sur plusieurs plateformes en un seul appel d’API.
+  - Transmission Push à un appareil : vous pouvez cibler des notifications sur des appareils individuels.
+  - Transmission Push à l’utilisateur : les balises et les modèles vous permet de communiquer sur tous les appareils multi-plateformes d’un utilisateur.
+  - Transmission Push au segment avec des balises dynamiques : la fonctionnalité de balises vous permet de segmenter les appareils et de leur transmettre des notifications Push selon vos besoins, que vous effectuiez un envoi vers un segment ou une expression de segments (par exemple, actif ET réside à Seattle PAS nouvel utilisateur). Au lieu d’être limité au mécanisme publish-subscribe, vous pouvez mettre à jour les balises des appareils n’importe où et à tout moment.
+  - Notification Push localisée : la fonctionnalité de modèles permet d’obtenir la localisation sans affecter le code principal.
+  - Notification Push en mode silencieux : vous pouvez activer le modèle de transmission de type push et pull en envoyant des notifications en mode silencieux aux appareils et en les déclenchant pour effectuer certaines extractions ou actions.
+  - Notification Push planifiée : vous pouvez planifier l’envoi de notifications à tout moment.
+  - Notification Push directe : vous pouvez ignorer l’enregistrement des appareils auprès du service Notification Hubs et envoyer directement des notifications Push par lot à une liste de handles d’appareils.
+  - Notification Push personnalisée : les variables des notifications Push des appareils vous permettent d’envoyer des notifications Push personnalisées propres à l’appareil avec des paires clé-valeur personnalisées.
 - **Télémétrie enrichie**
   - La télémétrie de notification Push générale, d’appareil, d’erreur et d’opération est disponible sur le portail Azure et par programmation.
   - La télémétrie par message effectue le suivi de chaque envoi (push) à partir de votre appel de demande initial au service Notification Hubs qui envoie les notifications Push avec succès.
@@ -113,7 +113,7 @@ Notification Hubs est votre moteur Push prêt à l’emploi et présente les ava
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commencez à créer et à utiliser un hub de notification en suivant le [Tutoriel : Notifications Push vers des applications mobiles](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Commencez à créer et à utiliser un concentrateur de notification en suivant le [tutoriel : notifications Push vers des applications mobiles](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
