@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 18225703b2a390f64b4bebd58b0167dd77c454d0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 145dffea50040c86a4af9d77ba8f68cccc8d2958
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930381"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866044"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : créer un cluster Apache Spark dans Azure HDInsight à l’aide du portail Azure
 
@@ -35,7 +35,7 @@ Vous utilisez le portail Azure pour créer un cluster HDInsight qui utilise des 
 
 1. Dans le menu du haut, sélectionnez **+ Créer une ressource**.
 
-    ![Portail Azure – Créer une ressource](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-resource.png "Créer une ressource dans le portail Azure")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-resource.png " alt-text="Portail Azure créer une ressource" border="true":::urce" border="true":::
 
 1. Sélectionnez **Analytics** > **Azure HDInsight** pour accéder à la page **Créer un cluster HDInsight**.
 
@@ -53,7 +53,7 @@ Vous utilisez le portail Azure pour créer un cluster HDInsight qui utilise des 
     |Mot de passe de connexion au cluster| Entrez le mot de passe de connexion au cluster. |
     |Nom d’utilisateur SSH (Secure Shell)| Entrez le nom d’utilisateur SSH. Le nom d’utilisateur SSH utilisé pour ce démarrage rapide est **sshuser**. Par défaut, ce compte a le même mot de passe que le compte *Nom d’utilisateur de connexion au cluster*. |
 
-    ![Capture d’écran montrant le volet Créer un cluster HDInsight avec l’onglet Informations de base sélectionné.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Créer un cluster Spark dans des configurations de base HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png " alt-text="Capture d’écran montrant le volet Créer un cluster HDInsight avec l’onglet Informations de base sélectionné." border="true":::
 
     Sélectionnez **Suivant : Stockage >>** pour accéder à la page **Stockage**.
 
@@ -66,7 +66,7 @@ Vous utilisez le portail Azure pour créer un cluster HDInsight qui utilise des 
     |Compte de stockage principal|Utilisez la valeur renseignée automatiquement.|
     |Conteneur|Utilisez la valeur renseignée automatiquement.|
 
-    ![Capture d’écran montrant le volet Créer un cluster HDInsight avec l’onglet Stockage sélectionné.](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "Créer un cluster Spark dans des configurations de base HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png " alt-text="Capture d’écran montrant le volet Créer un cluster HDInsight avec l’onglet Stockage sélectionné." border="true":::
 
     Sélectionnez **Vérifier + créer** pour continuer.
 
@@ -82,7 +82,7 @@ Jupyter Notebook est un environnement de Notebook interactif qui prend en charge
 
 1. Sélectionnez **Nouveau** > **PySpark** pour créer un Notebook.
 
-   ![Créer un Jupyter Notebook pour exécuter une requête Spark SQL interactive](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un Jupyter Notebook pour exécuter une requête Spark SQL interactive")
+   :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="Créer un Jupyter Notebook pour exécuter une requête Spark SQL interactive" border="true":::
 
    Un nouveau bloc-notes est créé et ouvert sous le nom Untitled(Untitled.pynb).
 
@@ -92,7 +92,7 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
 1. Vérifiez que le noyau est prêt. Le noyau est prêt lorsque vous voyez un cercle vide à côté du nom du noyau dans le bloc-notes. Un cercle plein indique que le noyau est occupé.
 
-    ![Capture d’écran montrant une fenêtre Jupyter avec un indicateur PySpark.](./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png "Requête Hive dans HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql/jupyter-spark-kernel-status.png " alt-text="Capture d’écran montrant une fenêtre Jupyter avec un indicateur PySpark." border="true":::ark indicator." border="true":::
 
     Lorsque vous démarrez le bloc-notes pour la première fois, le noyau effectue certaines tâches en arrière-plan. Attendez que le noyau soit prêt.
 
@@ -105,7 +105,7 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
     Quand vous utilisez un notebook Jupyter avec votre cluster HDInsight, vous obtenez un `sqlContext` prédéfini que vous pouvez utiliser pour exécuter des requêtes Hive à l’aide de Spark SQL. `%%sql` demande à Jupyter Notebook d’utiliser la présélection `sqlContext` pour exécuter la requête Hive. La requête extrait les 10 premières lignes d’une table Hive (**hivesampletable**) qui est disponible par défaut sur tous les clusters HDInsight. Il faut environ 30 secondes pour obtenir les résultats. Le résultat se présente ainsi :
 
-    ![Capture d’écran montrant une fenêtre Jupyter pour le bloc-notes créé dans ce démarrage rapide.](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png "Requête Hive dans HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query.png " alt-text="Capture d’écran montrant une fenêtre Jupyter pour le bloc-notes créé dans ce démarrage rapide." border="true":::is quickstart." border="true":::
 
     À chaque exécution d’une requête dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **PySpark** dans le coin supérieur droit.
 
@@ -118,7 +118,7 @@ SQL (Structured Query Language) est le langage le plus courant et le plus largem
 
     L’écran doit s’actualiser pour afficher la sortie de requête.
 
-    ![Sortie de requête Hive dans HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query-output.png "Sortie de requête Hive dans HDInsight")
+    :::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-spark-get-started-hive-query-output.png " alt-text="Sortie de requête Hive dans HDInsight" border="true":::Insight" border="true":::
 
 1. Dans le menu **Fichier** du Notebook, sélectionnez **Fermer et interrompre**. L’arrêt du bloc-notes libère les ressources de cluster.
 
@@ -128,7 +128,7 @@ HDInsight enregistre vos données dans le Stockage Azure ou Azure Data Lake Stor
 
 Revenez au Portail Azure, puis sélectionnez **Supprimer**.
 
-![Portail Azure - Supprimer un cluster HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
+:::image type="content" source="./media/apache-spark-jupyter-spark-sql-use-portal/hdinsight-azure-portal-delete-cluster.png " alt-text="Portail Azure : supprimer un cluster HDInsight" border="true":::sight cluster" border="true":::
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight et le compte de stockage par défaut.
 

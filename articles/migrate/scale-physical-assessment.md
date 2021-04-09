@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
-ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 232475c50ab56fe6fb7a39a3497a8de3947fe851
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753686"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780308"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Évaluer un grand nombre de serveurs physiques pour la migration vers Azure
 
-Cet article explique comment évaluer un grand nombre de serveurs physiques locaux pour les migrer vers Azure à l’aide de l’outil d’évaluation de serveur Azure Migrate.
+Cet article explique comment évaluer un grand nombre de serveurs physiques locaux pour les migrer vers Azure à l’aide de l’outil de découverte et d’évaluation d’Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers. 
 
@@ -36,7 +36,7 @@ Dans cet article, vous apprendrez comment :
 Lorsque vous planifiez l’évaluation d’un grand nombre de serveurs physiques, quelques points sont à prendre en compte :
 
 - **Planification de projets Azure Migrate** : Découvrez comment déployer les projets Azure Migrate. Par exemple, si vos centres de données sont situés dans des zones géographiques différentes, ou si vous avez besoin de stocker des métadonnées de découverte, d’évaluation ou de migration dans une autre zone géographique, vous pouvez avoir besoin de plusieurs projets.
-- **Planifier des appliances** : Azure Migrate utilise une appliance Azure Migrate locale, déployée sur un ordinateur Windows, afin de découvrir en permanence des serveurs pour l’évaluation et la migration. L’appliance surveille les changements d’environnement tels que l’ajout de machines virtuelles, de disques ou d’adaptateurs réseau. Elle envoie également à Azure les métadonnées et les données de performance concernant ces opérations. Vous devez déterminer le nombre d’appliances à déployer.
+- **Planifier des appliances** : Azure Migrate utilise une appliance Azure Migrate locale, déployée sur un serveur Windows, afin de découvrir en permanence des serveurs à des fins d’évaluation et de migration. L’appliance surveille des changements d’environnement tels que l’ajout de serveurs, de disques ou de cartes réseau. Elle envoie également à Azure les métadonnées et les données de performance concernant ces opérations. Vous devez déterminer le nombre d’appliances à déployer.
 
 
 ## <a name="planning-limits"></a>Limites de planification
@@ -57,7 +57,7 @@ Utilisez les limites résumées dans ce tableau pour la planification.
 
 ## <a name="prepare-for-assessment"></a>Préparer pour l’évaluation
 
-Préparez les serveurs physiques et Azure à une évaluation de serveur. 
+Préparer les serveurs Azure et physiques pour l’outil de découverte et d’évaluation :  
 
 1. Vérifiez les [spécifications et limitations de la prise en charge des serveurs physiques](migrate-support-matrix-physical.md).
 2. Configurez des autorisations pour permettre à votre compte Azure d’interagir avec Azure Migrate.
@@ -70,7 +70,7 @@ Suivez les instructions de [ce tutoriel](./tutorial-discover-physical.md) pour c
 Conformément à vos exigences de planification, procédez comme suit :
 
 1. Créer un projet Azure Migrate.
-2. Ajoutez l’outil Évaluation de serveur Azure Migrate aux projets.
+2. Ajoutez l’outil de découverte et d’évaluation d’Azure Migrate aux projets.
 
 [En savoir plus](./create-manage-projects.md)
 

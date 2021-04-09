@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387680"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584398"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Résoudre les problèmes de performances de l’activité de copie
 
@@ -168,7 +168,7 @@ Si les performances de copie ne répondent pas à vos attentes et si vous voyez 
   - Réglez progressivement les [copies parallèles](copy-activity-performance-features.md). Notez qu’un trop grand nombre de copies parallèles peut également nuire aux performances.
 
 
-## <a name="connector-and-ir-performance"></a>Performances du connecteur et du runtime d’intégration (IR)
+## <a name="connector-and-ir-performance"></a>Performances du connecteur et du runtime d’intégration (IR) 
 
 Cette section explore certains guides de résolution des problèmes en matière de performances pour un type de connecteur spécifique ou pour le runtime d’intégration.
 
@@ -176,9 +176,11 @@ Cette section explore certains guides de résolution des problèmes en matière 
 
 La durée d’exécution de l’activité varie quand le jeu de données est basé sur différents runtime d’intégration.
 
-- **Symptômes** : L’activation/désactivation de la liste déroulante Service lié dans le jeu de données effectue les mêmes activités de pipeline, mais avec des délais d’exécution radicalement différents. Lorsque le jeu de données est basé sur le runtime d'intégration de réseau virtuel géré, il faut plus de 2 minutes en moyenne pour terminer l’exécution, mais environ 20 secondes en fonction du runtime d'intégration par défaut.
+- **Symptômes** : L’activation/désactivation de la liste déroulante Service lié dans le jeu de données effectue les mêmes activités de pipeline, mais avec des délais d’exécution radicalement différents. Lorsque le jeu de données est basé sur le runtime d’intégration de réseau virtuel géré, il faut plus de temps en moyenne que n’en nécessite l’exécution quand elle est basée sur le runtime d’intégration par défaut.  
 
-- **Cause** : Dans les détails des exécutions du pipeline, vous pouvez constater que le pipeline lent s’exécute sur le runtime d’intégration du réseau virtuel géré, alors que le pipeline normal s’exécute sur le runtime d'intégration Azure. De par sa conception, le runtime d'intégration du réseau virtuel géré prend plus de temps que le runtime d'intégration Azure car nous ne réservons aucun nœud de calcul par fabrique de données. Par conséquent, le démarrage de chaque activité de copie prend environ 2 minutes, ce qui se produit principalement à la jonction du réseau virtuel plutôt que dans le runtime d'intégration Azure.
+- **Cause** : Dans les détails des exécutions du pipeline, vous pouvez constater que le pipeline lent s’exécute sur le runtime d’intégration du réseau virtuel géré, alors que le pipeline normal s’exécute sur le runtime d'intégration Azure. En raison de sa conception, le runtime d’intégration du réseau virtuel géré prend plus de temps que le runtime d’intégration Azure car nous ne réservons aucun nœud de calcul par fabrique de données. Par conséquent, il y a un temps de démarrage pour chaque activité de copie, qui se produit principalement à la jonction du réseau virtuel plutôt que dans le runtime d’intégration Azure. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Faible niveau de performance pendant le chargement de données dans Azure SQL Database

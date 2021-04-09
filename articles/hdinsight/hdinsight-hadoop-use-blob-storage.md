@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945431"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
@@ -28,9 +28,9 @@ Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des c
 
 | Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge |Niveaux de performances non pris en charge| Niveaux d’accès pris en charge |
 |----------------------|--------------------|-----------------------------|---|------------------------|
-| StorageV2 (usage général v2)  | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
-| Stockage (v1 universel)   | Objet blob     | Standard                    |Premium| N/A                    |
-| BlobStorage                    | Objet blob     | Standard                    |Premium| Chaud, froid, archive\*   |
+| StorageV2 (usage général v2)  | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
+| Stockage (v1 universel)   | Objet blob     | standard                    |Premium| N/A                    |
+| BlobStorage                    | Objet blob     | standard                    |Premium| Chaud, froid, archive\*   |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 

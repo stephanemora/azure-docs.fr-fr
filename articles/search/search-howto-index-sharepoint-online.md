@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102498895"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048865"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Comment configurer l’indexation SharePoint Online dans le service Recherche cognitive (préversion)
 
@@ -147,7 +147,7 @@ api-key: [admin key]
 
 ```
 
-Pour plus d’informations, consultez [Créer un index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Pour plus d’informations, consultez [Créer un index (API REST)](/rest/api/searchservice/create-index).
 
 ### <a name="step-5-create-an-indexer"></a>Étape 5 : Créer un indexeur
 Un indexeur connecte une source de données à un index de recherche cible et fournit une planification afin d’automatiser l’actualisation des données. Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur.
@@ -226,7 +226,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-Pour plus d’informations sur l’état de l’indexeur, consultez [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Pour plus d’informations sur l’état de l’indexeur, consultez [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
 ## <a name="updating-the-data-source"></a>Mise à jour de la source de données
 Si l’objet source de données ne fait l’objet d’aucune mise à jour, l’indexeur peut s’exécuter selon une planification sans aucune intervention de l’utilisateur. Toutefois, chaque fois que l’objet source de données Recherche cognitive Azure est mis à jour, vous devez vous reconnecter pour que l’indexeur s’exécute. Par exemple, si vous modifiez la requête de source de données, vous devez vous reconnecter avec `https://microsoft.com/devicelogin` et un nouveau code.
@@ -241,7 +241,7 @@ Une fois la source de données mise à jour, effectuez les étapes suivantes :
     api-key: [admin key]
     ```
 
-    Pour plus d’informations sur la requête d’exécution de l’indexeur, consultez [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer).
+    Pour plus d’informations sur la requête d’exécution de l’indexeur, consultez [Run Indexer](/rest/api/searchservice/run-indexer).
 
 1.  Vérifiez l’état de l’indexeur. Si la dernière exécution de l’indexeur génère une erreur indiquant que vous devez accéder à la `https://microsoft.com/devicelogin`, accédez à cette page et indiquez le nouveau code. 
 
@@ -251,7 +251,7 @@ Une fois la source de données mise à jour, effectuez les étapes suivantes :
     api-key: [admin key]
     ```
 
-    Pour plus d’informations sur l’état de l’indexeur, consultez [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+    Pour plus d’informations sur l’état de l’indexeur, consultez [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
 1.  Connexion
 
@@ -359,7 +359,7 @@ Pour certains documents, le service Recherche cognitive Azure ne parvient pas à
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-La Recherche cognitive Azure limite la taille des documents indexés. Ces limites sont documentées dans [Limites de service de Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Par défaut, les documents surdimensionnés sont traités comme des erreurs. Toutefois, vous pouvez toujours indexer des métadonnées de stockage de documents surdimensionnés en définissant le paramètre de configuration `indexStorageMetadataOnlyForOversizedDocuments` sur true :
+La Recherche cognitive Azure limite la taille des documents indexés. Ces limites sont documentées dans [Limites de service de Recherche cognitive Azure](./search-limits-quotas-capacity.md). Par défaut, les documents surdimensionnés sont traités comme des erreurs. Toutefois, vous pouvez toujours indexer des métadonnées de stockage de documents surdimensionnés en définissant le paramètre de configuration `indexStorageMetadataOnlyForOversizedDocuments` sur true :
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
