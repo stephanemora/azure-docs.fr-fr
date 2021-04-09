@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 5ceaaa7ed9288299019f3e87d8c214e53013f5ec
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d241cb5d7ece260de42088eecfd669e5d3f40096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045749"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592283"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Exemples de modèles Resource Manager pour les règles de collecte de données dans Azure Monitor
-Cet article contient des exemples de [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) permettant de déployer et de configurer l’[agent Log Analytics](./log-analytics-agent.md) et l’[extension de diagnostic](./diagnostics-extension-overview.md) associé pour les machines virtuelles dans Azure Monitor. Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
+Cet article comprend des exemples de [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer une association entre une [règle de collecte de données](data-collection-rule-overview.md) et l’[agent Azure Monitor](./azure-monitor-agent-overview.md). Chaque exemple comprend un fichier de modèle et un fichier de paramètres avec des exemples de valeurs à fournir au modèle.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

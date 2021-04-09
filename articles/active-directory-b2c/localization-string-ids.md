@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448642"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102631181"
 ---
 # <a name="localization-string-ids"></a>ID de chaînes de localisation
 
@@ -356,7 +356,7 @@ Voici les ID d’un [contrôle d’affichage de vérification](display-control-v
 
 | id | Valeur par défaut |
 | -- | ------------- |
-|intro_msg| La vérification est nécessaire. Cliquez sur le bouton Envoyer.|
+|intro_msg <sup>*</sup>| La vérification est nécessaire. Cliquez sur le bouton Envoyer.|
 |success_send_code_msg | Le code de vérification a été envoyé. Veuillez le copier dans la zone d’entrée ci-dessous.|
 |failure_send_code_msg | Nous rencontrons des problèmes de la vérification de votre adresse e-mail. Entrez une adresse e-mail valide et réessayez.|
 |success_verify_code_msg | Adresse e-mail vérifiée. Vous pouvez maintenant continuer.|
@@ -365,6 +365,12 @@ Voici les ID d’un [contrôle d’affichage de vérification](display-control-v
 |but_verify_code | Vérifier le code|
 |but_send_new_code | Envoyer le nouveau code|
 |but_change_claims | Modifier l'adresse e-mail|
+
+Remarque : L’élément `intro_msg` est masqué et ne s’affiche pas sur la page autodéclarée. Pour le rendre visible, utilisez la [personnalisation HTML](customize-ui-with-html.md) avec des feuilles de style en cascade. Exemple :
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>Exemple de contrôle d’affichage de vérification
 

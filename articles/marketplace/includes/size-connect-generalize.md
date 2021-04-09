@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: addc18a0ebf9e49d3474d3f40cb1e2a6e0f0b272
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826619"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630104"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
@@ -38,60 +38,31 @@ Le processus suivant généralise une machine virtuelle Linux et la redéploie s
     1. Dans le portail Azure, sélectionnez votre groupe de ressources et désallouez la machine virtuelle.
     2. Votre machine virtuelle est désormais généralisée, et vous pouvez créer une autre machine virtuelle à l’aide de ce disque de machine virtuelle.
 
-### <a name="take-a-snapshot-of-the-vm-disk"></a>Effectuer une capture instantanée du disque de la machine virtuelle
+### <a name="capture-image"></a>Capturer l’image
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
-2. À partir du coin supérieur gauche, sélectionnez **Créer une ressource**, puis recherchez et sélectionnez **Instantané**.
-3. Dans le panneau Instantané, sélectionnez **Créer**.
-4. Entrez un **nom** pour la capture instantanée.
-5. Sélectionnez un groupe de ressources existant ou entrez le nom d’un nouveau.
-6. Dans **Disque source**, sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.
-7. Sélectionnez le **type de compte** à utiliser pour stocker la capture instantanée. Utilisez **Standard HDD**, sauf si vous en avez besoin de la stocker sur un disque SSD hautes performances.
-8. Sélectionnez **Create** (Créer).
+Une fois que votre machine virtuelle est prête, vous pouvez la capturer dans une galerie d’images partagées Azure. Suivez les étapes ci-dessous pour la capturer :
 
-#### <a name="extract-the-vhd"></a>Extraire le disque dur virtuel
+1. Dans [Portail Azure](https://ms.portal.azure.com/), accédez à la page de votre machine virtuelle.
+2. Sélectionnez **Capturer**.
+3. Sous **Partager l’image dans Shared Image Gallery**, sélectionnez **Oui, la partager dans une galerie en tant que version d’image**.
+4. Sous **État du système d’exploitation**, sélectionnez Généralisé.
+5. Sélectionnez une galerie d’images cible ou **créez-en une nouvelle**.
+6. Sélectionnez une définition d’image cible ou **créez-en une nouvelle**.
+7. Indiquez un **numéro de version** pour l’image.
+8. Sélectionnez **Vérifier + créer** pour passer en revue vos choix.
+9. Une fois la validation réussie, sélectionnez **Créer**.
 
-Utilisez le script suivant pour exporter l’instantané dans un disque dur virtuel de votre compte de stockage.
+Pour publier, le compte de l’éditeur doit disposer d’un accès Propriétaire à la galerie d’images partagées. Pour accorder l’accès :
 
-```azurecli-interactive
-#Provide the subscription Id where the snapshot is created
-$subscriptionId=yourSubscriptionId
+1. Accédez à la galerie d’images partagées.
+2. Sélectionnez **Contrôle d’accès** (IAM) dans le volet gauche.
+3. Sélectionnez **Ajouter** et **Ajouter une attribution de rôle**.
+4. Sélectionnez un **rôle** ou un **propriétaire**.
+5. Sous **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal de service**.
+6. Sélectionnez l’adresse e-mail Azure de la personne qui publiera l’image.
+7. Sélectionnez **Enregistrer**.
 
-#Provide the name of your resource group where the snapshot is created
-$resourceGroupName=myResourceGroupName
+:::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Affiche la fenêtre Ajouter une attribution de rôle.":::
 
-#Provide the snapshot name
-$snapshotName=mySnapshot
-
-#Provide Shared Access Signature (SAS) expiry duration in seconds (such as 3600)
-#Know more about SAS here: https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1
-$sasExpiryDuration=3600
-
-#Provide storage account name where you want to copy the underlying VHD file. 
-$storageAccountName=mystorageaccountname
-
-#Name of the storage container where the downloaded VHD will be stored.
-$storageContainerName=mystoragecontainername
-
-#Provide the key of the storage account where you want to copy the VHD 
-$storageAccountKey=mystorageaccountkey
-
-#Give a name to the destination VHD file to which the VHD will be copied.
-$destinationVHDFileName=myvhdfilename.vhd
-
-az account set --subscription $subscriptionId
-
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
-
-az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
-```
-
-#### <a name="script-explanation"></a>Explication du script
-
-Ce script utilise les commandes suivantes afin de générer l’URI SAS pour un instantané et copie le VHD sous-jacent vers un compte de stockage à l’aide de l’URI SAS. Chaque commande du tableau renvoie à une documentation spécifique.
-
-| Commande | Notes |
-| --- | --- |
-| az disk grant-access | Génère l’URI SAP en lecture seule qui est utilisé pour copier le fichier de VHD sous-jacent vers un compte de stockage ou le télécharger en local
-| az storage blob copy start | Copiez un objet blob de façon asynchrone à partir d’un compte de stockage vers un autre. Utilisez `az storage blob show` pour vérifier l’état du nouvel objet Blob. |
-|
+> [!NOTE]
+> Vous n’avez pas besoin de générer d’URI de SAP, car vous pouvez désormais publier une image provenant d’une galerie d’images partagées sur Espace partenaires. Toutefois, si vous avez encore besoin de vous référer aux étapes de génération d’un URI de SAP, consultez [Comment générer un URI SAS pour une image de machine virtuelle](../azure-vm-get-sas-uri.md).

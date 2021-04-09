@@ -4,12 +4,12 @@ description: Répond à certaines questions courantes concernant les réseaux da
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 24afeeee3207127bb9404156dc390433671dd5da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578227"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592300"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquentes concernant les réseaux dans Azure Functions
 
@@ -17,7 +17,9 @@ Cet article liste les questions fréquentes concernant les réseaux dans Azure F
 
 ## <a name="how-do-i-set-a-static-ip-in-functions"></a>Comment définir une adresse IP statique dans Azure Functions ?
 
-Le seul moyen d’obtenir une adresse IP statique entrante et sortante pour votre fonction est de déployer celle-ci dans App Service Environment. Pour plus d’informations sur l’utilisation d’App Service Environment, commencez par lire l’article [Créer et utiliser un équilibreur de charge interne avec App Service Environment](../app-service/environment/create-ilb-ase.md).
+Le principal moyen d’obtenir des adresses IP statiques entrantes et sortantes pour vos fonctions consiste à déployer une fonction dans App Service Environment. Pour plus d’informations sur l’utilisation d’App Service Environment, commencez par lire l’article [Créer et utiliser un équilibreur de charge interne avec App Service Environment](../app-service/environment/create-ilb-ase.md).
+
+Vous pouvez également utiliser une passerelle NAT de réseau virtuel pour router le trafic sortant via une adresse IP publique que vous contrôlez. Poiur en savoir plus, consultez [Tutoriel : Contrôler l’adresse IP sortante Azure Functions avec une passerelle NAT de réseau virtuel Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="how-do-i-restrict-internet-access-to-my-function"></a>Comment limiter l’accès Internet à ma fonction ?
 
@@ -33,7 +35,7 @@ N’oubliez pas que l’éditeur du portail Azure nécessite un accès direct à
 
 Vous pouvez limiter le trafic **entrant** d’une application de fonction à un seul réseau virtuel à l’aide de [points de terminaison de service](./functions-networking-options.md#use-service-endpoints). Cette configuration permet toujours à l’application de fonction d’effectuer des appels sortants vers Internet.
 
-Pour limiter complètement une fonction de sorte que tout le trafic transite par un réseau virtuel, vous pouvez utiliser des [points de terminaison privés](./functions-networking-options.md#private-endpoint-connections) avec l’intégration du réseau virtuel sortant ou un App Service Environment.
+Pour limiter complètement une fonction de sorte que tout le trafic transite par un réseau virtuel, vous pouvez utiliser des [points de terminaison privés](./functions-networking-options.md#private-endpoint-connections) avec intégration de réseau virtuel sortant, ou un App Service Environment. Pour en savoir plus, consultez [Intégrer Azure Functions avec un réseau virtuel Azure à l’aide de points de terminaison privés](functions-create-vnet.md).
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Comment accéder aux ressources d’un réseau virtuel à partir d’une application de fonction ?
 
