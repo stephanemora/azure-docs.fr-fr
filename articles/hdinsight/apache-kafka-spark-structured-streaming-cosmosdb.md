@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
 ms.openlocfilehash: d78b629e90903c58b98de86f425f0c1225d90997
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867047"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Utiliser Apache Spark Structured Streaming avec Apache Kafka et Azure Cosmos DB
@@ -61,7 +61,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
 1. Utilisez les informations suivantes pour remplir les entrées dans la section **Déploiement personnalisé** :
 
-    |Propriété |Value |
+    |Propriété |Valeur |
     |---|---|
     |Abonnement|Sélectionnez votre abonnement Azure.|
     |Resource group|créez un groupe ou sélectionnez un groupe existant. Ce groupe contient le cluster HDInsight.|

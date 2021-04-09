@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 10ddee404de21c5bc04672fdb6dd32c30f481ba3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937841"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578241"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
 
@@ -95,6 +95,16 @@ Dans notre guide de démarrage rapide Java, le bouton de déconnexion se trouve 
 </html>
 ```
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Dans le guide de démarrage rapide Node.js, il n’y a aucun bouton de connexion. Le code-behind invite automatiquement l’utilisateur à se connecter lorsqu’il atteint la racine de l’application web.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Dans le guide de démarrage rapide Python, il n’y a aucun bouton de connexion. Le code-behind invite automatiquement l’utilisateur à se connecter lorsqu’il atteint la racine de l’application web. Consultez [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -158,6 +168,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Contrairement à d’autres plateformes, MSAL Node s’occupe de permettre à l’utilisateur de se connecter à partir de la page de connexion.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -229,6 +276,10 @@ Lors de l’inscription d’application, vous inscrivez une URL de déconnexion 
 Au cours de l’inscription d’application, vous n’avez pas besoin d’inscrire d’URL de déconnexion du canal frontal supplémentaire. L’application est rappelée sur son URL principale. 
 
 # <a name="java"></a>[Java](#tab/java)
+
+Aucune URL de déconnexion du canal frontal n’est requise dans l’inscription d’application.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Aucune URL de déconnexion du canal frontal n’est requise dans l’inscription d’application.
 
@@ -305,6 +356,10 @@ Dans notre guide de démarrage rapide Java, le bouton Déconnexion se trouve dan
 ...
 ```
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Cet exemple d’application n’implémente pas la déconnexion.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Dans le guide de démarrage rapide Python, le bouton de déconnexion se trouve dans le fichier [templates/index.html#L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10).
@@ -377,6 +432,10 @@ Dans Java, la déconnexion est gérée en appelant directement le point de termi
     }
 ```
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Cet exemple d’application n’implémente pas la déconnexion.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Le code qui déconnecte l’utilisateur se trouve dans [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
@@ -420,6 +479,10 @@ public class AccountController : Controller
 # <a name="java"></a>[Java](#tab/java)
 
 Dans le guide de démarrage rapide Java, l’URI de redirection post-déconnexion affiche uniquement la page index.html.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Cet exemple d’application n’implémente pas la déconnexion.
 
 # <a name="python"></a>[Python](#tab/python)
 

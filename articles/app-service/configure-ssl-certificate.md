@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d6f6db34239cf8c77b6e43d4426d889fa12c0690
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051342"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577782"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -331,7 +331,7 @@ Une fois l’opération de recréation de clé terminée, cliquez sur **Synchron
 
 Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche. Par défaut, les certificats App Service sont valides pendant 1 an.
 
-Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent être automatiquement renouvelés 60 jours avant leur expiration si vous avez activé le renouvellement automatique.
+Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent être automatiquement renouvelés 30 jours avant leur expiration si vous avez activé le renouvellement automatique.
 
 ![Renouveler automatiquement un certificat App Service](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
@@ -377,11 +377,11 @@ Dans votre certificat, recherchez le verrou de type **Supprimer**. À droite de 
 
 Vous pouvez maintenant supprimer le certificat App Service. Dans le volet de navigation de gauche, sélectionnez **Vue d’ensemble** > **Supprimer**. Dans la boîte de dialogue de confirmation, tapez le nom du certificat, puis sélectionnez **OK**.
 
-## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
+## <a name="automate-with-scripts&quot;></a>Automatiser des tâches à l’aide de scripts
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name=&quot;azure-cli&quot;></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 &quot;Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 

@@ -8,10 +8,10 @@ ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101092524"
 ---
 # <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gérer les anomalies de facturation mesurée dans l’Espace partenaires

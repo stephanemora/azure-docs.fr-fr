@@ -4,16 +4,16 @@ description: Indique comment appliquer des étiquettes afin d'organiser des ress
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e755a378fd71ea2763cc3e43477876fa3e8c5d5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98896221"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934187"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Utiliser des étiquettes pour organiser vos ressources Azure et votre hiérarchie de gestion
 
-Vous allez appliquer des étiquettes à vos ressources Azure, groupes de ressources et abonnements pour les organiser de façon logique dans une taxonomie. Chaque balise se compose d’une paire nom-valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des étiquettes à vos ressources Azure, groupes de ressources et abonnements pour les organiser de façon logique dans une taxonomie. Chaque étiquette se compose d’une paire nom-valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
 Pour obtenir des recommandations sur la façon d’implémenter une stratégie d’étiquetage, consultez [Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
@@ -684,10 +684,10 @@ Le modèle suivant ajoute les étiquettes depuis un objet vers un groupe de ress
 
 Pour travailler avec des étiquettes par le biais de l’API REST Azure, utilisez :
 
-* [Étiquettes - Créer ou mettre à jour au niveau de l’étendue](/rest/api/resources/tags/createorupdateatscope) (opération PUT)
-* [Balises - Mettre à jour au niveau de l’étendue](/rest/api/resources/tags/updateatscope) (opération PATCH)
-* [Étiquettes - Obtenir au niveau de l’étendue](/rest/api/resources/tags/getatscope) (opération GET)
-* [Étiquettes - Supprimer au niveau de l’étendue](/rest/api/resources/tags/deleteatscope) (opération DELETE)
+* [Étiquettes - Créer ou mettre à jour au niveau de l’étendue](/rest/api/resources/resources/tags/createorupdateatscope) (opération PUT)
+* [Balises - Mettre à jour au niveau de l’étendue](/rest/api/resources/resources/tags/updateatscope) (opération PATCH)
+* [Étiquettes - Obtenir au niveau de l’étendue](/rest/api/resources/resources/tags/getatscope) (opération GET)
+* [Étiquettes - Supprimer au niveau de l’étendue](/rest/api/resources/resources/tags/deleteatscope) (opération DELETE)
 
 ## <a name="inherit-tags"></a>Hériter des étiquettes
 

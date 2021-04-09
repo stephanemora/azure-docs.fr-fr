@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576779"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557562"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -68,7 +68,7 @@ Le tableau récapitule les exigences de la migration sans agent concernant les m
 **IPv6** | Non pris en charge.
 **Disque cible** | Les machines virtuelles peuvent uniquement être migrées vers des disques managés (disques HDD standard, disques SSD standard, disques SSD premium) dans Azure.
 **Réplication simultanée** | Jusqu’à 300 machines virtuelles répliquant simultanément par vCenter Server avec 1 appliance. Jusqu’à 500 machines virtuelles répliquant simultanément par vCenter Server quand une [appliance de scale-out](./how-to-scale-out-for-migration.md) supplémentaire est déployée. 
-**Installation automatique de l’agent de machine virtuelle Azure (agent Windows et Linux)** | Prise en charge pour Windows Server 2008 R2 et versions ultérieures. <br/> Prise en charge pour RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04. Passez en revue la liste des [packages requis](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) pour ces systèmes d’exploitation Linux.
+**Installation automatique de l’agent de machine virtuelle Azure (agent Windows et Linux)** | Prise en charge pour Windows Server 2008 R2 et versions ultérieures. <br/> Prise en charge pour RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04. Passez en revue la liste des [packages requis](../virtual-machines/extensions/agent-linux.md#requirements) pour ces systèmes d’exploitation Linux.
 
 > [!TIP]
 >  Le portail Azure vous permet de sélectionner jusqu’à 10 machines virtuelles à la fois pour configurer la réplication. Pour répliquer davantage de machines virtuelles, vous pouvez utiliser le portail pour ajouter les machines virtuelles à répliquer dans plusieurs lots de 10 machines virtuelles, ou utiliser l’interface Azure Migrate PowerShell pour configurer la réplication. Veillez à ne pas configurer une réplication simultanée sur plus que le nombre maximal de machines virtuelles prises en charge pour des réplications simultanées.

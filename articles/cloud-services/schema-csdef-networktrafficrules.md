@@ -3,17 +3,18 @@ title: Définition d’Azure Cloud Services (classique) Schéma NetworkTrafficRu
 description: En savoir plus sur NetworkTrafficRules, qui limite les rôles qui peuvent accéder aux points de terminaison internes d’un rôle. Il se combine avec les rôles dans un fichier de définition de service.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 2c8ab53068b71652d03d03bf79a224fe5e34dff3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 499b0f2b7e02dabbde906e0d347a17389b2e5753
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98739766"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934102"
 ---
 # <a name="azure-cloud-services-classic-definition-networktrafficrules-schema"></a>Schéma NetworkTrafficRules de définition d’Azure Cloud Services (classique)
 

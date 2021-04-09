@@ -3,17 +3,18 @@ title: Définition d’Azure Cloud Services (classique) d’Azure Cloud Services
 description: Le rôle de travail Azure utilisé pour le développement généralisé. Il peut également effectuer le traitement en arrière-plan pour un rôle Web. En savoir plus sur le schéma du rôle de travail Azure.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f8ba321d95cc030d75ff9286c92c57335695790b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743132"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934068"
 ---
 # <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Schéma WorkerRole de définition d’Azure Cloud Services (classique)
 

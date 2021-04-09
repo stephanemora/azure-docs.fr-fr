@@ -4,15 +4,15 @@ description: Accédez à un résumé de l’analytique web de la Place de march�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553933"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104953270"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale
 
@@ -115,7 +115,9 @@ Ce tableau affiche la liste des visites de page et des appels d’actions des pa
 | Me contacter | Me contacter | Nombre de clics sur le CTA « Me contacter » sur la page de l’offre à une date spécifique. | ContactMe |
 | Version d’évaluation | Version d’évaluation | Nombre de clics sur le CTA « Test Drive » sur la page de l’offre à une date spécifique. | TestDrive |
 | Version d’évaluation gratuite | Version d’évaluation gratuite | Nombre de clics sur le CTA « Essai gratuit » sur la page de l’offre à une date spécifique. | FreeTrial |
-|||||
+| Campagne | Nom de la campagne | Capacité à comprendre la télémétrie web (visites de pages et clics CTA) par rapport au nom de la campagne. | Campagne |
+| n/a | Site | Nom de la vitrine sur laquelle la visite de la page ou le clic CTA a eu lieu. Les valeurs possibles sont les suivantes :<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | Site |
+|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

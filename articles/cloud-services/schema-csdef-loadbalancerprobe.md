@@ -3,17 +3,18 @@ title: Définition d’Azure Cloud Services (classique) Schéma LoadBalancerProb
 description: Le schéma LoadBalancerProbe défini par le client est un probe d’intégrité des points de terminaison dans les instances de rôle. Il se combine avec des rôles de travail ou web dans un fichier de définition de service.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1fbbb49918ed83bd38e0c1f879ed31386cfb756b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98739784"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934119"
 ---
 # <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services (classique)
 

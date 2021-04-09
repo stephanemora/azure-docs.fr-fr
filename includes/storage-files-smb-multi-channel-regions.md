@@ -9,10 +9,10 @@ ms.date: 02/12/2021
 ms.author: rogarana
 ms.custom: references_regions
 ms.openlocfilehash: e2598f8ee98ae8f9368397500939e6363ae5d53b
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103622169"
 ---
 SMB Multichannel pour les partages de fichiers Azure est actuellement disponible uniquement dans les régions suivantes :

@@ -10,10 +10,10 @@ ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
 ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101673885"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l'aide du service Sauvegarde Azure

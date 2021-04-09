@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 906c7e00cba1e0feb85289e8f2a46e74924dc0c3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2d0b9e45dc5de0cd4550cf4b9f944fd33ebd7e7e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658660"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720688"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AWS Single Sign-on
 
@@ -37,9 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* AWS Single Sign-on prend en charge l’authentification unique initiée par **un fournisseur de services et un fournisseur d’identité**.
+* AWS Single Sign-on prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**.
 
-* AWS Single Sign-on prend en charge [**l’attribution automatique d’utilisateurs**](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial).
+* AWS Single Sign-on prend en charge [**l’attribution automatique d’utilisateurs**](./aws-single-sign-on-provisioning-tutorial.md).
 
 ## <a name="adding-aws-single-sign-on-from-the-gallery"></a>Ajout d’AWS Single Sign-on à partir de la galerie
 
@@ -72,7 +72,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **AWS Single Sign-on**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -80,9 +80,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     a. Cliquez sur **Charger un fichier de métadonnées**.
 
-    ![image1](common/upload-metadata.png)
-
-    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
+    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées que vous avez téléchargé à partir de la section **Configurer l’authentification unique AWS Single Sign-on** (point 8), puis cliquez sur **Ajouter**.
 
     ![image2](common/browse-upload-metadata.png)
 
@@ -148,15 +146,45 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-aws-single-sign-on-sso"></a>Configurer l’authentification unique AWS Single Sign-on
 
-1. Ouvrez la **console d’authentification unique AWS**. 
+1. Pour automatiser la configuration dans AWS Single Sign-on, vous devez installer l’**extension de navigateur de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer AWS Single Sign-on** pour être dirigé vers l’application AWS Single Sign-on. À partir de là, fournissez les informations d’identification d’administrateur pour vous connecter à AWS Single Sign-on. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 10.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous voulez configurer AWS Single Sign-on manuellement, dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise AWS Single Sign-on en tant qu’administrateur.
+
+1. Accédez à **Services -> Security, Identity, & Compliance (Services -> Sécurité, identité et conformité) -> AWS Single Sign-On**.
 2. Dans le volet de navigation de gauche, sélectionnez **Settings** (Paramètres).
-3. Dans la page **Settings** (Paramètres), recherchez **Identity source** (Source d’identité) et choisissez **Change** (Modifier).
-4. Dans la page de modification du répertoire, choisissez **External identity provider** (Fournisseur d’identité externe).
-5. Dans la section **Service provider metadata** (Métadonnées du fournisseur de services), recherchez **AWS SSO SAML metadata** (Métadonnées SAML de l’authentification unique AWS) et sélectionnez **Download metadata file** (Télécharger le fichier de métadonnées) pour télécharger le fichier de métadonnées et l’enregistrer sur votre ordinateur.
-6. Dans la section **Identity provider metadata** (Métadonnées du fournisseur d’identité), choisissez **Browse** (Parcourir) pour charger le fichier de métadonnées que vous avez téléchargé sur le portail Azure.
-7. Choisissez **Next: Review** (Suivant : Vérifier).
-8. Dans la zone de texte, saisissez **CONFIRM** (Confirmer) pour confirmer la modification du répertoire.
-9. Cliquez sur **Terminer**.
+3. Dans la page **Settings** (Paramètres), recherchez **Identity source** (Source d’identité), puis cliquez sur **Change** (Modifier).
+
+    ![Capture d’écran du service de changement de la source d’identité](./media/aws-single-sign-on-tutorial/settings.png)
+
+4. Dans la page Change identity source (Changer la source d’identité), choisissez **External identity provider** (Fournisseur d’identité externe).
+
+    
+    ![Capture d’écran de la section de sélection d’un fournisseur d’identité externe](./media/aws-single-sign-on-tutorial/external-identity-provider.png)
+
+
+1. Effectuez les étapes ci-dessous dans la section **Configure external identity provider** (Configurer un fournisseur d’identité externe) :
+
+    ![Capture d’écran de la section de téléchargement et de chargement des métadonnées](./media/aws-single-sign-on-tutorial/upload-metadata.png)
+
+    a. Dans la section **Service provider metadata** (Métadonnées du fournisseur de services), recherchez **AWS SSO SAML metadata** (Métadonnées SAML de l’authentification unique AWS), puis sélectionnez **Download metadata file** (Télécharger le fichier de métadonnées) afin de télécharger le fichier de métadonnées, de l’enregistrer sur votre ordinateur, puis de l’utiliser pour effectuer le chargement sur le portail Azure.
+
+    b. Copiez la valeur du champ **AWS SSO Sign-in URL** (URL de connexion avec authentification unique AWS), puis collez-la dans la zone de texte **URL de connexion** de la section **Configuration SAML de base** du portail Azure.
+
+    c. Dans la section **Identity provider metadata** (Métadonnées du fournisseur d’identité), choisissez **Browse** (Parcourir) pour charger le fichier de métadonnées que vous avez téléchargé sur le portail Azure.
+
+    d. Choisissez **Next: Review** (Suivant : Vérifier).
+
+8. Dans la zone de texte, tapez **ACCEPT** (ACCEPTER) pour changer la source d’identité.
+
+    ![Capture d’écran pour la confirmation de la configuration](./media/aws-single-sign-on-tutorial/accept.png)
+
+9. Cliquez sur **Change identity source** (Changer la source d’identité).
 
 ### <a name="create-aws-single-sign-on-test-user"></a>Créer un utilisateur de test AWS Single Sign-on
 
@@ -196,7 +224,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 10. Cliquez sur **Terminer**.
 
 > [!NOTE]
-> AWS Single Sign-on prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations [ici](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) sur la façon de configurer l’attribution automatique d’utilisateurs.
+> AWS Single Sign-on prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations [ici](./aws-single-sign-on-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
@@ -212,11 +240,9 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Dans le portail Azure, cliquez sur **Tester cette application**. Vous êtes alors automatiquement connecté à l’instance d’AWS Single Sign-on pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette AWS Single Sign-on dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’AWS Single Sign-on pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette AWS Single Sign-on dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion. S’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’AWS Single Sign-on pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré AWS Single Sign-on, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Après avoir configuré AWS Single Sign-on, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

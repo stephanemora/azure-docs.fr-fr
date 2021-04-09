@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
 ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102632598"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Tutoriel : Ajouter des étiquettes dans des fichiers Bicep Azure Resource Manager

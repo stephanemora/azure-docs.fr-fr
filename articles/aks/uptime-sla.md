@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176329"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952913"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Contrat SLA de durée de fonctionnement Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,6 @@ Le contrat SLA de durée de fonctionnement est une fonctionnalité payante et ac
 * Installez [Azure CLI](/cli/azure/install-azure-cli) version 2.8.0 ou ultérieure
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Création d’un cluster avec un contrat SLA de durée de fonctionnement
-
-> [!NOTE]
-> Actuellement, si vous activez le contrat SLA de durée de fonctionnement, il n’existe aucun moyen de le supprimer d’un cluster.
 
 Pour créer un nouveau cluster avec le contrat SLA de durée de fonctionnement, vous utilisez Azure CLI.
 
@@ -106,6 +103,15 @@ Utilisez la commande [`az aks update`][az-aks-update] pour mettre à jour le clu
     "tier": "Paid"
   },
   ```
+
+## <a name="opt-out-of-uptime-sla"></a>Refuser le contrat de niveau de service de durée de bon fonctionnement
+
+Vous pouvez mettre à jour votre cluster pour passer au niveau gratuit et refuser le contrat de niveau de service de durée de bon fonctionnement.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## <a name="clean-up"></a>Nettoyer
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a201452a9c708d898ee1762385955b63684876c7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561532"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577969"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -43,7 +43,7 @@ Vous pouvez modifier le nom de domaine principal de votre organisation par n’i
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Ajouter des noms de domaine personnalisé à votre organisation Azure AD
 
-Vous pouvez ajouter jusqu’à 900 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec Windows Server Active Directory, vous pouvez ajouter jusqu’à 450 noms de domaine dans chaque organisation.
+Vous pouvez ajouter jusqu’à 5 000 noms de domaine managé. Si vous configurez tous vos domaines pour la fédération avec Windows Server Active Directory, vous pouvez ajouter jusqu’à 2 500 noms de domaine dans chaque organisation.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Ajouter des sous-domaines d’un domaine personnalisé
 
