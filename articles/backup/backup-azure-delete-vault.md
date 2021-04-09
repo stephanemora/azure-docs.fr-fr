@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520457"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864956"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Azure Backup Recovery Services
 
@@ -48,6 +48,7 @@ Pour supprimer correctement un coffre, vous devez suivre les étapes ci-après d
   - **Serveurs d’administration MABS ou DPM** : Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Serveurs de gestion des sauvegardes**. Si vous avez un serveur DPM ou de sauvegarde Azure (MABS), tous les éléments listés à cet endroit doivent être supprimés ou désinscrits ainsi que leurs données de sauvegarde. [Suivez ces étapes](#delete-protected-items-on-premises) pour supprimer les serveurs d’administration.
 
 - **Étape 4** : Vous devez vous assurer que tous les comptes de stockage inscrits sont supprimés. Accédez au menu du tableau de bord du coffre, puis sélectionnez **Infrastructure de sauvegarde** > **Comptes de stockage**. Si vous disposez de comptes de stockage listés à cet endroit, vous devez annuler leur inscription. Pour savoir comme désinscrire un compte, consultez [Annuler l’inscription d’un compte de stockage](manage-afs-backup.md#unregister-a-storage-account).
+- **Étape 5** : Assurez-vous qu’aucun point de terminaison privé n’est créé pour le coffre. Accédez au menu du tableau de bord du coffre > **connexions de point de terminaison privées** sous « Paramètres » > si le coffre a des connexions de point de terminaison privées créées ou tentées, vérifiez qu’elles sont supprimées avant de procéder à la suppression du coffre. 
 
 Une fois ces étapes terminées, vous pouvez poursuivre la [suppression du coffre](#delete-the-recovery-services-vault).
 
@@ -73,6 +74,7 @@ Pour arrêter la protection et supprimer les données de sauvegarde, effectuez l
 
          ![Volet Supprimer les données de sauvegarde.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   Cette option supprime les sauvegardes planifiées, ainsi que les sauvegardes à la demande.
 3. Vérifiez l’icône **Notification** : ![Icône Notification.](./media/backup-azure-delete-vault/messages.png) Une fois le processus terminé, le service affiche le message suivant : *Arrêt de la sauvegarde et suppression des données de sauvegarde pour «*  Élément de sauvegarde  *»* . *L’opération s’est terminée correctement.*
 4. Sélectionnez **Actualiser** dans le menu **Éléments de sauvegarde** pour vous assurer que l’élément de sauvegarde a été supprimé.
 

@@ -1,16 +1,14 @@
 ---
 title: Solutions de partenaires pour la surveillance d’Azure Service Fabric
 description: Découvrez comment superviser des applications, des clusters et une infrastructure Azure Service Fabric avec des solutions de supervision partenaires.
-author: srrengar
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: srrengar
-ms.openlocfilehash: fd24d65ebdf4e458870819286024d1ea2e13d83e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 92ac0627f02ccefdd4c93aa51cac7c9dd7790460
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75645716"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627725"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Solutions de partenaires pour la surveillance d’Azure Service Fabric
 

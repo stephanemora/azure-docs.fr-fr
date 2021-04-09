@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e8641cada03577cf22e6627bdf53b2a8a0e836ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216381"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025694"
 ---
 # <a name="azure-functions-http-trigger"></a>Déclencheur HTTP Azure Functions
 
@@ -596,7 +596,7 @@ Avec cette configuration, la fonction est désormais adressable avec l’itinér
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-Cette configuration permet au code de la fonction de prendre en charge deux paramètres dans l'adresse, _category_ et _id_. Pour plus d’informations sur la façon dont les paramètres de routage sont tokenisés dans une URL, consultez [Routage dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference).
+Cette configuration permet au code de la fonction de prendre en charge deux paramètres dans l'adresse, _category_ et _id_. Pour plus d’informations sur la façon dont les paramètres de routage sont tokenisés dans une URL, consultez [Routage dans ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # <a name="c"></a>[C#](#tab/csharp)
 

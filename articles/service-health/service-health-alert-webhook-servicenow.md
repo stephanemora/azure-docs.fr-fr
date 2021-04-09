@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: df6596dd9853a792b5bfdb333361a2b9cd02a347
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100588182"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envoyer des alertes Azure Service Health avec ServiceNow à l’aide de webhooks
@@ -66,8 +66,8 @@ Cet article vous explique comment intégrer les alertes sur l’intégrité du s
                 } else {
                     inc.initialize();
                 }
-                var short_description = "Azure Service Health";
-                if (event.data.context.activityLog.properties.incidentType == "Incident") {
+                var short_description = "Azure Service Health&quot;;
+                if (event.data.context.activityLog.properties.incidentType == &quot;Incident") {
                     short_description += " - Service Issue - ";
                 } else if (event.data.context.activityLog.properties.incidentType == "Maintenance") {
                     short_description += " - Planned Maintenance - ";
