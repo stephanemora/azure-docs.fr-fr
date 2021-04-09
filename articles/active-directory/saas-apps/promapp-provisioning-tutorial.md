@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Promapp pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Promapp pour l’attribution automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur Promapp.
 services: active-directory
 author: zchia
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: Zhchia
 ms.openlocfilehash: 5ba9adbc8553e92eb76a4d3327681f798db19218
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94359100"
 ---
-# <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutoriel : Configurer Promapp pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutoriel : Configurer Promapp pour l’attribution automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Promapp et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Promapp.
 
@@ -54,7 +54,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
     ![Promapp – Console d’administration](media/promapp-provisioning-tutorial/admin.png)
 
-2.  Sous **Jetons d’accès** , cliquez sur le bouton **Créer un jeton**.
+2.  Sous **Jetons d’accès**, cliquez sur le bouton **Créer un jeton**.
 
     ![Promapp – Ajouter SCIM](media/promapp-provisioning-tutorial/addtoken.png)
 
@@ -76,7 +76,7 @@ Avant de configurer Promapp pour l’approvisionnement automatique d’utilisate
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -84,7 +84,7 @@ Avant de configurer Promapp pour l’approvisionnement automatique d’utilisate
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **Promapp** , sélectionnez **Promapp** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Promapp**, sélectionnez **Promapp** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Promapp dans la liste des résultats](common/search-new-app.png)
 
@@ -97,7 +97,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Promapp dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** , puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -113,21 +113,21 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Capture d’écran de la liste déroulante Mode de provisionnement avec l’option Automatique en évidence.](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , entrez `https://api.promapp.com/api/scim` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Promapp. Si la connexion échoue, vérifiez que votre compte Promapp dispose des autorisations Administrateur et réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `https://api.promapp.com/api/scim` dans **URL de locataire**. Saisissez la valeur de **Jeton d’authentification SCIM** récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Promapp. Si la connexion échoue, vérifiez que votre compte Promapp dispose des autorisations Administrateur et réessayez.
 
     ![URL de locataire + Jeton](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Dans le champ **E-mail de notification** , entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+6. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
 7. Cliquez sur **Enregistrer**.
 
-8. Dans la section **Mappages** , sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Promapp**.
+8. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Promapp**.
 
     ![Promapp – Mappages d’utilisateurs](media/promapp-provisioning-tutorial/usermappings.png)
 
-9. Dans la section **Mappages des attributs** , passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Promapp. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Promapp pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+9. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Promapp. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Promapp pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Promapp – Attributs utilisateur](media/promapp-provisioning-tutorial/userattributes.png)
 
