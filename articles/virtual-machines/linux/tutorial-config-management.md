@@ -17,10 +17,10 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 979cac8fd3d2c09443d52c9142a5e7c44127713a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552526"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutoriel : Superviser les changements et mettre à jour une machine virtuelle Linux dans Azure

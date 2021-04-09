@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 54fd6c0c085c0055f3114fde606f8f7d2f2e055e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747489"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772057"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe en utilisant le format CEF
 
@@ -99,5 +99,7 @@ Dans ce document, vous avez découvert la façon dont Azure Sentinel collecte le
 - ÉTAPE 3 : [Vérifiez la connectivité](connect-cef-verify.md)
 
 Pour en savoir plus sur la procédure à suivre avec les données que vous avez collectées dans Azure Sentinel, consultez les articles suivants :
+
+- Découvrez le [mappage de champs CEF et CommonSecurityLog](cef-name-mapping.md).
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](./tutorial-detect-threats-built-in.md).

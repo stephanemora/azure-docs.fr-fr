@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: justinha
 ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102631385"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure Active Directory Domain Services

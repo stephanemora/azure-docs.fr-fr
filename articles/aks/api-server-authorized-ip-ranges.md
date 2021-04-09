@@ -4,12 +4,12 @@ description: Apprenez à sécuriser votre cluster à l’aide d’une plage d’
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 20c3d46e9a19c66c727e5a21bccd6caa0dc5f0ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890632"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771921"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et confi
 
 La fonctionnalité des plages d’adresses IP autorisées par le serveur d’API présente les limitations suivantes :
 - Sur les clusters créés après que les plages d’adresses IP autorisées par le serveur d’API ont été supprimées de la préversion en octobre 2019, les plages d’adresses IP autorisées par le serveur d’API sont uniquement prises en charge sur l’équilibreur de charge du SKU *Standard*. Les clusters existants avec l’équilibreur de charge SKU *De base* et les plages d’adresses IP autorisées du serveur d’API sont configurés pour continuer à fonctionner normalement, mais ils ne peuvent pas être migrés vers un équilibreur de charge SKU *Standard*. Ces clusters existants continueront de fonctionner si leur version de Kubernetes ou leur plan de contrôle sont mis à niveau. Les plages d’adresses IP autorisées par le serveur d’API ne sont pas prises en charge pour les clusters privés.
-- Cette fonctionnalité n’est pas compatible avec les clusters qui utilisent la [fonctionnalité d’évaluation des pools de nœuds à une IP publique par nœud](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+- Cette fonctionnalité n’est pas compatible avec les clusters qui utilisent une [IP publique par nœud](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Vue d’ensemble des plages d’adresses IP pour le serveur d’API
 

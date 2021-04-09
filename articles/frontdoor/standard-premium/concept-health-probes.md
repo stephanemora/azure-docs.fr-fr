@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 30a8208babab2991c9d9e86cc419ac50e1530d7b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101097806"
 ---
 # <a name="azure-front-door-standardpremium-preview-health-probe-monitoring"></a>Supervision de la sonde d’intégrité Azure Front Door Standard/Premium (préversion)
@@ -75,4 +75,4 @@ Si vous avez un seul back-end dans votre pool de back-ends ou si un seul back-en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [créer une instance de Front Door Standard/Premium](create-front-door-portal.md).
+Découvrez comment [créer une instance Front Door Standard/Premium](create-front-door-portal.md).

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 22548703b456eb28a30c2d210d21f810d7b3ae6e
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 0c0507f9206ebe69662090d7a00da6d5c9d0b90a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98952696"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580009"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte GitHub à l’aide d’Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Pour permettre la connexion avec un compte GitHub dans Azure Active Directory�
 1. Connectez-vous à [GitHub Developer](https://github.com/settings/developers) avec vos informations d’identification GitHub.
 1. Sélectionnez **Applications OAuth**, puis **Nouvelle application OAuth**.
 1. Entrez le **Nom de l’application** et l’**URL de la page d’accueil**.
-1. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` dans l’**URL de rappel d’autorisation**. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Utilisez uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
+1. Pour l’**URL de rappel d’autorisation**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-domain-name` par le nom de votre domaine personnalisé et `your-tenant-name` par le nom de votre locataire. Utilisez uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
 1. Cliquez sur **Register application**.
 1. Copiez les valeurs de **ID client** et **Clé secrète client**. Vous avez besoin des deux pour ajouter le fournisseur d’identité à votre locataire.
 
@@ -62,13 +62,19 @@ Pour permettre la connexion avec un compte GitHub dans Azure Active Directory�
 
 ## <a name="add-github-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité GitHub à un flux d’utilisateur 
 
+À ce stade, le fournisseur d’identité GitHub a été configuré, mais il n’est encore disponible dans aucune des pages de connexion. Pour ajouter le fournisseur d’identité GitHub à un flux d’utilisateur :
+
+
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Cliquez sur le flux d’utilisateur auquel vous souhaitez ajouter le fournisseur d’identité GitHub.
 1. Sous **Fournisseurs d’identité sociale**, sélectionnez **GitHub**.
 1. Sélectionnez **Enregistrer**.
 1. Pour tester votre stratégie, sélectionnez **Exécuter le flux d’utilisateur**.
 1. Pour **Application**, sélectionnez l’application web *testapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**.
+1. Sélectionnez le bouton **Exécuter le flux d’utilisateur**.
+1. Dans la page d’inscription ou de connexion, sélectionnez **GitHub** pour vous connecter avec un compte GitHub.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end
 
@@ -199,6 +205,13 @@ Le profil technique GitHub nécessite l’ajout des transformations de revendica
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
+
+1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez le bouton **Exécuter maintenant**.
+1. Dans la page d’inscription ou de connexion, sélectionnez **GitHub** pour vous connecter avec un compte GitHub.
+
+Si le processus de connexion réussit, votre navigateur est redirigé vers `https://jwt.ms`, qui affiche le contenu du jeton retourné par Azure AD B2C.
 
 ::: zone-end

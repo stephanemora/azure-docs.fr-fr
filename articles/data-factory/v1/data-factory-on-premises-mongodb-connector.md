@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.openlocfilehash: cedb0b99f04df00763a3ee83287eec90bd5fb45d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387510"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données depuis MongoDB à l’aide d’Azure Data Factory
@@ -30,7 +30,7 @@ Vous pouvez copier les données d’un magasin de données MongoDB local dans to
 ## <a name="prerequisites"></a>Prérequis
 Pour permettre au service Azure Data Factory de se connecter à votre base de données MongoDB locale, vous devez installer les composants suivants :
 
-- Versions MongoDB prises en charge : 2.4, 2.6, 3.0, 3.2, 3.4 et 3.6.
+- Versions MongoDB prises en charge : 2.4, 2.6, 3.0, 3.2, 3.4 et 3.6.
 - Une passerelle de gestion de données sur l’ordinateur qui héberge la base de données ou sur un autre ordinateur afin d’éviter toute mise en concurrence avec la base de données pour les ressources. La passerelle de gestion de données est un logiciel qui connecte des sources de données locales à des services cloud de manière gérée et sécurisée. Consultez l’article [Passerelle de gestion des données](data-factory-data-management-gateway.md) pour obtenir des informations détaillées sur la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) pour obtenir des instructions détaillées sur la configuration de la passerelle, un pipeline de données, pour déplacer des données.
 
     L’installation de la passerelle engendre automatiquement l’installation d’un pilote Microsoft ODBC MongoDB, utilisé pour se connecter à MongoDB.
@@ -51,7 +51,7 @@ Que vous utilisiez des outils ou des API, la création d’un pipeline qui dépl
 2. Création de **jeux de données** pour représenter les données d’entrée et de sortie de l’opération de copie.
 3. Création d’un **pipeline** avec une activité de copie qui utilise un jeu de données en tant qu’entrée et un jeu de données en tant que sortie.
 
-Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour un exemple contenant des définitions JSON pour les entités Data Factory servant à copier des données à partir d’un magasin de données MongoDB local, consultez la section [Exemple JSON : copier des données de MongoDB vers Stockage Blob Azure](#json-example-copy-data-from-mongodb-to-azure-blob) de cet article.
+Lorsque vous utilisez l’Assistant, les définitions JSON de ces entités Data Factory (services liés, jeux de données et pipeline) sont automatiquement créées pour vous. Lorsque vous utilisez des outils/API (à l’exception de l’API .NET), vous devez définir ces entités Data Factory au format JSON.  Pour consulter un exemple contenant des définitions JSON pour les entités Data Factory qui sont utilisées pour copier des données d’un magasin de données MongoDB local, consultez la section [Exemple JSON : copier des données de MongoDB vers Blob Azure](#json-example-copy-data-from-mongodb-to-azure-blob) de cet article.
 
 Les sections suivantes contiennent des informations détaillées sur les propriétés JSON utilisées pour définir les entités Data Factory propres à la source MongoDB :
 
@@ -60,7 +60,7 @@ La table suivante fournit une description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| type |La propriété type doit être définie sur : **OnPremisesMongoDb** |Oui |
+| type |Le type de propriété doit être défini sur **OnPremisesMongoDb** |Oui |
 | server |Nom d’hôte ou adresse IP du serveur MongoDB. |Oui |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Facultatif, valeur par défaut : 27017 |
 | authenticationType |De base ou anonyme. |Oui |
@@ -93,7 +93,7 @@ Lorsque la source est de type **MongoDbSource** , les propriétés suivantes son
 
 
 
-## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Exemple JSON : copier des données de MongoDB vers Stockage Blob Azure
+## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Exemple JSON : copier des données de MongoDB vers Blob Azure
 Cet exemple présente des exemples de définition JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Il indique comment copier des données d’un magasin de données MongoDB local vers Stockage Blob Azure. Toutefois, les données peuvent être copiées vers l’un des récepteurs indiqués [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) , via l’activité de copie d’Azure Data Factory.
 
 L’exemple contient les entités de fabrique de données suivantes :
@@ -145,7 +145,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 }
 ```
 
-**Jeu de données d’entrée MongoDB :** La définition de « external » : « true » sur informe le service Data Factory qu’il s’agit d’un jeu de données qui est externe à la Data Factory et non produit par une activité dans la Data Factory.
+La définition de « external » sur « true » du **jeu de données d’entrée MongoDB** informe le service Data Factory que la table est externe à la fabrique de données et non produite par une activité dans la fabrique de données.
 
 ```json
 {
@@ -303,7 +303,7 @@ Lors du déplacement de données vers MongoDB, les mappages suivants sont utilis
 > [!NOTE]
 > Pour en savoir plus sur la prise en charge des tableaux à l’aide de tables virtuelles, reportez-vous à la section [Prise en charge des types complexes à l’aide de tables virtuelles](#support-for-complex-types-using-virtual-tables) ci-dessous.
 
-Les types de données MongoDB suivants ne sont pas pris en charge pour le moment : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodateur, non défini.
+Actuellement, les types de données MongoDB suivants ne sont pas pris en charge : DBPointer, JavaScript, clé max./min., expression régulière, symbole, horodatage, non définie
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>Prise en charge des types complexes à l’aide de tables virtuelles
 Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à votre base de données MongoDB et copier des données à partir de cette dernière. Pour les types complexes tels que des tableaux ou des objets avec des types différents entre les documents, le pilote normalise de nouveau les données dans les tables virtuelles correspondantes. En particulier, si une table contient de telles colonnes, le pilote génère les tables virtuelles suivantes :

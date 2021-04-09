@@ -9,10 +9,10 @@ ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: f716245d93727a0447bd1c67924ce7577c70b503
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201296"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Rechercher les frais des unités de requête pour les opérations exécutées dans l’API SQL d’Azure Cosmos DB

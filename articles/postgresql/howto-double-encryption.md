@@ -1,17 +1,17 @@
 ---
 title: Chiffrement double d’infrastructure - Portail Azure - Azure Database pour PostgreSQL
 description: Découvrez comment configurer et gérer le chiffrement double d’infrastructure pour votre Azure Database pour PostgreSQL.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242226"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771649"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Chiffrement double d’infrastructure pour Azure Database pour PostgreSQL
 
@@ -23,7 +23,7 @@ Découvrez comment configurer et gérer le chiffrement double d’infrastructure
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>Créer un serveur Azure Database pour PostgreSQL avec un chiffrement double d’infrastructure - Portail
 
-Procédez comme suit pour créer un serveur Azure Database pour MySQL avec le chiffrement double d’infrastructure à partir de Portail Azure :
+Procédez comme suit pour créer un serveur Azure Database pour PostgreSQL avec le chiffrement double d’infrastructure à partir du portail Azure :
 
 1. Sélectionnez **Créer une ressource** (+) dans l’angle supérieur gauche du portail.
 
@@ -45,14 +45,14 @@ Procédez comme suit pour créer un serveur Azure Database pour MySQL avec le ch
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Créer un serveur Azure Database pour PostgreSQL avec un chiffrement double d’infrastructure - CLI
 
-Procédez comme suit pour créer un serveur Azure Database pour MySQL avec le chiffrement double d’infrastructure à partir de l’interface de ligne de commande :
+Procédez comme suit pour créer un serveur Azure Database pour PostgreSQL avec le chiffrement double d’infrastructure à partir de l’interface de ligne de commande :
 
 Cet exemple crée un groupe de ressources nommé `myresourcegroup` à l’emplacement `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-L’exemple suivant crée un serveur PostgreSQL 11 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Il s’agit d’un serveur à **usage général** , de **4e génération** avec **2 vCores**. Cela activera également le double chiffrement d’infrastructure pour le serveur créé. Remplacez `<server_admin_password>` par votre propre valeur.
+L’exemple suivant crée un serveur PostgreSQL 11 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec **2 vCores**. Cela activera également le double chiffrement d’infrastructure pour le serveur créé. Remplacez `<server_admin_password>` par votre propre valeur.
 
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 11 --infrastructure-encryption >Enabled/Disabled>

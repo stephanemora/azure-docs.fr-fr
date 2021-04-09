@@ -2,13 +2,13 @@
 title: Afficher et filtrer les informations sur les ressources Azure
 description: Filtrez les informations et utilisez des vues différentes pour mieux comprendre vos ressources Azure.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738631"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771632"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Afficher et filtrer les informations sur les ressources Azure
 
@@ -48,7 +48,7 @@ Pour supprimer une vue :
 
 1. Sélectionnez **Gérer la vue**, puis **Parcourir toutes les vues**.
 
-1. Dans le volet **Vues enregistrées pour « Toutes les ressources »** , sélectionnez la vue, puis sélectionnez l’icône **Supprimer** ![Icône Supprimer la vue](media/manage-filter-resource-views/icon-delete.png).
+1. Dans le volet **Vues enregistrées**, sélectionnez la vue, puis sélectionnez l’icône **Supprimer** ![Icône Supprimer la vue](media/manage-filter-resource-views/icon-delete.png).
 
 ## <a name="export-information-from-a-view"></a>Exporter des informations à partir d’un affichage
 

@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256675"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579482"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutoriel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur
 
 Azure Active Directory (Azure AD) comprend un [service d’approvisionnement de comptes d’utilisateur](user-provisioning.md) qui permet d’automatiser l’approvisionnement ou la suppression de comptes d’utilisateur dans des applications SaaS et d’autres systèmes, pour gérer le cycle de vie des identités de bout en bout. Azure AD prend en charge les connecteurs préintégrés d’attribution d’utilisateurs pour l’ensemble des applications et systèmes à l’aide des tutoriels d’attribution d’utilisateurs [ici](../saas-apps/tutorial-list.md).
 
@@ -35,12 +35,12 @@ Les connecteurs de provisionnement peuvent être configurés via le [portail Azu
 
 Cet article utilise les termes suivants, définis ci-dessous :
 
-* **Système source** : référentiel d’utilisateurs à partir duquel le service d’approvisionnement Azure AD se synchronise. Azure Active Directory est le système source pour la majorité des connecteurs de provisionnement pré-intégrés, mais il existe des exceptions (par exemple, la synchronisation entrante Workday).
-* **Système cible** : référentiel des utilisateurs avec lequel le service d’approvisionnement Azure AD se synchronise. Il s’agit généralement d’une application SaaS (exemples : Salesforce, ServiceNow, G Suite, Dropbox for Business), mais dans certains cas, cela peut être un système local comme Active Directory (par exemple, la synchronisation entrante Workday dans Active Directory).
+* **Système source** : référentiel d’utilisateurs à partir duquel le service d’approvisionnement Azure AD se synchronise. Azure Active Directory est le système source pour la majorité des connecteurs d’approvisionnement pré-intégrés, mais il existe des exceptions (par exemple, la synchronisation entrante des jours de travail).
+* **Système cible** : référentiel des utilisateurs avec lequel le service d’approvisionnement Azure AD se synchronise. Il s’agit généralement d’une application SaaS (par exemple, Salesforce, ServiceNow, G Suite, Dropbox for Business) mais, dans certains cas, il peut s’agir d’un système local tel qu’Active Directory (par exemple, une synchronisation entrante des jours de travail sur Active Directory).
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Obtention de rapports d’approvisionnement du portail Azure
 
-Pour obtenir des informations de rapport d’approvisionnement pour une application donnée, commencez par lancer le [Portail Azure](https://portal.azure.com) et **Azure Active Directory**&gt;**Applications d’entreprise** &gt; **Provisionnement de journaux (préversion)** dans la section **Activité**. Vous pouvez également accéder à l’application d’entreprise pour laquelle le provisionnement est configuré. Par exemple, si vous approvisionnez des utilisateurs pour LinkedIn Elevate, le chemin de navigation pour accéder aux détails de l’application est le suivant :
+Pour obtenir des informations de rapport d’approvisionnement pour une application donnée, commencez par lancer le [Portail Azure](https://portal.azure.com) et **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Provisionnement de journaux (préversion)** dans la section **Activité**. Vous pouvez également accéder à l’application d’entreprise pour laquelle le provisionnement est configuré. Par exemple, si vous approvisionnez des utilisateurs pour LinkedIn Elevate, le chemin de navigation pour accéder aux détails de l’application est le suivant :
 
 **Azure Active Directory &gt; Applications d’entreprise &gt; Toutes les applications &gt; LinkedIn Elevate**
 
@@ -48,7 +48,7 @@ Pour obtenir des informations de rapport d’approvisionnement pour une applicat
 
 ## <a name="provisioning-progress-bar"></a>Barre de progression de provisionnement
 
-La [barre de progression](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) de provisionnement est visible sous l’onglet **Provisionnement** pour une application donnée. Elle se trouve dans la section **État actuel**, sous **Paramètres**, et affiche l’état actuel du cycle initial ou incrémentiel. Cette section présente également les éléments suivants :
+La [barre de progression de l’approvisionnement](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) est visible sous l’onglet **Approvisionnement** pour une application donnée. Elle se trouve dans la section **État actuel** et affiche l’état du cycle initial ou incrémentiel actuel. Cette section présente également les éléments suivants :
 
 * Le nombre total d’utilisateurs et de groupes qui ont été synchronisés et figurent actuellement dans l’étendue pour l’approvisionnement entre le système source et le système cible.
 * La dernière exécution de la synchronisation. Les synchronisations se produisent généralement toutes les 20 à 40 minutes après le [cycle initial](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental).
@@ -61,7 +61,7 @@ L’**État actuel** doit être le premier emplacement que les administrateurs c
 
 ## <a name="provisioning-logs-preview"></a>Journaux de provisionnement (préversion)
 
-Toutes les activités effectuées par le service de provisionnement sont enregistrées dans les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD. Vous pouvez accéder aux journaux d’approvisionnement dans le Portail Azure en sélectionnant **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Provisionnement de journaux (préversion)** dans la section **Activité**. Vous pouvez rechercher les données de provisionnement en fonction du nom de l’utilisateur ou de l’identificateur dans le système source ou le système cible. Pour plus d’informations, consultez [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Les types d’événements d’activité journalisés sont les suivants :
+Toutes les activités effectuées par le service de provisionnement sont enregistrées dans les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD. Vous pouvez accéder aux journaux d’approvisionnement dans le portail Azure en sélectionnant **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Journaux de provisionnement (préversion)** dans la section **Activité**. Vous pouvez rechercher les données de provisionnement en fonction du nom de l’utilisateur ou de l’identificateur dans le système source ou le système cible. Pour plus d’informations, consultez [Journaux de provisionnement (préversion)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Les types d’événements d’activité journalisés sont les suivants :
 
 ## <a name="troubleshooting"></a>Dépannage
 

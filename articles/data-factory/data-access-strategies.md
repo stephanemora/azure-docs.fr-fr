@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.openlocfilehash: edc773ec2db078b6c50b55c81ad6570758a3f5f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100389244"
 ---
 # <a name="data-access-strategies"></a>Stratégies d’accès aux données

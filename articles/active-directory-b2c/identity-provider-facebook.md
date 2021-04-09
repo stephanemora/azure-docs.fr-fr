@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 49abd2cc62ff7a2eab3d95265f3db8f5c894ebb6
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 7e7a99daa169c994a0b9656786926f0715fa17a2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488939"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580060"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C
 
@@ -73,6 +73,8 @@ Pour autoriser la connexion des utilisateurs avec un compte Facebook dans Azure 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Ajouter le fournisseur d’identité Facebook à un flux d’utilisateur 
+
+À ce stade, le fournisseur d’identité Facebook a été configuré, mais il n’est encore disponible dans aucune des pages de connexion. Pour ajouter le fournisseur d’identité Facebook à un flux d’utilisateur :
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Cliquez sur le flux d’utilisateurs que vous souhaitez ajouter au fournisseur d’identité Facebook.
