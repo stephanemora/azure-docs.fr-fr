@@ -3,14 +3,14 @@ title: Rechercher les erreurs des pools et des nœuds
 description: Cet article décrit les opérations d'arrière-plan qui peuvent se produire, ainsi que les erreurs à rechercher et comment les éviter lors de la création de pools et de nœuds.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576310"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104720149"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
 
@@ -62,6 +62,13 @@ Lorsque vous supprimez un pool qui contient des nœuds, le premier Batch supprim
 
 Batch définit l’[état du pool](/rest/api/batchservice/pool/get#poolstate) sur **En cours de suppression** pendant le processus de suppression. L’application appelante peut détecter si la suppression du pool prend trop de temps en utilisant les propriétés **state** et **stateTransitionTime**.
 
+Si la suppression du pool prend plus de temps que prévu, Batch réessayera régulièrement jusqu’à ce que le pool soit supprimé. Dans certains cas, le retard est dû à une interruption du service Azure ou à d’autres problèmes temporaires. D’autres facteurs pouvant empêcher la suppression d’un pool peuvent vous obliger à prendre des mesures pour corriger le problème. Ces facteurs sont les suivants :
+
+- Des verrous de ressources ont été placés sur des ressources créées par Batch, ou sur des ressources réseau utilisées par Batch.
+- Les ressources que vous avez créées ont une dépendance vis-à-vis d’une ressource créée par Batch. Par exemple, si vous [créez un pool dans un réseau virtuel](batch-virtual-network.md), Batch crée un groupe de sécurité réseau (NSG), une IP publique et un équilibreur de charge. Si vous utilisez ces ressources en dehors du pool, le pool ne peut pas être supprimé tant que cette dépendance n’est pas supprimée.
+- Le fournisseur de ressources Microsoft.Batch a été désinscrit de l’abonnement qui contient votre pool.
+- « Microsoft Azure Batch » n’a plus le [rôle Contributeur ou Propriétaire](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) pour l’abonnement qui contient votre pool (pour les comptes Batch en mode abonnement utilisateur).
+
 ## <a name="node-errors"></a>Erreurs de nœud
 
 Même lorsque Batch alloue des nœuds d’un pool, différents problèmes peuvent les endommager ou les rendre incapables d’exécuter des tâches. Ces nœuds entraînent toujours des frais. Il est donc important de détecter les problèmes afin d’éviter de payer pour des nœuds qui ne peuvent pas être utilisés. En plus des erreurs de nœud courantes, il est utile de connaître l’[état actuel de la tâche](/rest/api/batchservice/job/get#jobstate) en vue de la résolution des problèmes.
@@ -105,15 +112,10 @@ Si Batch peut déterminer la cause de l’erreur, Batch la signale à l’aide d
 Voici des exemples supplémentaires de causes aboutissant à des nœuds **inutilisables** :
 
 - Une image de machine virtuelle personnalisée n’est pas valide. Par exemple, il s’agit d’une image qui n’est pas correctement préparée.
-
 - Une machine est déplacée en raison d’une défaillance de l’infrastructure ou d’une mise à niveau de bas niveau. Batch récupère le nœud.
-
 - Une image de machine virtuelle a été déployée sur un matériel qui ne la prend pas en charge. Par exemple, si vous essayez d’exécuter une image HPC CentOS sur une machine virtuelle [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
-
 - Les machines virtuelles sont dans un [réseau virtuel Azure](batch-virtual-network.md), et le trafic a été bloqué pour les ports principaux.
-
 - Les machines virtuelles se trouvent dans un réseau virtuel, mais le trafic sortant vers le stockage Azure est bloqué.
-
 - Les machines virtuelles se trouvent dans un réseau virtuel avec une configuration DNS du client et le serveur DNS ne peut pas résoudre le stockage Azure.
 
 ### <a name="node-agent-log-files"></a>Fichiers de journaux de l’agent du nœud
@@ -134,14 +136,16 @@ Certains de ces fichiers sont écrits une seule fois lors de la création de nœ
 
 D’autres fichiers sont écrits pour chaque tâche exécutée sur un nœud, par exemple stdout et stderr. Si un grand nombre de tâches s’exécutent sur le même nœud et/ou que les fichiers de tâches sont trop volumineux, ils peuvent remplir le lecteur temporaire.
 
-La taille du lecteur temporaire dépend de la taille de la machine virtuelle. L’un des points à prendre en compte lors du choix de la taille d’une machine virtuelle consiste à s’assurer que le lecteur temporaire dispose de suffisamment d’espace.
+En outre, une fois le nœud démarré, une petite quantité d’espace est nécessaire sur le disque du système d’exploitation pour créer des utilisateurs.
+
+La taille du lecteur temporaire dépend de la taille de la machine virtuelle. L’un des aspects à prendre en compte lors de la sélection d’une taille de machine virtuelle est de veiller à ce que le lecteur temporaire dispose d’un espace suffisant pour la charge de travail planifiée.
 
 - Dans le portail Azure, lors de l’ajout d’un pool, la liste complète des tailles de machines virtuelles peut être affichée et il existe une colonne « Taille du disque de ressources ».
 - Les articles décrivant toutes les tailles de machines virtuelles, par exemple [Tailles de machines virtuelles optimisées pour le calcul](../virtual-machines/sizes-compute.md), ont des tables avec une colonne « Stockage temporaire ».
 
 Concernant les fichiers écrits par chaque tâche, une durée de rétention déterminant la durée pendant laquelle ils seront conservés avant d’être automatiquement nettoyés peut respectivement être spécifiée. La durée de rétention peut être raccourcie pour réduire les exigences de stockage.
 
-Si le disque temporaire manque (ou est sur le point de manquer) d’espace, le nœud passera à l’état [Inutilisable](/rest/api/batchservice/computenode/get#computenodestate) et une erreur de nœud indiquera que le disque est plein.
+Si le disque temporaire ou le disque du système d’exploitation manque (ou est sur le point de manquer) d’espace, le nœud passe à l’état [Inutilisable](/rest/api/batchservice/computenode/get#computenodestate), et une erreur de nœud est signalée, indiquant que le disque est plein.
 
 Si vous n’êtes pas certain de ce qui occupe de l’espace sur le nœud, essayez d’y accéder à distance et d’examiner manuellement l’utilisation de l’espace. Vous pouvez également recourir à [l’API Batch Lister les fichiers](/rest/api/batchservice/file/listfromcomputenode) pour examiner les fichiers des dossiers gérés par Batch (par exemple, les sorties de tâches). Notez que cette API répertorie uniquement les fichiers figurant dans les répertoires gérés par Batch. Si vos tâches ont créé des fichiers ailleurs, vous ne les verrez pas.
 

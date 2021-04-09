@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 87792b8469c78e20a8716bd925d71933f9d97c5e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426958"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105560486"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande d'un package d'accès dans la fonctionnalité de gestion des droits d'utilisation Azure AD
 
@@ -85,7 +85,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuair
 
 1. Sélectionnez l’une des options suivantes :
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Utilisateurs et groupes spécifiques** | Choisissez cette option si vous souhaitez que seuls les utilisateurs et les groupes de votre annuaire que vous spécifiez puissent demander ce package d’accès. |
     | **Tous les membres (à l’exclusion des invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres de votre annuaire puissent demander ce package d’accès. Cette option n’inclut pas les utilisateurs que vous avez invités dans votre annuaire. |
@@ -122,7 +122,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 
 1. Sélectionnez l’une des options suivantes :
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Organisations connectées spécifiques** | Choisissez cette option si vous souhaitez sélectionner parmi une liste d’organisations que votre administrateur a ajoutées précédemment. Tous les utilisateurs des organisations sélectionnées peuvent demander ce package d’accès. |
     | **Toutes les organisations connectées configurées** | Choisissez cette option si tous les utilisateurs de toutes les organisations connectées configurées peuvent demander ce package d’accès. Seuls les utilisateurs des organisations connectées configurées peuvent demander des packages d’accès affichés aux utilisateurs de toutes les organisations configurées. |

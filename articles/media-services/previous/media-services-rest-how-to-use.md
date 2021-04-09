@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103010046"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations
@@ -76,7 +76,7 @@ Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requi
 
 Voici un ensemble d’en-têtes facultatifs :
 
-| En-tête | Type | Value |
+| En-tête | Type | Valeur |
 | --- | --- | --- |
 | Date |Date RFC 1123 |Horodatage de la demande |
 | Accepter |Type de contenu |Type de contenu demandé pour la réponse, comme :<p> -application/json;odata=verbose<p> - application/atom+xml<p> Les réponses peuvent avoir un type de contenu différent, par exemple une extraction d’objets blob, dans laquelle une réponse correcte contient le flux d’objets blob en tant que charge utile. |
@@ -90,7 +90,7 @@ Voici un ensemble d’en-têtes facultatifs :
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
-| En-tête | Type | Value |
+| En-tête | Type | Valeur |
 | --- | --- | --- |
 | request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
 | client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d68f83bd042af6612b91807f2adeed54d24bfe01
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bcacfc8cede0ab91241fd431aace10cbbfbea916
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101648614"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709682"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Ajouter Facebook en tant que fournisseur d’identité pour les identités externes
 
@@ -82,7 +82,7 @@ Désormais, vous définirez l’ID et la clé secrète client Facebook, soit en 
    `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Utilisez l’ID et la clé secrète client à partir de l’application que vous avez créée précédemment dans la console de développeur Facebook. Pour plus d’informations, consultez l’article [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Utilisez l’ID et la clé secrète client à partir de l’application que vous avez créée précédemment dans la console de développeur Facebook. Pour plus d’informations, consultez l’article [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
 
 ## <a name="how-do-i-remove-facebook-federation"></a>Comment supprimer la Fédération Facebook ?
 Vous pouvez supprimer votre configuration de Fédération de Google. Dans ce cas, tous les utilisateurs qui se sont inscrits par le biais de flux d’utilisateurs avec leurs comptes Facebook ne pourront plus se connecter. 
@@ -103,7 +103,7 @@ Vous pouvez supprimer votre configuration de Fédération de Google. Dans ce cas
     `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
 
    > [!NOTE]
-   > Pour plus d’informations, consultez [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Pour plus d’informations, consultez [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview&preserve-view=true). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

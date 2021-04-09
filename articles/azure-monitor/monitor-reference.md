@@ -6,10 +6,10 @@ author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
 ms.openlocfilehash: 4bf792dd02e7cddcc40ef868e4a602fdb03ab3c6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052277"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
@@ -72,7 +72,7 @@ Le tableau suivant liste les services Azure et les données qu’ils collectent 
 |Service d’attestation | Non | Non | Non |  |
 |Automatisation | Oui | Oui | Non |  |
 |Azure Service Manager (RDFE) | Non | Non | Non |  |
-|Backup | Non | Oui | Non |  |
+|Sauvegarde | Non | Oui | Non |  |
 |Bastion | Non | Non | Non |  |
 |Batch | Oui | Oui | Non |  |
 |Batch AI | Non | Non | Non |  |

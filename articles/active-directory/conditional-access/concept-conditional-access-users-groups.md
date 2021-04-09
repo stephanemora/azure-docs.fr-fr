@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f316b17096e1241fe23cbf2c965122fd8966522
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630875"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952811"
 ---
 # <a name="conditional-access-users-and-groups"></a>Accès conditionnel : Utilisateurs et groupes
 
-Une stratégie d’accès conditionnel doit inclure une attribution d’utilisateur comme l’un des signaux dans le processus de décision. Les utilisateurs peuvent être inclus ou exclus des stratégies d’accès conditionnel. Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur. En plus de cet article, nous avons une vidéo expliquant comment [inclure ou exclure des utilisateurs des stratégies d’accès conditionnel](https://www.youtube.com/watch?v=5DsW1hB3Jqs), et qui vous guide tout au long de la procédure décrite ci-dessous. 
+Une stratégie d’accès conditionnel doit inclure une attribution d’utilisateur comme l’un des signaux dans le processus de décision. Les utilisateurs peuvent être inclus ou exclus des stratégies d’accès conditionnel. Azure Active Directory évalue toutes les stratégies et vérifie que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur. 
 
-![Utilisateur comme signal dans les décisions prises par l’accès conditionnel](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+> [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
 ## <a name="include-users"></a>Inclure des utilisateurs
 
@@ -38,7 +38,7 @@ Les options suivantes sont disponibles pour l’inclusion lors de la création d
    - Tous les utilisateurs invités et externes
       - Cette sélection inclut tous les invités B2B et les utilisateurs externes, y compris tout utilisateur dont l’attribut `user type` est défini sur `guest`. Cette sélection s’applique également à tout utilisateur externe connecté à partir d’une autre organisation, telle qu’un fournisseur de solutions Cloud (CSP). 
    - Rôles d’annuaire
-      - Permet aux administrateurs de sélectionner des rôles d’annuaire Azure AD intégrés spécifiques utilisés pour déterminer l’attribution des stratégies. Par exemple, les organisations peuvent créer une stratégie plus restrictive sur les utilisateurs qui ont le rôle d’administrateur général. Les autres types de rôles ne sont pas pris en charge, y compris les rôles d’annuaire de portée d’unité administrative et les rôles personnalisés.
+      - Permet aux administrateurs de sélectionner des rôles d’annuaire Azure AD intégrés spécifiques utilisés pour déterminer l’attribution des stratégies. Par exemple, les organisations peuvent créer une stratégie plus restrictive sur les utilisateurs qui ont le rôle d’administrateur général. Les autres types de rôles ne sont pas pris en charge, y compris les rôles de portée d’unité administrative et les rôles personnalisés.
    - Utilisateurs et groupes
       - Permet le ciblage d’ensembles spécifiques d’utilisateurs. Par exemple, les organisations peuvent sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés. La stratégie sera appliquée aux utilisateurs et groupes imbriqués.
 
@@ -77,7 +77,7 @@ Par défaut, la stratégie fournit une option permettant d’exclure l’utilisa
 
 ![Attention, ne vous enfermez pas dehors !](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-[Que faire si votre accès au portail Azure est verrouillé ?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+Si vous êtes bloqué[Que faire si votre accès au portail Azure est verrouillé ?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

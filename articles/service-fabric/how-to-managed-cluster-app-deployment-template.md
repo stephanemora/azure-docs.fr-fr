@@ -3,12 +3,12 @@ title: Déployer une application de cluster managé Service Fabric (préversion)
 description: Déployez une application sur un cluster managé Azure Service Fabric (préversion) à l’aide d’un modèle Azure Resource Manager.
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.openlocfilehash: b2d73180de61f44850b9c52a7ac24b0c23c36db2
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e860c77d77e3aabb70f70defdaa25de14e77e0e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100640977"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728009"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-preview-application-using-arm-template"></a>Déployer une application de cluster managé Service Fabric (préversion) à l’aide d’un modèle ARM
 
@@ -94,7 +94,7 @@ L’exemple d’application contient des [modèles Azure Resource Manager](https
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Le nom du cluster de déploiement | sf-cluster123                                                |                                                              |
 | application            | Nom de l’application                 | Vote                                                       |
-| version    | ID de ressource, type d’application et version de l’application.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Doit correspondre à ApplicationManifest.xml                 |              |
+| version    | ID de ressource, type d’application et version de l’application.       | /providers/Microsoft.ServiceFabric/managedClusters/sf-cluster-123/applicationTypes/VotingType/versions/1.0.0                                               | Doit correspondre à ApplicationManifest.xml                 |
 | serviceName            | Nom du service         | VotingWeb                                             | Doit être au format ServiceType            |
 | serviceTypeName        | Le nom du type de service                | VotingWebType                                                    | Doit correspondre à ServiceManifest.xml                 |
 | appPackageUrl          | L’URL du stockage Blob de l’application     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | L’URL du package d’application dans le stockage d’objets blob (la procédure de définition de l’URL est décrite ultérieurement dans cet article) |

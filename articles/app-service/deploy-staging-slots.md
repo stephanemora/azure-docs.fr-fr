@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594238"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802962"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -214,6 +214,7 @@ Vous pouvez également personnaliser le comportement d’initialisation en utili
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: chemin permettant d’effectuer un test ping afin d’initialiser votre site. Ajoutez ce paramètre d’application en spécifiant un chemin d’accès personnalisé qui commence par une barre oblique comme valeur. par exemple `/statuscheck`. La valeur par défaut est `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codes de réponse HTTP valides pour l’opération d'initialisation. Ajoutez ce paramètre d’application avec une liste séparée par des virgules de codes HTTP. Par exemple `200,202`. Si le code d’état retourné ne figure pas dans la liste, les opérations d’initialisation et d’échange sont arrêtées. Par défaut, tous les codes de réponse sont valides.
+- `WEBSITE_WARMUP_PATH` : chemin d’accès relatif sur le site qui doit faire l’objet d’un test ping à chaque redémarrage du site (pas seulement pendant les échanges d’emplacements). Les valeurs sont, par exemple, `/statuscheck` ou le chemin d’accès racine, `/`.
 
 > [!NOTE]
 > L’élément de configuration `<applicationInitialization>` fait partie de chaque démarrage d’application, tandis que les deux paramètres d’application de comportement de préchauffage s’appliquent uniquement aux échanges d’emplacements.

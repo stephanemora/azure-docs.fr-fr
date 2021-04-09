@@ -2,13 +2,13 @@
 title: Suppressions de l’historique de déploiement
 description: Décrit la manière dont Azure Resource Manager supprime automatiquement les déploiements de l’historique de déploiement. Les déploiements sont supprimés lorsque l’historique approche de la limite des 800 déploiements.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652480"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951961"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Suppressions automatiques de l’historique de déploiement
 
@@ -53,6 +53,12 @@ Pour utiliser Azure CLI afin de supprimer un verrou, exécutez les commandes sui
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>Autorisations requises
+
+Les suppressions sont demandées sous l’identité de l’utilisateur qui a déployé le modèle. Pour supprimer des déploiements, l’utilisateur doit avoir accès à l’action **Microsoft.Resources/deployments/delete**. Si l’utilisateur ne dispose pas des autorisations requises, les déploiements ne sont pas supprimés de l’historique.
+
+Si l’utilisateur actuel ne dispose pas des autorisations requises, la suppression automatique est tentée à nouveau lors du déploiement suivant.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Refuser les suppressions automatiques
 

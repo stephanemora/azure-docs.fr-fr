@@ -5,21 +5,21 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/31/2021
 ms.author: yuajia
-ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: e3e5333b339101676582cec03dbb960148d59b56
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101097707"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067552"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>Qu’est-ce qu’un ensemble de règles dans Azure Front Door Standard/Premium (préversion) ?
 
 > [!Note]
 > Cette documentation est destinée à Azure Front Door Standard/Premium (préversion). Vous recherchez des informations sur Azure Front Door ? Affichez [ici](../front-door-overview.md).
 
-Un ensemble de règles est un moteur de règles personnalisé qui regroupe une combinaison de règles en un ensemble unique que vous pouvez associer à plusieurs routes. L’ensemble de règles vous permet de personnaliser la façon dont les requêtes sont traitées à la périphérie et la façon dont elles sont traitées par Azure Front Door.
+Un ensemble de règles est un moteur de règles personnalisé qui regroupe une combinaison de règles dans un ensemble unique. Vous pouvez associer un ensemble de règles à plusieurs itinéraires. L’ensemble de règles vous permet de personnaliser la façon dont les demandes sont traitées à la périphérie, et dont Azure Front Door les traite.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (préversion) est actuellement disponible en préversion publique.
@@ -32,7 +32,7 @@ Un ensemble de règles est un moteur de règles personnalisé qui regroupe une c
 
 * Routage des requêtes vers les versions mobiles ou pour appareil de bureau de votre application en fonction du type d’appareil client.
 
-* Utilisation de fonctionnalités de redirection pour retourner les redirections 301, 302, 307 et 308 au client afin de le diriger vers de nouveaux noms d’hôte, de nouveaux chemins, une nouvelle chaîne de requête ou de nouveaux protocoles.
+* Utilisation de fonctionnalités de redirection pour retourner les redirections 301, 302, 307 et 308 au client afin de le diriger vers de nouveaux noms d’hôte, de nouveaux chemins, de nouvelles chaînes de requête ou de nouveaux protocoles.
 
 * Modification dynamique de la configuration de la mise en cache de votre route en fonction des requêtes entrantes.
 
@@ -60,16 +60,19 @@ Avec l’ensemble de règles Azure Front Door, vous pouvez créer une combinais
 
 Pour en savoir plus sur la limite de quota, consultez [Abonnement Azure et limites, quotas et contraintes du service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-* *Ensemble de règles* : Ensemble de règles associé à une ou plusieurs [routes](concept-route.md). Chaque configuration est limitée à 25 règles. Vous pouvez créer jusqu’à 10 configurations.
+* *Ensemble de règles* : ensemble de règles associé à un ou plusieurs [itinéraires](concept-route.md).
 
-* *Règle d’un ensemble de règles* : Règle pouvant avoir jusqu’à 10 conditions de correspondance et 5 actions. Les règles n’existent que localement dans un ensemble de règles. Elles ne peuvent pas être exportées pour être utilisées dans différents ensembles de règles. Les utilisateurs peuvent créer la même règle dans plusieurs ensembles de règles.
+* *Règle d’ensemble de règles*: règle composée de jusqu’à 10 conditions de correspondance et 5 actions. Les règles n’existent que localement dans un ensemble de règles. Elles ne peuvent pas être exportées pour être utilisées dans différents ensembles de règles. Les utilisateurs peuvent créer la même règle dans plusieurs ensembles de règles.
 
-* *Condition de correspondance* : Il existe de nombreuses conditions de correspondance qui peuvent être utilisées pour analyser vos requêtes entrantes. Une règle peut contenir jusqu’à 10 conditions de correspondance. Les conditions de correspondance sont évaluées avec un opérateur **AND**. *L’expression régulière est prise en charge dans les conditions*. Pour obtenir une liste complète des conditions de correspondance, consultez cet [article sur les conditions d’ensemble de règles](concept-rule-set-match-conditions.md).
+* *Condition de correspondance* : il existe de nombreuses conditions de correspondance qui peuvent être utilisées pour analyser vos demandes entrantes. Une règle peut contenir jusqu’à 10 conditions de correspondance. Les conditions de correspondance sont évaluées avec un opérateur **AND**. *L’expression régulière est prise en charge dans les conditions*. Vous trouverez la liste complète des conditions de correspondance dans [Conditions de correspondance d’ensemble de règles](concept-rule-set-match-conditions.md).
 
-* *Action* : Les actions dictent la manière dont AFD traite les requêtes entrantes en fonction des conditions de correspondance. Vous pouvez modifier les comportements de mise en cache et les en-têtes de requête/de réponse et effectuer une réécriture d’URL et une redirection d’URL. *Les variables serveur sont prises en charge dans les actions*. Une règle peut contenir jusqu’à 10 conditions de correspondance. Pour obtenir une liste complète des actions, consultez cet [article sur les actions d’ensemble de règles](concept-rule-set-actions.md).
+* *Action* : Les actions dictent la manière dont AFD traite les requêtes entrantes en fonction des conditions de correspondance. Vous pouvez modifier les comportements de mise en cache et les en-têtes de requête/de réponse et effectuer une réécriture d’URL et une redirection d’URL. *Les variables serveur sont prises en charge dans les actions*. Une règle peut contenir jusqu’à 10 conditions de correspondance. Pour obtenir la liste complète des actions, consultez [Actions d’ensemble de règles](concept-rule-set-actions.md).
+
+## <a name="arm-template-support"></a>Prise en charge de modèle ARM
+
+Vous pouvez configurer des ensembles de règles à l’aide de modèles Azure Resource Manager. [Consultez un exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). Vous pouvez personnaliser le comportement à l’aide des extraits de code JSON ou Bicep inclus dans les exemples que la documentation fournit pour les [conditions de correspondance](concept-rule-set-match-conditions.md) et les [actions](concept-rule-set-actions.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [créer une instance Front Door Standard/Premium](create-front-door-portal.md).
 * Découvrez comment configurer votre premier [ensemble de règles](how-to-configure-rule-set.md).
- 

@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fcb9fd9f0539b42d9253db783fd5da840f358e66
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216426"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960722"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Se connecter à l’API Media Services v3 – Node.js
 
@@ -32,7 +32,7 @@ Cet article explique comment se connecter au kit SDK node.js Azure Media Service
 - Une installation de Visual Studio Code.
 - Installez [Node.js](https://nodejs.org/en/download/).
 - Installez [Typescript](https://www.typescriptlang.org/download).
-- [Créer un compte Media Services](./create-account-howto.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+- [Créer un compte Media Services](./account-create-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 - Créez un principal du service pour votre application. Consultez [Accéder aux API](./access-api-howto.md).<br/>**Conseil pro** Laissez cette fenêtre ouverte ou copiez tout le contenu de l’onglet JSON dans le Bloc-notes. 
 - Procurez-vous la dernière version du [kit de développement logiciel (SDK) AzureMediaServices pour JavaScript](https://www.npmjs.com/package/@azure/arm-mediaservices).
 

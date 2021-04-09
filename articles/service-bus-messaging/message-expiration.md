@@ -3,12 +3,12 @@ title: Azure Service Bus - Expiration des messages
 description: Cet article traite de l'expiration et de la durée de vie des messages Azure Service Bus. Passé ce délai, le message n’est plus remis.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042825"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104952318"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 La charge utile dans un message, ou une commande ou demande transmise par un message à un destinataire, est presque toujours soumise à une forme de délai d’expiration au niveau de l’application. Passé ce délai, le contenu n’est plus remis, ou l’opération demandée n’est plus exécutée.
@@ -46,7 +46,7 @@ Des files d’attente, rubriques et abonnements Service Bus peuvent être créé
  
 Le nettoyage automatique est utile dans les scénarios de développement et de test où les entités sont créées de façon dynamique et ne sont pas nettoyées après leur utilisation, en raison d’une interruption de la série de tests ou d’un débogage. Il est également utile quand une application crée des entités dynamiques, telles qu’une file d’attente de réponse, pour recevoir des réponses dans un processus de serveur web ou dans un autre objet relativement éphémère. En effet, dans ce cas, il est difficile de nettoyer correctement ces entités quand l’instance de l’objet disparaît.
 
-La fonctionnalité est activée à l’aide de la propriété **suppression automatique inactive** sur l’espace de noms. La propriété est définie sur la durée pendant laquelle une entité peut rester inactive (non utilisée) avant d’être automatiquement supprimée. La valeur minimale pour cette propriété est 5.
+La fonctionnalité est activée à l’aide de la propriété **suppression automatique inactive** sur l’espace de noms. La propriété est définie sur la durée pendant laquelle une entité peut rester inactive (non utilisée) avant d’être automatiquement supprimée. La valeur minimale de cette propriété est 5 minutes.
  
 ## <a name="idleness"></a>Inactivité
 

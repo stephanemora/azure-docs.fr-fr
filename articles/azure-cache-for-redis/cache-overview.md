@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 5a0389b1074737728bd0ffa5d6db90d077a9f45f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49a697e6c3a6a6c931f2bb9c545647e2d6f1322d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652165"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056655"
 ---
 # <a name="about-azure-cache-for-redis"></a>À propos du cache Azure pour Redis
 Azure Cache pour Redis fournit un magasin de données en mémoire basé sur le logiciel [Redis](https://redis.io/). Redis améliore les performances et l’extensibilité d’une application qui utilise abondamment les magasins de données principaux. Il peut traiter des volumes conséquents de demandes d’applications en conservant les données fréquemment utilisées dans la mémoire du serveur, qui peut être écrite et lue rapidement. Redis constitue une solution de stockage de données à faible latence et à haut débit critique pour les applications modernes.
@@ -50,7 +50,7 @@ Les niveaux suivants sont proposés pour le cache Azure pour Redis :
 ### <a name="feature-comparison"></a>Comparaison des fonctionnalités
 La page [Tarifs d’Azure Cache pour Redis](https://azure.microsoft.com/pricing/details/cache/) fournit une comparaison détaillée des différents niveaux. Le tableau suivant décrit quelques-unes des fonctionnalités prises en charge par niveau :
 
-| Description de la fonctionnalité | De base | Standard | Premium | Enterprise | Enterprise Flash |
+| Description de la fonctionnalité | De base | standard | Premium | Enterprise | Enterprise Flash |
 | ------------------- | :-----: | :------: | :---: | :---: | :---: |
 | [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
 | Chiffrement des données |✔|✔|✔|✔|✔|

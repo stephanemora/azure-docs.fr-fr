@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: edffa2dddd0ec877a4b825a69a76fb158928c89f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2922586d586dbbb98ae85fb86f3f76889a75aa6b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016761"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067399"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -117,7 +117,7 @@ Les considérations suivantes s'appliquent :
 Les articles ci-dessous décrivent les étapes suivantes que vous pouvez exécuter pour mieux comprendre la protection du contenu :
 
 * [Protection avec le chiffrement du stockage](media-services-rest-storage-encryption.md)
-* [Protection avec le chiffrement AES](media-services-protect-with-aes128.md)
+* [Protection avec le chiffrement AES](media-services-playready-license-template-overview.md)
 * [Protection avec PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Protéger avec FairPlay](media-services-protect-hls-with-FairPlay.md)
 
