@@ -8,10 +8,10 @@ ms.date: 03/12/2021
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 241a47ccf9021c6065fea907b4d9914744a64972
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103461689"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutoriel : Exécuter des scripts Python par le biais d’Azure Data Factory avec Azure Batch

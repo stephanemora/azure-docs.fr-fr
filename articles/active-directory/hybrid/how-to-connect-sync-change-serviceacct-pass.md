@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996557"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720336"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Modifier le mot de passe du compte de service ADSync
 Si vous modifiez le mot de passe du service ADSync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service ADSync. 
+
+>[!IMPORTANT]
+> Si vous utilisez Connect avec une version de mars 2017 ou antérieure, vous ne devez pas réinitialiser le mot de passe du compte de service, sinon Windows détruit les clés de chiffrement pour des raisons de sécurité. Vous ne pouvez pas modifier le compte sur un autre compte sans réinstaller Azure AD Connect. Si vous mettez à niveau vers la version d’avril 2017 ou une version ultérieure, il est possible de modifier le mot de passe du compte de service, mais vous ne pouvez pas modifier le compte utilisé. 
 
 Azure AD Connect, dans le cadre des services de synchronisation, utilise une clé de chiffrement pour stocker les mots de passe du compte de connecteur AD DS et du compte de service ADSync.  Ces comptes sont chiffrés avant d’être stockés dans la base de données. 
 

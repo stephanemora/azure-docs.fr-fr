@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: f69bbecfc2acc24cd63b87212197342b28723a9f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4423eea6c35ad44d55ad17f5703a95c6273422b8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043097"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585857"
 ---
 # <a name="iot-central-device-development-guide"></a>Guide de développement d’appareils IoT Central
 
@@ -105,7 +105,7 @@ Un modèle DTDL peut être un modèle _sans composant_ ou _à plusieurs composan
 - Modèle sans composant : un modèle simple n’utilise pas de composants incorporés ou en cascade. Toutes les données de télémétrie, propriétés et commandes sont définies en tant que _composant par défaut_ unique. Pour obtenir un exemple, consultez le modèle [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json).
 - Modèle à plusieurs composants : modèle plus complexe qui inclut deux composants ou plus. Ces composants incluent un composant unique par défaut et un ou plusieurs composants imbriqués supplémentaires. Pour obtenir un exemple, consultez le modèle [Contrôleur de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-Pour plus d’informations, consultez [Composants IoT Plug-and-Play dans les modèles](../../iot-pnp/concepts-components.md).
+Pour en savoir plus, consultez [Repère de modélisation IoT Plug-and-Play](../../iot-pnp/concepts-modeling-guide.md)
 
 ### <a name="conventions"></a>Conventions
 

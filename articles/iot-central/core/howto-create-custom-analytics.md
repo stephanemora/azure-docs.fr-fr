@@ -3,18 +3,18 @@ title: Étendre Azure IoT Central avec une analyse personnalisée | Microsoft Do
 description: En tant que développeur de solutions, configurez une application IoT Central pour réaliser des visualisations et des analyses personnalisées. Cette solution utilise Azure Databricks.
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0cee343e6769c815ecfb4b9c791783bd246caaac
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551315"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953877"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Étendre Azure IoT Central avec des analyses personnalisées à l’aide d’Azure Databricks
 
@@ -82,14 +82,14 @@ Utilisez le [Portail Azure pour créer un service Azure Databricks](https://port
 
 Une fois que vous avez créé les ressources nécessaires, votre groupe de ressources **IoTCentralAnalysis** doit ressembler à la capture d’écran suivante :
 
-![Groupe de ressources d’analyse IoT Central](media/howto-create-custom-analytics/resource-group.png)
+:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="Image du groupe de ressources d’analyse IoT Central.":::
 
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
 Vous pouvez configurer une application IoT Central pour exporter en continu des données de télémétrie vers un Event Hub. Dans cette section, vous allez créer un Event Hub pour recevoir des données de télémétrie depuis votre application IoT Central. L’Event Hub fournit les données de télémétrie à votre travail Stream Analytics afin qu’elles soient traitées.
 
 1. Dans le portail Azure, accédez à votre espace de noms Event Hubs et sélectionnez **+ Event Hub**.
-1. Nommez votre Event Hub **centralexport**, puis sélectionnez **Créer**.
+1. Nommez votre Event Hub **centralexport**.
 1. Dans la liste de concentrateurs d’événements dans votre espace de noms, sélectionnez **centralexport**. Puis sélectionnez **Stratégies d’accès partagé**.
 1. Sélectionnez **Ajouter**. Créez une stratégie nommée **Listen** avec la revendication **Listen**.
 1. Lorsque la stratégie est prête, sélectionnez-la dans la liste, puis copiez la valeur de **Clé primaire de la chaîne de connexion**.
@@ -97,26 +97,42 @@ Vous pouvez configurer une application IoT Central pour exporter en continu des 
 
 Votre espace de noms Event Hubs se présente comme la capture d’écran suivante :
 
-![Espace de noms Event Hubs](media/howto-create-custom-analytics/event-hubs-namespace.png)
+:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="Image de l’espace de noms Event Hubs.":::
 
-## <a name="configure-export-in-iot-central"></a>Configurer l’exportation dans IoT Central
+## <a name="configure-export-in-iot-central-and-create-a-new-destination"></a>Configurer l’exportation dans IoT Central et créer une nouvelle destination
 
 Sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), accédez à l’application IoT Central que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
 
-1. Accédez à la page **Exportation de données**, sélectionnez **+ Nouveau**, puis **Azure Event Hubs**.
-1. Utilisez les paramètres suivants pour configurer l’exportation, puis sélectionnez **Enregistrer** :
+1. Accédez à la page **Exportation de données**, sélectionnez **+ Nouvelle exportation**.
+1. Avant de terminer la première fenêtre, sélectionnez **Créer une destination**.
+
+La fenêtre doit ressembler à ceci.  
+
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Image de la configuration de destination d’exportation de données.":::
+
+3. Saisissez les valeurs suivantes :
+
+| Paramètre | Valeur |
+| ------- | ----- |
+| Nom de la destination | Nom de votre destination |
+| Type de destination | Hubs d'événements Azure |
+| Chaîne de connexion| Chaîne de connexion Event Hub que vous avez notée précédemment. | 
+| Event Hub| Nom de votre Event Hub|
+
+4. Cliquez sur **Créer** pour terminer.
+
+5. Utilisez les paramètres suivants pour configurer l’exportation :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom d’affichage | Exporter vers Event Hubs |
+    | Entrer un nom d'exportation | eventhubexport |
     | activé | Il en va |
-    | Espace de noms Event Hubs | Le nom de votre espace de noms Event Hubs |
-    | Event Hub | centralexport |
-    | Mesures | Il en va |
-    | Appareils | Off |
-    | Modèles d’appareil | Off |
+    | Données| Sélectionner la télémétrie | 
+    | Destinations| Créez une destination, comme indiqué ci-dessous, pour votre exportation, puis sélectionnez-la dans le menu déroulant de destination. |
 
-![Configuration de l’exportation de données](media/howto-create-custom-analytics/cde-configuration.png)
+:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Capture d’écran de la configuration de destination d’exportation de données.":::
+
+6. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
 Attendez que l’état de l’exportation soit **En cours d’exécution** avant de continuer.
 
@@ -164,7 +180,7 @@ Les étapes suivantes expliquent comment importer la bibliothèque dont votre ex
 
 1. L’état de la bibliothèque est désormais **Installée** :
 
-    ![Bibliothèque installée](media/howto-create-custom-analytics/cluster-libraries.png)
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="Capture d’écran de la bibliothèque installée.":::
 
 ### <a name="import-a-databricks-notebook"></a>Importer un notebook Databricks
 
@@ -178,9 +194,9 @@ Utilisez les étapes suivantes pour importer un notebook Databricks qui contient
 
 1. Sélectionnez l’**espace de travail** pour afficher le notebook importé :
 
-    ![Notebook importé](media/howto-create-custom-analytics/import-notebook.png)
+:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Capture d’écran du notebook importé.":::
 
-1. Modifiez le code dans la première cellule Python pour ajouter la chaîne de connexion Event Hubs que vous avez enregistrée précédemment :
+5. Modifiez le code dans la première cellule Python pour ajouter la chaîne de connexion Event Hubs que vous avez enregistrée précédemment :
 
     ```python
     from pyspark.sql.functions import *
@@ -206,7 +222,7 @@ Vous pouvez rencontrer une erreur dans la dernière cellule. Dans ce cas, vérif
 
 Dans le notebook, faites défiler jusqu’à la cellule 14 pour voir un tracé de l’humidité moyenne mobile par type de périphérique. Ce tracé se met à jour continuellement au fur et à mesure que les données de télémétrie diffusées arrivent :
 
-![Tracé de données de télémétrie lissées](media/howto-create-custom-analytics/telemetry-plot.png)
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Capture d’écran du tracé de données de télémétrie lissées.":::
 
 Vous pouvez redimensionner le graphique dans le notebook.
 
@@ -214,7 +230,7 @@ Vous pouvez redimensionner le graphique dans le notebook.
 
 Dans le notebook, faites défiler jusqu’à la cellule 20 pour voir les [diagrammes à surfaces](https://en.wikipedia.org/wiki/Box_plot). Les diagrammes à surfaces sont basés sur des données statiques. Ainsi, pour les mettre à jour, vous devez réexécuter la cellule :
 
-![Diagrammes à surfaces](media/howto-create-custom-analytics/box-plots.png)
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Capture d’écran des diagrammes à surfaces.":::
 
 Vous pouvez redimensionner les diagrammes dans le notebook.
 

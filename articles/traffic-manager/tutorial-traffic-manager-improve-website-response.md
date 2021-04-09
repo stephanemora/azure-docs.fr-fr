@@ -3,7 +3,6 @@ title: 'Tutoriel : Améliorer la réponse d’un site web avec Azure Traffic Ma
 description: Cet article de didacticiel explique comment créer un profil Traffic Manager pour développer un site web très réactif.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e95a1c5c2ab0803ba628e44275c4805f325ae3f0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96003818"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067246"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutoriel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
 
@@ -139,7 +138,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Dans **Créer un profil Traffic Manager**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 
-    | Paramètre                 | Value                                              |
+    | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Performances**.                                       |

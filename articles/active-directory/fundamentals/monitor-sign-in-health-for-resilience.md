@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2021
+ms.date: 03/17/2021
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650989"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031764"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Supervision de l’intégrité de connexion de l’application pour la résilience
 
@@ -43,7 +43,7 @@ Lors d’un événement impactant, deux choses peuvent se produire :
 
 Cet article explique comment configurer le classeur d’intégrité de connexion pour superviser les interruptions des connexions de vos utilisateurs.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
 * Un locataire Azure AD.
 
@@ -56,8 +56,6 @@ Cet article explique comment configurer le classeur d’intégrité de connexion
 * Journaux Azure AD intégrés aux journaux Azure Monitor
 
    * Découvrez comment [intégrer des journaux de connexion Azure AD à Azure Monitor Stream.](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
- 
 
 ## <a name="configure-the-app-sign-in-health-workbook"></a>Configurer le classeur d’intégrité de connexion à l’application 
 
@@ -78,11 +76,11 @@ Par défaut, le classeur présente deux graphiques. Ces graphiques comparent ce 
 
 **Le premier graphique montre l’utilisation horaire (nombre d’utilisateurs connectés)** . Comparer votre nombre actuel d’utilisateurs connectés à une période d’utilisation classique vous permet de repérer une baisse de l’utilisation pouvant nécessiter une investigation. Une baisse du taux d’utilisation peut vous aider à identifier les problèmes de performances et d’utilisation que le taux d’échec ne peut pas détecter. Par exemple, si les utilisateurs ne peuvent pas accéder à votre application pour s’y connecter, il n’y a pas d’échec, mais uniquement une baisse d’utilisation. Vous trouverez un exemple de requête pour ces données dans la section suivante.
 
-Le second graphique indique le taux d’échec horaire. Un pic dans le taux d’échec peut indiquer un problème au niveau de vos mécanismes d’authentification. Le taux d’échec ne peut être mesuré que si les utilisateurs peuvent tenter de s’authentifier. Si les utilisateurs ne peuvent pas effectuer la tentative, les échecs ne s’afficheront pas.
+**Le second graphique indique le taux d’échec horaire**. Un pic dans le taux d’échec peut indiquer un problème au niveau de vos mécanismes d’authentification. Le taux d’échec ne peut être mesuré que si les utilisateurs peuvent tenter de s’authentifier. Si les utilisateurs ne peuvent pas effectuer la tentative, les échecs ne s’afficheront pas.
 
 Vous pouvez configurer une alerte qui avertit un groupe spécifique lorsque le taux d’utilisation ou d’échec dépasse un seuil défini. Vous trouverez un exemple de requête pour ces données dans la section suivante.
 
- ## <a name="configure-the-query-and-alerts"></a>Configurer la requête et les alertes
+## <a name="configure-the-query-and-alerts"></a>Configurer la requête et les alertes
 
 Vous créez des règles d'alerte dans Azure Monitor et pouvez exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers.
 
@@ -96,116 +94,18 @@ Utilisez les instructions suivantes pour créer des alertes par e-mail en foncti
 
 Pour plus d’informations sur la création, l’affichage et la gestion des alertes de journal à l’aide d’Azure Monitor, consultez [Gérer les alertes de journal](../../azure-monitor/alerts/alerts-log.md).
 
- 
 1. Dans le classeur, sélectionnez **Modifier**, puis cliquez sur l’**icône de requête** à droite du graphique.   
 
    [![Capture d’écran montrant la modification d’un classeur.](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
 
    Le journal des requêtes s’ouvre.
 
-  [![Capture d’écran montrant le journal des requêtes.](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![Capture d’écran montrant le journal des requêtes.](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
-2. Copiez l’un des exemples de scripts suivants pour une nouvelle requête Kusto.
-
-**Requête Kusto pour baisse de l’utilisation**
-
-```Kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1h)
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1h) - totimespan(2d))..(now() - totimespan(2d)))
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize usersPriorWeek = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join
-
-(
-
- lastWeek
-
-)
-
-on rn
-
-| project TimeGenerated, users, usersPriorWeek, difference = abs(users - usersPriorWeek), max = max_of(users, usersPriorWeek)
-
-| where (difference * 2.0) / max > 0.9
-
-```
-
- 
-
-**Requête Kusto pour augmentation du taux d’échec**
-
-
-```kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1 h)
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1 h) - totimespan(2d))..(ago(1h) - totimespan(2d)))
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRatePriorWeek = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join (lastWeek) on rn
-
-| project TimeGenerated, failureRate, failureRatePriorWeek
-
-| where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
-
-```
+2. Copiez l’un des exemples de scripts pour une nouvelle requête Kusto.  
+   * [Requête Kusto pour augmentation du taux d’échec](#kusto-query-for-increase-in-failure-rate)
+   * [Requête Kusto pour baisse de l’utilisation](#kusto-query-for-drop-in-usage)
 
 3. Collez la requête dans la fenêtre, puis sélectionnez **Exécuter**. Vérifiez que vous voyez le message Terminé dans l’image ci-dessous, et les résultats sous ce message.
 
@@ -222,7 +122,7 @@ thisWeek
  
    * **Valeur de seuil** : 0. Cette valeur génère une alerte sur tous les résultats.
 
-   * **Période d’évaluation (en minutes)** : 60. Cette valeur porte sur une heure
+   * **Période d’évaluation (en minutes)**  : 2880. Cette valeur porte sur une heure
 
    * **Fréquence (en minutes)** : 60. Cette valeur définit la période d’évaluation sur une fois par heure pour l’heure précédente.
 
@@ -254,9 +154,8 @@ thisWeek
 
    [![Capture d’écran montrant le bouton Enregistrer la requête.](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
 
-
-
 ### <a name="refine-your-queries-and-alerts"></a>Affiner vos requêtes et alertes
+
 Modifiez vos requêtes et alertes pour une efficacité maximale.
 
 * Veillez à tester vos alertes.
@@ -267,11 +166,135 @@ Modifiez vos requêtes et alertes pour une efficacité maximale.
 
 * La requête d’alertes dans Azure Monitor peut inclure uniquement les résultats des 48 dernières heures. [Il s’agit d’une limitation par défaut](https://github.com/MicrosoftDocs/azure-docs/issues/22637).
 
+## <a name="sample-scripts"></a>Exemples de scripts
+
+### <a name="kusto-query-for-increase-in-failure-rate"></a>Requête Kusto pour augmentation du taux d’échec
+
+   Le ratio en bas de l’écran peut être ajusté selon les besoins et représente la variation en pourcentage du trafic au cours de la dernière heure par rapport à la même heure la veille. 0,5 signifie qu’il y a une différence de 50 % dans le trafic.
+
+```kusto
+
+let today = SigninLogs
+
+| where TimeGenerated > ago(1h) // Query failure rate in the last hour
+ 
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate
+
+| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+
+let yesterday = SigninLogs
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Query failure rate at the same time yesterday
+
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate at same time yesterday
+
+| project TimeGenerated, failureRateYesterday = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+today
+| join (yesterday) on rowNumber // join data from same time today and yesterday
+
+| project TimeGenerated, failureRate, failureRateYesterday
+
+// Set threshold to be the percent difference in failure rate in the last hour as compared to the same time yesterday
+
+| where abs(failureRate - failureRateYesterday) > 0.5
+
+```
+
+### <a name="kusto-query-for-drop-in-usage"></a>Requête Kusto pour baisse de l’utilisation
+
+Dans la requête suivante, nous comparons le trafic de la dernière heure à celui de la veille à la même heure.
+Nous excluons les samedis, dimanches et lundis parce que ces jours-là, nous nous attendons à une grande variabilité du trafic à la même heure le jour précédent. 
+
+Le ratio en bas de l’écran peut être ajusté selon les besoins et représente la variation en pourcentage du trafic au cours de la dernière heure par rapport à la même heure la veille. 0,5 signifie qu’il y a une différence de 50 % dans le trafic.
+
+*Vous devez ajuster ces valeurs en fonction du modèle opérationnel de votre entreprise.*
+
+```Kusto
+ let today = SigninLogs // Query traffic in the last hour
+
+| where TimeGenerated > ago(1h)
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr) // Count distinct users in the last hour
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+let yesterday = SigninLogs // Query traffic at the same hour yesterday
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Count distinct users in the same hour yesterday
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize usersYesterday = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+today
+| join // Join data from today and yesterday together
+(
+yesterday
+)
+on rn
+
+// Calculate the difference in number of users in the last hour compared to the same time yesterday
+
+| project TimeGenerated, users, usersYesterday, difference = abs(users - usersYesterday), max = max_of(users, usersYesterday)
+
+ extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
+
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+
+| extend day = dayofweek(now())
+
+| where day != time(6.00:00:00) // exclude Sat
+
+| where day != time(0.00:00:00) // exclude Sun
+
+| where day != time(1.00:00:00) // exclude Mon
+
+| where ratio > 0.7 // Threshold percent difference in sign-in traffic as compared to same hour yesterday
+
+```
+
 ## <a name="create-processes-to-manage-alerts"></a>Créer des processus pour gérer les alertes
 
 Une fois que vous avez configuré la requête et les alertes, créez des processus d’entreprise pour gérer les alertes.
 
 * Qui surveillera le classeur et quand ?
+
 * Quand une alerte est générée, qui effectue une investigation ?
 
 * Quels sont les besoins en communication ? Qui créera les communications et qui les recevra ?
@@ -281,8 +304,3 @@ Une fois que vous avez configuré la requête et les alertes, créez des process
 ## <a name="next-steps"></a>Étapes suivantes
 
 [En savoir plus sur les classeurs](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
-
- 
-
- 
-

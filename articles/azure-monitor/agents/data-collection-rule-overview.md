@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a52d6dca423565e7b5e4b6ac059bcf21b637c87c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039612"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586333"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Règles de collecte de données dans Azure Monitor (version préliminaire)
 Les règles de collecte de données (DCR) définissent les données entrantes dans Azure Monitor et spécifient l’emplacement où ces données doivent être envoyées ou stockées. Cet article fournit une vue d’ensemble des règles de collecte de données, notamment leur contenu et leur structure, et comment vous pouvez les créer et les utiliser.
@@ -81,6 +81,10 @@ L’exemple de règle de collecte de données ci-dessous concerne les machines v
   - Collecte des événements d’alerte, critiques et d’urgence de l’installation Syslog.
 - Destinations
   - Envoie toutes les données à un espace de travail Log Analytics nommé centralWorkspace.
+
+> [!NOTE]
+> Pour obtenir une explication des XPaths utilisés pour spécifier la collecte d’événements dans les règles de collecte des données, consultez [Limiter la collecte de données avec des requêtes XPath personnalisées](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
+
 
 ```json
 {

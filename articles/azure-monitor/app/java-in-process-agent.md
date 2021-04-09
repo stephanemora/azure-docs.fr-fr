@@ -7,10 +7,10 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.openlocfilehash: b695df29b7a4704ee9e4e25e402fa0de8f2b7685
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008210"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights

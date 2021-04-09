@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
 ms.openlocfilehash: fd55ce702ae3c9485fc2dcc37fc90915a8990ce7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102636930"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Déployer une application sans état Kubernetes via kubectl sur votre appareil Azure Stack Edge Pro avec GPU
