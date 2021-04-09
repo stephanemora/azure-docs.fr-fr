@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 9ec217cefb05929ed6f5c7395df5e68891e823ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 95d0e1ceb9e05ce58f388c3f88dc98b2cf6a0cc5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739778"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559585"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Récupérer les métadonnées de l’équilibreur de charge à l’aide d’Azure Instance Metadata Service (IMDS)
 
@@ -30,7 +30,7 @@ ms.locfileid: "101739778"
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254:80/metadata/loadbalancer?api-version=2020-10-01" | ConvertTo-Json
 ```
 > [!NOTE]
-> Ce paramètre -NoProxy a été introduit dans Windows PowerShell 6.0. Si vous utilisez une version antérieure de PowerShell, supprimez -NoProxy du corps de la demande et assurez-vous que vous n’utilisez pas de proxy lors de la récupération des informations de IMDS. En savoir plus [ici](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
+> Ce paramètre -NoProxy a été introduit dans Windows PowerShell 6.0. Si vous utilisez une version antérieure de PowerShell, supprimez -NoProxy du corps de la demande et assurez-vous que vous n’utilisez pas de proxy lors de la récupération des informations de IMDS. En savoir plus [ici](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
 > 
 ### <a name="linux"></a>[Linux](#tab/linux/)
 
@@ -89,4 +89,3 @@ En savoir plus sur [Azure Instance Metadata Service](../virtual-machines/windows
 [Récupérer toutes les métadonnées d’une instance](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
 
 [Déployer un équilibreur de charge standard](quickstart-load-balancer-standard-public-portal.md)
-

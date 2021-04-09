@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7879b233bf94442de2cad83de8adfe54b6b81e0e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365512"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952624"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -83,6 +83,7 @@ Oui. Les comptes de messagerie grand public et l’authentification multifacteur
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Prenez-vous en charge la réinitialisation de mot de passe pour les utilisateurs Azure AD B2B Collaboration ?
 Si votre locataire Azure AD est le répertoire de base d’un utilisateur, vous pouvez [réinitialiser le mot de passe de l’utilisateur](../fundamentals/active-directory-users-reset-password-azure-portal.md) à partir du portail Azure. Mais vous ne pouvez pas directement réinitialiser le mot de passe d’un utilisateur invité qui se connecte avec un compte géré par un autre répertoire Azure AD ou fournisseur d'identité externe. Seul l’utilisateur invité ou un administrateur dans le répertoire de base de l’utilisateur peut réinitialiser le mot de passe. Voici quelques exemples de la façon dont le mot de passe réinitialisé fonctionne pour les utilisateurs invités :
  
+* Les utilisateurs invités dans un locataire Azure AD qui sont marqués « Guest » (UserType==Guest) ne peuvent pas s’inscrire pour une SSPR via [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Ce type d’utilisateur invité peut uniquement effectuer une SSPR via [https://aka.ms/sspr](https://aka.ms/sspr). 
 * Les utilisateurs invités qui se connectent avec un compte Microsoft (par exemple guestuser@live.com) peuvent réinitialiser leur mot de passe à l’aide de la méthode Self-service Password Reset (SSPR) du compte Microsoft. Consultez [Réinitialisation du mot de passe de votre compte Microsoft](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Les utilisateurs invités qui se connectent avec un compte Google ou un autre fournisseur d’identité externe peuvent réinitialiser leur mot de passe à l’aide de la méthode SSPR de leur fournisseur d’identité. Par exemple, un utilisateur invité avec le compte Google guestuser@gmail.com peut réinitialiser son mot de passe en suivant les instructions de la section [Modifier ou réinitialiser votre mot de passe](https://support.google.com/accounts/answer/41078).
 * Si le locataire de l’identité est de locataire de type juste-à-temps (JIT) ou « viral » (un client Azure distinct et non managé), seul l’utilisateur invité peut réinitialiser son mot de passe. Parfois, une organisation [reprend la gestion des locataires viraux](../enterprise-users/domains-admin-takeover.md) qui sont créés lorsque des employés utilisent leur adresse e-mail professionnelle pour s'inscrire à des services. Dès lors que l'organisation adopte un locataire viral, seul un administrateur de cette organisation peut réinitialiser le mot de passe de l'utilisateur ou activer la réinitialisation de mot de passe en libre-service. Le cas échéant, en tant qu'organisation à l'origine de l'invitation, vous pouvez supprimer le compte d'utilisateur invité de votre annuaire et renvoyer une invitation.

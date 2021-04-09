@@ -4,14 +4,14 @@ description: Découvrez comment utiliser l’activité de copie dans un pipeline
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369881"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951825"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,7 +57,8 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 | type | La propriété **type** doit être définie sur **RestService**. | Oui |
 | url | URL de base du service REST. | Oui |
 | enableServerCertificateValidation | Indique s'il convient de valider ou non le certificat TLS/SSL côté serveur lors de la connexion au point de terminaison. | Non<br /> (la valeur par défaut est **true**) |
-| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonymous**, **Basic**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
+| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonymous**, **Basic**, **AadServicePrincipal** et **ManagedServiceIdentity**. L'authentification OAuth par utilisateur n'est pas prise en charge. Vous pouvez également configurer des en-têtes d’authentification dans la propriété `authHeader`. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous.| Oui |
+| authHeaders | En-têtes de requête HTTP supplémentaires pour l’authentification.<br/> Par exemple, pour utiliser l’authentification par clé API, vous pouvez sélectionner le type d’authentification « anonyme » et spécifier la clé API dans l’en-tête. | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non |
 
 ### <a name="use-basic-authentication"></a>Utiliser une authentification de base
@@ -150,6 +151,35 @@ Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-authentication-headers"></a>Utilisation d’en-têtes d’authentification
+
+En outre, vous pouvez configurer des en-têtes de demande pour l’authentification en plus des types d’authentification intégrés.
+
+**Exemple : Utilisation de l’authentification par clé API**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -464,7 +494,7 @@ Le modèle définit deux paramètres :
 5. Sélectionnez l’activité **Web**. Dans **Paramètres**, spécifiez l’**URL**, la **méthode**, les **en-têtes** et le **corps** correspondants pour récupérer le jeton du porteur OAuth à partir de l’API de connexion du service à partir duquel vous souhaitez copier des données. L’espace réservé dans le modèle illustre un exemple de norme OAuth Azure Active Directory (AAD). Remarque : l’authentification AAD est prise en charge en mode natif par le connecteur REST, qui ici n’est qu’un exemple de flux OAuth. 
 
     | Propriété | Description |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | URL |Spécifiez l’URL à partir de laquelle récupérer le jeton du porteur OAuth. Dans l’exemple, c’est https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Méthode | Méthode HTTP. Les valeurs autorisées sont **Post** et **Get**. | 
     | headers | L’en-tête est défini par l’utilisateur, qui fait référence à un nom d’en-tête dans la requête HTTP. | 
@@ -475,7 +505,7 @@ Le modèle définit deux paramètres :
 6. Dans l’activité **Copier les données**, sélectionnez l’onglet *Source*, vous pouvez voir que le jeton du porteur (access_token) récupéré à partir de l’étape précédente est transmis à l’activité Copier les données en tant qu’**Autorisation** sous les en-têtes supplémentaires. Confirmez les paramètres pour les propriétés suivantes avant de démarrer une exécution de pipeline.
 
     | Propriété | Description |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Méthode de requête | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | 
     | En-têtes supplémentaires | En-têtes de requête HTTP supplémentaires.| 
 

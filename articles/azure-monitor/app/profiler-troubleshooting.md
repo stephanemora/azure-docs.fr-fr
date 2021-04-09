@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 622a83c6d91bf2a30c2844e3279d6fd4b89d429f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2c80362c3407f1404c6657997de89c2741264909
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213791"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026553"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -19,7 +19,7 @@ ms.locfileid: "102213791"
 
 ### <a name="make-sure-youre-using-the-appropriate-profiler-endpoint"></a>Vérifier que vous utilisez le bon point de terminaison Profiler
 
-Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+Actuellement, seules les régions [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) et [Azure Chine](/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
 
 |Paramètre d'application    | Cloud US Government | China Cloud |   
 |---------------|---------------------|-------------|

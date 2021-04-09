@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a53db9deb07863010c792943c71eb0af5d845af8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218007"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026503"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 
@@ -58,7 +58,7 @@ Vous pouvez définir ces valeurs à l’aide de [modèles Azure Resource Manager
 
 ## <a name="enable-profiler-for-other-clouds"></a>Activer Profiler pour d’autres Clouds
 
-Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+Actuellement, seules les régions [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) et [Azure Chine](/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
 
 |Paramètre d'application    | Cloud US Government | China Cloud |   
 |---------------|---------------------|-------------|
@@ -83,4 +83,3 @@ Les fichiers de Profiler peuvent être supprimés quand vous utilisez WebDeploy 
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-

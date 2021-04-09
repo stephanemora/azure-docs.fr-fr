@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer un blueprint avec PowerShell'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec PowerShell.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918277"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559024"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
@@ -307,7 +307,7 @@ La valeur de `{BlueprintVersion}` est une chaîne de lettres, de chiffres et de 
 
 Une fois qu’un blueprint a été publié à l’aide de PowerShell, il peut être affecté à un abonnement. Affectez le blueprint que vous avez créé à l’un des abonnements sous votre hiérarchie de groupes d’administration. Si le blueprint est enregistré dans un abonnement, il ne peut être attribué qu’à cet abonnement. Le paramètre **Blueprint** spécifie le blueprint à affecter. Pour fournir les paramètres name, location, identity, lock et blueprint, utilisez les paramètres PowerShell correspondants dans l’applet de commande `New-AzBlueprintAssignment` ou fournissez-les dans le fichier JSON de paramètres **AssignmentFile**.
 
-1. Exécutez le déploiement du blueprint en l’affectant à un abonnement. Les paramètres **contributors** et **owners** nécessitant l’octroi de l’attribution de rôle à un tableau d’ID d’objet des principaux, utilisez l’[API Graph d’Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) pour collecter les ID d’objet à utiliser dans le fichier **AssignmentFile** pour vos propres utilisateurs, groupes ou principaux de service.
+1. Exécutez le déploiement du blueprint en l’affectant à un abonnement. Les paramètres **contributors** et **owners** nécessitant l’octroi de l’attribution de rôle à un tableau d’ID d’objet des principaux, utilisez l’[API Graph d’Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) pour collecter les ID d’objet à utiliser dans le fichier **AssignmentFile** pour vos propres utilisateurs, groupes ou principaux de service.
 
    - Fichier JSON – blueprintAssignment.json
 

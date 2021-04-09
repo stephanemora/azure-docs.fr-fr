@@ -9,10 +9,10 @@ ms.author: amjads
 ms.collection: windows
 ms.date: 06/26/2020
 ms.openlocfilehash: 7757bd765bcb02782b6199f71c4a6e460b7b8143
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102559016"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Log Analytics pour Windows

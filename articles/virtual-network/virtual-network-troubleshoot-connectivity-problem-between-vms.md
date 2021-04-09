@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98219196"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105042864"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Résolution des problèmes de connectivité entre machines virtuelles Azure
 
@@ -49,7 +49,7 @@ Suivez ces étapes pour résoudre le problème. Après chaque étape, vérifiez 
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Étape 1 : Vérifier si la carte réseau est mal configurée
 
-Suivez les étapes de [Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
+Suivez les étapes de [Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 Si le problème se produit après la modification de l’interface réseau (NIC), procédez comme suit :
 
@@ -62,8 +62,8 @@ Pour plus d’informations, consultez [Ajouter ou supprimer des cartes réseau d
 
 **Machine virtuelle à carte réseau unique** 
 
-- [Redéployez la machine virtuelle Windows.](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
-- [Redéployer la machine virtuelle Linux.](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
+- [Redéployez la machine virtuelle Windows.](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Redéployer la machine virtuelle Linux.](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Étape 2 : Vérifiez si le trafic réseau est bloqué par un groupe de sécurité réseau ou un itinéraire défini par l’utilisateur
 
@@ -107,7 +107,7 @@ Toutes les machines virtuelles créées dans Azure à l’aide du modèle de dé
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Étape 8 : Essayez de vous connecter à un partage réseau de machine virtuelle
 
-Si vous ne parvenez pas à vous connecter à un partage réseau de machine virtuelle, le problème peut être causé par des cartes réseau non disponibles sur la machine virtuelle. Pour supprimer les cartes réseau non disponibles, consultez [Supprimer les cartes réseau non disponibles](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+Si vous ne parvenez pas à vous connecter à un partage réseau de machine virtuelle, le problème peut être causé par des cartes réseau non disponibles sur la machine virtuelle. Pour supprimer les cartes réseau non disponibles, consultez [Supprimer les cartes réseau non disponibles](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Étape 9 : Vérifiez la connectivité entre réseaux virtuels
 

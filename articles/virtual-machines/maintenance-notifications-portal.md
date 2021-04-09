@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: a13d79a28ac07d736b1eaf0d0e6b7f7b1ba4a4ec
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557707"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Gestion de notifications de maintenance planifiée à l’aide du portail

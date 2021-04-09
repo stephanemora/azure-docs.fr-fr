@@ -4,10 +4,10 @@ description: Les fonctionnalités d’Azure Lighthouse peuvent être utilisées 
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419352"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>Azure Lighthouse dans les scénarios d’entreprise
@@ -26,7 +26,7 @@ Dans les cas où une architecture multilocataire est nécessaire, Azure Lighthou
 
 Pour utiliser Azure Lighthouse dans une entreprise, vous devez déterminer quel locataire inclut les utilisateurs qui effectuent des opérations de gestion sur les autres locataires. En d’autres termes, vous devez désigner un locataire comme locataire gestionnaire des autres locataires.
 
-Par exemple, supposons que votre organisation dispose d’un seul locataire que nous appellerons *Locataire A* (Tenant A). Votre organisation acquiert ensuite *Locataire B* et *Locataire C* et vous avez des raisons métier qui exigent d’assurer la maintenance en tant que locataires distincts. Toutefois, vous aimeriez utiliser les mêmes définitions de stratégie, les mêmes pratiques de sauvegarde et les mêmes processus de sécurité pour chacun d’entre eux, avec des tâches de gestion effectuées par le même ensemble d’utilisateurs.
+Par exemple, supposons que votre organisation dispose d’un seul locataire que nous appellerons *Locataire A* (Tenant A). Votre organisation acquiert ensuite *Locataire B* (Tenant B) et *Locataire C* (Tenant C), et que, pour divers motifs professionnels, vous deviez en assurer la maintenance séparément. Toutefois, vous aimeriez utiliser les mêmes définitions de stratégie, les mêmes pratiques de sauvegarde et les mêmes processus de sécurité pour chacun d’entre eux, avec des tâches de gestion effectuées par le même ensemble d’utilisateurs.
 
 Puisque Locataire A comprend déjà des utilisateurs de votre organisation qui effectuent ces tâches pour Locataire A, vous pouvez intégrer des abonnements dans Locataire B et Locataire C, ce qui permet aux mêmes utilisateurs dans Locataire A d’effectuer ces tâches sur tous les locataires.
 

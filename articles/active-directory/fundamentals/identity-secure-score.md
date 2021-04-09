@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: tilarso
+ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705484"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952257"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ?
 
@@ -24,7 +24,7 @@ Dans quelle mesure votre locataire Azure AD est-il sécurisé ? Si vous ne savez
 
 ## <a name="what-is-an-identity-secure-score"></a>Qu’est-ce qu’un degré de sécurisation Identity Secure Score ?
 
-Le degré de sécurisation Identity Secure Score est un nombre compris entre 1 et 223 qui indique dans quelle mesure vous respectez les suggestions de meilleures pratiques de Microsoft en matière de sécurité. Chaque action d’amélioration du score d’identité sécurisée est adaptée à votre configuration spécifique.  
+Le degré de sécurisation Identity Secure Score est un pourcentage qui indique dans quelle mesure vous respectez les suggestions de meilleures pratiques de Microsoft en matière de sécurité. Chaque action d’amélioration du score d’identité sécurisée est adaptée à votre configuration spécifique.  
 
 ![Degré de sécurisation](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -78,7 +78,7 @@ Le degré de sécurisation Identity Secure Score peut être utilisé par les rô
 
 ### <a name="how-are-controls-scored"></a>Comment les témoins sont-ils notés ?
 
-Les témoins peuvent être évalués de deux manières. Certains sont évalués de façon binaire - vous obtenez 100 % du score si vous disposez de la fonctionnalité ou du paramètre configuré conformément à notre recommandation. Les autres scores sont calculés sous forme de pourcentage de la configuration totale. Par exemple, si la recommandation d’amélioration indique que vous obtiendrez 30 points si vous protégez tous vos utilisateurs avec l’authentification multifacteur et que vous avez seulement 5 utilisateurs protégés sur 100, vous obtiendrez un score partiel autour de 2 points (5 protégés / 100 au total * 30 points maximum = 2 points de score partiel).
+Les témoins peuvent être évalués de deux manières. Certains sont évalués de façon binaire - vous obtenez 100 % du score si vous disposez de la fonctionnalité ou du paramètre configuré conformément à notre recommandation. Les autres scores sont calculés sous forme de pourcentage de la configuration totale. Par exemple, si la recommandation d’amélioration indique que vous obtiendrez un maximum de 10,71 % si vous protégez tous vos utilisateurs avec l’authentification multifacteur et que vous avez seulement 5 utilisateurs protégés sur 100, vous obtiendrez un score partiel autour de 0,53 % (5 protégés / 100 au total * 10,71 % maximum = 0,53 % de score partiel).
 
 ### <a name="what-does-not-scored-mean"></a>Que signifie la mention [Not Scored] (Degré non calculé) ?
 
@@ -98,7 +98,7 @@ Non. Le degré de sécurisation ne fournit pas une mesure absolue de la probabil
 
 ### <a name="how-should-i-interpret-my-score"></a>Comment dois-je interpréter mon degré de sécurisation ?
 
-Vous obtenez des points lorsque vous configurez des fonctionnalités de sécurité suggérées ou mettez en œuvre des tâches liées à la sécurité (par exemple, la lecture de rapports). Certaines actions sont évaluées dans le cadre d’une mise en œuvre partielle, par exemple lorsque vous activez l’authentification multifacteur (MFA) pour vos utilisateurs. Votre degré de sécurisation représente de façon directe les services de sécurité Microsoft que vous utilisez. N’oubliez pas que vous devez trouver le juste équilibre entre sécurité et facilité d’utilisation. Tous les contrôles de sécurité ont une forme d’impact sur l’utilisateur. Les contrôles ayant un faible impact sur l’utilisateur doivent avoir peu d’effet (voire aucun) sur les opérations quotidiennes de vos utilisateurs.
+Votre score s’améliore lorsque vous configurez des fonctionnalités de sécurité suggérées ou mettez en œuvre des tâches liées à la sécurité (par exemple, la lecture de rapports). Certaines actions sont évaluées dans le cadre d’une mise en œuvre partielle, par exemple lorsque vous activez l’authentification multifacteur (MFA) pour vos utilisateurs. Votre degré de sécurisation représente de façon directe les services de sécurité Microsoft que vous utilisez. N’oubliez pas que vous devez trouver le juste équilibre entre sécurité et facilité d’utilisation. Tous les contrôles de sécurité ont une forme d’impact sur l’utilisateur. Les contrôles ayant un faible impact sur l’utilisateur doivent avoir peu d’effet (voire aucun) sur les opérations quotidiennes de vos utilisateurs.
 
 Pour consulter votre historique de score, rendez-vous dans le [Centre de sécurité Microsoft 365](https://security.microsoft.com/) et passez en revue votre score sécurisé Microsoft global. Vous pouvez examiner les modifications apportées à votre score sécurisé global en cliquant sur Afficher l’historique. Choisissez une date spécifique pour déterminer les contrôles qui ont été activés ce jour et les points que vous avez gagnés pour chacun d’eux.
 

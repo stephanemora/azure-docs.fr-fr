@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/09/2021
+ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 82445ce7c1ebfc365459bbeba7e04d660221eaf2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8513127f4a79c9c94323140462ad2d2648a0130d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551663"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577704"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Audit pour Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -99,7 +99,7 @@ L’audit Azure SQL Database et Azure Synapse stocke 4 000 caractères de donn�
 La section suivante décrit la configuration de l’audit à l’aide du portail Azure.
 
   > [!NOTE]
-  > - L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - L’activation de l’audit sur un pool SQL dédié suspendu n’est pas possible. Pour activer l’audit, annulez l’interruption du pool SQL dédié. En savoir plus sur le [pool SQL dédié](../..//synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
   > - Lorsque l’audit est configuré sur un espace de travail Log Analytics ou une destination Event Hub avec la cmdlet Portail Azure ou PowerShell, un [paramètre de diagnostic](../../azure-monitor/essentials/diagnostic-settings.md) est créé avec la catégorie « SQLSecurityAuditEvents » activée.
 
 1. Accédez au [portail Azure](https://portal.azure.com).
@@ -134,16 +134,16 @@ AzureDiagnostics
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Écriture des journaux d’audit dans un compte de stockage
 
-Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage**, puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Cliquez ensuite sur **OK**. Une fois la période de conservation écoulée, les journaux sont supprimés.
+Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage** lorsque vous accédez à la section **Audit**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention en ouvrant **Propriétés avancées**. Ensuite, cliquez sur **Enregistrer**. Une fois la période de conservation écoulée, les journaux sont supprimés.
 
-- La valeur par défaut de la période de conservation est 0 (conservation illimitée). Vous pouvez changer cette valeur en déplaçant le curseur **Rétention (jours)** dans **Paramètres de stockage** lors de la configuration du compte de stockage à des fins d’audit.
+- La valeur par défaut de la période de conservation est 0 (conservation illimitée). Vous pouvez changer cette valeur en déplaçant le curseur **Rétention (jours)** dans **Propriétés avancées** lors de la configuration du compte de stockage à des fins d’audit.
   - Si vous remplacez la valeur 0 de la période de rétention (rétention illimitée) par une autre valeur, notez que la rétention s’appliquera uniquement aux journaux écrits après la modification de la valeur de rétention (les journaux écrits au cours de la période pendant laquelle la rétention était définie sur illimité sont conservés, même après activation de la rétention).
 
   ![compte de stockage](./media/auditing-overview/auditing_select_storage.png)
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Écriture des journaux d’audit dans Log Analytics
   
-Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics**, puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
+Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics**, puis ouvrez **Détails de Log Analytics**. Sélectionnez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Si vous n’avez pas créé d’espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/logs/quick-create-workspace.md).
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -151,7 +151,7 @@ Pour plus d’informations sur l’espace de travail Azure Monitor Log Analytics
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Écriture des journaux d’audit dans Event Hub
 
-Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Event Hub**, puis ouvrez **Détails d’Event Hub**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
+Pour configurer l’écriture des journaux d’audit dans un Event Hub, sélectionnez **Event Hub**. Sélectionnez l’Event Hub où les journaux d’activité doivent être écrits, puis cliquez sur **Enregistrer**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -191,13 +191,12 @@ Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
-    ![Capture d’écran montrant le bouton Afficher les journaux d’audit mis en évidence sur la page d’audit de la base de données.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Afficher les journaux d’audit](./media/auditing-overview/auditing-view-audit-logs.png)
 
     La page **Enregistrements d’audit** s’ouvre et vous y voyez les journaux d’activité.
 
   - Vous pouvez afficher des dates spécifiques en cliquant sur **Filtrer** en haut de la page **Enregistrements d’audit**.
   - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par la *stratégie d’audit de serveur* et la *stratégie d’audit de base de données* en choisissant la **Source de l’audit**.
-  - Vous pouvez afficher uniquement les enregistrements d’audit liés aux injections SQL en cochant la case **Afficher uniquement les enregistrements d’audit pour les injections SQL**.
 
        ![Capture d’écran montrant les options permettant d’afficher les enregistrements d’audit.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
@@ -242,7 +241,7 @@ Avec les bases de données géorépliquées, lorsque vous activez l’audit dans
 
 Dans un environnement de production, vous allez probablement actualiser périodiquement vos clés de stockage. Si vous écrivez les journaux d’audit dans le stockage Azure, vous devez réenregistrer votre stratégie d’audit lors de l’actualisation de vos clés. Pour ce faire, procédez comme suit :
 
-1. Ouvrez **Détails du stockage**. Dans la zone **Clé d’accès de stockage**, sélectionnez **Secondaire**, puis cliquez sur **OK**. Cliquez ensuite sur **Enregistrer** en haut de la page de configuration de l’audit.
+1. Ouvrez **Propriétés avancées** sous **Stockage**. Dans la zone **Clé d’accès de stockage**, sélectionnez **Secondaire**. Cliquez ensuite sur **Enregistrer** en haut de la page de configuration de l’audit.
 
     ![Capture d’écran montrant le processus de sélection d’une clé d’accès de stockage secondaire.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Accédez à la page de configuration du stockage, puis regénérez la clé d’accès primaire.

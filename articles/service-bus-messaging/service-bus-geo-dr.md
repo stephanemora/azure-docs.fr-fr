@@ -3,12 +3,12 @@ title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
 description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 ms.topic: article
 ms.date: 02/10/2021
-ms.openlocfilehash: 3e8050cdaaae7e16a0f5125292df4b89b3690ed3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2aa7ed118d0ba179ffff4f72a4d4df787edc9d88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035392"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933753"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -156,7 +156,7 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute. Les abonnements et les règles comptent également comme des entités.
 
-### <a name="availability-zones"></a>Zones de disponibilité
+## <a name="availability-zones"></a>Zones de disponibilité
 
 La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), en fournissant des emplacements isolés des pannes au sein d’une même région Azure. Service Bus gère trois copies de la banque de messagerie (1 copie principale et 2 secondaires). Service Bus synchronise les opérations relatives aux données et à la gestion sur les trois copies. Si la copie principale échoue, l’une des copies secondaires devient la copie principale, sans temps d’arrêt ressenti. Si les applications constatent des déconnexions temporaires de Service Bus, la logique de nouvelle tentative dans le SDK se reconnectera automatiquement à Service Bus. 
 
