@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 3f825e247aff5c8fc53eb8610f33bd8e0b7fce3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler One
@@ -189,14 +189,14 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     b. Cliquez sur **Activer**.
 
-## <a name="configuring-proxy-settings"></a>Configuration des paramètres de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Pour configurer les paramètres de proxy dans Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Configuration des paramètres de proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Pour configurer les paramètres de proxy dans Internet Explorer
 
 1. Démarrez **Internet Explorer**.
 
 2. Pour ouvrir la boîte de dialogue **Options Internet**, sélectionnez **Options Internet** dans le menu **Outils**.   
 
-    ![Options Internet](./media/zscaler-one-tutorial/ic769492.png "Options Internet")
+    ![Options Internet](./media/zscaler-one-tutorial/ic769492.png &quot;Options Internet")
 
 3. Cliquez sur l’onglet **Connexions** .   
 

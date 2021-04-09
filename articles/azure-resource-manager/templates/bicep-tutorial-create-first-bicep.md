@@ -2,16 +2,16 @@
 title: 'Tutoriel : Créer et déployer des fichiers Bicep Azure Resource Manager'
 description: Créez votre premier fichier Bicep pour le déploiement de ressources Azure. Dans ce tutoriel, vous découvrirez la syntaxe des fichiers Bicep et la façon de déployer un compte de stockage.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036304"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594272"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutoriel : Créer et déployer votre premier fichier Bicep Azure Resource Manager
 
@@ -31,11 +31,11 @@ Commençons par nous assurer que vous disposez des outils indispensables pour cr
 
 ### <a name="editor"></a>Éditeur
 
-Pour créer des fichiers Bicep, vous avez besoin d’un bon éditeur. Nous vous recommandons Visual Studio Code avec l’extension Bicep. Si vous devez installer ces outils, consultez [Démarrage rapide : Créer des fichiers Bicep avec Visual Studio Code](quickstart-create-bicep-use-visual-studio-code.md).
+Pour créer des fichiers Bicep, vous avez besoin d’un bon éditeur. Nous vous recommandons Visual Studio Code avec l’extension Bicep. Si vous devez installer ces outils, consultez [Configurer l’environnement de développement Bicep](./bicep-install.md#development-environment).
 
 ### <a name="command-line-deployment"></a>Déploiement en ligne de commande
 
-Vous avez également besoin de la version la plus récente d’Azure PowerShell ou d’Azure CLI pour déployer le fichier Bicep. Pour les instructions d’installation, consultez :
+Vous pouvez déployer des fichiers Bicep en utilisant Azure CLI ou Azure PowerShell. Pour Azure CLI, vous avez besoin de la version 2.20.0 ou ultérieure ; pour Azure PowerShell, vous avez besoin de la version 5.6.0 ou ultérieure. Pour les instructions d’installation, consultez :
 
 - [Installation d'Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows)
@@ -76,7 +76,7 @@ Bien, vous êtes prêt à découvrir le langage Bicep.
     La déclaration de ressource se compose de quatre éléments :
 
     - **ressource** : mot clé.
-    - **nom symbolique** (stg) : un nom symbolique est un identificateur permettant de référencer la ressource dans l’ensemble de votre fichier Bicep. Il ne s’agit pas du nom de la ressource lorsqu’elle sera déployée. Le nom de la ressource est défini par la propriété **name**.  Consultez le quatrième élément de cette liste. Pour faciliter le suivi des tutoriels, **stg** est utilisé comme nom symbolique pour la ressource de compte de stockage dans cette série de tutoriels.
+    - **nom symbolique** (stg) : un nom symbolique est un identificateur permettant de référencer la ressource dans l’ensemble de votre fichier Bicep. Il ne s’agit pas du nom de la ressource lorsqu’elle sera déployée. Le nom de la ressource est défini par la propriété **name**.  Consultez le quatrième élément de cette liste. Pour faciliter le suivi des tutoriels, **stg** est utilisé comme nom symbolique pour la ressource de compte de stockage dans cette série de tutoriels. Pour savoir comment utiliser le nom symbolique afin d’obtenir la liste complète des propriétés de l’objet, consultez [Ajouter des sorties](./bicep-tutorial-add-outputs.md).
     - **type de ressource** (Microsoft.Storage/storageAccounts@2019-06-01) : il se compose du fournisseur de ressources (Microsoft.Storage), du type de ressource (storageAccounts) et de l’élément apiVersion (01-06-2019). Chaque fournisseur de ressources publiant ses propres versions d’API, cette valeur est donc propre au type. Vous trouverez d’autres types et éléments apiVersion pour différentes ressources Azure dans la section [Informations de référence sur les modèles ARM](/azure/templates/).
     - **propriétés** (tout ce qui se trouve entre accolades = {…}) : il s’agit des propriétés spécifiques que vous souhaitez spécifier pour le type de ressource donné. Ce sont exactement les mêmes propriétés que celles disponibles dans un modèle ARM. Chaque ressource comporte une propriété `name`. La plupart des ressources possèdent également une propriété `location`, qui définit la région dans laquelle la ressource est déployée. Les autres propriétés varient selon le type de la ressource et la version de l’API. Il est important de comprendre le lien existant entre la version de l’API et les propriétés disponibles. Voyons donc cela d’un peu plus près.
 

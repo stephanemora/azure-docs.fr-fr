@@ -2,13 +2,13 @@
 title: Bouton Déployer dans Azure
 description: Utilisez le bouton pour déployer des modèles Azure Resource Manager à partir d’un référentiel GitHub.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028741"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543774"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Utiliser un bouton de déploiement pour déployer des modèles à partir du référentiel GitHub
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Vous avez votre URL complète pour le lien.
 
-En général, vous hébergez le modèle dans un dépôt public. Si vous utilisez un référentiel privé, vous devez inclure un jeton pour accéder au contenu brut du modèle. Le jeton généré par GitHub n’est valide que pendant une brève période. Vous devez mettre à jour le lien souvent.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Si vous utilisez [Git avec Azure Repos](/azure/devops/repos/git/) au lieu d’un référentiel GitHub, vous pouvez toujours utiliser le bouton **Déployer dans Azure**. Assurez-vous que votre référentiel est public. Utilisez l’[opération Items](/rest/api/azure/devops/git/items/get) pour récupérer le modèle. Votre requête doit respecter le format suivant :
 

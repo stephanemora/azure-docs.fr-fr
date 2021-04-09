@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 479a8fac111be6e5b1ae2c6ea21fff801ba26f83
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878882"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863579"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Guide pratique pour configurer le protocole BGP sur des passerelles VPN Azure
 
@@ -79,13 +79,15 @@ Dans le cadre de cette étape, vous allez créer une passerelle VPN avec les par
 
    * Le champ **Adresse IP BGP Azure APIPA** est facultatif. Si vos appareils VPN locaux utilisent l’adresse APIPA pour BGP, vous devez sélectionner une adresse dans la plage d’adresses APIPA pour VPN réservées Azure, qui est comprise entre **169.254.21.0** et **169.254.22.255**. Cet exemple utilise l’adresse 169.254.21.11.
 
-   * Si vous créez une passerelle VPN en mode actif/actif, la section BGP affiche une **Deuxième adresse IP BGP Azure personnalisée** supplémentaire. Spécifiez une autre adresse de la plage APIPA autorisée (**169.254.21.0** à **169.254.22.255**).
+   * Si vous créez une passerelle VPN en mode actif/actif, la section BGP affiche une **Deuxième adresse IP BGP Azure personnalisée** supplémentaire. Dans la plage APIPA autorisée (de **169.254.21.0** à **169.254.22.255**), sélectionnez une autre adresse IP. La deuxième adresse IP doit être différente de la première.
 
    > [!IMPORTANT]
    >
    > * Par défaut, Azure affecte automatiquement une adresse IP privée de la plage de préfixes GatewaySubnet en tant qu’adresse IP BGP Azure sur la passerelle VPN Azure. L’adresse BGP Azure APIPA personnalisée est nécessaire lorsque vos appareils VPN locaux utilisent une adresse APIPA (169.254.0.1 à 169.254.255.254) comme adresse IP BGP. La passerelle VPN Azure choisit l’adresse APIPA personnalisée si la ressource de passerelle de réseau local correspondante (réseau local) a une adresse APIPA en tant qu’adresse IP d’homologue BGP. Si la passerelle de réseau local utilise une adresse IP normale (non APIPA), la passerelle VPN Azure revient à l’adresse IP privée de la plage GatewaySubnet.
    >
    > * Les adresses BGP APIPA ne doivent pas se chevaucher entre les appareils VPN locaux et toutes les passerelles VPN Azure connectées.
+   >
+   > * Quand des adresses APIPA sont utilisées sur des passerelles VPN Azure, les passerelles ne démarrent pas de sessions de peering BGP avec des adresses IP sources APIPA. L’appareil VPN local doit démarrer des connexions de peering BGP.
    >
 
 1. Sélectionnez **Vérifier + créer** pour exécuter la validation. Une fois la validation réussie, sélectionnez **Créer** pour déployer la passerelle VPN. La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle.

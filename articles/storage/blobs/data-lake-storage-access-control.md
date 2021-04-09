@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50c6b4f309eb78acee0cfa59d1b540adba65cab2
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701805"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774811"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2
 
@@ -40,6 +40,7 @@ Pour définir des autorisations au niveau des fichiers et des répertoires, cons
 |.NET |[Utiliser .NET pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-dotnet.md)|
 |Java|[Utiliser Java pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md)|
 |Python|[Utiliser Python pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-python.md)|
+|JavaScript (Node.js)|[Utilisez le Kit de développement logiciel (SDK) JavaScript dans Node.js pour définir les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-javascript.md)|
 |PowerShell|[Utiliser PowerShell pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md)|
 |Azure CLI|[Utiliser Azure CLI pour définir des listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)|
 |API REST |[Chemin d’accès – Mise à jour](/rest/api/storageservices/datalakestoragegen2/path/update)|
@@ -285,7 +286,7 @@ Les affectations de rôle Azure peuvent être héritées. Les affectations passe
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 prend-il en charge l’héritage des ACL ?
 
-Les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. Pour mettre à jour les listes de contrôle d’accès pour les éléments enfants existants, vous devez ajouter, mettre à jour ou supprimer les listes de contrôle d’accès de manière récursive pour la hiérarchie de répertoires souhaitée. Pour plus d’informations, consultez [Définir des listes de contrôle d’accès (ACL) de manière récursive pour Azure Data Lake Storage Gen2](#set-access-control-lists). 
+Les ACL par défaut peuvent être utilisées pour définir les ACL des sous-répertoires et fichiers enfants nouvellement créés sous le répertoire parent. Pour mettre à jour les listes de contrôle d’accès pour les éléments enfants existants, vous devez ajouter, mettre à jour ou supprimer les listes de contrôle d’accès de manière récursive pour la hiérarchie de répertoires souhaitée. Pour obtenir de l’aide, consultez la section [Comment définir des listes de contrôle d’accès](#set-access-control-lists) de cet article. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quelles sont les autorisations nécessaires pour supprimer de manière récursive un répertoire et son contenu ?
 

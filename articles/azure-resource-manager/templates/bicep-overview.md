@@ -2,13 +2,13 @@
 title: Langage Bicep pour les modèles Azure Resource Manager
 description: Décrit le langage Bicep pour le déploiement d’infrastructure sur Azure via des modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/23/2021
+ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419828"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955905"
 ---
 # <a name="what-is-bicep-preview"></a>Qu’est-ce que Bicep (préversion) ?
 
@@ -16,9 +16,15 @@ Bicep est un langage permettant de déployer de manière déclarative des ressou
 
 La syntaxe JSON pour la création de modèle peut être détaillée et nécessiter une expression complexe. Bicep améliore cette expérience sans perdre aucune des fonctionnalités d’un modèle JSON. Il s’agit d’une abstraction transparente sur le JSON pour les modèles ARM. Chaque fichier Bicep se compile en un modèle ARM standard. Les types de ressources, les versions d’API et les propriétés qui sont valides dans un modèle ARM sont valides dans un fichier Bicep. Il existe quelques [limitations connues](#known-limitations) dans la version actuelle.
 
+Bicep n'est actuellement disponible qu'en préversion. Pour suivre l’état du travail, consultez le [référentiel de projet Bicep](https://github.com/Azure/bicep).
+
+Pour en savoir plus sur Bicep, consultez la vidéo suivante.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
+
 ## <a name="get-started"></a>Bien démarrer
 
-Pour commencer à utiliser Bicep, [Installez les outils](https://github.com/Azure/bicep/blob/main/docs/installing.md).
+Pour commencer à utiliser Bicep, [Installez les outils](bicep-install.md).
 
 Une fois les outils installés, essayez le [tutoriel Bicep](./bicep-tutorial-create-first-bicep.md). La série de tutoriels vous guide dans la structure et les fonctionnalités de Bicep. Vous déployez des fichiers Bicep et convertissez un modèle ARM en un fichier Bicep équivalent.
 

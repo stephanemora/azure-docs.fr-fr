@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
 ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103471784"
 ---
 # <a name="control-client-access"></a>Contrôler l’accès client

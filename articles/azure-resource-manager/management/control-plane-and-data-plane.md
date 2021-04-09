@@ -3,12 +3,12 @@ title: Opérations du plan de contrôle et du plan de données
 description: Décrit la différence entre les opérations du plan de contrôle et du plan de données. Les opérations du plan de contrôle sont gérées par Azure Resource Manager. Les opérations de plan de données sont gérées par un service.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91371267"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105544092"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Plan de contrôle et plan de données Azure
 
@@ -52,7 +52,7 @@ Le plan de contrôle comprend deux scénarios pour la gestion des requêtes : �
 
 ## <a name="data-plane"></a>Plan de données
 
-Les demandes d’opérations du plan de données sont envoyées à un point de terminaison spécifique à votre instance. Par exemple, [Détecter l’opération de langage](/rest/api/cognitiveservices/textanalytics/detect%20language/detect%20language) dans Cognitive Services est une opération du plan de données, car l’URL de la demande est :
+Les demandes d’opérations du plan de données sont envoyées à un point de terminaison spécifique à votre instance. Par exemple, [Détecter l’opération de langage](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) dans Cognitive Services est une opération du plan de données, car l’URL de la demande est :
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

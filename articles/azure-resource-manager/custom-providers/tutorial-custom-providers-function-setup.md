@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737318"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurer Azure Functions pour les fournisseurs personnalisés Azure
@@ -79,4 +79,4 @@ L’élément XML suivant est un exemple de fichier projet C# :
 
 Dans ce tutoriel, vous avez configuré une application de fonction Azure pour qu’elle fonctionne comme un point de terminaison de fournisseur personnalisé Azure.
 
-Pour savoir comment créer un point de terminaison de fournisseur personnalisé RESTful, consultez [Tutoriel : Création d’un point de terminaison de fournisseur personnalisé RESTful](./tutorial-custom-providers-function-authoring.md).
+Pour découvrir comment créer un point de terminaison de fournisseur personnalisé RESTful, consultez [Tutoriel : Création d’un point de terminaison de fournisseur personnalisé RESTful](./tutorial-custom-providers-function-authoring.md).

@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9abed17f5a3d23f811c7cec0d4fd31e4433f651d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 0d9769a2cfdbd5f552e97a6cd665263cbd488325
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177015"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592962"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -79,7 +79,7 @@ La Passe d’accès temporaire est un code secret à durée limitée qui sert d�
 **Catégorie de service :** B2C - Gestion des identités consommateurs  
 **Fonctionnalité de produit :** B2B/B2C
 
-La nouvelle génération de flux d’utilisateurs B2C prend désormais en charge la fonctionnalité [Maintenir la connexion](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) qui permet aux clients d’étendre la durée de vie de la session pour les utilisateurs de leurs applications web et natives à l’aide d’un cookie persistant.  La fonctionnalité maintient la session active même lorsque l’utilisateur ferme et ouvre à nouveau le navigateur. Elle est révoquée lorsque l’utilisateur se déconnecte.
+La nouvelle génération de flux d’utilisateurs B2C prend désormais en charge la fonctionnalité [Maintenir la connexion](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) qui permet aux clients d’étendre la durée de vie de la session pour les utilisateurs de leurs applications web et natives à l’aide d’un cookie persistant.  La fonctionnalité maintient la session active même lorsque l’utilisateur ferme et ouvre à nouveau le navigateur. Elle est révoquée lorsque l’utilisateur se déconnecte.
 
 ---
 
@@ -109,7 +109,7 @@ Les clients peuvent à présent réinviter des utilisateurs invités externes ex
 **Catégorie de service :** Provisionnement d’applications  
 **Fonctionnalité de produit :** Gestion du cycle de vie des identités
  
-Les clients peuvent désormais utiliser application.readwrite.ownedby comme permission d’application pour appeler les API de synchronisation. Attention ! Cette fonction est prise en charge uniquement pour l’approvisionnement par Azure AD des applications tiers (par exemle, AWS, Data Bricks, etc.). Elle n’est actuellement pas prise en charge pour l’approvisionnement RH (Workday/Successfactors) ou la synchronisation Cloud (AD vers Azure AD). [Plus d’informations](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+Les clients peuvent désormais utiliser application.readwrite.ownedby comme permission d’application pour appeler les API de synchronisation. Attention ! Cette fonction est prise en charge uniquement pour l’approvisionnement par Azure AD des applications tiers (par exemle, AWS, Data Bricks, etc.). Elle n’est actuellement pas prise en charge pour l’approvisionnement RH (Workday/Successfactors) ou la synchronisation Cloud (AD vers Azure AD). [Plus d’informations](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
  
 ---
 
@@ -199,7 +199,7 @@ Vous pouvez désormais automatiser la création, la mise à jour et la suppressi
 - [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
 - [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
 
-Pour plus d’informations, consultez [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Pour plus d’informations, consultez [Automatisation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure AD](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -209,9 +209,9 @@ Pour plus d’informations, consultez [Automatisation de l’approvisionnement d
 **Catégorie de service :** RBAC  
 **Fonctionnalité de produit :** Contrôle d’accès
  
-10 rôles Azure AD intégrés ont été renommés afin d’être alignés dans le centre d’[administration Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), le [Portail Azure AD](https://portal.azure.com/)et [Microsoft Graph](https://developer.microsoft.com/graph/). Pour en savoir plus sur les nouveaux rôles, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md#all-roles).
+10 rôles Azure AD intégrés ont été renommés afin d’être alignés dans le centre d’[administration Microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), le [Portail Azure AD](https://portal.azure.com/)et [Microsoft Graph](https://developer.microsoft.com/graph/). Pour en savoir plus sur les nouveaux rôles, consultez [Autorisations des rôles d’administrateur dans Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
-![Tableau des nouveaux noms de rôles](media/whats-new/roles-table-rbac.png)
+![Tableau répertoriant les noms de rôles dans MS API Graph et le portail Azure, ainsi que le nom final proposé sur l’API, Portail Azure et Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -270,20 +270,20 @@ Les clients peuvent contourner cette exigence à des fins de test à l’aide d�
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-firstline-workers-at-scale"></a>Préversion publique - Personnaliser et configurer des appareils Android partagés pour les travailleurs en première ligne à grande échelle
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Préversion publique : personnaliser et configurer des appareils Android partagés pour les rôles de travail de première ligne à grande échelle
 
 **Type :** Nouvelle fonctionnalité  
 **Catégorie de service :** Gestion et inscription des appareils  
 **Fonctionnalité de produit :** Protection et sécurité des identités
  
-Les équipes Azure AD et Microsoft Endpoint Manager se sont associées pour offrir la possibilité de personnaliser, de mettre à l’échelle et de sécuriser vos appareils Firstline Worker.
+Les équipes Azure AD et Microsoft Endpoint Manager se sont associées pour offrir la possibilité de personnaliser, de mettre à l’échelle et de sécuriser vos appareils de rôles de travail de première ligne.
 
 Les fonctionnalités en préversion ci-dessous vous permettront d’effectuer les opérations suivantes :
 - Provisionner des appareils Android partagés à grande échelle avec Microsoft Endpoint Manager
 - Sécuriser votre accès aux équipes de travail en utilisant l’accès conditionnel basé sur les appareils
 - Personnaliser les expériences de connexion pour les équipes de travail avec l’écran d’accueil géré
 
-Pour en savoir plus, consultez [Personnaliser et configurer des appareils partagés pour les travailleurs en première ligne à grande échelle](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+Pour en savoir plus, consultez [Personnaliser et configurer des appareils partagés pour les rôles de travail en première ligne à grande échelle](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
 
 ---
 
@@ -968,7 +968,7 @@ Vous pouvez désormais autoriser les propriétaires d’applications à supervis
  
 Certains rôles intégrés Azure Active Directory (AD) ont des noms qui diffèrent de ceux qui apparaissent dans le Centre d’administration Microsoft 365, le portail Azure AD et Microsoft Graph. Cette incohérence peut entraîner des problèmes dans les processus automatisés. Avec cette mise à jour, nous renommons 10 noms de rôles pour les rendre cohérents. Le tableau suivant contient les nouveaux noms de rôles :
 
-![Tableau des nouveaux noms de rôles](media/whats-new/azure-role.png)
+![Tableau répertoriant les noms de rôles dans MS API Graph et le portail Azure, ainsi que le nouveau nom de rôle proposé dans le centre d’administration M365, le portail Azure et l’API.](media/whats-new/azure-role.png)
 
 ---
 
