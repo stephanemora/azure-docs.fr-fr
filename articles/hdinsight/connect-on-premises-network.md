@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943401"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104863375"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -37,7 +37,7 @@ Ces configurations déclenchent le comportement suivant :
 
 Dans le schéma suivant, les lignes vertes correspondent à des demandes de ressources qui se terminent par le suffixe DNS du réseau virtuel. Les lignes bleues correspondent à des demandes de ressources dans le réseau local ou sur l’Internet public.
 
-![Schéma illustrant la façon dont les demandes de DNS sont résolues dans la configuration](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Schéma illustrant la façon dont les demandes de DNS sont résolues dans la configuration" border="false":::
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -64,7 +64,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
   
 1. Dans le menu du haut, sélectionnez **+ Créer une ressource**.
 
-    ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Créer une machine virtuelle Ubuntu":::
 
 1. Sélectionnez **Calcul** > **Machine virtuelle** pour accéder à la page **Créer une machine virtuelle**.
 
@@ -83,7 +83,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
     |Mot de passe ou clé publique SSH | Le champ disponible est déterminé par votre choix de **Type d’authentification**.  Entrez la valeur appropriée.|
     |Aucun port d’entrée public|Sélectionnez **Autoriser les ports sélectionnés**. Ensuite, sélectionnez **SSH (22)** dans la liste déroulante **Sélectionner des ports d’entrée**.|
 
-    ![Configuration de base de machine virtuelle](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Configuration de base de machine virtuelle":::
 
     Conservez les valeurs par défaut des autres entrées, puis sélectionnez l’onglet **Mise en réseau**.
 
@@ -95,7 +95,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
     |Subnet | Sélectionnez le sous-réseau par défaut pour le réseau virtuel que vous avez créé précédemment. Ne sélectionnez __pas__ le sous-réseau utilisé par la passerelle VPN.|
     |Adresse IP publique | Utilisez la valeur renseignée automatiquement.  |
 
-    ![HDInsight - Paramètres de réseau virtuel](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="HDInsight - Paramètres de réseau virtuel":::
 
     Conservez les valeurs par défaut des autres entrées, puis sélectionnez l’onglet **Vérifier + créer**.
 
@@ -107,9 +107,9 @@ Une fois la machine virtuelle créée, vous recevrez une notification **Déploie
 
 1. Sous **Paramètres**, sélectionnez **Propriétés**.
 
-2. Notez les valeurs d’**Adresse IP publique/étiquette du nom DNS**  et d’**Adresse IP privée**. Vous en aurez besoin plus tard.
+2. Notez les valeurs d’**Adresse IP publique/étiquette du nom DNS** et d’**Adresse IP privée**. Vous en aurez besoin plus tard.
 
-   ![Adresses IP publique et privée](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Adresses IP publique et privée":::
 
 ### <a name="install-and-configure-bind-dns-software"></a>Installer et configurer Bind (logiciel DNS)
 
@@ -245,7 +245,7 @@ Pour configurer le réseau virtuel afin d’utiliser le serveur DNS personnalis�
 
 5. Sélectionnez __Enregistrer__.  <br />  
 
-    ![Définir le serveur DNS personnalisé pour le réseau](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Définir le serveur DNS personnalisé pour le réseau":::
 
 ## <a name="configure-on-premises-dns-server"></a>Configurer le serveur DNS local
 
@@ -274,7 +274,7 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.
 
 Cet exemple utilise le serveur DNS local à l’adresse 196.168.0.4 pour résoudre le nom du serveur DNS personnalisé. Remplacez l’adresse IP par celle du serveur DNS local. Remplacez l’adresse `dnsproxy` par le nom de domaine complet (FQDN) du serveur DNS personnalisé.
 
-## <a name="optional-control-network-traffic"></a>Facultatif : contrôler le trafic réseau
+## <a name="optional-control-network-traffic"></a>Facultatif : contrôler le trafic réseau
 
 Vous pouvez utiliser des groupes de sécurité réseau (NSG) ou des routages définis par l’utilisateur (UDR) pour contrôler le trafic réseau. Les groupes de sécurité réseau permettent de filtrer le trafic entrant et sortant, ainsi que d’autoriser ou refuser le trafic. Les routages définis par l’utilisateur vous permettent de contrôler le flux du trafic entre les ressources du réseau virtuel, Internet et le réseau local.
 
@@ -285,8 +285,8 @@ Vous pouvez utiliser des groupes de sécurité réseau (NSG) ou des routages dé
 
 2. Pour les adresses IP identifiées à l’étape 1, autorisez le trafic entrant à partir de ces adresses.
 
-   * Si vous utilisez l’option __NSG__ : autorisez le trafic __entrant__ sur le port __443__ pour les adresses IP.
-   * Si vous utilisez l’option __UDR__ : définissez le type __Tronçon suivant__ de la route sur __Internet__ pour les adresses IP.
+   * Si vous utilisez __NSG__ : autorisez le trafic __entrant__ sur le port __443__ pour les adresses IP.
+   * Si vous utilisez __UDR__ : définissez le type __Tronçon suivant__ de l’itinéraire sur __Internet__ pour les adresses IP.
 
 Pour un exemple d’utilisation d’Azure PowerShell ou d’Azure CLI afin de créer des groupes de sécurité réseau, consultez [Étendre HDInsight avec des réseaux virtuels Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 

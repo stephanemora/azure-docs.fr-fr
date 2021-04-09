@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
 ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98880925"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Utiliser la détection de personnages animés (préversion) avec le portail et l’API 

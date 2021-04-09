@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d91b62afacad31d78feb7d4743cd4050fcc1bd4e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382393"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104581641"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Mettre à l'échelle une instance Cache Redis Azure
 Le cache Azure pour Redis offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Pour un cache De base, Standard ou Premium, vous pouvez modifier sa taille et son niveau après sa création pour répondre aux besoins de votre application. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -45,7 +45,7 @@ Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivant
   * Vous ne pouvez pas passer d’un cache **Standard** à un cache **De base**.
 * Vous pouvez passer d’un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
 * Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Vous devez commencer par passer du niveau **De base** au niveau **Standard** en une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** en une deuxième opération.
-* Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** .
+* Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** . Toutefois, vous pouvez effectuer un scale-down vers toute autre taille dans le même niveau tarifaire. Par exemple, vous pouvez effectuer un scale-down de C5 Standard à C1 Standard.
  
 Lorsqu’un cache est mis à l’échelle vers un nouveau niveau tarifaire, le statut **Mise à l’échelle** s’affiche sur le panneau **Cache Azure pour Redis**.
 

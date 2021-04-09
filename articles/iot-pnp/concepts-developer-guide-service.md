@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: df913716ff34a61e5bde4c0771ea8b7599db3d30
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5889be88dfd0870a2eee868c97787ff354cff68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521374"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582729"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>Guide du développeur du service IoT Plug-and-Play
 
@@ -64,5 +64,5 @@ Maintenant que vous avez découvert la modélisation d’appareil, voici quelque
 - [Langage DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK d’appareils C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST IoT](/rest/api/iothub/device)
-- [Composants de modèle](./concepts-components.md)
+- [Guide de modélisation d’IoT Plug-and-Play](concepts-modeling-guide.md)
 - [Installer et utiliser les outils de création DTDL](howto-use-dtdl-authoring-tools.md)

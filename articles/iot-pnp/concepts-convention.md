@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 86c6ea9dded423e7bd513faf73adfd293f2bd38f
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: a8dfb3cacf798559273361ec75cab4570a8a5228
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302607"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582678"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Conventions IoT Plug-and-Play
 
@@ -25,7 +25,7 @@ Vous décrivez la télémétrie, les propriétés et les commandes qu’un appar
 - **Aucun composant** : modèle sans composants. Le modèle déclare la télémétrie, les propriétés et les commandes comme des propriétés de haut niveau dans la section Contenus de l’interface principale. Dans l’outil Explorateur Azure IoT, ce modèle apparaît comme un seul _composant par défaut_.
 - **Plusieurs composants** : modèle composé d’au moins deux interfaces. Une interface principale, qui apparaît comme le _composant par défaut_, avec la télémétrie, les propriétés et les commandes. Une ou plusieurs interfaces déclarées comme des composants avec une télémétrie, des propriétés et des commandes supplémentaires.
 
-Pour plus d’informations, consultez [Composants IoT Plug-and-Play dans les modèles](concepts-components.md).
+Pour plus d’informations, consultez le [Guide de modélisation d’IoT Plug-and-Play](concepts-modeling-guide.md).
 
 ## <a name="identify-the-model"></a>identification du modèle
 
@@ -353,4 +353,4 @@ Sur un appareil ou un module, les interfaces avec plusieurs composants utilisent
 - [Langage DTDL (Digital Twins Definition Language)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK d’appareils C](/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST IoT](/rest/api/iothub/device)
-- [Composants de modèle](./concepts-components.md)
+- [Guide de modélisation d’IoT Plug-and-Play](concepts-modeling-guide.md)

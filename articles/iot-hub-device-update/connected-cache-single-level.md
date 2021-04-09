@@ -8,10 +8,10 @@ ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ms.openlocfilehash: ae07926d7d8c768170e945e916367bee41999571
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101658672"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-samples"></a>Exemples de scénarios de déploiement de la préversion du cache connecté Microsoft
@@ -27,7 +27,7 @@ Le diagramme ci-dessous décrit un scénario dans lequel une passerelle Azure Io
 
     **Variables d’environnement**
     
-    | Nom                 | Value                                       |
+    | Nom                 | Valeur                                       |
     | ----------------------------- | --------------------------------------------| 
     | CACHE_NODE_ID                 | Consultez la description de la variable d’environnement ci-dessus. |
     | CUSTOMER_ID                   | Consultez la description de la variable d’environnement ci-dessus. |
@@ -76,7 +76,7 @@ Dans ce scénario, il existe une passerelle Azure IoT Edge qui a accès aux ress
 
     **Variables d’environnement**
 
-    | Nom                 | Value                                       |
+    | Nom                 | Valeur                                       |
     | ----------------------------- | --------------------------------------------| 
     | CACHE_NODE_ID                 | Consultez la description de la variable d’environnement ci-dessus. |
     | CUSTOMER_ID                   | Consultez la description de la variable d’environnement ci-dessus. |

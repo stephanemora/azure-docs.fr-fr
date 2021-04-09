@@ -3,12 +3,12 @@ title: Concept de graphe multimédia – Azure
 description: Un graphe multimédia vous permet de définir l’emplacement à partir duquel les médias doivent être capturés, la manière dont ils doivent être traités et où les résultats doivent être remis. Cet article fournit une description détaillée du concept de graphe multimédia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401098"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557664"
 ---
 # <a name="media-graph"></a>Graphe multimédia
 
@@ -74,7 +74,7 @@ Un nœud source RTSP permet d’ingérer des médias à partir d’un serveur 
 
 #### <a name="iot-hub-message-source"></a>Source de messages IoT Hub 
 
-Comme d’autres [modules IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-module), le module Live Video Analytics sur IoT Edge peut recevoir des messages via le [hub IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Ces messages peuvent être envoyés à partir d’autres modules, d’applications en cours d’exécution sur le périphérique, ou du cloud. Ces messages sont remis (acheminés) à une [entrée nommée](../../iot-edge/module-composition.md#sink) sur le module. Un nœud source de messages IoT Hub permet à ces messages d’atteindre un graphe multimédia. Ces messages ou signaux peuvent ensuite être utilisés en interne dans le graphe multimédia, en général pour activer les portes de signal (voir [les portes de signal](#signal-gate-processor) ci-dessous). 
+Comme d’autres [modules IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge), le module Live Video Analytics sur IoT Edge peut recevoir des messages via le [hub IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Ces messages peuvent être envoyés à partir d’autres modules, d’applications en cours d’exécution sur le périphérique, ou du cloud. Ces messages sont remis (acheminés) à une [entrée nommée](../../iot-edge/module-composition.md#sink) sur le module. Un nœud source de messages IoT Hub permet à ces messages d’atteindre un graphe multimédia. Ces messages ou signaux peuvent ensuite être utilisés en interne dans le graphe multimédia, en général pour activer les portes de signal (voir [les portes de signal](#signal-gate-processor) ci-dessous). 
 
 Par exemple, vous pouvez avoir un module IoT Edge qui génère un message quand une porte est ouverte. Le message de ce module peut être acheminé vers un hub IoT Edge, d’où il peut ensuite être acheminé vers la source des messages du hub IoT d’un graphe multimédia. Dans le graphe multimédia, la source des messages du hub IoT peut transmettre l’événement à un processeur de porte de signal, qui peut alors activer l’enregistrement de la vidéo d’une source RTSP vers un fichier. 
 

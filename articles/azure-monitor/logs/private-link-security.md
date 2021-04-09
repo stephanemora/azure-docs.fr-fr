@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101475"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594561"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Monitor
 
@@ -51,14 +51,16 @@ Certains services Azure Monitor utilisent des points de terminaison globaux, ce 
 Lorsque vous configurez une connexion Private Link, votre DNS est mis à jour pour mapper des points de terminaison Azure Monitor à des adresses IP privées à partir de la plage d’adresses IP de votre réseau virtuel. Cette modification remplace tout mappage précédent de ces points de terminaison, ce qui peut avoir des implications significatives, présentées ci-dessous. 
 
 ### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Azure Monitor Private Link s’applique à toutes les ressources Azure Monitor, avec la règle « Tout ou rien »
-Étant donné que certains points de terminaison Azure Monitor sont globaux, il est impossible de créer une connexion Private Link pour un composant ou un espace de travail spécifique. Au lieu de cela, lorsque vous configurez une connexion Private Link vers un seul composant Application Insights, vos enregistrements DNS sont mis à jour pour **tous** les composants Application Insights. Toute tentative d’ingestion ou d’interrogation d’un composant passera par la connexion Private Link et risque d’échouer. De même, si vous configurez une connexion Private Link vers un seul espace de travail, toutes les requêtes Log Analytics transitent par le point de terminaison de requête Private Link (mais pas les demandes d’ingestion, qui ont des points de terminaison spécifiques à l’espace de travail).
+Étant donné que certains points de terminaison Azure Monitor sont globaux, il est impossible de créer une connexion Private Link pour un composant ou un espace de travail spécifique. Au lieu de cela, lorsque vous configurez Private Link vers un seul composant Application Insights ou un espace de travail Log Analytics, vos enregistrements DNS sont mis à jour pour **tous** les composants Application Insights. Toute tentative d’ingestion ou d’interrogation d’un composant passera par la connexion Private Link et risque d’échouer. En ce qui concerne Log Analytics, les points de terminaison d’ingestion et de configuration sont spécifiques à l’espace de travail, ce qui signifie que la configuration de la liaison privée s’applique uniquement aux espaces de travail spécifiés. L’ingestion et la configuration d’autres espaces de travail seront dirigées vers les points de terminaison Log Analytics publics par défaut.
 
 ![Schéma des remplacements DNS dans un même réseau virtuel](./media/private-link-security/dns-overrides-single-vnet.png)
 
 Cela est vrai non seulement pour un réseau virtuel spécifique, mais pour tous les réseaux virtuels qui partagent le même serveur DNS (voir [Le problème des remplacements DNS](#the-issue-of-dns-overrides)). Par exemple, la demande d’ingestion des journaux vers n’importe quel composant Application Insights sera toujours envoyée via l’itinéraire Private Link. Les composants qui ne sont pas liés à AMPLS ne pourront pas valider Private Link et échoueront.
 
 > [!NOTE]
-> Pour conclure : Une fois que vous avez configuré une connexion Private Link vers une ressource unique, cette configuration s’applique à toutes les ressources Azure Monitor de votre réseau, selon la règle « Tout ou rien ». Cela signifie que vous devez ajouter toutes les ressources Azure Monitor de votre réseau à votre AMPLS, ou aucune d’entre elles.
+> Pour conclure : une fois que vous avez configuré une connexion Private Link vers une ressource unique, cette configuration s’applique à toutes les ressources Azure Monitor de votre réseau. Pour les ressources Application Insights, il s’agit de « tout ou rien ». Cela signifie que vous devez ajouter toutes les ressources Azure Monitor de votre réseau à votre AMPLS ou aucune d’entre elles.
+> 
+> Pour gérer les risques liés d’exfiltration des données, nous vous recommandons d’ajouter toutes les ressources Application Insights et Log Analytics à votre AMPLS et de bloquer le trafic de sortie de vos réseaux autant que possible.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Azure Monitor Private Link s’applique à l’ensemble de votre réseau
 Certains réseaux sont composés de plusieurs réseaux virtuels. Si les réseaux virtuels utilisent le même serveur DNS, ils remplacent leurs mappages DNS mutuels et peuvent éventuellement rompre leur communication avec Azure Monitor (consultez [Le problème des remplacements DNS](#the-issue-of-dns-overrides)). En fin de compte, seul le dernier réseau virtuel sera en mesure de communiquer avec Azure Monitor, puisque le DNS mappera les points de terminaison Azure Monitor à des adresses IP privées à partir de cette plage de réseaux virtuels (qui peut ne pas être accessible à partir d’autres réseaux virtuels).

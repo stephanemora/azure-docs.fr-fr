@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728108"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104865602"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prérequis du déploiement d’Azure Cloud Services (support étendu)
 
@@ -78,8 +78,16 @@ Supprimez les anciens paramètres de Bureau à distance dans le fichier de confi
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Supprimez les anciens paramètres de diagnostic pour chaque rôle dans le fichier de configuration de service (.cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Mises à jour requises du fichier de définition de service (.csdef)
+
+> [!NOTE]
+> Les modifications apportées au fichier de définition de service (.csdef) requièrent que le fichier de package (.cspkg) soit de nouveau généré. Générez et repackagez votre publication .cspkg en apportant les modifications suivantes dans le fichier .csdef pour obtenir les derniers paramètres pour votre service cloud
 
 ### <a name="1-virtual-machine-sizes"></a>1) Tailles de machines virtuelles
 Les tailles suivantes sont déconseillées dans Azure Resource Manager. Toutefois, si vous souhaitez continuer à les utiliser, mettez à jour le nom de `vmsize` selon la convention d’affectation de noms Azure Resource Manager associée.  
@@ -117,10 +125,15 @@ Les modules de Bureau à distance et tous les certificats associés doivent êtr
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
 ```
+Les déploiements qui utilisaient les anciens plug-ins de diagnostic ont besoin des paramètres supprimés pour chaque rôle du fichier de définition de service (.csdef).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+```
 
 ## <a name="key-vault-creation"></a>Création d’un coffre de clés 
 
-Key Vault est utilisé pour stocker les certificats associés à Azure Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes dans le fichier de configuration de service. Vous devez également octroyer à Key Vault les autorisations appropriées afin que la ressource Azure Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Vous pouvez créer un coffre de clés par le biais du [portail Azure](../key-vault/general/quick-create-portal.md) et de [PowerShell](../key-vault/general/quick-create-powershell.md). Le coffre de clés doit être créé dans la même région et le même abonnement que le service cloud. Pour plus d’informations, consultez [Utiliser des certificats avec Azure Cloud Services (support étendu)](certificates-and-key-vault.md).
+Key Vault est utilisé pour stocker les certificats associés à Azure Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes dans le fichier de configuration de service. Vous devez également activer les « Stratégies d’accès » Key Vault (dans le portail) pour « Machines virtuelles Azure pour le déploiement » afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Vous pouvez créer un coffre de clés à l’aide du [Portail Azure](../key-vault/general/quick-create-portal.md) ou de [PowerShell](../key-vault/general/quick-create-powershell.md). Le coffre de clés doit être créé dans la même région et le même abonnement que le service cloud. Pour plus d’informations, consultez [Utiliser des certificats avec Azure Cloud Services (support étendu)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).

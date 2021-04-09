@@ -12,10 +12,10 @@ ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 0fd0aa19d52adb4bf06c9d21d4182e27497a531b
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103471758"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator

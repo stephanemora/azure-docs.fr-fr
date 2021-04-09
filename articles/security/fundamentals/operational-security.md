@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab54243eb7109965941cf60edd9358133550c7d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101711992"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046638"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -165,7 +165,7 @@ Le Centre de sécurité Azure collecte des copies éphémères de vos fichiers d
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-La solution [Azure Monitor logs Security and Audit](../../security-center/security-center-monitoring.md) permet au service informatique de surveiller activement toutes les ressources, ce qui peut aider à réduire l’impact des incidents de sécurité. Cette solution possède des domaines de sécurité qui peuvent être utilisés pour la surveillance des ressources. Le domaine de sécurité fournit un accès rapide à des options pour la surveillance de la sécurité. Les domaines suivants sont abordés plus en détail :
+La solution [Azure Monitor logs Security and Audit](../../security-center/security-center-remediate-recommendations.md) permet au service informatique de surveiller activement toutes les ressources, ce qui peut aider à réduire l’impact des incidents de sécurité. Cette solution possède des domaines de sécurité qui peuvent être utilisés pour la surveillance des ressources. Le domaine de sécurité fournit un accès rapide à des options pour la surveillance de la sécurité. Les domaines suivants sont abordés plus en détail :
 
 -   Malware assessment (Évaluation des programmes malveillants)
 -   Update assessment (Évaluation des mises à jour)

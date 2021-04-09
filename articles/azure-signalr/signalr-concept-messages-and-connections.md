@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 9d0e94cf2318db777bb44c15037f73531cd969fa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c4d28addac0ecfc9605678582562550a1c96b8d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593329"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491943"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messages et connexions dans Azure SignalR Service
 
@@ -48,9 +48,16 @@ Si vous avez trois clients et un serveur d’applications. Un client envoie un m
 
 Il existe des connexions serveur et des connexions client avec Azure SignalR Service. Par défaut, chaque serveur d’applications démarre avec cinq connexions initiales par hub et chaque client dispose d’une connexion client.
 
-Le nombre de connexions indiqué dans le portail Azure inclut les connexions serveur et les connexions clientes.
-
 Par exemple, imaginez que vous utilisez deux serveurs d’applications et que vous définissez cinq hubs dans le code. Le nombre de connexions serveur sera de 50 : 2 serveurs d’applications * 5 hubs * 5 connexions par hub.
+
+Le nombre de connexions indiqué dans le portail Azure comprend les connexions au serveur, les connexions au client, les connexions de diagnostic et les connexions de trace dynamique. Les types de connexion sont définis dans la liste suivante :
+
+- **Connexion au serveur** : Connecte Azure SignalR Service et le serveur d’applications.
+- **Connexion au client** : Connecte Azure SignalR Service et l’application cliente.
+- **Connexion de diagnostic** : Type spécial de connexion au client qui peut produire un journal plus détaillé, ce qui peut avoir un impact sur les performances. Ce type de client est conçu pour la résolution des problèmes.
+- **Connexion de trace dynamique** : Se connecte au point de terminaison de la trace dynamique et reçoit les traces dynamiques d’Azure SignalR Service. 
+ 
+Notez qu’une connexion de trace dynamique n’est pas comptabilisée comme une connexion au client ni comme une connexion au serveur. 
 
 ASP.NET SignalR calcule le nombre de connexions serveur de manière différente. Il inclut un hub par défaut en plus des hubs que vous définissez. Par défaut, chaque serveur d’applications a besoin de cinq connexions serveur initiales supplémentaires. Le nombre de connexions initiales pour le hub par défaut reste cohérent avec les autres hubs.
 

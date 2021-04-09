@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
 ms.openlocfilehash: 8c30d05cf49162155f84961e1fd8a32361444ba5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100653259"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Guide pratique pour utiliser Stockage Files d’attente à partir de Python

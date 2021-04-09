@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f4c1de484ce2659a7e84a1546a7c49c1d77a7d56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e64abc008433c895e21690ccab8cc532ec1b34b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101674495"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543854"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
 
@@ -29,9 +29,9 @@ ms.locfileid: "101674495"
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
-[sles-zero-downtime-paper]:https://www.suse.com/media/presentation/TUT90846_towards_zero_downtime%20_how_to_maintain_sap_hana_system_replication_clusters.pdf
+[sles-zero-downtime-paper]:https://www.youtube.com/embed/0FW3J6GbxOk
 [sap-nw-ha-guide-sles]:high-availability-guide-suse.md
-[sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[sles-12-for-sap]:https://www.scribd.com/document/377847444/Suse-Linux-Enterprise-Server-for-Sap-Applications-12-Sp1
 
 
 Cet article vous aide à vérifier la configuration du cluster Pacemaker pour SAP HANA scale-out s’exécutant sur des machines virtuelles Azure. La configuration de cluster a été effectuée en association avec SAP HANA System Replication (HSR) et le package SUSE RPM SAPHanaSR-ScaleOut. Tous les tests ont été effectués sur SUSE SLES 12 SP3 uniquement. Les sections de l’article couvrent différents domaines et présentent des exemples de commandes ainsi que des extraits de fichiers config. Ces exemples sont recommandés en guise de méthode pour vérifier l’ensemble de la configuration du cluster.

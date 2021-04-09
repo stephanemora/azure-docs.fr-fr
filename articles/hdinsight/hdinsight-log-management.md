@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 20a7a7392070a6f888add630398516b2f872cd7d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945275"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865483"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gérer les journaux d’activité pour un cluster HDInsight
 
@@ -20,13 +20,13 @@ La gestion des journaux d’activité de cluster HDInsight inclut la conservatio
 
 Les étapes classiques de gestion des journaux HDInsight sont les suivantes :
 
-* Étape 1 : Déterminer les stratégies de rétention du journal
+* Étape 1 : Déterminer les stratégies de rétention du journal
 * Étape 2 : Gérer les journaux d’activité de configuration des versions du service de cluster
-* Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
-* Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
-* Étape 5 : Étape 5 : Déterminer les stratégies d’archivage de journaux et les processus associés
+* Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
+* Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
+* Étape 5 : Déterminer les stratégies d’archivage de journaux et les processus associés
 
-## <a name="step-1-determine-log-retention-policies"></a>Étape 1 : Déterminer les stratégies de rétention du journal
+## <a name="step-1-determine-log-retention-policies"></a>Étape 1 : Déterminer les stratégies de rétention du journal
 
 La première étape pour la création d’une stratégie de gestion des journaux de cluster HDInsight consiste à recueillir des informations sur les scénarios d’entreprise et les besoins de stockage de l’historique d’exécution des travaux.
 
@@ -64,9 +64,9 @@ Il est important de comprendre les types de charges de travail exécutées sur v
 
 * Définissez la façon dont vous pouvez collecter les journaux d’activité à partir du cluster, ou à partir de plusieurs clusters, et les rassembler pour des opérations telles que l’audit, la supervision, la planification et les alertes. Vous pouvez utiliser une solution personnalisée pour télécharger les fichiers journaux régulièrement, puis les combiner et les analyser pour fournir un tableau de bord. Vous pouvez également ajouter des fonctionnalités supplémentaires pour les alertes de sécurité ou la détection des défaillances. Vous pouvez générer ces utilitaires à l’aide de PowerShell, des kits de développement logiciel HDInsight ou d’un code qui accède au modèle de déploiement Azure Classic.
 
-* Décidez si une solution ou un service de supervision peut être utile. Microsoft System Center fournit un [pack d’administration HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). Vous pouvez également utiliser des outils tiers tels qu’Apache Chukwa et Ganglia pour collecter et centraliser les journaux d’activité. De nombreuses sociétés proposent des services permettant de surveiller les solutions Big Data basées sur Hadoop, par exemple : Centerity, Compuware APM, Sematext SPM et Zettaset Orchestrator.
+* Décidez si une solution ou un service de supervision peut être utile. Microsoft System Center fournit un [pack d’administration HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). Vous pouvez également utiliser des outils tiers tels qu’Apache Chukwa et Ganglia pour collecter et centraliser les journaux d’activité. De nombreuses sociétés proposent des services de supervision des solutions Big Data basées sur Hadoop, par exemple : Centerity, Compuware APM, Sematext SPM et Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Étape 2 : Gérer les versions du service de cluster et consulter les journaux
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Étape 2 : Gérer les versions du service de cluster et consulter les journaux d’activité
 
 Un cluster HDInsight classique s’appuie sur plusieurs services et packages logiciels open source (tels que Apache HBase, Apache Spark, etc.). Pour certaines charges de travail, telles que la bio-informatique, vous devez conserver l’historique des journaux d’activité de configuration du service en plus des journaux d’activité d’exécution des travaux.
 
@@ -76,11 +76,11 @@ Apache Ambari simplifie la gestion, la configuration et le monitoring d’un clu
 
 Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la page du portail Azure pour HDInsight.  Cette liste varie selon les bibliothèques que vous avez installées.  Elle peut contenir par exemple YARN Queue Manager, Hive View et Tez View.  Sélectionnez le lien d’un service pour afficher des informations sur la configuration et le service.  La page **Pile et version** de l’interface utilisateur Ambari fournit des informations sur la configuration des services du cluster et sur l’historique de version des services. Pour accéder à cette section de l’interface utilisateur Ambari, sélectionnez le menu **Admin**, puis **Piles et versions**.  Sélectionnez l’onglet **Versions** pour afficher des informations sur la version du service.
 
-![Apache Ambari - Admin, Piles et versions](./media/hdinsight-log-management/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-log-management/ambari-stack-versions.png" alt-text="Apache Ambari - Admin, Piles et versions":::
 
 À l’aide de l’UI Ambari, vous pouvez télécharger la configuration d’un ou de tous les services exécutés sur un hôte particulier (ou un nœud) du cluster.  Sélectionnez le menu **Hôtes**, puis le lien pour l’hôte qui vous intéresse. Sur la page de l’hôte, sélectionnez le bouton **Actions de l’hôte**, puis **Télécharger les configurations clientes**.
 
-![Apache Ambari - Hôte, Télécharger les configurations clientes](./media/hdinsight-log-management/download-client-configs.png)
+:::image type="content" source="./media/hdinsight-log-management/download-client-configs.png" alt-text="Apache Ambari - Hôte, Télécharger les configurations clientes":::
 
 ### <a name="view-the-script-action-logs"></a>Voir les journaux d’activité d’actions de script
 
@@ -98,11 +98,11 @@ to
 log4j.logger.alerts=DEBUG,alerts
 ```
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
 
 L’étape suivante examine les fichiers journaux d’exécution des travaux des différents services.  Par exemple Apache HBase, Apache Spark et bien d’autres. Un cluster Hadoop génère un grand nombre de journaux d’activité détaillés. Aussi, déterminer quels journaux d’activité sont utiles (et ne le sont pas) peut prendre du temps.  Comprendre le système de journalisation est important pour la gestion ciblée des fichiers journaux.  L’image ci-dessous est un exemple de fichier journal.
 
-![HDInsight - Exemple de sortie de fichier journal](./media/hdinsight-log-management/hdi-log-file-example.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-log-file-example.png" alt-text="HDInsight - Exemple de sortie de fichier journal":::
 
 ### <a name="access-the-hadoop-log-files"></a>Accéder aux fichiers journaux Hadoop
 
@@ -143,7 +143,7 @@ L’IU ResourceManager de YARN s’exécute sur le nœud principal du cluster e
 2. Dans la liste des services sur la gauche, sélectionnez YARN.
 3. Dans la liste déroulante Liens rapides, sélectionnez un des nœuds principaux du cluster, puis **Journaux d’activité ResourceManager**. Une liste de liens menant vers les journaux d’activité YARN s’affiche.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
 
 Une fois que vous aurez effectué les étapes précédentes, vous comprendrez les types et les volumes de fichiers journaux produits par votre ou vos clusters HDInsight.
 
@@ -157,7 +157,7 @@ Une fois que vous avez déterminé quels fichiers journaux peuvent être supprim
 
 Pour certains fichiers journaux, vous pouvez utiliser une approche d’archivage de fichiers journaux moins onéreuse. Pour les journaux d’activité Azure Resource Manager, vous pouvez explorer cette approche via le portail Azure.  Configurez l’archivage des journaux d’activité Resource Manager en sélectionnant le lien **Journal d’activité** dans le portail Azure pour votre instance HDInsight.  En haut de la page de recherche de journal d’activité, sélectionnez l’élément de menu **Exporter** pour ouvrir le volet **Exporter le journal d’activité**.  Remplissez l’abonnement, la région, s’il faut exporter vers un compte de stockage et le nombre de jours pendant lesquels conserver les journaux d’activité. Dans ce même volet, vous pouvez également indiquer s’il faut exporter vers un Event Hub.
 
-![Portail Azure - Exporter le journal d’activité (préversion)](./media/hdinsight-log-management/hdi-export-log-files.png)
+:::image type="content" source="./media/hdinsight-log-management/hdi-export-log-files.png" alt-text="Portail Azure - Exporter le journal d’activité (préversion)":::
 
 Vous pouvez également créer un script d’archivage de journaux avec PowerShell.  Pour obtenir un exemple de script PowerShell, consultez [Archiver des journaux d’activité Azure Automation dans Stockage Blob Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 

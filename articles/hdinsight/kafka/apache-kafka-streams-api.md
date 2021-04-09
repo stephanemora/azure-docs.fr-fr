@@ -1,18 +1,18 @@
 ---
-title: 'Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
+title: 'Didacticiel : utiliser l’API de flux Apache Kafka - Azure HDInsight '
 description: Didacticiel - Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
 ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939208"
 ---
-# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutoriel : Utiliser l’API de flux Apache Kafka - Azure HDInsight
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutoriel : Utiliser l’API Apache Kafka Streams dans Azure HDInsight
 
 Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight.
 
@@ -47,7 +47,7 @@ Dans ce tutoriel, vous allez apprendre à :
 L’exemple d’application se trouve sur [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), dans le sous-répertoire `Streaming`. L’application se compose de deux fichiers :
 
 * `pom.xml`: ce fichier définit les dépendances du projet, la version Java et les méthodes d’empaquetage.
-* `Stream.java`: ce fichier implémente la logique de streaming.
+* `Stream.java` : ce fichier implémente la logique de diffusion en continu.
 
 ### <a name="pomxml"></a>Pom.xml
 
@@ -69,7 +69,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
 * Plug-ins : les plug-ins Maven fournissent diverses fonctionnalités. Dans ce projet, les plug-ins suivants sont utilisés :
 
     * `maven-compiler-plugin`: permet de définir la version Java utilisée par le projet à la version 8. Java 8 est la version requise par HDInsight 3.6.
-    * `maven-shade-plugin`: permet de générer un fichier uber jar qui contient cette application ainsi que toutes les dépendances. Il permet aussi de définir le point d’entrée de l’application, si bien que vous pouvez exécuter directement le fichier Jar sans spécifier la classe principale.
+    * `maven-shade-plugin` : permet de générer un fichier uber jar qui contient cette application ainsi que toutes les dépendances. Il permet aussi de définir le point d’entrée de l’application, si bien que vous pouvez exécuter directement le fichier Jar sans spécifier la classe principale.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -196,10 +196,10 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
 
     Les rubriques sont utilisées pour les opérations suivantes :
 
-   * `test`: cette rubrique indique où les enregistrements sont reçus. L’application de diffusion en continu procède à la lecture à partir d’ici.
-   * `wordcounts`: cette rubrique correspond à l’emplacement où l’application de streaming stocke sa sortie.
-   * `RekeyedIntermediateTopic`: cette rubrique est utilisée pour repartitionner les données à mesure que le comptage est mis à jour par l’opérateur `countByKey`.
-   * `wordcount-example-Counts-changelog`: cette rubrique est un magasin d’état utilisé par l’opération `countByKey`.
+   * `test` : cette rubrique indique où les enregistrements sont reçus. L’application de diffusion en continu procède à la lecture à partir d’ici.
+   * `wordcounts` : cette rubrique correspond à l’emplacement où l’application de diffusion en continu stocke sa sortie.
+   * `RekeyedIntermediateTopic` : cette rubrique est utilisée pour repartitionner les données lorsque le comptage est mis à jour par l’opérateur `countByKey`.
+   * `wordcount-example-Counts-changelog` : cette rubrique est un magasin d’état utilisé par l’opération `countByKey`
 
     Kafka sur HDInsight peut également être configuré pour créer des rubriques automatiquement. Pour plus d’informations, consultez le document [Configure automatic topic creation (Configurer la création automatique de rubriques)](apache-kafka-auto-create-topics.md).
 

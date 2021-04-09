@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: a606956483ddb7c7f3a4f3cef8728ade508ab461
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574269"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865585"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
@@ -45,7 +45,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
 ## <a name="deploy-a-cloud-service-extended-support"></a>Déployer un service cloud (support étendu)
 
 > [!NOTE]
-> Une autre façon de déployer votre service cloud (prise en charge étendue) consiste à utiliser le [portail Azure](https://portal.azure.com). Vous pouvez télécharger le modèle ARM généré par le biais du portail pour vos futurs déploiements.
+> Le [portail Azure](https://portal.azure.com) est un moyen plus simple et plus rapide de générer votre modèle ARM et le fichier de paramètres. Vous pouvez [télécharger le modèle ARM généré](generate-template-portal.md) par le biais du portail pour créer votre service cloud via PowerShell
  
 1. Créez un réseau virtuel. Le nom du réseau virtuel doit correspondre aux références figurant dans le fichier de configuration de service (.cscfg). Si vous utilisez un réseau virtuel existant, omettez cette section dans le modèle ARM.
 
@@ -141,7 +141,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ```
  
 
-4. Ajoutez votre référence de coffre de clés dans la section `OsProfile` du modèle ARM. Key Vault est utilisé pour stocker les certificats associés à Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes numériques dans le fichier de configuration de service (.cscfg). Vous devez également activer Key Vault pour les autorisations appropriées afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés en tant que secrets à partir de Key Vault. Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez l’[utilisation de certificats avec Cloud Services (support étendu)](certificates-and-key-vault.md).
+4. Ajoutez votre référence de coffre de clés dans la section `OsProfile` du modèle ARM. Key Vault est utilisé pour stocker les certificats associés à Cloud Services (support étendu). Ajoutez les certificats à Key Vault, puis référencez leurs empreintes numériques dans le fichier de configuration de service (.cscfg). Vous devez également activer les « Stratégies d’accès » Key Vault pour « Machines virtuelles Azure pour le déploiement » (dans le portail) afin que la ressource Cloud Services (support étendu) puisse récupérer les certificats stockés sous forme de secrets à partir de Key Vault. Le coffre de clés doit se trouver dans la même région et le même abonnement que le service cloud et avoir un nom unique. Pour plus d’informations, consultez l’[utilisation de certificats avec Cloud Services (support étendu)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -191,7 +191,9 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
     ```
 
 6. (Facultatif) Créez un profil d’extension pour ajouter des extensions à votre service cloud. Pour cet exemple, nous ajoutons l’extension de diagnostic Windows Azure et de bureau à distance.
-    
+   > [!Note] 
+   > Le mot de passe pour le bureau à distance doit comprendre entre 8 et 123 caractères, et doit remplir au moins trois critères de complexité de mot de passe parmi les suivants : 1) Contenir un caractère majuscule 2) Contenir un caractère minuscule 3) Contenir un chiffre 4) Contenir un caractère spécial 5) Les caractères de contrôle ne sont pas autorisés
+
     ```json
         "extensionProfile": {
           "extensions": [
