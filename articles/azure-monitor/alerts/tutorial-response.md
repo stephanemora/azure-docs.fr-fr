@@ -7,10 +7,10 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 2564711fce6e8578829fb15fdbc04ae2b9d64959
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102039425"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
@@ -19,7 +19,7 @@ Les alertes dans Azure Monitor identifient des informations importantes dans vot
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Créer une règle d'alerte
+> * Création d'une règle d'alerte
 > * Configurer un groupe d’action qui envoie une notification par e-mail
 
 Pour effectuer l’exemple de ce didacticiel, vous devez disposer d’une machine virtuelle [connectée à l’espace de travail Log Analytics](../vm/quick-collect-azurevm.md).  

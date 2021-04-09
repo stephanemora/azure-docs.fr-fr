@@ -7,10 +7,10 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: 650fb7f0877a98ef53ed3868550f9c084ecb5885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023548"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conserver les adresses IP pendant le basculement
@@ -42,9 +42,9 @@ Voici l’architecture avant le basculement.
     - La région primaire Azure est Asie Est
         - Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
         - Asie Est a des charges de travail réparties entre trois sous-réseaux sur le réseau virtuel :
-            - **Sous-réseau 1** : 10.1.1.0/24
-            - **Sous-réseau 2** : 10.1.2.0/24
-            - **Sous-réseau 3** : 10.1.3.0/24
+            - **Subnet 1** : 10.1.1.0/24
+            - **Subnet 2** : 10.1.2.0/24
+            - **Subnet 3** : 10.1.3.0/24
     - La région Azure secondaire (cible) est Asie Sud-Est
         - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
         - Asie Sud-Est a un réseau virtuel supplémentaire (**Azure VNet**) avec l’espace d’adressage 10.2.0.0/16
@@ -85,8 +85,8 @@ Dans cet exemple, la société A place des applications dans la région source s
 Avant le basculement, l’architecture est la suivante :
 
 - Les machines virtuelles d’application sont hébergées dans la région primaire Azure Asie Est :
-    - Les machines virtuelles d’**App1** sont situées sur le réseau virtuel **Source VNet 1** : 10.1.0.0/16.
-    - Les machines virtuelles d’**App2** sont situées sur le réseau virtuel **Source VNet 2** : 10.2.0.0/16.
+    - Les machines virtuelles d’**App1** sont situées sur le réseau virtuel **Source VNet 1** : 10.1.0.0/16
+    - Les machines virtuelles d’**App2** sont situées sur le réseau virtuel **Source VNet 2** : 10.2.0.0/16
     - **Source VNet 1** a deux sous-réseaux.
     - **Source VNet 2** a deux sous-réseaux.
 - La région secondaire (cible) Azure est Asie Sud-Est. Asie Sud-Est a des réseaux virtuels de récupération (**Recovery VNet 1** et **Recovery VNet 2**) qui sont identiques à **Source VNet 1** et **Source VNet 2**
@@ -130,9 +130,9 @@ Voici à quoi ressemble l’architecture réseau avant le basculement :
 - Les machines virtuelles des applications sont hébergées dans la région Azure Asie Est.
 - Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
   - Asie Est a des charges de travail réparties entre trois sous-réseaux sur **Source VNet** :
-    - **Sous-réseau 1** : 10.1.1.0/24
-    - **Sous-réseau 2** : 10.1.2.0/24
-    - **Sous-réseau 3** : 10.1.3.0/24, utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
+    - **Subnet 1** : 10.1.1.0/24
+    - **Subnet 2** : 10.1.2.0/24
+    - **Subnet 3** :10.1.3.0/24, utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
       - La région Azure secondaire (cible) est Asie Sud-Est :
   - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
 - Les machines virtuelles dans Asie Est sont connectées à un centre de données local avec Azure ExpressRoute ou un réseau privé virtuel de site à site.

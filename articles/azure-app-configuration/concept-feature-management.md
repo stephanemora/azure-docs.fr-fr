@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: cfd676092bcaede58909a3ec1eefeabb4c80f86b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930226"
 ---
 # <a name="feature-management-overview"></a>Vue d’ensemble de la gestion des fonctionnalités
@@ -22,19 +22,19 @@ La gestion des fonctionnalités est une pratique de développement de logiciels 
 
 La gestion des fonctionnalités permet aux développeurs de résoudre les problèmes suivants :
 
-* **Gestion des branches de code** : Utilisez des indicateurs de fonctionnalités pour wrapper les nouvelles fonctionnalités d’application qui sont en cours de développement. Ces fonctionnalités sont « masquées » par défaut. Bien qu’elles ne soient pas terminées, vous pouvez les fournir sans problème. Elles restent dormantes en production. À l’aide de cette approche, appelée *déploiement masqué (dark)* , vous pouvez fournir l’ensemble de votre code à la fin de chaque cycle de développement. Vous n’avez plus besoin de gérer des branches de code sur plusieurs cycles de développement parce qu’une fonctionnalité donnée a besoin de plus d’un cycle pour se terminer.
-* **Test en production** : Utilisez des indicateurs de fonctionnalités pour accorder un accès en avant-première aux nouvelles fonctionnalités en production. Par exemple, vous pouvez limiter l’accès aux membres de votre équipe ou à des bêta-testeurs internes. Ces utilisateurs obtiendront l’expérience de production de fidélité optimale au lieu d’une expérience simulée ou partielle dans un environnement de test.
-* **Distribution de version d’évaluation** : Utilisez des indicateurs de fonctionnalités pour déployer de façon incrémentielle de nouvelles fonctionnalités auprès des utilisateurs finaux. Vous pouvez d’abord cibler un petit pourcentage de votre population d’utilisateurs, puis augmenter progressivement ce pourcentage au fil du temps.
-* **Interrupteur instantané** : Les indicateurs de fonctionnalités offrent un dispositif de sécurité inhérent pour la publication de nouvelles fonctionnalités. Vous pouvez activer et désactiver les fonctionnalités de l’application sans redéployer de code. Si nécessaire, vous pouvez rapidement désactiver une fonctionnalité sans regénérer et redéployer votre application.
-* **Activation sélective** : Utilisez ces indicateurs de fonctionnalités pour segmenter vos utilisateurs et fournir un ensemble de fonctionnalités à chaque groupe. Vous pouvez avoir une fonctionnalité qui fonctionne seulement sur un navigateur web donné. Vous pouvez définir un indicateur de fonctionnalité de sorte que seuls les utilisateurs de ce navigateur peuvent voir et utiliser la fonctionnalité. Avec cette approche, vous pouvez facilement étendre par la suite la liste des navigateurs pris en charge sans avoir à changer le code.
+* **Gestion des branches de code** : Utilisez des indicateurs de fonctionnalités pour envelopper les nouvelles fonctionnalités d’application qui sont en cours de développement. Ces fonctionnalités sont « masquées » par défaut. Bien qu’elles ne soient pas terminées, vous pouvez les fournir sans problème. Elles restent dormantes en production. À l’aide de cette approche, appelée *déploiement masqué (dark)*, vous pouvez fournir l’ensemble de votre code à la fin de chaque cycle de développement. Vous n’avez plus besoin de gérer des branches de code sur plusieurs cycles de développement parce qu’une fonctionnalité donnée a besoin de plus d’un cycle pour se terminer.
+* **Test en production** : Utilisez des indicateurs de fonctionnalités pour accorder un accès en avant-première aux nouvelles fonctionnalités en production. Par exemple, vous pouvez limiter l’accès aux membres de votre équipe ou à des bêta-testeurs internes. Ces utilisateurs obtiendront l’expérience de production de fidélité optimale au lieu d’une expérience simulée ou partielle dans un environnement de test.
+* **Distribution de version d’évaluation** : Utilisez des indicateurs de fonctionnalités pour déployer de façon incrémentielle de nouvelles fonctionnalités auprès des utilisateurs finaux. Vous pouvez d’abord cibler un petit pourcentage de votre population d’utilisateurs, puis augmenter progressivement ce pourcentage au fil du temps.
+* **Interrupteur instantané**: Les indicateurs de fonctionnalités offrent un dispositif de sécurité inhérent pour la publication de nouvelles fonctionnalités. Vous pouvez activer et désactiver les fonctionnalités de l’application sans redéployer de code. Si nécessaire, vous pouvez rapidement désactiver une fonctionnalité sans regénérer et redéployer votre application.
+* **Activation sélective** : Utilisez des indicateurs de fonctionnalités pour segmenter vos utilisateurs et fournir un ensemble de fonctionnalités à chaque groupe. Vous pouvez avoir une fonctionnalité qui fonctionne seulement sur un navigateur web donné. Vous pouvez définir un indicateur de fonctionnalité de sorte que seuls les utilisateurs de ce navigateur peuvent voir et utiliser la fonctionnalité. Avec cette approche, vous pouvez facilement étendre par la suite la liste des navigateurs pris en charge sans avoir à changer le code.
 
 ## <a name="basic-concepts"></a>Concepts de base
 
 Voici plusieurs nouveaux termes liés à la gestion des fonctionnalités :
 
-* **Indicateur de fonctionnalités** : Un indicateur de fonctionnalité est une variable dont l’état binaire est *activé* ou *désactivé*. L’indicateur de fonctionnalité a également un bloc de code associé. L’état de l’indicateur de fonctionnalité détermine si le bloc de code s’exécute.
-* **Gestionnaire de fonctionnalités** : Un gestionnaire de fonctionnalités est un package d’application qui gère le cycle de vie de tous les indicateurs de fonctionnalités dans une application. Il fournit également des fonctionnalités supplémentaires comme la mise en cache des indicateurs de fonctionnalités et la mise à jour de leur état.
-* **Filtre** : Un filtre est une règle destinée à évaluer l’état d’un indicateur de fonctionnalité. Les filtres peuvent être basés sur des groupes d’utilisateurs, des types d’appareils ou de navigateurs, des emplacements géographiques et des fenêtres de temps.
+* **Indicateur de fonctionnalité** : Un indicateur de fonctionnalité est une variable dont l’état binaire est *activé* ou *désactivé*. L’indicateur de fonctionnalité a également un bloc de code associé. L’état de l’indicateur de fonctionnalité détermine si le bloc de code s’exécute.
+* **Gestionnaire de fonctionnalités** : Un gestionnaire de fonctionnalités est un package d’application qui gère le cycle de vie de tous les indicateurs de fonctionnalités dans une application. Il fournit également des fonctionnalités supplémentaires comme la mise en cache des indicateurs de fonctionnalités et la mise à jour de leur état.
+* **Filtre** : Un filtre est une règle destinée à évaluer l’état d’un indicateur de fonctionnalité. Les filtres peuvent être basés sur des groupes d’utilisateurs, des types d’appareils ou de navigateurs, des emplacements géographiques et des fenêtres de temps.
 
 Une implémentation efficace de la gestion des fonctionnalités est constituée d’au moins deux composants qui fonctionnent de concert :
 

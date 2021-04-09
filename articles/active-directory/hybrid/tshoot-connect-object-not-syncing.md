@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413460"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Résoudre les problèmes de synchronisation d’un objet avec Azure Active Directory
@@ -38,23 +38,23 @@ Avant d’examiner les problèmes de synchronisation, essayons de comprendre le 
 
 ### <a name="terminology"></a>**Terminologie**
 
-* **CS :** Espace connecteur (table de base de données)
-* **MV :** Métaverse (table de base de données)
+* **CS :**  espace de connecteur, une table dans une base de données
+* **MV :** métaverse, une table dans une base de données
 
 ### <a name="synchronization-steps"></a>**Étapes de la synchronisation**
 Le processus de synchronisation comprend les étapes suivantes :
 
-1. **Importation à partir d’AD :** les objets Active Directory sont placés dans l’espace Active Directory CS.
+1. **Importer à partir d’AD** : les objets Active Directory sont placés dans l’espace de connecteur Active Directory.
 
-2. **Importation à partir d’Azure AD :** les objets Azure AD sont placés dans l’espace Azure AD CS.
+2. **Importer à partir d’Azure AD :** les Azure AD objets sont placés dans l’espace de connecteur Azure AD.
 
-3. **Synchronisation :** les règles de synchronisation entrante et les règles de synchronisation sortante sont exécutées dans l’ordre de priorité numérique, du plus petit au plus grand. Pour afficher les règles de synchronisation, vous pouvez accéder à l’éditeur de règles de synchronisation à partir des applications de bureau. Les règles de synchronisation entrante déplacent les données de CS dans MV. Les règles de synchronisation sortante déplacent les données de MV dans CS.
+3. **Synchronisation :** les règles de synchronisation entrante et les règles de synchronisation sortante sont exécutées dans l’ordre des numéros de priorité, du plus petit au plus grand. Pour afficher les règles de synchronisation, vous pouvez accéder à l’éditeur de règles de synchronisation à partir des applications de bureau. Les règles de synchronisation entrante déplacent les données de CS dans MV. Les règles de synchronisation sortante déplacent les données de MV dans CS.
 
-4. **Exportation vers AD :** À l’issue de la synchronisation, les objets sont exportés de l’espace Active Directory CS dans Active Directory.
+4. **Exporter vers AD :** à l’issue de la synchronisation, les objets sont exportés de l’espace de connecteur Active Directory vers Active Directory.
 
-5. **Exportation vers Azure AD :** À l’issue de la synchronisation, les objets sont exportés de l’espace Azure AD CS dans Azure AD.
+5. **Exporter vers Azure AD :** à l’issue de la synchronisation, les objets sont exportés de l’espace de connecteur Azure AD vers Azure AD.
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Pour rechercher les erreurs, regardez à différents endroits, dans l’ordre suivant :
 
@@ -75,7 +75,7 @@ La colonne **Status** (État) contient les informations les plus importantes et 
 
 | Statut | Commentaire |
 | --- | --- |
-| stopped- * |L’exécution n’a pas pu se terminer. Cela peut se produire, par exemple, si le système distant est arrêté et ne peut pas être contacté. |
+| stopped- *  |L’exécution n’a pas pu se terminer. Cela peut se produire, par exemple, si le système distant est arrêté et ne peut pas être contacté. |
 | stopped-error-limit |Il existe plus de 5 000 erreurs. L’exécution a été automatiquement arrêtée en raison du grand nombre d’erreurs. |
 | completed-\*-errors |L’exécution s’est terminée, mais il existe des erreurs (moins de 5 000) qui doivent être examinées. |
 | completed-\*-warnings |L’exécution s’est terminée, mais des données n’ont pas l’état attendu. Si vous avez des erreurs, ce message n’est, en général, qu’un symptôme. N’explorez pas les avertissements avant d’avoir résolu les erreurs. |
@@ -91,7 +91,7 @@ Commencez par sélectionner la chaîne d’erreur. (Dans l’image précédente,
 
 Cliquez avec le bouton droit dans la zone **Call Stack Information** (Informations de la pile des appels), choisissez **Select All** (Tout sélectionner), puis **Copy** (Copier). Copiez ensuite la pile et examinez l’erreur dans l’éditeur de votre choix, par exemple le Bloc-notes.
 
-Si l’erreur provient de **SyncRulesEngine** , les informations de la pile des appels affichent d’abord la liste de tous les attributs sur l’objet. Faites défiler vers le bas jusqu’à l’en-tête **InnerException =>** .  
+Si l’erreur provient de **SyncRulesEngine**, les informations de la pile des appels affichent d’abord la liste de tous les attributs sur l’objet. Faites défiler vers le bas jusqu’à l’en-tête **InnerException =>**.  
 
   ![Capture d’écran de Synchronization Service Manager, répertoriant les informations d’erreur sous le titre InnerException =>](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   
@@ -110,7 +110,7 @@ Dans la zone **Scope** (Étendue), sélectionnez **RDN** lorsque vous souhaitez 
  
 ![Capture d’écran d’une recherche dans l’espace connecteur](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
-Si vous ne trouvez pas l’objet recherché, celui-ci peut avoir été filtré avec le [filtrage basé sur le domaine](how-to-connect-sync-configure-filtering.md#domain-based-filtering) ou le [filtrage basé sur l’unité d’organisation](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Pour vérifier que le filtrage est bien configuré comme vous le souhaitez, lisez [Synchronisation Azure AD Connect : Configurer le filtrage](how-to-connect-sync-configure-filtering.md).
+Si vous ne trouvez pas l’objet recherché, celui-ci peut avoir été filtré avec le [filtrage basé sur le domaine](how-to-connect-sync-configure-filtering.md#domain-based-filtering) ou le [filtrage basé sur l’unité d’organisation](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). Pour vérifier que le filtrage est bien configuré comme vous le souhaitez, lisez [Synchronisation d’Azure AD Connect : Configurer le filtrage](how-to-connect-sync-configure-filtering.md).
 
 Vous pouvez effectuer une autre recherche utile en sélectionnant le connecteur Azure AD. Dans la zone **Scope** (Étendue), sélectionnez **Pending Import** (Importation en attente), puis cochez l’option **Add** (Ajouter). Cette recherche vous propose tous les objets synchronisés dans Azure AD qui ne peuvent pas être associés à un objet local.  
 
@@ -158,11 +158,11 @@ Dans l’aperçu, vous pouvez inspecter l’objet et voir la règle appliquée p
 Il est généralement préférable de commencer la recherche à partir de l’espace connecteur Active Directory source. Mais vous pouvez également démarrer la recherche depuis le métaverse.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>Recherche d’un objet dans MV
-Dans Synchronization Service Manager, sélectionnez **Metaverse Search** (Recherche dans le métaverse), comme illustré dans l’image suivante. Créez une requête capable de trouver l’utilisateur. Recherchez des attributs communs, comme **accountName** ( **sAMAccountName** ) et **userPrincipalName**. Pour plus d’informations, consultez [Recherche dans le métaverse de Sync Service Manager](how-to-connect-sync-service-manager-ui-mvsearch.md).
+Dans Synchronization Service Manager, sélectionnez **Metaverse Search** (Recherche dans le métaverse), comme illustré dans l’image suivante. Créez une requête capable de trouver l’utilisateur. Recherchez des attributs communs, comme **accountName** (**sAMAccountName**) et **userPrincipalName**. Pour plus d’informations, consultez [Recherche dans le métaverse de Sync Service Manager](how-to-connect-sync-service-manager-ui-mvsearch.md).
 
 ![Capture d’écran de Synchronization Service Manager, avec l’onglet Metaverse Search (Recherche dans le métaverse) sélectionné](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 
-Dans la fenêtre **Résultats de la recherche** , cliquez sur l’objet.
+Dans la fenêtre **Résultats de la recherche**, cliquez sur l’objet.
 
 Si vous ne trouvez pas l’objet, c’est qu’il n’a pas encore atteint le métaverse. Continuez à rechercher l’objet dans [l’espace de connecteur](#connector-space-object-properties) Active Directory. Si vous le trouvez dans l’espace connecteur Active Directory, il se peut qu’une erreur de synchronisation bloque l’entrée de l’objet dans le métaverse, ou qu’un filtre d’étendue de règles de synchronisation soit appliqué.
 
@@ -171,7 +171,7 @@ Si l’objet se trouve dans l’espace Active Directory CS, mais pas dans le Mé
 
   ![Capture d’écran de l’éditeur de règles de synchronisation affichant une recherche de règles de synchronisation entrante](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
 
-Affichez chaque règle de la liste ci-dessus et vérifiez le paramètre **Scoping filter (Filtre d’étendue)** . Dans le filtre d’étendue qui suit, si **isCriticalSystemObject** a la valeur Null ou FALSE, ou s’il n’est pas défini, il se situe dans l’étendue.
+Affichez chaque règle de la liste ci-dessus et vérifiez le paramètre **Scoping filter (Filtre d’étendue)**. Dans le filtre d’étendue qui suit, si **isCriticalSystemObject** a la valeur Null ou FALSE, ou s’il n’est pas défini, il se situe dans l’étendue.
 
   ![Capture d’écran d’un filtre d’étendue dans une recherche de règles de synchronisation entrante](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
 
@@ -191,8 +191,8 @@ Sous l’onglet **Attributes** (Attributs), vous pouvez voir les valeurs et quel
 ![Capture d’écran de la fenêtre des propriétés de l’objet métaverse, avec l’onglet des attributs sélectionné](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 Si un objet n’est pas synchronisé, posez-vous les questions suivantes sur les états d’attribut dans le métaverse :
-- L’attribut **cloudFiltered** est-il présent et défini sur **true**  ? Si c’est le cas, il a été filtré selon les étapes décrites dans [Filtrage par attribut](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
-- L’attribut **sourceAnchor** est-il présent ? Si ce n’est pas le cas, utilisez-vous une topologie de forêt compte-ressource ? Si un objet est identifié en tant que boîte aux lettres liée (l’attribut **msExchRecipientTypeDetails** a la valeur **2** ), l’attribut **sourceAnchor** est fourni par la forêt avec un compte Active Directory activé. Assurez-vous que le compte principal a été importé et synchronisé correctement. Le compte principal doit être répertorié parmi les [connecteurs](#mv-connectors) pour l’objet.
+- L’attribut **cloudFiltered** est-il présent et défini sur **true** ? Si c’est le cas, il a été filtré selon les étapes décrites dans [Filtrage par attribut](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
+- L’attribut **sourceAnchor** est-il présent ? Si ce n’est pas le cas, utilisez-vous une topologie de forêt compte-ressource ? Si un objet est identifié en tant que boîte aux lettres liée (l’attribut **msExchRecipientTypeDetails** a la valeur **2**), l’attribut **sourceAnchor** est fourni par la forêt avec un compte Active Directory activé. Assurez-vous que le compte principal a été importé et synchronisé correctement. Le compte principal doit être répertorié parmi les [connecteurs](#mv-connectors) pour l’objet.
 
 ### <a name="mv-connectors"></a>Connecteurs MV
 L’onglet **Connectors** (Connecteurs) affiche tous les espaces connecteur qui ont une représentation de l’objet. 
@@ -206,7 +206,7 @@ Vous devez disposer d’un connecteur pour :
 
 S’il vous manque le connecteur à Azure AD, consultez la section sur les [Attributs MV](#mv-attributes) pour vérifier les critères de provisionnement vers Azure AD.
 
-Dans l’onglet **Connectors** (Connecteurs) , vous pouvez également accéder à l’ [objet espace connecteur](#connector-space-object-properties). Sélectionnez une ligne et cliquez sur **Propriétés**.
+Dans l’onglet **Connectors** (Connecteurs) , vous pouvez également accéder à l’[objet espace connecteur](#connector-space-object-properties). Sélectionnez une ligne et cliquez sur **Propriétés**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur la [synchronisation Azure AD Connect](how-to-connect-sync-whatis.md).

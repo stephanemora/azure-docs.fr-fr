@@ -4,10 +4,10 @@ description: Utilisez le serveur de sauvegarde Azure pour sauvegarder l’état 
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96021620"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète à l’aide du serveur de sauvegarde Azure
@@ -23,7 +23,7 @@ Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectu
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application que l’état du système et une récupération complète peuvent protéger, consultez [Qu’est-ce que le serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).
 
-|Backup|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète du système|
+|Sauvegarde|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète du système|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Données de fichier**<br /><br />Sauvegarde régulière des données<br /><br />Sauvegarde complète/de l’état du système|Données de fichier perdues|O|N|N|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Système d'exploitation perdu ou endommagé|N|O|O|

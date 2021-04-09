@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899233"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Connecter un réseau local à CloudSimple à l’aide d’ExpressRoute
@@ -64,11 +64,11 @@ Pour établir la connexion ExpressRoute, vous devez créer une autorisation sur 
     > **L’ID de ressource** doit être copié à partir de l’interface utilisateur et doit être au format ```/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/expressRouteCircuits/<express-route-circuit-name>``` lorsque vous le fournissez pour qu’il soit pris en charge.
 
 6. Configurez un ticket avec <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">Prise en charge</a> pour la connexion à créer.
-    * Type de problème : **Technique**
+    * Type de problème : **Technique**
     * Abonnement : **Abonnement dans lequel le service CloudSimple est déployé**
-    * Service : **VMware Solution by CloudSimple**
+    * Service : **Solution VMware par CloudSimple**
     * Type de problème : **Demande de service**
-    * Sous-type de problème : **Créer une connexion ExpressRoute au réseau local**
+    * Sous-type de problème : **Créer une connexion ExpressRoute au réseau local**
     * Indiquez l’ID de ressource et la clé d’autorisation que vous avez copiés et enregistrés dans le volet d’informations.
     * Fournissez un espace d’adressage réseau /29 pour le réseau de transit.
     * Envoyez-vous la route par défaut par le biais d’ExpressRoute ?

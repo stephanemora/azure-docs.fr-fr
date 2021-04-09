@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.openlocfilehash: d25e168e342e22af9dc41d31dd7e18530aaa22b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090509"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connecter l’API Cassandra Azure Cosmos DB à partir de Spark
@@ -28,14 +28,14 @@ Cet article fait partie d’une série d’articles sur l’intégration de l’
 ## <a name="dependencies-for-connectivity"></a>Dépendances pour la connectivité
 * **Connecteur Spark pour Cassandra :** le connecteur Spark est utilisé pour se connecter à l’API Cassandra Azure Cosmos DB.  Identifiez et utilisez la version du connecteur située dans le [dépôt central Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) qui est compatible avec les versions Spark et Scala de votre environnement Spark.
 
-* **Bibliothèque d’assistance Azure Cosmos DB pour l’API Cassandra :** en plus du connecteur Spark, vous avez besoin d’une autre bibliothèque appelée [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) à partir d’Azure Cosmos DB. Cette bibliothèque contient des classes personnalisées de fabrique de connexion et de stratégie de nouvelle tentative.
+* **Bibliothèque d’assistance Azure Cosmos DB pour l’API Cassandra :** en plus du connecteur Spark, vous avez besoin d’une autre bibliothèque appelée [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) à partir d’Azure Cosmos DB. Cette bibliothèque contient des classes personnalisées de fabrique de connexion et de stratégie de nouvelle tentative.
 
   La stratégie de nouvelles tentatives dans Azure Cosmos DB est configurée pour gérer les exceptions de code d’état HTTP 429 (« Requêtes trop nombreuses »). L’API Cassandra Azure Cosmos DB traduit ces exceptions en erreurs surchargées sur le protocole natif Cassandra, et vous pouvez réessayer avec des interruptions. Comme Azure Cosmos DB utilise le modèle de débit provisionné, des exceptions de limitation du taux de requêtes se produisent quand les taux d’entrée/de sortie augmentent. La stratégie de nouvelles tentatives protège vos travaux Spark contre les pics de données qui dépassent momentanément le débit alloué pour votre conteneur.
 
   > [!NOTE] 
   > La stratégie de nouvelles tentatives peut protéger vos travaux Spark contre les pics momentanés uniquement. Si vous n’avez pas configuré suffisamment d’unités de requête nécessaires pour exécuter votre charge de travail, la stratégie de nouvelles tentatives n’est pas applicable et la classe de stratégie de nouvelles tentatives lève à nouveau l’exception.
 
-* **Informations de connexion du compte Azure Cosmos DB :** Nom du compte, point de terminaison du compte et clé de votre API Cassandra d’Azure.
+* **Détails de connexion de compte Azure Cosmos DB :** nom de compte, point de terminaison de compte et clé de votre API Cassandra Azure.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Paramètres de configuration du débit du connecteur Spark
 
@@ -44,11 +44,11 @@ Le tableau suivant répertorie les paramètres de configuration du débit spéci
 | **Nom de la propriété** | **Valeur par défaut** | **Description** |
 |---------|---------|---------|
 | spark.cassandra.output.batch.size.rows |  1 |Nombre de lignes par lot. Définissez ce paramètre sur 1. Ce paramètre est utilisé pour obtenir un débit plus élevé pour les charges de travail importantes. |
-| spark.cassandra.connection.connections_per_executor_max  | None | Nombre maximal de connexions par nœud et par exécuteur. 10*n équivaut à 10 connexions par nœud dans un cluster Cassandra de n nœuds. Par conséquent, si vous avez besoin de 5 connexions par nœud et par exécuteur pour un cluster Cassandra à 5 nœuds, vous devez définir cette configuration sur 25. Modifiez cette valeur en fonction du degré de parallélisme ou du nombre d’exécuteurs pour lesquels vos travaux Spark sont configurés.   |
+| spark.cassandra.connection.connections_per_executor_max  | Aucun | Nombre maximal de connexions par nœud et par exécuteur. 10*n équivaut à 10 connexions par nœud dans un cluster Cassandra de n nœuds. Par conséquent, si vous avez besoin de 5 connexions par nœud et par exécuteur pour un cluster Cassandra à 5 nœuds, vous devez définir cette configuration sur 25. Modifiez cette valeur en fonction du degré de parallélisme ou du nombre d’exécuteurs pour lesquels vos travaux Spark sont configurés.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Définit le nombre d’écritures parallèles qui peuvent se produire par exécuteur. Étant donné que vous avez défini « batch.size.rows » sur 1, veillez à augmenter cette valeur en conséquence. Modifiez cette valeur selon le degré de parallélisme ou le débit que vous souhaitez obtenir pour votre charge de travail. |
 | spark.cassandra.concurrent.reads |  512 | Définit le nombre de lectures parallèles qui peuvent se produire par exécuteur. Modifiez cette valeur selon le degré de parallélisme ou le débit que vous souhaitez obtenir pour votre charge de travail.  |
-| spark.cassandra.output.throughput_mb_per_sec  | None | Définit le débit d’écriture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.   |
-| spark.cassandra.input.reads_per_sec| None   | Définit le débit de lecture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.  |
+| spark.cassandra.output.throughput_mb_per_sec  | Aucun | Définit le débit d’écriture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.   |
+| spark.cassandra.input.reads_per_sec| Aucun   | Définit le débit de lecture total par exécuteur. Ce paramètre peut être utilisé comme limite supérieure pour le débit de vos travaux Spark et le baser sur le débit provisionné de votre conteneur Cosmos.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1 000  | Définit le nombre de lots par tâche Spark qui peuvent être stockés en mémoire avant d’être envoyés à l’API Cassandra. |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Définit la période pendant laquelle les connexions inutilisées sont disponibles. | 
 
@@ -118,9 +118,9 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 
 Les articles suivants illustrent l’intégration Spark à l’API Cassandra Azure Cosmos DB. 
  
-* [Opérations DDL](cassandra-spark-ddl-ops.md)
+* [opérations DDL](cassandra-spark-ddl-ops.md)
 * [Opérations de création et d’insertion](cassandra-spark-create-ops.md)
-* [Opérations de lecture](cassandra-spark-read-ops.md)
+* [Lire les opérations](cassandra-spark-read-ops.md)
 * [Opérations d’upsert](cassandra-spark-upsert-ops.md)
 * [Opérations de suppression](cassandra-spark-delete-ops.md)
 * [Opérations d’agrégation](cassandra-spark-aggregation-ops.md)

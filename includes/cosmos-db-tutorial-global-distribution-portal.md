@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: 58788d6194454c8bd40730c9c350aa901924ba3d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026024"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Ajouter des régions de bases de donnée mondiales à l’aide du portail Azure
@@ -31,11 +31,11 @@ Une fois que vous ajoutez une deuxième région, l’option **Basculement manuel
 Il existe deux scénarios courants pour la configuration de deux ou plusieurs régions :
 
 1. La fourniture aux utilisateurs finaux d’un accès à faible latence aux données, où qu’ils se trouvent dans le monde
-2. L’ajout d’une résilience régionale pour la continuité des activités et la récupération d’urgence (BCDR)
+2. L’ajout d’une résilience régionale pour la continuité d’activité et la reprise d’activité (BCDR)
 
 Pour fournir une faible latence aux utilisateurs finaux, il est recommandé de déployer l’application et Azure Cosmos DB dans les régions correspondant à la localisation géographique des utilisateurs de l’application.
 
-Pour BCDR, nous vous recommandons d’ajouter les régions en fonction des paires de régions décrites dans l’article [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées Azure][bcdr].
+Pour BCDR, nous vous recommandons d’ajouter les régions en fonction des paires de régions décrites dans l’article [Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure][bcdr].
 
 <!--
 
