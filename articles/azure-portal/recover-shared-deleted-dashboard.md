@@ -3,16 +3,16 @@ title: Récupérer un tableau de bord supprimé dans le Portail Azure
 description: Si vous supprimez un tableau de bord publié dans le Portail Azure, vous pouvez le récupérer.
 ms.date: 01/21/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 095964691a3cb22f8a805af2e8fe37af4c47cb28
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 2d0c8ad9ce93f3812dd810361e10a26232e29685
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745619"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774896"
 ---
 # <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Récupérer un tableau de bord supprimé dans le Portail Azure
 
-Si vous êtes dans le cloud Azure public et que vous supprimez un tableau de bord _publié_ dans le portail Azure, vous pouvez le récupérer dans les 14 jours suivant la suppression. SI vous êtes dans un cloud Azure Government ou si le tableau de bord n’est pas publié, vous ne pouvez pas le récupérer et vous devez le recréer. Pour plus d’informations sur la publication d’un tableau de bord, consultez [Publier un tableau de bord](azure-portal-dashboard-share-access.md#publish-dashboard). Pour récupérer un tableau de bord publié, procédez comme suit :
+Si vous êtes dans le cloud Azure global et que vous supprimez un tableau de bord _publié_ dans le portail Azure, vous pouvez le récupérer dans les 14 jours suivant la suppression. SI vous êtes dans un cloud Azure Government ou si le tableau de bord n’est pas publié, vous ne pouvez pas le récupérer et vous devez le recréer. Pour plus d’informations sur la publication d’un tableau de bord, consultez [Publier un tableau de bord](azure-portal-dashboard-share-access.md#publish-a-dashboard). Pour récupérer un tableau de bord publié, procédez comme suit :
 
 1. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources**, puis sélectionnez le groupe de ressources dans lequel vous avez publié le tableau de bord (par défaut, il est nommé **dashboards**).
 

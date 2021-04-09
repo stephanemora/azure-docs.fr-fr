@@ -4,15 +4,15 @@ description: Questions courantes rencontrées lors de la création d’une machi
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-author: iqshahmicrosoft
-ms.author: iqshah
+author: kriti-ms
+ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: a74170af61c05d07a189b5ceb61dc0c9b7e14298
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200424"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593422"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Questions courantes sur les machines virtuelles dans Place de marché Azure
 
@@ -470,6 +470,17 @@ $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAdd
 # deploying VM with existing VHD
 New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName"
 ```
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Comment tester une image d’aperçu masquée ?
+
+Vous pouvez déployer des images d’aperçu masquées à l’aide de modèles de démarrage rapide.
+Pour déployer une image d’aperçu, 
+1. Accédez au modèle de démarrage rapide approprié pour [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) ou [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows), puis sélectionnez « Déployer sur Azure ». Cela devrait vous amener au portail Azure.
+2. Sur le Portail Azure, sélectionnez « Modifier le modèle ».
+3. Dans le modèle JSON, recherchez imageReference et mettez à jour les valeurs publisherid, offerid, skuid, et version de l’image. Pour tester l’image d’aperçu, ajoutez « -PREVIEW » à offerid.
+ ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Cliquez sur Enregistrer.
+5. Renseignez les autres détails. Vérifier et créer
 
 
 ## <a name="next-steps"></a>Étapes suivantes

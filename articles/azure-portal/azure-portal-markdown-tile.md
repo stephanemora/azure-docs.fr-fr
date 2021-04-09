@@ -1,15 +1,15 @@
 ---
 title: Utiliser une vignette Markdown personnalisée sur les tableaux de bord Azure
 description: Découvrez comment ajouter une vignette Markdown à un tableau de bord Azure pour afficher un contenu statique
-ms.date: 01/08/2020
+ms.date: 03/19/2021
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8324b736565cfa353e48cf49b76e2784866f47f7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745755"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104774454"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé
 
@@ -21,7 +21,7 @@ Vous pouvez ajouter une vignette Markdown à vos tableaux de bord Azure pour aff
 
    ![Capture d’écran montrant la barre latérale du portail](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Si vous avez créé des tableaux de bord personnalisés, dans la vue de tableau de bord, utilisez la liste déroulante pour sélectionner le tableau de bord où doit apparaître la vignette Markdown personnalisée. Sélectionnez l’icône Modifier pour ouvrir la **Galerie de vignettes**.
+1. Dans l’affichage du tableau de bord, sélectionnez le tableau de bord dans lequel la vignette Markdown personnalisée doit apparaître, puis sélectionnez **Modifier**.
 
    ![Capture d’écran montrant la vue de tableau de bord en mode modification](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
@@ -52,8 +52,8 @@ Vous pouvez ajouter une vignette Markdown à vos tableaux de bord Azure pour aff
 
 Vous pouvez utiliser n’importe quelle combinaison de texte brut, syntaxe Markdown et contenu HTML sur la vignette Markdown. Le portail Azure utilise une bibliothèque open source appelée _marked_ pour transformer votre contenu en syntaxe HTML qui est affichée sur la vignette. La syntaxe HTML générée par _marked_ est prétraitée par le portail avant d’être affichée. Ainsi, votre personnalisation n’affecte pas la sécurité ou la disposition du portail. Pendant ce prétraitement, toute partie de la syntaxe HTML qui représente une menace potentielle est supprimée. Les types de contenu suivants ne sont pas autorisés par le portail :
 
-* JavaScript : les balises `<script>` et les évaluations JavaScript inline sont supprimées.
-* IFrames : les balises `<iframe>` sont supprimées.
+* JavaScript : les balises `<script>` et les évaluations JavaScript inlined sont supprimées.
+* iframes : les balises `<iframe>` sont supprimées.
 * Style : les balises `<style>` sont supprimées. Les attributs de style intraligne sur les éléments HTML ne sont pas officiellement pris en charge. Certains éléments de style intraligne peuvent sembler fonctionner, mais s’ils interfèrent avec la disposition du portail, ils peuvent cesser de fonctionner à tout moment. La vignette Markdown est destinée à du contenu statique de base qui utilise les styles par défaut du portail.
 
 ## <a name="next-steps"></a>Étapes suivantes

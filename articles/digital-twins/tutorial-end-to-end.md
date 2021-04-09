@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634972"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577251"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutoriel : Créer une solution de bout en bout
 
@@ -121,35 +121,51 @@ De retour dans la fenêtre de Visual Studio où le projet _**AdtE2ESample**_ est
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra disposer d’une identité managée par le système avec les autorisations nécessaires pour accéder à votre instance d’Azure Digital Twins. Vous allez maintenant configurer cela.
+Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra disposer d’autorisations pour accéder à votre instance Azure Digital Twins et au nom d’hôte de l’instance. Vous les configurerez à l’étape suivante.
 
-### <a name="assign-permissions-to-the-function-app"></a>Attribuer des autorisations à l’application de fonction
+### <a name="configure-permissions-for-the-function-app"></a>Configurer des autorisations pour l’application de fonction
 
-Pour permettre à l’application de fonction d’accéder à Azure Digital Twins, l’étape suivante consiste à configurer un paramètre d’application, à attribuer à l’application une identité Azure AD managée par le système et à accorder à cette identité le rôle *Propriétaire des données Azure Digital Twins* dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md).
+Deux paramètres doivent être définis pour que l’application de fonction accède à votre instance Azure Digital Twins. Ces deux définitions peuvent se faire a moyen de commandes dans [Azure Cloud Shell](https://shell.azure.com). 
 
-Dans Azure Cloud Shell, utilisez la commande suivante pour définir un paramètre d’application que votre application de fonction utilisera pour référencer votre instance Azure Digital Twins. Remplissez les espaces réservés avec les détails de vos ressources (rappelez-vous que l’URL de votre instance Azure Digital Twins est son nom d’hôte précédé de *https://* ).
+#### <a name="assign-access-role"></a>Attribuer le rôle d’accès
+
+Le premier paramètre donne à l’application de fonction le rôle de **Propriétaire des données Azure Digital Twins** dans l’instance Azure Digital Twins. Ce rôle est requis pour tout utilisateur ou fonction souhaitant effectuer de nombreuses activités de plan de données sur l’instance. Pour en savoir plus sur la sécurité et les attributions de rôles, consultez [*Concepts : Sécurité pour les solutions Azure Digital Twins*](concepts-security.md). 
+
+1. Utilisez la commande suivante pour consulter les détails de l’identité managée par le système pour la fonction. Prenez note du champ **principalId** dans la sortie.
+
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > Si le résultat est vide au lieu d’afficher les détails d’une identité, créez une autre identité managée par le système pour la fonction à l’aide de cette commande :
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > La sortie affiche alors les détails de l’identité, notamment la valeur **principalId** nécessaire pour la prochaine étape. 
+
+1. Utilisez la valeur **principalId** dans la commande suivante afin d’attribuer l’identité de l’application de fonction au rôle **Propriétaire des données Azure Digital Twins** pour votre instance Azure Digital Twins.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+Les informations générées par cette commande décrivent l’attribution de rôle que vous avez créée. L’application de fonction dispose maintenant des autorisations nécessaires pour accéder aux données dans votre instance Azure Digital Twins.
+
+#### <a name="configure-application-settings"></a>Configurer les paramètres de l’application
+
+Le deuxième paramètre crée une **variable d’environnement** pour la fonction avec l’URL de votre instance Azure Digital Twins. Le code de fonction l’utilisera pour faire référence à votre instance. Pour plus d’informations sur les variables d’environnement, consultez [*Gérer votre application de fonction*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+
+Exécutez la commande ci-dessous, en remplissant les espaces réservés avec les détails de vos ressources.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
 La sortie est la liste des paramètres de la fonction Azure, qui doit maintenant contenir une entrée appelée **ADT_SERVICE_URL**.
 
-Utilisez la commande suivante pour créer l’identité gérée par le système. Recherchez le champ **principalId** dans la sortie.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Utilisez la valeur **principalId** de la sortie dans la commande suivante afin d’attribuer l’identité de l’application de fonction au rôle *Propriétaire des données Azure Digital Twins* pour votre instance Azure Digital Twins.
-
-[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-Les informations générées par cette commande décrivent l’attribution de rôle que vous avez créée. L’application de fonction dispose maintenant des autorisations nécessaires pour accéder à votre instance Azure Digital Twins.
 
 ## <a name="process-simulated-telemetry-from-an-iot-hub-device"></a>Traiter les données de télémétrie simulées provenant d’un appareil IoT Hub
 

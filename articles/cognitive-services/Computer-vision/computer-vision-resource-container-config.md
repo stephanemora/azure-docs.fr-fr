@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 0539f37fe15f68d8bfd47bf426333f9d5c67c37d
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006868"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102611893"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurer des conteneurs Docker OCR Read
 
@@ -39,6 +39,8 @@ Les paramètres de configuration spécifiques au conteneur sont les suivants :
 |Non|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | Conteneurs v3.x uniquement. Délai à l'issue duquel un message devient invisible car un rôle de travail est en train de le traiter. |
 |Non|Storage::DocumentStore::MongoDB|Conteneurs v2.0 uniquement. Active MongoDB pour le stockage permanent des résultats. |
 |Non|Storage:ObjectStore:AzureBlob:ConnectionString| Conteneurs v3.x uniquement. Chaîne de connexion de stockage d'objets blob Azure. |
+|Non|Storage:TimeToLiveInDays| Conteneurs v3.x uniquement. Période d’expiration du résultat, en jours. Le paramètre spécifie à quel moment le système doit effacer les résultats de la reconnaissance. La valeur par défaut est 2 jours (48 heures), ce qui signifie qu’il n’est pas garanti que les résultats actifs au-delà de cette période puissent être récupérés. |
+|Non|Task:MaxRunningTimeSpanInMinutes| Conteneurs v3.x uniquement. Durée maximale d’exécution pour une requête unique. La valeur par défaut est de 60 minutes. |
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 

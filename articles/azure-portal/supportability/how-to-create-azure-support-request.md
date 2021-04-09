@@ -3,13 +3,13 @@ title: Création d’une demande de support Azure
 description: Les clients qui ont besoin d’aide peuvent utiliser le portail Azure pour trouver des solutions en libre-service et pour créer et gérer des demandes de support.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652392"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774867"
 ---
 # <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
@@ -42,7 +42,7 @@ Pour créer une demande de support, vous devez être [propriétaire](../../role-
 
 Pour démarrer une demande de support à partir de n’importe où dans le portail Azure :
 
-1. Sélectionnez **?** dans l’en-tête global. Ensuite, sélectionnez **Aide + support**.
+1. Sélectionnez **?** dans l’en-tête global, puis sélectionnez **Aide + support**.
 
    ![Aide et support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 

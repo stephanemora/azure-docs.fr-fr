@@ -4,12 +4,12 @@ description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a7545d4d927418e6153ce3bf439fc8c3e2dc702
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579578"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104774913"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -294,6 +294,10 @@ Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.con
 
 > [!NOTE]
 > L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../logs/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](./ip-collection.md) vous présentera vos options.
+
+## <a name="can-i-modify-or-update-data-after-it-has-been-collected"></a>Puis-je modifier ou mettre à jour les données une fois qu’elles ont été collectées ?
+
+Non, les données sont en lecture seule et ne peuvent être supprimées qu’à l’aide de la fonctionnalité de vidage. Pour en savoir plus, consultez [Aide pour les données personnelles stockées dans Log Analytics et Application Insights](../logs/personal-data-mgmt.md#delete).
 
 ## <a name="credits"></a>Crédits
 Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur [https://www.maxmind.com](https://www.maxmind.com).

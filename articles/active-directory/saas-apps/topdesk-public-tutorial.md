@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Public
@@ -137,13 +137,13 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
 
     c. URL de déconnexion
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Configurer l’authentification unique TOPdesk - Public
+### <a name="configure-topdesk---public-single-sign-on&quot;></a>Configurer l’authentification unique TOPdesk - Public
 
 1. Connectez-vous à votre site d'entreprise **TOPdesk - Public** en tant qu'administrateur.
 
 2. Dans le menu **TOPdesk**, cliquez sur **Settings**.
    
-    ![Paramètres](./media/topdesk-public-tutorial/ic790598.png "Paramètres")
+    ![Paramètres](./media/topdesk-public-tutorial/ic790598.png &quot;Paramètres")
 
 3. Cliquez sur **Login Settings**.
    
@@ -247,17 +247,17 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-topdesk---public-test-user"></a>Créer un utilisateur de test TOPdesk - Public
+### <a name="create-topdesk---public-test-user&quot;></a>Créer un utilisateur de test TOPdesk - Public
 
 Pour pouvoir se connecter à TOPdesk - Public, les utilisateurs d’Azure AD doivent être provisionnés dans TOPdesk - Public. Dans le cas de TOPdesk - Public, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
+### <a name=&quot;to-configure-user-provisioning-perform-the-following-steps&quot;></a>Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
 1. Connectez-vous à votre site d’entreprise **TOPdesk - Public** en tant qu’administrateur.
 
 2. Dans le menu en haut, cliquez sur **TOPdesk \> New \> Support Files \> Person**.
    
-    ![Person](./media/topdesk-public-tutorial/ic790628.png "Personne")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png &quot;Personne")
 
 3. Dans la boîte de dialogue New User, procédez comme suit :
    
