@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 40067815ad582191606ad5a53cf06c9584d83350
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 389d3507c3406743e14324c7b4667e045cfdb3b5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618013"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048032"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recommandations de sécurité pour Stockage Blob
 
-Cet article contient des recommandations de sécurité pour Stockage Blob. Mettez en œuvre ces recommandations pour répondre à vos obligations de sécurité comme décrit dans notre modèle de responsabilité partagée. Pour plus d’informations sur la manière dont Microsoft répond à ses responsabilités de fournisseur de services, consultez [Responsabilité partagée dans le cloud](/azure/security/fundamentals/shared-responsibility).
+Cet article contient des recommandations de sécurité pour Stockage Blob. Mettez en œuvre ces recommandations pour répondre à vos obligations de sécurité comme décrit dans notre modèle de responsabilité partagée. Pour plus d’informations sur la manière dont Microsoft répond à ses responsabilités de fournisseur de services, consultez [Responsabilité partagée dans le cloud](../../security/fundamentals/shared-responsibility.md).
 
 Certaines recommandations contenues dans cet article peuvent être supervisées automatiquement par Azure Security Center. Azure Security Center est la première ligne de défense dans la protection de vos ressources Azure. Pour plus d’informations sur Azure Security Center, consultez [Présentation d’Azure Security Center](../../security-center/security-center-introduction.md).
 

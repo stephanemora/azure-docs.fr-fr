@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e56473ae935ec58a6cf6f0ea30fe5f7ccfec3f80
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017203"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104580315"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utiliser le module Azure PowerShell pour activer le chiffrement de bout en bout à l’aide du chiffrement sur l’hôte
 
@@ -32,7 +32,20 @@ Vous pouvez également rechercher les tailles de machine virtuelle par programma
 
 ## <a name="prerequisites"></a>Prérequis
 
-Afin de pouvoir utiliser le chiffrement sur l'hôte pour vos machines virtuelles ou groupes de machines virtuelles identiques, vous devez activer la fonctionnalité dans votre abonnement. Envoyez un e-mail à encryptionAtHost@microsoft.com avec vos ID d’abonnement pour activer la fonctionnalité.
+Vous devez activer la fonctionnalité pour votre abonnement avant d’utiliser la propriété EncryptionAtHost pour votre machine virtuelle/groupe de machines virtuelles identiques. Suivez les étapes ci-dessous pour activer la fonctionnalité pour votre abonnement :
+
+1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.  Vérifiez que l’état de l’inscription est Inscrit (cela prend quelques minutes) à l’aide de la commande ci-dessous avant d’essayer la fonctionnalité.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Créer un coffre de clés Azure Key Vault et un jeu de chiffrement DiskEncryptionSet
 

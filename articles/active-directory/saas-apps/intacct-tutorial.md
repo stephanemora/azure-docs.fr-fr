@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
 ms.openlocfilehash: 5a216e39ca32b16de405c7924d08da52c6eae4c1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98736954"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Tutoriel : Intégrer Sage Intacct à Azure Active Directory
@@ -110,7 +110,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -122,7 +122,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Sage Intacct.
 
@@ -134,13 +134,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-sage-intacct-sso"></a>Configurer l’authentification unique Sage Intacct
+## <a name=&quot;configure-sage-intacct-sso&quot;></a>Configurer l’authentification unique Sage Intacct
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Sage Intacct en tant qu’administrateur.
 
 1. Cliquez sur l’onglet **Company**, puis sur **Company Info**.
 
-    ![Société](./media/intacct-tutorial/ic790037.png "Company")
+    ![Société](./media/intacct-tutorial/ic790037.png &quot;Company")
 
 1. Cliquez sur l’onglet **Security**, puis sur **Edit**.
 

@@ -13,16 +13,16 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bafd6dade626376f216a271c7b3cadc9b429989a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491541"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578819"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Mode d’appareil partagé pour les appareils Android
 
-Les employés de terrain, comme les représentants, les membres d'équipage et les techniciens d'intervention, utilisent souvent un appareil mobile partagé pour effectuer leur travail. Cela devient problématique quand ils commencent à partager des mots de passe ou des codes confidentiels pour accéder aux données des clients et de l’entreprise sur l’appareil partagé.
+Les employés de terrain, comme les vendeurs en magasin, les membres d’équipage et les techniciens d’intervention, utilisent souvent un appareil mobile partagé pour effectuer leur travail. Cela devient problématique quand ils commencent à partager des mots de passe ou des codes confidentiels pour accéder aux données des clients et de l’entreprise sur l’appareil partagé.
 
 Le mode d’appareil partagé vous permet de configurer un appareil Android afin qu’il puisse être facilement partagé par plusieurs employés. Les employés peuvent se connecter et accéder rapidement aux informations client. Quand ils ont terminé leur journée ou leur tâche, ils peuvent se déconnecter de l’appareil et ce dernier est immédiatement prêt pour être utilisé par l’employé suivant.
 
@@ -85,7 +85,7 @@ Les différences suivantes s’appliquent selon que votre application s’exécu
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Raisons de vouloir prendre en charge uniquement le mode monocompte
 
-Si vous écrivez une application destinée à être utilisée uniquement par des employés de terrain avec un appareil partagé, nous vous recommandons de prendre en charge uniquement le mode monocompte. Il inclut la plupart des applications concentrées sur les tâches, comme les applications de dossiers médicaux, les applications de facturation et la plupart des applications métier. Prendre en charge uniquement le mode monocompte simplifie le développement, car vous n’avez pas besoin d’implémenter les fonctionnalités supplémentaires qui font partie des applications multicomptes.
+Si vous écrivez une application destinée à être utilisée uniquement par des employés de terrain avec un appareil partagé, nous vous recommandons d’écrire votre application pour prendre en charge uniquement le mode monocompte. Il inclut la plupart des applications concentrées sur les tâches, comme les applications de dossiers médicaux, les applications de facturation et la plupart des applications métier. Prendre en charge uniquement le mode monocompte simplifie le développement, car vous n’avez pas besoin d’implémenter les fonctionnalités supplémentaires qui font partie des applications multicomptes.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>Ce qui se passe quand le mode de l’appareil change
 

@@ -4,10 +4,10 @@ description: Dans ce tutoriel, vous utilisez un exemple de blueprint pour créer
 ms.date: 01/27/2021
 ms.topic: tutorial
 ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98915553"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutoriel : Créer un nouvel environnement à partir d’un exemple de blueprint

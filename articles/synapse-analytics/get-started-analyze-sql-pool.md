@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/18/2020
-ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a1f15330a912c8a8a93fe1f74e88ef8d117441c2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654626"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047896"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analyser des données avec des pools SQL dédiés
 
@@ -112,9 +112,6 @@ Tant qu’il est actif, un pool SQL dédié consomme des ressources facturables.
     Cette requête montre de quelle manière les distances totales et la distance moyenne des trajets sont liées au nombre de passagers.
 1. Dans la fenêtre de résultat du script SQL, changez la **Vue** à **Graphique** pour visualiser les résultats sous forme de graphique en courbes.
     
-    > [!NOTE]
-    > Un pool SQL dédié (anciennement SQL DW) activé sur l’espace de travail peut être identifié par le biais de l’info-bulle dans le hub de données.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]

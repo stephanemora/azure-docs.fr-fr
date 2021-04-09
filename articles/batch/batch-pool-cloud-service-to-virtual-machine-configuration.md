@@ -4,10 +4,10 @@ description: Découvrez comment mettre à jour votre configuration de pools selo
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.openlocfilehash: a176c4df1737a340a546b4ab7926447cd821350d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103200555"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machine"></a>Migrer la configuration des pools Batch de Services cloud vers une machine virtuelle

@@ -1,22 +1,22 @@
 ---
-title: Prise en main de l’intégration d’Azure AD avec les applications
+title: Prise en main de l’intégration d’Azure Active Directory avec des applications
 description: Cet article est un guide de prise en main de l’intégration d’Azure Active Directory (AD) avec les applications locales et les applications cloud.
 services: active-directory
 author: kenwith
 manager: daveba
 ms.service: active-directory
+ms.subservice: app-mgmt
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2018
+ms.date: 03/19/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: de06bb4f97568eaa40b0b09e9bc2b50608424aa8
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258464"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775593"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guide de prise en main de l’intégration d’Azure Active Directory avec les applications
 
@@ -47,7 +47,7 @@ Avant d’intégrer des applications avec Azure AD, il est important de savoir o
   * Comment vos groupes sont-ils organisés ?
   * Qui sont les membres du groupe ?
   * De quelles autorisations/affectations de rôle les groupes disposent-ils actuellement ?
-* Devrez-vous nettoyer les bases de données d’utilisateurs/de groupes avant l’intégration ?  (Cette question est très importante. Si les données sont inexactes, les résultats seront erronés.)
+* Devrez-vous nettoyer les bases de données d’utilisateurs/de groupes avant l’intégration ?  (Il s’agit d’une question importante. Si les données sont inexactes, les résultats seront erronés.)
 
 ### <a name="access-management-inventory"></a>Inventaire de gestion de l’accès
 * Comment gérez-vous actuellement l’accès des utilisateurs aux applications ? Cette situation doit-elle être modifiée ?  Avez-vous envisagé d’autres méthodes de gestion des accès, par exemple [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) ?
@@ -66,8 +66,19 @@ Les articles suivants traitent des différentes façons des applications de s’
 * [Utilisation d’applications dans la galerie d’applications Azure](what-is-single-sign-on.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS](../saas-apps/tutorial-list.md)
 
+## <a name="capabilities-for-apps-not-listed-in-the-azure-ad-gallery"></a>Capacités pour les applications non répertoriées dans la galerie d’Azure AD
+
+Vous pouvez ajouter n’importe quelle application déjà présente dans votre organisation, ou n’importe quelle application tierce d’un fournisseur qui ne fait pas déjà partie de la galerie Azure AD. Selon votre [contrat de licence](https://azure.microsoft.com/pricing/details/active-directory/), les fonctionnalités suivantes sont disponibles :
+
+- Intégration libre-service de toute application prenant en charge les fournisseurs d’identité [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) (initiée par le fournisseur de services ou par le fournisseur d’identité fédérée)
+- Intégration libre-service de toute application Web dont la page de connexion est basée sur le HTML et utilise une [authentification unique par mot de passe](sso-options.md#password-based-sso)
+- Connexion libre-service des applications qui utilisent le protocole [System for Cross-Domain Identity Management (SCIM) pour l’approvisionnement d’utilisateurs](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) ou [Mes applications](sso-options.md#linked-sign-on)
+
+Si vous recherchez des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD, consultez [Scénarios d’authentification pour Azure AD](../develop/authentication-vs-authorization.md). Lorsque vous développez une application utilisant un protocole moderne comme [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) pour authentifier les utilisateurs, vous pouvez l’inscrire auprès de la plateforme d'identité Microsoft à l'aide de l'expérience [Inscriptions d'applications](../develop/quickstart-register-app.md) du portail Azure.
+
 ### <a name="authentication-types"></a>Types d'authentification
-Chacune de vos applications peut présenter des exigences d’authentification différentes. Avec Azure AD, la signature de certificats peut être utilisée avec des applications qui utilisent les protocoles SAML 2.0, WS-Federation ou OpenID Connect, ainsi que l’authentification unique par mot de passe. Pour plus d’informations sur les types d’authentification aux applications à utiliser avec Azure AD, consultez [Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) et [Authentification unique par mot de passe](what-is-single-sign-on.md).
+Chacune de vos applications peut présenter des exigences d’authentification différentes. Avec Azure AD, la signature de certificats peut être utilisée avec des applications qui utilisent les protocoles SAML 2.0, WS-Federation ou OpenID Connect, ainsi que l’authentification unique par mot de passe. Pour plus d’informations sur les types d’authentification d’applications, consultez [Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) et [Authentification unique par mot de passe](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Activation de l’authentification unique avec le proxy d’application Azure AD
 Le proxy d’application Microsoft Azure AD vous permet d’accéder de façon sécurisée aux applications situées à l’intérieur de votre réseau privé, en tout lieu et sur tout appareil. Après avoir installé un connecteur de proxy d'application dans votre environnement, il peut être facilement configuré avec Azure AD.
@@ -85,11 +96,9 @@ Les articles suivants décrivent des méthodes selon lesquelles vous pouvez gér
 * [Partage de comptes](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des informations détaillées, vous pouvez télécharger des plans de déploiement d’Azure Active Directory à partir de [GitHub](../fundamentals/active-directory-deployment-plans.md). Pour des applications de galerie, vous pouvez télécharger des plans de déploiement pour l’authentification unique, l’accès conditionnel et l’approvisionnement d’utilisateur via le [portail Microsoft Azure](https://portal.azure.com). 
+Pour obtenir des informations détaillées, vous pouvez télécharger des plans de déploiement d’Azure Active Directory à partir de [GitHub](../fundamentals/active-directory-deployment-plans.md). Pour des applications de galerie, vous pouvez télécharger des plans de déploiement pour l’authentification unique, l’accès conditionnel et l’approvisionnement d’utilisateur via le [portail Microsoft Azure](https://portal.azure.com).
 
 Pour télécharger un plan de déploiement à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Applications d’entreprise** | **Sélectionner une application** | **Plan de déploiement**.
-
-Merci de nous faire part de vos commentaires sur les plans de déploiement en répondant à l’[enquête sur le plan de déploiement](https://aka.ms/DeploymentPlanFeedback).
