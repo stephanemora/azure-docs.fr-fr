@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurez et affichez les rapports de la Sauvegarde Azure à l’aide de Log Analytics et des classeurs Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509361"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562322"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -148,7 +148,7 @@ Deux types d'affichages sont disponibles en matière de respect de la stratégie
 
 * **Respect de la stratégie par période** : cet affichage vous permet d'identifier le nombre d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie au cours d'une journée donnée, ainsi que le nombre d'éléments qui n'ont fait l'objet d'aucune sauvegarde réussie ce jour-là. Vous pouvez cliquer sur une ligne pour afficher les détails de tous les travaux de sauvegarde qui ont été déclenchés le jour sélectionné. Notez que si vous définissez l'intervalle de temps sur une valeur plus élevée, telle que les 60 derniers jours, la grille est présentée en mode hebdomadaire et affiche le nombre total d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie tous les jours de la semaine sélectionnée. Il existe également un affichage mensuel pour les périodes plus longues.
 
-Dans le cas des éléments sauvegardés sur une base hebdomadaire, cette grille vous aide à identifier tous les éléments qui ont fait l'objet d'au moins une sauvegarde réussie au cours de la semaine donnée. Pour une période plus longue, telle que les 120 derniers jours, la grille est présentée en mode mensuel et affiche le nombre total d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie chaque semaine du mois donné. Pour plus d'informations sur les affichages quotidiens, hebdomadaires et mensuels, consultez [Conventions utilisées dans Rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports).
+Dans le cas des éléments sauvegardés sur une base hebdomadaire, cette grille vous aide à identifier tous les éléments qui ont fait l'objet d'au moins une sauvegarde réussie au cours de la semaine donnée. Pour une période plus longue, telle que les 120 derniers jours, la grille est présentée en mode mensuel et affiche le nombre total d'éléments qui ont fait l'objet d'au moins une sauvegarde réussie chaque semaine du mois donné. Pour plus d'informations sur les affichages quotidiens, hebdomadaires et mensuels, consultez [Conventions utilisées dans Rapports de sauvegarde](#conventions-used-in-backup-reports).
 
 ![Respect de la stratégie par période](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ Une fois l’application logique créée, vous devez autoriser les connexions au
 
 La fonctionnalité Rapports de sauvegarde utilise des [fonctions système sur les journaux Azure Monitor](backup-reports-system-functions.md). Ces fonctions opèrent sur des données figurant dans des tables de Sauvegarde Azure brutes de LA, et retournent des données mises en forme qui vous permettent de récupérer facilement les informations de toutes vos entités liées à la sauvegarde, à l’aide de requêtes simples. 
 
-Pour créer vos propres classeurs de rapports en utilisant la fonctionnalité Rapports de sauvegarde comme base, accédez à Rapports de sauvegarde, cliquez sur **Modifier** en haut du rapport et affichez/modifiez les requêtes utilisées dans les rapports. Pour en savoir plus sur la création de rapports personnalisés, consultez la [documentation relative aux classeurs Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview). 
+Pour créer vos propres classeurs de rapports en utilisant la fonctionnalité Rapports de sauvegarde comme base, accédez à Rapports de sauvegarde, cliquez sur **Modifier** en haut du rapport et affichez/modifiez les requêtes utilisées dans les rapports. Pour en savoir plus sur la création de rapports personnalisés, consultez la [documentation relative aux classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). 
 
 ## <a name="export-to-excel"></a>Exporter vers Excel
 

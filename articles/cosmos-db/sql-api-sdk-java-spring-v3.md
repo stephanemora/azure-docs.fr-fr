@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 03/15/2021
 ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103493609"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563104"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring Data Azure Cosmos DB v3 pour l’API Core (SQL) : Notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,7 +65,7 @@ Vous pouvez utiliser Spring Data Azure Cosmos DB dans vos applications [Azure Sp
 
 ## <a name="get-started-fast"></a>Démarrer rapidement
 
-  Familiarisez-vous avec Spring Data Azure Cosmos DB en suivant le [Guide de Spring Boot Starter](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). L'approche Spring Boot Starter est la méthode recommandée pour commencer à utiliser le connecteur Spring Data Azure Cosmos DB.
+  Familiarisez-vous avec Spring Data Azure Cosmos DB en suivant le [Guide de Spring Boot Starter](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). L'approche Spring Boot Starter est la méthode recommandée pour commencer à utiliser le connecteur Spring Data Azure Cosmos DB.
 
   Vous pouvez également ajouter la dépendance Spring Data Azure Cosmos DB à votre fichier `pom.xml`, comme indiqué ci-dessous :
 

@@ -3,15 +3,15 @@ title: Pool d’hôtes Windows Virtual Desktop (classique) de la Place de march�
 description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop (classique) à l’aide de la Place de marché Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d7e0862bd7519f59602f1e769301614895bd6e09
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88008591"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121878"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Tutoriel : Créer un pool d’hôtes dans Windows Virtual Desktop (classique)
 
@@ -80,10 +80,10 @@ Pour l’onglet **Configurer des machines virtuelles** :
 1. Acceptez les valeurs par défaut ou personnalisez le nombre et la taille des machines virtuelles.
 
     >[!NOTE]
-    >Si la taille de machine virtuelle que vous recherchez n’apparaît pas dans le sélecteur de taille de machine virtuelle, cela signifie que nous ne l’avons pas encore intégrée à l’outil Place de marché Azure. Pour demander une taille, créez une demande ou votez pour une demande existante dans le [forum UserVoice sur Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Si la taille de machine virtuelle que vous recherchez n’apparaît pas dans le sélecteur de taille de machine virtuelle, cela signifie que nous ne l’avons pas encore intégrée à l’outil Place de marché Azure.
 
-1. Entrez un préfixe pour le nom des machines virtuelles. Par exemple, si vous entrez le nom *préfixe*, les machines virtuelles s’appelleront **préfixe-0**, **préfixe-1**, etc.
-1. Sélectionnez **Suivant : Paramètres de la machine virtuelle**.
+2. Entrez un préfixe pour le nom des machines virtuelles. Par exemple, si vous entrez le nom *préfixe*, les machines virtuelles s’appelleront **préfixe-0**, **préfixe-1**, etc.
+3. Sélectionnez **Suivant : Paramètres de la machine virtuelle**.
 
 ### <a name="virtual-machine-settings"></a>Paramètres de la machine virtuelle
 

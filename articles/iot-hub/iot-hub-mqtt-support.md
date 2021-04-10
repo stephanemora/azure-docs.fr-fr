@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431259"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582712"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -151,6 +151,8 @@ Si un appareil ne peut pas utiliser les Kits device SDK, il peut toujours se con
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    Il est fortement recommandé d’inclure la version de l’API dans le champ. Dans le cas contraire, cela peut provoquer des comportements inattendus. 
+    
 * Dans le champ **Password**, utilisez un jeton SAP. Le format du jeton SAP est identique pour les protocoles HTTPS et AMQP :
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`

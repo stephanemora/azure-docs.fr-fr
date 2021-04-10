@@ -3,12 +3,12 @@ title: Gérer une infrastructure hybride à grande échelle avec Azure Arc
 description: Apprenez à gérer efficacement les machines et les clusters Kubernetes de vos clients en dehors d’Azure.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: da7f016b507f8f876d27f6924f87f078a7806563
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419318"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563597"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gérer une infrastructure hybride à grande échelle avec Azure Arc
 
@@ -35,11 +35,11 @@ Par exemple, vous pouvez [vous assurer que le même ensemble de stratégies est 
 
 ## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Gérer des clusters Kubernetes hybrides à grande échelle à l’aide de Kubernetes compatible avec Azure Arc
 
-Vous pouvez gérer les clusters Kubernetes qui ont été [connectés à l’abonnement d’un client avec Azure Arc](../../azure-arc/kubernetes/connect-cluster.md), comme s’ils étaient exécutés sur Azure.
+Vous pouvez gérer les clusters Kubernetes qui ont été [connectés à l’abonnement d’un client avec Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md), comme s’ils étaient exécutés sur Azure.
 
 Si votre client a créé un [compte de principal du service pour intégrer des clusters Kubernetes à Azure Arc](../../azure-arc/kubernetes/create-onboarding-service-principal.md), vous pouvez accéder à ce compte de principal du service pour intégrer et gérer des clusters. Cela peut être fait par les utilisateurs du locataire gérant qui ont reçu le rôle Azure intégré « Cluster Kubernetes – Intégration Azure Arc » lorsque l’abonnement contenant le compte du principal de service a été [intégré à Azure Lighthouse](onboard-customer.md).
 
-Vous pouvez déployer des [configurations](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) et des [charts Helm](../../azure-arc/kubernetes/use-gitops-with-helm.md) à l’aide de GitOps pour les clusters connectés.
+Vous pouvez déployer des [configurations](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) et des [charts Helm](../../azure-arc/kubernetes/use-gitops-with-helm.md) à l’aide de GitOps pour les clusters connectés.
 
 Vous pouvez également surveiller les clusters connectés avec Azure Monitor et [utiliser Azure Policy pour appliquer des configurations de cluster à grande échelle](../../azure-arc/kubernetes/use-azure-policy.md).
 

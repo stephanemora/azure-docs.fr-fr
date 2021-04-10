@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 22e48239631850d82cbb3e3208748416087da87c
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103422093"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641141"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Faire évoluer efficacement une compétence personnalisée
 
@@ -26,7 +26,7 @@ Les compétences personnalisées sont des API web qui implémentent une interfac
 
 + Pour connaître l’interface d’entrée et de sortie qu’une compétence personnalisée doit implémenter, examinez l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
-+ Configurez votre environnement. Vous pouvez commencer avec [ce tutoriel de bout en bout](/python/tutorial-vs-code-serverless-python-01) pour configurer une fonction Azure serverless à l’aide d’extensions Visual Studio Code et Python.
++ Configurez votre environnement. Vous pouvez commencer avec [ce tutoriel de bout en bout](/azure/azure-functions/create-first-function-vs-code-python) pour configurer une fonction Azure serverless à l’aide d’extensions Visual Studio Code et Python.
 
 ## <a name="skillset-configuration"></a>Configuration d’un ensemble de compétences
 
@@ -42,7 +42,7 @@ Sur la [compétence personnalisée](cognitive-search-custom-skill-web-api.md), d
 
 3. Définissez `timeout` sur une valeur suffisante pour que la compétence réponde avec une réponse valide.
 
-4. Dans la définition `indexer`, définissez [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) sur le nombre de documents qui doivent être lus à partir de la source de données et enrichis simultanément.
+4. Dans la définition `indexer`, définissez [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) sur le nombre de documents qui doivent être lus à partir de la source de données et enrichis simultanément.
 
 ### <a name="considerations"></a>Considérations
 
@@ -106,5 +106,5 @@ Félicitations ! Vos compétences personnalisées sont désormais mises à l’�
 
 + [Super compétences : référentiel de compétences personnalisées](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Ajouter une qualification personnalisée à un pipeline d’enrichissement par IA](cognitive-search-custom-skill-interface.md)
-+ [Ajouter une compétence Azure Machine Learning](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Utiliser les sessions de débogage pour tester les changements](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Ajouter une compétence Azure Machine Learning](./cognitive-search-aml-skill.md)
++ [Utiliser les sessions de débogage pour tester les changements](./cognitive-search-debug-session.md)

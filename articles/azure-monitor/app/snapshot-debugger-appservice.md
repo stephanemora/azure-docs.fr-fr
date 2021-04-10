@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26538f48213d025c6fe71fb55abb17a025a23b45
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211615"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025677"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 
@@ -56,13 +56,13 @@ Une fois que vous avez déployé une application, suivez les étapes ci-dessous 
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>Activer le Débogueur de capture instantanée pour les autres clouds
 
-Seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent la modification de leurs points de terminaison par le biais d’une chaîne de connexion Application Insights.
+Seules les régions [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) et [Azure Chine](/azure/china/resources-developer-guide) nécessitent la modification de leurs points de terminaison par le biais d’une chaîne de connexion Application Insights.
 
 |Propriété de chaîne de connexion    | Cloud US Government | China Cloud |   
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-Pour plus d’informations sur les autres substitutions de connexion, consultez la [documentation Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+Pour plus d’informations sur les autres substitutions de connexion, consultez la [documentation Application Insights](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Désactiver le Débogueur de capture instantanée
 
@@ -120,4 +120,3 @@ Pour un service Azure App Service, vous pouvez définir des paramètres d’appl
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png
-

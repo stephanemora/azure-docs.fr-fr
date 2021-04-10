@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 10e7db521781c21b3fe5feda0880fee7e603afab
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d555322c0fd4067a4232e53387d811de7b50a8f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128320"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103417721"
 ---
 La gestion d'un contenu audio compressé est implémentée à l’aide de [GStreamer](https://gstreamer.freedesktop.org). Pour une raison liée à la gestion des licences, les fichiers binaires GStreamer ne sont pas compilés et liés avec le Kit de développement logiciel (SDK) Speech. Les développeurs doivent installer plusieurs dépendances et plug-ins.
 
@@ -37,10 +37,9 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
+> - Sur RHEL/CentOS 7 et RHEL/CentOS 8, en cas d’utilisation du format compressé « ANY », d’autres plug-ins GStreamer doivent être installés si le plug-in de format de média de flux ne figure pas dans les plug-ins installés ci-dessus. 
 > - Sur RHEL/CentOS 7, suivez les instructions décrivant [comment configurer RHEL/CentOS 7 pour le Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
 > - Sur RHEL/CentOS 8, suivez les instructions du [Guide pratique pour configurer OpenSSL pour Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-> [!IMPORTANT]
-> Le format de codage audio Opus n’est pas pris en charge par le Kit de développement logiciel (SDK) Speech sur RHEL/CentOS 7.
 
 ---

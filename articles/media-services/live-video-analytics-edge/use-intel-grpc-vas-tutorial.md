@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465757"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562849"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutoriel : Analyser la vidéo en direct avec Intel OpenVINO™ DL Streamer - Edge IA Extension 
 
@@ -66,7 +66,7 @@ Dans ce tutoriel, vous allez :
 
 Le module OpenVINO™ DL Streamer - Edge AI Extension est un microservice basé sur Video Analytics Serving (VA Serving) d’Intel qui sert des pipelines d’analytique vidéo créés avec OpenVINO™ DL Streamer. Les développeurs peuvent envoyer des images vidéo décodées au module d’extension IA qui effectue la détection, la classification ou le suivi avant de retourner les résultats. Le module d’extension IA expose des API gRPC compatibles avec les plateformes d’analytique vidéo comme Live Video Analytics sur IoT Edge de Microsoft. 
 
-Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à [Intel OpenVINO™ DL Streamer – Edge AI Extension](https://aka.ms/lva-intel-openvino-dl-streamer), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge. 
+Pour créer des solutions d’analytique vidéo en direct complexes et à hautes performances, le module Live Video Analytics sur IoT Edge doit être associé à un moteur d’inférence puissant capable de tirer parti de l’échelle à la périphérie. Dans ce tutoriel, les requêtes d’inférence sont envoyées à [Intel OpenVINO™ DL Streamer – Edge AI Extension](), un module Edge conçu pour fonctionner avec Live Video Analytics sur IoT Edge. 
 
 Dans la version initiale de ce serveur d’inférence, vous avez accès aux [modèles](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) suivants :
 
@@ -254,7 +254,7 @@ Quand un graphe multimédia est instancié, le nœud source RTSP tente de se con
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
 {
-  "sdp": "SDP:\nv=0\r\no=- 1612432131600584 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/homes_00425.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-214.166\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/homes_00425.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=64001F;sprop-parameter-sets=Z2QAH6zZQFAFuwFsgAAAAwCAAAAeB4wYyw==,aOvhEsiw\r\na=control:track1\r\n"
+  "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1612432131600584 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/homes_00425.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-214.166\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/homes_00425.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=64001F;sprop-parameter-sets=Z2QAH6zZQFAFuwFsgAAAAwCAAAAeB4wYyw==,aOvhEsiw\r\na=control:track1\r\n"
 }
 ```
 
@@ -304,7 +304,7 @@ Dans l’exemple suivant, vous voyez qu’il a identifié un véhicule, le type 
           "w": 0.48403296,
           "h": 0.94352424
         },
-        "id": "1"
+        "id&quot;: &quot;1"
       }
     }
 }

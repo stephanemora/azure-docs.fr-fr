@@ -1,18 +1,14 @@
 ---
 title: Utiliser les API Defender pour IoT
 description: Utilisez une API REST externe pour accéder aux données découvertes par les capteurs et les consoles de gestion et effectuer des actions avec ces données.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
-ms.service: azure
-ms.openlocfilehash: ae7965dd319f2ff885f4329262ae4772452afd62
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: d509f2674a61af1d0ab03892186526b1cb109eee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523241"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104778829"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API de capteur et de console de gestion Defender pour IoT
 
@@ -2654,6 +2650,6 @@ response:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Examiner toutes les détections de capteur d’un inventaire d’appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Examiner toutes les détections de capteur d’un inventaire d’appareils](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-[Examiner toutes les détections de capteur de l’entreprise d’un inventaire d’appareils](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Examiner toutes les détections de capteur de l’entreprise d’un inventaire d’appareils](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

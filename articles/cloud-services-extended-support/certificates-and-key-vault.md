@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722651"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865697"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Utiliser des certificats avec Azure Cloud Services (support étendu)
 
@@ -27,9 +27,8 @@ Key Vault est utilisé pour stocker les certificats associés aux services cloud
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Image montrant la sélection de l’option Stratégies d’accès dans le panneau du coffre de clés.":::
 
-3. Vérifiez que les stratégies d’accès incluent les propriétés suivantes :
+3. Vérifiez que les stratégies d’accès incluent la propriété suivante :
     - **Activer l’accès aux machines virtuelles Azure pour le déploiement**
-    - **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Image montrant la fenêtre Stratégies d’accès dans le portail Azure.":::
  
@@ -41,7 +40,7 @@ Key Vault est utilisé pour stocker les certificats associés aux services cloud
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image montrant la sélection de l’option Générer/Importer.":::
 
-4.  Complétez les informations nécessaires pour terminer le chargement du certificat. 
+4.  Complétez les informations nécessaires pour terminer le chargement du certificat. Le certificat doit être au format **.PFX**.
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image montrant la fenêtre d’importation dans le portail Azure.":::
 
@@ -50,6 +49,9 @@ Key Vault est utilisé pour stocker les certificats associés aux services cloud
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  Pour un déploiement via un modèle ARM, certificateUrl est accessible en accédant au certificat dans le coffre de clés intitulé Identificateur de secret.
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Image montrant le champ Identificateur de secret dans le coffre de clés.":::
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).

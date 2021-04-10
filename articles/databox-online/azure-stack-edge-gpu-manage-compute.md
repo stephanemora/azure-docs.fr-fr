@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 057f80049b13a265925f2d6f24a008d1e1e04c96
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102637021"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gérer le calcul sur votre appareil Azure Stack Edge Pro avec GPU
@@ -51,7 +51,7 @@ Pour créer un déclencher, procédez comme suit sur le portail Azure.
 
     - **Déclencheur planifié** : spécifiez les date et heure de démarrage, ainsi que l’intervalle de répétition en heures, minutes ou secondes. Entrez le nom d’une rubrique. Une rubrique vous donne la possibilité de router le déclencheur vers un module déployé sur l’appareil.
 
-        Voici un exemple de chaîne de routage : `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"`.
+        Voici un exemple de chaîne de routage : `"route3&quot;: &quot;FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint(&quot;modules/modulename/inputs/input1")"`.
 
         ![Ajouter un partage NFS](media/azure-stack-edge-gpu-manage-compute/add-scheduled-trigger.png)
 

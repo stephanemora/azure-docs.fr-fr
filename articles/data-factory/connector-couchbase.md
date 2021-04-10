@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: e8de7982e99e258f0a72bd507ac0d8de16a7227a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383651"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copier des données de Couchbase avec Azure Data Factory (préversion)
@@ -47,7 +47,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Couchbase�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Couchbase** | Oui |
+| type | La propriété type doit être définie sur **Couchbase**. | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Couchbase. <br/>Vous pouvez également définir une chaîne d’identification dans Azure Key Vault et extraire la configuration `credString` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
@@ -103,7 +103,7 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **CouchbaseTable** | Oui |
+| type | La propriété type du jeu de données doit être définie sur **CouchbaseTable** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 
@@ -134,7 +134,7 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseSource** au
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **CouchbaseSource** | Oui |
+| type | La propriété type de la source de l’activité de copie doit être définie sur **CouchbaseSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

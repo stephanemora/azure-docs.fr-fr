@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98724439"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557902"
 ---
 # <a name="resilient-end-user-experience"></a>Expérience résiliente de l’utilisateur final
 
@@ -62,7 +62,7 @@ Dans le cadre du processus d’inscription du fournisseur d’identité externe,
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilité de l’authentification multifacteur
 
-Lorsque vous utilisez un [service téléphonique pour l’authentification multifacteur (MFA)](../../active-directory-b2c/phone-authentication.md), veillez à envisager un autre fournisseur de services. L’opérateur téléphonique local ou le fournisseur de services téléphoniques peut connaître des perturbations dans son service.
+Lorsque vous utilisez un [service téléphonique pour l’authentification multifacteur (MFA)](../../active-directory-b2c/phone-authentication-user-flows.md), veillez à envisager un autre fournisseur de services. L’opérateur téléphonique local ou le fournisseur de services téléphoniques peut connaître des perturbations dans son service.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Choix d’une autre authentification multifacteur  
 
