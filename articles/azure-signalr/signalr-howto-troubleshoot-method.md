@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8775c6544791571746b0f3784a60ce2af0de7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97707654"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726972"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Comment résoudre les problèmes de connectivité et de remise de messages
 
@@ -108,7 +108,7 @@ L’expérience de journalisation côté client est exactement la même que lors
 
 ##### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>Activer la journalisation côté serveur pour `ASP.NET Core SignalR`
 
-La journalisation côté serveur pour `ASP.NET Core SignalR` s’intègre à la [journalisation](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) basée sur `ILogger` fournie dans l’infrastructure `ASP.NET Core`. Vous pouvez activer la journalisation côté serveur à l’aide de `ConfigureLogging`, un exemple d’utilisation comme suit :
+La journalisation côté serveur pour `ASP.NET Core SignalR` s’intègre à la [journalisation](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&preserve-view=true&view=aspnetcore-2.1) basée sur `ILogger` fournie dans l’infrastructure `ASP.NET Core`. Vous pouvez activer la journalisation côté serveur à l’aide de `ConfigureLogging`, un exemple d’utilisation comme suit :
 
 ```cs
 .ConfigureLogging((hostingContext, logging) =>

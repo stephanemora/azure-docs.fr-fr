@@ -3,17 +3,18 @@ title: Configuration d’un service cloud (portail Classic) | Microsoft Docs
 description: Découvrez comment configurer des services cloud dans Azure. Apprenez à mettre à jour la configuration d'un service cloud et à configurer l'accès distant aux instances de rôle. Ces exemples utilisent le portail Azure.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: f16fcfe227663958279281659b09929a4cd2d386
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: adb2066b12a57630a7615d1bc2a8989f022b0de7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743421"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935957"
 ---
 # <a name="how-to-configure-and-azure-cloud-service-classic"></a>Configuration d’un service cloud Azure (classique)
 

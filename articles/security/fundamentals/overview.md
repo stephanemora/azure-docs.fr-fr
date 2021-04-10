@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564509"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047777"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
 
@@ -204,11 +204,11 @@ La mise en réseau Azure prend en charge différents scénarios d’accès à di
 
 ### <a name="azure-private-link"></a>Azure Private Link
 
-[Azure Private Link](https://azure.microsoft.com/services/private-link/) vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) dans votre réseau virtuel. La configuration et la consommation à l’aide d’Azure Private Link est cohérente entre le service Azure PaaS, les services appartenant au client et les services de partenaires partagés. Le trafic à partir de votre réseau virtuel vers le service Azure reste toujours sur le réseau principal Microsoft Azure.
+[Azure Private Link](https://azure.microsoft.com/services/private-link/) vous permet d’accéder aux services Azure PaaS (par exemple Stockage Azure et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [point de terminaison privé](../../private-link/private-endpoint-overview.md) dans votre réseau virtuel. La configuration et la consommation à l’aide d’Azure Private Link est cohérente entre le service Azure PaaS, les services appartenant au client et les services de partenaires partagés. Le trafic à partir de votre réseau virtuel vers le service Azure reste toujours sur le réseau principal Microsoft Azure.
 
-Les [points de terminaison privés](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) permettent de sécuriser vos ressources critiques du service Azure sur vos réseaux virtuels uniquement. Azure Private Endpoint utilise une adresse IP privée de votre réseau virtuel pour vous connecter de manière privée et sécurisée à un service basé sur Azure Private Link, ce qui permet de placer le service dans votre réseau virtuel. L’exposition de votre réseau virtuel à l’Internet public n’est plus nécessaire pour utiliser les services sur Azure. 
+Les [points de terminaison privés](../../private-link/private-endpoint-overview.md) permettent de sécuriser vos ressources critiques du service Azure sur vos réseaux virtuels uniquement. Azure Private Endpoint utilise une adresse IP privée de votre réseau virtuel pour vous connecter de manière privée et sécurisée à un service basé sur Azure Private Link, ce qui permet de placer le service dans votre réseau virtuel. L’exposition de votre réseau virtuel à l’Internet public n’est plus nécessaire pour utiliser les services sur Azure. 
 
-Vous pouvez également créer votre propre service de liaison privée dans votre réseau virtuel. Le [service Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-service-overview) est la référence à votre propre service Azure Private Link. L’accès Private Link peut être activé pour un service qui s’exécute derrière Azure Standard Load Balancer. De cette façon, les utilisateurs du service pourront y accéder à l’aide d’une connexion privée, à partir de leurs propres réseaux virtuels. Vos clients peuvent créer un point de terminaison privé dans leur réseau virtuel et le mapper dans ce service. Il n’est plus nécessaire d’exposer votre service à l’Internet public pour rendre des services sur Azure. 
+Vous pouvez également créer votre propre service de liaison privée dans votre réseau virtuel. Le [service Azure Private Link](../../private-link/private-link-service-overview.md) est la référence à votre propre service Azure Private Link. L’accès Private Link peut être activé pour un service qui s’exécute derrière Azure Standard Load Balancer. De cette façon, les utilisateurs du service pourront y accéder à l’aide d’une connexion privée, à partir de leurs propres réseaux virtuels. Vos clients peuvent créer un point de terminaison privé dans leur réseau virtuel et le mapper dans ce service. Il n’est plus nécessaire d’exposer votre service à l’Internet public pour rendre des services sur Azure. 
 
 ### <a name="vpn-gateway"></a>Passerelle VPN
 

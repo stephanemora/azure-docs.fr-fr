@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918210"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579635"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application web dans Azure Active Directory B2C
 
@@ -80,7 +80,7 @@ Pour inscrire une application web dans votre locataire Azure AD B2C, vous pouvez
 
 ## <a name="create-a-client-secret"></a>Créer une clé secrète client
 
-Pour une application web, vous devez créer un secret d’application. Ce secret sera utilisé par votre application afin d’échanger un code d’autorisation pour un jeton d’accès.
+Pour une application web, vous devez créer un secret d’application. Le secret client est également appelé *mot de passe d’application*. Ce secret sera utilisé par votre application afin d’échanger un code d’autorisation pour un jeton d’accès.
 
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/)
 
@@ -89,7 +89,7 @@ Pour une application web, vous devez créer un secret d’application. Ce secret
 1. Sélectionnez **Nouveau secret client**.
 1. Entrez une description pour la clé secrète client dans la zone **Description**. Par exemple, *clientsecret1*.
 1. Sous **Expire**, sélectionnez une durée pendant laquelle le secret est valide, puis sélectionnez **Ajouter**.
-1. Enregistrez la **Valeur** du secret. Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
+1. Enregistrez la **valeur** du secret en prévision d’une utilisation dans le code de votre application cliente. Cette valeur secrète ne sera plus jamais affichée lorsque vous aurez quitté cette page. Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
 
 #### <a name="applications-legacy"></a>[Applications (héritées)](#tab/applications-legacy/)
 
@@ -98,6 +98,9 @@ Pour une application web, vous devez créer un secret d’application. Ce secret
 1. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utiliserez cette valeur comme secret d’application dans le code de votre application.
 
 * * *
+
+> [!NOTE]
+> Pour des raisons de sécurité, vous pouvez substituer le secret d’application régulièrement, ou immédiatement en cas d’urgence. Toute application intégré à Azure AD B2C doit être préparée à gérer un événement de substitution de secret, quelle que soit sa fréquence. Vous pouvez définir deux secrets d’application, ce qui permet à votre application de continuer à utiliser l’ancien secret pendant un événement de permutation de secret d’application. Pour ajouter une autre clé secrète client, répétez les étapes de cette section. 
 
 ## <a name="enable-id-token-implicit-grant"></a>Activer l’octroi implicite du jeton d’ID
 

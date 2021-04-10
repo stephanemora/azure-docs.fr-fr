@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37de27e8dc707133595b71b39e45bdec554289e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583387"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025609"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights
 
@@ -36,7 +36,7 @@ Si aucune donnée n’apparaît dans l’outil de rétention du portail Applicat
 
 Les utilisateurs peuvent survoler les cellules de l’outil de rétention pour accéder au bouton Analytics ainsi qu’à des info-bulles qui expliquent la signification de la cellule. Le bouton Analytics redirige les utilisateurs vers l’outil Analytics avec une requête prédéfinie pour générer des utilisateurs à partir de la cellule. 
 
-## <a name="use-business-events-to-track-retention"></a>Utiliser des événements commerciaux pour suivre la rétention
+## <a name="use-business-events-to-track-retention&quot;></a>Utiliser des événements commerciaux pour suivre la rétention
 
 Pour obtenir l’analyse de rétention la plus utile, mesurez les événements qui représentent des activités commerciales significatives. 
 
@@ -45,7 +45,7 @@ Par exemple, un grand nombre d’utilisateurs peuvent ouvrir une page dans votre
 Il est recommandé de coder les événements personnalisés qui représentent des actions commerciales clés et de les utiliser pour votre analyse de rétention. Pour capturer le résultat du jeu, vous devez écrire une ligne de code pour envoyer un événement personnalisé à Application Insights. Si vous l’écrivez dans le code de page web ou en Node.JS, voici à quoi il ressemble :
 
 ```JavaScript
-    appinsights.trackEvent("won game");
+    appinsights.trackEvent(&quot;won game");
 ```
 
 Ou dans le code de serveur ASP.NET :
@@ -64,5 +64,4 @@ Ou dans le code de serveur ASP.NET :
     - [Entonnoirs](usage-funnels.md)
     - [Flux d’utilisateurs](usage-flows.md)
     - [Classeurs](../visualize/workbooks-overview.md)
-    - [Ajouter du contexte utilisateur](usage-send-user-context.md)
-
+    - [Ajouter du contexte utilisateur](./usage-overview.md)

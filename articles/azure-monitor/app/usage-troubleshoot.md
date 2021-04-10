@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87323500"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024742"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Application Insights
 Vous avez des questions concernant les [outils d’analytique du comportement des utilisateurs dans Application Insights](usage-overview.md) : [Utilisateurs, Sessions, Événements](usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](usage-flows.md), [Conservation](usage-retention.md) ou Cohortes ? Voici quelques réponses.
@@ -23,7 +23,7 @@ Tous les événements de télémétrie dans Application Insights ont un [ID d’
 
 Si vous effectuez le suivi d’une application web, la solution la plus simple consiste à ajouter le [Kit SDK JavaScript Application Insights ](./javascript.md) à votre application, puis à vérifier que l’extrait de code de script est correctement chargé sur chaque page dont vous souhaitez effectuer le suivi. Le Kit SDK JavaScript génère automatiquement les ID d’utilisateur anonyme et de session, puis renseigne les événements de télémétrie à l’aide de ces ID tels qu’ils sont envoyés à partir de votre application.
 
-Si vous effectuez le suivi d’un service web (sans interface utilisateur), [créez un initialiseur de télémétrie qui renseigne les propriétés des ID d’utilisateur anonyme et des ID de session](usage-send-user-context.md) selon les notions d’utilisateurs et de sessions uniques de votre service.
+Si vous effectuez le suivi d’un service web (sans interface utilisateur), [créez un initialiseur de télémétrie qui renseigne les propriétés des ID d’utilisateur anonyme et des ID de session](./usage-overview.md) selon les notions d’utilisateurs et de sessions uniques de votre service.
 
 Si votre application envoie des [ID d’utilisateur authentifié](./api-custom-events-metrics.md#authenticated-users), vous pouvez effectuer le comptage en fonction des ID d’utilisateur authentifié dans l’outil Utilisateurs. Dans la liste déroulante « Afficher », sélectionnez l’option « Utilisateurs authentifiés ».
 
@@ -50,4 +50,3 @@ Si votre application envoie un trop grand nombre de noms d’événements person
 
 ## <a name="get-help"></a>Obtenir de l’aide
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

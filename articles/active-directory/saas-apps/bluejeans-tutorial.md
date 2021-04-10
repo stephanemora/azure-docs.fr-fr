@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101686573"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à BlueJeans for Azure AD
@@ -144,13 +144,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-bluejeans-for-azure-ad-sso"></a>Configurer l’authentification unique BlueJeans for Azure AD
+## <a name="configure-bluejeans-for-azure-ad-sso&quot;></a>Configurer l’authentification unique BlueJeans for Azure AD
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **BlueJeans for Azure AD** en tant qu’administrateur.
 
 2. Accédez à **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-    ![Capture d’écran montrant une partie d’une fenêtre de navigateur avec l’onglet Admin sélectionné, avec Group Setting et Security sélectionnés.](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![Capture d’écran montrant une partie d’une fenêtre de navigateur avec l’onglet Admin sélectionné, avec Group Setting et Security sélectionnés.](./media/bluejeans-tutorial/ic785868.png &quot;Admin")
 
 3. Dans la section **SECURITY**, procédez comme suit :
 
