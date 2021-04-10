@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875007"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108606"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Inscrire et analyser Azure Synapse Analytics
 
@@ -93,7 +93,7 @@ En outre, vous devez créer un utilisateur Azure AD dans Azure Synapse Analytics
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
 GO
 
-EXEC sp_addrolemember 'db_owner', [ServicePrincipalName]
+ALTER ROLE db_owner ADD MEMBER [ServicePrincipalName]
 GO
 ```
 
@@ -127,12 +127,12 @@ Pour inscrire un nouveau serveur Azure Synapse Analytics dans votre Data Catalog
 Sur l’écran **Inscrire des sources (Azure Synapse Analytics)** , procédez comme suit :
 
 1. Entrez le **Nom** sous lequel la source de données apparaîtra dans le catalogue.
-1. Choisissez la façon dont vous souhaitez pointer vers le compte de stockage de votre choix :
+1. Choisissez la façon dont vous souhaitez pointer vers le serveur SQL logique de votre choix :
    1. Sélectionnez **À partir de l’abonnement Azure**, puis sélectionnez l’abonnement approprié dans la zone de liste déroulante **Abonnement Azure** et le serveur approprié dans la zone de liste déroulante **Nom du serveur**.
    1. Vous pouvez également sélectionner **Entrer manuellement** et entrer le **Nom du serveur**.
 1. Sélectionnez **Terminer** pour inscrire la source de données.
 
-:::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="Options d’inscription des sources" border="true":::
+:::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="options pour inscrire des sources" border="true":::
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 

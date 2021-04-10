@@ -188,8 +188,6 @@
           href: rest-text-to-speech.md
     - name: Ressources
       items:
-        - name: Prise en charge de la voix standard
-          href: language-support.md#standard-voices
         - name: Prise en charge de la voix neuronale
           href: language-support.md#neural-voices
         - name: Prise en charge de la région
@@ -249,7 +247,7 @@
     - name: Vue d’ensemble de la reconnaissance de l’intention
       href: intent-recognition.md
     - name: Guide de démarrage rapide sur la reconnaissance de l’intention
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: Guides pratiques
       items:
         - name: 'Reconnaître les intentions vocales avec LUIS,C#'
@@ -464,6 +462,8 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Activer un point de terminaison privé
       href: speech-services-private-link.md
+    - name: Activer le point de terminaison de service VNet
+      href: speech-service-vnet-service-endpoint.md
     - name: Configurer OpenSSL pour Linux
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md

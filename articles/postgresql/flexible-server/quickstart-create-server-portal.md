@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Créer un serveur - Portail Azure - Azure Database pour PostgreSQL - Serveur flexible'
 description: Démarrage rapide pour la création et la gestion d’une base de données Azure pour PostgreSQL - Serveur flexible à l’aide de l’interface utilisateur du portail Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 978fcb8c8cf9d2ffd929da5b76d7fd2ff109f420
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6d10298b016cbcf362af2d272f9fa822db6e569d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92535856"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604751"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>Démarrage rapide : Créer une instance Azure Database pour PostgreSQL - Serveur flexible dans le portail Azure
 

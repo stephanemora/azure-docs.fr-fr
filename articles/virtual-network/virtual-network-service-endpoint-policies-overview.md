@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216646"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022260"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Stratégies de points de terminaison de service de réseau virtuel pour le stockage Azure
 
@@ -109,6 +109,8 @@ Aucun enregistrement centralisé n’est disponible pour les stratégies de poin
   - Vérifiez que les comptes ne sont pas des **comptes de stockage classiques** avec les stratégies de points de terminaison de service sur le sous-réseau.
 - Un service Azure managé a cessé de fonctionner après l’application d’une stratégie de point de terminaison de service sur le sous-réseau
   - Les services managés ne sont pas pris en charge avec les stratégies de points de terminaison de service pour l’instant. *Surveillez cette page pour obtenir des mises à jour*.
+- L’accès aux comptes de stockage gérés a cessé de fonctionner après l’application d’une stratégie de point de terminaison de service sur le sous-réseau
+  - Les comptes de stockage gérés ne sont pas pris en charge avec les stratégies de points de terminaison de service. Si cette option est configurée, les stratégies refusent par défaut l’accès à tous les comptes de stockage gérés. Si votre application doit accéder à des comptes de stockage gérés, les stratégies de point de terminaison ne doivent pas être utilisées pour ce trafic.
 
 ## <a name="provisioning"></a>Approvisionnement
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2369a6380c7b74302d32366d0604fca616fc3ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a84ed5a6f80b038ced2077fe3c038bd9801ca033
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877384"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732939"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Résolution des problèmes Azure Spring Cloud dans des réseaux virtuels
 
@@ -38,7 +38,6 @@ Pour configurer l’instance de service Azure Spring Cloud à l’aide du modèl
 | Message d’erreur | Procédure de résolution |
 |------|------|
 | Les ressources créées par Azure Spring Cloud n’ont pas été autorisées par la stratégie. | Les ressources réseau sont créées lors du déploiement d’Azure Spring Cloud dans votre propre réseau virtuel. Vérifiez si vous disposez d’[Azure Policy](../governance/policy/overview.md) définie pour bloquer ces créations. Les ressources qui n’ont pas pu être créées sont indiquées dans le message d’erreur. |
-| Les sous-réseaux fournis sont associés à des tables de routage, veuillez les dissocier. | Actuellement, il n’est pas possible de déployer Azure Spring Cloud dans un sous-réseau associé à des tables de routage existantes. Veuillez les dissocier et réessayez. |
 | Le trafic requis n’est pas inclus dans la liste d’autorisation. | Pour faire en sorte que le trafic requis soit inclus dans la liste d’autorisation, consultez [Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel](spring-cloud-vnet-customer-responsibilities.md). |
 
 ## <a name="my-application-cant-be-registered"></a>Impossible d’inscrire mon application

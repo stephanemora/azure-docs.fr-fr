@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777739"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105034756"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Basculement entre plusieurs points de terminaison avec Azure Traffic Manager
 
@@ -94,7 +94,10 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez cette procéd
     > [!NOTE]
     > Si votre domaine est actuellement en ligne et ne peut pas être interrompu, effectuez cette étape en dernier. Vérifiez que les points de terminaison CDN les et domaines de Traffic Manager sont actifs avant de mettre à jour votre DNS de domaine personnalisé sur Traffic Manager.
     >
-
+   
+    > [!NOTE]
+    > Pour implémenter ce scénario de basculement, les deux points de terminaison doivent se trouver dans des profils différents, et les différents profils doivent être de différents fournisseurs CDN pour éviter les conflits de noms de domaine.
+    > 
 
 2.  À partir de votre profil Azure CDN, sélectionnez le premier point de terminaison CDN (Akamai). Sélectionnez **Ajouter un domaine personnalisé** et saisissez **cdndemo101.dustydogpetcare.online**. Vérifiez que la coche validant le domaine personnalisé est verte. 
 

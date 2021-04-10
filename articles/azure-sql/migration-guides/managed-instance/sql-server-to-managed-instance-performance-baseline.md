@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server vers SQL Managed Instance : Analyse des performances'
+title: 'SQL Server vers Azure SQL Managed Instance : Analyse des performances'
 description: Apprenez à créer et à comparer une ligne de base des performances lors de la migration de vos bases de données SQL Server vers Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: 28eedd3a22a0a5adc6e9a37c9e0f0fa0214a4e47
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564437"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023671"
 ---
-# <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Performances en matière de migration : Analyse des performances de SQL Server vers SQL Managed Instance
+# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>Performances de migration : Analyse des performances de SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Créez une ligne de base des performances pour comparer les performances de votre charge de travail s’exécutant sur SQL Managed Instance avec votre charge de travail d’origine s’exécutant sur SQL Server. 
