@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942901"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Résoudre des problèmes de performances d’Apache HBase sur Azure HDInsight
@@ -76,29 +76,29 @@ Voici quelques-uns des réglages de paramètres que nous avons effectués et qui
 
 - Pour contrôler les vidages, utilisez les paramètres suivants :
 
-    - `Hbase.regionserver.maxlogs`: **140** (évite les vidages en raison des limites WAL)
+    - `Hbase.regionserver.maxlogs` : **140** (évite les vidages en raison des limites WAL)
 
-    - `Hbase.regionserver.global.memstore.lowerLimit`: **0,55**
+    - `Hbase.regionserver.global.memstore.lowerLimit` : **0,55**
 
-    - `Hbase.regionserver.global.memstore.upperLimit`: **0,60**
+    - `Hbase.regionserver.global.memstore.upperLimit` : **0,60**
 
 - Configurations propres à Phoenix pour le réglage du pool de threads :
 
-    - `Phoenix.query.queuesize`: **10000**
+    - `Phoenix.query.queuesize` : **10 000**
 
-    - `Phoenix.query.threadpoolsize`: **512**
+    - `Phoenix.query.threadpoolsize` : **512**
 
 - Autres configurations propres à Phoenix :
 
-    - `Phoenix.rpc.index.handler.count`: **50** (en cas de recherches d’index nombreuses ou volumineuses)
+    - `Phoenix.rpc.index.handler.count` : **50** (en cas de recherches d’index nombreuses ou volumineuses)
 
-    - `Phoenix.stats.updateFrequency`: **1 heure**
+    - `Phoenix.stats.updateFrequency` : **1 heure**
 
-    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 heure**
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems` : **1 heure**
 
-    - `Phoenix.coprocessor.maxmetadatacachesize`: **50 Mo**
+    - `Phoenix.coprocessor.maxmetadatacachesize` : **50 Mo**
 
-- Délais d’expiration RPC : **3 minutes**
+- Dépassements des délais RPC : **3 minutes**
 
    - Les délais d’expiration RPC incluent les délais d’expiration RPC HBase, les délais d’expiration des scanneurs clients HBase et les délais d’expiration des requêtes Phoenix. 
    - Vérifiez que le paramètre `hbase.client.scanner.caching` est défini sur la même valeur côté serveur et côté client. Si les valeurs ne sont pas les mêmes, ce paramètre provoque des erreurs côté client en lien avec `OutOfOrderScannerException`. Ce paramètre doit être défini sur une valeur basse pour les analyses volumineuses. Nous avons défini cette valeur sur **100**.

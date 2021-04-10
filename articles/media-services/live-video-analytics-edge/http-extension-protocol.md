@@ -3,16 +3,16 @@ title: Protocole d’extension HTTP – Azure
 description: Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV).
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: c3a9b5b70467479fdb9b1473a1f6738eaa8a7e1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54b25894c60a39de9c0ec00cdc4982f691bf1ee3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455888"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565739"
 ---
 # <a name="http-extension-protocol"></a>Protocole d’extension HTTP
 
-Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un [nœud d’extension de graphe](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Si vous utilisez le processeur d’extension HTTP comme nœud d’extension, la communication entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV) se fait sur HTTP
+Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un [nœud d’extension de graphe](./media-graph-extension-concept.md). Si vous utilisez le processeur d’extension HTTP comme nœud d’extension, la communication entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV) se fait sur HTTP
 
 Dans cet article, vous allez apprendre à utiliser le protocole d’extension HTTP pour envoyer des messages entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV). 
 
@@ -87,11 +87,11 @@ Date: Fri, 17 Apr 2020 04:44:01 GMT
 }
 ```
 
-Il est fortement recommandé de retourner les réponses à l’aide de documents JSON valides, conformes au schéma pré-établi défini comme étant le [modèle d’objet du schéma des métadonnées d’inférence](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). L’interopérabilité avec d’autres composants et les futures fonctionnalités ajoutées au module Live Video Analytics est ainsi mieux garantie.
+Il est fortement recommandé de retourner les réponses à l’aide de documents JSON valides, conformes au schéma pré-établi défini comme étant le [modèle d’objet du schéma des métadonnées d’inférence](./inference-metadata-schema.md). L’interopérabilité avec d’autres composants et les futures fonctionnalités ajoutées au module Live Video Analytics est ainsi mieux garantie.
 
 Si votre module retourne une réponse dans laquelle le type de contenu n’est pas « application/JSON », Live Video Analytics encode le message sous forme de contenu en base 64 et le sérialise en tant que charge utile JSON opaque.
 
-Si votre module retourne une réponse avec le type de contenu « application/JSON », mais que le schéma JSON ne suit pas le schéma des métadonnées d’inférence décrit ci-dessous, la charge utile du message est transférée par le biais du pipeline, mais l’interopérabilité est réduite. Pour des informations détaillées et à jour sur le schéma des métadonnées d’inférence, consultez [cette page](/azure/media-services/live-video-analytics-edge/inference-metadata-schema).
+Si votre module retourne une réponse avec le type de contenu « application/JSON », mais que le schéma JSON ne suit pas le schéma des métadonnées d’inférence décrit ci-dessous, la charge utile du message est transférée par le biais du pipeline, mais l’interopérabilité est réduite. Pour des informations détaillées et à jour sur le schéma des métadonnées d’inférence, consultez [cette page](./inference-metadata-schema.md).
 
 > [!NOTE]
 > Si votre module ne produit aucun résultat, il doit retourner le code d’état HTTP 204 (Pas de contenu) avec un corps de réponse vide. Live Video Analytics va l’interpréter comme un résultat vide et ne va pas transférer l’événement dans le pipeline.

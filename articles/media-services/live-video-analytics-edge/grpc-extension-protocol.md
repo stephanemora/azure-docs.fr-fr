@@ -3,16 +3,16 @@ title: Protocole d’extension gRPC – Azure
 description: Dans cet article, vous allez apprendre à utiliser le protocole d’extension gRPC pour envoyer des messages entre le module Live Video Analytics et votre extension personnalisée d’IA ou de validation croisée (CV).
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f7b5be859702199b07dfa0d6a43a09ca8ff0c42f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8d153b472e54b221b60a2b584043ffaf68e8ff82
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455854"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565807"
 ---
 # <a name="grpc-extension-protocol"></a>Protocole d’extension gRPC
 
-Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un [nœud d’extension de graphe](/azure/media-services/live-video-analytics-edge/media-graph-extension-concept). Si vous utilisez le processeur d’extension gRPC comme nœud d’extension, la communication entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV) se fait via le protocole structuré gRPC, hautement performant.
+Live Video Analytics sur IoT Edge vous permet d’étendre les fonctionnalités de traitement de graphe multimédia via un [nœud d’extension de graphe](./media-graph-extension-concept.md). Si vous utilisez le processeur d’extension gRPC comme nœud d’extension, la communication entre le module Live Video Analytics et votre module d’IA ou de validation croisée (CV) se fait via le protocole structuré gRPC, hautement performant.
 
 Dans cet article, vous allez apprendre à utiliser le protocole d’extension gRPC pour envoyer des messages entre le module Live Video Analytics et votre extension personnalisée d’IA ou de validation croisée (CV).
 
@@ -25,7 +25,7 @@ Une session gRPC est une connexion unique du client gRPC au serveur gRPC via le 
 
 Dans une session unique : le client envoie un descripteur de flux multimédia, suivi d’images vidéo, au serveur sous la forme d’un message [protobuf](https://github.com/Azure/live-video-analytics/tree/master/contracts/grpc) via la session de flux gRPC. Le serveur valide le descripteur de flux, analyse l’image vidéo et retourne les résultats d’inférence sous la forme d’un message protobuf. 
 
-Il est fortement recommandé de retourner les réponses à l’aide de documents JSON valides, conformes au schéma préétabli défini comme étant le [modèle d’objet du schéma des métadonnées d’inférence](/azure/media-services/live-video-analytics-edge/inference-metadata-schema). L’interopérabilité avec d’autres composants et les futures fonctionnalités ajoutées au module Live Video Analytics est ainsi mieux garantie.
+Il est fortement recommandé de retourner les réponses à l’aide de documents JSON valides, conformes au schéma préétabli défini comme étant le [modèle d’objet du schéma des métadonnées d’inférence](./inference-metadata-schema.md). L’interopérabilité avec d’autres composants et les futures fonctionnalités ajoutées au module Live Video Analytics est ainsi mieux garantie.
 
 ![Contrat d’extension gRPC](./media/grpc-extension-protocol/grpc.png)
 

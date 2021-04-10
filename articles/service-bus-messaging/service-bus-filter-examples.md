@@ -4,10 +4,10 @@ description: Cet article fournit des exemples qui permettent de définir des fil
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.openlocfilehash: bcbb72901ed8e2dfe0932163ee18683e0011ce70
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100656321"
 ---
 # <a name="set-subscription-filters-azure-service-bus"></a>Définir des filtres d’abonnement (Azure Service Bus)

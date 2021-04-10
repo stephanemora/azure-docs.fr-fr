@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/05/2019
 ms.openlocfilehash: 5d9d7b0fc21660dd22ff92bbe2de38c759c440ec
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944351"
 ---
-# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : Erreur « watchdog: BUG: soft lockup - CPU » sur un cluster Azure HDInsight
+# <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : erreur « watchdog : BUG : blocage logiciel - CPU » à partir d’un cluster Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
@@ -39,15 +39,15 @@ Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Lin
     | Nom |Correctif pour le problème de verrouillage logiciel du noyau |
     | URI de script bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Type(s) de nœud |Worker, Zookeeper |
-    | Paramètres |N/A |
+    | Paramètres |NON APPLICABLE |
 
-    Sélectionnez **Conservez cette action de script...**  si vous souhaitez exécuter le script lorsque des nœuds sont ajoutés.
+    Sélectionnez **Conservez cette action de script...** si vous souhaitez exécuter le script lorsque des nœuds sont ajoutés.
 
 1. Sélectionnez **Create** (Créer).
 
 1. Attendez que l’exécution aboutisse.
 
-1. Exécutez l’action de script sur le nœud principal en procédant comme à l’étape 3, mais cette fois avec des types de nœuds : Principal.
+1. Exécutez l’action de script sur le nœud principal en suivant les mêmes étapes que l’étape 3, mais cette fois-ci, avec les types de nœud : Principal.
 
 1. Attendez que l’exécution aboutisse.
 

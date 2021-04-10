@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.openlocfilehash: 2cdd20a5d639f74916657edc3f73183a403204a5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944669"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Résoudre les problèmes liés à Apache Oozie dans Azure HDInsight
@@ -23,7 +23,7 @@ Avec l’interface utilisateur Apache Oozie, vous pouvez afficher les journaux O
 
 Voici des erreurs spécifiques que vous pouvez rencontrer avec une description de la marche à suivre pour les résoudre.
 
-## <a name="ja009-cant-initialize-cluster"></a>JA009 : Impossible d’initialiser le cluster
+## <a name="ja009-cant-initialize-cluster"></a>JA009 : impossible d’initialiser le cluster
 
 ### <a name="issue"></a>Problème
 
@@ -43,7 +43,7 @@ changez les adresses de Stockage Blob utilisées par la tâche.
 
 ---
 
-## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002 : Oozie ne peut pas emprunter l’identité &lt;USER&gt;
+## <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002 : Oozie n’est pas autorisé à emprunter l’identité &lt;USER&gt;
 
 ### <a name="issue"></a>Problème
 

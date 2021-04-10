@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
 ms.openlocfilehash: 02a79de8aee169f5f702d5fae67194c62363e8c4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943045"
 ---
-# <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Scénario : Impossible de lire le journal Apache Yarn dans Azure HDInsight
+# <a name="scenario-unable-to-read-apache-yarn-log-in-azure-hdinsight"></a>Scénario : impossible de lire le journal Apache Yarn dans Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
@@ -33,9 +33,9 @@ Le journal Apache Yarn est agrégé au format `IndexFile`, ce qui n’est pas pr
 
 1. À partir de l’interface utilisateur Ambari, accédez à **YARN** > **Configurations** > **Avancé** > **yarn-site avancé**.
 
-1. Pour le stockage WASB : La valeur par défaut pour `yarn.log-aggregation.file-formats` est `IndexedFormat,TFile`. Remplacez la valeur par `TFile`.
+1. Pour le stockage WASB : la valeur par défaut de `yarn.log-aggregation.file-formats` est `IndexedFormat,TFile`. Remplacez la valeur par `TFile`.
 
-1. Pour le stockage ADLS : La valeur par défaut pour `yarn.nodemanager.log-aggregation.compression-type` est `gz`. Remplacez la valeur par `none`.
+1. Pour le stockage ADLS : la valeur par défaut de `yarn.nodemanager.log-aggregation.compression-type` est `gz`. Remplacez la valeur par `none`.
 
 1. Enregistrez la modification, puis redémarrez tous les services affectés.
 

@@ -4,10 +4,10 @@ description: Ce modèle de données fait référence au mode spécifique à la r
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102499592"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modèle de données pour les événements de diagnostics de sauvegarde Azure

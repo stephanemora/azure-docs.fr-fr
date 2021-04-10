@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/03/2021
-ms.openlocfilehash: 63509262b8a75eebaffc34eca9861fe6748ff969
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/12/2021
+ms.openlocfilehash: 4026d2f987ca37834231ac4d7e827ff543af9d2e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048452"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103232390"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 
@@ -238,6 +238,10 @@ Pour copier des données à partir d’une table SAP, les propriétés suivantes
 >Si nous prenons l’exemple de `partitionOption` avec la valeur `partitionOnInt`, le nombre de lignes dans chaque partition est calculé à l’aide de cette formule : (nombre total de lignes comprises entre `partitionUpperBound` et `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
 >Pour charger des partitions de données en parallèle afin d’accélérer la copie, le degré parallèle est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) de l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, Data Factory génère et exécute simultanément quatre requêtes basées l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre table SAP. Nous vous recommandons vivement de faire de `maxPartitionsNumber` un multiple de la valeur de la propriété `parallelCopies`. Lors de la copie de données dans un magasin de données basé sur des fichiers, il est également recommandé de les écrire dans un dossier sous forme fichiers multiples (spécifiez uniquement le nom du dossier). Ceci offre de meilleures performances qu’une écriture dans un fichier unique.
+
+
+>[!TIP]
+> L’option `BASXML` est activée par défaut pour ce connecteur de table SAP sur Azure Data Factory.
 
 Dans `rfcTableOptions`, vous pouvez utiliser les opérateurs de requête SAP courants suivants pour filtrer les lignes :
 

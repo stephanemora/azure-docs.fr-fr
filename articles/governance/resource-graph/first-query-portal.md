@@ -4,10 +4,10 @@ description: Dans ce guide de démarrage rapide, vous suivez les étapes pour ex
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98920095"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph

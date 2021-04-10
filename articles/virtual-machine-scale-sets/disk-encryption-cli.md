@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 302f53bd218a2e01a039be4780a0e2ff5974e7b4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215950"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565569"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Chiffrer des disques de système d’exploitation et de données attachés dans un groupe de machines virtuelles identiques avec l’interface Azure CLI
 
@@ -61,7 +61,7 @@ La création et la configuration des l’ensemble des ressources et des machines
 
 Un coffre de clés Azure peut stocker des clés, des clés secrètes ou des mots de passe vous permettant de les implémenter en toute sécurité dans vos applications et services. Les clés de chiffrement sont stockées dans le coffre de clés Azure à l’aide d’une protection logicielle, mais vous pouvez importer ou générer vos clés dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Ces clés de chiffrement servent à chiffrer et à déchiffrer les disques virtuels connectés à votre machine virtuelle. Vous gardez le contrôle de ces clés de chiffrement et pouvez effectuer un audit de leur utilisation.
 
-Définissez un nom de coffre de clés (*keyvault_name*) unique. Créez ensuite un coffre de clés avec [az keyvault create](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) dans le même abonnement et la même région que le groupe identique, puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
+Définissez un nom de coffre de clés (*keyvault_name*) unique. Créez ensuite un coffre de clés avec [az keyvault create](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-create) dans le même abonnement et la même région que le groupe identique, puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 Cette étape est requise uniquement si vous souhaitez utiliser un coffre de clés existant avec le chiffrement de disque. Ignorez cette étape si vous avez créé un coffre de clés dans la section précédente.
 
-Définissez un nom de coffre de clés (*keyvault_name*) unique. Mettez ensuite à jour votre coffre de clés avec [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update), puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
+Définissez un nom de coffre de clés (*keyvault_name*) unique. Mettez ensuite à jour votre coffre de clés avec [az keyvault update](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-update), puis définissez la stratégie d’accès *--enabled-for-disk-encryption*.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>Activer le chiffrement
 
-Pour chiffrer des instances de machine virtuelle dans un groupe identique, vous devez d’abord obtenir certaines informations sur l’ID de ressource du coffre de clés avec [az keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show). Les variables obtenues sont ensuite utilisées pour démarrer le processus de chiffrement avec [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) :
+Pour chiffrer des instances de machine virtuelle dans un groupe identique, vous devez d’abord obtenir certaines informations sur l’ID de ressource du coffre de clés avec [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show). Les variables obtenues sont ensuite utilisées pour démarrer le processus de chiffrement avec [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) :
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
