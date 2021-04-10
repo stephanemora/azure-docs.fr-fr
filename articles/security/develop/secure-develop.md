@@ -4,7 +4,7 @@ description: Cet article présente les meilleures pratiques à prendre en compte
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,14 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102548442"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104782399"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
+
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
 
 Les phases de Microsoft Security Development Lifecycle suivantes sont traitées dans cet article :
@@ -29,6 +30,7 @@ Les phases de Microsoft Security Development Lifecycle suivantes sont traitées 
 - Vérification
 
 ## <a name="implementation"></a>Implémentation
+
 L’objectif de la phase d’implémentation est d’établir les meilleures pratiques en matière de prévention anticipée et de détecter et supprimer les problèmes de sécurité du code.
 Supposons que votre application soit utilisée d’une manière que vous ne souhaitiez pas. Cela permet de se prémunir contre une mauvaise utilisation accidentelle ou intentionnelle de votre application.
 
@@ -89,7 +91,7 @@ En d’autres termes, moins de personnes ont accès à vos données réelles, pl
 
 Pour se défendre contre les attaques en force brute et les vols basés sur le dictionnaire, vous devez implémenter une stratégie de mot de passe fort pour garantir que les utilisateurs créent des mots de passe complexes (par exemple, longueur minimale de 12 caractères, caractères spéciaux et alphanumériques).
 
-Vous pouvez utiliser une infrastructure d’identité pour créer et appliquer des stratégies de mot de passe. Azure AD B2C permet de gérer les mots de passe en proposant des [stratégies intégrées](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), la [réinitialisation de mot de passe en libre-service](../../active-directory-b2c/user-flow-self-service-password-reset.md) et bien plus encore.
+Azure Active Directory B2C permet de gérer les mots de passe en proposant la [réinitialisation du mot de passe en libre-service](../../active-directory-b2c/add-password-reset-policy.md), la [réinitialisation forcée de mot de passe](../../active-directory-b2c/force-password-reset.md), et bien plus encore.
 
 Pour se défendre contre les attaques sur les comptes par défaut, vérifiez que toutes les clés et que tous les mots de passe sont remplaçables et qu’ils sont générés ou remplacés après l’installation des ressources.
 
@@ -108,6 +110,7 @@ Le logiciel [Microsoft Antimalware](../fundamentals/antimalware.md) inclut des f
 Ne mettez pas en cache de contenu sensible sur le navigateur. Les navigateurs peuvent stocker des informations à des fins de mise en cache et d’historique. Les fichiers mis en cache sont stockés dans un dossier, comme le dossier Fichiers Internet temporaires d’Internet Explorer. Lorsque ces pages sont de nouveau consultées, le navigateur les affiche à partir du cache. Si l’utilisateur peut voir des informations sensibles (par exemple, adresse, numéro de carte de crédit, numéro de sécurité sociale ou nom d’utilisateur), ces informations sont peut-être stockées dans le cache du navigateur et elles peuvent par conséquent être récupérées lors de l’examen du cache du navigateur ou en appuyant simplement sur le bouton **Précédent** du navigateur.
 
 ## <a name="verification"></a>Vérification
+
 La phase de vérification implique un effort complet pour s’assurer que le code respecte les principes de sécurité et confidentialité établis au cours des phases précédentes.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>Rechercher et corriger les vulnérabilités de vos dépendances d’application
@@ -151,6 +154,7 @@ La sécurité de votre application est aussi importante que le bon fonctionnemen
 [Secure DevOps Kit pour Azure](https://azsk.azurewebsites.net/index.html) (AzSK) contient des SVT pour plusieurs services de la plateforme Azure. Vous exécutez ces SVT régulièrement pour garantir que votre abonnement Azure et les différentes ressources qui composent votre application sont sécurisées. Vous pouvez également automatiser ces tests à l’aide de la fonctionnalité des extensions de déploiement/d’intégration continus (CI/CD) d’AzSK, qui rend les SVT disponibles sous forme d’extension Visual Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans les articles suivants, nous recommandons des contrôles et des activités de sécurité qui peuvent vous aider à concevoir et déployer des applications sécurisées.
 
 - [Concevoir des applications sécurisées](secure-design.md)

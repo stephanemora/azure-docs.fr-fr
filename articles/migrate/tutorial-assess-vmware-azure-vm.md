@@ -1,29 +1,29 @@
 ---
-title: Évaluer les machines virtuelles VMware en vue de leur migration vers des machines virtuelles Azure avec Server Assessment dans Azure Migrate
-description: Découvrez comment évaluer les machines virtuelles VMware en vue de leur migration vers des machines virtuelles Azure avec Server Assessment.
+title: Évaluer les serveurs VMware pour les migrer vers des machines virtuelles Azure dans Azure Migrate
+description: Découvrez comment évaluer les serveurs VMware pour les migrer vers des machines virtuelles Azure avec Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e7251f8b83110bc24a7ba3d7b078993b39a2c001
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 4fbc80330a28b92117061dc9473a6d5497b205e5
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566819"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780636"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-azure-vms"></a>Tutoriel : Évaluer les machines virtuelles VMware pour les migrer vers des machines virtuelles Azure
 
 Dans le cadre de votre migration vers Azure, vous devez évaluer vos charges de travail locales afin de déterminer la préparation nécessaire, d’identifier les risques et d’estimer les coûts ainsi que le niveau de complexité de la tâche.
 
-Cet article explique comment évaluer les machines virtuelles VMware découvertes en préparation à leur migration vers Azure, à l’aide d’Azure Migrate : Server Assessment.
+Cet article explique comment évaluer les serveurs découverts à partir de votre environnement VMware en vue de leur migration vers des machines virtuelles Azure, en utilisant l’outil Azure Migrate : découverte et évaluation.
 
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
-- Exécuter une évaluation basée sur les métadonnées et les informations de configuration de l’ordinateur
+- Exécuter une évaluation basée sur les métadonnées et les informations de configuration du serveur
 - Exécuter une évaluation basée sur les données de performances
 
 > [!NOTE]
@@ -34,20 +34,20 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de suivre ce tutoriel pour évaluer vos ordinateurs en vue de leur migration vers des machines virtuelles Azure, vérifiez que vous avez découvert les ordinateurs que vous souhaitez évaluer :
+Avant de suivre ce tutoriel pour évaluer vos serveurs en vue de les migrer vers des machines virtuelles Azure, vérifiez que vous avez découvert les serveurs que vous souhaitez évaluer :
 
-- Pour découvrir des ordinateurs à l’aide de l’appliance Azure Migrate, [suivez ce tutoriel](tutorial-discover-vmware.md). 
-- Pour découvrir des ordinateurs à l’aide d’un fichier CSV importé, [suivez ce tutoriel](tutorial-discover-import.md).
+- Pour découvrir des serveurs avec l’appliance Azure Migrate, [suivez ce tutoriel](tutorial-discover-vmware.md). 
+- Pour découvrir des serveurs avec un fichier CSV importé, [suivez ce tutoriel](tutorial-discover-import.md).
 
 
 ## <a name="decide-which-assessment-to-run"></a>Décider de l’évaluation à exécuter
 
 
-Déterminez si vous souhaitez exécuter une évaluation à l’aide de critères de dimensionnement basés sur les données de configuration de l’ordinateur, sur les métadonnées collectées telles quelles localement ou sur les données de performances dynamiques.
+Déterminez si vous souhaitez exécuter une évaluation à l’aide de critères de dimensionnement basés sur les données de configuration du serveur, sur les métadonnées collectées telles quelles localement ou sur les données de performances dynamiques.
 
 **Évaluation** | **Détails** | **Recommandation**
 --- | --- | ---
-**Telle quelle locale** | Pour une évaluation basée sur les données de configuration ou les métadonnées de l’ordinateur.  | La taille recommandée pour la machine virtuelle Azure est basée sur la taille de la machine virtuelle locale.<br/><br> Le type de disque Azure recommandé est basé sur le paramètre de type de stockage sélectionné pour l’évaluation.
+**Telle quelle locale** | Pour une évaluation basée sur les données de configuration ou les métadonnées du serveur.  | La taille recommandée pour la machine virtuelle Azure est basée sur la taille de la machine virtuelle locale.<br/><br> Le type de disque Azure recommandé est basé sur le paramètre de type de stockage sélectionné pour l’évaluation.
 **Basée sur les performances** | Pour une évaluation basée sur les données de performances dynamiques collectées. | La taille recommandée pour la machine virtuelle Azure est basée sur les données d’utilisation du processeur et de la mémoire.<br/><br/> Le type de disque recommandé est basé sur les IOPS et le débit des disques locaux.
 
 
@@ -55,19 +55,19 @@ Déterminez si vous souhaitez exécuter une évaluation à l’aide de critères
 
 Exécutez une évaluation comme suit :
 
-1. Dans la page **Serveurs** > **Serveurs Windows et Linux**, cliquez sur **Évaluer et migrer des serveurs**.
+1. Sur la page **Vue d’ensemble** > **Windows, Linux et SQL Server**, cliquez sur **Évaluer et migrer des serveurs**.
 
    ![Emplacement du bouton Évaluer et migrer des serveurs](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. Dans **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
+2. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Évaluer**, puis sélectionnez **machine virtuelle Azure**.
 
     ![Emplacement du bouton Évaluer](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Machine virtuelle Azure**.
+3. Dans **Évaluer les serveurs** > **Type d’évaluation**
 4. Dans **Source de découverte** :
 
-    - Si vous avez découvert des ordinateurs à l’aide de l’appliance, sélectionnez **Machines découvertes par l’appliance Azure Migrate**.
-    - Si vous avez découvert des ordinateurs à l’aide d’un fichier CSV importé, sélectionnez **Machines importées**. 
+    - Si vous avez découvert des serveurs avec l’appliance, sélectionnez **Serveurs découverts par l’appliance Azure Migrate**.
+    - Si vous avez découvert des serveurs avec un fichier CSV importé, sélectionnez **Serveurs importés**. 
     
 1. Cliquez sur **Modifier** pour passer en revue les propriétés de l’évaluation.
 
@@ -75,7 +75,7 @@ Exécutez une évaluation comme suit :
 
 1. Dans **Propriétés d’évaluation** > **Propriétés de la cible** :
     - Dans **Emplacement cible**, sélectionnez la région Azure vers laquelle vous souhaitez effectuer la migration.
-        - Les recommandations concernant la taille et le coût sont basées sur l’emplacement que vous spécifiez. Une fois que vous avez modifié l’emplacement cible par défaut, vous êtes invité à spécifier des **Instances réservées** et une **Série de machines virtuelles**.
+        - Les recommandations concernant la taille et le coût sont basées sur l’emplacement que vous spécifiez. Une fois que vous avez modifié l’emplacement cible par défaut, vous êtes invité à spécifier des **instances réservées** et une **série de machines virtuelles**.
         - Dans Azure Government, vous pouvez cibler des évaluations dans [ces régions](migrate-support-matrix.md#supported-geographies-azure-government)
     - Dans **Type de stockage**,
         - Si vous souhaitez utiliser des données basées sur les performances dans l’évaluation, sélectionnez **Automatique** pour qu’Azure Migrate recommande un type de stockage, en fonction des IOPS et du débit du disque.
@@ -84,7 +84,7 @@ Exécutez une évaluation comme suit :
         - Si vous choisissez d’utiliser une instance réservée, vous ne pourrez pas spécifier l’option **Remise (%)** ni l’option **Durée de fonctionnement de la machine virtuelle**. 
         - [Plus d’informations](https://aka.ms/azurereservedinstances)
  1. Dans **Taille de la machine virtuelle** :
-     - Dans **Critère de dimensionnement**, choisissez le type d’évaluation que vous souhaitez effectuer : basée sur les données de configuration, basée sur les métadonnées de l’ordinateur ou basée sur les données de performances. Si vous utilisez des données de performances :
+     - Dans **Critères de dimensionnement**, sélectionnez si vous souhaitez baser l’évaluation sur les données/métadonnées de la configuration du serveur ou sur les données basées sur le niveau de performance. Si vous utilisez des données de performances :
         - Dans **Historique des performances**, indiquez la période de données sur laquelle vous souhaitez baser l’évaluation.
         - Dans **Utilisation en centile**, spécifiez la valeur de centile que vous souhaitez utiliser pour l’échantillon de performances. 
     - Dans **Série de machines virtuelles**, spécifiez la série de machines virtuelles Azure que vous souhaitez utiliser.
@@ -98,7 +98,7 @@ Exécutez une évaluation comme suit :
         Mémoire | 8 Go | 16 Go
    
 1. Dans **Tarifs** :
-    - Dans **Offre**, spécifiez l’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit, le cas échéant. Évaluation de serveur estime le coût de cette offre.
+    - Dans **Offre**, spécifiez l’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit, le cas échéant. L’évaluation estime le coût de cette offre.
     - Dans **Devise**, sélectionnez la devise de facturation de votre compte.
     - Dans **Remise (%)** , ajoutez les remises applicables à votre abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
     - Dans **Durée de fonctionnement de la machine virtuelle**, spécifiez la durée (en jours par mois ou en heures par jour) pendant laquelle les machines virtuelles doivent s’exécuter.
@@ -112,11 +112,11 @@ Exécutez une évaluation comme suit :
 
     ![Propriétés de l’évaluation](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-1. Dans **Évaluer les serveurs** > cliquez sur **Suivant**.
+1. Dans **Évaluer les serveurs**, cliquez sur **Suivant**.
 
-1. Dans **Sélectionner les machines à évaluer** > **Nom de l’évaluation** > spécifiez un nom pour l’évaluation. 
+1. Dans **Sélectionner les serveurs à évaluer** > **Nom de l’évaluation**, spécifiez un nom pour l’évaluation. 
 
-1. Dans **Sélectionner ou créer un groupe** > sélectionnez **Créer**, puis spécifiez un nom de groupe. 
+1. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe. 
     
      ![Ajouter des machines virtuelles à un groupe](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
@@ -126,7 +126,7 @@ Exécutez une évaluation comme suit :
 
 1. Dans **Vérifier + créer l’évaluation**, passez en revue les détails de l’évaluation, puis cliquez sur **Créer une évaluation** pour créer le groupe et lancer l’évaluation.
 
-1. Une fois l’évaluation créée, vous pouvez la voir dans **Serveurs** > **Azure Migrate : Server Assessment** > **Évaluations**.
+1. Une fois l’évaluation créée, affichez-la dans **Serveurs** > **Azure Migrate : découverte et évaluation** > **Évaluations**.
 
 1. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
     > [!NOTE]
@@ -142,7 +142,7 @@ Une évaluation décrit les éléments suivants :
 
 Pour voir une évaluation :
 
-1. Dans **Serveurs** > **Azure Migrate : évaluation de serveur**, cliquez sur le nombre à côté de **Évaluations**.
+1. Dans **Windows, Linux et SQL Server** > **Azure Migrate : découverte et évaluation**, cliquez sur le numéro à côté de **Évaluation de machine virtuelle Azure**.
 2. Dans **Évaluations**, sélectionnez une évaluation pour l’ouvrir. Voici un exemple (estimations et coûts, à titre d’exemple uniquement) : 
 
     ![Récapitulatif de l’évaluation](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
@@ -167,7 +167,7 @@ Ce résumé d’évaluation montre une estimation des coûts de calcul et de sto
 
 1. Vérifiez les coûts totaux mensuels. Les coûts sont agrégés pour toutes les machines virtuelles du groupe évalué.
 
-    - Les estimations des coûts sont basées sur les suggestions de taille d’une machine, ses disques et ses propriétés.
+    - Les estimations des coûts sont basées sur les suggestions de taille d’un serveur, sur ses disques et sur ses propriétés.
     - Les coûts mensuels estimés pour le calcul et le stockage sont affichés.
     - L’estimation des coûts porte sur l’exécution de machines virtuelles locales dans Azure. L’estimation ne prend pas en compte les coûts PaaS ni SaaS.
 
@@ -176,7 +176,7 @@ Ce résumé d’évaluation montre une estimation des coûts de calcul et de sto
 
 ### <a name="review-confidence-rating"></a>Examiner le niveau de confiance
 
-Server Assessment attribue un niveau de confiance aux évaluations basées sur les performances. Ce niveau est exprimé en étoiles, 1 étoile étant le plus bas niveau et 5 étoiles le plus haut.
+Azure Migrate attribue un niveau de confiance aux évaluations basées sur les performances. Ce niveau est exprimé en étoiles, 1 étoile étant le plus bas niveau et 5 étoiles le plus haut.
 
 ![Niveau de confiance](./media/tutorial-assess-vmware-azure-vm/confidence-rating.png)
 
@@ -199,5 +199,5 @@ Les niveaux de confiance sont les suivants.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Recherchez des dépendances de machine à l’aide du [mappage des dépendances](concepts-dependency-visualization.md).
+- Recherchez des dépendances de serveur avec le [mappage des dépendances](concepts-dependency-visualization.md).
 - Configurez un mappage des dépendances [sans agent](how-to-create-group-machine-dependencies-agentless.md) ou [basé sur un agent](how-to-create-group-machine-dependencies.md).

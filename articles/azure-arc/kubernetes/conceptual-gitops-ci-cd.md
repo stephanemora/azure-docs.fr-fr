@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: Cet article fournit une vue d’ensemble conceptuelle d’un workflow CI/CD avec GitOps
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, conteneurs, intégration continue, livraison continue, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121777"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025864"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Flux de travail CI/CD avec GitOps – Kubernetes avec Azure Arc
 
@@ -30,7 +30,7 @@ Considérez une application déployée dans un ou plusieurs environnements Kuber
 ### <a name="application-repo"></a>Référentiel d’application
 Le référentiel d’application contient le code d’application sur lequel les développeurs travaillent au cours de leur boucle interne. Les modèles de déploiement d’application se trouvent dans ce référentiel sous forme générique, comme Helm ou Kustomize. Les valeurs spécifiques à l’environnement ne sont pas stockées. Les modifications apportées à ce référentiel appellent un pipeline de demande de tirage (pull request) ou d’intégration continue qui démarre le processus de déploiement.
 ### <a name="container-registry"></a>Container Registry
-Le registre de conteneurs contient toutes les images internes et tierces utilisées dans les environnements Kubernetes. Dotez les images d’application tierces de balises lisibles et de la validation Git utilisée pour créer l’image. Mettez en cache les images tierces à des fins de sécurité, de vitesse et de résilience. Définissez un plan à des fins de test et d’intégration en temps opportun des mises à jour de sécurité. Pour plus d’informations, consultez le guide relatif à [la consommation ACR et au maintien du contenu public](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) pour un exemple.
+Le registre de conteneurs contient toutes les images internes et tierces utilisées dans les environnements Kubernetes. Dotez les images d’application tierces de balises lisibles et de la validation Git utilisée pour créer l’image. Mettez en cache les images tierces à des fins de sécurité, de vitesse et de résilience. Définissez un plan à des fins de test et d’intégration en temps opportun des mises à jour de sécurité. Pour plus d’informations, consultez le guide relatif à [la consommation ACR et au maintien du contenu public](../../container-registry/tasks-consume-public-content.md) pour un exemple.
 ### <a name="pr-pipeline"></a>Pipeline de demande de tirage (pull request)
 Les demandes de tirage (pull requests) à destination du référentiel d’application sont contrôlées lors de l’exécution réussie du pipeline de demande de tirage. Ce pipeline exécute des contrôles de qualité de base, linting et tests unitaires par exemple, sur le code d’application. Le pipeline teste l’application et effectue le linting des Dockerfiles et des modèles Helm utilisés à des fins de déploiement dans un environnement Kubernetes. Les images Docker doivent être générées et testées, mais pas envoyées (push). Optez pour une durée de pipeline relativement courte pour permettre une itération rapide.
 ### <a name="ci-pipeline"></a>Pipeline d’intégration continue

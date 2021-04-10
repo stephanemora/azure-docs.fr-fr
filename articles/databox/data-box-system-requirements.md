@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 85a0ce20f1d8e5a7e943efc088c19a8ad1912fc1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f999dbf7a4e0262e36181a98560931d32d3296b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706030"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612498"
 ---
 # <a name="azure-data-box-system-requirements"></a>Conditions requises pour le système Data Box
 
@@ -39,7 +39,7 @@ La configuration logicielle requise inclut les systèmes d’exploitation pris e
 [!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 > [!IMPORTANT] 
-> La connexion à des partages de Data Box n’est pas prise en charge via REST pour les ordres d’exportation. 
+> La connexion à des partages de Data Box n’est pas prise en charge via REST pour les ordres d’exportation.
 
 ### <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 

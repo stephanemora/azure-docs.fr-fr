@@ -1,22 +1,18 @@
 ---
-title: Utiliser des alertes sur votre capteur
+title: À propos des alertes de capteur
 description: Utilisez des alertes pour vous aider à améliorer la sécurité et l’opération de votre réseau.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523547"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781345"
 ---
-# <a name="work-with-alerts-on-your-sensor"></a>Utiliser des alertes sur votre capteur
+# <a name="about-sensor-alerts"></a>À propos des alertes de capteur
 
-Utilisez des alertes pour vous aider à améliorer la sécurité et l’opération de votre réseau. Les alertes vous fournissent des informations sur les éléments suivants :
+Les alertes vous aident à améliorer la sécurité et le fonctionnement de votre réseau. Les alertes vous fournissent des informations sur les éléments suivants :
 
 - écarts par rapport à l’activité réseau autorisée
 
@@ -68,9 +64,9 @@ Par exemple :
 
   - Les événements de programmes malveillants détectés sur les périphériques réseau sont signalés dans les rapports d’évaluation des risques. Quand les alertes relatives aux événements de programmes malveillants ont le *micro désactivé*, les appareils affectés ne sont pas calculés dans le rapport d’évaluation des risques.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
-[Apprentissage et modes d’apprentissage informatique intelligent](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-[Afficher les informations fournies dans les alertes](how-to-view-information-provided-in-alerts.md)
-[Gérer l’événement d’alerte](how-to-manage-the-alert-event.md)
-[Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)
+- [Apprentissage et modes d’apprentissage informatique intelligent](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+- [Afficher les informations fournies dans les alertes](how-to-view-information-provided-in-alerts.md)
+- [Gérer l’événement d’alerte](how-to-manage-the-alert-event.md)
+- [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)

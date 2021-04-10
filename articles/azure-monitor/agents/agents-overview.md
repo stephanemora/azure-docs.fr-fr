@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1dd358c03d051be4be5733d9e729d1d7ef5b0c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026170"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -97,7 +97,7 @@ Utilisez l’extension Diagnostics Azure si vous devez effectuer les opérations
 - Envoyer les données au Stockage Azure à des fins d’archivage ou pour les analyser à l’aide d’outils tels que l’[Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 - Envoyer les données aux [métriques Azure Monitor](../essentials/data-platform-metrics.md) pour les analyser avec [Metrics Explorer](../essentials/metrics-getting-started.md) et tirer parti des fonctionnalités telles que les [alertes de métrique](../alerts/alerts-metric-overview.md) en temps quasi-réel et la [mise à l’échelle automatique](../autoscale/autoscale-overview.md) (Windows uniquement).
 - Envoyer les données à des outils tiers à l’aide d’[Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md).
-- Collecter des [diagnostics de démarrage](../../virtual-machines/troubleshooting/boot-diagnostics.md) afin d’étudier les problèmes de démarrage de machines virtuelles.
+- Collecter des [diagnostics de démarrage](/troubleshoot/azure/virtual-machines/boot-diagnostics) afin d’étudier les problèmes de démarrage de machines virtuelles.
 
 Les limitations de l’extension Diagnostics Azure sont les suivantes :
 

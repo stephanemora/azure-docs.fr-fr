@@ -4,10 +4,10 @@ description: Comprenez, explorez et investiguez les alertes de sécurité Defend
 ms.topic: quickstart
 ms.date: 07/30/2020
 ms.openlocfilehash: 2eb4a10372680348536231aa0333c43199b8d883
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104780988"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>Démarrage rapide : Investiguer les alertes de sécurité

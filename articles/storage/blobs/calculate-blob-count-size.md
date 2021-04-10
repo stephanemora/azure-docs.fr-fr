@@ -8,12 +8,12 @@ ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 92e5b00cd655677cdc3096bc2142dfe1b704adf2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1aa91ea0f698e609e786d87a0072e6a07c143a3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102636934"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047315"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Calculer le nombre et la taille totale des blobs par conteneur à l’aide de l’inventaire de Stockage Azure
 
@@ -43,7 +43,7 @@ Lorsque vous avez un rapport d’inventaire à analyser, accordez-vous un accès
 
 ## <a name="create-an-azure-synapse-workspace"></a>Créer un espace de travail Azure Synapse
 
-Ensuite, [créez un espace de travail Azure Synapse](/azure/synapse-analytics/get-started-create-workspace) dans lequel vous allez exécuter une requête SQL pour signaler les résultats de l’inventaire.
+Ensuite, [créez un espace de travail Azure Synapse](../../synapse-analytics/get-started-create-workspace.md) dans lequel vous allez exécuter une requête SQL pour signaler les résultats de l’inventaire.
 
 ## <a name="create-the-sql-query"></a>Créer la requête SQL
 
@@ -58,7 +58,7 @@ Une fois que vous avez créé votre espace de travail Azure Synapse, procédez c
 
 ## <a name="run-the-sql-query"></a>Exécuter la requête SQL
 
-1. Ajoutez la requête SQL suivante dans votre espace de travail Azure Synapse pour [lire le fichier CSV de l’inventaire](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file).
+1. Ajoutez la requête SQL suivante dans votre espace de travail Azure Synapse pour [lire le fichier CSV de l’inventaire](../../synapse-analytics/sql/query-single-csv-file.md#read-a-csv-file).
 
     Pour le paramètre `bulk`, utilisez l’URL du fichier CSV du rapport d’inventaire que vous souhaitez analyser.
 
