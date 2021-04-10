@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeff14e1676389eb2204cad45ea7b00d5aa9796b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e5189df623325578bb3b579f5c4c3456067986ff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566649"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709478"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Exemples Azure AD PowerShell pour le proxy d’application Azure AD
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur les applets de commande utilisées dans ces exemp
 | [Répertorier les informations de base pour toutes les applications de proxy d’application](scripts/powershell-get-all-app-proxy-apps-basic.md) | Liste les informations de base (AppId, DisplayName, ObjId) de toutes les applications de proxy d’application de votre répertoire. |
 | [Répertorier les informations étendues pour toutes les applications de proxy d’application](scripts/powershell-get-all-app-proxy-apps-extended.md) | Répertorie les informations étendues (AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType) relatives à toutes les applications de proxy d’application de votre répertoire.  |
 | [Répertorier toutes les applications de proxy d’application par groupe de connecteurs](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | Répertorie des informations sur toutes les applications de proxy d’application de votre répertoire et les groupes de connecteurs auxquels les applications sont affectées. |
-| [Obtenir toutes les applications de proxy d’application avec une stratégie de durée de vie de jeton](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Répertorie toutes les applications de proxy d’application de votre répertoire avec une stratégie de durée de vie des jetons et ses détails. Cet exemple nécessite la [version en préversion du module AzureAD v2 PowerShell pour Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview). |
+| [Obtenir toutes les applications de proxy d’application avec une stratégie de durée de vie de jeton](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | Répertorie toutes les applications de proxy d’application de votre répertoire avec une stratégie de durée de vie des jetons et ses détails. Cet exemple nécessite la [version en préversion du module AzureAD v2 PowerShell pour Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true). |
 |**Groupes de connecteurs**||
 | [Récupérer tous les connecteurs et groupes de connecteurs dans le répertoire](scripts/powershell-get-all-connectors.md) | Répertorie tous les connecteurs et groupes de connecteurs dans votre répertoire. |
 | [Déplacer toutes les applications affectées à un groupe de connecteurs vers un autre groupe de connecteurs](scripts/powershell-move-all-apps-to-connector-group.md) | Déplace toutes les applications actuellement affectées à un groupe de connecteurs vers un autre groupe de connecteurs. |

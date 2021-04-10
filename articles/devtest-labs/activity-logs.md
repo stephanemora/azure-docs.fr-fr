@@ -4,10 +4,10 @@ description: Cet article fournit la procédure d’affichage des journaux d’ac
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 51bdfc6c3857a3e59d75094b4c847c80c58de045
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100582772"
 ---
 # <a name="view-activity-logs-for-labs-in-azure-devtest-labs"></a>Afficher les journaux d’activité pour les laboratoires dans Azure DevTest Labs 

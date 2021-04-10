@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365801"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578037"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -39,7 +39,7 @@ Cet article vous fournit des conseils sur la façon de résoudre les problèmes 
 **Bon à savoir :** 
 
 - Le fonctionnement de la jonction Azure AD Hybride pour appareils Windows de bas niveau est légèrement différent dans Windows 10. De nombreux clients ne se rendent pas compte qu’ils ont besoin d’AD FS (pour les domaines fédérés) ou de l’authentification unique transparente configurée (pour les domaines managés).
-- L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
+- L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée ou si la Configuration de sécurité améliorée est activée.
 - Pour les clients disposant de domaines fédérés : si le point de connexion de service a été configuré de sorte qu’il pointe vers le nom de domaine géré (par exemple contoso.onmicrosoft.com au lieu de contoso.com), la jonction Azure AD Hybride pour appareils Windows de bas niveau ne fonctionne pas.
 - Le même appareil physique apparaît plusieurs fois dans Azure AD si plusieurs utilisateurs de domaine se connectent aux appareils de bas niveau joints par Azure AD Hybride.  Par exemple, si *jdoe* et *jharnett* se connectent à un appareil, une inscription (DeviceID) distincte est créée pour chacun d’eux dans l’onglet d’informations **UTILISATEUR**. 
 - Vous pouvez également obtenir plusieurs entrées pour un appareil dans l’onglet Informations utilisateur en raison d’une réinstallation du système d’exploitation ou d’une réinscription manuelle.

@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176856"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709716"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
 
@@ -98,7 +98,7 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 
 Pour tester la connexion de *synchronisation de hachage de mot de passe* à l’aide du lancement intermédiaire, suivez les instructions de travail préalable de la section suivante.
 
-Pour savoir quel applet de commande PowerShell utiliser, consultez [la version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Pour savoir quel applet de commande PowerShell utiliser, consultez [la version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Travail préalable pour la synchronisation de hachage de mot de passe
 
@@ -251,9 +251,9 @@ A : Non, cette fonctionnalité est conçue pour tester l’authentification clo
 
 **Q : Puis-je utiliser PowerShell pour effectuer un lancement intermédiaire ?**
 
-A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancement intermédiaire, consultez la [version préliminaire Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A : Oui. Pour découvrir comment utiliser PowerShell pour effectuer un lancement intermédiaire, consultez la [version préliminaire Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Version préliminaire Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [Changer la méthode de connexion pour la synchronisation de hachage de mot de passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [Changer la méthode de connexion pour l’authentification directe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
