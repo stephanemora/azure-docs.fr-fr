@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 24a538686e101d40daba008f30a72ffc5078047a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104674516"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559126"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in Microsoft Enterprise Single Sign-On pour appareils Apple (préversion)
 
@@ -52,14 +52,14 @@ Pour utiliser le plug-in Microsoft Enterprise Single Sign-On pour des appareils 
 - L’appareil doit être *inscrit dans MDM*, par exemple par le biais de Microsoft Intune.
 - La configuration doit être *envoyée (push) à l’appareil* afin d’activer le plug-in Enterprise Single Sign-On. Apple requiert cette contrainte de sécurité.
 
-Configuration requise pour iOS :
-- iOS 13.0 ou version ultérieure doit être installé sur l’appareil.
-- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Au cours de la période de préversion publique, cette application est l’[application Microsoft Authenticator](/intune/user-help/user-help-auth-app-overview.md).
+### <a name="ios-requirements"></a>Configuration requise pour iOS :
+- iOS version 13.0 ou ultérieure doit être installé sur l’appareil.
+- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Dans la préversion publique, ces applications correspondent à l’[application Microsoft Authenticator](/azure/active-directory/user-help/user-help-auth-app-overview).
 
 
-Configuration requise pour macOS :
-- macOS 10.15 ou version ultérieure doit être installé sur l’appareil. 
-- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Au cours de la pérdioe de préversion publique, cette application est l’[application Portail d’entreprise Intune](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
+### <a name="macos-requirements"></a>Configuration requise pour macOS :
+- macOS 10.15 ou ultérieur doit être installé sur l’appareil. 
+- Une application Microsoft qui fournit le plug-in Microsoft Enterprise SSO pour les appareils Apple doit être installée sur l’appareil. Dans la préversion publique, ces applications comprennent l’[application Portail d’entreprise Intune](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
 
 ## <a name="enable-the-sso-plug-in"></a>Activer le plug-in SSO
 

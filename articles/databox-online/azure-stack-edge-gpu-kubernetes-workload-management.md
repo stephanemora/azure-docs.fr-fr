@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: b962d66349bbed112114c010e8d185ba16c74c8d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443078"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105560231"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestion des charges de travail Kubernetes sur votre appareil Azure Stack Edge Pro
 
@@ -83,7 +83,7 @@ Lors du déploiement d’applications, prenez en compte les informations suivant
 
 Pour déployer localement une application via kubectl, consultez :
 
-- [Déployer une application sans état sur votre Azure Stack Edge Pro via kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Déployer une application sans état sur votre Azure Stack Edge Pro via kubectl](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).
 
 Pour déployer une application via IoT Edge, consultez :
 

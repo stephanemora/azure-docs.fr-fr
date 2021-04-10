@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 378d341ee867b69fac22f5eb15952d104a7bf19d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99221208"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167326"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Comprendre la connectivité réseau de Windows Virtual Desktop
 
@@ -50,7 +50,7 @@ Séquence de connexion du client décrite ci-dessous :
 
 ## <a name="connection-security"></a>Sécurité de la connexion
 
-TLS 1.2 est utilisé pour toutes les connexions initiées à partir des clients et des hôtes de session vers les composants de l’infrastructure de Windows Virtual Desktop. Windows Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). Il est important de s’assurer que les ordinateurs clients et les hôtes de session peuvent utiliser ces chiffrements.
+TLS 1.2 est utilisé pour toutes les connexions initiées à partir des clients et des hôtes de session vers les composants de l’infrastructure de Windows Virtual Desktop. Windows Virtual Desktop utilise les mêmes chiffrements TLS 1.2 qu’[Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). Il est important de s’assurer que les ordinateurs clients et les hôtes de session peuvent utiliser ces chiffrements.
 Pour le transport de connexion inverse, le client et l’hôte de session se connectent à la passerelle Windows Virtual Desktop. Après avoir établi la connexion TCP, le client ou l’hôte de session valide le certificat de la passerelle Windows Virtual Desktop.
 Une fois le transport de base établi, le protocole RDP établit une connexion TLS imbriquée entre le client et l’hôte de session à l’aide des certificats de l’hôte de session. Par défaut, le certificat utilisé pour le chiffrement RDP est généré automatiquement par le système d’exploitation pendant le déploiement. Si vous le souhaitez, les clients peuvent déployer des certificats gérés de manière centralisée émis par l’autorité de certification d’entreprise. Pour plus d’informations sur la configuration des certificats, consultez la [documentation de Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

@@ -3,14 +3,14 @@ title: Fonctionnalités de rendu
 description: Les fonctionnalités Standard d’Azure Batch sont utilisées pour exécuter des applications et des charges de travail de rendu. Batch inclut des fonctionnalités spécifiques qui prennent en charge les charges de travail de rendu.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429800"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496335"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 
@@ -27,6 +27,9 @@ Les chaînes de ligne de commande de la tâche devront référencer les applicat
 La plupart des applications de rendu requièrent des licences obtenues auprès d’un serveur de licences. S’il existe déjà un serveur de licences local, le pool et le serveur de licences doivent se trouver sur le même [réseau virtuel](../virtual-network/virtual-networks-overview.md). Il est également possible d’exécuter un serveur de licences sur une machine virtuelle Azure, le pool Batch et la machine virtuelle du serveur de licences figurant sur le même réseau virtuel.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>Pools Batch utilisant des images de machines virtuelles de rendu
+
+> [!IMPORTANT]
+> Les images de rendu des machines virtuelles et les licences de paiement à l’utilisation ont été [déconseillées et seront supprimées le 29 février 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Pour utiliser Batch pour le rendu, vous devez utiliser [une image de machine virtuelle personnalisée et une licence d’application standard.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>Installation de l’application de rendu
 

@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: 8e976199730ec74f9e76b9f4199e90e192916474
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2e5f41c0e149c99b5524c439c59e72afe554c776
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966715"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783895"
 ---
 # <a name="what-is-the-autoregistration-feature-of-azure-dns-private-zones"></a>Qu’est-ce que la fonctionnalité d’inscription automatique des zones privées Azure DNS ?
 
-La fonctionnalité d’inscription automatique des zones privées Azure DNS vous évite d’avoir à gérer vous-même les enregistrements DNS pour les machines virtuelles déployées dans un réseau virtuel. Quand vous [liez un réseau virtuel](./private-dns-virtual-network-links.md) avec une zone DNS privée et activez l’inscription automatique pour toutes les machines virtuelles, les enregistrements DNS des machines virtuelles déployées dans le réseau virtuel sont automatiquement créés dans la zone DNS privée. En plus des enregistrements de recherche directe (enregistrements A), les enregistrements de recherche inversée (enregistrements PTR) sont également créés automatiquement pour les machines virtuelles.
+La fonctionnalité d’inscription automatique des zones privées Azure DNS vous évite d’avoir à gérer vous-même les enregistrements DNS pour les machines virtuelles déployées dans un réseau virtuel. Lorsque vous [liez un réseau virtuel](./private-dns-virtual-network-links.md) avec une zone DNS privée et activez l’inscription automatique pour toutes les machines virtuelles, les enregistrements DNS des machines virtuelles déployées dans le réseau virtuel sont automatiquement créés dans la zone DNS privée. En plus des enregistrements de recherche directe (enregistrements A), les enregistrements de recherche inversée (enregistrements PTR) sont également créés automatiquement pour les machines virtuelles.
 Si vous ajoutez d’autres machines virtuelles au réseau virtuel, leurs enregistrements DNS sont également créés automatiquement dans la zone DNS privée liée.
 
 Quand vous supprimez une machine virtuelle, les enregistrements DNS de cette machine sont automatiquement supprimés dans la zone DNS privée.

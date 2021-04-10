@@ -1,55 +1,68 @@
 ---
 title: Vue d’ensemble du DK Azure Percept
 description: Découvrez le DK Azure Percept.
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: c93ecdc138e757f84e995a69a6c3d7f1b5460abe
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b20448a88cee6c4ea4af0bcbfaa6ec465f2e28bb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179372"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105560962"
 ---
 # <a name="azure-percept-dk-overview"></a>Vue d’ensemble du DK Azure Percept
 
-Azure Percept DK est un kit de développement IA et IoT Edge conçu pour le développement de preuves de concept IA de vision et d’audio. Associé à [Azure Percept Studio](./overview-azure-percept-studio.md) et à [Azure Percept Audio](./overview-azure-percept-audio.md), il devient une plateforme puissante et facile à utiliser permettant de créer des solutions d’intelligence artificielle Edge pour un large éventail d’applications IA de vision et d’audio. Il est disponible à l’achat sur [Microsoft Store en ligne](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+Azure Percept DK est un kit de développement d’intelligence artificielle (IA) de périphérie conçu pour le développement de solutions IA de vision et d’audio avec [Azure Percept Studio](./overview-azure-percept-studio.md). Azure Percept DK est disponible dans le [Magasin en ligne Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Appareil Azure Percept DK.":::
+> [!div class="nextstepaction"]
+> [Acheter maintenant](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-## <a name="key-features"></a>Principales fonctionnalités
+</br>
 
-- **Capacité d’exécuter l’intelligence artificielle à la périphérie**. Avec l’accélération matérielle intégrée, il peut exécuter des modèles d’IA de vision sans connexion au Cloud.
-- **Sécurité intégrée avec racine matérielle de confiance**. Pour plus d’informations, consultez la vue d’ensemble de la [sécurité Azure Percept](./overview-percept-security.md).
-- **Intégration transparente à [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** et à d’autres services Azure. Par exemple, Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
-- **Intégration transparente avec [Azure Percept Audio](./overview-azure-percept-audio.md) (facultatif)**
-- **Prise en charge des principales plateformes d’IA**. Par exemple, ONNX et TensorFlow.
-- **Intégration au système de rails 80/20**. Pour faciliter la création de prototypes dans les environnements de production. En savoir plus sur [l’intégration 80/20](./overview-8020-integration.md).
+> [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
+
+## <a name="key-features"></a>Fonctionnalités clés
+
+- Exécuter L’IA à la périphérie. Avec l’accélération matérielle intégrée, le kit de développement peut exécuter des modèles d’IA sans connexion au cloud.
+
+- Sécurité intégrée avec racine matérielle de confiance. Apprenez-en davantage sur la [sécurité d’Azure Percept](./overview-percept-security.md).
+
+- Intégration transparente avec [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) et d’autres services Azure tels qu’Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+
+- Compatible avec [Azure Percept Audio](./overview-azure-percept-audio.md), un accessoire facultatif pour la création de solutions d’IA audio.
+
+- Prise en charge d’outils d’IA tiers, tels ONNX et TensorFlow.
+
+- Intégration avec le système de rail 80/20, qui permet des configurations de montage d’appareil sans fin. En savoir plus sur [l’intégration 80/20](./overview-8020-integration.md).
 
 ## <a name="hardware-components"></a>Composants matériels
 
-- Carte de base du DK Azure Percept
+- Carte porteuse d’Azure Percept DK :
     - Processeur NXP iMX8m
     - Module de plateforme sécurisée (TPM) version 2.0
     - Connectivité WiFi et Bluetooth
-    - Voir la [fiche technique](./azure-percept-dk-datasheet.md) complète
-- Système sur module (SoM) de vision Azure Percept
+    - Pour plus d’informations, consultez la [fiche technique d’Azure Percept DK](./azure-percept-dk-datasheet.md)
+
+- Système sur module (SoM) Azure Percept Vision :
     - Intel Movidius Myriad X (MA2085) VPU
-    - Capteur d’appareil photo RVB avec possibilité d’ajout d’un deuxième
-    - Voir la [fiche technique](./azure-percept-vision-datasheet.md) complète
+    - Capteur de caméra RVB
+    - Pour plus d’informations, consultez la [fiche technique d’Azure Percept Vision](./azure-percept-vision-datasheet.md)
 
-## <a name="get-started-with-the-azure-percept-dk"></a>Bien démarrer avec le DK Azure Percept
+## <a name="getting-started-with-azure-percept-dk"></a>Prise en main d’Azure Percept DK
 
-- Suivre les guides de démarrage rapide
+- Configurer votre kit de développement :
     - [Déballer et assembler le DK Azure Percept](./quickstart-percept-dk-unboxing.md)
-    - [Configurer le DK Azure Percept et exécuter votre premier modèle d’IA de vision](./quickstart-percept-dk-set-up.md)
-- Commencer à créer une preuve de concepts avec ces tutoriels
+    - [Finaliser l’expérience d’installation du DK Azure Percept](./quickstart-percept-dk-set-up.md)
+
+- Commencer à créer des solutions de vision et d’audio :
     - [Créer une solution de vision sans code dans Azure Percept Studio](./tutorial-nocode-vision.md)
-    - [Créer un Assistant vocal dans Azure Percept Studio](./tutorial-no-code-speech.md)
+    - [Créer une solution vocale sans code dans Azure Percept Studio](./tutorial-no-code-speech.md) (accessoire Azure Percept Audio requis)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commandez un DK Azure Percept sur la [boutique en ligne de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Acheter un kit Azure Percept DK sur la boutique en ligne de Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

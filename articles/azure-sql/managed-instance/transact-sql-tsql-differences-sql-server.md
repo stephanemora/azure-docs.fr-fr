@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601370"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644920"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ SQL Managed Instance ne pouvant pas accéder aux fichiers, vous ne pouvez pas cr
 ### <a name="logins-and-users"></a>Connexions et utilisateurs
 
 - Les connexions SQL créées à l’aide de `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` et `FROM SID` sont prises en charge. Consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Les principaux de serveur (connexions) Azure Active Directory (Azure AD) créés avec la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou la syntaxe [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sont pris en charge. Ces connexions sont créées au niveau du serveur.
+- Les principaux de serveur (connexions) Azure Active Directory (Azure AD) créés avec la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) ou la syntaxe [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) sont pris en charge. Ces connexions sont créées au niveau du serveur.
 
     SQL Managed Instance prend en charge les principaux de base de données Azure AD avec la syntaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Cette fonctionnalité est également appelée « utilisateurs de base de données autonome Azure AD ».
 
@@ -525,7 +525,7 @@ Les bases de données système ne sont pas répliquées vers l’instance second
 ### <a name="tempdb"></a>TEMPDB
 - La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage de SQL Managed Instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur le niveau Usage général. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
 - `Tempdb` est toujours divisée en 12 fichiers de données : 1 fichier de données principal, également appelé Master, et 11 fichiers de données non principaux. La structure de fichier ne peut pas être modifiée et de nouveaux fichiers ne peuvent pas être ajoutés à `tempdb`. 
-- Les [métadonnées `tempdb` à mémoire optimisée](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), une nouvelle fonctionnalité de base de données en mémoire SQL Server 2019, ne sont pas prises en charge.
+- Les [métadonnées `tempdb` à mémoire optimisée](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), une nouvelle fonctionnalité de base de données en mémoire SQL Server 2019, ne sont pas prises en charge.
 - Les objets créés dans la base de données model ne peuvent pas être créés automatiquement dans `tempdb` après un redémarrage ou un basculement, car `tempdb` n’obtient pas sa liste initiale d’objets de la base de données model. Vous devez créer des objets dans `tempdb` manuellement après chaque redémarrage ou après un basculement.
 
 ### <a name="msdb"></a>MSDB
@@ -534,13 +534,13 @@ Les schémas MSDB suivants dans SQL Managed Instance doivent être détenus par 
 
 - Rôles généraux
   - TargetServersRole
-- [Rôles de base de données fixes](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Rôles de base de données fixes](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Rôles DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile) :
+- [Rôles DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile) :
   - DatabaseMailUserRole
-- [Rôles de service d'intégration](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15) :
+- [Rôles de service d'intégration](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true) :
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

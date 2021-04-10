@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 8f84d77b5a424d5f7273c7e748c35c52882819c6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102608391"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558412"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribution de l’utilisation client Azure
 
@@ -30,16 +30,18 @@ Il existe des cas d’usage secondaires pour l’attribution de l’utilisation 
 >[!IMPORTANT]
 >- L’attribution de l’utilisation client n’est pas destinée à suivre le travail des intégrateurs de systèmes, des fournisseurs de services managés ou des outils conçus pour déployer et gérer des ressources Azure.
 >- L’attribution de l’utilisation client est destinée aux nouveaux déploiements et ne prend pas en charge le suivi des ressources qui ont déjà été déployées.
->- Tous les services Azure ne sont pas compatibles avec l’attribution de l’utilisation du client. Azure Kubernetes Services (AKS) et Virtual Machine Scale Sets présentent des problèmes connus qui entraînent la production de rapports d’utilisation insuffisants.
+>- Tous les services Azure ne sont pas compatibles avec l’attribution de l’utilisation du client. Azure Kubernetes Services (AKS) et Virtual Machine Scale Sets et Azure Batch présentent des problèmes connus qui entraînent la production de rapports d’utilisation insuffisants.
 
 ## <a name="commercial-marketplace-azure-apps"></a>Applications Azure de la place de marché commerciale
 
-Le suivi de l’utilisation d’Azure à partir d’applications Azure publiées sur la place de marché commerciale est en grande partie automatique. Lorsque vous chargez un modèle Resource Manager dans le cadre de la [configuration technique du plan de votre application Azure sur la place de marché](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), l’Espace partenaires ajoute un ID de suivi lisible par Azure Resource Manager.
+Le suivi de l’utilisation d’Azure à partir d’applications Azure publiées sur la place de marché commerciale est en grande partie automatique. Lorsque vous chargez un modèle Resource Manager dans le cadre de la [configuration technique du plan de votre application Azure sur la place de marché](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), l’Espace partenaires ajoute un ID de suivi lisible par Azure Resource Manager.
 
 Si vous utilisez des API Azure Resource Manager, vous devez ajouter votre ID de suivi conformément aux [instructions ci-dessous](#use-resource-manager-apis) pour le transmettre à Azure Resource Manager à mesure que votre code déploie des ressources. Cet ID est visible dans l’Espace partenaires sur la page de configuration technique de votre plan. 
 
 > [!NOTE]
-> Pour les applications Azure existantes, une migration ponctuelle a été effectuée en mars 2021 pour mettre à jour les ID de suivi dans la configuration technique de chaque plan. L’utilisation à partir des déploiements passés de ces offres fait toujours l’objet d’un suivi dans les systèmes Microsoft.
+> Pour les applications Azure existantes, une migration ponctuelle a commencé en mars 2021 pour mettre à jour les ID de suivi dans la configuration technique de chaque plan. L’utilisation à partir des déploiements passés de ces offres fait toujours l’objet d’un suivi dans les systèmes Microsoft.
+>
+>Lorsque vous mettez à jour vos offres, vous n’avez plus besoin d’ajouter le type de ressource **Microsoft.Resources/deployments** dans votre fichier de modèle principal.
 
 ## <a name="other-use-cases"></a>Autres cas d’usage 
 

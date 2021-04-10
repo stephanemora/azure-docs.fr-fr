@@ -3,12 +3,12 @@ title: Envoyer des rapports de sauvegarde Azure par e-mail
 description: Créer des tâches automatisées pour recevoir régulièrement des rapports par e-mail
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 8c18d4c7a3c7a9ba343296961fa9a44614366405
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510371"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561336"
 ---
 # <a name="email-azure-backup-reports"></a>Envoyer des rapports de sauvegarde Azure par e-mail
 
@@ -30,7 +30,7 @@ Pour configurer les e-mails dans Rapports de sauvegarde, effectuez les étapes s
 
 ## <a name="authorize-connections-to-azure-monitor-logs-and-office-365"></a>Autoriser les connexions aux journaux Azure Monitor et à Office 365
 
-L’application logique utilise le connecteur [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) pour interroger les espaces de travail Log Analytics, et utilise le connecteur [Office 365 Outlook](https://docs.microsoft.com/connectors/office365connector/) pour envoyer des e-mails. Vous devrez accorder une autorisation ponctuelle pour ces deux connecteurs. 
+L’application logique utilise le connecteur [azuremonitorlogs](/connectors/azuremonitorlogs/) pour interroger les espaces de travail Log Analytics, et utilise le connecteur [Office 365 Outlook](/connectors/office365connector/) pour envoyer des e-mails. Vous devrez accorder une autorisation ponctuelle pour ces deux connecteurs. 
  
 Pour accorder l’autorisation, suivez les étapes ci-dessous :
 
@@ -79,4 +79,4 @@ Pour résoudre ce problème :
 Si le problème persiste, contactez le support technique Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur la solution Rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports)
+[En savoir plus sur la solution Rapports de sauvegarde](./configure-reports.md)
