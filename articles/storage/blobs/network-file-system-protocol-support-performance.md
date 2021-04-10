@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614324"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589869"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considérations relatives au niveau de performance du système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)
 
@@ -46,7 +46,7 @@ Chaque barre du graphe ci-dessous montre la différence entre la bande passante 
 > [!div class="mx-imgBorder"]
 > ![Niveau de performance relatif](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## <a name="avoid-frequent-overwrites-on-date"></a>Limitation de la fréquence des remplacements à la date
+## <a name="avoid-frequent-overwrites-on-data"></a>Éviter les remplacements fréquents sur les données
 
 Il faut plus de temps pour effectuer une opération de remplacement qu’une nouvelle opération d’écriture. En effet, une opération de remplacement NFS, en particulier une modification de fichier partielle sur place, est une combinaison de plusieurs opérations Blob sous-jacentes : une opération de lecture, une opération de modification et une opération d’écriture. Par conséquent, une application qui exige des modifications fréquentes sur place n’est pas adaptée aux comptes de Stockage Blob avec NFS. 
 

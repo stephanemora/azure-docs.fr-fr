@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric - Suivi des performances
 description: En savoir plus sur les compteurs de performances pour le suivi et le diagnostic des clusters Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: abe1b67bee863f287f148fdd9af13198b67db0f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75464706"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628864"
 ---
 # <a name="performance-metrics"></a>Mesures de performances
 

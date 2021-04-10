@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c7e011cf8445164e0931f71e390813c9134dd89
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: cf67ea58c4c13756fdc6e437883f12124ca47eb9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200960"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105105388"
 ---
 1. Sur le [portail Azure](https://portal.azure.com/), sélectionnez votre ressource Azure Stack Edge, puis accédez à la **Vue d’ensemble**. Votre appareil doit être en ligne. Accédez à **Passerelle de stockage cloud > Comptes de stockage**.
 
@@ -35,4 +35,4 @@ ms.locfileid: "103200960"
 
     ![Ajout d’un compte de stockage 2](media/azure-stack-edge-gateway-add-storage-account/add-storage-account-4.png)
 
-    Vous pouvez accéder aux clés d’accès en vous [connectant aux API locales de l’appareil à l’aide d’Azure Resource Manager](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md). 
+    Vous pouvez accéder aux clés d’accès en vous [connectant aux API locales de l’appareil à l’aide d’Azure Resource Manager](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).

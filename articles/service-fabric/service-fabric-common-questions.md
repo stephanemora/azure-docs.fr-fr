@@ -4,12 +4,12 @@ description: Forum aux questions sur Service Fabric, fonctionnalités, cas d’u
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 95463865c52ee501ceca22cae60d19a089236fd1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102456094"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048678"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -189,4 +189,4 @@ Consultez le [blog Service Fabric](https://techcommunity.microsoft.com/t5/azure-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [principaux concepts](service-fabric-technical-overview.md) et les [meilleures pratiques de Service Fabric](service-fabric-best-practices-overview.md)
+En savoir plus sur les [principaux concepts](service-fabric-technical-overview.md) et les [meilleures pratiques de Service Fabric](./service-fabric-best-practices-security.md)

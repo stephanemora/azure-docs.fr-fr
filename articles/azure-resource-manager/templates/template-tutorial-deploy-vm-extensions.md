@@ -2,16 +2,16 @@
 title: Déployer des extensions de machine virtuelle avec un modèle
 description: Découvrez comment déployer des extensions de machine virtuelle avec des modèles Azure Resource Manager (modèles ARM).
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e04006a0908832c623230d89caa62b0985f32e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 320908ab4b24c43e8bd5209d4f32ef0211036958
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587942"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628422"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM
 
@@ -82,7 +82,7 @@ Ajoutez une ressource d’extension de machine virtuelle au modèle existant ave
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2019-12-01",
+  "apiVersion": "2020-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [

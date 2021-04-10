@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/12/2021
 ms.author: victorh
-ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: references_regions
+ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715562"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590447"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Fonctionnalités du Pare-feu Azure Premium - Préversion
 
@@ -39,9 +40,8 @@ Le Pare-feu Azure Premium - Préversion inclut les fonctionnalités suivantes :
 - **Filtrage d’URL** : étend la fonctionnalité de filtrage de nom de domaine complet du Pare-feu Azure pour prendre en compte une URL entière. Par exemple, `www.contoso.com/a/c` plutôt que `www.contoso.com`.
 - **Catégories web** : permettent aux administrateurs d’autoriser ou de refuser aux utilisateurs l’accès aux catégories de sites web telles que les sites web de jeux d’argent, les sites web de réseaux sociaux, etc.
 
-## <a name="features"></a>Fonctionnalités
 
-### <a name="tls-inspection"></a>Inspection TLS
+## <a name="tls-inspection"></a>Inspection TLS
 
 Le Pare-feu Azure Premium met fin aux connexions TLS sortantes et Est-Ouest. L’inspection TLS entrante est prise en charge avec [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md), ce qui permet un chiffrement de bout en bout. Le Pare-feu Azure effectue les fonctions de sécurité à valeur ajoutée requises et chiffre à nouveau le trafic envoyé à la destination d’origine.
 
@@ -50,23 +50,30 @@ Le Pare-feu Azure Premium met fin aux connexions TLS sortantes et Est-Ouest. L�
 
 Pour en savoir plus sur les conditions requises pour les certificats d’autorité de certification intermédiaires du Pare-feu Azure Premium - Préversion, consultez [Certificats du Pare-feu Azure Premium - Préversion](premium-certificates.md).
 
-### <a name="idps"></a>IDPS
+## <a name="idps"></a>IDPS
 
 Un système IDPS (Intrusion Detection and Prevention System) vous permet de surveiller les activités malveillantes, de consigner des informations sur ces activités, de les signaler, voire de les bloquer. 
 
 Le Pare-feu Azure Premium propose un système IDPS basé sur les signatures pour permettre une détection rapide des attaques en recherchant des modèles spécifiques, tels que des séquences d’octets dans le trafic réseau ou des séquences d’instructions malveillantes connues utilisées par un programme malveillant. Les signatures IDPS sont complètement managées et mises à jour en permanence.
 
+Les signatures/ensembles de règles du Pare-feu Azure incluent les éléments suivants :
+- Accent mis sur la prise d’empreinte numérique des logiciels malveillants, des centres de commande et de contrôle, des kits de code malveillant exploitant une faille de sécurité et des diverses activités malveillantes manquées par les méthodes de protection traditionnelles
+- Plus de 35 000 règles dans plus de 50 catégories
+    - Exemples de catégories : commande et contrôle des logiciels malveillants, attaques DoS, botnets, événements d’information, code malveillant exploitant une faille de sécurité, vulnérabilités, protocoles réseau SCADA, activité des kits de code malveillant
+- Entre 20 et 40 nouvelles règles publiées quotidiennement
+- Faible classification de faux positifs grâce à un bac à sable (sandbox) de pointe et à une boucle de rétroaction du réseau de capteurs globaux.
+
 Le système IDPS vous permet de détecter les attaques dans tous les ports et protocoles pour le trafic non chiffré. Cela étant, lorsque le trafic HTTPS doit être inspecté, le Pare-feu Azure peut utiliser sa fonction d’inspection TLS pour déchiffrer le trafic et mieux détecter les activités malveillantes.  
 
-La liste de contournement IDPS vous permet de ne pas filtrer le trafic vers les adresses IP, les plages et les sous-réseaux spécifiés dans cette liste.  
+La liste de contournement IDPS vous permet de ne pas filtrer le trafic vers les adresses IP, les plages et les sous-réseaux spécifiés dans cette liste. 
 
-### <a name="url-filtering"></a>Un filtrage des URL
+## <a name="url-filtering"></a>Un filtrage des URL
 
 Le filtrage d’URL étend la fonctionnalité de filtrage de nom de domaine complet du Pare-feu Azure pour prendre en compte une URL entière. Par exemple, `www.contoso.com/a/c` plutôt que `www.contoso.com`.  
 
 Le filtrage d’URL peut être appliqué au trafic HTTP et HTTPS. Lorsque le trafic HTTPS est inspecté, le Pare-feu Azure Premium - Préversion peut utiliser sa fonctionnalité d’inspection TLS pour déchiffrer le trafic et extraire l’URL cible afin de vérifier si l’accès est autorisé. L’inspection TLS nécessite un consentement au niveau de la règle d’application. Après activation, vous pouvez utiliser des URL pour le filtrage avec HTTPS. 
 
-### <a name="web-categories"></a>Catégories web
+## <a name="web-categories"></a>Catégories web
 
 Les catégories web permettent aux administrateurs d’autoriser ou de refuser aux utilisateurs l’accès aux catégories de sites web telles que les sites web de jeux d’argent, les sites web de réseaux sociaux, etc. Les catégories web sont également incluses dans le Pare-feu Azure Standard, mais elles sont plus précises dans le Pare-feu Azure Premium - Préversion. Contrairement à la fonctionnalité de catégories web de la référence SKU Standard qui correspond à la catégorie basée sur un nom de domaine complet, la référence SKU Premium correspond à la catégorie en fonction de l’URL complète pour le trafic HTTP et HTTPS. 
 
@@ -78,11 +85,11 @@ Par exemple, si le Pare-feu Azure intercepte une demande HTTPS pour `www.google.
 
 Les catégories sont organisées en fonction de leur gravité sous **Responsabilité**, **Bande passante élevée**, **Utilisation métier**, **Perte de productivité**, **Navigation générale** et **Sans catégorie**.
 
-#### <a name="category-exceptions"></a>Exceptions de catégorie
+### <a name="category-exceptions"></a>Exceptions de catégorie
 
 Vous pouvez créer des exceptions à vos règles de catégorie web. Créez une collection de règles d’autorisation ou de refus distinct avec une priorité plus élevée au sein du groupe de collections de règles. Par exemple, vous pouvez configurer une collection de règles qui autorise `www.linkedin.com` avec la priorité 100, avec une collection de règles qui refuse **Réseaux sociaux** avec la priorité 200. Cette opération crée l’exception pour la catégorie web **Réseaux sociaux** prédéfinie.
 
-#### <a name="categorization-change"></a>Modification de la catégorisation
+### <a name="categorization-change"></a>Modification de la catégorisation
 
 Vous pouvez demander une modification de catégorisation si vous  :
 
@@ -94,6 +101,44 @@ or
 
 Vous êtes invité à envoyer une demande à l’adresse [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
  
+## <a name="supported-regions"></a>Régions prises en charge
+
+La préversion du Pare-feu Azure Premium est prise en charge dans les régions suivantes :
+
+- Europe Ouest (public/Europe)
+- USA Est (public/États-Unis)
+- Australie Est (public/Australie)
+- Asie Sud-Est (public/Asie-Pacifique)
+- Royaume-Uni Sud (public/Royaume-Uni)
+- Europe Nord (public/Europe)
+- USA Est 2 (public/États-Unis)
+- USA Centre Sud (public/États-Unis)
+- USA Ouest 2 (public/États-Unis)
+- USA Ouest (public/États-Unis)
+- USA Centre (public/États-Unis)
+- USA Centre Nord (public/États-Unis)
+- Japon Est (public/Japon)
+- Asie Est (public/Asie-Pacifique)
+- Canada Centre (public/Canada)
+- France Centre (public/France)
+- Afrique du Sud Nord (public/Afrique du Sud)
+- Émirats arabes unis Nord (public/Émirats Arabes Unis)
+- Suisse Nord (public/Suisse)
+- Brésil Sud (public/Brésil)
+- Norvège Est (public/Norvège)
+- Australie Centre (public/Australie)
+- Australie Centre 2 (public/Australie)
+- Australie Sud-Est (public/Australie)
+- Canada Est (public/Canada)
+- USA Centre EUAP (public/Canaries (États-Unis))
+- France Sud (public/France)
+- Japon Ouest (public/Japon)
+- Corée Sud (public/Corée)
+- Émirats arabes unis Centre (public/Émirats arabes unis)
+- Royaume-Uni Ouest (public/Royaume-Uni)
+- USA Centre-Ouest (public/États-Unis)
+- Inde Ouest (public/Inde)
+
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -112,8 +157,7 @@ Certificats signés par le client non approuvés|Les certificats signés par le 
 |Propagation du certificat|Après l’application d’un certificat d’autorité de certification sur le pare-feu, la prise en compte du certificat peut prendre de 5 à 10 minutes.|Correctif planifié lors de la disponibilité générale.|
 |Contournement IDPS|Le contournement IDPS ne fonctionne pas pour le trafic avec terminaison TLS. L’adresse IP source et les groupes IP sources ne sont pas pris en charge.|Correctif planifié lors de la disponibilité générale.|
 |Prise en charge du protocole TLS 1.3|Le protocole TLS 1.3 est partiellement pris en charge. Le tunnel TLS entre le client et le pare-feu est basé sur le protocole TLS 1.2, et celui entre le pare-feu et le serveur web externe est basé sur le protocole TLS 1.3.|Des mises à jour sont à l’étude.|
-
-
+|Point de terminaison privé Key Vault|Key Vault prend en charge l’accès au point de terminaison privé pour limiter son exposition réseau. Les services Azure approuvés peuvent contourner cette limitation si une exception est configurée comme décrit dans la [documentation de Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Le Pare-feu Azure n’est pas répertorié actuellement comme un service approuvé et ne peut pas accéder au Key Vault.|Correctif planifié lors de la disponibilité générale.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

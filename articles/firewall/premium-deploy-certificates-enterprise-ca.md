@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525433"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104590464"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Déployer et configurer des certificats d’autorité de certification d’entreprise pour le Pare-feu Azure Premium
 
@@ -42,7 +42,7 @@ Pour générer un certificat à utiliser avec la préversion du Pare-feu Azure P
 1. Accédez au site d’inscription par le web sur l’autorité de certification racine, généralement `https://<servername>/certsrv`, et sélectionnez **Demander un certificat**.
 1. Sélectionnez **Demande de certificat avancée**.
 1. Sélectionnez **Créer et soumettre une demande de requête auprès de cette Autorité de certification**.
-1. Remplissez le formulaire à l’aide du modèle Autorité de certification secondaire comme indiqué ci-dessous :
+1. Remplissez le formulaire à l’aide du modèle Autorité de certification secondaire.
 1. Envoyez la demande et installez le certificat.
 1. En supposant que cette demande est effectuée à partir d’un serveur Windows à l’aide d’Internet Explorer, ouvrez **Options Internet**.
 1. Accédez à l’onglet **Contenu**, puis sélectionnez **Certificats**.

@@ -10,10 +10,10 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.openlocfilehash: feabdcef9298c93f0cba93d3eeb9ebb0a32d6ef2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102560342"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Séries Ddv4 et Ddsv4
@@ -60,7 +60,7 @@ Les nouvelles tailles de machines virtuelles Ddsv4 incluent un stockage SSD loca
  >Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Ddv4.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
