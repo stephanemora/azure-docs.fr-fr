@@ -1,16 +1,14 @@
 ---
 title: Analyse des performances avec les journaux Azure Monitor
 description: Découvrez comment configurer l’agent Log Analytics de façon à effectuer le monitoring des conteneurs et des compteurs de performances de vos clusters Azure Service Fabric.
-author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.author: srrengar
-ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9bb89dc2eebe584a0a9f81a6707c0a2e4fa2fc30
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570148"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626671"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Analyse des performances avec les journaux Azure Monitor
 

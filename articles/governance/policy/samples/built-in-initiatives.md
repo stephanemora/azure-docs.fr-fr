@@ -1,15 +1,15 @@
 ---
 title: Liste des initiatives de stratégie intégrées
 description: Liste les initiatives de stratégie intégrées pour Azure Policy. Les catégories incluent Conformité réglementaire, Configuration d’invité et plus encore.
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: a30c23ea0014abf4905cf6d11be15e091019d3a6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef643e551c2ddab715d67467620fb748fb836eee
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604909"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090074"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Définitions d’initiative Azure Policy intégrées
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6ec629629fc774ddb5423db91fe0d71a49305ca1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e23a6351b26cc35679bc879e2b62dd76c74f9962
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566037"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798338"
 ---
 # <a name="hc-series"></a>Série HC
 
@@ -29,14 +29,16 @@ Les machines virtuelles de la série HC sont dotées de la technologie Mellanox
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : prises en charge ([En savoir plus](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) sur les performances et les problèmes potentiels)<br>
 [Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
-
 <br>
 
 | Taille | Processeurs virtuels | Processeur | Mémoire (Gio) | Bande passante mémoire (Go/s) | Fréquence du processeur de base (GHz) | Fréquence de tous les cœurs (GHz, pic) | Fréquence d’un cœur (GHz, pic) | Performances RDMA (Gbit/s) | Prise en charge MPI | Stockage temporaire (Gio) | Disques de données max. | Cartes réseau virtuelles Ethernet max. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Tous | 700 | 4 | 8 |
 
-Découvrez-en plus sur l’[architecture sous-jacente, la topologie VM](./workloads/hpc/hc-series-overview.md) et les [performances](./workloads/hpc/hc-series-performance.md) attendues de la machine virtuelle série HC.
+Apprenez-en davantage sur ce qui suit :
+- [Architecture et topologie de machine virtuelle](./workloads/hpc/hc-series-overview.md)
+- [Pile logicielle](./workloads/hpc/hc-series-overview.md#software-specifications) prise en charge incluant le système d’exploitation
+- [Performances](./workloads/hpc/hc-series-performance.md) attendues de la machine virtuelle série HC.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

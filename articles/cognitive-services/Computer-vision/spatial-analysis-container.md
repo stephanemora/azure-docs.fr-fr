@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 1a107f812ceb46649126bdbefcf3b828e1938ff3
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612896"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108356"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -311,7 +311,7 @@ Ensuite, inscrivez l’ordinateur hôte en tant qu’appareil IoT Edge dans votr
 Vous devez connecter l’appareil IoT Edge à votre service IoT Hub Azure. Vous devez copier la chaîne de connexion à partir de l’appareil IoT Edge que vous avez créé précédemment. Vous pouvez aussi exécuter la commande Azure CLI ci-dessous.
 
 ```bash
-sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+sudo az iot hub device-identity connection-string show --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
 Sur l’ordinateur hôte, ouvrez `/etc/iotedge/config.yaml` pour le modifier. Remplacez `ADD DEVICE CONNECTION STRING HERE` par la chaîne de connexion. Enregistrez et fermez le fichier. Exécutez cette commande pour redémarrer le service IoT Edge sur l’ordinateur hôte.
@@ -334,7 +334,7 @@ Ouvrez l’Assistant [Création d’une machine virtuelle](https://ms.portal.azu
 
 Donnez un nom à votre machine virtuelle et sélectionnez (USA) USA Ouest 2 comme région. Veillez à définir `Availability Options` sur « Aucune redondance d’infrastructure requise ». Reportez-vous à la figure ci-dessous pour obtenir la configuration complète et à l’étape suivante pour trouver la bonne taille de machine virtuelle. 
 
-:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.png" alt-text="Détails de la configuration de la machine virtuelle" lightbox="media/spatial-analysis/virtual-machine-instance-details.png":::
+:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.jpg" alt-text="Détails de la configuration de la machine virtuelle" lightbox="media/spatial-analysis/virtual-machine-instance-details.jpg":::
 
 Pour trouver la taille de machine virtuelle, sélectionnez « Voir toutes les tailles », puis affichez la liste des « tailles de machine virtuelle de stockage non Premium », indiquée ci-dessous.
 
@@ -473,7 +473,7 @@ Ensuite, inscrivez la machine virtuelle en tant que périphérique IoT Edge dans
 Vous devez connecter l’appareil IoT Edge à votre service IoT Hub Azure. Vous devez copier la chaîne de connexion à partir de l’appareil IoT Edge que vous avez créé précédemment. Vous pouvez aussi exécuter la commande Azure CLI ci-dessous.
 
 ```bash
-sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+sudo az iot hub device-identity connection-string show --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
 Ouvrez `/etc/iotedge/config.yaml` sur la machine virtuelle pour les modifications. Remplacez `ADD DEVICE CONNECTION STRING HERE` par la chaîne de connexion. Enregistrez et fermez le fichier. Exécutez cette commande pour redémarrer le service IoT Edge sur la machine virtuelle.
@@ -542,10 +542,6 @@ Une fois le déploiement terminé et le conteneur en cours d’exécution, l’*
 ## <a name="configure-the-operations-performed-by-spatial-analysis"></a>Configurer les opérations effectuées par l’analyse spatiale
 
 Vous devez utiliser [opérations d’analyse spatiale](spatial-analysis-operations.md) pour configurer le conteneur afin d’utiliser des caméras connectées et de configurer les opérations, entre autres. Pour chaque caméra que vous configurez, les opérations d’analyse spatiale génèrent un flux de sortie de messages JSON envoyés à votre instance Azure IoT Hub.
-
-## <a name="redeploy-or-delete-the-deployment"></a>Redéployer ou supprimer le déploiement
-
-Si vous devez mettre à jour le déploiement, vous devez vous assurer que vos déploiements précédents ont abouti, ou supprimer les déploiements d’appareils IoT Edge qui ne se sont pas terminés. Dans le cas contraire, ces déploiements se poursuivront, laissant le système dans un état incorrect. Vous pouvez utiliser le portail Azure ou l’[interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utiliser la sortie générée par le conteneur
 

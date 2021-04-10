@@ -11,18 +11,21 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518719"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066207"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
 Découvrez comment exécuter vos Jupyter notebooks Jupyter directement dans votre espace de travail dans Azure Machine Learning studio. En plus de la possibilité de lancer [Jupyter](https://jupyter.org/) ou [JupyterLab](https://jupyterlab.readthedocs.io), vous pouvez modifier et exécuter vos blocs-notes sans quitter l’espace de travail.
 
 Pour plus d’informations sur la création et la gestion de fichiers, y compris de notebooks, consultez [Créer et gérer des fichiers dans votre espace de travail](how-to-manage-files.md).
+
+> [!IMPORTANT]
+> Les fonctionnalités marquées (préversion) étant fournies sans contrat de niveau de service, elles sont déconseillées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,17 +51,27 @@ Utilisez le mode focus pour développer votre affichage actuel afin de pouvoir v
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Activer/désactiver le mode focus et l’affichage standard":::
 
-## <a name="use-intellisense"></a>Utiliser IntelliSense
+## <a name="code-completion-intellisense"></a>Saisie semi-automatique du code (IntelliSense)
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) est une aide à la saisie semi-automatique de code qui comprend un certain nombre de fonctionnalités : Liste des membres, Informations sur les paramètres, Info Express et Compléter le mot. Ces fonctionnalités vous aident à en savoir plus sur le code que vous utilisez, à suivre les paramètres que vous entrez et à ajouter des appels aux propriétés et aux méthodes avec seulement quelques séquences de touches.  
 
-Lorsque vous entrez du code, utilisez Ctrl + Espace pour déclencher IntelliSense.
+### <a name="use-code-snippets-preview"></a>Utiliser des extraits de code (préversion)
+
+Utilisez **Ctrl + Espace** pour déclencher les extraits de code IntelliSense.  Faites défiler les suggestions ou commencez à taper pour rechercher le code à insérer.  Une fois que vous avez inséré du code, déplacez-vous dans les arguments afin de personnaliser le code pour votre propre usage.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Insérer un extrait de code":::
+
+Ces mêmes extraits de code sont disponibles lorsque vous ouvrez votre notebook dans VS Code. Pour obtenir la liste complète des extraits de code disponibles, consultez [Extraits de code VS de Azure Machine Learning](https://github.com/Azure/azureml-snippets/blob/main/snippets/snippets.md).
+
+Vous pouvez parcourir liste et y rechercher des extraits de code à l’aide de la barre d’outils du notebook pour ouvrir le panneau d’extrait de code.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Ouvrir l’outil du panneau d’extrait de code dans la barre d’outils du notebook":::
+
+À partir du panneau des extraits, vous pouvez également envoyer une demande d’ajout d’extrait de code.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Le panneau d’extrait de code vous permet de proposer un nouvel extrait de code":::
 
 ## <a name="clean-your-notebook-preview"></a>Nettoyer votre notebook (préversion)
-
-> [!IMPORTANT]
-> La fonctionnalité Gather (Assembler) est actuellement en préversion publique.
-> La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Au cours de la création d’un notebook, vous récupérez généralement les cellules que vous avez utilisées pour l’exploration des données ou le débogage. La fonctionnalité *Gather (Assembler)* vous permet de créer un notebook propre sans ces cellules superflues.
 
@@ -273,7 +286,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
 
-* Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
+* Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
     
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,12 +4,12 @@ description: Transférez des collections d’images ou d’autres artefacts d’
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935347"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785816"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transférer des artefacts vers un autre registre
 
@@ -368,8 +368,9 @@ IMPORT_RUN_RES_ID=$(az deployment group show \
   --name importPipelineRun \
   --query 'properties.outputResources[0].id' \
   --output tsv)
+```
 
-When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
+Une fois le déploiement terminé, vérifiez l’importation des artefacts en dressant la liste des dépôts dans le registre de conteneurs cible. Par exemple, exécutez [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -426,7 +427,8 @@ az resource delete \
   * Tous les artefacts n’ont pas été transférés, voire aucun ne l’a été. Vérifiez l’orthographe des artefacts dans l’exécution d’exportation ainsi que le nom de l’objet blob dans les exécutions d’exportation et d’importation. Vérifiez que le nombre d’artefacts transférés ne dépasse pas 50.
   * Il est possible que l’exécution du pipeline ne soit pas terminée. Une exécution d’exportation ou d’importation peut prendre du temps. 
   * Pour les autres problèmes de pipeline, transmettez l’[ID de corrélation](../azure-resource-manager/templates/deployment-history.md) du déploiement de l’exécution d’exportation ou d’importation à l’équipe Azure Container Registry.
-
+* **Problèmes lors de l’extraction de l’image dans un environnement physiquement isolé**
+  * Si vous constatez des erreurs concernant des couches étrangères ou des tentatives de résoudre mcr.microsoft.com en tenant d’extraire une image dans un environnement physiquement isolé, votre manifeste d’image contient probablement des couches non distribuables. En raison de la nature d’un environnement physiquement isolé, l’extraction de ces images échoue souvent. Vous pouvez confirmer que c’est le cas en vérifiant si le manifeste d’image contient des références à des registres externes. Si c’est le cas, vous devrez envoyer les couches non distribuables à votre ACR de cloud public avant de déployer un exécution de pipeline d’exportation pour cette image. Pour obtenir des conseils sur la façon de procéder, consultez [Comment faire pour envoyer des couches non distribuables à un registre ?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

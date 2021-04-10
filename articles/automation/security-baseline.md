@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ab310681ae7b63cb4e9f4e07984983727ae5ff2
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ea75b9c1e8c7a1a242406b5a7f73db1b05c70276
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953916"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562203"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de référence de sécurité Azure pour Automation
 
@@ -252,7 +252,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : aucune
 
 ### <a name="29-enable-dns-query-logging"></a>2.9 : Activer la journalisation des requêtes DNS
 
@@ -398,7 +398,7 @@ Vous pouvez aussi activer un accès Just-In-Time/Just-Enough à l’aide des rô
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
-**Conseils** : vous avez accès aux sources des journaux Activité de connexion, Audit et Événement à risque Azure Active Directory (Azure AD), qui permettent l’intégration à n’importe quel outil SIEM/de supervision.
+**Conseils** : Vous avez accès aux sources des journaux Activité de connexion, Audit et Événement à risque Azure Active Directory (Azure AD), qui permettent l’intégration à n’importe quel outil SIEM/de supervision.
 
 Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes souhaitées dans un espace de travail Log Analytics.
 
@@ -544,7 +544,7 @@ Lorsque vous utilisez des Runbook Workers hybrides, les disques virtuels des mac
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés.
 
 **Définitions intégrées à Azure Policy - Microsoft.Automation** :
 
@@ -743,7 +743,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme b
 
 - [Présentation des effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-- [Déploiement d’un compte Automation à l’aide d’un modèle Azure Resource Manager](/azure/automation/quickstart-create-account-template#deploy-the-template)
+- [Déploiement d’un compte Automation à l’aide d’un modèle Azure Resource Manager](/azure/automation/quickstart-create-automation-account-template)
 
 - [Exemples Azure Policy intégrés pour Azure Automation](policy-reference.md)
 

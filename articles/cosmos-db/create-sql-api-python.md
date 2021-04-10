@@ -13,12 +13,12 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fee0591622c1ee07b6e954b3cadc208a300ab6a5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078779"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798780"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Python à l’aide d’un compte d’API SQL Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
     * Sans abonnement Azure actif :
         * [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/), un environnement de tests pendant 30 jours.
         * [Émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
-- [Python 2.7, 3.5.3 ou supérieur](https://www.python.org/downloads/) avec l’exécutable `python` dans votre `PATH`.
+- [Python 2.7 ou 3.6 et versions ultérieures](https://www.python.org/downloads/) avec l’exécutable `python` dans votre `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Extension Python pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
@@ -64,7 +64,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
     :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="Explorateur de données du portail Azure, volet Ajouter un conteneur":::
 
-2. Dans la page **Ajouter un conteneur** , entrez les paramètres du nouveau conteneur.
+2. Dans la page **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
 
     |Paramètre|Valeur suggérée|Description
     |---|---|---|
@@ -116,7 +116,7 @@ Nous allons à présent cloner une application API SQL à partir de GitHub, déf
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans votre compte Azure Cosmos DB, dans le [portail Azure](https://portal.azure.com/), sélectionnez **Clés** dans le volet de navigation de gauche. Utilisez les boutons de copie sur le côté droit de l’écran pour copier l’ **URI** et la **clé primaire** dans le fichier *cosmos_get_started.py* à l’étape suivante.
+1. Dans votre compte Azure Cosmos DB, dans le [portail Azure](https://portal.azure.com/), sélectionnez **Clés** dans le volet de navigation de gauche. Utilisez les boutons de copie sur le côté droit de l’écran pour copier l’**URI** et la **clé primaire** dans le fichier *cosmos_get_started.py* à l’étape suivante.
 
     :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Obtenir une clé d’accès et un URI dans les paramètres de clés du portail Azure":::
 
@@ -166,7 +166,7 @@ Tous les extraits de code suivants proviennent du fichier *cosmos_get_started.py
 
 1. Dans Visual Studio Code, sélectionnez **Affichage** > **Palette de commandes**. 
 
-2. À l’invite, entrez **Python: Select Interpreter** , puis sélectionnez la version de Python à utiliser.
+2. À l’invite, entrez **Python: Select Interpreter**, puis sélectionnez la version de Python à utiliser.
 
     Le pied de page dans Visual Studio Code affiche désormais l’interpréteur sélectionné. 
 

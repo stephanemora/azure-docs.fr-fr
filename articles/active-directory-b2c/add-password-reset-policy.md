@@ -8,16 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447926"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798391"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
@@ -34,6 +35,9 @@ Le [parcours d’inscription et de connexion](add-sign-up-and-sign-in-policy.md)
 ![Flux de réinitialisation de mot de passe](./media/add-password-reset-policy/password-reset-flow.png)
 
 Le flux de réinitialisation du mot de passe s’applique aux comptes locaux dans Azure AD B2C qui utilisent une [adresse e-mail](identity-provider-local.md#email-sign-in) ou un [nom d’utilisateur](identity-provider-local.md#username-sign-in) avec un mot de passe pour la connexion.
+
+> [!TIP]
+> Le flux de réinitialisation du mot de passe en libre-service permet aux utilisateurs de modifier leur mot de passe quand ils oublient leur mot de passe et souhaitent le réinitialiser. Envisagez de configurer un [flux de modification du mot de passe](add-password-change-policy.md) pour prendre en charge les cas où un utilisateur connaît son mot de passe et souhaite le modifier.
 
 Une pratique courante après la migration des utilisateurs vers Azure AD B2C avec des mots de passe aléatoires consiste à demander aux utilisateurs de vérifier leurs adresses e-mail et de réinitialiser leur mot de passe lors de leur première connexion. Il est également courant de forcer l’utilisateur à réinitialiser son mot de passe après qu’un administrateur a modifié son mot de passe. Pour activer cette fonctionnalité, consultez [Forcer la réinitialisation du mot de passe](force-password-reset.md).
 

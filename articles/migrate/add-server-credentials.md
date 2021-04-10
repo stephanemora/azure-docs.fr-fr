@@ -1,34 +1,34 @@
 ---
-title: Fournir des informations d’identification de serveur pour découvrir les applications, les dépendances, ainsi que les instances et bases de données SQL Server
+title: Fournir des informations d’identification de serveur pour découvrir un inventaire logiciel, des dépendances, ainsi que les instances et bases de données SQL Server
 description: Découvrez comment fournir des informations d’identification de serveur sur le gestionnaire de configuration de l’appliance
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 01/26/2021
-ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: 990ca661eb6ec17c7f8aca246c15f89fcf8975a8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054097"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785221"
 ---
-# <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Fournir des informations d’identification de serveur pour découvrir les applications, les dépendances, ainsi que les instances et bases de données SQL Server
+# <a name="provide-server-credentials-to-discover-software-inventory-dependencies-and-sql-server-instances-and-databases"></a>Fournir des informations d’identification de serveur pour découvrir un inventaire logiciel, des dépendances, ainsi que les instances et bases de données SQL Server
 
 Cet article explique comment ajouter diverses informations d’identification de serveur sur le gestionnaire de configuration de l’appliance pour effectuer un inventaire logiciel (découvrir les applications installées) et une analyse des dépendances sans agent, ainsi que découvrir les instances et bases de données SQL Server.
 
 > [!Note]
 > La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://aka.ms/AzureMigrate/SQL) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
 
-L’[appliance Azure Migrate](migrate-appliance.md) est une appliance légère que l’outil d’évaluation de serveur Azure Migrate utilise pour découvrir les serveurs locaux s’exécutant dans un environnement VMware et envoyer des métadonnées de configuration et de performances du serveur à Azure. L’appliance permet également d’effectuer un inventaire logiciel et une analyse des dépendances sans agent, ainsi que de découvrir les instances et bases de données SQL Server.
+L’[appliance Azure Migrate](migrate-appliance.md) est une appliance légère que l’outil de découverte et d’évaluation d’Azure Migrate utilise pour découvrir les serveurs locaux s’exécutant dans un environnement VMware et envoyer des métadonnées de configuration et de performances du serveur à Azure. L’appliance permet également d’effectuer un inventaire logiciel et une analyse des dépendances sans agent, ainsi que de découvrir les instances et bases de données SQL Server.
 
-Si vous souhaitez tirer parti de ces fonctionnalités, vous pouvez fournir des informations d’identification de serveur en procédant comme suit. L’appliance tente de mapper automatiquement les informations d’identification aux serveurs pour exécuter les fonctionnalités de découverte.
+Si vous souhaitez utiliser ces fonctionnalités, vous pouvez fournir des informations d’identification de serveur en procédant comme suit. L’appliance tente de mapper automatiquement les informations d’identification aux serveurs pour exécuter les fonctionnalités de découverte.
 
 ## <a name="add-credentials-for-servers-running-in-vmware-environment"></a>Ajouter des informations d’identification pour les serveurs s’exécutant dans un environnement VMware
 
 ### <a name="types-of-server-credentials-supported"></a>Types d’informations d’identification de serveur pris en charge
 
-Vous pouvez ajouter diverses informations d’identification de serveur dans le gestionnaire de configuration de l’appliance, qui peuvent être des informations d’identification de domaine, hors domaine (Windows ou Linux) ou SQL Server.
+Vous pouvez ajouter diverses informations d’identification de serveur au gestionnaire de configuration de l’appliance, qui peuvent être des informations d’identification d’authentification de domaine, hors domaine (Windows ou Linux) ou SQL Server.
 
 Les types d’informations d’identification de serveur pris en charge sont répertoriés dans le tableau ci-dessous :
 
@@ -55,7 +55,7 @@ Fonctionnalité | Informations d'identification Windows | Informations d’ident
 - Il est recommandé de créer un compte d’utilisateur de domaine dédié avec les [autorisations requises](add-server-credentials.md#required-permissions), dont l’étendue est limitée à l’inventaire logiciel et à l’analyse des dépendances sans agent, ainsi qu’à la découverte des instances et bases de données SQL Server sur les serveurs souhaités.
 - Il est recommandé de fournir au moins une information d’identification de domaine validée avec succès ou au moins une information hors domaine pour lancer l’inventaire logiciel.
 - Pour découvrir les instances et bases de données SQL Server, vous pouvez fournir des informations d’identification de domaine si vous avez configuré le mode d’authentification Windows sur vos serveurs SQL.
--  Vous pouvez également fournir des informations d’identification d’authentification SQL Server si vous avez configuré le mode d’authentification SQL Server sur vos serveurs SQL Server, mais il est recommandé de fournir au moins une information d’identification de domaine correctement validée ou au moins une information d’identification Windows (hors domaine) afin que l’appliance puisse d’abord effectuer l’inventaire logiciel.
+- Vous pouvez également fournir des informations d’identification d’authentification SQL Server si vous avez configuré le mode d’authentification SQL Server sur vos serveurs SQL Server, mais il est recommandé de fournir au moins une information d’identification de domaine correctement validée ou au moins une information d’identification Windows (hors domaine) afin que l’appliance puisse d’abord effectuer l’inventaire logiciel.
 
 ## <a name="credentials-handling-on-appliance"></a>Gestion des informations d’identification sur l’appliance
 

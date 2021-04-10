@@ -3,12 +3,12 @@ title: Création d’un pool d’images personnalisées à l’aide d’une imag
 description: Créez un pool d’images personnalisées à partir d’une image managée pour provisionner les nœuds de calcul avec les logiciels et les données de votre application.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9baa65c0f1c1844ea10e3d5b4f0b48924912d233
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94916574"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023875"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Création d’un pool d’images personnalisées à l’aide d’une image managée
 
@@ -43,7 +43,7 @@ Pour mettre à l’échelle des pools Batch de manière fiable avec une image ma
 Si vous créez une machine virtuelle pour l'image, utilisez une image propriétaire de la Place de Marché Azure prise en charge par Batch comme image de base pour votre image managée. Seules les images propriétaires peuvent être utilisées comme image de base. Pour obtenir la liste complète des références d'image de la Place de marché Azure prises en charge par Azure Batch, consultez l'opération [Lister les références SKU d'agent de nœud](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> Vous ne pouvez pas, comme image de base, utiliser une image de fournisseurs tiers qui comporte des conditions de licence et d’achat supplémentaires. Pour plus d’informations sur ces images de la Place de marché, consultez les recommandations émises pour les machines virtuelles [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> Vous ne pouvez pas, comme image de base, utiliser une image de fournisseurs tiers qui comporte des conditions de licence et d’achat supplémentaires. Pour plus d’informations sur ces images de la Place de marché, consultez l’aide concernant les machines virtuelles [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 - Assurez-vous que la machine virtuelle est créée avec un disque managé. Il s’agit du paramètre de stockage par défaut quand vous créez une machine virtuelle.
 - N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.

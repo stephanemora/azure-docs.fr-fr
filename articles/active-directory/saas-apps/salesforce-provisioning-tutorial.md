@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c5df0a5fc054a12e3fa2ef1e352645c57c357b01
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353102"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798729"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutoriel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
@@ -27,6 +27,9 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 * Un locataire Azure Active Directory
 * Un locataire Salesforce.com
+
+> [!Note]
+> Les rôles ne doivent pas être modifiés manuellement dans Azure Active Directory lors de l’importation des rôles.
 
 > [!IMPORTANT]
 > Si vous utilisez un compte d’essai Salesforce.com, vous ne pouvez pas configurer l’approvisionnement automatique des utilisateurs. Les comptes d’essai n’ont pas l’accès d’API requis tant qu’ils ne sont pas achetés. Vous pouvez contourner cette limitation en utilisant un [compte de développeur](https://developer.salesforce.com/signup) gratuit pour suivre ce didacticiel.
@@ -69,11 +72,11 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
     ![Capture d’écran montrant la page d’approvisionnement Salesforce, avec le Mode d’approvisionnement défini sur Automatique et d’autres valeurs que vous pouvez définir.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
-5. Dans la section **Informations d’identification de l’administrateur** , fournissez les paramètres de configuration suivants :
+5. Dans la section **Informations d’identification de l’administrateur**, fournissez les paramètres de configuration suivants :
 
-    a. Dans la zone de texte **Nom d’utilisateur administrateur** , saisissez le nom d’un compte Salesforce auquel le profil **Administrateur système** est assigné dans Salesforce.com.
+    a. Dans la zone de texte **Nom d’utilisateur administrateur**, saisissez le nom d’un compte Salesforce auquel le profil **Administrateur système** est assigné dans Salesforce.com.
 
-    b. Dans la zone de texte **Mot de passe d’administrateur** , entrez le mot de passe de ce compte.
+    b. Dans la zone de texte **Mot de passe d’administrateur**, entrez le mot de passe de ce compte.
 
 6. Pour obtenir le jeton de sécurité Salesforce, ouvrez un nouvel onglet et connectez-vous au même compte d’administration Salesforce. Dans le coin supérieur droit de la page, cliquez sur votre nom, puis cliquez sur **Paramètres**.
 
@@ -83,7 +86,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
   
     ![Capture d’écran montrant Réinitialiser mon jeton de sécurité sélectionné à partir de Mes informations personnelles.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
-8. Sur la page **Réinitialiser le jeton de sécurité** , cliquez sur **Réinitialiser le jeton de sécurité**.
+8. Sur la page **Réinitialiser le jeton de sécurité**, cliquez sur **Réinitialiser le jeton de sécurité**.
 
     ![La capture d’écran montre la page Jeton de sécurité REST, avec du texte explicatif et l’option de réinitialisation du jeton de sécurité](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
@@ -91,17 +94,17 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 10. Copiez le jeton, accédez à votre fenêtre Azure AD et collez-le dans le champ **Jeton secret**.
 
-11. L’ **URL de locataire** doit être entrée si l’instance de Salesforce se trouve sur Salesforce Government Cloud. Dans le cas contraire, elle est facultative. Entrez l’URL de locataire en utilisant le format « https://\<your-instance\>.my.salesforce.com », où vous devez remplacer \<your-instance\> par le nom de votre instance Salesforce.
+11. L’**URL de locataire** doit être entrée si l’instance de Salesforce se trouve sur Salesforce Government Cloud. Dans le cas contraire, elle est facultative. Entrez l’URL de locataire en utilisant le format « https://\<your-instance\>.my.salesforce.com », où vous devez remplacer \<your-instance\> par le nom de votre instance Salesforce.
 
 12. Dans le portail Azure, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à votre application Salesforce.
 
-13. Dans le champ **E-mail de notification** , saisissez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
+13. Dans le champ **E-mail de notification**, saisissez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case.
 
 14. Cliquez sur **Enregistrer.**  
 
 15. Dans la section Mappages, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Salesforce.**
 
-16. Dans la section **Mappages d’attributs** , passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce. Remarque : Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
+16. Dans la section **Mappages d’attributs**, passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD vers Salesforce. Remarque : Les attributs sélectionnés en tant que propriétés de **Correspondance** servent à faire correspondre les comptes utilisateur dans Salesforce, en vue d’opérations de mise à jour. Cliquez sur le bouton Enregistrer pour valider les modifications.
 
 17. Pour activer le service d’approvisionnement Azure AD pour Salesforce, accédez à la section Paramètres et définissez le **Statut de l’approvisionnement** sur **Activé**.
 

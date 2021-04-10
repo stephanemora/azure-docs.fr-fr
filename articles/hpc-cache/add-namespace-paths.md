@@ -4,14 +4,14 @@ description: Création de chemins d’accès côté client pour le stockage prin
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760533"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104798525"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurer l’espace de noms agrégé
 
@@ -30,6 +30,8 @@ Vous pouvez trier les colonnes du tableau afin de mieux comprendre l’espace de
 ## <a name="add-or-edit-namespace-paths"></a>Ajouter ou modifier des chemins d’espace de noms
 
 Vous devez créer au moins un chemin d’espace de noms pour que les clients puissent accéder à la cible de stockage. (Pour en savoir plus sur l’accès client, consultez [Monter le cache Azure HPC Cache](hpc-cache-mount.md).)
+
+Si vous avez récemment ajouté une cible de stockage ou personnalisé une stratégie d’accès, une ou deux minutes peuvent s’écouler avant que vous puissiez créer un chemin d’accès d’espace de noms.
 
 ### <a name="blob-namespace-paths"></a>Chemins d’espace de noms d’objet blob
 
@@ -132,6 +134,30 @@ Pour mettre à jour le chemin d’espace de noms d’une cible ou ajouter des ch
 Les options utilisées pour la commande de mise à jour sont similaires à celles de la commande « create », sauf que vous ne transmettez pas les informations du système de stockage (adresse IP ou nom d’hôte) et le modèle d’utilisation est facultatif. Pour en savoir plus sur la syntaxe de l’option ``--junction``, consultez [Ajouter une nouvelle cible de stockage NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target).
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>Chemins d’accès d’un espace de noms ADLS-NFS (PRÉVERSION)
+
+Comme une cible de stockage blob ordinaire, une cible de stockage ADLS-NFS n’a qu’une seule exportation, de sorte qu’elle ne peut avoir qu’un seul chemin d’accès pour l’espace de noms.
+
+Suivez les instructions ci-dessous pour configurer ou modifier le chemin avec le portail Azure.
+
+Chargez la page des paramètres **Espace de noms**.
+
+* **Ajouter un nouveau chemin d’accès :** Cliquez sur le bouton **+ Ajouter** situé en haut et complétez les informations dans le panneau de modification.
+
+  ![Capture d’écran des champs de modification de l’ajout d’un espace de noms avec sélection d’une cible de stockage ADLS-NFS. Les chemins d’exportation et de sous-répertoire sont définis sur / et ne peuvent pas être modifiables.](media/namespace-add-adls.png)
+
+  * Entrez le chemin que les clients doivent utiliser pour accéder à cette cible de stockage.
+
+  * Sélectionnez la stratégie d’accès à utiliser pour ce chemin. Pour plus d’informations sur la personnalisation de l’accès client, consultez [Utiliser des stratégies d’accès client](access-policies.md).
+
+  * Sélectionnez la cible de stockage dans la liste déroulante. Si une cible de stockage ADLS-NFS a déjà un chemin d’espace de noms, elle ne peut pas être sélectionnée.
+
+  * Pour une cible de stockage ADLS-NFS, les chemins d’exportation et de sous-répertoire sont automatiquement définis sur ``/``.
+
+* **Modifier un chemin d’accès existant :** Cliquez sur le chemin d’espace de noms. Le panneau d’édition s’ouvre. Vous pouvez modifier le chemin et la stratégie d’accès, mais vous ne pouvez pas passer à une autre cible de stockage.
+
+* **Suppression d’un chemin d’espace de noms :** Activez la case à cocher à gauche du chemin et cliquez sur le bouton **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

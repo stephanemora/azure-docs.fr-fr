@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 5e0fa474412815a1ce830267ac2f09830a6353d3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 94451cfefefe30bbae1748844f9303b2cfdd7be1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834164"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104612582"
 ---
 Ce tutoriel vous montre comment créer un exemple d’application d’appareil IoT Plug-and-Play avec des composants, comment le connecter à votre hub IoT, et comment utiliser l’outil Explorateur Azure IoT pour voir les informations qu’il envoie au hub. L’exemple d’application est écrit en Python et inclus dans le SDK Azure IoT Device pour Python. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner le code d’appareil.
 
@@ -52,7 +52,7 @@ git clone https://github.com/Azure/azure-iot-sdk-python
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cet exemple implémente un appareil contrôleur de température IoT Plug-and-Play. Le modèle implémenté par cet exemple utilise [plusieurs composants](../articles/iot-pnp/concepts-components.md). Le [fichier de modèle DTDL (Digital Twins Definition Language) pour l’appareil de contrôle de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
+Cet exemple implémente un appareil contrôleur de température IoT Plug-and-Play. Le modèle implémenté par cet exemple utilise [plusieurs composants](../articles/iot-pnp/concepts-modeling-guide.md). Le [fichier de modèle DTDL (Digital Twins Definition Language) pour l’appareil de contrôle de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
 
 Le dossier *azure-iot-sdk-python\azure-iot-device\samples\pnp* contient l’exemple de code pour l’appareil IoT Plug-and-Play. Les fichiers de l’exemple de contrôleur de température sont les suivants :
 

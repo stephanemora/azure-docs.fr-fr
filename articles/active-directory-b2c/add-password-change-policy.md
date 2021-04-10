@@ -8,20 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a42cb97d123d0943dab02bf1f70fcf306d6bcd96
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 21da8f79772d9648836bedec89cb5d7014486dc6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629122"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104798357"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez permettre aux utilisateurs qui sont connectés avec un compte local de modifier leur mot de passe sans avoir à prouver leur identité par le biais d’une vérification par e-mail. Le flux de changement de mot de passe implique les étapes suivantes :
+
+1. L’utilisateur se connecte à son compte local. Si la session est toujours active, Azure AD B2C autorise l’utilisateur et passe à l’étape suivante.
+1. L’utilisateur vérifie l’**ancien mot de passe**, puis crée et confirme le **nouveau mot de passe**.
+
+![Flux de changement de mot de passe](./media/add-password-change-policy/password-change-flow.png)  
+
+> [!TIP]
+> Le flux de changement de mot de passe permet aux utilisateurs de modifier leur mot de passe uniquement lorsque l’utilisateur connaît son mot de passe et souhaite le modifier. Nous vous recommandons également d’activer la [réinitialisation de mot de passe en libre-service](add-password-reset-policy.md) pour prendre en charge les cas où l’utilisateur oublie son mot de passe.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -30,15 +40,6 @@ ms.locfileid: "97629122"
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
-
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez permettre aux utilisateurs qui sont connectés avec un compte local de modifier leur mot de passe sans avoir à prouver leur authenticité avec une vérification par e-mail. Le flux de changement de mot de passe implique les étapes suivantes :
-
-1. Connectez-vous avec un compte local. Si la session est toujours active, Azure AD B2C autorise l’utilisateur et passe à l’étape suivante.
-1. Les utilisateurs doivent vérifier l’**ancien mot de passe**, créer et confirmer le **nouveau mot de passe**.
-
-![Flux de changement de mot de passe](./media/add-password-change-policy/password-change-flow.png)
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
