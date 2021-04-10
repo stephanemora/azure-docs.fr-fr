@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 506c764250347bfccc3f80dcb055f1203583748c
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 83681d2bb3622857fb9141a3cec79d92d278a814
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016523"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568747"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -249,10 +249,10 @@ Voici quelques points à noter après la restauration d’une machine virtuelle�
 - Les extensions présentes durant la configuration de sauvegarde sont installées, mais pas activées. Si vous rencontrez un problème, réinstallez les extensions.
 - Si la machine virtuelle sauvegardée a une adresse IP statique, la machine virtuelle restaurée a une adresse IP dynamique pour éviter tout conflit. Vous pouvez [ajouter une adresse IP statique à la machine virtuelle restaurée](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - Une machine virtuelle restaurée n’a pas de groupe à haute disponibilité. Si vous utilisez l’option de restauration de disque, vous pouvez [spécifier un groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md) quand vous créez une machine virtuelle à partir du disque à l’aide du modèle fourni ou de PowerShell.
-- Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe est bloqué après la restauration pour des raisons de sécurité. Utilisez l’extension VMAccess sur la machine virtuelle restaurée pour [réinitialiser le mot de passe](../virtual-machines/troubleshooting/reset-password.md). Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour ne pas avoir à réinitialiser le mot de passe après la restauration.
+- Si vous utilisez une distribution Linux basée sur cloud-init telle qu’Ubuntu, le mot de passe est bloqué après la restauration pour des raisons de sécurité. Utilisez l’extension VMAccess sur la machine virtuelle restaurée pour [réinitialiser le mot de passe](/troubleshoot/azure/virtual-machines/reset-password). Nous vous recommandons d’utiliser des clés SSH sur ces distributions pour ne pas avoir à réinitialiser le mot de passe après la restauration.
 - Si vous ne parvenez pas à accéder à une machine virtuelle après sa restauration en raison d’une rupture de la relation entre la machine virtuelle et le contrôleur de domaine, suivez les étapes ci-dessous pour afficher la machine virtuelle :
   - Attachez un disque de système d’exploitation en tant que disque de données à une machine virtuelle récupérée.
-  - Installez manuellement l’agent de machine virtuelle si l’agent Azure ne répond pas en suivant ce [lien](../virtual-machines/troubleshooting/install-vm-agent-offline.md).
+  - Installez manuellement l’agent de machine virtuelle si l’agent Azure ne répond pas en suivant ce [lien](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Activer l’accès à la console série sur la machine virtuelle pour autoriser l’accès en ligne de commande à la machine virtuelle
 
   ```cmd

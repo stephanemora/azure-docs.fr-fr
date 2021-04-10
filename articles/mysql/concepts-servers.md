@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517975"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869427"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Concepts de serveur dans une base de données Azure pour MySQL
 
@@ -62,7 +62,13 @@ Pendant l’arrêt du serveur, aucune opération de gestion ne peut être effect
 
 ## <a name="how-do-i-manage-a-server"></a>Comment gérer un serveur ?
 
-Vous pouvez gérer des serveurs de bases de données Azure pour MySQL à l’aide du Portail Azure ou d’Azure CLI.
+Vous pouvez gérer la création, la suppression, la configuration des paramètres du serveur (my.cnf), la mise à l’échelle, la mise en réseau, la sécurité, la haute disponibilité, la sauvegarde et la restauration, ainsi que la surveillance de vos serveurs Azure Database pour MySQL à l’aide du portail Azure ou d’Azure CLI. En outre, les procédures stockées suivantes disponibles dans Azure Database pour MySQL permettent d’effectuer certaines tâches d’administration de base de données requises parce que le privilège de SUPER utilisateur n’est pas pris en charge sur le serveur.
+
+|**Nom de la procédure stockée**|**Paramètres d’entrée**|**Paramètres de sortie**|**Remarque sur l’utilisation**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/A|Équivaut à la commande [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html). Met fin à la connexion associée au processlist_id fourni après avoir mis fin à l’exécution de toute instruction exécutée actuellement par la connexion.|
+|*mysql.az_kill_query*|processlist_id|N/A|Équivaut à la commande [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html). Met fin à l’instruction exécutée actuellement par la connexion. Laisse la connexion active.|
+|*mysql.az_load_timezone*|N/A|N/A|Charge les [tables de fuseau horaire](howto-server-parameters.md#working-with-the-time-zone-parameter) pour permettre d’attribuer des valeurs nommées au paramètre `time_zone` (par exemple, « US/Pacific »).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98705924"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564566"
 ---
 # <a name="repairing-an-import-job"></a>Réparation d’un travail d’importation
 Le service Microsoft Azure Import/Export peut ne pas copier certains de vos fichiers ou des parties d’un fichier dans le service BLOB Windows Azure. Voici quelques exemples de raisons de ces échecs :  
@@ -30,7 +30,7 @@ Vous pouvez exécuter l’outil Microsoft Azure Import/Export avec les fichiers 
 
 Les paramètres suivants peuvent être spécifiés pour **RepairImport** : 
   
-|||  
+| Paramètre | Description |  
 |-|-|  
 |**/r:** &lt;RepairFile\>|**Obligatoire.** Chemin d’accès au fichier de réparation, qui suit la progression de la réparation et vous permet de reprendre une réparation interrompue. Chaque disque ne doit avoir qu’un fichier de réparation. Quand vous lancez la réparation d’un lecteur donné, transmettez le chemin d’un fichier de réparation, qui n’existe pas encore. Pour reprendre une réparation interrompue, vous devez transmettre le nom d’un fichier de réparation existant. Spécifiez toujours le fichier de réparation correspondant au lecteur cible.|  
 |**/logdir:** &lt;LogDirectory\>|**Facultatif.** Répertoire du journal. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si aucun répertoire de journaux n’est spécifié, le répertoire actif est utilisé comme répertoire de journaux.|  

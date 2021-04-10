@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2021
-ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224324"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562764"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
@@ -71,7 +71,7 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
 
 L’interprétabilité du modèle permet de comprendre le modèle ML et de présenter la base sous-jacente de la prise de décision d’une manière compréhensible pour les humains.
 
-Actuellement, le module **Effectuer l’apprentissage du modèle** prend en charge [l’utilisation du package d’interprétabilité pour expliquer les modèles ML](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Les algorithmes intégrés suivants sont pris en charge :
+Actuellement, le module **Effectuer l’apprentissage du modèle** prend en charge [l’utilisation du package d’interprétabilité pour expliquer les modèles ML](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Les algorithmes intégrés suivants sont pris en charge :
 
 - Régression linéaire
 - Régression de réseau neuronal
@@ -87,7 +87,7 @@ Une fois l’exécution du pipeline terminée, vous pouvez consulter l’onglet 
 
 ![Capture d’écran montrant les graphiques pour Explication du modèle](./media/module/train-model-explanations-tab.gif)
 
-Pour en savoir plus sur l’utilisation des explications de modèle dans Azure Machine Learning, consultez le guide pratique relatif à l’[interprétation des modèles ML](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
+Pour en savoir plus sur l’utilisation des explications de modèle dans Azure Machine Learning, consultez le guide pratique relatif à l’[interprétation des modèles ML](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Résultats
 
@@ -101,4 +101,4 @@ Une fois le modèle formé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

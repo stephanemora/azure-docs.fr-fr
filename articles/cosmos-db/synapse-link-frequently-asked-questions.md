@@ -6,12 +6,13 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: synapse-cosmos-db
+ms.openlocfilehash: d871a33b6d8adbae179e592122878eee5db1c0b5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692264"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869002"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Foire aux questions sur Azure Synapse Link pour Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +34,10 @@ Lors de la planification de la configuration d’un compte Azure Cosmos DB à p
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Puis-je choisir d’activer AzureSynapse Link pour une seule région et non dans toutes les régions d’un compte à plusieurs régions ?
 
 Lorsqu’Azure Synapse Link est activé pour un compte à plusieurs régions, le magasin analytique est créé dans toutes les régions. Les données sous-jacentes sont optimisées pour le débit et la cohérence transactionnelle dans le magasin transactionnel.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>Le magasin analytique est-il pris en charge dans toutes les régions Azure Cosmos DB ?
+
+Oui.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>La sauvegarde et la restauration sont-elles prises en charge par les comptes Azure Synapse Link ?
 
@@ -165,6 +170,10 @@ Cette fonctionnalité n’est pas disponible pour l’instant.
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>Puis-je utiliser le flux structuré Spark à partir du magasin analytique ?
 
 Actuellement, la prise en charge du flux structuré Spark pour Azure Cosmos DB est implémentée par la fonctionnalité de flux de modification du magasin transactionnel et n’est pas encore prise en charge à partir du magasin analytique.
+
+### <a name="is-streaming-supported"></a>La diffusion en continu est-elle prise en charge ?
+
+Nous ne prenons pas en charge la diffusion en continu des données à partir du magasin analytique.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

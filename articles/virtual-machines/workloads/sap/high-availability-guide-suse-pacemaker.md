@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: ddee5edcf1d19af0fb088976c590b62866a1484e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa2006ecfad91e21ac13a1e63be23302b2a70399
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674420"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551031"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -584,7 +584,7 @@ L’appareil STONITH utilise un principal de service pour l’autorisation sur M
 1. Sélectionnez Certificats et secrets, puis sélectionnez Nouveau secret client
 1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Ajouter
 1. Notez la valeur. Cette valeur est utilisée comme **mot de passe** pour le principal de service
-1. Sélectionnez Vue d’ensemble. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure ci-dessous) du principal de service
+1. Sélectionnez Vue d’ensemble. Notez l’ID de l’application. Cette valeur est utilisée comme nom d’utilisateur du principal de service.
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Créer un rôle personnalisé pour l’agent d’isolation
 
@@ -642,9 +642,9 @@ Une fois que vous avez modifié les autorisations pour les machines virtuelles, 
 
 <pre><code>sudo crm configure property stonith-enabled=true
 crm configure property concurrent-fencing=true
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+# replace the bold string with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>application ID</b>" passwd="<b>password</b>" \
   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
   op monitor interval=3600 timeout=120
 

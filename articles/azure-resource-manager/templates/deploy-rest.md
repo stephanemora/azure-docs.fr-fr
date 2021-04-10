@@ -3,12 +3,12 @@ title: Déploiement de ressources avec le modèle et l’API REST
 description: Utilisez Azure Resource Manager et l’API REST Resource Manager pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: e688d7abfaca442c3de395d25961b4e81e6c7b24
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 90e50598176ddc0327a81df105740f58afd930bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889193"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732565"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>Déployer des ressources avec des modèles Resource Manager et l’API REST Azure Resource Manager
 
@@ -20,13 +20,13 @@ Vous pouvez inclure votre modèle dans le corps de la requête ou un lien vers u
 
 Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d’un abonnement Azure, d’un groupe d’administration ou d’un locataire. Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
-- Pour un déploiement dans un **groupe de ressources**, utilisez [Déploiements - Créer](/rest/api/resources/deployments/createorupdate). La requête est envoyée à :
+- Pour un déploiement dans un **groupe de ressources**, utilisez [Déploiements - Créer](/rest/api/resources/resources/deployments/createorupdate). La requête est envoyée à :
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
-- Pour un déploiement dans un **abonnement**, utilisez [Déploiements - Créer au niveau de l’abonnement](/rest/api/resources/deployments/createorupdateatsubscriptionscope). La requête est envoyée à :
+- Pour un déploiement dans un **abonnement**, utilisez [Déploiements - Créer au niveau de l’abonnement](/rest/api/resources/resources/deployments/createorupdateatsubscriptionscope). La requête est envoyée à :
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -34,7 +34,7 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 
   Pour plus d’informations sur les déploiements au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](deploy-to-subscription.md).
 
-- Pour un déploiement dans un **groupe d’administration**, utilisez [Déploiements - Créer au niveau du groupe d’administration](/rest/api/resources/deployments/createorupdateatmanagementgroupscope). La requête est envoyée à :
+- Pour un déploiement dans un **groupe d’administration**, utilisez [Déploiements - Créer au niveau du groupe d’administration](/rest/api/resources/resources/deployments/createorupdateatmanagementgroupscope). La requête est envoyée à :
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -42,7 +42,7 @@ Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d�
 
   Pour plus d’informations sur les déploiements au niveau du groupe d’administration, consultez [Créer des ressources au niveau du groupe d’administration](deploy-to-management-group.md).
 
-- Pour effectuer un déploiement sur un **locataire**, utilisez [Déploiements – Créer ou mettre à jour au niveau du locataire](/rest/api/resources/deployments/createorupdateattenantscope). La requête est envoyée à :
+- Pour effectuer un déploiement sur un **locataire**, utilisez [Déploiements – Créer ou mettre à jour au niveau du locataire](/rest/api/resources/resources/deployments/createorupdateattenantscope). La requête est envoyée à :
 
   ```HTTP
   PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
@@ -56,7 +56,7 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
 
 1. Définissez [des en-têtes et des paramètres communs](/rest/api/azure/), y compris des jetons d’authentification.
 
-1. Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pas, vous devez commencer par créer ce dernier. Fournissez votre ID abonnement, le nom du groupe de ressources et l’emplacement dont vous avez besoin pour votre solution. Pour plus d’informations, consultez [Créer un groupe de ressources](/rest/api/resources/resourcegroups/createorupdate).
+1. Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pas, vous devez commencer par créer ce dernier. Fournissez votre ID abonnement, le nom du groupe de ressources et l’emplacement dont vous avez besoin pour votre solution. Pour plus d’informations, consultez [Créer un groupe de ressources](/rest/api/resources/resources/resourcegroups/createorupdate).
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2020-06-01
@@ -189,7 +189,7 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
    }
    ```
 
-1. Pour obtenir l’état du déploiement du modèle, utilisez [Déploiements - Obtenir](/rest/api/resources/deployments/get).
+1. Pour obtenir l’état du déploiement du modèle, utilisez [Déploiements - Obtenir](/rest/api/resources/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01

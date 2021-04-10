@@ -1,7 +1,7 @@
 ---
-title: Créer un réseau virtuel - Démarrage rapide - Portail Azure
+title: 'Démarrage rapide : Créer un réseau virtuel - Portail Azure'
 titleSuffix: Azure Virtual Network
-description: 'Démarrage rapide : Créez un réseau virtuel dans le portail Azure. Ces réseaux permettent aux ressources Azure, comme les machines virtuelles, de communiquer de manière sécurisée entre elles et avec Internet.'
+description: Dans ce guide de démarrage rapide, découvrez comment créer un réseau virtuel à l’aide du portail Azure.
 author: KumudD
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/05/2020
+ms.date: 03/17/2021
 ms.author: kumud
-ms.openlocfilehash: cc3ba3a0519400368e0cbfec7abe2d9bd1731b34
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8af5b302e3ec790b6ee9356aca0699d0edcd284e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606063"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Démarrage rapide : Créer un réseau virtuel au moyen du portail Azure
 
@@ -30,26 +30,48 @@ Dans ce démarrage rapide, vous découvrez comment créer un réseau virtuel à 
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="create-a-virtual-network"></a>Créer un réseau virtuel
 
-1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**. À partir de la Place de marché Azure, sélectionnez **Mise en réseau** > **Réseau virtuel**.
+1. Sélectionnez **Créer une ressource** en haut à gauche du portail.
 
-1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+2. Dans la zone de recherche, entrez **Réseau virtuel**. Dans les résultats de la recherche, sélectionnez **Réseau virtuel**.
+
+3. Dans la page **Réseau virtuel**, sélectionnez **Créer**.
+
+4. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Abonnement | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
-    | Nom | Entrez *myVirtualNetwork*. |
-    | Emplacement | Sélectionnez **USA Est**.|
+    | **Détails du projet** |   |
+    | Abonnement | Sélectionnez votre abonnement. |
+    | Resource group | Sélectionnez **Créer nouveau**.  </br> Entrez **myResourceGroup**. </br> Sélectionnez **OK**. |
+    | **Détails de l’instance** |   |
+    | Nom | Entrez **myVNet**. |
+    | Région | Sélectionnez **(États-Unis) USA Est**. |
 
-1. Sélectionnez **Suivant : Adresses IP** et, pour **Espace d’adressage IPv4**, entrez *10.1.0.0/16*.
+    :::image type="content" source="./media/quick-create-portal/create-virtual-network.png" alt-text="Créer un réseau virtuel - Portail Azure" border="true":::
 
-1. Sélectionnez **Ajouter un sous-réseau**, puis entrez *myVirtualSubnet* pour **Nom de sous-réseau** et *10.1.0.0/24* pour la **Plage d’adresses de sous-réseau**.
+5. Sélectionnez l’onglet **Adresses IP**, ou sélectionnez le bouton **Suivant : Adresses IP** au bas de la page.
 
-1. Sélectionnez **Ajouter**, puis **Vérifier + créer**. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
+6. Dans **Espace d’adressage IPv4**, sélectionnez l’espace d’adressage existant et remplacez-le par **10.1.0.0/16**.
 
-1. Dans **Créer un réseau virtuel**, sélectionnez **Créer**.
+7. Sélectionnez **+ Ajouter un sous-réseau**, puis entrez **MySubnet** pour **Nom de sous-réseau** et **10.1.0.0/24** pour la **Plage d’adresses de sous-réseau**.
+
+8. Sélectionnez **Ajouter**.
+
+9. Sélectionnez l’onglet **Sécurité**, ou sélectionnez le bouton **Suivant : Sécurité** situé au bas de la page.
+
+10. Sous **BastionHost**, sélectionnez **Activer**. Entrez les informations suivantes :
+
+    | Paramètre            | Valeur                      |
+    |--------------------|----------------------------|
+    | Nom du bastion | Entrez **myBastionHost** |
+    | Espace d’adressage AzureBastionSubnet | Entrez **10.1.1.0/24** |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. </br> Pour **Nom**, entrez **myBastionIP**. </br> Sélectionnez **OK**. |
+
+11. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton **Vérifier + créer**.
+
+12. Sélectionnez **Create** (Créer).
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
@@ -57,172 +79,166 @@ Créez deux machines virtuelles dans le réseau virtuel :
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
-1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
+1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle**. 
+   
+2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-1. À partir de la Place de marché Azure, sélectionnez **Calcul** > **Windows Server 2019 Datacenter**. Sélectionnez **Create** (Créer).
-
-1. Dans **Créer une machine virtuelle - Notions de base**, entrez ou sélectionnez ces informations :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | **Détails du projet** | |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé ce groupe de ressources dans la section précédente. |
+    | Paramètre | Valeur                                          |
+    |-----------------------|----------------------------------|
+    | **Détails du projet** |  |
+    | Abonnement | Sélectionner votre abonnement Azure |
+    | Groupe de ressources | Sélectionner **myResourceGroup** |
     | **Détails de l’instance** |  |
-    | Nom de la machine virtuelle | Entrez *myVm1*. |
-    | Région | Sélectionnez **USA Est**. |
-    | Options de disponibilité | La valeur par défaut est **Aucune redondance d'infrastructure nécessaire**. |
-    | Image | La valeur par défaut est **Windows Server 2019 Datacenter**. |
-    | Taille | La valeur par défaut est **Standard DS1 v2**. |
-    | **Compte Administrateur** |  |
-    | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
-    | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Confirmer le mot de passe | Entrez à nouveau le mot de passe. |
-    | **Règles de port d’entrée** |  |
-    | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
-    | Sélectionner des ports d’entrée | Entrez *HTTP (80)* et *RDP (3389)* . |
-    | **Économiser de l’argent** |  |
-    | Vous disposez déjà d’une licence Windows ? | La valeur par défaut est **Non**. |
+    | Nom de la machine virtuelle | Entrez **myVM1** |
+    | Région | Sélectionnez **(États-Unis) USA Est** |
+    | Options de disponibilité | Sélectionnez **Aucune redondance d’infrastructure requise**. |
+    | Image | Sélectionnez **Windows Server 2019 Datacenter** |
+    | Instance Azure Spot | Sélectionnez **Non** |
+    | Taille | Choisissez la taille de la machine virtuelle ou acceptez le paramètre par défaut |
+    | **Compte administrateur** |  |
+    | Nom d’utilisateur | Entrez un nom d’utilisateur |
+    | Mot de passe | Entrez un mot de passe |
+    | Confirmer le mot de passe | Entrez à nouveau le mot de passe |
+    | **Règles des ports d’entrée** |    |
+    | Aucun port d’entrée public | Sélectionnez **Aucun**. |
+    |
 
-1. Sélectionnez **Suivant : Disques**.
-
-1. Dans **Créer une machine virtuelle - Disques**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
-
-1. Dans **Créer une machine virtuelle - Mise en réseau**, sélectionnez ces informations :
+3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
+  
+4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
     | Paramètre | Valeur |
-    | ------- | ----- |
-    | Réseau virtuel | La valeur par défaut est **myVirtualNetwork**. |
-    | Subnet | La valeur par défaut est **myVirtualSubnet (10.1.0.0/24)** . |
-    | Adresse IP publique | La valeur par défaut est **(nouveau) myVm-ip**. |
-    | Groupe de sécurité réseau de la carte réseau | La valeur par défaut est **De base**. |
-    | Aucun port d’entrée public | La valeur par défaut est **Autoriser les ports sélectionnés**. |
-    | Sélectionner des ports d’entrée | La valeur par défaut est **HTTP** et **RDP**.
-
-1. Sélectionnez **Suivant : Gestion**.
-
-1. Dans **Créer une machine virtuelle - Gestion**, pour **Compte de stockage de diagnostics**, sélectionnez **Créer**.
-
-1. Dans **Créer un compte de stockage**, entrez ou sélectionnez ces informations :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez *myvmstorageaccount*. Si ce nom est utilisé, créez un nom unique.|
-    | Type de compte | La valeur par défaut est **Stockage (universel v1)** . |
-    | Performances | La valeur par défaut est **Standard**. |
-    | Réplication | La valeur par défaut est **Stockage localement redondant (LRS)** . |
-
-1. Sélectionnez **OK**, puis **Vérifier + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
-
-1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+    |-|-|
+    | **Interface réseau** |  |
+    | Réseau virtuel | Sélectionnez **myVNet**. |
+    | Subnet | Sélectionnez **mySubnet** |
+    | Adresse IP publique | Sélectionnez **Aucun** |
+    | Groupe de sécurité réseau de la carte réseau | Sélectionnez **De base**|
+    | Réseau des ports entrants publics | Sélectionnez **Aucun**. |
+   
+5. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton bleu **Vérifier + créer** situé au bas de la page.
+  
+6. Passez en revue les paramètres, puis sélectionnez **Créer**.
 
 ### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
 
-Répétez la procédure de la section précédente pour créer une autre machine virtuelle.
+1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Machine virtuelle**. 
+   
+2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-> [!IMPORTANT]
-> Pour **Nom de la machine virtuelle**, entrez *myVm2*.
->
-> Pour **Compte de stockage de diagnostic**, sélectionnez **myvmstorageaccount** au lieu d’en créer un.
+    | Paramètre | Valeur                                          |
+    |-----------------------|----------------------------------|
+    | **Détails du projet** |  |
+    | Abonnement | Sélectionner votre abonnement Azure |
+    | Groupe de ressources | Sélectionner **myResourceGroup** |
+    | **Détails de l’instance** |  |
+    | Nom de la machine virtuelle | Entrez **myVM2** |
+    | Région | Sélectionnez **(États-Unis) USA Est** |
+    | Options de disponibilité | Sélectionnez **Aucune redondance d’infrastructure requise**. |
+    | Image | Sélectionnez **Windows Server 2019 Datacenter** |
+    | Instance Azure Spot | Sélectionnez **Non** |
+    | Taille | Choisissez la taille de la machine virtuelle ou acceptez le paramètre par défaut |
+    | **Compte administrateur** |  |
+    | Nom d’utilisateur | Entrez un nom d’utilisateur |
+    | Mot de passe | Entrez un mot de passe |
+    | Confirmer le mot de passe | Entrez à nouveau le mot de passe |
+    | **Règles des ports d’entrée** |    |
+    | Aucun port d’entrée public | Sélectionnez **Aucun**. |
+    |
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
+3. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**.
+  
+4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-Après avoir créé *myVm1*, connecter-vous à Internet.
+    | Paramètre | Valeur |
+    |-|-|
+    | **Interface réseau** |  |
+    | Réseau virtuel | Sélectionnez **myVNet**. |
+    | Subnet | Sélectionnez **mySubnet** |
+    | Adresse IP publique | Sélectionnez **Aucun** |
+    | Groupe de sécurité réseau de la carte réseau | Sélectionnez **De base**|
+    | Réseau des ports entrants publics | Sélectionnez **Aucun**. |
+   
+5. Sélectionnez l’onglet **Vérifier + créer**, ou sélectionnez le bouton bleu **Vérifier + créer** situé au bas de la page.
+  
+6. Passez en revue les paramètres, puis sélectionnez **Créer**.
 
-1. Dans le portail Azure, recherchez et sélectionnez *myVm1*.
+## <a name="connect-to-myvm1"></a>Se connecter à myVM1
 
-1. Sélectionnez **Connecter**, puis **RDP**.
+1. Accédez au [portail Azure](https://portal.azure.com) pour gérer votre machine virtuelle privée. Recherchez et sélectionnez **Machines virtuelles**.
 
-    ![Connexion à une machine virtuelle](./media/quick-create-portal/connect-to-virtual-machine.png)
+2. Choisissez le nom de votre machine virtuelle privée **myVM1**.
 
-    La page **Connecter** s’ouvre.
+3. Dans la barre de menus de la machine virtuelle, sélectionnez **Se connecter**, puis sélectionner **Bastion**.
 
-1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
+    :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Se connecter à myVM1 avec Azure Bastion" border="true":::
 
-1. Ouvrez le fichier RDP. Si vous y êtes invité, sélectionnez **Connexion**.
+4. Dans la page **Se connecter**, sélectionnez le bouton bleu **Utiliser Bastion**.
 
-1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
+5. Dans la page **Bastion**, entrez le nom d’utilisateur et le mot de passe que vous avez créés pour la machine virtuelle.
 
-    > [!NOTE]
-    > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
-
-1. Sélectionnez **OK**.
-
-1. Vous recevez peut-être un avertissement de certificat quand vous vous connectez. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer**.
-
-1. Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.
+6. Sélectionnez **Connecter**.
 
 ## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 
-1. Dans le Bureau à distance de *myVm1*, ouvrez PowerShell.
+1. Dans la connexion Bastion de **myVM1**, ouvrez PowerShell.
 
-1. Entrez `ping myVm2`.
+2. Entrez `ping myvm2`.
 
     Vous recevez un message similaire à celui-ci :
 
-    ```output
-    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
-    Request timed out.
-    Request timed out.
-    Request timed out.
-    Request timed out.
+    ```powershell
+    Pinging myvm2.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.5] with 32 bytes of data:
+    Reply from 10.1.0.5: bytes=32 time=3ms TTL=128
+    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
 
     Ping statistics for 10.1.0.5:
-    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 1ms, Maximum = 3ms, Average = 1ms
     ```
 
-    `ping` a échoué car `ping` utilise le protocole ICMP (Internet Control Message Protocol). Par défaut, le protocole ICMP n’est pas autorisé par le pare-feu Windows.
+3. Fermez la connexion Bastion à **myVM1**.
 
-1. Pour autoriser *myVm2* à effectuer un test ping *myVm1* entrez la commande suivante dans une étape ultérieure :
+4. Effectuez les étapes décrites dans [Se connecter à myVM1](#connect-to-myvm1), mais connectez-vous à **myVM2**.
+
+5. Ouvrez PowerShell sur **myVM2**, puis entrez `ping myvm1`.
+
+    Vous allez recevoir un message comme celui-ci :
 
     ```powershell
-    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
-    ```
-
-    Cette commande autorise le protocole ICMP entrant via le pare-feu Windows :
-
-1. Fermez la connexion Bureau à distance sur *myVm1*.
-
-1. Effectuez à nouveau les étapes dans [Se connecter à une machine virtuelle à partir d’internet](#connect-to-a-vm-from-the-internet), mais connectez-vous à *myVm2*.
-
-1. À partir d’une invite de commandes, entrez `ping myvm1`.
-
-    Vous allez obtenir un message comme celui-ci :
-
-    ```output
-    Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
+    Pinging myvm1.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
     Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
-    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
 
     Ping statistics for 10.1.0.4:
         Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
     Approximate round trip times in milli-seconds:
-        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+        Minimum = 1ms, Maximum = 1ms, Average = 1ms
     ```
 
-    Vous recevez des réponses de *myVm1*, car vous avez autorisé ICMP via le pare-feu Windows sur la machine virtuelle *myVm1* à l’étape 3.
-
-1. Fermez la connexion Bureau à distance sur *myVm2*.
+7. Fermez la connexion Bastion à **myVM2**.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dans ce démarrage rapide, vous avez créé un réseau virtuel par défaut et deux machines virtuelles. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez établi une communication sécurisée entre les deux machines virtuelles.
+Dans ce démarrage rapide, vous avez créé un réseau virtuel par défaut et deux machines virtuelles. 
+
+Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez établi une communication sécurisée entre les deux machines virtuelles.
 
 Lorsque vous avez fini d’utiliser le réseau virtuel et les machines virtuelles, supprimez le groupe de ressources et toutes les ressources qu’il contient :
 
-1. Recherchez et sélectionnez *myResourceGroup*.
+1. Recherchez et sélectionnez **myResourceGroup**.
 
 1. Sélectionnez **Supprimer le groupe de ressources**.
 
-1. Entrez *myResourceGroup* dans **TAPER LE NOM DU GROUPE DE RESSOURCES** puis sélectionnez **Supprimer**.
+1. Entrez **myResourceGroup** dans **TAPER LE NOM DU GROUPE DE RESSOURCES** puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les paramètres de réseau virtuel, consultez [Créer, changer ou supprimer un réseau virtuel](manage-virtual-network.md).
 
-Par défaut, Azure autorise une communication sécurisée entre les machines virtuelles. Azure autorise uniquement les connexions Bureau à distance entrantes d’Internet vers les machines virtuelles Windows. Pour en savoir plus sur les types de communications réseau de machines virtuelles, consultez [Filtrer le trafic réseau](tutorial-filter-network-traffic.md).
-
-> [!NOTE] 
-> Les services Azure coûtent de l’argent. Azure Cost Management vous aide à définir des budgets et à configurer des alertes pour contrôler les dépenses. Analysez, gérez et optimisez vos coûts Azure avec Cost Management. Pour plus d’informations, consultez le [guide de démarrage rapide sur l’analyse des coûts](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Pour en savoir plus sur les types de communications réseau de machines virtuelles, consultez [Filtrer le trafic réseau](tutorial-filter-network-traffic.md).
