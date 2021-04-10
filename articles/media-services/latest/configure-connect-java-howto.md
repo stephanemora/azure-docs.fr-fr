@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06923d7c198edc324d85b726cf91694d8cf7e1ca
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94748177"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961351"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Se connecter à l’API Media Services v3 - Java
 
@@ -37,7 +37,7 @@ Dans cet article, Visual Studio Code est utilisé pour développer l’exemple d
    - Apache Maven
    - Pack d’extension Java
 - Veillez à définir les variables d’environnement `JAVA_HOME` et `PATH`.
-- [Créer un compte Media Services](./create-account-howto.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+- [Créer un compte Media Services](./account-create-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 - Suivez les étapes de l’article [Accéder aux API](./access-api-howto.md). Enregistrez l’ID d’abonnement, l’ID d’application (ID client), la clé d’authentification (secret), et l’ID locataire dont vous aurez besoin dans une prochaine étape.
 
 Consultez également :

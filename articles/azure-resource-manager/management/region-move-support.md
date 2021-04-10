@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9229fca9f98aac4ca628c0bb25c13c9ba1989626
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100094013"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962592"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Prise en charge du déplacement des ressources Azure entre les régions
 
@@ -503,7 +503,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
 > | capabilities | Non | 
-> | domainnames | Oui | Non |
+> | domainnames | Non |
 > | quotas | Non | 
 > | resourcetypes | Non |
 > | validatesubscriptionmoveavailability | Non | 
@@ -1061,7 +1061,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!div class="mx-tableFixed"]
 > | Type de ressource | Changement de région | 
 > | ------------- | ----------- |
-> | accounts | Non. [Plus d’informations](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region)
+> | accounts | Non. [Plus d’informations](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region) |
 > | actiongroups |  Non | 
 > | activitylogalerts | Non | 
 > | alertrules |  Non | 
@@ -1073,12 +1073,12 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | diagnosticsettingscategories | Non | 
 > | eventcategories | Non | 
 > | eventtypes | Non | 
-> | extendeddiagnosticsettings | Non | |
+> | extendeddiagnosticsettings | Non |
 > | guestdiagnosticsettings | Non | 
 > | listmigrationdate | Non | 
 > | logdefinitions | Non | 
 > | logprofiles | Non | 
-> | logs | Non | Non |
+> | logs | Non |
 > | metricalerts | Non | 
 > | metricbaselines | Non | 
 > | metricbatch | Non | 
@@ -1399,7 +1399,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | networkwatchers / pingmeshes |  Non | 
 > | p2svpngateways | Non | 
 > | privatednszones |  Non |  
-> | privatednszones / virtualnetworklinks | Non |> | privatednszonesinternal | Non |
+> | privatednszones / virtualnetworklinks | Non |
+> | privatednszonesinternal | Non |
 > | privateendpointredirectmaps | Non |
 > | privateendpoints | Non | 
 > | privatelinkservices | Non | 

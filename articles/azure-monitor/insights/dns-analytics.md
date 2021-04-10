@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: df9efef1000ab6a824c869e6684ab1424e8462f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f01a1204aefbcaabe0ddac254b24bc014c3d5a64
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708099"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654524"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -54,7 +54,7 @@ La solution commence la collecte des données sans que vous ne deviez procéder 
 
 ### <a name="configure-the-solution"></a>Configuration de la solution
 
-Dans le tableau de bord de la solution, cliquez sur **Configuration** pour ouvrir la page Configuration de DNS Analytics. Voici les deux types de modification de configuration que vous pouvez effectuer :
+Dans l’espace de travail Log Analytics sur le portail Azure, sélectionnez **Récapitulatif de l'espace de travail**, puis cliquez sur la vignette **DNS Analytics**. Dans le tableau de bord de la solution, cliquez sur **Configuration** pour ouvrir la page Configuration de DNS Analytics. Voici les deux types de modification de configuration que vous pouvez effectuer :
 
 - **Noms de domaine de la liste d’autorisation**. La solution ne traite pas toutes les requêtes de recherche. Elle gère une liste d’autorisation des suffixes de nom de domaine. Les requêtes de recherche qui résolvent les noms de domaine qui correspondent à des suffixes de noms de domaine de cette liste d’autorisation ne sont pas traitées par la solution. Ne pas traiter les noms de domaine figurant dans la liste d’autorisation permet d’optimiser les données envoyées à Azure Monitor. La liste d’autorisation par défaut inclut des noms de domaine public populaires, tels que www.google.com et www.facebook.com. Vous pouvez afficher la liste par défaut complète à l’aide de la barre de défilement.
 

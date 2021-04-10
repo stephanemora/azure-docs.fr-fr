@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff9af90ca0b6b80ffece5ccd7d919c1d93e210c4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546566"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104657584"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Tutoriel : Créer une instance d'Azure Database pour PostgreSQL - Serveur flexible avec une application web App Service dans un réseau virtuel
 
@@ -22,9 +22,10 @@ ms.locfileid: "92546566"
 
 Ce tutoriel explique comment créer une application web Azure App Service avec Azure Database pour PostgreSQL - Serveur flexible (préversion) dans un [réseau virtuel](../../virtual-network/virtual-networks-overview.md).
 
-Dans ce tutoriel, vous allez :
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 >[!div class="checklist"]
 > * Créer un serveur flexible PostgreSQL dans un réseau virtuel
+> * Créer un sous-réseau à déléguer à App Service
 > * Créer une application web
 > * Ajouter l'application web au réseau virtuel
 > * Vous connecter à Postgres à partir de l'application web 
@@ -44,7 +45,7 @@ az login
 Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Remplacez la propriété **ID d’abonnement** de la sortie **az login** pour votre abonnement dans l’espace réservé de l’ID d’abonnement.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-a-postgresql-flexible-server-in-a-new-virtual-network"></a>Créer un serveur flexible PostgreSQL dans un nouveau réseau virtuel
@@ -56,7 +57,7 @@ az postgres flexible-server create --resource-group myresourcegroup --location w
 Cette commande effectue les actions suivantes qui peuvent prendre quelques minutes :
 
 - S'il n'existe pas encore, créez le groupe de ressources.
-- Génère un nom de serveur s'il n’est pas fourni.
+- Génère un nom de serveur s'il n'est pas fourni.
 - Créez un réseau virtuel pour votre nouveau serveur PostgreSQL. Notez le nom du réseau virtuel et le nom du sous-réseau créés pour votre serveur car vous devez ajouter l'application web au même réseau virtuel.
 - Crée un nom d'utilisateur administrateur et un mot de passe pour votre serveur, s'il n'est pas fourni.
 - Crée une base de données vide appelée **postgres**
@@ -68,14 +69,21 @@ Cette commande effectue les actions suivantes qui peuvent prendre quelques minut
 >  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 >  ```
 
+## <a name="create-subnet-for-app-service-endpoint"></a>Créer un sous-réseau pour le point de terminaison App Service
+Nous avons désormais besoin d’un sous-réseau délégué au point de terminaison de l’application web App Service. Exécutez la commande suivante pour créer un sous-réseau dans le même réseau virtuel que celui sur lequel le serveur de base de données a été créé. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+Notez le nom du réseau virtuel et le nom du sous-réseau après cette commande, car vous en aurez besoin pour ajouter une règle d’intégration au réseau virtuel pour l’application web après sa création. 
 
 ## <a name="create-a-web-app"></a>Créer une application web
-Dans cette section, vous allez créer un hôte d’application dans l’application App Service, connecter cette application à la base de données Postgres, puis déployer votre code sur cet hôte. Vérifiez que vous êtes à la racine du référentiel de votre code d'application dans le terminal.
+Dans cette section, vous allez créer un hôte d’application dans l’application App Service, connecter cette application à la base de données Postgres, puis déployer votre code sur cet hôte. Vérifiez que vous êtes à la racine du référentiel de votre code d'application dans le terminal. Remarque : Le plan De base ne prend pas en charge l’intégration au réseau virtuel. Utilisez le niveau Standard ou Premium. 
 
 Créez une application App Service (processus hôte) avec la commande az webapp up.
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
@@ -85,7 +93,6 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 Cette commande effectue les actions suivantes qui peuvent prendre quelques minutes :
 
 - S'il n'existe pas encore, créez le groupe de ressources. (dans cette commande, vous utilisez le groupe de ressources dans lequel vous avez créé la base de données précédemment).
-- Créez le plan App Service ```testappserviceplan``` au niveau tarifaire De base (B1), le cas échéant. --plan et --sku sont facultatifs.
 - Si elle n’existe pas, créez l’application App Service.
 - Activez la journalisation par défaut pour l’application, si elle ne l’est pas déjà.
 - Chargez le dépôt à l’aide du déploiement ZIP avec l’automatisation de la génération activée.
@@ -94,7 +101,7 @@ Cette commande effectue les actions suivantes qui peuvent prendre quelques minut
 Utilisez la commande **az webapp vnet-integration** pour ajouter une intégration de réseau virtuel régional à une application web. Remplacez <vnet-name> et <subnet-name> par le nom du réseau virtuel et le nom du sous-réseau que le serveur flexible utilise.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## <a name="configure-environment-variables-to-connect-the-database"></a>Configurer des variables d’environnement pour connecter la base de données

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587846"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604700"
 ---
 # <a name="securing-service-principals"></a>Sécurisation des principaux de service
 
@@ -96,6 +96,7 @@ Pour plus d’informations, consultez [Get-AzureADServicePrincipal](/powershell/
 Pour évaluer la sécurité de vos principaux de service, veillez à évaluer les privilèges et le stockage des informations d’identification.
 
 Atténuez les défis susceptibles de se présenter à l’aide des informations suivantes.
+
 |Défis | Corrections|
 | - | - |
 | Détecter l’utilisateur qui a consenti à une application multi-locataire ainsi que les octrois de consentement illicites à une application multi-locataire | Exécutez la commande PowerShell suivante pour rechercher des applications multi-locataires.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Désactivez le consentement de l’utilisateur. <br>Autoriser le consentement de l’utilisateur provenant d'éditeurs vérifiés, pour les autorisations sélectionnées (recommandé) <br> Utilisez l’accès conditionnel pour bloquer les principaux de service à partir d’emplacements non approuvés. Configurez-les dans le contexte de l’utilisateur. Leurs jetons doivent être utilisés pour déclencher le principal du service.|

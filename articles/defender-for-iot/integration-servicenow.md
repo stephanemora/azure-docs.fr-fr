@@ -1,19 +1,14 @@
 ---
 title: À propos de l’intégration de ServiceNow
-titleSuffix: Azure Defender for IoT
 description: L’application ICS Management Defender pour IoT pour ServiceNow fournit aux analystes SOC une visibilité multidimensionnelle sur les protocoles OT et les appareils IoT spécialisés déployés dans des environnements industriels, ainsi qu’une analytique des comportements prenant en charge ICS pour détecter rapidement les comportements suspects ou anormaux.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556693"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786003"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>Application ICS Management Defender pour IoT pour ServiceNow
 
@@ -153,7 +148,7 @@ Pour définir la règle :
 
 ### <a name="send-defender-for-iot-device-attributes"></a>Envoyer des attributs d’appareil Defender pour IoT
 
-Cet article explique comment configurer Defender pour IoT afin qu’il envoie (Push) un ensemble étendu d’attributs d’appareil aux tables ServiceNow. Pour plus d’informations sur le type d’informations envoyées (Push) à ServiceNow, consultez **_Informations de l’inventaire_* _.
+Cet article explique comment configurer Defender pour IoT afin qu’il envoie (Push) un ensemble étendu d’attributs d’appareil aux tables ServiceNow. Pour plus d’informations sur le type d’informations envoyées (Push) à ServiceNow, consultez ***Informations de l’inventaire***.
 
 Pour envoyer des attributs à ServiceNow, vous devez mapper votre console de gestion locale à une instance ServiceNow. Cela garantit que la plateforme Defender pour IoT peut communiquer et s’authentifier auprès de l’instance.
 
@@ -161,7 +156,7 @@ Pour ajouter une instance ServiceNow :
 
 1. Connectez-vous à votre console de gestion locale Defender pour IoT.
 
-1. Sélectionnez _ *Paramètres système**, puis **ServiceNow** dans la section Intégration de la console de gestion locale.
+1. Sélectionnez **Paramètres système**, puis **ServiceNow** dans la section Intégration de la console de gestion locale.
 
       :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Sélectionnez le bouton ServiceNow.":::
 

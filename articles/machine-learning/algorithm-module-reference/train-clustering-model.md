@@ -1,5 +1,5 @@
 ---
-title: 'Entraîner un modèle de clustering : Informations de référence sur les modules'
+title: "Effectuer l'apprentissage du modèle de clustering : référence de module"
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser le module Train Clustering Model (Entraîner un modèle de clustering) dans Azure Machine Learning pour entraîner des modèles de clustering.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/17/2021
+ms.openlocfilehash: ea6673a04bf9f5f568c660658e51036f2d2712e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898172"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654728"
 ---
 # <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
@@ -52,6 +52,9 @@ Une fois l’apprentissage terminé :
 + Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 + Pour générer des scores à partir du modèle, utilisez l’option [Attribuer des données à des clusters](assign-data-to-clusters.md).
+
+> [!NOTE]
+> Si vous devez déployer le modèle formé dans le concepteur, assurez-vous que l’option [Attribuer des données à des clusters](assign-data-to-clusters.md) plutôt que **Modèle de score** est attribuée à l’entrée du [module de sortie du service web](web-service-input-output.md) dans le pipeline d’inférence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

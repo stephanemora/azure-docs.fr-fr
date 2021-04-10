@@ -3,7 +3,6 @@ title: Équilibrer la charge des machines virtuelles dans les zones de disponibi
 description: Cet exemple de script Azure CLI montre comment équilibrer la charge du trafic vers les machines virtuelles entre les zones de disponibilité
 documentationcenter: load-balancer
 author: asudbring
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region.
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9f47d79be186dd44e26f78eaf70bbedaca969d66
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e30c90152151dc51f74fb889b16c92208b1edf3d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94696483"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056043"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exemple de script Azure CLI : Équilibrer la charge de machines virtuelles entre des zones de disponibilité
 

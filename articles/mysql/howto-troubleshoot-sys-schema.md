@@ -6,14 +6,15 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: a20510ee2800a54f9a51a2f498ee8ae8a3e51d55
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 38b85748ad810002dc9cfd456ef6c138e8732ece
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94543147"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605482"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser sys_schema à des fins de réglage des performances et de maintenance de base de données dans Azure Database pour MySQL
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 MySQL performance_schema, disponible initialement dans MySQL 5.5, fournit l’instrumentation pour bon nombre de ressources serveur vitales, telles que l’allocation de mémoire, les programmes stockés, le verrouillage des métadonnées, etc. Or, performance_schema contient plus de 80 tables, et pour obtenir les informations nécessaires, il est souvent utile de joindre les tables de performance_schema, ainsi que les tables d’information_schema. En s’appuyant sur both performance_schema et information_schema, sys_schema propose une collection considérable de [vues conviviales](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) dans une base de données en lecture seule que vous pouvez tout à fait utiliser dans Azure Database pour MySQL version 5.7.
 
@@ -83,4 +84,4 @@ Les index sont des outils efficaces pour améliorer les performances de lecture,
 En résumé, sys_schema est un outil efficace à la fois pour le réglage des performances et la maintenance de base de données. Veillez à tirer parti de cette fonctionnalité dans Azure Database pour MySQL. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour consulter les réponses d’homologues aux questions qui vous préoccupent le plus ou pour poster une nouvelle question/réponse, visitez la [page de questions Microsoft Q&A](/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Pour consulter les réponses d’homologues aux questions qui vous préoccupent le plus ou pour poster une nouvelle question/réponse, visitez [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

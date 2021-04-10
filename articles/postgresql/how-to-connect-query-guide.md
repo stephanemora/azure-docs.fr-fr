@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1506ce311fe443247050a36e1b9fa4600360ac6e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92546549"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604139"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Vue d’ensemble de la connexion et des requêtes pour Azure Database pour PostgreSQL - Serveur unique
 
@@ -44,7 +44,6 @@ PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base 
 - [Extensions Postgres 11](./concepts-extensions.md#postgres-11-extensions)
 - [Extensions Postgres 10](./concepts-extensions.md#postgres-10-extensions)
 - [Extensions Postgres 9.6](./concepts-extensions.md#postgres-96-extensions)
-- [Extensions Postgres 9.5](./concepts-extensions.md#postgres-95-extensions)
 
 Pour plus d’informations, consultez [Guide pratique pour utiliser des extensions PostgreSQL sur un serveur unique](concepts-extensions.md).
 

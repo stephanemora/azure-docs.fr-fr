@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 03/01/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650726"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599207"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -66,6 +66,7 @@ Consultez le tableau ci-dessous pour savoir quelles fonctionnalités vous pouvez
 | Exploration des opinions | ✔ |  |
 | Extraction d’expressions clés | ✔ | ✔* |
 | Reconnaissance d’entité nommée (y compris PII et PHI) | ✔ | ✔* |
+| Liaison d’entités | ✔ | ✔* |
 | Analyse de texte pour la santé (conteneur) | ✔ |  |
 | Analyse de texte pour la santé (API) |  | ✔  |
 
@@ -118,8 +119,9 @@ Voici un exemple de demande API pour les points de terminaison d’Analyse de te
 
 Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d’Analyse de texte prises en charge que vous souhaitez utiliser dans un appel d’API. Ce point de terminaison prend actuellement en charge les aspects suivants :
 
-* à l’extraction de phrases clés 
+* Extraction d’expressions clés 
 * Reconnaissance d’entité nommée (y compris PII et PHI)
+* Liaison d’entités
 
 | Élément | Valeurs valides | Requis ? | Usage |
 |---------|--------------|-----------|-------|
@@ -128,7 +130,7 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
 |`documents` | Inclut les champs `id` et `text` en dessous | Obligatoire | Contient des informations pour chaque document envoyé, ainsi que le texte brut du document. |
 |`id` | String | Obligatoire | Les ID que vous fournissez sont utilisés pour structurer la sortie. |
 |`text` | Texte brut non structuré, jusqu’à 125 000 caractères. | Obligatoire | Doit être en anglais, qui est la seule langue actuellement prise en charge. |
-|`tasks` | Inclut les fonctionnalités d’Analyse de texte suivantes : `entityRecognitionTasks`, `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks`. | Obligatoire | Une ou plusieurs fonctionnalités d’Analyse de texte que vous souhaitez utiliser. Notez que `entityRecognitionPiiTasks` a un paramètre facultatif `domain` qui peut être défini sur `pii` ou `phi`. Si la valeur n’est pas spécifiée, la valeur système par défaut est `pii`. |
+|`tasks` | Inclut les fonctionnalités d’Analyse de texte suivantes : `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks`. | Obligatoire | Une ou plusieurs fonctionnalités d’Analyse de texte que vous souhaitez utiliser. Notez que `entityRecognitionPiiTasks` a un paramètre `domain` facultatif qui peut avoir la valeur `pii` ou `phi` et le `pii-categories` pour la détection de types d’entité sélectionnés. Si le paramètre `domain` n’est pas spécifié, la valeur système par défaut est `pii`. |
 |`parameters` | Inclut les champs `model-version` et `stringIndexType` en dessous | Obligatoire | Ce champ est inclus dans les tâches de fonctionnalités au-dessus que vous choisissez. Ils contiennent des informations sur la version du modèle que vous souhaitez utiliser et sur le type d’index. |
 |`model-version` | String | Obligatoire | Spécifiez la version du modèle appelée que vous souhaitez utiliser.  |
 |`stringIndexType` | String | Obligatoire | Spécifiez le décodeur de texte correspondant à votre environnement de programmation.  Les types pris en charge sont `textElement_v8` (par défaut), `unicodeCodePoint` et `utf16CodeUnit`. Pour plus d’informations, consultez l’article sur les [décalages de texte](../concepts/text-offsets.md#offsets-in-api-version-31-preview).  |
@@ -158,6 +160,14 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -165,7 +175,10 @@ Le point de terminaison `/analyze` vous permet de choisir les fonctionnalités d
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
@@ -231,16 +244,16 @@ Dans Postman (ou un autre outil de test d’API web), ajoutez le point de termin
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
-| Envoyer un travail d’analyse | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
-| Obtenir l’état et les résultats d’une analyse | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
+| Envoyer un travail d’analyse | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
+| Obtenir l’état et les résultats d’une analyse | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Points de terminaison pour l’envoi de demandes asynchrones au point de terminaison `/health`
 
 | Fonctionnalité | Type de demande | Points de terminaison de ressource |
 |--|--|--|
-| Envoyer une Analyse de texte pour un travail sur la santé  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
-| Obtenir l’état et les résultats d’un travail | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Annuler le travail | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Envoyer une Analyse de texte pour un travail sur la santé  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
+| Obtenir l’état et les résultats d’un travail | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| Annuler le travail | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -278,7 +291,7 @@ Si vous avez appelé les points de terminaison asynchrones `/analyze` ou `/healt
 1. Dans la réponse de l’API, recherchez `Operation-Location` dans l’en-tête, qui identifie le travail que vous avez envoyé à l’API. 
 2. Créez une demande GET pour le point de terminaison que vous avez utilisé. Consultez le [tableau ci-dessus](#set-up-a-request) pour le format du point de terminaison, ainsi que la [documentation de référence de l’API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus). Par exemple :
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
 
 3. Ajoutez `Operation-Location` à la demande.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3cf97039983ecec44a7c3a32e178fdcf9f9c45ff
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576341"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104872181"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Interroger les journaux Azure Monitor pour surveiller les clusters HDInsight
 
@@ -31,19 +31,19 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
 
 1. Ouvrez l’espace de travail Log Analytics qui est associé à votre cluster HDInsight à partir du portail Azure.
 1. Sous **Général**, sélectionnez **Journaux**.
-1. Tapez la requête suivante dans la zone de recherche afin de rechercher toutes les métriques disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **Exécuter**. Examinez les résultats.
+1. Tapez la requête suivante dans la zone de recherche afin de rechercher toutes les métriques disponibles dans tous les clusters HDInsight configurés pour utiliser les journaux Azure Monitor, puis sélectionnez **Exécuter**. Passez en revue les résultats.
 
     ```kusto
     search *
     ```
 
-    ![Analytiques Apache Ambari - Rechercher toutes les métriques](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Rechercher toutes les métriques")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png" alt-text="Analytiques Apache Ambari - Rechercher toutes les métriques":::
 
 1. Dans le menu de gauche, sélectionnez l’onglet **Filtrer**.
 
 1. Sous **Type**, sélectionnez **Pulsation**. Sélectionnez ensuite **Appliquer et exécuter**.
 
-    ![Log Analytics - Rechercher des métriques spécifiques](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Rechercher des métriques spécifiques")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png" alt-text="Log Analytics - Rechercher des métriques spécifiques":::
 
 1. Notez que la requête dans la zone de texte devient :
 
@@ -52,15 +52,15 @@ Découvrez comment rechercher des métriques spécifiques pour votre cluster HDI
     | where Type == "Heartbeat"
     ```
 
-1. Vous pouvez afficher plus de détails en utilisant les options disponibles dans le volet gauche. Par exemple :
+1. Vous pouvez afficher plus de détails en utilisant les options disponibles dans le volet gauche. Exemple :
 
-    - Pour voir les journaux d’un nœud spécifique :
+   - Pour voir les journaux d’un nœud spécifique :
 
-        ![Rechercher des erreurs spécifiques - Sortie 1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png "Rechercher des erreurs spécifiques - Sortie 1")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-node.png" alt-text="Rechercher des erreurs spécifiques - Sortie 1":::
 
-    - Pour voir les journaux à certains moments :
+   - Pour voir les journaux à certains moments :
 
-        ![Rechercher des erreurs spécifiques - Sortie 2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png "Rechercher des erreurs spécifiques - Sortie 2")
+     :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/log-analytics-specific-time.png" alt-text="Rechercher des erreurs spécifiques - Sortie 2":::
 
 1. Sélectionnez **Appliquer et exécuter**, et examinez les résultats. Notez également que la requête a été mise à jour :
 
@@ -102,11 +102,11 @@ La première étape pour créer une alerte consiste à définir une requête qui
 
 1. Sélectionnez **Nouvelle règle d’alerte** en haut de la page.
 
-    ![Entrer une requête pour créer une alerte 1](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "Entrer une requête pour créer une alerte 1")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png" alt-text="Nouvelle règle d’alerte":::
 
 1. Dans la fenêtre **Créer une règle**, saisissez la requête et d’autres détails pour créer une alerte, puis sélectionnez **Créer une règle d'alerte**.
 
-    ![Entrer une requête pour créer une alerte 2](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "Entrer une requête pour créer une alerte 2")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png" alt-text="Définir la condition d’alerte.":::
 
 ### <a name="edit-or-delete-an-existing-alert"></a>Modifier ou supprimer une alerte existante
 
@@ -120,7 +120,7 @@ La première étape pour créer une alerte consiste à définir une requête qui
 
 1. Vous disposez des options suivantes : **Enregistrer**, **Ignorer**, **Désactiver** et **Supprimer**.
 
-    ![HDInsight, journaux Azure Monitor, alerte, supprimer, modifier](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    :::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png" alt-text="HDInsight, journaux Azure Monitor, alerte, supprimer, modifier":::
 
 Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
