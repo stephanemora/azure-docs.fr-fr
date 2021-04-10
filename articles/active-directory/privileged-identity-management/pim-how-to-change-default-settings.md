@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708481"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567031"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -64,14 +64,14 @@ Vous pouvez choisir entre deux options de durée d’attribution pour chaque typ
 
 Vous pouvez choisir l’une de ces options de durée d’attribution **éligible** :
 
-| | |
+| | Description |
 | --- | --- |
 | **Autoriser une attribution éligible permanente** | Les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent assigner une attribution éligible permanente. |
 | **Faire expirer les attributions éligibles après** | Les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent exiger que toutes les attributions éligibles aient une date de début et une date de fin spécifiées. |
 
 Vous pouvez choisir l’une de ces options de durée d’attribution **active** :
 
-| | |
+| | Description |
 | --- | --- |
 | **Autoriser une attribution active permanente** | Les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent assigner une attribution active permanente. |
 | **Faire expirer les attributions actives après** | Les Administrateurs généraux et les Administrateurs de rôle privilégié peuvent exiger que toutes les attributions actives aient une date de début et une date de fin spécifiées. |

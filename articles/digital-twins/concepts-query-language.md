@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034674"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103490974"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>À propos du langage de requête pour Azure Digital Twins
 
@@ -85,7 +85,7 @@ Cette section décrit les limitations du langage de requête.
 * Aucune sous-requête n’est prise en charge dans l’instruction `FROM`.
 * La sémantique `OUTER JOIN` n’est pas prise en charge, ce qui signifie que si la relation a un rang égal à zéro, la « ligne » entière sera éliminée du jeu de résultats de sortie.
 * La profondeur de la traversée du graphe est restreinte à cinq niveaux `JOIN` autorisés par requête.
-* La source des opérations `JOIN` est restreinte : la requête doit déclarer les jumeaux au début.
+* Les relations dans Azure Digital Twins ne peuvent pas être interrogées en tant qu’entités indépendantes. Vous devez également fournir des informations sur le jumeau source à partir duquel provient la relation. Cela signifie qu’il existe des restrictions sur l’opération `JOIN`, utilisée pour interroger les relations, afin de s’assurer que la requête déclare les jumeaux à l’origine de la requête. Pour obtenir des exemples, consultez [*Requête par relation*](how-to-query-graph.md#query-by-relationship) dans l’article *Guide pratique : Interroger le graphe de jumeaux*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

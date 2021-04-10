@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 70905d23b61ee9fee319bae41aeb421d808fa4d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606716"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566759"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server vers un stockage Blob Azure à l’aide de l’outil Copier les données
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -87,21 +87,6 @@ Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage
 
 
 1. Dans les zones **Nom du compte de stockage** et **key1**, copiez les valeurs, puis collez-les dans le bloc-notes ou un autre éditeur pour une utilisation ultérieure dans le tutoriel.
-
-#### <a name="create-the-adftutorial-container"></a>Créer le conteneur adftutorial
-Dans cette section, vous allez créer un conteneur d’objets blob nommé **adftutorial** dans votre stockage Blob.
-
-1. Dans la fenêtre **Compte de stockage**, basculez vers **Vue d’ensemble**, puis sélectionnez **Objets blob**.
-
-1. Dans la fenêtre **Objets blob**, sélectionnez **+ Conteneur**.
-
-1. Dans la fenêtre **Nouveau conteneur**, sous **Nom**, entrez **adftutorial**, puis sélectionnez **OK**.
-
-1. Cliquez sur **adftutorial** dans la liste des conteneurs.
-
-
-1. Gardez la fenêtre **Conteneur** de **adftutorial** ouverte. Elle vous permet de vérifier la sortie à la fin du tutoriel. Data Factory crée automatiquement le dossier de sortie de ce conteneur, de sorte que vous n’avez pas besoin d’en créer.
-
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101097691"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588747"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Créer un domaine personnalisé sur un SKU Standard/Premium d’Azure Front Door (préversion) à l’aide du portail Azure
 
@@ -38,6 +38,9 @@ Quand vous créez un profil Azure Front Door Standard/Premium, l’hôte front-
 * Si vous utilisez Azure pour héberger vos [domaines DNS](../../dns/dns-overview.md), vous devez déléguer le DNS (Domain Name System) du fournisseur de domaine à Azure DNS. Pour plus d’informations, voir [Délégation de domaine à Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Si, au contraire, vous utilisez un fournisseur de domaine pour gérer votre domaine DNS, vous devez valider manuellement le domaine en entrant les enregistrements TXT DNS demandés.
 
 ## <a name="add-a-new-custom-domain"></a>Ajouter un nouveau domaine personnalisé
+
+> [!NOTE]
+> En Préversion publique, l’utilisation d’Azure DNS pour créer des domaines Apex n’est pas prise en charge sur Azure Front Door Standard/Premium. D’autres fournisseurs DNS prennent en charge l’aplatissement de CNAME ou la recherche de DNS qui permettront aux domaines APEX d’être utilisés pour Azure Front Door Standard/Premium.
 
 Les domaines personnalisés sont gérés dans la section Domaines du portail. Un domaine personnalisé peut être créé et validé avant d’être associé à un point de terminaison. Un domaine personnalisé et ses sous-domaines peuvent être associés à un seul point de terminaison à la fois. Toutefois, vous pouvez utiliser différents sous-domaines du même domaine personnalisé pour différentes instances de Front Door. Vous pouvez également mapper des domaines personnalisés ayant différents sous-domaines au même point de terminaison Front Door.
 

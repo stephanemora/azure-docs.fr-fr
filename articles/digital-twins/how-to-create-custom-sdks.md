@@ -1,39 +1,44 @@
 ---
-title: Création de kits SDK personnalisés pour Azure Digital Twins avec AutoRest
+title: Créer des kits SDK de langages personnalisés avec AutoRest
 titleSuffix: Azure Digital Twins
-description: Découvrez comment générer des kits de développement logiciel (SDK) personnalisés pour utiliser Azure Digital Twins avec des langages autres que C#.
+description: Apprenez à utiliser AutoRest pour générer des Kits de développement logiciel (SDK) en langage personnalisé, pour l’écriture de code Azure Digital Twins dans d’autres langues qui n’ont pas de SDK publiés.
 author: baanders
 ms.author: baanders
-ms.date: 4/24/2020
+ms.date: 3/9/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-js
-ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.custom:
+- devx-track-js
+- contperf-fy21q3
+ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049795"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561838"
 ---
-# <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Création de kits SDK personnalisés pour Azure Digital Twins avec AutoRest
+# <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>Créer des Kits de développement logiciel (SDK) en langage personnalisé pour Azure Digital Twins avec AutoRest
 
-Pour le moment, le seul Kit de développement logiciel (SDK) de plan de données publié permettant d’interagir avec les API Azure Digital Twins est destiné à .NET (C#), JavaScript et Java. Pour plus d’informations sur ces kits de développement logiciel (SDK) et les API en général, consultez [*Guide pratique : Utiliser les API et les kits de développement logiciel (SDK) Azure Digital Twins*](how-to-use-apis-sdks.md). Si vous travaillez avec un autre langage, cet article vous montre comment générer votre propre Kit de développement logiciel (SDK) de plan de données dans le langage de votre choix à l’aide d’AutoRest.
+Si vous devez travailler avec Azure Digital Twins dans un langage pour lequel aucun [Kit de développement logiciel (SDK) Azure Digital Twins n’a été publié](how-to-use-apis-sdks.md), cet article vous montrera comment utiliser AutoRest pour générer votre propre SDK dans le langage de votre choix. 
 
->[!NOTE]
-> Si vous le souhaitez, vous pouvez également utiliser AutoRest pour générer un Kit de développement logiciel (SDK) de plan de contrôle. Pour ce faire, suivez les étapes de cet article en utilisant la dernière version du fichier **Swagger du plan de contrôle** (OpenAPI) dans le [dossier du fichier Swagger du plan de contrôle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) au lieu de celui du plan de données.
+Les exemples de cet article montrent la création d’un [Kit de développement logiciel (SDK) de plan de données](how-to-use-apis-sdks.md#overview-data-plane-apis), mais ce processus permet également de générer un [Kit de développement logiciel (SDK) de plan de contrôle](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
-## <a name="set-up-your-machine"></a>Configurer votre machine
+## <a name="prerequisites"></a>Prérequis
 
-Pour générer un kit SDK, vous aurez besoin des éléments suivants :
-* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (la version 3 n’est pas prise en charge pour le moment)
-* [Node.js](https://nodejs.org), qui fait partie des prérequis d’AutoRest
-* La dernière version du fichier **Swagger du plan de données** (OpenAPI) d’Azure Digital Twins dans le [dossier du fichier Swagger du plan de données](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins) et le dossier d’exemples qui l’accompagne.  Téléchargez le fichier Swagger *digitaltwins.json* et son dossier d’exemples sur votre ordinateur local.
+Pour générer un Kit de développement logiciel (SDK), vous devez d’abord effectuer la configuration suivante sur votre ordinateur local :
+* Installez [**AutoRest**](https://github.com/Azure/autorest), version 2.0.4413 (la version 3 n’est pas prise en charge pour le moment).
+* Installez [**Node.js**](https://nodejs.org), qui est une condition préalable à l’utilisation d’AutoRest.
+* Installez [**Visual Studio**](https://visualstudio.microsoft.com/downloads/).
+* Téléchargez la dernière version du fichier **Swagger du plan de données** (OpenAPI) d’Azure Digital Twins dans le [dossier du fichier Swagger du plan de données](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), ainsi que le dossier d’exemples qui l’accompagne. Le fichier Swagger est celui appelé *digitaltwins.json*.
 
-Une fois que votre machine est équipée de tous les éléments de la liste ci-dessus, vous êtes prêt à utiliser AutoRest pour créer le kit SDK.
+>[!TIP]
+> Pour créer un **Kit de développement logiciel (SDK) de plan de contrôle**, suivez les étapes de cet article en utilisant la dernière version du **fichier Swagger du plan de contrôle** (OpenAPI) dans le [dossier du fichier Swagger du plan de contrôle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) au lieu de celui du plan de données.
 
-## <a name="create-the-sdk-with-autorest"></a>Création du kit SDK avec AutoRest 
+Une fois que votre machine est équipée de tous les éléments de la liste ci-dessus, vous êtes prêt à utiliser AutoRest pour créer un SDK.
 
-Si vous avez installé Node.js, vous pouvez exécuter cette commande pour vérifier que vous disposez de la bonne version d’AutoRest :
+## <a name="create-the-sdk-using-autorest"></a>Créer le SDK avec AutoRest 
+
+Une fois Node.js installé, vous pouvez exécuter cette commande pour vérifier que vous disposez de la version requise d’AutoRest :
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```
@@ -51,11 +56,11 @@ Un nouveau dossier nommé *DigitalTwinsApi* s’affiche alors dans votre répert
 
 AutoRest prend en charge un large éventail de générateurs de code de langage.
 
-## <a name="add-the-sdk-to-a-visual-studio-project"></a>Ajout du kit SDK à un projet Visual Studio
+## <a name="make-the-sdk-into-a-class-library"></a>Transformer le SDK en bibliothèque de classes
 
 Il est possible d’inclure directement les fichiers générés par AutoRest dans une solution .NET. Toutefois, il est probable que vous souhaitiez inclure le Kit de développement logiciel (SDK) Azure Digital Twins dans plusieurs projets distincts (vos applications clientes, applications Azure Functions, etc.). Pour cette raison, il peut être utile de créer un projet distinct (une bibliothèque de classes .NET) à partir des fichiers générés. Vous pouvez ensuite inclure ce projet de bibliothèque de classes dans plusieurs solutions en tant que référence de projet.
 
-Cette section fournit les instructions à suivre pour générer le kit SDK sous la forme d’une bibliothèque de classes, qui constitue son propre projet et peut être incluse dans d’autres projets. Cette procédure est donnée pour **Visual Studio** (cliquez [ici](https://visualstudio.microsoft.com/downloads/) pour installer la dernière version).
+Cette section fournit les instructions à suivre pour générer le kit SDK sous la forme d’une bibliothèque de classes, qui constitue son propre projet et peut être incluse dans d’autres projets. Ces étapes reposent sur **Visual Studio**.
 
 Voici la procédure à suivre :
 
@@ -81,7 +86,7 @@ Pour les ajouter, ouvrez *Outils > Gestionnaire de package NuGet > Gérer les pa
 
 Vous pouvez maintenant générer le projet et l’inclure comme référence de projet dans toutes les applications Azure Digital Twins que vous écrivez.
 
-## <a name="general-guidelines-for-generated-sdks"></a>Instructions générales pour les kits SDK générés
+## <a name="tips-for-using-the-sdk"></a>Conseils d’utilisation du SDK
 
 Cette section contient des informations générales sur le kit SDK généré, ainsi que les instructions à suivre pour l’utiliser.
 

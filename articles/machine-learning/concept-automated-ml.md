@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: e7038a4e06a96ac2df1a7f0918877db9c97cb71d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 44bcc27f877f6b2a547c51ecd3848214719cb085
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502533"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643660"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Qu’est-ce que le Machine Learning automatisé (AutoML) ?
 
@@ -263,7 +263,7 @@ Avec Azure Machine Learning, vous pouvez utiliser le Machine Learning automatis�
 
 Découvrez comment convertir au format ONNX [dans cet exemple de notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Découvrez quels sont les [algorithmes pris en charge dans ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
 
-Le runtime ONNX prenant également en charge C#, vous pouvez utiliser le modèle généré automatiquement dans vos applications C# sans avoir besoin de recodage ou des latences réseau introduites par les points de terminaison REST. En savoir plus sur [l’utilisation d’un modèle ONNX AutoML dans une application .NET avec ML.NET](./how-to-use-automl-onnx-model-dotnet.md) et sur [l’inférence de modèles ONNX avec l’API C# du runtime ONNX](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
+Le runtime ONNX prenant également en charge C#, vous pouvez utiliser le modèle généré automatiquement dans vos applications C# sans avoir besoin de recodage ou des latences réseau introduites par les points de terminaison REST. En savoir plus sur [l’utilisation d’un modèle ONNX AutoML dans une application .NET avec ML.NET](./how-to-use-automl-onnx-model-dotnet.md) et sur [l’inférence de modèles ONNX avec l’API C# du runtime ONNX](https://github.com/plaidml/onnxruntime/blob/plaidml/docs/CSharp_API.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
