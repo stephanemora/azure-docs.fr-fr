@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 420dade645d1a4ee32bb888aecb76b033d5756e1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502686"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731295"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurer des restrictions d’accès dans Azure App Service
 
@@ -97,26 +97,25 @@ Avec les points de terminaison de service, vous pouvez configurer votre applicat
 > [!NOTE]
 > - Les points de terminaison de service ne sont actuellement pas pris en charge pour les applications web qui utilisent une adresse IP virtuelle IP SSL.
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>Définir une règle basée sur une étiquette de service (préversion)
+#### <a name="set-a-service-tag-based-rule"></a>Définir une règle basée sur une étiquette de service
 
-* Pour l’étape 4, dans la liste déroulante **Type**, sélectionnez **étiquette de service (préversion)** .
+* Pour l’étape 4, dans la liste déroulante **Type**, sélectionnez **Étiquette de service**.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Capture d’écran du volet « Ajouter une restriction » avec le type Étiquette de service sélectionné.":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Capture d’écran du volet « Ajouter une restriction » avec le type Étiquette de service sélectionné.":::
 
 Chaque étiquette de service représente une liste de plages d’adresses IP des services Azure. La [documentation sur les étiquettes de service][servicetags] fournit une liste de ces services et des liens vers les plages spécifiques.
 
-La liste suivante d’étiquettes de service est prise en charge dans les règles de restriction d’accès dans la phase de préversion :
+Toutes les étiquettes de service disponibles sont prises en charge dans les règles de restriction d’accès. Par souci de simplicité, seule une liste des étiquettes les plus courantes est disponible via le Portail Azure. Utilisez des modèles Azure Resource Manager ou des scripts pour configurer des règles plus avancées, comme des règles à étendue régionale. Les étiquettes disponibles via le Portail Azure sont les suivantes :
+
 * ActionGroup
+* ApplicationInsightsAvailability
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor.Backend
 * AzureMachineLearning
-* AzureSignalR
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Modifier une règle
 
@@ -137,6 +136,31 @@ Pour supprimer une règle, sur la page **Restrictions d’accès**, sélectionne
 
 ## <a name="access-restriction-advanced-scenarios"></a>Scénarios avancés de restriction d’accès
 Les sections suivantes décrivent certains scénarios avancés utilisant des restrictions d’accès.
+
+### <a name="filter-by-http-header"></a>Filtrer par en-tête HTTP
+
+Dans le cadre d’une règle, vous pouvez ajouter des filtres d’en-tête HTTP supplémentaires. Les noms d’en-têtes HTTP suivants sont pris en charge :
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Pour chaque nom d’en-tête, vous pouvez ajouter jusqu’à 8 valeurs séparées par des virgules. Les filtres d’en-tête HTTP sont évalués après la règle elle-même et les deux conditions doivent être vraies pour que la règle s’applique.
+
+### <a name="multi-source-rules"></a>Règles à plusieurs sources
+
+Les règles à plusieurs sources vous permettent de combiner jusqu’à 8 plages d’adresses IP ou 8 étiquettes de service dans une seule règle. Vous pouvez les utiliser si vous avez plus de 512 plages d’adresses IP ou si vous souhaitez créer des règles logiques où plusieurs plages d’adresses IP sont combinées avec un seul filtre d’en-tête HTTP.
+
+Les règles à plusieurs sources sont définies de la même façon que vous définissez des règles à source unique, mais chaque plage est séparée par une virgule.
+
+Exemple PowerShell :
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>Bloquer une adresse IP unique
 
 Lorsque vous ajoutez votre première règle de restriction d’accès, le service ajoute une règle *Tout refuser* ayant la priorité 2147483647. Dans la pratique, la règle explicite *Tout refuser* est la dernière règle exécutée et bloque l’accès à toute adresse IP n’étant pas autorisée de manière explicite par une règle *Autoriser*.
@@ -151,17 +175,20 @@ Outre la possibilité de contrôler l’accès à votre application, vous pouvez
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Capture d’écran de la page « Restrictions d’accès » dans le portail Azure indiquant qu’aucune restriction d’accès n’est définie pour le site SCM ou l’application.":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Restreindre l’accès à une instance Azure Front Door spécifique (préversion)
-Le trafic entre Azure Front Door et votre application provient d’un ensemble bien connu de plages d’adresses IP définies dans l’étiquette de service AzureFrontDoor.Backend. Une règle de restriction d’étiquette de service vous permet de limiter le trafic à partir d’Azure Front Door. Pour garantir que le trafic provient uniquement de votre instance spécifique, vous devez filtrer davantage les demandes entrantes en fonction de l’en-tête HTTP unique envoyé par Azure Front Door. En préversion, vous pouvez y parvenir avec PowerShell ou REST/ARM. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>Restreindre l’accès à une instance Azure Front Door spécifique
+Le trafic entre Azure Front Door et votre application provient d’un ensemble bien connu de plages d’adresses IP définies dans l’étiquette de service AzureFrontDoor.Backend. Une règle de restriction d’étiquette de service vous permet de limiter le trafic à partir d’Azure Front Door. Pour garantir que le trafic provient uniquement de votre instance spécifique, vous devez filtrer davantage les demandes entrantes en fonction de l’en-tête HTTP unique envoyé par Azure Front Door.
 
-* Exemple avec PowerShell (l’ID Front Door se trouve dans le portail Azure) :
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png?v2" alt-text="Capture d’écran de la page « Restrictions d’accès » dans le Portail Azure montrant comment ajouter une restriction Azure Front Door.":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+Exemple PowerShell :
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>Gérer des règles de restriction d’accès par programmation
 
 Vous pouvez ajouter des restrictions d’accès par programmation en procédant de l’une des façons suivantes : 
@@ -181,7 +208,7 @@ Vous pouvez ajouter des restrictions d’accès par programmation en procédant 
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > L’utilisation d’étiquettes de service, d’en-têtes HTTP ou de règles à plusieurs sources nécessite au moins la version 5.1.0. Vous pouvez vérifier la version du module installé avec : **Get-InstalledModule -Name Az**
+   > L’utilisation d’étiquettes de service, d’en-têtes HTTP ou de règles à plusieurs sources nécessite au moins la version 5.7.0. Vous pouvez vérifier la version du module installé avec : **Get-InstalledModule -Name Az**
 
 Vous pouvez également définir les valeurs manuellement en procédant de l’une des façons suivantes :
 

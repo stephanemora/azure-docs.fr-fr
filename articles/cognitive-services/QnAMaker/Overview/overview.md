@@ -7,18 +7,20 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, chatbot avec peu de code, invites multitours
-ms.openlocfilehash: a75b5939e8848ca898d7279b55ab2c4faa4ed72a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 8df9daa213156fc38ed08bced44ea919da95e6a4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919559"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869206"
 ---
 # <a name="what-is-qna-maker"></a>Qu’est-ce que QnA Maker ?
 
 QnA Maker est un service cloud de traitement en langage naturel (NLP, Natural Language Processing) qui vous permet de créer une couche conversationnelle naturelle sur vos données. Il est utilisé pour trouver la réponse la plus appropriée à une entrée à partir de votre base de connaissances personnalisée (base d’informations).
 
 QnA Maker est couramment utilisé pour créer des applications clientes conversationnelles, notamment des applications de réseaux sociaux, des chatbots et des applications de bureau à reconnaissance vocale.
+
+QnA Maker ne stocke pas les données client. Toutes les données client (réponses aux questions et chatlogs) sont stockées dans la région sur laquelle le client déploie les instances de service dépendants. Pour plus d’informations sur les services dépendants, voir [ici](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/plan?tabs=v1).
 
 ## <a name="when-to-use-qna-maker"></a>Quand utiliser QnA Maker ?
 

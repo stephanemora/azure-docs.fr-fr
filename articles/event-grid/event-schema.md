@@ -3,12 +3,12 @@ title: Schéma d’événement Azure Event Grid
 description: Décrit les propriétés et les schémas qui sont présents pour tous les événements. Les événements se composent de cinq propriétés de chaîne et d’un objet de données obligatoires.
 ms.topic: reference
 ms.date: 07/07/2020
-ms.openlocfilehash: 7ddc7c78c5a9e5ba2a57b21c45fb9fab65056ee9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ff7b41a45cf467074e18a50be398b2a3c9866a4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86105878"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732157"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -88,6 +88,7 @@ Tous les événements contiennent les mêmes données de supérieur suivantes :
 
 Pour connaître les propriétés de l’objet de données, consultez la source de l’événement :
 
+* [Azure Policy](./event-schema-policy.md)
 * [Abonnements Azure (opérations de gestion)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
 * [Stockage Blob](event-schema-blob-storage.md)

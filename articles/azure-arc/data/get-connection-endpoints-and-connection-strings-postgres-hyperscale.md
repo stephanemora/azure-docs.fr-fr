@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: de7d23689ae984ea0abece5edb03cf8a0c3a9be1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331010"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670339"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenir des points de terminaison de connexion et former des chaînes de connexion pour votre groupe de serveurs Arc enabled PostgreSQL Hyperscale
 
@@ -43,22 +43,23 @@ Exécutez la commande suivante :
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-Elle retourne une sortie comme celle-ci :
+Par exemple :
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+azdata arc postgres endpoint list -n postgres01
+```
+
+Elle affiche la liste des points de terminaison : le point de terminaison PostgreSQL que vous utilisez pour connecter votre application et utiliser la base de données, les points de terminaison Kibana et Grafana pour l’analytique et la surveillance des journaux. Par exemple : 
+```console
+Arc
+ ===================================================================================================================
+ Postgres01 Instance
+ -------------------------------------------------------------------------------------------------------------------
+ Description           Endpoint
+
+ PostgreSQL Instance   postgresql://postgres:<replace with password>@12.345.567.89:5432
+ Log Search Dashboard  https://89.345.712.81:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))
+ Metrics Dashboard     https://89.345.712.81:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01
+
 ```
 Utilisez ces points de terminaison pour :
 - Former vos chaînes de connexion et vous connecter avec vos outils clients ou vos applications clientes
@@ -66,7 +67,7 @@ Utilisez ces points de terminaison pour :
 
 Par exemple, vous pouvez utiliser le point de terminaison nommé _Instance PostgreSQL_ pour vous connecter avec psql à votre groupe de serveurs. Exemple :
 ```console
-psql postgresql://postgres:MyPassworkd@12.345.123.456:1234
+psql postgresql://postgres:MyPassworkd@12.345.567.89:5432
 psql (10.14 (Ubuntu 10.14-0ubuntu0.18.04.1), server 12.4 (Ubuntu 12.4-1.pgdg16.04+1))
 WARNING: psql major version 10, server major version 12.
          Some psql features might not work.
@@ -80,17 +81,17 @@ postgres=#
 > - Le mot de passe de l’utilisateur _postgres_ indiqué dans le point de terminaison nommé « _Instance PostgreSQL_ » est le mot de passe que vous avez choisi lors du déploiement du groupe de serveurs.
 > - À propos de azdata : le bail associé à votre connexion dure environ 10 heures. Après cela, vous devez vous reconnecter. Si votre bail a expiré, le message d’erreur suivant s’affiche quand vous essayez d’exécuter une commande avec azdata (autre que azdata login) : _ERREUR : (401)_ 
 > _Raison : En-têtes de réponse HTTP_
-> _ non autorisés : HTTPHeaderDict({'Date': 'Dim, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
+> _non autorisés : HTTPHeaderDict({'Date': 'Dim, 06 Sep 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ 
 > _Domaine de base="Informations d’identification_ de connexion requises", Erreur de porteur="invalid_token", error_description="Le jeton est expiré"'})_ Quand ceci se produit, vous devez vous reconnecter avec azdata comme expliqué ci-dessus.
 
 ## <a name="from-cli-with-kubectl"></a>Depuis l’interface CLI avec kubectl
 - Si votre groupe de serveurs a la version 12 de Postgres (par défaut), utilisez la commande suivante :
 ```console
-kubectl get postgresql-12/<server group name>
+kubectl get postgresql-12/<server group name> -n <namespace name>
 ```
 - Si votre groupe de serveurs a la version 11 de Postgres, utilisez la commande suivante :
 ```console
-kubectl get postgresql-11/<server group name>
+kubectl get postgresql-11/<server group name> -n <namespace name>
 ```
 
 Ces commandes produisent une sortie similaire à celle-ci. Vous pouvez utiliser ces informations pour former vos chaînes de connexion :
@@ -151,14 +152,8 @@ dbname='postgres' user='postgres' host='192.168.1.121' password='{your_password_
 host=192.168.1.121; dbname=postgres user=postgres password={your_password_here} port=24276 sslmode=require
 ```
 
-### <a name="web-app"></a>Application web
-
-```webapp
-Database=postgres; Data Source=192.168.1.121; User Id=postgres; Password={your_password_here}
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur le [scale-out (ajout de nœuds worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
-- En savoir plus sur le [scale-up ou le scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs
+- Découvrez comment [effectuer un scale-out (ajout de nœuds Worker)](scale-out-postgresql-hyperscale-server-group.md) de votre groupe de serveurs
+- Découvrez comment [effectuer un scale-up ou un scale-down (augmentation/diminution de la mémoire/des vCores)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md) de votre groupe de serveurs
 
 

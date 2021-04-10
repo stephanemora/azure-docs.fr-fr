@@ -3,12 +3,12 @@ title: 'Tutoriel : Appairer des environnements locaux avec un cloud privé'
 description: Découvrez comment créer un appairage ExpressRoute Global Reach avec un cloud privé dans une solution Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103494153"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564498"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutoriel : Appairer des environnements locaux avec un cloud privé
 
@@ -37,7 +37,7 @@ Avant d’activer la connectivité entre deux circuits ExpressRoute à l’aide 
 >[!IMPORTANT]
 >Dans le cadre de ces prérequis, votre circuit ExpressRoute local est le _circuit 1_. Quant à votre circuit ExpressRoute de cloud privé, il se trouve dans un abonnement différent et est nommé _circuit 2_.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>Créer une clé d’autorisation ExpressRoute dans le circuit local
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud-expressroute-circuit"></a>Créer une clé d’autorisation ExpressRoute dans le circuit ExpressRoute cloud privé
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
@@ -71,7 +71,7 @@ Maintenant que vous avez créé une clé d’autorisation pour le circuit Expres
 Nous avons ajouté à l’[article relatif aux commandes CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) des informations et exemples spécifiques pour vous aider à configurer le peering ExpressRoute Global Reach entre des environnements locaux et un cloud privé Azure VMware Solution.
 
 >[!TIP]
->Pour écourter la sortie de la commande Azure CLI, ces instructions peuvent utiliser un [argument `–query`](https://docs.microsoft.com/cli/azure/query-azure-cli) pour exécuter une requête JMESPath visant à afficher uniquement les résultats nécessaires.
+>Pour écourter la sortie de la commande Azure CLI, ces instructions peuvent utiliser un [argument `–query`](/cli/azure/query-azure-cli) pour exécuter une requête JMESPath visant à afficher uniquement les résultats nécessaires.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant le même abonnement que le circuit ExpressRoute local. 
 

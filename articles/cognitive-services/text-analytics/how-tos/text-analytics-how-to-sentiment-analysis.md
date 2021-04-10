@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/04/2020
+ms.date: 03/09/2021
 ms.author: aahi
-ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673051"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599123"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
-La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux façons de détecter les sentiments positifs et négatifs. Si vous envoyez une demande d’Analyse de sentiments, l’API retourne des étiquettes de sentiment, comme « negative » (négatif), « neutral » (neutre) et « positive » (positif), et des scores de confiance au niveau de la phrase et du document. Vous pouvez également envoyer des demandes d’Exploration des opinions en utilisant le point de terminaison Analyse des sentiments, qui fournit des informations précises sur les opinions relatives à des aspects (comme les attributs de produits ou de services) du texte. 
+La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux façons de détecter les sentiments positifs et négatifs. Si vous envoyez une demande d’Analyse de sentiments, l’API retourne des étiquettes de sentiment, comme « negative » (négatif), « neutral » (neutre) et « positive » (positif), et des scores de confiance au niveau de la phrase et du document. Vous pouvez également envoyer des demandes d’Exploration des opinions en utilisant le point de terminaison Analyse des sentiments, qui fournit des informations précises sur les opinions relatives à des mots (comme les attributs de produits ou de services) du texte. 
 
 Les modèles IA utilisés par l’API sont fournis par le service ; vous n’avez qu’à envoyer le contenu à analyser.
 
@@ -49,9 +49,9 @@ Les scores de confiance sont compris entre 1 et 0. Plus les scores sont proche
 
 ## <a name="opinion-mining"></a>Exploration des opinions
 
-L’Exploration des opinions est une fonctionnalité d’Analyse des sentiments, disponible dans la préversion de la version 3.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus granulaires sur les opinions liées aux aspects (tels que les attributs de produits ou de services) dans le texte.
+L’Exploration des opinions est une fonctionnalité d’Analyse des sentiments, disponible dans la préversion de la version 3.1. Également connu sous le nom d’Analyse des sentiments basée sur l’aspect dans le registre du traitement en langage naturel, cette fonctionnalité fournit des informations plus précises sur les opinions liées aux attributs de produits ou de services dans le texte. L’API fait apparaître les opinions en tant que cible (substantif ou verbe) ainsi qu’une évaluation (adjectif).
 
-Par exemple, si un client laisse un commentaire sur un hôtel, comme « la chambre était géniale, mais le personnel peu sympathique », Exploration des opinions va repérer des aspects dans le texte ainsi que les opinions et les sentiments associés. Analyse des sentiments peut signaler seulement un sentiment négatif.
+Par exemple, si un client laisse un commentaire sur un hôtel, comme « la chambre était géniale, mais le personnel peu sympathique », Exploration des opinions va repérer des cibles (aspects) dans le texte ainsi que les évaluations (opinions) et les sentiments associés. Analyse des sentiments peut signaler seulement un sentiment négatif.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="Diagramme de l’exemple d’Exploration des opinions" lightbox="../media/how-tos/opinion-mining.png":::
 
@@ -72,7 +72,7 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-31-preview3"></a>[Version 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
 [Informations de référence sur Analyse des sentiments v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -89,17 +89,17 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 > [!NOTE]
 > Vous pouvez trouver la clé et le point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-#### <a name="version-31-preview3"></a>[Version 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
 **Analyse des sentiments**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
 
 **Exploration des opinions**
 
 Pour obtenir les résultats de l’Exploration des opinions, vous devez inclure le paramètre `opinionMining=true`. Par exemple :
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
 
 La valeur par défaut de ce paramètre est `false`. 
 
@@ -142,7 +142,7 @@ L’API Analyse de texte est sans état. Aucune donnée n’est stockée dans vo
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données. En raison de la prise en charge multilingue et des émojis, la réponse peut contenir des décalages de texte. Pour plus d’informations, consultez le [guide pratique pour traiter les décalages](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview3"></a>[Version 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[Version 3.1-preview](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>Exemple de réponse de l’Analyse des sentiments et de l’Exploration des opinions
 
@@ -151,97 +151,99 @@ La sortie est retournée immédiatement. Vous pouvez diffuser les résultats ver
 
 Analyse des sentiments version 3.1 peut retourner des objets de réponse à la fois pour l’Analyse des sentiments et l’Exploration des opinions.
   
-L’analyse des sentiments retourne une étiquette de sentiment et un score de confiance pour l’ensemble du document et chaque phrase qu’il contient. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Un document peut contenir plusieurs phrases, et les scores de confiance dans chaque document ou phrase s’additionnent pour arriver à 1.
+L’analyse des sentiments retourne une étiquette de sentiment et un score de confiance pour l’ensemble du document et chaque phrase qu’il contient. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Un document peut contenir plusieurs phrases, et les scores de confiance dans chaque document ou phrase s’additionnent pour arriver à 1. assessments 
 
-L’Exploration des opinions va localiser des aspects dans le texte ainsi que les opinions et les sentiments associés. Dans la réponse ci-dessous, la phrase *The restaurant had great food and our waiter was friendly* (Les mets au restaurant étaient excellents et le serveur sympathique) présente deux aspects : *food* (mets) et *waiter* (serveur). La propriété `relations` de chaque aspect contient une valeur `ref` avec la référence d’URI aux objets `documents`, `sentences` et `opinions` associés.
+L’Exploration des opinions localisera les cibles (substantifs ou verbes) dans le texte et leur évaluation associée (adjectif). Dans la réponse ci-dessous, la phrase *The restaurant had great food and our waiter was friendly* (Les mets au restaurant étaient excellents et le serveur sympathique) présente deux cibles : *food* (mets) et *waiter* (serveur). La propriété `relations` de chaque cible contient une valeur `ref` avec la référence d’URI aux objets `documents`, `sentences` et `assessments` associés.
+
+L’API retourne des avis en tant que cible (substantif ou verbe) ainsi qu’une évaluation (adjectif).
 
 ```json
 {
-    "documents": [
+  "documents": [
+    {
+      "id": "1",
+      "sentiment": "positive",
+      "confidenceScores": {
+        "positive": 1,
+        "neutral": 0,
+        "negative": 0
+      },
+      "sentences": [
         {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
+          "sentiment": "positive",
+          "confidenceScores": {
+            "positive": 1,
+            "neutral": 0,
+            "negative": 0
+          },
+          "offset": 0,
+          "length": 58,
+          "text": "The restaurant had great food and our waiter was friendly.",
+          "targets": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 25,
+              "length": 4,
+              "text": "food",
+              "relations": [
                 {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly.",
-                    "aspects": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 25,
-                            "length": 4,
-                            "text": "food",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/0"
-                                }
-                            ]
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 38,
-                            "length": 6,
-                            "text": "waiter",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/1"
-                                }
-                            ]
-                        }
-                    ],
-                    "opinions": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 19,
-                            "length": 5,
-                            "text": "great",
-                            "isNegated": false
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 49,
-                            "length": 8,
-                            "text": "friendly",
-                            "isNegated": false
-                        }
-                    ]
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/0"
                 }
-            ],
-            "warnings": []
+              ]
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 38,
+              "length": 6,
+              "text": "waiter",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/1"
+                }
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 19,
+              "length": 5,
+              "text": "great",
+              "isNegated": false
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 49,
+              "length": 8,
+              "text": "friendly",
+              "isNegated": false
+            }
+          ]
         }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 

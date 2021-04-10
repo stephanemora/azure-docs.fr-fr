@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: eefc42fb8e66e66c6388599df65c59ff642a6b59
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: c953668d6b2e364e6e703b1769317f1c520317ca
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102124106"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104654371"
 ---
 # <a name="about-expressroute-fastpath"></a>À propos d’ExpressRoute FastPath
 
@@ -42,7 +42,7 @@ Pour configurer FastPath, la passerelle de réseau virtuel doit être :
 
 Bien que FastPath prenne en charge la plupart des configurations, il ne prend pas en charge les fonctionnalités suivantes :
 
-* Routage défini par l’utilisateur sur le sous-réseau de passerelle : si vous appliquez un routage défini par l’utilisateur (UDR) au sous-réseau de passerelle de votre réseau virtuel, le trafic réseau de votre réseau local continue d’être envoyé vers la passerelle de réseau virtuel.
+* Routage défini par l’utilisateur sur le sous-réseau de la passerelle : Ce routage défini par l’utilisateur (UDR) n’a aucun impact sur le trafic que FastPath envoie directement de votre réseau local aux machines virtuelles dans le réseau virtuel Azure. 
 
 * VNet Peering : si vous avez d’autres réseaux virtuels appairés avec celui qui est connecté à ExpressRoute, le trafic réseau de votre réseau local vers les autres réseaux virtuels (c’est-à-dire les réseaux virtuels ou VNets dits « en rayon ») sera toujours envoyé vers la passerelle réseau virtuelle. La solution de contournement consiste à connecter tous les réseaux virtuels directement au circuit ExpressRoute.
 

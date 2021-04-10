@@ -9,10 +9,10 @@ ms.date: 01/04/2021
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 5658b68081fae8dab528030f7fc1cd6fe4935730
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102178356"
 ---
 - Le bursting à la demande ne peut pas être activé sur un disque SSD Premium contenant moins de 512 Gio. Les disques SSD Premium de moins de 512 Gio utilisent toujours le bursting basé sur les crédits.
