@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: c61ad4d26c4a03889d9ac80332335543ec4140b7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868979"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutoriel : Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory
@@ -189,7 +189,7 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
 3. Entrez ou sélectionnez les valeurs suivantes pour la vignette **Nouvelle fabrique de données** :
 
-    |Propriété  |Value  |
+    |Propriété  |Valeur  |
     |---------|---------|
     |Nom | Entrez un nom pour la fabrique de données. Ce nom doit être globalement unique.|
     |Version | Conservez **V2**. |
@@ -231,7 +231,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 4. Fournissez les valeurs suivantes pour le service lié de stockage :
 
-    |Propriété |Value |
+    |Propriété |Valeur |
     |---|---|
     |Nom |Entrez `HDIStorageLinkedService`.|
     |Abonnement Azure |Sélectionnez votre abonnement dans la liste déroulante.|
@@ -253,7 +253,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 4. Dans la fenêtre **Nouveau service lié**, entrez les valeurs suivantes et conservez les autres valeurs par défaut :
 
-    | Propriété | Value |
+    | Propriété | Valeur |
     | --- | --- |
     | Nom | Entrez `HDInsightLinkedService`.|
     | Type | Sélectionnez **HDInsight à la demande**. |

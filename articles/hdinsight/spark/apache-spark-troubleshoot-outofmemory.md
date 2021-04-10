@@ -4,18 +4,18 @@ description: Différentes exceptions OutOfMemoryError pour cluster Apache Spark 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946338"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868662"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
 
 Cet article décrit la procédure à suivre pour résoudre les problèmes rencontrés lors de l’utilisation de composants Apache Spark dans des clusters Azure HDInsight.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scénario : Exception OutOfMemoryError pour Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scénario : exception OutOfMemoryError pour Apache Spark
 
 ### <a name="issue"></a>Problème
 
@@ -59,7 +59,7 @@ La cause la plus probable de cette exception est que le segment de mémoire allo
 
 1. Assurez-vous que le cluster HDInsight à utiliser dispose de suffisamment de ressources en termes de mémoire et de cœurs pour prendre en charge l’application Spark. Pour le vérifier, accédez à la section Mesures de cluster de l’interface utilisateur YARN du cluster et comparez les valeurs **Mémoire utilisée**/ **Mémoire totale** et les valeurs **VCores utilisées**/ **Total des VCores**.
 
-    ![affichage de la mémoire centrale yarn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="affichage de la mémoire centrale yarn" border="true":::
 
 1. Définissez les configurations Spark suivantes sur les valeurs qui conviennent. Équilibrez les exigences de l’application avec les ressources disponibles dans le cluster. Ces valeurs ne doivent pas dépasser 90 % de la mémoire et des cœurs disponibles, comme affiché par YARN, et doivent également respecter la mémoire minimale requise de l’application Spark :
 
@@ -87,7 +87,7 @@ La cause la plus probable de cette exception est que le segment de mémoire allo
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scénario : Erreur d’espace du tas Java lors de la tentative d’ouverture du serveur d’historique Apache Spark
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scénario : erreur d’espace du tas Java lors de la tentative d’ouverture du serveur d’historique Apache Spark
 
 ### <a name="issue"></a>Problème
 
@@ -117,17 +117,17 @@ Vous pouvez augmenter la mémoire du serveur d’historique Spark en modifiant l
 
 Pour cela, accédez à l’interface utilisateur du navigateur Ambari, puis sélectionnez la section Spark2/Config/Advanced spark2-env.
 
-![Section Advanced spark2-env](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Section Advanced spark2-env" border="true":::
 
 Ajoutez la propriété suivante pour que la mémoire du serveur d’historique Spark passe de 1 à 4 Go : `SPARK_DAEMON_MEMORY=4g`.
 
-![Propriété Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Propriété Spark" border="true":::
 
 Veillez à redémarrer tous les services affectés à partir d’Ambari.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scénario : Échec du démarrage du serveur Livy sur le cluster Apache Spark
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scénario : le démarrage du serveur Livy sur le cluster Apache Spark a échoué
 
 ### <a name="issue"></a>Problème
 

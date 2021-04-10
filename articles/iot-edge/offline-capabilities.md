@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c748034145781f639da244b16e3df7053da3d5d2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103489963"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge

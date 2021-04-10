@@ -1,20 +1,20 @@
 ---
-title: 'Résoudre les problèmes de connexion VPN de site à site Azure : Passerelle VPN Azure'
+title: 'Résoudre les problèmes de connexion VPN site à site Azure qio ne peut pas se connecter à titleSuffix: Passerelle VPN Azure'
 description: Découvrez comment résoudre un problème de connexion VPN de site à site qui cesse soudainement de fonctionner sans possibilité de reconnexion.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658347"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867285"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution des problèmes : la connexion VPN site à site Azure cesse de fonctionner
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution de problèmes : une connexion VPN de site à site Azure cesse de fonctionner
 
 Après avoir configuré une connexion VPN de site à site entre un réseau local et un réseau virtuel Azure, la connexion VPN cesse soudainement de fonctionner et la reconnexion est impossible. Cet article fournit les étapes requises pour vous aider à résoudre ce problème. 
 
@@ -81,9 +81,7 @@ Recherchez et supprimez l’itinéraire défini par l’utilisateur (UDR) ou les
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>Étape 5. Vérifier l’adresse d’interface externe du périphérique VPN local
 
-- Si l’adresse IP du périphérique VPN, accessible sur Internet, est incluse dans la définition du **réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
-- L’interface externe de l’appareil doit être directement liée à Internet. Il ne doit y avoir aucune traduction d’adresses réseau (NAT) ni aucun pare-feu entre Internet et l’appareil.
-- Pour configurer le clustering de pare-feu dans le but d’obtenir une adresse IP virtuelle, vous devez détruire le cluster et exposer l’appliance VPN directement à une interface publique susceptible de s’interfacer avec la passerelle.
+Si l’adresse IP du périphérique VPN, accessible sur Internet, est incluse dans la définition du **réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>Étape 6. Vérifier la correspondance des sous-réseaux (passerelles Azure basées sur des stratégies)
 
@@ -110,5 +108,5 @@ La fonctionnalité Perfect Forward Secrecy peut provoquer des problèmes de déc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   [Création d’une connexion de site à site dans le portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [Création d’une connexion de site à site dans le portail Azure](./tutorial-site-to-site-portal.md)
 -   [Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel](vpn-gateway-ipsecikepolicy-rm-powershell.md)

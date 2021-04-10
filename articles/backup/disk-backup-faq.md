@@ -3,19 +3,14 @@ title: Foire aux questions sur Sauvegarde des disques Azure
 description: Réponses aux questions les plus fréquentes concernant Sauvegarde des disques Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7729bc1120fc0e2f4361739a8e05f3a82ccb4268
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98734560"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107310"
 ---
-# <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Foire aux questions sur Sauvegarde des disques Azure (préversion)
-
->[!IMPORTANT]
->Sauvegarde des disques Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
->
->[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
+# <a name="frequently-asked-questions-about-azure-disk-backup"></a>Foire aux questions sur Sauvegarde des disques Azure
 
 Cet article répond aux questions fréquemment posées sur Sauvegarde des disques Azure. Pour plus d’informations sur la disponibilité des régions, les scénarios pris en charge et les limitations de [Sauvegarde des disques Azure](disk-backup-overview.md), consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 

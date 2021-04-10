@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bwren
-ms.openlocfilehash: 89264bc17180aaf47611aef73c9fd20427bce104
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5048364aed1eea8d0c32d9134a4ba5a22d28b989
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772278"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105560452"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -93,7 +93,7 @@ Pour modifier le niveau tarifaire Log Analytics de votre espace de travail :
     
 3. Après avoir vérifié les coûts estimés en fonction des 31 derniers jours d’utilisation, et si vous décidez de modifier le niveau tarifaire, cliquez sur **Sélectionner**.  
 
-Vous pouvez également [définir le niveau tarifaire via Azure Resource Manager](../samples/resource-manager-workspace.md) à l’aide du paramètre `sku`. (`pricingTier` dans le modèle Azure Resource Manager). 
+Vous pouvez également [définir le niveau tarifaire via Azure Resource Manager](./resource-manager-workspace.md) à l’aide du paramètre `sku`. (`pricingTier` dans le modèle Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Niveaux de tarification hérités
 
@@ -145,7 +145,7 @@ Pour définir la durée de conservation par défaut pour votre espace de travail
 
 Lorsque la rétention est raccourcie, il existe une période de grâce de quelques jours avant la suppression des données antérieures au nouveau paramètre de rétention. 
 
-La page **Conservation des données** permet de paramétrer la conservation sur 30, 31, 60, 90, 120, 180, 270, 365, 550 et 730 jours. Si un autre paramétrage est requis, vous pouvez le configurer dans [Azure Resource Manager](../samples/resource-manager-workspace.md) à l’aide du paramètre `retentionInDays`. Lorsque vous définissez la période de rétention des données sur 30 jours, vous pouvez déclencher une purge immédiate des anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days` (en éliminant la période de grâce de quelques jours). Cela peut être utile pour les scénarios liés à la conformité où une suppression immédiate des données est impérative. Cette fonctionnalité de purge immédiate est exposée uniquement via Azure Resource Manager. 
+La page **Conservation des données** permet de paramétrer la conservation sur 30, 31, 60, 90, 120, 180, 270, 365, 550 et 730 jours. Si un autre paramétrage est requis, vous pouvez le configurer dans [Azure Resource Manager](./resource-manager-workspace.md) à l’aide du paramètre `retentionInDays`. Lorsque vous définissez la période de rétention des données sur 30 jours, vous pouvez déclencher une purge immédiate des anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days` (en éliminant la période de grâce de quelques jours). Cela peut être utile pour les scénarios liés à la conformité où une suppression immédiate des données est impérative. Cette fonctionnalité de purge immédiate est exposée uniquement via Azure Resource Manager. 
 
 Les espaces de travail dont la période de rétention est de 30 jours peuvent en réalité conserver des données pendant 31 jours. S’il est impératif que les données soient conservées pendant seulement 30 jours, utilisez Azure Resource Manager pour définir la période de rétention sur 30 jours et avec le paramètre `immediatePurgeDataOn30Days`.  
 
@@ -322,7 +322,7 @@ Le nombre d’unités sur votre facture est exprimé en unités nœuds x mois, c
 
 
 > [!TIP]
-> Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](../log-query/query-optimization.md#query-performance-pane). Si vous n’avez pas besoin des résultats **par ordinateur**, interrogez le type de données Usage (voir ci-dessous).
+> Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](./query-optimization.md#query-performance-pane). Si vous n’avez pas besoin des résultats **par ordinateur**, interrogez le type de données Usage (voir ci-dessous).
 
 ## <a name="understanding-ingested-data-volume"></a>Présentation du volume de données ingéré
 
@@ -406,7 +406,7 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](../log-query/query-optimization.md#query-performance-pane). Si vous n’avez pas besoin des résultats **par ordinateur**, interrogez le type de données Usage.
+> Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](./query-optimization.md#query-performance-pane). Si vous n’avez pas besoin des résultats **par ordinateur**, interrogez le type de données Usage.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de données par ressource Azure, groupe de ressources ou abonnement
 
@@ -421,10 +421,9 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 Pour les données provenant de nœuds hébergés dans Azure, vous pouvez obtenir la **taille** des données ingérées __par abonnement Azure__. Utilisez la propriété `_SubscriptionId` comme suit :
 
 ```kusto
-find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, _SubscriptionId
 | where _IsBillable == true 
-| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| summarize BillableDataBytes = sum(BillableDataBytes) by _SubscriptionId | sort by BillableDataBytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _SubscriptionId | sort by BillableDataBytes nulls last
 ```
 
 Pour récupérer le volume de données par groupe de ressources, vous pouvez analyser `_ResourceId` :
@@ -445,7 +444,7 @@ Si nécessaire, vous pouvez également analyser le `_ResourceId` plus en détail
 ```
 
 > [!TIP]
-> Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](../log-query/query-optimization.md#query-performance-pane). Si vous n’avez pas besoin des résultats par abonnement, groupe de ressources ou nom de ressource, interrogez le type de données Usage.
+> Utilisez ces requêtes `find` avec parcimonie, car les analyses exécutées sur différents types de données sont [gourmandes en ressources](./query-optimization.md#query-performance-pane). Si vous n’avez pas besoin des résultats par abonnement, groupe de ressources ou nom de ressource, interrogez le type de données Usage.
 
 > [!WARNING]
 > Certains champs du type de données Utilisation, bien que faisant partie du schéma, sont maintenant déconseillés et leurs valeurs ne seront plus fournies. Il s’agit de **Computer** et des champs liées à l’ingestion (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** et **AverageProcessingTimeMs**.
@@ -479,7 +478,7 @@ Voici quelques suggestions pour réduire le volume de journaux d’activité col
 
 | Source du volume de données important | Comment réduire le volume de données |
 | -------------------------- | ------------------------- |
-| Container Insights         | [Configurez Container Insights](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost) de manière à collecter uniquement les données requises. |
+| Container Insights         | [Configurez Container Insights](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) de manière à collecter uniquement les données requises. |
 | Événements de sécurité            | Sélectionnez [les événements de sécurité courants ou minimaux](../../security-center/security-center-enable-data-collection.md#data-collection-tier). <br> Modifier la stratégie d’audit de sécurité pour collecter les événements nécessaires uniquement. Plus particulièrement, examinez la nécessité de collecter des événements pour : <br> - [plateforme de filtrage de l’audit](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [registre de l’audit](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [système de fichiers de l’audit](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [objet de noyau d’audit](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [manipulation du descripteur de l’audit](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - stockage amovible de l’audit |
 | Compteurs de performance       | Modifiez la [configuration du compteur de performances](../agents/data-sources-performance-counters.md) de façon à : <br> - Réduire la fréquence de collecte <br> - Réduire le nombre de compteurs de performance |
 | Journaux d’événements                 | Modifiez la [configuration du journal d’événements](../agents/data-sources-windows-events.md) de façon à : <br> - Réduire le nombre de journaux des événements collectés <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations*. |
@@ -487,8 +486,8 @@ Voici quelques suggestions pour réduire le volume de journaux d’activité col
 | AzureDiagnostics           | Modifiez la [collection de journaux de ressources](../essentials/diagnostic-settings.md#create-in-azure-portal) pour : <br> - Réduire le nombre de journaux d’activité d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux d’activité nécessaires |
 | Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../insights/solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
 | Application Insights | Examiner les options pour [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Utilisez [Set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) pour ajuster les paramètres d’audit. |
-| Azure Sentinel | Examinez les [sources de données Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que vous avez récemment activées en tant que sources de volume de données supplémentaire. |
+| [SQL Analytics](../insights/azure-sql.md) | Utilisez [Set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) pour ajuster les paramètres d’audit. |
+| Azure Sentinel | Examinez les [sources de données Sentinel](../../sentinel/connect-data-sources.md) que vous avez récemment activées en tant que sources de volume de données supplémentaire. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obtention des nœuds facturés au niveau tarifaire Par nœud
 

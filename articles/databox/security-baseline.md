@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a05a4692bb4a09213532ed29b2501f6b8056857
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 63b99cdeb7606798caa1b1d997dbb9f609c033b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721988"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562186"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de référence de sécurité Azure pour Azure Data Box
 
@@ -42,7 +42,7 @@ Pour voir la correspondance complète entre Azure Data Box et le Benchmark de s�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
@@ -52,7 +52,7 @@ Pour voir la correspondance complète entre Azure Data Box et le Benchmark de s�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -62,7 +62,7 @@ Pour voir la correspondance complète entre Azure Data Box et le Benchmark de s�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -72,7 +72,7 @@ Pour voir la correspondance complète entre Azure Data Box et le Benchmark de s�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -88,11 +88,11 @@ Vous pouvez contrôler qui peut accéder à votre commande lors de sa création.
 
 - [Comment configurer Azure RBAC pour les classeurs](../sentinel/quickstart-get-visibility.md)
 
-- [Comprendre comment configurer le contrôle d’accès sur la commande](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Comprendre comment configurer le contrôle d’accès sur la commande](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
@@ -100,7 +100,7 @@ Vous pouvez contrôler qui peut accéder à votre commande lors de sa création.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
@@ -118,7 +118,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
@@ -130,7 +130,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
@@ -144,7 +144,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
@@ -154,7 +154,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
@@ -164,7 +164,7 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
@@ -172,13 +172,13 @@ Utilisez également les détections de risque Azure AD pour visualiser les alert
 
 Pour l’appliance Data Box, cette solution n’est pas prise en charge en temps réel. Vous pouvez consulter les journaux à la fin du travail.
 
-- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
+- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
@@ -190,13 +190,13 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 Les journaux du service Azure Data Box ne sont pas écrits dans l’espace de travail Log Analytics.
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Procédure d’intégration d’Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12 : Alerter en cas d’écart de comportement de connexion à un compte
 
@@ -210,17 +210,17 @@ Les journaux du service Azure Data Box ne sont pas écrits dans l’espace de tr
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
 **Conseil** : Bientôt disponible ; Customer Lockbox n’est pas encore pris en charge pour Azure Data Box. 
 
-- [Liste des services pris en charge pour Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -234,7 +234,7 @@ Les journaux du service Azure Data Box ne sont pas écrits dans l’espace de tr
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -254,11 +254,11 @@ Les journaux du service Azure Data Box ne sont pas écrits dans l’espace de tr
 
 - [Comprendre comment prendre en main Azure Data Box](data-box-quickstart-portal.md)
 
-- [Comprendre comment configurer le contrôle d’accès](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [Comprendre comment configurer le contrôle d’accès](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
@@ -275,17 +275,17 @@ Par ailleurs, Azure Data Box protège le code de déverrouillage de l’appareil
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
 **Conseils** : utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des modifications sont apportées à Azure Data Box ainsi qu’à d’autres ressources critiques ou connexes.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -299,7 +299,7 @@ Par ailleurs, Azure Data Box protège le code de déverrouillage de l’appareil
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -313,7 +313,7 @@ Par ailleurs, Azure Data Box protège le code de déverrouillage de l’appareil
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -323,7 +323,7 @@ Par ailleurs, Azure Data Box protège le code de déverrouillage de l’appareil
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -337,7 +337,7 @@ Il vous incombe de pré-analyser tous contenu chargé vers des ressources Azure 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -349,7 +349,7 @@ Il vous incombe de pré-analyser tous contenu chargé vers des ressources Azure 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
@@ -357,7 +357,7 @@ Il vous incombe de pré-analyser tous contenu chargé vers des ressources Azure 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés gérées par le client
 
@@ -365,7 +365,7 @@ Il vous incombe de pré-analyser tous contenu chargé vers des ressources Azure 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -383,7 +383,7 @@ Il vous incombe de pré-analyser tous contenu chargé vers des ressources Azure 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -397,7 +397,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -407,7 +407,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -417,7 +417,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -429,7 +429,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -439,7 +439,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -455,9 +455,9 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

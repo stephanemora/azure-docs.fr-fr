@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: ed11b0bb00a571fb4cefc51a708432baef88184d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7042d3ede872c5dc854675334b964430671d1306
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104613071"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065631"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutoriel : Préparer le déploiement d’Azure Stack Edge Mini R
 
@@ -105,7 +104,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 5. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
     
-    |Paramètre  |Value  |
+    |Paramètre  |Valeur  |
     |---------|---------|
     |Abonnement    |L’abonnement est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
@@ -113,7 +112,7 @@ Pour créer une ressource Azure Stack Edge, suivez ces étapes dans le portail A
 
 6. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
-    |Paramètre  |Value  |
+    |Paramètre  |Valeur  |
     |---------|---------|
     |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|

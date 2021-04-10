@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/19/2021
 ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101699757"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
@@ -37,17 +37,17 @@ Dans la plupart des cas, nous vous recommandons de créer vos flux de données e
 > [!NOTE]
 > Chaque session de débogage qu’un utilisateur démarre à partir de l’interface utilisateur de son navigateur ADF est une nouvelle session avec son propre cluster Spark. Vous pouvez utiliser la vue de supervision pour les sessions de débogage ci-dessus pour afficher et gérer les sessions de débogage par fabrique. Vous êtes facturé pour chaque heure d’exécution de chaque session de débogage, y compris la durée de vie.
 
-## <a name="cluster-status"></a>État du cluster
+## <a name="cluster-status&quot;></a>État du cluster
 
 L’indicateur d’état du cluster en haut de l’aire de conception devient vert quand le cluster est prêt pour le débogage. Si votre cluster est déjà chaud, l’indicateur vert apparaît presque instantanément. Si votre cluster n’était pas déjà en cours d’exécution lorsque vous avez activé le mode de débogage, le cluster Spark effectue un démarrage à froid. L’indicateur tournera jusqu’à ce que l’environnement soit prêt pour le débogage interactif.
 
 Une fois le débogage terminé, désactivez-le à l’aide du commutateur pour que votre cluster Spark puisse se terminer. Vous n’êtes alors plus facturé pour l’activité de débogage.
 
-## <a name="debug-settings"></a>Paramètres de débogage
+## <a name=&quot;debug-settings&quot;></a>Paramètres de débogage
 
 Une fois que vous activez le mode débogage, vous pouvez modifier la façon dont un flux de données affiche un aperçu des données. Les paramètres de débogage peuvent être modifiés en cliquant sur « Paramètres de débogage » sur la barre d’outils du canevas Flux de données. Vous pouvez sélectionner la limite de ligne ou la source de fichier à utiliser pour chacune de vos transformations Source ici. Les limites de lignes de ce paramètre s’appliquent uniquement à la session de débogage actuelle. Vous pouvez aussi sélectionner le service lié intermédiaire à utiliser pour une source Azure Synapse Analytics. 
 
-![Paramètres de débogage](media/data-flow/debug-settings.png "Paramètres de débogage")
+![Paramètres de débogage](media/data-flow/debug-settings.png &quot;Paramètres de débogage")
 
 Si vous avez des paramètres dans votre flux de données ou dans l’un de ses jeux de données référencés, vous pouvez spécifier les valeurs à utiliser pendant le débogage en sélectionnant l'onglet **Paramètres**.
 

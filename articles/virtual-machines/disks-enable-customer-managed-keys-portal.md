@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 5452b1e2ffc3ca8a11f3acb591c6288806445e1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7fbcf37620f9d6edfb0f312c2eb09ef2d7994232
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499388"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731644"
 ---
 # <a name="use-the-azure-portal-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Utiliser le portail Azure pour activer le chiffrement côté serveur à l'aide de clés gérées par le client pour les disques managés
 
@@ -32,8 +32,6 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 
     - Pour Windows : [Copier un disque managé](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
-- Seules les [clés RSA HSM et de logiciels](../key-vault/keys/about-keys.md) des tailles une tailles 2 048 bits, 3 072 bits et 4 096 bits sont prises en charge ; aucune autre clé ou taille n’est prise en charge.
-    - Les clés [HSM](../key-vault/keys/hsm-protected-keys.md) nécessitent le niveau **Premium** de coffres de clés Azure.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 Les sections suivantes expliquent comment activer et utiliser les clés gérées par le client pour les disques managés :

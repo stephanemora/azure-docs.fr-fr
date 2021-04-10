@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42d7760d25f6ab591c19889eb2159711d6de1b07
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e8410b4e0997798eba5ee91f361c3a5f1ce47ef1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356750"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586299"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrer le disque du journal vers le disque Ultra
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,7 +51,7 @@ Pour activer la compatibilité, procédez comme suit :
 
 1. Sélectionnez **Oui** pour **Activer la compatibilité avec les disques Ultra**. 
 
-   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Capture d’écran montrant l’option Oui.":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Capture d’écran montrant l’option Oui.":::
 
 1. Sélectionnez **Enregistrer**. 
 

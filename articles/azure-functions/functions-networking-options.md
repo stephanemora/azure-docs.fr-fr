@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215151"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104606988"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -81,34 +81,15 @@ Pour savoir comment configurer l’intégration au réseau virtuel, consultez [I
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>Se connecter à des ressources sécurisées de point de terminaison de service
 
-Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un nombre de services Azure sur un réseau virtuel en utilisant des points de terminaison de service. Vous devez ensuite intégrer votre application de fonction à ce réseau virtuel pour accéder à la ressource. Cette configuration est prise en charge sur tous les plans qui prennent en charge l’intégration du réseau virtuel.
+Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un nombre de services Azure sur un réseau virtuel en utilisant des points de terminaison de service. Vous devez ensuite intégrer votre application de fonction à ce réseau virtuel pour accéder à la ressource. Cette configuration est prise en charge sur tous les [plans](functions-scale.md#networking-features) qui prennent en charge l’intégration du réseau virtuel.
 
 Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restreindre votre compte de stockage à un réseau virtuel 
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé. Cette fonctionnalité peut être utilisée avec toutes les références SKU prises en charge par le réseau virtuel, notamment les versions Standard et Premium, à l’exception des empreintes flexibles, dans lesquelles les réseaux virtuels sont disponibles uniquement pour la référence SKU Premium. Pour configurer une fonction avec un compte de stockage limité à un réseau privé :
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou un point de terminaison privé. 
 
-1. Créez une fonction avec un compte de stockage pour lequel les points de terminaison de service ne sont pas activés.
-1. Configurez la fonction pour qu’elle se connecte à votre réseau virtuel.
-1. Créez ou configurez un autre compte de stockage.  Il s’agit du compte de stockage que nous sécurisons avec les points de terminaison de service et auquel nous connectons notre fonction.
-1. [Créez un partage de fichiers](../storage/files/storage-how-to-create-file-share.md#create-file-share) dans le compte de stockage sécurisé.
-1. Activez les points de terminaison de service ou le point de terminaison privé pour le compte de stockage.  
-    * Si vous utilisez des connexions de point de terminaison privé, le compte de stockage a besoin d’un point de terminaison privé pour les sous-ressources `file` et `blob`.  Si vous utilisez certaines capacités, telles que Durable Functions, `queue` et `table` doivent également être accessibles par le biais d’une connexion de point de terminaison privé.
-    * Si vous utilisez des points de terminaison de service, activez le sous-réseau dédié à vos applications de fonction pour les comptes de stockage.
-1. Copiez le fichier et le contenu de l’objet blob à partir du compte de stockage de l’application de fonction vers le compte de stockage sécurisé et le partage de fichiers.
-1. Copiez la chaîne de connexion pour ce compte de stockage.
-1. Mettez à jour les **Paramètres de l’application** sous **Configuration** pour l’application de fonction comme suit :
-    - Remplacez `AzureWebJobsStorage` par la chaîne de connexion du compte de stockage sécurisé.
-    - Remplacez `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` par la chaîne de connexion du compte de stockage sécurisé.
-    - Remplacez `WEBSITE_CONTENTSHARE` par le nom du partage de fichiers créé dans le compte de stockage sécurisé.
-    - Créez un nouveau paramètre portant le nom `WEBSITE_CONTENTOVERVNET` et défini sur la valeur `1`.
-    - Si le compte de stockage utilise des connexions de point de terminaison privé, vérifiez ou ajoutez les paramètres suivants :
-        - `WEBSITE_VNET_ROUTE_ALL` avec la valeur `1`.
-        - `WEBSITE_DNS_SERVER` avec la valeur `168.63.129.16`. 
-1. Enregistrez les paramètres de l’application.  
-
-L’application de fonction redémarre et est maintenant connectée à un compte de stockage sécurisé.
+Cette fonctionnalité fonctionne actuellement pour toutes les références SKU prises en charge par le réseau virtuel Windows dans le plan dédié (App Service) et pour le plan Premium. Le plan Consommation n’est pas pris en charge. Pour savoir comment configurer une fonction avec un compte de stockage limité à un réseau privé, consultez [Restreindre votre compte de stockage à un réseau virtuel](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## <a name="use-key-vault-references"></a>Utiliser des références Key Vault
 
@@ -173,6 +154,8 @@ Pour plus d’informations, consultez la [documentation App Service pour les con
 Les restrictions d’adresse IP sortante sont disponibles dans un plan Premium, un plan App Service ou un App Service Environment. Vous pouvez configurer des restrictions sortantes pour le réseau virtuel sur lequel votre Azure App Service Environment est déployé.
 
 Lorsque vous intégrez une application de fonction à un réseau virtuel dans le cadre d'un plan Premium ou App Service, l’application est toujours en mesure de passer des appels sortants vers Internet par défaut. En ajoutant le paramètre d’application `WEBSITE_VNET_ROUTE_ALL=1`, vous forcez l’envoi de tout le trafic sortant vers votre réseau virtuel, où des règles de groupe de sécurité réseau peuvent être utilisées pour restreindre le trafic.
+
+Pour savoir comment contrôler l’adresse IP sortante à l’aide d’un réseau virtuel, consultez [Tutoriel : Contrôler l’adresse IP sortante Azure Functions avec une passerelle NAT de réseau virtuel Azure](functions-how-to-use-nat-gateway.md). 
 
 ## <a name="automation"></a>Automatisation
 Les API suivantes vous permettent de gérer par programmation les intégrations de réseaux virtuels régionaux :
