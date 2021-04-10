@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707997"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567288"
 ---
 # <a name="azure-monitor-logs-overview"></a>Vue d’ensemble de Journaux d’activité Azure Monitor
 Les journaux Azure Monitor sont une fonctionnalité Azure Monitor qui collecte et organise les données de performances et de journal issues de [ressources supervisées](../monitor-reference.md). Les données provenant de différentes sources, telles que les [journaux de plateforme](../essentials/platform-logs-overview.md) issus des services Azure, les données de journal et de performances issues des [agents de machines virtuelles](../agents/agents-overview.md) et les données d’utilisation et de performances issues des [applications](../app/app-insights-overview.md) peuvent être regroupées dans un espace de travail unique pour pouvoir être analysées ensemble à l’aide d’un langage de requête sophistiqué à même d’analyser rapidement des millions d’enregistrements. Vous pouvez effectuer une requête simple qui récupère simplement un ensemble spécifique d’enregistrements ou effectuer une analyse de données sophistiquée pour identifier les modèles critiques dans vos données de supervision. Utilisez les requêtes de journal et leurs résultats de manière interactive avec Log Analytics, utilisez-les dans des règles d’alerte pour être notifié des problèmes de manière proactive ou visualisez leurs résultats dans un classeur ou un tableau de bord.
@@ -23,7 +23,7 @@ Les journaux Azure Monitor sont une fonctionnalité Azure Monitor qui collecte e
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>Que pouvez-vous faire avec les journaux Azure Monitor ?
 Le tableau suivant décrit quelques-unes des façons d’utiliser des journaux dans Azure Monitor :
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analyser** | Utiliser [Log Analytics](./log-analytics-tutorial.md) sur le portail Azure pour écrire des [requêtes de journal](./log-query-overview.md) et analyser de manière interactive des données de journal à l’aide d’un puissant moteur d’analyse |
 | **Alert** | Configurer une [règle d’alerte de journal](../alerts/alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](../alerts/action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique. |

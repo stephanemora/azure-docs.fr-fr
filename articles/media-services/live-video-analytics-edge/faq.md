@@ -3,12 +3,12 @@ title: FAQ Live Video Analytics sur IoT Edge – Azure
 description: Cet article répond aux questions fréquentes à propos de Live Video Analytics sur IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702247"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275955"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>FAQ Live Video Analytics sur IoT Edge
 
@@ -57,7 +57,7 @@ Non, la découverte ONVIF des appareils en périphérie n’est pas gérée.
 
 **Puis-je lire les ressources enregistrées sur Azure Media Services à partir de la périphérie à l’aide de technologies de diffusion en continu telles que HLS ou DASH ?**
 
-Oui. Vous pouvez diffuser en continu les ressources enregistrées comme n’importe quelle autre ressource dans Azure Media Services. Pour pouvoir diffuser le contenu en continu, vous devez créer un point de terminaison de streaming, qui doit être en cours d’exécution. Utiliser le processus de création de localisateur de streaming standard vous donnera accès à un HTTP Live Streaming (HLS) Apple ou une diffusion en continu adaptative sur le manifeste HTTP (DASH, aussi connu sous MPEG-DASH) pour la diffusion en continu vers n’importe quelle infrastructure de lecteur la prenant en charge. Pour plus d’informations sur la création de manifestes de publication HLS ou DASH, voir [L’empaquetage dynamique](../latest/dynamic-packaging-overview.md).
+Oui. Vous pouvez diffuser en continu les ressources enregistrées comme n’importe quelle autre ressource dans Azure Media Services. Pour pouvoir diffuser le contenu en continu, vous devez créer un point de terminaison de streaming, qui doit être en cours d’exécution. Utiliser le processus de création de localisateur de streaming standard vous donnera accès à un HTTP Live Streaming (HLS) Apple ou une diffusion en continu adaptative sur le manifeste HTTP (DASH, aussi connu sous MPEG-DASH) pour la diffusion en continu vers n’importe quelle infrastructure de lecteur la prenant en charge. Pour plus d’informations sur la création de manifestes de publication HLS ou DASH, voir [L’empaquetage dynamique](../latest/encode-dynamic-packaging-concept.md).
 
 **Puis-je utiliser la protection de contenu standard et les fonctionnalités DRM de Media Services sur une ressource archivée ?**
 
@@ -69,7 +69,7 @@ Tous les lecteurs standard qui sont conformes aux versions 3 ou 4 HLS sont pris 
 
 Les lecteurs recommandés pour les tests sont les suivants :
 
-* [Azure Media Player](../latest/use-azure-media-player.md)
+* [Azure Media Player](../latest/player-use-azure-media-player-how-to.md)
 * [HLS.js](https://hls-js.netlify.app/demo/)
 * [Video.js](https://videojs.com/)
 * [Dash.js](https://github.com/Dash-Industry-Forum/dash.js/wiki)
@@ -129,7 +129,7 @@ Les solutions varient selon le protocole de communication utilisé par le serveu
    
 *Utiliser le protocole gRPC* : 
 
-* Avec la version 1.0 du module Live Video Analytics, quand vous utilisez un protocole d’appel de procédure distante (gRPC), le seul moyen d’utiliser un protocole gRPC serait de faire en sorte que le serveur gRPC expose des modèles IA différents sur des ports distincts. Dans [cet exemple de code](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), un port unique, 44000, expose tous les modèles Yolo. En théorie, le serveur gRPC Yolo pourrait être réécrit pour exposer des modèles sur 44000, d’autres sur 45000, etc. 
+* Avec la version 1.0 du module Live Video Analytics, quand vous utilisez un protocole d’appel de procédure distante (gRPC), le seul moyen d’utiliser un protocole gRPC serait de faire en sorte que le serveur gRPC expose des modèles IA différents sur des ports distincts. Dans [cet exemple de code](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), un port unique, 44000, expose tous les modèles Yolo. En théorie, le serveur gRPC Yolo pourrait être réécrit pour exposer des modèles sur 44000, d’autres sur 45000, etc. 
 
 * Avec la version 2.0 du module Live Video Analytics, une nouvelle propriété est ajoutée au nœud de l’extension gRPC. Cette propriété s’appelle **extensionConfiguration**, une chaîne facultative utilisable dans le contrat gRPC. Si vous avez plusieurs modèles d’IA empaquetés dans un seul serveur d’inférence, vous n’aurez pas besoin d’exposer un nœud par modèle d’IA. Au lieu de cela, pour une instance de graphique, vous, en tant que fournisseur d’extensions, pouvez définir comment sélectionner les différents modèles d’IA à l’aide de la propriété **extensionConfiguration**. Pendant l’exécution, Live Video Analytics transmet cette chaîne au serveur d’inférence qui peut l’utiliser pour appeler le modèle d’IA souhaité. 
 

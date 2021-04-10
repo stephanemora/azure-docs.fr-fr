@@ -6,14 +6,14 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 34ee7eb25b1d106ea8bb53197d69ca5a9d528773
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941368"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871603"
 ---
-# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutoriel : Requête Apache Hive avec ODBC et PowerShell
+# <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Tutoriel : Requête Apache Hive avec ODBC et PowerShell
 
 Les pilotes Microsoft ODBC constituent une méthode flexible pour pour interagir avec différents types de sources de données, notamment Apache Hive. Vous pouvez écrire du code dans des langages de script, tels que PowerShell, qui utilisent des pilotes ODBC pour ouvrir une connexion vers votre cluster Hive, transmettre une requête de votre choix et afficher les résultats.
 
@@ -42,7 +42,7 @@ La procédure suivante explique comment créer une source de données ODBC Apach
 
 1. Dans Windows, accédez à **Démarrer** > **Outils d’administration Windows** > **Sources de données ODBC (32 bits)/(64 bits)** .  La fenêtre **Administrateur de sources de données ODBC** s’ouvre.
 
-    ![Administrateur de sources de données ODBC](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configurer un DSN à l’aide de l’Administrateur de sources de données ODBC")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="Administrateur de sources de données ODBC" border="true":::
 
 1. Dans l’onglet **DSN utilisateur**, sélectionnez **Ajouter** pour ouvrir la fenêtre **Créer une nouvelle source de données**.
 
@@ -58,9 +58,9 @@ La procédure suivante explique comment créer une source de données ODBC Apach
    |  Base de données |Utilisez **Default**. |
    |  Mechanism |Sélectionnez **Windows Azure HDInsight Service**. |
    |  User Name |Entrez le nom de l’utilisateur HTTP du cluster HDInsight. Le nom d’utilisateur par défaut est **admin**. |
-   |  Mot de passe |Entrez le mot de passe du cluster HDInsight. Cochez la case **Enregistrer le mot de passe (chiffré)** .|
+   |  Mot de passe |Entrez le mot de passe du cluster HDInsight. Cochez la case **Enregistrer le mot de passe (chiffré)**.|
 
-1. Facultatif : Sélectionnez **Options avancées...**  
+1. Facultatif : sélectionnez **Options avancées**.  
 
    | Paramètre | Description |
    | --- | --- |
@@ -68,9 +68,9 @@ La procédure suivante explique comment créer une source de données ODBC Apach
    |  Rows fetched per block |Lors de l’extraction d’un grand nombre d’enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales. |
    |  Default string column length, Binary column length, Decimal column scale |Les précisions et longueurs des types de données peuvent affecter la façon dont les données sont renvoyées. Elles entraînent le renvoi d’informations incorrectes en raison d’une perte de précision et/ou de troncations. |
 
-    ![Options avancées de configuration DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Options avancées de configuration DSN")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="Options avancées de configuration DSN" border="true":::
 
-1. Sélectionnez **Tester** pour tester la source de données. Une fois que la source de données est configurée correctement, le message suivant apparaît **SUCCESS!** .  
+1. Sélectionnez **Tester** pour tester la source de données. Une fois que la source de données est configurée correctement, le message suivant apparaît **SUCCESS!**.  
 
 1. Sélectionnez **OK** pour fermer la fenêtre de test.  
 

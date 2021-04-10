@@ -3,17 +3,18 @@ title: Resource Health pour Azure Cloud Services (classique)
 description: Cet article traite de la prise en charge de Resource Health Check (RHC) pour Microsoft Azure Cloud Services (classique).
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: resource-health
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46a27e42d6b3440914ca0d32e1ae2138b128021e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743506"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935156"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Prise en charge de Resource Health Check (RHC) pour Azure Cloud Services (classique)
 

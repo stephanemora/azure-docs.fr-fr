@@ -3,12 +3,12 @@ title: Déployer l’exemple de blueprint Charge de travail ASE/SQL ISO 27001
 description: Étapes de déploiement de l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001 et informations détaillées sur les paramètres d’artefact de blueprint.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627481"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669642"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Déployer l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -133,7 +133,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Groupe de ressources Azure SQL Database|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-azsql-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Azure SQL Database|Resource group|Emplacement|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Nom d’utilisateur administrateur Azure SQL Server|Nom d’utilisateur pour Azure SQL Server. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _sql-admin-user_.|
-|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
+|Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (Nom du secret Key Vault)|Nom d’utilisateur de l’administrateur SQL Server. Doit correspondre à la valeur de propriété **Modèle Key Vault** **Nom d’utilisateur administrateur Azure SQL Server**.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Azure SQL Database|Modèle Resource Manager|ID objet de l’administrateur AAD|ID objet AAD de l’utilisateur affecté en tant qu’administrateur Active Directory. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.|

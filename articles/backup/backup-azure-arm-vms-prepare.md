@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Service
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172745"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670424"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -117,6 +117,8 @@ Si vous avez choisi de créer une stratégie de sauvegarde, renseignez les param
 4. Dans **Durée de rétention**, spécifiez la durée pendant laquelle vous souhaitez conserver vos points de sauvegarde quotidiens ou hebdomadaires.
 5. Dans **Rétention du point de sauvegarde mensuel** et **Rétention du point de sauvegarde annuel**, indiquez si vous souhaitez conserver une sauvegarde mensuelle ou annuelle de vos sauvegardes quotidiennes ou hebdomadaires.
 6. Sélectionnez **OK** pour enregistrer la stratégie.
+    > [!NOTE]
+    > Pour stocker la collection de points de restauration (RPC), le service de sauvegarde crée un groupe de ressources distinct (RG). Ce RG est différent du RG de la machine virtuelle. [Plus d’informations](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines)
 
     ![Nouvelle stratégie de sauvegarde](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

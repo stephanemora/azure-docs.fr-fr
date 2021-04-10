@@ -3,14 +3,14 @@ title: Guide pratique pour créer des déploiements de mises à jour pour Azure 
 description: Cet article explique comment planifier des déploiements de mises à jour et vérifier leur état.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575886"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669676"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
@@ -21,6 +21,9 @@ Dans chaque scénario, le déploiement que vous créez cible l’ordinateur ou l
 * Le système d’exploitation est automatiquement présélectionné en fonction du système d’exploitation de l’ordinateur.
 * L’ordinateur cible à mettre à jour se définit automatiquement.
 * Lors de la configuration de la planification, vous pouvez spécifier **Mettre à jour maintenant**, Se produit une fois ou Utilise une planification récurrente.
+
+> [!IMPORTANT]
+> En créant un déploiement de mise à jour, vous acceptez les termes du contrat de licence logiciel (CLUF) fournis par la société qui offre des mises à jour pour son système d’exploitation.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

@@ -3,16 +3,16 @@ title: Exécution et déclencheurs du pipeline dans Azure Data Factory
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: bd36b589424a0d890fc5e1bbab3f234e9b3264c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 271dbd87950018cebbd23841d32324afa42511e7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374777"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785799"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 
@@ -323,13 +323,8 @@ Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’activ
 
 Pour plus d'informations sur les déclencheurs de fenêtre bascule et pour obtenir des exemples, consultez [Créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
 
-## <a name="event-based-trigger"></a>Déclencheur basé sur des événements
-
-Un déclencheur basé sur des événements exécute des pipelines en réponse aux événements, comme pour l’arrivée ou la suppression d’un fichier, dans Stockage Blob Azure.
-
-Pour plus d’informations sur les déclencheurs basés sur des événements, consultez [Créer un déclencheur qui exécute un pipeline en réponse à un événement](how-to-create-event-trigger.md).
-
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Exemples de planifications de périodicité de déclencheur
+
 Cette section fournit des exemples de planifications de périodicité. Elle se concentre sur l’objet **schedule** et ses éléments.
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification **monthDays** dans l’objet **schedule**. Ces types de restrictions sont décrits dans le tableau dans la section précédente.
@@ -364,6 +359,7 @@ Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequ
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Exécution à 5h15, 5h45, 17h15 et 17h45 le troisième mercredi de chaque mois. |
 
 ## <a name="trigger-type-comparison"></a>Comparaison du type de déclencheur
+
 Le déclencheur de fenêtre bascule et le déclencheur de planification fonctionnent tous les deux sur des pulsations de temps. En quoi sont-ils différents ?
 
 > [!NOTE]
@@ -380,7 +376,17 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 | **Variables système** | En plus de @trigger().scheduledTime et @trigger().startTime, l’utilisation des variables système **WindowStart** et **WindowEnd** est également prise en charge. Les utilisateurs peuvent accéder à `trigger().outputs.windowStartTime` et `trigger().outputs.windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` et `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Prend uniquement en charge les variables par défaut @trigger().scheduledTime et @trigger().startTime. |
 | **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. |
 
+## <a name="event-based-trigger"></a>Déclencheur basé sur des événements
+
+Un déclencheur basé sur un événement exécute des pipelines en réponse à un événement. Il existe deux types de déclencheurs basés sur des événements.
+
+* Un _déclencheur d’événements de stockage_ exécute un pipeline en réponse à des événements qui se produisent dans un compte de stockage, tels que l’arrivée d’un fichier ou la suppression d’un fichier dans un compte de Stockage Blob Azure.
+* Un _déclencheur d’événements personnalisé_ traite et gère des [rubriques personnalisées](../event-grid/custom-topics.md) dans Event Grid.
+
+Pour plus d’informations sur les déclencheurs basés sur des événements, consultez [Déclencheur d’événements de stockage](how-to-create-event-trigger.md) et [Déclencheur d’événements personnalisé](how-to-create-custom-event-trigger.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Consultez les didacticiels suivants :
 
 - [Démarrage rapide : Créer une fabrique de données à l’aide du SDK .NET](quickstart-create-data-factory-dot-net.md)
