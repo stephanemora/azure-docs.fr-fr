@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9f80de5a18e27de4a9f8e85613e3c2eee6c111c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 55802b04e10f06c7e362033f97d24c4e20c12c62
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96853473"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566487"
 ---
 # <a name="create-video-reviews-using-net"></a>Créer des révisions de vidéos à l’aide de .NET
 
@@ -58,7 +58,7 @@ Pour les trames vidéo (images), utilisez les images suivantes :
 
 ![Miniature de trame vidéo 1](images/ams-video-frame-thumbnails-1.PNG) | ![Miniature de trame vidéo 2](images/ams-video-frame-thumbnails-2.PNG) | ![Miniature de trame vidéo 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
-[Trame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Trame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Trame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
+Trame 1 | Trame 2 | Trame 3 |
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 

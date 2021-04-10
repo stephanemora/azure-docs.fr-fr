@@ -7,12 +7,12 @@ ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2db75fdcd4519b5ba0869bf4ef89c8323435539
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597383"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565977"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données depuis et vers Dynamics 365 (Common Data Service/Microsoft Dataverse) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -370,7 +370,7 @@ La combinaison optimale de **writeBatchSize** et **parallelCopies** dépend du s
 
 Pour récupérer des données à partir des vues Dynamics, vous devez obtenir la requête enregistrée de la vue et utiliser la requête pour obtenir les données.
 
-Il existe deux entités qui stockent différents types de vues : « requête enregistrée » stocke la vue système et « requête utilisateur » stocke la vue utilisateur. Pour obtenir les informations des vues, reportez-vous à la requête FetchXML suivante en remplaçant « TARGETENTITY » par `savedquery` ou `userquery`. Chaque type d’entité a plus d’attributs disponibles que vous pouvez ajouter à la requête en fonction de vos besoins. En savoir plus sur [l’entité savedquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/savedquery) et [l’entité userquery](https://docs.microsoft.com/dynamics365/customer-engagement/web-api/userquery).
+Il existe deux entités qui stockent différents types de vues : « requête enregistrée » stocke la vue système et « requête utilisateur » stocke la vue utilisateur. Pour obtenir les informations des vues, reportez-vous à la requête FetchXML suivante en remplaçant « TARGETENTITY » par `savedquery` ou `userquery`. Chaque type d’entité a plus d’attributs disponibles que vous pouvez ajouter à la requête en fonction de vos besoins. En savoir plus sur [l’entité savedquery](/dynamics365/customer-engagement/web-api/savedquery) et [l’entité userquery](/dynamics365/customer-engagement/web-api/userquery).
 
 ```xml
 <fetch top="5000" >

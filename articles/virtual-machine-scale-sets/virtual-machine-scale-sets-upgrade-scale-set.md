@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684591"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023926"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 
@@ -350,7 +350,7 @@ La capacité à modifier certaines propriétés peut dépendre de la valeur actu
 
 - **singlePlacementGroup** : si singlePlacementGroup a la valeur true, celle-ci peut être remplacée par false. Toutefois, si singlePlacementGroup a la valeur false, elle **ne peut pas** avoir la valeur true.
 - **subnet** : le sous-réseau d’un groupe identique peut être modifié, tant que le sous-réseau d’origine et le nouveau sous-réseau se trouvent dans le même réseau virtuel.
-- **imageReferenceSku** : une référence (SKU) d’image peut être mise à jour pour des [distributions Linux](../virtual-machines/linux/endorsed-distros.md) approuvées, des images de serveur/client Windows et des images sans [informations de plan](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** : une référence (SKU) d’image peut être mise à jour pour des [distributions Linux](../virtual-machines/linux/endorsed-distros.md) approuvées, des images de serveur/client Windows et des images sans [informations de plan](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propriétés qui nécessitent une désallocation pour être modifiées
 La valeur de certaines propriétés peut uniquement être modifiée si les machines virtuelles du groupe identique sont libérées. Ces propriétés sont les suivantes :
@@ -417,7 +417,7 @@ Vous pouvez également modifier l'image utilisée par votre groupe identique. Pa
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>Mettre à jour l’équilibreur de charge pour un groupe identique
 Supposons que vous utilisiez un groupe identique avec Azure Load Balancer, et que vous souhaitiez remplacer Azure Load Balancer par Azure Application Gateway. Les propriétés de l’équilibreur de charge et du service Application Gateway d’un groupe identique font partie d’une liste. Vous pouvez donc utiliser les commandes de suppression et d’ajout d’éléments de liste, au lieu de modifier directement les propriétés :
 
-- Azure Powershell :
+- Azure PowerShell :
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

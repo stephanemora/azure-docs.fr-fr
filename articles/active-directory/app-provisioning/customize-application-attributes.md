@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091106"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579465"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -113,13 +113,13 @@ Les applications et les systèmes qui prennent en charge la personnalisation de 
 - ServiceNow
 - Workday to Active Directory / Workday to Azure Active Directory
 - SuccessFactors to Active Directory / SuccessFactors to Azure Active Directory
-- Azure Active Directory (les [attributs par défaut de l’API Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) et les extensions d’annuaire personnalisées sont pris en charge)
+- Azure Active Directory (les [attributs par défaut de l’API Azure AD Graph](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) et les extensions d’annuaire personnalisées sont pris en charge). En savoir plus sur la [création d’extensions](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) et les [limitations connues](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues). 
 - Applications prenant en charge [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - Pour l’écriture différée Azure Active Directory dans Workday ou SuccessFactors, il est possible de mettre à jour les métadonnées pertinentes des attributs pris en charge (XPath et JSONPath), mais non d’ajouter des attributs Workday ou SuccessFactors au-delà de ceux du schéma par défaut.
 
 
 > [!NOTE]
-> La modification de la liste des attributs pris en charge n’est recommandée que pour les administrateurs qui ont personnalisé le schéma de leurs applications et systèmes et ont connaissance de première main de la façon dont leurs attributs personnalisés ont été définis. Ceci nécessite parfois de connaître les API et les outils de développement fournis par une application ou un système. La possibilité de modifier la liste des attributs pris en charge est verrouillée par défaut, mais les clients peuvent activer cette fonctionnalité en accédant à l’URL suivante : https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Vous pouvez ensuite accéder à votre application pour voir la liste des attributs comme décrit [ci-dessus](#editing-the-list-of-supported-attributes). 
+> La modification de la liste des attributs pris en charge n’est recommandée que pour les administrateurs qui ont personnalisé le schéma de leurs applications et systèmes, et qui ont une connaissance directe de la façon dont leurs attributs personnalisés ont été définis ou si un attribut source n’est pas automatiquement affiché dans l’interface utilisateur du portail Azure. Ceci nécessite parfois de connaître les API et les outils de développement fournis par une application ou un système. La possibilité de modifier la liste des attributs pris en charge est verrouillée par défaut, mais les clients peuvent activer cette fonctionnalité en accédant à l’URL suivante : https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Vous pouvez ensuite accéder à votre application pour voir la liste des attributs comme décrit [ci-dessus](#editing-the-list-of-supported-attributes). 
 
 Lorsque vous modifiez la liste des attributs pris en charge, les propriétés suivantes sont fournies :
 

@@ -3,17 +3,18 @@ title: Configuration de la mise à l’échelle pour Azure Cloud Services (suppo
 description: Guide pratique d’activation des options de mise à l’échelle pour Azure Cloud Services (support étendu).
 ms.topic: how-to
 ms.service: cloud-services-extended-support
+ms.subservice: autoscale
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dab3411319f40a111144a3e1c1f02f1b67d011b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728159"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935649"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configuration des options de mise à l’échelle avec Azure Cloud Services (support étendu) 
 
@@ -63,5 +64,5 @@ Tenez compte des informations suivantes lorsque vous configurez la mise à l’�
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez les [questions fréquentes (FAQ)](faq.md) sur Cloud Services (support étendu).
-- Déployez une instance de Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).
+- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

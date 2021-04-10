@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217412"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026451"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes.
@@ -20,7 +20,7 @@ Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures 
 
 ## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Vérifier que vous utilisez le bon point de terminaison du Débogueur de capture instantanée
 
-Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) et [Azure Chine](https://docs.microsoft.com/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
+Actuellement, seules les régions [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) et [Azure Chine](/azure/china/resources-developer-guide) nécessitent des modifications de leurs points de terminaison.
 
 Pour App Service et les applications qui utilisent le SDK Application Insights, vous devez mettre à jour la chaîne de connexion à l’aide des valeurs de substitution prises en charge pour le Débogueur de capture instantanée, comme indiqué ci-dessous :
 
@@ -28,7 +28,7 @@ Pour App Service et les applications qui utilisent le SDK Application Insights, 
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-Pour plus d’informations sur les autres substitutions de connexion, consultez la [documentation Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+Pour plus d’informations sur les autres substitutions de connexion, consultez la [documentation Application Insights](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 Pour Function App, vous devez mettre à jour `host.json` à l’aide des valeurs de substitution prises en charge ci-dessous :
 

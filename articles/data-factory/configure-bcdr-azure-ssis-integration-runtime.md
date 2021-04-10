@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 2744d51b6d68ed494050be10a9f0e4d1f59cdc49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a426ee39ba3c0f50b9a6c1fb9c7de1ef8e7291b2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204063"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566351"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>Configurer un runtime d’intégration Azure-SSIS pour la continuité d’activité et reprise d’activité (BCDR) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102204063"
 
 Vous pouvez combiner Azure SQL Database/Managed Instance et SQL Server Integration Services (SSIS) dans Azure Data Factory (ADF) en tant que solution PaaS recommandée pour une migration SQL Server. Vous pouvez déployer vos projets SSIS dans une base de données de catalogues SSIS (SSISDB) hébergée par Azure SQL Database/Managed Instance, et exécuter vos packages SSIS sur le runtime d’intégration (IR) Azure SSIS dans ADF.
 
-Pour la continuité d’activité et reprise d’activité (BCDR), vous pouvez configurer Azure SQL Database/Managed Instance avec un [groupe de géo-réplication/basculement](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview), où la SSISDB dans une région Azure primaire avec accès en lecture-écriture (rôle principal) sera répliquée en continu vers une région secondaire avec accès en lecture seule (rôle secondaire). Quand un incident se produit dans la région primaire, un basculement est déclenché, de sorte que les SSISDB primaire et secondaire échangent leur rôles.
+Pour la continuité d’activité et reprise d’activité (BCDR), vous pouvez configurer Azure SQL Database/Managed Instance avec un [groupe de géo-réplication/basculement](../azure-sql/database/auto-failover-group-overview.md), où la SSISDB dans une région Azure primaire avec accès en lecture-écriture (rôle principal) sera répliquée en continu vers une région secondaire avec accès en lecture seule (rôle secondaire). Quand un incident se produit dans la région primaire, un basculement est déclenché, de sorte que les SSISDB primaire et secondaire échangent leur rôles.
 
 Pour BCDR, vous pouvez également configurer une paire de runtimes d’intégration Azure-SSIS de secours, qui fonctionne en synchronisation avec le groupe de basculement Azure SQL Database/Managed Instance. Cela vous permet d’avoir une paire de runtimes d’intégration Azure-SSIS opérationnels. À tout moment, un seul runtime peut accéder à la SSISDB primaire pour extraire et exécuter des packages, ainsi qu’écrire des journaux d’exécution de package (rôle principal), tandis que l’autre ne peut faire de même que pour des packages déployés ailleurs, par exemple dans Azure Files (rôle secondaire). Lors du basculement de SSISDB, les runtimes d’intégration Azure-SSIS primaire et secondaire échangent également leurs rôles et, si les deux sont en cours d’exécution, le temps d’arrêt est presque nul.
 
@@ -39,7 +39,7 @@ Pour configurer une paire de runtimes d’intégration Azure-SSIS de secours qui
 
    Quand [vous choisissez d’utiliser une SSISDB](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) dans la page **Paramètres de déploiement** du volet **Installation du runtime d’intégration**, activez également la case à cocher **Utiliser la paire de runtimes d’intégration Azure-SSIS de secours avec le basculement de SSISDB**. Pour **Nom de la paire de secours**, entrez un nom pour identifier votre paire de runtimes d’intégration Azure-SSIS primaire et secondaire. Lorsque vous terminez la création de votre Azure-SSIS IR principal, celui-ci est démarré et attaché à une SSISDB principale qui sera créée pour vous avec un accès en lecture-écriture. Si vous venez de le reconfigurer, vous devez le redémarrer.
 
-1. Le portail Azure vous permet de vérifier si la SSISDB principale a été créée dans la page **Vue d’ensemble** de votre serveur Azure SQL Database principal. Une fois la base de données créée, vous pouvez [créer un groupe de basculement pour vos serveurs Azure SQL Database principal et secondaire et y ajouter la SSISDB](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) sur la page **Groupes de basculement**. Une fois votre groupe de basculement créé, vous pouvez vérifier si la SSISDB principale a été répliquée sur un groupe de basculement secondaire avec un accès en lecture seule sur la page **Vue d’ensemble** de votre serveur Azure SQL Database secondaire.
+1. Le portail Azure vous permet de vérifier si la SSISDB principale a été créée dans la page **Vue d’ensemble** de votre serveur Azure SQL Database principal. Une fois la base de données créée, vous pouvez [créer un groupe de basculement pour vos serveurs Azure SQL Database principal et secondaire et y ajouter la SSISDB](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#2---create-the-failover-group) sur la page **Groupes de basculement**. Une fois votre groupe de basculement créé, vous pouvez vérifier si la SSISDB principale a été répliquée sur un groupe de basculement secondaire avec un accès en lecture seule sur la page **Vue d’ensemble** de votre serveur Azure SQL Database secondaire.
 
 1. L’interface utilisateur du portail Azure ou d’ADF vous permet de créer un autre Azure-SSIS IR avec votre serveur Azure SQL Database secondaire pour héberger la SSISDB dans la région secondaire. Ce sera votre Azure-SSIS IR secondaire. Pour une BCDR complète, assurez-vous que toutes les ressources dont elle dépend sont également créées dans la région secondaire, par exemple, Stockage Azure pour le stockage des scripts/fichiers de configuration personnalisés, ADF pour l’orchestration/planification des exécutions de package, etc.
 
@@ -51,13 +51,13 @@ Pour configurer une paire de runtimes d’intégration Azure-SSIS de secours qui
 
 1. Si vous [utilisez ADF pour l’orchestration et la planification d’exécutions de package](./how-to-invoke-ssis-package-ssis-activity.md), assurez-vous que tous les pipelines ADF appropriés, avec les activités Exécuter le Package SSIS et les déclencheurs associés, sont copiés vers votre ADF secondaire avec les déclencheurs initialement désactivés. Lorsque le basculement de SSISDB se produit, vous devez les activer.
 
-1. Vous pouvez [tester votre groupe de basculement Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#3---test-failover) et vérifier sur la [page de surveillance de l’Azure-SSIS IR dans le portail ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si vos runtimes d’intégration Azure-SSIS principal et secondaire ont échangé leurs rôles. 
+1. Vous pouvez [tester votre groupe de basculement Azure SQL Database](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#3---test-failover) et vérifier sur la [page de surveillance de l’Azure-SSIS IR dans le portail ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si vos runtimes d’intégration Azure-SSIS principal et secondaire ont échangé leurs rôles. 
 
 ## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-managed-instance-failover-group"></a>Configurer une paire de runtimes d’intégration Azure-SSIS IR de secours avec un groupe de basculement Azure SQL Managed Instance
 
 Pour configurer une paire de runtimes d’intégration Azure-SSIS IR de secours qui fonctionne en synchronisation avec un groupe de basculement Azure SQL Managed Instance, procédez comme suit.
 
-1. La portail Azure vous permet de [créer un groupe de basculement pour vos instances managées Azure SQL principale et secondaire](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) sur la page **Groupes de basculement** de votre Azure SQL Managed Instance principale.
+1. La portail Azure vous permet de [créer un groupe de basculement pour vos instances managées Azure SQL principale et secondaire](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal) sur la page **Groupes de basculement** de votre Azure SQL Managed Instance principale.
 
 1. L’interface utilisateur du portail Azure ou d’ADF vous permet de créer un Azure-SSIS IR avec votre Azure SQL Managed Instance principale pour héberger la SSISDB dans la région primaire. Si vous disposez déjà d’un Azure-SSIS IR attaché à la SSIDB hébergée par votre Azure SQL Managed Instance principale, et qu’il est toujours en cours d’exécution, vous devez l’arrêter avant de le reconfigurer. Ce sera votre Azure-SSIS IR principal.
 
@@ -112,7 +112,7 @@ Pour configurer une paire de runtimes d’intégration Azure-SSIS IR de secours 
 
 1. Si vous [utilisez ADF pour l’orchestration et la planification d’exécutions de package](./how-to-invoke-ssis-package-ssis-activity.md), assurez-vous que tous les pipelines ADF appropriés, avec les activités Exécuter le Package SSIS et les déclencheurs associés, sont copiés vers votre ADF secondaire avec les déclencheurs initialement désactivés. Lorsque le basculement de SSISDB se produit, vous devez les activer.
 
-1. Vous pouvez [tester votre groupe de basculement Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#test-failover) et vérifier sur la [page de surveillance de l’Azure-SSIS IR dans le portail ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si vos runtimes d’intégration Azure-SSIS principal et secondaire ont échangé leurs rôles. 
+1. Vous pouvez [tester votre groupe de basculement Azure SQL Managed Instance](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal#test-failover) et vérifier sur la [page de surveillance de l’Azure-SSIS IR dans le portail ADF](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) si vos runtimes d’intégration Azure-SSIS principal et secondaire ont échangé leurs rôles. 
 
 ## <a name="attach-a-new-azure-ssis-ir-to-existing-ssisdb-hosted-by-azure-sql-databasemanaged-instance"></a>Attacher un nouvel Azure-SSIS IR à une SSISDB existante hébergée par Azure SQL Database/Managed Instance
 

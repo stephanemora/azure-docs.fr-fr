@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81779d942b31f940d579de623ecb39c35d3a8b14
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417635"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642139"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -52,7 +52,7 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
     * Travaillez sur votre propre bloc-notes Jupyter et installez vous-même le kit de développement logiciel (SDK) à l’aide de [ces instructions](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/), qui n’est compatible qu’avec Python 64 bits. Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) et CentOS (7). Si vous utilisez des distributions non pris en charge, suivez [ce guide](/dotnet/core/install/linux) afin d'installer .NET Core 2.1 pour continuer. 
+> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://pypi.org/project/azureml-dataprep/), qui n’est compatible qu’avec Python 64 bits. Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) et CentOS (7). Si vous utilisez des distributions non pris en charge, suivez [ce guide](/dotnet/core/install/linux) afin d'installer .NET Core 2.1 pour continuer. 
 
 ## <a name="compute-size-guidance"></a>Conseils liés à la taille de calcul
 

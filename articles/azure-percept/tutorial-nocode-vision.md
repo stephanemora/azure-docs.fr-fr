@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097905"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023127"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Créer une solution de vision sans code dans Azure Percept Studio
 
@@ -106,7 +106,7 @@ Avant d’entraîner votre modèle, ajoutez des étiquettes à vos images.
 
 1. Sur le côté gauche de la page **Custom Vision**, cliquez sur **Sans étiquette** sous **Étiquettes** pour afficher les images que vous avez collectées à l’étape précédente. Sélectionnez une ou plusieurs images sans étiquette.
 
-1. Dans la fenêtre **Détails de l’image**, cliquez sur l’image pour commencer l’étiquetage. Si vous avez sélectionné la détection d’objets comme type de projet, vous devez également dessiner un [cadre englobant](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) autour des objets que vous souhaitez étiqueter. Ajustez le cadre englobant si nécessaire. Tapez l’étiquette de votre objet, puis cliquez sur **+** pour l’appliquer. Par exemple, si vous créez une solution de vision qui doit vous informer quand un rayon de magasin a besoin d’être réapprovisionné, ajoutez l’étiquette « Rayon vide » aux images montrant des rayons vides, et ajoutez l’étiquette « Rayon plein » aux images montrant des rayons entièrement réapprovisionnés. Répétez cette opération pour toutes les images non étiquetées.
+1. Dans la fenêtre **Détails de l’image**, cliquez sur l’image pour commencer l’étiquetage. Si vous avez sélectionné la détection d’objets comme type de projet, vous devez également dessiner un [cadre englobant](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) autour des objets que vous souhaitez étiqueter. Ajustez le cadre englobant si nécessaire. Tapez l’étiquette de votre objet, puis cliquez sur **+** pour l’appliquer. Par exemple, si vous créez une solution de vision qui doit vous informer quand un rayon de magasin a besoin d’être réapprovisionné, ajoutez l’étiquette « Rayon vide » aux images montrant des rayons vides, et ajoutez l’étiquette « Rayon plein » aux images montrant des rayons entièrement réapprovisionnés. Répétez cette opération pour toutes les images non étiquetées.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Écran Étiquetage des images dans Custom Vision.":::
 
@@ -116,7 +116,7 @@ Avant d’entraîner votre modèle, ajoutez des étiquettes à vos images.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Sélection des images d’entraînement avec le bouton Entraîner mis en évidence.":::
 
-1. Une fois l’entraînement terminé, votre écran affiche les performances de votre modèle. Pour plus d’informations sur l’évaluation de ces résultats, consultez la [documentation concernant l’évaluation des modèles](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector). Après l’entraînement, vous souhaiterez peut-être également [tester votre modèle](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) sur d’autres images et le réentraîner si nécessaire. Chaque fois que vous entraînez votre modèle, celui-ci est enregistré en tant que nouvelle itération. Pour plus d’informations sur l’amélioration des performances d’un modèle, consultez la [documentation Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+1. Une fois l’entraînement terminé, votre écran affiche les performances de votre modèle. Pour plus d’informations sur l’évaluation de ces résultats, consultez la [documentation concernant l’évaluation des modèles](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector). Après l’entraînement, vous souhaiterez peut-être également [tester votre modèle](../cognitive-services/custom-vision-service/test-your-model.md) sur d’autres images et le réentraîner si nécessaire. Chaque fois que vous entraînez votre modèle, celui-ci est enregistré en tant que nouvelle itération. Pour plus d’informations sur l’amélioration des performances d’un modèle, consultez la [documentation Custom Vision](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Résultats de l’entraînement du modèle.":::
 
@@ -143,7 +143,7 @@ Après avoir fermé cette fenêtre, vous pouvez revenir en arrière pour modifie
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>Améliorer le modèle en configurant le réentraînement
 
-Une fois que vous avez entraîné votre modèle et que vous l’avez déployé sur l’appareil, vous pouvez définir des paramètres de réentraînement pour capturer d’autres données d’apprentissage. Cette fonctionnalité permet d’améliorer le niveau de performance d’un modèle entraîné en offrant la possibilité de capturer des images en fonction d’une plage de probabilités. Par exemple, vous pouvez configurer votre appareil de sorte qu’il ne capture que les images d’apprentissage pour lesquelles la probabilité est faible. Voici quelques [conseils supplémentaires](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sur l’ajout d’images et l’équilibrage des données d’apprentissage.
+Une fois que vous avez entraîné votre modèle et que vous l’avez déployé sur l’appareil, vous pouvez définir des paramètres de réentraînement pour capturer d’autres données d’apprentissage. Cette fonctionnalité permet d’améliorer le niveau de performance d’un modèle entraîné en offrant la possibilité de capturer des images en fonction d’une plage de probabilités. Par exemple, vous pouvez configurer votre appareil de sorte qu’il ne capture que les images d’apprentissage pour lesquelles la probabilité est faible. Voici quelques [conseils supplémentaires](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) sur l’ajout d’images et l’équilibrage des données d’apprentissage.
 
 1. Pour configurer le réentraînement, revenez à votre **Projet**, puis au **Résumé du projet**.
 1. Dans l’onglet **Capture d’images**, sélectionnez **Capture d’images automatique** et **Configurer le réentraînement**.
@@ -161,6 +161,16 @@ Si vous avez créé une ressource Azure pour ce tutoriel et si vous ne souhaitez
 1. Cliquez sur **Toutes les ressources**.
 1. Cochez la case en regard de la ressource créée pendant ce tutoriel. Le type de ressource sera listé sous **Cognitive Services**.
 1. Cliquez sur l’icône **Supprimer** en haut de l’écran.
+
+## <a name="video-walkthrough"></a>Vidéo de procédure pas à pas
+
+Pour un aperçu visuel de la procédure décrite ci-dessus, consultez la vidéo suivante :
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556823"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601826"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utiliser le portail pour attacher un disque de données à une machine virtuelle Linux 
 Cet article vous explique comment attacher des disques nouveaux et existants à une machine virtuelle Linux par le biais du portail Azure. Vous pouvez également [attacher un disque de données à une machine virtuelle Windows dans le Portail Azure](../windows/attach-managed-disk-portal.md). 
@@ -81,7 +81,7 @@ Dans cet exemple, le disque ajouté est `sdc`. Il s’agit d’un numéro d'unit
 
 Pour un exemple plus complexe, voici à quoi ressemble plusieurs disques de données dans le portail :
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="Passez en revue les paramètres du disque.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="Capture d’écran de plusieurs disques affichés dans le portail.":::
 
 Dans l’image, vous pouvez voir qu’il existe 3 disques de données : 4 Go sur le numéro d'unité logique 0, 16 Go sur le numéro d'unité logique 1 et 32 Go sur le numéro d'unité logique 2.
 
@@ -227,6 +227,6 @@ Il existe deux façons d’activer la prise en charge de TRIM sur votre machine 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations et pour vous aider à résoudre les problèmes de disque, consultez [Résoudre les problèmes liés aux changements de noms d’appareil des machines virtuelles Linux](../troubleshooting/troubleshoot-device-names-problems.md).
+Pour plus d’informations et pour vous aider à résoudre les problèmes de disque, consultez [Résoudre les problèmes liés aux changements de noms d’appareil des machines virtuelles Linux](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems).
 
 Vous pouvez également [attacher un disque de données](add-disk.md) à l’aide d’Azure CLI.

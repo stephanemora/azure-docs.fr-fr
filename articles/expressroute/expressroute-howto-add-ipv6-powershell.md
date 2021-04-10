@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 7a9ac98a9566986767016720fda245712197b27f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123052"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566538"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Ajouter la prise en charge d’IPv6 pour le Peering privé à l’aide d’Azure PowerShell (préversion)
 
 Cet article explique comment ajouter la prise en charge d’IPv6 pour se connecter via ExpressRoute à vos ressources dans Azure à l’aide d’Azure PowerShell.
 
 > [!Note]
-> Cette fonctionnalité est actuellement disponible en préversion dans les [régions Azure avec Zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). Votre circuit ExpressRoute peut donc être créé à l’aide de n’importe quel emplacement de Peering, mais les déploiements basés sur IPv6 auxquels il se connecte doivent se trouver dans une région avec Zones de disponibilité.
+> Cette fonctionnalité est actuellement disponible en préversion dans les [régions Azure avec Zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones). Votre circuit ExpressRoute peut donc être créé à l’aide de n’importe quel emplacement de Peering, mais les déploiements basés sur IPv6 auxquels il se connecte doivent se trouver dans une région avec Zones de disponibilité.
 
 ## <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 
@@ -28,7 +28,7 @@ Cet article explique comment ajouter la prise en charge d’IPv6 pour se connect
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="register-for-public-preview"></a>S’inscrire pour la préversion publique
-Avant d’ajouter la prise en charge d’IPv6, vous devez inscrire votre abonnement. Pour vous inscrire, procédez comme suit via Azure PowerShell :
+Avant d’ajouter la prise en charge IPv6, vous devez d’abord inscrire votre abonnement. Pour vous inscrire, procédez comme suit via Azure PowerShell :
 1.  Connectez-vous à Azure et sélectionnez l’abonnement. Vous devez effectuer cette opération pour l’abonnement contenant votre circuit ExpressRoute, ainsi que l’abonnement contenant vos déploiements Azure (s’ils sont différents).
 
     ```azurepowershell-interactive
@@ -46,7 +46,7 @@ Votre requête sera ensuite approuvée par l’équipe ExpressRoute dans un dél
 
 ## <a name="add-ipv6-private-peering-to-your-expressroute-circuit"></a>Ajouter le peering privé IPv6 à votre circuit ExpressRoute
 
-1. [Créez un circuit ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-arm) ou utilisez un circuit existant. Récupérez le circuit en exécutant la commande **Get-AzExpressRouteCircuit** :
+1. [Créez un circuit ExpressRoute](./expressroute-howto-circuit-arm.md) ou utilisez un circuit existant. Récupérez le circuit en exécutant la commande **Get-AzExpressRouteCircuit** :
 
     ```azurepowershell-interactive
     $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -150,7 +150,7 @@ Suivez les étapes ci-dessous si vous disposez d’un environnement de ressource
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. Si vous disposez d’une passerelle existante redondante dans une zone, exécutez la commande suivante pour activer la connectivité IPv6. Sinon, [créez la passerelle de réseau virtuel](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ).
+4. Si vous disposez d’une passerelle existante redondante dans une zone, exécutez la commande suivante pour activer la connectivité IPv6. Sinon, [créez la passerelle de réseau virtuel](./expressroute-howto-add-gateway-resource-manager.md) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ).
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -161,13 +161,13 @@ Suivez les étapes ci-dessous si vous disposez d’un environnement de ressource
 
 Suivez les étapes ci-dessous si vous envisagez de vous connecter à un nouvel ensemble de ressources Azure dans une région avec Zones de disponibilité à l’aide de votre Peering privé IPv6.
 
-1. Créez un réseau virtuel à double pile avec l’espace d’adressage IPv4 et IPv6. Pour plus d’informations, consultez [Créer un réseau virtuel](https://docs.microsoft.com/azure/virtual-network/quick-create-portal#create-a-virtual-network).
+1. Créez un réseau virtuel à double pile avec l’espace d’adressage IPv4 et IPv6. Pour plus d’informations, consultez [Créer un réseau virtuel](../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
-2. [Créez le sous-réseau de passerelle à double pile](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+2. [Créez le sous-réseau de passerelle à double pile](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
 
-3. [Créez la passerelle de réseau virtuel](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si vous envisagez d’utiliser FastPath, utilisez la référence ErGw3AZ (notez que celle-ci n’est disponible que pour des circuits utilisant ExpressRoute Direct).
+3. [Créez la passerelle de réseau virtuel](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) à l’aide d’une référence SKU redondante dans une zone (ErGw1AZ, ErGw2AZ, ErGw3AZ). Si vous envisagez d’utiliser FastPath, utilisez la référence ErGw3AZ (notez que celle-ci n’est disponible que pour des circuits utilisant ExpressRoute Direct).
 
-4. [Liez votre réseau virtuel à votre circuit ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
+4. [Liez votre réseau virtuel à votre circuit ExpressRoute](./expressroute-howto-linkvnet-arm.md).
 
 ## <a name="limitations"></a>Limites
 Bien que la prise en charge IPV6 soit disponible pour les connexions à des déploiements dans des régions avec Zones de disponibilité, elle ne prend pas en charge les cas d’utilisation suivants :
@@ -177,6 +177,7 @@ Bien que la prise en charge IPV6 soit disponible pour les connexions à des dép
 * Connexions Global Reach entre des circuits ExpressRoute
 * Utiliser ExpressRoute avec un WAN virtuel
 * FastPath avec circuits non ExpressRoute Direct
+* FastPath avec circuits dans les emplacements de Peering suivants : Dubaï
 * Coexistence avec une passerelle VPN
 
 ## <a name="next-steps"></a>Étapes suivantes
