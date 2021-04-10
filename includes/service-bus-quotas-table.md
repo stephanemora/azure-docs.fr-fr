@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651939"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .

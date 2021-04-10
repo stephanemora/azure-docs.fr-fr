@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: ac67e3cf8f057738b76b0de7cbcb821ef290e0cb
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98757574"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
@@ -33,8 +33,8 @@ Le scénario Site Recovery de réplication entre des centres de données VMware 
 Les partenaires existants peuvent intégrer de nouveaux clients au scénario jusqu’à la fin de la prise en charge.
 - En 2018 et 2019, deux mises à jour seront publiées :
 
-    - Mise à jour 7 : résout les problèmes de configuration et de conformité réseau, et prend en charge TLS 1.2.
-    - Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et de SUSE 12
+    - Mise à jour 7 : résout des problèmes de configuration et de conformité réseau et prend en charge TLS 1.2.
+    - Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et SUSE 12
     - Après la mise à jour 8, aucune autre mise à jour ne sera publiée. La prise en charge du correctif logiciel sera limitée pour les systèmes d’exploitation ajoutés dans la mise à jour 8 et les corrections de bogues seront basées sur le meilleur effort.
 
 ## <a name="host-servers"></a>Serveurs hôtes
@@ -124,7 +124,7 @@ Le Service mobilité coordonne la réplication entre les serveurs VMware locaux 
 | **Mettre à jour** | **Détails** |
 | --- | --- |
 |Mises à jour Scout | Les mises à jour Scout sont cumulatives. <br/><br/> [En savoir plus et télécharger](vmware-physical-secondary-disaster-recovery.md#updates) les dernières mises à jour Scout |
-|Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [En savoir plus](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
+|Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [Plus d’informations](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

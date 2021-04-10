@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 02/17/2021
 ms.author: apimpm
 ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562346"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
@@ -85,7 +85,7 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
     - [Valider le contenu ](validation-policies.md#validate-content) : valide la taille ou le schéma JSON d’une requête ou d’un corps de réponse par rapport au schéma d’API.
 . 
     - [Valider les paramètres](validation-policies.md#validate-parameters) : valide les paramètres d’en-tête de requête, de la requête ou du chemin par rapport au schéma d’API.
-    - [Valider les en-têtes](validation-policies.md#validate-headers) : valide les en-têtes de réponse par rapport au schéma d’API.
+    - [Valider les en-têtes](validation-policies.md#validate-headers) : valide les en-têtes de réponse par rapport au schéma API.
     - [Valider le code d’état](validation-policies.md#validate-status-code) : valide les codes d’état HTTP dans les réponses par rapport au schéma d’API.
 
 ## <a name="next-steps"></a>Étapes suivantes

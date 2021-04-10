@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/31/2019
 ms.openlocfilehash: 03657606f7e24436ff5a851fe7eef1e0c4d5dc24
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944306"
 ---
-# <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Scénario : Impossible de se connecter au cluster Azure HDInsight
+# <a name="scenario-unable-to-log-into-azure-hdinsight-cluster"></a>Scénario : impossible de se connecter au cluster Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 

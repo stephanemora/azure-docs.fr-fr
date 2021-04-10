@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
 ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96459564"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Créer une offre de conteneur Azure dans la Place de marché Azure
@@ -197,7 +197,7 @@ Fournissez des logos et images à utiliser avec votre offre. Toutes les images d
 
 #### <a name="store-logos"></a>Stocker des logos
 
-Fournissez un fichier PNG pour le logo de **Grande taille**. L'Espace partenaires l'utilisera pour créer un logo de **Petite taille**  et un logo de **Taille moyenne**. Ultérieurement, vous pourrez éventuellement les remplacer par d'autres images.
+Fournissez un fichier PNG pour le logo de **Grande taille**. L'Espace partenaires l'utilisera pour créer un logo de **Petite taille**  et un logo de **Taille moyenne**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
 
 - **Grande taille** (de 216 x 216 à 350 x 350 px, obligatoire)
 - **Taille moyenne** (90 x 90 px, facultatif)

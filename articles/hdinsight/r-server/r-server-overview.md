@@ -6,10 +6,10 @@ ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943922"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Qu’est-ce que ML Services dans Azure HDInsight
@@ -93,7 +93,7 @@ Pour noter à l’aide d’Azure Machine Learning, utilisez le package R Azure M
 
 ### <a name="score-on-premises"></a>Noter localement
 
-Pour noter localement après la création de votre modèle, sérialisez le modèle dans R, téléchargez-le, désérialisez-le, puis utilisez-le pour noter de nouvelles données. Vous pouvez noter les nouvelles données en adoptant l’approche décrite plus haut dans Noter dans HDInsight ou en utilisant des [services web](/machine-learning-server/operationalize/concept-what-are-web-services).
+Pour noter localement après la création de votre modèle, sérialisez le modèle dans R, téléchargez-le, désérialisez-le, puis utilisez-le pour noter de nouvelles données. Vous pouvez noter les nouvelles données à l’aide de l’approche décrite précédemment dans Noter dans HDInsightou en utilisant le [service web](/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Maintenance du cluster
 
@@ -129,7 +129,7 @@ Les travaux en cours d’exécution peuvent être ralentis durant la maintenance
 
 Le nœud de périmètre Linux d’un cluster HDInsight est la zone d’accueil pour l’analyse basée sur R. Les versions récentes de HDInsight offrent l’IDE basé sur navigateur de RStudio Server sur le nœud de périphérie. RStudio Server est plus productif que la console R pour le développement et l’exécution.
 
-Un IDE de bureau peut accéder au cluster par le biais d’un contexte de calcul Spark ou MapReduce distant. Options disponibles : [Outils R pour Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) de Microsoft, RStudio et StatET sur Eclipse de Walware.
+Un IDE de bureau peut accéder au cluster par le biais d’un contexte de calcul Spark ou MapReduce distant. Parmi les options disponibles figurent les [Outils R pour Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) de Microsoft, RStudio et StatET sur Eclipse de WalWare.
 
 Accédez à la console R sur le nœud de périphérie en tapant **R** à l’invite de commandes. Quand vous utilisez l’interface de la console, il est pratique de développer un script R dans un éditeur de texte. Ensuite, coupez des sections de votre script et collez-les dans la console R en fonction de vos besoins.
 

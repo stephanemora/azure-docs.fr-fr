@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556313"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780427"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Réinitialisation de l’état d’acceptation d’un utilisateur invité
 
@@ -28,9 +28,20 @@ Il peut arriver, une fois qu’un utilisateur invité a accepté votre invitatio
 
 Pour gérer ces scénarios, il fallait auparavant supprimer manuellement du répertoire le compte de l’utilisateur invité et réinviter ce dernier. Vous pouvez maintenant utiliser PowerShell ou l’API d’invitation Microsoft Graph pour réinitialiser l’état d’acceptation de l’utilisateur et le réinviter tout en conservant son ID objet, ses appartenances aux groupes et ses affectations d’applications. Lorsque l’utilisateur accepte la nouvelle invitation, l’UPN de l’utilisateur ne change pas, mais le nom de connexion de l’utilisateur change pour devenir la nouvelle adresse e-mail. L’utilisateur peut ensuite se connecter avec la nouvelle adresse e-mail ou une adresse e-mail que vous avez ajoutée à la propriété `otherMails` de l’objet utilisateur.
 
+## <a name="reset-the-email-address-used-for-sign-in"></a>Réinitialiser l’adresse e-mail utilisée pour la connexion
+
+Si un utilisateur souhaite se connecter avec un autre e-mail :
+
+1. Assurez-vous que la nouvelle adresse e-mail est ajoutée à la propriété `mail` ou `otherMails` de l’objet utilisateur. 
+2.  Remplacez l’adresse e-mail dans la propriété `InvitedUserEmailAddress` par la nouvelle adresse e-mail.
+3. Utilisez l’une des méthodes ci-dessous pour réinitialiser l’état d’acceptation de l’utilisateur.
+
+> [!NOTE]
+>Pendant la période de préversion publique, lorsque vous réinitialisez l’adresse e-mail de l’utilisateur, nous vous recommandons de définir la propriété `mail` sur la nouvelle adresse e-mail. Ainsi, l’utilisateur peut accepter l’invitation en se connectant à votre annuaire en plus de l’utilisation du lien d’échange dans l’invitation.
+>
 ## <a name="use-powershell-to-reset-redemption-status"></a>Réinitialisation de l’état d’acceptation avec PowerShell
 
-Installez le dernier module PowerShell AzureADPreview et créez une invitation avec `InvitedUserEMailAddress` défini sur la nouvelle adresse e-mail et `ResetRedemption` sur `true`.
+Installez le dernier module PowerShell AzureADPreview et créez une invitation avec `InvitedUserEmailAddress` défini sur la nouvelle adresse e-mail et `ResetRedemption` sur `true`.
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -43,7 +54,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Réinitialisation de l’état d’acceptation avec l’API Microsoft Graph
 
-Avec [l’API d’invitation Microsoft Graph](/graph/api/resources/invitation), définissez la propriété `resetRedemption` sur `true` et spécifiez la nouvelle adresse e-mail dans la propriété `invitedUserEmailAddress`.
+Avec [l’API d’invitation Microsoft Graph](/graph/api/resources/invitation?view=graph-rest-1.0), définissez la propriété `resetRedemption` sur `true` et spécifiez la nouvelle adresse e-mail dans la propriété `invitedUserEmailAddress`.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
