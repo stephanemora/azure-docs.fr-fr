@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098772"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586639"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des bibliothèques Python pour Apache Spark dans Azure Synapse Analytics
 
@@ -68,13 +68,13 @@ Cet exemple spécifie les canaux et les dépendances Conda/PyPI.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 Pour en savoir plus sur la création d’un environnement à partir du fichier environment.yml, consultez la section [Créer un environnement à partir d’un fichier environment.yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -140,6 +140,11 @@ Pour ajouter des packages d’espace de travail :
 
 ![Capture d’écran mettant en évidence les packages d’espace de travail.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Afficher les packages d’espace de travail")
 
+>[!WARNING]
+>- Dans Azure Synapse, un pool Apache Spark peut tirer parti des bibliothèques personnalisées qui sont téléchargées en tant que packages d’espace de travail ou dans un chemin d’Azure Data Lake Storage bien connu. Toutefois, ces deux options ne peuvent pas être utilisées simultanément dans le même pool Apache Spark. Si les packages sont fournis à l’aide des deux méthodes, seuls les fichiers de roues spécifiés dans la liste des packages d’espace de travail sont installés. 
+>
+>- Une fois que les packages de l’espace de travail (préversion) sont utilisés pour installer des packages sur un pool Apache Spark donné, vous ne pouvez plus spécifier de packages à l’aide du chemin d’accès du compte de stockage sur le même pool.  
+
 ### <a name="storage-account"></a>Compte de stockage
 Les packages Wheel personnalisés peuvent être installés sur le pool Apache Spark en chargeant tous les fichiers Wheel dans le compte Azure Data Lake Storage (Gen2) qui est lié à l’espace de travail Synapse. 
 
@@ -149,13 +154,12 @@ Les fichiers doivent être téléchargés vers le chemin d’accès suivant dans
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-Vous devrez peut-être ajouter le dossier ```python``` dans le dossier ```libraries``` s’il ne s’y trouve pas déjà.
+>[!WARNING]
+> Dans certains cas, vous devrez peut-être créer le chemin d’accès basé sur la structure au-dessus s’il n’existe pas déjà. Vous devrez peut-être, par exemple, ajouter le dossier ```python``` dans le dossier ```libraries``` s’il ne s’y trouve pas déjà.
 
 > [!IMPORTANT]
 > Pour installer des bibliothèques personnalisées à l’aide de la méthode Azure DataLake Storage, vous devez disposer des autorisations **Contributeur aux données Blob du stockage** ou **Propriétaire des données Blob du stockage** sur le compte de stockage Gen2 principal qui est lié à l’espace de travail Azure Synapse Analytics.
 
->[!WARNING]
-> Les utilisateurs ne peuvent pas fournir des fichiers wheel personnalisés à la fois dans le compte de stockage et dans l’interface de la bibliothèque d’espace de travail. Si les deux sont fournis, seuls les fichiers wheel spécifiés dans la liste des packages d’espace de travail sont installés. 
 
 ## <a name="session-scoped-packages-preview"></a>Packages avec étendue de session (préversion)
 Outre les packages du niveau pool, vous pouvez spécifier des bibliothèques incluses dans l’étendue de la session au début d’une session de notebook.  Les bibliothèques avec étendue de session vous permettent de spécifier et d’utiliser des environnements Python personnalisés dans une session de notebook. 

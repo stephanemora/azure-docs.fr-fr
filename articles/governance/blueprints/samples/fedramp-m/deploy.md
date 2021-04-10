@@ -4,10 +4,10 @@ description: Étapes de déploiement pour l’exemple de blueprint FedRAMP Moder
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 9fa92bebf6ef5829796c45e0e83070a85395caf8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100594678"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Déployer l’exemple de blueprint FedRAMP Moderate

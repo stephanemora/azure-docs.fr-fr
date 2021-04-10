@@ -4,14 +4,14 @@ description: Découvrez comment utiliser l’activité de copie dans un pipeline
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: 3ee1b1f48d91ba1245c0173d2e00a20778932d35
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9c274bdfb5854529dbb82bd2d8b7cefdf07390b1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367082"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104588900"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copier des données à partir d’un serveur HDFS à l’aide d’Azure Data Factory
 
@@ -172,7 +172,7 @@ Les propriétés suivantes sont prises en charge pour HDFS sous les paramètres 
 | modifiedDatetimeEnd      | Identique à ce qui précède.  
 | enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true**. | Non                                            |
 | partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin d’accès racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin d’accès du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin d’accès configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le premier caractère générique.<br/><br/>Par exemple, en supposant que vous configurez le chemin d’accès dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin d’accès racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin d’accès racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
-| maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non                                            |
+| maxConcurrentConnections | La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non                                            |
 | ***Paramètres DistCp*** |  | |
 | distcpSettings | Groupe de propriétés à utiliser lorsque vous utilisez DistCp HDFS. | Non |
 | resourceManagerEndpoint | Point de terminaison YARN (Yet Another Resource Negotiator) | Oui, en cas d’utilisation de DistCp |
@@ -533,7 +533,7 @@ Pour obtenir des informations sur les propriétés de l’activité Delete, cons
 | resourceManagerEndpoint | Point de terminaison de YARN Resource Manager | Oui, en cas d’utilisation de DistCp |
 | tempScriptPath | Chemin d’accès du dossier utilisé pour stocker le script de commande DistCp temporaire. Le fichier de script est généré par Data Factory et supprimé une fois le travail de copie terminé. | Oui, en cas d’utilisation de DistCp |
 | distcpOptions | Options supplémentaires fournies à la commande DistCp. | Non |
-| maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections | La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 **Exemple : Source HDFS dans une activité de copie avec DistCp**
 

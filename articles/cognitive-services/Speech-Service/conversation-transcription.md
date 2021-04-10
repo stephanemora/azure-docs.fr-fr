@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2021
 ms.author: trbye
-ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 903e8db14a2830236ae81a2a3b5416491d03e8c7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95024991"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643250"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>Qu’est-ce que la transcription de conversation dans les réunions (préversion) ?
+# <a name="what-is-conversation-transcription-preview"></a>Qu’est-ce que la transcription de conversation (préversion) ?
 
 La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
 

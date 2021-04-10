@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 4564e28f76aebe7f708c2b6f68903fe67bcefe26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698856"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067994"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Utiliser des clés BYOK (clé gérées par le client) avec Media Services
 
@@ -51,4 +51,4 @@ Media Services prend automatiquement en charge le chiffrement double. Pour les d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](content-protection-overview.md)
+[Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](drm-content-protection-concept.md)

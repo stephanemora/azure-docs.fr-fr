@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 43853f2eba05794540a72fe64e748fcafd9073d2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 38ba5679731b5e52eb06751a625aea9df69c76ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102636931"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643217"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Déployer des machines virtuelles sur votre appareil GPU Azure Stack Edge Pro à l’aide d’Azure CLI et Python
 
@@ -355,7 +355,7 @@ Avant de commencer à créer et à gérer une machine virtuelle sur votre appare
 
    Votre ID de client Azure Resource Manager est codé en dur. Votre ID de locataire Azure Resource Manager et votre ID d’abonnement Azure Resource Manager sont présents dans la sortie de la commande `az login` que vous avez exécutée précédemment. La clé secrète client Azure Resource Manager est le mot de passe Azure Resource Manager que vous avez défini.
 
-   Pour plus d’informations, consultez [Mot de passe Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
+   Pour plus d’informations, consultez [Mot de passe Azure Resource Manager](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password).
 
 5. Remplacez le profil par la version 2019-03-01-hybrid. Pour modifier la version du profil, exécutez la commande suivante :
 

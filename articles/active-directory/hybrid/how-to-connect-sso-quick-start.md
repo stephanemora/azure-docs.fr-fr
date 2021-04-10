@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e49ed356f294baca6e339faeebe92ca02b2723df
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c320c8497506a0269e65cd79e18aea1972354729
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644780"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589520"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -41,6 +41,9 @@ Vérifiez que les prérequis suivants sont remplis :
 
     >[!NOTE]
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](./reference-connect-version-history.md) pour en savoir plus.
+    
+    >[!NOTE]
+    >Si vous avez un proxy HTTP sortant, assurez-vous que cette URL, autologon.microsoftazuread-sso.com, est ajoutée à la liste d’autorisation. Vous devez spécifier cette URL explicitement, car les caractères génériques peuvent ne pas être acceptés. 
 
 * **Utiliser une topologie Azure AD Connect prise en charge**  : veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](plan-connect-topologies.md).
 

@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201215"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643415"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurer et gérer l’authentification Azure AD avec Azure SQL
 
@@ -115,7 +115,7 @@ Pour accorder à votre instance SQL Managed Instance Azure AD une autorisation d
 
     La procédure de changement de l’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaît dans la zone Administrateur Active Directory.
 
-Après avoir approvisionné un administrateur Azure AD pour votre instance SQL Managed Instance, vous pouvez commencer à créer des principaux de serveur (connexions) Azure AD avec la syntaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Pour plus d’informations, consultez [Vue d’ensemble de SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
+Après avoir approvisionné un administrateur Azure AD pour votre instance SQL Managed Instance, vous pouvez commencer à créer des principaux de serveur (connexions) Azure AD avec la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true). Pour plus d’informations, consultez [Vue d’ensemble de SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration).
 
 > [!TIP]
 > Pour supprimer un administrateur, en haut de la page Administrateur Active Directory, sélectionnez **Supprimer l’administrateur**, puis **Enregistrer**.
@@ -345,8 +345,8 @@ Sur toutes les machines clientes à partir desquelles vos applications ou utilis
 - .NET Framework 4.6 ou version ultérieure à partir de [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers).
 - Bibliothèque d’authentification Microsoft Active Directory pour SQL Server (*ADAL.DLL*). Voici les liens de téléchargement permettant d’installer la dernière version de SSMS, ODBC et le pilote OLE DB contenant la bibliothèque *ADAL.DLL*.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [OLE DB Driver 18 for SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [OLE DB Driver 18 for SQL Server](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 Vous pouvez répondre à ces exigences en procédant comme suit :
 
@@ -357,7 +357,7 @@ Vous pouvez répondre à ces exigences en procédant comme suit :
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Créer des utilisateurs à relation contenant-contenu mappés à des identités Azure AD
 
-SQL Managed Instance prenant en charge les principaux de serveur Azure AD (connexions), le recours à des utilisateurs de base de données autonome n’est pas obligatoire. Les principaux de serveur (connexions) Azure AD vous permettent de créer des connexions à partir d’utilisateurs, de groupes ou d’applications Azure AD. Dès lors, vous pouvez vous authentifier auprès de votre instance SQL Managed Instance à l’aide de la connexion du serveur Azure AD plutôt que d’un utilisateur de base de données autonome. Pour plus d’informations, consultez [Vue d’ensemble de SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Pour la syntaxe de création des principaux de serveur (connexions) Azure AD, consultez <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+SQL Managed Instance prenant en charge les principaux de serveur Azure AD (connexions), le recours à des utilisateurs de base de données autonome n’est pas obligatoire. Les principaux de serveur (connexions) Azure AD vous permettent de créer des connexions à partir d’utilisateurs, de groupes ou d’applications Azure AD. Dès lors, vous pouvez vous authentifier auprès de votre instance SQL Managed Instance à l’aide de la connexion du serveur Azure AD plutôt que d’un utilisateur de base de données autonome. Pour plus d’informations, consultez [Vue d’ensemble de SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration). Pour la syntaxe de création des principaux de serveur (connexions) Azure AD, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 Toutefois, l’utilisation de l’authentification Azure Active Directory avec SQL Database et Azure Synapse requiert le recours à des utilisateurs de base de données autonome basés sur une identité Azure AD. Un utilisateur de base de données autonome ne dispose pas de connexion dans la base de données MASTER et est mappé à une identité dans Azure AD associée à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données - Rendre votre base de données portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 

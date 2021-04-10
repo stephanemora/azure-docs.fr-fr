@@ -4,10 +4,10 @@ description: Décrit les avantages apportés par l’utilisation de modèles Azu
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419981"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?

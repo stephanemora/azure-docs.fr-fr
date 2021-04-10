@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101726311"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implémenter des styles dynamiques pour les cartes d’intérieur Creator (préversion)

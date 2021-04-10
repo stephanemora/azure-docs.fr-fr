@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 54010359f226fe02336f039e3dcbb98075e9b06a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ff77a407dfa87e408170573249876bbefee0abe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97360082"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558571"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -87,7 +87,7 @@ Il n’est pas souhaitable que les intrus puissent deviner facilement les noms d
 
 - Créez un seul compte d’administrateur local avec un nom différent de **Administrator**.
 
-- Utilisez des mots de passe forts complexes pour tous vos comptes. Pour plus d’informations sur la création d’un mot de passe sécurisé, consultez l’article [Créer un mot de passe sécurisé](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password).
+- Utilisez des mots de passe forts complexes pour tous vos comptes. Pour plus d’informations sur la création d’un mot de passe sécurisé, consultez l’article [Créer un mot de passe sécurisé](https://support.microsoft.com/account-billing/how-to-create-a-strong-password-for-your-microsoft-account-f67e4ddd-0dbe-cd75-cebe-0cfda3cf7386).
 
 - Par défaut, Azure sélectionne l’authentification Windows pendant l’installation de la machine virtuelle SQL Server. Par conséquent, la connexion **SA** est désactivée et un mot de passe est affecté par l’installation. Nous recommandons que la connexion **SA** ne soit ni utilisée ni activée. Si vous devez avoir une connexion SQL, utilisez l’une des méthodes suivantes :
 

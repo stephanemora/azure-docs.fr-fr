@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 01b30fed23b33719f08e93907075eee757343b1c
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103461740"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Tutoriel : Développer un module IoT Edge en C# avec des conteneurs Linux

@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101675726"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>Se connecter à un pool SQL dédié dans Azure Synapse Analytics à l’aide de sqlcmd
