@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367790"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure 
@@ -22,8 +22,8 @@ Azure Data Factory fournit un mécanisme performant, robuste et économique pour
 
 Data Factory propose deux approches de base pour la migration de données d'un système HDFS local vers Azure. Vous pouvez sélectionner l'approche en fonction de votre scénario. 
 
-- **Mode DistCp de Data Factory** (recommandé) : Dans Data Factory, vous pouvez utiliser le mode [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (copie distribuée) pour copier des fichiers tels quels sur le service Stockage Blob Azure ([copie intermédiaire](./copy-activity-performance.md#staged-copy) comprise) ou Azure Data Lake Store Gen2. Utilisez Data Factory intégré avec DistCp pour tirer parti d'un puissant cluster existant et obtenir le meilleur débit de copie. Vous bénéficiez également d'une planification flexible et d'une expérience de surveillance unifiée à partir de Data Factory. Selon la configuration de Data Factory, l'activité de copie construit automatiquement une commande DistCp, envoie les données à votre cluster Hadoop, puis surveille l'état de la copie. Nous recommandons le mode DistCp de Data Factory pour la migration de données d'un cluster Hadoop local vers Azure.
-- **Mode Runtime d'intégration native de Data Factory** : DistCp ne s'applique pas à tous les scénarios. Par exemple, dans un environnement de Réseaux virtuels Azure, l'outil DistCp ne prend pas en charge le peering privé Azure ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. En outre, dans certains cas, il est préférable de ne pas utiliser votre cluster Hadoop existant comme moteur pour la migration des données afin de ne pas surcharger votre cluster, car cela pourrait nuire aux performances des travaux ETL existants. Utilisez plutôt la fonctionnalité native du runtime d'intégration de Data Factory comme moteur pour copier les données du système HDFS local vers Azure.
+- **Mode Data Factory DistCp** (recommandé) : dans Data Factory, vous pouvez utiliser le mode DistCp ([copie distribuée](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html)) pour copier des fichiers tels quels sur le service Stockage Blob Azure ([copie intermédiaire](./copy-activity-performance.md#staged-copy) comprise) ou Azure Data Lake Store Gen2. Utilisez Data Factory intégré avec DistCp pour tirer parti d'un puissant cluster existant et obtenir le meilleur débit de copie. Vous bénéficiez également d'une planification flexible et d'une expérience de surveillance unifiée à partir de Data Factory. Selon la configuration de Data Factory, l'activité de copie construit automatiquement une commande DistCp, envoie les données à votre cluster Hadoop, puis surveille l'état de la copie. Nous recommandons le mode DistCp de Data Factory pour la migration de données d'un cluster Hadoop local vers Azure.
+- **Mode Runtime d’intégration native de Data Factory** : DistCp ne s’applique pas à tous les scénarios. Par exemple, dans un environnement de Réseaux virtuels Azure, l'outil DistCp ne prend pas en charge le peering privé Azure ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. En outre, dans certains cas, il est préférable de ne pas utiliser votre cluster Hadoop existant comme moteur pour la migration des données afin de ne pas surcharger votre cluster, car cela pourrait nuire aux performances des travaux ETL existants. Utilisez plutôt la fonctionnalité native du runtime d'intégration de Data Factory comme moteur pour copier les données du système HDFS local vers Azure.
 
 Cet article fournit les informations suivantes sur les deux approches :
 > [!div class="checklist"]
@@ -41,7 +41,7 @@ DistCp utilise MapReduce pour sa distribution, pour la gestion et la récupérat
 
 Le mode Runtime d'intégration native de Data Factory permet également le parallélisme à différents niveaux. Vous pouvez utiliser le parallélisme pour exploiter pleinement votre bande passante réseau, ainsi que les IOPS et la bande passante de stockage afin d'optimiser le débit de déplacement des données :
 
-- Une seule activité de copie peut tirer parti de plusieurs ressources de calcul évolutives. Avec un runtime d'intégration auto-hébergé, vous pouvez effectuer un scale-up manuel de la machine ou un scale-out vers plusieurs machines ([jusqu'à quatre nœuds](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). Une activité de copie unique partitionne son ensemble de fichiers sur tous les nœuds. 
+- Une seule activité de copie peut tirer parti de plusieurs ressources de calcul évolutives. Avec un runtime d'intégration auto-hébergé, vous pouvez procéder à une montée en puissance manuelle de la machine ou à une montée en charge vers plusieurs machines ([jusqu'à quatre nœuds](./create-self-hosted-integration-runtime.md#high-availability-and-scalability)). Une activité de copie unique partitionne son ensemble de fichiers sur tous les nœuds. 
 - Une activité de copie unique lit et écrit dans le magasin de données à l'aide de plusieurs conversations. 
 - Le flux de contrôle Data Factory peut démarrer plusieurs activités de copie en parallèle. Par exemple, vous pouvez utiliser une [boucle ForEach](./control-flow-for-each-activity.md). 
 
@@ -78,9 +78,9 @@ Cette image illustre une migration de données via un lien privé :
 
 - Dans cette architecture, les données sont migrées sur un lien de peering privé via Azure ExpressRoute. Les données ne transitent jamais par l'Internet public.
 - L'outil DistCp ne prend pas en charge le peering privé ExpressRoute avec un point de terminaison de réseau virtuel Stockage Azure. Nous vous recommandons d'utiliser la fonctionnalité native de Data Factory via le runtime d'intégration pour migrer les données.
-- Pour cette architecture, vous devez installer le runtime d'intégration auto-hébergé de Data Factory sur une machine virtuelle Windows de votre réseau virtuel Azure. Vous pouvez effectuer manuellement un scale-up de vos machines virtuelles ou effectuer un scale-out sur plusieurs machines virtuelles pour utiliser pleinement votre réseau et vos IOPS ou bande passante de stockage.
+- Pour cette architecture, vous devez installer le runtime d'intégration auto-hébergé de Data Factory sur une machine virtuelle Windows de votre réseau virtuel Azure. Vous pouvez procéder à une montée en puissance manuelle de vos machines virtuelles ou à une montée en charge sur plusieurs machines virtuelles pour utiliser pleinement votre réseau ainsi que vos IOPS ou votre bande passante de stockage.
 - La configuration de démarrage recommandée pour chaque machine virtuelle Azure (avec le runtime d'intégration auto-hébergé de Data Factory installé) est Standard_D32s_v3 avec 32 processeurs virtuels et 128 Go de mémoire. Vous pouvez surveiller l'utilisation de l'UC et de la mémoire de la machine virtuelle pendant la migration des données afin de déterminer si vous devez monter en puissance pour améliorer les performances de la machine virtuelle ou descendre en puissance pour réduire les coûts.
-- Vous pouvez également effectuer un scale-out en associant jusqu'à quatre nœuds de machine virtuelle à un seul runtime d'intégration auto-hébergé. Une seule tâche de copie exécutée sur un runtime d'intégration auto-hébergé partitionne automatiquement le jeu de fichiers et tire parti de tous les nœuds de machine virtuelle pour copier les fichiers en parallèle. Pour une haute disponibilité, nous vous recommandons de commencer avec deux nœuds de machine virtuelle afin d'éviter un scénario de point de défaillance unique pendant la migration des données.
+- Vous pouvez également monter en charge en associant jusqu'à quatre nœuds de machine virtuelle à un seul runtime d'intégration auto-hébergé. Une seule tâche de copie exécutée sur un runtime d'intégration auto-hébergé partitionne automatiquement le jeu de fichiers et tire parti de tous les nœuds de machine virtuelle pour copier les fichiers en parallèle. Pour une haute disponibilité, nous vous recommandons de commencer avec deux nœuds de machine virtuelle afin d'éviter un scénario de point de défaillance unique pendant la migration des données.
 - Lorsque vous utilisez cette architecture, la migration initiale des données d'instantané et la migration des données delta sont à votre disposition.
 
 ## <a name="implementation-best-practices"></a>Meilleures pratiques en matière d’implémentation
@@ -106,7 +106,7 @@ Si l'un des travaux de copie échoue en raison d'un problème temporaire de rés
 
 En mode DistCp de Data Factory, vous pouvez utiliser le paramètre de ligne de commande DistCp `-update`, afin d'écrire des données lorsque le fichier source et le fichier de destination sont de taille différente, pour la migration des données delta.
 
-En mode d'intégration native de Data Factory, le moyen le plus efficace d'identifier les fichiers nouveaux ou modifiés à partir du système HDFS consiste à utiliser une convention d'affectation de noms partitionnée. Lorsque les données de votre système HDFS ont été partitionnées avec des informations de tranche temporelle dans le nom du fichier ou du dossier (par exemple, */aaaa/mm/jj/fichier.csv* ), votre pipeline peut facilement identifier les fichiers et dossiers à copier de façon incrémentielle.
+En mode d'intégration native de Data Factory, le moyen le plus efficace d'identifier les fichiers nouveaux ou modifiés à partir du système HDFS consiste à utiliser une convention d'affectation de noms partitionnée. Lorsque les données de votre système HDFS ont été partitionnées avec des informations de tranche temporelle dans le nom du fichier ou du dossier (par exemple, */aaaa/mm/jj/fichier.csv*), votre pipeline peut facilement identifier les fichiers et dossiers à copier de façon incrémentielle.
 
 Sinon, si les données de votre système HDFS ne sont pas partitionnées, Data Factory peut identifier les fichiers nouveaux ou modifiés à l'aide de leur valeur **LastModifiedDate**. Data Factory analyse tous les fichiers du système HDFS et ne copie que les fichiers nouveaux et mis à jour dont l'horodatage correspondant à la dernière modification est supérieur à une valeur définie. 
 

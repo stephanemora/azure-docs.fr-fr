@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/19/2021
 ms.author: b-juche
-ms.openlocfilehash: 44959b2f60f9aafd7d9430c9c19baea72344293f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: add907923cc2284939acd972237fd4ec74ee2d12
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183877"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864004"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Créer et gérer des connexions Active Directory pour Azure NetApp Files
 
@@ -206,6 +206,18 @@ Ce paramètre est configuré dans **Active Directory Connections** (Connexions A
         ```
         
         Vous pouvez également utiliser les [commandes Azure CLI](/cli/azure/feature) `az feature register` et `az feature show` pour inscrire la fonctionnalité et afficher l’état de l’inscription. 
+
+     * **Utilisateurs des privilèges de sécurité**   <!-- SMB CA share feature -->   
+        Vous pouvez accorder des privilèges de sécurité ( `SeSecurityPrivilege` ) aux utilisateurs qui requièrent des privilèges élevés pour accéder aux volumes de Azure NetApp Files. Les comptes utilisateurs spécifiés auront l’autorisation d’exécuter certaines actions sur les partages SMB Azure NetApp Files qui requièrent que les privilèges de sécurité ne soient pas attribués par défaut aux utilisateurs de domaine.   
+
+        Par exemple, les comptes d’utilisateur utilisés pour installer SQL Server dans certains scénarios doivent disposer d’un privilège de sécurité élevé. Si vous utilisez un compte non-administrateur (domaine) pour installer SQL Server et que le compte ne dispose pas du privilège de sécurité attribué, vous devez ajouter des privilèges de sécurité au compte.  
+
+        > [!IMPORTANT]
+        > Le compte de domaine utilisé pour l’installation de SQL Server doit déjà exister avant que vous ne l’ajoutiez au champ **Utilisateurs du privilège de sécurité**. Lorsque vous ajoutez le compte du programme d’installation SQL Server aux **Utilisateurs des privilèges de sécurité**, le service Azure NetApp Files peut valider le compte en contactant le contrôleur de domaine. La commande peut échouer si elle ne parvient pas à contacter le contrôleur de domaine.  
+
+        Pour plus d’informations sur `SeSecurityPrivilege` et SQL Server, consultez [L’installation SQL Server échoue si le compte d’installation ne dispose pas de certains droits d’utilisateur](/troubleshoot/sql/install/installation-fails-if-remove-user-right).
+
+        ![Capture d’écran montrant la boîte Utilisateurs de privilèges de sécurité de la fenêtre de connexions Active Directory.](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **Utilisateurs de stratégie de sauvegarde**  
         Vous pouvez inclure des comptes supplémentaires qui requièrent des privilèges élevés sur le compte d’ordinateur créé pour une utilisation avec Azure NetApp Files. Les comptes spécifiés seront autorisés à modifier les autorisations NTFS au niveau du fichier ou du dossier. Par exemple, vous pouvez spécifier un compte de service non privilégié utilisé pour la migration des données vers un partage de fichiers SMB dans Azure NetApp Files.  

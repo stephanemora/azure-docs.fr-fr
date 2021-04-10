@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097412"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expressions de style basé sur les données (SDK Android)
@@ -856,9 +856,9 @@ L’expression ci-dessus affiche une épingle sur la carte avec le texte « 64�
 
 ![Exemple d’expression d’opérateur de chaîne](media/how-to-expressions/string-operator-expression.png)
 
-## <a name="interpolate-and-step-expressions"></a>Expressions interpolate et step
+## <a name="interpolate-and-step-expressions&quot;></a>Expressions interpolate et step
 
-Les expressions interpolate et step peuvent être utilisées pour calculer des valeurs le long d’une courbe interpolée ou d’une fonction d’étape. Ces expressions prennent une expression qui retourne une valeur numérique comme entrée ; par exemple, `get("temperature")`. La valeur d’entrée est évaluée par rapport à des paires de valeurs d’entrée et de sortie pour déterminer la valeur qui convient le mieux à la fonction de courbe interpolée ou d’étape. Les valeurs de sortie sont appelées « arrêts » (stops). Les valeurs d’entrée de chaque arrêt doivent être un nombre et être dans l’ordre croissant. Les valeurs de sortie doivent être un nombre et un tableau de nombres, ou une couleur.
+Les expressions interpolate et step peuvent être utilisées pour calculer des valeurs le long d’une courbe interpolée ou d’une fonction d’étape. Ces expressions prennent une expression qui retourne une valeur numérique comme entrée ; par exemple, `get(&quot;temperature")`. La valeur d’entrée est évaluée par rapport à des paires de valeurs d’entrée et de sortie pour déterminer la valeur qui convient le mieux à la fonction de courbe interpolée ou d’étape. Les valeurs de sortie sont appelées « arrêts » (stops). Les valeurs d’entrée de chaque arrêt doivent être un nombre et être dans l’ordre croissant. Les valeurs de sortie doivent être un nombre et un tableau de nombres, ou une couleur.
 
 ### <a name="interpolate-expression"></a>Expression interpolate
 

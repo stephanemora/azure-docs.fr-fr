@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932634"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864106"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guide de programmation SCP pour Apache Storm dans Azure HDInsight
 
@@ -28,7 +28,7 @@ Les données de SCP sont modélisées en tant que flux de tuples continus. En r�
 1. sont récupérés et transformés par la logique métier hébergée dans une topologie Storm ;
 1. ont leur sortie redirigée en tant que tuples vers un autre système SCP ou sont validés dans des magasins tels que des systèmes de fichiers distribués et des bases de données comme SQL Server.
 
-![Diagramme d’une file d’attente fournissant des données à traiter, puis destinées à un magasin de données](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png" alt-text="Diagramme d’une file d’attente fournissant des données à traiter, puis destinées à un magasin de données" border="false":::
 
 Dans Storm, une topologie d’application définit un graphique de calcul. Chaque nœud d’une topologie contient une logique de traitement. Les liens entre les nœuds indiquent le flux de données.
 
@@ -152,7 +152,7 @@ public interface ISCPBatchBolt : ISCPPlugin
 
 La méthode **Execute** est appelée lorsqu’un nouveau tuple arrive au Bolt. La méthode **FinishBatch** est appelée lorsque cette transaction se termine. Le paramètre d’entrée *parms* est réservé à un usage ultérieur.
 
-Pour une topologie transactionnelle, **StormTxAttempt** est une classe importante. Elle a deux membres : **TxId** et **AttemptId**. Le membre **TxId** identifie une transaction spécifique. Une transaction peut être tentée plusieurs fois si elle échoue et est relue.
+Pour une topologie transactionnelle, **StormTxAttempt** est une classe importante. Il a deux membres : **TxId** et **AttemptId**. Le membre **TxId** identifie une transaction spécifique. Une transaction peut être tentée plusieurs fois si elle échoue et est relue.
 
 SCP.NET crée un objet **ISCPBatchBolt** pour traiter chaque objet **StormTxAttempt**, tout comme Storm le fait dans Java. L’objectif de cette conception est de prendre en charge le traitement des transactions parallèles. Une fois qu’une tentative de transaction est terminée, l’objet **ISCPBatchBolt** correspondant est détruit et nettoyé de la mémoire.
 
@@ -521,7 +521,7 @@ L’émission vers un flux inexistant entraîne des exceptions de runtime.
 
 ### <a name="fields-grouping"></a>Regroupement de champs
 
-Le regroupement de champs intégré à Storm ne fonctionne pas correctement dans SCP.NET. Du côté du proxy Java, le type de données de tous les champs est en réalité **byte[]** . Le regroupement de champs utilise le code de hachage de l’objet **byte[]** pour effectuer le regroupement. Le code de hachage correspond à l’adresse de cet objet dans la RAM. Le regroupement sera donc incorrect pour les objets multioctets partageant le même contenu, mais pas la même adresse.
+Le regroupement de champs intégré à Storm ne fonctionne pas correctement dans SCP.NET. Du côté du proxy Java, le type de données de tous les champs est en réalité **byte[]**. Le regroupement de champs utilise le code de hachage de l’objet **byte[]** pour effectuer le regroupement. Le code de hachage correspond à l’adresse de cet objet dans la RAM. Le regroupement sera donc incorrect pour les objets multioctets partageant le même contenu, mais pas la même adresse.
 
 SCP.NET ajoute une méthode de regroupement personnalisée et utilise le contenu de l’objet **byte[]** pour procéder au regroupement. Dans un fichier de spécification, la syntaxe ressemble à l’exemple suivant :
 
@@ -570,7 +570,7 @@ Ici, `examples\HybridTopology\java\target\` est le dossier contenant le fichier 
 
 Un composant SCP comprend le côté Java et le côté C#. Pour interagir avec des Spouts/Bolts Java natifs, la sérialisation et la désérialisation doivent intervenir entre le côté Java et le côté C#, comme l’illustre le graphique suivant :
 
-![Diagramme d’un composant Java qui envoie au composant SCP, qui envoie ensuite à un autre composant Java](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png" alt-text="Diagramme d’un composant Java qui envoie au composant SCP, qui envoie ensuite à un autre composant Java" border="false":::
 
 #### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Sérialisation côté Java et désérialisation côté C#
 
@@ -690,7 +690,7 @@ En mode d’hébergement, compilez votre code sous forme de DLL pour l’appel p
 
 L’exemple simple de HelloWorld qui suit montre un avant-goût de SCP.NET. Il emploie une topologie non transactionnelle, avec un Spout appelé **generator**, et deux Bolts appelés **splitter** et **counter**. Le Spout **generator** génère des phrases aléatoirement, avant de les émettre vers **splitter**. Le Bolt **splitter** divise les phrases en mots et les émet vers le Bolt **counter**. Le bolt **counter** utilise un dictionnaire pour enregistrer les occurrences de chaque mot.
 
-Cet exemple contient deux fichiers de spécification : HelloWorld.spec et HelloWorld\_EnableAck.spec. Le code C# peut déterminer si l’accusé de réception est activé en récupérant l’objet `pluginConf` du côté Java.
+L’exemple contient deux fichiers de spécifications : HelloWorld.spec et HelloWorld\_EnableAck.spec. Le code C# peut déterminer si l’accusé de réception est activé en récupérant l’objet `pluginConf` du côté Java.
 
 ```csharp
 /* demo how to get pluginConf info */

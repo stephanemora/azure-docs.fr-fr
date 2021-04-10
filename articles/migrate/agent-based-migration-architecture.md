@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: c605c21307cda874f34ae5ea9f4e4959e5e6c183
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: f4f79725d0eda65ba00a44e9e7fc2a51c024eccf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861947"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864055"
 ---
 # <a name="agent-based-migration-architecture"></a>Architecture de la migration basée sur agent
 
-Cet article fournit une vue d’ensemble de l’architecture et des processus utilisés pour la réplication basée sur agent des machines virtuelles VMware avec l’outil [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Cet article fournit une vue d’ensemble de l’architecture et des processus utilisés pour la réplication basée sur agent des machines virtuelles VMware avec l’outil [Azure Migrate : Migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 Azure Migrate : Migration de serveur vous permet de répliquer des machines virtuelles VMware à l’aide de deux options :
 
@@ -40,17 +40,17 @@ Le tableau résume les composants utilisés pour la migration basée sur agent.
 
 **Composant** | **Détails** | **Installation**
 --- | --- | ---
-**Appliance de réplication** | L'appliance de réplication (serveur de configuration/serveur de traitement) est une machine locale qui sert de passerelle entre l'environnement local et l'outil Migration de serveur. L'appliance découvre l'inventaire des machines locales, ce qui permet à l'outil Migration de serveur d'orchestrer la réplication et la migration. L'appliance comporte deux composants :<br/><br/> **Serveur de configuration** : Se connecte à l'outil Migration de serveur et coordonne la réplication.<br/> **Serveur de traitement**: Gère la réplication des données. Le serveur de processus reçoit les données des machines, les compresse, les chiffre, puis les envoie à Azure. Dans Azure, l'outil Migration de serveur écrit les données sur les disques managés. | Par défaut, le serveur de processus est installé avec le serveur de configuration sur l’appliance de réplication.
-**Service de mobilité** | Le service Mobility est un agent installé sur chaque machine que vous souhaitez répliquer et migrer. Il envoie les données de réplication de la machine au serveur de processus. | Les fichiers d'installation pour différentes versions du service Mobility se trouvent sur l'appliance de réplication. Vous téléchargez et installez l'agent dont vous avez besoin en fonction du système d'exploitation et de la version de la machine que vous souhaitez répliquer.
+**Appliance de réplication** | L’appliance de réplication (serveur de configuration/serveur de traitement) est un serveur local qui sert de passerelle entre l’environnement local et l’outil de migration de serveur. L’appliance découvre l’inventaire des serveurs locaux, ce qui permet à l’outil de migration de serveur d’orchestrer la réplication et la migration. L'appliance comporte deux composants :<br/><br/> **Serveur de configuration** : Se connecte à l'outil Migration de serveur et coordonne la réplication.<br/> **Serveur de traitement**: Gère la réplication des données. Le serveur de processus reçoit des données de serveur, les compresse, les chiffre, puis les envoie à Azure. Dans Azure, l'outil Migration de serveur écrit les données sur les disques managés. | Par défaut, le serveur de processus est installé avec le serveur de configuration sur l’appliance de réplication.
+**Service de mobilité** | Le service Mobility est un agent installé sur chaque serveur que vous souhaitez répliquer et migrer. Il envoie des données de réplication du serveur au serveur de processus. | Les fichiers d'installation pour différentes versions du service Mobility se trouvent sur l'appliance de réplication. Vous téléchargez et installez l’agent dont vous avez besoin en fonction du système d’exploitation et de la version du serveur que vous souhaitez répliquer.
 
 ## <a name="mobility-service-installation"></a>Installation du service Mobilité
 
 Vous pouvez déployer le service Mobilité à l’aide des méthodes suivantes :
 
-- **Installation Push** : Le service Mobility est installé par le serveur de processus lorsque vous activez la protection d'une machine. 
-- **Installation manuelle** : vous pouvez installer le service Mobility manuellement sur chaque machine par le biais de l’interface utilisateur ou d’une invite de commandes.
+- **Installation Push** : le service Mobility est installé par le serveur de processus lorsque vous activez la protection d’une serveur. 
+- **Installation manuelle** : vous pouvez installer le service Mobility manuellement sur chaque serveur par le biais de l’interface utilisateur ou d’une invite de commandes.
 
-Le service Mobility communique avec l'appliance de réplication et les machines répliquées. Si un logiciel antivirus s'exécute sur l'appliance de réplication, les serveurs de processus ou les machines en cours de réplication, les dossiers suivants doivent être exclus de l'analyse :
+Le service Mobility communique avec l’appliance de réplication et les serveurs répliqués. Si un logiciel antivirus s’exécute sur l’appliance de réplication, les serveurs de processus ou les serveurs en cours de réplication, les dossiers suivants doivent être exclus de l’analyse :
 
 
 - C:\Program Files\Microsoft Azure Recovery Services Agent
@@ -60,29 +60,29 @@ Le service Mobility communique avec l'appliance de réplication et les machines 
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - C:\Program Files (x86)\Microsoft Azure Site Recovery
-- C:\ProgramData\ASR\agent (machines Windows sur lesquelles le service Mobility est installé)
+- C:\ProgramData\ASR\agent (sur les serveurs Windows sur lesquels le service Mobility est installé)
 
 ## <a name="replication-process"></a>Processus de réplication
 
-1. Lorsque vous activez la réplication pour une machine, la réplication initiale vers Azure commence.
-2. Pendant la réplication initiale, le service Mobility lit les données des disques de la machine et les envoie au serveur de processus.
+1. Lorsque vous activez la réplication pour un serveur, la réplication initiale vers Azure commence.
+2. Pendant la réplication initiale, le service Mobility lit les données des disques du serveur et les envoie au serveur de processus.
 3. Ces données sont utilisées pour alimenter une copie du disque dans votre abonnement Azure. 
 4. La réplication des modifications delta dans Azure commence à l’issue de la réplication initiale. La réplication se fait au niveau du bloc et de façon quasi-continue.
-4. Le service Mobility intercepte les données écrites dans la mémoire du disque, en s'intégrant au sous-système de stockage du système d'exploitation. Cette méthode évite les opérations d'E/S sur le disque de la machine de réplication pour une réplication incrémentale. 
-5. Le suivi des modifications d’une machine est envoyé au serveur de traitement sur le port HTTPS 9443 entrant. Ce port peut être modifié. Le serveur de processus compresse les données, les chiffre, puis les envoie à Azure. 
+4. Le service Mobility intercepte les données écrites dans la mémoire du disque, en s'intégrant au sous-système de stockage du système d'exploitation. Cette méthode évite les opérations d’E/S sur le disque du serveur de réplication pour une réplication incrémentielle. 
+5. Les modifications suivies d’un serveur sont envoyées au serveur de traitement sur le port HTTPS 9443 entrant. Ce port peut être modifié. Le serveur de processus compresse les données, les chiffre, puis les envoie à Azure. 
 
 ## <a name="ports"></a>Ports
 
 **Appareil** | **Connection**
 --- | --- 
-**Réplication des machines** | Le service Mobility en cours d’exécution sur des machines virtuelles communique avec l'appliance de réplication locale via le port HTTPS 443 entrant, pour la gestion de la réplication.<br/><br/> Les machines envoient des données de réplication au serveur de traitement sur le port HTTPS 9443 entrant. Ce port peut être modifié.
+**Réplication de serveurs** | Le service Mobility en cours d’exécution sur des machines virtuelles communique avec l'appliance de réplication locale via le port HTTPS 443 entrant, pour la gestion de la réplication.<br/><br/> Les serveurs envoient des données de réplication au serveur de traitement sur le port HTTPS 9443 entrant. Ce port peut être modifié.
 **Appliance de réplication** | L’appliance de réplication orchestre la réplication avec Azure sur le port HTTPS 443 sortant.
 **Serveur de traitement** | Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.
 
 
 ## <a name="performance-and-scaling"></a>Performances et mise à l’échelle
 
-Par défaut, vous déployez une seule appliance de réplication qui exécute à la fois le serveur de configuration et le serveur de processus. Si vous ne répliquez que quelques machines, ce déploiement est suffisant. Cependant, si vous répliquez et migrez des centaines de machines, un seul serveur de processus risque de ne pas être capable de gérer tout le trafic de réplication. Dans ce cas, vous pouvez déployer des serveurs de processus supplémentaires et évolutifs.
+Par défaut, vous déployez une seule appliance de réplication qui exécute à la fois le serveur de configuration et le serveur de processus. Si vous ne répliquez que quelques serveurs, ce déploiement est suffisant. Cependant, si vous répliquez et migrez des centaines de serveurs, un seul serveur de processus risque de ne pas être capable de gérer tout le trafic de réplication. Dans ce cas, vous pouvez déployer des serveurs de processus supplémentaires et évolutifs.
 
 ### <a name="plan-vmware-deployment"></a>Planifier le déploiement de VMware
 
@@ -93,13 +93,13 @@ Si vous répliquez des machines virtuelles VMware, vous pouvez utiliser le [Plan
 Utilisez les valeurs de ce tableau pour déterminer si vous avez besoin d'un serveur de processus supplémentaire dans votre déploiement.
 
 - Si le taux de modification quotidien (taux de variation) est supérieur à 2 To, déployez un serveur de processus supplémentaire.
-- Si vous répliquez plus de 200 machines, déployez une appliance de réplication supplémentaire.
+- Si vous répliquez plus de 200 serveurs, déployez une appliance de réplication supplémentaire.
 
 **UC** | **Mémoire** | **Espace libre de mise en cache des données** | **Taux de variation** | **Limites de réplication**
 --- | --- | --- | --- | ---
-8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | < 100 machines 
-12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) | 18 Go | 600 Go | 501 Go à 1 To | 100-150 machines.
-16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 Go |  1 To | 1 To à 2 To | 151-200 machines.
+8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | < 100 serveurs 
+12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) | 18 Go | 600 Go | 501 Go à 1 To | 100 à 150 serveurs
+16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 Go |  1 To | 1 To à 2 To | 151 à 200 serveurs
 
 ### <a name="sizing-scale-out-process-servers"></a>Dimensionnement des serveurs de traitement de scale-out
 
@@ -107,18 +107,18 @@ S'il vous faut de déployer un serveur de traitement de scale-out, utilisez ce t
 
 **Serveur de traitement** | **Espace libre pour la mise en cache des données** | **Taux de variation** | **Limites de réplication**
 --- | --- | --- | --- 
-4 processeurs virtuels (2 sockets * 2 cœurs \@ 2,5 GHz), 8 Go de mémoire | 300 Go | 250 Go ou moins | Jusqu'à 85 machines 
-8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire | 600 Go | 251 Go à 1 To | 86-150 machines.
-12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz), 24 Go de mémoire | 1 To | 1 à 2 To | 151-225 machines.
+4 processeurs virtuels (2 sockets * 2 cœurs \@ 2,5 GHz), 8 Go de mémoire | 300 Go | 250 Go ou moins | Jusqu’à 85 serveurs 
+8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire | 600 Go | 251 Go à 1 To | 86 à 150 serveurs
+12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz), 24 Go de mémoire | 1 To | 1 à 2 To | 151 à 225 serveurs :
 
 ## <a name="throttle-upload-bandwidth"></a>Limitez la bande passante de chargement.
 
-le trafic VMware qui est répliqué sur Azure passe par un serveur de processus spécifique. Vous pouvez limiter le débit de chargement en limitant la bande passante sur les machines qui opèrent en tant que serveurs de processus. Vous pouvez influencer la bande passante à l’aide de cette clé de Registre :
+le trafic VMware qui est répliqué sur Azure passe par un serveur de processus spécifique. Vous pouvez limiter le débit de chargement en limitant la bande passante sur les serveurs en cours d’exécution en tant que serveurs de processus. Vous pouvez influencer la bande passante à l’aide de cette clé de Registre :
 
 - La valeur de Registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM détermine le nombre de threads utilisés pour le transfert des données (réplication initiale ou différentielle) sur un disque. Une valeur plus élevée augmenter la bande passante réseau utilisée pour la réplication. La valeur par défaut est quatre. La valeur maximale est 32. Surveillez le trafic pour optimiser la valeur.
-- En outre, vous pouvez limiter la bande passante sur l’ordinateur serveur de processus comme suit :
+- En outre, vous pouvez limiter la bande passante sur le serveur de processus comme suit :
 
-    1. Sur l’ordinateur serveur de processus, ouvrez le composant logiciel enfichable MMC Sauvegarde Azure. Il y a un raccourci sur le bureau ou dans le dossier C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
+    1. Sur le serveur de processus, ouvrez le composant logiciel enfichable MMC Sauvegarde Azure. Il y a un raccourci sur le bureau ou dans le dossier C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 
     2. Dans le composant logiciel enfichable, sélectionnez **Modifier les propriétés**.
     3. Dans **Limitation**, sélectionnez la case **Activer la limitation de la bande passante sur Internet pour les opérations de sauvegarde**. Définissez les limites pour les heures ouvrées et non ouvrées. Les plages valides vont de 512 Kbits/s à 1 023 Mbits/s.
 

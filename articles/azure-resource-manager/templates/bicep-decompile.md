@@ -4,10 +4,10 @@ description: Décrit les commandes permettant de convertir des modèles Azure Re
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 6d242f5846996cd0f5b9510a1a2b9f2bf063a0c7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103422111"
 ---
 # <a name="converting-arm-templates-between-json-and-bicep"></a>Conversion de modèles ARM entre JSON et Bicep
