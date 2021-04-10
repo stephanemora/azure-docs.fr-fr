@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 903cb3323b9441ec8bb382054f065760875e3e89
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 7ba5a05515284612e17d5aba4cc673c7e78f7ba1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632095"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869920"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>Dépanner l’outil Azure Application Consistent Snapshot (préversion)
 
@@ -54,6 +54,13 @@ Exemple de sortie à partir d’un fichier `/var/log/messages`.
 ```output
 Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
 ```
+
+## <a name="failed-communication-with-azure-netapp-files"></a>Échec de la communication avec Azure NetApp Files
+
+Lors de la validation de la communication avec Azure NetApp Files, la communication peut échouer ou expirer.  Vérifiez que les règles de pare-feu ne bloquent pas le trafic sortant du système exécutant AzAcSnap vers les adresses et les ports TCP/IP suivants :-
+
+- (https://)management.azure.com:443
+- (https://)login.microsoftonline.com:443 
 
 ## <a name="failed-communication-with-sap-hana"></a>Échec de la communication avec SAP HANA
 

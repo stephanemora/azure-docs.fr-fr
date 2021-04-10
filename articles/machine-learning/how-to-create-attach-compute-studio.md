@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1
-ms.openlocfilehash: ab7a74166e85f2ba9fd73e7323cf9cd200cf32e4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4194c71823e1affde1dcae47fd7e64668b57c0cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031026"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103149356"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 
@@ -147,7 +147,7 @@ Utilisez les [étapes ci-dessus](#portal-create) pour attacher un calcul.  Rempl
 
 1. Entrez un nom pour la cible de calcul. 
 1. Sélectionnez le type de calcul à attacher. Il n’est pas possible d’attacher tous les types de capacités de calcul à partir d’Azure Machine Learning Studio. Actuellement, les types qui peuvent être attachés pour l’entraînement sont les suivants :
-    * Machine virtuelle distante
+    * Une machine virtuelle Azure (pour attacher un environnement Data Science Virtual Machine)
     * Azure Databricks (pour une utilisation dans des pipelines de Machine Learning)
     * Azure Data Lake Analytics (pour une utilisation dans des pipelines de Machine Learning)
     * Azure HDInsight

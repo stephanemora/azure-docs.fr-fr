@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f48245983898c542197deb7e0b3cd53bd39be33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fa6e108550b1417f736d1caff5cafd3e16f63a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707521"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595003"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur unique
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l'article [Niveaux de tarification](concepts-pricing-tiers.md).
@@ -71,6 +71,9 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 Si vous voyez une erreur relative à **GSS**, vous utilisez probablement une version plus récente du client/pilote qui n’est pas encore entièrement prise en charge par Azure Postgres Single Server. Cette erreur est connue pour affecter les [versions 42.2.15 et 42.2.16 du pilote JDBC](https://github.com/pgjdbc/pgjdbc/issues/1868).
    - Nous prévoyons de déployer la mise à jour d’ici la fin novembre. En attendant, utilisez une version de pilote opérationnelle.
    - Ou désactivez la demande de GSS.  Utilisez un paramètre de connexion comme `gssEncMode=disable`.
+
+### <a name="storage-size-reduction"></a>Réduction de la taille de stockage
+Il n’est pas possible de réduire la taille de stockage. Vous devez créer un serveur offrant la taille de stockage souhaitée, effectuer une opération manuelle de [vidage et restauration](./howto-migrate-using-dump-and-restore.md), puis migrer vos bases de données vers le nouveau serveur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Comprendre [les éléments disponibles dans chaque niveau tarifaire](concepts-pricing-tiers.md)

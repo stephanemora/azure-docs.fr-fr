@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941063"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869767"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Démarrage rapide : Exécuter des requêtes Apache Hive dans Azure HDInsight avec Apache Zeppelin
 
@@ -28,14 +28,14 @@ Un cluster HDInsight Interactive Query. Consultez [Créer un cluster](../hadoop/
 
 2. Entrez le nom d’utilisateur et le mot de passe de connexion pour votre cluster. Dans la page Zeppelin, choisissez d’ouvrir une note existante ou d’en créer une. **HiveSample** contient plusieurs exemples de requêtes Hive.  
 
-    ![Zeppelin avec Interactive Query HDInsight](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="Zeppelin avec Interactive Query HDInsight" border="true":::
 
 3. Sélectionnez **Créer une note**.
 
 4. Dans la boîte de dialogue **Créer une note**, entrez ou sélectionnez les valeurs suivantes :
 
-    - Nom de la note : entrez un nom pour la note.
-    - Interpréteur par défaut : sélectionnez **jdbc** dans la liste déroulante.
+    - Note Name : entrez un nom pour la note.
+    - Default interpreter : sélectionnez **jdbc** dans la liste déroulante.
 
 5. Sélectionnez **Créer une note**.
 
@@ -46,7 +46,7 @@ Un cluster HDInsight Interactive Query. Consultez [Créer un cluster](../hadoop/
     show tables
     ```
 
-    ![exécution de la requête Interactive Query HDInsight avec Zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="exécution de la requête Interactive Query HDInsight avec Zeppelin" border="true":::
 
     L’instruction **%jdbc(hive)** dans la première ligne indique au notebook d’utiliser l’interpréteur Hive JDBC.
 

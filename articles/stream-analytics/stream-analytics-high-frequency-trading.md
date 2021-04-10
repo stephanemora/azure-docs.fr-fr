@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020415"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593031"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulation d’échange à fréquence élevée avec Stream Analytics
 La combinaison du langage SQL, des fonctions JavaScript définies par l’utilisateur (UDF) et des agrégats définis par l’utilisateur (UDA) dans Azure Stream Analytics permet aux utilisateurs d’effectuer des analyses avancées. Les analyses avancées peuvent inclure l’apprentissage automatique en ligne et la notation, ainsi que la simulation des processus avec état. Cet article décrit comment effectuer une régression linéaire dans une tâche Azure Stream Analytics qui exécute la formation continue et la notation dans un scénario commercial haute fréquence.
@@ -349,7 +349,7 @@ L’UDA JavaScript initialise les accumulateurs de la fonction `init`, calcule l
 - Vendre des actions lors de la réception d’un signal de vente avec détention d’actions.
 - Position courte s’il n’y a pas de détention d’actions. 
 
-Si un signal d’achat est reçu en position courte, il s’agit d’un achat de couverture. Nous ne détenons jamais 10 parts d’une action dans cette simulation. Le coût de transaction est fixe à 8 $.
+Si un signal d’achat est reçu en position courte, il s’agit d’un achat de couverture. Nous détenons 10 parts d’une action dans cette simulation. Le coût de transaction est fixe à 8 $.
 
 ```javascript
 function main() {

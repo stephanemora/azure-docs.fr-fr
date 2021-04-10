@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94835388"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564634"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurer les paramètres de groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -75,14 +75,14 @@ Vous pouvez choisir entre deux options de durée d’attribution pour chaque typ
 
 Vous pouvez choisir l’une de ces options de durée d’attribution **éligible** :
 
-| | |
+| | Description |
 | --- | --- |
 | **Autoriser une attribution éligible permanente** | Les administrateurs de ressources peuvent accorder une attribution éligible permanente. |
 | **Faire expirer les attributions éligibles après** | Les administrateurs de ressources peuvent exiger que toutes les attributions éligibles aient une date de début et une date de fin spécifiées. |
 
 Vous pouvez choisir l’une de ces options de durée d’attribution **active** :
 
-| | |
+| | Description |
 | --- | --- |
 | **Autoriser une attribution active permanente** | Les administrateurs de ressources peuvent accorder une attribution active permanente. |
 | **Faire expirer les attributions actives après** | Les administrateurs de ressources peuvent exiger que toutes les attributions actives aient une date de début et une date de fin spécifiées. |

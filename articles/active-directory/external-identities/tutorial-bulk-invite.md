@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 03/17/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4e4892c01775b472cd8cdcf0f35b920d7e5e86
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906845"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055673"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutoriel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration
 
@@ -41,7 +41,7 @@ Les lignes d’un modèle CSV téléchargé sont les suivantes :
 
 - **Numéro de version** : La première ligne contenant le numéro de version doit être incluse dans le fichier CSV chargé.
 - **En-têtes de colonne** : Le format des en-têtes de colonne est &lt;*Nom d’élément*&gt; [PropertyName] &lt;*Obligatoire ou vide*&gt;. Par exemple : `Email address to invite [inviteeEmail] Required`. Certaines anciennes versions du modèle peuvent avoir de légères variations.
-- **Exemples de lignes** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs acceptables pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
+- **Ligne d’exemples** : Nous avons inclus dans le modèle une ligne d’exemples de valeurs pour chaque colonne. Vous devez supprimer la ligne des exemples et la remplacer par vos propres entrées.
 
 ### <a name="additional-guidance"></a>Conseils supplémentaires
 
@@ -56,18 +56,22 @@ Vous avez besoin d’au moins deux comptes de messagerie de test auxquels vous p
 
 ## <a name="invite-guest-users-in-bulk"></a>Inviter en bloc des utilisateurs invités
 
-1. Connectez-vous au portail Azure en utilisant un compte d’administrateur d’utilisateurs de l’organisation.
+1. Connectez-vous au portail Azure en utilisant un compte d’administrateur général dans l’organisation.
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
-3. Sous **Gérer**, sélectionnez **Utilisateurs** > **Inviter en bloc**.
+3. Sous **Gérer**, sélectionnez **Tous les utilisateurs**.
+4. Sélectionnez **Opérations en bloc** > **Invitation en bloc**.
+
+    ![Bouton d’invitation en bloc](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 4. Dans la page **Inviter des utilisateurs en bloc**, sélectionnez **Télécharger** pour obtenir un modèle .csv valide avec les propriétés de l’invitation.
 
-    ![Bouton Télécharger dans Inviter en bloc](media/tutorial-bulk-invite/bulk-invite-button.png)
+     ![Télécharger le fichier CSV](media/tutorial-bulk-invite/download-button.png)
 
-5. Ouvrez le modèle .csv et ajoutez une ligne pour chaque utilisateur invité. Les valeurs obligatoires sont les suivantes :
+1. Ouvrez le modèle .csv et ajoutez une ligne pour chaque utilisateur invité. Les valeurs obligatoires sont les suivantes :
 
    * **Adresse e-mail à inviter** : utilisateur qui recevra une invitation
 
-   * **URL de redirection** : URL vers laquelle l’utilisateur invité est dirigé après avoir accepté l’invitation
+   * **URL de redirection** : URL vers laquelle l’utilisateur invité est transféré après avoir accepté l’invitation. Si vous souhaitez transférer l’utilisateur vers la page Mes applications, vous devez remplacer cette valeur par https://myapps.microsoft.com ou https://myapplications.microsoft.com .
 
     ![Exemple de fichier CSV avec des utilisateurs invités entrés](media/tutorial-bulk-invite/bulk-invite-csv.png)
 

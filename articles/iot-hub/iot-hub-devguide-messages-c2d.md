@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199490"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104607889"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -90,6 +90,8 @@ Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints
 | EnqueuedTime | Horodatage indiquant à quel moment le message de commentaires a été reçu par le hub. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+
+Le système envoie les commentaires soit lorsque le lot atteint 64 messages, soit dans les 15 secondes suivant le dernier envoi, selon ce qui se produit en premier. 
 
 Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant des propriétés suivantes :
 

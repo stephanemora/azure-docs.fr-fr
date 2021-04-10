@@ -1,19 +1,19 @@
 ---
 title: "Démarrage rapide : Se connecter à l'aide de Python - Azure Database pour PostgreSQL - Serveur flexible"
 description: Ce guide de démarrage rapide fournit plusieurs exemples de code Python, que vous pouvez utiliser pour vous connecter et interroger des données à partir d'Azure Database pour PostgreSQL - Serveur flexible.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 948972c1d47e550395a280e62c0491800e716663
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90945027"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550640"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Démarrage rapide : Utiliser Python afin de se connecter à Azure Database pour PostgreSQL - Serveur unique et d'interroger les données
 
@@ -28,7 +28,7 @@ Cet article part du principe que vous connaissez les bases du développement ave
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Une instance d'Azure Database pour PostgreSQL - Serveur flexible. Pour créer un serveur flexible, consultez [Créer une instance d'Azure Database pour PostgreSQL - Serveur flexible à l'aide du portail Azure](./quickstart-create-server-portal.md).
-* [Python](https://www.python.org/downloads/) 2.7.9+ ou 3.4+.
+* [Python](https://www.python.org/downloads/) 2.7 ou 3.6+.
 * Dernier programme d’installation de package [pip](https://pip.pypa.io/en/stable/installing/).
 
 ## <a name="preparing-your-client-workstation"></a>Préparation de votre station de travail cliente

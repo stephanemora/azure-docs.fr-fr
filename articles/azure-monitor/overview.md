@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 544d6937e412e3e1cfc2cf4e520c02f3f804fc8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047160"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937241"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -60,7 +60,7 @@ Azure Monitor peut recueillir des données de [diverses sources](monitor-referen
 - **Données de surveillance d’abonnement Azure** : données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. 
 - **Données de surveillance de locataire Azure** : données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory.
 
-Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](essentials/platform-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](data-platform.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
+Dès que vous créez un abonnement Azure et commencez à ajouter des ressources telles que des machines virtuelles et des applications web, Azure Monitor commence la collecte de données.  Les [journaux d’activité](essentials/platform-logs-overview.md) enregistrent la création et la modification des ressources. Les [métriques](essentials/data-platform-metrics.md) vous indiquent les performances de la ressource et les ressources qu’elle consomme. 
 
 [Activez les diagnostics](essentials/platform-logs-overview.md) pour étendre les données que vous collectez au fonctionnement interne des ressources.  [Ajoutez un agent](agents/agents-overview.md) aux ressources de calcul pour collecter les données de télémétrie à partir de leurs systèmes d’exploitation invités. 
 
@@ -144,7 +144,7 @@ Plusieurs API sont disponibles pour lire et écrire les métriques et les journa
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus :
 
-* [Métriques et journaux d’activité](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) pour les données collectées par Azure Monitor.
+* [Métriques et journaux d’activité](./data-platform.md#metrics) pour les données collectées par Azure Monitor.
 * [Sources de données](agents/data-sources.md) pour découvrir comment les différents composants de votre application envoient des données de télémétrie.
 * [Requêtes de journal](logs/log-query-overview.md) pour l’analyse des données collectées.
 * [Bonnes pratiques](/azure/architecture/best-practices/monitoring) pour la supervision des applications et services cloud.

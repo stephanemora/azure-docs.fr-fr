@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
-ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c21c576cbb99ccc96bf7edf733769a9b28b9344
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013353"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104612381"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,7 +59,8 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 2. Dans la barre d’outils de la page *\<Account name>*  - **Conteneurs**, sélectionnez **Conteneur**.
 3. Dans la boîte de dialogue **Nouveau conteneur**, saisissez le nom **adftutorial**, puis sélectionnez **OK**. La page *\<Account name>*  - **Conteneurs** est mise à jour pour inclure **adftutorial** dans la liste des conteneurs.
 
-   ![Liste des conteneurs](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="Liste des conteneurs":::
+
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Ajouter un dossier et un fichier d’entrée pour le conteneur d’objets blob
 
@@ -82,7 +83,8 @@ Enregistrez-le dans le dossier **C:\ADFv2QuickStartPSH** (si le dossier n’exis
 3. Dans la page **Charger l’objet blob**, sélectionnez la zone **Fichiers**, puis recherchez et sélectionnez le fichier **emp.txt**.
 4. Développez le titre **Avancé**. La page s’affiche à présent comme indiqué :
 
-   ![Sélectionner le lien Avancé](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="Sélectionner le lien Avancé":::
+
 5. Dans la zone **Charger dans le dossier**, entrez **input**.
 6. Cliquez sur le bouton **Charger**. Vous devriez voir le fichier **emp.txt** et l’état du chargement dans la liste.
 7. Sélectionnez l’icône **Fermer** (**X**) pour fermer la page **Charger l’objet blob**.

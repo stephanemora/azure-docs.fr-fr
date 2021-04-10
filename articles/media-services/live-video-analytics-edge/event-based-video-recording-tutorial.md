@@ -3,12 +3,12 @@ title: 'Tutoriel : Enregistrement vidéo basé sur les événements et lecture 
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Live Video Analytics sur Azure IoT Edge pour effectuer un enregistrement vidéo basé sur les événements dans le cloud et le lire depuis le cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702315"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279814"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutoriel : Enregistrement vidéo basé sur les événements et lecture vidéo dans le cloud
 
@@ -426,7 +426,7 @@ Vous pouvez examiner l’actif multimédia Media Services qui a été créé par
 1. Dans l’Assistant qui s’ouvre, acceptez les options par défaut et sélectionnez **Ajouter**. Pour plus d’informations, consultez [Lecture vidéo](video-playback-concept.md).
 
     > [!TIP]
-    > Vérifiez que votre [point de terminaison de streaming est en cours d’exécution](../latest/streaming-endpoint-concept.md).
+    > Vérifiez que votre [point de terminaison de streaming est en cours d’exécution](../latest/stream-streaming-endpoint-concept.md).
 1. Le lecteur doit charger la vidéo. Sélectionnez **Lire** pour la visionner.
 
 > [!NOTE]

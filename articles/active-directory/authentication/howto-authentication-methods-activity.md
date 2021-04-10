@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175309"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557953"
 ---
 # <a name="authentication-methods-activity"></a>Activité des méthodes d’authentification 
 
@@ -135,6 +135,7 @@ Le rapport détaillé de l’inscription affiche les informations suivantes pour
 
 - Les données du rapport ne sont pas mises à jour en temps réel et peuvent refléter une latence allant jusqu’à quelques heures.
 - Les inscriptions au Passe d’accès temporaire ne figurent pas dans l’onglet Inscription du rapport, car elles ne sont valables que pour une courte période.
+- Les méthodes **PhoneAppNotification** ou **PhoneAppOTP** qu’un utilisateur peut avoir configurées ne sont pas affichées dans le tableau de bord. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

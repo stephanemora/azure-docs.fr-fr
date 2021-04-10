@@ -1,14 +1,14 @@
 ---
 title: Informations détaillées sur la structure d’attribution des stratégies
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581947"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604863"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -89,6 +89,9 @@ Ce champ correspond au nom du chemin complet d’une définition de stratégie o
 ## <a name="non-compliance-messages"></a>Messages de non-conformité
 
 Pour définir un message personnalisé décrivant la raison pour laquelle une ressource n’est pas conforme à la définition de la stratégie ou de l’initiative, définissez `nonComplianceMessages` dans la définition de l’affectation. Ce nœud est un tableau d’entrées `message`. Ce message personnalisé s’ajoute au message d’erreur par défaut en cas de non-conformité et est facultatif.
+
+> [!IMPORTANT]
+> Les messages personnalisés en cas de non-conformité sont pris en charge uniquement sur des définitions ou des initiatives avec les des définitions de [Modes Resource Manager](./definition-structure.md#resource-manager-modes).
 
 ```json
 "nonComplianceMessages": [

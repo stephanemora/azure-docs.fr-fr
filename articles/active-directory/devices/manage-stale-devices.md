@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6774e172c4e8607bfadd95f947d650afa62a984f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93393674"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550420"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -101,7 +101,7 @@ Pour nettoyer l’environnement Azure AD :
 - **Windows 7/8** : commencez par désactiver ou supprimer les appareils Windows 7/8 dans votre service AD local. Vous ne pouvez pas utiliser Azure AD Connect pour désactiver ou supprimer des appareils Windows 7/8 dans Azure AD. Au lieu de cela, quand vous apportez la modification à votre service local, vous devez désactiver/supprimer les appareils dans Azure AD.
 
 > [!NOTE]
->* La suppression d’appareils dans votre service AD local ou Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple). Pour plus d’informations, reportez-vous à la section sur la [suppression de l’inscription sur le client](faq.md#hybrid-azure-ad-join-faq).
+>* La suppression d’appareils dans votre service AD local ou Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple). Pour plus d’informations, reportez-vous à la section sur la [suppression de l’inscription sur le client](faq.yml).
 >* La suppression d’un appareil Windows 10 uniquement dans Azure AD resynchronise l’appareil à partir de votre service local à l’aide d’Azure AD Connect, mais en tant que nouvel objet avec l’état « En attente ». Une nouvelle inscription est nécessaire sur l’appareil.
 >* La suppression d’appareils Windows 10/Server 2016 de l’étendue de synchronisation supprime l’appareil Azure AD. Si vous l’ajoutez de nouveau à l’étendue de synchronisation, un nouvel objet est placé avec l’état « En attente ». Une réinscription de l’appareil est nécessaire.
 >* Si vous n’utilisez pas Azure AD Connect pour la synchronisation des appareils Windows 10 (par exemple, en utilisant uniquement AD FS pour l’inscription), vous devez gérer le cycle de vie de la même façon que pour les appareils Windows 7/8.
@@ -113,7 +113,7 @@ Désactivez ou supprimez les appareils joints à Azure AD dans Azure AD.
 
 > [!NOTE]
 >* La suppression d’un appareil Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple). 
->* Pour plus d’informations, reportez-vous à la section sur la [disjonction d’un appareil sur Azure AD](faq.md#azure-ad-join-faq). 
+>* Pour plus d’informations, reportez-vous à la section sur la [disjonction d’un appareil sur Azure AD](faq.yml). 
 
 ### <a name="azure-ad-registered-devices"></a>Appareils inscrits sur Azure AD
 
@@ -121,7 +121,7 @@ Désactivez ou supprimez les appareils inscrits à Azure AD dans Azure AD.
 
 > [!NOTE]
 >* La suppression d’un appareil inscrit à Azure AD dans Azure AD ne supprime pas l’inscription sur le client. Elle empêche uniquement d’accéder aux ressources en utilisant l’appareil en tant qu’identité (accès conditionnel, par exemple).
->* Pour plus d’informations, reportez-vous à la section sur la [suppression d’une inscription sur le client](faq.md#azure-ad-register-faq).
+>* Pour plus d’informations, reportez-vous à la section sur la [suppression d’une inscription sur le client](faq.yml).
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Nettoyer les appareils obsolètes dans le Portail Azure  
 

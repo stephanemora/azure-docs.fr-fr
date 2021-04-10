@@ -1,34 +1,32 @@
 ---
-title: Prise en charge pour l’évaluation de serveurs physiques dans Azure Migrate
-description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide de l’outil Évaluation de serveur d’Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
+title: Prise en charge de la découverte et de l’évaluation de serveurs physiques dans Azure Migrate
+description: 'En savoir plus sur la prise en charge de la découverte et de l’évaluation de serveurs physiques avec Azure Migrate : découverte et évaluation'
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: cb5a1a51a7d622c1b0a605d155ade2f08022ab67
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/18/2021
+ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592488"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104869444"
 ---
-# <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
+# <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matrice de prise en charge pour la découverte et l’évaluation de serveurs physiques 
 
-Cet article résume les conditions préalables et les exigences de prise en charge lors de l’évaluation de serveurs physiques pour la migration vers Azure et utilise l’outil [Azure Migrate : Évaluation de serveur](migrate-services-overview.md#azure-migrate-server-assessment-tool). Si vous souhaitez migrer des serveurs physiques vers Azure, passez en revue la [matrice de prise en charge de la migration](migrate-support-matrix-physical-migration.md).
+Cet article résume les conditions préalables et les exigences de prise en charge lors de l’évaluation de serveurs physiques pour la migration vers Azure et utilise l’outil [Azure Migrate : découverte et évaluation](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool). Si vous souhaitez migrer des serveurs physiques vers Azure, passez en revue la [matrice de prise en charge de la migration](migrate-support-matrix-physical-migration.md).
 
-
-Pour évaluer des serveurs physiques, vous créez un projet Azure Migrate et ajoutez l’outil Évaluation de serveur au projet. Une fois l’outil ajouté, vous déployez l’[appliance Azure Migrate](migrate-appliance.md). Celle-ci découvre en continu les machines locales et envoie leurs métadonnées et leurs données de performances à Azure. Une fois la découverte terminée, vous rassemblez les machines découvertes dans des groupes et effectuez l’évaluation d’un groupe.
-
+Pour évaluer des serveurs physiques, vous créez un projet et ajoutez l’outil Azure Migrate : découverte et évaluation. Une fois l’outil ajouté, vous déployez l’[appliance Azure Migrate](migrate-appliance.md). L’appliance découvre en permanence les serveurs locaux et envoie les métadonnées et données de performances des serveurs à Azure. Une fois la découverte terminée, vous rassemblez les serveurs découverts dans des groupes, puis évaluez ceux-ci.
 
 ## <a name="limitations"></a>Limites
 
 **Support** | **Détails**
 --- | ---
-**Limites d’évaluation** | Vous pouvez découvrir et évaluer jusqu’à 35 000 serveurs physiques dans un même [projet Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
-**Limites de projet** | Vous pouvez créer plusieurs projets dans un abonnement Azure. En plus de serveurs physiques, un projet peut inclure des machines virtuelles VMware et Hyper-V, jusqu’aux limites d’évaluation pour chaque catégorie.
+**Limites d’évaluation** | Vous pouvez découvrir et évaluer jusqu’à 35 000 serveurs physiques dans un même [projet](migrate-support-matrix.md#project).
+**Limites de projet** | Vous pouvez créer plusieurs projets dans un abonnement Azure. En plus de serveurs physiques, un projet peut inclure des serveurs sur VMware et sur Hyper-V, jusqu’aux limites d’évaluation pour chacun d’eux.
 **Découverte** | L’appliance Azure Migrate peut découvrir jusqu’à 1000 serveurs physiques.
-**Évaluation** | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.<br/><br/> Vous pouvez évaluer jusqu’à 35 000 machines par évaluation.
+**Évaluation** | Vous pouvez ajouter jusqu’à 35 000 serveurs dans un groupe unique.<br/><br/> Vous pouvez évaluer jusqu’à 35 000 serveurs par évaluation.
 
 [Apprenez-en davantage](concepts-assessment-calculation.md) sur les évaluations.
 
@@ -39,7 +37,8 @@ Pour évaluer des serveurs physiques, vous créez un projet Azure Migrate et ajo
 **Système d’exploitation :** Tous les systèmes d’exploitation Windows et Linux peuvent être évalués pour la migration.
 
 **Autorisations :**
-- En ce qui concerne les serveurs Windows, utilisez un compte de domaine pour les ordinateurs joints à un domaine et un compte local pour les autres. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+
+- Pour les serveurs Windows, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
 - Pour les serveurs Linux, vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
 
 **Commande** | **Objectif**
@@ -49,11 +48,9 @@ setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<b
 setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Collecter le numéro de série du BIOS
 chmod a+r /sys/class/dmi/id/product_uuid | Collecter le GUID du BIOS
 
-
-
 ## <a name="azure-migrate-appliance-requirements"></a>Conditions requises de l’appliance Azure Migrate
 
-Azure Migrate utilise l’[appliance Azure Migrate](migrate-appliance.md) pour la découverte et l’évaluation. L’appliance pour les serveurs physiques peut s’exécuter sur une machine virtuelle ou sur une machine physique. 
+Azure Migrate utilise l’[appliance Azure Migrate](migrate-appliance.md) pour la découverte et l’évaluation. L’appliance pour les serveurs physiques peut s’exécuter sur une machine virtuelle ou sur un serveur physique.
 
 - En savoir plus sur les [conditions requises de l’appliance](migrate-appliance.md#appliance---physical) pour les serveurs physiques.
 - Découvrez les URL auxquelles l’appliance doit accéder dans les clouds [publics](migrate-appliance.md#public-cloud-urls) et du [secteur public](migrate-appliance.md#government-cloud-urls).
@@ -71,20 +68,20 @@ Le tableau suivant résume les exigences du port pour l’évaluation.
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Conditions requises de l’analyse des dépendances basées sur un agent
 
-L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier les dépendances entre les machines locales que vous souhaitez évaluer et faire migrer vers Azure. Le tableau récapitule les conditions requises pour la configuration de l’analyse des dépendances basées sur un agent. Actuellement, seule l’analyse des dépendances basées sur un agent est prise en charge pour les serveurs physiques.
+L’[analyse des dépendances](concepts-dependency-visualization.md) vous permet d’identifier les dépendances entre les machines locales que vous souhaitez évaluer et migrer vers Azure. Le tableau récapitule les conditions requises pour la configuration de l’analyse des dépendances basées sur un agent. Actuellement, seule l’analyse des dépendances basées sur un agent est prise en charge pour les serveurs physiques.
 
-**Prérequis** | **Détails** 
---- | --- 
-**Avant le déploiement** | Vous devez disposer d’un projet Azure Migrate, avec l’outil Évaluation de serveur ajouté au projet.<br/><br/>  Vous déployez la visualisation des dépendances après avoir configuré une appliance Azure Migrate pour découvrir vos machines locales.<br/><br/> [Découvrez comment](create-manage-projects.md) créer un projet pour la première fois.<br/> [Découvrez comment](how-to-assess.md) ajouter un outil d’évaluation à un projet existant.<br/> Découvrez comment configurer l’appliance Azure Migrate pour l’évaluation de serveurs [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md) ou physiques.
+**Prérequis** | **Détails**
+--- | ---
+**Avant le déploiement** | Vous devez disposer d’un projet, avec l’outil Azure Migrate : découverte et évaluation ajouté au projet.<br/><br/>  Vous déployez la visualisation des dépendances après avoir configuré une appliance Azure Migrate pour découvrir vos serveurs locaux.<br/><br/> [Découvrez comment](create-manage-projects.md) créer un projet pour la première fois.<br/> [Découvrez comment](how-to-assess.md) ajouter un outil d’évaluation à un projet existant.<br/> Découvrez comment configurer l’appliance Azure Migrate pour l’évaluation de serveurs [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md) ou physiques.
 **Azure Government** | La visualisation des dépendances n’est pas disponible dans Azure Government.
-**Log Analytics** | Azure Migrate utilise la solution [Service Map](../azure-monitor/vm/service-map.md) dans [Journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md) pour la visualisation des dépendances.<br/><br/> Vous associez un espace de travail Log Analytics nouveau ou déjà existant à un projet Azure Migrate. L’espace de travail d’un projet Azure Migrate ne peut pas être modifié une fois qu’il a été ajouté. <br/><br/> L’espace de travail doit se trouver dans le même abonnement que le projet Azure Migrate.<br/><br/> L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. Les espaces de travail des autres régions ne peuvent pas être associés à un projet.<br/><br/> L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> Dans Log Analytics, l’espace de travail associé à Azure Migrate est marqué avec la clé de projet de migration et le nom du projet.
-**Agents nécessaires** | Sur chaque machine à analyser, installez les agents suivants :<br/><br/> [MMA (Microsoft Monitoring Agent)](../azure-monitor/agents/agent-windows.md)<br/> [Dependency Agent](../azure-monitor/agents/agents-overview.md#dependency-agent)<br/><br/> Si les machines locales ne sont pas connectées à Internet, vous devez télécharger et installer la passerelle de l’espace de travail Log Analytics sur celles-ci.<br/><br/> En savoir plus sur l’installation de [Dependency Agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) et de [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-**Espace de travail Log Analytics** | L’espace de travail doit se trouver dans le même abonnement que le projet Azure Migrate.<br/><br/> Azure Migrate prend en charge les espaces de travail résidant dans les régions USA Est, Asie Sud-Est et Europe Ouest.<br/><br/>  L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> L’espace de travail d’un projet Azure Migrate ne peut pas être modifié une fois qu’il a été ajouté.
-**Coûts** | La solution Service Map n’entraîne aucun frais pendant les 180 premiers jours (à compter du jour où vous associez l’espace de travail Log Analytics au projet Azure Migrate).<br/><br/> Au bout de 180 jours, des frais Log Analytics standard s’appliquent.<br/><br/> L’utilisation d’une autre solution que Service Map dans l’espace de travail Log Analytics associé entraîne des [frais standard](https://azure.microsoft.com/pricing/details/log-analytics/) pour l’espace de travail Log Analytics.<br/><br/> Lorsque le projet Azure Migrate est supprimé, l’espace de travail ne l’est pas. Une fois le projet supprimé, l’utilisation de Service Map n’est plus gratuite, et chaque nœud est facturé en fonction du niveau payant de l’espace de travail Log Analytics<br/><br/>Si vous avez créé des projets avant la disponibilité générale d’Azure Migrate (28 février 2018), vous avez peut-être fait l’objet de frais supplémentaires pour Service Map. Pour veiller à payer uniquement après 180 jours, nous vous recommandons de créer un autre projet, car les espaces de travail présents avant la disponibilité générale restent facturables.
-**Gestion** | Lorsque vous inscrivez des agents dans l’espace de travail, vous utilisez l’ID et la clé fournis par le projet Azure Migrate.<br/><br/> Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Migrate.<br/><br/> Si vous supprimez le projet Azure Migrate associé, l’espace de travail n’est pas automatiquement supprimé. [Supprimez-le manuellement](../azure-monitor/logs/manage-access.md).<br/><br/> Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet Azure Migrate. La suppression de l’espace de travail entraînerait un dysfonctionnement de la fonctionnalité de visualisation des dépendances.
-**Connectivité Internet** | Si les machines ne sont pas connectées à Internet, vous devez installer la passerelle Log Analytics sur celles-ci.
+**Log Analytics** | Azure Migrate utilise la solution [Service Map](../azure-monitor/vm/service-map.md) dans [Journaux d’activité Azure Monitor](../azure-monitor/logs/log-query-overview.md) pour la visualisation des dépendances.<br/><br/> Vous associez un espace de travail Log Analytics nouveau ou déjà existant à un projet. Il n’est pas possible de modifier l’espace de travail d’un projet après son ajout. <br/><br/> L’espace de travail doit se trouver dans le même abonnement que le projet.<br/><br/> L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. Les espaces de travail des autres régions ne peuvent pas être associés à un projet.<br/><br/> L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> Dans Log Analytics, l’espace de travail associé à Azure Migrate est marqué avec la clé de projet de migration et le nom du projet.
+**Agents nécessaires** | Sur chaque serveur à analyser, installez les agents suivants :<br/><br/> [MMA (Microsoft Monitoring Agent)](../azure-monitor/agents/agent-windows.md)<br/> [Dependency Agent](../azure-monitor/agents/agents-overview.md#dependency-agent)<br/><br/> Si les serveurs locaux ne sont pas connectés à Internet, vous devez télécharger et installer une passerelle Log Analytics sur ceux-ci.<br/><br/> En savoir plus sur l’installation de [Dependency Agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) et de [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
+**Espace de travail Log Analytics** | L’espace de travail doit se trouver dans le même abonnement qu’un projet.<br/><br/> Azure Migrate prend en charge les espaces de travail résidant dans les régions USA Est, Asie Sud-Est et Europe Ouest.<br/><br/>  L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).<br/><br/> Il n’est pas possible de modifier l’espace de travail d’un projet après son ajout.
+**Coûts** | La solution Service Map n’entraîne aucun frais pendant les 180 premiers jours (à compter du jour où vous associez l’espace de travail Log Analytics au projet).<br/><br/> Au bout de 180 jours, des frais Log Analytics standard s’appliquent.<br/><br/> L’utilisation d’une autre solution que Service Map dans l’espace de travail Log Analytics associé entraîne des [frais standard](https://azure.microsoft.com/pricing/details/log-analytics/) pour l’espace de travail Log Analytics.<br/><br/> Lorsque le projet est supprimé, l’espace de travail ne l’est pas. Une fois le projet supprimé, l’utilisation de Service Map n’est plus gratuite, et chaque nœud est facturé en fonction du niveau payant de l’espace de travail Log Analytics<br/><br/>Si vous avez créé des projets avant la disponibilité générale d’Azure Migrate (28 février 2018), vous avez peut-être fait l’objet de frais supplémentaires pour Service Map. Pour veiller à payer uniquement après 180 jours, nous vous recommandons de créer un autre projet, car les espaces de travail présents avant la disponibilité générale restent facturables.
+**Gestion** | Lorsque vous inscrivez des agents dans l’espace de travail, vous utilisez l’ID et la clé fournis par le projet.<br/><br/> Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Migrate.<br/><br/> Si vous supprimez le projet associé, l’espace de travail n’est pas automatiquement supprimé. [Supprimez-le manuellement](../azure-monitor/logs/manage-access.md).<br/><br/> Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet. La suppression de l’espace de travail entraînerait un dysfonctionnement de la fonctionnalité de visualisation des dépendances.
+**Connectivité Internet** | Si les serveurs ne sont pas connectés à Internet, vous devez installer la passerelle Log Analytics sur ceux-ci.
 **Azure Government** | L'analyse des dépendances basée sur un agent n'est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Préparer l’évaluation des serveurs physiques](./tutorial-discover-physical.md).
+[Préparez la découverte et l’évaluation de serveurs physiques](./tutorial-discover-physical.md).
