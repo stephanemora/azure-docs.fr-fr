@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577545"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582117"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Rôles intégrés pour Windows Virtual Desktop
 
@@ -146,7 +146,7 @@ La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 
 ## <a name="session-host-operator"></a>Contributeur d’hôte de session
 
-Le rôle Contributeur d’hôte de session vous permet d’afficher et de supprimer des hôtes de session, ainsi que de modifier le mode maintenance. Vous ne pouvez pas ajouter d’hôtes de session à l’aide du Portail Azure, car vous n’avez pas d’autorisation d’écriture pour des objets pool d’hôtes. Si le jeton d’inscription est valide (généré et non expiré), vous pouvez utiliser ce rôle pour ajouter des hôtes de session au pool d’hôtes en dehors du portail Azure si l’administrateur dispose d’autorisations de calcul via le rôle Contributeur de machine virtuelle.
+Le rôle Opérateur d’hôte de session vous permet d’afficher et de supprimer des hôtes de session, ainsi que de modifier le mode maintenance. Vous ne pouvez pas ajouter d’hôtes de session à l’aide du Portail Azure, car vous n’avez pas d’autorisation d’écriture pour des objets pool d’hôtes. Si le jeton d’inscription est valide (généré et non expiré), vous pouvez utiliser ce rôle pour ajouter des hôtes de session au pool d’hôtes en dehors du portail Azure si l’administrateur dispose d’autorisations de calcul via le rôle Contributeur de machine virtuelle.
 
 La liste suivante décrit les autorisations auxquelles ce rôle peut accéder :
 

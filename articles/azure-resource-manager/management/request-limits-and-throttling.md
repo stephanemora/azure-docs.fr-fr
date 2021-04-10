@@ -4,12 +4,12 @@ description: Décrit comment utiliser la limitation avec des requêtes Azure Res
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97563124"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024623"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
@@ -58,7 +58,7 @@ Le fournisseur de ressources Microsoft. Network applique les limites de limitati
 
 ### <a name="compute-throttling"></a>Calculer la limitation
 
-Pour plus d’informations sur les limites de limitation des opérations de calcul, consultez [Résolution des erreurs de limitation d’API - Calcul](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+Pour plus d’informations sur les limites de limitation des opérations de calcul, consultez [Résolution des erreurs de limitation d’API - Calcul](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 Pour vérifier les instances de machine virtuelle dans un groupe de machines virtuelles identiques, utilisez les [opérations Virtual Machine Scale Sets](/rest/api/compute/virtualmachinescalesetvms). Par exemple, utilisez la [requête List sur les VM d’un groupe de machines virtuelles identiques](/rest/api/compute/virtualmachinescalesetvms/list) avec des paramètres pour vérifier l’état d’alimentation des instances de la machine virtuelle. Cette API réduit le nombre de demandes.
 
@@ -98,7 +98,7 @@ Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-tê
 | x-ms-ratelimit-remaining-tenant-resource-requests |Requêtes de type de ressource restantes étendues au locataire.<br /><br />Cet en-tête est ajouté uniquement pour les requêtes au niveau du locataire, et uniquement si un service a remplacé la limite par défaut. Resource Manager ajoute cette valeur au lieu des requêtes de lecture ou d’écriture du locataire. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Requêtes de collecte de type de ressource restantes étendues au locataire.<br /><br />Cet en-tête est ajouté uniquement pour les requêtes au niveau du locataire, et uniquement si un service a remplacé la limite par défaut. |
 
-Le fournisseur de ressources peut également retourner des en-têtes de réponse avec des informations sur les demandes restantes. Pour plus d’informations sur les en-têtes de réponse retournés par le fournisseur de ressources de calcul, consultez [En-têtes de réponse d’information de débit d’appels](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+Le fournisseur de ressources peut également retourner des en-têtes de réponse avec des informations sur les demandes restantes. Pour plus d’informations sur les en-têtes de réponse retournés par le fournisseur de ressources de calcul, consultez [En-têtes de réponse d’information de débit d’appels](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## <a name="retrieving-the-header-values"></a>Récupération des valeurs d’en-tête
 

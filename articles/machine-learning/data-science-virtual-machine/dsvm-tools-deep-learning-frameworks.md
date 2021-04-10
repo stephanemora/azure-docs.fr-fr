@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 9ee0e8d8fa660313cb007d53c2bbbfc9b19feec9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 43a8004b6cdfe2e074304569b83360101784a87e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889771"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567999"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Infrastructures de Deep learning et d’intelligence artificielle pour Azure Data Science Virtual Machine
 Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) sont répertoriées ci-dessous.
@@ -129,14 +129,14 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Installé dans l’environnement Python 3.5 sous [Linux](dsvm-tools-languages.md#python-linux-edition) et dans l’environnement Python 3.6 sous [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Comment l’exécuter      | Terminal : Activez l’environnement approprié, puis exécutez Python. <br/> * Jupyter : Connectez-vous à [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), puis ouvrez le répertoire TensorFlow pour obtenir des exemples.   |
 
-## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
 
 | Category | Valeur |
 | ------------- | ------------- |
 | Version(s) prise(s) en charge | 1.12 |
 | Éditions DSVM prises en charge      | Ubuntu 16.04 |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | tensorflow_model_server est disponible sur le terminal. |
-| Comment l’exécuter      |  D’autres exemples sont disponibles [en ligne](https://www.tensorflow.org/serving/).   |
+| Comment l’exécuter      |  D’autres exemples sont disponibles [en ligne](https://www.tensorflow.org/tfx/guide/serving).   |
 
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)

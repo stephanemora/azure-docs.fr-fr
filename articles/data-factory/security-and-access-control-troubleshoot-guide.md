@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706153"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568033"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Résoudre les problèmes de sécurité et de contrôle d’accès dans Azure Data Factory
 
@@ -182,7 +182,7 @@ Par exemple : le récepteur de Stockage Blob Azure utilisait Azure IR (réseau 
 
 #### <a name="cause"></a>Cause
 
-ADF peut toujours utiliser le runtime d’intégration de réseau virtuel managé, mais vous pouvez rencontrer une telle erreur parce que le point de terminaison public pour le Stockage Blob Azure dans un réseau virtuel managé n’est pas fiable compte tenu du résultat du test, et le Stockage Blob Azure et Azure Data Lake Gen2 ne sont pas pris en charge pour être connectés via un point de terminaison public à partir du réseau virtuel managé ADF comme expliqué dans [Réseau virtuel managé et points de terminaison privés managés](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+ADF peut toujours utiliser le runtime d’intégration de réseau virtuel managé, mais vous pouvez rencontrer une telle erreur parce que le point de terminaison public pour le Stockage Blob Azure dans un réseau virtuel managé n’est pas fiable compte tenu du résultat du test, et le Stockage Blob Azure et Azure Data Lake Gen2 ne sont pas pris en charge pour être connectés via un point de terminaison public à partir du réseau virtuel managé ADF comme expliqué dans [Réseau virtuel managé et points de terminaison privés managés](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
 
 #### <a name="solution"></a>Solution
 

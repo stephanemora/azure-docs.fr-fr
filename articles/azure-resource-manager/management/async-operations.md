@@ -4,12 +4,12 @@ description: Décrit comment effectuer le suivi des opérations asynchrones dans
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f5823bc8f6c0d5b334a638d4ad350eb2f9ef2b28
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88723450"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932741"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Suivre les opérations asynchrones Azure
 
@@ -123,7 +123,7 @@ Le corps de la réponse contient l’état de l’opération :
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Déployer des ressources (201 avec Azure-AsyncOperation)
 
-Cet exemple montre comment déterminer l’état de l’[opération de déploiement pour le déploiement de ressources](/rest/api/resources/deployments/createorupdate) sur Azure. La demande initiale présente le format suivant :
+Cet exemple montre comment déterminer l’état de l’[opération de déploiement pour le déploiement de ressources](/rest/api/resources/resources/deployments/createorupdate) sur Azure. La demande initiale présente le format suivant :
 
 ```HTTP
 PUT

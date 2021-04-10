@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c42c6465af8e895d833332be847c134b97ee8ddc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557150"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781294"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
@@ -25,8 +25,9 @@ Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer un flux d’utilisateur d’inscription et de connexion
+> * Activer la réinitialisation du mot de passe libre-service
 > * Créer un flux d’utilisateur de modification de profil
-> * Créer un flux d’utilisateur de réinitialisation du mot de passe
+
 
 Ce tutoriel vous montre comment créer des flux d’utilisateur recommandés à l’aide du portail Azure. Si vous recherchez des informations sur la façon de configurer un flux ROPC (informations d’identification de mot de passe du propriétaire de la ressource) dans votre application, consultez [Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C](add-ropc-policy.md).
 
@@ -85,6 +86,24 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 > [!NOTE]
 > L’expérience « Exécuter le flux utilisateur » n’est actuellement pas compatible avec le type d’URL de réponse SPA utilisant le flux de code d’autorisation. Pour utiliser l’expérience « Exécuter le flux d’utilisateur » avec ces types d’applications, enregistrez une URL de réponse de type « Web » et activez le flux implicite, comme décrit [ici](tutorial-register-spa.md).
 
+## <a name="enable-self-service-password-reset"></a>Activer la réinitialisation du mot de passe libre-service
+
+Pour activer la [réinitialisation du mot de passe en libre-service](add-password-reset-policy.md) pour le flux d’utilisateur d’inscription ou de connexion :
+
+1. Sélectionnez le flux d’utilisateur d’inscription ou de connexion que vous avez créé.
+1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Propriétés**.
+1. Sous **Complexité du mot de passe**, sélectionnez **Réinitialisation du mot de passe en libre-service**.
+1. Sélectionnez **Enregistrer**.
+
+### <a name="test-the-user-flow"></a>Tester le flux utilisateur
+
+1. Sélectionnez le flux utilisateur que vous avez créé pour ouvrir sa page de présentation, puis sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Sélectionnez **Exécuter le flux utilisateur**.
+1. Dans la page d’inscription ou de connexion, sélectionnez **Vous avez oublié votre mot de passe ?** .
+1. Vérifiez l’adresse e-mail du compte que vous avez précédemment créé, puis sélectionnez **Continuer**.
+1. Vous avez maintenant la possibilité de changer le mot de passe de l’utilisateur. Changez le mot de passe et sélectionnez **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
+
 ## <a name="create-a-profile-editing-user-flow"></a>Créer un flux d’utilisateur de modification de profil
 
 Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre application, vous utilisez un flux d’utilisateur de modification de profil.
@@ -103,26 +122,6 @@ Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre app
 1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
 1. Cliquez sur **Exécuter le flux d’utilisateur**, puis connectez-vous avec le compte que vous avez créé précédemment.
 1. Vous avez désormais la possibilité de changer le nom d’affichage et le poste de l’utilisateur. Cliquez sur **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
-
-## <a name="create-a-password-reset-user-flow"></a>Créer un flux d’utilisateur de réinitialisation du mot de passe
-
-Pour permettre aux utilisateurs de votre application de réinitialiser leur mot de passe, utilisez un flux utilisateur de réinitialisation de mot de passe.
-
-1. Dans le menu de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
-1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Inscription et connexion**. 
-1. Sous **Sélectionner une version**, sélectionnez **Recommandé**, puis **Créer**.
-1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *passwordreset1*.
-1. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
-2. Sous Revendications d’application, cliquez sur **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
-3. Cliquez sur **OK**.
-4. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
-
-### <a name="test-the-user-flow"></a>Tester le flux utilisateur
-
-1. Sélectionnez le flux utilisateur que vous avez créé pour ouvrir sa page de présentation, puis sélectionnez **Exécuter le flux d’utilisateur**.
-1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-1. Cliquez sur **Exécuter le flux d’utilisateur**, vérifiez l’adresse e-mail du compte que vous avez précédemment créé, puis sélectionnez **Continuer**.
-1. Vous avez maintenant la possibilité de changer le mot de passe de l’utilisateur. Changez le mot de passe et sélectionnez **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

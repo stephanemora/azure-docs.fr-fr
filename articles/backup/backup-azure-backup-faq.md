@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 79ff404192de481965f3971f00328c49a591dd41
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806646"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104583375"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -65,6 +65,20 @@ L’exportation directe de données du coffre Recovery Services vers un emplacem
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Quelle est la différence entre un coffre de stockage géoredondant (GRS) avec et sans la capacité de restauration interrégion (CRR) activée ?
 
 Dans le cas d’un coffre [GRS](azure-backup-glossary.md#grs) sans la capacité [CRR](azure-backup-glossary.md#cross-region-restore-crr), les données de la région secondaire ne sont pas accessibles tant qu’Azure n’a pas déclaré de sinistre dans la région primaire. Dans ce type de scénario, la restauration s’effectue à partir de la région secondaire. Lorsque la CRR est activée, vous pouvez déclencher une restauration dans la région secondaire même si la région primaire est opérationnelle.
+
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>Puis-je déplacer un abonnement qui contient un coffre vers un autre répertoire Azure Active Directory ?
+
+Oui. Pour déplacer un abonnement (contenant un coffre) vers un autre répertoire Azure Active Directory (AD), consultez [Transférer un abonnement vers un autre répertoire](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Après avoir déplacé l’abonnement, assurez-vous d’effectuer les actions suivantes :<ul><li>Les autorisations de contrôle d’accès en fonction du rôle et les rôles personnalisés ne sont pas transférables. Vous devez recréer les autorisations et les rôles dans le nouveau répertoire Azure AD.</li><li>Vous devez recréer l’identité managée du coffre en la désactivant et en l’activant à nouveau. Vous devez également évaluer et recréer les autorisations de l’identité managée.</li><li>Si le coffre utilise des fonctionnalités qui tirent parti de l’identité managée, telles que des [points de terminaison privés](private-endpoints.md#before-you-start) et des [clés gérées par le client](encryption-at-rest-with-cmk.md#before-you-start), vous devez reconfigurer les fonctionnalités.</li></ul>
+
+### <a name="can-i-move-a-subscription-that-contains-a-recovery-services-vault-to-a-different-tenant"></a>Puis-je déplacer un abonnement contenant un coffre Recovery Services vers un autre locataire ?
+
+Oui. Veillez à procéder comme suit : 
+
+>[!IMPORTANT]
+>Après avoir déplacé l’abonnement, assurez-vous d’effectuer les actions suivantes :<ul><li>Si le coffre utilise des CMK (clés gérées par le client), vous devez le mettre à jour. Cela permet au coffre de recréer et reconfigurer l’identité managée du coffre et la CMK (qui résidera dans le nouveau locataire), san quoi l’opération de sauvegarde/restauration échoue.</li><li>Vous devez reconfigurer les autorisations de RBAC dans l’abonnement, car il n’est pas possible de déplacer les autorisations existantes.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
 

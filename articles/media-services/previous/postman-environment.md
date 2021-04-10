@@ -3,7 +3,7 @@ title: Importer l’environnement Postman pour des appels REST Azure Media Servi
 description: Cette rubrique fournit une définition de l’environnement Postman pour les appels REST Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: 2ccc765a3fb0063d92382edcec260808183f27a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.openlocfilehash: 5b1705fb2b3b1b69f79158747827d764f1bef4f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259249"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103007837"
 ---
 # <a name="import-the-postman-environment"></a>Importer l’environnement Postman
 
@@ -27,7 +27,7 @@ ms.locfileid: "89259249"
 Cet article contient une définition des variables d’environnement **Postman** qui sont utilisées dans la [collection Postman](postman-collection.md) contenant les requêtes HTTP groupées qui appellent les API REST Media Services. Les fichiers d’environnement et de la collection sont utilisés par le didacticiel [Configurer Postman pour les appels de l’API REST Media Services](media-rest-apis-with-postman.md).
 
 > [!NOTE]
-> Valeur de `AzureADSTSEndpoint ` = `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. Pour récupérer votre ID de locataire, vous pouvez pointer votre souris sur votre nom d’utilisateur dans le portail (dans le coin supérieur droit) et il se trouvera dans "Directory: Microsoft ({{TENANTID}}).
+> Valeur de `AzureADSTSEndpoint ` = `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. Pour récupérer votre ID de locataire, vous pouvez pointer votre souris sur votre nom d’utilisateur dans le portail (dans le coin supérieur droit) et il se trouvera dans « Directory:Microsoft ({{TENANTID}}) ».
 
 ```
 {

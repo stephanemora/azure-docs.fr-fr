@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Didacticiel : Intégration d’Azure Active Directory avec Bonusly
@@ -197,7 +197,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-bonusly-test-user"></a>Créer un utilisateur de test Bonusly
+### <a name="create-bonusly-test-user&quot;></a>Créer un utilisateur de test Bonusly
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Bonusly, vous devez les provisionner dans Bonusly. En l’occurrence, cet approvisionnement est une tâche manuelle.
 
@@ -210,7 +210,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonusly, vous devez
 
 1. Cliquez sur **Settings**.
 
-    ![Paramètres](./media/bonus-tutorial/ic781041.png "Paramètres")
+    ![Paramètres](./media/bonus-tutorial/ic781041.png &quot;Paramètres")
 
 1. Cliquez sur l’onglet **Users and bonuses** .
 

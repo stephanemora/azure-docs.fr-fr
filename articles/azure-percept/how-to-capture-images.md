@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 44bf498af52f4d8a0d880dc1f1d5874d5b444cae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d6cece6ee3079ba9f400f40026ca26ea36668710
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035532"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024640"
 ---
 # <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Capturer des images pour un projet de vision dans Azure Percept Studio
 
@@ -62,4 +62,4 @@ Toutes les images sont accessibles dans [Custom Vision](https://www.customvision
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tester et réentraîner votre modèle de vision sans code](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model).
+[Tester et réentraîner votre modèle de vision sans code](../cognitive-services/custom-vision-service/test-your-model.md).

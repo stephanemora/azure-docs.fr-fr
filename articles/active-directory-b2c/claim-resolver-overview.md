@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102119771"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557528"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -72,12 +72,12 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {OIDC:LoginHint} |  Paramètre de chaîne de requête `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | Le `max_age`. | N/A |
 | {OIDC:Nonce} |Paramètre de chaîne de requête `Nonce`. | defaultNonce |
-| {OIDC:Password}| Mot de passe utilisateur du [flux des informations d’identification par mot de passe du propriétaire de ressource](ropc-custom.md).| password1| 
+| {OIDC:Password}| Mot de passe utilisateur du [flux des informations d’identification par mot de passe du propriétaire de ressource](add-ropc-policy.md).| password1| 
 | {OIDC:Prompt} | Paramètre de chaîne de requête `prompt`. | login |
 | {OIDC:RedirectUri} |Paramètre de chaîne de requête `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | N/A |
 | {OIDC:Scope} |Paramètre de chaîne de requête `scope`. | openid |
-| {OIDC:Username}| Nom d’utilisateur de l’utilisateur du [flux des informations d’identification par mot de passe du propriétaire de ressource](ropc-custom.md).| emily@contoso.com| 
+| {OIDC:Username}| Nom d’utilisateur de l’utilisateur du [flux des informations d’identification par mot de passe du propriétaire de ressource](add-ropc-policy.md).| emily@contoso.com| 
 
 ### <a name="context"></a>Context
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: db6793389df0df169745ddd50551f836d06cf08c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 12e8222ad59aae31baa7a549519c97550b711703
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488752"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104579941"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 
@@ -68,6 +68,8 @@ Pour autoriser la connexion des utilisateurs avec un compte Microsoft dans Azure
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Ajoutez un fournisseur d’identité Microsoft à un workflow d’utilisateur 
+
+À ce stade, le fournisseur d’identité Microsoft a été configuré, mais il n’est encore disponible dans aucune des pages de connexion. Pour ajouter un fournisseur d’identité Microsoft à un flux d’utilisateur :
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Cliquez sur le flux d’utilisateur à ajouter au fournisseur d’identité Microsoft.
