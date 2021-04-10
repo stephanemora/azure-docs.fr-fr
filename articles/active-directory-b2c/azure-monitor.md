@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0231f7f3882218ef88d6151488da6aa23e4cb8e4
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580179"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106685"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
@@ -46,7 +46,7 @@ Le diagramme suivant illustre les composants que vous allez configurer dans vos 
 
 ![Projection de groupe de ressources](./media/azure-monitor/resource-group-projection.png)
 
-Pendant ce déploiement, vous allez configurer vos locataires Azure AD B2C et Azure AD dans lesquels l’espace de travail Log Analytics sera hébergé. Le rôle d'[administrateur général](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) doit être affecté au compte d’Azure AD B2C sur le locataire Azure AD B2C. Le compte d’Azure AD utilisé pour exécuter le déploiement doit se voir attribuer le rôle de [Propriétaire](../role-based-access-control/built-in-roles.md#owner) dans l’abonnement Azure AD. Il est également important de s’assurer que vous êtes connecté au bon répertoire lorsque vous effectuez chaque étape, comme décrit.
+Pendant ce déploiement, vous allez configurer vos locataires Azure AD B2C et Azure AD dans lesquels l’espace de travail Log Analytics sera hébergé. Le rôle d'[administrateur général](../active-directory/roles/permissions-reference.md#global-administrator) doit être affecté au compte d’Azure AD B2C sur le locataire Azure AD B2C. Le compte d’Azure AD utilisé pour exécuter le déploiement doit se voir attribuer le rôle de [Propriétaire](../role-based-access-control/built-in-roles.md#owner) dans l’abonnement Azure AD. Il est également important de s’assurer que vous êtes connecté au bon répertoire lorsque vous effectuez chaque étape, comme décrit.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. Créer ou choisir un groupe de ressources
 

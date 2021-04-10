@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 03/16/2021
-ms.openlocfilehash: e9031dc77054a2bbac8015bbbdd7b9ed2a35e84f
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.date: 03/26/2021
+ms.openlocfilehash: 59847f745037acec47415489cdf61d119a7807af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043340"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936272"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Accéder à l’API Azure pour FHIR avec Postman
 
@@ -24,12 +24,13 @@ Une application cliente peut accéder à l’API Azure pour FHIR via une [API RE
 
 - Un point de terminaison FHIR dans Azure. 
 
-   Pour déployer l’API Azure pour FHIR (service géré), vous pouvez utiliser le [portail Azure](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md)ou [Azure CLI](fhir-paas-cli-quickstart.md).
+  Pour déployer l’API Azure pour FHIR (service géré), vous pouvez utiliser le [portail Azure](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md)ou [Azure CLI](fhir-paas-cli-quickstart.md).
+
 - Une [application cliente confidentielle](register-confidential-azure-ad-client-app.md) inscrite pour accéder au service FHIR.
 - Vous avez accordé des autorisations à l’application cliente confidentielle, par exemple « FHIR Data Contributor », pour accéder au service FHIR. Pour plus d’informations, consultez [configurer Azure RBAC pour FHIR](./configure-azure-rbac.md).
 - Postman installé. 
     
-    Pour plus d’informations sur la publication, consultez [prise en main du poste de publication](https://www.getpostman.com).
+  Pour plus d’informations sur la publication, consultez [prise en main du poste de publication](https://www.getpostman.com).
 
 ## <a name="fhir-server-and-authentication-details"></a>Serveur FHIR et informations d’authentification
 
@@ -62,6 +63,8 @@ Si vous tentez d’accéder à des ressources restreintes, une réponse « éch
 ![Échec de l’authentification](media/tutorial-postman/postman-authentication-failed.png)
 
 ## <a name="obtaining-an-access-token"></a>Obtention d’un jeton d’accès
+Sélectionnez **Obtenir un nouveau jeton d’accès**.
+
 Pour obtenir un jeton d’accès valide, sélectionnez **autorisation** , puis sélectionnez **OAuth 2,0** dans le menu déroulant **type** .
 
 ![Définir OAuth 2.0](media/tutorial-postman/postman-select-oauth2.png)
@@ -76,13 +79,13 @@ Dans la boîte de dialogue **récupérer un nouveau jeton d’accès** , entrez 
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Token Name (Nom du jeton)            | MYTOKEN                                                                                                         | Nom de votre choix          |
 | Grant Type (Type d’autorisation)            | Code d’autorisation                                                                                              |                            |
-| Callback URL (URL de rappel)          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
+| Callback URL (URL de rappel)          | `https://www.getpostman.com/oauth2/callback`                                                                    |                            |
 | Auth URL (URL d’authentification)              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` a la valeur `https://MYACCOUNT.azurehealthcareapis.com` pour l’API Azure pour FHIR |
-| Access Token URL (URL du jeton d’accès)      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
-| Client ID (ID client)             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | ID de l'application             |
-| Client Secret (Clé secrète client)         | `XXXXXXXX`                                                                                                        | Clé client secrète          |
-| Scope (Étendue) | `<Leave Blank>` |
-| State (État)                |  `1234`                                                                                                           |                            |
+| Access Token URL (URL du jeton d’accès)      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                    |                            |
+| Client ID (ID client)             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | ID de l'application             |
+| Client Secret (Clé secrète client)         | `XXXXXXXX`                                                                                                      | Clé client secrète          |
+| Scope (Étendue) | `<Leave Blank>` | L’étendue n’est pas utilisée ; par conséquent, il peut être laissé vide.  
+| State                 | `1234`     | L' [État](https://learning.postman.com/docs/sending-requests/authorization/) est une valeur opaque pour empêcher la falsification de requête intersites. Elle est facultative et peut prendre une valeur arbitraire telle que « 1234 ».                           |
 | Client Authentication (Authentification du client) | Envoyer les informations d’identification du client dans le corps                                                                                 |                 
 
 Sélectionnez le **jeton de demande** pour être guidé via le Azure Active Directory le workflow d’authentification, et un jeton sera renvoyé à la publication. En cas d’échec de l’authentification, reportez-vous à la console du poste de publication pour plus d’informations. **Remarque**: dans le ruban, sélectionnez **affichage**, puis sélectionnez **afficher la console du poste**. Le raccourci clavier vers la console poster est **ALT-CTRL + C**.
@@ -133,7 +136,7 @@ Sélectionnez **Envoyer** pour déterminer que le patient est correctement cré�
 
 ![Capture d’écran montrant que le patient est correctement créé.](media/tutorial-postman/postman-patient-created.png)
 
-Si vous répétez cette recherche de patient, vous obtenez maintenant l’enregistrement du patient :
+Si vous répétez la recherche de patient, vous devriez maintenant voir l’enregistrement du patient.
 
 ![Patient créé](media/tutorial-postman/postman-patient-found.png)
 

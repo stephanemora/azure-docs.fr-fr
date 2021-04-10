@@ -4,15 +4,15 @@ description: Accédez rapidement à vos données de télémétrie des requêtes 
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d412441a7a80a14a0bc7a70de8020692f8f573d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94538493"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642716"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Données de télémétrie Application Insights dans Visual Studio CodeLens
-Les méthodes indiquées dans le code de votre application web peuvent être annotées avec des données de télémétrie sur les exceptions runtime et les temps de réponse des requêtes. Si vous installez [Azure Application Insights](./app-insights-overview.md) dans votre application, les données de télémétrie s’affichent dans Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015) ; il s’agit des notes en haut de chaque fonction où vous avez l’habitude de voir des informations utiles telles que le nombre d’emplacements dans lesquels la fonction est référencée ou la dernière personne à l’avoir modifiée.
+Les méthodes indiquées dans le code de votre application web peuvent être annotées avec des données de télémétrie sur les exceptions runtime et les temps de réponse des requêtes. Si vous installez [Azure Application Insights](./app-insights-overview.md) dans votre application, les données de télémétrie s’affichent dans Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens) ; il s’agit des notes en haut de chaque fonction où vous avez l’habitude de voir des informations utiles telles que le nombre d’emplacements dans lesquels la fonction est référencée ou la dernière personne à l’avoir modifiée.
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 

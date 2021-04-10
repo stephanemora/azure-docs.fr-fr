@@ -10,10 +10,10 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
 ms.openlocfilehash: d6edee1f349b37c274f71c9db7abac35f9c88c4a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102557112"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
@@ -53,7 +53,7 @@ Les tailles de la série Edv4 s’exécutent sur les processeurs Intel &reg;​
 Les tailles de la série Edsv4 s’exécutent sur les processeurs Intel &reg;​​Xeon&reg; Platinum 8272CL (Cascade Lake). Les tailles de machine virtuelle Edsv4 proposent jusqu’à 504 Gio de RAM, en plus du stockage SSD local rapide et volumineux (jusqu’à 2 400 Gio). Ces machines virtuelles sont idéales pour les applications d’entreprise gourmandes en mémoire et les applications qui bénéficient d’un stockage local à faible latence et à haut débit.
 
 [ACU](acu.md) : 195-210<br>
-[Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
+[Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
 [Migration dynamique](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>

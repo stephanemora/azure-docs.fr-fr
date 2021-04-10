@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: thvankra
 ms.openlocfilehash: 3e44625d23a302c58ea065a4fc3ecec5605e60b9
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564522"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Gérer les ressources Azure Managed Instance pour Apache Cassandra avec Azure CLI (préversion)

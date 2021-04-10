@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: d2fe8f32ec854e1e6db644a039e6a249cfbddcaa
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 07bbd50dbc415b86aa0c511d46ead9f0612df107
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012885"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642507"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -71,7 +71,7 @@ IoT Hub regroupe les messages dans des lots et écrit les données dans un stock
 
 Vous pouvez utiliser n’importe quelle convention de nommage des fichiers, mais vous devez utiliser tous les jetons listés. IoT Hub écrit dans un objet blob vide s’il n’y a aucune donnée à écrire.
 
-Nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition peut changer pendant un [basculement initié par Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou pendant un [basculement manuel](iot-hub-ha-dr.md#manual-failover) IoT Hub. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. Consultez l’exemple suivant à titre de conseils et d’aide.
+Nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition peut changer pendant un [basculement initié par Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou pendant un [basculement manuel](iot-hub-ha-dr.md#manual-failover) IoT Hub. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path) pour lister les fichiers. Consultez l’exemple suivant à titre de conseils et d’aide.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)

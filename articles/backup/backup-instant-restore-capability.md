@@ -4,12 +4,12 @@ description: Présentation de la fonctionnalité de restauration instantanée et
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 3448b162c17dec2ab5b7637a3527d1c470bd415c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96014446"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102618574"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -112,7 +112,13 @@ Le nouveau modèle n’autorise la suppression du point de restauration (niveau�
 
 ### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Pourquoi ma capture instantanée existe-t-elle toujours, même après la période de conservation définie dans la stratégie de sauvegarde ?
 
-Si le point de récupération dispose d’une capture instantanée et qu’il s’agit du dernier point de récupération disponible, la capture instantanée est conservée jusqu’à la prochaine sauvegarde réussie. Cela est conforme à la stratégie « garbage collection » (GC) désignée. Cette stratégie impose qu’au moins le dernier point de récupération soit toujours présent, en cas d’échec de toutes les sauvegardes suivantes en raison d’un problème de machine virtuelle. Dans des scénarios normaux, les points de récupération sont nettoyés au plus tard 24 heures après leur expiration.
+Si le point de récupération dispose d’une capture instantanée et qu’il s’agit du dernier point de récupération disponible, la capture instantanée est conservée jusqu’à la prochaine sauvegarde réussie. Cela est conforme à la stratégie « garbage collection » (GC) désignée. Cette stratégie impose qu’au moins le dernier point de récupération soit toujours présent, en cas d’échec de toutes les sauvegardes suivantes en raison d’un problème de machine virtuelle. Dans des scénarios normaux, les points de récupération sont nettoyés au plus tard 24 heures après leur expiration. Dans de rares cas, il peut y avoir un ou deux instantanés supplémentaires en raison d’une charge plus importante pour le récupérateur de mémoire (GC).
+
+### <a name="why-do-i-see-more-snapshots-than-my-retention-policy"></a>Pourquoi le nombre d’instantanés est-il supérieur à ma stratégie de rétention ?
+
+Dans un scénario où la stratégie de rétention est définie sur « 1 », vous pouvez trouver deux instantanés. Cela signifie qu’au moins le dernier point de récupération doit toujours être présent, au cas où toutes les sauvegardes ultérieures échoueraient en raison d’un problème de machine virtuelle. Cela peut entraîner la présence de deux instantanés.<br></br>Par conséquent, si la stratégie prévoit « n » instantanés, vous pouvez trouver « n+1 » instantanés à certains moments. En outre, vous pouvez même trouver « n+1+2 » instantanés s’il y a un retard dans le nettoyage de la mémoire. Cela peut se produire à de rares occasions lorsque :
+- Vous nettoyez les instantanés, dont la rétention est passée.
+- Le récupérateur de mémoire du serveur principal est très sollicité.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Je n’ai pas besoin de la fonctionnalité de restauration instantanée. Peut-elle être désactivée ?
 
