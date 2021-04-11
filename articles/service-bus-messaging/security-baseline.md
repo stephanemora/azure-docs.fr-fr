@@ -4,27 +4,27 @@ description: La base de référence de sécurité Service Bus fournit des instru
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 03/29/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8b3a67fc06594a4782ba55c17ab36c0bad9cf2a0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9f437c01b4c8ec1df618ac3f4be9ecd55a930fb1
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100574921"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967788"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Base de référence de sécurité Azure pour Service Bus
 
-La base de référence de sécurité Service Bus contient des recommandations qui vous aideront à améliorer l’état de la sécurité de votre déploiement. La base de référence pour ce service est tirée du [benchmark de sécurité Azure version 1.0](../security/benchmarks/overview-v1.md), qui fournit des recommandations sur la façon de sécuriser vos solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques. Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](../security/benchmarks/security-baselines-overview.md).
+Cette base de référence de sécurité applique les conseils [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) à Service Bus. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure. Le contenu est regroupé par les **contrôles de sécurité** définis par le benchmark de sécurité Azure et les conseils associés applicables à Service Bus. Les **contrôles** non applicables à Service Bus, ou dont la responsabilité incombe à Microsoft, ont été exclus.
 
 Pour voir comment Service Bus est entièrement mappé au benchmark de sécurité Azure, consultez le [fichier de mappage complet de la base de référence de sécurité Service Bus](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
-## <a name="network-security"></a>Sécurité du réseau
+## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Sécurité réseau](../security/benchmarks/security-control-network-security.md).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : sécurité réseau](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1 : Protéger les ressources Azure au sein des réseaux virtuels 
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1 : Protéger les ressources Azure au sein des réseaux virtuels
 
 **Conseils** : L’intégration de Service Bus avec le service Azure Private Link permet un accès privé sécurisé aux fonctionnalités de messagerie à partir de charges de travail telles que les machines virtuelles liées à des réseaux virtuels. Créez une connexion de point de terminaison privé à votre espace de noms Service Bus. Le point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Sachant que l’ensemble du trafic à destination du service peut être routé via le point de terminaison privé, il n’y a aucun besoin de passerelles, d’appareils NAT, de connexions ExpressRoute ou VPN ou d’adresses IP publiques.
 
@@ -34,9 +34,13 @@ Vous pouvez également sécuriser votre espace de noms Azure Service Bus à l’
 
 - [Autoriser l’accès à un espace de noms Azure Service Bus à partir d’adresses ou de plages d’adresses IP spécifiques](service-bus-ip-filtering.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être nécessaire pour les alertes liées à ce contrôle.
+
+**Définitions intégrées d’Azure Policy – Microsoft.ServiceBus** :
+
+[!INCLUDE [Resource Policy for Microsoft.ServiceBus 1.1](../../includes/policy/standards/asb/rp-controls/microsoft.servicebus-1-1.md)]
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des interfaces réseau
 
@@ -52,9 +56,9 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 - [Présentation de la sécurité réseau fournie par Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications avec des adresses IP connues comme étant malveillantes
 
@@ -64,9 +68,9 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 - [Fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
-**Supervision Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
@@ -74,9 +78,9 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 - [Guide pratique pour activer Network Watcher](../network-watcher/network-watcher-create.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions (IDS/IPS) basés sur le réseau
 
@@ -86,19 +90,19 @@ Utilisez Azure Security Center et suivez les recommandations de protection du r�
 
 - [Comment ajouter une règle de pare-feu dans des espaces de noms Service Bus pour une adresse IP spécifiée](service-bus-ip-filtering.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Conseils** : Utilisez les étiquettes de service de réseau virtuel pour définir les contrôles d’accès réseau sur les groupes de sécurité réseau ou le pare-feu Azure qui filtrent le trafic vers et depuis les ressources Service Bus. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple ServiceBus) dans le champ de source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. 
+**Aide** : utilisez les étiquettes de service de réseau virtuel pour définir les contrôles d’accès réseau sur les groupes de sécurité réseau ou le pare-feu Azure qui filtrent le trafic échangé avec des ressources Service Bus. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple ServiceBus) dans le champ de source ou de destination approprié d’une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent. 
 
 - [Présentation et utilisation des balises de service](../virtual-network/service-tags-overview.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -111,15 +115,15 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Stratégie intégrée Azure pour l’espace de noms Service Bus](./policy-reference.md#azure-service-bus-messaging)
+- [Stratégie intégrée Azure pour l’espace de noms Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/policy-reference#azure-service-bus-messaging)
 
-- [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
+- [Exemples Azure Policy pour le réseau](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
 
 - [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
@@ -129,31 +133,31 @@ Utilisez l’une des définitions de stratégie Azure intégrée en lien avec l�
 
 Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes. 
 
-- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md) 
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 - [Guide pratique pour créer un réseau virtuel](../virtual-network/quick-create-portal.md) 
 
 - [Guide pratique pour créer un groupe NSG avec une configuration de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
 **Conseils** : Utilisez le journal d’activité Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à Azure Service Bus. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
 
-## <a name="logging-and-monitoring"></a>Enregistrement et surveillance
+**Supervision Azure Security Center** : Aucune
 
-*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Journalisation et supervision](../security/benchmarks/security-control-logging-monitoring.md).*
+## <a name="logging-and-monitoring"></a>Journalisation et supervision
+
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : journalisation et supervision](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2 : Configurer la gestion des journaux de sécurité centrale
 
@@ -167,9 +171,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
@@ -179,19 +183,23 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/activity-log.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être nécessaire pour les alertes liées à ce contrôle.
+
+**Définitions intégrées d’Azure Policy – Microsoft.ServiceBus** :
+
+[!INCLUDE [Resource Policy for Microsoft.ServiceBus 2.3](../../includes/policy/standards/asb/rp-controls/microsoft.servicebus-2-3.md)]
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
 **Conseils** : Dans Azure Monitor, définissez la période de conservation de votre espace de travail Log Analytics en fonction des obligations réglementaires de votre organisation pour capturer et examiner les incidents liés à Service Bus.
 
-- [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Supervision d’Azure Security Center** : Non applicable
+- [Définir les paramètres de conservation des journaux pour les espaces de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -203,9 +211,9 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -217,27 +225,27 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 - [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : contrôle des accès et des identités](../security/benchmarks/security-control-identity-access-control.md).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : contrôle des accès et des identités](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
 **Conseils** : Le contrôle d’accès en fonction du rôle Azure (Azure RBAC) vous permet de gérer l’accès aux ressources Azure par le biais d’attributions de rôles. Vous pouvez affecter ces rôles à des utilisateurs, regrouper des principaux de service et des identités managées. Les rôles intégrés prédéfinis pour Service Bus peuvent être inventoriés ou interrogés par le biais d’outils tels qu’Azure CLI, Azure PowerShell ou le portail Azure.
 
-- [Rôles Azure intégrés pour Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
+- [Rôles Azure intégrés pour Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/authenticate-application#azure-built-in-roles-for-azure-service-bus)
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole) 
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure Active Directory (Azure AD) avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
 - [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
@@ -247,9 +255,9 @@ L’accès au plan de données pour Service Bus est contrôlé par le biais d’
 
 - [Comprendre les signatures d’accès partagé pour Service Bus](service-bus-sas.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
@@ -267,9 +275,9 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Utilisation d’Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
@@ -279,67 +287,67 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Présentation de l’authentification unique avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Conseils** : Activez Azure Active Directory Multi-Factor Authentication (MFA) et suivez les recommandations Azure Security Center sur la gestion des identités et des accès pour protéger vos ressources Service Bus.
+**Aide** : activez l’authentification multifacteur Azure Active Directory (Azure AD) et suivez les recommandations Azure Security Center sur la gestion des identités et des accès pour protéger vos ressources compatibles Service Bus.
 
-- [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Guide pratique pour activer l’authentification multifacteur dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Guide pratique pour superviser les identités et les accès dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6 : Utiliser des stations de travail sécurisées et gérées par Azure pour les tâches administratives
 
-**Conseils** : Utilisez des stations de travail disposant d’un accès privilégié avec Multi-Factor Authentication (MFA) configuré pour se connecter aux ressources Service Bus et les configurer.
+**Aide** : utilisez des stations de travail disposant d’un accès privilégié avec l’authentification multifacteur configurée pour se connecter aux ressources compatibles Service Bus et les configurer.
 
 - [En savoir plus sur les stations de travail à accès privilégié](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Guide pratique pour activer l’authentification MFA dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Supervision d’Azure Security Center** : Non applicable
+- [Guide pratique pour activer l’authentification multifacteur dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilité** : Customer
 
+**Supervision Azure Security Center** : Aucune
+
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
-**Conseils** : Utilisez les rapports de sécurité Azure Active Directory et la supervision pour détecter les activités suspectes ou potentiellement dangereuses qui se produisent dans l’environnement. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
+**Conseils** : Utilisez les rapports de sécurité Azure Active Directory (Azure AD) et la supervision pour détecter les activités suspectes ou potentiellement dangereuses qui se produisent dans l’environnement. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
 
 - [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
-**Aide** : Utilisez des emplacements nommés Azure AD pour n’autoriser l’accès qu’à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions. 
+**Conseil** : utilisez des emplacements nommés Azure Active Directory (Azure AD) pour n’autoriser l’accès qu’à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
 
 - [Procédure de configuration des emplacements nommés Azure AD](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
-**Conseils** : Utilisez Azure Active Directory (AD) comme système central d’authentification et d’autorisation pour des ressources Azure telles que Service Bus. Ainsi, le mécanisme de contrôle d’accès en fonction du rôle Azure (Azure RBAC) est applicable aux ressources administratives sensibles.
+**Aide** : utilisez Azure Active Directory (Azure AD) comme système central d’authentification et d’autorisation pour des ressources Azure telles que Service Bus. Ainsi, le mécanisme de contrôle d’accès en fonction du rôle Azure (Azure RBAC) est applicable aux ressources administratives sensibles.
 
 - [Création et configuration d’une instance Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-- [Autoriser l’accès aux ressources Service Bus à l’aide d’Azure Active Directory](authenticate-application.md)
-
-**Supervision d’Azure Security Center** : Non applicable
+- [Autoriser l’accès aux ressources Service Bus à l’aide d’Azure AD](authenticate-application.md)
 
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
@@ -347,15 +355,15 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 En outre, effectuez une rotation régulière de la signature d’accès partagé de vos espaces de noms Service Bus.
 
-- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml)
+- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
 - [Comprendre les signatures d’accès partagé pour les espaces de noms Service Bus](service-bus-sas.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
@@ -363,17 +371,17 @@ En outre, effectuez une rotation régulière de la signature d’accès partagé
 
 Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Ensuite, dans Azure Monitor, vous pouvez configurer les alertes de journal souhaitées pour certaines actions qui se produisent dans les journaux.
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [Autoriser l’accès aux ressources Service Bus à l’aide d’Azure Active Directory](authenticate-application.md)
-
-**Supervision d’Azure Security Center** : Non applicable
+- [Autoriser l’accès aux ressources Service Bus à l’aide d’Azure AD](authenticate-application.md)
 
 **Responsabilité** : Customer
 
+**Supervision Azure Security Center** : Aucune
+
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12 : Alerter en cas d’écart de comportement de connexion à un compte
 
-**Conseils** : Utilisez les fonctionnalités de protection des identités et de détection des risques d’Azure Active Directory pour configurer des réponses automatiques aux actions suspectes détectées en lien avec vos ressources Service Bus. Vous devez activer des réponses automatisées via Azure Sentinel pour implémenter les réponses de sécurité de votre organisation.
+**Aide** : utilisez les fonctionnalités de protection des identités et de détection des risques d’Azure AD pour configurer des réponses automatiques aux actions suspectes détectées en lien avec vos ressources Service Bus. Vous devez activer des réponses automatisées via Azure Sentinel pour implémenter les réponses de sécurité de votre organisation.
 
 - [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -381,23 +389,23 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
 **Conseils** : Non disponible ; Customer Lockbox n’est pas encore pris en charge pour Service Bus.
 
-- [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
-
-**Supervision d’Azure Security Center** : Non applicable
+- [Liste des services pris en charge pour Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilité** : Customer
 
-## <a name="data-protection"></a>Protection de données
+**Supervision Azure Security Center** : Aucune
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Protection des données](../security/benchmarks/security-control-data-protection.md).*
+## <a name="data-protection"></a>Protection des données
+
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : protection des données](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
@@ -405,9 +413,9 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
@@ -421,9 +429,9 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour créer un réseau virtuel](../virtual-network/quick-create-portal.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
@@ -441,9 +449,9 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Service Bus et a impl�
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Partagé
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -451,9 +459,9 @@ Microsoft gère l’infrastructure sous-jacente d’Azure Service Bus et a impl�
 
 - [Pour comprendre les fonctionnalités de sécurité de Service Bus, consultez Sécurité réseau](network-security.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Partagé
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
@@ -463,9 +471,9 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Présentation de la protection des données client dans Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
-
 **Responsabilité** : Partagé
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
 
@@ -473,9 +481,9 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Comprendre les rôles Azure RBAC et disponibles pour Azure Service Bus](authenticate-application.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
@@ -483,9 +491,9 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Comment configurer les clés gérées par le client pour le chiffrement des données Azure Service Bus](configure-customer-managed-key.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
@@ -493,9 +501,9 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -511,17 +519,17 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
 **Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
@@ -533,17 +541,17 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
 **Conseils** : Créez un inventaire des ressources Azure et logiciels approuvés pour les ressources de calcul en fonction des besoins de votre organisation.
 
-**Supervision Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -559,9 +567,9 @@ Utilisez également Azure Resource Graph pour interroger et découvrir des resso
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
@@ -576,9 +584,9 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/index.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
@@ -586,32 +594,31 @@ Vous pouvez également créer des définitions de stratégie personnalisées si 
 
 - [Configuration de l’accès conditionnel pour bloquer l’accès à Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Configuration sécurisée](../security/benchmarks/security-control-secure-configuration.md).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : Configuration sécurisée](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1 : Établir des configurations sécurisées pour toutes les ressources Azure
 
 **Conseils** : Définissez et implémentez des configurations de sécurité standard pour vos déploiements Azure Service Bus. Vous pouvez également utiliser des définitions de stratégie intégrées pour Azure Service Bus, par exemple :
-
 - Les journaux de diagnostic dans Service Bus doivent être activés
 - Service Bus doit utiliser un point de terminaison de service de réseau virtuel pour limiter le trafic réseau vers vos réseaux privés.
 
 Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ServiceBus » pour créer des stratégies personnalisées d’audit ou d’application de configurations.
 
-- [Stratégies intégrées Azure pour Service Bus ](./policy-reference.md)
+- [Stratégies intégrées Azure pour Service Bus ](policy-reference.md)
 
 - [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -621,9 +628,9 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ServiceBus
 
 - [Pour plus d’informations sur les effets d’Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -631,9 +638,9 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ServiceBus
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -641,23 +648,23 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ServiceBus
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
-**Conseils** :  Pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos entités Service Bus, utilisez Managed Service Identity conjointement avec Azure Key Vault afin de simplifier et sécuriser la gestion des signatures d’accès partagé pour vos déploiements Azure Service Bus. Vérifiez que la suppression réversible est activée dans Key Vault.
+**Aide** : pour les machines virtuelles Azure ou les applications web s’exécutant sur Azure App Service utilisées pour accéder à vos entités Service Bus, utilisez Managed Service Identity conjointement avec Azure Key Vault afin de simplifier et sécuriser la gestion des signatures d’accès partagé pour vos déploiements Azure Service Bus. Vérifiez que la suppression réversible est activée dans Key Vault.
 
-- [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Service Bus](service-bus-managed-service-identity.md)
+- [Authentifier une identité managée avec Azure Active Directory (Azure AD) pour accéder aux ressources Service Bus](service-bus-managed-service-identity.md)
 
 - [Configurer les clés gérées par le client pour Service Bus](configure-customer-managed-key.md)
 
 - [Créer un coffre de clés](../key-vault/general/quick-create-portal.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
@@ -665,13 +672,13 @@ Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.ServiceBus
 
 Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure Active Directory (Azure AD). Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Azure Key Vault, sans informations d’identification dans votre code.
 
-- [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Service Bus](service-bus-managed-service-identity.md)
+- [Authentifier une identité managée avec Azure AD pour accéder aux ressources Service Bus](service-bus-managed-service-identity.md)
 
 - [Configurer les clés gérées par le client pour Service Bus](configure-customer-managed-key.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -679,9 +686,9 @@ Utilisez des identités managées pour fournir aux services Azure une identité 
 
 - [Configurer Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -693,13 +700,13 @@ Utilisez des identités managées pour fournir aux services Azure une identité 
 
 Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte sous-jacent qui prend en charge les services Azure, mais il ne s’exécute pas sur le contenu client.
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Partagé
 
-## <a name="data-recovery"></a>Récupération de données
+**Supervision Azure Security Center** : Aucune
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Récupération de données](../security/benchmarks/security-control-data-recovery.md).*
+## <a name="data-recovery"></a>Récupération des données
+
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : récupération de données](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : Garantir des sauvegardes automatiques régulières
 
@@ -707,9 +714,9 @@ Le logiciel anti-programme malveillant de Microsoft est activé sur l’hôte so
 
 - [Comprendre la géo-reprise d'activité après sinistre pour Azure Service Bus](service-bus-geo-dr.md)
 
-**Supervision d’Azure Security Center** : actuellement non disponible
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
@@ -721,9 +728,9 @@ Veillez à effectuer des sauvegardes automatisées régulières de vos secrets K
 
 - [Comment sauvegarder des secrets Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
@@ -731,27 +738,27 @@ Veillez à effectuer des sauvegardes automatisées régulières de vos secrets K
 
 - [Comment configurer les clés gérées par le client pour le chiffrement des données Azure Service Bus au repos](configure-customer-managed-key.md)
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
-
-**Supervision d’Azure Security Center** : Non applicable
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés gérées par le client
 
 **Aide** : Activez la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante. Azure Service Bus nécessite que les fonctionnalités Suppression réversible et Ne pas vider soient configurées pour les clés gérées par le client.
 
-- [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Activation de la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md)
 
 - [Configurer un coffre de clés avec des clés](../event-hubs/configure-customer-managed-key.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](../security/benchmarks/security-control-incident-response.md).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : réponse aux incidents](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -763,13 +770,13 @@ Veillez à effectuer des sauvegardes automatisées régulières de vos secrets K
 
 - [Utiliser le guide de gestion des incidents de sécurité informatique du NIST pour faciliter la création de votre propre plan de réponse aux incidents](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
-**Aide** : Azure Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
+**Aide** : Azure Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou à l’analytique utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
 
 En outre, marquez les abonnements à l’aide d’étiquettes et créez un système de nommage pour identifier et classer les ressources Azure, en particulier celles qui traitent des données sensibles. Il vous incombe de hiérarchiser le traitement des alertes en fonction de la criticité des ressources et de l’environnement Azure où l’incident s’est produit. 
 
@@ -777,9 +784,9 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -787,9 +794,9 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Publication du NIST : Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities (Guide de test, d’entraînement et d’utilisation des programmes destinés aux plans et fonctionnalités informatiques)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -797,9 +804,9 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Comment définir le contact de sécurité d’Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervision d’Azure Security Center** : Oui
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -809,25 +816,23 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
-**Aide** : 
-
-Utilisez la fonctionnalité d’automatisation de workflow d’Azure Security Center pour déclencher automatiquement des réponses aux alertes et aux recommandations de sécurité afin de protéger vos ressources Azure. 
+**Conseils** : Utilisez la fonctionnalité d’automatisation de workflow d’Azure Security Center pour déclencher automatiquement des réponses aux alertes et aux recommandations de sécurité afin de protéger vos ressources Azure. 
 
 - [Comment configurer l’automatisation du workflow dans Security Center](../security-center/workflow-automation.md)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Customer
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d'informations, consultez [Benchmark de sécurité Azure : Tests d’intrusion et exercices Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Pour plus d’informations, consultez [Benchmark de sécurité Azure : tests d’intrusion et exercices Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1 : Procéder régulièrement à des tests d’intrusion des ressources Azure et veiller à corriger tous les problèmes de sécurité critiques détectés
 
@@ -837,11 +842,11 @@ Utilisez la fonctionnalité d’automatisation de workflow d’Azure Security Ce
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervision d’Azure Security Center** : Non applicable
-
 **Responsabilité** : Partagé
+
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter le [benchmark de sécurité Azure](../security/benchmarks/overview.md)
-- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
+- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)

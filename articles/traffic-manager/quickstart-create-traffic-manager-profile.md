@@ -4,7 +4,6 @@ description: Cet article de démarrage rapide décrit comment créer un profil T
 services: traffic-manager
 author: duongau
 manager: twooley
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
-ms.openlocfilehash: 45489d3500a4a744f2aeb34dc21122d180797133
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1a26becbc7ffaddc09dc06c5dff12f83deaa9ee2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92101308"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067212"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
 
