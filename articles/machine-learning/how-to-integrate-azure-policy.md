@@ -4,27 +4,30 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser Azure Policy pour utiliser des stratégies intégrées pour Azure Machine Learning afin de vous assurer que vos espaces de travail sont conformes à vos besoins.
 author: aashishb
 ms.author: aashishb
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 21b07130e99ad4fac9a0a9b2d11aca852a1f205f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f708e2181511da97ecffcd6f1636a2b232b4fbc6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584310"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105544364"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Auditer et gérer Azure Machine Learning à l'aide d'Azure Policy
 
 [Azure Policy](../governance/policy/index.yml) est un outil de gouvernance qui vous permet de vous assurer que les ressources Azure sont conformes à vos stratégies. Avec Azure Machine Learning, vous pouvez attribuer les stratégies suivantes :
 
-* **Clé gérée par le client** : auditez ou appliquez une valeur indiquant si les espaces de travail doivent utiliser une clé gérée par le client.
-* **Liaison privée** : Auditer ou appliquer si les espaces de travail utilisent un point de terminaison privé pour communiquer avec un réseau virtuel.
-* **Point de terminaison privé** : configurez le sous-réseau du réseau virtuel Azure sur lequel le point de terminaison privé doit être créé.
-* **Zone DNS privée** : configurez la zone DNS privée à utiliser pour la liaison privée.
+| Stratégie | Description |
+| ----- | ----- |
+| **Clé gérée par le client** | auditez ou appliquez une valeur indiquant si les espaces de travail doivent utiliser une clé gérée par le client. |
+| **Liaison privée** | Auditez ou appliquez une valeur indiquant si les espaces de travail utilisent un point de terminaison privé pour communiquer avec un réseau virtuel. |
+| **Point de terminaison privé** | Configurez le sous-réseau du réseau virtuel Azure sur lequel le point de terminaison privé doit être créé. |
+| **Zone DNS privée** | Configurez la zone DNS privée à utiliser pour la liaison privée. |
+| **Identité managée affectée par l’utilisateur** | Auditez ou appliquez une valeur indiquant si les espaces de travail utilisent une identité gérée affectée par l’utilisateur. |
 
 Les stratégies peuvent être définies sur des étendues différentes, par exemple au niveau de l'abonnement ou du groupe de ressources. Pour plus d'informations, consultez la [documentation relative à Azure Policy](../governance/policy/overview.md).
 
@@ -62,12 +65,20 @@ Si la stratégie est définie sur __deny__, vous ne pouvez pas créer d’espace
 
 Configure un espace de travail pour créer un point de terminaison privé dans le sous-réseau spécifié d’un réseau virtuel Azure.
 
-Pour configurer cette stratégie, définissez le paramètre d’effet sur __DeployIfNotExists__. Définissez __privateEndpointSubnetID__ sur l’ID Azure Resource Manager du sous-réseau.
+Pour configurer cette stratégie, définissez le paramètre d’effet sur __DeployIfNotExists__. Définissez le __privateEndpointSubnetID__ sur l’ID Azure Resource Manager du sous-réseau.
 ## <a name="workspace-should-use-private-dns-zones"></a>L’espace de travail doit utiliser des zones DNS privées
 
 Configure un espace de travail pour utiliser une zone DNS privée, en remplaçant la résolution DNS par défaut pour un point de terminaison privé.
 
 Pour configurer cette stratégie, définissez le paramètre d’effet sur __DeployIfNotExists__. Définissez __privateDnsZoneId__ sur l’ID Azure Resource Manager de la zone DNS privée à utiliser. 
+
+## <a name="workspace-should-use-user-assigned-managed-identity"></a>L’espace de travail doit utiliser une identité gérée affectée par l’utilisateur
+
+Contrôle si un espace de travail est créé à l’aide d’une identité gérée affectée par le système (valeur par défaut) ou d’une identité gérée affectée par l’utilisateur. L’identité gérée de l’espace de travail est utilisée pour accéder aux ressources associées telles que le stockage Azure, Azure Container Registry, Azure Key Vault et Azure Application Insights. Pour plus d’informations, consultez [Utiliser les identités managées avec Azure Machine Learning](how-to-use-managed-identities.md).
+
+Pour configurer cette stratégie, définissez le paramètre d'effet sur __audit__, __deny__ ou __disabled__. Si la valeur est définie sur __audit__, vous pouvez créer un espace de travail sans spécifier d’identité gérée affectée à l'utilisateur. Une identité affectée par le système est utilisée et un événement d’avertissement est créé dans le journal d’activité.
+
+Si la stratégie est définie sur __deny__, vous ne pouvez pas créer un espace de travail, sauf si vous fournissez une identité affectée par l’utilisateur pendant le processus de création. Une erreur survient si vous essayez de créer un espace de travail sans fournir d’identité affectée par l’utilisateur. L’erreur est également consignée dans le journal d’activité. L’identificateur de la stratégie est renvoyé dans le cadre de cette erreur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

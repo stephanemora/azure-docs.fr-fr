@@ -4,10 +4,10 @@ description: Créez un cluster Azure Service Fabric sur n’importe quel ordinat
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98785682"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server

@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101678378"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561234"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>Vue d’ensemble de la mise à jour des appareils pour IoT Hub Agent
 
 L’Agent de mise à jour des appareils se compose de deux couches conceptuelles :
 
-* La couche d’interface s’appuie sur [Azure IoT Plug-and-Play (PNP),](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play), ce qui permet aux messages de circuler entre l’Agent de mise à jour des appareils et les Services de mise à jour des appareils.
+* La couche d’interface s’appuie sur [Azure IoT Plug-and-Play (PNP),](../iot-pnp/overview-iot-plug-and-play.md), ce qui permet aux messages de circuler entre l’Agent de mise à jour des appareils et les Services de mise à jour des appareils.
 * La couche de plateforme est en charge des actions générales de mise à jour du téléchargement, de l’installation et de l’application qui peuvent être spécifiques à la plateforme ou aux appareils.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="Implémentations d’agent." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -72,8 +72,7 @@ Le Gestionnaire de mise à jour APT traite un manifeste de mise à jour spécifi
 
 ## <a name="self-update-device-update-agent"></a>Mettre automatiquement à jour l’Agent de mise à jour des appareils
 
-L’Agent de mise à jour des appareils et ses dépendances peuvent être mis à jour par le biais de la Mise à jour des appareils pour IoT Hub Pipeline. Si vous utilisez une mise à jour basée sur une image, incluez l’Agent de mise à jour des appareils le plus récent dans votre nouvelle image. Si vous utilisez une mise à jour basée sur un package, incluez l’Agent de mise à jour des appareils et sa version souhaitée dans le manifeste APT comme n’importe quel autre package. [Découvrez-en plus](device-update-apt-manifest.md) sur le manifeste APT. Vous pouvez vérifier la version installée de l’Agent de mise à jour des appareils et de l’Agent d’optimisation de la distribution dans la section Propriétés de l’appareil de votre [jumeau d’appareil IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins). [Découvrez-en plus sur les propriétés de l’appareil dans l’interface ADU Core](device-update-plug-and-play.md#device-properties).
+L’Agent de mise à jour des appareils et ses dépendances peuvent être mis à jour par le biais de la Mise à jour des appareils pour IoT Hub Pipeline. Si vous utilisez une mise à jour basée sur une image, incluez l’Agent de mise à jour des appareils le plus récent dans votre nouvelle image. Si vous utilisez une mise à jour basée sur un package, incluez l’Agent de mise à jour des appareils et sa version souhaitée dans le manifeste APT comme n’importe quel autre package. [Découvrez-en plus](device-update-apt-manifest.md) sur le manifeste APT. Vous pouvez vérifier la version installée de l’Agent de mise à jour des appareils et de l’Agent d’optimisation de la distribution dans la section Propriétés de l’appareil de votre [jumeau d’appareil IOT](../iot-hub/iot-hub-devguide-device-twins.md). [Découvrez-en plus sur les propriétés de l’appareil dans l’interface ADU Core](device-update-plug-and-play.md#device-properties).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Comprendre le fichier de configuration de l’Agent de mise à jour des appareils](device-update-configuration-file.md)
-

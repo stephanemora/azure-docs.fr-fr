@@ -8,29 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 62417b575e142d044e599249a529328a41c9b8d7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: a2167d573871481c99b755fc713e18543d74c5bf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102637300"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104602675"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Définir un mot de passe Azure Resource Manager sur un appareil Azure Stack Edge Pro avec GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Cet article explique comment définir votre mot de passe Azure Resource Manager. Vous devez définir ce mot de passe lorsque vous vous connectez aux API locales de l’appareil via Azure Resource Manager.
+Cet article explique comment définir votre mot de passe Azure Resource Manager. Vous devez définir ce mot de passe lorsque [vous vous connectez aux API locales de l’appareil via Azure Resource Manager](azure-stack-edge-gpu-connect-resource-manager.md). 
 
 <!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Réinitialiser le mot de passe via le portail Azure
 
-1. Dans le portail Azure, accédez à la ressource Azure Stack Edge que vous avez créée pour gérer votre appareil. Accédez à **Services Edge > Passerelle de stockage cloud**.
+1. Dans le portail Azure, accédez à la ressource Azure Stack Edge que vous avez créée pour gérer votre appareil. 
 
-    ![Réinitialiser le mot de passe utilisateur EdgeARM 1](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-1.png)
-
-2. Dans le volet droit, à partir de la barre de commandes, sélectionnez **Réinitialiser le mot de passe ARM Edge**. 
+2. Accédez à **Propriétés**. Dans le volet droit, à partir de la barre de commandes, sélectionnez **Réinitialiser le mot de passe ARM Edge**. 
 
     ![Réinitialiser le mot de passe utilisateur EdgeARM 2](media/azure-stack-edge-gpu-set-azure-resource-manager-password/set-edgearm-password-2.png)
 

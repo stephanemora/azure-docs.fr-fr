@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101678376"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561166"
 ---
 # <a name="device-update-apt-manifest"></a>Manifeste APT Device Update
 
@@ -103,7 +103,7 @@ Si la version est omise, la dernière version disponible du package spécifié s
 > Le gestionnaire de package APT ignore les spécifications de version données par un package quand les packages dépendants à installer sont résolus automatiquement. À moins que des versions explicites des packages dépendants ne soient fournies, elles utiliseront la dernière version, même si le package lui-même peut spécifier une exigence stricte (=) sur une version donnée. Cette résolution automatique peut entraîner des erreurs concernant une dépendance non satisfaite. [En savoir plus](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Si vous mettez à jour une version spécifique du démon de sécurité d’Azure IoT Edge, vous devez inclure la version souhaitée du package `iotedge` et son package dépendant `libiothsm-std` dans votre manifeste APT.
-[En savoir plus](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[En savoir plus](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Un manifeste APT peut être utilisé pour mettre à jour l’agent Device Update et ses dépendances. Spécifiez le nom et la version souhaitée de l’agent Device Update dans le manifeste APT, comme vous le feriez pour n’importe quel autre package. Ce manifeste APT peut ensuite être importé et déployé via le pipeline Device Update pour IoT Hub. 
@@ -202,4 +202,3 @@ Cette mise à jour inclut le package « foo » et inclut également le package
 
 > [!div class="nextstepaction"]
 > [Importer une nouvelle mise à jour](import-update.md)
-

@@ -216,7 +216,9 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure
               href: azure-to-azure-replicate-after-migration.md
-            - name: Reprise d’activité de zone à zone
+        - name: Reprise d’activité de zone à zone
+          items:
+            - name: Activer la réplication entre les zones d’une région
               href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Gérer
           items:

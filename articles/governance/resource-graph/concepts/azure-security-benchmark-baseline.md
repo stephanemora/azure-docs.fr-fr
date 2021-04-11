@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5e01c8d1ac16e5e8be405660a0726796789e645
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ad8968fdb6548da29a031f0e44bd3671f67b5553
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738971"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557715"
 ---
 # <a name="azure-security-baseline-for-azure-resource-graph"></a>Base de référence de sécurité Azure pour Azure Resource Graph
 
@@ -30,13 +30,13 @@ Pour voir comment Azure Resource Graph est entièrement mappé à Azure Security
 
 **Conseil** : Azure Resource Graph permet d’accéder aux types et aux propriétés des ressources sur la base du contrôle d’accès en fonction du rôle Azure (Azure RBAC). Auditez et passez en revue régulièrement l’accès accordé aux principaux de sécurité (utilisateurs, groupes et comptes de service) pour vous assurer que les requêtes retournent les résultats des ressources appropriées.
 
-- [Autorisations dans Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Autorisations dans Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [Comment utiliser les révisions d’accès des identités Azure](../../../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -46,13 +46,13 @@ Pour voir comment Azure Resource Graph est entièrement mappé à Azure Security
 
 **Conseil** : utilisez Azure RBAC pour contrôler l’accès aux données et aux ressources. Pour utiliser Azure Resource Graph, vous devez également disposer d’un accès approprié aux ressources que vous souhaitez interroger. Cet accès doit être limité en lecture seule et accordé uniquement au personnel requis.
 
-- [Autorisations dans Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Autorisations dans Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [Comment configurer Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -68,7 +68,7 @@ Pour voir comment Azure Resource Graph est entièrement mappé à Azure Security
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
@@ -80,7 +80,7 @@ Pour voir comment Azure Resource Graph est entièrement mappé à Azure Security
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -92,9 +92,9 @@ Pour voir comment Azure Resource Graph est entièrement mappé à Azure Security
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../../../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../../../security/benchmarks/security-baselines-overview.md)

@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Custom Vision pour créer un mod�
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e6b911ad555c4ce10a9576861e1c2e650e63cd94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698805"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561200"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Live Video Analytics sur IoT Edge et Azure Custom Vision
 
@@ -77,7 +77,7 @@ Dans ce tutoriel, vous allez utiliser Live Video Analytics sur IoT Edge afin de 
 
 Ce diagramme montre comment les signaux circulent dans ce tutoriel. Un [module de périphérie](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simule une caméra IP hébergeant un serveur RTSP (Real-Time Streaming Protocol). Un nœud [source RTSP](media-graph-concept.md#rtsp-source) extrait le flux vidéo provenant de ce serveur et envoie des images vidéo au nœud [processeur d’extension HTTP](media-graph-concept.md#http-extension-processor).
 
-Le nœud d’extension HTTP joue le rôle d’un proxy.  Il échantillonne les images vidéo entrantes définies par vous à l’aide du champ `samplingOptions` et convertit également les images vidéo vers le type d’image spécifié. Ensuite, il relaie l’image sur REST vers un autre module de périphérie qui exécute un modèle IA derrière un point de terminaison HTTP. Dans cet exemple, ce module Edge est le modèle de détecteur de camion jouet créé à l’aide de Custom Vision. Le nœud processeur d’extension HTTP collecte les résultats de la détection et publie les événements sur le nœud [récepteur Azure IoT Hub](media-graph-concept.md#iot-hub-message-sink). Le nœud envoie ensuite ces événements au [hub IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+Le nœud d’extension HTTP joue le rôle d’un proxy.  Il échantillonne les images vidéo entrantes définies par vous à l’aide du champ `samplingOptions` et convertit également les images vidéo vers le type d’image spécifié. Ensuite, il relaie l’image sur REST vers un autre module de périphérie qui exécute un modèle IA derrière un point de terminaison HTTP. Dans cet exemple, ce module Edge est le modèle de détecteur de camion jouet créé à l’aide de Custom Vision. Le nœud processeur d’extension HTTP collecte les résultats de la détection et publie les événements sur le nœud [récepteur Azure IoT Hub](media-graph-concept.md#iot-hub-message-sink). Le nœud envoie ensuite ces événements au [hub IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 ## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Créer et déployer un modèle de détection de jouet avec Custom Vision 
 

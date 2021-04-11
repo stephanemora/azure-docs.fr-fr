@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940303"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866316"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analyser des journaux d’activité de site web en utilisant une bibliothèque Python personnalisée avec un cluster Apache Spark sur HDInsight
 
@@ -30,11 +30,11 @@ Une fois vos données enregistrées dans une table Apache Hive, vous allez vous 
 
 1. Créer un nouveau bloc-notes. Sélectionnez **Nouveau**, puis **PySpark**.
 
-    ![Création d’un notebook Apache Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "Création d’un notebook Jupyter")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="Créer un Jupyter Notebook Apache" border="true":::Notebook" border="true":::
 
 1. Un nouveau bloc-notes est créé et ouvert sous le nom Untitled.pynb. Sélectionnez le nom du bloc-notes en haut, puis entrez un nom convivial.
 
-    ![Fournir un nom au notebook](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "Fournir un nom pour le bloc-notes")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="Fournir un nom pour le notebook" border="true":::tebook" border="true":::
 
 1. Comme vous avez créé un notebook à l’aide du noyau PySpark, il est inutile de créer des contextes explicitement. Les contextes Spark et Hive sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous pouvez commencer par importer les types requis pour ce scénario. Collez l’extrait de code suivant dans une cellule vide, puis appuyez sur **Maj+ Entrée**.
 
@@ -173,7 +173,7 @@ Une fois vos données enregistrées dans une table Apache Hive, vous allez vous 
 
    Un résultat similaire à l’image suivante s’affiche normalement :
 
-   ![Sortie de requête SQL HDInsight Jupyter](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "Sortie de requête SQL")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="hdinsight jupyter sql query output" border="true":::yter sql query output" border="true":::
 
    Pour plus d’informations sur `%%sql` Magic, consultez [Paramètres pris en charge avec %%SQL Magic](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
@@ -191,7 +191,7 @@ Une fois vos données enregistrées dans une table Apache Hive, vous allez vous 
 
    Un résultat similaire à l’image suivante s’affiche normalement :
 
-   ![Tracé de l’analyse des journaux web Apache Spark](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Sortie Matplotlib")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="apache spark web log analysis plot" border="true":::eb log analysis plot" border="true":::
 
 1. Une fois l’exécution de l’application terminée, fermez le bloc-notes pour libérer les ressources. Pour ce faire, dans le menu **Fichier** du bloc-notes, sélectionnez **Fermer et arrêter**. Cette action permet d’arrêter et de fermer le notebook.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 9ffba221625c57332cd695125651d92adc11cf60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 467b7d605b57c479d84fc995b4e0dc53b3ac5275
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200373"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558293"
 ---
 # <a name="test-a-virtual-machine-image"></a>Tester une image de machine virtuelle
 
@@ -28,7 +28,7 @@ Pour déployer une machine virtuelle à partir de l’image de Shared Image Gall
 1. Cliquez sur Vérifier + créer. Une fois la validation effectuée, cliquez sur Créer.
 
 > [!NOTE]
-> Si vous avez besoin de créer une machine virtuelle à partir d’un fichier VHD, suivez les instructions des articles suivants, [Préparer un modèle de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) ou [Déployer une machine virtuelle Azure à l’aide de PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+> Si vous avez besoin de créer une machine virtuelle à partir d’un fichier VHD, suivez les instructions des articles suivants, [Préparer un modèle de Azure Resource Manager](#connect-the-certification-tool-to-a-vm-image) ou [Déployer une machine virtuelle Azure à l’aide de PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
 
 Cet article explique comment tester et envoyer une image de machine virtuelle vers la Place de marché commerciale afin de vérifier qu’elle répond aux exigences de publication les plus récentes de la Place de marché Azure.
 

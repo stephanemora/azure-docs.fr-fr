@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729961"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031543"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Démarrage rapide : Afficher un modèle avec Unity
 
@@ -37,10 +37,7 @@ Les logiciels suivants doivent être installés :
   * **Développement Desktop en C++**
   * **Développement de la plateforme Windows universelle (UWP)**
 * Git [(télécharger)](https://git-scm.com/downloads)
-* Unity 2019.3.1 [(télécharger)](https://unity3d.com/get-unity/download)
-  * Installez les modules ci-dessous dans Unity :
-    * **UWP** : prise en charge de la build de la plateforme Windows universelle
-    * **IL2CPP** - Prise en charge de la génération dans Windows (IL2CPP)
+* Unity (pour connaître les versions prises en charge, consultez la [configuration système requise](../overview/system-requirements.md#unity))
 
 ## <a name="clone-the-sample-app"></a>Clonage de l’exemple d’application
 

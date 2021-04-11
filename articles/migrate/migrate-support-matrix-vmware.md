@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4d51fc13e3587c21a7340b35db10d3cf36ab74b5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870736"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557545"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -94,8 +94,8 @@ La [découverte d’application](how-to-discover-applications.md) identifie les 
 **Services SQL pris en charge** | Seul le moteur de base de données SQL Server est pris en charge. <br/> La découverte de SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS) et SQL Server Analysis Services (SSAS) n’est pas prise en charge.
 
 > [!Note]
-> Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur true). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [**approuver l’autorité racine du certificat**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [**En savoir plus**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur true). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [**approuver l’autorité racine du certificat**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [**En savoir plus**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Conditions relatives à l’analyse des dépendances (sans agent)
 

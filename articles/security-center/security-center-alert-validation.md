@@ -1,24 +1,18 @@
 ---
 title: Validation des alertes dans Azure Security Center | Microsoft Docs
 description: Découvrir comment vérifier que vos alertes de sécurité sont correctement configurées dans Azure Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b90ca39d7bf01b84400464240bb581a5e7bc922a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099520"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602381"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validation des alertes dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.
@@ -39,7 +33,7 @@ Utilisez des exemples d’alertes pour :
 
 Pour créer des exemples d’alertes :
 
-1. Dans la barre d’outils de la page des alertes, sélectionnez **Créer des exemples d’alertes**. 
+1. En tant qu’utilisateur avec le rôle **Administrateur de la sécurité** ou **Collaborateur de l’abonnement**, dans la barre d’outils de la page Alertes, sélectionnez **Créer des exemples d’alertes**.
 1. Sélectionnez l’abonnement.
 1. Sélectionnez le ou les plans Azure Defender appropriés pour lesquels vous souhaitez afficher les alertes. 
 1. Sélectionnez **Créer des exemples d’alertes**.
