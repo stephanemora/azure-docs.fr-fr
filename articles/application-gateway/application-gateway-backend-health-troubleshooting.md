@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1373e0eeead805dcd3a439878c9737c46d75bf3b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99592753"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078500"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 ==================================================
@@ -176,12 +176,12 @@ Vérifiez également qu’aucun NSG, UDR ou pare-feu ne bloque l’accès à l�
 
 | **Error** | **Actions** |
 | --- | --- |
-| Non-correspondance du code d’état de la sonde : Réponse 401 reçue | Vérifiez si le serveur back-end nécessite une authentification. Les sondes Application Gateway ne peuvent pas transmettre d’informations d’identification pour l’authentification. Autorisez la réponse \"HTTP 401\" dans une correspondance de code d’état de la sonde ou configurez la sonde sur un chemin où le serveur ne nécessite pas d’authentification. | |
-| Non-correspondance du code d’état de la sonde : Réponse 403 reçue | Accès interdit. Vérifiez que l’accès au chemin est autorisé sur le serveur back-end. | |
-| Non-correspondance du code d’état de la sonde : Réponse 404 reçue | Page introuvable. Vérifiez si le chemin du nom d’hôte est accessible sur le serveur back-end. Affectez au paramètre du chemin ou du nom d’hôte une valeur accessible. | |
-| Non-correspondance du code d’état de la sonde : Réponse 405 reçue | Les demandes de sondage d’Application Gateway utilisent la méthode HTTP GET. Vérifiez que votre serveur autorise cette méthode. | |
-| Non-correspondance du code d’état de la sonde : Réponse 500 reçue | Erreur interne du serveur. Vérifiez l’intégrité du serveur back-end et vérifiez si les services sont en cours d’exécution. | |
-| Non-correspondance du code d’état de la sonde : Réponse 503 reçue | Service indisponible. Vérifiez l’intégrité du serveur back-end et vérifiez si les services sont en cours d’exécution. | |
+| Non-correspondance du code d’état de la sonde : Réponse 401 reçue | Vérifiez si le serveur back-end nécessite une authentification. Les sondes Application Gateway ne peuvent pas transmettre d’informations d’identification pour l’authentification. Autorisez la réponse \"HTTP 401\" dans une correspondance de code d’état de la sonde ou configurez la sonde sur un chemin où le serveur ne nécessite pas d’authentification. |
+| Non-correspondance du code d’état de la sonde : Réponse 403 reçue | Accès interdit. Vérifiez que l’accès au chemin est autorisé sur le serveur back-end. |
+| Non-correspondance du code d’état de la sonde : Réponse 404 reçue | Page introuvable. Vérifiez si le chemin du nom d’hôte est accessible sur le serveur back-end. Affectez au paramètre du chemin ou du nom d’hôte une valeur accessible. |
+| Non-correspondance du code d’état de la sonde : Réponse 405 reçue | Les demandes de sondage d’Application Gateway utilisent la méthode HTTP GET. Vérifiez que votre serveur autorise cette méthode. |
+| Non-correspondance du code d’état de la sonde : Réponse 500 reçue | Erreur interne du serveur. Vérifiez l’intégrité du serveur back-end et vérifiez si les services sont en cours d’exécution. |
+| Non-correspondance du code d’état de la sonde : Réponse 503 reçue | Service indisponible. Vérifiez l’intégrité du serveur back-end et vérifiez si les services sont en cours d’exécution. |
 
 Si vous pensez que la réponse est légitime et que vous souhaitez qu’Application Gateway considère d’autres codes d’état comme sains, vous pouvez créer une sonde personnalisée. Cette approche est utile dans les situations où le site web back-end nécessite une authentification. Les demandes de sondage échouent, car elles ne contiennent pas d’informations d’identification d’utilisateur. Un code d’état HTTP 401 est alors retourné par le serveur back-end.
 

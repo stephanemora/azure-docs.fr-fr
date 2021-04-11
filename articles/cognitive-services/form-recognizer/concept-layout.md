@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cc19d5652f416657cbcd339de61379265587b4e7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467015"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505380"
 ---
 # <a name="form-recognizer-layout-service"></a>Service Layout de Form Recognizer
 
-Azure Form Recognizer peut extraire du texte, des tables, des marques de sélection et des informations de structure dans des documents à l’aide de son service Layout. L’API de disposition permet aux clients de prendre des documents dans une multitude de formats et de renvoyer des représentations de données structurées des documents. Elle combine nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles Deep Learning pour extraire le texte, les tableaux, les marques de sélection et la structure du document. 
+Azure Form Recognizer peut extraire du texte, des tables, des marques de sélection et des informations de structure dans des documents à l’aide de son service Layout. L’API de disposition permet aux clients de prendre des documents dans une multitude de formats et de renvoyer des représentations de données structurées des documents. Elle combine nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des modèles Deep Learning pour extraire le texte, les tableaux, les marques de sélection et la structure du document. 
 
 ## <a name="what-does-the-layout-service-do"></a>Comment fonctionne le service Layout ?
 
@@ -32,7 +32,7 @@ L’API de disposition extrait le texte, les tableaux, les marques de sélection
 Pour tester le service Layout de Form Recognizer, accédez à l’outil d’exemple d’interface utilisateur en ligne :
 
 > [!div class="nextstepaction"]
-> [Form OCR Test Tool (FOTT)](https://fott-preview.azurewebsites.net)
+> [Essayer Form Recognizer](https://fott-preview.azurewebsites.net)
 
 Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)), ainsi que d’un point de terminaison et d’une clé de [ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester l’API Layout de Form Recognizer. 
 
@@ -48,7 +48,7 @@ Tout d’abord, appelez l’opération [Analyze Layout](https://westcentralus.de
 
 |En-tête de réponse| URL de résultat |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ### <a name="natural-reading-order-output-latin-only"></a>Sortie de l’ordre de lecture naturel (langues latines uniquement)
 

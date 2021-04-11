@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: ef1ca41f54a15554a04fa3edf608bb13f5fb3398
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94ab61a5c6335d43842ada48f17572c186af773c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96182017"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077191"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à une application mobile Workday
 
@@ -132,13 +132,11 @@ Pour garantir que les appareils iOS ne peuvent se connecter que par le biais d�
 
 | Scénario | Paires clé-valeur |
 |----------------------------------------------------------------------------------------   |-----------|
-| Renseigner automatiquement les champs Locataire et Adresse web pour :<br>● Workday sur Android quand vous activez les profils Android for Work.<br>● Workday sur iPad et iPhone.     | Utilisez ces valeurs pour configurer votre locataire : <br>● Clé de configuration = `UserGroupCode`<br>● Type de valeur = Chaîne <br>● Valeur de configuration = nom de votre locataire. Exemple : `gms`<br>Utilisez ces valeurs pour configurer votre adresse web :<br>●  Clé de configuration = `AppServiceHost`<br>●   Type de valeur = Chaîne<br>●    Valeur de configuration = URL de base de votre locataire. Exemple : `https://www.myworkday.com`                                |   |
+| Renseigner automatiquement les champs Locataire et Adresse web pour :<br>● Workday sur Android quand vous activez les profils Android for Work.<br>● Workday sur iPad et iPhone.     | Utilisez ces valeurs pour configurer votre locataire : <br>● Clé de configuration = `UserGroupCode`<br>● Type de valeur = Chaîne <br>● Valeur de configuration = nom de votre locataire. Exemple : `gms`<br>Utilisez ces valeurs pour configurer votre adresse web :<br>●  Clé de configuration = `AppServiceHost`<br>●   Type de valeur = Chaîne<br>●    Valeur de configuration = URL de base de votre locataire. Exemple : `https://www.myworkday.com`                                | 
 | Désactiver ces actions pour Workday sur iPad et iPhone :<br>●    Couper, copier et coller<br>●   Imprimer                       | Définissez la valeur (booléenne) sur `False` sur ces clés pour désactiver la fonctionnalité :<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
 | Désactiver les captures d’écran pour Workday sur Android. |Définissez la valeur (booléenne) sur `False` sur la clé `AllowScreenshots` pour désactiver la fonctionnalité.|
 | Désactiver les mises à jour suggérées pour vos utilisateurs.|Définissez la valeur (booléenne) sur `False` sur la clé `AllowSuggestedUpdates` pour désactiver la fonctionnalité.|
 |Personnaliser l’URL de l’App Store pour diriger les utilisateurs mobiles vers l’App Store de votre choix.|Utilisez ces valeurs pour changer l’URL de l’App Store :<br>● Clé de configuration = `AppUpdateURL`<br>● Type de valeur = Chaîne<br> ●   Valeur de configuration = URL de l’App Store|
-|       |
-
 
 ## <a name="ios-configuration-policies"></a>Stratégies de configuration iOS
 

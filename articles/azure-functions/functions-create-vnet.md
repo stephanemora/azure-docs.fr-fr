@@ -3,12 +3,12 @@ title: Utiliser des points de terminaison privés pour intégrer Azure Functions
 description: Ce tutoriel pas à pas vous montre comment connecter une fonction à un réseau virtuel Azure et le verrouiller avec des points de terminaison privés.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e1ed944250f05f52860c47f6cb61130f50b08e7c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630467"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078772"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutoriel : intégrer des Azure Functions à un réseau virtuel Azure à l’aide de points de terminaison privés
 
@@ -160,7 +160,7 @@ Créez les points de terminaison privés pour le stockage Azure Files et le stoc
     | Paramètre      | Valeur suggérée  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. | 
-    | **[Groupe de ressources](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choisissez le groupe de ressources que vous avez créé avec votre application de fonction. | |
+    | **[Groupe de ressources](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choisissez le groupe de ressources que vous avez créé avec votre application de fonction. |
     | **Nom** | file-endpoint | Nom du point de terminaison privé pour les fichiers de votre compte de stockage. |
     | **[Région](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choisissez la région dans laquelle vous avez créé votre compte de stockage. |
 
@@ -332,7 +332,7 @@ Félicitations ! Vous avez déployé avec succès votre exemple d’application
 
 À présent, créez le point de terminaison privé pour verrouiller votre application de fonction. Ce point de terminaison privé connecte votre application de fonction en toute sécurité et de façon privée à votre réseau virtuel à l’aide d’une adresse IP privée. 
 
-Pour plus d'informations, consultez la [documentation de point de terminaison privé](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Pour plus d'informations, consultez la [documentation de point de terminaison privé](../private-link/private-endpoint-overview.md).
 
 1. Dans votre application de fonction, dans le menu sur la gauche, sélectionnez **Mise en réseau**.
 

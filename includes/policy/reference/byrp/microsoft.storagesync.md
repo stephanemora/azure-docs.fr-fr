@@ -1,0 +1,20 @@
+---
+author: DCtheGeek
+ms.service: azure-policy
+ms.topic: include
+ms.date: 03/31/2021
+ms.author: dacoulte
+ms.custom: generated
+ms.openlocfilehash: fa0dbaf3cb4d91ef3ae54849584e46241abf4eb1
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095560"
+---
+|Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Azure File Sync doit utiliser une liaison privée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |La création d’un point de terminaison privé pour la ressource de service de synchronisation de stockage indiquée vous permet d’adresser votre ressource de service de synchronisation de stockage à partir de l’espace d’adressage IP privé du réseau de votre organisation, plutôt que via le point de terminaison public accessible via Internet. La création d’un point de terminaison privé ne désactive pas le point de terminaison public. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
+|[Configurer Azure File Sync avec des points de terminaison privés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |Un point de terminaison privé est déployé pour la ressource de service de synchronisation de stockage indiquée. Cela vous permet d’adresser votre ressource de service de synchronisation de stockage à partir de l’espace d’adressage IP privé du réseau de votre organisation, plutôt que via le point de terminaison public accessible via Internet. L’existence d’un ou plusieurs points de terminaison privés ne désactive pas le point de terminaison public. |DeployIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |
+|[Modifier - Configurer Azure File Sync pour désactiver l’accès au réseau public](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e07b2e9-6cd9-4c40-9ccb-52817b95133b) |Le point de terminaison public accessible sur Internet d’Azure File Sync est désactivé par la stratégie de votre organisation. Vous pouvez toujours accéder au service de synchronisation de stockage via son ou ses points de terminaison privés. |Modifier, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_Modify.json) |
+|[L’accès au réseau public doit être désactivé pour Azure File Sync](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a8cd35-125e-4d13-b82d-2e19b7208bb7) |La désactivation du point de terminaison public vous permet de restreindre l’accès à votre ressource de service de synchronisation de stockage aux requêtes destinées à des points de terminaison privés approuvés sur le réseau de votre organisation. Il n’y a pas de problème de sécurité inhérent à l’autorisation des requêtes au point de terminaison public. Toutefois, vous souhaiterez peut-être la désactiver pour répondre aux exigences réglementaires, légales ou de stratégie organisationnelle. Vous pouvez désactiver le point de terminaison public pour un service de synchronisation de stockage en définissant incomingTrafficPolicy pour la ressource sur AllowVirtualNetworksOnly. |Audit, Refuser, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_AuditDeny.json) |

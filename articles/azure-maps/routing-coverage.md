@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 93618e28821ed10d84d1d54ef26493001d0aaf02
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92896172"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076295"
 ---
 # <a name="azure-maps-routing-coverage"></a>Couverture de routage Azure Maps
 
@@ -70,7 +70,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Rwanda                         |        ✓       |                       |             |
 | Sénégal                        |        ✓       |                       |             |
 | Seychelles                     |        ✓       |                       |             |
-| Afrique du Sud                   |        ✓       ||         ✓            |             |
+| Afrique du Sud                   |        ✓       |         ✓            |             |
 | Swaziland                      |        ✓       |                       |             |
 | Tanzanie                       |        ✓       |                       |             |
 | Togo                           |        ✓       |                       |             |

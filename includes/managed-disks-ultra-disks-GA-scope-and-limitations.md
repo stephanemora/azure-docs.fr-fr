@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c8f817ad06742e6f84c3cb87dda0c36866540267
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555873"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450358"
 ---
 Pour le moment, les disques Ultra ont des limitations supplémentaires, notamment :
 
@@ -31,6 +31,7 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
 |Asie Est     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
 |Allemagne Centre-Ouest     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
 |Centre de la Corée     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
+|Centre-Nord des États-Unis    |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
 |États-Unis - partie centrale méridionale    |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
 |Gouvernement des États-Unis – Arizona     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|
 |Gouvernement américain - Virginie     |Machines virtuelles uniques seulement (les groupes à haute disponibilité et les groupes de machines virtuelles identiques ne sont pas pris en charge)|

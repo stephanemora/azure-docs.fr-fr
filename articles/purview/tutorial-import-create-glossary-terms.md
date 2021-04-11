@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 0ea6fcaff1ec699431da8b67adee68735a8611a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9443c6fbaca16cf075745972a1655a2b4b2ea43c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97696078"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077531"
 ---
 # <a name="tutorial-create-and-import-glossary-terms-in-azure-purview-preview"></a>Tutoriel : Créer et importer des termes de glossaire dans Azure Purview (préversion)
 
@@ -138,10 +138,10 @@ Dans l’écran **Nnouveau modèle de terme**, procédez comme suit :
 
    |Paramètre|Valeur suggérée|
    |---------|-----------|
-   |Nom de l’attribut|est sensible aux informations|
-   |Type de champ|liste déroulante|Choix unique|
-   |Marquer comme requis|cochez cette case.|
-   |+ Ajouter un choix| Ajoutez deux choix, « Oui » et « Non ».|
+   |Nom de l’attribut |est sensible aux informations|
+   |Type de champ | Choix unique|
+   |Marquer comme requis | cochez cette case.|
+   |+ Ajouter un choix | Ajoutez deux choix, « Oui » et « Non ».|
 
    :::image type="content" source="./media/tutorial-import-create-glossary-terms/add-new-attribute.png" alt-text="Ajouter un nouvel attribut":::
 

@@ -248,6 +248,9 @@
         - name: Azure Maps
           tocHref: /azure/azure-maps/
           topicHref: /azure/azure-maps/
+        - name: Azure Certified Device
+          tocHref: /azure/certification/
+          topicHref: /azure/certification/
     - name: Gestionnaire de ressources
       tocHref: /azure/azure-resource-manager/
       topicHref: /azure/azure-resource-manager/
@@ -511,7 +514,7 @@
         - name: Groupes d'administration
           tocHref: /azure/governance/management-groups/
           topicHref: /azure/governance/management-groups/
-        - name: Policy
+        - name: Stratégie
           tocHref: /azure/governance/policy/
           topicHref: /azure/governance/policy/
         - name: Resource Graph
@@ -647,6 +650,8 @@
       tocHref: /azure/networking/
       topicHref: /azure/networking/
       items:
+        - name: Fondamentaux
+          tocHref: /azure/networking/fundamentals
         - name: Application Gateway
           tocHref: /azure/application-gateway/
           topicHref: /azure/application-gateway/

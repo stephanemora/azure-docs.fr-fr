@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 97797e309c32c6ea996d5ae1901b9a266a683173
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afe56bb8637c9b2a88bda23944fd5097413fce97
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91537631"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077718"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Ajouter des profils de score à un index Recherche cognitive Azure
 
@@ -161,7 +161,7 @@ Le score de recherche est calculé sur la base de propriétés statistiques des 
 
  Le corps du profil de calcul de score est construit à partir de champs et de fonctions pondérés.  
 
-|||  
+|Propriétés |Description|  
 |-|-|  
 |**Pondérations**|Spécifiez les paires nom-valeur qui affectent une pondération relative à un champ. Dans l’[exemple](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1,5, 5 et 2. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante.|  
 |**Fonctions**|Utilisées lorsque des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs valides sont `freshness`, `magnitude`, `distance` et `tag`. Chaque fonction a des paramètres qui sont uniques à cette dernière.<br /><br /> -   `freshness` doit être utilisée pour privilégier des résultats en fonction de la nouveauté ou de l’ancienneté d’un élément. Cette fonction peut être utilisée uniquement avec des champs `datetime` (edm.DataTimeOffset). Notez que l’attribut `boostingDuration` est utilisé uniquement avec la fonction `freshness`.<br />-   `magnitude` doit être utilisée pour privilégier des résultats en fonction de l’importance ou de la faiblesse d’une valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs double et integer.<br />     Pour la fonction `magnitude`, vous pouvez inverser la plage (de la valeur la plus élevée à la valeur la plus basse) si vous souhaitez inverser le schéma (par exemple, pour privilégier des éléments dont le prix est plus bas par rapport aux éléments dont le prix est plus élevé). Dans une gamme de prix allant de $100USD à $1USD, vous devez définir `boostingRangeStart` sur 100 et `boostingRangeEnd` sur 1 pour privilégier les éléments dont le prix est plus bas.<br />-   `distance` doit être utilisée pour privilégier des résultats en fonction de la proximité ou de l’emplacement géographique. Cette fonction peut être utilisée uniquement avec des champs `Edm.GeographyPoint` .<br />-   `tag` doit être utilisée pour privilégier des résultats en fonction de balises communes entre des documents et des requêtes de recherche. Cette fonction peut être utilisée uniquement avec les champs `Edm.String` et `Collection(Edm.String)`.<br /><br /> **Règles d'utilisation des fonctions**<br /><br /> Le type de fonction (`freshness`, `magnitude`, `distance`), `tag` doit être en lettres minuscules.<br /><br /> Les fonctions ne peuvent pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.<br /><br /> Les fonctions ne peuvent être appliquées qu'à des champs filtrables. Consultez [Créer un index &#40;API REST de Recherche cognitive Azure&#41;](/rest/api/searchservice/create-index) pour plus d’informations sur les champs filtrables.<br /><br /> Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.|  

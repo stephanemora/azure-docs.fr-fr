@@ -5,15 +5,15 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/30/2021
 ms.author: martinek
 ms.custom: references_regions
-ms.openlocfilehash: 3310d4a7d86db9dee7d5f71fc9410545817886f3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fda6f913fcb5325c811671cd6476dcbf2413766
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97511227"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058015"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -51,14 +51,15 @@ Non. Les clients peuvent tirer parti des services Azure pour concevoir un servic
 |:--- |:--- |:--- |
 | Asie-Pacifique |Asie Est (Hong Kong, R.A.S.) | Asie Sud-Est (Singapour) |
 | Australie |Australie Est |Sud-Australie Est |
-| Australie |Centre de l’Australie |Centre de l’Australie 2 |
+| Australie |Centre de l’Australie |Australie Centre 2* |
 | Brésil |Brésil Sud |États-Unis - partie centrale méridionale |
+| Brésil |Brésil Sud-Est* |Brésil Sud |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
 | Chine |Chine Nord 2 |Chine orientale 2|
 | Europe |Europe Nord (Irlande) |Europe Ouest (Pays-Bas) |
-| France |France Centre|France Sud|
-| Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
+| France |France Centre|France Sud*|
+| Allemagne |Allemagne Centre-Ouest |Allemagne Nord* |
 | Inde |Inde centrale |Inde Sud |
 | Inde |Inde Ouest |Inde Sud |
 | Japon |Japon Est |OuJapon Est |
@@ -67,15 +68,17 @@ Non. Les clients peuvent tirer parti des services Azure pour concevoir un servic
 | Amérique du Nord |USA Est 2 |USA Centre |
 | Amérique du Nord |Centre-Nord des États-Unis |États-Unis - partie centrale méridionale |
 | Amérique du Nord |USA Ouest 2 |Centre-USA Ouest |
-| Norvège | Norvège Est | Norvège Ouest |
-| Afrique du Sud | Afrique du Sud Nord |Afrique du Sud Ouest |
-| Suisse | Suisse Nord |Suisse Ouest |
+| Norvège | Norvège Est | Norvège Ouest* |
+| Afrique du Sud | Afrique du Sud Nord |Afrique du Sud Ouest* |
+| Suisse | Suisse Nord |Suisse Ouest* |
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Émirats Arabes Unis | Émirats arabes unis Nord | Émirats arabes unis Centre
-| Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
-| Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
-| Gouvernement américain |US Gov Iowa |Gouvernement américain - Virginie |
-| Gouvernement américain |Gouvernement américain - Virginie |Gouvernement des États-Unis – Texas |
+| Émirats Arabes Unis | Émirats arabes unis Nord | Émirats arabes unis Centre* |
+| Ministère de la défense des États-Unis |US DoD Est* |US DoD Centre* |
+| Gouvernement américain |US Gov Arizona* |US Gov Texas* |
+| Gouvernement américain |US Gov Iowa* |US Gov Virginie* |
+| Gouvernement américain |US Gov Virginie* |US Gov Texas* |
+
+(*) Certaines régions offrent un accès restreint pour la prise en charge de scénarios client spécifiques, par exemple, la récupération d’urgence dans le pays. Ces régions ne sont disponibles que sur demande en [créant une demande de support dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!Important]
 > - La région Inde Ouest est jumelée dans une seule direction. La région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud est Inde Centre.

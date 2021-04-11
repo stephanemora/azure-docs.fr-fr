@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 65d85f51afef36aa618868e2fda1d2bbf583ea21
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576915"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221124"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge Azure inter-région à l’aide du portail Azure
 
@@ -105,34 +105,6 @@ Créez le pool d’adresses back-end **myBackendPool-CR** pour inclure les équi
 8. Sélectionnez **Ajouter**.
 
     :::image type="content" source="./media/tutorial-cross-region-portal/add-to-backendpool.png" alt-text="Ajouter des équilibreurs de charge régionaux au pool de back-ends" border="true":::
-
-## <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
-
-Dans cette section, vous allez créer une sonde d’intégrité pour créer la règle d’équilibrage de charge :
-
-* Nommée **myHealthProbe.** .
-* Protocole **TCP**.
-* Intervalle de **5** secondes.
-* Seuil de défaillance sur le plan de l’intégrité défini à **deux** échecs.
-
-1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer-CR** dans la liste des ressources.
-
-2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**.
-
-3. Utilisez ces valeurs pour configurer la sonde d’intégrité :
-
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez **MyHealthProbe**. |
-    | Protocol | Sélectionnez **TCP**. |
-    | Port | Entrez **80**. |
-    | Intervalle | Entrez **5**. |
-    | Seuil de défaillance sur le plan de l’intégrité | Entrez **2**. |
-
-4. Sélectionnez **OK**.
-
-    > [!NOTE]
-    > L’équilibreur de charge interrégional dispose d’une sonde d’intégrité intégrée. Cette sonde est un espace réservé pour permettre à la création de règle d’équilibrage de charge de fonctionner.  Pour plus d’informations, consultez **[Limitations de l’équilibreur de charge interrégional](cross-region-overview.md#limitations)** .
 
 ## <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7ea409163a6ce28f65799163bd3217d47569751
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993393"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220587"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Fournisseur de caches de sortie ASP.NET pour le Cache Azure pour Redis
 
@@ -65,7 +65,7 @@ Configurez les attributs avec les valeurs du panneau de votre cache sur le porta
 | *settingsClassName*<br/>*settingsMethodName* | string<br/>string | *n/a* | *Ces attributs peuvent uniquement être spécifiés par le biais de web.config ou AppSettings.*<br/><br/>Utilisez ces attributs pour fournir une chaîne de connexion. *settingsClassName* doit être un nom de classe d’assembly qualifié qui contient la méthode spécifiée par *settingsMethodName*.<br/><br/>La méthode spécifiée par *settingsMethodName* doit être publique, statique et vide (sans aucun paramètre), avec un type de retour **chaîne**. Cette méthode retourne la chaîne de connexion réelle. |
 | *loggingClassName*<br/>*loggingMethodName* | string<br/>string | *n/a* | *Ces attributs peuvent uniquement être spécifiés par le biais de web.config ou AppSettings.*<br/><br/>Utilisez ces attributs pour déboguer votre application en fournissant des journaux à partir du Cache de l’état de session/sortie, ainsi que des journaux à partir de StackExchange.Redis. *loggingClassName* doit être un nom de classe d’assembly qualifié qui contient la méthode spécifiée par *loggingMethodName*.<br/><br/>La méthode spécifiée par *loggingMethodName* doit être publique, statique et vide (sans aucun paramètre), avec un type de retour **System.IO.TextWriter**. |
 | *applicationName* | string | Le nom du module du processus en cours ou « / » | *SessionStateProvider uniquement*<br/>*Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Le préfixe de nom d’application à utiliser dans le cache Redis. Le client peut utiliser le même cache Redis à des fins différentes. Pour s’assurer que les clés de session ne sont pas en conflit, il est possible de les préfixer avec le nom de l’application. |
-| *throwOnError* | boolean | true | *SessionStateProvider uniquement*<br/>*Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Indique s’il faut ou non lever une exception lorsqu’une erreur se produit.<br/><br/>Pour plus d’informations sur *throwOnError*, consultez [Remarques sur *throwOnError*](#notes-on-throwonerror) dans la section [Remarques sur les attributs](#attribute-notes). |>*Microsoft.Web.Redis.RedisSessionStateProvider.LastException*. |
+| *throwOnError* | boolean | true | *SessionStateProvider uniquement*<br/>*Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Indique s’il faut ou non lever une exception lorsqu’une erreur se produit.<br/><br/>Pour plus d’informations sur *throwOnError*, consultez [Remarques sur *throwOnError*](#notes-on-throwonerror) dans la section [Remarques sur les attributs](#attribute-notes). |
 | *retryTimeoutInMilliseconds* | entier positif | 5 000 | *SessionStateProvider uniquement*<br/>*Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Combien de nouvelles tentatives en cas d’échec d’une opération. Si cette valeur est inférieure à *operationTimeoutInMilliseconds*, le fournisseur ne fera pas de nouvelles tentatives.<br/><br/>Pour plus d’informations sur *retryTimeoutInMilliseconds*, consultez [Remarques sur *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) dans la section [Remarques sur les attributs](#attribute-notes). |
 | *redisSerializerType* | string | *n/a* | Spécifie le nom de type d’assembly qualifié d’une classe qui implémente Microsoft.Web.Redis. ISerializer et qui contient la logique personnalisée pour sérialiser et désérialiser les valeurs. Pour plus d’informations, consultez [À propos de *redisSerializerType*](#about-redisserializertype) dans la section [Remarques sur les attributs](#attribute-notes). |
 
