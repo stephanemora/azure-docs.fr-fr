@@ -6,25 +6,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612063"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607651"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
-Cet article explique comment utiliser une appliance de montée en puissance parallèle pour migrer un grand nombre de machines virtuelles VMware vers Azure à l’aide de la fonctionnalité de migration sans agent de l’outil de migration Azure Migrate Server. 
+Cet article explique comment utiliser une appliance de Scale-out pour migrer un grand nombre de machines virtuelles VMware vers Azure à l’aide de la méthode sans agent de l’outil Migration de serveur Azure Migrate.
 
-La fonctionnalité de migration sans agent de machines virtuelles VMware de l’outil de migration de serveur vous permet d’effectuer les opérations suivantes :
+Grâce à la méthode de migration sans agent pour les machines virtuelles VMware, vous pouvez :
 
 - répliquer simultanément jusqu’à 300 machines virtuelles à partir d’un seul serveur vCenter à l’aide d’une seule appliance Azure Migrate ;
 - répliquer simultanément jusqu’à 500 machines virtuelles à partir d’un seul serveur vCenter en déployant une deuxième appliance de montée en puissance parallèle pour la migration.
 
 Dans cet article, vous allez apprendre à :
 
-- déployer une appliance de montée en puissance parallèle pour une migration VMware ;
+- Ajouter une appliance de Scale-out pour la migration sans agent de machines virtuelles VMware
 - migrez simultanément jusqu’à 500 machines virtuelles à l’aide de l’appliance de montée en puissance parallèle.
 
 ##  <a name="prerequisites"></a>Prérequis
@@ -37,8 +37,9 @@ Avant de commencer, vous devez suivre les étapes suivantes :
 > [!IMPORTANT]
 > Vous devez disposer d’au moins une machine virtuelle de réplication dans le projet avant de pouvoir ajouter une appliance de montée en puissance parallèle pour la migration.
 
-## <a name="deploy-a-scale-out-appliance"></a>Déployer une appliance de montée en puissance parallèle
+Pour savoir comment procéder, consultez le tutoriel sur la [migration de machines virtuelles VMware vers Azure avec la méthode de migration sans agent](./tutorial-migrate-vmware.md).
 
+## <a name="deploy-a-scale-out-appliance"></a>Déployer une appliance de montée en puissance parallèle
 
 Pour ajouter une appliance de montée en puissance parallèle, procédez de la manière décrite ci-dessous :
 

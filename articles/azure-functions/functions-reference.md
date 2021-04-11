@@ -4,12 +4,12 @@ description: Découvrez les concepts et techniques Azure Functions dont vous ave
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386898"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102614817"
 ---
 # <a name="azure-functions-developer-guide"></a>Guide du développeur Azure Functions
 Dans Azure Functions, des fonctions spécifiques partagent quelques concepts techniques et composants de base, quels que soient le langage et la liaison que vous utilisez. Avant de passer à l'apprentissage des détails propres à un langage ou une liaison donnés, veillez à lire cette présentation qui s'applique à l’ensemble d’entre eux.
@@ -116,10 +116,11 @@ Certaines connexions dans Azure Functions sont configurées pour utiliser une id
 
 Les connexions basées sur une identité sont prises en charge par le déclencheur et les extensions de liaison suivants :
 
-| Nom de l’extension | Version d’extension                                                                                     | Prend en charge les connexions basées sur une identité dans le plan Consommation |
+| Nom de l’extension | Version d’extension                                                                                     | Prise en charge dans le plan Consommation |
 |----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Objets blob Azure     | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | Non                                    |
 | File d’attente Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | Non                                    |
+| Hubs d'événements Azure    | [Version 5.0.0-beta1 ou ultérieure](./functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher) | Non                                    |
 
 > [!NOTE]
 > La prise en charge des connexions basées sur une identité n’est pas encore disponible pour les connexions de stockage utilisées par le runtime Functions pour les comportements de base. Cela signifie que le paramètre `AzureWebJobsStorage` doit être une chaîne de connexion.
@@ -128,9 +129,10 @@ Les connexions basées sur une identité sont prises en charge par le déclenche
 
 Une connexion basée sur une identité pour un service Azure accepte les propriétés suivantes :
 
-| Propriété    | Variable d’environnement | Est obligatoire | Description |
+| Propriété    | Obligatoire pour les extensions | Variable d’environnement | Description |
 |---|---|---|---|
-| URI de service | `<CONNECTION_NAME_PREFIX>__serviceUri` | Oui | URI du plan de données du service auquel vous vous connectez. |
+| URI de service | Blob Azure, File d’attente Azure | `<CONNECTION_NAME_PREFIX>__serviceUri` |  URI du plan de données du service auquel vous vous connectez. |
+| Espace de noms complet | Event Hubs | `<CONNECTION_NAME_PREFIX>__fullyQualifiedNamespace` | Espace de noms complet d’Event Hub. |
 
 Des options supplémentaires peuvent être prises en charge pour un type de connexion donné. Reportez-vous à la documentation du composant qui effectue la connexion.
 
@@ -152,14 +154,26 @@ Dans certains cas, vous souhaiterez peut-être spécifier l’utilisation d’un
 > [!NOTE]
 > Les options de configuration suivantes ne sont pas prises en charge quand elles sont hébergées dans le service Azure Functions.
 
-Pour vous connecter à l’aide d’un principal de service Azure Active Directory avec un ID client et un secret, définissez la connexion avec les propriétés suivantes :
+Pour vous connecter à l’aide d’un principal de service Azure Active Directory avec un ID client et un secret, définissez la connexion avec les propriétés obligatoires suivantes en plus des [propriétés de connexion](#connection-properties) ci-dessus :
 
-| Propriété    | Variable d’environnement | Est obligatoire | Description |
-|---|---|---|---|
-| URI de service | `<CONNECTION_NAME_PREFIX>__serviceUri` | Oui | URI du plan de données du service auquel vous vous connectez. |
-| ID client | `<CONNECTION_NAME_PREFIX>__tenantId` | Oui | ID du locataire Azure Active Directory (annuaire). |
-| ID client | `<CONNECTION_NAME_PREFIX>__clientId` | Oui |  ID client (application) d’une inscription d’application dans le locataire. |
-| Clé secrète client | `<CONNECTION_NAME_PREFIX>__clientSecret` | Oui | Un secret client qui a été généré pour l’inscription de l’application. |
+| Propriété    | Variable d’environnement | Description |
+|---|---|---|
+| ID client | `<CONNECTION_NAME_PREFIX>__tenantId` | ID du locataire Azure Active Directory (annuaire). |
+| ID client | `<CONNECTION_NAME_PREFIX>__clientId` |  ID client (application) d’une inscription d’application dans le locataire. |
+| Clé secrète client | `<CONNECTION_NAME_PREFIX>__clientSecret` | Un secret client qui a été généré pour l’inscription de l’application. |
+
+Exemple de propriétés `local.settings.json` obligatoires pour une connexion basée sur une identité avec Blob Azure : 
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "<CONNECTION_NAME_PREFIX>__serviceUri": "<serviceUri>",
+    "<CONNECTION_NAME_PREFIX>__tenantId": "<tenantId>",
+    "<CONNECTION_NAME_PREFIX>__clientId": "<clientId>",
+    "<CONNECTION_NAME_PREFIX>__clientSecret": "<clientSecret>"
+  }
+}
+```
 
 #### <a name="grant-permission-to-the-identity"></a>Accorder l’autorisation à l’identité
 

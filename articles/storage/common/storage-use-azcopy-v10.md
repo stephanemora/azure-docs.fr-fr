@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 826effb152d3f069e0a7c5b8e169f7083117ed22
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103494493"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy

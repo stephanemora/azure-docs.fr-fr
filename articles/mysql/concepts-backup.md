@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: a124f576b2540399d27fcd97e0e58476dba4ba4b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 883b76929ac3310dd3089ecb088a4691adbb4ca1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492809"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103010352"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 
@@ -86,7 +86,17 @@ Deux types de restauration sont disponibles :
 - La **restauration à un point dans le temps** est disponible avec l’option de redondance de sauvegarde, et crée un serveur dans la même région que votre serveur d’origine en utilisant la combinaison de sauvegarde complète et de sauvegarde du journal des transactions.
 - La **géorestauration** est disponible uniquement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans une autre région en utilisant la sauvegarde la plus récente.
 
-Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
+La durée estimée pour la récupération du serveur dépend de plusieurs facteurs :
+* la taille des bases de données ;
+* le nombre de journaux d’activité de transactions impliqués ;
+* la quantité d’activité devant être relue pour effectuer une récupération au point de restauration ;
+* la bande passante du réseau, si la restauration s’effectue dans une autre région ;
+* le nombre de demandes de restauration simultanées en cours de traitement dans la région cible.
+* la présence d’une clé primaire dans les tables de la base de données. Pour accélérer la récupération, envisagez d’ajouter une clé primaire pour toutes les tables de votre base de données. Pour vérifier si vos tables ont une clé primaire, vous pouvez utiliser la requête suivante :
+```sql
+select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
+```
+Pour une base de données volumineuse ou très active, la restauration peut prendre plusieurs heures. En cas de panne prolongée dans une région, il est possible qu’un grand nombre de requêtes de géo-restauration soient lancées pour la récupération d’urgence. S’il y a un grand nombre de requêtes, le temps de récupération des bases de données individuelles peut s’en trouver augmenté. La plupart des restaurations de bases de données s’effectuent en moins de 12 heures.
 
 > [!IMPORTANT]
 > Une fois supprimés, les serveurs ne peuvent être restaurés que dans un délai de **cinq jours**, au terme duquel les sauvegardes sont supprimées. La sauvegarde de base de données est accessible et peut être restaurée uniquement à partir de l’abonnement Azure qui héberge le serveur. Pour restaurer un serveur supprimé, reportez-vous aux [étapes documentées](howto-restore-dropped-server.md). À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../azure-resource-manager/management/lock-resources.md).

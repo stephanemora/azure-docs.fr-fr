@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 809dc6d0958b754911362f933e9fe964bce9c679
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/17/2021
+ms.openlocfilehash: c1e0dffafafa76e90ec57ce1a00fb8e155ff4edf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727921"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608093"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -229,7 +229,7 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage**. | Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. | Oui |
-| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/> Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/><br/>Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-les en pointant dans l’angle supérieur droit du portail Azure. | Oui |
@@ -237,7 +237,9 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Non |
 
 >[!NOTE]
->Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification de principal du service n’est pas prise en charge dans Data Flow.
+>
+>- Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification de principal du service n’est pas prise en charge dans Data Flow.
+>- Si vous accédez au stockage d’objets blob via un point de terminaison privé à l’aide de Data Flow, notez que lorsque l’authentification du principal de service est utilisée, Data Flow se connecte au point de terminaison ADLS Gen2 au lieu du point de terminaison Blob. Veillez à créer le point de terminaison privé correspondant dans ADF pour activer l’accès.
 
 >[!NOTE]
 >L’authentification du principal du service n’est prise en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.
@@ -289,11 +291,13 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AzureBlobStorage**. | Oui |
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. | Oui |
-| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/> Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
+| accountKind | Spécifiez le type de votre compte de stockage. Les valeurs autorisées sont les suivantes : **Stockage** (v1 à usage général), **StorageV2** (v2 à usage général), **BlobStorage** ou **BlockBlobStorage**. <br/><br/>Lorsque le service lié Blob Azure est utilisé dans un flux de données, l’authentification par identité managée ou par principal de service n’est pas prise en charge si le type de compte est vide ou « Stockage ». Spécifiez le type de compte approprié, choisissez une autre authentification ou mettez à niveau votre compte de stockage vers la version v2 à usage général. | Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. | Non |
 
 > [!NOTE]
-> Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification d’identité managée n’est pas prise en charge dans Data Flow.
+>
+> - Si votre compte d’objet blob active la [suppression réversible](../storage/blobs/soft-delete-blob-overview.md), l’authentification d’identité managée n’est pas prise en charge dans Data Flow.
+> - Si vous accédez au stockage d’objets blob via un point de terminaison privé à l’aide de Data Flow, notez que lorsque l’authentification du principal de service est utilisée, Data Flow se connecte au point de terminaison ADLS Gen2 au lieu du point de terminaison Blob. Veillez à créer le point de terminaison privé correspondant dans ADF pour activer l’accès.
 
 > [!NOTE]
 > Les identités managées pour l’authentification des ressources Azure ne sont prises en charge que par le service lié de type « AzureBlobStorage », non par le service lié de type « AzureStorage » précédent.
@@ -385,7 +389,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true**. | Non                                            |
 | partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin d’accès racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin d’accès du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin d’accès configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le premier caractère générique.<br/>– Quand vous utilisez le préfixe, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le dernier « / ». <br/><br/>Par exemple, en supposant que vous configurez le chemin d’accès dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin d’accès racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin d’accès racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
-| maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non                                            |
 
 > [!NOTE]
 > Pour les formats Parquet et de texte délimité, le type **BlobSource** pour la source de l’activité Copy mentionnée dans la section suivante est toujours pris en charge à des fins de compatibilité descendante. Nous vous suggérons d’utiliser le nouveau modèle jusqu’à ce que l’interface utilisateur de création de Data Factory ait basculé vers la génération de ces nouveaux types.
@@ -445,7 +449,7 @@ Les propriétés suivantes sont prises en charge pour le stockage d’objets blo
 | type                     | La propriété `type` sous `storeSettings` doit être définie sur `AzureBlobStorageWriteSettings`. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | blockSizeInMB | Spécifiez la taille du bloc, en Mo, qui est utilisée pour écrire des données dans des objets blobs de blocs. En savoir plus sur les [objets blobs de blocs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Les valeurs valides sont *comprises entre 4 et 100 Mo*. <br/>Par défaut, Data Factory détermine automatiquement la taille de bloc en fonction du type et des données de votre magasin source. Pour une copie non binaire dans un stockage d’objets blob, la taille de bloc par défaut est de 100 Mo, ce qui permet de stocker jusqu’à 4,95 To de données. Cela peut ne pas être optimal si vos données ne sont pas volumineuses, en particulier si vous utilisez le runtime d’intégration auto-hébergé avec des connexions réseau médiocres qui entraînent des problèmes de délai d’expiration d’opération ou de performances. Vous pouvez spécifier explicitement une taille de bloc, tout en veillant à ce que `blockSizeInMB*50000` soit suffisamment grand pour stocker les données. Dans le cas contraire, l’exécution de l’activité Copy échoue. | Non |
-| maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non       |
 
 **Exemple :**
 
@@ -677,7 +681,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 |:--- |:--- |:--- |
 | type | La propriété `type` de la source de l’activité Copy doit être définie sur `BlobSource`. | Oui |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option `recursive` est définie sur `true` et que le récepteur est un magasin basé sur un fichier, aucun dossier ou sous-dossier vide n’est copié ou créé au niveau du récepteur.<br/>Les valeurs autorisées sont `true` (par défaut) et `false`. | Non |
-| maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 **Exemple :**
 
@@ -717,7 +721,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 |:--- |:--- |:--- |
 | type | La propriété `type` du récepteur de l’activité Copy doit être définie sur `BlobSink`. | Oui |
 | copyBehavior | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom d’objet blob ou de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non |
-| maxConcurrentConnections | Nombre de connexions simultanées au stockage. Ne le spécifiez que si vous souhaitez limiter les connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 **Exemple :**
 

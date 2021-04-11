@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f8eddd5d346003af0c2b41d65fc0aa09c86f48c7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93346772"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167445"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
 
@@ -39,14 +39,14 @@ Votre module doit prendre en charge toutes les plateformes de niveau 1 prises e
 
 - Fournir une étiquette « latest » et une étiquette de version (par exemple, 1.0.1), qui sont des étiquettes manifeste générées avec [Manifest-tool de GitHub](https://github.com/estesp/manifest-tool).
 
-- Utilisez l’onglet Description de l’offre dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace) pour ajouter un lien sous la section **Liens utiles** vers le [catalogue d’appareils Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/alldevices?filters={%2218%22:[%221%22]}/).
+- Utilisez l’onglet Description de l’offre dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace) pour ajouter un lien sous la section **Liens utiles** vers le [catalogue d’appareils Azure IoT Edge Certified](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un sous-ensemble de plateformes de niveau 1 prises en charge par IoT Edge
 
 Votre module doit prendre en charge un sous-ensemble (au moins un) de plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](../../iot-edge/support.md)). Un module utilisant cette option de plateforme doit :
 
 - Fournir une étiquette « latest » et une étiquette de version (par exemple, 1.0.1), qui sont des étiquettes manifeste générées avec [manifest-tool](https://github.com/estesp/manifest-tool) de GitHub si plusieurs plateformes sont prises en charge. Les balises manifeste ne sont facultatives que si une seule plateforme est prise en charge.
-- Utilisez l’onglet Description de l’offre dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace) pour ajouter un lien sous la section **Liens utiles** vers au moins un appareil IoT Edge à partir du [catalogue d’appareils Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- Utilisez l’onglet Description de l’offre dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace) pour ajouter un lien sous la section **Liens utiles** vers au moins un appareil IoT Edge à partir du [catalogue d’appareils Azure IoT Edge Certified](https://devicecatalog.azure.com/).
 
 :::image type="content" source="media/iot-edge-module-technical-assets-offer-listing.png" alt-text="Image de la section Description de l’offre dans l’Espace partenaires":::
 
@@ -54,7 +54,7 @@ Votre module doit prendre en charge un sous-ensemble (au moins un) de plateforme
 
 Les dimensions de module IoT Edge (telles que processeur, RAM, stockage et GPU) sur les appareils IoT Edge ciblés doivent remplir les exigences suivantes :
 
-- Le module doit fonctionner avec au moins un appareil IoT Edge du [catalogue d’appareils Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- Le module doit fonctionner avec au moins un appareil IoT Edge du [catalogue d’appareils Azure IoT Edge Certified](https://devicecatalog.azure.com/).
 
 - La configuration matérielle minimale doit correspondre au dernier paragraphe de la description de l’offre (sous l’onglet Description de l’offre dans l’[Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace)). Si vous le souhaitez, vous pouvez également répertorier la configuration matérielle recommandée si elles diffèrent considérablement. Par exemple, ajoutez la section suivante à la fin de la description de votre offre :
 

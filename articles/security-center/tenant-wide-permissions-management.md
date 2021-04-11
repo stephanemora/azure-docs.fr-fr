@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107056"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102617486"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Accorder et demander une visibilité à l’échelle du locataire
 
 Si un utilisateur ayant le rôle Azure Active Directory (AD) d’**administrateur général** peut avoir des responsabilités à l’échelle du locataire, il peut ne pas disposer des autorisations Azure lui permettant de consulter les informations à l’échelle de l’organisation dans Azure Security Center. L’élévation d’autorisations est requise, car les attributions de rôles Azure AD n’accordent pas l’accès aux ressources Azure. 
-
-> [!TIP]
-> En savoir plus sur l’élévation d’autorisations pour le rôle d’administrateur général dans [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Accorder à vous-même des autorisations à l’échelle du locataire
 
@@ -45,6 +42,14 @@ Pour vous attribuer des autorisations au niveau du locataire :
 1. Déconnectez-vous du portail Azure, puis reconnectez-vous.
 
 1. Une fois que vous disposez d’un accès élevé, ouvrez ou actualisez Azure Security Center pour vérifier que vous voyez tous les abonnements sous votre locataire Azure AD. 
+
+Le processus simple ci-dessus effectue automatiquement un certain nombre d’opérations :
+
+1. Les autorisations de l’utilisateur sont temporairement élevées.
+1. Grâce aux nouvelles autorisations, l’utilisateur est affecté au rôle Azure RBAC souhaité sur le groupe d’administration racine.
+1. Les autorisations élevées sont supprimées.
+
+Pour plus d’informations sur le processus d’élévation d’Azure AD, consultez [Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Demander des autorisations à l’échelle du locataire quand les vôtres sont insuffisantes

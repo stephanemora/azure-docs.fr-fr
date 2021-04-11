@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 13585173b54c79158161da54f968ba66eb018f6a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 27a0d5b809480b2ce4aff36c5acd43c149ed5bb3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705736"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562832"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Base de sécurité Azure pour Azure DevTest Labs
 
@@ -78,11 +78,11 @@ Déployez le Pare-feu Azure à chaque extrémité du réseau de l'organisation e
 
 - [Guide pratique pour configurer un réseau virtuel pour Azure DevTest Labs](devtest-lab-configure-vnet.md)
 
-- [Guide pratique pour configurer la protection DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Guide pratique pour configurer la protection DDoS](../ddos-protection/manage-ddos-protection.md)
 
 - [Guide pratique pour déployer le Pare-feu Azure](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](/azure/security-center/threat-protection)
+- [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
 - [Présentation de la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -90,7 +90,7 @@ Déployez le Pare-feu Azure à chaque extrémité du réseau de l'organisation e
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
@@ -102,7 +102,7 @@ Déployez le Pare-feu Azure à chaque extrémité du réseau de l'organisation e
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions (IDS/IPS) basés sur le réseau
 
@@ -134,7 +134,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
@@ -144,11 +144,11 @@ Vous pouvez également utiliser des groupes de sécurité d’application pour s
 
 - [Présentation et utilisation des balises de service](../virtual-network/service-tags-overview.md)
 
-- [Présentation et utilisation des groupes de sécurité d’application](/azure/virtual-network/security-overview#application-security-groups)
+- [Présentation et utilisation des groupes de sécurité d’application](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -158,13 +158,13 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Exemples Azure Policy pour le réseau](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Exemples Azure Policy pour le réseau](../governance/policy/samples/built-in-policies.md#network)
 
 - [Guide pratique pour créer un blueprint Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
@@ -182,15 +182,15 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
 **Conseils** : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations de ressources et détecter les changements apportés à vos ressources Azure. Créez des alertes dans Azure Monitor, qui se déclenchent en cas de modification des ressources critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
@@ -214,7 +214,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Aide** : activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des informations concernant les opérations effectuées sur vos instances Azure DevTest Labs au niveau du plan de gestion. À l’aide des données du journal d’activité Azure, vous pouvez déterminer le « quoi, qui et quand » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de gestion pour vos instances DevTest Labs.
 
-- [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](/azure/azure-monitor/platform/diagnostic-settings)
+- [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Responsabilité** : Customer
 
@@ -224,7 +224,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 **Aide** : activez les paramètres de diagnostic des journaux d’activité Azure et envoyez les journaux vers un espace de travail Log Analytics, Event Hub ou un compte de stockage Azure pour archivage. Les journaux d’activité fournissent des informations concernant les opérations effectuées sur vos instances Azure DevTest Labs au niveau du plan de gestion. À l’aide des données du journal d’activité Azure, vous pouvez déterminer le « quoi, qui et quand » pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées au niveau du plan de gestion pour vos instances DevTest Labs.
 
-- [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](/azure/azure-monitor/platform/diagnostic-settings)
+- [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Responsabilité** : Customer
 
@@ -236,7 +236,7 @@ Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressource
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Présentation de la collecte de données Azure Security Center](../security-center/security-center-enable-data-collection.md)
 
@@ -248,7 +248,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 **Conseils** : Dans Azure Monitor, définissez la période de rétention des journaux pour les espaces de travail Log Analytics associés à vos instances Azure DevTest Labs conformément aux réglementations de conformité de votre organisation.
 
-- [Pour plus d’informations, consultez l’article suivant](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Pour plus d’informations, consultez l’article suivant](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilité** : Customer
 
@@ -260,9 +260,9 @@ Pour plus d’informations, consultez les articles suivants :
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](/azure/azure-monitor/platform/diagnostic-settings)
+- [Guide pratique pour activer les paramètres de diagnostic du journal d’activité Azure](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](/azure/azure-monitor/platform/activity-log)
+- [Collecte et analyse des journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilité** : Customer
 
@@ -272,7 +272,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 **Conseils** : Utilisez l’espace de travail Azure Log Analytics pour surveiller les activités anormales dans les événements et les journaux de sécurité liés à votre Azure DevTest Labs, et alerter à leur sujet.
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilité** : Customer
 
@@ -333,7 +333,7 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 - Gestion des ressources : l’accès au portail Azure permet d’effectuer les opérations de gestion des ressources (créer des machines virtuelles, créer des environnements, démarrer, arrêter, redémarrer, supprimer, appliquer des artefacts, etc.). La gestion des ressources s’effectue dans Azure en utilisant le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Vous affectez des rôles aux utilisateurs et définissez les autorisations au niveau des ressources et de l’accès.
 - Machines virtuelles (au niveau du réseau) : dans la configuration par défaut, les machines virtuelles utilisent un compte d’administrateur local. S’il existe un domaine disponible (Azure Active Directory Domain Services (Azure AD DS), un domaine local ou un domaine cloud), il est possible de lui adjoindre des machines. Les utilisateurs peuvent ensuite utiliser leurs identités basées sur le domaine en utilisant l’artefact de jonction de domaine pour se connecter aux machines.
 
-- [Architecture de référence pour DevTest Labs](https://docs.microsoft.com/azure/devtest-labs/devtest-lab-reference-architecture#architecture)
+- [Architecture de référence pour DevTest Labs](./devtest-lab-reference-architecture.md#architecture)
 
 - [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -463,7 +463,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Conseils** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes quand des modifications sont apportées aux instances DevTest Labs ainsi qu’à d’autres ressources critiques ou connexes.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Guide pratique pour créer des alertes sur les événements du journal d’activité DevTest](create-alerts.md)
 
@@ -481,7 +481,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour créer des requêtes avec Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -595,7 +595,7 @@ Documents de référence :
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilité** : Customer
 
@@ -625,7 +625,7 @@ Documents de référence :
 
 **Conseils** : Selon le type de script, vous pouvez utiliser des configurations de système d’exploitation spécifiques ou des ressources tierces pour limiter la capacité des utilisateurs à exécuter des scripts dans les machines virtuelles hébergées dans DevTest Labs. Vous avez également la possibilité d’utiliser les contrôles d’application adaptatifs Azure Security Center pour faire en sorte que seuls les logiciels autorisés s’exécutent et que l’exécution de tous les logiciels non autorisés soit bloquée sur les machines virtuelles Azure sous-jacentes.
 
-- [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [Guide pratique pour contrôler l’exécution des scripts PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&view=powershell-7)
 
 - [Guide pratique pour utiliser les contrôles d’application adaptatifs Azure Security Center](../security-center/security-center-adaptive-application.md)
 
@@ -665,7 +665,7 @@ Par ailleurs, Azure Resource Manager a la possibilité d’exporter le modèle a
 
 Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme base de référence de configuration sécurisée pour vos ressources Azure.
 
-- [Affichage des alias Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Tutoriel : Créer et gérer des stratégies pour assurer la conformité](../governance/policy/tutorials/create-and-manage.md)
 
@@ -675,7 +675,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme b
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
@@ -695,7 +695,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme b
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -709,7 +709,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme b
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
@@ -721,13 +721,13 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 - [Vue d’ensemble d’Azure Automation State Configuration](../automation/automation-dsc-overview.md)
 
-- [Exemple de script permettant de charger un disque dur virtuel sur Azure et de créer une machine virtuelle](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
+- [Exemple de script permettant de charger un disque dur virtuel sur Azure et de créer une machine virtuelle](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 - [Comment créer une fabrique d’images dans DevTest Labs](image-factory-create.md)
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
@@ -735,13 +735,13 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 - [Tutoriel Git Azure Repos](/azure/devops/repos/git/gitworkflow)
 
-- [À propos des autorisations et des groupes](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&amp;tabs=preview-page&amp;preserve-view=true)
+- [À propos des autorisations et des groupes](/azure/devops/organizations/security/about-permissions?preserve-view=true&tabs=preview-page&view=azure-devops)
 
 - [Intégration du flux de travail d’Azure DevTest Labs et d’Azure DevOps](devtest-lab-dev-ops.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
@@ -757,7 +757,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -765,11 +765,11 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 - [Configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Utiliser des alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Utiliser des alias](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
@@ -781,7 +781,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -791,7 +791,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
@@ -801,7 +801,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
@@ -819,7 +819,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
@@ -831,7 +831,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -841,7 +841,7 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -853,11 +853,11 @@ Notez également que les images de machines virtuelles de la Place de marché Az
 
 - [Guide pratique pour configurer l’extension Microsoft Antimalware pour Azure](../security/fundamentals/antimalware.md) 
 
-- [Protection contre les menaces dans Azure Security Center](/azure/security-center/threat-protection)
+- [Protection contre les menaces dans Azure Security Center](../security-center/azure-defender.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2 : Pré-analyser les fichiers à charger sur des ressources Azure non liées au calcul
 
@@ -869,7 +869,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 - [Présentation de Microsoft Antimalware pour Azure](../security/fundamentals/antimalware.md) 
 
-- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](/azure/security-center/security-center-alerts-data-services)
+- [Présentation de la détection des menaces pour les services de données d’Azure Security Center](../security-center/azure-defender.md)
 
 **Responsabilité** : Customer
 
@@ -883,7 +883,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -899,7 +899,7 @@ Utilisez la détection des menaces pour les services de données dans Azure Secu
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés managées par le client
 
@@ -913,11 +913,11 @@ Activez le service Sauvegarde Azure sur les machines virtuelles Azure cibles, et
 
 - [Vue d’ensemble de la sauvegarde de machines virtuelles Azure](../backup/backup-azure-vms-introduction.md)
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
@@ -929,13 +929,13 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 - [Guide pratique pour récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure](../backup/backup-azure-restore-files-from-vm.md)
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 - [Guide pratique pour sauvegarder et restaurer une machine virtuelle chiffrée](../backup/backup-azure-vms-encryption.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés managées par le client
 
@@ -947,7 +947,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -965,7 +965,7 @@ Si vous utilisez Azure Disk Encryption, vous pouvez restaurer la machine virtuel
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -975,11 +975,11 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 - [Alertes de sécurité dans le Centre de sécurité Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Organisation des ressources Azure à l’aide de catégories](/azure/azure-resource-manager/resource-group-using-tags)
+- [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -989,7 +989,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -999,7 +999,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -1011,7 +1011,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -1021,7 +1021,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -1037,9 +1037,9 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

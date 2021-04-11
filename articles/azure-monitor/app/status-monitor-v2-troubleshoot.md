@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: be202a6016842ee82b3230c2841d416d3b53ea15
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cf3d8fd1566f3d71541aab7648680063e85079bf
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505577"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121827"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Résolution des problèmes d’Application Insights Agent (anciennement appelé Status Monitor v2)
 
@@ -152,8 +152,6 @@ Consultez la [documentation de référence de l’API](status-monitor-v2-api-ref
 3. Dans une console de commande avec des privilèges Administrateur, exécutez la commande `iisreset /start` pour démarrer IIS.
 4. Essayez d’accéder à votre application.
 5. Une fois l’application est chargée, revenez à PerfView et sélectionnez **Arrêter la collecte**.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f26905366949c2c198e52f78bc7adb734cbb7f90
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895201"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102612454"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
 
@@ -52,8 +52,8 @@ Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vid�
 | Nom | Description |
 | --- | --- |
 | **Id**<br /> Obligatoire |Index de base zéro de cette piste vidéo. **Remarque :**  Cet **ID** ne correspond pas nécessairement au TrackID tel qu’utilisé dans un fichier MP4. <br /><br />Exemple : `"Id": 1`|
-| **FourCC**<br />Obligatoire | Code FourCC du codec vidéo signalé par ffmpeg.  <br /><br />Exemple : `"FourCC": "avc1"`|
-| **Profil** |Profil H264 (uniquement applicable au codec H264).  <br /><br />Exemple : `"Profile": "High"` |
+| **FourCC**<br />Obligatoire | Code FourCC du codec vidéo signalé par ffmpeg.  <br /><br />Exemple : `"FourCC": "avc1" | "hev1" | "hvc1"`|
+| **Profil** |Profil H264 (uniquement applicable au codec H264).  <br /><br />Exemple : `"Profile": "High"` |
 | **Niveau** |Niveau H264 (uniquement applicable au codec H264).  <br /><br />Exemple : `"Level": "3.2"`|
 | **Width**<br />Obligatoire |Largeur vidéo encodée en pixels.  <br /><br />Exemple : `"Width": "1280"`|
 | **Height**<br />Obligatoire |Hauteur vidéo encodée en pixels.  <br /><br />Exemple : `"Height": "720"`|

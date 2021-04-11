@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 43a8600a288a9797edcd326a1cb5dbcc8688d61f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 1d54429d901ca6caeadabfa7580e7270ceabcf45
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834149"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104611978"
 ---
 Ce tutoriel vous montre comment créer un exemple d'application d'appareil IoT Plug-and-Play avec des composants, comment le connecter à votre hub IoT, et comment utiliser l'outil Explorateur Azure IoT pour voir les informations qu'il envoie au hub. L’exemple d’application est écrit pour Node.js et est inclus dans le kit Azure IoT Hub Device SDK pour Node.js. Un créateur de solutions peut utiliser l’outil Explorateur Azure IoT pour comprendre les fonctionnalités d’un appareil IoT Plug-and-Play sans avoir besoin d’examiner le code d’appareil.
 
@@ -60,7 +60,7 @@ Accédez au dossier *Azure-IOT-SDK-node\device\samples\pnp*.
 
 Le dossier *Azure-IOT-SDK-node\device\samples\pnp* contient l’exemple de code pour l’appareil contrôleur de température IoT Plug-and-Play.
 
-Le code figurant dans le fichier *pnpTemperatureController.js* implémente un appareil contrôleur de température IoT Plug-and-Play. Le modèle implémenté par cet exemple utilise [plusieurs composants](../articles/iot-pnp/concepts-components.md). Le [fichier de modèle DTDL (Digital Twins Definition Language) pour l’appareil de contrôle de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
+Le code figurant dans le fichier *pnpTemperatureController.js* implémente un appareil contrôleur de température IoT Plug-and-Play. Le modèle implémenté par cet exemple utilise [plusieurs composants](../articles/iot-pnp/concepts-modeling-guide.md). Le [fichier de modèle DTDL (Digital Twins Definition Language) pour l’appareil de contrôle de température](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) définit la télémétrie, les propriétés et les commandes implémentées par l’appareil.
 
 Ouvrez le fichier *pnpTemperatureController.js* dans un éditeur de code de votre choix. L’exemple de code montre comment :
 

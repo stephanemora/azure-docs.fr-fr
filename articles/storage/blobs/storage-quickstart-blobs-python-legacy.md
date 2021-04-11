@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client de stockage blob Azure v2.1 pour Python'
 description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage v2.1 pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 34205caf03d2f2d7255f75ea6203c5572c4c429b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01ca2ee1bcd551baa471dda64d636e077f6e1a82
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95523300"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275445"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Démarrage rapide : Gérer des objets blob avec le SDK Python v2.1
 

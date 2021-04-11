@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/29/2021
-ms.openlocfilehash: 4807d1d5e97f7f95521df054d1a71f8925ac4ebb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bca2158f448f74ba596114fce5d1631249124a92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367603"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606733"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory sur le portail Azure
 
@@ -98,7 +98,7 @@ Dans cette étape, vous créez un service lié qui relie votre base de données 
 
 1. Dans la page Services liés, sélectionnez **+ Nouveau** pour créer un service lié.
 
-   ![Nouveau service lié](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Nouveau service lié.":::
 1. Dans la fenêtre **Nouveau service lié**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. 
 1. Dans la fenêtre **Nouveau service lié (Azure SQL Database)** , effectuez les étapes suivantes : 
 

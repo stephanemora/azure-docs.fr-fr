@@ -4,10 +4,10 @@ description: Apprenez à gérer votre environnement Azure pour vous assurer que 
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 283c99c4b17683850f71b25fb2006784e43f3b8f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102506204"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Gérer votre espace de sauvegarde à l’aide du Centre de sauvegarde

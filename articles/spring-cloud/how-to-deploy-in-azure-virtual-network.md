@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104877232"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Déployer Azure Spring Cloud dans un réseau virtuel
@@ -62,7 +62,7 @@ Si vous disposez déjà d’un réseau virtuel pour héberger une instance Azure
 
 1. Dans la boîte de dialogue **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes :
 
-    |Paramètre          |Value                                             |
+    |Paramètre          |Valeur                                             |
     |-----------------|--------------------------------------------------|
     |Abonnement     |Sélectionnez votre abonnement.                         |
     |Groupe de ressources   |Sélectionnez votre groupe de ressources ou créez-en un.  |

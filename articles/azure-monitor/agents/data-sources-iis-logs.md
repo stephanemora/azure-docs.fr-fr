@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 87cb19daa23c9fcca601771a9fe168b98be02627
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050730"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586265"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Collecter les journaux IIS avec l’agent Log Analytics dans Azure Monitor
 Internet Information Services (IIS) enregistre l’activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par l’agent Log Analytics et stockés dans les [journaux d’Azure Monitor](../data-platform.md).
@@ -60,6 +60,8 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | sSiteName |Nom du site IIS. |
 | TimeGenerated |Date et heure de consignation de l'entrée. |
 | TimeTaken |Délai de traitement de la requête en millisecondes. |
+| csHost | Nom d’hôte. |
+| csBytes | Nombre d’octets reçus par le serveur. |
 
 ## <a name="log-queries-with-iis-logs"></a>Enregistrer des requêtes avec les journaux d’activité IIS
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements de journaux IIS.

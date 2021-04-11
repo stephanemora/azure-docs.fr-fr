@@ -3,17 +3,18 @@ title: Définition d’Azure Cloud Services (classique) Schéma WebRole | Micros
 description: Le rôle web Azure est personnalisé pour la programmation d’applications web prenant en charge ASP.NET, PHP, WCF et FastCGI. En savoir plus sur les éléments de définition de service d’un rôle web.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7b3266be461af50d74988ad4834f2f8fc548e383
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743149"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934085"
 ---
 # <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Schéma WebRole de définition d’Azure Cloud Services (classique)
 

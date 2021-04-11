@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: 74d8018ea4cb2cad5b6726b8abb6bf2f17b8e57c
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 059a1888b529487f2b0d17509370897222a20d83
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778523"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563019"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -158,9 +158,9 @@ Oui, nous prenons désormais en charge plusieurs informations d’identification
 Vous pouvez fournir des informations d’identification d’authentification de domaine/Windows (hors domaine)/Linux (hors domaine)/SQL Server sur le gestionnaire de configuration de l’appliance. [Apprenez-en davantage](add-server-credentials.md) sur la manière de fournir des informations d’identification et la façon dont nous les traitons.
 
 ## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quels types de propriétés de connexion SQL Server Azure Migrate prend-il en charge pour la découverte SQL ?
-Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur TRUE). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [TrustServerCertificate](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur TRUE). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [approuver l’autorité racine du certificat](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
-Si aucun certificat n'est présent sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
+Si aucun certificat n'est présent sur le serveur au démarrage, SQL Server génère un certificat auto-signé qui servira au chiffrement des paquets de connexion. [Plus d’informations](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
