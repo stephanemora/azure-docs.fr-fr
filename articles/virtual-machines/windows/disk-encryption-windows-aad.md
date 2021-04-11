@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 3b7f6f63953ba09e57e4586c698e16b9abb8aa1c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102555276"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption avec Azure AD pour les machines virtuelles Windows (version précédente)
@@ -64,7 +64,7 @@ Le tableau suivant répertorie les paramètres du modèle Resource Manager pour 
 | subnetName | Nom du sous-réseau du réseau virtuel auquel la carte d’interface réseau de machine virtuelle appartient. |
 | AADClientID | ID de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
-| keyVaultURL | URL du coffre de clés dans lequel la clé BitLocker doit être téléchargée. Vous pouvez l’obtenir avec l’applet de commande `(Get-AzKeyVault -VaultName "MyKeyVault" -ResourceGroupName "MyKeyVaultResourceGroupName").VaultURI` ou la commande Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
+| keyVaultURL | URL du coffre de clés dans lequel la clé BitLocker doit être téléchargée. Vous pouvez l’obtenir avec l’applet de commande `(Get-AzKeyVault -VaultName "MyKeyVault&quot; -ResourceGroupName &quot;MyKeyVaultResourceGroupName").VaultURI` ou la commande Azure CLI `az keyvault show --name "MySecureVault" --query properties.vaultUri` |
 | keyEncryptionKeyURL | URL de la clé de chiffrement à clé utilisée pour chiffrer la clé BitLocker générée (facultatif). </br> </br>KeyEncryptionKeyURL est un paramètre facultatif. Vous pouvez apporter vos propres clés de chiffrement à clé (KEK) pour renforcer la clé de chiffrement des données (clé secrète de chiffrement) dans votre coffre de clés. |
 | keyVaultResourceGroup | Groupe de ressources du coffre de clés. |
 | vmName | Nom de la machine virtuelle sur laquelle l’opération de chiffrement doit être effectuée. |

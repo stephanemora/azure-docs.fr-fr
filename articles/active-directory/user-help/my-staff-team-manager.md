@@ -1,5 +1,5 @@
 ---
-title: Gérer les mots de passe et les numéros de téléphone avec Mon personnel (préversion) - Azure AD | Microsoft Docs
+title: Gérer les mots de passe et les numéros de téléphone avec Mon personnel – Azure AD | Microsoft Docs
 description: Gérez les mots de passe et les numéros de téléphone de vos utilisateurs avec Mon personnel
 services: active-directory
 documentationcenter: ''
@@ -9,18 +9,18 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537088"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104583596"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Déléguer la gestion des utilisateurs avec Mon personnel (préversion)
+# <a name="delegate-user-management-with-my-staff"></a>Déléguer la gestion des utilisateurs avec Mon personnel
 
 Votre organisation peut avoir recours à **Mon personnel** pour déléguer les tâches de gestion des utilisateurs à un responsable (gérant de magasin ou chef d'équipe, par exemple) afin d'aider les membres du personnel à accéder aux applications dont ils ont besoin. Si un membre de votre équipe n'a pas accès à une application parce qu'il a oublié un mot de passe, sa productivité en pâtira. Cela se traduira également par une augmentation des coûts liés au support et par un goulot d'étranglement au niveau de vos processus administratifs.  Avec Mon personnel, un membre d'équipe qui ne parvient pas à accéder à son compte peut récupérer cet accès en quelques clics, sans intervention de l'administrateur.
 

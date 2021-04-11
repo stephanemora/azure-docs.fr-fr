@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 996159f7014e735c8a4b3e5975c2716ce1ab6910
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6a2e2aaa4c7acd6831c0c3058f9858af09521969
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728489"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559483"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Base de référence de la sécurité Azure pour Azure Resource Manager
 
@@ -32,15 +32,15 @@ Pour voir comment Azure Resource Manager est entièrement mappé au benchmark de
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Resources** :
 
@@ -50,9 +50,9 @@ Pour voir comment Azure Resource Manager est entièrement mappé au benchmark de
 
 **Conseils** : Azure Resource Manager utilise les journaux d’activité, qui sont automatiquement activés, pour inclure la source de l’événement, la date, l’utilisateur, le timestamp, les adresses sources, les adresses de destination et d’autres éléments utiles.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilité** : Customer
 
@@ -66,13 +66,13 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Bien démarrer avec les requêtes Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Bien démarrer avec les requêtes Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -82,11 +82,11 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour gérer les alertes dans Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -102,7 +102,7 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Resources** :
 
@@ -119,13 +119,13 @@ En outre, pour vous aider à suivre les comptes d’administration dédiés, vou
 
 Vous pouvez également activer un accès juste-à-temps avec Azure Active Directory (Azure AD) Privileged Identity Management et Azure Resource Manager.
 
-- [En savoir plus sur Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [En savoir plus sur Privileged Identity Management](../../active-directory/privileged-identity-management/index.yml)
 
 - [Utilisation d’Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Resources** :
 
@@ -143,7 +143,7 @@ Vous pouvez également activer un accès juste-à-temps avec Azure Active Direct
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Conseil** : Activez l’authentification multifacteur Azure Active Directory (Azure AD), puis suivez les recommandations relatives à la gestion des identités et des accès Azure Security Center.
+**Conseil** : activez l’authentification multifacteur Azure Active Directory (Azure AD), puis suivez les recommandations relatives à la gestion des identités et des accès Azure Security Center.
 
 - [Guide pratique pour activer l’authentification multifacteur dans Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -151,7 +151,7 @@ Vous pouvez également activer un accès juste-à-temps avec Azure Active Direct
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Resources** :
 
@@ -163,11 +163,11 @@ Vous pouvez également activer un accès juste-à-temps avec Azure Active Direct
 
 - [Comprendre les stations de travail sécurisées gérées par Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Guide pratique pour activer l’authentification multifacteur Azure Active Directory (Azure AD)](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Guide pratique pour activer l’authentification multifacteur Azure Active Directory (Azure AD)](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
@@ -189,7 +189,7 @@ Vous pouvez également activer un accès juste-à-temps avec Azure Active Direct
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
@@ -199,19 +199,19 @@ Vous pouvez également activer un accès juste-à-temps avec Azure Active Direct
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
 **Aide** : Azure Active Directory (Azure AD) fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès et des identités Azure AD pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès.
 
-- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
+- [Présentation des rapports Azure AD](../../active-directory/reports-monitoring/index.yml)
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Resources** :
 
@@ -219,11 +219,11 @@ Vous pouvez également activer un accès juste-à-temps avec Azure Active Direct
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
-**Conseil** : Vous avez accès aux sources des journaux d’activité de connexion, d’audit et des événements à risque Azure Active Directory (Azure AD), qui permettent l’intégration à n’importe quel outil SIEM/de supervision.
+**Conseil** : vous avez accès aux sources des journaux Activité de connexion, Audit et Événement à risque Azure Active Directory (Azure AD), qui permettent l’intégration à n’importe quel outil SIEM/de supervision.
 
 Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pour les comptes d’utilisateur Azure AD et en envoyant les journaux d’audit et les journaux de connexion à un espace de travail Log Analytics. Vous pouvez configurer les alertes souhaitées dans un espace de travail Log Analytics.
 
-- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilité** : Customer
 
@@ -241,7 +241,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -265,7 +265,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Authorization** :
 
@@ -275,21 +275,21 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Conseils** : Pour le chiffrement au repos côté serveur, Azure Resource Manager prend en charge les clés gérées par Microsoft.
 
-- [Présentation de la protection des données dans Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-security-controls#data-protection)
+- [Présentation de la protection des données dans Azure Resource Manager](#data-protection)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
 **Conseils** : Utilisez Azure Monitor avec le journal d’activité Azure pour créer des alertes lorsque des modifications sont apportées à des ressources Azure critiques.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : Le [Benchmark de sécurité Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) constitue l’initiative de stratégie par défaut de Security Center. Il sert de base aux [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés peut être requis par les alertes liées à ce contrôle.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés peut être requis par les alertes liées à ce contrôle.
 
 **Définitions intégrées Azure Policy – Microsoft.Resources** :
 
@@ -313,17 +313,17 @@ Même si les ressources Azure classiques peuvent être découvertes via l’expl
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
 **Conseils** : Utilisez les paramètres Nom de la stratégie, Description et Catégorie pour organiser logiquement les ressources en fonction d’une taxonomie.
 
-- [Pour plus d’informations sur l’étiquetage des ressources, consultez Guides de décision concernant le nommage et l’étiquetage des ressources](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Pour plus d’informations sur l’étiquetage des ressources, consultez Guides de décision concernant le nommage et l’étiquetage des ressources](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
@@ -352,7 +352,7 @@ Des informations complémentaires sont fournies ci-dessous.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -366,7 +366,7 @@ Utilisez Azure Resource Graph pour interroger et découvrir des ressources dans 
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
@@ -379,11 +379,11 @@ Des informations complémentaires sont fournies ci-dessous.
 
 - [Guide pratique pour configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
@@ -401,7 +401,7 @@ Des informations complémentaires sont fournies ci-dessous.
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -425,7 +425,7 @@ Vous pouvez aussi utiliser les recommandations d’Azure Security Center comme l
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -443,7 +443,7 @@ En outre, en tant qu’administrateur, vous pouvez avoir besoin de verrouiller u
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
@@ -455,7 +455,7 @@ En outre, en tant qu’administrateur, vous pouvez avoir besoin de verrouiller u
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -463,11 +463,11 @@ En outre, en tant qu’administrateur, vous pouvez avoir besoin de verrouiller u
 
 - [Configurer et gérer Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Utiliser des alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Utiliser des alias](../../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -477,7 +477,7 @@ En outre, en tant qu’administrateur, vous pouvez avoir besoin de verrouiller u
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -491,7 +491,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -505,7 +505,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés managées par le client
 
@@ -517,7 +517,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -535,7 +535,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -545,7 +545,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -557,7 +557,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -567,7 +567,7 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -583,9 +583,9 @@ Exécuter le moteur d’analyse des informations d’identification pour identif
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../../security/benchmarks/security-baselines-overview.md)

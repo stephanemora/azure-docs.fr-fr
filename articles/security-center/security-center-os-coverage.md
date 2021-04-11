@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
 ms.openlocfilehash: 88dc0760f320a99b0cbc99b7637dc34dd11dfecc
-ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103465444"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 

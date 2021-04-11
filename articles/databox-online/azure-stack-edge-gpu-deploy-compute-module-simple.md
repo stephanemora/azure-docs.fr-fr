@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/22/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6c067fb5f39e82bb1601ce7b4d9dc5e2ce4ac624
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d10e27c80a9253de7482644debd19debce8f4e50
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102440137"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055295"
 ---
 # <a name="tutorial-run-a-compute-workload-with-iot-edge-module-on-azure-stack-edge-pro-gpu"></a>Tutoriel : Exécuter une charge de travail de calcul avec un module IoT Edge sur Azure Stack Edge Pro avec GPU
 
@@ -84,9 +83,9 @@ Pour le déploiement simple dans ce tutoriel, vous aurez besoin de deux partages
 
 ## <a name="add-a-module"></a>Ajouter un module
 
-Vous pouvez ajouter un module prédéfini ou personnalisé. L’appareil n’est pas fourni avec des modules prédéfinis ou personnalisés. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md).
+Vous pouvez ajouter un module prédéfini ou personnalisé. L’appareil n’est pas fourni avec des modules prédéfinis ou personnalisés. Pour savoir comment créer un module personnalisé, accédez à [Développer un module C# pour votre appareil Azure Stack Edge Pro](./azure-stack-edge-gpu-create-iot-edge-module.md).
 
-Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](azure-stack-edge-j-series-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
+Dans cette section, vous ajoutez un module personnalisé à l’appareil IoT Edge que vous avez créé dans [Développer un module C# pour votre appareil Azure Stack Edge Pro](./azure-stack-edge-gpu-create-iot-edge-module.md). Ce module personnalisé place des fichiers d’un partage local Edge sur l’appareil de périphérie, puis les déplace vers un partage Edge (cloud) sur l’appareil. Le partage cloud envoie ensuite les fichiers vers le compte de stockage Azure associé au partage cloud.
 
 Pour ajouter un module, effectuez les étapes suivantes :
 

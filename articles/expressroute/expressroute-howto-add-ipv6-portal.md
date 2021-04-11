@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 9b85caa3611c484fc17423637dc36ce20b48b823
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7f5afc05a8d03d33366a2f76318bcf5e039d4d30
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868475"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561659"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Ajouter la prise en charge IPv6 pour le Peering privé à l’aide du Portail Azure (préversion)
 
 Cet article explique comment ajouter la prise en charge IPv6 pour se connecter via ExpressRoute à vos ressources dans Azure à l’aide du Portail Azure. 
 
 > [!Note]
-> Cette fonctionnalité est actuellement disponible en préversion dans les [régions Azure avec Zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). Votre circuit ExpressRoute peut donc être créé à l’aide de n’importe quel emplacement de Peering, mais les déploiements basés sur IPv6 auxquels il se connecte doivent se trouver dans une région avec Zones de disponibilité.
+> Cette fonctionnalité est actuellement disponible en préversion dans les [régions Azure avec Zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones). Votre circuit ExpressRoute peut donc être créé à l’aide de n’importe quel emplacement de Peering, mais les déploiements basés sur IPv6 auxquels il se connecte doivent se trouver dans une région avec Zones de disponibilité.
 
 ## <a name="register-for-public-preview"></a>S’inscrire pour la préversion publique
 Avant d’ajouter la prise en charge IPv6, vous devez d’abord inscrire votre abonnement. Pour vous inscrire, exécutez les commandes suivantes via Azure PowerShell :

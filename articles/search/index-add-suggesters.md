@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030779"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604404"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Créer un suggesteur pour activer l’autocomplétion et les résultats suggérés dans une requête
 
@@ -66,7 +66,7 @@ L’analyseur choisi détermine la façon dont les champs sont tokenisés et pr�
 
 Lors de l’évaluation des analyseurs, envisagez d’utiliser l’[API d’analyse de texte](/rest/api/searchservice/test-analyzer) pour savoir comment les termes sont traités. Une fois que vous avez créé un index, vous pouvez essayer divers analyseurs sur une chaîne pour afficher la sortie du jeton.
 
-Les champs qui utilisent des [analyseurs personnalisés](index-add-custom-analyzers.md) ou des [analyseurs prédéfinis](index-add-custom-analyzers.md#predefined-analyzers-reference) (à l’exception de Lucene standard) sont explicitement interdits pour éviter des résultats médiocres.
+Les champs qui utilisent des [analyseurs personnalisés](index-add-custom-analyzers.md) ou des [analyseurs intégrés](index-add-custom-analyzers.md#built-in-analyzers) (à l’exception de Lucene standard) sont explicitement interdits pour éviter des résultats médiocres.
 
 > [!NOTE]
 > Si vous avez besoin de contourner la contrainte de l’analyseur, par exemple, si vous avez besoin d’un analyseur de mot clé ou de ngram pour certains scénarios de requête, vous devez utiliser deux champs distincts pour le même contenu. Ceci permettra à l’un des champs d’avoir un suggesteur et à l'autre d'être configuré avec une configuration d’analyseur personnalisée.

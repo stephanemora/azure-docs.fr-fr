@@ -8,19 +8,15 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9c1abe1323bc095fe4dfbfc559ef7e159d1f7532
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 306294cc654e46dbe8af80b25cb9c709071fad20
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880673"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166324"
 ---
 # <a name="deploy-a-azure-cloud-services-extended-support-using-the-azure-portal"></a>Déployer une instance Azure Cloud Services (support étendu) à l’aide du portail Azure
 Cet article explique comment utiliser le portail Azure pour créer un déploiement de service cloud (support étendu). 
-
-> [!IMPORTANT]
-> Cloud Services (support étendu) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

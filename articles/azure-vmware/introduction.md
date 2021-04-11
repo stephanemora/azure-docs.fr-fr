@@ -2,13 +2,13 @@
 title: Introduction
 description: Découvrez les fonctionnalités et les avantages d’Azure VMware Solution pour déployer et gérer des charges de travail VMware dans Azure.
 ms.topic: overview
-ms.date: 11/11/2020
-ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 32dd73108dc12d7d7acc605f43a0fbf6d2cf1cd7
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579300"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107982"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Présentation d’Azure VMware Solution
 
@@ -55,6 +55,9 @@ Dans votre cloud privé, vous pouvez :
 
 Dans Azure VMware Solution, les modèles de supervision sont similaires à ceux des machines virtuelles Azure sur la plateforme IaaS. Pour obtenir des informations supplémentaires et des procédures, consultez [Supervision de machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/monitor-vm-azure.md).
 
+## <a name="customer-communication"></a>Communication du client
+[!INCLUDE [customer-communications](includes/customer-communications.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 L’étape suivante consiste à se familiariser avec les [concepts clés des clouds privés et des clusters](concepts-private-clouds-clusters.md).
@@ -63,3 +66,5 @@ L’étape suivante consiste à se familiariser avec les [concepts clés des clo
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
+
+

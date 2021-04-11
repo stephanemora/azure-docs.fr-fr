@@ -3,12 +3,12 @@ title: Matrice de protection MABS V3 UR1 (serveur de sauvegarde Azure)
 description: Cet article fournit une matrice de prise en charge répertoriant toutes les charges de travail, les types de données et les installations que protège le serveur de sauvegarde Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d8f2a38db468ec57cdc0a4f0813fe7ae8e341d52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfdd227135a2124e22a604bad4bd41594a38fb37
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609768"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561268"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice de protection MABS V3 UR1 (serveur de sauvegarde Azure)
 
@@ -127,7 +127,7 @@ Le serveur de sauvegarde Azure peut protéger les charges de travail de cluster 
   * Serveur de fichiers
   * Hyper-V
 
-  Ces charges de travail peuvent s'exécuter sur un seul serveur ou dans une configuration de cluster. Pour protéger une charge de travail qui n’est pas dans un domaine approuvé, consultez [Préparer des ordinateurs inclus dans des domaines non approuvés et des groupes de travail](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm) pour obtenir des détails précis sur ce qui est pris en charge et sur l’authentification requise.
+  Ces charges de travail peuvent s'exécuter sur un seul serveur ou dans une configuration de cluster. Pour protéger une charge de travail qui n’est pas dans un domaine approuvé, consultez [Préparer des ordinateurs inclus dans des domaines non approuvés et des groupes de travail](/system-center/dpm/prepare-environment-for-dpm) pour obtenir des détails précis sur ce qui est pris en charge et sur l’authentification requise.
 
 ## <a name="unsupported-data-types"></a>Types de données non pris en charge
 

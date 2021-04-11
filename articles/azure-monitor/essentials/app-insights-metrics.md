@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.openlocfilehash: bae7980137c1da5e1755450863af4f9029d6ed62
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104583460"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métriques reposant sur un journal d’Application Insights
@@ -193,7 +193,7 @@ Cette métrique reflète le nombre d'exceptions levées à partir de votre code 
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Count|Count|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|None|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 exceptions
@@ -208,7 +208,7 @@ Nombre d’appels de dépendance ayant échoué.
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Count|Count|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|None|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 dependencies

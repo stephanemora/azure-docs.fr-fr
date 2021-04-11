@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103232492"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
@@ -93,7 +93,7 @@ Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio con
 | Longueur maximale par fichier audio | 2 heures               |
 | Format d’échantillonnage            | PCM, 16 bits           |
 | Format d’archive           | .zip                  |
-| Taille d’archive maximale     | 2 Go                  |
+| Taille d’archive maximale     | 2 Go                  |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
@@ -121,7 +121,7 @@ Les fichiers audio peuvent avoir un silence au début et à la fin de l’enregi
 | Longueur maximale par fichier audio | 2 heures (test) /60 s (entraînement) |
 | Format d’échantillonnage            | PCM, 16 bits                         |
 | Format d’archive           | .zip                                |
-| Taille maximale de zip         | 2 Go                                |
+| Taille maximale de zip         | 2 Go                                |
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

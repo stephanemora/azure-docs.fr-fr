@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: b17b5901248056f6000710fa25d2ea1e9df2e2a5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009086"
 ---
 # <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services  
@@ -75,11 +75,11 @@ Cela devrait permettre d’optimiser la plupart des requêtes courantes :
 
 Les données de télémétrie sont stockées en agrégat dans une table, « TelemetryMetrics20160321 », où « 20160321 » est la date de création de la table. Le système de télémétrie crée une table distincte pour chaque nouveau jour basé sur l’heure UTC 00:00. La table est utilisée pour stocker des valeurs récurrentes telles que comme la vitesse de transmission de réception dans une fenêtre de temps donnée, les octets envoyés, etc. 
 
-Propriété|Value|Exemples/notes
+Propriété|Valeur|Exemples/notes
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L’ID de compte est inclus dans la clé de partition afin de simplifier les workflows dans lesquels plusieurs comptes Media Services écrivent sur le même compte de stockage.
 RowKey|{secondes avant minuit}_{valeur aléatoire}|01688_00199<br/><br/>La clé de ligne commence par le nombre de secondes avant minuit pour autoriser les requêtes supérieures de style n au sein d’une partition. Pour plus d’informations, consultez [cet](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) article. 
-Timestamp|Date/Heure|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
+Timestamp|Date/heure|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
 Type|Le type de l’entité offrant les données de télémétrie|Channel/StreamingEndpoint/Archive<br/><br/>Le type d’événement est simplement une valeur de chaîne.
 Nom|Le nom de l’événement de télémétrie|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L’heure à laquelle l’événement de télémétrie est survenu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>L’heure observée est fournie par l’entité envoyant les données de télémétrie (par exemple, un canal). Il peut y avoir des problèmes de synchronisation de l’heure entre les composants, cette valeur est donc approximative
@@ -94,9 +94,9 @@ Il existe trois types d’entrées de données télémétriques spécifiques à 
 - Canaux en temps réel : toutes les minutes
 - Archive en temps réel : toutes les minutes
 
-**Point de terminaison de streaming**
+**Point de terminaison de diffusion en continu**
 
-Propriété|Value|Exemples
+Propriété|Valeur|Exemples
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -115,12 +115,12 @@ E2ELatency|Latence moyenne de bout en bout|250
 
 **Canal en temps réel**
 
-Propriété|Value|Exemples/notes
+Propriété|Valeur|Exemples/notes
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatique à partir de la table Azure 2016-09-09T22:43:42.241Z
-Type|Type|Canal
+Type|Type|Channel
 Nom|Nom|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID de service|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -133,14 +133,14 @@ OverlapCount|Chevauchement dans la réception|0
 DiscontinuityCount|Discontinuité de piste|0
 LastTimestamp|Timestamp des dernières données reçues|1800488800
 NonincreasingCount|Nombre de fragments rejetés en raison d’un timestamp n’augmentant pas|2
-UnalignedKeyFrames|Si nous avons reçu des fragments (parmi les différents niveaux de qualité) où les trames-clés ne sont pas alignées |Vrai
-UnalignedPresentationTime|Si nous avons reçu des fragments (parmi les différents niveaux/pistes de qualité) où l’heure de présentation n’est pas alignée|Vrai
-UnexpectedBitrate|True, si la vitesse de transmission réelle/calculée pour la piste audio/vidéo > 40 000 bits/s et IncomingBitrate == 0 ou IncomingBitrate et actualBitrate diffèrent de 50 % |Vrai
-Healthy|True, si <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sont tous 0|Vrai<br/><br/>Healthy est une fonction composite qui retourne la valeur false lorsque l’une des conditions suivantes contient :<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Si nous avons reçu des fragments (parmi les différents niveaux de qualité) où les trames-clés ne sont pas alignées |True
+UnalignedPresentationTime|Si nous avons reçu des fragments (parmi les différents niveaux/pistes de qualité) où l’heure de présentation n’est pas alignée|True
+UnexpectedBitrate|True, si la vitesse de transmission réelle/calculée pour la piste audio/vidéo > 40 000 bits/s et IncomingBitrate == 0 ou IncomingBitrate et actualBitrate diffèrent de 50 % |True
+Healthy|True, si <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sont tous 0|True<br/><br/>Healthy est une fonction composite qui retourne la valeur false lorsque l’une des conditions suivantes contient :<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Archive en temps réel**
 
-Propriété|Value|Exemples/notes
+Propriété|Valeur|Exemples/notes
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199

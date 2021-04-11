@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 62035b2fe6c3db71e392a05946ea3f230dfa030e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503911"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604624"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Guide pratique pour activer la journalisation de Key Vault
 
 Une fois que vous avez créé un ou plusieurs coffres de clés, vous voulez probablement contrôler qui accède à ces derniers, par quel moyen et quand. Pour plus d’informations sur la fonctionnalité, consultez [Journalisation de Key Vault](logging.md).
+
+Éléments journalisés :
+
+* Toutes les requêtes d’API REST authentifiées, ce qui inclut les requêtes ayant échoué suite à des autorisations d’accès, des erreurs système ou des requêtes incorrectes.
+* Les opérations sur le coffre de clés proprement dit, notamment la création, la suppression, la définition des stratégies d’accès au coffre de clés et la mise à jour des attributs de coffre de clés (par exemple, les balises).
+* Les opérations sur les clés et secrets dans le coffre de clés, à savoir :
+  * Création, modification ou suppression de ces clés ou secrets.
+  * Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
+* les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.  
+* Les événements de notification Event Grid concernant l’expiration proche, l’expiration et la modification de la stratégie d’accès au coffre (l’événement de nouvelle version n’est pas consigné). Les événements sont consignés, quel que soit l’abonnement aux événements créé sur le coffre de clés. Pour plus d’informations, consultez [Schéma d’événement Event Grid pour Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,7 +68,7 @@ Pour simplifier davantage la gestion, nous allons utiliser le groupe de ressourc
 
 Nous devrons également fournir un nom de compte de stockage. Ce nom doit être unique et comprendre entre 3 et 24 caractères, uniquement des lettres en minuscules et des nombres.  Enfin, nous allons créer un compte de stockage de la référence SKU « Standard_LRS ».
 
-Avec Azure CLI, utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Avec Azure CLI, utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -100,44 +110,67 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 L’ID de ressource de votre coffre de clés a le format « /subscriptions/<ID de votre abonnement>/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<nom unique de votre coffre de clés> ». Notez-le pour l’étape suivante.
 
-## <a name="enable-logging-using-azure-powershell"></a>Activer la journalisation à l’aide d’Azure PowerShell
+## <a name="enable-logging"></a>Activation de la journalisation
 
-Pour activer la journalisation pour Key Vault, nous allons utiliser la commande Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) ou l’applet de commande [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) ainsi que l’ID du compte de stockage et l’ID de ressource du coffre de clés.
+Vous pouvez activer la journalisation pour Key Vault à l’aide d’Azure CLI, d’Azure PowerShell ou du portail Azure.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="azure-cli"></a>Azure CLI
+
+Utilisez la commande Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) avec l’ l’ID du compte de stockage et l’ID de ressource du coffre de clés.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Avec Azure PowerShell, nous allons utiliser l’applet de commande [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting), avec l’indicateur **-Enabled** défini sur **$true** et la catégorie définie sur `AuditEvent` (unique catégorie pour la journalisation de Key Vault) :
+Si vous le souhaitez, vous pouvez définir une stratégie de conservation pour vos journaux, afin que les anciens journaux soient automatiquement supprimés après un laps de temps spécifié. Par exemple, vous pouvez définir une stratégie de rétention qui supprime automatiquement les journaux datant de plus de 90 jours.
+
+Avec Azure CLI, utilisez la commande [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) . 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Utiliser la cmdlet [set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) avec l’indicateur **-Enabled** défini sur **$true** et la catégorie définie sur `AuditEvent` (unique catégorie pour la journalisation du Key Vault) :
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
 ```
 
-Si vous le souhaitez, vous pouvez définir une stratégie de conservation pour vos journaux, afin que les anciens journaux soient automatiquement supprimés après un laps de temps spécifié. Par exemple, vous pouvez définir une stratégie de conservation qui supprime automatiquement les journaux datant de plus de 90 jours.
+Si vous le souhaitez, vous pouvez définir une stratégie de conservation pour vos journaux, afin que les anciens journaux soient automatiquement supprimés après un laps de temps spécifié. Par exemple, vous pouvez définir une stratégie de rétention qui supprime automatiquement les journaux datant de plus de 90 jours.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-Avec Azure PowerShell, utilisez l’applet de commande [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). 
+Avec Azure PowerShell, utilisez l’applet de commande [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-Éléments journalisés :
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
-* Toutes les requêtes d’API REST authentifiées, ce qui inclut les requêtes ayant échoué suite à des autorisations d’accès, des erreurs système ou des requêtes incorrectes.
-* Les opérations sur le coffre de clés proprement dit, notamment la création, la suppression, la définition des stratégies d’accès au coffre de clés et la mise à jour des attributs de coffre de clés (par exemple, les balises).
-* Les opérations sur les clés et secrets dans le coffre de clés, à savoir :
-  * Création, modification ou suppression de ces clés ou secrets.
-  * Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
-* les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.  
-* Les événements de notification Event Grid concernant l’expiration proche, l’expiration et la modification de la stratégie d’accès au coffre (l’événement de nouvelle version n’est pas consigné). Les événements sont consignés, quel que soit l’abonnement aux événements créé sur le coffre de clés. Pour plus d’informations, consultez [Schéma d’événement Event Grid pour Key Vault](../../event-grid/event-schema-key-vault.md)
+Pour configurer les paramètres de diagnostic dans le portail, procédez comme suit.
+
+1. Sélectionnez les paramètres de diagnostic dans le menu du panneau de ressources.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Portail de diagnostic 1":::
+
+1. Cliquez sur « + Ajouter un paramètre de diagnostic ».
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Portail de diagnostic 2":::
+ 
+1. Sélectionnez un nom pour désigner votre paramètre de diagnostic. Pour configurer la journalisation d’Azure Monitor pour le Key Vault, sélectionnez l’option « AuditEvent », puis « Envoyer à l’espace de travail Log Analytics ». Choisissez ensuite l’abonnement et l’espace de travail Log Analytics auquel vous souhaitez envoyer à vos journaux.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Portail de diagnostic 3":::
+
+    Autrement, sélectionnez les options relatives aux journaux que vous souhaitez sélectionner.
+
+1. Une fois que vous avez sélectionné les options souhaitées, sélectionnez Enregistrer.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Portail de diagnostic 4":::
+
+---
 
 ## <a name="access-your-logs"></a>Accéder à vos journaux d’activité
 

@@ -3,17 +3,18 @@ title: Mise à l’échelle d’un service cloud Azure (classic) dans Windows Po
 description: (classique) Découvrez comment utiliser PowerShell pour mettre à l’échelle un rôle web ou un rôle de travail dans Azure.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: autoscale
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0b0a9cc8032cfd849f053e2d45e05f85e4216a23
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743302"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936612"
 ---
 # <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>Mise à l’échelle d’un service cloud Azure (classic) dans PowerShell
 

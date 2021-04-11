@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83ed5af00bb61d7a8929e710b52e60c33c0f479b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713369"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559211"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -130,7 +130,7 @@ Actuellement, cette fonctionnalité est disponible pour Azure Database pour Post
 - Échec de la sauvegarde (pour recevoir des alertes en cas d’échec de la sauvegarde, vous devez inscrire l’indicateur AFEC nommé **EnableAzureBackupJobFailureAlertsToAzureMonitor** via le portail en préversion)
 - Échec de la restauration (pour obtenir des alertes en cas d’échec de la restauration, vous devez inscrire l’indicateur AFEC nommé **EnableAzureBackupJobFailureAlertsToAzureMonitor** via le portail en préversion)
 
-Pour plus d’informations concernant les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
+Pour plus d’informations concernant les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

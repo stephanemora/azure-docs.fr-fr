@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878170"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604574"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrer des machines virtuelles Hyper-V vers Azure 
 
@@ -135,12 +135,7 @@ Une fois la découverte terminée, vous pouvez commencer la réplication des mac
 ## <a name="provision-for-the-first-time"></a>Provisionnement initial
 
 S’il s’agit de la première machine virtuelle que vous répliquez dans le projet Azure Migrate, Azure Migrate : Server Migration provisionne automatiquement ces ressources dans le même groupe de ressources que le projet.
-
-- **Service Bus** : Azure Migrate : Server Migration utilise Service Bus pour envoyer des messages d’orchestration de réplication à l’appliance.
-- **Compte de stockage de la passerelle** : Azure Migrate : Server Migration utilise le compte de stockage de la passerelle pour stocker des informations d’état relatives aux machines virtuelles en cours de réplication.
-- **Compte de stockage de journal** : l’appliance Azure Migrate charge les journaux de réplication pour les machines virtuelles vers un compte de stockage de journal. Azure Migrate applique les informations de réplication aux disques managés de réplica.
-- **Coffre de clés** : l’appliance Azure Migrate utilise le coffre de clés afin de gérer les chaînes de connexion pour Service Bus, et des clés d’accès pour les comptes de stockage utilisés dans la réplication. Vous devez avoir configuré les autorisations dont le coffre de clés a besoin pour accéder au compte de stockage quand vous avez [préparé Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) pour l’évaluation et la migration de machine virtuelle Hyper-V. 
-
+- **Compte de stockage de cache** : le logiciel du fournisseur Azure Site Recovery installé sur les hôtes Hyper-V charge les données de réplication pour les machines virtuelles configurées pour la réplication sur un compte de stockage (appelé compte de stockage de cache ou compte de stockage de journal) dans votre abonnement. Le service Azure Migrate copie ensuite les données de réplication chargées à partir du compte de stockage vers les disques managés de réplica correspondant à la machine virtuelle. Le compte de stockage de cache doit être spécifié lors de la configuration de la réplication pour une machine virtuelle. Le portail Azure Migrate en crée un automatiquement pour le projet Azure Migrate quand la réplication est configurée pour la première fois dans le projet.
 
 ## <a name="track-and-monitor"></a>Suivre et superviser
 

@@ -3,16 +3,16 @@ title: Environnements Compute pris en charge par Azure Data Factory version 1
 description: Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5f6fbcb73b4139c0a80ea8352071d8683c401d6e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377191"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104782943"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Environnements Compute pris en charge par Azure Data Factory version 1
 > [!NOTE]

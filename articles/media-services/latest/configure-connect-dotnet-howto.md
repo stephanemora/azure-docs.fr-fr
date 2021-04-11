@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 677c5998d25205f8de9792888af2554674944798
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455380"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107557"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Se connecter à l’API Media Services v3 - .NET
 
@@ -29,7 +29,7 @@ Cet article explique comment se connecter au kit de développement logiciel (SDK
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Créer un compte Media Services](./create-account-howto.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+- [Créer un compte Media Services](./account-create-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
 - Installez un outil que vous souhaitez utiliser pour le développement .NET. Les étapes décrites dans cet article montrent comment utiliser [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Vous pouvez utiliser Visual Studio Code. Pour cela, consultez [Working with C#](https://code.visualstudio.com/docs/languages/csharp) (Utilisation de C#). Vous pouvez également utiliser un autre éditeur de code.
 
 > [!IMPORTANT]
@@ -237,14 +237,14 @@ namespace ConsoleApp1
 
 - [Tutoriel : Charger, encoder et diffuser des vidéos en continu - .NET](stream-files-tutorial-with-api.md) 
 - [Tutoriel : Diffuser en direct avec Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutoriel : Analyser des vidéos avec Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Tutoriel : Analyser des vidéos avec Media Services v3 - .NET](analyze-videos-tutorial.md)
 - [Créer une entrée de travail à partir d’un fichier local - .NET](job-input-from-local-file-how-to.md)
 - [Créer une entrée de travail à partir d’une URL HTTPS - .NET](job-input-from-http-how-to.md)
-- [Encoder avec une transformation personnalisée - .NET](customize-encoder-presets-how-to.md)
-- [Utiliser le chiffrement dynamique AES-128 et le service de distribution de clés - .NET](protect-with-aes128.md)
-- [Utilisation du chiffrement dynamique DRM et du service de remise des licences - .NET](protect-with-drm.md)
-- [Obtenir une clé de signature à partir de la stratégie existante - .NET](get-content-key-policy-dotnet-howto.md)
-- [Créer des filtres avec Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Encoder avec une transformation personnalisée - .NET](encode-custom-presets-how-to.md)
+- [Utiliser le chiffrement dynamique AES-128 et le service de distribution de clés - .NET](drm-playready-license-template-concept.md)
+- [Utilisation du chiffrement dynamique DRM et du service de remise des licences - .NET](drm-protect-with-drm-tutorial.md)
+- [Obtenir une clé de signature à partir de la stratégie existante - .NET](drm-get-content-key-policy-dotnet-how-to.md)
+- [Créer des filtres avec Media Services - .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Exemples avancés de vidéo à la demande d’Azure Functions v2 avec Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Voir aussi

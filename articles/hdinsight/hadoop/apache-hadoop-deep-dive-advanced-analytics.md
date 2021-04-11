@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946670"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866724"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -20,7 +20,7 @@ HDInsight fournit la possibilité d’obtenir des insights pertinents à partir 
 
 ## <a name="advanced-analytics-process"></a>Processus d’analytique avancée
 
-![Flux du processus d’analytique avancée](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png" alt-text="Flux du processus d’analytique avancée" border="false":::
 
 Une fois que vous avez identifié le problème de l’entreprise et que vous avez démarré la collecte et le traitement de vos données, vous devez créer un modèle qui représente la question à propos de laquelle vous souhaitez établir des prédictions. Votre modèle utilise un ou plusieurs algorithmes Machine Learning pour restituer le type de prédiction qui répond le mieux aux besoins de votre entreprise.  La majorité de vos données doit être utilisée pour l’apprentissage de votre modèle, le reste étant utilisé à des fins de test ou d’évaluation.
 
@@ -30,7 +30,7 @@ Une fois que vous avez créé, chargé, testé et évalué votre modèle, l’é
 
 La solution d’analytique avancée fournit un ensemble d’algorithmes Machine Learning. Voici un résumé des catégories d’algorithmes et des exemples d’utilisation courants associés.
 
-![Résumés des catégories Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png" alt-text="Résumés des catégories Machine Learning" border="false":::
 
 Une fois que vous avez sélectionné l’algorithme le mieux adapté, vous devez définir si vous avez besoin de fournir des données pour l’apprentissage. Les algorithmes Machine Learning sont classés comme suit :
 
@@ -82,7 +82,7 @@ L’[apprentissage profond](https://www.microsoft.com/research/group/dltc/) est 
 
 Examinons un exemple de pipeline Machine Learning d’analytique avancée utilisant HDInsight.
 
-Dans ce scénario, voyez de quelle manière les réseaux neuronaux profonds produits dans un framework de deep learning, Microsoft Cognitive Toolkit (CNTK), peuvent être exploités pour noter de grandes collections d’images stockées dans un compte de stockage Blob Azure à l’aide de PySpark sur un cluster HDInsight Spark. Cette approche est appliquée à un cas d’usage courant des réseaux neuronaux (la classification d’images aériennes) et peut être utilisée pour identifier les tendances récentes en développement urbain.  Vous allez utiliser un modèle de classification d’image préentraîné. Le modèle est préformé sur le [jeu de données CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) et a été appliqué à 10 000 images retenues.
+Ce scénario montre comment les réseaux neuronaux profonds produits dans un framework de deep learning, Microsoft Cognitive Toolkit (CNTK), peuvent être exploités pour noter de grandes collections d’images stockées dans un compte de stockage Blob Azure à l’aide de PySpark sur un cluster HDInsight Spark. Cette approche est appliquée à un cas d’usage courant des réseaux neuronaux (la classification d’images aériennes) et peut être utilisée pour identifier les tendances récentes en développement urbain.  Vous allez utiliser un modèle de classification d’image préentraîné. Le modèle est préformé sur le [jeu de données CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) et a été appliqué à 10 000 images retenues.
 
 Il existe trois tâches clés dans ce scénario d’analytique avancée :
 
@@ -92,7 +92,7 @@ Il existe trois tâches clés dans ce scénario d’analytique avancée :
 
 Cet exemple utilise le jeu d’images CIFAR-10 compilé et distribué par Alex Krizhevsky, Vinod Nair et Geoffrey Hinton. Le jeu de données CIFAR-10 contient 60 000 images en couleur de 32 x 32 pixels appartenant à 10 classes qui s’excluent mutuellement :
 
-![Exemples d’images Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png" alt-text="Exemples d’images Machine Learning" border="false":::
 
 Pour plus d’informations sur le jeu de données, consultez l’article [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) rédigé par Alex Krizhevsky.
 
@@ -105,7 +105,7 @@ Le jeu de données a été partitionné en un jeu d’apprentissage de 50 000 i
 
 L’ensemble du processus de prétraitement/notation des 10 000 images prend moins d’une minute sur un cluster avec 4 nœuds Worker. Le modèle prédit correctement les étiquettes d’environ 9 100 images (91 %). Une matrice de confusion illustre les erreurs de classification les plus courantes. Par exemple, la matrice montre qu’un étiquetage erroné d’images de chiens et de chats se produit plus fréquemment que pour les autres paires d’étiquette.
 
-![Graphique des résultats Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png" alt-text="Graphique des résultats Machine Learning" border="false":::
 
 ### <a name="try-it-out"></a>Faites un essai.
 

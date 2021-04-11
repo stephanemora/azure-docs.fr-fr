@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 5d5a580e2b7be4699933b43687dcf164bf8f4a4a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 512ae470d3c9068b9d284095a18013fc84dbf36e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700080"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232543"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Collaborer avec d’autres auteurs et éditeurs
 
@@ -18,7 +18,7 @@ Collaborez avec d’autres auteurs et éditeurs à l’aide du contrôle d’acc
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>L’accès est fourni sur la ressource QnA Maker
 
-Toutes les autorisations sont contrôlées par les autorisations placées sur la ressource QnA Maker. Ces autorisations permettent la lecture, l’écriture, la publication et l’accès complet.
+Toutes les autorisations sont contrôlées par les autorisations placées sur la ressource QnA Maker. Ces autorisations permettent la lecture, l’écriture, la publication et l’accès complet. Vous pouvez autoriser la collaboration entre plusieurs utilisateurs en [mettant à jour l’accès RBAC](../how-to/manage-qna-maker-app.md) pour la ressource QnA Maker.
 
 Cette fonctionnalité Azure RBAC comprend :
 * Azure Active Directory (AAD) offre une compatibilité descendante de 100 % avec l’authentification basée sur les clés pour les propriétaires et les contributeurs. Les clients peuvent utiliser l’authentification par clé ou via Azure RBAC pour leurs requêtes.
