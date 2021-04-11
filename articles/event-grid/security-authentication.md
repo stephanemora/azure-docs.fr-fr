@@ -3,12 +3,12 @@ title: Authentifier la remise des événements aux gestionnaires d’événement
 description: Cet article décrit les différentes façons d’authentifier la remise auprès de gestionnaires d’événements dans Azure Event Grid.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f7a105c36b7c924e35c295edc43107353d738d5b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98633118"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968133"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Authentifier la remise des événements aux gestionnaires d’événements (Azure Event Grid)
 Cet article fournit des informations sur l’authentification de la remise d’événements auprès de gestionnaires d’événements. Il vous montre également comment sécuriser les points de terminaison webhook utilisés pour recevoir des événements d’Event Grid à l’aide d’Azure Active Directory (Azure AD) ou d’un secret partagé.
@@ -40,7 +40,7 @@ Comme les paramètres de requête peuvent contenir des secrets clients, ils doiv
 Pour plus d’informations sur la remise d’événements à des webhooks, consultez [Remise d’événements webhook](webhook-event-delivery.md)
 
 > [!IMPORTANT]
-Azure Event Grid ne prend en charge que les points de terminaison webhook **HTTPS**. 
+> Azure Event Grid ne prend en charge que les points de terminaison webhook **HTTPS**. 
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validation de point de terminaison avec CloudEvents v1.0
 Si vous êtes déjà familiarisé avec Event Grid, vous pouvez être conscient de l’établissement d'une liaison de validation de point de terminaison pour empêcher les abus. CloudEvents v1.0 implémente sa propre [sémantique de protection contre les abus](webhook-event-delivery.md) à l’aide de la méthode **HTTP OPTIONS**. Pour en savoir plus à ce sujet, consultez [Webhooks HTTP 1.1 pour la remise d’événements (version 1.0)](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Lorsque vous utilisez le schéma CloudEvents pour la sortie, Event Grid l’utilise avec la protection contre les abus CloudEvents v1.0 à la place du mécanisme d’événement de validation Event Grid. Pour plus d’informations, consultez [Utiliser le schéma CloudEvents v1.0 avec Event Grid](cloudevents-schema.md). 

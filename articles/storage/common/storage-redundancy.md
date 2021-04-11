@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726834"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802197"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -32,6 +32,9 @@ Les données d’un compte de stockage Azure sont toujours répliquées trois fo
 
 - La réplication par **stockage localement redondant (LRS)** copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire. L’option LRS est la moins coûteuse mais n’est pas recommandée pour des applications nécessitant une haute disponibilité.
 - La réplication par **stockage redondant interzone (ZRS)** copie vos données de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire. Pour les applications nécessitant une haute disponibilité, Microsoft recommande l’utilisation de l’option ZRS dans la région primaire, ainsi que la réplication vers une région secondaire.
+
+> [!NOTE]
+> Microsoft recommande l’utilisation de ZRS dans la région principale pour les charges de travail Azure Data Lake Storage Gen2.
 
 ### <a name="locally-redundant-storage"></a>Stockage localement redondant
 

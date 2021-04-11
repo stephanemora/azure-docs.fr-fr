@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367909"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593859"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Vue d’ensemble de la transformation de flux de données de mappage
 
@@ -31,6 +31,7 @@ Vous trouverez ci-dessous la liste des transformations actuellement prises en ch
 | [Join](data-flow-join.md) | Entrées/sorties multiples |  Combinez les données de deux sources ou flux. |
 | [Lookup](data-flow-lookup.md) | Entrées/sorties multiples | Référencez des données à partir d’une autre source. |
 | [Nouvelle branche](data-flow-new-branch.md) | Entrées/sorties multiples | Appliquez plusieurs ensembles d’opérations et de transformations au même flux de données. |
+| [Analyser](data-flow-new-branch.md). | Formateur | Analyser les colonnes de texte de votre flux de données qui sont des chaînes de texte JSON, du texte délimité ou du texte au format XML. |
 | [Tableau croisé dynamique](data-flow-pivot.md) | Modificateur de schéma | Agrégation où une ou plusieurs colonnes de regroupement voient leurs valeurs de lignes distinctes transformées en colonnes individuelles. |
 | [Rank](data-flow-rank.md) | Modificateur de schéma | Générez un classement ordonné en fonction des conditions de tri |
 | [Select](data-flow-select.md) | Modificateur de schéma | Créez des alias pour les colonnes et les noms de flux, et supprimez ou réorganisez les colonnes |

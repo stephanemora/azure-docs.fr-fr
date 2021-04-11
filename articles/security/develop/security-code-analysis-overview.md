@@ -4,7 +4,7 @@ description: En savoir plus sur l’extension Microsoft Security Code Analysis. 
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4443bdbc134f222256c6af8bb1f52c684cdb4624
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515691"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801194"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>À propos de Microsoft Security Code Analysis
+
+> [!Note]
+> Le 1er mars 2022, l’extension Microsoft Security Code Analysis (MSCA) sera supprimée. Les clients MSCA existants conserveront leur accès à MSCA jusqu’au 1er mars 2022. Pour découvrir d’autres options dans Azure DevOps, consultez [Outils d’analyse du code source OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools). Pour les clients qui prévoient de migrer vers GitHub, vous pouvez consulter [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Grâce à l'extension Microsoft Security Code Analysis, les équipes peuvent ajouter l'analyse du code de sécurité à leurs pipelines d'intégration et de livraison continues (CI/CD) Azure DevOps. Cette analyse est recommandée par les experts [Secure Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/practices) de Microsoft.
 

@@ -1,17 +1,17 @@
 ---
 title: Limites - Azure Database pour PostgreSQL - Serveur flexible
 description: Cet article décrit les limites dans Azure Database pour PostgreSQL - Serveur flexible, telles que le nombre de connexions et les options du moteur de stockage.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 58f71ddc470c06e17ff73dd5681cd343bcf8ac7b
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 351c959a4d3b6cc53064b9d1b65c1282647f308e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102451895"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605397"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -68,7 +68,7 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 
 ### <a name="storage"></a>Stockage
 
-- Une fois configurée, la taille de stockage ne peut pas être réduite. Vous devez créer un nouveau serveur offrant la taille de stockage souhaitée, et entamer un processus manuel de vidage et de restauration pour migrer vos bases de données.
+- Une fois configurée, la taille de stockage ne peut pas être réduite. Vous devez créer un serveur offrant la taille de stockage souhaitée, effectuer une opération manuelle de [vidage et restauration](../howto-migrate-using-dump-and-restore.md), puis migrer vos bases de données vers le nouveau serveur.
 - La fonctionnalité de croissance automatique du stockage n’est pas disponible. Supervisez l’utilisation et augmentez la taille du stockage. 
 - Quand l’utilisation du stockage atteint 95 % ou quand la capacité disponible est inférieure à 5 Gio, le serveur passe automatiquement en **mode Lecture seule** pour éviter les erreurs associées à la saturation des disques. 
 - Nous vous recommandons de définir des règles d’alerte pour `storage used` ou `storage percent` lorsque ceux-ci dépassent certains seuils, afin que vous puissiez agir de manière proactive, par exemple en augmentant la taille de stockage. Par exemple, vous pouvez définir une alerte si le pourcentage de stockage dépasse 80 % d’utilisation.

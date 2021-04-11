@@ -13,17 +13,19 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 7ff61811e8b736f8f6d104a253cfe5dc5e76c428
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600281"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104771360"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
-Cet article décrit l'initialisation d'applications clientes publiques et confidentielles à l'aide de la bibliothèque d'authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
+Cet article décrit l'initialisation d'applications clientes publiques et confidentielles à l'aide de la bibliothèque d'authentification Microsoft pour .NET (MSAL.NET).  Pour plus d’informations sur les types d’application cliente, consultez [Applications clientes publiques et confidentielles](msal-client-applications.md).
 
 Avec MSAL.NET 3.x, la méthode recommandée pour instancier une application consiste à utiliser les générateurs d’applications : `PublicClientApplicationBuilder` et `ConfidentialClientApplicationBuilder`. Ils offrent un mécanisme puissant permettant de configurer l’application à partir du code, ou d’un fichier de configuration ou même en combinant ces deux approches.
+
+[Documentation de référence de l’API](/dotnet/api/microsoft.identity.client) | [Package sur NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/) | [Code source de bibliothèque](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Exemples de code](sample-v2-code.md)
 
 ## <a name="prerequisites"></a>Prérequis
 Avant d’initialiser une application, vous devez d’abord l’[inscrire](quickstart-register-app.md) afin que votre application puisse être intégrée à la plate-forme d’identité Microsoft.  Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le Portail Azure) :

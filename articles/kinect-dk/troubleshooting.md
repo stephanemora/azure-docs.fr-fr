@@ -1,18 +1,18 @@
 ---
 title: Problèmes connus et résolution des problèmes liés à Azure Kinect
 description: Découvrez quelques problèmes connus et des conseils de dépannage relatifs à l’utilisation du Kit de développement logiciel (SDK) de capteur Azure Kinect DK.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: dépannage, mise à jour, bogue, Kinect, commentaires, récupération, journalisation, conseils
-ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ecd0fe9021642b27438b0e5d3d140e50c8073f29
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038818"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951519"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problèmes connus et résolution des problèmes liés à Azure Kinect
 
@@ -172,18 +172,60 @@ Le moteur de profondeur Azure Kinect sur Linux utilise OpenGL. OpenGL requiert u
 
 1. Activez la connexion automatique pour le compte d’utilisateur que vous prévoyez d’utiliser. Reportez-vous à [cet article](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) pour obtenir des instructions sur l’activation de la connexion automatique.
 2. Mettez le système hors tension, déconnectez le moniteur et mettez le système sous tension. La connexion automatique force la création d’une session x-server.
-2. Connectez-vous via SSH et définissez la variable d’environnement DISPLAY `export DISPLAY=:0`
-3. Démarrez votre application Azure Kinect.
+3. Connectez-vous via SSH et définissez la variable d’environnement DISPLAY `export DISPLAY=:0`
+4. Démarrez votre application Azure Kinect.
 
 L’utilitaire [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) permet de verrouiller immédiatement l’écran après la connexion automatique. Ajoutez la commande suivante à l’application de démarrage ou au service systemd :
 
-`bash -c “xtrlock -b”` 
+`bash -c “xtrlock -b”`
 
 ## <a name="missing-c-documentation"></a>Documentation C# manquante
 
 La documentation C# du kit SDK du capteur est disponible [ici](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html).
 
 La documentation C# du kit SDK de suivi des corps est disponible [ici](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html).
+
+## <a name="specifying-onnx-runtime-execution-environment"></a>Spécification de l’environnement d’exécution du runtime ONNX
+
+Le kit de développement logiciel (SDK) de suivi du corps prend en charge les environnements d’exécution du processeur, CUDA, DirectML (Windows uniquement) et TensorRT pour inférencer le modèle d’estimation de pose. La valeur `K4ABT_TRACKER_PROCESSING_MODE_GPU` passe par défaut à l’exécution de CUDA sur Linux et à l’exécution de DirectML sur Windows. Trois modes supplémentaires ont été ajoutés pour sélectionner des environnements d’exécution spécifiques : `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA`, `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` et `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT`.
+
+> [!NOTE]  
+> Le runtime ONNX affiche des avertissements pour les opcodes qui ne sont pas accélérés. Vous pouvez l’ignorer en toute sécurité.
+
+Le runtime ONNX contient des variables d’environnement pour contrôler la mise en cache du modèle TensorRT. Les valeurs recommandées sont les suivantes :
+- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_CACHE_PATH="pathname"
+
+Le dossier doit être créé avant de commencer le suivi du corps.
+
+> [!NOTE]  
+> TensorRT pré-traite le modèle avant l’inférence entraînant des temps de démarrage étendus par rapport à d’autres environnements d’exécution. Le service de mise en cache du moteur limite ce nombre à la première exécution, mais il est expérimental et est spécifique au modèle, à la version du runtime ONNX, à la version TensorRT et au modèle GPU.
+
+L’environnement d’exécution TensorRT prend en charge FP32 (par défaut) et FP16. Le niveau de performance de FP16 est 2 fois plus important pour une diminution minimale de la précision. Pour spécifier FP16 :
+- ORT_TENSORRT_FP16_ENABLE=1
+
+## <a name="required-dlls-for-onnx-runtime-execution-environments"></a>Bibliothèques de liens dynamiques requises pour les environnements d’exécution du runtime ONNX
+
+|Mode      | CUDA 11.1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
+|----------|----------------------|----------------------|----------------------|
+| UC      | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| CUDA     | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           | cudnn_ops_infer64_8  |                      |
+|          | cublas64_11          | cudnn_cnn_infer64_8  |                      |
+|          | cublasLt64_11        |                      |                      |
+| DirectML | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| TensorRT | cudart64_110         | cudnn64_8            | nvinfer              |
+|          | cufft64_10           | cudnn_ops_infer64_8  | nvinfer_plugin       |
+|          | cublas64_11          | cudnn_cnn_infer64_8  | myelin64_1           |
+|          | cublasLt64_11        |                      |                      |
+|          | nvrtc64_111_0        |                      |                      |
+|          | nvrtc-builtins64_111 |                      |                      |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

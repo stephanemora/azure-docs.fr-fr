@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0eb9ce24f9ead44b7ba5a4d28d24177e62cb7757
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86529248"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104950516"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Meilleures pratiques en matière de surveillance et de diagnostic pour Azure Service Fabric
 
@@ -34,7 +34,7 @@ Les [journaux Azure Monitor](./service-fabric-diagnostics-oms-agent.md) sont rec
 
 ## <a name="watchdogs"></a>Agents de surveillance
 
-En général, un agent de surveillance est un service distinct capable de surveiller l’intégrité et la charge des services, d’effectuer des tests ping sur les points de terminaison et de créer des rapports à partir des événements non sains du cluster. Cela vous permet de détecter plus facilement les erreurs que vous n’auriez pas pu détecter en vous basant uniquement sur les performances d’un seul service. Les agents de surveillance constituent également un bon emplacement pour héberger du code qui exécute des actions correctives sans intervention de l’utilisateur (par exemple, le nettoyage de fichiers journaux dans le stockage à intervalles réguliers). Pour voir un exemple d’implémentation de l’agent de surveillance, consultez [Événements de cluster Linux Service Fabric dans Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+En général, un agent de surveillance est un service distinct capable de surveiller l’intégrité et la charge des services, d’effectuer des tests ping sur les points de terminaison et de créer des rapports à partir des événements non sains du cluster. Cela vous permet de détecter plus facilement les erreurs que vous n’auriez pas pu détecter en vous basant uniquement sur les performances d’un seul service. Les agents de surveillance constituent également un bon emplacement pour héberger du code qui exécute des actions correctives sans intervention de l’utilisateur (par exemple, le nettoyage de fichiers journaux dans le stockage à intervalles réguliers). Si vous souhaitez un service de surveillance SF open source entièrement implémenté qui comprend un modèle d’extensibilité de surveillance facile à utiliser et qui s’exécute dans les clusters Windows et Linux, consultez le projet [FabricObserver](https://aka.ms/sf/FabricObserver). FabricObserver est un logiciel prêt pour la production. Nous vous encourageons à déployer FabricObserver sur vos clusters de test et de production et à l’étendre pour répondre à vos besoins par le biais de son modèle de plug-in ou en le dupliquant et en écrivant vos propres observateurs intégrés. Ce dernier (plug-in) est l’approche recommandée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

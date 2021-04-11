@@ -4,12 +4,12 @@ description: Découvrez-en plus sur le projet d’application que vous venez de 
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97760433"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044377"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Votre application Service Fabric et étapes suivantes
 Votre application Azure Service Fabric a été créée. Cet article inclut un certain nombre de ressources, des informations supplémentaires susceptibles de vous intéresser et les [prochaines étapes](#next-steps) potentielles.
@@ -59,7 +59,7 @@ Votre application peut contenir des informations sensibles, notamment des chaîn
 Comme pour les autres plateformes, une application Service Fabric passe généralement par les phases suivantes : la conception, le développement, le test, le déploiement, la mise à niveau, la maintenance et la suppression. [Cet article](service-fabric-application-lifecycle.md) fournit une vue d’ensemble des API et aborde la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie d’une application Service Fabric.
 
 ## <a name="learn-about-best-practices"></a>En savoir plus sur les meilleures pratiques
-Service Fabric a un certain nombre d’articles décrivant les [meilleures pratiques](./service-fabric-best-practices-overview.md). Tirez parti de ces informations pour vous assurer que votre cluster et votre application s’exécutent aussi bien que possible.
+Service Fabric a un certain nombre d’articles décrivant les [meilleures pratiques](./service-fabric-best-practices-security.md). Tirez parti de ces informations pour vous assurer que votre cluster et votre application s’exécutent aussi bien que possible.
 Sont abordés les sujets suivants :
 * [Sécurité](./service-fabric-best-practices-security.md)
 * [Réseau](./service-fabric-best-practices-networking.md)

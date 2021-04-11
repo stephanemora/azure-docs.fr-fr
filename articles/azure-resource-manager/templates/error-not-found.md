@@ -2,13 +2,13 @@
 title: Erreurs liées à des ressources introuvables
 description: Explique comment résoudre les erreurs liées à une ressource introuvable. L’erreur peut survenir pendant le déploiement d’un modèle Azure Resource Manager ou au cours d’opérations de gestion.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
-ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.date: 03/23/2021
+ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526244"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950873"
 ---
 # <a name="resolve-resource-not-found-errors"></a>Résoudre les erreurs liées à des ressources introuvables
 
@@ -133,3 +133,9 @@ Quand vous déployez un modèle, recherchez des expressions qui utilisent les fo
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## <a name="solution-6---after-deleting-resource"></a>Solution 6 - après la suppression de la ressource
+
+Lorsque vous supprimez une ressource, il peut y avoir un bref laps de temps pendant lequel la ressource apparaît toujours dans le portail, mais elle n’est pas disponible en réalité. Si vous sélectionnez la ressource, vous obtenez une erreur indiquant que la ressource est introuvable. Actualisez le portail pour obtenir l’affichage le plus récent.
+
+Si le problème persiste après une brève attente, [contactez le support technique](https://azure.microsoft.com/support/options/).

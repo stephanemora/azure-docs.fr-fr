@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9ecc14aa9591d6e62dccd9899a80de44411928a1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051086"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104950589"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingérer des données de télémétrie IoT Hub dans Azure Digital Twins
 
@@ -26,13 +26,12 @@ Ce document explique le processus d’écriture d’une fonction pouvant ingére
 
 Avant de poursuivre avec cet exemple, vous devez mettre en place les ressources suivantes en guise de conditions préalables :
 * **Un hub IoT**. Pour obtenir des instructions, consultez la section *Créer un hub IoT* de [ce démarrage rapide d’IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
-* **Une fonction** avec les autorisations appropriées pour appeler votre instance de jumeau numérique. Pour obtenir des instructions, consultez [*Procédure : Configurer une fonction dans Azure pour le traitement des données*](how-to-create-azure-function.md) 
 * **Une instance Azure Digital Twins** qui recevra la télémétrie de votre appareil. Pour obtenir des instructions, consultez [*Procédure : Configurer une instance Azure Digital Twins et l’authentification*](./how-to-set-up-instance-portal.md).
 
 ### <a name="example-telemetry-scenario"></a>Exemple de scénario de télémétrie
 
 Cet article explique comment envoyer des messages entre IoT Hub et Azure Digital Twins à l’aide d’une fonction dans Azure. Pour envoyer des messages, il existe de nombreuses configurations et stratégies possibles. Cependant, l’exemple de cet article contient les éléments suivants :
-* Un thermomètre situé dans IoT Hub, ayant un ID d’appareil connu
+* Un thermostat situé dans IoT Hub, ayant un ID d’appareil connu
 * Un jumeau numérique représentant l’appareil, avec un ID correspondant
 
 > [!NOTE]
@@ -40,28 +39,31 @@ Cet article explique comment envoyer des messages entre IoT Hub et Azure Digital
 
 Chaque fois qu’un événement de télémétrie de température est envoyé par le thermomètre, une fonction traite la télémétrie, et la propriété *temperature* du jumeau numérique doit se mettre à jour. Ce scénario est présenté dans un diagramme ci-dessous :
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagramme montrant un organigramme. Dans le graphique, un appareil IoT Hub envoie des données de télémétrie de température via IoT Hub à une fonction dans Azure, qui met à jour une propriété de température pour un jumeau dans Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagramme d’appareil IoT Hub envoyant des données de télémétrie de température via IoT Hub à une fonction dans Azure, qui met à jour une propriété de température sur un jumeau dans Azure Digital Twins." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Ajouter un modèle et un jumeau
 
-Vous pouvez ajouter/télécharger un modèle à l’aide de la commande CLI ci-dessous, puis créer un double à l’aide de ce modèle qui sera mis à jour avec les informations d’IoT Hub.
+Dans cette section, vous allez configurer un [jumeau numérique](concepts-twins-graph.md) dans Azure Digital Twins qui représentera le thermostat et sera mis à jour avec les informations d’IoT Hub.
 
-Le modèle se présente ainsi :
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
+Pour créer un jumeau de type thermostat, vous devez d’abord charger le [modèle](concepts-models.md) de thermostat sur votre instance, qui décrit les propriétés d’un thermostat et sera utilisé ultérieurement pour créer le jumeau. 
 
-Pour **télécharger ce modèle sur votre instance de jumeaux**, ouvrez Azure CLI et exécutez la commande suivante :
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
-
-Vous devez ensuite **créer un jumeau à l’aide de ce modèle**. Utilisez la commande suivante pour créer un jumeau et définissez 0,0 comme valeur initiale de température.
+Vous devez ensuite **créer un jumeau à l’aide de ce modèle**. Utilisez la commande suivante pour créer un jumeau de thermostat nommé **thermostat67** et définissez 0,0 comme valeur initiale de température.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
-La sortie d’une commande de création de jumeau réussie doit se présenter comme suit :
+> [!Note]
+> Si vous utilisez Cloud Shell dans l’environnement PowerShell, vous devrez peut-être placer des guillemets sur les champs JSON inclus pour que leurs valeurs soient analysées correctement. Voici la commande permettant de créer le jumeau avec cette modification :
+>
+> Créer un jumeau :
+> ```azurecli-interactive
+> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
+> ```
+
+Lorsque le jumeau est créé, la sortie CLI de la commande doit ressembler à ceci :
 ```json
 {
   "$dtId": "thermostat67",
@@ -82,78 +84,65 @@ La sortie d’une commande de création de jumeau réussie doit se présenter co
 
 ## <a name="create-a-function"></a>Créer une fonction
 
-Cette section utilise les mêmes étapes de démarrage Visual Studio et le même squelette de fonction que ceux de [*Procédure : Configurer une fonction pour le traitement des données*](how-to-create-azure-function.md). Le squelette gère l’authentification et crée un client de service, prêt à traiter les données et à appeler les API Azure Digital Twins. 
+Dans cette section, vous allez créer une fonction Azure pour accéder à Azure Digital Twins et mettre à jour des jumeaux en fonction des événements de télémétrie IoT qu’elle reçoit. Suivez les étapes ci-dessous pour créer et publier la fonction.
 
-Dans les étapes qui suivent, vous y ajouterez du code pour le traitement des événements de télémétrie IoT provenant d’IoT Hub.  
+#### <a name="step-1-create-a-function-app-project"></a>Étape 1 : Créer un projet d’application de fonction
 
-### <a name="add-telemetry-processing"></a>Ajouter le traitement des données de télémétrie
-    
-Les événements de télémétrie sont fournis sous la forme de messages provenant de l’appareil. Lorsque vous ajoutez du code de traitement des données de télémétrie, la première étape consiste à extraire la partie utile de ce message d’appareil à partir de l’événement Event Grid. 
+Tout d’abord, créez un projet d’application de fonction dans Visual Studio. Pour obtenir des instructions sur la façon de procéder, consultez la section [**Créer une application de fonction dans Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
 
-Les différents types d’appareils peuvent structurer leurs messages différemment. Le code de **cette étape dépend donc de l’appareil connecté.** 
+#### <a name="step-2-fill-in-function-code"></a>Étape 2 : Renseigner le code de la fonction
 
-Le code suivant illustre un exemple d’appareil simple qui envoie des données de télémétrie au format JSON. Cet exemple est entièrement abordé dans le [Tutoriel  *: Connecter une solution de bout en bout*](./tutorial-end-to-end.md). Le code suivant trouve l’ID de l’appareil qui a envoyé le message, ainsi que la valeur de température.
+Ajoutez les packages suivants à votre projet :
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Find_device_ID_and_temperature":::
-
-L’exemple de code suivant prend la valeur d’ID et de température et les utilise pour « corriger » (mettre à jour) ce jumeau.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Update_twin_with_device_temperature":::
-
-### <a name="update-your-function-code"></a>Mettre à jour le code de votre fonction
-
-Maintenant que vous comprenez le code des exemples précédents, ouvrez votre fonction à partir de la section [*Prérequis*](#prerequisites) dans Visual Studio. (Si vous n’avez pas de fonction créée dans Azure, visitez le lien dans les prérequis pour en créer une maintenant).
-
-Remplacez le code de votre fonction par cet exemple de code.
+Renommez l’exemple de fonction *Function1.cs* que Visual Studio a généré avec le nouveau projet en *IoTHubtoTwins.cs*. Remplacez le code du fichier par le code suivant :
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
-Enregistrez votre code de fonction et publiez l’application de fonction dans Azure. Pour savoir comment procéder, consultez [*Publier l’application de fonction*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) dans [*Configurer une fonction dans Azure pour traiter les données*](how-to-create-azure-function.md).
+Enregistrez le code de votre fonction.
 
-Après une publication réussie, vous verrez la sortie dans la fenêtre de commande de Visual Studio, comme indiqué ci-dessous :
+#### <a name="step-3-publish-the-function-app-to-azure"></a>Étape 3 : Publier l’application de fonction dans Azure
 
-```cmd
-1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
-1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
-2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
-2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
-2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
-2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
-========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
-========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
-```
-Vous pouvez également vérifier l’état du processus de publication dans le [Portail Azure](https://portal.azure.com/). Recherchez votre _groupe de ressources_ et accédez à _Journal d’activité_, puis recherchez _Obtenir le profil de publication de l’application web_ dans la liste et vérifiez que l’état indique une réussite.
+Publiez le projet avec la fonction *IoTHubtoTwins.cs* dans une application de fonction dans Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Capture d’écran du Portail Azure montrant l’état du processus de publication.":::
+Pour obtenir des instructions sur la façon de procéder, consultez la section [**Publier l’application de fonction dans Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) de l’article *Guide pratique : configurer une fonction pour le traitement des données*.
+
+#### <a name="step-4-configure-the-function-app"></a>Étape 4 : Configurer l’application de fonction
+
+Ensuite, **attribuez un rôle d’accès** à la fonction et **configurez les paramètres de l’application** afin qu’elle puisse accéder à votre instance d’Azure Digital Twins. Pour obtenir des instructions sur la façon de procéder, consultez la section [**Configurer l’accès de sécurité pour l’application de fonction**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) de l’article *Guide pratique : Configurer une fonction pour le traitement des données*.
 
 ## <a name="connect-your-function-to-iot-hub"></a>Connecter votre fonction à IoT Hub
 
-Configurez une destination d’événement pour les données de concentrateur.
+Dans cette section, vous allez configurer votre fonction comme destination d’événement pour les données de l’appareil IoT Hub. Cela permet de s’assurer que les données du thermostat dans IoT Hub seront envoyées à la fonction Azure pour traitement.
+
 Dans le [Portail Azure](https://portal.azure.com/), accédez à l’instance IoT Hub que vous avez créée dans la section [*Prérequis*](#prerequisites). Sous **Événements**, créez un abonnement pour votre fonction.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Capture d’écran du Portail Azure qui montre l’ajout d’un abonnement aux événements.":::
 
 Dans la page **Créer un abonnement aux événements**, renseignez les champs de la façon suivante :
-  1. Sous **Nom**, nommez l’abonnement que vous souhaitez.
-  2. Sous **Schéma d’événement**, choisissez _Schéma Event Grid_.
-  3. Sous **Types d’événements**, choisissez la case à cocher _Télémétrie d’appareil_ et décochez les autres types d’événements.
-  4. Sous **Type de point de terminaison**, sélectionnez _Fonction Azure_.
-  5. Sous **Point de terminaison**, sélectionnez le lien _Sélectionner un point de terminaison_ pour créer un point de terminaison.
+  1. Pour **Nom**, choisissez le nom de votre choix pour l’abonnement aux événements.
+  2. Pour **Schéma d’événement**, choisissez _Schéma Event Grid_.
+  3. Pour **Nom de la rubrique système**, choisissez le nom de votre choix.
+  1. Pour **Filtrer les types d’événements**, cochez la case _Télémétrie d’appareil_ et décochez les autres types d’événements.
+  1. Comme **Type de point de terminaison**, sélectionnez _Fonction Azure_.
+  1. Pour **Point de terminaison**, utilisez le lien _Sélectionner un point de terminaison_ pour choisir la fonction Azure à utiliser pour le point de terminaison.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Capture d’écran du Portail Azure pour créer les détails de l’abonnement aux événements":::
 
-Dans la page _Sélectionner une fonction Azure_ qui s’ouvre, vérifiez les détails ci-dessous.
- 1. **Abonnement**: Votre abonnement Azure
- 2. **Groupe de ressources** : Votre groupe de ressources
- 3. **Application de fonction** : Nom de votre application de fonction
- 4. **Emplacement** : _Production_
- 5. **Fonction** : Sélectionnez votre fonction dans la liste déroulante.
+Dans la page _Sélectionner une fonction Azure_ qui s’ouvre, vérifiez ou remplissez les détails ci-dessous.
+ 1. **Abonnement**: Votre abonnement Azure.
+ 2. **Groupe de ressources** : Votre groupe de ressources.
+ 3. **Application de fonction** : Nom de votre application de fonction.
+ 4. **Emplacement** : _Production_.
+ 5. **Fonction**: sélectionnez la fonction ci-dessus, *IoTHubtoTwins*, dans la liste déroulante.
 
-Enregistrez vos détails en sélectionnant le bouton _Confirmer la sélection_.            
+Enregistrez vos détails avec le bouton _Confirmer la sélection_.            
       
 :::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Capture d’écran du Portail Azure pour sélectionner la fonction":::
 
-Sélectionnez le bouton _Créer_ pour créer un abonnement aux événements.
+Sélectionnez le bouton _Créer_ pour créer l’abonnement aux événements.
 
 ## <a name="send-simulated-iot-data"></a>Envoyer des données IoT simulées
 

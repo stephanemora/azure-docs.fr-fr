@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: c04bac76453d565abb99a971386b9ce0461b88ae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 6ec951e57b40ae1440f541c02b26e7788b3cf151
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172077"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043731"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutoriel : Créer une application Flask avec Azure Cognitive Services
 
-Dans ce tutoriel, vous allez créer une application web Flask qui utilise Azure Cognitive Services pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix. Nous nous concentrons sur le code Python et les routes Flask qui servent de base à notre application ; nous vous aiderons cependant pour le code HTML et Javascript qui lui permet de fonctionner. Si vous rencontrez des problèmes, faites-le nous savoir via le bouton de commentaires ci-dessous.
+Dans ce tutoriel, vous allez créer une application web Flask qui utilise Azure Cognitive Services pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix. Nous nous concentrons sur le code Python et les routes Flask qui servent de base à notre application ; nous vous aiderons cependant pour le code HTML et JavaScript qui lui permet de fonctionner. Si vous rencontrez des problèmes, faites-le nous savoir via le bouton de commentaires ci-dessous.
 
 Voici ce qui est couvert par ce tutoriel :
 
@@ -49,7 +49,7 @@ Pour ceux d’entre vous qui souhaitent plus d’informations après ce tutoriel
 
 Passons en revue les logiciels et les clés d’abonnement dont vous avez besoin pour ce tutoriel.
 
-* [Python version 3.5.2 ou ultérieure](https://www.python.org/downloads/)
+* [Python 3.6 ou version ultérieure](https://www.python.org/downloads/)
 * [Outils Git](https://git-scm.com/downloads)
 * Un IDE ou un éditeur de texte, comme [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
@@ -409,7 +409,7 @@ Mettons à jour `index.html`.
    </div>
    ```
 
-L’étape suivante consiste à écrire du code Javascript. Il s’agit du pont entre votre code HTML et la route Flask.
+L’étape suivante consiste à écrire du code JavaScript. Il s’agit du pont entre votre code HTML et la route Flask.
 
 ### <a name="create-mainjs"></a>Créez `main.js`.  
 
@@ -486,7 +486,7 @@ Dans cette section, vous allez effectuer quelques opérations :
 
 ### <a name="call-the-text-analytics-api"></a>Appeler l’API Text Analytics
 
-Écrivons une fonction pour appeler l’API Analyse de texte. Cette fonction prend quatre arguments : `input_text`,`input_language`,`output_text` et `output_language`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Run sentiment analysis (Exécuter l’analyse des sentiments) dans votre application. Les données fournies par l’utilisateur dans la zone de texte et le sélecteur de langue, ainsi que la langue détectée et le résultat de la traduction, sont fournis avec chaque requête. L’objet en réponse comprend des scores de sentiment pour la source et pour la traduction. Dans les sections suivantes, vous allez écrire du code Javascript pour analyser la réponse et l’utiliser dans votre application. Pour l’instant, concentrons-nous sur l’appel de l’API Analyse de texte.
+Écrivons une fonction pour appeler l’API Analyse de texte. Cette fonction prend quatre arguments : `input_text`,`input_language`,`output_text` et `output_language`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Run sentiment analysis (Exécuter l’analyse des sentiments) dans votre application. Les données fournies par l’utilisateur dans la zone de texte et le sélecteur de langue, ainsi que la langue détectée et le résultat de la traduction, sont fournis avec chaque requête. L’objet en réponse comprend des scores de sentiment pour la source et pour la traduction. Dans les sections suivantes, vous allez écrire du code JavaScript pour analyser la réponse et l’utiliser dans votre application. Pour l’instant, concentrons-nous sur l’appel de l’API Analyse de texte.
 
 1. Créons un fichier appelé `sentiment.py` à la racine de votre répertoire de travail.
 2. Ajoutez ensuite ce code à `sentiment.py`.

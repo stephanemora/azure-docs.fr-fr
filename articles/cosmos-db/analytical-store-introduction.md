@@ -4,15 +4,15 @@ description: Découvrez le magasin transactionnel (basé sur des lignes) et anal
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 5dc233348188791404f826870b235d2bdfa4c202
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 77c84e4b4a8129a95ee18b4ae89b48a687e9fce1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452848"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951587"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -65,32 +65,61 @@ La synchronisation automatique fait référence à la fonctionnalité complètem
 
 La fonctionnalité de synchronisation automatique et le magasin analytique offrent les principaux avantages suivants :
 
-#### <a name="scalability--elasticity"></a>Extensibilité et élasticité
+### <a name="scalability--elasticity"></a>Extensibilité et élasticité
 
 En utilisant le partitionnement horizontal, le magasin transactionnel Azure Cosmos DB peut mettre à l’échelle de manière élastique le stockage et le débit sans temps d’arrêt. Le partitionnement horizontal dans le magasin transactionnel est évolutif et élastique lors de la synchronisation automatique afin de garantir la synchronisation des données avec le magasin analytique quasiment en temps réel. La synchronisation des données se produit quel que soit le débit de trafic transactionnel, qu’il s’agisse de 1 000 opérations/s ou 1 million d’opérations/s, et elle n’a pas d’impact sur le débit approvisionné dans le magasin transactionnel. 
 
-#### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gérer automatiquement les mises à jour de schéma
+### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Gérer automatiquement les mises à jour de schéma
 
 Le magasin transactionnel Azure Cosmos DB est indépendant des schémas et il vous permet d’itérer sur vos applications transactionnelles sans avoir à vous soucier de la gestion des schémas ou des index. À l’inverse, le magasin analytique Azure Cosmos DB est schématisé pour optimiser les performances des requêtes analytiques. Grâce à la capacité de synchronisation automatique, Azure Cosmos DB gère l’inférence du schéma sur les dernières mises à jour du magasin transactionnel.  Il gère aussi la représentation du schéma dans le magasin analytique, qui comprend la gestion des types de données imbriqués.
 
 À mesure que votre schéma évolue et que de nouvelles propriétés sont ajoutées au fil du temps, le magasin analytique présente automatiquement un schéma uni dans tous les schémas historiques du magasin transactionnel.
 
-##### <a name="schema-constraints"></a>Contraintes de schéma
+#### <a name="schema-constraints"></a>Contraintes de schéma
 
 Les contraintes suivantes s’appliquent aux données opérationnelles dans Azure Cosmos DB lorsque vous activez le magasin analytique pour inférer et représenter automatiquement le schéma correctement :
 
-* Vous disposez d’un maximum de 200 propriétés à n’importe quel niveau d’imbrication dans le schéma et une profondeur maximale d’imbrication de 5.
+* Vous disposez d’un maximum de 1 000 propriétés à n’importe quel niveau d’imbrication dans le schéma, et d’une profondeur d’imbrication maximale de 127.
+  * Seules les 1 000 premières propriétés sont représentées dans le magasin analytique.
+  * Seuls les 127 premiers niveaux imbriqués sont représentés dans le magasin analytique.
+
+* Bien que les documents JSON (et les collections/conteneurs Cosmos DB) respectent la casse du point de vue de l’unicité, le magasin analytique le fait pas.
+
+  * **Dans le même document :** les noms de propriétés dans le même niveau doivent être uniques en cas de comparaison ne respectant pas la casse. Par exemple, le document JSON suivant contient « Name » et « name » dans le même niveau. Bien qu’il s’agisse d’un document JSON valide, il ne répond pas à la contrainte d’unicité, et n’est donc pas pleinement représenté dans le magasin analytique. Dans cet exemple, « Name » et « name » sont identiques en cas de comparaison ne respectant pas la casse. Seul `"Name": "fred"` sera représenté dans le magasin analytique, car il s’agit de la première occurrence. Et `"name": "john"` ne sera pas représentés du tout.
   
-  * Un élément avec 201 propriétés au niveau supérieur n’est pas conforme à cette contrainte et n’est donc pas représenté dans le magasin analytique.
-  * Un élément avec plus de cinq niveaux imbriqués dans le schéma ne satisfait pas non plus cette contrainte et ne sera donc pas représenté dans le magasin analytique. Par exemple, l’élément suivant ne remplit pas la condition requise :
+  
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ```
+  
+  * **Dans des documents différents :** les propriétés dans le même niveau et portant le même nom, mais présentant des casses différentes, sont représentées dans la même colonne, en utilisant le format de nom de la première occurrence. Par exemple, les documents JSON suivants ont `"Name"` et `"name"` dans le même niveau. Étant donné que le premier format de document est `"Name"`, celiui-ci sera utilisé pour représenter le nom de la propriété dans le magasin analytique. En d’autres termes, le nom de colonne dans le magasin analytique sera `"Name"`. `"fred"` et `"john"` sont représentés dans la colonne `"Name"`.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
-* Les noms de propriété doivent être uniques en cas de comparaison ne tenant pas compte de la casse. Par exemple, les éléments suivants ne satisfont pas cette contrainte et ne seront donc pas représentés dans le magasin analytique :
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
 
-  `{"Name": "fred"} {"name": "john"}` – « Name » et « name » sont les identique en cas de comparaison ne tenant pas compte de la casse.
 
-##### <a name="schema-representation"></a>Représentation du schéma
+* Le premier document de la collection définit le schéma initial du magasin analytique.
+  * Les propriétés du premier niveau du document sont représentées sous forme de colonnes.
+  * Les documents contenant plus de propriétés que le schéma initial génèrent de nouvelles colonnes dans le magasin analytique.
+  * Les colonnes ne peuvent pas être supprimées.
+  * La suppression de tous les documents d’une collection ne réinitialise pas le schéma du magasin analytique.
+  * Il n’existe pas de contrôle de version de schéma. La dernière version inférée du magasin transactionnel est ce que vous verrez dans le magasin analytique.
+
+* Actuellement, nous ne prenons pas en charge la lecture par Azure Synapse Spark de noms de colonnes contenant des blancs (espaces).
+
+* Un comportement différent est attendu en ce qui concerne les valeurs `null` explicites :
+  * Les pools Spark dans Azure Synapse liront ces valeurs comme `0` (zéro).
+  * Les pools serverless SQL dans Azure Synapse liront ces valeurs comme `NULL` si le premier document de la collection a, pour la même propriété, une valeur avec un type de données différent de `integer`.
+  * Les pools serverless SQL dans Azure Synapse lisent ces valeurs comme `0` (zéro) si le premier document de la collection a, pour la même propriété, une valeur qui est un entier.
+
+* Un comportement différent est attendu en ce qui concerne les colonnes manquantes :
+  * Les pools Spark dans Azure Synapse représenteront ces colonnes comme `undefined`.
+  * Les pools serverless SQL dans Azure Synapse représenteront ces colonnes comme `NULL`.
+
+#### <a name="schema-representation"></a>Représentation du schéma
 
 Il existe deux modes de représentation de schéma dans le magasin analytique. Ces modes présentent des compromis entre la simplicité d’une représentation en colonnes, la gestion des schémas polymorphes et la simplicité de l’expérience de requête :
 
@@ -106,7 +135,7 @@ La représentation de schéma bien définie crée une représentation tabulaire 
 
 * Une propriété a toujours le même type sur plusieurs éléments.
 
-  * Par exemple, `{"a":123} {"a": "str"}` n’a pas de schéma bien défini, car `"a"` est parfois une chaîne et parfois un nombre. Dans ce cas, le magasin analytique inscrit le type de données `“a”` en tant que type de données `“a”` dans l’élément au début de la durée de vie du conteneur. Les éléments pour lesquels le type de données de `“a”` diffère ne sont pas inclus dans le magasin analytique.
+  * Par exemple, `{"a":123} {"a": "str"}` n’a pas de schéma bien défini, car `"a"` est parfois une chaîne et parfois un nombre. Dans ce cas, le magasin analytique inscrit le type de données `"a"` en tant que type de données `“a”` dans l’élément au début de la durée de vie du conteneur. Le document sera toujours inclus dans le magasin analytique, mais les éléments dans lesquels le type de données de `"a"` diffère ne le seront pas.
   
     Cette condition ne s’applique pas aux propriétés NULL. Par exemple, `{"a":123} {"a":null}` est encore bien défini.
 
@@ -116,6 +145,11 @@ La représentation de schéma bien définie crée une représentation tabulaire 
 
 > [!NOTE]
 > Si le magasin analytique Azure Cosmos DB suit la représentation de schéma bien définie et que la spécification ci-dessus n’est pas respectée par certains éléments, ceux-ci ne sont pas inclus dans le magasin analytique.
+
+* Un comportement différent est attendu en ce qui concerne les différents types dans un schéma bien défini :
+  * Les pools Spark dans Azure Synapse représenteront ces valeurs comme `undefined`.
+  * Les pools serverless SQL dans Azure Synapse représenteront ces valeurs comme `NULL`.
+
 
 **Représentation du schéma de fidélité optimale**
 

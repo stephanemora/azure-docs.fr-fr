@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/30/2020
-ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 03/23/2021
+ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500867"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951281"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Réglage manuel dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +54,8 @@ Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et d
 
 ## <a name="enable-automatic-tuning"></a>Activer le réglage automatique
 
-- Vous pouvez [activer le réglage automatique d'Azure SQL Database à partir du portail Azure](automatic-tuning-enable.md) ou en utilisant l'instruction T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
-- Vous pouvez activer le réglage automatique d'Azure SQL Managed Instance en utilisant l'instruction T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current).
+- Vous pouvez [activer le réglage automatique d'Azure SQL Database à partir du portail Azure](automatic-tuning-enable.md) ou en utilisant l'instruction T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
+- Vous pouvez activer le réglage automatique d'Azure SQL Managed Instance en utilisant l'instruction T-SQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true).
 
 ## <a name="automatic-tuning-options"></a>Options de réglage automatique
 
@@ -64,7 +64,7 @@ Les options de réglage automatique disponibles dans Azure SQL Database et Azure
 | Option de réglage automatique | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** : identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées. | Oui | Non |
-| **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise. | Oui | Non |
+| **DROP INDEX** : supprime les index inutilisés (au cours des 90 derniers jours) et en double. Les index uniques, y compris les index qui prennent en charge les contraintes de clé primaire et uniques, ne sont jamais annulés. Cette option peut être automatiquement désactivée lorsque les requêtes avec conseils d’index sont présentes dans la charge de travail ou lorsque la charge de travail effectue le basculement de partition. Sur les niveaux de service Premium et critique pour l’entreprise, cette option ne supprimera jamais les index inutilisés, mais supprimera les index en double, le cas échéant. | Oui | Non |
 | **FORCE LAST GOOD PLAN** (correction de plan automatique) : identifie les requêtes Azure SQL utilisant un plan d'exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression. | Oui | Oui |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Réglage automatique pour SQL Database
@@ -90,7 +90,7 @@ Pour en savoir plus sur la création de notifications par e-mail pour les recomm
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Réglage automatique pour Azure SQL Managed Instance
 
-Le réglage automatique SQL Managed Instance prend uniquement en charge **FORCE LAST GOOD PLAN**. Pour plus d’informations sur la configuration des options de réglage automatique par le biais de T-SQL, consultez [Le réglage automatique introduit la correction de plan automatique](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) et [Correction de plan automatique](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
+Le réglage automatique SQL Managed Instance prend uniquement en charge **FORCE LAST GOOD PLAN**. Pour plus d’informations sur la configuration des options de réglage automatique par le biais de T-SQL, consultez [Le réglage automatique introduit la correction de plan automatique](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) et [Correction de plan automatique](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

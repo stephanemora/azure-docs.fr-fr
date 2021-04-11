@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016749"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950737"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -25,6 +25,11 @@ Cet article résume l’importance de l’identifiant de l’ID de série chrono
 
 Il est essentiel de sélectionner un ID de série chronologique approprié. Le choix d’un ID de série chronologie est identique au choix d’une clé de partition pour une base de données. Cela est requis lorsque vous créez un environnement Azure Time Series Insights Gen2.
 
+Consultez le tutoriel sur l’approvisionnement de l’environnement pour obtenir une explication détaillée de l’ID de série chronologique. Vous allez voir deux exemples de charge utile de télémétrie JSON et la sélection d’ID de série chronologique correcte pour chacun d’eux.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
+
 > [!IMPORTANT]
 > Les ID des séries chronologiques sont les suivants :
 >
@@ -32,11 +37,11 @@ Il est essentiel de sélectionner un ID de série chronologique approprié. Le c
 > * Une *propriété immuable* : une fois créée, elle ne peut pas être modifiée.
 
 > [!TIP]
-> Si votre source d’événement est un hub IoT, votre ID de série chronologique sera probablement ***iothub-connection-device-id** _.
+> Si votre source d’événement est un hub IoT, votre ID de série chronologique sera probablement ***iothub-Connection-Device-ID***.
 
 Les bonnes pratiques principales à suivre sont les suivantes :
 
-_ Sélectionnez une clé de partition comportant de nombreuses valeurs distinctes (plusieurs centaines ou plusieurs milliers). Dans de nombreux cas, il peut s'agir de l'ID de l’appareil, de l'ID du capteur ou de l'ID de l'étiquette de votre JSON.
+* Sélectionnez une clé de partition comportant de nombreuses valeurs distinctes (plusieurs centaines ou plusieurs milliers). Dans de nombreux cas, il peut s'agir de l'ID de l’appareil, de l'ID du capteur ou de l'ID de l'étiquette de votre JSON.
 * L’ID de série chronologique doit être unique au niveau du nœud de feuille de votre [modèle de série chronologique](./concepts-model-overview.md).
 * La limite de caractères pour la chaîne de nom de propriété de l’ID de série chronologie est 128. Pour la valeur de propriété de l’ID de série chronologie, la limite de caractères est de 1 024.
 * Si une valeur de propriété unique pour l'ID de série chronologique est manquante, elle est traitée comme une valeur nulle et suit la même règle de la contrainte d'unicité.

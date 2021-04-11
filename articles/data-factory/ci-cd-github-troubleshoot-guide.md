@@ -6,13 +6,13 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
-ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/12/2021
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175870"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802031"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Résoudre les problèmes liés à CI-CD, Azure DevOps et GitHub dans ADF 
 
@@ -101,8 +101,7 @@ Lorsque vous tentez de publier des modifications apportées à une fabrique de d
         "details": null
     }
 `
-
-#### <a name="symptom"></a>Symptôme
+### <a name="cause"></a>Cause
 
 Vous avez détaché la configuration Git et l’avez reconfigurée avec l’indicateur « Importer des ressources » sélectionné, qui définit la fabrique de données comme étant « synchronisée ». Cela signifie qu’il n’y a aucune modification à publier.
 
@@ -150,11 +149,7 @@ Vous avez créé un rôle client en tant qu’utilisateur et il n’a pas l’au
 
 Pour résoudre le problème, vous devez ajouter l’autorisation suivante à votre rôle : *Microsoft.DataFactory/factories/queryFeaturesValue/action*. Cette autorisation doit être incluse par défaut dans le rôle « Contributeur de fabrique de données ».
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publication automatique pour CI/CD sans cliquer sur le bouton Publier  
-
-#### <a name="issue"></a>Problème
-
-La publication manuelle avec un clic de bouton dans le portail ADF n’active pas l’opération CI/CD automatique.
+###  <a name="cannot-automate-publishing-for-cicd"></a>Impossible d’automatiser la publication pour CI/CD 
 
 #### <a name="cause"></a>Cause
 
@@ -178,7 +173,7 @@ Azure Resource Manager limite la taille du modèle à 4 Mo. Limitez la taille d
 
 Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Suivez les bonnes pratiques indiquées à la page [Utilisation de modèles liés et imbriqués](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### <a name="cannot-connect-to-git-enterprise"></a>Impossible de se connecter à GIT Enterprise 
+### <a name="cannot-connect-to-git-enterprise"></a>Impossible de se connecter à GIT Enterprise  
 
 ##### <a name="issue"></a>Problème
 
@@ -186,13 +181,14 @@ Vous ne pouvez pas vous connecter à GIT Enterprise en raison de problèmes d’
 
 #### <a name="cause"></a>Cause
 
-Vous n’avez pas configuré Oauth pour l’ADF. Votre URL est mal configurée.
+* Vous n’avez pas configuré Oauth pour l’ADF. 
+* Votre URL est mal configurée.
 
 ##### <a name="resolution"></a>Résolution
 
 D’abord, vous accordez l’accès Oauth à l’ADF. Ensuite, vous devez utiliser l’URL correcte pour vous connecter à GIT Enterprise. La configuration doit être définie sur la ou les organisations clientes. Par exemple, ADF essaiera d’abord *https://hostname/api/v3/search/repositories?q=user%3<customer credential>...* et échouera. Ensuite, il tentera *https://hostname/api/v3/orgs/<org>/<repo>...* , et réussira. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>Récupérer à partir d’une fabrique de données supprimée
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>Impossible de récupérer à partir d’une fabrique de données supprimée
 
 #### <a name="issue"></a>Problème
 Le client a supprimé la fabrique de données ou le groupe de ressources contenant la fabrique de données. Il souhaite savoir comment restaurer une fabrique de données supprimée.
@@ -209,7 +205,7 @@ Pour récupérer la fabrique de données supprimée qui a le contrôle de code s
 
  * Créer une Azure Data Factory
 
- * Reconfigurez Git avec les mêmes paramètres, mais veillez à importer les ressources de fabrique de données existantes dans le dépôt sélectionné, puis choisissez Nouvelle branche.
+ * Reconfigurez Git avec les mêmes paramètres, mais veillez à importer les ressources de fabrique de données existantes dans le référentiel sélectionné, puis choisissez Nouvelle branche.
 
  * Créez une demande de tirage pour fusionner les modifications apportées à la branche de collaboration, puis publier.
 

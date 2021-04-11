@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 6cbfa01788f1897264b4197798aa5879cf724db3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745715"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770952"
 ---
-# <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutoriel : Contenu recherchable généré par l’IA issu d’objets blob Azure avec le SDK .NET
+# <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Didacticiel : utiliser .NET et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
 Si vous avez du texte non structuré ou des images dans le stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. 
 

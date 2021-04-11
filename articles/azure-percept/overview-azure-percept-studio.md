@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble d’Azure Percept Studio
 description: Découvrez Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8aae976e94ebbef22a86e19f00bfe6248338c4d0
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e6f9641179a9c2490dcb65316a80b4ba7fd4b639
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953670"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567693"
 ---
 # <a name="azure-percept-studio-overview"></a>Vue d’ensemble d’Azure Percept Studio
 
@@ -23,6 +23,8 @@ Dans le Studio, vous verrez vos appareils compatibles IA Edge comme des points d
 Dans Azure Percept Studio, les workflows intègrent de nombreux services Azure AI et IoT, comme Azure IoT Hub, Custom Vision, Speech Studio et Azure ML, ce qui vous permet d’utiliser ces services pour créer une solution de bout en bout, sans avoir de connaissances préalables importantes. Si vous êtes déjà familiarisé avec ces services Azure, vous pouvez également vous connecter à des ressources de service Azure existantes et les modifier en dehors d’Azure Percept Studio.
 
 Que vous soyez un développeur débutant ou un développeur de solutions et de modèles d’IA expérimenté, que vous travailliez à un prototype ou que vous passiez à une solution de production, Azure Percept Studio offre un accès à des workflows qui facilitent la création de solutions d’intelligence artificielle Edge.
+
+## <a name="video-walkthrough"></a>Vidéo de procédure pas à pas
 
 </br>
 

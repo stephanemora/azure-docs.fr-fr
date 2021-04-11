@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181446"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949989"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
@@ -73,6 +73,7 @@ Les autorisations supplémentaires suivantes sont requises par l’identité du 
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | Requises si vous utilisez un sous-réseau dans un autre groupe de ressources, tel qu’un réseau virtuel personnalisé. |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | Requises si vous utilisez un sous-réseau associé à une table de routes dans un autre groupe de ressources, tel qu’un réseau virtuel personnalisé avec une table de routes personnalisée. Requises pour vérifier si un sous-réseau existe déjà pour le sous-réseau dans l’autre groupe de ressources. |
 | Microsoft.Network/virtualNetworks/subnets/read | Requise si vous utilisez un équilibreur de charge interne dans un autre groupe de ressources. Requise pour vérifier si un sous-réseau existe déjà pour l’équilibreur de charge interne dans le groupe de ressources. |
+| Microsoft.Network/privatednszones/* | Requise si vous utilisez une zone DNS privée dans un autre groupe de ressources, tel qu’une privateDNSZone personnalisée. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Contrôle d’accès en fonction du rôle Kubernetes (RBAC Kubernetes)
 

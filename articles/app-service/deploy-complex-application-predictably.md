@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104951468"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
@@ -145,10 +145,10 @@ Les chaînes de connexion sont également définies en tant que ressource imbriq
 
 ![Montre comment les chaînes de connexion sont définies en tant que ressource imbriquée dans le code JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-Dans l’élément `properties` relatif à `config/connectionstrings`, chaque chaîne de connexion est définie comme une paire nom:valeur, avec le format spécifique de l’élément `"<name>" : {"value": "…", "type": "…"}`. Pour l’élément `type`, les valeurs possibles sont les suivantes : `MySql`, `SQLServer`, `SQLAzure` et `Custom`.
+Dans l’élément `properties` relatif à `config/connectionstrings`, chaque chaîne de connexion est définie comme une paire nom:valeur, avec le format spécifique de l’élément `"<name>&quot; : {&quot;value&quot;: &quot;…&quot;, &quot;type&quot;: &quot;…&quot;}`. Pour l’élément `type`, les valeurs possibles sont les suivantes : `MySql`, `SQLServer`, `SQLAzure` et `Custom`.
 
 > [!TIP]
-> Pour obtenir la liste définitive des types de chaîne de connexion, exécutez la commande suivante dans Azure PowerShell : \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+> Pour obtenir la liste définitive des types de chaîne de connexion, exécutez la commande suivante dans Azure PowerShell : \[Enum]::GetNames(&quot;Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
 > 
 > 
 

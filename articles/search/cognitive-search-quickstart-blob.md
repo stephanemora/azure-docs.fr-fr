@@ -7,19 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 03/21/2021
+ms.openlocfilehash: d3e1b73789d6bd4df3dfe9a0e05048f9bbbb25bb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179263"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770969"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Démarrage rapide : Créer un ensemble de compétences cognitives pour la Recherche cognitive Azure dans le portail Azure
 
-Un ensemble de compétences est une fonctionnalité basée sur l’IA qui utilise des modèles Deep Learning pour extraire des informations et une structure à partir de fichiers texte ou de fichiers image non différenciés et volumineux. Le contenu est indexable et peut faire l’objet de recherches dans Recherche cognitive Azure. 
+Ce démarrage rapide montre comment la prise en charge des compétences sur le portail, ainsi que la manière dont la reconnaissance optique de caractères (OCR) et la reconnaissance d’entités peuvent être utilisées pour créer des contenus textuels pouvant faire l’objet de recherches à partir d’images et de fichiers d’application.
 
-Dans ce guide de démarrage rapide, vous allez combiner les services et les données du cloud Azure pour créer l’ensemble de compétences. Une fois que tout est en place, vous exécutez l’Assistant **Importer des données** dans le portail Azure pour tout préparer. Le résultat final est un index de recherche qui contient des données créées par le traitement IA, que vous pouvez interroger dans le portail ([Explorateur de recherche](search-explorer.md)).
+Pour vous préparer, vous allez créer des ressources et télécharger des exemples d’images et des fichiers de contenu d’application. Une fois que tout est en place, vous exécutez l’Assistant **Importer des données** dans le portail Azure pour tout préparer. Le résultat final est un index de recherche qui contient des données créées par le traitement IA, que vous pouvez interroger dans le portail ([Explorateur de recherche](search-explorer.md)).
+
+Vous préférez vous lancer dans le code ? Consultez [Didacticiel : utiliser REST et l’IA pour générer du contenu pouvant faire l’objet d’une recherche à partir d’objets blob Azure](cognitive-search-tutorial-blob.md) ou [Didacticiel : utiliser .NET et l’IA pour générer du contenu pouvant faire l’objet d’une recherche à partir d’objets blob Azure](cognitive-search-tutorial-blob-dotnet.md) .
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,7 +46,7 @@ Dans les étapes suivantes, configurez un conteneur d’objets blob dans Stockag
 
    + Choisissez la même région que celle de la Recherche cognitive Azure pour éviter des frais de bande passante. 
 
-   + Choisissez le type de compte StorageV2 (V2 à usage général) si vous souhaitez tester la fonctionnalité de base de connaissances plus tard, au cours d’une autre procédure pas à pas. Sinon, choisissez n’importe quel type.
+   + Choisissez le StorageV2 (usage général V2).
 
 1. Ouvrez les pages des services BLOB et créez un conteneur. Vous pouvez utiliser le niveau d’accès public par défaut. 
 

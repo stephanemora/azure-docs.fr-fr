@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble d’Azure Percept
 description: En savoir plus sur la plateforme Azure Percept
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953588"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567659"
 ---
 # <a name="introduction-to-azure-percept"></a>Introduction à Azure Percept
 
@@ -28,21 +28,21 @@ Les problématiques de l’intégration rencontrées quand vous tentez de déplo
 
 Les principaux composants d’Azure Percept sont les suivants :
 
-1. [Azure Percept DK.](./overview-azure-percept-dk.md)
+- [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - Un kit de développement suffisamment flexible pour gérer un large éventail de scénarios de prototypage à destination des constructeurs d’appareils, des développeurs de solutions et des clients.
 
         > [!div class="nextstepaction"]
         > [Acheter maintenant](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. Des services et des workflows pour accélérer le développement de modèles et de solutions IA en périphérie.
+- Des services et des workflows pour accélérer le développement de modèles et de solutions IA en périphérie.
 
     - Des workflows de développement et des modèles prédéfinis accessibles depuis [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Des services de développement de modèles.
     - Des services de gestion des appareils pour la mise à l’échelle.
     - Sécurité de bout en bout.
 
-1. Des programmes de conception de référence et de certification du matériel pour l’IA.
+- Des programmes de conception de référence et de certification du matériel pour l’IA.
 
     - Fournit à l’écosystème des développeurs de matériel des modèles et des pratiques recommandées pour le développement de matériel IA en périphérie qui peut être intégré facilement aux services IA et IoT d’Azure.
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ef4be54f5c6025a09314a04504cff40fc39478d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100363200"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168159"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil IoT dans votre application Azure IoT Central
 
@@ -59,7 +59,7 @@ Certains [modèles d’application](concepts-app-templates.md) incluent déjà d
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Créer un modèle d’appareil à partir du catalogue d’appareils
 
-Vous pouvez rapidement commencer à créer votre solution à l’aide d’un appareil certifié. Consultez la liste dans le [catalogue d’appareils Azure IOT](https://catalog.azureiotsolutions.com/alldevices). IoT Central s’intègre au catalogue d’appareils ; ainsi, vous pouvez importer un modèle d’appareil parmi les appareils certifiés. Pour créer un modèle d’appareil à partir de l’un de ces appareils dans IoT Central :
+Vous pouvez rapidement commencer à créer votre solution à l’aide d’un appareil certifié. Consultez la liste dans le [catalogue d’appareils Azure IOT](https://devicecatalog.azure.com). IoT Central s’intègre au catalogue d’appareils ; ainsi, vous pouvez importer un modèle d’appareil parmi les appareils certifiés. Pour créer un modèle d’appareil à partir de l’un de ces appareils dans IoT Central :
 
 1. Accédez à la page **Modèles d’appareil** dans votre application IoT Central.
 1. Sélectionnez **+ Nouveau**, puis sélectionnez les appareils certifiés Play dans le catalogue. IoT Central crée un modèle d’appareil basé sur ce modèle d’appareil.
