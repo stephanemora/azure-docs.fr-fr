@@ -3,12 +3,12 @@ title: Journaux de diagnostic pour les connexions hybrides
 description: Cet article fournit une vue d’ensemble des journaux d’activités et de diagnostics disponibles pour Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590871"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079095"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Activer les journaux de diagnostic pour les connexions hybrides Azure Relay
 Lorsque vous commencez à utiliser vos connexions hybrides Azure Relay, vous pouvez surveiller le mode et le moment d’ouverture et de fermeture de vos écouteurs et expéditeurs, ainsi que la façon dont vos connexions hybrides sont créées et les messages envoyés. Cet article fournit une vue d’ensemble des journaux d’activités et de diagnostics fournis par le service Azure Relay. 
@@ -80,29 +80,29 @@ Voici un exemple d’événement de connexion hybride au format JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Événements et opérations capturés dans les journaux de diagnostic
 
-| Opération | Description | 
-| --------- | ----------- | 
-| AuthorizationFailed | Échec de l’autorisation.|
-| InvalidSasToken | Jeton SAP non valide. | 
-| ListenerAcceptingConnection | L’écouteur accepte la connexion. |
-| ListenerAcceptingConnectionTimeout | L’écouteur qui accepte la connexion a dépassé le délai d’attente. |
-| ListenerAcceptingHttpRequestFailed | L’écouteur qui accepte la requête HTTP a échoué en raison d’une exception. |
-| ListenerAcceptingRequestTimeout | L’écouteur qui accepte la requête a dépassé le délai d’attente. |  
-| ListenerClosingFromExpiredToken | L’écouteur se ferme parce que le jeton de sécurité a expiré. | 
-| ListenerRejectedConnection | L’écouteur a rejeté la connexion. |
-| ListenerReturningHttpResponse | L’écouteur retourne une réponse HTTP. |  
-| ListenerReturningHttpResponseFailed | L’écouteur retourne une réponse HTTP avec un code d’échec. | 
- ListenerSentHttpResponse | Le service de relais a reçu une réponse HTTP de l’écouteur. | 
-| ListenerUnregistered | L’écouteur n’est pas inscrit. | 
-| ListenerUnresponsive | L’écouteur ne réagit pas lors du retour d’une réponse. | 
-| MessageSendingToListener | Un message est en cours d’envoi à l’écouteur. |
-| MessageSentToListener | Un message a été envoyé à l’écouteur. | 
-| NewListenerRegistered | Nouvel écouteur inscrit. |
-| NewSenderRegistering | Nouvel expéditeur en cours d’inscription. | 
-| ProcessingRequestFailed | Échec du traitement d’une opération de connexion hybride. | 
-| SenderConnectionClosed | La connexion de l’expéditeur est fermée. |
-| SenderListenerConnectionEstablished | L’expéditeur et l’écouteur ont correctement établi la connexion. |
-| SenderSentHttpRequest | L’expéditeur a envoyé une requête HTTP. | 
+| Opération                           | Description                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Échec de l’autorisation.                                           |
+| InvalidSasToken                     | Jeton SAP non valide.                                              |
+| ListenerAcceptingConnection         | L’écouteur accepte la connexion.                           |
+| ListenerAcceptingConnectionTimeout  | L’écouteur qui accepte la connexion a dépassé le délai d’attente.                |
+| ListenerAcceptingHttpRequestFailed  | L’écouteur qui accepte la requête HTTP a échoué en raison d’une exception. |
+| ListenerAcceptingRequestTimeout     | L’écouteur qui accepte la requête a dépassé le délai d’attente.                   |
+| ListenerClosingFromExpiredToken     | L’écouteur se ferme parce que le jeton de sécurité a expiré. |
+| ListenerRejectedConnection          | L’écouteur a rejeté la connexion.                       |
+| ListenerReturningHttpResponse       | L’écouteur retourne une réponse HTTP.                     |
+| ListenerReturningHttpResponseFailed | L’écouteur retourne une réponse HTTP avec un code d’échec. |
+| ListenerSentHttpResponse            | Le service de relais a reçu une réponse HTTP de l’écouteur.  |
+| ListenerUnregistered                | L’écouteur n’est pas inscrit.                                   |
+| ListenerUnresponsive                | L’écouteur ne réagit pas lors du retour d’une réponse.         |
+| MessageSendingToListener            | Un message est en cours d’envoi à l’écouteur.                              |
+| MessageSentToListener               | Un message a été envoyé à l’écouteur.                                    |
+| NewListenerRegistered               | Nouvel écouteur inscrit.                                        |
+| NewSenderRegistering                | Nouvel expéditeur en cours d’inscription.                                      |
+| ProcessingRequestFailed             | Échec du traitement d’une opération de connexion hybride.     |
+| SenderConnectionClosed              | La connexion de l’expéditeur est fermée.                                |
+| SenderListenerConnectionEstablished | L’expéditeur et l’écouteur ont correctement établi la connexion.    |
+| SenderSentHttpRequest               | L’expéditeur a envoyé une requête HTTP.                                |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

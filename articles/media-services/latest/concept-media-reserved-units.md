@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: e0cfc47b546c31e6b93d224e64de20b79baacfd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4b3a06d2d441c918c4c109d9dc624ebfa1cd4c97
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98891294"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120807"
 ---
 # <a name="media-reserved-units"></a>Unités réservées Multimédia
 
@@ -52,8 +52,8 @@ Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unit
 
 ## <a name="next-step"></a>Étape suivante
 [Mettre à l'échelle les unités réservées Multimédia avec l'interface CLI](media-reserved-units-cli-how-to.md)
-[Analyser des vidéos](analyze-videos-tutorial-with-api.md)
+[Analyser des vidéos](analyze-videos-tutorial.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Quotas et limites](limits-quotas-constraints.md)
+* [Quotas et limites](limits-quotas-constraints-reference.md)

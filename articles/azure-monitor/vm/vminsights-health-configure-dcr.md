@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 889a04d68de45a6270ae0c38615d841a526ad86a
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052141"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490690"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurer la surveillance dans l’intégrité de l’invité de VM Insights à l’aide règles de collecte de données (préversion)
 L’[intégrité des invités de VM Insights](vminsights-health-overview.md) vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Cet article décrit comment vous pouvez modifier la supervision par défaut sur plusieurs machines virtuelles en utilisant des règles de collecte des données.
@@ -175,17 +175,17 @@ Liste d’une ou plusieurs chaînes qui définissent les moniteurs dans la hiér
 Le tableau suivant liste les noms de moniteur actuellement disponibles.
 
 | Nom de type | Nom | Description |
-|:---|:---|:---|
-| root | root | Moniteur de plus haut niveau représentant l’intégrité d’une machine virtuelle. | |
-| cpu-utilization | cpu-utilization | Moniteur d’utilisation du processeur. | |
-| logical-disks | logical-disks | Moniteur agrégé pour l’état d’intégrité de tous les disques supervisés sur une machine virtuelle Windows. | |
-| logical-disks\|* | logical-disks\|C:<br>logical-disks\|D: | Moniteur agrégé suivant l’intégrité d’un disque donné sur une machine virtuelle Windows. | 
-| logical-disks\|*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Moniteur d’espace disque libre sur une machine virtuelle Windows. |
+|:----------|:-----|:------------|
+| root | root | Moniteur de plus haut niveau représentant l’intégrité d’une machine virtuelle. |
+| cpu-utilization | cpu-utilization | Moniteur d’utilisation du processeur. |
+| logical-disks | logical-disks | Moniteur agrégé pour l’état d’intégrité de tous les disques supervisés sur une machine virtuelle Windows. |
+| logical-disks\|\* | logical-disks\|C:<br>logical-disks\|D: | Moniteur agrégé suivant l’intégrité d’un disque donné sur une machine virtuelle Windows. |
+| logical-disks\|\*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Moniteur d’espace disque libre sur une machine virtuelle Windows. |
 | filesystems | filesystems | Moniteur agrégé pour l’intégrité de tous les systèmes de fichiers sur une machine virtuelle Linux. |
-| filesystems\|* | filesystems\|/<br>filesystems\|/mnt | Moniteur agrégé suivant l’intégrité d’un système de fichiers sur une machine virtuelle Windows. | filesystems|/var/log |
-| filesystems\|*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Moniteur d’espace disque libre sur le système de fichiers d’une machine virtuelle Linux. | 
-| mémoire | mémoire | Moniteur agrégé pour l’intégrité de la mémoire d’une machine virtuelle. | |
-| memory\|available| memory\|available | Moniteur suivant la mémoire disponible sur la machine virtuelle. | |
+| filesystems\|\* | filesystems\|/<br>filesystems\|/mnt | Moniteur agrégé suivant l’intégrité d’un système de fichiers sur une machine virtuelle Windows. |
+| filesystems\|\*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Moniteur d’espace disque libre sur le système de fichiers d’une machine virtuelle Linux. |
+| mémoire | mémoire | Moniteur agrégé pour l’intégrité de la mémoire d’une machine virtuelle. |
+| memory\|available | memory\|available | Moniteur suivant la mémoire disponible sur la machine virtuelle. |
 
 
 ## <a name="alertconfiguration-element"></a>Élément alertConfiguration

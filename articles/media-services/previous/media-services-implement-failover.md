@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: ef4eb3eb55ec1f062efb0f8215a3619f526b1ad2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011933"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063982"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implémenter le streaming de basculement avec Media Services v2
 
@@ -753,7 +753,7 @@ Dans cette section, vous allez créer un moyen de gérer la redondance.
 
 L’exemple de cette rubrique illustre un streaming en clair. Si vous souhaitez effectuer un streaming protégé, il existe d’autres choses que vous devez configurer. Vous devez utiliser le même **AssetDeliveryPolicy**, le même **ContentKeyAuthorizationPolicy** ou URL du serveur de clé externe, et vous devez dupliquer les clés de contenu avec le même identificateur.
 
-Pour plus d’informations sur la protection du contenu, consultez [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md).
+Pour plus d’informations sur la protection du contenu, consultez [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-playready-license-template-overview.md).
 
 ## <a name="see-also"></a>Voir aussi
 

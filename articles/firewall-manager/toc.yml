@@ -51,6 +51,8 @@
   items:
     - name: Déployer des fournisseurs de partenaire de sécurité
       href: deploy-trusted-security-partner.md
+    - name: Sécuriser les points de terminaison privés
+      href: private-link-inspection-secure-virtual-hub.md
     - name: Migrer vers une stratégie de pare-feu - PowerShell
       href: migrate-to-policy.md
     - name: Paramètres DNS

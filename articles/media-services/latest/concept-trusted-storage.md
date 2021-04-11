@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87f52bef07644370c268168c984a452d5ae3f9bd
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585399"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279457"
 ---
 # <a name="trusted-storage-for-media-services"></a>Stockage approuvé pour la plateforme Media Services
 
@@ -29,7 +29,7 @@ Toutefois, si vous souhaitez utiliser un pare-feu pour sécuriser votre compte d
 
 ## <a name="tutorial"></a>Didacticiel
 
-Vous pouvez en savoir plus sur l’activation du stockage approuvé à l’aide du tutoriel [Stockage approuvé Media Services](tutorial-trusted-storage-rest.md).
+Vous pouvez en savoir plus sur l’activation du stockage approuvé à l’aide du tutoriel [Stockage approuvé Media Services](security-trusted-storage-rest-tutorial.md).
 
 > [!NOTE]
 > Vous devez accorder l’accès Contributeur aux données blob de stockage avec identités managées AMS afin que la plateforme Media Services soit en mesure de lire et d’écrire dans le compte de stockage.  L’octroi du rôle Contributeur générique ne fonctionne pas, car il n’active pas les autorisations appropriées sur le plan de données.
