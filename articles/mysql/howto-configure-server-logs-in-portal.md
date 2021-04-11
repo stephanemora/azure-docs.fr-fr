@@ -1,17 +1,17 @@
 ---
 title: Accéder aux journaux des requêtes lentes - Portail Azure - Azure Database pour MySQL
 description: Cet article décrit comment configurer et consulter les journaux des requêtes lentes dans Azure Database pour MySQL à partir du portail Azure.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/13/2020
-ms.openlocfilehash: 5ad4ffa99a7af592e3e93e53673d254956807c40
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 3/15/2021
+ms.openlocfilehash: 91569780aa71861e07c7e96bec5eac879642760d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541621"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496216"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes à partir du portail Azure
 
@@ -34,11 +34,13 @@ Configurer l’accès au journal des requêtes lentes de MySQL.
 
 5. Définissez **slow_query_log** sur **ON** (Activé).
 
-6. Sélectionnez l’emplacement de sortie des journaux avec **log_output**. Pour envoyer des journaux au stockage local et aux journaux de diagnostic Azure Monitor, sélectionnez **Fichier**. 
+6. Sélectionnez l’emplacement de sortie des journaux avec **log_output**. Pour envoyer des journaux au stockage local et aux journaux de diagnostic Azure Monitor, sélectionnez **Fichier**.
 
-7. Changez tous les autres paramètres nécessaires. 
+7. Pensez à définir « long_query_time » qui représente le seuil de temps de requête pour les requêtes qui seront collectées dans le fichier journal des requêtes lentes. Les valeurs minimales et par défaut de long_query_time sont 0 et 10, respectivement.
 
-8. Sélectionnez **Enregistrer**. 
+8. Ajustez d’autres paramètres, tels que log_slow_admin_statements pour enregistrer les instructions administratives. Par défaut, les instructions administratives ne sont pas enregistrées, tout comme les requêtes qui n’utilisent pas d’index pour les recherches. 
+
+9. Sélectionnez **Enregistrer**. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Capture d’écran des paramètres du journal des requêtes lentes et de l’enregistrement.":::
 
@@ -70,17 +72,17 @@ Une fois que la journalisation a commencé, vous pouvez afficher la liste des jo
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Capture d’écran des options Paramètres de diagnostic":::
 
-1. Entrez un nom de paramètre de diagnostic.
+2. Entrez un nom de paramètre de diagnostic.
 
-1. Spécifiez les récepteurs de données auxquels envoyer les journaux des requêtes lentes (compte de stockage, hub d’événements ou espace de travail Log Analytics).
+3. Spécifiez les récepteurs de données auxquels envoyer les journaux des requêtes lentes (compte de stockage, hub d’événements ou espace de travail Log Analytics).
 
-1. Sélectionnez **MySqlSlowLogs** comme type de journal.
+4. Sélectionnez **MySqlSlowLogs** comme type de journal.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Capture d’écran des options de configuration des paramètres de diagnostic":::
 
-1. Après avoir configuré les récepteurs de données auxquels envoyer les journaux des requêtes lentes, sélectionnez **Enregistrer**.
+5. Après avoir configuré les récepteurs de données auxquels envoyer les journaux des requêtes lentes, sélectionnez **Enregistrer**.
 :::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Capture d’écran des options de configuration des paramètres de diagnostic, avec l’option Enregistrer mise en évidence":::
 
-1. Accédez aux journaux des requêtes lentes en les explorant dans les récepteurs de données que vous avez configurés. L’affichage des journaux peut prendre jusqu’à 10 minutes.
+6. Accédez aux journaux des requêtes lentes en les explorant dans les récepteurs de données que vous avez configurés. L’affichage des journaux peut prendre jusqu’à 10 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour savoir comment télécharger des journaux des requêtes lentes par programmation, consultez [Accéder aux journaux des requêtes lentes dans l’interface CLI](howto-configure-server-logs-in-cli.md).

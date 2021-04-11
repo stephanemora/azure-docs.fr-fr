@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703679"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587642"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -167,6 +167,18 @@ La sortie de commande doit afficher la clé {SID} {DBNAME} avec l’utilisateur 
 
 >[!NOTE]
 > Vérifiez que vous disposez d’un ensemble unique de fichiers SSFS sous `/usr/sap/{SID}/home/.hdb/`. Vous ne devez trouver qu’un seul dossier dans ce chemin d’accès.
+
+Voici un récapitulatif des étapes requises pour effectuer l’exécution du script de pré-inscription.
+
+|Qui  |Du  |À exécuter  |Commentaires  |
+|---------|---------|---------|---------|
+|```<sid>```adm (OS)     |  Système d’exploitation HANA       |   Lire le tutoriel et télécharger le script de pré-inscription      |   Lire les [prérequis ci-dessus](#prerequisites)    Télécharger le script de pré-inscription [ici](https://aka.ms/scriptforpermsonhana)  |
+|```<sid>```adm (OS) et utilisateur SYSTEM (HANA)    |      Système d’exploitation HANA   |   Exécuter la commande hdbuserstore Set      |   Par exemple, hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Remarque :**  Veillez à utiliser le nom d’hôte au lieu de l’adresse IP ou du nom de domaine complet      |
+|```<sid>```adm (OS)    |   Système d’exploitation HANA      |  Exécuter la commande hdbuserstore List       |   Vérifiez si le résultat comprend le magasin par défaut comme ci-dessous : ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Root (OS)     |   Système d’exploitation HANA        |    Exécuter le script de pré-inscription HANA de Sauvegarde Azure      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm (OS)    |  Système d’exploitation HANA       |   Exécuter la commande hdbuserstore List      |    Vérifiez si le résultat comprend de nouvelles lignes, comme indiqué ci-dessous :  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+
+Après avoir exécuté le script de pré-inscription et procédé à la vérification, vous pouvez vérifier [les exigences de connectivité](#set-up-network-connectivity), puis [configurer la sauvegarde](#discover-the-databases) à partir du coffre Recovery Services.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 

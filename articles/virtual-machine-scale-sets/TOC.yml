@@ -401,6 +401,8 @@
           maintainContext: true
 - name: Informations de référence
   items:
+    - name: Azure CLI
+      href: /cli/azure/vmss
     - name: Azure PowerShell
       href: /powershell/azure/
     - name: REST
@@ -411,16 +413,11 @@
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
 - name: Ressources
+- name: Instances
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Tarifs
+    - name: Options d’achat
+      items: null
+    - name: Azure Hybrid Benefit
       items:
         - name: Linux
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
-        - name: Windows
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
-    - name: Calculatrice de prix
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-vm-scale-set'
+          href: azure-hybrid-benefit-linux.md

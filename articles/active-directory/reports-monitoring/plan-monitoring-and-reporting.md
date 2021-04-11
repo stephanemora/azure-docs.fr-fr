@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c37c672f8784052424e058837d31bc1d22fcfc57
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577755"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552612"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planifier un déploiement de création de rapports et de supervision Azure Active Directory
 
@@ -47,7 +47,7 @@ Avec la supervision Azure AD, vous pouvez router les journaux vers :
 * Un hub d’événements Azure, dans lequel vous pouvez intégrer vos outils SIEM existants tels que Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Désormais, nous n’utilisons plus le terme « Log Analytics », mais le terme « journaux Azure Monitor ». Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Nous mettons la terminologie à jour pour mieux refléter le rôle des [journaux d’activité dans Azure Monitor](../../azure-monitor/data-platform.md). Pour plus d'informations, consultez [Modifications de la terminologie d'Azure Monitor](../../azure-monitor/terminology.md).
+> Désormais, nous n’utilisons plus le terme « Log Analytics », mais le terme « journaux Azure Monitor ». Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Nous mettons la terminologie à jour pour mieux refléter le rôle des [journaux d’activité dans Azure Monitor](../../azure-monitor/data-platform.md). Pour plus d'informations, consultez [Modifications de la terminologie d'Azure Monitor](../../azure-monitor/terminology.md).
 
 [En savoir plus sur nos stratégies de conservation des rapports](./reference-reports-data-retention.md)
 

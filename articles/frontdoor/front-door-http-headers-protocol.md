@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2020
 ms.author: duau
-ms.openlocfilehash: 7f40b48473c04238d504288307039948fcacf90a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5989f91233448c04d50ba1c69a06851b91426a03
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97511142"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167802"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Prise en charge des protocoles d’en-têtes HTTP dans Azure Front Door
 Cet article décrit le protocole pris en charge par Front Door avec certaines parties du chemin d’appel (voir l’image). Les sections suivantes donnent de plus amples informations sur les en-têtes HTTP pris en charge par Front Door.
@@ -40,7 +40,7 @@ Front Door inclut les en-têtes pour une requête entrante, sauf s’ils sont su
 | X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Représente l’adresse IP de socket associée à la connexion TCP d’où provient la requête actuelle. L’adresse IP de client d’une requête peut ne pas être identique à son adresse IP de socket, car elle peut être arbitrairement remplacée par un utilisateur.|
 | X-Azure-Ref | *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Chaîne de référence unique qui identifie une requête prise en charge par Front Door. Elle sert à effectuer des recherches dans les journaux d’accès et est essentielle pour la résolution des problèmes.|
 | X-Azure-RequestChain | *X-Azure-RequestChain: hops=1* </br> En-tête utilisé par Front Door pour détecter les boucles de requête, et pour lequel les utilisateurs ne doivent pas établir de dépendance. |
-| X-Azure-FDID | *X-Azure-FDID : 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Chaîne de référence qui identifie la requête provenant d’une ressource Front Door spécifique. La valeur peut être affichée dans le portail Azure ou récupérée à l’aide de l’API de gestion. Vous pouvez utiliser cet en-tête en association avec des listes de contrôle d’accès IP pour verrouiller votre point de terminaison en vue d’accepter uniquement les requêtes provenant d’une ressource Front Door particulière. Pour plus d’informations, consultez les [Questions fréquentes (FAQ)](front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door). |
+| X-Azure-FDID | *X-Azure-FDID : 55ce4ed1-4b06-4bf1-b40e-4638452104da* <br/> Chaîne de référence qui identifie la requête provenant d’une ressource Front Door spécifique. La valeur peut être affichée dans le portail Azure ou récupérée à l’aide de l’API de gestion. Vous pouvez utiliser cet en-tête en association avec des listes de contrôle d’accès IP pour verrouiller votre point de terminaison en vue d’accepter uniquement les requêtes provenant d’une ressource Front Door particulière. Pour plus d’informations, consultez les [Questions fréquentes (FAQ)](front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-). |
 | X-Forwarded-For | *X-Forwarded-For: 127.0.0.1* </br> Le champ d’en-tête HTTP X-Forwarded-For (XFF) identifie souvent l’adresse IP d’origine d’un client qui se connecte à un serveur web par le biais d’un équilibreur de charge ou d’un proxy HTTP. S’il existe un en-tête XFF, Front Door y ajoute l’adresse IP de socket du client ou ajoute l’en-tête XFF avec l’adresse IP de socket du client. |
 | X-Forwarded-Host | *X-Forwarded-Host: contoso.azurefd.net* </br> Le champ d’en-tête HTTP X-Forwarded-Host est une méthode couramment utilisée pour identifier l’hôte d’origine demandé par le client dans l’en-tête de requête HTTP Host. En effet, le nom d’hôte de Front Door peut être différent pour le serveur back-end gérant la requête. |
 | X-Forwarded-Proto | *X-Forwarded-Proto: http* </br> Le champ d’en-tête HTTP X-Forwarded-Proto est souvent utilisé pour identifier le protocole d’origine d’une requête HTTP. Une instance Front Door basée sur la configuration peut communiquer avec le serveur principal à l’aide du protocole HTTPS. Cela est vrai même si la requête envoyé au proxy inverse est HTTP. |

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123273"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102608629"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connecter des appareils Azure IoT Edge à une application Azure IoT Central
 
@@ -74,8 +74,6 @@ Le diagramme suivant illustre les connexions à un appareil de passerelle IoT Ed
 Les appareils en aval peuvent se connecter à un appareil de passerelle IoT Edge via plusieurs modules personnalisés. Le diagramme suivant montre des appareils en aval qui se connectent via un module personnalisé Modbus, un module personnalisé BLE et le module *hub IoT Edge*.
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagramme de connexion à l’aide de plusieurs modules personnalisés" border="false":::
-
-<!-- To do: add link to how to configure gateway article? -->
 
 ## <a name="iot-edge-devices-and-iot-central"></a>Appareils IoT Edge dans IoT Central
 
@@ -286,7 +284,7 @@ Vous pouvez également installer le runtime IoT Edge dans les environnements sui
 
 Si vous avez sélectionné un appareil IoT Edge comme appareil de passerelle, vous pouvez ajouter des relations en aval aux modèles d’appareil pour les appareils que vous souhaitez connecter à l’appareil de passerelle.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+Pour en savoir plus, consultez [Guide pratique pour connecter des appareils via une passerelle transparente IoT Edge](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 33196af2f3544733715ece501cceec0366d2a47c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7569f98b1a721ecc9bd8e41a7d55cfbb80a2bc88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716248"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564617"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Base de référence de la sécurité Azure pour Data Lake Analytics
 
@@ -36,7 +36,7 @@ Pour voir comment Data Lake Analytics est entièrement mappé à Azure Security 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications avec des adresses IP connues comme étant malveillantes
 
@@ -48,7 +48,7 @@ Pour voir comment Data Lake Analytics est entièrement mappé à Azure Security 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
@@ -64,27 +64,27 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Guide pratique pour collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Guide pratique pour bien démarrer avec Azure Monitor et l’intégration d’une solution SIEM tierce](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
 **Aide** : Activer les paramètres de diagnostic pour Data Lake Analytics afin d’accéder aux journaux d’audit et de requêtes. Ils incluent des données, telles que la source de l’événement, la date, l’utilisateur, le timestamp et d’autres éléments utiles. 
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Présentation de la journalisation et des différents types de journaux dans Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Présentation de la journalisation et des différents types de journaux dans Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) est l’initiative de stratégie par défaut pour Azure Security Center et constitue la base des [recommandations de Security Center](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) pour les services associés.
+**Supervision d’Azure Security Center** : le [Benchmark de sécurité Azure](/azure/governance/policy/samples/azure-security-benchmark) est l’initiative de stratégie par défaut pour Security Center et constitue la base des [recommandations de Security Center](/azure/security-center/security-center-recommendations). Les définitions Azure Policy associées à ce contrôle sont activées automatiquement par Security Center. Les alertes liées à ce contrôle peuvent nécessiter un plan [Azure Defender](/azure/security-center/azure-defender) pour les services associés.
 
 **Définitions Azure Policy intégrées - Microsoft.DataLakeAnalytics** :
 
@@ -94,13 +94,13 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 **Conseils** : Dans Azure Monitor, définissez la période de rétention de votre espace de travail Log Analytics en fonction des réglementations de conformité de votre organisation. Utilisez les comptes de stockage Azure pour le stockage à long terme et l’archivage.
 
-- [Modification de la période de conservation des données dans Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
+- [Modification de la période de conservation des données dans Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -108,13 +108,13 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [En savoir plus sur l’espace de travail Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [En savoir plus sur l’espace de travail Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -122,13 +122,13 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](/azure/azure-monitor/learn/tutorial-response)  
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)  
 
 - [Accès aux journaux de diagnostic d’Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -144,7 +144,7 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
@@ -154,7 +154,7 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
@@ -162,11 +162,11 @@ Vous pouvez également activer et intégrer des données dans Azure Sentinel ou 
 
 Vous pouvez également activer un accès Just-In-Time via Azure Active Directory (Azure AD) Privileged Identity Management et Azure Resource Manager.
 
-- [En savoir plus sur Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [En savoir plus sur Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
@@ -176,7 +176,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
@@ -188,7 +188,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
@@ -196,11 +196,11 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 - [Comprendre les stations de travail sécurisées gérées par Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Guide pratique pour activer l’authentification multifacteur Azure Active Directory (Azure AD)](/security/compass/privileged-access-devices)
+- [Guide pratique pour activer l’authentification multifacteur Azure Active Directory (Azure AD)](/security/compass/privileged-access-devices)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
@@ -212,7 +212,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
@@ -222,7 +222,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
@@ -234,29 +234,29 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
 **Aide** : Azure Active Directory (Azure AD) fournit des journaux pour vous aider à découvrir les comptes obsolètes. Par ailleurs, utilisez les révisions d’accès et des identités Azure AD pour gérer efficacement les appartenances aux groupes, les accès aux applications d’entreprise et les attributions de rôles. L’accès des utilisateurs peut être passé en revue régulièrement pour vérifier que seuls les utilisateurs appropriés continuent de bénéficier d’un accès.
 
-- [Présentation des rapports Azure AD](/azure/active-directory/reports-monitoring/)
+- [Présentation des rapports Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Utilisation des révisions d’accès et des identités Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
 **Conseil** : activez les paramètres de diagnostic pour Data Lake Analytics et Azure Active Directory (Azure AD) de façon à envoyer tous les journaux à un espace de travail Log Analytics. Configurez les alertes souhaitées (par exemple, les tentatives d’accès aux secrets désactivés) dans Log Analytics.
 
-- [Intégrer les journaux Azure AD avec les journaux Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Intégrer les journaux Azure AD avec les journaux Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12 : Alerter en cas d’écart de comportement de connexion à un compte
 
@@ -270,7 +270,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -284,7 +284,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
@@ -296,7 +296,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 - [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
-- [Gérer le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+- [Gérer le contrôle d’accès en fonction du rôle Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 - [Règles de pare-feu](/rest/api/datalakeanalytics/firewallrules)
 
@@ -304,7 +304,7 @@ Vous pouvez également activer un accès Just-In-Time via Azure Active Directory
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
@@ -318,7 +318,7 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -328,7 +328,7 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
@@ -338,17 +338,17 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources 
 
 **Conseils** : vous pouvez utiliser le contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour contrôler la façon dont les utilisateurs interagissent avec le service.
 
-- [Gérer Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+- [Gérer Azure RBAC](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
@@ -358,17 +358,17 @@ Pour la plateforme sous-jacente gérée par Microsoft, Microsoft traite tout le 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
 **Aide** : Utilisez Azure Monitor avec le Journal des activités Azure pour créer des alertes lorsque des modifications sont apportées à des instances des ressources Azure Data Lake Analytics.
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
@@ -384,7 +384,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
@@ -394,7 +394,7 @@ Microsoft assure la gestion des vulnérabilités sur les systèmes sous-jacents 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -414,7 +414,7 @@ Même si les ressources Azure classiques peuvent être découvertes via l’Expl
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
@@ -424,7 +424,7 @@ Même si les ressources Azure classiques peuvent être découvertes via l’Expl
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
@@ -446,7 +446,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés.
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -464,7 +464,7 @@ Utilisez également Azure Resource Graph pour interroger/découvrir des ressourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
@@ -477,11 +477,11 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
@@ -491,7 +491,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -511,7 +511,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -523,7 +523,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
@@ -535,7 +535,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -545,7 +545,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -555,7 +555,7 @@ Des informations supplémentaires sont disponibles sur les liens référencés
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -569,7 +569,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -587,7 +587,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
@@ -599,7 +599,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
@@ -607,7 +607,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés managées par le client
 
@@ -619,7 +619,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -637,7 +637,7 @@ Pré-analysez tout contenu chargé sur des ressources Azure, telles que App Serv
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -651,7 +651,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -661,7 +661,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -671,7 +671,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -683,7 +683,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -693,7 +693,7 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -709,9 +709,9 @@ En outre, marquez clairement les abonnements (par ex. production, non-production
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

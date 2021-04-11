@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672273"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104607413"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
 
@@ -29,7 +29,7 @@ Commencez par passer en revue les tailles prises en charge pour la [machine virt
 
 Ensuite, vérifiez qu’elle est prise en charge sur les hôtes Azure Dedicated Host. La page de [tarification des hôtes Azure Dedicated Host](https://aka.ms/ADHPricing) contient la liste complète des références SKU d’hôtes dédiés, les informations de l’UC et diverses options de tarification (y compris les instances réservées).
 
-Vous pouvez trouver plusieurs références SKU prenant en charge la série de votre machine virtuelle (avec différents types). Identifiez la meilleure référence SKU en comparant la capacité de l’hôte (nombre de processeurs virtuels). Notez que vous serez en mesure d’appliquer la réservation à plusieurs références SKU d’hôtes dédiés prenant en charge la même série de machines virtuelles (par exemple, DSv3_Type1 et DSv3_Type2), mais pas sur des séries différentes de machines virtuelles (comme DSv3 et ESv3).
+Vous pouvez trouver plusieurs SKU prenant en charge la série de machine virtuelle que vous avez sélectionnée (avec des types différents). Identifiez la meilleure référence SKU en comparant la capacité de l’hôte (nombre de processeurs virtuels). Notez que vous serez en mesure d’appliquer la réservation à plusieurs SKU d’hôtes dédiés prenant en charge la même série de machine virtuelle (par exemple, DSv3_Type1 et DSv3_Type2), mais pas à des séries différentes de machine virtuelle (comme DSv3 et ESv3).
 
 
 

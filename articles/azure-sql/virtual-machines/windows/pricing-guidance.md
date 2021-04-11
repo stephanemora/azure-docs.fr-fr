@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102615599"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Guide des prix de SQL Server sur machines virtuelles Azure

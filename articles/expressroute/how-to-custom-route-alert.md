@@ -1,22 +1,22 @@
 ---
 title: 'ExpressRoute : Comment configurer des alertes personnalisées pour les itinéraires publiés'
-description: Cet article explique comment utiliser Azure Automation et Logic Apps pour surveiller le nombre d’itinéraires publiés de la passerelle ExpressRoute jusqu’à des réseaux locaux afin de ne pas atteindre la limite des 200 itinéraires.
+description: Cet article explique comment utiliser Azure Automation et Logic Apps pour surveiller le nombre d’itinéraires publiés de la passerelle ExpressRoute jusqu’à des réseaux locaux afin de ne pas atteindre la limite des 1000 itinéraires.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504399"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104654388"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurer des alertes personnalisées pour superviser les routes publiées
 
-Cet article vous aide à utiliser Azure Automation et Logic Apps pour surveiller en permanence le nombre d’itinéraires publiés de la passerelle ExpressRoute jusqu’à des réseaux locaux. La surveillance peut aider à ne pas atteindre la limite des [200 itinéraires](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+Cet article vous aide à utiliser Azure Automation et Logic Apps pour surveiller en permanence le nombre d’itinéraires publiés de la passerelle ExpressRoute jusqu’à des réseaux locaux. La surveillance peut aider à éviter d’atteindre la limite de 1000 itinéraires](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
 
 **Azure Automation** vous permet d’automatiser l’exécution du script PowerShell personnalisé stocké dans un *runbook*. Lorsque vous utilisez la configuration de cet article, le runbook contient un script PowerShell qui interroge une ou plusieurs passerelles ExpressRoute. Il collecte un jeu de données contenant le groupe de ressources, le nom de la passerelle ExpressRoute et le nombre de préfixes réseau publiés localement.
 
@@ -48,7 +48,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 * L’alerte personnalisée abordée dans cet article est un module complémentaire permettant d’optimiser le fonctionnement et le contrôle. Elle ne remplace pas les alertes natives dans ExpressRoute.
 * La collecte de données pour les passerelles ExpressRoute s’exécute en arrière-plan. La durée d’exécution peut être plus longue que prévu. Pour éviter la mise en file d’attente des travaux, la périodicité du workflow doit être correctement configurée.
-* Les déploiements par scripts ou modèles Resource Manager pourraient se produire plus rapidement que le déclenchement d’une alarme personnalisée. Cela peut entraîner une augmentation du nombre de préfixes réseau dans la passerelle ExpressRoute au-delà de la limite des 200 itinéraires.
+* Les déploiements par scripts ou modèles Resource Manager pourraient se produire plus rapidement que le déclenchement d’une alarme personnalisée. Cela peut entraîner une augmentation du nombre de préfixes réseau dans la passerelle ExpressRoute au-delà de la limite des 1000 itinéraires.
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Créer et configurer des comptes
 
@@ -409,7 +409,7 @@ Une fois le JSON analysé, l’action **Analyser les opérations de données JSO
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. La condition logique est vraie lorsque l’une des deux variables dynamiques, numRoute1 ou numRoute2, est supérieure au seuil. Dans cet exemple, le seuil est fixé à 160 (80 % de la valeur maximale des 200 itinéraires). Vous pouvez modifier la valeur seuil en fonction de vos besoins. Par souci de cohérence, la valeur doit être la même que celle utilisée dans le script PowerShell du runbook.
+9. La condition logique est vraie lorsque l’une des deux variables dynamiques, numRoute1 ou numRoute2, est supérieure au seuil. Dans cet exemple, le seuil est fixé à 800 (80 % de la valeur maximale des 1000 itinéraires). Vous pouvez modifier la valeur seuil en fonction de vos besoins. Par souci de cohérence, la valeur doit être la même que celle utilisée dans le script PowerShell du runbook.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Condition logique":::
 
