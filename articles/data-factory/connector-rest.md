@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 779a8745688e6a1fb8a15bc9119c6fbc1803ca2c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951825"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078925"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -495,7 +495,7 @@ Le modèle définit deux paramètres :
 
     | Propriété | Description |
     |:--- |:--- |
-    | URL |Spécifiez l’URL à partir de laquelle récupérer le jeton du porteur OAuth. Dans l’exemple, c’est https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Spécifiez l’URL à partir de laquelle récupérer le jeton du porteur OAuth. Dans l’exemple, c’est https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |
     | Méthode | Méthode HTTP. Les valeurs autorisées sont **Post** et **Get**. | 
     | headers | L’en-tête est défini par l’utilisateur, qui fait référence à un nom d’en-tête dans la requête HTTP. | 
     | body | Corps de la requête HTTP. | 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/30/2021
 ms.author: justinha
-ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8bcd3ebef027ec72728be21b0fe1504236f553ba
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101689060"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058168"
 ---
 # <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>Concepts et fonctionnalités des jeux de réplicas pour Azure Active Directory Domain Services
 
@@ -54,7 +54,7 @@ L’exemple suivant montre un domaine managé avec trois jeux de réplicas afin 
 
 Le niveau tarifaire par défaut pour un domaine managé est le SKU *Entreprise*, qui prend en charge plusieurs jeux de réplicas. Pour créer des jeux de réplicas supplémentaires si vous êtes passé au niveau tarifaire *Standard*, [mettez à niveau le domaine managé](change-sku.md) vers *Entreprise* ou *Premium*.
 
-Le nombre maximal de jeux de réplicas pris en charge pendant la préversion est de quatre, incluant le premier réplica créé lorsque vous avez créé le domaine managé.
+Le nombre maximal de jeux de réplicas pris en charge est de cinq, y compris le premier réplica créé lors de la création du domaine managé.
 
 La facturation de chaque jeu de réplicas est basée sur le niveau tarifaire de la configuration du domaine. Par exemple, si vous avez un domaine managé qui utilise le niveau tarifaire *Entreprise* et que vous avez trois jeux de réplicas, votre abonnement est facturé à l’heure pour chacun des trois jeux de réplicas.
 
@@ -66,7 +66,7 @@ Non. Les jeux de réplicas doivent se trouver dans le même abonnement que le do
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Combien de jeux de réplicas puis-je créer ?
 
-Vous pouvez créer un maximum de quatre jeux de réplicas : le jeu de réplicas initial pour le domaine managé, plus trois jeux de réplicas supplémentaires.
+Vous pouvez créer un maximum de cinq jeux de réplicas : le jeu de réplicas initial pour le domaine managé, plus quatre jeux de réplicas supplémentaires.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Comment les informations d’utilisateur et de groupe sont-elles synchronisées avec mes jeux de réplicas ?
 

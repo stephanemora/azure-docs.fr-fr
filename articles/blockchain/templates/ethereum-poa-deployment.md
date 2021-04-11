@@ -5,12 +5,12 @@ ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 70c9498bae9117585963e111bea4f1e127cab232
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f4b12a9b3b830fcc4f45cb5e957232fee5a756a3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097939"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078643"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Déployer le modèle de solution Ethereum de consortium de preuve d’autorité sur Azure
 
@@ -169,8 +169,8 @@ Paramètre | Description | Valeur d'exemple
 Surveillance | Option permettant d’activer la surveillance | Activer
 Se connecter à des journaux Azure Monitor existants | Option permettant de créer une instance de journaux Azure Monitor ou de rejoindre une instance existante | Création
 Emplacement | Région dans laquelle la nouvelle instance est déployée | USA Est
-ID de l’espace de travail Log Analytics existant (Se connecter à des journaux Azure Monitor existants = Rejoindre existant)|ID d’espace de travail de l’instance de journaux Azure Monitor existante||N/D
-Clé primaire de l’instance Log Analytics existante (Se connecter à des journaux Azure Monitor existants = Rejoindre existant)|Clé primaire utilisée pour se connecter à l’instance de journaux Azure Monitor existante||N/D
+ID de l’espace de travail Log Analytics existant (Se connecter à des journaux Azure Monitor existants = Rejoindre existant)|ID d’espace de travail de l’instance de journaux Azure Monitor existante|N/D
+Clé primaire de l’instance Log Analytics existante (Se connecter à des journaux Azure Monitor existants = Rejoindre existant)|Clé primaire utilisée pour se connecter à l’instance de journaux Azure Monitor existante|N/D
 
 Sélectionnez **OK**.
 

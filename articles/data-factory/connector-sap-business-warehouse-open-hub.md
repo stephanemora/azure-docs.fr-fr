@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2020
-ms.openlocfilehash: b766ce248a3543ef3323e026d760e550a0e3dd75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 04/02/2021
+ms.openlocfilehash: 5efc27a1ad1a26c1ae50b6aecf250afef052e3de
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100386677"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220536"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
@@ -187,6 +187,7 @@ Pour copier des données à partir de SAP BW Open Hub, les propriétés prises e
 | type | La propriété de **type** de la source d’activité de copie doit être définie sur **SapOpenHubSource**. | Oui |
 | excludeLastRequest | Indique s'il faut exclure les enregistrements de la dernière requête. | Non (la valeur par défaut est **true**) |
 | baseRequestId | ID de requête pour le chargement delta. Une fois ceci défini, seules les données dont le requestId est **supérieur à** la valeur de cette propriété sont récupérées.  | Non |
+| customRfcReadTableFunctionModule | Module de fonction RFC personnalisé qui peut être utilisé pour lire des données à partir de la table SAP. <br/> Vous pouvez utiliser un module de fonction RFC personnalisé pour définir la façon dont les données sont récupérées à partir de votre système SAP et retournées à Data Factory. Le module de fonction personnalisé doit avoir une interface implémentée (importation, exportation, tables) similaire à `/SAPDS/RFC_READ_TABLE2`, l'interface par défaut utilisée par Data Factory. | Non |
 
 >[!TIP]
 >Si votre table Open Hub ne contient que les données générées par un seul ID de requête, par exemple, vous exécutez toujours un plein chargement et écrasez les données existantes dans la table, ou si vous n'exécutez le DTP qu'une fois à des fins de test, n'oubliez pas de décocher l'option « excludeLastRequest » afin de copier les données.

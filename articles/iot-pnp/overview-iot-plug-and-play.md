@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: eb39939f4a48a549479605dcccc346094359875f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99594567"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079010"
 ---
 # <a name="what-is-iot-plug-and-play"></a>Qu’est ce qu’IoT Plug-and-Play ?
 
@@ -68,7 +68,7 @@ En tant que développeur d’appareil, vous pouvez développer un produit matér
 
 ## <a name="device-certification"></a>Certification d’appareil
 
-Le [programme de certification d’appareil IoT Plug-and-Play](howto-certify-device.md) vérifie qu’un appareil répond aux exigences de certification IoT Plug-and-Play. Vous pouvez ajouter un appareil certifié au [catalogue des appareils certifiés pour Azure IoT](https://aka.ms/devicecatalog).
+Le [programme de certification d’appareil IoT Plug-and-Play](../certification/program-requirements-pnp.md) vérifie qu’un appareil répond aux exigences de certification IoT Plug-and-Play. Vous pouvez ajouter un appareil certifié au [catalogue des appareils certifiés pour Azure IoT](https://aka.ms/devicecatalog).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

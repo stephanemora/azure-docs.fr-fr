@@ -3,12 +3,12 @@ title: Modèles de données des journaux Azure Monitor
 description: Dans cet article, découvrez les détails du modèle de données Azure Monitor Log Analytics pour les données de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 004c5a6c0c2c4dcfcf13134bd5a5143ba647048f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2682bf0483b38c50e64bf4ec5255c89f931ab0f0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500986"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078908"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modèle de données Log Analytics pour les données de sauvegarde Azure
 
@@ -199,9 +199,9 @@ Ce tableau fournit plus d’informations sur les champs liés à la stratégie.
 | MonthlyRetentionDaysOfTheWeek_s |Texte ||Jours de la semaine sélectionnés pour la rétention mensuelle |
 | MonthlyRetentionWeeksOfTheMonth_s |Texte ||Semaines du mois au cours desquelles la rétention mensuelle est configurée, par exemple Première, Dernière, etc. |
 | YearlyRetentionDuration_s |Nombre décimal ||Durée totale de rétention en années des sauvegardes configurées |
-| YearlyRetentionTimes_s |Texte ||Date et heure auxquelles la rétention annuelle est configurée |
-| YearlyRetentionMonthsOfTheYear_s |Texte ||Mois de l’année sélectionnés pour la rétention annuelle |
-| YearlyRetentionFormat_s |Texte ||Type de configuration de la rétention annuelle, par exemple, quotidienne pour une configuration quotidienne, hebdomadaire pour une configuration hebdomadaire | |
+| YearlyRetentionTimes_s |Texte | | Date et heure auxquelles la rétention annuelle est configurée |
+| YearlyRetentionMonthsOfTheYear_s |Texte | | Mois de l’année sélectionnés pour la rétention annuelle |
+| YearlyRetentionFormat_s |Texte ||Type de configuration de la rétention annuelle, par exemple, quotidienne pour une configuration quotidienne, hebdomadaire pour une configuration hebdomadaire |
 | YearlyRetentionDaysOfTheMonth_s |Texte ||Dates du mois sélectionnées pour la rétention annuelle |
 | SynchronisationFrequencyPerDay_s |Nombre entier |v2|Nombre de synchronisations quotidiennes d’une sauvegarde de fichiers pour SC DPM et MABS |
 | DiffBackupFormat_s |Texte |v2|Format des sauvegardes différentielles pour SQL dans une sauvegarde de machine virtuelle Azure |

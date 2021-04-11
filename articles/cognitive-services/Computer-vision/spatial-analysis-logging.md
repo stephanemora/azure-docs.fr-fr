@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722699"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077616"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -103,21 +103,21 @@ Une fois le module Telegraf déployé, les métriques signalées sont accessible
 
 ### <a name="system-health-events"></a>Événements d’intégrité du système
 
-| Nom de l'événement | Description|
-|------|---------|
-|archon_exit     |Envoyé lorsqu’un utilisateur modifie l’état du module d’analyse spatiale de la valeur *en cours d’exécution* à *arrêté*.  |
-|archon_error     |Envoyé lorsque l’un des processus à l’intérieur du conteneur plante. Il s'agit d'une erreur critique.  |
-|InputRate     |Rythme auquel le graphique traite l’entrée vidéo. Signalé toutes les 5 minutes. | 
-|OutputRate     |Rythme auquel le graphique génère des insights d’IA. Signalé toutes les 5 minutes. |
-|archon_allGraphsStarted | Envoyé lorsque tous les graphiques ont fini de démarrer. |
-|archon_configchange     | Envoyé lorsqu’une configuration de graphique a changé. |
-|archon_graphCreationFailed     |Envoyé lorsque le graphique avec le `graphId` signalé ne parvient pas à démarrer. |
-|archon_graphCreationSuccess     |Envoyé lorsque le graphique avec le `graphId` signalé démarre avec succès. |
-|archon_graphCleanup     | Envoyé lorsque le graphique avec le `graphId` signalé se nettoie et se termine. |
-|archon_graphHeartbeat     |Pulsation envoyée toutes les minutes pour chaque graphique d’une compétence. |
-|archon_apiKeyAuthFail |Envoyé lorsque la clé de ressource Vision par ordinateur ne parvient pas à authentifier le conteneur pendant plus de 24 heures, pour les raisons suivantes : Hors quota, non valide, hors connexion. |
-|VideoIngesterHeartbeat     |Envoyé toutes les heures pour indiquer que la vidéo est diffusée à partir de la source vidéo, avec le nombre d’erreurs au cours de cette heure. Signalé pour chaque graphique. |
-|VideoIngesterState | Les rapports *arrêtés* ou *démarrés* pour la diffusion vidéo.  Signalé pour chaque graphique. |
+| Nom de l'événement                  | Description    |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| archon_exit                 | Envoyé lorsqu’un utilisateur modifie l’état du module d’analyse spatiale de la valeur *en cours d’exécution* à *arrêté*.  |
+| archon_error                | Envoyé lorsque l’un des processus à l’intérieur du conteneur plante. Il s'agit d'une erreur critique.      |
+| InputRate                   | Rythme auquel le graphique traite l’entrée vidéo. Signalé toutes les 5 minutes.              |
+| OutputRate                  | Rythme auquel le graphique génère des insights d’IA. Signalé toutes les 5 minutes.                |
+| archon_allGraphsStarted     | Envoyé lorsque tous les graphiques ont fini de démarrer.                                           |
+| archon_configchange         | Envoyé lorsqu’une configuration de graphique a changé.                                              |
+| archon_graphCreationFailed  | Envoyé lorsque le graphique avec le `graphId` signalé ne parvient pas à démarrer.                           |
+| archon_graphCreationSuccess | Envoyé lorsque le graphique avec le `graphId` signalé démarre avec succès.                      |
+| archon_graphCleanup         | Envoyé lorsque le graphique avec le `graphId` signalé se nettoie et se termine.                      |
+| archon_graphHeartbeat       | Pulsation envoyée toutes les minutes pour chaque graphique d’une compétence.                                   |
+| archon_apiKeyAuthFail       | Envoyé lorsque la clé de ressource Vision par ordinateur ne parvient pas à authentifier le conteneur pendant plus de 24 heures, pour les raisons suivantes : Hors quota, non valide, hors connexion. |
+| VideoIngesterHeartbeat      | Envoyé toutes les heures pour indiquer que la vidéo est diffusée à partir de la source vidéo, avec le nombre d’erreurs au cours de cette heure. Signalé pour chaque graphique. |
+| VideoIngesterState          | Les rapports *arrêtés* ou *démarrés* pour la diffusion vidéo.  Signalé pour chaque graphique.              |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Résolution des problèmes d’un appareil IoT Edge
 
