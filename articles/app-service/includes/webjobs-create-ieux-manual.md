@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 40e9e2b0e7437566a132f2402d3bed01b284d11a
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102109134"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106080996"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Créer une tâche web déclenchée manuellement
 
@@ -33,7 +33,7 @@ ms.locfileid: "102109134"
    | <abbr title="Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (`-` et `_`).">Nom</abbr> | myTriggeredWebJob | 
     | <abbr title="Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script.">Chargement de fichiers</abbr> | ConsoleApp.zip |
     | <abbr title="Les types incluent : continu, déclenché.">Type</abbr> | Déclenchée | 
-    | <abbr title="Les types incluent : planifié ou manuel">Déclencheurs</a> | Manuel | |
+    | <abbr title="Les types incluent : planifié ou manuel">Déclencheurs</a> | Manuel | 
 
 4. Cliquez sur **OK**. 
 

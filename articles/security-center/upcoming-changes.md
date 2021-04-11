@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/10/2021
+ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 49141f7f11c0e8ead090459238e15b56f57b990b
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 6204be2ff52b8aac89b93ac09337b1560255e11d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633714"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491880"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -26,10 +26,38 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 
 ## <a name="planned-changes"></a>Changements planifiés
 
-- [Les recommandations d’AWS seront publiées pour la disponibilité générale (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
-- [Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » bientôt dépréciées](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
-- [Améliorations apportées à la recommandation de classification des données SQL](#enhancements-to-sql-data-classification-recommendation)
-- [Dépréciation de 11 alertes Azure Defender](#deprecation-of-11-azure-defender-alerts)
+| Modifications planifiées                                                                                                                                                        | Date estimée de la modification |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| [21 recommandations se déplaçant entre les contrôles de sécurité](#21-recommendations-moving-between-security-controls)                                                           | Avril 2021                |
+| [Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » bientôt dépréciées](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)                                                                                         | Avril 2021                |
+| [Les recommandations d’AWS seront publiées pour la disponibilité générale (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)                     | Avril 2021                |
+| [Améliorations apportées à la recommandation de classification des données SQL](#enhancements-to-sql-data-classification-recommendation)                                                     | T2 2021                   |
+|                                                                                                                                                                       |                           |
+
+
+### <a name="21-recommendations-moving-between-security-controls"></a>21 recommandations se déplaçant entre les contrôles de sécurité 
+
+**Date estimée de la modification :** Avril 2021
+
+Les recommandations suivantes sont déplacées vers un autre contrôle de sécurité. Chaque contrôle de sécurité est un groupe logique de recommandations de sécurité associées, qui reflète les surfaces d'attaque vulnérables. Ce déplacement garantit que toutes ces recommandations sont dans le contrôle le plus approprié pour atteindre son objectif. 
+
+Découvrez les recommandations de chaque contrôle de sécurité dans Contrôles de sécurité et leurs recommandations.
+
+|Recommandation |Modification et impact  |
+|---------|---------|
+|L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL<br>L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL<br>Les vulnérabilités de vos bases de données SQL doivent être corrigées<br>Les vulnérabilités sur vos bases de données SQL dans les machines virtuelles doivent être corrigées     |Déplacement de Corriger les vulnérabilités (6 points)<br>vers Corriger les configurations de sécurité (4 points).<br>Ces recommandations ont un impact réduit sur votre score, en fonction de votre environnement.|
+|Plusieurs propriétaires doivent être affectés à votre abonnement<br>Les variables de compte Automation doivent être chiffrées<br> Appareils IoT – Le processus audité a arrêté d’envoyer des événements<br> Appareils IoT – Échec de la validation de la base du système d’exploitation<br> Appareils IoT – Mise à niveau de la suite de chiffrement TLS requise<br> Appareils IoT – Ports ouverts sur l’appareil<br> Appareils IoT – Stratégie de pare-feu permissive trouvée dans l’une des chaînes<br> Appareils IoT – Règle de pare-feu permissive trouvée dans la chaîne d’entrée<br> Appareils IoT – Règle de pare-feu permissive trouvée dans la chaîne de sortie<br>Les journaux de diagnostic dans IoT Hub doivent être activés<br> Appareils IoT – Agent envoyant des messages sous-exploités<br>Appareils IoT : la stratégie de filtre IP par défaut devrait être refusée<br>Appareils IoT : plage d’adresses IP large pour la règle de filtre IP<br>Appareils IoT : les intervalles et la taille des messages des agents doivent être ajustés<br>Appareils IoT : informations d’identification et d’authentification identiques<br>Appareils IoT : le processus audité a arrêté d’envoyer des événements<br>Appareils IoT : la configuration de ligne de base du système d’exploitation doit être corrigée|Déplacement vers **Implémenter les meilleures pratiques de sécurité**.<br>Lorsqu’une recommandation se déplace vers le contrôle de sécurité Implémenter les bonnes pratiques de sécurité, ce qui n’est pas du tout judicieux, la recommandation n’affecte plus votre score sécurisé.|
+|||
+
+
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » bientôt dépréciées
+
+**Date estimée de la modification :** Avril 2021
+
+Les deux recommandations suivantes sont déconseillées :
+
+- **La version du système d'exploitation (SE) doit être mise à jour pour vos rôles service cloud**. Par défaut, Azure met régulièrement à jour votre SE invité vers la dernière image prise en charge d’un produit de la famille de SE que vous avez spécifiée dans votre configuration de service (.cscfg), tel que Windows Server 2016.
+- **Les services Kubernetes doivent être mis à niveau vers une version Kubernetes non vulnérable**. Les évaluations de cette recommandation ne sont pas aussi étendues que nous le voulions. La version actuelle de cette recommandation sera finalement remplacée par une version améliorée qui est mieux alignée sur les besoins de sécurité de nos clients.
 
 
 ### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>Les recommandations d’AWS seront publiées pour la disponibilité générale (GA)
@@ -48,56 +76,12 @@ Avec cette modification, deux ensembles de recommandations AWS seront déplacés
 Lorsqu’ils sont en disponibilité générale et que les évaluations s’exécutent sur vos ressources AWS, les résultats ont un impact sur le degré de sécurisation combiné pour toutes vos ressources cloud hybrides et multiclouds. 
 
 
-### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » bientôt dépréciées 
-
-**Date estimée de la modification :** Mars 2021
-
-Les deux recommandations suivantes seront dépréciées dès février 2021 :
-
-- **Vos machines doivent être redémarrées pour appliquer les mises à jour système**. Cela peut avoir un léger impact sur votre degré de sécurisation.
-- **L’agent de surveillance doit être installé sur vos machines**. Cette recommandation se réfère uniquement aux machines locales, et une partie de sa logique sera transférée vers une autre recommandation : **Les problèmes d’intégrité de l’agent Log Analytics doivent être résolus sur vos machines**. Cela peut avoir un léger impact sur votre degré de sécurisation.
-
-Nous vous recommandons de vérifier vos configurations d’exportation continue et d’automatisation du workflow pour voir si ces recommandations y sont incluses. En outre, tous les tableaux de bord et autres outils de supervision susceptibles de les utiliser doivent être mis à jour en conséquence.
-
-Pour plus d’informations sur ces recommandations, consultez la [page de référence sur les recommandations de sécurité](recommendations-reference.md).
-
 
 ### <a name="enhancements-to-sql-data-classification-recommendation"></a>Améliorations apportées à la recommandation de classification des données SQL
 
 **Date estimée de la modification :** T2 2021
 
 La recommandation **Les données sensibles de vos bases de données SQL doivent être classifiées** du contrôle de sécurité **Appliquer la classification des données** va être remplacée par une nouvelle version mieux alignée sur la stratégie de classification des données de Microsoft. L’ID de la recommandation sera donc également modifié (actuellement, il s’agit de b0df6f56-862d-4730-8597-38c0fd4ebd59).
-
-
-### <a name="deprecation-of-11-azure-defender-alerts"></a>Dépréciation de 11 alertes Azure Defender
-
-**Date estimée de la modification :** Mars 2021
-
-Le mois prochain, les onze alertes Azure Defender listées ci-dessous seront dépréciées.
-
-- Ces deux alertes seront remplacées par de nouvelles alertes offrant une meilleure couverture :
-
-    | AlertType                | AlertDisplayName                                                         |
-    |--------------------------|--------------------------------------------------------------------------|
-    | ARM_MicroBurstDomainInfo | PRÉVERSION - Détection de l’exécution de la fonction « Get-AzureDomainInfo » du kit de ressources MicroBurst |
-    | ARM_MicroBurstRunbook    | PRÉVERSION - Détection de l’exécution de la fonction « Get-AzurePasswords » du kit de ressources MicroBurst  |
-    |                          |                                                                          |
-
-- Ces neuf alertes concernent un connecteur Azure Active Directory Identity Protection qui a déjà été déprécié :
-
-    | AlertType           | AlertDisplayName              |
-    |---------------------|-------------------------------|
-    | UnfamiliarLocation  | Propriétés de connexion inhabituelles |
-    | AnonymousLogin      | Adresse IP anonyme          |
-    | InfectedDeviceLogin | Adresse IP liée à un programme malveillant     |
-    | ImpossibleTravel    | Voyage inhabituel               |
-    | MaliciousIP         | Adresse IP malveillante          |
-    | LeakedCredentials   | Informations d’identification divulguées            |
-    | PasswordSpray       | Pulvérisation de mots de passe                |
-    | LeakedCredentials   | Azure AD Threat Intelligence  |
-    | AADAI               | Azure AD AI                   |
-    |                     |                               |
- 
 
 
 

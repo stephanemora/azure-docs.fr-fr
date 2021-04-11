@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a47c4c5bdc90e148916900b1e72bc2a392d2e473
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467387"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285329"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modèle de facture prédéfini Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations dans les factures à l’aide de ses modèles de facture prédéfinis. L’API Invoice permet aux clients d’accepter des factures dans une multitude de formats et de retourner des données structurées pour automatiser le traitement des factures. Elle combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Elle extrait le texte, les tableaux et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition, l’adresse de facturation, les éléments de ligne, etc. L’API Invoice prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
+Azure Form Recognizer peut analyser et extraire des informations dans les factures à l’aide de ses modèles de facture prédéfinis. L’API Invoice permet aux clients d’accepter des factures dans une multitude de formats et de retourner des données structurées pour automatiser le traitement des factures. Elle combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des modèles de Deep Learning qui comprennent les factures dans le but d’extraire des informations clés de ces factures. Elle extrait le texte, les tableaux et les informations comme le client, le fournisseur, le numéro de facture, la date d’échéance, le total, le montant dû, le montant des taxes, l’adresse d’expédition, l’adresse de facturation, les éléments de ligne, etc. L’API Invoice prédéfinie est en disponibilité publique dans la préversion de Form Recognizer v2.1.
 
 ## <a name="what-does-the-invoice-service-do"></a>Comment le service Invoice fonctionne-t-il ?
 
