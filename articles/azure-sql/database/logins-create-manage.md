@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96452429"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639478"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Configurer SQL Database, SQL Managed Instance et Azure Synapse Analytics pour autoriser l'accès aux bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ Pour identifier les comptes d’administrateur d’une base de données, ouvrez 
 
   - Créez une connexion SQL supplémentaire dans la base de données MASTER.
   - Ajoutez la connexion au [rôle serveur fixe sysadmin](/sql/relational-databases/security/authentication-access/server-level-roles) à l’aide de l’instruction [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql). Cette connexion a des autorisations d’administration complètes.
-  - Vous pouvez également créer une [connexion Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) à l’aide de la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  - Vous pouvez également créer une [connexion Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) à l’aide de la syntaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - **Dans SQL Database, créer des connexions SQL avec des autorisations d'administration limitées**
 
@@ -122,9 +122,9 @@ Vous pouvez créer des comptes pour les utilisateurs non-administrateurs à l’
 
 Pour obtenir des exemples montrant comment créer des connexions et des utilisateurs, consultez :
 
-- [Créer une connexion pour Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Créer une connexion pour Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Créer une connexion pour Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Créer une connexion pour Azure SQL Database](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Créer une connexion pour Azure SQL Managed Instance](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Créer une connexion pour Azure Synapse](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [Créer un utilisateur](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Création d’utilisateurs autonomes Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 
@@ -142,7 +142,7 @@ Après avoir créé un compte d’utilisateur dans une base de données, sur la 
   - Pour ajouter un utilisateur de base de données à un rôle de base de données fixe :
 
     - Dans Azure SQL Database, utilisez l’instruction [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql). Pour obtenir des exemples, consultez [Exemples ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql#examples).
-    - Dans Azure Synapse, utilisez l'instruction [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Pour obtenir des exemples, consultez [Exemples sp_addrolemember](/sql/t-sql/statements/alter-role-transact-sql).
+    - Dans Azure Synapse, utilisez l'instruction [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Pour obtenir des exemples, consultez [Exemples sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples).
 
 - **Rôle de base de données personnalisé**
 

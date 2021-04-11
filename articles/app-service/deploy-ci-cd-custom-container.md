@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: bc36325b55f049eebef823d836768fccc39a7615
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472178"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643356"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Déploiement continu avec des conteneurs personnalisés dans Azure App Service
 
@@ -32,7 +32,7 @@ Dans le menu de gauche, cliquez sur **Centre de déploiement** > **Paramètres**
 **Choisir**  la source de déploiement dépend de votre scénario :
 - **Container Registry** installe CI/CD entre votre registre de conteneurs et App Service.
 - L’option **GitHub Actions** est bien adaptée si vous conservez le code source de votre image conteneur dans GitHub. Déclenché par de nouvelles validations dans votre référentiel GitHub, l’action de déploiement peut exécuter `docker build` et `docker push` directement dans votre registre de conteneurs, puis mettre à jour votre application App Service pour exécuter la nouvelle image. Pour plus d’informations, consultez [Fonctionnement de CI/CD avec GitHub Actions](#how-cicd-works-with-github-actions).
-- Pour configurer CI/CD avec **Azure Pipelines**, consultez [Déployer un conteneur d’application Web Azure à partir d’Azure pipelines](/devops/pipelines/targets/webapp-on-container-linux).
+- Pour configurer CI/CD avec **Azure Pipelines**, consultez [Déployer un conteneur d’application Web Azure à partir d’Azure pipelines](/azure/devops/pipelines/targets/webapp-on-container-linux).
 
 > [!NOTE]
 > Pour une application Docker Compose, sélectionnez **Container Registry**.

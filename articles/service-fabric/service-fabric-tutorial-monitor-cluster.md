@@ -1,17 +1,15 @@
 ---
 title: Superviser un cluster Service Fabric dans Azure
 description: Dans ce tutoriel, vous allez découvrir comment superviser un cluster en consultant les événements Service Fabric, en interrogeant les APIs EventStore, en supervisant des compteurs de performances et en consultant des rapports d’intégrité.
-author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3e9c8011647567b6f07423e113f98493d80d8402
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98791776"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628779"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutoriel : Superviser un cluster Service Fabric dans Azure
 

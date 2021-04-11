@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92151675"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628983"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence IoT Hub :
 
@@ -64,7 +64,7 @@ Une fois l’opération de basculement terminée pour l’IoT Hub, toutes les op
 >
 > - Si vous utilisez Azure Functions ou Azure Stream Analytics pour connecter le point de terminaison Events intégré, vous devrez peut-être effectuer un **redémarrage**. Cela est dû au fait que, pendant le basculement, les décalages précédents ne sont plus valides.
 >
-> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) pour lister les fichiers. Pour en savoir plus, consultez [Stockage Azure en tant que point de terminaison de routage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Pour effectuer un routage vers le stockage, nous vous recommandons de répertorier les objets blob ou les fichiers, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les objets blob ou les fichiers seront lus, sans avoir à faire de suppositions concernant la partition. La plage de la partition peut changer pendant un basculement initié par Microsoft ou pendant un basculement manuel. Vous pouvez utiliser l’[API Lister les blobs](/rest/api/storageservices/list-blobs) pour énumérer la liste des objets blob ou l’[API Lister ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) pour lister les fichiers. Pour en savoir plus, consultez [Stockage Azure en tant que point de terminaison de routage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Basculement initié par Microsoft
 

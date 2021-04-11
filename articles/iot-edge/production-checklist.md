@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489753"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104722767"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -178,7 +178,13 @@ Une balise est un concept Docker servant à faire la distinction entre les versi
 
 Les balises aident également à appliquer des mises à jour sur les appareils IoT Edge. Lorsque vous envoyez une version mise à jour d’un module à votre registre de conteneurs, incrémentez la balise. Ensuite, transmettez un nouveau déploiement sur vos appareils avec la balise incrémentée. Le moteur de conteneur la reconnaîtra comme une nouvelle version et extraira la dernière version du module sur l’appareil.
 
-Pour un exemple de convention de balise, voir [Mettre à jour le runtime IoT Edge](how-to-update-iot-edge.md#understand-iot-edge-tags) : vous découvrirez comment IoT Edge utilise des balises propagées et des balises spécifiques pour effectuer le suivi des versions.
+#### <a name="tags-for-the-iot-edge-runtime"></a>Étiquettes pour le runtime IoT Edge
+
+Les images de l’agent IoT Edge et du hub IoT Edge sont marquées avec la version IoT Edge à laquelle elles sont associées. Il existe deux façons d’utiliser des étiquettes avec les images de runtime :
+
+* **Étiquettes évolutives** : utilisez uniquement les deux premières valeurs du numéro de version pour obtenir la dernière image qui correspond à ces chiffres. Par exemple, la version 1.1 est mise à jour lorsqu’une nouvelle mise en production pointe vers la dernière version 1.1.x. Si le runtime du conteneur sur votre appareil IoT Edge réextrait l’image, les modules de runtime sont mis à jour vers la dernière version. Les déploiements à partir du portail Azure adoptent par défaut des étiquettes évolutives. *Cette approche est conseillée à des fins de développement.*
+
+* **Étiquettes spécifiques** : utilisez les trois valeurs du numéro de version pour définir explicitement la version de l’image. Par exemple, la version 1.1.0 ne change pas après sa mise en production initiale. Vous pouvez déclarer un nouveau numéro de version dans le manifeste de déploiement quand vous êtes prêt à effectuer une mise à jour. *Cette approche est conseillée à des fins de production.*
 
 ### <a name="store-runtime-containers-in-your-private-registry"></a>Stocker les conteneurs Runtime dans votre registre privé
 

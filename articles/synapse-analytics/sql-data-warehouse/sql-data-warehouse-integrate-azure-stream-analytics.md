@@ -2,21 +2,21 @@
 title: Utiliser Azure Stream Analytics dans un pool SQL dédié
 description: Conseils d’utilisation d’Azure Stream Analytics avec un pool SQL dédié dans Azure Synapse pour développer des solutions en temps réel.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 9/25/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 8fbe546beb1004214e544f8eb160884c0f64ef9e
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 023cf55a01f34277dd5c5707d0d123f54c1674df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "96458218"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600086"
 ---
 # <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utiliser Azure Stream Analytics avec un pool SQL dédié dans Azure Synapse Analytics
 
@@ -52,8 +52,8 @@ Saisissez les valeurs suivantes :
 
 * *Alias de sortie* : entrez un nom convivial pour cette sortie de travail.
 * *Abonnement*:
-  * Si votre pool SQL dédié est associé au même abonnement que la tâche Stream Analytics, cliquez sur ***Sélectionner Azure Synapse Analytics dans vos abonnements** _.
-  _ Si votre pool SQL dédié est associé à un autre abonnement, cliquez sur Fournir manuellement les paramètres Azure Synapse Analytics.
+  * Si votre pool SQL dédié est associé au même abonnement que la tâche Stream Analytics, cliquez sur ***Sélectionner Azure Synapse Analytics dans vos abonnements***.
+  * Si votre pool SQL dédié est associé à un autre abonnement, cliquez sur Fournir manuellement les paramètres Azure Synapse Analytics.
 * *Base de données* : Sélectionnez la base de données de destination dans la liste déroulante.
 * *Nom d’utilisateur* : entrez le nom d’utilisateur d’un compte disposant d’autorisations en écriture sur la base de données.
 * *Mot de passe* : indiquez le mot de passe du compte d’utilisateur spécifié.
@@ -100,23 +100,23 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 ### <a name="step-5"></a>Étape 5
 
-Dans le portail Azure de la tâche Stream Analytics, cliquez sur le nom de votre travail.  Cliquez sur le bouton **_Test_* _ dans le volet _*_Détails de la sortie_*_.
+Dans le portail Azure de la tâche Stream Analytics, cliquez sur le nom de votre travail.  Cliquez sur le bouton ***Test** _ dans le volet _ *_Détails de la sortie_**.
 
 ![Bouton Test du volet Détails de la sortie](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) Lorsque la connexion à la base de données est établie, une notification s'affiche sur le portail.
 
 ### <a name="step-6"></a>Étape 6
 
-Cliquez sur le menu _*_Requête_*_ sous _*_Topologie de la tâche_*_, puis changez la requête pour insérer des données dans la sortie du flux que vous avez créée.  Cliquez sur le bouton _*_Tester la requête sélectionnée_*_ pour tester votre requête.  Cliquez sur le bouton _*_Enregistrer la requête_*_ quand le test de votre requête réussit.
+Cliquez sur le menu ***Requête** _ sous _*_Topologie de la tâche_*_, puis modifiez la requête pour insérer des données dans la sortie du flux que vous avez créée.  Cliquez sur le bouton _*_Tester la requête sélectionnée_*_ pour tester votre requête.  Cliquez sur le bouton _ *_Enregistrer la requête_** quand le test de votre requête réussit.
 
 ![Enregistrer la requête](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaquery.png)
 
 ### <a name="step-7"></a>Étape 7
 
-Démarrez le travail Azure Stream Analytics.  Cliquez sur le bouton _*_Démarrer_*_ dans le menu _*_Vue d’ensemble_*_.
+Démarrez le travail Azure Stream Analytics.  Cliquez sur le bouton ***Démarrer** _ dans le menu _ *_Vue d’ensemble_**.
 
 ![Démarrer une tâche Stream Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastart.png)
 
-Cliquez sur le bouton _ *_Démarrer_** dans le volet de démarrage du travail.
+Cliquez sur le bouton ***Démarrer*** dans le volet de démarrage du travail.
 
 ![Cliquez sur Démarrer.](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asastartconfirm.png)
 

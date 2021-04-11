@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601472"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600460"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
@@ -53,6 +53,16 @@ Vous pouvez sécuriser votre compte de stockage pour accepter uniquement les con
 
 ## <a name="creating-a-private-endpoint"></a>Création d’un point de terminaison privé
 
+Pour créer un point de terminaison privé à l’aide du portail Azure, consultez [Se connecter en privé à un compte de stockage à partir de l’expérience Compte de stockage dans le portail Azure](../../private-link/tutorial-private-endpoint-storage-portal.md).
+
+Pour créer un point de terminaison privé à l’aide de PowerShell ou d’Azure CLI, consultez l’un de ces articles. Tous deux présentent une application web Azure en tant que service cible, mais les étapes de création d’une liaison privée sont les mêmes que pour un compte de stockage Azure.
+
+- [Créer un point de terminaison privé à l’aide d’Azure CLI](../../private-link/create-private-endpoint-cli.md)
+
+- [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 Lorsque vous créez un point de terminaison privé, vous devez spécifier le compte de stockage et le service de stockage auxquels il se connecte. 
 
 Vous avez besoin d’un point de terminaison privé distinct pour chacune des ressources de stockage auxquelles vous devez accéder, à savoir [Objets Blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Fichiers](../files/storage-files-introduction.md), [Files d’attente](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) et [Sites web statiques](../blobs/storage-blob-static-website.md). Sur le point de terminaison privé, ces services de stockage sont définis en tant que **sous-ressource cible** du compte de stockage associé. 
@@ -64,13 +74,6 @@ Si vous créez un point de terminaison privé pour la ressource de stockage Data
 > Veillez à créer un compte de stockage v2 (Standard ou Premium) universel.
 
 Pour accéder en lecture à la région secondaire avec un compte de stockage configuré pour le stockage géoredondant, vous devez disposer de points de terminaison privés distincts pour les instances principale et secondaire du service. Vous n’avez pas besoin de créer un point de terminaison privé pour l’instance secondaire pour le **basculement**. Le point de terminaison privé se connecte automatiquement à la nouvelle instance principale après le basculement. Pour plus d'informations sur les options de redondance du stockage, consultez [Redondance du Stockage Azure](storage-redundancy.md).
-
-Pour plus d’informations sur la création d’un point de terminaison privé pour votre compte de stockage, reportez-vous aux articles suivants :
-
-- [Se connecter en privé à un compte de stockage à partir de l’expérience Compte de stockage dans le portail Azure](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Créer un point de terminaison privé à l’aide du centre Private Link dans le portail Azure](../../private-link/create-private-endpoint-portal.md)
-- [Créer un point de terminaison privé à l’aide d’Azure CLI](../../private-link/create-private-endpoint-cli.md)
-- [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 
@@ -139,7 +142,7 @@ Gardez à l’esprit les problèmes connus suivants concernant les points de ter
 
 ### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Contraintes d’accès au stockage pour les clients dans des réseaux virtuels avec des points de terminaison privés
 
-Les clients dans réseaux virtuels avec des points de terminaison privés existants sont soumis à des contraintes lors de l’accès à d’autres comptes de stockage qui ont des points de terminaison privés. Par exemple, supposons qu’un réseau virtuel N1 possède un point de terminaison privé pour un compte de stockage A1 pour le stockage Blob. Si le compte de stockage A2 possède un point de terminaison privé dans un réseau virtuel N2 pour le stockage Blob, les clients dans le réseau virtuel N1 doivent également accéder au stockage Blob du compte A2 à l’aide d’un point de terminaison privé. Si le compte de stockage A2 ne possède pas de points de terminaison privés pour le stockage Blob, les clients dans le réseau virtuel N1 peuvent accéder au stockage Blob de ce compte sans point de terminaison privé.
+Les clients dans réseaux virtuels avec des points de terminaison privés existants sont soumis à des contraintes lors de l’accès à d’autres comptes de stockage qui ont des points de terminaison privés. Par exemple, supposons qu’un réseau virtuel N1 possède un point de terminaison privé pour un compte de stockage A1 pour le service Stockage Blob. Si le compte de stockage A2 possède un point de terminaison privé dans un réseau virtuel N2 pour le stockage Blob, les clients dans le réseau virtuel N1 doivent également accéder au stockage Blob du compte A2 à l’aide d’un point de terminaison privé. Si le compte de stockage A2 ne possède pas de points de terminaison privés pour le stockage Blob, les clients dans le réseau virtuel N1 peuvent accéder au stockage Blob de ce compte sans point de terminaison privé.
 
 Cette contrainte résulte des modifications DNS effectuées lorsque le compte A2 crée un point de terminaison privé.
 

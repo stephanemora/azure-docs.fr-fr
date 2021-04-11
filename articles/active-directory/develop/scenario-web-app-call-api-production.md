@@ -1,5 +1,6 @@
 ---
-title: Déplacer en production une application web appelant des API web – Plateforme d’identités Microsoft | Azure
+title: Déplacer en production une application web appelant des API web | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrez comment déplacer en production une application web appelant des API web.
 services: active-directory
 author: jmprieur
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f38755e669a62e9fe74aa6281daccdf39e1f117c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: cf32274a49cb1b790e9d872efe36f2e1cb188d1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443566"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675938"
 ---
-# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Application web appelant des API web : Passer en production
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Application web appelant des API web : passage en production
 
-Maintenant que vous savez comment acquérir un jeton pour appeler des API web, découvrez comment passer en production.
+À présent que vous savez comment acquérir un jeton pour appeler des API web, voici quelques aspects à prendre en compte lors du déplacement de votre application vers la production.
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 

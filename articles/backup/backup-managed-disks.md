@@ -3,19 +3,14 @@ title: Sauvegarde des Disques managés Azure
 description: Découvrez comment sauvegarder des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98738150"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110625"
 ---
-# <a name="back-up-azure-managed-disks-in-preview"></a>Sauvegarde de Disques managés Azure (préversion)
-
->[!IMPORTANT]
->La sauvegarde de disque Azure, en préversion sans contrat de niveau de service, n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
->
->[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
+# <a name="back-up-azure-managed-disks"></a>Sauvegarder les disques managés Azure
 
 Cet article explique comment sauvegarder un [Disque managé Azure](../virtual-machines/managed-disks-overview.md) sur le Portail Azure.
 

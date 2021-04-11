@@ -1,6 +1,6 @@
 ---
-title: Examiner les alertes avec Azure Sentinel | Microsoft Docs
-description: Découvrez comment utiliser des modèles intégrés de détection des menaces Azure prédéfinis qui vous informent quand quelque chose de suspect se produit.
+title: Détecter des menaces à l’aide de règles d’analytique intégrées dans Azure Sentinel | Microsoft Docs
+description: Découvrez comment utiliser des règles de détection des menaces prêtes à l’emploi, basées sur des modèles prédéfinis, qui vous informent quand quelque chose de suspect se produit.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2020
+ms.date: 03/19/2021
 ms.author: yelevin
-ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 951c616961ff68b810ca135d09a6f6253cb2b7ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726969"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773553"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutoriel : Détection des menaces prête à l’emploi
 
@@ -57,7 +57,9 @@ Les types de modèles suivants sont disponibles :
     Ces modèles sont basés sur des algorithmes de Machine Learning appartenant à Microsoft. Vous ne pouvez donc pas voir la logique interne de leur fonctionnement et du moment de leur exécution. Comme la logique est cachée et donc non personnalisable, vous ne pouvez créer qu’une seule règle avec chaque modèle de ce type.
 
     > [!IMPORTANT]
-    > Les modèles de règle analytique comportementale de Machine Learning sont actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+    > - Les modèles de règle analytique comportementale de Machine Learning sont actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+    >
+    > - En créant et en activant des règles basées sur des modèles d’analytique du comportement de Machine Learning, **vous autorisez Microsoft à copier les données ingérées en dehors de la zone géographique de votre espace de travail Azure Sentinel**, le cas échéant, en vue de leur traitement par des moteurs et modèles de Machine Learning.
 
 - **Planifié**
 
@@ -78,4 +80,3 @@ Les types de modèles suivants sont disponibles :
 Dans ce didacticiel, vous avez appris à prendre en main la détection des menaces en utilisant Azure Sentinel. 
 
 Pour découvrir comment automatiser vos réponses aux menaces, consultez [Configurer des réponses automatisées aux menaces dans Azure Sentinel](tutorial-respond-threats-playbook.md).
-

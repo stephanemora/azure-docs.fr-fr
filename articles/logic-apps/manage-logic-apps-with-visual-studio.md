@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 56b74e440fcb09ab206bbb069517dd756221f809
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87280764"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639567"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -37,7 +37,7 @@ Vous pouvez également [gérer vos applications logiques dans le portail Azure](
     > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**.
     > Pour plus d’informations, voir [Gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer).
 
-    Pour installer Cloud Explorer pour Visual Studio 2015, [téléchargez Cloud Explorer à partir de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). Pour plus d’informations, voir [Gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    Pour installer Cloud Explorer pour Visual Studio 2015, [téléchargez Cloud Explorer à partir de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). Pour plus d’informations, voir [Gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015&preserve-view=true).
 
   * [Azure SDK (2.9.1 ou version ultérieure)](https://azure.microsoft.com/downloads/)
 

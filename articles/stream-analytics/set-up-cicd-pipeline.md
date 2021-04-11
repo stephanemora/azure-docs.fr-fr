@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 82a2c3047f851c9fbc273cd13e730572c38b6bcd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775933"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640370"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Utiliser Azure DevOps pour créer un pipeline CI/CD pour une tâche Stream Analytics
 
@@ -26,21 +26,21 @@ Les étapes décrites dans cet article utilisent un projet Stream Analytics Visu
 
 ## <a name="create-a-build-pipeline"></a>Créer un pipeline de build
 
-Dans cette section, vous découvrez comment créer un pipeline de build. Vous pouvez consulter cet exemple de [pipeline de build et de test automatiques](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) dans Azure DevOps.
+Dans cette section, vous découvrez comment créer un pipeline de build. 
 
 1. Ouvrez un navigateur web et accédez à votre projet dans Azure DevOps.  
 
-1. Sous **Pipelines** dans le menu de navigation gauche, sélectionnez **Builds**. Sélectionnez ensuite **Nouveau pipeline**.
+2. Sous **Pipelines** dans le menu de navigation gauche, sélectionnez **Builds**. Sélectionnez ensuite **Nouveau pipeline**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/new-pipeline.png" alt-text="Créer un pipeline Azure":::
 
-1. Sélectionnez **Utiliser l’éditeur classique** pour créer un pipeline sans YAML.
+3. Sélectionnez **Utiliser l’éditeur classique** pour créer un pipeline sans YAML.
 
-1. Sélectionnez votre type de source, votre projet d’équipe et votre référentiel. Sélectionnez ensuite **Continuer**.
+4. Sélectionnez votre type de source, votre projet d’équipe et votre référentiel. Sélectionnez ensuite **Continuer**.
 
    :::image type="content" source="media/set-up-cicd-pipeline/select-repo.png" alt-text="Sélectionner un projet Azure Stream Analytics":::
 
-1. Dans la page **Sélectionner un modèle**, sélectionnez **Projet vide**.
+5. Dans la page **Sélectionner un modèle**, sélectionnez **Projet vide**.
 
 ## <a name="install-npm-package"></a>Installer le package npm
 
@@ -155,7 +155,7 @@ Le fichier de résumé de test et les fichiers de modèle Azure Resource Manager
 
 ## <a name="release-with-azure-pipelines"></a>Mettre en production avec Azure Pipelines
 
-Dans cette section, vous découvrez comment créer un pipeline de mise en production. Vous pouvez référencer cet exemple de [pipeline de mise en production](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) dans Azure DevOps.
+Dans cette section, vous découvrez comment créer un pipeline de mise en production. 
 
 Ouvrez un navigateur web et accédez à votre projet Azure Stream Analytics Visual Studio Code.
 

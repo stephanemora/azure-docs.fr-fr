@@ -1,15 +1,15 @@
 ---
 title: Détails de la conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0
 description: Détails de l’initiative intégrée de conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 03/10/2021
+ms.date: 03/31/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 05cbd8eebf560499ca2187b516569bfc0bf1fccf
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 1d21d04fe4347a2ff7735045e786520c106309c7
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634734"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091750"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-110-regulatory-compliance-built-in-initiative"></a>Détails de l’initiative intégrée de conformité réglementaire pour CIS Microsoft Azure Foundations Benchmark 1.1.0
 
@@ -17,7 +17,7 @@ L’article suivant explique en détail comment la définition de l’initiative
 Pour plus d’informations sur ce standard de conformité, consultez [CIS Microsoft Azure Foundations Benchmark 1.1.0](https://www.cisecurity.org/benchmark/azure/). Pour comprendre la _propriété_, consultez [Définition de stratégie Azure Policy](../concepts/definition-structure.md#type) et [Responsabilité partagée dans le cloud](../../../security/fundamentals/shared-responsibility.md).
 
 Les mappages suivants sont relatifs aux contrôles **CIS Microsoft Azure Foundations Benchmark 1.1.0**. Utilisez le volet de navigation de droite pour accéder directement à un **domaine de conformité** spécifique. De nombreux contrôles sont mis en œuvre avec la définition d’une initiative [Azure Policy](../overview.md). Pour examiner la définition d’initiative complète, ouvrez **Stratégie** dans le Portail Azure et sélectionnez la page **Définitions**.
-Ensuite, recherchez et sélectionnez la définition de l’initiative intégrée Conformité réglementaire **CIS Microsoft Azure Foundations Benchmark 1.1.0**.
+Recherchez et sélectionnez ensuite la définition de l’initiative intégrée de conformité réglementaire pour **CIS Microsoft Azure Foundations Benchmark v1.1.0**.
 
 Cette initiative intégrée est déployée dans le cadre de l’[exemple de blueprint CIS Microsoft Azure Foundations Benchmark 1.1.0](../../blueprints/samples/cis-azure-1-1-0.md).
 
@@ -70,7 +70,14 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le niveau tarifaire standard Security Center doit être sélectionné](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |Le niveau tarifaire standard permet la détection des menaces sur les réseaux et les machines virtuelles, en fournissant des fonctions de renseignement sur les menaces, la détection d’anomalies et l’analytique de comportement dans Azure Security Center |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
+|[Azure Defender pour App Service doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2913021d-f2fd-4f3d-b958-22354e2bdbcb) |Azure Defender pour App Service tire parti de l’envergure du cloud et de la visibilité dont Azure bénéficie en tant que fournisseur de cloud pour superviser les attaques d’applications web courantes. |AuditIfNotExists, Désactivé |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnAppServices_Audit.json) |
+|[Azure Defender pour les serveurs Azure SQL Database doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7fe3b40f-802b-4cdd-8bd4-fd799c948cc2) |Azure Defender pour SQL offre des fonctionnalités permettant de mettre au jour et d’atténuer les vulnérabilités potentielles des bases de données SQL, de détecter les activités anormales susceptibles d’indiquer des menaces les ciblant, et de découvrir et de classer les données sensibles. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServers_Audit.json) |
+|[Azure Defender pour les registres de conteneurs doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4) |Azure Defender pour les registres de conteneurs fournit une analyse des vulnérabilités de toutes les images extraites au cours des 30 derniers jours, envoyées vers votre registre ou importées, et expose les résultats détaillés par image. |AuditIfNotExists, Désactivé |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnContainerRegistry_Audit.json) |
+|[Azure Defender pour Key Vault doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e6763cc-5078-4e64-889d-ff4d9a839047) |Azure Defender pour Key Vault fournit une couche de protection supplémentaire et une veille de sécurité qui détecte les tentatives inhabituelles et potentiellement dangereuses d’accès ou d’exploitation des comptes Key Vault. |AuditIfNotExists, Désactivé |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKeyVaults_Audit.json) |
+|[Azure Defender pour Kubernetes doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F523b5cd1-3e23-492f-a539-13118b6d1e3a) |Azure Defender pour Kubernetes fournit une protection contre les menaces en temps réel pour les environnements conteneurisés, et génère des alertes en cas d’activités suspectes. |AuditIfNotExists, Désactivé |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnKubernetesService_Audit.json) |
+|[Azure Defender pour les serveurs doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4da35fc9-c9e7-4960-aec9-797fe7d9051d) |Azure Defender pour les serveurs fournit une protection en temps réel contre les menaces pour les charges de travail des serveurs, et génère des recommandations de durcissement, ainsi que des alertes sur les activités suspectes. |AuditIfNotExists, Désactivé |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnVM_Audit.json) |
+|[Azure Defender pour les serveurs SQL sur les machines doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6581d072-105e-4418-827f-bd446d56421b) |Azure Defender pour SQL offre des fonctionnalités permettant de mettre au jour et d’atténuer les vulnérabilités potentielles des bases de données SQL, de détecter les activités anormales susceptibles d’indiquer des menaces les ciblant, et de découvrir et de classer les données sensibles. |AuditIfNotExists, Désactivé |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedDataSecurityOnSqlServerVirtualMachines_Audit.json) |
+|[Azure Defender pour le stockage doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F308fbb08-4ab8-4e67-9b29-592e93fb94fa) |Azure Defender pour le stockage assure une détection des tentatives inhabituelles et potentiellement dangereuses d’accès ou d’exploitation des comptes de stockage. |AuditIfNotExists, Désactivé |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableAdvancedThreatProtectionOnStorageAccounts_Audit.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Vérifier que l’option « Provisionnement automatique de l’agent de supervision » est définie sur « On »
 
@@ -86,7 +93,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les mises à jour système doivent être installées sur vos machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Les mises à jour système de sécurité manquantes sur vos serveurs seront supervisées par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
+|[Les mises à jour système doivent être installées sur vos machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Les mises à jour système de sécurité manquantes sur vos serveurs seront supervisées par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-os-vulnerabilities-is-not-disabled"></a>Vérifier que le paramètre de stratégie par défaut d’ASC « Surveiller les vulnérabilités de système d’exploitation » n’est pas défini sur « Disabled »
 
@@ -251,7 +258,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les serveurs SQL doivent conserver les données d’audit pendant au moins 90 jours](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |À des fins d’investigation d’incident, nous vous recommandons de définir la conservation des données pour les données d’audit de vos serveurs SQL sur au moins 90 jours. Confirmez que vous respectez les règles de conservation nécessaires pour les régions dans lesquelles vous travaillez. Cela est parfois nécessaire pour la conformité aux normes réglementaires. |AuditIfNotExists, Désactivé |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[Les serveurs SQL avec un audit dans la destination Compte de stockage doivent être configurés avec une conservation d'au moins 90 jours](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |À des fins d’investigation d’incident, nous vous recommandons de définir la conservation des données pour la fonctionnalité d’audit de votre serveur SQL Server sur au moins 90 jours. Confirmez que vous respectez les règles de conservation nécessaires pour les régions dans lesquelles vous travaillez. Cela est parfois nécessaire pour la conformité aux normes réglementaires. |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-advanced-data-security-on-a-sql-server-is-set-to-on"></a>Vérifier que l’option « Advanced Data Security » sur un serveur SQL Server est définie sur « On »
 
@@ -532,7 +539,7 @@ Cette initiative intégrée est déployée dans le cadre de l’[exemple de blue
 
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Les mises à jour système doivent être installées sur vos machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Les mises à jour système de sécurité manquantes sur vos serveurs seront supervisées par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
+|[Les mises à jour système doivent être installées sur vos machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |Les mises à jour système de sécurité manquantes sur vos serveurs seront supervisées par Azure Security Center en tant que recommandation |AuditIfNotExists, Désactivé |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Vérifier que la protection de point de terminaison est installée pour toutes les machines virtuelles
 

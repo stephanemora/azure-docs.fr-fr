@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: ffc5c8ea647d4cadd2d151eb880c794ac5f4ebd4
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 1834f21a3e25308f6be86eba2961cc983b14a5db
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121437"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721543"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans le .NET Framework
 
@@ -53,7 +53,7 @@ Remplacez `<access-key>` par la clé primaire de votre cache.
 
 Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
 
-Sélectionnez **Application console (.NET Framework)** et **Suivant** pour configurer votre application. Tapez un **Nom de projet**, puis cliquez sur **Créer** pour créer une application console.
+Sélectionnez **Application console (.NET Framework)** et **Suivant** pour configurer votre application. Tapez un **Nom de projet**, vérifiez que **.NET Framework 4.6.1** ou une version ultérieure est sélectionné, puis cliquez sur **Créer** pour créer une application console.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -78,7 +78,7 @@ Dans Visual Studio, ouvrez votre fichier *App.config* et mettez-le à jour pour 
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <startup> 
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.1" />
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2" />
     </startup>
 
     <appSettings file="C:\AppSecrets\CacheSecrets.config"></appSettings>
@@ -101,11 +101,7 @@ Ne stockez jamais d’informations d’identification dans du code source. Pour 
 Dans *Program.cs*, ajoutez les membres suivants à la classe `Program` de votre application console :
 
 ```csharp
-private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-{
-    string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-    return ConnectionMultiplexer.Connect(cacheConnection);
-});
+private static Lazy<ConnectionMultiplexer> lazyConnection = CreateConnection();
 
 public static ConnectionMultiplexer Connection
 {
@@ -114,12 +110,172 @@ public static ConnectionMultiplexer Connection
         return lazyConnection.Value;
     }
 }
+
+private static Lazy<ConnectionMultiplexer> CreateConnection()
+{
+    return new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+}
 ```
 
 
 Cette approche pour partager une instance `ConnectionMultiplexer` dans votre application utilise une propriété statique qui renvoie une instance connectée. Ce code fournit une méthode thread-safe permettant d’initialiser une seule instance `ConnectionMultiplexer` connectée. `abortConnect` a la valeur false, ce qui signifie que l’appel réussit même si aucune connexion au cache Azure pour Redis n’est établie. Une fonctionnalité clé de `ConnectionMultiplexer` est qu’il restaure automatiquement la connectivité au cache une fois que le problème réseau ou d’autres causes sont résolus.
 
 La valeur du appSetting *CacheConnection* est utilisé pour faire référence à la chaîne de connexion de cache à partir du portail Azure en tant que paramètre de mot de passe.
+
+## <a name="handle-redisconnectionexception-and-socketexception-by-reconnecting"></a>Gérer RedisConnectionException et SocketException en rétablissant la connexion
+
+Une bonne pratique recommandée lors de l’appel de méthodes sur `ConnectionMultiplexer` consiste à tenter de résoudre les exceptions `RedisConnectionException` et `SocketException` automatiquement en fermant la connexion et en la rétablissant.
+
+Ajoutez les instructions `using` ci-après à *Program.cs* :
+
+```csharp
+using System.Net.Sockets;
+using System.Threading;
+```
+
+Dans *Program.cs*, ajoutez les membres suivants à la classe `Program` :
+
+```csharp
+private static long lastReconnectTicks = DateTimeOffset.MinValue.UtcTicks;
+private static DateTimeOffset firstErrorTime = DateTimeOffset.MinValue;
+private static DateTimeOffset previousErrorTime = DateTimeOffset.MinValue;
+
+private static readonly object reconnectLock = new object();
+
+// In general, let StackExchange.Redis handle most reconnects,
+// so limit the frequency of how often ForceReconnect() will
+// actually reconnect.
+public static TimeSpan ReconnectMinFrequency => TimeSpan.FromSeconds(60);
+
+// If errors continue for longer than the below threshold, then the
+// multiplexer seems to not be reconnecting, so ForceReconnect() will
+// re-create the multiplexer.
+public static TimeSpan ReconnectErrorThreshold => TimeSpan.FromSeconds(30);
+
+public static int RetryMaxAttempts => 5;
+
+private static void CloseConnection(Lazy<ConnectionMultiplexer> oldConnection)
+{
+    if (oldConnection == null)
+        return;
+
+    try
+    {
+        oldConnection.Value.Close();
+    }
+    catch (Exception)
+    {
+        // Example error condition: if accessing oldConnection.Value causes a connection attempt and that fails.
+    }
+}
+
+/// <summary>
+/// Force a new ConnectionMultiplexer to be created.
+/// NOTES:
+///     1. Users of the ConnectionMultiplexer MUST handle ObjectDisposedExceptions, which can now happen as a result of calling ForceReconnect().
+///     2. Don't call ForceReconnect for Timeouts, just for RedisConnectionExceptions or SocketExceptions.
+///     3. Call this method every time you see a connection exception. The code will:
+///         a. wait to reconnect for at least the "ReconnectErrorThreshold" time of repeated errors before actually reconnecting
+///         b. not reconnect more frequently than configured in "ReconnectMinFrequency"
+/// </summary>
+public static void ForceReconnect()
+{
+    var utcNow = DateTimeOffset.UtcNow;
+    long previousTicks = Interlocked.Read(ref lastReconnectTicks);
+    var previousReconnectTime = new DateTimeOffset(previousTicks, TimeSpan.Zero);
+    TimeSpan elapsedSinceLastReconnect = utcNow - previousReconnectTime;
+
+    // If multiple threads call ForceReconnect at the same time, we only want to honor one of them.
+    if (elapsedSinceLastReconnect < ReconnectMinFrequency)
+        return;
+
+    lock (reconnectLock)
+    {
+        utcNow = DateTimeOffset.UtcNow;
+        elapsedSinceLastReconnect = utcNow - previousReconnectTime;
+
+        if (firstErrorTime == DateTimeOffset.MinValue)
+        {
+            // We haven't seen an error since last reconnect, so set initial values.
+            firstErrorTime = utcNow;
+            previousErrorTime = utcNow;
+            return;
+        }
+
+        if (elapsedSinceLastReconnect < ReconnectMinFrequency)
+            return; // Some other thread made it through the check and the lock, so nothing to do.
+
+        TimeSpan elapsedSinceFirstError = utcNow - firstErrorTime;
+        TimeSpan elapsedSinceMostRecentError = utcNow - previousErrorTime;
+
+        bool shouldReconnect =
+            elapsedSinceFirstError >= ReconnectErrorThreshold // Make sure we gave the multiplexer enough time to reconnect on its own if it could.
+            && elapsedSinceMostRecentError <= ReconnectErrorThreshold; // Make sure we aren't working on stale data (e.g. if there was a gap in errors, don't reconnect yet).
+
+        // Update the previousErrorTime timestamp to be now (e.g. this reconnect request).
+        previousErrorTime = utcNow;
+
+        if (!shouldReconnect)
+            return;
+
+        firstErrorTime = DateTimeOffset.MinValue;
+        previousErrorTime = DateTimeOffset.MinValue;
+
+        Lazy<ConnectionMultiplexer> oldConnection = lazyConnection;
+        CloseConnection(oldConnection);
+        lazyConnection = CreateConnection();
+        Interlocked.Exchange(ref lastReconnectTicks, utcNow.UtcTicks);
+    }
+}
+
+// In real applications, consider using a framework such as
+// Polly to make it easier to customize the retry approach.
+private static T BasicRetry<T>(Func<T> func)
+{
+    int reconnectRetry = 0;
+    int disposedRetry = 0;
+
+    while (true)
+    {
+        try
+        {
+            return func();
+        }
+        catch (Exception ex) when (ex is RedisConnectionException || ex is SocketException)
+        {
+            reconnectRetry++;
+            if (reconnectRetry > RetryMaxAttempts)
+                throw;
+            ForceReconnect();
+        }
+        catch (ObjectDisposedException)
+        {
+            disposedRetry++;
+            if (disposedRetry > RetryMaxAttempts)
+                throw;
+        }
+    }
+}
+
+public static IDatabase GetDatabase()
+{
+    return BasicRetry(() => Connection.GetDatabase());
+}
+
+public static System.Net.EndPoint[] GetEndPoints()
+{
+    return BasicRetry(() => Connection.GetEndPoints());
+}
+
+public static IServer GetServer(string host, int port)
+{
+    return BasicRetry(() => Connection.GetServer(host, port));
+}
+```
 
 ## <a name="executing-cache-commands"></a>Exécution des commandes de cache
 
@@ -128,9 +284,7 @@ Ajoutez le code suivant pour la procédure `Main` de la classe `Program` pour vo
 ```csharp
 static void Main(string[] args)
 {
-    // Connection refers to a property that returns a ConnectionMultiplexer
-    // as shown in the previous example.
-    IDatabase cache = Connection.GetDatabase();
+    IDatabase cache = GetDatabase();
 
     // Perform cache operations using the cache object...
 
@@ -154,20 +308,20 @@ static void Main(string[] args)
     Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
 
     // Get the client list, useful to see if connection list is growing...
-    // Note that this requires the allowAdmin=true
+    // Note that this requires allowAdmin=true in the connection string
     cacheCommand = "CLIENT LIST";
     Console.WriteLine("\nCache command  : " + cacheCommand);
-    var endpoint = (System.Net.DnsEndPoint) Connection.GetEndPoints()[0];
-    var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+    var endpoint = (System.Net.DnsEndPoint)GetEndPoints()[0];
+    IServer server = GetServer(endpoint.Host, endpoint.Port);
+    ClientInfo[] clients = server.ClientList();
 
-    var clients = server.ClientList(); 
     Console.WriteLine("Cache response :");
-    foreach (var client in clients)
+    foreach (ClientInfo client in clients)
     {
         Console.WriteLine(client.Raw);
     }
 
-    lazyConnection.Value.Dispose();
+    CloseConnection(lazyConnection);
 }
 ```
 
@@ -211,16 +365,16 @@ class Employee
     public string Name { get; set; }
     public int Age { get; set; }
 
-    public Employee(string EmployeeId, string Name, int Age)
+    public Employee(string employeeId, string name, int age)
     {
-        this.Id = EmployeeId;
-        this.Name = Name;
-        this.Age = Age;
+        Id = employeeId;
+        Name = name;
+        Age = age;
     }
 }
 ```
 
-Au bas de la procédure `Main()` dans *Program.cs* et avant l’appel à `Dispose()`, ajoutez les lignes de code suivantes à mettre en cache et récupérez un objet .NET sérialisé :
+Au bas de la procédure `Main()` dans *Program.cs* et avant l’appel à `CloseConnection()`, ajoutez les lignes de code suivantes à mettre en cache et récupérez un objet .NET sérialisé :
 
 ```csharp
     // Store .NET object to cache

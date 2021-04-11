@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 50f7906992aa19daa205a30f71ce21456bafe558
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4b0c2b734366f9a74a9b007ab9450ab4b4f51feb
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079154"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800429"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copier et coller vers une machine virtuelle : Azure Bastion
 
@@ -26,7 +26,7 @@ Pour les navigateurs qui prennent en charge l’accès à l’API de Presse-papi
 
    ![Autoriser le Presse-papiers](./media/bastion-vm-manage/allow.png)
 
-Seul le copier/coller de texte est pris en charge. Pour les opérations de copie et collage directs, votre navigateur peut vous demander l’accès au Presse-papiers lors de l’initialisation de la session Bastion. **Autorisez** la page web à accéder au Presse-papiers.
+Seul le copier/coller de texte est pris en charge. Pour les opérations de copie et collage directs, votre navigateur peut vous demander l’accès au Presse-papiers lors de l’initialisation de la session Bastion. **Autorisez** la page web à accéder au Presse-papiers. Si vous utilisez un Mac, le raccourci clavier pour coller est **MAJ-CTRL-V**.
 
 ## <a name="copy-to-a-remote-session"></a><a name="to"></a>Copier vers une session à distance
 

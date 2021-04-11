@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 62723f5c833ca89618a6d9e0781539a13efba4f3
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 9d61e9ff753c37268be19e95db9450e2cd923d96
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959668"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279678"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Étape 3 : configurer la migration vers l’API REST v3 ou le Kit de développement logiciel (SDK) client
 
@@ -43,7 +43,7 @@ Les clients qui utilisaient précédemment la version 2015-10-01 de l’API de g
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Créer un compte Media Services à des fins de test
 
-Suivez les étapes de démarrage rapide pour la [configuration de votre environnement](how-to-set-azure-subscription.md?tabs=portal) à l’aide du portail Azure. Sélectionnez un accès d’API et une authentification du principal de service pour générer un nouvel ID d’application Azure AD et des secrets à utiliser avec ce compte de test.
+Suivez les étapes de démarrage rapide pour la [configuration de votre environnement](setup-azure-subscription-how-to.md?tabs=portal) à l’aide du portail Azure. Sélectionnez un accès d’API et une authentification du principal de service pour générer un nouvel ID d’application Azure AD et des secrets à utiliser avec ce compte de test.
 
 [Créez un compte Media Services](account-create-how-to.md?tabs=portal).
 [Obtenez des informations d’identification pour accéder à l’API Media Services](access-api-howto.md?tabs=portal).
@@ -66,7 +66,7 @@ Suivez les étapes de démarrage rapide pour la [configuration de votre environn
 
 ## <a name="rest"></a>[REST](#tab/rest)
 
-Utilisez [Postman](./media-rest-apis-with-postman.md) pour les appels d’API REST Media Services v3.
+Utilisez [Postman](./setup-postman-rest-how-to.md) pour les appels d’API REST Media Services v3.
 Lisez les [pages de référence de l’API REST](/rest/api/media/).
 
 Vous devez utiliser la chaîne de version 2020-05-01 dans la collection Postman.

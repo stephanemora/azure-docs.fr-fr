@@ -1,17 +1,17 @@
 ---
 title: Options de calcul et de stockage - Azure Database pour PostgreSQL - Serveur flexible
 description: Cet article décrit les options de calcul et de stockage dans le serveur flexible Azure Database pour PostgreSQL.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 93a439c814b6bac630c5231f46d7a022a131687c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712213"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608168"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Options de calcul et de stockage dans le serveur flexible Azure Database pour PostgreSQL
 
@@ -121,7 +121,7 @@ Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l�
 Lorsqu’elles sont marquées d’un \*, les E/S par seconde sont limitées par le type de machine virtuelle que vous avez sélectionné. Sinon, les E/S par seconde sont limitées par la taille de stockage sélectionnée.
 
 >[!NOTE]
-> Vous pouvez constater des IOPS supérieures dans les métriques en raison du bursting de disque. Pour plus d’informations, consultez la [documentation](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting). 
+> Vous pouvez constater des IOPS supérieures dans les métriques en raison du bursting de disque. Pour plus d’informations, consultez la [documentation](../../virtual-machines/disk-bursting.md#disk-level-bursting). 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Bande passante d’E/S maximale (Mio/s) pour votre configuration
 

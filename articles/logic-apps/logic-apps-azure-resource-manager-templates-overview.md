@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: ec72431d927fd59677075e7adfdf7df171574882
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 44131ecf6fd3d8d2f07f0fe567fb924ac8621682
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772941"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110000"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Présentation : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
 
@@ -67,7 +67,7 @@ Pour un modèle d’application logique, vous travaillez principalement avec les
 |-----------|-------------|
 | `parameters` | Déclare les [ paramètres de modèle ](../azure-resource-manager/templates/template-syntax.md#parameters) pour l’acceptation des valeurs à utiliser lors de la création et de la personnalisation des ressources pour un déploiement vers Azure. Par exemple, ces paramètres acceptent les valeurs du nom et de l’emplacement de votre application logique, des connexions et des autres ressources nécessaires au déploiement. Vous pouvez stocker ces valeurs de paramètre dans un [fichier de paramètres](#template-parameter-files) décrit plus loin dans cette rubrique. Pour plus de détails, voir [Paramètres – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/template-syntax.md#parameters). |
 | `resources` | Définit les [ressources](../azure-resource-manager/templates/template-syntax.md#resources) à créer ou mettre à jour, ainsi qu’à déployer vers un groupe de ressources Azure, telles que votre application logique, vos connexions, vos comptes de stockage Azure, etc. Pour des détails généraux, voir [Ressources – Structure et syntaxe de modèle Resource Manager](../azure-resource-manager/templates/template-syntax.md#resources). |
-||||
+|||
 
 Votre modèle d’application logique utilise le format de nom de fichier suivant :
 

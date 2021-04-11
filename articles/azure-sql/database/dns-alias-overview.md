@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 25c2157a8de237d0ec66caa72d59c810d419ac76
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 128a57f02ebd85e4fece3c1417b8afc5c845514a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94989120"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732225"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -98,7 +98,7 @@ Voici les cmdlets utilisées dans l’exemple de code :
 - [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias) : modifie le nom du serveur que l’alias doit référencer, de serveur 1 à serveur 2.
 - [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias) : supprime l’alias DNS du serveur 2 en utilisant le nom de l’alias.
 
-## <a name="limitations-during-preview"></a>Limitations de la préversion
+## <a name="limitations"></a>Limites
 
 Actuellement, un alias DNS présente les limitations suivantes :
 

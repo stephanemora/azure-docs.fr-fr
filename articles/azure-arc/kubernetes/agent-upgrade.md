@@ -9,10 +9,10 @@ ms.author: shasb
 description: Contrôler les mises à niveau des agents Kubernetes avec Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, conteneurs, agent, mise à niveau
 ms.openlocfilehash: d81a00ed4f30f446aeed96d59a455935c652b7d5
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954545"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Mise à niveau des agents Kubernetes avec Azure Arc
