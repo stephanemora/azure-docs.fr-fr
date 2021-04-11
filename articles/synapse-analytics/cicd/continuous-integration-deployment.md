@@ -9,10 +9,10 @@ ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
 ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103561955"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Intégration et livraison continues pour l’espace de travail Azure Synapse

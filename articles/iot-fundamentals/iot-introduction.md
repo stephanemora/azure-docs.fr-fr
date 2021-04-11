@@ -10,12 +10,12 @@ ms.author: dobett
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f1053062302c9a00cf49cee1cd8de5ca6652b745
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96453018"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167700"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Qu’est-ce que l’Internet des objets Azure (IoT) ?
 
@@ -30,7 +30,7 @@ Un appareil IoT est généralement constitué d’un circuit avec des capteurs a
 * Accéléromètre dans un ascenseur
 * Capteurs de présence dans une salle
 
-Pour créer votre solution, vous disposez d’un large éventail d’appareils de différents fabricants. Pour obtenir la liste des appareils certifiés à utiliser avec Azure IoT Hub, consultez le [catalogue d’appareils Microsoft Azure Certified pour IoT](https://catalog.azureiotsolutions.com/alldevices). Pour le prototypage, vous pouvez utiliser des appareils tels qu’un [DevKit IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/) ou un [Raspberry Pi](https://www.raspberrypi.org/). Le DevKit dispose de capteurs de température, de pression et d’humidité intégrés ainsi que d’un gyroscope, d’un accéléromètre et d’un magnétomètre. Le Raspberry Pi vous permet d’attacher de nombreux types de capteurs. 
+Pour créer votre solution, vous disposez d’un large éventail d’appareils de différents fabricants. Pour obtenir la liste des appareils certifiés à utiliser avec Azure IoT Hub, consultez le [catalogue d’appareils Microsoft Azure Certified pour IoT](https://devicecatalog.azure.com). Pour le prototypage, vous pouvez utiliser des appareils tels qu’un [DevKit IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/) ou un [Raspberry Pi](https://www.raspberrypi.org/). Le DevKit dispose de capteurs de température, de pression et d’humidité intégrés ainsi que d’un gyroscope, d’un accéléromètre et d’un magnétomètre. Le Raspberry Pi vous permet d’attacher de nombreux types de capteurs. 
 
 Microsoft fournit des kits [SDK d’appareil](../iot-hub/iot-hub-devguide-sdks.md) open source que vous pouvez utiliser pour créer les applications qui s’exécutent sur vos appareils. Ces kits [SDK simplifient et accélèrent](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) le développement de vos solutions IoT.
 

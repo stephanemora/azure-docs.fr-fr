@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa3614aa3c4fbaec3611806406e5129379999bc3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102522391"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067139"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
 
@@ -790,7 +790,7 @@ Pour annuler une commande Azure Data Box, exécutez [`az databox job cancel`](/
    |resource-group [Obligatoire]| Nom du groupe de ressources associé à la commande à supprimer. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
    |name [Obligatoire]| Nom de la commande à supprimer. | « mydataboxorder »|
    |reason [Obligatoire]| Motif de l’annulation de la commande. | « J’ai entré des informations erronées et j’ai dû annuler la commande. » |
-   |Oui| Ne pas demander de confirmation. | --yes (-y)| --yes -y |
+   |Oui| Ne pas demander de confirmation. | --yes (-y)| 
    |debug| Inclure les informations de débogage à la journalisation détaillée | --debug |
    |help| Afficher les informations d’aide pour cette commande. | --help -h |
    |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |
@@ -827,7 +827,7 @@ Si vous avez annulé une commande Azure Data Box, vous pouvez exécuter [`az da
    |resource-group [Obligatoire]| Nom du groupe de ressources associé à la commande à supprimer. Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. | « myresourcegroup »|
    |name [Obligatoire]| Nom de la commande à supprimer. | « mydataboxorder »|
    |subscription| Nom ou ID (GUID) de votre abonnement Azure. | « xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx » |
-   |Oui| Ne pas demander de confirmation. | --yes (-y)| --yes -y |
+   |Oui| Ne pas demander de confirmation. | --yes (-y)|
    |debug| Inclure les informations de débogage à la journalisation détaillée | --debug |
    |help| Afficher les informations d’aide pour cette commande. | --help -h |
    |only-show-errors| Afficher uniquement les erreurs, en supprimant les avertissements. | --only-show-errors |

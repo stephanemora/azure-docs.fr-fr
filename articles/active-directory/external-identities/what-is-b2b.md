@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/19/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 231d3ab81c2376aa8a2a4bf182e1b5e9799e51d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649289"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669778"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Qu’est-ce que l’accès utilisateur invité dans Azure Active Directory B2B ?
 
@@ -80,7 +80,7 @@ Intégrez vos partenaires externes de façon personnalisée en fonction des beso
 
 ## <a name="integrate-with-identity-providers"></a>Intégrer avec des fournisseurs d’identité
 
-Azure AD prend en charge les fournisseurs d’identité externes tels que Facebook, les comptes Microsoft, Google ou des fournisseurs d’identité d’entreprise. Vous pouvez configurer une fédération avec des fournisseurs d’identité afin que vos utilisateurs externes puissent se connecter avec leurs comptes sociaux ou d’entreprise existants au lieu de créer un compte uniquement pour votre application. En savoir plus sur les fournisseurs d’identité pour les identités externes.
+Azure AD prend en charge les fournisseurs d’identité externes tels que Facebook, les comptes Microsoft, Google ou des fournisseurs d’identité d’entreprise. Vous pouvez configurer une fédération avec des fournisseurs d’identité afin que vos utilisateurs externes puissent se connecter avec leurs comptes sociaux ou d’entreprise existants au lieu de créer un compte uniquement pour votre application. En savoir plus sur [les fournisseurs d’identité pour les identités externes](identity-providers.md).
 
 ![Capture d’écran montrant la page Fournisseurs d’identité](media/what-is-b2b/identity-providers.png)
 

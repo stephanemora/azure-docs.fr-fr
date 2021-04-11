@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d4840dcbe67a0bd94c74b43164c24e0c45e9daf
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: b24276974eba76aa841cdd7f02145210713474eb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200652"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872283"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
 
@@ -150,9 +150,9 @@ Vérifiez la version des modules de l’agent IoT Edge et du hub IoT Edge sur vo
 
 Les images de l’agent IoT Edge et du hub IoT Edge sont marquées avec la version IoT Edge à laquelle elles sont associées. Il existe deux façons d’utiliser des étiquettes avec les images de runtime :
 
-* **Étiquettes évolutives** : utilisez uniquement les deux premières valeurs du numéro de version pour obtenir la dernière image qui correspond à ces chiffres. Par exemple, 1.0 est mis à jour à chaque nouvelle version pour pointer vers la dernière version 1.0.x. Si le runtime du conteneur sur votre appareil IoT Edge réextrait l’image, les modules de runtime sont mis à jour vers la dernière version. Cette approche est conseillée à des fins de développement. Les déploiements à partir du portail Azure adoptent par défaut des étiquettes évolutives.
+* **Étiquettes évolutives** : utilisez uniquement les deux premières valeurs du numéro de version pour obtenir la dernière image qui correspond à ces chiffres. Par exemple, la version 1.1 est mise à jour lorsqu’une nouvelle mise en production pointe vers la dernière version 1.1.x. Si le runtime du conteneur sur votre appareil IoT Edge réextrait l’image, les modules de runtime sont mis à jour vers la dernière version. Les déploiements à partir du portail Azure adoptent par défaut des étiquettes évolutives. *Cette approche est conseillée à des fins de développement.*
 
-* **Étiquettes spécifiques** : utilisez les trois valeurs du numéro de version pour définir explicitement la version de l’image. Par exemple, la version 1.0.7 ne change pas après sa publication initiale. Vous pouvez déclarer un nouveau numéro de version dans le manifeste de déploiement quand vous êtes prêt à effectuer une mise à jour. Cette approche est conseillée à des fins de production.
+* **Étiquettes spécifiques** : utilisez les trois valeurs du numéro de version pour définir explicitement la version de l’image. Par exemple, la version 1.1.0 ne change pas après sa mise en production initiale. Vous pouvez déclarer un nouveau numéro de version dans le manifeste de déploiement quand vous êtes prêt à effectuer une mise à jour. *Cette approche est conseillée à des fins de production.*
 
 ### <a name="update-a-rolling-tag-image"></a>Mettre à jour une image avec des étiquettes évolutives
 
@@ -203,7 +203,7 @@ Voici quelques-unes des principales différences entre la version 1.2 et les ver
 * Le nom du package est passé de **iotedge** à **aziot-Edge**.
 * Le package **libiothsm-STD** n’est plus utilisé. Si vous avez utilisé le package standard fourni dans le cadre de la mise en production d’IoT Edge, vos configurations peuvent être transférées vers la nouvelle version. Si vous avez utilisé une autre implémentation de libiothsm-std, tous les certificats fournis par l’utilisateur, tel le certificat d’identité d’appareil, l’autorité de certification de l’appareil et le bundle de confiance doivent être reconfigurés.
 * Un nouveau service d’identité, **aziot-identity-service** , a été introduit dans le cadre de la mise en production 1.2. Ce service gère l’approvisionnement et la gestion des identités pour IoT Edge et pour d’autres composants d’appareil qui doivent communiquer avec IoT Hub, tel Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
-* Le fichier de configuration par défaut a un nouveau nom et un nouvel emplacement. Les informations de configuration de votre appareil qui se trouvaient auparavant dans `/etc/iotedge/config.yaml` sont désormais supposées se trouver dans `/etc/aziot/congig.toml` par défaut. La commande `iotedge config import` peut aider à migrer les informations de configuration de l’ancien emplacement et de l’ancienne syntaxe.
+* Le fichier de configuration par défaut a un nouveau nom et un nouvel emplacement. Les informations de configuration de votre appareil qui se trouvaient auparavant dans `/etc/iotedge/config.yaml` sont désormais supposées se trouver dans `/etc/aziot/config.toml` par défaut. La commande `iotedge config import` peut aider à migrer les informations de configuration de l’ancien emplacement et de l’ancienne syntaxe.
 * Les modules qui utilisent l’API de charge de travail IoT Edge pour chiffrer ou déchiffrer des données persistantes ne peuvent pas être déchiffrés après la mise à jour. IoT Edge génère de façon dynamique une clé d’identité principale et une clé de chiffrement pour une utilisation interne. Cette clé ne sera pas transférée vers le nouveau service. IoT Edge v 1.2 en générera un nouvelle.
 
 Avant d’automatiser tout processus de mise à jour, vérifiez qu’il fonctionne sur des machines de test.

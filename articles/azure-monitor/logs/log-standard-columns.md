@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
 ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103562244"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonnes standard dans les journaux Azure Monitor

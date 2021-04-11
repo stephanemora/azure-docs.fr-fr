@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’intégration de partenaires (Azure Event Grid)
 description: Fournit une vue d’ensemble de l’intégration en tant que partenaire Event Grid.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93081193"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109337"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>Vue d’ensemble de l’intégration de partenaires (Azure Event Grid)
 
@@ -152,7 +152,7 @@ Après la publication sur le point de terminaison de l’espace de noms du parte
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Modèle ARM](/azure/templates/microsoft.eventgrid/allversions)
   * [Schéma de modèle ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [API REST](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [API REST](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
   * [Extension CLI](/cli/azure/ext/eventgrid/)
 
 ### <a name="sdks"></a>Kits SDK
