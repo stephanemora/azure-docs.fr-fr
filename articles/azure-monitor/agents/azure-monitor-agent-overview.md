@@ -4,13 +4,14 @@ description: Vue d’ensemble de l’agent Azure Monitor (AMA), qui collecte des
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039595"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608212"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Vue d’ensemble de l’agent Azure Monitor (préversion)
 L’agent Azure Monitor (AMA) collecte des données de supervision à partir du système d’exploitation invité des machines virtuelles et les remet à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor, notamment son installation et la configuration de la collecte de données.
@@ -59,6 +60,35 @@ Les limitations suivantes s’appliquent pendant la préversion publique de l’
   - *.ingest.monitor.azure.com
   - *.control.monitor.azure.com
 
+
+## <a name="supported-regions"></a>Régions prises en charge
+L’agent Azure Monitor prend actuellement en charge les ressources dans les régions suivantes :
+
+- Asie Est
+- Asie Sud-Est
+- Centre de l’Australie
+- Australie Est
+- Sud-Australie Est
+- Centre du Canada
+- Europe Nord
+- Europe Ouest
+- France Centre
+- Allemagne Centre-Ouest
+- Inde centrale
+- Japon Est
+- Centre de la Corée
+- Afrique du Sud Nord
+- Suisse Nord
+- Sud du Royaume-Uni
+- Ouest du Royaume-Uni
+- USA Centre
+- USA Est
+- USA Est 2
+- Centre-Nord des États-Unis
+- États-Unis - partie centrale méridionale
+- USA Ouest
+- USA Ouest 2
+- Centre-USA Ouest
 
 ## <a name="coexistence-with-other-agents"></a>Coexistence avec d’autres agents
 L’agent Azure Monitor peut coexister avec les agents existants afin que vous puissiez continuer à utiliser leurs fonctionnalités existantes lors de l’évaluation ou de la migration. Ceci est particulièrement important en raison des limitations de la préversion publique dans la prise en charge des solutions existantes. Vous devez être prudent lors de la collecte de données en double, car cela peut fausser les résultats de la requête et entraîner des frais supplémentaires pour l’ingestion et la rétention de données.

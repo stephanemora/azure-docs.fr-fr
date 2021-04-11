@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 0cd1f6210fbdb74e3fd511150157dccca3e92dda
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a765d689307b7f56e5100e75d9f7121e944cea14
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91932462"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168278"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Avantages d’utiliser Azure NetApp Files avec Windows Virtual Desktop 
 
@@ -29,7 +29,7 @@ Azure NetApp Files est un service de stockage de fichiers très performant propo
 
 ## <a name="sample-blueprints"></a>Exemples de blueprints
 
-Les exemples de blueprints suivants illustrent l’intégration de Windows Virtual Desktop à Azure NetApp Files. Dans un scénario de bureau groupé, les utilisateurs sont dirigés vers la meilleure session disponible (le [mode d’équilibrage de charge en largeur d’abord](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) hébergée dans le pool, en utilisant des [machines virtuelles multisessions](../virtual-desktop/windows-10-multisession-faq.md#what-is-windows-10-enterprise-multi-session). En revanche, les bureaux personnels sont réservés aux scénarios dans lesquels chaque utilisateur dispose de sa propre machine virtuelle.
+Les exemples de blueprints suivants illustrent l’intégration de Windows Virtual Desktop à Azure NetApp Files. Dans un scénario de bureau groupé, les utilisateurs sont dirigés vers la meilleure session disponible (le [mode d’équilibrage de charge en largeur d’abord](../virtual-desktop/host-pool-load-balancing.md#breadth-first-load-balancing-method)) hébergée dans le pool, en utilisant des [machines virtuelles multisessions](../virtual-desktop/windows-10-multisession-faq.yml#what-is-windows-10-enterprise-multi-session). En revanche, les bureaux personnels sont réservés aux scénarios dans lesquels chaque utilisateur dispose de sa propre machine virtuelle.
 
 ### <a name="pooled-desktop-scenario"></a>Scénario de bureau groupé
 

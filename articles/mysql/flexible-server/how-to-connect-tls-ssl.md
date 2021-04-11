@@ -1,19 +1,19 @@
 ---
 title: Connectivité chiffrée avec le protocole TLS/SSL dans Azure Database pour MySQL - Serveur flexible
 description: Instructions et informations sur la connexion avec le protocole TLS/SSL dans Azure Database pour MySQL - Serveur flexible.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 24a8dd4d21cb6ab6edeb985db4e6e6a1349a758d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce6150cf404f1ca68c93285a2f4a29a6373a55c0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90930725"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110022"
 ---
-# <a name="encrypted-connectivity-using-transport-layer-security-tls-12-in-azure-database-for-mysql---flexible-server"></a>Connectivité chiffrée avec le protocole TLS (Transport Layer Security) 1.2 dans Azure Database pour MySQL - Serveur flexible
+# <a name="connect-to-azure-database-for-mysql---flexible-server-over-tls12ssl"></a>Se connecter à Azure Database pour MySQL – Serveur flexible sur TLS1.2/SSL
 
 > [!IMPORTANT]
 > Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
@@ -22,8 +22,10 @@ Le serveur flexible Azure Database pour MySQL prend en charge la connexion de vo
 
 Le serveur flexible Azure Database pour MySQL prend uniquement en charge les connexions chiffrées à l’aide du protocole TLS (Transport Layer Security) 1.2, donc toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées. Pour tous les serveurs flexibles, la mise en œuvre des connexions TLS est activée et il est impossible de désactiver le protocole TLS/SSL pour la connexion à un serveur flexible.
 
-## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>Applications nécessitant la vérification du certificat pour la connectivité TSL/SSL
-Dans certains cas, les applications nécessitent un fichier de certificat local généré à partir du fichier de certificat d’une autorité de certification (AC) approuvée pour se connecter en toute sécurité. Le serveur flexible Azure Database pour MySQL utilise l’*autorité de certification racine globale DigiCert*. Téléchargez ce certificat nécessaire pour communiquer par le biais du protocole SSL auprès de l’[autorité de certification racine globale DigiCert](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et enregistrez le fichier du certificat à l’emplacement qui vous convient. Par exemple, ce tutoriel utilise `c:\ssl`.
+## <a name="download-the-public-ssl-certificate"></a>Télécharger le certificat SSL public
+Pour utiliser avec vos applications, téléchargez le [certificat SSL public](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem).
+
+Téléchargez le fichier de certificat dans votre l’emplacement favori. Par exemple, ce didacticiel utilise `c:\ssl` ou `\var\www\html\bin` sur votre environnement local ou l’environnement client où votre application est hébergée. Cela permet aux applications de se connecter en toute sécurité à la base de données via SSL. 
 
 ### <a name="connect-using-mysql-command-line-client-with-tlsssl"></a>Se connecter à l’aide du client de ligne de commande mysql avec le protocole TLS/SSL
 
@@ -58,6 +60,16 @@ Certains frameworks d’applications courants qui utilisent MySQL pour leurs ser
 Les chaînes de connexion prédéfinies dans la page « Chaînes de connexion » disponible pour votre serveur dans le portail Azure incluent les paramètres nécessaires pour les langages courants afin de vous connecter au serveur de base de données à l’aide du protocole TLS/SSL. Le paramètre TLS/SSL varie en fonction du connecteur. Exemples : "useSSL=true", "sslmode=required" ou "ssl_verify_cert=true" et d’autres variantes.
 
 Pour établir une connexion chiffrée à votre serveur flexible par le biais du protocole TLS/SSL à partir de votre application, reportez-vous aux exemples de code suivants :
+
+### <a name="wordpress"></a>WordPress
+Téléchargez le [certificat public SSL](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et ajoutez les lignes suivantes dans le fichier wp-config.php après la ligne ```// ** MySQL settings - You can get this info from your web host ** //```.
+
+```php
+//** Connect with SSL** //
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+//** SSL CERT **//
+define('MYSQL_SSL_CERT','/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem');
+```
 
 ### <a name="php"></a>PHP
 

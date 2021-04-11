@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a8779ee2d3c4d83c06a2c1803e65219d43f0ef14
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101653828"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275802"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Activer la connexion par clé de sécurité sans mot de passe 
 
@@ -89,6 +89,8 @@ Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes
 ### <a name="security-key-provisioning"></a>Approvisionnement de clé de sécurité
 
 L’approvisionnement et déprovisionnement de clés de sécurité par l’administrateur ne sont pas disponibles.
+
+**Remarque :** La connexion en cache FIDO2 échoue sur une machine hybride jointe à Azure AD spécifique à la version win10 20H2 (lorsque LOS vers DC n’est pas disponible). Cela est actuellement en cours d’investigation avec l’équipe d’ingénierie.
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 

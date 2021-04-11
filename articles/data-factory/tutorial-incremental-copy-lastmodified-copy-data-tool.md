@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fda76fd16787c01b9fc35ef63473be215a2c126d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 25e39d3fc9c56a282714bafb630fee65421fb5ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740050"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606665"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle
 
@@ -55,7 +55,7 @@ Préparez votre Stockage Blob pour le tutoriel :
 
    Le nom de votre fabrique de données doit être un nom global unique. Il est possible que vous receviez ce message d’erreur :
 
-   ![Message d’erreur Nom non disponible](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nouveau message d’erreur de la fabrique de données pour le nom dupliqué.":::
 
    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_**ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
 3. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous allez créer la fabrique de données.
@@ -73,7 +73,7 @@ Préparez votre Stockage Blob pour le tutoriel :
 9. Une fois la fabrique de données créée, la page d’accueil de Data Factory apparaît.
 10. Pour ouvrir l’interface utilisateur (IU) d’Azure Data Factory dans un onglet distinct, cliquez sur la vignette **Créer et surveiller** :
 
-    ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Page d’accueil d’Azure Data Factory, avec la vignette Créer et superviser.":::
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Utiliser l’outil Copier les données pour créer un pipeline
 

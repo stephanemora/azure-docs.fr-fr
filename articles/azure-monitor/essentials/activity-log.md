@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 557fc6e358f371b47c1df314508e3565d843a28c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049183"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722852"
 ---
 # <a name="azure-activity-log"></a>Journal d’activité Azure
 Le journal d’activité est un [journal de plateforme](./platform-logs-overview.md) dans Azure qui fournit un aperçu de tous les événements de niveau d’abonnement. Les informations qu’il contient indiquent par exemple à quel moment une ressource a été modifiée ou une machine virtuelle a été démarrée. Vous pouvez afficher le journal d’activité dans le portail Azure ou récupérer des entrées avec PowerShell et l’interface CLI. Pour obtenir des fonctionnalités supplémentaires, vous devez créer un paramètre de diagnostic permettant d’envoyer le journal d’activité aux [journaux d’activité d’Azure Monitor](../logs/data-platform-logs.md), à Azure Event Hubs pour le transférer en dehors d’Azure ou à Stockage Azure à des fins d’archivage. Cet article fournit des détails sur l’affichage du journal d’activité et son envoi vers différentes destinations.
@@ -27,6 +27,11 @@ Vous pouvez accéder au journal d’activité à partir de la plupart des menus 
 ![Afficher le journal d’activité](./media/activity-log/view-activity-log.png)
 
 Pour obtenir une description des catégories du journal d’activité, consultez [Schéma d’événements du journal d’activité](activity-log-schema.md#categories).
+
+## <a name="download-the-activity-log"></a>Télécharger le journal d’activité
+Sélectionnez **Télécharger en tant que CSV** pour télécharger les événements figurant dans l’affichage actuel.
+
+![Télécharger un journal d’activité](media/activity-log/download-activity-log.png)
 
 ### <a name="view-change-history"></a>Afficher l'historique des modifications
 

@@ -2,14 +2,14 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 2/3/21
+ms.date: 03/18/2021
 ms.author: parkerra
-ms.openlocfilehash: f6c2780ccbb914228a9870cb3b5fe4b0e3d0b214
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: d91c0aeda2b7ae2f133d2099cbc9d238fd19d287
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99569434"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719760"
 ---
 Pour télécharger les packages requis, vous devez installer <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a>.
 
@@ -25,6 +25,9 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > ```bash
 > npm view com.microsoft.azure.spatial-anchors-sdk.core --registry https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM versions
 > ```
+
+> [!WARNING]
+> Le kit SDK ASA 2.7.0 est la version minimale prise en charge. Si vous utilisez Unity 2020, le kit SDK ASA 2.9.0 est la version minimale prise en charge.
 
 Le package Azure Spatial Anchors principal est téléchargé dans le dossier où vous avez exécuté la commande.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029345"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798882"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -79,6 +79,8 @@ Les administrateurs doivent se référer aux articles suivants, en fonction de l
 - [Configurer la jonction Azure Active Directory Hybride pour un environnement fédéré](hybrid-azuread-join-federated-domains.md)
 - [Configurer la jonction Azure Active Directory Hybride pour un environnement managé](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>VDI non persistante
+
 Lors du déploiement d’une VDI non persistante, Microsoft recommande aux administrateurs informatiques d’implémenter les instructions ci-dessous. Dans le cas contraire, votre annuaire contiendra de nombreux appareils Azure AD Hybride obsolètes qui ont été inscrits à partir de votre plateforme VDI non persistante, ce qui entraînera une pression accrue sur votre quota de locataires et un risque d’interruption de service en raison de l’épuisement de ce quota.
 
 - Si vous comptez sur l’outil de préparation système (sysprep.exe) et utilisez une image pré-Windows 10 1809 pour l’installation, vérifiez que cette image ne provient pas d’un appareil déjà inscrit auprès d’Azure AD en tant qu’appareil Azure AD Hybride joint.
@@ -92,6 +94,15 @@ Lors du déploiement d’une VDI non persistante, Microsoft recommande aux admin
 - Définissez et implémentez le processus de [gestion des appareils obsolètes](manage-stale-devices.md).
    - Une fois que vous disposez d’une stratégie d’identification de vos appareils Azure AD Hybride joints non persistants (par exemple, en utilisant le préfixe du nom d’affichage de l’ordinateur), vous devez être plus agressif lors du nettoyage de ces appareils pour être certain que votre répertoire ne sera pas consommé par un grand nombre d’appareils obsolètes.
    - Pour les déploiements VDI non persistants sur Windows actuel et de bas niveau, vous devez supprimer les appareils qui ont une propriété **ApproximateLastLogonTimestamp** antérieure à 15 jours.
+
+### <a name="persistent-vdi"></a>VDI persistante
+
+Lors du déploiement d’une VDI persistante, Microsoft recommande aux administrateurs informatiques d’implémenter les instructions ci-dessous. Dans le cas contraire, des problèmes de déploiement et d’authentification se produiront. 
+
+- Si vous comptez sur l’outil de préparation système (sysprep.exe) et utilisez une image pré-Windows 10 1809 pour l’installation, vérifiez que cette image ne provient pas d’un appareil déjà inscrit auprès d’Azure AD en tant qu’appareil Azure AD Hybride joint.
+- Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
+
+En outre, nous vous recommandons d’implémenter le processus de [gestion des appareils obsolètes](manage-stale-devices.md). Cela permet de s’assurer que votre répertoire n’est pas saturé par un grand nombre d’appareils obsolètes si vous réinitialisez régulièrement vos machines virtuelles.
  
 ## <a name="next-steps"></a>Étapes suivantes
 

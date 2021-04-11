@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243203"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590991"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gérer la reprise d’activité à l’aide de la réplication inter-région 
 
@@ -38,10 +38,10 @@ Lorsque vous devez activer le volume de destination (par exemple lorsque vous so
 1. Pour arrêter le peering de réplication, sélectionnez le volume de destination. Cliquez sur **Réplication** sous Service de stockage.  
 
 2.  Vérifiez les champs suivants avant de continuer :  
-    * Vérifiez qu’État du miroir indique ***En miroir** _.   
-        N’essayez pas d’arrêter le peering de réplication si État du miroir indique _Non initialisé*.
-    * Vérifiez qu’État de la relation indique ***Inactive** _.   
-        N’essayez pas d’arrêter le peering de réplication si État de la relation indique _Transfert en cours*.   
+    * Vérifiez qu’État du miroir indique ***En miroir***.   
+        N’essayez pas d’arrêter le peering de réplication si État du miroir indique *Non initialisé*.
+    * Vérifiez qu’État de la relation indique ***Inactive***.   
+        N’essayez pas d’arrêter le peering de réplication si État de la relation indique *Transfert en cours*.   
 
     Voir [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md). 
 
@@ -80,10 +80,10 @@ Une fois l’opération de resynchronisation de la destination vers la source te
 1. Arrêtez le peering de réplication :  
     a. Sélectionnez le volume de *destination*. Cliquez sur **Réplication** sous Service de stockage.  
     b. Vérifiez les champs suivants avant de continuer :   
-    * Vérifiez qu’État du miroir indique ***En miroir** _.   
-    N’essayez pas d’arrêter le peering de réplication si État du miroir indique _Non initialisé*.  
-    * Vérifiez qu’État de la relation indique ***Inactive** _.   
-    N’essayez pas d’arrêter le peering de réplication si État de la relation indique _Transfert en cours*.    
+    * Vérifiez qu’État du miroir indique ***En miroir***.   
+    N’essayez pas d’arrêter le peering de réplication si État du miroir indique *Non initialisé*.  
+    * Vérifiez qu’État de la relation indique ***Inactive***.   
+    N’essayez pas d’arrêter le peering de réplication si État de la relation indique *Transfert en cours*.    
 
         Voir [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md). 
 
@@ -102,6 +102,7 @@ Une fois l’opération de resynchronisation de la destination vers la source te
 * [Réplication entre régions](cross-region-replication-introduction.md)
 * [Configuration requise et considérations pour la réplication entre régions](cross-region-replication-requirements-considerations.md)
 * [Afficher l’état d’intégrité de la relation de réplication](cross-region-replication-display-health-status.md)
+* [Redimensionner un volume de destination de réplication entre régions](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Métriques de réplication de volume](azure-netapp-files-metrics.md#replication)
 * [Supprimer des volumes ou des réplications de volume](cross-region-replication-delete.md)
 * [Résoudre les problèmes de réplication inter-région](troubleshoot-cross-region-replication.md)

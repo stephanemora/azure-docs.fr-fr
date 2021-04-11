@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041142"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799290"
 ---
 # <a name="log-analytics-tutorial"></a>Tutoriel Log Analytics
 Log Analytics est un outil du portail Azure permettant de modifier et d’exécuter des requêtes de journal à partir de données collectées par les journaux Azure Monitor et d’analyser leurs résultats de manière interactive. Vous pouvez utiliser des requêtes Log Analytics pour récupérer des enregistrements correspondant à des critères particuliers, identifier des tendances, analyser des modèles et fournir divers insights sur vos données. 
@@ -72,7 +72,7 @@ Une instruction **where** est ajoutée à la requête avec la valeur que vous av
 ## <a name="time-range"></a>Plage temporelle
 Toutes les tables d’un espace de travail Log Analytics ont une colonne nommée **TimeGenerated** qui correspond à l’heure de création de l’enregistrement. Toutes les requêtes ont une plage de temps qui limite les résultats aux enregistrements ayant une valeur **TimeGenerated** comprise dans cette plage. La plage de temps peut être définie dans la requête ou avec le sélecteur en haut de l’écran.
 
-Par défaut, la requête retourne les enregistrements des dernières 24 heures. Sélectionnez la liste déroulante **Plage de temps** et choisissez **7 jours**. Cliquez à nouveau sur **Exécuter** pour retourner les résultats. Vous pouvez constater que des résultats sont retournés, mais nous avons un message indiquant que nous ne voyons pas tous les résultats. Cela est dû au fait que Log Analytics peut retourner un maximum de 10 000 enregistrements, et que notre requête en a retourné davantage. 
+Par défaut, la requête retourne les enregistrements des dernières 24 heures. Sélectionnez la liste déroulante **Plage de temps** et choisissez **7 jours**. Cliquez à nouveau sur **Exécuter** pour retourner les résultats. Vous pouvez constater que des résultats sont retournés, mais nous avons un message indiquant que nous ne voyons pas tous les résultats. Cela est dû au fait que Log Analytics peut retourner un maximum de 30 000 enregistrements, et que notre requête en a retourné davantage. 
 
 [![Plage temporelle](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

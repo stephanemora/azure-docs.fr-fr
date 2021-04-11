@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
-ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.date: 03/16/2020
+ms.openlocfilehash: a7f12891bf394e54ee46c60598536faed1731202
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986122"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600878"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurer un abonnement de la Place de marché Azure pour les versions d'évaluation hébergées
 
@@ -43,26 +43,18 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
     5. Sous Types de comptes pris en charge, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
     6. Sélectionnez **Créer** et attendez que votre application soit créée.
     7. Une fois l’application créée, notez l’**ID d’application**  affiché sur l’écran Vue d’ensemble. Vous aurez besoin de cette valeur ultérieurement lors de la configuration de votre version d'évaluation.
-    8. Pour ajouter un URI de redirection NativeClient, sélectionnez le panneau **Authentification**. Sous **Configuration de la plateforme**, sélectionnez la vignette d’application **Ajouter une plateforme** > **Mobile** > **Bureau**. Choisissez l’URI de redirection **NativeClient** et sélectionnez **Configurer**.
-
-        :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Ajout d’un URI de redirection NativeClient.":::
-
-    9. Sous **Gérer l’application**, sélectionnez **Autorisations de l’API**.
-    10. Sélectionnez **Ajouter une autorisation**, puis **Microsoft Graph API**.
-    11. Sélectionnez la catégorie d’autorisation **Application**, puis les autorisations **Directory.Read.All** et **Directory.ReadWrite.All**.
+    8. Sous **Gérer l’application**, sélectionnez **Autorisations de l’API**.
+    9. Sélectionnez **Ajouter une autorisation**, puis **Microsoft Graph API**.
+    10. Sélectionnez la catégorie d’autorisation **Application**, puis les autorisations **Directory.Read.All**, **Directory.Read.All** et **Directory.Read.All**.
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Définition des autorisations de l’application.":::
 
-    12. Pour ajouter l’accès **Dynamics CRM - Emprunt d’identité d’utilisateur** à la liste d'autorisations pour l’application Azure AD, sélectionnez à nouveau **Ajouter une autorisation** .
-
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Demande des autorisations de l’application.":::
-
-    13. Une fois l’autorisation ajoutée, sélectionnez **Accorder le consentement de l’administrateur pour Microsoft**.
-    14. Dans la fenêtre de message d’alerte, sélectionnez **Oui**.
+    11. Une fois l’autorisation ajoutée, sélectionnez **Accorder le consentement de l’administrateur pour Microsoft**.
+    12. Dans la fenêtre de message d’alerte, sélectionnez **Oui**.
 
         [![Indique que les autorisations de l’application ont été accordées.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    15. Pour générer une clé secrète pour l’Azure AD App :
+    13. Pour générer une clé secrète pour l’Azure AD App :
         1. Dans **Gérer l’application**, sélectionnez **Certificat et secrets**.
         2. Sous Secrets client, sélectionnez **Nouveau secret client**.
         3. Entrez une description, par exemple *Version d'évaluation*, puis sélectionnez une durée appropriée. La version d'évaluation s’interrompt une fois cette clé expirée. Vous devez alors générer et fournir à AppSource une nouvelle clé.
@@ -70,8 +62,7 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Ajout d’un secret client.":::
 
-5. Parfois, il faut plus de temps que prévu pour synchroniser un utilisateur d’Azure AD à une instance CRM. Pour faciliter cette opération, nous avons ajouté un processus pour forcer la synchronisation de l’utilisateur, mais cela nécessite que l’application Azure AD soit dans la liste autorisée de l’Espace partenaires. Pour ce faire, consultez [Synchronisation d’utilisateurs avec l’instance Customer Engagement](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
-6. Ajoutez le rôle de principal de service à l’application pour permettre à l’application Azure AD de supprimer des utilisateurs de votre locataire Azure.
+5. Ajoutez le rôle de principal de service à l’application pour permettre à l’application Azure AD de supprimer des utilisateurs de votre locataire Azure.
     1. Ouvrez une invite de commandes PowerShell d’administration.
     2. Install-Module MSOnline (exécutez cette commande si MSOnline n’est pas installé).
     3. Connect-MsolService (cette opération permet d’afficher une fenêtre contextuelle ; connectez-vous avec le locataire d’organisation nouvellement créé).
@@ -81,7 +72,7 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Connexion à votre compte.":::
 
-7. Ajoutez l’application Azure créée ci-dessus en tant qu’utilisateur d’application à votre instance de CRM de version d'évaluation.
+6. Ajoutez l’application Azure créée ci-dessus en tant qu’utilisateur d’application à votre instance de CRM de version d'évaluation.
     1. Ajoutez un nouvel utilisateur dans **Azure Active Directory**. Seules les valeurs **Nom** et **Nom d’utilisateur** (appartenant au même locataire) sont nécessaires pour créer cet utilisateur. Laissez les autres champs à leurs valeurs par défaut. Copiez la valeur de nom d’utilisateur.
     2. Connectez-vous à **Instance CRM** et sélectionnez **Paramètre** > **Sécurité** > **Utilisateurs**.
     3. Modifiez la vue sur **Utilisateurs de l’application**.
@@ -97,7 +88,8 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Sélection des privilèges de rôle.":::
 
-    10. Affectez à l’utilisateur de l’application le rôle de sécurité personnalisé que vous avez créé pour votre version d'évaluation.
+    10. Activez également le privilège **Agir pour le compte d’un autre utilisateur**.
+    11. Affectez à l’utilisateur de l’application le rôle de sécurité personnalisé que vous avez créé pour votre version d'évaluation.
 
 ## <a name="set-up-for-dynamics-365-for-operations"></a>Configurer pour Dynamics 365 for Operations
 
@@ -130,7 +122,7 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
     12. Une fois l’autorisation ajoutée, sélectionnez **Accorder le consentement de l’administrateur pour Microsoft**.
     13. Dans la fenêtre de message d’alerte, sélectionnez **Oui**.
 
-        [![Indique les autorisations de l’application accordées.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
+        [![Indique que les autorisations de l’application sont accordées avec succès.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. Pour générer une clé secrète pour l’Azure AD App :
         1. Dans **Gérer l’application**, sélectionnez **Certificat et secrets**.

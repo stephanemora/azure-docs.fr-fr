@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/11/2021
 ms.author: b-juche
-ms.openlocfilehash: a14656bc1abc42fdc3e948fdae1ca07469681d21
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 2819ee3bc76c0b9ff0f35d442e52149096ddc9f7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249850"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104590974"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>Afficher l’état d’intégrité de la relation de réplication 
 
@@ -57,6 +57,7 @@ Vous pouvez afficher l’état de la réplication sur le volume source ou le vol
 
 * [Réplication entre régions](cross-region-replication-introduction.md)
 * [Gérer la reprise d’activité après sinistre](cross-region-replication-manage-disaster-recovery.md)
+* [Redimensionner un volume de destination de réplication entre régions](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Métriques de réplication de volume](azure-netapp-files-metrics.md#replication)
 * [Supprimer des volumes ou des réplications de volume](cross-region-replication-delete.md)
 * [Résoudre les problèmes de réplication inter-région](troubleshoot-cross-region-replication.md)

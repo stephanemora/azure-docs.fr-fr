@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 5deaef04330e21c8d9c580bf2a16814d4e902f6a
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199868"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563291"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformer des données avec des flux de données de mappage
 
@@ -24,7 +24,7 @@ Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Dat
 Dans ce tutoriel, vous allez utiliser l’interface utilisateur Azure Data Factory pour créer un pipeline qui copie et transforme des données d’une source Azure Data Lake Storage (ADLS) Gen2 en récepteur ADLS Gen2 à l’aide d’un flux de données de mappage. Le modèle de configuration utilisé dans ce tutoriel peut être développé lors d’une transformation de données à l’aide d’un flux de données de mappage.
 
  >[!NOTE]
-   >Ce didacticiel est conçu pour le mappage des flux de données en général. Les flux de données sont disponibles à la fois dans Azure Data Factory et Synapse Pipelines. Si vous ne connaissez pas les flux de données dans Azure Synapse Pipelines, consultez [Flux de données avec Azure Synapse Pipelines](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   >Ce didacticiel est conçu pour le mappage des flux de données en général. Les flux de données sont disponibles à la fois dans Azure Data Factory et Synapse Pipelines. Si vous ne connaissez pas les flux de données dans Azure Synapse Pipelines, consultez [Flux de données avec Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md) 
    
 Dans ce tutoriel, vous effectuez les étapes suivantes :
 
@@ -54,7 +54,7 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
    Le nom de la fabrique de données Azure doit être un nom *global unique*. Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. (par exemple, yournameADFTutorialDataFactory). Consultez l’article [Azure Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les règles Data Factory.
 
-     ![Nouvelle fabrique de données](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nouveau message d’erreur de la fabrique de données pour le nom dupliqué.":::
 4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données.
 5. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
 

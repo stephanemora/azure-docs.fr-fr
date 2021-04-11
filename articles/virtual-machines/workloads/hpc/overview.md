@@ -6,14 +6,14 @@ ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 07/29/2020
+ms.date: 03/18/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 15d05632e5ebf6e45a61adebbbbf647efca2a1a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 65b37a8c07e083f5e9809812e2d4446cc48717d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666893"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720591"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Calcul haute performance sur des machines virtuelles des séries H et N avec InfiniBand
 
@@ -32,19 +32,19 @@ Pour plus d’informations sur la configuration d’InfiniBand sur les machines 
 
 ### <a name="message-passing-interface"></a>Interface de transmission de messages (MPI)
 
-Les séries H et N avec SR-IOV prennent en charge presque toutes les bibliothèques et versions de MPI. Voici quelques-unes des bibliothèques MPI les plus courantes prises en charge : Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI et tous les verbes d’accès direct à la mémoire à distance (RDMA, Remote Direct Memory Access).
+Les séries H et N avec SR-IOV prennent en charge presque toutes les bibliothèques et versions de MPI. Voici quelques-unes des bibliothèques MPI les plus couramment utilisées : Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH, Platform MPI. Tous les verbes d’accès direct à la mémoire à distance (RDMA) sont pris en charge.
 Pour plus d’informations sur l’installation des différentes bibliothèques MPI prises en charge et leur configuration optimale, consultez [Configurer MPI](setup-mpi.md).
 
 ## <a name="get-started"></a>Bien démarrer
 
 La première étape consiste à sélectionner le type de machine virtuelle [Série H](../../sizes-hpc.md) et [Série N](../../sizes-gpu.md) optimal pour la charge de travail, en fonction des spécifications de la machine virtuelle et des [capacités RDMA](../../sizes-hpc.md#rdma-capable-instances).
 Ensuite, configurez la machine virtuelle en activant InfiniBand. Vous pouvez faire cela de différentes façon, notamment en utilisant des images de machine virtuelle optimisées avec des pilotes intégrés. Pour plus d’informations, consultez [Optimisation pour Linux](configure.md) et [Activer InfiniBand](enable-infiniband.md).
-Troisièmement, pour les charges de travail des nœud distribués, le choix et la configuration de MPI sont critiques. Pour plus d’informations, consultez [Configurer MPI](setup-mpi.md).
-Quatrièmement, pour les performances et la scalabilité, configurez de façon optimale les charges de travail en suivant les instructions spécifiques à la famille de machines virtuelles, par exemple dans [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md).
+Troisièmement, pour les charges de travail des nœud distribués, le choix et la configuration appropriés de MPI sont critiques. Pour plus d’informations, consultez [Configurer MPI](setup-mpi.md).
+Quatrièmement, pour les performances et la scalabilité, configurez de façon optimale les charges de travail en suivant les instructions spécifiques à la famille de machines virtuelles, par exemple dans [Vue d’ensemble de la série HBv3](hbv3-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez plus d’informations sur [la configuration et l’optimisation](configure.md) des machines virtuelles [Série H](../../sizes-hpc.md) et [Série N](../../sizes-gpu.md) avec InfiniBand.
-- Consultez [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md) pour en savoir plus sur la configuration optimale des charges de travail pour les performances et la scalabilité.
-- Découvrez des informations sur les dernières annonces et des exemples et des résultats HPC sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Consultez [Vue d’ensemble de la série HBv3](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md) afin de découvrir la configuration optimale des charges de travail pour les performances et la scalabilité.
+- Consultez les dernières annonces, des exemples de charge de travail HPC et les résultats des performances sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

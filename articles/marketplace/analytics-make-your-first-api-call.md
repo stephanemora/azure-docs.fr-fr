@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 2d0c0e7322ecb92fd371f5bf7924a370dd29fe85
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9e5fbdfca80d19f026a014a89ffbf137bacb521c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102583461"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639584"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>Effectuer votre premier appel d’API pour accéder aux données d’analyse de la place de marché commerciale
 
@@ -50,7 +50,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-Pour plus d’informations sur la façon d’obtenir un jeton Azure AD pour votre application, consultez [Accéder aux données d’analyse à l’aide des services de magasin](https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
+Pour plus d’informations sur la façon d’obtenir un jeton Azure AD pour votre application, consultez [Accéder aux données d’analyse à l’aide des services de magasin](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token).
 
 ## <a name="programmatic-api-call"></a>Appel d’API programmatique
 
@@ -337,5 +337,5 @@ Curl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous pouvez tester les API par le biais de l’[URL d’API Swagger](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html)
+- Vous pouvez tester les API par le biais de l’[URL d’API Swagger](https://swagger.io/docs/specification/api-host-and-base-path/)
 - [Paradigme de l’accès programmatique](analytics-programmatic-access.md)

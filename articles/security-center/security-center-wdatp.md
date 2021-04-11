@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 88d0a3dcd89ea678d77bc558fc680630bc0f2309
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453765"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168176"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -38,7 +38,7 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 | État de sortie :                  | Disponibilité générale (GA)                                                                                                                                                                                                                                                                                      |
 | Prix :                        | Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Plateformes prises en charge :            |  • Machines Azure exécutant Windows<br> • Machines Azure Arc exécutant Windows|
-| Versions de Windows prises en charge :  |  • **Disponibilité générale (GA) -** Détection sous Windows Server 2016, 2012 R2 et 2008 R2 SP1<br> • **Préversion -** Détection sous Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) et [Windows 10 Entreprise multisession](../virtual-desktop/windows-10-multisession-faq.md) (anciennement Entreprise pour bureaux virtuels (EVD)|
+| Versions de Windows prises en charge :  |  • **Disponibilité générale (GA) -** Détection sous Windows Server 2016, 2012 R2 et 2008 R2 SP1<br> • **Préversion -** Détection sous Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) et [Windows 10 Entreprise multisession](../virtual-desktop/windows-10-multisession-faq.yml) (anciennement Entreprise pour bureaux virtuels (EVD)|
 | Systèmes d’exploitation non pris en charge :  |  • Windows 10 (autre que EVD ou WVD)<br> • Linux|
 | Rôles et autorisations obligatoires : | Pour activer/désactiver l'intégration : **Administrateur de la sécurité** ou **Propriétaire**<br>Pour afficher des alertes MDATP dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement**|
 | Clouds :                         | ![Oui](./media/icons/yes-icon.png) Clouds commerciaux<br>![Oui](./media/icons/yes-icon.png) Gouvernement des États-Unis<br>![Non](./media/icons/no-icon.png) Chine Gov, autres Gov                                                        |
@@ -74,7 +74,7 @@ Une fois que vous avez configuré l’emplacement, vous ne pouvez plus le modifi
 1. Vérifiez que votre machine est conforme aux conditions requises pour Defender pour point de terminaison :
 
     - Pour **toutes les versions de Windows** :
-        - Configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l'appareil](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
+        - Configurez les paramètres réseau décrits dans [Configurer les paramètres de proxy et de connectivité Internet de l'appareil](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet).
         - Si vous déployez Defender pour point de terminaison sur des machines locales, connectez-le à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
     - En outre, pour les **machines Windows Server 2019**, vérifiez qu'elles exécutent un agent valide et disposent de l'extension MicrosoftMonitoringAgent.
 

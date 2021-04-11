@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: faa18b619c785ad23e1da037621597684b1c5c63
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97936445"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551779"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planifier le déploiement de votre appareil Azure Active Directory
 
@@ -54,7 +54,7 @@ Voici les principaux avantages d’attribuer à vos appareils une identité Azur
 
 Vidéo :  [Accès conditionnel et les contrôles d’appareil](https://youtu.be/NcONUf-jeS4)
 
-Questions fréquentes (FAQ) : [FAQ sur la gestion des appareils Azure AD](faq.md) et [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md) 
+Questions fréquentes (FAQ) : [FAQ sur la gestion des appareils Azure AD](faq.yml) et [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md) 
 
 ## <a name="plan-the-deployment-project"></a>Planifier le projet de déploiement
 
@@ -239,9 +239,9 @@ Passez en revue les plateformes prises en charge et non prises en charge pour le
 
 | Outils de gestion des appareils| Appareils inscrits sur Azure AD| jointure Azure AD ;| jointure Azure AD hybride ;|
 | - | - | - | - |
-| [Gestion des périphériques mobiles](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemple : Microsoft Intune| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|  |
-| [Cogestion avec Microsoft Intune et Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 et versions ultérieures)| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|  |
-| [Stratégie de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows uniquement)| | | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)|  |
+| [Gestion des périphériques mobiles](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Exemple : Microsoft Intune| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| 
+| [Cogestion avec Microsoft Intune et Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 et versions ultérieures)| | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| 
+| [Stratégie de groupe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows uniquement)| | | ![Coche pour ces valeurs.](./media/plan-device-deployment/check.png)| 
 
 
 

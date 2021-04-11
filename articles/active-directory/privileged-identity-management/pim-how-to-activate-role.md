@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/18/2020
+ms.date: 03/22/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511312"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799426"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
 
@@ -110,11 +110,7 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle
 
-Quand vous activez un rôle dans Privileged Identity Management, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si l’activation est retardée, voici les étapes à suivre.
-
-1. Déconnectez-vous du portail Microsoft Azure, puis reconnectez-vous.
-
-1. Dans Privileged Identity Management, vérifiez que vous êtes répertorié en tant que membre du rôle.
+Quand vous activez un rôle dans Privileged Identity Management, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si votre activation est retardée, déconnectez-vous du portail dans lequel vous essayez d’effectuer l’action, puis reconnectez-vous. Dans le portail Azure, PIM vous déconnecte et vous reconnecte automatiquement.
 
 # <a name="previous-version"></a>[Version précédente](#tab/previous)
 
@@ -216,13 +212,7 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle
 
-Quand vous activez un rôle dans Privileged Identity Management, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si l’activation est retardée, voici les étapes à suivre.
-
-1. Déconnectez-vous du portail Microsoft Azure, puis reconnectez-vous.
-
-    Lorsque vous activez un rôle Azure AD, vous voyez apparaître les phases de l’activation. Une fois toutes les phases terminées, un lien **Se déconnecter** s’affiche. Vous pouvez utiliser ce lien pour vous déconnecter. Cette procédure résout la plupart des cas de retard d’activation.
-
-1. Dans Privileged Identity Management, vérifiez que vous êtes répertorié en tant que membre du rôle.
+Lorsque vous activez un rôle dans Privileged Identity Management, votre activation peut être retardée dans des portails d’administration autres que le portail Azure, par exemple, le portail Office 365. Si votre activation est retardée, déconnectez-vous du portail dans lequel vous vous trouvez, puis reconnectez-vous. Ensuite, utilisez Privileged Identity Management pour vérifier que vous êtes répertorié en tant que membre du rôle.
 
  ---
 

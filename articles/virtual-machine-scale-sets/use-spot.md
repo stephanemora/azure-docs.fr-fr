@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694986"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722563"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Machines virtuelles Azure Spot et groupes de machines virtuelles identiques 
 
@@ -44,9 +44,9 @@ Une machine virtuelle Azure Spot peut être déployée dans n’importe quelle r
 Les [types d’offres](https://azure.microsoft.com/support/legal/offer-details/) suivants sont pris en charge :
 
 -   Contrat Entreprise
--   Code de l’offre de paiement à l’utilisation 003P
--   Sponsorisé
-- Pour le fournisseur de services cloud (CSP), consultez l’[Espace partenaires](https://docs.microsoft.com/partner-center/azure-plan-get-started) ou contactez directement votre partenaire.
+-   Code de l’offre de paiement à l’utilisation (003P)
+-   Sponsorisé (0036P et 0136P)
+- Pour le fournisseur de services cloud (CSP), consultez l’[Espace partenaires](/partner-center/azure-plan-get-started) ou contactez directement votre partenaire.
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
@@ -168,7 +168,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## <a name="resource-manager-templates"></a>Modèles Resource Manager
@@ -202,7 +202,7 @@ Pour supprimer l’instance après son exclusion, remplacez le paramètre `evict
 
 ## <a name="simulate-an-eviction"></a>Simuler une éviction
 
-Vous pouvez [simuler l’éviction](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) d’une machine virtuelle spot Azure afin de tester l’efficacité de la réponse de votre application à une éviction soudaine. 
+Vous pouvez [simuler l’éviction](/rest/api/compute/virtualmachines/simulateeviction) d’une machine virtuelle spot Azure afin de tester l’efficacité de la réponse de votre application à une éviction soudaine. 
 
 Remplacez les éléments suivants par vos informations : 
 

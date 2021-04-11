@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: jeedes
-ms.openlocfilehash: f217a13ce68b42d3f9ee2dec4bfae47a0b64b0ca
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 842ab27fe02501efbbc6c06c3d36d2218c3c17b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200034"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104799239"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-single-account-access"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AWS Single-Account Access
 
@@ -31,11 +31,11 @@ Utilisez les informations ci-dessous pour prendre une décision concernant l’u
 
 **AWS Single Sign-On**
 
-[AWS Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-tutorial) a été ajoutée à la galerie d’applications Azure AD en février 2021. Elle facilite la gestion de l’accès de manière centralisée sur plusieurs comptes AWS et applications AWS, avec la connexion via Microsoft Azure AD. Fédérez une seule fois Microsoft Azure AD avec l’authentification unique AWS et utilisez l’authentification unique AWS pour gérer les autorisations sur l’ensemble de vos comptes AWS à partir d’un emplacement unique. L’authentification unique AWS provisionne automatiquement les autorisations et les maintient à jour lorsque vous mettez à jour des stratégies et des attributions d’accès. Les utilisateurs finaux peuvent s’authentifier à l’aide de leurs informations d’identification Azure AD pour accéder à la console AWS, à l’interface de ligne de commande et aux applications intégrées d’authentification unique AWS.
+[AWS Single Sign-On](./aws-single-sign-on-tutorial.md) a été ajoutée à la galerie d’applications Azure AD en février 2021. Elle facilite la gestion de l’accès de manière centralisée sur plusieurs comptes AWS et applications AWS, avec la connexion via Microsoft Azure AD. Fédérez une seule fois Microsoft Azure AD avec l’authentification unique AWS et utilisez l’authentification unique AWS pour gérer les autorisations sur l’ensemble de vos comptes AWS à partir d’un emplacement unique. L’authentification unique AWS provisionne automatiquement les autorisations et les maintient à jour lorsque vous mettez à jour des stratégies et des attributions d’accès. Les utilisateurs finaux peuvent s’authentifier à l’aide de leurs informations d’identification Azure AD pour accéder à la console AWS, à l’interface de ligne de commande et aux applications intégrées d’authentification unique AWS.
 
 **AWS Single-Account Access**
 
-L’application [AWS Single-Account Access](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) a été utilisée par les clients au cours des dernières années et vous permet de fédérer Azure AD sur un seul compte AWS et d’utiliser Azure AD pour gérer l’accès aux rôles AWS IAM. Les administrateurs AWS IAM définissent des rôles et des stratégies dans chaque compte AWS. Pour chaque compte AWS, les administrateurs Azure AD se fédèrent à AWS IAM, attribuent des utilisateurs ou des groupes au compte et configurent Azure AD pour envoyer des assertions qui autorisent l’accès aux rôles.  
+L’application [AWS Single-Account Access]() a été utilisée par les clients au cours des dernières années et vous permet de fédérer Azure AD sur un seul compte AWS et d’utiliser Azure AD pour gérer l’accès aux rôles AWS IAM. Les administrateurs AWS IAM définissent des rôles et des stratégies dans chaque compte AWS. Pour chaque compte AWS, les administrateurs Azure AD se fédèrent à AWS IAM, attribuent des utilisateurs ou des groupes au compte et configurent Azure AD pour envoyer des assertions qui autorisent l’accès aux rôles.  
 
 | Fonctionnalité | AWS Single Sign-On | AWS Single-Account Access |
 |:--- |:---:|:---:|
@@ -73,6 +73,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Abonnement AWS pour lequel l’authentification unique (SSO) est activée
+
+> [!Note]
+> Les rôles ne doivent pas être modifiés manuellement dans Azure AD lors de l’importation des rôles.
 
 ## <a name="scenario-description"></a>Description du scénario
 

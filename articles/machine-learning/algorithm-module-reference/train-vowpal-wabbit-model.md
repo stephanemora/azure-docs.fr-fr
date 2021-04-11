@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 70d0fc456b3697e3c74a5ec45cc936a02b77e591
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210203"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657652"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Entraîner un modèle Vowpal Wabbit
 Cet article explique comment utiliser le module **Train Vowpal Wabbit Model** (Entraîner un modèle Vowpal Wabbit) dans le concepteur Azure Machine Learning pour créer un modèle Machine Learning à l’aide de Vowpal Wabbit.  
@@ -91,6 +91,13 @@ Vowpal Wabbit prend en charge l’entraînement incrémentiel via l’ajout de n
 
 6. Envoyez le pipeline.  
 7. Sélectionnez le module, puis **Register dataset** (Inscrire le jeu de données) sous l’onglet **Outputs+logs** (Sorties+journaux) dans le volet droit, pour conserver le modèle mis à jour dans votre espace de travail Azure Machine Learning.  Si vous ne spécifiez pas de nouveau nom, le modèle mis à jour remplace le modèle enregistré existant.
+
+## <a name="results"></a>Résultats
+
++ Pour générer des scores à partir du modèle, utilisez [Noter le modèle Vowpal Wabbit](score-vowpal-wabbit-model.md).
+
+> [!NOTE]
+> Si vous devez déployer le modèle formé dans le concepteur, assurez-vous que l’option [Noter le modèle Vowpal Wabbit](score-vowpal-wabbit-model.md) plutôt que **Modèle de score** est connectée à l’entrée du [module de sortie du service web](web-service-input-output.md) dans le pipeline d’inférence.
 
 ## <a name="technical-notes"></a>Notes techniques
 
