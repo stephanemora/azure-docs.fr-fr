@@ -4,20 +4,20 @@ description: Explique pourquoi vous devez mettre à niveau l’agent Sauvegarde 
 services: backup
 cloud: ''
 suite: ''
-author: dcurwin
+author: v-amallick
 manager: carmonm
 ms.service: backup
 ms.tgt_pltfrm: <optional>
 ms.devlang: <optional>
 ms.topic: article
 ms.date: 03/03/2020
-ms.author: dacurwin
-ms.openlocfilehash: bd298f758d6109b908db01dd2ae3b97e5e2f714a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: v-amallick
+ms.openlocfilehash: bf77103db93652e1df837f6b1032b5e53bd41e1f
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673184"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106294128"
 ---
 ## <a name="upgrade-the-mars-agent"></a>Mettre à niveau l’agent MARS
 
