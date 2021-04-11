@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 2dbf7c31e6b0b40fa9dc2d59e86c0ecc731657e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73282145abd8bfe804b47fda3bf5f12dc691ff3a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102172407"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551354"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 
@@ -20,9 +20,6 @@ Les éléments suivants reflètent la manière dont les fonctions sont affectée
 
 - La redirection du trafic est transparente. La permutation n’entraîne l’abandon d’aucune demande.
 - Si une fonction est en cours d’exécution pendant un permutation, l’exécution se poursuit et les déclencheurs suivants sont routés vers l’instance d’application permutée.
-
-> [!NOTE]
-> Les emplacements ne sont actuellement pas disponibles pour le plan Consommation Linux.
 
 ## <a name="why-use-slots"></a>Pourquoi utiliser des emplacements ?
 
@@ -229,7 +226,7 @@ Il existe deux niveaux de prise en charge des emplacements de déploiement :
 | Consommation Windows       | Disponibilité générale |
 | Windows Premium           | Disponibilité générale  |
 | Dédié (Windows)         | Disponibilité générale |
-| Consommation Linux         | Non pris en charge          |
+| Consommation Linux         | PRÉVERSION          |
 | Linux Premium             | Disponibilité générale  |
 | Dédié (Linux)           | Disponibilité générale |
 

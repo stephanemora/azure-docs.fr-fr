@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 70ad5d6d88dabb51e022a1fc5c011341b06f02fd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100366955"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640688"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utiliser Azure Machine Learning avec le package open source Fairlearn pour évaluer l’impartialité des modèles Machine Learning (version préliminaire)
 
@@ -31,7 +31,7 @@ Ce guide pratique explique comment utiliser le package Python open source [Fairl
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Kit de développement logiciel (SDK) pour l’impartialité d’Azure Machine Learning 
 
-Le Kit de développement logiciel (SDK) pour l’impartialité d’Azure Machine Learning, `azureml-contrib-fairness`, intègre le package Python open source, [Fairlearn](http://fairlearn.github.io), dans Azure Machine Learning. Pour en savoir plus sur l’intégration de Fairlearn dans Azure Machine Learning, consultez ces [exemples de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Pour plus d’informations sur Fairlearn, consultez l’[exemple de guide](https://fairlearn.github.io/master/auto_examples/) et des [exemples de bloc-notes](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+Le Kit de développement logiciel (SDK) pour l’impartialité d’Azure Machine Learning, `azureml-contrib-fairness`, intègre le package Python open source, [Fairlearn](http://fairlearn.github.io), dans Azure Machine Learning. Pour en savoir plus sur l’intégration de Fairlearn dans Azure Machine Learning, consultez ces [exemples de bloc-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Pour plus d’informations sur Fairlearn, consultez l’[exemple de guide](https://fairlearn.org/v0.6.0/auto_examples/) et des [exemples de bloc-notes](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Utilisez les commandes suivantes pour installer les packages `azureml-contrib-fairness` et `fairlearn` :
 ```bash
@@ -227,7 +227,7 @@ L’exemple suivant explique comment utiliser le package d’impartialité. Nous
     1. Si vous avez inscrit votre modèle d’origine en suivant les étapes précédentes, vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
     1. Sélectionnez un modèle, puis l’onglet **Impartialité** pour afficher le tableau de bord de visualisation des explications.
 
-    Pour en savoir plus sur le tableau de bord de visualisation et son contenu, consultez le [guide de l’utilisateur](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
+    Pour en savoir plus sur le tableau de bord de visualisation et son contenu, consultez le [guide de l’utilisateur](https://fairlearn.org/v0.6.0/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Charger des informations d’impartialité pour plusieurs modèles
 
@@ -338,9 +338,9 @@ Pour comparer plusieurs modèles et voir en quoi l’évaluation de leur imparti
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Charger des informations d’impartialité non atténuées et atténuées
 
-Vous pouvez utiliser les algorithmes d’atténuation de [Fairlearn](https://fairlearn.github.io/master/user_guide/mitigation.html), comparer leurs modèles atténués générés au modèle non atténué d’origine, et parcourir les compromis entre performances et impartialité parmi les modèles comparés.
+Vous pouvez utiliser les algorithmes d’atténuation de [Fairlearn](https://fairlearn.org/v0.6.0/user_guide/mitigation.html), comparer leurs modèles atténués générés au modèle non atténué d’origine, et parcourir les compromis entre performances et impartialité parmi les modèles comparés.
 
-Pour voir un exemple illustrant l’utilisation de l’algorithme d’atténuation [Grid Search](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (qui crée une collection de modèles atténués avec différents compromis d’impartialité et de performances), consultez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+Pour voir un exemple illustrant l’utilisation de l’algorithme d’atténuation [Grid Search](https://fairlearn.org/v0.6.0/user_guide/mitigation.html#grid-search) (qui crée une collection de modèles atténués avec différents compromis d’impartialité et de performances), consultez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 Le chargement des informations sur l’impartialité de plusieurs modèles dans une seule exécution permet de comparer les modèles sur le plan de l’impartialité et des performances. Vous pouvez cliquer sur l’un des modèles affichés dans le tableau de comparaison des modèles pour voir les informations détaillées sur l’impartialité du modèle en question.
 

@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2020
-ms.author: mbaldwin
-ms.openlocfilehash: 52b62e463edc51b3d93d7af69623a88abd9cc6be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108599"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606876"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -66,11 +66,11 @@ Pour continuer, vous devez attendre que la commande retourne l’état « Regis
 
 ![État de l’abonnement](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
-### <a name="creating-hsm-resources"></a>Création de ressources HSM
+### <a name="creating-hsm-resources&quot;></a>Création de ressources HSM
 
-Un modèle HSM est provisionné dans le réseau virtuel d’un client. Cela nécessite l’ajout d’un sous-réseau. Pour permettre la communication entre le réseau virtuel et l’appareil physique, vous devez utiliser une passerelle ExpressRoute. En outre, vous devez utiliser une machine virtuelle pour accéder au module HSM à l’aide du logiciel client Gemalto. Ces ressources ont été rassemblées dans un fichier de modèle, avec le fichier de paramètres correspondant, pour une plus grande facilité d’utilisation. Pour obtenir ces fichiers, contactez Microsoft directement à l’adresse HSMrequest@Microsoft.com.
+Un modèle HSM est provisionné dans le réseau virtuel d’un client. Cela nécessite l’ajout d’un sous-réseau. Pour permettre la communication entre le réseau virtuel et l’appareil physique, vous devez utiliser une passerelle ExpressRoute. En outre, vous devez utiliser une machine virtuelle pour accéder au module HSM à l’aide du logiciel client Thales. Ces ressources ont été rassemblées dans un fichier de modèle, avec le fichier de paramètres correspondant, pour une plus grande facilité d’utilisation. Pour obtenir ces fichiers, contactez Microsoft directement à l’adresse HSMrequest@Microsoft.com.
 
-Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Les noms doivent être insérés là où la valeur est vide ("value": "").
+Une fois que vous avez reçu ces fichiers, vous devez insérer les noms choisis pour vos ressources dans le fichier de paramètres. Les noms doivent être insérés là où la valeur est vide (&quot;value&quot;: &quot;").
 
 - `namingInfix` Préfixe des noms de ressources HSM
 - `ExistingVirtualNetworkName` Nom du réseau virtuel utilisé pour les modules HSM
@@ -184,7 +184,7 @@ L’exécution de cette commande prend environ 20 minutes. L’option « -verb
 
 ![état du provisionnement](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Lorsque l’exécution est terminée (ce qui est indiqué par "provisioningState": "Succeeded"), vous pouvez vous connecter à la machine virtuelle existante et utiliser SSH pour garantir la disponibilité du module HSM.
+Lorsque l’exécution est terminée (ce qui est indiqué par "provisioningState&quot;: &quot;Succeeded"), vous pouvez vous connecter à la machine virtuelle existante et utiliser SSH pour garantir la disponibilité du module HSM.
 
 ## <a name="verifying-the-deployment"></a>Vérification du déploiement
 
@@ -235,14 +235,14 @@ La sortie doit ressembler à ceci :
 
 ![Capture d’écran montrant la sortie de la commande hsm show.](media/tutorial-deploy-hsm-powershell/output.png)
 
-À ce stade, vous avez alloué toutes les ressources pour un déploiement haute disponibilité à deux HSM, et vous avez vérifié que l’accès était possible et que l’état était opérationnel. Toute configuration ou tests supplémentaires doivent être effectués au niveau du module HSM. Pour cela, vous devez suivre les instructions du chapitre 7 du guide d’administration Gemalto Luna Network HSM 7 pour initialiser le module HSM et créer des partitions. L’ensemble des logiciels et de la documentation peuvent être téléchargés directement sur le site Gemalto une fois que vous vous êtes inscrit dans le portail de support client Gemalto et que vous disposez d’un ID client. Téléchargez le logiciel client version 7.2 pour obtenir tous les composants nécessaires.
+À ce stade, vous avez alloué toutes les ressources pour un déploiement haute disponibilité à deux HSM, et vous avez vérifié que l’accès était possible et que l’état était opérationnel. Toute configuration ou tests supplémentaires doivent être effectués au niveau du module HSM. Pour cela, vous devez suivre les instructions du chapitre 7 du guide d’administration de Thales Luna 7 HSM pour initialiser le module HSM et créer des partitions. L’ensemble des logiciels et de la documentation peuvent être téléchargés directement sur le site Thales une fois que vous vous êtes inscrit dans le [portail de support client Thales](https://supportportal.thalesgroup.com/csm) et que vous disposez d’un ID client. Téléchargez le logiciel client version 7.2 pour obtenir tous les composants nécessaires.
 
 ## <a name="delete-or-clean-up-resources"></a>Supprimer ou nettoyer des ressources
 
 Si vous n’avez plus besoin du module HSM, vous pouvez le supprimer en tant que ressource, ce qui lui permettra de retourner au pool des modules libres. Lorsque vous supprimez un module, le problème évident qui se pose est celui des données client sensibles qui s’y trouvent. La meilleure façon de « réinitialiser » un appareil consiste à entrer un mot de passe d’administrateur HSM incorrect à trois reprises (remarque : il ne s’agit pas de l’administrateur d’appliance, mais de l’administrateur HSM). En guise de mesure de sécurité pour protéger le matériel de clé, l’appareil ne peut pas être supprimé en tant que ressource Azure tant qu’il n’est pas à l’état réinitialisé.
 
 > [!NOTE]
-> Si vous rencontrez un problème avec la configuration d’un module Gemalto, vous devez contacter le [support technique Gemalto](https://safenet.gemalto.com/technical-support/).
+> Si vous rencontrez un problème avec la configuration d’un module Thales, vous devez contacter le [support technique Thales](https://supportportal.thalesgroup.com/csm).
 
 Si vous souhaitez supprimer la ressource HSM dans Azure, vous pouvez utiliser la commande suivante en remplaçant les variables « $ » par vos paramètres uniques :
 

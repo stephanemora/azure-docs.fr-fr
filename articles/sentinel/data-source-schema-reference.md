@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 84d5f1e4035fb730d33b7bc8dd375273610f0bfb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698346"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771938"
 ---
 # <a name="data-source-schema-reference"></a>Informations de référence sur les schémas de source de données
 
@@ -62,6 +62,9 @@ Le tableau suivant répertorie les fournisseurs tiers pris en charge et leur doc
 |**Hôte** |Trend Micro |Tous |CommonSecurityLog | [Mappage de contenu Syslog - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
 | | | | | |
 
+> [!NOTE]
+> Pour plus d’informations, consultez également [Mappage de champs CEF et CommonSecurityLog](cef-name-mapping.md).
+> 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les connecteurs Azure Sentinel pris en charge, notamment les connecteurs CEF, Syslog, les connecteurs directs, les connecteurs d’agent et les connecteurs personnalisés :

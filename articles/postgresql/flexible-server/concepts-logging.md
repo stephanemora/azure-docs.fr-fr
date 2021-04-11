@@ -1,17 +1,17 @@
 ---
 title: Journaux - Azure Database pour PostgreSQL - Serveur flexible
 description: Décrit la configuration de la journalisation, le stockage et l’analyse dans Azure Database pour PostgreSQL - Serveur flexible
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 852bce26e348c817b609d5ff837641741afe4461
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e09c01fcfb9c4725ac169151e85c8b030d8bb18c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90930709"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606383"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Journaux dans Azure Database pour PostgreSQL - Serveur flexible
 

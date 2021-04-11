@@ -1,17 +1,17 @@
 ---
 title: Supervision et métriques - Azure Database pour PostgreSQL - Serveur flexible
 description: Cet article décrit les fonctionnalités de supervision et de métriques disponibles dans Azure Database pour PostgreSQL - Serveur flexible.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5e7063cd1ae560fa077bd0b1b1279e4515e70464
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d26c585593161ccf4f8ec33f913cc7163531f89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579014"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606655"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Superviser les métriques dans Azure Database pour PostgreSQL - Serveur flexible
 
