@@ -3,77 +3,70 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: Présentation de l’API Détecteur d’anomalies
+    - name: "Qu’est-ce que le détecteur d’anomalies\_?"
       href: overview.md
-- name: Démarrages rapides
-  expanded: true
+    - name: Tarification et limites
+      href: 'https://aka.ms/adpricing'
+- name: Démarrage rapide sur le détecteur d’anomalies
+  href: ./quickstarts/client-libraries.md
+- name: Exemples
   items:
-    - name: Bibliothèque cliente
-      items:
-        - name: Bibliothèque de client Détecteur d’anomalies
-          href: ./quickstarts/client-libraries.md
-- name: Tutoriels
-  items:
-    - name: Visualiser les anomalies en lot avec Power BI
-      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: Démonstration interactive
+      href: 'https://aka.ms/adDemo'
+    - name: Jupyter Notebook
+      href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
+    - name: Exemples Azure
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
 - name: Guides pratiques
   items:
     - name: Identifier les anomalies de vos données
       href: how-to/identify-anomalies.md
-    - name: Déployer sur IoT Edge
-      href: how-to/deploy-anomaly-detection-on-iot-edge.md
-    - name: Utiliser des conteneurs
+    - name: Déployer le détecteur d’anomalies
       items:
-        - name: Installer et exécuter des conteneurs
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
-          href: anomaly-detector-container-howto.md
-        - name: Configurer des conteneurs
-          href: anomaly-detector-container-configuration.md
-          displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
-        - name: Utiliser des instances de conteneur
-          href: how-to/deploy-anomaly-detection-on-container-instances.md
-        - name: Documentation sur les conteneurs Cognitive Services
-          href: ../containers/index.yml
+        - name: Déployer sur IoT Edge
+          href: how-to/deploy-anomaly-detection-on-iot-edge.md
+        - name: Conteneurs
+          items:
+            - name: Documentation sur les conteneurs Cognitive Services
+              href: 'https://docs.microsoft.com/azure/cognitive-services/containers/'
+            - name: Installer et exécuter des conteneurs
+              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+              href: anomaly-detector-container-howto.md
+            - name: Configurer des conteneurs
+              href: anomaly-detector-container-configuration.md
+              displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
+            - name: Utiliser des instances de conteneur
+              href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Concepts
   items:
     - name: Bonnes pratiques de l’API Détecteur d’anomalies
       href: concepts/anomaly-detection-best-practices.md
+    - name: Détection des anomalies SR (Spectral Residual) et CNN (Convolutional Neural Net)
+      href: 'https://arxiv.org/abs/1906.03821'
+- name: Tutoriels
+  items:
+    - name: Visualiser les anomalies en lot avec Power BI
+      href: tutorials/batch-anomaly-detection-powerbi.md
 - name: Informations de référence
   items:
-    - name: Référence sur les API REST
+    - name: API REST du détecteur d’anomalies
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'
-    - name: Kits SDK
-      items:
-        - name: .NET
-          href: 'https://aka.ms/anomaly-detector-dotnet-ref'
-        - name: Go
-          href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
-        - name: Python
-          href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
-        - name: Node.js
-          href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
-    - name: Blogs techniques
-      items:
-        - name: Introduction à l’API Détecteur d’anomalies Azure
-          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
-        - name: Vue d’ensemble de l’algorithme SR-CNN
-          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
-    - name: Démonstration
-      items:
-        - name: Démonstration interactive
-          href: 'https://aka.ms/adDemo'
-        - name: Sur Jupyter Notebook
-          href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
-    - name: Livre blanc sur SR-CNN dans KDD 2019
-      href: 'https://arxiv.org/abs/1906.03821'
+    - name: .NET
+      href: 'https://aka.ms/anomaly-detector-dotnet-ref'
+    - name: Go
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
+    - name: Python
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
+    - name: Node.js
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
 - name: Ressources
   items:
-    - name: Options d’aide et de support
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
-    - name: Tarifs
-      href: 'https://aka.ms/adpricing'
-    - name: Disponibilité régionale
+    - name: Prise en charge de la région
       href: 'https://aka.ms/adregion'
+    - name: Modules Learn
+      href: 'https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/'
+    - name: Support et aide
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Contenu généré par les utilisateurs
       href: user-generated-content.md
     - name: Rejoindre le groupe de conseillers sur les détecteur d’anomalies sur Microsoft Teams
@@ -82,3 +75,11 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Mises à jour Azure
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Blogs techniques
+      items:
+        - name: Introduction à l’API Détecteur d’anomalies Azure
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
+        - name: Vue d’ensemble de l’algorithme SR-CNN
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'

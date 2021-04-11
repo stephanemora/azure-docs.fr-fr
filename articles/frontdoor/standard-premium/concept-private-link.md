@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715511"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799929"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Sécuriser votre origine avec Private Link dans Azure Front Door Standard/Premium (préversion)
 
@@ -30,7 +30,7 @@ ms.locfileid: "101715511"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La référence SKU Azure Front Door Premium peut se connecter à votre origine derrière l’application web et votre compte de stockage à l’aide du service Private Link. Ainsi, votre origine n’a pas besoin d’être publiquement accessible.
+La référence (SKU) Azure Front Door Premium peut se connecter via le service de liaison privée. Vos applications peuvent être hébergées dans votre réseau virtuel privé ou derrière un service PaaS tel que Web App et Compte de stockage, éliminant la nécessité que votre origine soit accessible publiquement.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Architecture des points de terminaison privés de Front Door":::
 

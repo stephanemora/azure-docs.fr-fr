@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
 ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889669"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutoriel : Publier plusieurs versions de votre API 
@@ -60,7 +60,7 @@ Entrez les valeurs du tableau suivant. Sélectionnez ensuite **Créer** pour cr�
 
 
 
-|Paramètre   |Value  |Description  |
+|Paramètre   |Valeur  |Description  |
 |---------|---------|---------|
 |**Nom**     |  *demo-conference-api-v1*       |  Nom unique dans votre instance Gestion des API.<br/><br/>Une version étant de fait une nouvelle API basée sur la [révision](api-management-get-started-revise-api.md) d’une API, ce paramètre est le nom de la nouvelle API.   |
 |**Schéma de gestion de version**     |  **Chemin d’accès**       |  Façon dont les appelants spécifient la version de l’API.     |

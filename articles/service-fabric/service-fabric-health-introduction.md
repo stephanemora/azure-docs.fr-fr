@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008274"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800157"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -79,6 +79,7 @@ Par défaut, Service Fabric applique des règles strictes (tous les éléments d
 
 ### <a name="cluster-health-policy"></a>Stratégie d’intégrité de cluster
 La [stratégie d’intégrité de cluster](/dotnet/api/system.fabric.health.clusterhealthpolicy) est utilisée pour évaluer l’état d’intégrité du cluster et des nœuds. Elle peut être définie dans le manifeste de cluster. Si elle n’est pas spécifiée, la stratégie par défaut (aucun échec autorisé) est utilisée.
+
 La stratégie d’intégrité de cluster contient :
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Spécifie s’il faut traiter les rapports d’intégrité Warning comme des erreurs pendant l’évaluation de l’intégrité. Valeur par défaut : false.
@@ -87,18 +88,33 @@ La stratégie d’intégrité de cluster contient :
 * [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Le mappage de stratégie d’intégrité de type application peut être utilisé lors de l’évaluation de l’intégrité du cluster pour décrire les types d’applications particuliers. Par défaut, toutes les applications sont placées dans un pool et évaluées avec MaxPercentUnhealthyApplications. Si certains types d’application doivent être traités différemment, ils peuvent être retirés du pool global. Au lieu de cela, ils sont évalués par rapport aux pourcentages associés à leur nom de type d’application dans le mappage. Par exemple, un cluster contient des milliers d’applications de types différents et plusieurs instances d’application de contrôle d’un type d’application particulier. Les applications de contrôle ne doivent jamais être erronées. Vous pouvez spécifier le pourcentage global MaxPercentUnhealthyApplications sur 20 % pour tolérer certains échecs, mais dans le cas du type d’application « ControlApplicationType » la valeur MaxPercentUnhealthyApplications doit être définie sur 0. De cette façon, si certaines des nombreuses applications sont défectueuses, mais que leur nombre est inférieur au pourcentage défectueux global, le cluster est évalué avec le niveau Warning (avertissement). Un état d’avertissement pour l’intégrité n’affecte pas la mise à niveau du cluster, ni les autres analyse déclenchées par l’état Error (erreur). Toutefois, même si une seule application de contrôle rencontre une erreur, le cluster dans son ensemble est défectueux, ce qui déclenche la restauration ou interrompt la mise à niveau du cluster, selon la configuration de cette dernière.
   Pour les types d’applications définis dans le mappage, toutes les instances d’applications sont retirées du pool d’applications global. Elles sont évalués en fonction du nombre total d’applications du type d’application, à l’aide de la valeur MaxPercentUnhealthyApplications spécifique issue du mappage. Toutes les autres applications restent dans le pool global et sont évaluées avec MaxPercentUnhealthyApplications.
 
-Voici un extrait de manifeste de cluster. Pour définir des entrées dans le mappage du type d’application, ajoutez en préfixe « ApplicationTypeMaxPercentUnhealthyApplications-» au nom du paramètre, suivi du nom du type d’application.
+  Voici un extrait de manifeste de cluster. Pour définir des entrées dans le mappage du type d’application, ajoutez en préfixe « ApplicationTypeMaxPercentUnhealthyApplications-» au nom du paramètre, suivi du nom du type d’application.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). Le mappage de stratégie d’intégrité de type de nœud peut être utilisé lors de l’évaluation de l’intégrité du cluster pour décrire les types de nœuds particuliers. Les types de nœuds sont évalués par rapport aux pourcentages associés à leur nom de type de nœud dans le mappage. La définition de cette valeur n’a aucun effet sur le pool global de nœuds utilisés pour `MaxPercentUnhealthyNodes`. Par exemple, un cluster compte des centaines de nœuds de types différents et quelques types de nœuds qui hébergent un travail important. Aucun nœud de ce type ne doit être arrêté. Vous pouvez spécifier la valeur `MaxPercentUnhealthyNodes` globale sur 20 % pour tolérer certaines défaillances pour tous les nœuds, mais pour le type de nœud `SpecialNodeType`, définissez la valeur de `MaxPercentUnhealthyNodes` sur 0. Ainsi, si certains des nombreux nœuds sont défectueux, mais que leur nombre est inférieur au pourcentage défectueux global, le cluster est évalué comme étant dans l’état d’intégrité Avertissement. Un état d’intégrité Avertissement n’affecte pas la mise à niveau du cluster, ou d’autres analyse déclenchées par un état d’intégrité Erreur. Toutefois, même un seul nœud de type `SpecialNodeType` dans un état d’intégrité Erreur rend le cluster défectueux et déclenche une restauration, ou suspend la mise à niveau du cluster, en fonction de la configuration de la mise à niveau. Inversement, la définition de la valeur `MaxPercentUnhealthyNodes` globale sur 0 et la définition du pourcentage maximal de nœuds défectueux `SpecialNodeType` sur 100 avec un nœud de type `SpecialNodeType` dans un état d’erreur continueraient de mettre le cluster dans un état d’erreur, car la restriction globale est plus stricte dans ce cas. 
+
+  Voici un extrait de manifeste de cluster. Pour définir des entrées dans le mappage du type de nœud, ajoutez au nom du paramètre le préfixe « NodeTypeMaxPercentUnhealthyNodes- », suivi du nom du type de nœud.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>Stratégie d’intégrité d’application
 La [stratégie d’intégrité d’application](/dotnet/api/system.fabric.health.applicationhealthpolicy) décrit la procédure d’évaluation des événements et une agrégation des états enfants est effectuée pour les applications et leurs enfants. Elle peut être définie dans le manifeste d’application, **ApplicationManifest.xml**, dans le package d’application. Si aucune stratégie n’est spécifiée, Service Fabric suppose que l’entité est défectueuse si elle (ou un de ses enfants) se trouve à l’état d’intégrité Warning ou Error.

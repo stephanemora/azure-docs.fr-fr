@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b555d7972e88df85e08dbcb1737231755c21361
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94696742"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448846"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Réinitialisation TCP de l’équilibreur de charge et délai d’inactivité
 
@@ -58,7 +58,6 @@ TCP keep-alive convient aux scénarios où l’autonomie de la batterie n’est 
 ## <a name="limitations"></a>Limites
 
 - Réinitialisation TCP envoyée uniquement au cours d’une connexion TCP dont l’état est ESTABLISHED.
-- La réinitialisation TCP n’est pas envoyée pour les équilibreurs de charge internes avec des ports haute disponibilité configurés.
 - Le délai d’inactivité TCP n’affecte pas les règles d’équilibrage de charge sur le protocole UDP.
 
 ## <a name="next-steps"></a>Étapes suivantes

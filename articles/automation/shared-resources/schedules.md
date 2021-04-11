@@ -3,14 +3,14 @@ title: Gérer les planifications dans Azure Automation
 description: Cet article explique comment créer et utiliser une planification dans Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149475"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669557"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gérer les planifications dans Azure Automation
 
@@ -38,7 +38,7 @@ Les cmdlets du tableau suivant créent et gèrent les planifications Automation 
 
 ## <a name="create-a-schedule"></a>Créer une planification
 
-Vous pouvez utiliser le Portail Azure ou PowerShell afin de créer une planification pour vos runbooks. Pour éviter d’affecter vos runbooks et les processus qu’ils automatisent, vous devez tout d’abord tester les runbooks ayant des planifications associées avec un compte Automation dédié au test. Un test valide que vos runbooks planifiés continuent de fonctionner correctement. En cas de problème, vous pouvez le corriger et appliquer les modifications requises avant de migrer la version de runbook mise à jour en production.
+Vous pouvez créer une planification pour vos runbooks à partir du portail Azure, avec PowerShell, ou à l’aide d’un modèle Azure Resource Manager (ARM). Pour éviter d’affecter vos runbooks et les processus qu’ils automatisent, vous devez tout d’abord tester les runbooks ayant des planifications associées avec un compte Automation dédié au test. Un test valide que vos runbooks planifiés continuent de fonctionner correctement. En cas de problème, vous pouvez le corriger et appliquer les modifications requises avant de migrer la version de runbook mise à jour en production.
 
 > [!NOTE]
 > Votre compte Automation n’obtient pas automatiquement les nouvelles versions des modules, sauf si vous les avez mis à jour manuellement en sélectionnant l’option [Mettre à jour les modules Azure](../automation-update-azure-modules.md) du panneau **Modules**. Azure Automation utilise les modules les plus récents de votre compte Automation durant l’exécution d’un nouveau travail planifié. 

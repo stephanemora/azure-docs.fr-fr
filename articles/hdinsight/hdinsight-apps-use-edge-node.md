@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: 4061df2dfcfb4cf993e2312fb3438de66863a476
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 717c3c8052c89825b161f77614d7411c5912d1cd
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942668"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799902"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
@@ -58,7 +58,7 @@ Après avoir créé un nœud de périphérie, vous pouvez vous connecter au nœu
 > [!WARNING]
 > Les composants personnalisés qui sont installés sur le nœud de périphérie bénéficient du support commercialement raisonnable de Microsoft. Ainsi, cela peut aider à résoudre les problèmes rencontrés. Vous pouvez également consulter les ressources de la communauté pour obtenir de l’aide. Voici quelques-uns des sites communautaires les plus actifs, sur lesquels vous pouvez obtenir de l’aide :
 >
-> * [Page de questions Microsoft Q&A pour HDInsight](/answers/topics/azure-hdinsight.html
+> * [Page de questions Microsoft Q&R sur HDInsight](/answers/topics/azure-hdinsight.html)
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [https://apache.org](https://apache.org), comme le site [Apache Hadoop](https://hadoop.apache.org/).

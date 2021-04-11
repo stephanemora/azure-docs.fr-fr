@@ -6,21 +6,21 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 23f85fa69224d78d748e6fc94436fd08fa6d971f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 442fa1c76d4667a54f1c13b411b1c052c9a5b134
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586010"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566640"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos DB – Notes de publication et informations sur le téléchargement
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Cet article présente les notes de publication de l’émulateur Azure Cosmos DB avec la liste des mises à jour de fonctionnalités qui ont été apportées à chaque version. Il répertorie également la dernière version de l’émulateur pour vous permettre de la télécharger et de l’utiliser.
+Cet article présente les notes de publication de l’émulateur Azure Cosmos DB avec la liste des mises à jour de fonctionnalités qui ont été apportées à chaque version. Il liste également la dernière version de l’émulateur pour vous permettre de la télécharger et de l’utiliser.
 
-## <a name="download"></a>Téléchargement
+## <a name="download"></a>Télécharger
 
-| |Liens |
+| | Lien |
 |---------|---------|
 |**Téléchargement de MSI**|[Centre de téléchargement Microsoft](https://aka.ms/cosmosdb-emulator)|
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos DB](local-emulator.md)|

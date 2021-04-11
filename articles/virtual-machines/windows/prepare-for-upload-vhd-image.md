@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 12ef839cbbbc69230b314bf7c56a63f57a0d6b20
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556262"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967963"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -113,6 +113,10 @@ Une fois l’analyse du Vérificateur des fichiers système terminée, installez
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
+1. Pour les machines virtuelles dotées de systèmes d’exploitation hérités (Windows Server 2012 R2 ou Windows 8.1 et versions antérieures), assurez-vous que les derniers services de composants d’intégration Hyper-V les plus récents sont installés. Pour plus d’informations, consultez [Mise à jour des composants d’intégration Hyper-V pour machine virtuelle Windows](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+
+> [!NOTE]
+> Dans un scénario où les machines virtuelles doivent être configurées avec une solution de récupération d’urgence entre le serveur VMware local et Azure, il n’est pas possible d’utiliser les services de composants d’intégration Hyper-V. Si c’est le cas, contactez le support VMware pour migrer la machine virtuelle vers Azure et la faire cohabiter sur le serveur VMware.
 
 ## <a name="check-the-windows-services"></a>Vérifier les services Windows
 
@@ -266,6 +270,8 @@ Assurez-vous que la machine virtuelle est saine, sécurisé et accessible au pro
 1. Définissez les paramètres Données de configuration de démarrage (BCD).
 
    ```powershell
+   cmd
+
    bcdedit.exe /set "{bootmgr}" integrityservices enable
    bcdedit.exe /set "{default}" device partition=C:
    bcdedit.exe /set "{default}" integrityservices enable
@@ -279,6 +285,8 @@ Assurez-vous que la machine virtuelle est saine, sécurisé et accessible au pro
    bcdedit.exe /set "{bootmgr}" bootems yes
    bcdedit.exe /ems "{current}" ON
    bcdedit.exe /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+   exit
    ```
 
 1. Le journal de vidage peut être utile pour résoudre les problèmes de blocage de Windows. Activez la collecte des journaux de vidage :
@@ -351,6 +359,10 @@ Assurez-vous que la machine virtuelle est saine, sécurisé et accessible au pro
 1. Désinstallez tous les autres logiciels ou pilotes tiers liés aux composants physiques ou toute autre technologie de virtualisation.
 
 ### <a name="install-windows-updates"></a>Installer les mises à jour Windows
+
+> [!NOTE]
+> Pour éviter un redémarrage accidentel pendant l’approvisionnement de machine virtuelle, nous vous recommandons d’effectuer toutes les installations de Windows Update et de vous assurer qu’aucun redémarrage n’est en attente. Pour ce faire, vous pouvez installer toutes les mises à jour de Windows et redémarrer la machine virtuelle avant d’effectuer la migration vers Azure. </br><br>
+>Si vous devez également effectuer une généralisation du système d’exploitation (sysprep), vous devez mettre à jour Windows et redémarrer la machine virtuelle avant d’exécuter la commande Sysprep.
 
 Dans l’idéal, vous devez garder l’ordinateur à jour *au niveau du correctif*. Si cela n’est pas possible, assurez-vous que les mises à jour suivantes sont installées. Pour obtenir les dernières mises à jour, consultez les pages de l’historique des mises à jour de Windows : [Windows 10 et Windows Server 2019](https://support.microsoft.com/help/4000825), [Windows 8.1 et Windows Server 2012 R2](https://support.microsoft.com/help/4009470) et [Windows 7 SP1 et Windows Server 2008 R2 SP1](https://support.microsoft.com/help/4009469).
 
@@ -522,4 +534,4 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](upload-generalized-managed.md)
-- [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](../troubleshooting/troubleshoot-activation-problems.md)
+- [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

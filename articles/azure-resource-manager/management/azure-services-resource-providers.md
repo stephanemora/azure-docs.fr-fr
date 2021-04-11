@@ -2,17 +2,17 @@
 title: Fournisseurs de ressources par les services Azure
 description: Répertorie tous les espaces de noms de fournisseurs de ressources pour Azure Resource Manager et affiche le service Azure de chaque espace de noms.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: f33017713d8154fb56472ad5f53b97b22d32e0e3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008703"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167870"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
 
-Cet article montre comment les espaces de noms de fournisseurs de ressources sont mappés avec les services Azure.
+Cet article montre comment les espaces de noms de fournisseurs de ressources sont mappés avec les services Azure. Si vous ne connaissez pas le fournisseur de ressources, consultez [Rechercher le fournisseur de ressources](#find-resource-provider).
 
 ## <a name="match-resource-provider-to-service"></a>Fournisseur de ressources correspondant au service
 
@@ -28,7 +28,7 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.AnalysisServices | [Azure Analysis Services](../../analysis-services/index.yml) |
 | Microsoft.ApiManagement | [Gestion des API](../../api-management/index.yml) |
 | Microsoft.AppConfiguration | [Azure App Configuration](../../azure-app-configuration/index.yml) |
-| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.AppPlatform | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Attestation | Service d’attestation Azure |
 | Microsoft.Authorization - [inscrit](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
@@ -103,7 +103,7 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.HybridNetwork  | [Private Edge Zones](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Azure Import/Export](../../import-export/storage-import-export-service.md) |
-| microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
@@ -125,7 +125,7 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering - [inscrit](#registration) | core |
 | Microsoft.Media | [Media Services](../../media-services/index.yml) |
-| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
@@ -155,7 +155,7 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.Search | [Recherche cognitive Azure](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
-| Microsoft.SerialConsole - [inscrit](#registration) | [Console série Azure pour Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
+| Microsoft.SerialConsole - [inscrit](#registration) | [Console série Azure pour Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../../service-fabric-mesh/index.yml) |
@@ -192,6 +192,42 @@ Les fournisseurs de ressources ci-dessus marqués avec **- inscrit** sont inscri
 
 > [!IMPORTANT]
 > Inscrivez un fournisseur de ressources uniquement au moment où vous êtes prêt à l’utiliser. L’étape d’inscription vous permet de conserver les privilèges minimaux dans votre abonnement. Un utilisateur malveillant ne peut pas utiliser de fournisseurs de ressources qui ne sont pas inscrits.
+
+## <a name="find-resource-provider"></a>Rechercher le fournisseur de ressources
+
+Si vous disposez d’une infrastructure existante dans Azure, mais que vous ne savez pas quel fournisseur de ressources est utilisé, vous pouvez utiliser Azure CLI ou PowerShell pour rechercher le fournisseur de ressources. Spécifiez le nom du groupe de ressources qui contient les ressources à rechercher.
+
+L’exemple suivant utilise Azure CLI :
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+Les résultats incluent le type de ressource. L’espace de noms du fournisseur de ressources constitue la première partie du type de ressource. L’exemple suivant montre le fournisseur de ressources **Microsoft.KeyVault**.
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+L’exemple suivant utilise PowerShell :
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+Les résultats incluent le type de ressource. L’espace de noms du fournisseur de ressources constitue la première partie du type de ressource. L’exemple suivant montre le fournisseur de ressources **Microsoft.KeyVault**.
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

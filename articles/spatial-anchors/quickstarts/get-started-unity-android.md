@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3c17eadfad71f58b4557f8115a0d1d3de392b4b9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e1554b1728b120145a06124e4703065a98a4e466
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96015126"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670092"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Unity avec Azure Spatial Anchors
 
@@ -34,7 +34,7 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
-- Une machine Windows ou macOS avec <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, avec les modules **Android Build Support** avec **Android SDK & NDK Tools** et **OpenJDK**.
+- Une machine Windows ou macOS dotée de <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a>, comprenant les modules **Android Build Support** avec **Android SDK & NDK Tools** et **OpenJDK**. Utilisez **Unity 2020 LTS** avec le kit SDK ASA 2.9 ou version ultérieure (qui utilise le [Framework de plug-in Unity XR](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) ou **Unity 2019 LTS** avec le kit SDK ASA 2.8 ou version antérieure.
   - Si vous exécutez Windows, vous avez aussi besoin de <a href="https://git-scm.com/download/win" target="_blank">Git pour Windows</a> et <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si vous exécutez macOS, installez Git via HomeBrew. Entrez la commande suivante sur une seule ligne du Terminal : `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Puis exécutez `brew install git` et `brew install git-lfs`.
 - Un appareil Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">prêt pour le développement</a> et <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatible ARCore</a>.
@@ -58,7 +58,7 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
 Sélectionnez votre appareil dans **Appareil d’exécution**, puis sélectionnez **Générer et exécuter**. Vous êtes ensuite invité à enregistrer in fichier `.apk`, auquel vous pouvez donner n’importe quel nom.
 
-Dans l’application, sélectionnez **BasicDemo** à l’aide des flèches, puis appuyez sur le bouton **Go!** pour exécuter la démo. Suivez les instructions pour placer et rappeler une ancre.
+Dans l’application, sélectionnez **BasicDemo** à l’aide des flèches, puis appuyez sur le bouton **Go!** pour exécuter la démo. Suivez les instructions dans l’application pour placer et rappeler une ancre.
 
 ![Capture d’écran 1](./media/get-started-unity-android/screenshot-1.jpg)
 ![Capture d’écran 2](./media/get-started-unity-android/screenshot-2.jpg)

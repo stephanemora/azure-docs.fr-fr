@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467542"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043357"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Paramétrages recommandés pour l’isolement réseau
 
@@ -60,7 +60,7 @@ Une instance de Recherche cognitive peut être isolée par le biais d’un point
 
 Si QnA Maker App Service est restreint à l’aide d’App Service Environment, utilisez le même réseau virtuel pour créer une connexion de point de terminaison privé à l’instance de Recherche cognitive. Créez une entrée DNS dans le réseau virtuel pour mapper le point de terminaison Recherche cognitive à l’adresse IP du point de terminaison privé Recherche cognitive. 
 
-Si App Service Environment n’est pas utilisé pour QnA Maker App Service, créez d’abord une ressource de réseau virtuel, puis créez la connexion de point de terminaison privé à l’instance de Recherche cognitive. Dans ce cas, QnA Maker App Service doit [être intégré au réseau virtuel](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) pour se connecter à l’instance de Recherche cognitive. 
+Si App Service Environment n’est pas utilisé pour QnA Maker App Service, créez d’abord une ressource de réseau virtuel, puis créez la connexion de point de terminaison privé à l’instance de Recherche cognitive. Dans ce cas, QnA Maker App Service doit [être intégré au réseau virtuel](../../../app-service/web-sites-integrate-with-vnet.md) pour se connecter à l’instance de Recherche cognitive. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 

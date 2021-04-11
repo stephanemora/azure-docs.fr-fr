@@ -10,12 +10,12 @@ ms.date: 12/28/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 8812ab091037bcb3144a7fed53a449c3f5de353a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 51e73222233602491b0c8ed3835d032610c68e0d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802505"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104722784"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -181,6 +181,9 @@ Les recommandations suivantes relatives à l’utilisation des signatures d’ac
 - **Savoir quand ne pas utiliser une SAP.** Parfois, les risques associés à une opération particulière sur votre compte de stockage l'emportent sur les avantages de l’utilisation d’une signature d'accès partagé. Pour ces opérations, créez un service de niveau intermédiaire qui écrit dans votre compte de stockage après avoir effectué la validation des règles métier, l'authentification et un audit. Parfois aussi, il est plus simple de gérer l'accès par d'autres moyens. Par exemple, si vous voulez que tous les objets blob dans un conteneur soient publiquement lisibles, vous pouvez rendre le conteneur public, au lieu de fournir une signature d'accès partagé à chaque client.
 
 - **Utilisez Azure Monitor et les journaux de stockage Azure pour surveiller votre application.** Des échecs d’autorisation peuvent survenir en raison d’une panne dans votre service fournisseur SAS. Ils peuvent également provenir d’une suppression accidentelle d’une stratégie d’accès stockée. Vous pouvez utiliser Azure Monitor et la journalisation de l’analytique du stockage pour observer les pics dans ces types d’échecs d’autorisation. Pour plus d’informations, consultez [Métriques de stockage Azure dans Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) et [Journalisation Azure Storage Analytics](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE]
+> Stockage Azure n’assure pas le suivi du nombre de signatures d’accès partagé qui ont été générées pour un compte de stockage, et aucune API ne peut fournir ce détail. Si vous avez besoin de connaître le nombre de signatures d’accès partagé qui ont été générées pour un compte de stockage, vous devez effectuer ce suivi manuellement.
 
 ## <a name="get-started-with-sas"></a>Prise en main de la SAP
 

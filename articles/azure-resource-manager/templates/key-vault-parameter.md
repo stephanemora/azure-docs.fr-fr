@@ -4,10 +4,10 @@ description: Montre comment passer une clé secrète à partir d’un coffre de 
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.openlocfilehash: 05749fe2e9179051c3183ea2e592cf7190ddb347
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104889856"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement

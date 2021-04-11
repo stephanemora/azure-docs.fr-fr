@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0f08ca84597b08b9a236b7bfb0fc9c849423a752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5cd90e994e620960e0d974ef7609a67f8a5eb58b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93335889"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448540"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Interroger un conteneur Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -26,19 +26,19 @@ Quand vous interrogez des données de conteneurs, si un filtre de clé de partit
 Par exemple, considérez la requête ci-dessous avec un filtre d’égalité sur `DeviceId`. Si nous exécutons cette requête sur un conteneur partitionné sur `DeviceId`, cette requête filtre sur une seule partition physique.
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
 ```
 
 Comme dans l’exemple précédent, cette requête filtre également sur une partition unique. L’ajout du filtre supplémentaire sur `Location` ne modifie pas cela :
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
+SELECT * FROM c WHERE c.DeviceId = 'XMS-0001' AND c.Location = 'Seattle'
 ```
 
 Voici une requête qui comporte un filtre de plage sur la clé de partition et qui n’est pas limitée à une seule partition physique. Pour être une requête dans une partition, la requête doit avoir un filtre d’égalité qui comprend la clé de partition :
 
 ```sql
-    SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
+SELECT * FROM c WHERE c.DeviceId > 'XMS-0001'
 ```
 
 ## <a name="cross-partition-query"></a>Requête dans plusieurs partitions
@@ -46,7 +46,7 @@ Voici une requête qui comporte un filtre de plage sur la clé de partition et q
 La requête suivante n’a pas de filtre sur la clé de partition (`DeviceId`). Par conséquent, elle doit se distribuer sur toutes les partitions physiques où elle est exécutée sur l’index de chaque partition :
 
 ```sql
-    SELECT * FROM c WHERE c.Location = 'Seattle`
+SELECT * FROM c WHERE c.Location = 'Seattle`
 ```
 
 Chaque partition physique a son propre index. Par conséquent, lorsque vous exécutez une requête sur plusieurs partitions sur un conteneur, vous exécutez de fait une requête *par* partition physique. Azure Cosmos DB regroupe automatiquement les résultats sur différentes partitions physiques.

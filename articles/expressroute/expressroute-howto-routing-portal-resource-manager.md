@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 11a4798c0cb3bc010bbdbae1fcb709951c67781a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c4f76a02a88b91c082106566ca236abe25d4ed88
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721902"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567346"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutoriel : Créer et modifier une homologation pour un circuit ExpressRoute à l’aide du portail Azure
 
@@ -124,7 +124,7 @@ Sélectionnez la ligne du peering que vous souhaitez modifier, puis modifiez les
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering privé Azure pour un circuit ExpressRoute.
 
 > [!IMPORTANT]
-> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](../virtual-network/ipv6-overview.md).
 > 
 > 
 

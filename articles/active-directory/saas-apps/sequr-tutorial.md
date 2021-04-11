@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Sequr | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Sequr.
+title: 'Tutoriel : Intégration d’Azure Active Directory à Genea Access Control | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Genea Access Control.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,210 +9,158 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: d1993f89f8b1da4789541006c15380d2145d3d81
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 82c05f77781abdaea3b2c84aa1071656c206439a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674491"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669861"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Didacticiel : Intégration d’Azure Active Directory à Sequr
+# <a name="tutorial-azure-active-directory-integration-with-genea-access-control"></a>Tutoriel : Intégration d’Azure Active Directory à Genea Access Control
 
-Dans ce didacticiel, vous apprenez à intégrer Sequr à Azure Active Directory (Azure AD).
-L’intégration de Sequr dans Azure AD offre les avantages suivants :
+Dans ce tutoriel, vous allez apprendre à intégrer Genea Access Control à Azure Active Directory (Azure AD). Quand vous intégrez Genea Access Control à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Sequr.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Sequr (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler qui a accès à Genea Access Control dans Azure AD.
+* Autoriser les utilisateurs à se connecter automatiquement à Genea Access Control avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables requises
-
-Pour configurer l’intégration d’Azure AD à Sequr, vous avez besoin des éléments suivants :
+Pour configurer l’intégration d’Azure AD à Genea Access Control, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
-* Abonnement Sequr pour lequel l’authentification unique est activée
+* Un abonnement Genea Access Control pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Sequr prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
+* Genea Access Control prend en charge l’authentification unique (SSO) lancée par **le fournisseur de services et le fournisseur d’identité**.
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-sequr-from-the-gallery"></a>Ajout de Sequr à partir de la galerie
 
-Pour configurer l’intégration de Sequr dans Azure AD, vous devez ajouter Sequr, disponible dans la galerie, à votre liste d’applications SaaS managées.
+## <a name="adding-genea-access-control-from-the-gallery"></a>Ajouter Genea Access Control à partir de la galerie
 
-**Pour ajouter Sequr à partir de la galerie, procédez comme suit :**
+Pour configurer l’intégration de Genea Access Control à Azure AD, vous devez ajouter Genea Access Control, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory** .
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Genea Access Control** dans la zone de recherche.
+1. Sélectionnez **Genea Access Control** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-genea-access-control"></a>Configurer et tester l’authentification unique (SSO) Azure AD pour Genea Access Control
 
-2. Accédez à **Applications d’entreprise** , puis sélectionnez l’option **Toutes les applications** .
+Configurez et testez l’authentification unique (SSO) Azure AD avec Genea Access Control pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Genea Access Control associé.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+Pour configurer et tester l’authentification unique Azure AD avec Genea Access Control, effectuez les étapes suivantes :
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Genea Access Control](#configure-genea-access-control-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Genea Access Control](#create-genea-access-control-test-user)** pour avoir, dans Genea Access Control, un équivalent de B.Simon lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-4. Dans la zone de recherche, tapez **Sequr** , sélectionnez **Sequr** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-    ![Sequr dans la liste des résultats](common/search-new-app.png)
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Genea Access Control**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Sequr sur un utilisateur de test appelé **Britta Simon** .
-Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Sequr associé doit être établie.
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez l’étape suivante :
 
-Pour configurer et tester l’authentification unique Azure AD avec Sequr, vous devez suivre les indications des sections suivantes :
+    Dans la zone de texte **Identificateur**, tapez l’URL : `https://login.sequr.io`
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Sequr](#configure-sequr-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Sequr](#create-sequr-test-user)** pour avoir un équivalent de Britta Simon dans Sequr lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+    a. Dans la zone de texte **URL de connexion**, tapez l’URL : `https://login.sequr.io`
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
+    b. Dans la zone de texte **État de relais**, vous obtenez cette valeur, qui est expliquée plus loin dans le didacticiel.
 
-Pour configurer l’authentification unique Azure AD avec Sequr, procédez comme suit :
-
-1. Dans le [Portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Sequr** , sélectionnez **Authentification unique** .
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique** , sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base** .
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-4. Dans la section **Configuration SAML de base** , si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité** , effectuez l’étape suivante :
-
-    ![Informations d’authentification unique dans Domaine et URL Sequr](common/idp-identifier.png)
-
-    Dans la zone de texte **Identificateur** , tapez l’URL : `https://login.sequr.io`
-
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
-
-    ![image](common/both-advanced-urls.png)
-
-    a. Dans la zone de texte **URL de connexion** , tapez l’URL : `https://login.sequr.io`
-
-    b. Dans la zone de texte **État de relais** , vous obtenez cette valeur, qui est expliquée plus loin dans le didacticiel.
-
-6. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-7. Dans la section **Configurer Sequr** , copiez la ou les URL appropriées en fonction de vos besoins.
+7. Dans la section **Configurer Genea Access Control**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
-
-### <a name="configure-sequr-single-sign-on"></a>Configurer l’authentification unique Sequr
-
-1. Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise Sequr en tant qu’administrateur.
-
-1. Cliquez sur **Intégrations** à partir du panneau de navigation gauche.
-
-    ![Capture d’écran montrant l’élément Integration sélectionné dans le volet de navigation.](./media/sequr-tutorial/configure1.png)
-
-1. Faites défiler jusqu’à la section **Authentification unique** et cliquez sur **Gérer** .
-
-    ![Capture d’écran montrant la section Single Sign-On avec le bouton Manage sélectionné.](./media/sequr-tutorial/configure2.png)
-
-1. Dans la section **Gérer l’authentification unique** , suivez ces étapes :
-
-    ![Capture d’écran montrant la section Manage Single Sign-On, dans laquelle vous pouvez entrer les valeurs décrites.](./media/sequr-tutorial/configure3.png)
-
-    a. Dans la zone de texte **Identity Provider Single Sign-On URL** (URL d’authentification unique du fournisseur d’identité), collez la valeur de l’ **URL de connexion** que vous avez copiée à partir du Portail Azure.
-
-    b. Faites glisser et déposez le fichier de **certificat** que vous avez téléchargé à partir du portail Azure, ou entrez manuellement le contenu du certificat.
-
-    c. Après avoir enregistré la configuration, la valeur d’état de relais est générée. Copiez la valeur d’ **état de relais** et collez-la dans la zone de texte **État de relais** de la section **Configuration SAML de base** dans le Portail Azure.
-
-    d. Cliquez sur **Enregistrer** .
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory** , sélectionnez **Utilisateurs** , puis sélectionnez **Tous les utilisateurs** .
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom** , entrez **BrittaSimon** .
-  
-    b. Dans le champ **Nom d’utilisateur** , tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Sequr.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Genea Access Control.
 
-1. Dans le Portail Azure, sélectionnez **Applications d’entreprise** , **Toutes les applications** , puis **Sequr** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Genea Access Control**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+## <a name="configure-genea-access-control-sso"></a>Configurer l’authentification unique pour Genea Access Control
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Genea Access Control en tant qu’administrateur.
 
-2. Dans la liste des applications, sélectionnez **Sequr** .
+1. Cliquez sur **Intégrations** à partir du panneau de navigation gauche.
 
-    ![Lien Sequr dans la liste des applications](common/all-applications.png)
+    ![Capture d’écran montrant l’élément Integration sélectionné dans le volet de navigation.](./media/sequr-tutorial/configure-1.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes** .
+1. Faites défiler jusqu’à la section **Authentification unique** et cliquez sur **Gérer**.
 
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+    ![Capture d’écran montrant la section Single Sign-On avec le bouton Manage sélectionné.](./media/sequr-tutorial/configure-2.png)
 
-4. Cliquez sur le bouton **Ajouter un utilisateur** , puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Dans la section **Gérer l’authentification unique**, suivez ces étapes :
 
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
+    ![Capture d’écran montrant la section Manage Single Sign-On, dans laquelle vous pouvez entrer les valeurs décrites.](./media/sequr-tutorial/configure-3.png)
 
-5. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+    a. Dans la zone de texte **Identity Provider Single Sign-On URL** (URL d’authentification unique du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du Portail Azure.
 
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+    b. Faites glisser et déposez le fichier de **certificat** que vous avez téléchargé à partir du portail Azure, ou entrez manuellement le contenu du certificat.
 
-7. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+    c. Après avoir enregistré la configuration, la valeur d’état de relais est générée. Copiez la valeur d’**état de relais** et collez-la dans la zone de texte **État de relais** de la section **Configuration SAML de base** dans le Portail Azure.
 
-### <a name="create-sequr-test-user"></a>Créer un utilisateur de test Sequr
+    d. Cliquez sur **Enregistrer**.
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans Sequr. Collaborez avec l’[équipe du support technique Sequr](mailto:support@sequr.io) pour ajouter des utilisateurs sur la plateforme Sequr. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+### <a name="create-genea-access-control-test-user"></a>Créer un utilisateur de test Genea Access Control
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+Dans cette section, vous créez un utilisateur nommé Britta Simon dans Genea Access Control. Collaborez avec l’[équipe du support technique de Genea Access Control](mailto:support@sequr.io) pour ajouter les utilisateurs dans la plateforme Genea Access Control. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Le fait de cliquer sur la vignette Sequr dans le panneau d’accès doit vous connecter automatiquement à l’application Sequr pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération vous redirige vers l’URL de connexion à Genea Access Control, d’où vous pouvez lancer le flux de connexion.  
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+* Accédez directement à l’URL de connexion à Genea Access Control et lancez le flux de connexion.
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
+
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors automatiquement connecté à l’instance de Genea Access Control pour laquelle vous avez configuré l’authentification unique. 
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Genea Access Control dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le flux de connexion ; si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’instance de Genea Access Control pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Genea Access Control, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -1,15 +1,15 @@
 ---
 title: 'Référence : Base de référence de configuration invité d’Azure Policy pour Linux'
 description: Détails de la base de référence Linux sur Azure implémentée via la configuration invité d’Azure Policy.
-ms.date: 03/12/2021
+ms.date: 04/05/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 6b1d3048fdc0945e1ee64e211d2f7b1f9de5e6e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: adee82dd9802be47a777a9666a7c680d5b5c6204
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419862"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448724"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Base de référence de configuration invité d’Azure Policy pour Linux
 

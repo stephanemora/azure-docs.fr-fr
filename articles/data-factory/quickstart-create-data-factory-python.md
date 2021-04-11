@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Créer une fabrique de données Azure à l’aide d
 description: Utilisez une fabrique de données pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: f92a09e78d65f3723b9dfa83574f603dc113ebeb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372363"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889414"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
@@ -34,7 +34,7 @@ Les pipelines peuvent ingérer des données provenant de différents magasins de
 
 * Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.6 ou version ultérieure](https://www.python.org/downloads/).
 
 * [Un compte Stockage Azure](../storage/common/storage-account-create.md).
 
@@ -66,7 +66,7 @@ Les pipelines peuvent ingérer des données provenant de différents magasins de
     pip install azure-mgmt-datafactory
     ```
 
-    Le [kit SDK Python pour Data Factory](https://github.com/Azure/azure-sdk-for-python) prend en charge Python 2.7, 3.3, 3.4, 3.5, 3.6 et 3.7.
+    Le [kit SDK Python pour Data Factory](https://github.com/Azure/azure-sdk-for-python) prend en charge Python 2.7 et 3.6 ou versions ultérieures.
 
 4. Pour installer le package Python pour l’authentification d’identité Azure, exécutez la commande suivante :
 

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347810"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104800140"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ Vous pouvez configurer le niveau de cohérence par défaut sur votre compte Azur
 
 Azure Cosmos DB garantit que 100 % des requêtes de lecture respecteront la garantie de cohérence dans le cadre du niveau de cohérence choisi. Les définitions précises des cinq niveaux de cohérence dans Azure Cosmos DB (en utilisant le langage de spécification TLA +) sont fournies dans le référentiel GitHub [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla).
 
-La sémantique des cinq niveaux de cohérence est décrite ici :
+La sémantique des cinq niveaux de cohérence est décrite dans les sections suivantes :
 
-- **Remarque**: une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
+### <a name="strong-consistency"></a>Cohérence forte
+
+une cohérence forte offre une garantie de linéarisabilité. La linéarisabilité fait référence aux demandes de traitement simultanées. Garantit que les lectures retournent la version validée la plus récente d’un élément. Un client ne voit jamais une écriture partielle ou non validée. Les utilisateurs sont toujours assurés de lire la toute dernière écriture validée.
 
   Le graphique suivant illustre la cohérence forte avec des notes musicales. Une fois les données écrites dans la région « USA Ouest 2 », quand vous lisez les données à partir d’autres régions, vous obtenez la valeur la plus récente :
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Illustration d’un niveau de cohérence fort":::
 
-- **Obsolescence limitée**: les lectures honoreront la garantie de préfixe cohérent. Les lectures risquent d’accuser un retard par rapport aux écritures d’au maximum *« K »* versions (c’est-à-dire « mises à jour ») d’un élément ou d’un intervalle de temps *« T »* , suivant le seuil qui est atteint en premier. En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières :
+### <a name="bounded-staleness-consistency"></a>Niveau de cohérence obsolescence limitée
+
+Avec une cohérence d’obsolescence limitée, les lectures honoreront la garantie de préfixe cohérent. Les lectures risquent d’accuser un retard par rapport aux écritures d’au maximum *« K »* versions (c’est-à-dire « mises à jour ») d’un élément ou d’un intervalle de temps *« T »* , suivant le seuil qui est atteint en premier. En d’autres termes, lorsque vous choisissez l’obsolescence limitée, « l’obsolescence » peut être configurée de deux manières :
 
 - Nombre de versions (*K*) de l’élément
 - Intervalle de temps (*T*) pendant lequel les lectures peuvent être en retard par rapport aux écritures
@@ -79,7 +83,9 @@ La cohérence de type Obsolescence limitée offre un ordre global total, en deho
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustration du niveau de cohérence d’obsolescence limitée":::
 
-- **Session**:  Dans une session à un seul client, il est garanti que les lectures honorent le préfixe cohérent, les lectures unitones, les écritures unitones, les lectures de vos écritures et les écritures suivant les lectures. Cela suppose une session avec un seul « processus d’écriture » ou le partage du jeton de session pour plusieurs processus d’écriture.
+### <a name="session-consistency"></a>Cohérence de session
+
+Avec une cohérence de session, dans une session à un seul client, il est garanti que les lectures honorent le préfixe cohérent, les lectures unitones, les écritures unitones, les lectures de vos écritures et les écritures suivant les lectures. Cela suppose une session avec un seul « processus d’écriture » ou le partage du jeton de session pour plusieurs processus d’écriture.
 
 Les clients en dehors de la session effectuant des écritures verront les garanties suivantes :
 
@@ -92,7 +98,9 @@ Les clients en dehors de la session effectuant des écritures verront les garant
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Illustration du niveau de cohérence de session":::
 
-- **Préfixe cohérent** : les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence Préfixe cohérent garantit que les lectures ne voient jamais les écritures non ordonnées.
+### <a name="consistent-prefix-consistency"></a>Niveau de cohérence préfixe cohérent
+
+Avec l’option de préfixe cohérent, les mises à jour retournées contiennent un préfixe de toutes les mises à jour, sans interruption. Le niveau de cohérence Préfixe cohérent garantit que les lectures ne voient jamais les écritures non ordonnées.
 
 Si les écritures ont été effectuées dans l’ordre `A, B, C`, un client peut voir `A`, `A,B` ou `A,B,C`, mais jamais de permutations dans le désordre comme `A,C` ou `B,A,C`. La cohérence avec préfixe cohérent fournit des latences d’écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais offre également des garanties d’ordre adaptées aux besoins des scénarios dans lesquels l’ordre est important.
 
@@ -107,7 +115,9 @@ Le graphique suivant illustre la cohérence avec préfixe cohérent avec des not
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Illustration d’un préfixe cohérent":::
 
-- **Eventual (Éventuel)** : Il n’existe aucune garantie de classement pour les lectures. En l’absence d’autres écritures, les réplicas finissent par converger.  
+### <a name="eventual-consistency"></a>Cohérence éventuelle
+
+Avec une cohérence d’événement, il n’existe aucune garantie de classement des lectures. En l’absence d’autres écritures, les réplicas finissent par converger.  
 La cohérence éventuelle est la forme de cohérence la plus faible, car un client peut lire des valeurs plus anciennes que celles qu’il a déjà lues. La cohérence éventuelle est idéale lorsque l’application ne nécessite pas de garantie d’ordre. Comme exemples, citons le nombre de retweets, de mentions J’aime ou de commentaires non liés à un thread. Le graphique suivant illustre la cohérence éventuelle avec des notes musicales.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Illustration de la cohérence éventuelle":::
