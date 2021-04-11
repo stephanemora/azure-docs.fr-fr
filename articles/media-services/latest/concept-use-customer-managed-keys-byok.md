@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: f2ea960d28bcdcbf586570933ac00dccae18e46a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bc7b1a0742e79c3c84bf533e75467b5def2706b4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067994"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277723"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Utiliser des clés BYOK (clé gérées par le client) avec Media Services
 
@@ -46,8 +46,8 @@ Media Services prend automatiquement en charge le chiffrement double. Pour les d
 
 ## <a name="tutorials"></a>Tutoriels
 
-- [Utiliser le portail Azure pour utiliser des clés managées par le client ou BYOK avec la plateforme Media Services](tutorial-byok-portal.md)
-- [Utiliser des clés managées par le client ou BYOK avec l’API REST Media Services](tutorial-byok-postman.md).
+- [Utiliser le portail Azure pour utiliser des clés managées par le client ou BYOK avec la plateforme Media Services](security-customer-managed-keys-portal-tutorial.md)
+- [Utiliser des clés managées par le client ou BYOK avec l’API REST Media Services](security-customer-managed-keys-rest-postman-tutorial.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

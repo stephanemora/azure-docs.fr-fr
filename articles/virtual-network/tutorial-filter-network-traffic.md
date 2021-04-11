@@ -4,17 +4,16 @@ titlesuffix: Azure Virtual Network
 description: Dans ce tutoriel, vous allez apprendre à filtrer le trafic réseau vers un sous-réseau, avec un groupe de sécurité réseau, à l’aide du portail Azure.
 services: virtual-network
 author: KumudD
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
-ms.openlocfilehash: 746e44c85d4dd9a662556a73f1e4ab0701d31400
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: cfbb499c79761e1f2014c834e65dac35fe09ef90
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435902"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057284"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 

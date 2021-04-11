@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b5e852e3a32c4fb40dbe7ebc50a00302b4b82b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 51e84e7e3a1e8a800769985e37374abf6d601f5c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92519093"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077378"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yuhu-property-management-platform"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Yuhu Property Management Platform
 
@@ -93,7 +93,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | Nom | Attribut source|
     | ---------------| --------------- |
     | firstName | user.givenname |
-    | lastName | user.surname ||
+    | lastName | user.surname |
     | email | user.mail |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
