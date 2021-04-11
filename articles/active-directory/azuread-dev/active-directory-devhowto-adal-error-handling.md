@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad5595f7eebc8feca2f00a6f95e10c547ded9529
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: da47893839322f06cebfbee40902414040bb87d8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85383732"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075200"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -197,7 +197,7 @@ En cas d’échec, une application peut afficher une interface utilisateur pour 
 
 La gestion des erreurs dans les applications natives peut être définie par deux cas :
 
-|  |  |
+| Cas | Description  |
 |------|-------------|
 | **Cas n° 1** :<br>Erreur non renouvelable (la plupart des cas) | 1. N’effectue pas de nouvelle tentative immédiate. Présente à l’utilisateur final une interface utilisateur basée sur l’erreur spécifique qui l’invite à effectuer une nouvelle tentative (par exemple « Effectuer une nouvelle tentative de connexion » ou « Télécharger l’application du répartiteur Azure AD »). |
 | **Cas n° 2** :<br>Erreur renouvelable | 1. Effectue une nouvelle tentative unique, car l’utilisateur final peut désormais se trouver dans un état permettant à la tentative de réussir.<br><br>2. Si la nouvelle tentative échoue, présente à l’utilisateur final une interface utilisateur basée sur l’erreur spécifique qui l’invite à effectuer une nouvelle tentative (« Effectuer une nouvelle tentative de connexion », « Télécharger l’application du répartiteur Azure AD », etc.). |
@@ -371,7 +371,7 @@ Si vous créez une application monopage à l’aide d’adal.js avec AcquireToke
 
 Un échec AcquireToken inclut les cas suivants :
 
-|  |  |
+| Cas | Description  |
 |------|-------------|
 | **Cas n° 1** :<br>Résolvable via une requête interactive. | 1. Si login() échoue, n’effectue pas de nouvelle tentative immédiate. Effectue uniquement une nouvelle tentative après une action de l’utilisateur qui invite ce dernier à réessayer.|
 | **Cas n° 2** :<br>Non résolvable via une requête interactive. L’erreur est renouvelable. | 1. Effectue une nouvelle tentative unique, car l’utilisateur final peut désormais se trouver dans un état permettant à la tentative de réussir.<br><br>2. Si la nouvelle tentative échoue, présente à l’utilisateur final une action basée sur l’erreur spécifique qui l’invite à effectuer une nouvelle tentative (« Effectuer une nouvelle tentative de connexion »). |

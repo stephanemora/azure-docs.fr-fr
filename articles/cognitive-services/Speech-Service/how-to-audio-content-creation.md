@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7e43c472c939049e5dfd4ec4df909a3178ef8e2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100388581"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553258"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Améliorer la synthèse avec l’outil de création de contenu audio
 
@@ -44,7 +44,7 @@ Après vous être inscrit au compte Azure, vous devez créer une ressource Speec
 Le déploiement de votre nouvelle ressource Speech prend quelques instants. Une fois le déploiement terminé, vous pouvez démarrer le parcours Création de contenu audio. 
 
  >[!NOTE]
-   > Si vous envisagez d’utiliser des voix neuronales, assurez-vous de créer votre ressource dans [une région qui prend en charge les voix neuronales](regions.md#standard-and-neural-voices).
+   > Si vous envisagez d’utiliser des voix neuronales, assurez-vous de créer votre ressource dans [une région qui prend en charge les voix neuronales](regions.md#neural-and-standard-voices).
  
 ### <a name="step-3---log-into-the-audio-content-creation-with-your-azure-account-and-speech-resource"></a>Étape 3 : Se connecter à Création de contenu audio avec votre compte Azure et votre ressource Speech
 

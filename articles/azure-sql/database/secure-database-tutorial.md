@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 8cdf95dd3c0e801896328136b15e4bd4efe53005
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 306a8d78caf36291573d021ed1d814aa4f7a2164
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102563810"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642774"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,7 +109,7 @@ Pour configurer une règle de pare-feu au niveau de la base de données :
 1. Dans la barre d’outils, sélectionnez **Exécuter** pour créer la règle de pare-feu.
 
 > [!NOTE]
-> Vous pouvez également créer une règle de pare-feu au niveau du serveur dans SSMS à l’aide de la commande [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current), même si vous devez être connecté à la base de données *master*.
+> Vous pouvez également créer une règle de pare-feu au niveau du serveur dans SSMS à l’aide de la commande [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database?view=azuresqldb-current&preserve-view=true), même si vous devez être connecté à la base de données *master*.
 
 ## <a name="create-an-azure-ad-admin"></a>Créer une application Azure AD
 

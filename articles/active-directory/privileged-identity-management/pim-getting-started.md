@@ -14,12 +14,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c00824e7fb0529cd14e3d7b757d513ee739fe283
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90600719"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504411"
 ---
 # <a name="start-using-privileged-identity-management"></a>Commencer à utiliser Privileged Identity Management
 
@@ -70,7 +70,7 @@ Une fois Privileged Identity Management configuré, vous pouvez vous familiarise
 | Tâche + Gérer | Description |
 | --- | --- |
 | **Mes rôles**  | Affiche la liste des rôles éligibles et actifs qui vous sont attribués. C’est là où vous pouvez activer tout rôle éligible attribué. |
-| **Mes demandes** | Affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles. |
+| **Demandes en attente** | Affiche toutes vos requêtes en attente pour activer les attributions de rôles éligibles. |
 | **Approuver les demandes** | Affiche la liste des demandes d’activation des rôles éligibles par utilisateur dans votre annuaire, dont l’approbation vous revient. |
 | **Revoir l’accès** | Répertorie les révisions d’accès que vous devez terminer, que vous les effectuiez pour vous-même ou pour quelqu’un d’autre. |
 | **Rôles Azure AD** | Affiche un tableau de bord et des paramètres pour les administrateurs de rôle privilégié qui doivent gérer les attributions de rôles Azure AD. Ce tableau de bord est désactivée pour toute personnes n’étant pas un administrateur de rôle privilégié. Ces utilisateurs ont accès à un tableau de bord spécial intitulé Mon affichage. Le tableau de bord Mon affichage présente uniquement des informations sur l’utilisateur qui accède au tableau de bord, sur l’ensemble de l’organisation. |
