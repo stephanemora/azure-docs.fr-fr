@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581400"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103014891"
 ---
 # <a name="security-best-practices"></a>Bonnes pratiques de sécurité
 
@@ -117,7 +117,6 @@ Pour tester cette nouvelle fonctionnalité :
 >[!NOTE]
 >Pendant la préversion, seules les connexions de bureau complètes à partir de points de terminaison Windows 10 prennent en charge cette fonctionnalité.
 
-
 ### <a name="enable-endpoint-protection"></a>Activer Endpoint Protection
 
 Pour protéger votre déploiement contre les logiciels malveillants connus, nous vous recommandons d’activer Endpoint Protection sur tous les hôtes de session. Vous pouvez utiliser l’antivirus Windows Defender ou un programme tiers. Pour plus d’informations, consultez [Guide de déploiement de l’antivirus Windows Defender dans un environnement VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
@@ -169,6 +168,52 @@ En limitant les capacités du système d'exploitation, vous pouvez renforcer la 
 - Accordez aux utilisateurs des autorisations limitées lorsqu’ils accèdent à des systèmes de fichiers locaux et distants. Vous pouvez limiter les autorisations en vous assurant que vos systèmes de fichiers locaux et distants utilisent des listes de contrôle d’accès avec le moins de privilèges possible. De cette façon, les utilisateurs peuvent accéder uniquement à ce dont ils ont besoin et ne peuvent pas modifier ou supprimer les ressources critiques.
 
 - Empêchez l’exécution de logiciels indésirables sur les hôtes de session. Vous pouvez activer App Locker pour une sécurité supplémentaire sur les hôtes de session, en vous assurant que seules les applications que vous autorisez peuvent fonctionner sur l'hôte.
+
+## <a name="windows-virtual-desktop-support-for-trusted-launch"></a>Prise en charge de Windows Virtual Desktop pour un lancement fiable
+
+Les lancements fiables sont des machines virtuelles Azure Gen2 dotées de fonctionnalités de sécurité améliorées destinées à se protéger contre les menaces « en bas de la pile » par le biais de vecteurs d’attaque tels que les rootkits, les kits de démarrage et les programmes malveillants au niveau du noyau. Voici les fonctionnalités de sécurité renforcée du lancement fiable, qui sont toutes prises en charge dans Windows Virtual Desktop. Pour en savoir plus sur le lancement fiable, consultez [Lancement fiable pour les machines virtuelles Azure (préversion)](../virtual-machines/trusted-launch.md).
+
+### <a name="secure-boot"></a>Démarrage sécurisé
+
+Le démarrage sécurisé est un mode pris en charge par le microprogramme de la plateforme qui protège votre microprogramme des rootkits et kits de démarrage basés sur des programmes malveillants. Ce mode autorise uniquement les systèmes d’exploitation et les pilotes signés à démarrer l’ordinateur. 
+
+### <a name="monitor-boot-integrity-using-remote-attestation"></a>Surveiller l’intégrité du démarrage à l’aide de l’attestation distante
+
+L’attestation distante est un excellent moyen de vérifier l’intégrité de vos machines virtuelles. L’attestation distante vérifie que les enregistrements de démarrage mesurés sont présents et authentiques et qu’ils proviennent du module de plateforme sécurisé virtuel (vTPM). En guise de vérification de l’intégrité, elle fournit la certitude cryptographique qu’une plateforme a démarré correctement. 
+
+### <a name="vtpm"></a>vTPM
+
+Un vTPM est la version virtualisée d’un module de plateforme sécurisé (TPM), avec une instance virtuelle d’un TPM par machine virtuelle. Un vTPM permet l’attestation distante en prenant la mesure d’intégrité de l’ensemble de la chaîne de démarrage de la machine virtuelle (UEFI, système d’exploitation, système et pilotes). 
+
+Nous vous recommandons d’activer le vTPM pour utiliser l’attestation distante sur vos machines virtuelles. Lorsqu’un vTPM est activé, vous pouvez également activer la fonctionnalité BitLocker, qui assure un chiffrement complet du volume pour protéger les données au repos. Toutes les fonctionnalités qui utilisent un vTPM entraînent la liaison de secrets à la machine virtuelle spécifique. Lorsque les utilisateurs se connectent au service de Windows Virtual Desktop dans un scénario groupé, les utilisateurs peuvent être redirigés vers n’importe quelle machine virtuelle du pool d’hôtes. Selon la façon dont la fonctionnalité est conçue, cela peut avoir un impact.
+
+>[!NOTE]
+>BitLocker ne doit pas être utilisé pour chiffrer le disque spécifique dans lequel vous stockez vos données de profil FSLogix.
+
+### <a name="virtualization-based-security"></a>Sécurité basée sur la virtualisation
+
+La sécurité basée sur la virtualisation (VBS) utilise l’hyperviseur pour créer et isoler une région sécurisée de mémoire inaccessible au système d’exploitation. Hypervisor-Protected Code Integrity (HVCI) et Windows Defender Credential Guard utilisent tous deux la VBS pour offrir une protection accrue contre les vulnérabilités. 
+
+#### <a name="hypervisor-protected-code-integrity"></a>Hypervisor-Protected Code Integrity
+
+HVCI est un système d’atténuation puissant qui utilise la VBS pour protéger les processus en mode noyau de Windows contre l’injection et l’exécution de code malveillant ou non vérifié.
+
+#### <a name="windows-defender-credential-guard"></a>Windows Defender Credential Guard
+
+Windows Defender Credential Guard utilise la VBS pour isoler et protéger les secrets afin que seuls les logiciels système privilégiés puissent y accéder. Cela empêche tout accès non autorisé à ces secrets et les attaques de vol d’informations d’identification, telles que les attaques de type Pass-the-hash.
+
+### <a name="deploy-trusted-launch-in-your-windows-virtual-desktop-environment"></a>Déployer un lancement fiable dans votre environnement Windows Virtual Desktop
+
+Actuellement, Windows Virtual Desktop ne prend pas en charge la configuration automatique du lancement fiable pendant le processus de configuration du pool d’hôtes. Pour utiliser le lancement fiable dans votre environnement Windows Virtual Desktop, vous devez déployer le lancement fiable normalement, puis ajouter manuellement la machine virtuelle au pool d’hôtes souhaité.
+
+## <a name="nested-virtualization"></a>Virtualisation imbriquée
+
+Les systèmes d’exploitation suivants prennent en charge l’exécution de la virtualisation imbriquée sur Windows Virtual Desktop :
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Entreprise
+- Windows 10 Entreprise multisession
 
 ## <a name="next-steps"></a>Étapes suivantes
 

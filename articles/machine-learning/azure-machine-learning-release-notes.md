@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521201"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471740"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -26,7 +26,7 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
 ## <a name="2021-03-08"></a>08-03-2021
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Kit SDK Azure Machine Learning pour Python v1.24.0
-+ **Nouvelles fonctionnalités**
++ **Résolutions de bogue et améliorations**
   + **azureml-automl-core**
     + Suppression des importations à compatibilité descendante de `azureml.automl.core.shared`. Les erreurs de module introuvable dans l’espace de noms `azureml.automl.core.shared` peuvent être résolues en important à partir de `azureml.automl.runtime.shared`.
   + **azureml-contrib-automl-dnn-vision**
@@ -59,8 +59,8 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
   + [Terminal natif (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le terminal intégré
   + [Extraits de notebook (préversion)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Des extraits de code Azure ML communs sont désormais disponibles, à portée de main. Accédez au volet des extraits de code via la barre d’outils, ou activez le menu des extraits de code en utilisant Ctrl + Espace.  
   + [Raccourcis clavier](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Parité complète avec les raccourcis clavier disponibles dans Jupyter. 
-  + Indication des paramètres de cellule. Indique aux utilisateurs ayant une cellule dans un notebook qu’il s’agit d’une cellule de paramètre et qu’ils peuvent exécuter des notebooks paramétrisables via [Papermill](https://github.com/nteract/papermill) sur l’instance de calcul.
-  + Gestionnaire de session de terminal et de noyau : les utilisateurs sont en mesure de gérer toutes les sessions de noyau et de terminal s’exécutant sur votre instance de calcul.
+  + Indication des paramètres de cellule. Indique aux utilisateurs quelles cellules d’un notebook sont des cellules de paramètres et peut exécuter des notebooks paramétrisables via [Papermill](https://github.com/nteract/papermill) sur l’instance de calcul.
+  + Gestionnaire de session de terminal et de noyau : Les utilisateurs sont en mesure de gérer toutes les sessions de noyau et de terminal s’exécutant sur leur calcul.
   + Bouton de partage. Les utilisateurs peuvent désormais partager n’importe quel fichier dans l’Explorateur de fichiers du notebook, en cliquant avec le bouton droit sur le fichier et en utilisant le bouton Partager.
 
 
@@ -75,7 +75,7 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
 ## <a name="2021-02-16"></a>16-02-2021
 
 ### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Kit SDK Azure Machine Learning pour Python v1.23.0
-+ **Nouvelles fonctionnalités**
++ **Résolutions de bogue et améliorations**
   + **azureml-core**
     + [Caractéristique expérimentale] Ajout de la prise en charge de la liaison de l’espace de travail Synapse dans AML en tant que service lié
     + [Caractéristique expérimentale] Ajout de la prise en charge de l’attache d’un pool Synapse Spark dans AML en tant que calcul

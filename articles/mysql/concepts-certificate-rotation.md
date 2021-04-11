@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
 ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449881"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Comprendre les modifications liées au changement d’autorité de certification racine pour Azure Database pour MySQL - Serveur unique
@@ -29,13 +29,13 @@ Les clients Azure Database pour MySQL peuvent uniquement utiliser le certificat 
 
 Conformément aux exigences de conformité du secteur, les fournisseurs d’autorité de certification ont commencé à révoquer les certificats d’autorité de certification non conformes, en demandant aux serveurs d’utiliser des certificats émis par des autorités de certification conformes et signés par des certificats d’autorité de certification provenant de ces dernières. Étant donné qu’Azure Database pour MySQL utilisait l’un de ces certificats non conformes, nous avions besoin de procéder à la permutation du certificat vers la version conforme afin de réduire la menace potentielle envers vos serveurs MySQL.
 
-Le nouveau certificat est déployé et prend effet à compter du 15 février 2021 (15/02/2021). 
+Le nouveau certificat est déployé et prend effet à compter du 15 février 2021 (15/02/2021). 
 
-## <a name="what-change-was-performed-on-february-15-2021-02152021"></a>Quel changement a été apporté le 15 février 2021 (15/02/2021) ?
+## <a name="what-change-was-performed-on-february-15-2021-02152021"></a>Quel changement a été apporté le 15 février 2021 (15/02/2021) ?
 
-Le 15 février 2021, le [certificat racine BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) a été remplacé par une **version conforme** du même [certificat racine BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) afin de s’assurer que les clients existants n’aient pas besoin de modifier quoi que ce soit et qu’il n’y ait aucun impact sur leurs connexions au serveur. Lors de ce changement, le [certificat racine BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) n’a **pas été remplacé** par [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem), et ce changement est différé afin d’accorder aux clients plus de temps pour effectuer le changement.
+Le 15 février 2021, le [certificat racine BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) a été remplacé par une **version conforme** du même [certificat racine BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) afin de s’assurer que les clients existants n’aient pas besoin de modifier quoi que ce soit et qu’il n’y ait aucun impact sur leurs connexions au serveur. Lors de ce changement, le [certificat racine BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) n’a **pas été remplacé** par [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem), et ce changement est différé afin d’accorder aux clients plus de temps pour effectuer le changement.
 
-## <a name="do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity"></a>Est-ce que je dois apporter des modifications à mon client pour maintenir la connectivité ?
+## <a name="do-i-need-to-make-any-changes-on-my-client-to-maintain-connectivity"></a>Est-ce que je dois apporter des modifications à mon client pour maintenir la connectivité ?
 
 Aucune modification n’est nécessaire du côté client. Si vous avez suivi notre précédente recommandation ci-dessous, vous pourrez toujours continuer à vous connecter tant que le **certificat BaltimoreCyberTrustRoot n’est pas supprimé** du certificat d’autorité de certification combiné. **Nous vous recommandons de ne pas supprimer BaltimoreCyberTrustRoot de votre certificat d’autorité de certification combiné tant que vous n’y aurez pas été invité, afin de maintenir la connectivité.**
 
@@ -88,11 +88,11 @@ Pour éviter toute interruption de la disponibilité de votre application en rai
 > [!NOTE]
 > Ne supprimez pas ou ne modifiez pas **certificat Baltimore** tant que le changement de certificat n’est pas effectué. Nous enverrons une communication une fois la modification effectuée, après quoi il est possible de supprimer le certificat Baltimore. 
 
-## <a name="why-was-baltimorecybertrustroot-certificate-not-replaced-to-digicertglobalrootg2-during-this-change-on-february-15-2021"></a>Pourquoi le certificat BaltimoreCyberTrustRoot n’a pas été remplacé par DigiCertGlobalRootG2 lors de ce changement le 15 février 2021 ?
+## <a name="why-was-baltimorecybertrustroot-certificate-not-replaced-to-digicertglobalrootg2-during-this-change-on-february-15-2021"></a>Pourquoi le certificat BaltimoreCyberTrustRoot n’a pas été remplacé par DigiCertGlobalRootG2 lors de ce changement le 15 février 2021 ?
 
-Nous avons évalué le degré de préparation des clients à ce changement et nous sommes rendus compte que nombre d’entre eux souhaitaient disposer d’un délai supplémentaire pour gérer ce changement. Afin de fournir aux clients davantage de temps pour se préparer, nous avons décidé de reporter le passage au certificat DigiCertGlobalRootG2 pendant au moins un an, offrant ainsi un délai suffisant aux clients et aux utilisateurs finaux. 
+Nous avons évalué le degré de préparation des clients à ce changement et nous sommes rendu compte que nombre d’entre eux souhaitaient disposer d’un délai supplémentaire pour gérer ce changement. Afin de fournir aux clients davantage de temps pour se préparer, nous avons décidé de reporter le passage au certificat DigiCertGlobalRootG2 pendant au moins un an, offrant ainsi un délai suffisant aux clients et aux utilisateurs finaux. 
 
-Nos recommandations aux utilisateurs sont les suivantes : suivez les étapes ci-dessus pour créer un certificat combiné et se connecter à votre serveur, mais ne supprimez pas le certificat BaltimoreCyberTrustRoot tant que nous ne vous y avons pas invité. 
+Nos recommandations aux utilisateurs sont les suivantes : suivez les étapes ci-dessus pour créer un certificat combiné et se connecter à votre serveur, mais ne supprimez pas le certificat BaltimoreCyberTrustRoot tant que nous ne vous y avons pas invité. 
 
 ## <a name="what-if-we-removed-the-baltimorecybertrustroot-certificate"></a>Que se passe-t-il si nous avons supprimé le certificat BaltimoreCyberTrustRoot ?
 
@@ -142,7 +142,7 @@ Non. Étant donné que la modification est uniquement côté client pour la conn
 
 ### <a name="8-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>8. Si je crée un serveur après le 15 février 2021 (15/02/2021), serai-je concerné ?
 
-Pour les serveurs créés après le 15 février 2021 (15/02/2021), vous continuerez à utiliser [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) pour que vos applications se connectent à l’aide de SSL.
+Pour les serveurs créés après le 15 février 2021 (15/02/2021), vous continuerez à utiliser [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) pour que vos applications se connectent à l’aide de SSL.
 
 ### <a name="9-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>9. Quelle est la fréquence à laquelle Microsoft met à jour ses certificats ou quelle est la stratégie d’expiration ?
 

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 490fa46deabc822e416705fe9bf9c5cdb58f8cd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 079ac41f8b138bccbe4d435a79836d3acee71b7d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97936757"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728621"
 ---
 # <a name="azure-functions-hosting-options"></a>Options d’hébergement Azure Functions
 
@@ -28,7 +28,7 @@ Cet article fournit une comparaison détaillée entre les différents plans d’
 
 Voici un résumé des avantages des trois principaux plans d’hébergement pour Functions :
 
-| | |
+| Plan | Avantages |
 | --- | --- |  
 |**[Plan de consommation](consumption-plan.md)**| Mettez à l’échelle automatiquement et ne payez les ressources de calcul que lorsque vos fonctions sont en cours d’exécution.<br/><br/>Dans le plan de consommation, les instances de l’hôte Functions sont ajoutées et supprimées de façon dynamique en fonction du nombre d’événements entrants.<br/><br/> ✔ Plan d’hébergement par défaut.<br/>✔ Paiement uniquement en cas d’exécution de vos fonctions.<br/>✔ Mise à l’échelle automatique, même pendant les périodes de charge élevée.|  
 |**[Plan Premium](functions-premium-plan.md)**|Mise à l’échelle automatique selon la demande à l’aide de Workers préparés qui exécutent des applications sans délai après leur inactivité, exécution sur des instances plus puissantes et connexion à des réseaux virtuels. <br/><br/>Envisagez le plan Premium d’Azure Functions dans les situations suivantes : <br/><br/>✔Vos applications de fonction s’exécutent en continu ou presque.<br/>✔ Vous disposez d’un grand nombre d’exécutions de petite taille et d’une facture d’exécution élevée, mais de peu de Go par seconde dans le plan Consommation.<br/>✔Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan de consommation.<br/>✔Votre code exige une durée d’exécution supérieure à celle qui est autorisée dans le plan de consommation.<br/>✔ Vous avez besoin de fonctionnalités qui ne sont pas disponibles dans le plan Consommation, notamment la connectivité de réseau virtuel.|  
@@ -36,7 +36,7 @@ Voici un résumé des avantages des trois principaux plans d’hébergement pour
 
 Les tableaux de comparaison de cet article incluent également les options d’hébergement suivantes, qui fournissent la plus grande quantité de contrôle et d’isolation dans laquelle exécuter vos applications de fonction.  
 
-| | |
+| Option d’hébergement | Détails |
 | --- | --- |  
 |**[ASE](dedicated-plan.md)** | App Service Environment(ASE) est une fonctionnalité d’App Service qui fournit un environnement totalement isolé et dédié pour l’exécution sécurisée de vos applications App Service à grande échelle.<br/><br/>Les environnements ASE conviennent aux charges de travail d’application qui nécessitent : <br/><br/>✔ Une très grande échelle.<br/>✔ Une isolation totale du calcul et un accès réseau sécurisé.<br/>✔ Utilisation élevée de la mémoire.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | Kubernetes offre un environnement totalement isolé et dédié qui s’exécute sur la plateforme Kubernetes.<br/><br/> Kubernetes convient aux charges de travail d’application qui nécessitent : <br/>✔ Des exigences matérielles personnalisées.<br/>✔ Une isolation et un accès réseau sécurisé.<br/>✔ Une possibilité d’exécution dans un environnement hybride ou multi-cloud.<br/>✔ Une exécution en parallèle de services et d’applications Kubernetes existants.|  
@@ -65,7 +65,7 @@ Le tableau suivant indique le système d’exploitation et le langage d’exécu
 
 Le tableau suivant compare les comportements de mise à l’échelle des différents plans d’hébergement.
 
-| | Scale-out | Nombre maximal d’instances |
+| Plan | Scale-out | Nombre maximal d’instances |
 | --- | --- | --- |
 | **[Plan de consommation](consumption-plan.md)** | [Basé sur les événements](event-driven-scaling.md). Effectuer un scale-out automatique, même pendant les périodes de charge élevée L’infrastructure Azure Functions met automatiquement à l’échelle les ressources de processeur et de mémoire en ajoutant des instances de l’hôte Functions selon le nombre d’événements déclencheurs entrants. | 200 |
 | **[Plan Premium](functions-premium-plan.md)** | [Basé sur les événements](event-driven-scaling.md). Effectuer un scale-out automatique, même pendant les périodes de charge élevée L’infrastructure Azure Functions met automatiquement à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions selon le nombre d’événements en fonction desquels ses fonctions sont déclenchées. |100|
@@ -77,7 +77,7 @@ Le tableau suivant compare les comportements de mise à l’échelle des différ
 
 ## <a name="cold-start-behavior"></a>Comportement du démarrage à froid
 
-|    |    | 
+| Plan | Détails | 
 | -- | -- |
 | **[Plan de&nbsp;consommation](consumption-plan.md)** | Les applications peuvent être mises à l’échelle jusqu’à zéro en cas d’inactivité, ce qui signifie que certaines requêtes peuvent présenter une latence supplémentaire au démarrage.  Le plan de consommation offre des optimisations pour réduire le temps de démarrage à froid, notamment en extrayant à partir de fonctions d’espace réservé préparées qui exécutent déjà les processus de langage et d’hôte de fonction. |
 | **[Plan Premium](functions-premium-plan.md)** | Les instances perpétuellement chaudes permettent d’éviter les démarrages à froid. |
@@ -95,7 +95,7 @@ Le tableau suivant compare les comportements de mise à l’échelle des différ
 
 ## <a name="billing"></a>Facturation
 
-| | | 
+| Plan | Détails |
 | --- | --- |
 | **[Plan de consommation](consumption-plan.md)** | Ne payez que la durée d’exécution de vos fonctions. La facturation est basée sur le nombre d’exécutions, la durée d’exécution et la mémoire utilisée. |
 | **[Plan Premium](functions-premium-plan.md)** | Le plan Premium se base sur le nombre de cœurs-seconde et la mémoire utilisée sur les instances nécessaires et préparées. Au moins une instance par plan doit être chaude en permanence. Ce plan offre la tarification la plus prévisible. |

@@ -3,12 +3,12 @@ title: Windows Server Failover Cluster sur Azure VMware Solution vSAN avec disqu
 description: Configurez Windows Server Failover Cluster (WSFC) sur Azure VMware Solution et tirez parti de solutions pour lesquelles la fonctionnalité WSFC est requise.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518991"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562237"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Windows Server Failover Cluster sur Azure VMware Solution vSAN avec disques partagés natifs
 
@@ -30,7 +30,7 @@ Il est important de déployer une configuration WSFC prise en charge. Votre solu
 
 Cet article se concentre sur WSFC sous Windows Server 2016 et Windows Server 2019. Les versions antérieures de Windows Server n'entrent pas dans le cadre du [support standard](https://support.microsoft.com/lifecycle/search?alpha=windows%20server) et ne sont donc pas prises en compte ici.
 
-Vous devez d'abord [créer un cluster WSFC](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster). Pour plus d'informations sur WSFC, consultez [Clustering de basculement dans Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview). Utilisez les informations fournies dans cet article pour en savoir plus sur les spécificités d'un déploiement WSFC sur Azure VMware Solution.
+Vous devez d'abord [créer un cluster WSFC](/windows-server/failover-clustering/create-failover-cluster). Pour plus d'informations sur WSFC, consultez [Clustering de basculement dans Windows Server](/windows-server/failover-clustering/failover-clustering-overview). Utilisez les informations fournies dans cet article pour en savoir plus sur les spécificités d'un déploiement WSFC sur Azure VMware Solution.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -150,7 +150,7 @@ Les activités suivantes ne sont pas prises en charge et peuvent entraîner un b
 
 ## <a name="related-information"></a>Informations connexes
 
-- [Clustering de basculement dans Windows Server](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Clustering de basculement dans Windows Server](/windows-server/failover-clustering/failover-clustering-overview)
 - [Instructions pour le clustering Microsoft sur vSphere (1037959) (vmware.com)](https://kb.vmware.com/s/article/1037959)
 - [À propos de la configuration du clustering de basculement et du service de cluster Microsoft (vmware.com)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.mscs.doc/GUID-1A2476C0-CA66-4B80-B6F9-8421B6983808.html)
 - [vSAN 6.7 U3 - WSFC avec disques partagés &amp; Réservations persistantes SCSI-3 (VMware.com)](https://blogs.vmware.com/virtualblocks/2019/08/23/vsan67-u3-wsfc-shared-disksupport/)
@@ -162,5 +162,5 @@ Maintenant que vous savez configurer un cluster WSFC dans Azure VMware Solution,
 
 - Configuration de votre nouveau cluster WSFC en ajoutant d'autres applications pour lesquelles la fonctionnalité WSFC est requise. Par exemple, SQL Server et SAP ASCS.
 - Configuration d'une solution de sauvegarde.
-  - [Configuration d'un serveur de sauvegarde Azure pour Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution)
-  - [Solutions de sauvegarde pour les machines virtuelles Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/ecosystem-back-up-vms)
+  - [Configuration d'un serveur de sauvegarde Azure pour Azure VMware Solution](./set-up-backup-server-for-azure-vmware-solution.md)
+  - [Solutions de sauvegarde pour les machines virtuelles Azure VMware Solution](./ecosystem-back-up-vms.md)

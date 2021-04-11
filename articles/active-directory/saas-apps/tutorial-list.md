@@ -12,12 +12,12 @@ ms.date: 03/09/2021
 ms.author: jeedes
 ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
-ms.openlocfilehash: 7f19546472c869c8f55499c18afe1b280ce1a500
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: eda1ad058bf969351122cb9df1b528341067a186
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102566683"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640885"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Didacticiels pour l’intégration d’applications SaaS avec Azure Active Directory
 
@@ -63,6 +63,7 @@ Pour accéder à d’autres didacticiels, reportez-vous à la table des matière
 | ![logo ArcGIS Enterprise](./media/tutorial-list/active-directory-saas-arcgisenterprise-tutorial.png)| [ArcGIS Enterprise](arcgisenterprise-tutorial.md)|
 | ![logo AskYourTeam](./media/tutorial-list/active-directory-saas-askyourteam-tutorial.png)| [AskYourTeam](askyourteam-tutorial.md)|
 | ![logo Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
+| ![logo Authentification unique AWS](./media/tutorial-list/active-directory-saas-aws-single-sign-on-tutorial.png)| [AWS Single Sign-On](aws-single-sign-on-tutorial.md)|
 | ![logo Box](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)|
 | ![logo CakeHR](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
 | ![logo Carbonite Endpoint Backup](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|

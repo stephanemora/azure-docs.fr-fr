@@ -10,10 +10,10 @@ ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103472262"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Guide pratique pour configurer le contrôle d’accès pour votre espace de travail Synapse 

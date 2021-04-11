@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 01bae85241950ffa1ccf77189694fb648b8c7d03
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ba6710629f52abd13ef84f2a814c10c6dca18837
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494085"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641743"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Couverture Azure CDN par Metro 
 > [!div class="op_single_selector"]
@@ -49,4 +49,5 @@ Cet article répertorie les éléments Metro actuels contenant des emplacements 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir les dernières adresses IP à ajouter à la liste d’autorisation, consultez [API de nœuds de périphérie Azure CDN](https://docs.microsoft.com/rest/api/cdn/edgenodes).
+
+* Pour obtenir les dernières adresses IP à ajouter à la liste d’autorisation, consultez [API de nœuds de périphérie Azure CDN](/rest/api/cdn/cdn/edgenodes).

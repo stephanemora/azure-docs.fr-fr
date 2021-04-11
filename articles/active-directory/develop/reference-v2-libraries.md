@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/29/2021
+ms.date: 03/30/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 590e57d587c8e6e254811892b5c5e740b511c302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 321a5c473df30dd6f00bbcd1294d48ce8da34009
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104690651"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060378"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliothèques d’authentification de plateforme d’identité Microsoft
 
@@ -29,7 +29,7 @@ Si vous choisissez de coder manuellement votre propre implémentation de niveau 
 
 ## <a name="single-page-application-spa"></a>Application monopage (SPA)
 
-Une application monopage s’exécute entièrement sur la surface du navigateur et récupère les données de page (HTML, CSS et JavaScript) de manière dynamique ou au moment du chargement de l’application. Elle peut appeler des API web pour interagir avec des sources de données principales.
+Une application monopage s’exécute entièrement dans le navigateur et récupère les données de page (HTML, CSS et JavaScript) de manière dynamique ou au moment du chargement de l’application. Elle peut appeler des API web pour interagir avec des sources de données principales.
 
 Étant donné que le code d’une application monopage s’exécute entièrement dans le navigateur, il est considéré comme un *client public* qui ne peut pas stocker les secrets de façon sécurisée.
 
@@ -45,7 +45,7 @@ Une application web exécute du code sur un serveur qui génère et envoie du co
 
 ## <a name="desktop-application"></a>Application de bureau
 
-Une application de bureau est généralement du code binaire (compilé) qui couvre une interface utilisateur et qui est conçu pour s’exécuter sur le Bureau d’un utilisateur.
+Une application de bureau est généralement du code binaire (compilé) qui affiche une interface utilisateur et qui est conçu pour s’exécuter sur l’appareil de bureau d’un utilisateur.
 
 Étant donné qu’une application de bureau s’exécute sur le Bureau de l’utilisateur, elle est considérée comme un *client public* qui ne peut pas stocker les secrets de façon sécurisée.
 
@@ -53,7 +53,7 @@ Une application de bureau est généralement du code binaire (compilé) qui couv
 
 ## <a name="mobile-application"></a>Application mobile
 
-Une application mobile est généralement du code binaire (compilé) qui couvre une interface utilisateur et qui est conçu pour s’exécuter sur l’appareil mobile d’un utilisateur.
+Une application mobile est généralement du code binaire (compilé) qui affiche une interface utilisateur et qui est conçu pour s’exécuter sur l’appareil mobile d’un utilisateur.
 
 Étant donné qu’une application mobile s’exécute sur l’appareil mobile de l’utilisateur, elle est considérée comme un *client public* qui ne peut pas stocker les secrets de façon sécurisée.
 

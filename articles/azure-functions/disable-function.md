@@ -2,14 +2,14 @@
 title: Guide pratique pour désactiver des fonctions dans Azure Functions
 description: Découvrez comment désactiver et activer des fonctions dans Azure Functions.
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cbb84308507ea15f1c44c00122a9a59472f12a88
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1ad484804f66a2e2d4d0f1da4a37cf0d6c485f38
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551041"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584735"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Guide pratique pour désactiver des fonctions dans Azure Functions
 
@@ -20,13 +20,26 @@ La façon recommandée de désactiver une fonction est d’utiliser un paramètr
 > [!NOTE]  
 > Lorsque vous désactivez une fonction déclenchée par HTTP à l’aide des méthodes décrites dans cet article, le point de terminaison peut toujours être accessible en cas d’exécution sur votre ordinateur local.  
 
-## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+## <a name="disable-a-function"></a>Désactiver une fonction
 
-Dans l'interface de ligne de commande Azure, vous utilisez la commande [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) pour créer et modifier le paramètre d'application. La commande suivante désactive une fonction nommée `QueueTrigger` en créant un paramètre d'application nommé `AzureWebJobs.QueueTrigger.Disabled` et en le définissant sur `true`. 
+# <a name="portal"></a>[Portail](#tab/portal)
+
+Utilisez les boutons **Activer** et **Désactiver** sur la page **Vue d’ensemble** de la fonction. Ces boutons fonctionnent en modifiant la valeur du paramètre d’application `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Ce paramètre propre à la fonction est créé la première fois qu’il est désactivé. 
+
+![Commutateur d’état de la fonction](media/disable-function/function-state-switch.png)
+
+Même lorsque vous publiez dans votre application de fonction à partir d’un projet local, vous pouvez toujours utiliser le portail pour désactiver des fonctions dans l’application de fonction. 
+
+> [!NOTE]  
+> La fonctionnalité de test intégré au portail ignore le paramètre `Disabled`. Cela signifie qu’une fonction désactivée continue à s’exécuter quand elle est démarrée à partir de la fenêtre **Test** dans le portail. 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+Dans l'interface de ligne de commande Azure, vous utilisez la commande [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) pour créer et modifier le paramètre d'application. La commande suivante désactive une fonction nommée `QueueTrigger` en créant un paramètre d’application nommé `AzureWebJobs.QueueTrigger.Disabled` et en le définissant sur `true`. 
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <myFunctionApp> \
---resource-group <myResourceGroup> \
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
@@ -38,16 +51,55 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=false
 ```
 
-## <a name="use-the-portal"></a>Utiliser le portail
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Vous pouvez également utiliser les boutons **Activer** et **Désactiver** sur la page **Vue d’ensemble** de la fonction. Ces boutons fonctionnent en modifiant la valeur du paramètre d’application `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Ce paramètre propre à la fonction est créé la première fois qu’il est désactivé. 
+La commande [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) ajoute ou met à jour un paramètre d’application. La commande suivante désactive une fonction nommée `QueueTrigger` en créant un paramètre d’application nommé `AzureWebJobs.QueueTrigger.Disabled` et en le définissant sur `true`. 
 
-![Commutateur d’état de la fonction](media/disable-function/function-state-switch.png)
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "true"}
+```
 
-Même lorsque vous publiez dans votre application de fonction à partir d’un projet local, vous pouvez toujours utiliser le portail pour désactiver des fonctions dans l’application de fonction. 
+Pour réactiver la fonction, réexécutez la même commande avec la valeur `false`.
 
-> [!NOTE]  
-> La fonctionnalité de test intégré au portail ignore le paramètre `Disabled`. Cela signifie qu’une fonction désactivée continue à s’exécuter quand elle est démarrée à partir de la fenêtre **Test** dans le portail. 
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "false"}
+```
+---
+
+## <a name="functions-in-a-slot"></a>Fonctions dans un emplacement
+
+Par défaut, les paramètres d’application s’appliquent également aux applications qui s’exécutent dans les emplacements de déploiement. Toutefois, vous pouvez remplacer le paramètre d’application utilisé par l’emplacement en définissant un paramètre d’application spécifique à un emplacement. Par exemple, vous pouvez vouloir qu’une fonction soit active en production, mais pas pendant les tests de déploiement, par exemple une fonction déclenchée par un minuteur. 
+
+Pour désactiver une fonction uniquement dans l’emplacement de préproduction :
+
+# <a name="portal"></a>[Portail](#tab/portal)
+
+Accédez à l’instance d’emplacement de votre application de fonction en sélectionnant **Emplacements de déploiement** sous **Déploiement**, en choisissant votre emplacement, puis en sélectionnant **Fonctions** dans l’instance d’emplacement.  Choisissez votre fonction, puis utilisez les boutons **Activer** et **Désactiver** sur la page **Vue d’ensemble** de la fonction. Ces boutons fonctionnent en modifiant la valeur du paramètre d’application `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Ce paramètre propre à la fonction est créé la première fois qu’il est désactivé. 
+
+Vous pouvez également ajouter directement le paramètre d’application nommé `AzureWebJobs.<FUNCTION_NAME>.Disabled` avec la valeur `true` dans la **configuration** de l’instance d’emplacement. Lorsque vous ajoutez un paramètre d’application spécifique à un emplacement, veillez à cocher la case **Paramètre de l’emplacement de déploiement**. Cela permet de conserver la valeur du paramètre avec l’emplacement pendant les échanges.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+Pour réactiver la fonction, réexécutez la même commande avec la valeur `false`.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Azure PowerShell ne prend actuellement pas en charge cette fonctionnalité.
+
+---
+
+Pour plus d’informations, consultez [Emplacements de déploiement Azure Functions](functions-deployment-slots.md).
 
 ## <a name="localsettingsjson"></a>local.settings.json
 

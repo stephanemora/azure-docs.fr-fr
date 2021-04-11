@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 8e0b94a46e96dd8ba16040e16b421520eb67de19
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583530"
 ---
 # <a name="programmatic-access-paradigm"></a>Paradigme de l’accès programmatique
@@ -200,7 +200,7 @@ Ce tableau fournit les définitions clés des éléments dans la charge utile de
 
 La charge utile de la réponse est structurée comme suit :
 
-Code de réponse : 200, 400, 401, 403, 404, 500
+Code de réponse : 200, 400, 401, 403, 404, 500
 
 Charge utile de réponse :
 

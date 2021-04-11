@@ -3,15 +3,16 @@ title: Forum aux questions concernant la prise en charge des nœuds confidentiel
 description: Trouvez des réponses à certaines des questions les plus fréquentes concernant Azure Container Service (AKS) et la prise en charge des nœuds d’informatique confidentielle Azure (ACC).
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 02/09/2020
 ms.author: amgowda
-ms.openlocfilehash: 550995f0be3d634e7e9f24a8bf6826916003308e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 94b585078ce5e78a658fd8f110f09963200010b6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653395"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933557"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Forum aux questions concernant les nœuds d’informatique confidentielle sur Azure Kubernetes service (AKS)
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0dd5cf5209924972080af6d22429252338754de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 338de996b06769b9d2891c7208b9050cc3acc7ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99491246"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167292"
 ---
 # <a name="create-modular-runbooks"></a>Créer des runbooks modulaires
 
@@ -56,15 +56,15 @@ Lorsque votre runbook appelle un runbook enfant graphique ou PowerShell Workflow
 L’exemple suivant démarre un runbook enfant de test qui accepte un objet complexe, une valeur entière et une valeur booléenne. La sortie du Runbook enfant est affectée à une variable. Dans ce cas, le runbook enfant est un runbook de workflow PowerShell.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 Voici le même exemple utilisant un runbook PowerShell en tant qu’enfant.
 
 ```azurepowershell-interactive
-$vm = Get-AzVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="start-a-child-runbook-using-a-cmdlet"></a>Démarrer un runbook enfant à l’aide d’une cmdlet
@@ -84,7 +84,7 @@ Les paramètres d’un runbook enfant démarré avec une applet de commande sont
 
 Le contexte d’abonnement peut être perdu quand vous démarrez les runbooks enfants comme des travaux distincts. Pour que le runbook enfant exécute des applets de commande de modules Az sur un abonnement Azure spécifique, il doit s’authentifier dans cet abonnement indépendamment du runbook parent.
 
-Si des tâches au sein du même compte Automation utilisent plusieurs abonnements, la sélection d’un abonnement dans une tâche peut changer le contexte d’abonnement actuellement sélectionné pour d’autres tâches. Pour éviter cette situation, utilisez `Disable-AzContextAutosave –Scope Process` au début de chaque runbook. Cette action enregistre le contexte uniquement pour l’exécution de ce runbook.
+Si des tâches au sein du même compte Automation utilisent plusieurs abonnements, la sélection d’un abonnement dans une tâche peut changer le contexte d’abonnement actuellement sélectionné pour d’autres tâches. Pour éviter cette situation, utilisez `Disable-AzContextAutosave -Scope Process` au début de chaque runbook. Cette action enregistre le contexte uniquement pour l’exécution de ce runbook.
 
 ### <a name="example"></a>Exemple
 
@@ -92,7 +92,7 @@ Dans l'exemple suivant, un runbook enfant avec paramètres est démarré et exé
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
@@ -108,11 +108,11 @@ $AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.Subscr
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
 Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
+    -AutomationAccountName 'MyAutomationAccount' `
+    -Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
     -AzContext $AzureContext `
-    –Parameters $params –Wait
+    -Parameters $params -Wait
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

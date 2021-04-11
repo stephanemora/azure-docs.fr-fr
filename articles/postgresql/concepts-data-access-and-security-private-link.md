@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e4b6a6090bf0e5e332a960cba8ec565df9dd55c2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881059"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872266"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Azure Private Link pour Azure Database pour PostgreSQL-Serveur unique
 
@@ -84,7 +84,8 @@ Une fois que l’administrateur réseau a créé le point de terminaison privé 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Cas d’usage d’Azure Private Link pour Azure Database pour PostgreSQL
 
-Les clients peuvent se connecter au point de terminaison privé à partir du même réseau virtuel, d’un réseau virtuel appairé dans la même région ou par le biais d’une connexion réseau virtuel à réseau virtuel entre régions. Les clients peuvent également se connecter localement avec ExpressRoute, un appairage privé ou un tunneling VPN. Vous trouverez ci-dessous un diagramme simplifié montrant les cas d’usage courants.
+
+Les clients peuvent se connecter à un point de terminaison privé à partir du même réseau virtuel, [Réseau virtuel homologué](../virtual-network/virtual-network-peering-overview.md) dans la même région ou entre des régions ou via la [connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre des régions. Les clients peuvent également se connecter localement avec ExpressRoute, un appairage privé ou un tunneling VPN. Vous trouverez ci-dessous un diagramme simplifié montrant les cas d’usage courants.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="sélectionnez la vue d’ensemble du point de terminaison privé":::
 
