@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Nouvelle attribution de stratégie à l’aide de Terraform'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Terraform et la syntaxe HCL pour créer une attribution de stratégie dans le but d’identifier les ressources non conformes.
-ms.date: 10/27/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c1a43010c48f71872d935a8fb52f608b479da8a
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93104907"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092338"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l'aide de Terraform
 

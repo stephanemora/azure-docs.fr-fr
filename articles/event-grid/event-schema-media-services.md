@@ -3,12 +3,12 @@ title: Azure Media Services comme source Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements Media Services avec Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f2f62f0a5ceed0e000c8bb7690fff009593bf82
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5772a2332e1864d0b8df0d4e102006b29b6a61e
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591926"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120110"
 ---
 # <a name="azure-media-services-as-an-event-grid-source"></a>Azure Media Services comme source Event Grid
 
@@ -514,7 +514,7 @@ L’objet de données comporte les propriétés suivantes :
 | `encoderPort` | string | Port de l’encodeur dont provient ce flux. |
 | `resultCode` | string | Motif de rejet de la connexion. Les codes de résultat sont répertoriés dans le tableau suivant. |
 
-Vous pouvez trouver les codes de résultat d’erreur dans [Codes d’erreur d’événement en direct](../media-services/latest/live-event-error-codes.md).
+Vous pouvez trouver les codes de résultat d’erreur dans [Codes d’erreur d’événement en direct](../media-services/latest/live-event-error-codes-reference.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -639,7 +639,7 @@ L’objet de données comporte les propriétés suivantes :
 | `encoderPort` | string | Port de l’encodeur dont provient ce flux. |
 | `resultCode` | string | Motif de déconnexion de l’encodeur. Il peut s’agir d’une déconnexion normale ou due à une erreur. Les codes de résultat sont répertoriés dans le tableau suivant. |
 
-Vous pouvez trouver les codes de résultat d’erreur dans [Codes d’erreur d’événement en direct](../media-services/latest/live-event-error-codes.md).
+Vous pouvez trouver les codes de résultat d’erreur dans [Codes d’erreur d’événement en direct](../media-services/latest/live-event-error-codes-reference.md).
 
 Les codes de résultat de déconnexion normale sont :
 
@@ -1118,4 +1118,4 @@ Un événement contient les données générales suivantes :
 
 - [Kit de développement logiciel (SDK) .NET EventGrid qui inclut les événements Media Services](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Définitions d’événements Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Codes d’erreur d’événement en direct](../media-services/latest/live-event-error-codes.md)
+- [Codes d’erreur d’événement en direct](../media-services/latest/live-event-error-codes-reference.md)

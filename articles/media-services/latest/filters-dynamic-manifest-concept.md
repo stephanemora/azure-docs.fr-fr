@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3b6fa581bfc36579ef4b6937b50f8c1789a7f5
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 1fb8724edc32477bb1c399db0493833e9df984bb
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110963"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277570"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrer vos manifestes à l’aide de Dynamic Packager
 
@@ -26,7 +26,7 @@ ms.locfileid: "106110963"
 
 Lorsque vous fournissez du contenu en streaming à débit adaptatif à des appareils, il est souvent nécessaire de publier plusieurs versions d'un manifeste pour cibler des fonctionnalités d'appareil spécifiques ou la bande passante réseau disponible. Le [Packager dynamique](encode-dynamic-packaging-concept.md) vous permet de spécifier des filtres qui peuvent filtrer des codecs, des résolutions, des vitesses de transmission et des combinaisons de pistes audio spécifiques à la volée. Ce filtrage supprime la nécessité de créer plusieurs copies. Vous devez simplement publier une nouvelle URL avec un ensemble spécifique de filtres configurés pour vos appareils cibles (iOS, Android, SmartTV ou navigateurs) et les fonctionnalités réseau (scénarios de bande passante élevée, mobiles ou de bande passante faible). Dans ce cas, les clients peuvent manipuler le streaming de votre contenu par le biais de la chaîne de requête (en spécifiant les [filtres de ressources ou les filtres de comptes](filters-concept.md) disponibles) et utiliser des filtres pour diffuser des sections spécifiques d’un flux.
 
-Certains scénarios de distribution exigent que vous vérifiiez qu’un client est dans l’impossibilité d’accéder à des pistes spécifiques. Par exemple, vous pouvez ne pas souhaiter publier un manifeste qui contient des pistes HD vers un niveau d’abonné spécifique. Ou vous pouvez souhaiter supprimer des pistes à débit adaptatif (ABR) spécifiques pour réduire les coûts de distribution à un appareil spécifique qui ne bénéficie pas des pistes supplémentaires. Dans ce cas, vous pouvez associer une liste de filtres précréés à votre [localisateur de streaming](streaming-locators-concept.md) lors de la création. Si c’est ce cas, les clients ne peuvent pas manipuler la façon dont le contenu est diffusé, car elle est définie par le **localisateur de streaming**.
+Certains scénarios de distribution exigent que vous vérifiiez qu’un client est dans l’impossibilité d’accéder à des pistes spécifiques. Par exemple, vous pouvez ne pas souhaiter publier un manifeste qui contient des pistes HD vers un niveau d’abonné spécifique. Ou vous pouvez souhaiter supprimer des pistes à débit adaptatif (ABR) spécifiques pour réduire les coûts de distribution à un appareil spécifique qui ne bénéficie pas des pistes supplémentaires. Dans ce cas, vous pouvez associer une liste de filtres précréés à votre [localisateur de streaming](stream-streaming-locators-concept.md) lors de la création. Si c’est ce cas, les clients ne peuvent pas manipuler la façon dont le contenu est diffusé, car elle est définie par le **localisateur de streaming**.
 
 Vous pouvez combiner le filtrage en spécifiant des [filtres sur le localisateur de streaming](filters-concept.md#associating-filters-with-streaming-locator) et des filtres supplémentaires spécifiques à l’appareil que votre client spécifie dans l’URL. Cette combinaison peut être utile pour limiter les pistes supplémentaires comme les flux de métadonnées ou d'événements, les langues audio ou les pistes audio descriptives.
 

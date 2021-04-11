@@ -3,15 +3,15 @@ title: Développer un pool d’hôtes Windows Virtual Desktop (classique) exista
 description: Comment développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ab661943542b3621792dfe0ca8c3fb26f64508a5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88009169"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120705"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique)
 
@@ -96,7 +96,7 @@ Toutes les valeurs de paramètre dans cette section doivent correspondre à cell
 1. Sélectionnez la taille de machine virtuelle correspondant aux machines virtuelles hôtes de session existantes.
 
     >[!NOTE]
-    >Si la taille de machine virtuelle que vous recherchez n’apparaît pas dans le sélecteur de taille de machine virtuelle, c’est parce que nous ne l’avons pas encore intégrée à l’outil Place de marché Azure. Pour demander une taille de machine virtuelle, créez une demande ou votez pour une demande existante dans le [forum UserVoice sur Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Si la taille de machine virtuelle que vous recherchez n’apparaît pas dans le sélecteur de taille de machine virtuelle, c’est parce que nous ne l’avons pas encore intégrée à l’outil Place de marché Azure.
 
 2. Personnalisez les paramètres *Profil d’utilisation*, *Nombre total d’utilisateurs* et *Nombre de machines virtuelles* pour sélectionner le nombre total d’hôtes de session que vous souhaitez avoir dans votre pool d’hôtes. Par exemple, si vous développez votre pool d’hôtes en passant de cinq hôtes de session à huit, configurez ces options pour atteindre 8 machines virtuelles.
 3. Entrez un préfixe pour le nom des machines virtuelles. Par exemple, si vous entrez le nom « préfixe », les machines virtuelles s’appelleront « préfixe-0 », « préfixe-1 », etc.

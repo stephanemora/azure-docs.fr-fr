@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 1fc21b6338accef8e22b2e41ad2017d24ab8bd38
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7946bc23f766eaf99860fa764ee7b542036b5109
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101710462"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075778"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services et machine learning
 
@@ -27,7 +27,6 @@ Cognitive Services fournit des fonctionnalités de Machine Learning pour résoud
 |[action](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Ajoutez des API Recherche Bing à vos applications et exploitez la possibilité de passer au crible des milliards de pages web, images, vidéos et actualités avec un seul appel d’API.|
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convertissez de la parole en texte et du texte en parole naturelle. Traduisez d’une langue à une autre, et activez la vérification et la reconnaissance de l’orateur.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Identifiez, légendez, indexez et modérez le contenu de vos photos, vidéos et entrées manuscrites.|
-||||
 
 Utilisez Cognitive Services dans les cas suivants :
 

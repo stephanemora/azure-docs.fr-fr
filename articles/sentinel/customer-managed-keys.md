@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: a1c2754fcae5768c6b87d6280fc882acd46d9a0a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7c4905f3122bf5abd2dc955170113cac3039a5d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100585340"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219040"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurer une clé gérée par le client Azure Sentinel
 
@@ -81,7 +81,7 @@ Suivez les instructions de Cosmos DB indiquant comment [inscrire le fournisseur 
 
 ### <a name="step-4-add-an-access-policy-to-your-azure-key-vault-instance"></a>ÉTAPE 4 : Ajouter une stratégie d’accès à votre instance Azure Key Vault
 
-Veillez à ajouter l’accès à partir de Cosmos DB à votre instance Azure Key Vault. Suivez les instructions Cosmos DB indiquant comment [ajouter une stratégie d’accès à votre instance Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance) avec le principal Azure Cosmos DB.
+Veillez à ajouter l’accès à partir de Cosmos DB à votre instance Azure Key Vault. Suivez les instructions Cosmos DB indiquant comment [ajouter une stratégie d’accès à votre instance Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#add-access-policy) avec le principal Azure Cosmos DB.
 
 ### <a name="step-5-enable-cmk-in-azure-sentinel"></a>ÉTAPE 5 : Activez CMK dans Azure Sentinel
 

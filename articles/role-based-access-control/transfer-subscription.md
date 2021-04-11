@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 93821979e0c14a879b805049a4f662e9ef6d5b15
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555894"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075676"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -74,7 +74,7 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 | Identités managées attribuées par le système | Oui | Oui | [Répertorier les identités managées](#list-role-assignments-for-managed-identities) | Vous devez désactiver et réactiver les identités managées. Vous devez recréer les attributions de rôles. |
 | Identités managées attribuées par l’utilisateur | Oui | Oui | [Répertorier les identités managées](#list-role-assignments-for-managed-identities) | Vous devez supprimer, recréer et attacher les identités managées à la ressource appropriée. Vous devez recréer les attributions de rôles. |
 | Azure Key Vault | Oui | Oui | [Répertorier les stratégies d’accès Key Vault](#list-key-vaults) | Vous devez mettre à jour l’ID de locataire associé aux coffres de clés. Vous devez supprimer et ajouter de nouvelles stratégies d’accès. |
-| Bases de données Azure SQL avec l’intégration de l’authentification Azure AD activée | Oui | Non | [Vérifier les bases de données SQL Azure avec l’authentification Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Bases de données Azure SQL avec l’intégration de l’authentification Azure AD activée | Oui | Non | [Vérifier les bases de données SQL Azure avec l’authentification Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  | 
 | Stockage Azure et Azure Data Lake Storage Gen2 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure Data Lake Storage Gen1 | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
 | Azure Files | Oui | Oui |  | Vous devez recréer toutes les listes de contrôle d’accès. |
