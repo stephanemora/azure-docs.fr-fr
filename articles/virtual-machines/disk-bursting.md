@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101677480"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568713"
 ---
 # <a name="managed-disk-bursting"></a>Mode rafale des disques managés
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -27,10 +27,10 @@ En outre, le [niveau de performance des disques managés peut être modifié](di
 
 |  |Bursting basé sur les crédits  |Bursting à la demande  |Modification du niveau de performance  |
 |---------|---------|---------|---------|
-| Scénarios|Idéal pour la mise à l’échelle à court terme (30 minutes ou moins).|Idéal pour la mise à l’échelle à court terme (sans limite de temps).|Idéal dans le cas où votre charge de travail s’exécuterait sinon en continu avec le bursting.|
-|Coût     |Gratuit         |Le coût est variable. Pour plus d’informations, consultez la section [Facturation](#billing).        |Le coût de chaque niveau de performance est fixe. Pour plus d’informations, consultez les [tarifs des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).         |
-|Disponibilité     |Disponible uniquement pour les disques SSD Premium de taille jusqu’à 512 Gio.         |Disponible uniquement pour les disques SSD Premium de taille supérieure à 512 Gio.         |Disponible pour toutes les tailles de disques SSD Premium.         |
-|Activation     |Activé par défaut sur les disques éligibles.         |Doit être activé par l’utilisateur.         |L’utilisateur doit modifier manuellement son niveau.         |
+| **Scénarios**|Idéal pour la mise à l’échelle à court terme (30 minutes ou moins).|Idéal pour la mise à l’échelle à court terme (sans limite de temps).|Idéal dans le cas où votre charge de travail s’exécuterait sinon en continu avec le bursting.|
+|**Coût**     |Gratuit         |Le coût est variable. Pour plus d’informations, consultez la section [Facturation](#billing).        |Le coût de chaque niveau de performance est fixe. Pour plus d’informations, consultez les [tarifs des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).         |
+|**Disponibilité**     |Disponible uniquement pour les disques SSD Premium de taille jusqu’à 512 Gio.         |Disponible uniquement pour les disques SSD Premium de taille supérieure à 512 Gio.         |Disponible pour toutes les tailles de disques SSD Premium.         |
+|**Activation**     |Activé par défaut sur les disques éligibles.         |Doit être activé par l’utilisateur.         |L’utilisateur doit modifier manuellement son niveau.         |
 
 ## <a name="common-scenarios"></a>Scénarios courants
 Le mode rafale peut être très avantageux pour les scénarios suivants :

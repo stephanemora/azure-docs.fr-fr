@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1ac3f2fa1ef3f1a24077064ad3ad3f3c30c5f3f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694867"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048355"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Créer une adresse IP publique à l’aide du portail Azure
 
@@ -52,7 +52,7 @@ Effectuez les étapes suivantes pour créer une adresse IP publique redondante i
 
 > [!NOTE]
 > Ces sélections sont valides dans les régions avec [Zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones). </br>
-Vous pouvez sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Vous pouvez sélectionner une zone spécifique dans ces régions, mais elle ne sera pas résiliente aux échecs de zone. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
 \* = Le niveau se rapporte à la fonctionnalité [Équilibreur de charge interrégion](../load-balancer/cross-region-overview.md), actuellement en préversion.
 

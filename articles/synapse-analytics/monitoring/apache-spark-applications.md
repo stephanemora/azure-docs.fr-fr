@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: ea08c82ed5772be7e3a6094f5477c4450975c1fa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584512"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775856"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Utiliser Synapse Studio pour surveiller vos applications Apache Spark
 
@@ -157,9 +157,16 @@ Ouvrez **Superviser**, puis sélectionnez **Applications Apache Spark**. Pour af
    ![informations sur la tâche ayant échoué](./media/how-to-monitor-spark-applications/failed-job-info.png)
 
 ## <a name="compare-apache-spark-applications"></a>Comparer les applications Apache Spark
-Cliquez sur le bouton **Comparer des applications** et choisissez une application pour comparer les performances. Les utilisateurs peuvent voir intuitivement la différence entre les deux applications.
+
+Il existe deux façons de comparer des applications. Vous pouvez comparer en choisissant de **comparer une application** ou en cliquant sur le bouton **Comparer dans le bloc-notes** pour afficher la comparaison dans le bloc-notes.
+
+### <a name="compare-by-choose-an-application"></a>Comparer par choix d’une application
+
+Cliquez sur le bouton **Comparer des applications** et choisissez une application dont comparer les performances. Vous pouveze voir intuitivement la différence entre les deux applications.
 
 ![comparer des applications](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+![détails de comparaison d’applications](./media/how-to-monitor-spark-applications/details-compare-applications.png)
 
 1. Utilisez la souris pour survoler une application et l’icône **Comparer des applications** s’affiche.
 
@@ -167,7 +174,7 @@ Cliquez sur le bouton **Comparer des applications** et choisissez une applicatio
 
 3. Cliquez sur le bouton **Choisir une application** pour ouvrir la page **Choisir une application de comparaison**.
 
-4. Lorsque vous choisissez l’application de comparaison, les utilisateurs doivent entrer l’URL de l’application ou choisir dans la liste de périodicité. Cliquez ensuite sur le bouton **OK**. 
+4. Lorsque vous choisissez l’application pour la comparaison, vous devez entrer l’URL de l’application ou choisir dans la liste périodique. Cliquez ensuite sur le bouton **OK**. 
 
    ![choisir une application de comparaison](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
 
@@ -175,6 +182,15 @@ Cliquez sur le bouton **Comparer des applications** et choisissez une applicatio
 
    ![résultat de la comparaison](./media/how-to-monitor-spark-applications/comparison-result.png)
 
+### <a name="compare-by-compare-in-notebook"></a>Comparer avec Comparer dans le bloc-notes
+
+Cliquez sur le bouton **Comparer dans le bloc-notes** sur la page **Comparer les applications** pour ouvrir le bloc-notes. Le nom par défaut du fichier. ipynb est **Analyse de l’application actualisée**.
+
+![Comparer dans le bloc-notes](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
+
+Dans le bloc-notes : fichier d’analyse de l’application actualisée, vous pouvez exécuter l’application directement après avoir défini le pool Spark et la langue.
+
+![analyse de l’application actualisée](./media/how-to-monitor-spark-applications/recurrent-application-analytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

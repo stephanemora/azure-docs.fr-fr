@@ -10,13 +10,13 @@ ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: f3c20774accf9e0b589b898cb903d6da4516e553
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92780810"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058916"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -76,7 +76,7 @@ Pour le même nombre de DTU, les ressources fournies à un pool élastique peuve
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Nombre min. de DTU par base de données | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | Nombre max. de DTU par base de données | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 |
-| Espace de stockage maximal par base de données (Go) | 500 | 750 | 1 024 | 1 024 | 1 024 | 1 024 |
+| Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
 ||||||||
 
 <sup>1</sup> Consultez [Options tarifaires SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) pour obtenir des détails sur le coût additionnel engendré par le provisionnement d’espace de stockage supplémentaire.
@@ -97,7 +97,7 @@ Pour le même nombre de DTU, les ressources fournies à un pool élastique peuve
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Nombre min. de DTU par base de données | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | Nombre max. de DTU par base de données | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
-| Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
+| Espace de stockage maximal par base de données (Go) | 1 024 | 1536 | 1792 | 2304 | 2816 |
 |||||||
 
 <sup>1</sup> Consultez [Options tarifaires SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) pour obtenir des détails sur le coût additionnel engendré par le provisionnement d’espace de stockage supplémentaire.
@@ -118,7 +118,7 @@ Pour le même nombre de DTU, les ressources fournies à un pool élastique peuve
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000|
 | Nombre maximal d’eDTU par base de données | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000|
-| Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
+| Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1536 |
 |||||||
 
 <sup>1</sup> Consultez [Options tarifaires SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) pour obtenir des détails sur le coût additionnel engendré par le provisionnement d’espace de stockage supplémentaire.
@@ -139,7 +139,7 @@ Pour le même nombre de DTU, les ressources fournies à un pool élastique peuve
 | Nombre maximal de sessions simultanées par pool <sup>3</sup> | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Nombre min. de DTU par base de données | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Nombre max. de DTU par base de données | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
-| Espace de stockage maximal par base de données (Go) | 1 024 | 1 024 | 1 024 | 1 024 | 1 024 |
+| Espace de stockage maximal par base de données (Go) | 2 048 | 2560 | 3 072 | 3584 | 4096 |
 |||||||
 
 <sup>1</sup> Consultez [Options tarifaires SQL Database](https://azure.microsoft.com/pricing/details/sql-database/elastic/) pour obtenir des détails sur le coût additionnel engendré par le provisionnement d’espace de stockage supplémentaire.
@@ -154,7 +154,7 @@ Pour le même nombre de DTU, les ressources fournies à un pool élastique peuve
 Si toutes les DTU d’un pool élastique sont utilisées, chaque base de données du pool reçoit une quantité égale de ressources pour traiter les requêtes. Le service de base de données SQL offre un partage équitable des ressources entre les bases de données, garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de DTU par base de données est défini sur une valeur différente de zéro.
 
 > [!NOTE]
-> Pour les limites `tempdb`, consultez [Limites tempdb](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Pour les limites `tempdb`, consultez [Limites tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriétés de base de données pour les bases de données mises en pool
 

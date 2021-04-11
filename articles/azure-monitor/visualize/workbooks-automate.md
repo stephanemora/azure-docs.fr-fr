@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d4aac17ca823f4eaa0f52ab260b1daca3f52f94
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100599952"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109745"
 ---
 # <a name="programmatically-manage-workbooks"></a>Gérer programmatiquement des classeurs
 
@@ -99,19 +99,19 @@ Il existe deux types de ressources de classeur qui peuvent être gérés par pro
 
 ### <a name="galleries"></a>Galeries
 
-| Galerie                                        | Type de ressource                                      | Type de classeur |
-| :--------------------------------------------- |:---------------------------------------------------|:--------------|
-| Classeurs dans Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
-| Insights de machine virtuelle dans Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
-| Classeurs dans l’espace de travail Log Analytics           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
-| Classeurs dans Application Insights              | `microsoft.insights/component`                     | `workbook`    |
-| Guides de résolution des problèmes dans Application Insights | `microsoft.insights/component`                     | `tsg`         |
-| Utilisation dans Application Insights                  | `microsoft.insights/component`                     | `usage`       |
-| Classeurs dans le service Kubernetes                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
-| Classeurs dans des groupes de ressources                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
-| Classeurs dans Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
-| Insights de machine virtuelle dans des machines virtuelles                | `microsoft.compute/virtualmachines`                | `insights`    |
-| Insights de machine virtuelle dans des groupes de machines virtuelles identiques      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| Galerie                                        | Type de ressource                                       | Type de classeur |
+|:-----------------------------------------------|:----------------------------------------------------|:--------------|
+| Classeurs dans Azure Monitor                     | `Azure Monitor`                                     | `workbook`    |
+| Insights de machine virtuelle dans Azure Monitor                   | `Azure Monitor`                                     | `vm-insights` |
+| Classeurs dans l’espace de travail Log Analytics           | `microsoft.operationalinsights/workspaces`          | `workbook`    |
+| Classeurs dans Application Insights              | `microsoft.insights/components`                     | `workbook`    |
+| Guides de résolution des problèmes dans Application Insights | `microsoft.insights/components`                     | `tsg`         |
+| Utilisation dans Application Insights                  | `microsoft.insights/components`                     | `usage`       |
+| Classeurs dans le service Kubernetes                | `Microsoft.ContainerService/managedClusters`        | `workbook`    |
+| Classeurs dans des groupes de ressources                   | `microsoft.resources/subscriptions/resourcegroups`  | `workbook`    |
+| Classeurs dans Azure Active Directory            | `microsoft.aadiam/tenant`                           | `workbook`    |
+| Insights de machine virtuelle dans des machines virtuelles                | `microsoft.compute/virtualmachines`                 | `insights`    |
+| Insights de machine virtuelle dans des groupes de machines virtuelles identiques      | `microsoft.compute/virtualmachinescalesets`         | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Modèle Azure Resource Manager pour le déploiement d’une instance de classeur
 

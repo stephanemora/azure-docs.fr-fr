@@ -3,15 +3,15 @@ title: Private Link - Azure Database for MariaDB
 description: Découvrez le fonctionnement de Private Link pour Azure Database for MariaDB (préversion).
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12f52cd497d606fda6bbea9b54f467522373eeb7
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a1b97586eeeab1d5d1917f2d1cec9e0f71e9e329
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98665138"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867455"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Private Link pour Azure Database for MariaDB
 
@@ -85,7 +85,8 @@ Une fois que l’administrateur réseau a créé le point de terminaison privé 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mariadb"></a>Cas d’usage de Private Link pour Azure Database for MariaDB
 
-Les clients peuvent se connecter au point de terminaison privé à partir du même réseau virtuel, d’un réseau virtuel appairé dans la même région ou par le biais d’une connexion réseau virtuel à réseau virtuel entre régions. Les clients peuvent également se connecter localement avec ExpressRoute, un appairage privé ou un tunneling VPN. Vous trouverez ci-dessous un diagramme simplifié montrant les cas d’usage courants.
+
+Les clients peuvent se connecter à un point de terminaison privé à partir du même réseau virtuel, [Réseau virtuel homologué](../virtual-network/virtual-network-peering-overview.md) dans la même région ou entre des régions ou via la [connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre des régions. Les clients peuvent également se connecter localement avec ExpressRoute, un appairage privé ou un tunneling VPN. Vous trouverez ci-dessous un diagramme simplifié montrant les cas d’usage courants.
 
 ![sélectionnez la vue d’ensemble du point de terminaison privé](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
 

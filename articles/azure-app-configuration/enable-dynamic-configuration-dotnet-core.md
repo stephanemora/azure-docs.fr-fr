@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Dans ce tutoriel, vous allez apprendre à mettre à jour dynamiquement les données de configuration pour les applications .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
-author: abarora
+author: GrantMeStrength
 manager: zhenlan
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: abarora
-ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.author: jken
+ms.openlocfilehash: bb0c83536f8973a07d656844439a8816dea83346
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99979859"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625702"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application .NET Core
 

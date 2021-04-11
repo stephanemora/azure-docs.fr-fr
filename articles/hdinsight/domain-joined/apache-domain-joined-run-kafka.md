@@ -4,12 +4,12 @@ description: Didacticiel - Découvrez comment configurer des stratégies Apache 
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 552998de23bebd98f56ba28eb6ad581689e52e41
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bab3df857dfdac3ca3b9193bda1caea0040a4cbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933681"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866979"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -33,7 +33,7 @@ Un [cluster Kafka HDInsight avec le Pack Sécurité Entreprise](./apache-domain-
 
 2. Connectez-vous avec vos informations d’identification d’administrateur Azure Active Directory. Les informations d’identification administrateur Azure AD ne sont pas les mêmes que celles du cluster HDInsight ou que celles du protocole SSH du nœud HDInsight Linux.
 
-   ![Interface utilisateur d’administration Apache Ranger HDInsight](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="Interface utilisateur d’administration Apache Ranger HDInsight" border="true":::
 
 ## <a name="create-domain-users"></a>Créer des utilisateurs du domaine
 
@@ -61,7 +61,7 @@ Créez une stratégie Ranger pour **sales_user** et **marketing_user**.
    * « * » indique zéro, une ou plusieurs occurrences des caractères.
    * « ? » indique n’importe quel caractère individuel.
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie1" border="true":::
 
    Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur**.
 
@@ -76,7 +76,7 @@ Créez une stratégie Ranger pour **sales_user** et **marketing_user**.
    |Sélectionner un utilisateur  |  marketing_user1 |
    |Autorisations  | publier, consommer, créer |
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie2" border="true":::  
 
 6. Sélectionnez **Ajouter** pour enregistrer la stratégie.
 
@@ -177,7 +177,7 @@ En fonction des stratégies Ranger configurées, **sales_user** peut produire/co
 
 8. Consultez les événements d’accès de l’audit à partir de l’interface utilisateur de Ranger.
 
-   ![Événements d’accès d’audit de stratégie de l’interface utilisateur Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Événements d’accès d’audit de stratégie de l’interface utilisateur Ranger " border="true":::
    
 ## <a name="produce-and-consume-topics-in-esp-kafka-by-using-the-console"></a>Produire et consommer des rubriques dans ESP Kafka en utilisant la console
 

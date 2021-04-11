@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 – Python'
 description: Découvrez comment utiliser la bibliothèque de client Stockage File d’attente Azure v12 pour Python, afin de créer une file d’attente et d’y ajouter des messages. Apprenez ensuite à lire et à supprimer des messages de la file d’attente. Vous apprendrez également à supprimer une file d’attente.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-python
-ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1881af372c1f4e1c5cbb4ea7be0ede4c96bbf4ee
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585494"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276142"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 pour Python
 
@@ -40,7 +40,7 @@ Ressources supplémentaires :
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
-- [Python](https://www.python.org/downloads/) pour votre système d’exploitation - 2.7, 3.5 ou version ultérieure
+- [Python](https://www.python.org/downloads/) pour votre système d’exploitation - 2.7 ou 3.6 et versions ultérieures
 
 ## <a name="setting-up"></a>Configuration
 

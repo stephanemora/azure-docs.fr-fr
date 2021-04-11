@@ -5,14 +5,14 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 7604a327c43ed1942d336399b6d8b9dbb1e64d75
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935715"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104862831"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Démarrage rapide : Exécuter un script R sur un cluster ML Services dans HDInsight Azure à l’aide de RStudio Server
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Démarrage rapide : exécuter un script R sur un cluster ML Services dans HDInsight Azure à l’aide de RStudio Server
 
 ML Services sur Azure HDInsight permet aux scripts R d’utiliser Apache Spark et Apache Hadoop MapReduce afin d’exécuter des calculs distribués. ML Services contrôle le mode d’exécution des appels en définissant le contexte de calcul. Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de RevoScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Apache Spark de RevoScaleR.
 
@@ -34,7 +34,7 @@ La première fois que vous vous connectez, vous devez vous authentifier deux foi
 
 Une fois que vous êtes connecté, votre écran doit ressembler à la capture d’écran suivante :
 
-![Vues d’ensemble de la console web R Studio](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="Vues d’ensemble de la console web R Studio" border="true":::
 
 ## <a name="use-a-compute-context"></a>Utiliser un contexte de calcul
 
@@ -141,7 +141,7 @@ Une fois que vous êtes connecté, votre écran doit ressembler à la capture d�
     
       ---
     
-      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

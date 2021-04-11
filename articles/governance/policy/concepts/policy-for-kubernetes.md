@@ -1,14 +1,14 @@
 ---
 title: Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577103"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868152"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Comprendre Azure Policy pour les clusters Kubernetes
 
@@ -68,9 +68,9 @@ Les limitations suivantes s’appliquent uniquement au module complémentaire Az
 
 Voici les recommandations générales relatives à l’utilisation du module complémentaire Azure Policy :
 
-- Le module complémentaire Azure Policy requiert 3 composants Gatekeeper pour s’exécuter : 1 pod d’audit et 2 réplicas de pod de webhook. Ces composants consomment davantage de ressources, car le nombre de ressources Kubernetes et d’attributions de stratégie augmente dans le cluster, ce qui nécessite des opérations d’audit et de mise en œuvre.
+- Le module complémentaire Azure Policy requiert trois composants Gatekeeper pour s’exécuter : 1 pod d’audit et 2 réplicas de pod de webhook. Ces composants consomment davantage de ressources, car le nombre de ressources Kubernetes et d’attributions de stratégie augmente dans le cluster, ce qui nécessite des opérations d’audit et de mise en œuvre.
 
-  - Pour moins de 500 pods dans un seul cluster avec un maximum de 20 contraintes : 2 processeurs virtuels et 350 Mo de mémoire par composant.
+  - Pour moins de 500 pods dans un seul cluster avec un maximum de 20 contraintes : 2 processeurs virtuels et 350 Mo de mémoire par composant.
   - Pour plus de 500 pods dans un seul cluster avec un maximum de 40 contraintes : 3 processeurs virtuels et 600 Mo de mémoire par composant.
 
 - Les pods Windows [ne prennent pas en charge les contextes de sécurité](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods).
@@ -85,7 +85,7 @@ La recommandation suivante s’applique uniquement à AKS et au module compléme
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installer un module complémentaire Azure Policy pour AKS
 
-Avant d’installer le module complémentaire Azure Policy ou d’activer des fonctionnalités du service, votre abonnement doit activer les fournisseurs de ressources **Microsoft.ContainerService** and **Microsoft.PolicyInsights**.
+Avant d’installer le module complémentaire Azure Policy ou d’activer des fonctionnalités du service, votre abonnement doit activer les fournisseurs de ressources **Microsoft.PolicyInsights**.
 
 1. La version 2.12.0 ou ultérieure d’Azure CLI doit être installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
@@ -93,15 +93,12 @@ Avant d’installer le module complémentaire Azure Policy ou d’activer des fo
 
    - Portail Azure :
 
-     Inscrivez les fournisseurs de ressources **Microsoft.ContainerService** et **Microsoft.PolicyInsights**. Pour connaître les étapes, consultez [Types et fournisseurs de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Inscrivez les fournisseurs de ressources **Microsoft.PolicyInsights**. Pour connaître les étapes, consultez [Types et fournisseurs de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - Azure CLI :
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -446,8 +443,7 @@ Quelques autres considérations :
 
 ## <a name="logging"></a>Journalisation
 
-En tant que contrôleur/conteneur Kubernetes, les pods _azure-policy_ et _gatekeeper_ conservent les journaux dans le cluster Kubernetes. Les journaux peuvent être exposés dans la page **Insights** du cluster Kubernetes.
-Pour plus d’informations, consultez [Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs](../../../azure-monitor/containers/container-insights-analyze.md).
+En tant que contrôleur/conteneur Kubernetes, les pods _azure-policy_ et _gatekeeper_ conservent les journaux dans le cluster Kubernetes. Les journaux peuvent être exposés dans la page **Insights** du cluster Kubernetes. Pour plus d’informations, consultez [Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Pour afficher les journaux du module complémentaire, utilisez `kubectl` :
 

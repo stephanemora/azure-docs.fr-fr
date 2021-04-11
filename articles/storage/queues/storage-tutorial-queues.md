@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Utiliser des files d’attente Stockage File d’attente Azure dans .NET'
 description: Tutoriel sur l’utilisation de Stockage File d’attente Azure pour créer des files d’attente et pour insérer, obtenir et supprimer des messages à l’aide du code .NET.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: dineshm
 ms.date: 06/09/2020
 ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3c41b218ac0d347b2e58931421493755346b13d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dda6fb816fcba4ab9350edd956d895a3b9b204d4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97591971"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276125"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>Tutoriel : Utiliser des files d’attente Stockage File d’attente Azure dans .NET
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 95ee4e5f326dd9b76645d22ff735bc36437c72fb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714950"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870112"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -35,7 +35,19 @@ La topologie recommandée du type de nœud principal nécessite les ressources d
 >[!NOTE]
 > La propriété de groupe de placement de groupe de machines virtuelles identiques doit être définie sur true (vrai) car Service Fabric ne prend pas en charge un groupe de machines virtuelles identiques couvrant des zones.
 
- ![Diagramme illustrant l’architecture des zones de disponibilité Azure Service Fabric.][sf-architecture]
+Diagramme illustrant le diagramme d’architecture de zone de disponibilité Azure Service Fabric ![Diagramme illustrant le diagramme d’architecture de zone de disponibilité Azure Service Fabric.][sf-architecture]
+
+Exemple de liste de nœuds illustrant les formats FD/UD dans les zones étendues d’un groupe de machines virtuelles identiques
+
+ ![Exemple de liste de nœuds illustrant les formats FD/UD dans les zones étendues d’un groupe de machines virtuelles identiques.][sf-multi-az-nodes]
+
+**Distribution des réplicas de service entre les zones** : Quand un service est déployé sur les nodeTypes, qui sont des zones étendues, des réplicas sont placés pour s’assurer qu’ils se trouvent dans des zones distinctes. Cela est assuré, car le domaine d’erreur sur les nœuds présents dans chacun de ces nodeTypes est configuré avec les informations de zone (p. ex. FD = fd:/zone1/1, etc.). Par exemple : pour 5 réplicas ou instances d’un service, la distribution sera 2-2-1 et le runtime essaiera de garantir une distribution égale entre les zones de disponibilité.
+
+**Configuration du réplica de service utilisateur** : Les services d’utilisateur avec état déployés sur la zone de disponibilité croisée nodeTypes doivent être configurés avec cette configuration : nombre de réplicas avec cible = 9, min = 5. Cette configuration permet au service de fonctionner même lorsqu’une zone tombe en panne, car 6 réplicas sont toujours dans les deux autres zones. Une mise à niveau d’une application passera également dans un tel scénario.
+
+**ReliabilityLevel du cluster** : Définit le nombre de nœuds de départ dans le cluster ainsi que la taille de réplica des services système. Dans la mesure où la configuration d’une zone de disponibilité croisée a un plus grand nombre de nœuds répartis entre les zones pour permettre la résilience de zone, une valeur de fiabilité plus élevée garantit que plus de nœuds initiaux et de réplicas de service système sont présents et répartis uniformément entre les zones. « ReliabilityLevel = Platinum » permet de s’assurer qu’il y a 9 nœuds initiaux répartis entre les zones du cluster avec 3 nœuds initiaux dans chaque zone, ce qui est recommandé pour la configuration d’une zone de disponibilité croisée.
+
+**Scénario de zone défaillante** : Lorsqu’une zone est défaillante, tous les nœuds de cette zone apparaissent comme étant en panne. Les réplicas de service sur ces nœuds sont également indisponibles. Étant donné qu’il y a des réplicas dans les autres zones, le service continue à être réactif avec les réplicas principaux qui basculent vers les zones qui fonctionnent. Les services s’affichent dans un état d’avertissement, car le nombre de réplicas cibles n’est pas encore atteint et le nombre de machines virtuelles est toujours supérieur à la taille minimale de réplica cible. Par la suite, un équilibreur de charge Service Fabric affichera les réplicas dans les zones de travail afin de correspondre au nombre de réplicas cible configuré. À ce stade, les services apparaissent intègres. Lorsque la zone qui était introuvable est reprise, l’équilibrage de charge répartit de nouveau tous les réplicas de service uniformément dans toutes les zones.
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 ### <a name="public-ip-and-load-balancer-resource"></a>Ressource d’adresse IP publique et Load Balancer
@@ -345,7 +357,7 @@ Pour activer des zones sur un groupe de machines virtuelles identiques, vous dev
 
 * La première valeur est la propriété **zones** qui spécifie les zones de disponibilité présentes dans le groupe de machines virtuelles identiques.
 * La deuxième valeur est la propriété « singlePlacementGroup », qui doit être définie sur true (vrai). **Le groupe identique s’étend sur 3 zones de disponibilité et peut effectuer un scale-up jusqu’à 300 machines virtuelles, même avec « singlePlacementGroup = true ».**
-* La troisième valeur est « zoneBalance », qui garantit un strict équilibrage des zones. Cette valeur doit être définie sur « true » pour éviter une distribution déséquilibrée des machines virtuelles entre les zones. Un cluster affichant une distribution déséquilibrée des machines virtuelles entre les zones est moins susceptible de résister au scénario à une seule zone. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* La troisième valeur est « zoneBalance », qui garantit un strict équilibrage des zones. La valeur doit être « true ». Cela garantit que les distributions de machines virtuelles entre les zones ne sont pas déséquilibrées, assurant ainsi que lorsque l’une des zones tombe en panne, les deux autres zones disposent de suffisamment de machines virtuelles pour s’assurer que le cluster continue à s’exécuter sans interruption. Un cluster avec une distribution de machines virtuelles déséquilibrée peut ne pas survivre à un scénario de zone défaillante, car cette zone peut avoir la majorité des machines virtuelles. La distribution déséquilibrée des de machines virtuelles entre les zones entraînera également des problèmes liés au placement de services et au blocage des mises à jour de l’infrastructure. Découvrez [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Les remplacements FaultDomain et UpgradeDomain ne doivent pas être configurés.
 
 ```json
@@ -363,7 +375,7 @@ Pour activer des zones sur un groupe de machines virtuelles identiques, vous dev
 ```
 
 >[!NOTE]
-> * **Les clusters DF doivent avoir au moins un nodeType principal. La valeur de durabilityLevel des nodeTypes principaux doit être Silver ou une valeur supérieure.**
+> * **Les clusters Service Fabric doivent avoir au moins un nodeType principal. La valeur de durabilityLevel des nodeTypes principaux doit être Silver ou une valeur supérieure.**
 > * Le groupe de machines virtuelles identiques couvrant AZ doit être configuré avec au moins 3 zones de disponibilité, quel que soit la valeur de durabilityLevel.
 > * Un groupe de machines virtuelles identiques couvrant AZ défini avec une durabilité Silver (ou supérieure) doit compter au moins 15 machines virtuelles.
 > * Un groupe de machines virtuelles identiques couvrant AZ défini avec une durabilité Bronze doit compter au moins 6 machines virtuelles.
@@ -373,13 +385,13 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 
 * La première valeur, **multipleAvailabilityZones**, doit être définie sur true pour le nodeType.
 * La deuxième valeur, **sfZonalUpgradeMode**, est facultative. Il n’est pas possible de modifier cette propriété si un nodeType avec plusieurs AZ est déjà présent dans le cluster.
-      La propriété contrôle le regroupement logique des machines virtuelles dans les domaines de mise à niveau.
-          Si la valeur est définie sur « Parallèle » : Les machines virtuelles sous le type de nœud seront regroupées en UD en ignorant les informations de zone dans 5 UD.
-          Si la valeur est omise ou définie sur « Hiérarchique » : les machines virtuelles sont regroupées pour refléter la distribution zonale jusqu’à 15 UD. Chacune des 3 zones aura 5 UD.
-          Cette propriété définit uniquement le comportement de mise à niveau pour l’application ServiceFabric et les mises à niveau de code. Les mises à niveau du groupe de machines virtuelles identiques sous-jacentes seront toujours parallèles dans tous les AZ.
-      Cette propriété n’a aucun impact sur la distribution d’UD pour les types de nœuds pour lesquels plusieurs zones ne sont pas activées.
+  La propriété contrôle le regroupement logique des machines virtuelles dans les domaines de mise à niveau.
+  **Si la valeur est définie sur « Parallèle » :** Les machines virtuelles sous le type de nœud seront regroupées en UD en ignorant les informations de zone dans 5 UD. Cela entraînera la mise à niveau de UD0 en même temps dans toutes les zones. Ce mode de déploiement est plus rapide pour les mises à niveau, mais il n’est pas recommandé, car il s’applique aux instructions SDP, qui stipulent que les mises à jour doivent être appliquées à une seule zone à la fois.
+  **Si la valeur est omise ou définie sur « Hiérarchique » :** les machines virtuelles sont regroupées pour refléter la distribution zonale jusqu’à 15 UD. Chacune des 3 zones aura 5 UD. Cela permet de s’assurer que les mises à jour se déplacent vers la zone suivante uniquement après avoir effectué 5 UD au sein de la première zone, lentement sur 15 UD (3 zones, 5 UD), ce qui est plus sûr du point de vue du cluster et de l’application utilisateur.
+  Cette propriété définit uniquement le comportement de mise à niveau pour l’application ServiceFabric et les mises à niveau de code. Les mises à niveau du groupe de machines virtuelles identiques sous-jacentes seront toujours parallèles dans tous les AZ.
+  Cette propriété n’a aucun impact sur la distribution d’UD pour les types de nœuds pour lesquels plusieurs zones ne sont pas activées.
 * La troisième valeur est **vmssZonalUpgradeMode = Parallel**. Il s’agit d’une propriété *obligatoire* à configurer dans le cluster en cas d’ajout d’un nodeType avec plusieurs AZ. Cette propriété définit le mode de mise à niveau pour les mises à jour du groupe de machines virtuelles identiques qui se produiront en parallèle simultanément dans tous les AZ.
-      Actuellement, cette propriété ne peut être définie que sur parallèle.
+  Actuellement, cette propriété ne peut être définie que sur parallèle.
 * La ressource de cluster Service Fabric apiVersion doit être « 2020-12-01-preview » ou une version ultérieure.
 * La version de code du cluster doit être « 7.2.445 » ou une version ultérieure.
 
@@ -408,7 +420,7 @@ Le nodeType Service Fabric doit être activé pour prendre en charge plusieurs z
 >[!NOTE]
 > * Les ressources d’adresse IP publique et d’équilibreur de charge doivent utiliser la référence (SKU) Standard, comme décrit précédemment dans l’article.
 > * la propriété « multipleAvailabilityZones » sur le nodeType ne peut être définie qu’au moment de la création du nodeType, et ne peut pas être modifiée ultérieurement. Par conséquent, des nodeTypes existants ne peuvent pas être configurés avec cette propriété.
-> * Quand « sfZonalUpgradeMode » est omis ou défini sur « Hierachical », les déploiements de cluster et d’application sont plus lents, car il y a plus de domaines de mise à niveau dans le cluster. Il est important d’ajuster correctement les délais d’expiration de stratégie de mise à niveau à incorporer pendant la durée de mise à niveau pour 15 domaines de mise à niveau.
+> * Quand « sfZonalUpgradeMode » est omis ou défini sur « Hierachical », les déploiements de cluster et d’application sont plus lents, car il y a plus de domaines de mise à niveau dans le cluster. Il est important d’ajuster correctement les délais d’expiration de stratégie de mise à niveau à incorporer pendant la durée de mise à niveau pour 15 domaines de mise à niveau. La stratégie de mise à niveau pour l’application et le cluster doit être mise à jour pour s’assurer que le déploiement ne dépasse pas les délais d’attente de déploiement du service Azure Resource de 12 heures. Cela signifie que le déploiement ne doit pas prendre plus de 12 heures pour 15UD, c.-à-d. pas plus de 40 min/UD.
 > * Définissez **reliabilityLevel = Platinum** dans le cluster pour garantir que le cluster résiste au scénario à une seule zone.
 
 >[!NOTE]
@@ -426,3 +438,4 @@ L’article [ici](./service-fabric-scale-up-primary-node-type.md) décrit en dé
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
+[sf-multi-az-nodes]: ./media/service-fabric-cross-availability-zones/sf-multi-az-nodes.png

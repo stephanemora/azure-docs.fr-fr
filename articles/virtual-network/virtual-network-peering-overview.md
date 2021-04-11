@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1356c896abff8c525df283251240d027123405fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216748"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778287"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -25,8 +25,8 @@ L'appairage de réseaux virtuels vous permet de connecter en toute transparence 
 
 Azure prend en charge les types de Peering suivants :
 
-* Appairage de réseaux virtuels : connecte des réseaux virtuels au sein d’une même région Azure.
-* Appairage de réseaux virtuels mondiaux : connecte des réseaux virtuels entre les différentes régions Azure.
+* **Appairage de réseaux virtuels** : connecte des réseaux virtuels au sein d’une même région Azure.
+* **Appairage de réseaux virtuels mondiaux** : connecte des réseaux virtuels entre les différentes régions Azure.
 
 Voici quelques-uns des avantages du peering de réseaux virtuels, qu’il soit local ou global :
 

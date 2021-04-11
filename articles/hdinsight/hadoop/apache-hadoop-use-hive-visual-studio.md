@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4512c9d9fdb66713ba24fbf30278e5d5dbb2ae23
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943164"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104863749"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Apache Hive à l’aide des outils Data Lake pour Visual Studio
 
@@ -37,7 +37,7 @@ Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Inter
 
 1. Lancez **Visual Studio** et sélectionnez **Continuer sans code**.
 
-2. À partir de l’**Explorateur de serveurs**, faites un clic droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure...** , puis terminez le processus de connexion.
+2. À partir de l’**Explorateur de serveurs**, faites un clic droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure...**, puis terminez le processus de connexion.
 
 3. Développez **HDInsight**, cliquez avec le bouton droit sur le cluster dans lequel vous souhaitez exécuter la requête, puis sélectionnez **Écrire une requête Hive**.
 
@@ -49,11 +49,11 @@ Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Inter
 
 5. Sélectionnez **Exécuter**. Le mode d’exécution par défaut est **Interactive**.
 
-    ![Exécuter une requête Hive interactive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Exécuter une requête Hive interactive, Visual Studio" border="true":::
 
 6. Pour exécuter la même requête dans le mode **Batch**, utilisez la liste déroulante pour passer de **Interactive** à **Batch**. Le bouton d’exécution **Exécuter** devient **Envoyer**.
 
-    ![Envoyer une requête Hive par lot, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Envoyer une requête Hive par lot, Visual Studio" border="true":::
 
     L’éditeur Hive prend en charge IntelliSense. Data Lake Tools pour Visual Studio prend en charge le chargement des métadonnées distantes pendant la modification d’un script Hive. Par exemple, si vous tapez `SELECT * FROM`, IntelliSense répertorie tous les noms de table suggérés. Lorsqu’un nom de table est spécifié, IntelliSense répertorie les noms de colonne. Les outils prennent en charge la plupart des instructions DML, sous-requêtes et fonctions définies par l’utilisateur intégrées de Hive. IntelliSense propose uniquement les métadonnées du cluster sélectionné dans la barre d’outils HDInsight.
 
@@ -61,7 +61,7 @@ Les requêtes ad hoc peuvent être exécutées dans le mode **Batch** ou **Inter
 
 8. Si vous avez sélectionné l’option d’envoi avancé, configurez les éléments **Nom du travail**, **Arguments**, **Configurations supplémentaires** et **Répertoire d’état** dans la boîte de dialogue **Envoyer le script**. Ensuite, sélectionnez **Envoyer**.
 
-    ![Boîte de dialogue Envoyer le script, requête Hive HDInsight Hadoop](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Boîte de dialogue Envoyer le script, requête Hive HDInsight Hadoop" border="true":::
 
 ### <a name="create-a-hive-application"></a>Création d’une application Hive
 
@@ -88,28 +88,28 @@ Pour exécuter une requête Hive en créant une application Hive, procédez comm
 
     Ces instructions effectuent les opérations suivantes :
 
-    * `DROP TABLE`: Supprime la table si elle existe.
+    * `DROP TABLE` : supprime la table si elle existe.
 
-    * `CREATE EXTERNAL TABLE`: crée une nouvelle table externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. (Les données restent à l’emplacement d’origine.)
+    * `CREATE EXTERNAL TABLE` : crée une table externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. (Les données restent à l’emplacement d’origine.)
 
         > [!NOTE]  
         > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, telles qu’un travail MapReduce ou un service Azure.
         >
         > La suppression d'une table externe ne supprime **pas** les données, mais seulement la définition de la table.
 
-    * `ROW FORMAT`: indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.
+    * `ROW FORMAT` : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
 
-    * `STORED AS TEXTFILE LOCATION`: Indique à Hive que les données sont stockées dans le répertoire *example/data* sous forme de texte.
+    * `STORED AS TEXTFILE LOCATION`: indique à Hive que les données sont stockées dans le répertoire *example/data* sous forme de texte.
 
-    * `SELECT`: Sélectionne toutes les lignes dont la colonne `t4` contient la valeur `[ERROR]`. Cette instruction renvoie la valeur `3`, car trois lignes contiennent cette valeur.
+    * `SELECT` :sélectionne toutes les lignes dont la colonne `t4` contient la valeur `[ERROR]`. Cette instruction renvoie la valeur `3`, car trois lignes contiennent cette valeur.
 
-    * `INPUT__FILE__NAME LIKE '%.log'`: Indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cette clause limite la recherche au fichier *sample.log* qui contient les données.
+    * `INPUT__FILE__NAME LIKE '%.log'` : indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log. Cette clause limite la recherche au fichier *sample.log* qui contient les données.
 
 6. À partir de la barre d’outils du fichier de requête (ressemble à la barre d’outils de requête ad hoc), sélectionnez le cluster HDInsight que vous souhaitez utiliser pour cette requête. Modifiez ensuite **Interactive** en **Batch** (le cas échéant), puis sélectionnez **Envoyer** pour exécuter les instructions en tant que travail Hive.
 
    Le **résumé de tâche Hive** apparaît et affiche des informations sur la tâche en cours d’exécution. Utilisez le lien **Actualiser** pour actualiser les informations sur la tâche, jusqu’à ce que l’**état de la tâche** passe à **Terminé**.
 
-   ![Résumé du travail Hive terminé, application Hive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Résumé du travail Hive terminé, application Hive, Visual Studio" border="true":::
 
 7. Sélectionnez **Sortie du travail** pour afficher la sortie de ce travail. Il affiche `[ERROR] 3`, soit la valeur retournée par cette requête.
 
@@ -129,14 +129,14 @@ L’exemple suivant s’appuie sur la table `log4jLogs` créée lors de la proc�
 
     Ces instructions effectuent les opérations suivantes :
 
-    * `CREATE TABLE IF NOT EXISTS`: Crée une table, si elle n’existe pas déjà. Étant donné que le mot clé `EXTERNAL` n’est pas utilisé, cette instruction crée une table interne. Les tables internes sont stockées dans l’entrepôt de données Hive et gérées par Hive.
+    * `CREATE TABLE IF NOT EXISTS` : crée une table, si elle n’existe pas déjà. Étant donné que le mot clé `EXTERNAL` n’est pas utilisé, cette instruction crée une table interne. Les tables internes sont stockées dans l’entrepôt de données Hive et gérées par Hive.
 
         > [!NOTE]  
         > Contrairement aux tables `EXTERNAL`, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
-    * `STORED AS ORC`: Stocke les données dans un format *ORC* (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
+    * `STORED AS ORC` : stocke les données dans un format *ORC* (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
 
-    * `INSERT OVERWRITE ... SELECT`: Sélectionne des lignes de la table `log4jLogs` qui contiennent `[ERROR]`, puis insère les données dans la table `errorLogs`.
+    * `INSERT OVERWRITE ... SELECT`: sélectionne des lignes de la table `log4jLogs` qui contiennent `[ERROR]`, puis insère les données dans la table `errorLogs`.
 
 3. Modifiez **Interactive** en **Batch** le cas échéant, puis sélectionnez **Envoyer**.
 
