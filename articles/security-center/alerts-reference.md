@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: c0ae5ae4a66ce55da40eae3959945c96013af3ea
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176703"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075642"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertes de sécurité - guide de référence
 
@@ -510,7 +510,7 @@ Les intentions de kill chain prises en charge par Security Center sont basées s
 | **Exfiltration**        | L’exfiltration fait référence aux techniques et attributs qui aident l’adversaire à supprimer des fichiers et des informations d’un réseau cible. Cette catégorie regroupe également la location sur un système ou réseau, où l’adversaire est susceptible de rechercher des informations à exfiltrer.                                                                                                                                                                                                                                                                                                                                  |
 | **CommandAndControl**   | La tactique de commande et de contrôle représente la manière dont les adversaires communiquent avec les systèmes sous leur contrôle au sein d’un réseau cible.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Impact**              | Les événements d’impact tentent principalement de réduire directement la disponibilité ou l’intégrité d’un système, service ou réseau, notamment par la manipulation de données pour avoir un impact sur un processus métier ou opérationnel. Les techniques sollicitées sont généralement le ransomware, le défacement, la manipulation de données, etc.                                                                                                                                                                                                                                                                                                     |
-|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
 
 > [!NOTE]
 > Pour les alertes en préversion : [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]

@@ -5,29 +5,32 @@ description: Vous pouvez utiliser votre propre clé de chiffrement pour protége
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/09/2021
+ms.date: 03/30/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 358be21a1f7f13c0c0ce1bf0e57dda53174216b2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 07f8faf503bdea6be8263afa6240594956b61391
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102517529"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059443"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Clés gérées par le client pour le chiffrement du service Stockage Azure
 
 Vous pouvez utiliser votre propre clé de chiffrement pour protéger les données de votre compte de stockage. Quand vous spécifiez une clé gérée par le client, cette clé est utilisée pour protéger et contrôler l’accès à la clé qui chiffre vos données. Les clés gérées par le client offrent davantage de flexibilité pour gérer les contrôles d’accès.
 
-Vous devez utiliser Azure Key Vault ou un module de sécurité matériel (HSM) managé par Azure Key Vault Azure (préversion) pour stocker vos clés managées par le client. Vous pouvez créer vos propres clés et les stocker dans le coffre de clés ou un HSM managé, ou utiliser les API d’Azure Key Vault pour générer des clés. Le compte de stockage et le coffre de clés ou le HSM managé doivent résider dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent se trouver dans des abonnements différents.
+Vous devez utiliser l’un des magasins de clés Azure suivants pour stocker vos clés gérées par le client :
 
-Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md).
+- [Azure Key Vault](../../key-vault/general/overview.md)
+- [Module de sécurité matériel (HSM) géré par Azure Key Vault (préversion)](../../key-vault/managed-hsm/overview.md)
+
+Vous pouvez créer vos propres clés et les stocker dans le coffre de clés ou un HSM managé, ou utiliser les API d’Azure Key Vault pour générer des clés. Le compte de stockage et le coffre de clés ou le HSM managé doivent résider dans la même région et dans le même locataire Azure Active Directory, mais ils peuvent se trouver dans des abonnements différents.
 
 > [!IMPORTANT]
 >
-> Le chiffrement avec des clés managées par le client stockées dans un HSM managé par Azure Key Vault est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
+> Le chiffrement avec des clés gérées par le client stockées dans Azure Key Vault Managed HSM est actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure disponibles en version bêta, en préversion ou qui ne sont pas encore en phase de disponibilité générale.
 >
 > Azure Key Vault et le module HSM managé par Azure Key Vault prennent en charge les mêmes API et interfaces de gestion pour la configuration.
 

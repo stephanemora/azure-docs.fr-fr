@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618472"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169281"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>À propos d’Azure Cloud Services (support étendu)
 
@@ -48,12 +48,9 @@ Les principales différences entre Azure Cloud Services (classique) et Azure Clo
 - Toutes les ressources déployées via [Azure Resource Manager](../azure-resource-manager/templates/overview.md) doivent se trouver à l’intérieur d’un réseau virtuel. Les réseaux virtuels et les sous-réseaux sont créés dans Azure Resource Manager à l’aide des API Azure Resource Manager existantes et doivent être référencés dans la section NetworkConfiguration du fichier .cscfg lors du déploiement d’Azure Cloud Services (support étendu).   
 
 - Chaque service cloud (support étendu) est un déploiement indépendant unique. Azure Cloud Services (support étendu) ne prend pas en charge plusieurs emplacements dans un même service cloud.  
-    - La capacité d’échange d’adresses IP virtuelles<sup>*</sup> peut être utilisée pour effectuer un échange entre deux services cloud (support étendu). Pour tester et mettre en place une nouvelle version d’un service cloud, déployez un service cloud (support étendu) et marquez-le pour indiquer que son adresse IP virtuelle peut être échangée avec celle d’un autre service cloud (support étendu).  
+    - La capacité d’échange d’adresses IP virtuelles peut être utilisée pour effectuer un échange entre deux services cloud (support étendu). Pour tester et mettre en place une nouvelle version d’un service cloud, déployez un service cloud (support étendu) et marquez-le pour indiquer que son adresse IP virtuelle peut être échangée avec celle d’un autre service cloud (support étendu).  
 
 - L’étiquette DNS (Domain Name Service) est facultative pour un service cloud (support étendu). Dans Azure Resource Manager, l’étiquette DNS est une propriété de la ressource IP publique associée au service cloud. 
-
-
-<sup>*</sup> L’échange d’adresses IP virtuelles pour Azure Cloud Services (support étendu) n’est pas disponible pendant la Préversion publique.  
 
 ## <a name="migration-to-azure-resource-manager"></a>Migration vers Azure Resource Manager
 
@@ -70,4 +67,4 @@ En fonction de l’application, Azure Cloud Services (support étendu) peut néc
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
 - Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
-- Consultez la [FAQ](faq.md) de Cloud Services (support étendu).
+- Consultez la [foire aux questions (FAQ)](faq.md) relative à Azure Cloud Services (support étendu).

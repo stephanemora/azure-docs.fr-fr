@@ -1,18 +1,19 @@
 ---
-title: Déployer un service de synchronisation de stockage
-description: Déployez la ressource cloud Azure File Sync, un service de synchronisation de stockage. Bloc de texte commun, partagé entre plusieurs documents de migration.
+title: Fichier include
+description: Fichier include
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: bd4af178d6e70d910d4643fc30c29fc8eb85303c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: include file
+ms.openlocfilehash: 1142082caef06dcc36dfd9b0aaddc44d13cf6cc8
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043181"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075565"
 ---
 Vous avez besoin des informations d’identification de votre abonnement Azure pour cette étape.
 
