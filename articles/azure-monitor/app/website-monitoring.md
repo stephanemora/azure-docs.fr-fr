@@ -2,14 +2,14 @@
 title: 'Démarrage rapide : Superviser des sites web avec Azure Monitor Application Insights'
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment configurer la supervision de site web côté client/navigateur avec Azure Monitor Application Insights.
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 03/19/2021
 ms.custom: mvc
-ms.openlocfilehash: 1773ebb9c490420451a119c8343fb613ff50f029
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0e10db39c8dbbf81087d696cfbb5b2ded1ae79ac
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488577"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654931"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Démarrage rapide : Commencez à superviser votre site web avec Azure Monitor Application Insights
 
@@ -60,9 +60,9 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 ## <a name="configure-application-insights-sdk"></a>Configurer le SDK Application Insights
 
-1. Sélectionnez **Vue d’ensemble** > **Éléments principaux**, puis copiez la **clé d’instrumentation** de votre application.
+1. Sélectionnez **Vue d’ensemble**, puis copiez la **Chaîne de connexion** de votre application. Pour cet exemple, nous avons seulement besoin de la partie clé d’instrumentation de la chaîne de connexion `InstrumentationKey=00000000-0000-0000-0000-000000000000;`.
 
-   ![Nouveau formulaire ressource Application Insights](media/website-monitoring/instrumentation-key-001.png)
+    :::image type="content" source="media/website-monitoring/keys.png" alt-text="Capture d’écran de la page de présentation avec la clé d’instrumentation et la chaîne de connexion.":::
 
 1. Ajoutez le script suivant à votre fichier ``hello_world.html`` avant la balise de fermeture ``</head>`` :
 
@@ -76,7 +76,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
     crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
     // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
     cfg: { // Application Insights Configuration
-        instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+        connectionString:"InstrumentationKey=YOUR_INSTRUMENTATION_KEY_GOES_HERE;" 
         /* ...Other Configuration Options... */
     }});
     </script>
@@ -84,7 +84,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
     > [!NOTE]
     > L’extrait de code actuel (répertorié ci-dessous) est la version « 5 », la version est encodée dans l’extrait de code sous la forme sv : « # » et la [version actuelle et les détails de configuration sont disponibles sur GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
-   
+
 1. Modifiez ``hello_world.html`` et ajoutez votre clé d’instrumentation.
 
 1. Ouvrez ``hello_world.html`` dans une session de navigateur locale. Cette action crée une seule vue de page. Vous pouvez actualiser votre navigateur pour générer plusieurs vues de page de test.
@@ -95,7 +95,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    Les quatre graphiques par défaut sur la page de présentation sont limités aux données d’application côté serveur. Étant donné que nous instrumentons les interactions côté client/navigateur avec le SDK JavaScript, cette vue particulière s’applique seulement si un SDK côté serveur est également installé.
 
-1. Sélectionnez **Analytique** ![icône de mise en correspondance d’applications](media/website-monitoring/006.png).  Cette action ouvre ainsi **Analytics**, lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Pour afficher les données associées aux requêtes de navigateur côté client, exécutez la requête suivante :
+1. Sélectionnez **Journaux d’activité**.  Cette action ouvre **Journaux**, qui fournit un langage de requête riche permettant d’analyser toutes les données collectées par Application Insights. Pour afficher les données associées aux requêtes de navigateur côté client, exécutez la requête suivante :
 
     ```kusto
     // average pageView duration by name
@@ -112,19 +112,15 @@ Application Insights permet de recueillir les données de télémétrie à parti
     | render timechart
     ```
 
-   ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/website-monitoring/analytics-query.png)
+   :::image type="content" source="media/website-monitoring/log-query.png" alt-text="Capture d’écran des graphiques d’analytique des journaux d'activité des requêtes d’utilisateur au cours d’une période donnée.":::
 
-1. Revenez à la page **Vue d’ensemble**. Sous l’en-tête **Examiner**, sélectionnez **Navigateur**, puis **Performances**.  Les métriques portant sur les performances de votre site web apparaissent. Il existe une vue correspondante dédiée à l’analyse des échecs et des exceptions dans votre site web. Vous pouvez sélectionner **Exemples** pour accéder aux [détails de transactions de bout en bout](./transaction-diagnostics.md).
+1. Revenez à la page **Vue d’ensemble**. Sous l’en-tête **Examiner**, sélectionnez **Niveau de performance**, puis l’onglet **Navigateur**.  Les métriques portant sur les performances de votre site web apparaissent. Il existe une vue correspondante dédiée à l’analyse des échecs et des exceptions dans votre site web. Vous pouvez sélectionner **Exemples** pour accéder aux [détails de transactions de bout en bout](./transaction-diagnostics.md).
 
-   ![Graphique des métriques de serveur](./media/website-monitoring/browser-performance.png)
+     :::image type="content" source="media/website-monitoring/performance.png" alt-text="Capture d’écran de l’onglet des performances avec le graphique de mesures du navigateur.":::
 
-1. Dans le menu Application Insights principal, sous l’en-tête **Utilisation**, sélectionnez [**Utilisateurs**](./usage-segmentation.md) pour commencer à explorer les [outils d’analytique du comportement des utilisateurs](./usage-overview.md). Étant donné que nous testons à partir d’une seule machine, nous ne voyons les données que d’un seul utilisateur. Pour un site web actif, la distribution des utilisateurs peut se présenter comme suit :
-
-     ![Graphique de l’utilisateur](./media/website-monitoring/usage-users.png)
+1. Dans le menu Application Insights principal, sous l’en-tête **Utilisation**, sélectionnez [**Utilisateurs**](./usage-segmentation.md) pour commencer à explorer les [outils d’analytique du comportement des utilisateurs](./usage-overview.md). Étant donné que nous testons à partir d’une seule machine, nous ne voyons les données que d’un seul utilisateur.
 
 1. Pour un site web plus complexe avec plusieurs pages, vous pouvez utiliser l’outil [**Flux d’utilisateurs**](./usage-flows.md) pour effectuer le suivi du chemin emprunté par les visiteurs dans les différentes parties de votre site web.
-
-   ![Visualisation des flux d’utilisateurs](./media/website-monitoring/user-flows.png)
 
 Pour en savoir plus les configurations plus complexes pour la supervision des sites web, consultez la [Documentation de référence de l’API du kit SDK JavaScript](./javascript.md).
 

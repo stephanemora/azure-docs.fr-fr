@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ee8a192bcfe20c77e47ee9c89dfc3286a979e358
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fb30913d71df46f4c0afedd475d40205c1429258
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722291"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122201"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -33,24 +33,26 @@ Pour effectuer les étapes de ce tutoriel, vous devez avoir accès à un groupe 
 1. Sélectionnez **Ajouter** pour créer un espace de travail.
 
 ## <a name="basics-tab--project-details"></a>Onglet Général > Détails du projet
-1. Sous l’onglet **Informations de base**, sous **Détails du projet**, renseignez les champs suivants :
-      1. **Abonnement** : Choisissez un abonnement.
-      2. **Groupe de ressources** : Utilisez n’importe quel groupe de ressources.
-      3. **Groupe de ressources** : Laissez ce champ vide.
+Remplissez les champs suivants :
+
+1. **Abonnement** : Choisissez un abonnement.
+1. **Groupe de ressources** : Utilisez n’importe quel groupe de ressources.
+1. **Groupe de ressources** : Laissez ce champ vide.
 
 
 ## <a name="basics-tab--workspace-details"></a>Onglet Général > Détails de l’espace de travail
-1. Dans l’onglet **Informations de base**, sous **Détails de l’espace de travail**, renseignez les champs suivants :
-      1. **Nom de l’espace de travail** : Choisissez un nom unique au monde. Dans ce tutoriel, nous utiliserons **myworkspace**.
-      1. **Région** : Choisissez n’importe quelle région.
-      1. **Sélectionnez Data Lake Storage Gen2**
-        1. Cliquez sur le bouton **À partir de l’abonnement**.
-        1. À côté de **Nom du compte**, cliquez sur **Créer**, puis nommez le nouveau compte de stockage **contosolake** ou avec un nom similaire, car ce nom doit être unique.
-        1. À côté de **Nom du système de fichiers**, cliquez sur **Créer**, puis nommez-le **users**. Cette opération crée un conteneur de stockage appelé **users**. L’espace de travail utilise ce compte de stockage comme compte de stockage « principal » pour les tables Spark et les journaux des applications Spark.
-        1. Cochez la case « Attribuez-moi le rôle Contributeur aux données blob du stockage sur le compte Data Lake Storage Gen2 ». 
+Remplissez les champs suivants :
 
-### <a name="completing-the-process"></a>Fin du processus
-5. Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est prêt en quelques minutes.
+1. **Nom de l’espace de travail** : Choisissez un nom unique au monde. Dans ce tutoriel, nous utiliserons **myworkspace**.
+1. **Région** : Choisissez n’importe quelle région.
+1. **Sélectionnez Data Lake Storage Gen2**
+1. Cliquez sur le bouton **À partir de l’abonnement**.
+1. À côté de **Nom du compte**, cliquez sur **Créer**, puis nommez le nouveau compte de stockage **contosolake** ou avec un nom similaire, car ce nom doit être unique.
+1. À côté de **Nom du système de fichiers**, cliquez sur **Créer**, puis nommez-le **users**. Cette opération crée un conteneur de stockage appelé **users**. L’espace de travail utilise ce compte de stockage comme compte de stockage « principal » pour les tables Spark et les journaux des applications Spark.
+1. Cochez la case « Attribuez-moi le rôle Contributeur aux données blob du stockage sur le compte Data Lake Storage Gen2 ». 
+
+## <a name="completing-the-process"></a>Fin du processus
+Sélectionnez **Vérifier + créer** > **Créer**. Votre espace de travail est prêt en quelques minutes.
 
 > [!NOTE]
 > Pour activer les fonctionnalités de l’espace de travail à partir d’un pool SQL dédié (anciennement SQL DW) existant, reportez-vous au [Guide pratique pour activer un espace de travail pour votre pool SQL dédié (anciennement SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
@@ -62,16 +64,6 @@ Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Sy
 
 * Ouvrez votre espace de travail Synapse dans le [portail Azure](https://portal.azure.com). Dans la section **Vue d’ensemble** de l’espace de travail Synapse, sélectionnez **Ouvrir** dans la zone Ouvrir Synapse Studio.
 * Accédez à `https://web.azuresynapse.net` et connectez-vous à votre espace de travail.
-
-
-
-
-
-
-
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

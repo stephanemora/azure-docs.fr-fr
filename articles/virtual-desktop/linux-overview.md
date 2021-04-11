@@ -3,19 +3,19 @@ title: Prise en charge du client léger Windows Virtual Desktop - Azure
 description: Brève présentation de la prise en charge du client léger pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 03/31/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90459c3eb171e03b1c28c91e766d3a6b765565b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 905451b4ce9c7a2a7c7aa2331ce3d433a9952223
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491467"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122031"
 ---
 # <a name="linux-support"></a>Prise en charge Linux
 
-Vous pouvez accéder aux ressources de Windows Virtual Desktop à partir de vos appareils Linux avec le [client web](connect-web.md) ou les clients pris en charge suivants, fournis par nos partenaires clients légers Linux. Nous travaillons en collaboration avec un certain nombre de partenaires pour activer les clients Windows Virtual Desktop pris en charge sur d’autres systèmes d’exploitation et appareils basés sur Linux. Si vous devez prendre en charge Windows Virtual Desktop sur une plateforme Linux qui n’est pas répertoriée ici, faites-le nous savoir sur notre [page UserVoice](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux).
+Vous pouvez accéder aux ressources de Windows Virtual Desktop à partir de vos appareils Linux avec le [client web](connect-web.md) ou les clients pris en charge suivants, fournis par nos partenaires clients légers Linux. Nous travaillons en collaboration avec un certain nombre de partenaires pour activer les clients Windows Virtual Desktop pris en charge sur d’autres systèmes d’exploitation et appareils basés sur Linux.
 
 ## <a name="connect-with-your-linux-device"></a>Se connecter avec votre appareil Linux
 

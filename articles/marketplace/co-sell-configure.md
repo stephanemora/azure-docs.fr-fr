@@ -8,16 +8,16 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e8019a30d4f5bf24814d88fc749cefd6b529b73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608598"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563393"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configurer la co-vente pour une offre de la Place de marché commerciale
 
-Cet article explique comment configurer l’onglet **Co-vendre avec Microsoft** pour une offre de la Place de marché commerciale. Les informations de cet onglet sont entièrement facultatives, mais elles sont nécessaires pour devenir [« Co-sell Ready » et « IP Co-sell Incentivized »](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre offre lors de l’évaluation de son adéquation avec les besoins des clients. Les clients n’auront pas directement accès à ces informations. Pour plus d’informations sur la co-vente, consultez les sections [Vue d’ensemble de la co-vente avec des vendeurs et des partenaires Microsoft](marketplace-co-sell.md) et [Co-vendre avec Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Cet article explique comment configurer l’onglet **Co-vendre avec Microsoft** pour une offre de la Place de marché commerciale. Les informations de cet onglet sont entièrement facultatives, mais elles sont nécessaires pour devenir [« Co-sell Ready » et « IP Co-sell Incentivized »](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre offre lors de l’évaluation de son adéquation avec les besoins des clients. Les clients n’auront pas directement accès à ces informations. Pour plus d’informations sur la co-vente, consultez les sections [Vue d’ensemble de la co-vente avec des vendeurs et des partenaires Microsoft](marketplace-co-sell.md) et [Co-vendre avec Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 L’option Co-vente est disponible pour les types d’offres suivants.
 

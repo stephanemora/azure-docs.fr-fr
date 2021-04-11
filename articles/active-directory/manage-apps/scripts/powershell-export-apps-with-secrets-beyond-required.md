@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 9c0e5508830343561833785fbce31f547a8a7428
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: daeea48758a9f08e7eedbfcaddcde3815f5c1e16
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149679"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729097"
 ---
 # <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Exporter les applications avec des secrets et des certificats arrivant à expiration au-delà de la date imposée
 
@@ -37,7 +37,7 @@ La commande « Add-Member » est chargée de créer les colonnes dans le fichi
 
 | Commande | Notes |
 |---|---|
-| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1) | Envoie des requêtes HTTP et HTTPS à une page web ou à un service web. Elle analyse la réponse et retourne des collections de liens, images et autres éléments HTML significatifs. |
+| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&preserve-view=true) | Envoie des requêtes HTTP et HTTPS à une page web ou à un service web. Elle analyse la réponse et retourne des collections de liens, images et autres éléments HTML significatifs. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

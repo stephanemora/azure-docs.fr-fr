@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Bien démarrer avec l’analyse des données à l’aide d’un pool SQL serverless'
+title: 'Tutoriel : Démarrage de l’analyse des données avec un pool SQL serverless'
 description: Dans ce tutoriel, vous allez voir comment analyser des données avec un pool SQL serverless, en utilisant des données situées dans des bases de données Spark.
 services: synapse-analytics
 author: saveenr
@@ -10,24 +10,32 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: c9f8760bd1a7b5d3700f3fdf03331fe7013e116f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5f0a7477df2e281748c053ea8c7e7d3e79626296
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209404"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588016"
 ---
-# <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Analyser des données avec un pool SQL serverless dans Azure Synapse Analytics
+# <a name="analyze-data-with-a-serverless-sql-pool"></a>Analyser des données avec un pool SQL serverless
 
 Dans ce tutoriel, vous allez voir comment analyser des données avec un pool SQL serverless, en utilisant des données situées dans des bases de données Spark. 
 
+## <a name="the-built-in-serverless-sql-pool"></a>Pool SQL serverless intégré
+
+Les pools SQL serverless vous permettent d’utiliser SQL sans avoir de capacité de réserve. La facturation du pool SQL serverless est basée sur la quantité de données traitées pour exécuter la requête, et non sur le nombre de nœuds utilisés pour exécuter la requête.
+
+Chaque espace de travail est fourni avec un pool SQL serverless préconfiguré, dit **Intégré**. 
+
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analyser les données NYC Taxi du stockage Blob avec un pool SQL serverless
 
-1. Dans le hub **Données** situé sous **Liées**, cliquez avec le bouton droit sur **Stockage Blob Azure > Exemples de jeux de données > nyc_tlc_yellow**, **Nouveau script SQL**, puis sélectionnez **Sélectionner les 100 premières lignes**
-1. Un script SQL sera créé avec le code suivant :
+Dans cette section, vous allez utiliser un pool SQL serverless pour analyser les données NYC Taxi sur un compte Stockage Blob Azure.
+
+1. Dans Synapse Studio, accédez au hub **Développer**
+1. Un nouveau script SQL est alors créé.
+1. Collez le code suivant dans le script.
 
     ```
-    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -38,25 +46,7 @@ Dans ce tutoriel, vous allez voir comment analyser des données avec un pool SQL
     ```
 1. Cliquez sur **Exécuter**.
 
-## <a name="analyze-nyc-taxi-data-in-spark-databases-using-serverless-sql-pool"></a>Analyser les données NYC Taxi des bases de données Spark avec un pool SQL serverless
-
-Les tables des bases de données Spark sont automatiquement visibles et interrogeables par le pool SQL serverless.
-
-1. Dans Synapse Studio, accédez au hub **Développer** et créez un autre script SQL.
-1. Configurez **Se connecter à** sur le pool SQL serverless **Intégré**.
-1. Collez le texte suivant dans le script et exécutez le script.
-
-    ```sql
-    SELECT *
-    FROM nyctaxi.dbo.passengercountstats
-    ```
-
-    > [!NOTE]
-    > Lors de la première exécution d’une requête qui utilise un pool SQL serverless, il faut environ 10 secondes au pool pour collecter les ressources SQL nécessaires à l’exécution des requêtes. Les requêtes suivantes s’exécutent beaucoup plus vite.
-  
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Analyser des données dans un stockage](get-started-analyze-storage.md)
+> [Analyser des données avec un pool Spark serverless](get-started-analyze-spark.md)

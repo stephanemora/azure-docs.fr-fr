@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a96e6b567c04f2e0561a0a754e854a0e2b1ad6b0
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94694991"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076256"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configuration de l’équilibreur de charge en sortie uniquement
 
@@ -278,7 +278,7 @@ Créez le pool d’adresses principal **myPublicBackendPool** :
     | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontEnd**.|
     | Délai d’inactivité (minutes) | Déplacez le curseur sur **15 minutes**.|
     | Réinitialisation du protocole TCP | Sélectionnez **Enabled**.|
-    | Pool principal | Sélectionnez **myPublicBackendPool**.| |
+    | Pool principal | Sélectionnez **myPublicBackendPool**.|
     | Allocation de port -> Allocation de port | Sélectionnez **Utiliser le nombre de ports de sortie par défaut** |
 
 4. Sélectionnez **Ajouter**.
