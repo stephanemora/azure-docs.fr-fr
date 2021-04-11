@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbf9eb6c97dcceeca5e86e8bef47a39fb685792f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fcd593beed6faa9ef142c62e2fbdb251b66c009f
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97734808"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169417"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Gérer les certificats dans Azure Automation
 
@@ -76,7 +76,7 @@ $PfxCertPath = '.\MyCert.pfx'
 $CertificatePassword = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 $ResourceGroup = "ResourceGroup01"
 
-New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath –Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
+New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath -Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
 ```
 
 ### <a name="create-a-new-certificate-with-a-resource-manager-template"></a>Créer un certificat avec un modèle Resource Manager
@@ -136,7 +136,7 @@ L’exemple suivant montre comment ajouter un certificat à un service cloud dan
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
 $certPwd = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
+-AutomationAccountName "MyAutomationAccount" -Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 

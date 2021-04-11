@@ -4,12 +4,12 @@ description: Découvrez comment créer et déboguer des fonctions C# à l’aide
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6403e5d898b76d459a9712f7847e81e5442deeda
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201361"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075325"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Développer et publier des fonctions .NET 5 à l’aide d’Azure Functions 
 
@@ -160,7 +160,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
 
 1. Dans la barre d’adresse de votre navigateur, entrez l’URL de votre fonction locale, qui se présente comme suit, puis exécutez la requête. 
 
-    <http://localhost:7071/api/HttpExample>
+    `http://localhost:7071/api/HttpExample`
 
     Vous devez voir la sortie de suivi de la requête écrite dans le terminal en cours d’exécution. L’exécution du code s’arrête à tous les points d’arrêt que vous définissez dans le code de votre fonction.
 

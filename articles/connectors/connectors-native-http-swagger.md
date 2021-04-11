@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 810aaae9634a7de8d07b6d49edd0c6c2eda96754
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8bd46f013680d5cbc9e75a312206fdb2fdcac7ec
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730879"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109354"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison REST à l'aide d'Azure Logic Apps
 
@@ -150,9 +150,9 @@ Voici d’autres informations sur les sorties d’un déclencheur ou d’une act
 | Nom de la propriété | Type | Description |
 |---------------|------|-------------|
 | headers | object | En-têtes de la requête |
-| body | object | Objet JSON | Objet avec le contenu du corps de la requête |
+| body | object | Objet avec le contenu du corps de la requête |
 | Code d’état | int | Code d’état de la requête |
-|||
+||||
 
 | Code d’état | Description |
 |-------------|-------------|

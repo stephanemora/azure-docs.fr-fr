@@ -128,7 +128,7 @@ AMSE est un projet Open Source, son support est assuré par la Communauté (les 
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
-Consultez [Filtrage, tri et pagination des entités Azure Media Services](entities-overview.md).
+Consultez [Filtrage, tri et pagination des entités Azure Media Services](filter-order-page-entitites-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

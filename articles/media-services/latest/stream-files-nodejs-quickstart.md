@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212754"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109184"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Guide pratique pour encoder et streamer des fichiers vidéo avec Node.JS
 
@@ -58,7 +58,7 @@ Ouvrez [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutori
 
 L’exemple effectue les actions suivantes :
 
-1. Crée une **transformation** avec une [présélection de l’encodage sensible au contenu](./content-aware-encoding.md). Il vérifie d’abord si la transformation spécifiée existe.
+1. Crée une **transformation** avec une [présélection de l’encodage sensible au contenu](./encode-content-aware-concept.md). Il vérifie d’abord si la transformation spécifiée existe.
 1. Crée un **actif multimédia** de sortie qui est utilisé par le **travail** d’encodage pour contenir la sortie
 1. Charge éventuellement un fichier local à l’aide du SDK Blob de stockage
 1. Crée l’entrée de **travail** qui est basée sur une URL HTTPS ou un fichier chargé
@@ -71,7 +71,7 @@ L’exemple effectue les actions suivantes :
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
-1. L’application télécharge les fichiers encodés. Créez un dossier où vous souhaitez placer les fichiers de sortie et mettez à jour la valeur de la variable **outputFolder** dans le fichier [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59). Elle est définie par défaut sur « Temp ».
+1. L’application télécharge les fichiers encodés. Créez un dossier où vous souhaitez placer les fichiers de sortie et mettez à jour la valeur de la variable **outputFolder** dans le fichier [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59). Elle est définie par défaut sur « Temp ».
 1. Ouvrez une **invite de commandes**, puis accédez au répertoire de l’exemple.
 1. Accédez au dossier AMSv3Samples.
 

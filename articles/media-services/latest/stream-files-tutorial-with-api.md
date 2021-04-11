@@ -12,7 +12,7 @@ ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.dat
 > [!NOTE]
 > Bien que ce didacticiel utilise des exemples [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent), les étapes générales sont les mêmes pour [l’API REST](/rest/api/media/liveevents), [l’interface de ligne de commande](/cli/azure/ams/live-event) et d’autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 
-Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir de l’aide sur l’encodage, consultez [Concept d’encodage](encoding-concept.md). Ce didacticiel charge un fichier vidéo local et encode le fichier chargé. Vous pouvez également encoder du contenu que vous mettez à disposition via une URL HTTPS. Pour plus d’informations, consultez [Créer une entrée de travail à partir d’une URL HTTP(s)](job-input-from-http-how-to.md).
+Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir de l’aide sur l’encodage, consultez [Concept d’encodage](encode-concept.md). Ce didacticiel charge un fichier vidéo local et encode le fichier chargé. Vous pouvez également encoder du contenu que vous mettez à disposition via une URL HTTPS. Pour plus d’informations, consultez [Créer une entrée de travail à partir d’une URL HTTP(s)](job-input-from-http-how-to.md).
 
 ![Lire une vidéo avec le lecteur multimédia Azure](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -30,7 +30,7 @@ Ce didacticiel vous explique les procédures suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous ne disposez pas d’une installation Visual Studio, vous pouvez obtenir [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Créer un compte Media Services](./create-account-howto.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
+- [Créer un compte Media Services](./account-create-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 
 ## <a name="download-and-set-up-the-sample"></a>Télécharger et configurer l'exemple
@@ -93,9 +93,9 @@ Lors de l’encodage ou du traitement de contenu dans Media Services, il est cou
 
 #### <a name="transform"></a>Transformer
 
-Lorsque vous créez une instance de [transformation](/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**, comme indiqué dans le code ci-dessous. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. Pour plus d’informations sur ce préréglage, consultez [Encode with an auto-generated bitrate ladder](autogen-bitrate-ladder.md) (Encoder avec une échelle des vitesses de transmission générée automatiquement).
+Lorsque vous créez une instance de [transformation](/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**, comme indiqué dans le code ci-dessous. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. Pour plus d’informations sur ce préréglage, consultez [Encode with an auto-generated bitrate ladder](encode-autogen-bitrate-ladder.md) (Encoder avec une échelle des vitesses de transmission générée automatiquement).
 
-Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préréglages personnalisés. Pour plus d’informations, consultez [How to customize encoder presets](customize-encoder-presets-how-to.md) (Procédure : personnaliser les présélections de l’encodeur).
+Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préréglages personnalisés. Pour plus d’informations, consultez [How to customize encoder presets](encode-custom-presets-how-to.md) (Procédure : personnaliser les présélections de l’encodeur).
 
 Lorsque vous créez une [transformation](/rest/api/media/transforms), vous devez tout d’abord vérifier s’il en existe déjà une à l’aide de la méthode **Get**, comme indiqué dans le code qui suit. Dans Media Services v3, les méthodes **Get** appliquées sur les entités renvoient **null** si l’entité n’existe pas (une vérification du nom respectant la casse).
 
@@ -200,4 +200,4 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 Maintenant que vous savez comment charger, encoder et diffuser en continu votre vidéo, consultez l’article suivant : 
 
 > [!div class="nextstepaction"]
-> [Analyser des vidéos](analyze-videos-tutorial-with-api.md)
+> [Analyser des vidéos](analyze-videos-tutorial.md)

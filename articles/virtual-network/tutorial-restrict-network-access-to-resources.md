@@ -7,7 +7,6 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: cb3a4b6a726ee9163582b15586c65fc750712c63
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 22494d292077f4b6018a4512b45b5fe2caa9c8ee
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368243"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057199"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutoriel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant le portail Azure
 
@@ -132,7 +131,7 @@ Par défaut, toutes les instances de machines virtuelles d’un sous-réseau peu
     |Plages de ports de destination| Laissez la valeur *8080* par défaut |
     |Protocol|Quelconque|
     |Action|Allow|
-    |Priorité|100|
+    |Priority|100|
     |Nom|Renommez avec **Allow-Storage-All**|
 
 10. Créer une règle de sécurité de trafic sortant qui refuse les communications vers Internet. Cette règle qui permet la communication Internet sortante se substitue à une règle par défaut dans tous les groupes de sécurité réseau. Répétez les étapes 6 à 9 ci-dessus en utilisant les valeurs suivantes :
@@ -189,7 +188,7 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
     |Resource group| Sélectionner *myResourceGroup*|
     |Nom du compte de stockage| Entrez un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.|
     |Emplacement| Sélectionnez **(États-Unis) USA Est** |
-    |Performances|Standard|
+    |Performances|standard|
     |Type de compte| StorageV2 (v2 universel)|
     |Réplication| Stockage localement redondant (LRS)|
 

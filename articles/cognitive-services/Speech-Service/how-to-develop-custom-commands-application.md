@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ddf36530e52703ab1033b8e2e787b42b6dc60332
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97935816"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553275"
 ---
 # <a name="develop-custom-commands-applications"></a>Développer des applications de commandes personnalisées
 
@@ -212,7 +212,7 @@ Commencez par modifier la commande `TurnOn` existante pour activer et désactive
     | **Est global**          | Non sélectionné             |
     | **Obligatoire**           | Volumes sélectionnés               |
     | **Réponse pour le paramètre obligatoire**     | **Éditeur simple** > `Which device do you want to control?`    | 
-    | **Type**               | **Chaîne**                |          |
+    | **Type**               | **Chaîne**                |     
     | **Configuration**      | **Accepter les valeurs d’entrée prédéfinies d’un catalogue interne** | 
     | **Valeurs d’entrée prédéfinies** | `tv`, `fan`               |
     | **Alias** (`tv`)      | `television`, `telly`     |
@@ -633,7 +633,7 @@ Une autre façon de personnaliser les réponses de commandes personnalisées con
 > ![Capture d’écran montrant des exemples de phrases et de paramètres.](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Concernant les voix publiques, les types neuronaux ne sont disponibles que pour certaines régions. Pour plus d’informations, consultez [Régions prises en charge par le service Speech](./regions.md#standard-and-neural-voices).
+> Concernant les voix publiques, les types neuronaux ne sont disponibles que pour certaines régions. Pour plus d’informations, consultez [Régions prises en charge par le service Speech](./regions.md#neural-and-standard-voices).
 >
 > Vous pouvez créer des voix personnalisées sur la page du projet **Custom Voice**. Pour plus d’informations, consultez [Bien démarrer avec Custom Voice](./how-to-custom-voice.md).
 
