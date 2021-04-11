@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/03/2020
-ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e2625fff802e71f797bf6970e763f2bf11c393e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573984"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104584174"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>Recherche de termes partiels et modèles avec des caractères spéciaux (traits d’union, caractères génériques, expressions régulières, modèles)
 
@@ -85,7 +85,7 @@ Lors du choix d’un analyseur qui produit des jetons à terme entier, les analy
 | [Analyseurs de langage](index-add-language-analyzers.md) | Conserve les traits d’Union dans les mots composés, les chaînes, les mutations de voyelles et les formes verbales. Si les modèles de requête incluent des tirets, l’utilisation d’un analyseur de langage peut suffire. |
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Le contenu du champ entier est segmenté en jetons en tant que terme unique. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Sépare sur les espaces blancs seulement. Les termes qui incluent des tirets ou d’autres caractères sont traités comme un jeton unique. |
-| [analyseur personnalisé](index-add-custom-analyzers.md) | (recommandé) La création d’un analyseur personnalisé vous permet de spécifier à la fois le générateur de jetons et le filtre de jeton. Les analyseurs précédents doivent être utilisés tels quels. Un analyseur personnalisé vous permet de choisir les générateurs et les filtres de jetons à utiliser. <br><br>Une combinaison recommandée est le [générateur de jetons keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) avec un [filtre de jeton lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). En soi, l’[analyseur keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) prédéfini ne met pas en minuscules les caractères majuscules, ce qui peut entraîner l’échec des requêtes. Un analyseur personnalisé vous donne un mécanisme pour ajouter le filtre de jeton lowercase. |
+| [analyseur personnalisé](index-add-custom-analyzers.md) | (recommandé) La création d’un analyseur personnalisé vous permet de spécifier à la fois le générateur de jetons et le filtre de jeton. Les analyseurs précédents doivent être utilisés tels quels. Un analyseur personnalisé vous permet de choisir les générateurs et les filtres de jetons à utiliser. <br><br>Une combinaison recommandée est le [générateur de jetons keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) avec un [filtre de jeton lowercase](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). En soi, l’[analyseur keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) intégré ne met pas en minuscules les caractères majuscules, ce qui peut entraîner l’échec des requêtes. Un analyseur personnalisé vous donne un mécanisme pour ajouter le filtre de jeton lowercase. |
 
 Si vous utilisez un outil de test de l’API Web tel que Postman, vous pouvez ajouter l’[appel REST de l’analyseur de test](/rest/api/searchservice/test-analyzer) pour inspecter la sortie segmentée en jetons.
 
@@ -160,9 +160,9 @@ Que vous évaluiez des analyseurs ou que vous avanciez avec une configuration sp
 
 ### <a name="use-built-in-analyzers"></a>Utiliser des analyseurs intégrés
 
-Les analyseurs intégrés ou prédéfinis peuvent être spécifiés par leur nom dans la propriété `analyzer` d’une définition de champ, sans qu’une configuration supplémentaire ne soit requise dans l’index. L’exemple suivant montre comment définir l’analyseur `whitespace` sur un champ. 
+Les analyseurs intégrés peuvent être spécifiés par leur nom dans la propriété `analyzer` d’une définition de champ, sans qu’une configuration supplémentaire ne soit requise dans l’index. L’exemple suivant montre comment définir l’analyseur `whitespace` sur un champ. 
 
-Pour d’autres scénarios et pour en savoir plus sur les autres analyseurs intégrés, consultez [Liste des analyseurs prédéfinis](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
+Pour d’autres scénarios et pour en savoir plus sur les autres analyseurs intégrés, consultez [Analyseurs intégrés](./index-add-custom-analyzers.md#built-in-analyzers). 
 
 ```json
     {
