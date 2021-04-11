@@ -7,17 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 4926aa40831056556060cbf564022fa7f5e3aa7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 160797367e2daf0cb6fe708d626cbf217c9992c8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962348"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448596"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Démarrage rapide : Connecter un devkit MXCHIP AZ3166 à IoT Central
 
 **S’applique à** : [Développement d’appareils intégrés](about-iot-develop.md#embedded-device-development)<br>
 **Durée totale d’exécution** : 30 minutes
+
+[![Parcourir le code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 Dans ce didacticiel, vous utilisez Azure RTOS pour connecter un DevKit IoT MXCHIP AZ3166 (ci-après, DevKit MXCHIP) à Azure IoT. Cet article fait partie de la série [Prise en main du développement d’appareils intégrés Azure IoT](quickstart-device-development.md). La série présente Azure RTOS aux développeurs d’appareils et explique la procédure de connexion de plusieurs kits d’évaluation d’appareil à Azure IoT.
 
@@ -26,9 +28,6 @@ Vous allez effectuer les étapes suivantes :
 * Installer un ensemble d’outils de développement intégrés pour la programmation d’un DevKit MXCHIP en C
 * Créer une image et la flasher sur le DevKit MXCHIP
 * Azure IoT Central permet de créer des composants cloud, d’afficher les propriétés, d’afficher la télémétrie des appareils et d’appeler des commandes directes
-
-> [!NOTE]
-> Si vous préférez uniquement consulter le code et ne pas terminer cet article, reportez-vous à l’exemple fourni dans [Connecter un appareil MXCHIP AZ3166 à Azure IoT](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). Si vous envisagez de terminer cet article, vous allez cloner le référentiel GitHub à une étape ultérieure.
 
 ## <a name="prerequisites"></a>Prérequis
 

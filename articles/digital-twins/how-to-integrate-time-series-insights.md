@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aeb7489b455840eeca0a8e1967c7e6e2ed50b7a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 608f883304dbc8e1ea8b0127668125ae50ca0b11
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199898"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564940"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Intégrer Azure Digital Twins avec Azure Time Series Insights
 
@@ -157,7 +157,7 @@ Ensuite, vous devez définir des variables d’environnement dans votre applicat
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Créer et connecter une instance Time Series Insights
 
-Ensuite, vous allez configurer une instance Time Series Insights pour recevoir les données de votre second hub d’événements (TSI). Suivez les étapes ci-dessous, et pour plus d’informations sur ce processus, consultez le [*Tutoriel : Configurer un environnement Azure Time Series Insights Gen2 avec paiement à l’utilisation*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+Ensuite, vous allez configurer une instance Time Series Insights pour recevoir les données de votre second hub d’événements (TSI). Suivez les étapes ci-dessous, et pour plus d’informations sur ce processus, consultez le [*Tutoriel : Configurer un environnement Azure Time Series Insights Gen2 avec paiement à l’utilisation*](../time-series-insights/tutorial-set-up-environment.md).
 
 1. Dans le portail Azure, commencez à créer un environnement Time Series Insights. 
     1. Sélectionnez le niveau tarifaire **Gen2(L1)** .
@@ -201,7 +201,7 @@ Si vous utilisez le Tutoriel de bout en bout ([*Tutoriel : Connecter une solutio
 
 Les jumeaux numériques sont stockés par défaut sous la forme d’une hiérarchie plate dans Time Series Insights, mais ils peuvent être enrichis avec des informations de modèle et une hiérarchie à plusieurs niveaux pour l’organisation. Pour en savoir plus sur ce processus, lisez : 
 
-* [*Tutoriel : Définir et appliquer un modèle*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
+* [*Tutoriel : Définir et appliquer un modèle*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 Vous pouvez écrire une logique personnalisée pour fournir automatiquement ces informations à l’aide des données de modèle et de graphique déjà stockées dans Azure Digital Twins. Pour en savoir plus sur la gestion, la mise à niveau et la récupération d’informations à partir du graphique de jumeaux, consultez les références suivantes :
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: feedc0065419162237c4f4826fe275a6fd947e53
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ea6ecf456bbcea01bf4c1eef5377d918bf0918fd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753728"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104798950"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scénario : Application de bureau qui appelle des API web
 
@@ -30,6 +30,7 @@ Si ce n’est déjà fait, créez votre première application en effectuant un d
 - [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows](./quickstart-v2-windows-desktop.md)
 - [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application UWP](./quickstart-v2-uwp.md)
 - [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application native macOS](./quickstart-v2-ios.md)
+- [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application Node.js et Electron](./quickstart-v2-nodejs-desktop.md)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -39,6 +40,7 @@ Vous écrivez une application de bureau et voulez connecter des utilisateurs à 
 
   - Si votre application de bureau prend en charge les contrôles graphiques, par exemple s’il s’agit d’une application Windows.Form, d’une application WPF ou d’une application native macOS.
   - Ou s’il s’agit d’une application .NET Core et que vous acceptez que l’interaction d’authentification avec Azure Active Directory (Azure AD) se produise dans le navigateur système.
+  - Ou, s’il s’agit d’une application Node.js Electron, qui s’exécute sur une instance de Chromium.
 
 - Pour des applications hébergées sous Windows, il est également possible que des applications s’exécutant sur des ordinateurs reliés à un domaine Windows ou joints à Azure AD acquièrent un jeton en silence en utilisant l’authentification Windows intégrée.
 - Enfin, et bien que ce ne soit pas recommandé, vous pouvez utiliser un nom d’utilisateur et un mot de passe dans des applications clientes publiques. Ce flux est toujours nécessaire dans certains scénarios, par exemple, de DevOps. Son utilisation impose des contraintes sur votre application. Par exemple, il ne peut pas se connecter à un utilisateur qui a besoin d’effectuer une [authentification multifacteur](../authentication/concept-mfa-howitworks.md) (accès conditionnel). De plus, votre application ne bénéficiera pas de l’authentification unique (SSO).

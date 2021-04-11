@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e6dac1ab7350caeb29e23b21eace433568b38ea
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102031631"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104802265"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauration dans le temps pour les objets blob de blocs
 
@@ -47,15 +47,17 @@ L’opération **Restaurer les plages d'objets blob** retourne un ID de restaura
 > Les opérations de lecture à partir de l’emplacement secondaire peuvent se poursuivre pendant l’opération de restauration si le compte de stockage est géorépliqué.
 
 > [!CAUTION]
-> La limite de restauration dans le temps prend en charge la restauration des opérations sur les objets blob de blocs uniquement. Les opérations sur les conteneurs ne peuvent pas être restaurées. Si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de restauration. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard.
+> La récupération jusqu’à une date et heure prend en charge la restauration des opérations qui ont agi sur les objets blob de blocs uniquement. Toutes les opérations qui ont agi sur des conteneurs ne peuvent pas être restaurées. Par exemple, si vous supprimez un conteneur du compte de stockage en appelant l’opération [Supprimer le conteneur](/rest/api/storageservices/delete-container), ce conteneur ne peut pas être restauré à l’aide d’une opération de récupération jusqu’à une date et heure. Au lieu de supprimer un conteneur entier, supprimez chacun des objets blob si vous souhaitez les restaurer plus tard.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Conditions préalables pour une restauration dans le temps
 
 La limite de restauration dans le temps implique que les fonctionnalités Stockage Azure suivantes soient activées avant la restauration :
 
-- [Suppression réversible](./soft-delete-blob-overview.md)
+- [Suppression réversible](soft-delete-blob-overview.md)
 - [Flux de modification](storage-blob-change-feed.md)
 - [Contrôle de version des blobs](versioning-overview.md)
+
+L’activation de ces fonctionnalités peut occasionner des frais supplémentaires. Avant d’activer la restauration à un instant dans le passé, ainsi que les fonctionnalités requises, veillez à bien comprendre les implications de facturation.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Période de rétention pour une restauration dans le temps
 
@@ -88,6 +90,8 @@ La restauration jusqu’à une date et heure pour les objets blob de blocs prés
 > Si vous restaurez des objets blob de blocs à un point antérieur au 22 septembre 2020, les limitations de la restauration jusqu’à une date et heure seront appliquées. Microsoft vous recommande de choisir un point de restauration égal ou postérieur au 22 septembre 2020 pour tirer parti de la fonctionnalité de restauration jusqu’à une date et heure généralement disponible.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
+
+Aucun frais n’est facturé pour activer la restauration à un instant dans le passé. Toutefois, l’activation de la restauration à un instant dans le passé active également le contrôle de version de blob, la suppression réversible et le flux de modification, qui peuvent occasionner des frais supplémentaires.
 
 La facturation de la restauration dans le temps dépend de la quantité de données traitées pour effectuer l’opération de restauration. La quantité de données traitées est basée sur le nombre de modifications qui se sont produites entre le point de restauration et le moment présent. Par exemple, en supposant un taux de changement relativement constant pour bloquer les données de blob dans un compte de stockage, une opération de restauration qui remonte à 1 jour dans le passé coûterait 1/10ème d’une restauration qui remonte à 10 jours dans le passé.
 

@@ -4,7 +4,7 @@ description: Découvrez comment intégrer et installer l’extension Microsoft S
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/24/2020
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 30d6061e15b8eb17c1450500d9e8c141a83a3e08
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: c827dc81c1ef1ab03dd6c9178a609b512e59ef15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553916"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801212"
 ---
 # <a name="onboarding-and-installing"></a>Intégration et installation
+
+> [!Note]
+> Le 1er mars 2022, l’extension Microsoft Security Code Analysis (MSCA) sera supprimée. Les clients MSCA existants conserveront leur accès à MSCA jusqu’au 1er mars 2022. Pour découvrir d’autres options dans Azure DevOps, consultez [Outils d’analyse du code source OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools). Pour les clients qui prévoient de migrer vers GitHub, vous pouvez consulter [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Conditions préalables pour commencer à utiliser Microsoft Security Code Analysis :
 

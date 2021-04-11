@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 26124f8f650e1006244b4871e26962d417d90fd4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc1246d079760fd86513840aebbffa34d192f8ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054116"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044173"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gérer l’accès aux données d’Azure Sentinel par ressource
 
@@ -36,7 +36,7 @@ Quand des utilisateurs ont accès à des données d’Azure Sentinel via les res
 
 - **Via Azure Monitor**. Utilisez cette méthode quand vous souhaitez créer des requêtes qui s’étendent sur plusieurs ressources et/ou groupes de ressources. Quand vous accédez à des journaux et classeurs dans Azure Monitor, définissez votre étendue sur un ou plusieurs groupes de ressources ou ressources spécifiques.
 
-Activez un RBAC dans le contexte de la ressource dans Azure Monitor. Pour plus d’informations, consultez [Gérer l’accès aux données du journal et aux espaces de travail dans Azure Monitor](/azure/azure-monitor/logs/manage-access).
+Activez un RBAC dans le contexte de la ressource dans Azure Monitor. Pour plus d’informations, consultez [Gérer l’accès aux données du journal et aux espaces de travail dans Azure Monitor](../azure-monitor/logs/manage-access.md).
 
 > [!NOTE]
 > Si vos données ne sont pas des ressources Azure, telles que des données Syslog, CEF ou AAD, ou des données recueillies par un collecteur personnalisé, vous devez configurer manuellement l’ID de ressource utilisé pour identifier les données et autoriser l’accès à celles-ci.
@@ -66,7 +66,7 @@ La liste suivante décrit des situations dans lesquelles d’autres solutions d�
 |---------|---------|
 |**Une filiale a une équipe SOC qui requiert une expérience Azure Sentinel complète**.     |  Dans ce cas, utilisez une architecture à plusieurs espaces de travail pour séparer vos autorisations de données. <br><br>Pour plus d'informations, consultez les pages suivantes : <br>- [Étendre Azure Sentinel dans les espaces de travail et les locataires](extend-sentinel-across-workspaces-tenants.md)<br>    - [Utiliser les incidents dans plusieurs espaces de travail simultanément](multiple-workspace-view.md)          |
 |**Vous souhaitez donner accès à un type d’événement spécifique**.     |  Par exemple, accorder à un administrateur Windows l’accès aux événements de sécurité Windows dans tous les systèmes. <br><br>Dans de tels cas, utilisez un [RBAC au niveau des tables](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) afin de définir des autorisations pour chaque table.       |
-| **Limiter l’accès à un niveau plus granulaire, soit non basé sur la ressource, soit uniquement à un sous-ensemble des champs d’un événement**   |   Par exemple, vous pourriez souhaiter limiter l’accès aux journaux Office 365 en fonction de la filiale d’un utilisateur. <br><br>Dans ce cas, vous pouvez donner accès aux données en utilisant l’intégration avec les [tableaux de bord et rapports Power bi](/azure/azure-monitor/platform/powerbi).      |
+| **Limiter l’accès à un niveau plus granulaire, soit non basé sur la ressource, soit uniquement à un sous-ensemble des champs d’un événement**   |   Par exemple, vous pourriez souhaiter limiter l’accès aux journaux Office 365 en fonction de la filiale d’un utilisateur. <br><br>Dans ce cas, vous pouvez donner accès aux données en utilisant l’intégration avec les [tableaux de bord et rapports Power bi](../azure-monitor/visualize/powerbi.md).      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>Configurer explicitement un RBAC dans le contexte de la ressource
@@ -77,11 +77,11 @@ Par exemple, les données dans votre espace de travail Azure Sentinel qui ne son
 
 **Pour configurer explicitement un RBAC dans le contexte de la ressource** :
 
-1. Assurez-vous que vous avez [activé un RBAC dans le contexte de la ressource](/azure/azure-monitor/platform/manage-access) dans Azure Monitor. 
+1. Assurez-vous que vous avez [activé un RBAC dans le contexte de la ressource](../azure-monitor/logs/manage-access.md) dans Azure Monitor. 
 
-1. [Créez un groupe de ressources](/azure/azure-resource-manager/management/manage-resource-groups-portal) pour chaque équipe d’utilisateurs qui a besoin d’accéder à vos ressources, mais pas à l’intégralité de l’environnement Azure Sentinel.
+1. [Créez un groupe de ressources](../azure-resource-manager/management/manage-resource-groups-portal.md) pour chaque équipe d’utilisateurs qui a besoin d’accéder à vos ressources, mais pas à l’intégralité de l’environnement Azure Sentinel.
 
-    Attribuez des [autorisations de lecture du journal](/azure/azure-monitor/platform/manage-access#resource-permissions) à chacun des membres de l’équipe.
+    Attribuez des [autorisations de lecture du journal](../azure-monitor/logs/manage-access.md#resource-permissions) à chacun des membres de l’équipe.
 
 1. Attribuez des ressources aux groupes d’équipes de ressources que vous avez créés et balisez les événements avec les ID de ressource appropriés.
 
@@ -110,7 +110,7 @@ Si vous avez plusieurs équipes, assurez-vous que vous avez des machines virtuel
 Par exemple, la séparation de vos machines virtuelles garantit que les événements Syslog qui appartiennent à l’équipe A sont collectés à l’aide de la machine virtuelle collecteur A.
 
 > [!TIP]
-> - Quand vous utilisez une machine virtuelle locale ou une autre machine virtuelle dans le cloud, telle que AWS, en tant que redirecteur de journal, assurez-vous qu’elle possède un ID de ressource en implémentant [Azure Arc](/azure/azure-arc/servers/overview).
+> - Quand vous utilisez une machine virtuelle locale ou une autre machine virtuelle dans le cloud, telle que AWS, en tant que redirecteur de journal, assurez-vous qu’elle possède un ID de ressource en implémentant [Azure Arc](../azure-arc/servers/overview.md).
 > - Pour mettre à l’échelle votre environnement de machine virtuelle de transfert de journal, pensez à créer un [groupe de machines virtuelles identiques](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) pour collecter vos journaux CEF et Syslog.
 
 
@@ -145,7 +145,7 @@ Par exemple, le code suivant illustre un exemple de fichier de configuration Log
 >
 ### <a name="resource-ids-with-the-log-analytics-api-collection"></a>ID de ressource avec collecte de l’API Log Analytics
 
-Quand vous collectez à l’aide de l’[API de collecteur de données Log Analytics](/azure/azure-monitor/platform/data-collector-api), vous pouvez attribuer à des événements un ID de ressource à l’aide de l’en-tête de requête HTTP [*x-ms-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers).
+Quand vous collectez à l’aide de l’[API de collecteur de données Log Analytics](../azure-monitor/logs/data-collector-api.md), vous pouvez attribuer à des événements un ID de ressource à l’aide de l’en-tête de requête HTTP [*x-ms-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers).
 
 Si vous utilisez un RBAC dans le contexte de la ressource et souhaitez que les événements collectés par l’API soient disponibles pour des utilisateurs spécifiques, utilisez l’ID de ressource du groupe de ressources que vous avez [créé pour vos utilisateurs](#explicitly-configure-resource-context-rbac).
 

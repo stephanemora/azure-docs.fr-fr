@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d42611705b7756ed2fd0c7a488339f0f638fb5b4
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370183"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802163"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -39,15 +39,15 @@ Privileged Identity Management assure une activation de rôle basée sur l’heu
 - Fournir un accès privilégié **juste-à-temps** à Azure AD et aux ressources Azure
 - Affecter un accès aux ressources **limité dans le temps** à l’aide de dates de début et de fin
 - Exiger une **approbation** pour activer les rôles privilégiés
-- Appliquer l’ **authentification multifacteur** pour l’activation des rôles
+- Appliquer l’**authentification multifacteur** pour l’activation des rôles
 - Utiliser la **justification** pour comprendre le motif d’activation des utilisateurs
 - Recevoir des **notifications** lors de l’activation de rôles privilégiés
 - Effectuer des **révisions d’accès** pour vérifier que les utilisateurs ont toujours besoin de leurs rôles
-- Télécharger l’ **historique des audits** (internes ou externes)
+- Télécharger l’**historique des audits** (internes ou externes)
 
 ## <a name="what-can-i-do-with-it"></a>À quoi sert PIM ?
 
-Une fois que vous aurez configuré Privileged Identity Management, vous verrez les options **Tâches** , **Gérer** et **Activité** dans le menu de navigation de gauche. En tant qu’administrateur, vous avez le choix entre des options telles que la gestion des **rôles Azure AD** , la gestion des rôles de **ressources Azure** ou les groupes d’accès privilégié. Lorsque vous choisissez ce que vous souhaitez gérer, vous voyez l’ensemble d’options approprié correspondant à cette option.
+Une fois que vous aurez configuré Privileged Identity Management, vous verrez les options **Tâches**, **Gérer** et **Activité** dans le menu de navigation de gauche. En tant qu’administrateur, vous avez le choix entre des options telles que la gestion des **rôles Azure AD**, la gestion des rôles de **ressources Azure** ou les groupes d’accès privilégié. Lorsque vous choisissez ce que vous souhaitez gérer, vous voyez l’ensemble d’options approprié correspondant à cette option.
 
 ![Capture d’écran de Privileged Identity Management dans le portail Azure](./media/pim-configure/pim-quickstart.png)
 
@@ -92,8 +92,8 @@ Pour mieux comprendre Privileged Identity Management et sa documentation, vous d
 | Activé | State | Utilisateur qui dispose d’une attribution de rôle éligible, qui a effectué les actions nécessaires à l’activation du rôle et qui est maintenant actif.  Une fois le rôle activé, l’utilisateur peut s’en servir durant une période prédéfinie avant d’être obligé de l’activer à nouveau. |
 | Éligibilité permanente | Duration | Attribution de rôle qui permet à un utilisateur d’être toujours éligible à l’activation du rôle. |
 | Active en permanence | Duration | Attribution de rôle qui permet à un utilisateur de toujours utiliser un rôle sans effectuer aucune action. |
-| Éligibilité avec expiration | Duration | Attribution de rôle qui permet à un utilisateur d’être éligible à l’activation d’un rôle pendant une période spécifiée. |
-| Active avec expiration | Duration | Attribution de rôle qui permet à un utilisateur d’utiliser un rôle sans effectuer aucune action pendant une période spécifiée. |
+| éligible avec limitation dans le temps | Duration | Attribution de rôle qui permet à un utilisateur d’être éligible à l’activation d’un rôle uniquement pendant une période. |
+| actif avec limitation dans le temps | Duration | Attribution de rôle qui permet à un utilisateur d’utiliser un rôle uniquement pendant une période. |
 | Accès juste-à-temps (JIT) |  | Modèle où les utilisateurs reçoivent des autorisations temporaires pour effectuer des tâches privilégiées. De cette façon, les utilisateurs malveillants ou non autorisés ne peuvent pas accéder aux ressources une fois que les autorisations ont expiré. L’accès est accordé uniquement au moment où les utilisateurs en ont besoin. |
 | Principe des privilèges d’accès minimum |  | Pratique de sécurité recommandée qui consiste à accorder à chaque utilisateur les privilèges minimum dont il a besoin pour accomplir les tâches qu’il est autorisé à effectuer. Cette pratique réduit le nombre d’administrateurs généraux et utilise à la place des rôles d’administrateur spécifiques pour certains scénarios. |
 

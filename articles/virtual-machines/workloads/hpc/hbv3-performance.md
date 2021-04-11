@@ -1,25 +1,25 @@
 ---
-title: Performances de la taille de machine virtuelle de la série HBv3
-description: En savoir plus sur les résultats des tests de performances pour les machines virtuelles de la série HBv3 dans Azure.
+title: Performances et évolutivité des tailles des machines virtuelles de la série HBv3
+description: En savoir plus sur les performances et l’évolutivité des tailles des machines virtuelles de la série HBv3 dans Azure.
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 87c3e4e9b509589624a228ea2e1f4b68e86e3fa8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721142"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604768"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Performances de la taille de machine virtuelle de la série HBv3
 
-Les utilisateurs ayant un accès anticipé aux machines virtuelles HBv3 peuvent s’attendre aux performances suivantes pour les micro-benchmarks HPC courants
+Les attentes en matière de performances à l’aide des microbenchmarks HPC courants sont les suivantes :
 
 | Charge de travail                                        | HBv3                                                              |
 |-------------------------------------------------|-------------------------------------------------------------------|
@@ -30,7 +30,7 @@ Les utilisateurs ayant un accès anticipé aux machines virtuelles HBv3 peuvent 
 
 ## <a name="process-pinning"></a>Épinglage de processus
 
-L’épinglage de processus fonctionne bien sur les machines virtuelles de série HBv3, car nous exposons le silicium sous-jacent tel quel à la machine virtuelle invitée. Nous recommandons vivement l’épinglage de processus (process pinning) à des fins de performances optimales.
+L’[épinglage de processus](compiling-scaling-applications.md#process-pinning) fonctionne bien sur les machines virtuelles de la série HBv3, car nous exposons le silicium sous-jacent tel quel à la machine virtuelle invitée. Nous recommandons vivement l’épinglage de processus (process pinning) à des fins de performances optimales.
 
 ## <a name="mpi-latency"></a>Latence MPI
 
@@ -45,11 +45,12 @@ Le test de bande passante MPI à partir de la suite de microtest OSU peut être 
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
-Le [package Mellanox Peretpt](https://community.mellanox.com/s/article/perftest-package) comporte de nombreux tests InfiniBand tels que la latence (ib_send_lat) et la bande passante (ib_send_bw). Vous trouverez ci-dessous un exemple de commande. 
+Le [package Mellanox Peretpt](https://community.mellanox.com/s/article/perftest-package) comporte de nombreux tests InfiniBand tels que la latence (ib_send_lat) et la bande passante (ib_send_bw). Vous trouverez ci-dessous un exemple de commande.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur la [mise à l’échelle des applications MPI](compiling-scaling-applications.md).
+- Vérifiez les résultats des performances et de l’évolutivité des applications HPC sur les machines virtuelles HBv3 en consultant l’[article TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv3-vms/bc-p/2235843).
 - Consultez les dernières annonces, des exemples de charge de travail HPC et les résultats des performances sur les [blogs de la communauté Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Pour une vision plus globale de l’architecture d’exécution des charges de travail HPC, consultez [Calcul haute performance (HPC) sur Azure](/azure/architecture/topics/high-performance-computing/).

@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Ajouter des ressources Azure à votre solution IoT'
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment configurer votre solution IoT de bout en bout avec Azure Defender pour IoT.
 ms.topic: quickstart
 ms.date: 01/25/2021
-ms.openlocfilehash: 1bde15919f9fa69bb9f9de7459895a70e9b74f71
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 6a90e8c3007f7b3448fd3f1b6e4fa46ba861081b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781022"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384578"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Démarrage rapide : Configurer votre solution Azure Defender pour IoT
 
@@ -16,7 +16,7 @@ Cet article explique comment effectuer la configuration initiale de votre soluti
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun
+- Aucun
 
 ## <a name="what-is-defender-for-iot"></a>Qu’est-ce que Defender pour IoT ?
 

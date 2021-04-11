@@ -1,20 +1,20 @@
 ---
 title: Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 description: Découvrez comment utiliser des balises d’index de blobs pour catégoriser, gérer et interroger afin de découvrir des objets blob.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 540f6ca165c80dd90f5004fb53e1577cdc35d770
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2188aaea0cf5a4616291d3fdad839aefb2dbc413
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656037"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280698"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gérer et rechercher des données Azure Blob à l’aide de balises d’index de blob (préversion)
 

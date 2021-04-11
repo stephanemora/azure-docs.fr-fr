@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 01/20/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 8420aecbc160fa6df2640d2ba0ae8a8b77702b67
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: bdd59c80408910bf8ca51bf787c8ff15dc2a4893
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624538"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889754"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 
@@ -464,7 +464,7 @@ Voici quelques éléments à prendre en compte lorsque vous utilisez le contrôl
 - Si deux rôles ont été attribués au même utilisateur Azure Active Directory avec des sections conflictuelles de type Actions/NotActions, vos opérations répertoriées dans NotActions pour un rôle risquent de ne pas s’appliquer si elles apparaissent également en tant que Actions dans un autre rôle. Pour en savoir plus sur la façon dont Azure analyse les attributions de rôles, lisez [Comment le contrôle RBAC Azure détermine si un utilisateur a accès à une ressource](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 
 - Pour déployer vos ressources de calcul à l’intérieur d’un réseau virtuel, vous devez disposer d’autorisations explicites pour les actions suivantes :
-    - `Microsoft.Network/virtualNetworks/join/action` sur la ressource de réseau virtuel.
+    - `Microsoft.Network/virtualNetworks/*/read` sur les ressources de commutateur virtuel.
     - `Microsoft.Network/virtualNetworks/subnet/join/action` sur la ressource de sous-réseau.
     
     Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).

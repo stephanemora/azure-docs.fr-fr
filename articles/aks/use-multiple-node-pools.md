@@ -3,13 +3,13 @@ title: Utiliser plusieurs pools de nœuds dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.date: 02/11/2021
+ms.openlocfilehash: 8f18e19eca8895549f17c9f0f6822ecb4da2914b
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218483"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773502"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -134,7 +134,7 @@ Une charge de travail peut nécessiter le fractionnement des nœuds d'un cluster
 * Si vous développez votre réseau virtuel après la création du cluster, vous devez mettre à jour votre cluster (vous pouvez effectuer n’importe quelle opération de cluster managé, sauf les opérations de pool de nœuds qui ne comptent pas) avant d’ajouter un sous-réseau en dehors du CIDR d’origine. AKS générera une erreur pour l’option Ajouter maintenant du pool d’agents, même si celle-ci était autorisée auparavant. Si vous ne savez pas comment rapprocher votre cluster, ouvrez un ticket de support. 
 * La stratégie réseau Calico n’est pas prise en charge. 
 * La stratégie réseau Azure n’est pas prise en charge.
-* Kube-proxy attend un CIDR contigu, qu’il utilise pour trois optimisations. Pour plus d’informations, consultez [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) et [--cluster-cidr](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Dans Azure CNI, le sous-réseau de votre premier nœud est attribué à kube-proxy. 
+* Kube-proxy attend un CIDR contigu, qu’il utilise pour trois optimisations. Pour plus d’informations, consultez [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) et [--cluster-cidr](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/). Dans Azure CNI, le sous-réseau de votre premier nœud est attribué à kube-proxy. 
 
 Pour créer un pool de nœuds avec un sous-réseau dédié, transmettez l'ID de ressource du sous-réseau en tant que paramètre supplémentaire lors de la création du pool de nœuds.
 
@@ -716,33 +716,11 @@ az deployment group create \
 
 La mise à jour de votre cluster AKS peut prendre quelques minutes selon les paramètres de pool de nœuds et les opérations que vous définissez dans votre modèle Resource Manager.
 
-## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds (préversion)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools"></a>Attribuer une adresse IP publique par nœud dans vos pools de nœuds
 
-> [!WARNING]
-> Vous devez installer l’extension CLI 0.4.43 en préversion ou une version ultérieure pour utiliser la fonctionnalité d’adresse IP publique par nœud.
+Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, certains scénarios peuvent exiger que les nœuds d'un pool de nœuds reçoivent leurs propres adresses IP publiques dédiées. C’est par exemple le cas pour les charges de travail de gaming, où une console doit être directement connectée à une machine virtuelle du cloud afin de réduire les tronçons. Ce scénario peut être exécuté sur AKS à l’aide de l’adresse IP publique des nœuds.
 
-Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, certains scénarios peuvent exiger que les nœuds d'un pool de nœuds reçoivent leurs propres adresses IP publiques dédiées. C’est par exemple le cas pour les charges de travail de gaming, où une console doit être directement connectée à une machine virtuelle du cloud afin de réduire les tronçons. Vous devez alors vous inscrire sur AKS pour accéder à la fonctionnalité d'évaluation « Node Public IP » (disponible en préversion).
-
-Pour installer ou mettre à jour l’extension aks-preview vers la version la plus récente, utilisez les commandes Azure CLI suivantes :
-
-```azurecli
-az extension add --name aks-preview
-az extension update --name aks-preview
-az extension list
-```
-
-Pour vous inscrire à la fonctionnalité « Node Public IP », utilisez la commande Azure CLI suivante :
-
-```azurecli-interactive
-az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
-```
-L’inscription peut prendre plusieurs minutes.  Vous pouvez vérifier l’état de l’inscription avec la commande suivante :
-
-```azurecli-interactive
- az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
-```
-
-Une fois l’inscription terminée, créez un groupe de ressources.
+Dans un premier temps, créez un nouveau groupe de ressources.
 
 ```azurecli-interactive
 az group create --name myResourceGroup2 --location eastus
@@ -759,9 +737,6 @@ Pour les clusters AKS existants, vous pouvez également ajouter un nouveau pool
 ```azurecli-interactive
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
-
-> [!Important]
-> Dans la préversion, Azure Instance Metadata Service ne prend pas en charge la récupération des adresses IP publiques pour la référence SKU de machine virtuelle de niveau standard. En raison de cette limitation, vous ne pouvez pas utiliser les commandes kubectl pour afficher les adresses IP publiques qui sont attribuées aux nœuds. Toutefois, les adresses IP sont affectées et fonctionnent comme prévu. Les adresses IP publiques de vos nœuds sont attachées aux instances de votre groupe de machines virtuelles identiques.
 
 Vous pouvez localiser les adresses IP publiques de vos nœuds de différentes manières :
 
@@ -818,20 +793,20 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_delete
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-group-create]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create
+[az-group-delete]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete
+[az-deployment-group-create]: /cli/azure/deployment/group?view=azure-cli-latest&preserve-view=true#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -844,5 +819,5 @@ Utilisez les [groupes de placement de proximité][reduce-latency-ppg] pour rédu
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md

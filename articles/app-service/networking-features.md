@@ -4,15 +4,15 @@ description: Découvrez les fonctionnalités réseau d’Azure App Service, ains
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593127"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889142"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -129,11 +129,15 @@ Cas d’usage de cette fonctionnalité :
 ![Diagramme illustrant l’utilisation de points de terminaison de service avec Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 Pour en savoir plus sur la configuration des points de terminaison de service avec votre application, consultez [Restrictions d’accès dans Azure App Service][serviceendpoints].
-#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Règles de restriction d’accès basées sur des étiquettes de service (préversion)
+
+#### <a name="access-restriction-rules-based-on-service-tags"></a>Règles de restriction d’accès basées sur des étiquettes de service
+
 Les [étiquettes de service Azure][servicetags] sont des ensembles bien définis d’adresses IP pour les services Azure. Les étiquettes de service regroupent les plages d’adresses IP utilisées dans différents services Azure et sont souvent également étendues à des régions spécifiques. Cela vous permet de filtrer le trafic *entrant* à partir de services Azure spécifiques. 
 
 Pour obtenir la liste complète des étiquettes et d’autres informations, consultez le lien d’étiquette de service ci-dessus. Pour découvrir comment activer cette fonctionnalité, voir [Restrictions d’accès dans Azure App Service][iprestrictions].
-#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtrage d’en-tête HTTP pour les règles de restriction d’accès (préversion)
+
+#### <a name="http-header-filtering-for-access-restriction-rules"></a>Filtrage d’en-tête HTTP pour les règles de restriction d’accès
+
 Pour chaque règle de restriction d’accès, vous pouvez ajouter un filtrage d’en-tête HTTP supplémentaire. Cela vous permet d’examiner plus en détail la requête entrante et de filtrer selon des valeurs d’en-tête HTTP spécifiques. Chaque en-tête peut comporter jusqu’à huit valeurs par règle. Les en-têtes HTTP figurant dans la liste suivante sont actuellement pris en charge : 
 * X-Forwarded-For
 * X-Forwarded-Host
@@ -143,6 +147,7 @@ Pour chaque règle de restriction d’accès, vous pouvez ajouter un filtrage d�
 Voici quelques cas d’usage du filtrage d’en-tête HTTP :
 * Restreindre l’accès au trafic des serveurs proxy qui transfèrent le nom d’hôte
 * Restreindre l’accès à une instance d’Azure Front Door spécifique avec une règle d’étiquette de service et une restriction d’en-tête X-Azure-FDID
+
 ### <a name="private-endpoint"></a>Point de terminaison privé
 
 Un point de terminaison privé est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à votre application web via une liaison privée Azure. Un point de terminaison privé utilise une adresse IP privée de votre réseau virtuel, ce qui a pour effet d’introduire l’application web dans votre réseau virtuel. Cette fonctionnalité s’applique uniquement aux flux *entrants* dans votre application web.

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743909"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773400"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Appliquer le Bureau à distance à Microsoft Azure Cloud Services (support étendu)
 
@@ -27,8 +27,9 @@ Le Portail Azure utilise l’extension Bureau à distance, pour activer le Bure
 2. Sélectionnez **Ajouter**.
 3. Choisissez les rôles pour lesquels activer le Bureau à distance.
 4. Renseignez les champs requis pour le nom d’utilisateur, le mot de passe, la date d’expiration et le certificat (non requis).
+> [Remarque] Le mot de passe pour le bureau à distance doit comprendre entre 8 et 123 caractères, et doit remplir au moins trois critères de complexité de mot de passe parmi les suivants : 1) Contenir un caractère majuscule 2) Contenir un caractère minuscule 3) Contenir un chiffre 4) Contenir un caractère spécial 5) Les caractères de contrôle ne sont pas autorisés
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="Image montrant comment entrer les informations requises pour se connecter au bureau à distance.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="Image montrant comment entrer les informations requises pour se connecter au bureau à distance.":::
 
 5. Lorsque vous avez terminé, sélectionnez **Enregistrer**. Vos instances de rôles pourront recevoir les connexions quelques instants plus tard.
 
@@ -49,5 +50,5 @@ Une fois que le Bureau à distance aura été activé sur les rôles, vous pourr
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu).
-- Consultez la [FAQ](faq.md) de Cloud Services (support étendu).
-- Déployez une instance Cloud Services (support étendu) avec le [Portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).
+- Consultez les [questions fréquentes (FAQ)](faq.md) sur Cloud Services (support étendu).
+- Déployez une instance de Cloud Services (support étendu) avec le [portail Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), un [modèle](deploy-template.md) ou [Visual Studio](deploy-visual-studio.md).

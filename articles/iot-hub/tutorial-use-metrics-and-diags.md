@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625197"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889589"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Tutoriel : Configurer et utiliser des métriques et des journaux avec un hub IoT
 
@@ -219,7 +219,7 @@ Pour configurer des alertes de métriques
 
 1. Tout d’abord, configurez la condition sur laquelle l’alerte sera déclenchée.
 
-    1. Sous **Condition**, sélectionnez **Sélectionner une condition**. Dans le volet **Configurer la logique du signal**, tapez « télémétrie » dans la zone de recherche, puis sélectionnez **Messages de télémétrie envoyés**.
+    1. Sous **Condition**, sélectionnez **Ajouter une condition**. Dans le volet **Configurer la logique du signal**, tapez « télémétrie » dans la zone de recherche, puis sélectionnez **Messages de télémétrie envoyés**.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Capture d’écran montrant la sélection de la métrique.":::
 
@@ -313,7 +313,7 @@ Avec ces paramètres, une alerte est déclenchée et vous recevez une notificati
 
 ## <a name="run-the-simulated-device-app"></a>Exécution de l’application de périphérique simulé
 
-Dans la section [Configurer des ressources](#set-up-resources), vous avez inscrit une identité d’appareil à utiliser pour simuler l’utilisation d’un appareil IoT. Dans cette section, vous allez télécharger une application console .NET qui simule un appareil envoyant des messages appareil-à-cloud à un hub IoT, la configurer pour envoyer ces messages à votre hub IoT, puis l’exécuter. 
+Dans la section [Configurer des ressources](#set-up-resources), vous avez inscrit une identité d’appareil à utiliser pour simuler l’utilisation d’un appareil IoT. Dans cette section, vous allez télécharger une application console .NET qui simule un appareil envoyant des messages appareil-à-cloud à un hub IoT, la configurer pour envoyer ces messages à votre hub IoT, puis l’exécuter.
 
 > [!IMPORTANT]
 >

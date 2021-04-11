@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
-ms.date: 04/20/2020
-ms.openlocfilehash: 0d0fa88fdf182ae2214da40ee3fe8b20ced025e4
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 04/05/2021
+ms.openlocfilehash: a6fd603318a25e15d1d4dcc1e3eaf75f96fc5ade
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956058"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448625"
 ---
 # <a name="azure-media-player-quickstart"></a>Démarrage rapide du Lecteur multimédia Azure
 Le lecteur multimédia Azure est facile à configurer. Seules quelques minutes sont nécessaires pour récupérer la lecture simple de contenu multimédia à partir de votre compte Azure Media Services. Cette section montre les étapes de base sans entrer dans les détails. Les sections qui suivent fournissent des détails sur l’installation et la configuration du Lecteur multimédia Azure.  Ajoutez simplement ce qui suit à l’élément `<head>` de votre document :
@@ -22,7 +22,7 @@ Le lecteur multimédia Azure est facile à configurer. Seules quelques minutes s
 ```
 
 > [!IMPORTANT]
-> Vous ne devez **PAS** utiliser la version `latest` en production, car elle est susceptible de changer à la demande. Remplacez `latest` par une version du Lecteur multimédia Azure. Par exemple, remplacez `latest` par `1.0.0`. Les versions du Lecteur multimédia Azure peuvent être examinées à partir d’[ici](azure-media-player-changelog.md).
+> Vous ne devez **PAS** utiliser la version `latest` en production, car elle est susceptible de changer à la demande. Remplacez `latest` par une version du Lecteur multimédia Azure. Par exemple, remplacez `latest` par `1.0.0`. Les versions du Lecteur multimédia Azure peuvent être examinées à partir d’[ici](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 ## <a name="use-the-video-element"></a>Utiliser l’élément vidéo
 
