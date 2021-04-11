@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 55fa01d100c60c6411774373428ff4bbd9a56822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee9dc61169b182356e8ed272bc64785e9c3f6384
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80986808"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073368"
 ---
 ## <a name="windows-clients"></a><a name="windows"></a>Clients Windows
 
@@ -25,7 +25,7 @@ ms.locfileid: "80986808"
    * Instructions sur la [passerelle VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)
    
    * Instructions sur [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Procédez à l’extraction de la clé privée et de l’empreinte numérique en base 64 à partir de la *.pfx*. Pour ce faire, plusieurs options s’offrent à vous. Vous devez utiliser OpenSSL sur votre machine. Le fichier *profileinfo.txt* contient la clé privée et l’empreinte numérique pour l’autorité de certification et le certificat client. Assurez-vous d’utiliser l’empreinte numérique du certificat client.
+5. Procédez à l’extraction de la clé privée et de l’empreinte numérique en base 64 à partir de la *.pfx*. Il y a plusieurs manières de procéder. Vous devez utiliser OpenSSL sur votre machine. Le fichier *profileinfo.txt* contient la clé privée et l’empreinte numérique pour l’autorité de certification et le certificat client. Assurez-vous d’utiliser l’empreinte numérique du certificat client.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
@@ -92,7 +92,7 @@ ms.locfileid: "80986808"
 
 9. Appuyez sur **Plus** si vous ne voyez pas l’option **Copier dans OpenVPN**
 
-    ![En savoir plus](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
+    ![Plus](./media/vpn-gateway-vwan-config-openvpn-clients/ios3.png)
 
 10. Appuyez sur **Copier dans OpenVPN** 
 
@@ -122,12 +122,12 @@ ms.locfileid: "80986808"
    sudo service network-manager restart
    ```
 3. Téléchargez le profil VPN pour la passerelle. Pour y parvenir, accédez à l’onglet Configurations point à site dans le Portail Azure.
-4. Exportez le certificat client P2S que vous avez créé et chargé dans votre configuration P2S sur la passerelle. Consultez les articles suivants :
+4. Exportez le certificat de client P2S que vous avez créé et chargé dans votre configuration P2S sur la passerelle. Consultez les articles suivants :
 
    * Instructions sur la [passerelle VPN](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) 
    
    * Instructions sur [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport)
-5. Procédez à l’extraction de la clé privée et de l’empreinte numérique en base 64 à partir du fichier .pfx. Pour ce faire, plusieurs options s’offrent à vous. Vous devez utiliser OpenSSL sur votre ordinateur.
+5. Procédez à l’extraction de la clé privée et de l’empreinte numérique en base 64 à partir du fichier .pfx. Il y a plusieurs manières de procéder. Vous devez utiliser OpenSSL sur votre ordinateur.
 
     ```
     openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"

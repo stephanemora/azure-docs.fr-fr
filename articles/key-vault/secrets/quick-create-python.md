@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 14ea63e3b52d0673d6f64a5963a4de7a038f7021
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: b82c86983bc07f39c1adb5aa741497d8cc3246e9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800463"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967119"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de secrets Azure Key Vault pour Python
 
@@ -24,7 +24,7 @@ Bien démarrer avec la bibliothèque de client de secrets Azure Key Vault pour P
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Python 2.7 ou version ultérieure ou 3.6 ou version ultérieure](/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 ou versions ultérieures ou 3.6 ou versions ultérieures](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 Ce guide de démarrage rapide suppose que vous exécutez [Azure CLI](/cli/azure/install-azure-cli) dans une fenêtre de terminal Linux.
@@ -80,17 +80,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-
 
 Cette application utilise le nom de coffre de clés en tant que variable d’environnement appelée `KEY_VAULT_NAME`.
 
-Windows
-```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
-````
-Windows PowerShell
-```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
-```
-
-macOS ou Linux
-```cmd
+```bash
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 

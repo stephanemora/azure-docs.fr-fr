@@ -1,18 +1,19 @@
 ---
-title: Mapper une structure de dossiers à une topologie Azure File Sync
-description: Mappez une structure de fichiers et de dossiers existante à des partages de fichiers Azure à des fins d'utilisation avec Azure File Sync. Bloc de texte commun, partagé entre plusieurs documents de migration.
+title: Fichier include
+description: Fichier include
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: 265d14d7cca05ff510e747c8d3a3b071e44a0a68
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.custom: include file
+ms.openlocfilehash: a8dd83a9584d218d56c7350d6d634bfe4610b790
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202397"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075567"
 ---
 Dans cette étape, vous évaluez le nombre de partages de fichiers Azure dont vous avez besoin. Une seule instance Windows Server (ou cluster) peut synchroniser jusqu’à 30 partages de fichiers Azure.
 

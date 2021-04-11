@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596720"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277400"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Signaler des pistes audio descriptives
 
@@ -29,9 +29,9 @@ Cet article explique comment encoder une vidéo, charger un fichier MP4 audio un
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Créer un compte Media Services](./create-account-howto.md).
+- [Créer un compte Media Services](./account-create-how-to.md).
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
-- Passez en revue l’[empaquetage dynamique](dynamic-packaging-overview.md).
+- Passez en revue l’[empaquetage dynamique](encode-dynamic-packaging-concept.md).
 - Passez en revue le didacticiel [Charger, encoder et diffuser en continu des vidéos](stream-files-tutorial-with-api.md).
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Créer une ressource d’entrée et charger un fichier local dans celle-ci 
@@ -64,7 +64,7 @@ Pour les besoins de cet article, transmettez la valeur `outputAsset.Name` aux fo
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Créer une transformation et un travail qui encode le fichier chargé
 
-Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transformations et travaux](./transforms-jobs-concept.md). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
+Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transformations et travaux](./transform-jobs-concept.md). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
 
 L’exemple suivant crée une transformation (le cas échéant).
 
@@ -245,4 +245,4 @@ Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Analyser des vidéos](analyze-videos-tutorial-with-api.md)
+[Analyser des vidéos](analyze-videos-tutorial.md)

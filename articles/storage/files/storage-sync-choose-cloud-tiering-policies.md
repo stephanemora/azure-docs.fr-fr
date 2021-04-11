@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/24/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2ed1b8162c49ccc26cb98dd02897a9c40f809d14
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 01bf9ac6a3bfcb30fb6e6a6f9d56de3f9f516f03
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204221"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059273"
 ---
 # <a name="choose-cloud-tiering-policies"></a>Choisir des stratégies de hiérarchisation Cloud
 
@@ -34,8 +34,13 @@ Pour les agents de version 9 et ultérieures, la taille minimale d’un fichier
 |16 Ko (16384)               | 32 Ko   |
 |32 ko (32 768)               | 64 Ko   |
 |64 ko (65 536)    | 128 Ko  |
+|128 Ko (131072) | 256 KB |
+|256 Ko (262144) | 512 Ko |
+|512 Ko (524288) | 1 Mo |
+|1 Mo (1048576) | 2 Mo |
+|2 Mo (2097152) | 4 Mo |
 
-Les tailles de clusters sont actuellement prises en charge jusqu’à 64 Ko. Pour les tailles supérieures, la hiérarchisation cloud ne fonctionne pas.
+Les tailles de cluster jusqu’à 2 Mo sont prises en charge avec l’agent Azure File Sync version 12 mais, pour des tailles supérieures, la hiérarchisation cloud ne fonctionne pas.
 
 Tous les systèmes de fichiers utilisés par Windows organisent votre disque dur en fonction de la taille du cluster (également appelée taille d’unité d’allocation). La taille du cluster représente la plus petite quantité d’espace disque qui peut être utilisée pour contenir un fichier. Lorsque les tailles de fichiers ne correspondent pas à un multiple de la taille du cluster, plus d’espace est nécessaire pour conserver le fichier (jusqu’au multiple supérieur de la taille du cluster).
 

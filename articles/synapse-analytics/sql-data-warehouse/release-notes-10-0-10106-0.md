@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4f333c4bb66195e6c99bd45dcc7c29a0b9a2eaa9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6431328a0969ced0d98cbc7ff047cc0673ecb91
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100591425"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074554"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Notes de publication pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -90,7 +90,9 @@ Pour améliorer les outils, assurez-vous d’avoir installé la version spécifi
 | Améliorations du service | Détails |
 | --- | --- |
 |**Niveau de compatibilité de la base de données (préversion)**| Avec cette version, les utilisateurs peuvent désormais définir le niveau de compatibilité d'une base de données pour obtenir le langage Transact-SQL et les comportements de traitement des requêtes d'une version spécifique du moteur Synapse SQL. Pour plus d’informations, consultez [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) et [Modifier la configuration délimitée à la base de données](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).|
-|**Sp_describe_undeclared_parameters**| Autorisez les utilisateurs à voir les métadonnées sur les paramètres non déclarés dans un lot Transact-SQL. Pour plus d’informations, consultez [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).| <br/><br/><br/>
+|**Sp_describe_undeclared_parameters**| Autorisez les utilisateurs à voir les métadonnées sur les paramètres non déclarés dans un lot Transact-SQL. Pour plus d’informations, consultez [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).| 
+
+<br/><br/><br/>
 
 | Améliorations des outils                                         | Détails                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

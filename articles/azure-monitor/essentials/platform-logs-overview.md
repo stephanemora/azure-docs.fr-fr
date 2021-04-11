@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
-ms.openlocfilehash: 3300b0587cbb6c2193b56c9152af0cb11ea51936
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2b22746b7a78349580220f4aa7579876fd21c33
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033297"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074588"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Vue d’ensemble des journaux de plateforme Azure
 Les journaux de plateforme fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Elles sont générées automatiquement, même si vous devez configurer certains journaux de plateforme à transférer vers une ou plusieurs destinations à des fins de rétention. Cet article fournit une vue d’ensemble des journaux de plateforme, y compris les informations fournies et de la façon dont vous pouvez les configurer pour la collecte et l’analyse.
@@ -45,8 +45,8 @@ Vous pouvez envoyer des journaux de plateforme à une ou plusieurs des destinati
 
 | Destination | Description |
 |:---|:---|
-| Espace de travail Log Analytics | Analysez les journaux de toutes vos ressources Azure réunies et tirez parti de toutes les fonctionnalités accessibles aux [journaux Azure Monitor](../logs/data-platform-logs.md), notamment les [requêtes de journal](../logs/log-query-overview.md) et les [alertes de journal](../alerts/alerts-log.md). Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif. |  |
-| Event Hub | Envoyez les données de journal de plateforme à l’extérieur d’Azure, par exemple vers une solution SIEM tierce ou une plateforme de télémétrie personnalisée.
+| Espace de travail Log Analytics | Analysez les journaux de toutes vos ressources Azure réunies et tirez parti de toutes les fonctionnalités accessibles aux [journaux Azure Monitor](../logs/data-platform-logs.md), notamment les [requêtes de journal](../logs/log-query-overview.md) et les [alertes de journal](../alerts/alerts-log.md). Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif. | 
+| Event Hub | Envoyez les données de journal de plateforme à l’extérieur d’Azure, par exemple vers une solution SIEM tierce ou une plateforme de télémétrie personnalisée. |
 | Stockage Azure | Archivez les journaux à des fins d’audit ou de sauvegarde. |
 
 - Pour plus d’informations sur la création d’un paramètre de diagnostic pour le journal d’activité ou les journaux de ressources, consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../essentials/diagnostic-settings.md). 

@@ -1,17 +1,17 @@
 ---
 title: Extensions - Azure Database pour PostgreSQL - Serveur flexible
 description: Découvrez les extensions Postgres disponibles dans Azure Database pour PostgreSQL - Serveur flexible
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: b6ae6c003284b93390bb4f53345d3ba0f8d35e21
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e8f71eb120b86f35672c9123b52f7f19c9fee662
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952556"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608457"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur flexible
 

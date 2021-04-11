@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879324"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060730"
 ---
-# <a name="how-to-plan-a-virtual-machine-offer"></a>Comment planifier une offre de machine virtuelle
+# <a name="plan-a-virtual-machine-offer"></a>Planifier une offre de machine virtuelle
 
 Cet article explique les différentes options et conditions requises pour la publication d’une offre de machine virtuelle sur la Place de marché commerciale. Les offres de machines virtuelles sont des offres pouvant faire l’objet d’une transaction, déployées et facturées via la Place de marché Azure.
 
@@ -102,7 +102,7 @@ Vous pouvez limiter la découverte et le déploiement de votre machine virtuelle
 
 Pour plus d’informations, consultez [Plans et tarification pour les offres du marketplace commercial](plans-pricing.md) et [Offres privées sur le marketplace commercial de Microsoft](private-offers.md).
 
-## <a name="test-drives"></a>Versions d’évaluation
+## <a name="test-drive"></a>Version d'évaluation
 
 Vous pouvez choisir d’activer une version d’évaluation pour votre machine virtuelle. Les versions d’évaluation permettent aux clients d’accéder à un environnement préconfiguré pendant un nombre d’heures fixe. Vous pouvez activer des versions d’évaluation pour n’importe quelle option de publication, mais cette fonctionnalité est assortie d’exigences supplémentaires. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md). Pour plus d’informations sur la configuration de différents types de versions d’évaluation, consultez [Configuration technique de la version d’évaluation](test-drive-technical-configuration.md).
 

@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9678648b6417138e216ba2dce3a3605bb4c1bce4
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582712"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169230"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -450,7 +450,7 @@ Pour plus d’informations sur le protocole MQTT, consultez la [documentation de
 
 Pour en savoir plus sur la planification de votre déploiement IoT Hub, consultez :
 
-* [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/)
+* [Catalogue d’appareils certifiés Azure pour l’IoT](https://devicecatalog.azure.com/)
 * [Prendre en charge des protocoles supplémentaires](iot-hub-protocol-gateway.md)
 * [Comparer à Event Hubs](iot-hub-compare-event-hubs.md)
 * [Mise à l’échelle, haute disponibilité et reprise d’activité](iot-hub-scaling.md)
