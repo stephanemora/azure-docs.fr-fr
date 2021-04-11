@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6683e39cfa3601b1ae1fbbe02e69e4dc0a54e8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564600"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645245"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>Partage de GPU sur votre appareil Azure Stack Edge Pro GPU
 
-Le processeur graphique (GPU) est un processeur spécialisé conçu pour accélérer l’affichage graphique. Les GPU peuvent traiter de nombreux éléments de données simultanément, ce qui les rend utiles pour les applications de Machine Learning, de montage vidéo et de jeu. En plus de l’utilisation de l’UC pour le calcul à usage général, vos appareils Azure Stack Edge Pro GPU peuvent contenir une ou deux GPU NVIDIA Tesla T4 pour des charges de travail nécessitant beaucoup de ressources systèmes, telles que l’inférence accélérée de matériel. Pour plus d’informations, consultez [GPU Tesla T4 de NVIDIA](https://www.nvidia.com/data-center/tesla-t4/).
+Le processeur graphique (GPU) est un processeur spécialisé conçu pour accélérer l’affichage graphique. Les GPU peuvent traiter de nombreux éléments de données simultanément, ce qui les rend utiles pour les applications de Machine Learning, de montage vidéo et de jeu. En plus de l’utilisation de l’UC pour le calcul à usage général, vos appareils Azure Stack Edge Pro GPU peuvent contenir une ou deux GPU NVIDIA Tesla T4 pour des charges de travail nécessitant beaucoup de ressources systèmes, telles que l’inférence accélérée de matériel. Pour plus d’informations, consultez [GPU Tesla T4 de NVIDIA](https://www.nvidia.com/en-us/data-center/tesla-t4/).
 
 
 ## <a name="about-gpu-sharing"></a>À propos du partage de GPU

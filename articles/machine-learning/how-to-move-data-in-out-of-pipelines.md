@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3f6071813a8189605d632231a5f9b8942068a48a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518702"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067433"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 
@@ -28,7 +28,7 @@ Cette article vous explique comment :
 - Fractionner les données `Dataset` en sous-ensembles, tels que des sous-ensembles d’apprentissage et de validation
 - Créer des objets `OutputFileDatasetConfig` pour transférer des données à l’étape suivante du pipeline
 - Utiliser des objets `OutputFileDatasetConfig` comme entrée pour les étapes de pipeline
-- Créer de nouveaux objets `Dataset` à partir de `OutputFileDatasetConfig` que vous souhaitez conserver
+- Créer des objets `Dataset` à partir des `OutputFileDatasetConfig` que vous souhaitez conserver
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -126,7 +126,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()],
     inputs=[test.as_named_input('test').as_download()]
 )
 
@@ -245,7 +245,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure ne supprime pas automatiquement les données intermédiaires écrites avec `OutputFileDatasetConfig`. Pour éviter les frais de stockage pour de grandes quantités de données inutiles, vous devez :
 
 * Supprimer programmatiquement les données intermédiaires à la fin d’une exécution de pipeline, quand elles ne sont plus nécessaires
-* Utiliser le Stockage Blob avec une stratégie de stockage à court terme pour les données intermédiaires (voir [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
+* Utiliser le Stockage Blob avec une stratégie de stockage à court terme pour les données intermédiaires (voir [Optimiser les coûts en automatisant les niveaux d’accès au Stockage Blob Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
 * Passer en revue et supprimer régulièrement les données qui ne sont plus nécessaires
 
 Pour plus d’informations, consultez [Planifier et gérer les coûts d’Azure Machine Learning](concept-plan-manage-cost.md).

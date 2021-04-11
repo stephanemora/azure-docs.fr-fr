@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f987cd99007f66540fd826a6cd14c6427ea0893
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715438"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056383"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles en utilisant le portail Azure
 
@@ -111,7 +110,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 3. Dans la page **Équilibreur de charge**, sélectionnez **Créer**.
 4. Sur la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Value                                              |
+    | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **CreateIntLBQS-rg** créé à l’étape précédente.|
@@ -162,7 +161,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -190,7 +189,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -222,7 +221,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -244,7 +243,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -346,7 +345,7 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 2. Dans l’onglet **Fonctions de base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes : 
 
-    | Paramètre                 | Value                                              |
+    | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **CreateIntLBQS-rg** créé à l’étape précédente.|
@@ -384,7 +383,7 @@ Créez le pool d’adresses principal **myBackendPool** afin d’inclure des mac
 
 3. Dans la page **Ajouter un pool de back-ends**, entrez ou sélectionnez :
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **myBackendPool**. |
     | Réseau virtuel | Sélectionnez **myVNet**. |
@@ -404,7 +403,7 @@ Créez une sonde d’intégrité nommée **myHealthProbe** pour surveiller l’i
 
 2. Sous **Paramètres**, sélectionnez **Sondes d’intégrité**, puis **Ajouter**.
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHealthProbe**. |
     | Protocol | Sélectionnez **HTTP**. |
@@ -432,7 +431,7 @@ Dans cette section, vous allez créer une règle d’équilibreur de charge :
 
 3. Pour configurer la règle d’équilibrage de charge, utilisez les valeurs suivantes :
     
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule**. |
     | Version de l’adresse IP | Sélectionnez **IPv4** |
@@ -466,7 +465,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -488,7 +487,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | Sélectionnez **myVNet** |
@@ -538,7 +537,7 @@ Dans cette section, vous allez créer une machine virtuelle nommée **myTestVM**
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Value                                          |
+    | Paramètre | Valeur                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -559,7 +558,7 @@ Dans cette section, vous allez créer une machine virtuelle nommée **myTestVM**
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |

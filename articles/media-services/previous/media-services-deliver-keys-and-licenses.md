@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2d965ec17fb605362c1e8cd8ef781a6bd2029d0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465706"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067382"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Utiliser Media Services pour fournir des licences DRM ou des clés AES
 
@@ -54,7 +54,7 @@ Le diagramme suivant montre les principales étapes à suivre pour utiliser Medi
     ```
  
 ## <a name="net-code-example"></a>Exemple de code .NET
-L’exemple de code suivant montre comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Pour configurer votre serveur local, vous avez besoin d’une clé de contenu, de l’ID de la clé et de l’URL d’acquisition de licence. Après avoir configuré votre serveur local, vous pouvez diffuser à partir de votre propre serveur de streaming. Étant donné que le flux chiffré pointe vers un serveur de licences Media Services, votre lecteur demande une licence de Media Services. Si vous choisissez l’authentification par jeton, le serveur de licences Media Services valide le jeton que vous avez envoyé via HTTPS. Si le jeton est valide, le serveur de licences remet la licence à votre lecteur. L’exemple de code suivant montre uniquement comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Si vous souhaitez fournir des clés AES-128, vous devez créer une clé de contenu d’enveloppe et obtenir une URL d’acquisition de clé. Pour plus d’informations, consultez [Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés](media-services-protect-with-aes128.md).
+L’exemple de code suivant montre comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Pour configurer votre serveur local, vous avez besoin d’une clé de contenu, de l’ID de la clé et de l’URL d’acquisition de licence. Après avoir configuré votre serveur local, vous pouvez diffuser à partir de votre propre serveur de streaming. Étant donné que le flux chiffré pointe vers un serveur de licences Media Services, votre lecteur demande une licence de Media Services. Si vous choisissez l’authentification par jeton, le serveur de licences Media Services valide le jeton que vous avez envoyé via HTTPS. Si le jeton est valide, le serveur de licences remet la licence à votre lecteur. L’exemple de code suivant montre uniquement comment créer une clé de contenu courante et obtenir les URL d’acquisition de licence PlayReady ou Widevine. Si vous souhaitez fournir des clés AES-128, vous devez créer une clé de contenu d’enveloppe et obtenir une URL d’acquisition de clé. Pour plus d’informations, consultez [Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Voir aussi
 * [Utiliser le chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-playready-widevine.md)
-* [Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés](media-services-protect-with-aes128.md)
+* [Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés](media-services-playready-license-template-overview.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d6b7b298e7e4d18e68985ec3cf536c90ef773608
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499133"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644393"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le service Speech
 
@@ -26,7 +26,7 @@ Cet article décrit les différences qui existent entre les API Reconnaissance v
 Une clé unique d’abonnement au service Speech permet d’accéder aux fonctionnalités suivantes. Elles sont mesurées séparément pour que seules les fonctions que vous utilisez vous soient facturées.
 
 * [Reconnaissance vocale](speech-to-text.md)
-* [Reconnaissance vocale personnalisée](https://cris.ai)
+* [Reconnaissance vocale personnalisée](/azure/cognitive-services/speech-service/custom-speech-overview)
 * [Synthèse vocale](text-to-speech.md)
 * [Voix de synthèse vocale personnalisées](./how-to-custom-voice-create-voice.md)
 * [Traduction vocale](speech-translation.md) (n’inclut pas la [traduction de texte](../translator/translator-info-overview.md))

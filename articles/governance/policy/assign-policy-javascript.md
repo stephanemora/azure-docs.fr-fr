@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Nouvelle attribution de stratégie avec JavaScript'
 description: Dans ce guide de démarrage rapide, vous utilisez JavaScript pour créer une attribution Azure Policy afin d’identifier des ressources non conformes.
-ms.date: 09/24/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 7548053e4bd5be214bf7de3eef3dc4c6c95442d4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d42156e68747b66778ea1cf2001d2b4bfc901bb0
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91347973"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090157"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l’aide de JavaScript
 

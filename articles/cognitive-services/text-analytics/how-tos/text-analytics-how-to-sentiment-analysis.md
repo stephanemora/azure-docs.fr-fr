@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599123"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276992"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Procédure : Analyse des sentiments et Exploration des opinions
 
-La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux façons de détecter les sentiments positifs et négatifs. Si vous envoyez une demande d’Analyse de sentiments, l’API retourne des étiquettes de sentiment, comme « negative » (négatif), « neutral » (neutre) et « positive » (positif), et des scores de confiance au niveau de la phrase et du document. Vous pouvez également envoyer des demandes d’Exploration des opinions en utilisant le point de terminaison Analyse des sentiments, qui fournit des informations précises sur les opinions relatives à des mots (comme les attributs de produits ou de services) du texte. 
+La fonctionnalité Analyse des sentiments de l’API Analyse de texte offre deux façons de détecter les sentiments positifs et négatifs. Si vous envoyez une demande d’Analyse de sentiments, l’API retourne des étiquettes de sentiment, comme « negative » (négatif), « neutral » (neutre) et « positive » (positif), et des scores de confiance au niveau de la phrase et du document. Vous pouvez également envoyer des demandes d’Exploration des opinions en utilisant le point de terminaison Analyse des sentiments, qui fournit des informations précises sur les opinions relatives à des mots (comme les attributs de produits ou de services) du texte.
 
 Les modèles IA utilisés par l’API sont fournis par le service ; vous n’avez qu’à envoyer le contenu à analyser.
 
@@ -151,7 +151,7 @@ La sortie est retournée immédiatement. Vous pouvez diffuser les résultats ver
 
 Analyse des sentiments version 3.1 peut retourner des objets de réponse à la fois pour l’Analyse des sentiments et l’Exploration des opinions.
   
-L’analyse des sentiments retourne une étiquette de sentiment et un score de confiance pour l’ensemble du document et chaque phrase qu’il contient. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Un document peut contenir plusieurs phrases, et les scores de confiance dans chaque document ou phrase s’additionnent pour arriver à 1. assessments 
+L’analyse des sentiments retourne une étiquette de sentiment et un score de confiance pour l’ensemble du document et chaque phrase qu’il contient. Plus les scores sont proches de 1, plus le niveau de confiance dans la classification de l’étiquette est élevé ; inversement, plus les scores sont faibles, plus le niveau de confiance est bas. Un document peut contenir plusieurs phrases, et les scores de confiance dans chaque document ou phrase s’additionnent pour arriver à 1.
 
 L’Exploration des opinions localisera les cibles (substantifs ou verbes) dans le texte et leur évaluation associée (adjectif). Dans la réponse ci-dessous, la phrase *The restaurant had great food and our waiter was friendly* (Les mets au restaurant étaient excellents et le serveur sympathique) présente deux cibles : *food* (mets) et *waiter* (serveur). La propriété `relations` de chaque cible contient une valeur `ref` avec la référence d’URI aux objets `documents`, `sentences` et `assessments` associés.
 
