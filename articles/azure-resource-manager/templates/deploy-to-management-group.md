@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 03/18/2021
+ms.openlocfilehash: 603b7e32e6f4e1181a8ef2df67382b5e21ed6715
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601591"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889805"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Déploiements de groupes d’administration avec des modèles Resource Manager
 
@@ -220,6 +220,14 @@ L’exemple d’après crée un nouveau groupe d’administration dans le groupe
 }
 ```
 
+## <a name="subscriptions"></a>Abonnements
+
+Pour utiliser un modèle ARM afin de créer un nouvel abonnement Azure dans un groupe d’administration, consultez :
+
+* [Créer des abonnements Contrat Entreprise Azure par programmation](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Créer des abonnements Azure pour un Contrat client Microsoft par programmation](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Créer des abonnements Azure pour un Contrat Partenaire Microsoft par programmation](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
+
 Pour déployer un modèle qui déplace un abonnement Azure existant vers un nouveau groupe d’administration, consultez [Déplacer des abonnements dans un modèle ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## <a name="azure-policy"></a>Azure Policy
@@ -319,7 +327,7 @@ L’exemple suivant montre comment [définir](../../governance/policy/concepts/d
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedSub",
             "location": "[parameters('nestedLocation')]",
             "subscriptionId": "[parameters('nestedSubId')]",
@@ -335,7 +343,7 @@ L’exemple suivant montre comment [définir](../../governance/policy/concepts/d
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('nestedRG')]",
                             "location": "[parameters('nestedLocation')]"
                         }
@@ -345,7 +353,7 @@ L’exemple suivant montre comment [définir](../../governance/policy/concepts/d
         },
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
+            "apiVersion": "2020-10-01",
             "name": "nestedRG",
             "subscriptionId": "[parameters('nestedSubId')]",
             "resourceGroup": "[parameters('nestedRG')]",

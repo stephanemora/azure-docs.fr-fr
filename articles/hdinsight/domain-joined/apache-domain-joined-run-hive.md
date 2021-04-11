@@ -4,12 +4,12 @@ description: Découvrez comment configurer des stratégies Apache Ranger pour Hi
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15c406576b373577a2a3a50108acad7ccbf36699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705702"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863256"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 
@@ -30,7 +30,7 @@ Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Da
 
 2. Connectez-vous avec le nom d’utilisateur et le mot de passe du domaine de l’administrateur du cluster :
 
-    ![Page d’accueil HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png" alt-text="Page d’accueil HDInsight ESP Ranger" border="true":::
 
     Actuellement, Ranger fonctionne uniquement avec Yarn et Hive.
 
@@ -57,7 +57,7 @@ Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesam
     |Sélectionner un utilisateur|hiveuser1|
     |Autorisations|select|
 
-    ![Configuration de stratégies Hive pour HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png" alt-text="Configuration de stratégies Hive pour HDInsight ESP Ranger" border="true":::
 
     > [!NOTE]  
     > Si un utilisateur de domaine n’est pas renseigné dans Sélectionner un utilisateur, attendez quelques instants que Ranger se synchronise avec AAD.
@@ -101,7 +101,7 @@ Dans la dernière section, vous avez configuré deux stratégies.  hiveuser1 a l
 
 1. À partir de l’onglet **Données**, accédez à **Obtenir des données** > **Depuis d’autres sources** > **Depuis ODBC** afin de lancer la fenêtre **Depuis ODBC**.
 
-    ![Assistant Ouvrir la connexion de données](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png" alt-text="Assistant Ouvrir la connexion de données" border="true":::
 
 1. Dans la liste déroulante, sélectionnez le nom de la source de données que vous avez créée dans la dernière section, puis sélectionnez **OK**.
 

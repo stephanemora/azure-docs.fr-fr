@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880099"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953452"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -20,11 +20,15 @@ ms.locfileid: "98880099"
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Puis-je me connecter à des réseaux virtuels dans différentes régions Azure ?
 
-Oui. En fait, il n'existe aucune contrainte de région. Un réseau virtuel peut se connecter à un autre réseau virtuel dans la même région ou dans une autre région Azure. 
+Oui. En fait, il n'existe aucune contrainte de région. Un réseau virtuel peut se connecter à un autre réseau virtuel dans la même région ou dans une autre région Azure.
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Puis-je me connecter à des réseaux virtuels avec différents abonnements ?
 
 Oui.
+
+### <a name="can-i-specify-private-dns-servers-in-my-vnet-when-configuring-vpn-gateway"></a>Puis-je spécifier des serveurs DNS privés dans mon réseau virtuel lors de la configuration de la passerelle VPN ?
+
+Si vous avez spécifié un ou des serveurs DNS quand vous avez créé votre réseau virtuel, la passerelle VPN utilise les serveurs DNS que vous avez spécifiés. Si vous spécifiez un serveur DNS, vérifiez que votre serveur DNS peut résoudre les noms de domaine nécessaires pour Azure.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>Puis-je me connecter à plusieurs sites à partir d'un seul réseau virtuel ?
 
@@ -32,7 +36,7 @@ Vous pouvez vous connecter à plusieurs sites à l'aide de Windows PowerShell e
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>La configuration d’une passerelle VPN en mode actif-actif engendre-t-elle des coûts supplémentaires ?
 
-Non. 
+Non.
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>Quelles sont mes options de connexion entre différents locaux ?
 
@@ -66,17 +70,20 @@ Les passerelles basées sur des stratégies implémentent des VPN basés sur des
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>Qu’est-ce qu’une passerelle basée sur l’itinéraire (routage dynamique) ?
 
-Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
+Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou les sélecteurs de trafic pour les VPN basés sur l’itinéraire sont configurés comme universels (ou en caractères génériques).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
 
-Non.  Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
-1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
-1. Supprimez la passerelle :
-   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell - Classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Créez une passerelle du type souhaité et terminer la configuration VPN](./tutorial-site-to-site-portal.md#VNetGateway).
+Non. Un type de passerelle ne peut pas être modifié du type basé sur une stratégie en celui basé sur un itinéraire, ou vice versa. Pour modifier un type de passerelle, la passerelle doit être supprimée et recréée. Ce processus prend environ 60 minutes. Lorsque vous créez la nouvelle passerelle, vous ne pouvez pas conserver l’adresse IP de la passerelle d’origine.
+
+1. Supprimez toutes les connexions associées à la passerelle.
+
+1. Supprimez la passerelle en utilisant l’un des articles suivants :
+
+   * [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell - Classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. Créez une nouvelle passerelle en utilisant le type de passerelle de votre choix, puis terminez la configuration du VPN. Pour connaître les étapes, consultez le [tutoriel Site à Site](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Ai-je besoin d’un « sous-réseau de passerelle » ?
 
@@ -121,11 +128,7 @@ Nous sommes limités à l'utilisation de clés prépartagées (PSK) pour l'authe
 
 #### <a name="classic-deployment-model"></a>Modèle de déploiement classique
 
-* Portail Azure : accédez au réseau virtuel classique > Connexions VPN > Connexions VPN site à site > Nom du site local > Site local > Espace d’adressage du client. 
-
-### <a name="can-i-configure-force-tunneling"></a>Puis-je configurer un tunneling forcé ?
-
-Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
+* Portail Azure : accédez au réseau virtuel classique > Connexions VPN > Connexions VPN site à site > Nom du site local > Site local > Espace d’adressage du client.
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Puis-je utiliser NAT-T sur mes connexions VPN ?
 
@@ -225,10 +228,13 @@ Oui, ceci est pris en charge. Pour plus d’informations, consultez [Configurer 
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp-and-routing"></a><a name="bgp"></a>BGP et routage
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### <a name="can-i-configure-forced-tunneling"></a>Puis-je configurer un tunneling forcé ?
+
+Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneling.md).
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Connectivité entre locaux et machines virtuelles
 
@@ -245,7 +251,6 @@ Non. Seul le trafic qui possède une IP de destination contenue dans les plages 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Résolution d’une connexion RDP à une machine virtuelle
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Forum aux questions sur le réseau virtuel
 

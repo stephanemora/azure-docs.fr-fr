@@ -2,29 +2,27 @@
 title: Mettre à l’échelle des unités réservées Multimédia - CLI
 description: Cette rubrique explique comment utiliser la CLI pour la mise à l’échelle du traitement multimédia avec Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102213808"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870158"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Mise à l'échelle des unités réservées Multimédia
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Cet article explique comment procéder à la mise à l'échelle des unités réservées Multimédia (MRU) afin d'accélérer l'encodage.
+
+> [!WARNING]
+> Cette commande ne fonctionne plus pour les comptes Media Services créés avec la version 2020-05-01 ou ultérieure de l’API. Pour ces comptes, les unités réservées Multimédia ne sont plus nécessaires, car le système effectue automatiquement un scale-up ou un scale-down en fonction de la charge. Si vous ne voyez pas l’option permettant de gérer les unités réservées Multimédia dans le portail Azure, cela signifie que vous utilisez un compte créé avec l’API 2020-05-01 ou une version ultérieure.
 
 ## <a name="prerequisites"></a>Prérequis
 

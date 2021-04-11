@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89002706"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606332"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Effectuer une mise à niveau vers la version 9 du SDK .NET Recherche Azure
 
@@ -40,7 +40,7 @@ La version 9 d’Azure Search .NET SDK est basée sur la version du 06/05/2019 d
 
 * L’[enrichissement par IA](cognitive-search-concept-intro.md) est la capacité à extraire du texte à partir d’images, d’objets blob et d’autres sources de données non structurées pour enrichir le contenu et ainsi faciliter les recherches dans un index de Recherche Azure.
 * La prise en charge de [types complexes](search-howto-complex-data-types.md) vous permet de modéliser presque n’importe quelle structure JSON imbriquée dans un index Recherche Azure.
-* La fonctionnalité [Autocomplétion](search-autocomplete-tutorial.md) fournit une alternative à l’API **Suggestion** pour implémenter le comportement de recherche au cours de la frappe. L’autocomplétion « termine » le mot ou l’expression que l’utilisateur est en train de taper.
+* La fonctionnalité [Autocomplétion](search-add-autocomplete-suggestions.md) fournit une alternative à l’API **Suggestion** pour implémenter le comportement de recherche au cours de la frappe. L’autocomplétion « termine » le mot ou l’expression que l’utilisateur est en train de taper.
 * Le [mode d’analyse JsonLines](search-howto-index-json-blobs.md), inclus dans l’indexation des objets Blob Azure, crée un document de recherche par entité JSON, séparé par un saut de ligne.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>Nouvelles fonctionnalités d’évaluation dans la version 8.0-preview

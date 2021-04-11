@@ -5,10 +5,10 @@ ms.custom: references_regions
 ms.topic: conceptual
 ms.date: 1/4/2021
 ms.openlocfilehash: 603aa6504531ef8a75fccbc9d9cc6de648b42373
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104954630"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Présentation de la préversion de BareMetal Infrastructure dans Azure
@@ -56,7 +56,7 @@ Dans l’infrastructure multilocataire du tampon BareMetal, les clients sont dé
 >[!NOTE]
 >Un client déployé dans l’instance BareMetal est isolé dans un locataire. Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et de calcul assignées aux différents locataires ne peuvent pas se voir les unes les autres ni communiquer sur les instances BareMetal.
 
-## <a name="os"></a>Système d''exploitation
+## <a name="os"></a>Système d’exploitation
 Pendant l’approvisionnement de l’instance BareMetal, vous pouvez sélectionner le système d’exploitation que vous souhaitez installer sur les ordinateurs. 
 
 >[!NOTE]

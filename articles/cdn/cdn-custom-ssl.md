@@ -5,15 +5,15 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616398"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058950"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -172,15 +172,18 @@ Accordez l’autorisation d’Azure CDN pour accéder aux certificats (secrets) 
 
 3. Sous Type de gestion de certificats, sélectionnez **Utiliser mon propre certificat**. 
 
-    ![Configurer votre certificat](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Capture d’écran de la configuration d’un certificat pour le point de terminaison CDN.":::
 
-4. Sélectionnez un coffre de clés, un certificat (secret) et une version du certificat.
+4. Sélectionnez un coffre de clés, un certificat/secret et une version du certificat/secret.
 
     Azure CDN répertorie les informations suivantes : 
     - les comptes du coffre de clés de votre ID d’abonnement ; 
-    - les certificats (secrets) dans le coffre de clés sélectionné ; 
-    - les versions disponibles du certificat. 
+    - les certificats/secrets sous le coffre de clés sélectionné ; 
+    - les versions disponibles du certificat/secret.
  
+    > [!NOTE]
+    > Pour effectuer automatiquement une rotation du certificat avec la dernière version quand une version plus récente est disponible dans votre coffre de clés, choisissez « La plus récente » comme version du certificat/secret. Si une version spécifique est sélectionnée, vous devez resélectionner manuellement la nouvelle version pour la rotation du certificat. Le déploiement de la nouvelle version du certificat/secret peut prendre jusqu’à 24 heures. 
+   
 5. Sélectionnez **Activé** pour activer le protocole HTTPS.
   
 6. Lorsque vous utilisez votre certificat, la validation du domaine n’est pas nécessaire. Passez à [En attente de la propagation](#wait-for-propagation).

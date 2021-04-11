@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc7892db2ca11ab7970835f8979360961ee01104
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1bac5ef9805dba5f06befeae3049566cb0483306
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103463338"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169553"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Ajouter des modules linguistiques à une image Windows 10 multisession
 
@@ -265,4 +265,4 @@ Après avoir modifié ses paramètres de langue, un utilisateur doit se déconne
 
 Si vous souhaitez connaître les problèmes connus liés aux modules linguistiques, consultez [Ajout de modules linguistiques dans Windows 10, version 1803 et versions ultérieures : problèmes connus](/windows-hardware/manufacture/desktop/language-packs-known-issue).
 
-Si vous avez d’autres questions sur Windows 10 Entreprise multisession, consultez notre [FAQ](windows-10-multisession-faq.md).
+Si vous avez d’autres questions sur Windows 10 Entreprise multisession, consultez notre [FAQ](windows-10-multisession-faq.yml).

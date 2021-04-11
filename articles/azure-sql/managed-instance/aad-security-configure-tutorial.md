@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92788619"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639848"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutoriel : Sécurité dans Azure SQL Managed Instance à l’aide de principaux de serveur (connexions) Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ Consultez les articles suivants pour obtenir des exemples de connexion à SQL Ma
 
     ![Capture d’écran de l’onglet Résultats dans l’Explorateur d’objets SSMS montrant les détails de la connexion nouvellement ajoutée : nom, principal_id, SID, type et type_desc.](./media/aad-security-configure-tutorial/native-login.png)
 
-Pour plus d’informations, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+Pour plus d’informations, consultez [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 ## <a name="grant-permissions-to-create-logins"></a>Accorder des autorisations pour créer des connexions
 
@@ -182,7 +182,7 @@ Une fois le principal de serveur (connexion) Azure AD créé et doté des privi
     GO
     ```
 
-1. Créez une base de données dans l’instance managée à l’aide de la syntaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Cette base de données va être utilisée pour tester les connexions des utilisateurs dans la prochaine section.
+1. Créez une base de données dans l’instance managée à l’aide de la syntaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true). Cette base de données va être utilisée pour tester les connexions des utilisateurs dans la prochaine section.
     1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur le serveur, puis choisissez **Nouvelle requête**.
     1. Dans la fenêtre de requête, utilisez la syntaxe suivante pour créer une base de données nommée **MyMITestDB**.
 
@@ -264,7 +264,7 @@ Pour plus d’informations sur l’octroi d’autorisations de base de données,
     > [!IMPORTANT]
     > Quand vous créez un **USER** à partir d’un principal de serveur (connexion) Azure AD, spécifiez le même user_name que le login_name à partir de **LOGIN**.
 
-    Pour plus d’informations, consultez [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Pour plus d’informations, consultez [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 1. Dans une nouvelle fenêtre de requête, créez une table de test à l’aide de la commande T-SQL suivante :
 

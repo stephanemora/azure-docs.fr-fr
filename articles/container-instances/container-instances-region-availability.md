@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4decf29be23c2f1ed51f422052869e99abe4a511
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103573606"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046009"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -88,21 +88,21 @@ Les régions et les ressources maximales suivantes sont accessibles aux groupes 
 | Brésil Sud | 4 | 16 | 4 | 16 | 20 |
 | Centre du Canada | 2 | 8 | 2 | 3,5 | 20 |
 | Inde centrale | 2 | 3,5 | 2 | 3,5 | 20 |
-| USA Centre | 2 | 3,5 | 2 | 3,5 | 20 |
+| USA Centre | 2 | 8 | 2 | 3,5 | 20 |
 | Asie Est | 2 | 3,5 | 2 | 3,5 | 20 |
-| USA Est | 4 | 16 | 2 | 8 | 20 |
-| USA Est 2 | 2 | 3,5 | 4 | 16 | 20 |
+| USA Est | 2 | 8 | 2 | 8 | 20 |
+| USA Est 2 | 2 | 8 | 4 | 16 | 20 |
 | Japon Est | 4 | 16 | 4 | 16 | 20 |
 | Centre de la Corée | 4 | 16 | 4 | 16 | 20 |
-| Centre-Nord des États-Unis | 4 | 16 | 4 | 16 | 20 |
+| Centre-Nord des États-Unis | 2 | 8 | 4 | 16 | 20 |
 | Europe Nord | 2 | 8 | 2 | 8 | 20 |
-| États-Unis - partie centrale méridionale | 2 | 3,5 | 2 | 8 | 20 |
+| États-Unis - partie centrale méridionale | 2 | 8 | 2 | 8 | 20 |
 | Asie Sud-Est | N/A | N/A | 2 | 3,5 | 20 |
 | Inde Sud | 2 | 3,5 | 2 | 3,5 | 20 |
 | Sud du Royaume-Uni | 2 | 8 | 2 | 3,5 | 20 |
-| Centre-USA Ouest | 4 | 16 | 2 | 8 | 20 |
+| Centre-USA Ouest | 2 | 8 | 2 | 8 | 20 |
 | Europe Ouest | 4 | 16 | 4 | 16 | 20 |
-| USA Ouest | 4 | 16 | 2 | 8 | 20 |
+| USA Ouest | 2 | 8 | 2 | 8 | 20 |
 | USA Ouest 2 | 2 | 8 | 2 | 3,5 | 20 |
 
 

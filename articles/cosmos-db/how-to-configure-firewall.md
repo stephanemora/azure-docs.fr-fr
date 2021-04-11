@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b94b30851a5206c2183d999a3c024351cf415c90
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122712"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568237"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -108,7 +108,7 @@ Quand vous accédez à votre compte Azure Cosmos DB à partir d’un ordinateur
 
 Pour accéder à la liste actuelle des plages d’adresses IP sortantes à ajouter à vos paramètres de pare-feu, consultez [Télécharger des plages d’adresses IP et des étiquettes de service Azure](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Pour automatiser la liste, consultez [Utiliser l’API Service Tag Discovery (préversion publique)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview).
+Pour automatiser la liste, consultez [Utiliser l’API Service Tag Discovery (préversion publique)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview).
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configurer un pare-feu IP à l’aide d’un modèle Resource Manager
 

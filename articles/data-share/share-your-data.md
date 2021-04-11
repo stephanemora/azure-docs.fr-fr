@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659622"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639544"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutoriel : Partagez des données avec Azure Data Share  
 
@@ -42,23 +42,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 Vous trouverez ci-dessous la liste des prérequis pour le partage de données à partir d’une source SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prérequis pour le partage depuis Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW)
-Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/hIE-TjJD8Dc) pour configurer les prérequis.
 
 * Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW) avec des tables et des vues que vous voulez partager.
 * Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**.
-* Autorisation permettant à l’identité managée de la ressource Data Share d’accéder à la base de données. Pour ce faire, procédez comme suit : 
-    1. Dans le portail Azure, accédez au serveur SQL et attribuez-vous le rôle **Administrateur Azure Active Directory**.
-    1. Connectez-vous à Azure SQL Database ou à Data Warehouse à l’aide de l’[éditeur de requête](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory), ou à SQL Server Management Studio avec l’authentification Azure Active Directory. 
-    1. Exécutez le script suivant pour ajouter l’identité managée de la ressource Data Share en tant que db_datareader. Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       Notez que *<share_acc_name>* est le nom de votre ressource Data Share. Si vous n’avez pas encore créé de ressource Data Share, vous pourrez le faire plus tard.  
-
-* Un utilisateur Azure SQL Database avec un accès **« db_datareader »** pour parcourir et sélectionner les tables et/ou les vues que vous voulez partager. 
-
+* **Administrateur Azure Active Directory** du serveur SQL
 * Accès au pare-feu SQL Server. Pour ce faire, procédez comme suit : 
     1. Dans le portail Azure, accédez à SQL Server. Sélectionnez *Pare-feu et réseaux virtuels* dans le volet de navigation gauche.
     1. Cliquez sur **Oui** pour l’option *Autoriser les services et les ressources Azure à accéder à ce serveur*.
@@ -90,7 +77,6 @@ Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/hIE-TjJD8Dc) 
 ### <a name="share-from-azure-data-explorer"></a>Partager depuis Azure Data Explorer
 * Un cluster Azure Data Explorer avec des bases de données que vous voulez partager.
 * Autorisation d’écrire sur le cluster Azure Data Explorer, qui est présente dans *Microsoft.Kusto/clusters/write*. Cette autorisation existe dans le rôle **Contributeur**.
-* Autorisation d’ajouter l’attribution de rôle au cluster Azure Data Explorer, qui est présente dans *Microsoft.Authorization/role assignments/write*. Cette autorisation existe dans le rôle **Propriétaire**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -186,7 +172,7 @@ Utilisez les commandes suivantes pour créer la ressource :
 
     ![Ajouter des jeux de données à votre partage](./media/datasets.png "Groupes de données")
 
-1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), vous êtes invité à entrer des informations d’identification SQL pour lister les tables.
+1. Sélectionnez le type de jeu de données à ajouter. Vous verrez une liste différente de types de jeux de données en fonction du type de partage (instantané ou sur place) que vous avez sélectionné à l’étape précédente. Si vous partagez à partir d’Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), vous êtes invité à entrer une méthode d’authentification pour lister les tables. Sélectionnez authentification AAD, puis cochez la case **Allow Data Share to run the above 'create user' script on my behalf** (Autoriser le partage de données à exécuter le script « create user » ci-dessus en mon nom). 
 
     ![AddDatasets](./media/add-datasets.png "Ajouter des jeux de données")    
 

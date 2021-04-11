@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un serveur – az postgres up – Azure Database pour PostgreSQL – Serveur unique'
 description: Guide de démarrage rapide pour créer une base de données Azure pour PostgreSQL(serveur unique) à l’aide de la commande up d’Azure CLI (interface de ligne de commande).
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c11a98c04f81e7c111faf4aa449ab2bf9a4890bb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 28007b4e17bd698e4aaa2bddbf0c8f9ffaaa8351
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92485220"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606451"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser une commande Azure CLI, az postgres up (préversion), pour créer une base de données Azure pour PostgreSQL (serveur unique)
 

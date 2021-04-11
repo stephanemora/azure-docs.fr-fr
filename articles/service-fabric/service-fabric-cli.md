@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681803"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802146"
 ---
 # <a name="azure-service-fabric-cli"></a>Interface de ligne de commande Azure Service Fabric
 
@@ -22,7 +22,7 @@ L’interface de ligne de commande Azure Service Fabric est un utilitaire de lig
 
 Avant l’installation, vérifiez que Python et pip sont installés dans votre environnement. Pour plus d’informations, consultez la [documentation de démarrage rapide de pip](https://pip.pypa.io/en/latest/quickstart/) et la [documentation d’installation officielle de Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-L’interface CLI prend en charge Python version 2.7, 3.5, 3.6 et 3.7. La version 3.x est recommandée, car le support de Python 2.7 sera bientôt arrêté.
+L’interface CLI prend en charge les versions 2.7 et 3.6+ de Python, Python 3.x étant recommandé.
 
 ### <a name="service-fabric-target-runtime"></a>Runtime Service Fabric cible
 
@@ -64,7 +64,7 @@ Pour Windows 10, Windows Server 2016 et Windows Server 2012 R2, utilisez le
 
 3. Au bas de l’invite, sélectionnez **Ajouter Python 3.7 à PATH**.
 
-4. Sélectionnez **Installer maintenant**et terminez l’installation.
+4. Sélectionnez **Installer maintenant** et terminez l’installation.
 
 Vous pouvez maintenant ouvrir une nouvelle fenêtre de commande et obtenir la version de Python et celle de pip.
 

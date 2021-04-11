@@ -3,12 +3,12 @@ title: Variables d’environnement d’exécution des tâches
 description: Référence et conseils pour les variables d’environnement runtime des tâches pour Azure Batch Analytics.
 ms.topic: conceptual
 ms.date: 12/30/2020
-ms.openlocfilehash: c1d9ffb3fe6775b061863656adcb7f45f8840997
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830885"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669982"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement runtime Azure Batch
 
@@ -61,6 +61,8 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 | AZ_BATCH_TASK_ID                | ID de la tâche en cours. | Toutes les tâches, sauf la tâche de démarrage. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Le chemin d’accès du répertoire est identique pour la tâche principale et chaque tâche subordonnée d’une [tâche multi-instance](batch-mpi.md). Le chemin d’accès existe sur chaque nœud sur lequel la tâche multi-instance s’exécute, et est accessible en lecture/écriture pour les commandes de la tâche en cours d’exécution sur ce nœud (tant la [commande coordination](batch-mpi.md#coordination-command) que la [commande application](batch-mpi.md#application-command). Des tâches subordonnées ou une tâche principale qui s’exécutent sur d’autres nœuds n’ont pas accès à distance à ce répertoire (il ne s’agit pas d’un répertoire réseau « partagé »). | Tâche principale multi-instance et tâches subordonnées. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | Chemin d’accès complet du [répertoire de travail de la tâche](files-and-directories.md) sur le nœud. La tâche en cours d’exécution dispose d’un accès en lecture/écriture à ce répertoire. | Toutes les tâches. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_WORKING_DIR       | Chemin d’accès complet du [répertoire de travail de la tâche](files-and-directories.md) sur le nœud. La tâche en cours d’exécution dispose d’un accès en lecture/écriture à ce répertoire. | Toutes les tâches. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | Le seuil actuel de l’espace disque sur lequel la machine virtuelle sera marquée `DiskFull`. | Toutes les tâches. | 1000000 |
 | CCP_NODES                       | Liste des nœuds et nombre de cœurs par nœud alloués à une [tâche multi-instance](batch-mpi.md). Les nœuds et les cœurs sont répertoriés au format `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, où le nombre de nœuds est suivi d’une ou plusieurs adresses IP de nœud et du nombre de cœurs pour chacun. |  Tâche principale multi-instance et tâches subordonnées. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 ## <a name="next-steps"></a>Étapes suivantes

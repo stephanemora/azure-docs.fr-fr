@@ -1,17 +1,16 @@
 ---
 title: Conception de votre déploiement de journaux Azure Monitor | Microsoft Docs
 description: Cet article décrit les considérations et les recommandations pour les clients qui préparent le déploiement d’un espace de travail dans Azure Monitor.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8502c35a145e4a041f9d44b8396fe16f5db3febc
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030832"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384202"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 

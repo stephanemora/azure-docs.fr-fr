@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: 4465f88e3b0ccab8eace1936f426af8dd32af27b
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8d6c2ea760b85e3170b26c63a28d4ac2b3a2ef5a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872249"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639461"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -185,5 +185,5 @@ Comme c’est le cas pour tous les services Cognitive Services, les développeur
 
 Essayez notre outil en ligne et notre guide de démarrage rapide pour en savoir plus sur le service Form Recognizer.
 
-* [**Outil Form Recognizer**](https://fott-preview.microsoft.com/)
+* [**Outil Form Recognizer**](https://fott-preview.azurewebsites.net/)
 * [**Démarrage rapide de la bibliothèque de client et de l’API REST**](quickstarts/client-library.md)

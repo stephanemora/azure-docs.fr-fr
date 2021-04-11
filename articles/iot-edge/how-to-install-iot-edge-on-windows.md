@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: c12dbeb81fd2b3d67863b5b84fa30cf77e165549
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 94c3917b0912835799818597f94f3880ea3a7639
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123188"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889533"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installer et approvisionner Azure IoT Edge pour Linux sur un appareil Windows (version préliminaire)
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge. Le runtime peut être déployé sur des appareils allant des simples ordinateurs aux serveurs industriels. Une fois qu’un appareil est configuré avec le runtime IoT Edge, vous pouvez commencer à déployer une logique métier sur celui-ci à partir du cloud. Pour en savoir plus, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
 
@@ -42,19 +44,17 @@ Cet article répertorie les étapes à suivre pour configurer IoT Edge sur un ap
   * Éditions Professionnel, Entreprise ou Serveur
   * RAM minimale : 4 Go (8 Go recommandés)
   * Stockage minimal : 10 Go
+  * Si vous créez un déploiement à l’aide de Windows 10, veillez à activer Hyper-V. Pour plus d’informations, découvrez comment [Installer Hyper-V sur Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
+  * Si vous créez un nouveau déploiement à l’aide de Windows Server, veillez à installer le rôle Hyper-V. Pour plus d’informations, découvrez comment [Installer le rôle Hyper-V sur Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * Si vous créez un déploiement à l’aide d’une machine virtuelle, veillez à configurer correctement la virtualisation imbriquée. Pour plus d’informations, consultez le guide sur la [virtualisation imbriquée](nested-virtualization.md).
 
-* Accès à la version Insider du Windows Admin Center avec l’extension Azure IoT Edge pour Windows Admin Center installée :  <!-- The link below needs the language localization to work; otherwise broken -->
-   1. Découvrez [Windows Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
+* Accès à Windows Admin Center avec l’extension Azure IoT Edge pour Windows Admin Center installée :
 
-   1. Dans la liste déroulante des versions préliminaires, sélectionnez **Windows Admin Center Preview - Build 2012**, puis **Confirmer**.
+   1. Téléchargez le [programme d’installation de Windows Admin Center](https://aka.ms/wacdownload).
 
-      ![Sélectionnez Windows Admin Center Preview - Build 2012 dans le menu déroulant des versions préliminaires disponibles.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
+   1. Exécutez le programme d’installation téléchargé et suivez les invites de l’assistant d’installation pour installer Windows Admin Center. 
 
-   1. Dans la liste déroulante **Sélectionner la langue**, sélectionnez **Anglais**, puis **Confirmer**.
-
-   1. Sélectionnez **Télécharger maintenant** pour télécharger le fichier *WindowsAdminCenterPreview2012.msi*.
-
-   1. Exécutez le fichier *WindowsAdminCenterPreview2012.msi* et suivez les invites de l’assistant d’installation pour installer Windows Admin Center. Une fois installé, ouvrez Windows Admin Center.
+   1. Une fois l’installation terminée, utilisez un navigateur pris en charge pour ouvrir le Windows Admin Center. Les navigateurs pris en charge sont Microsoft Edge (Windows 10, version 1709 ou ultérieure), Google Chrome et Microsoft Edge Insider.
 
    1. Lors de la première utilisation de Windows Admin Center, vous êtes invité à sélectionner le certificat à utiliser. Sélectionnez **Client Windows Admin Center** comme certificat.
 
@@ -63,12 +63,6 @@ Cet article répertorie les étapes à suivre pour configurer IoT Edge sur un ap
       ![Sélectionnez l’icône d’engrenage en haut à droite du tableau de bord pour accéder aux paramètres.](./media/how-to-install-iot-edge-on-windows/select-gear-icon.png)
 
    1. Dans le menu **Paramètres**, sous **Passerelle**, sélectionnez **Extensions**.
-
-   1. Accédez à l’onglet **Flux** et sélectionnez **Ajouter**.
-
-   1. Entrez https://aka.ms/wac-insiders-feed dans la zone de texte et sélectionnez **Ajouter**.
-
-   1. Une fois le flux ajouté, accédez à l’onglet **Extensions disponibles**. La mise à jour de la liste des extensions peut prendre un certain temps.
 
    1. Dans l’onglet **Extensions disponibles**, recherchez **Azure IoT Edge** dans la liste des extensions. Sélectionnez-le et cliquez sur l’invite **Installer** au-dessus de la liste des extensions.
 
@@ -143,7 +137,7 @@ Si vous ne l’avez pas déjà fait, installez IoT Edge pour Linux sur Windows s
    ```azurepowershell-interactive
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   Invoke-WebRequest "https://aka.ms/AzureEdgeForLinuxOnWindowsMSI" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. Installez IoT Edge pour Linux sur Windows sur votre appareil.
@@ -348,6 +342,9 @@ Vérifiez que IoT Edge pour Linux sur Windows a été correctement installé et 
    ```azurepowershell-interactive
    Ssh-EflowVm
    ```
+
+   >[!NOTE]
+   >Le seul compte autorisé à accéder via SSH à la machine virtuelle est celui de l’utilisateur qui l’a créée.
 
 1. Une fois connecté, vous pouvez vérifier la liste des modules IoT Edge en cours d’exécution à l’aide de la commande Linux suivante :
 
