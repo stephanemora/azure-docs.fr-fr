@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e1a4fb52a5f9622758e9ed805bf9380f5f608870
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101718180"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068250"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Envoyer des paramètres vers App Configuration avec Azure Pipelines
 
@@ -32,7 +32,10 @@ Une [connexion de service](/azure/devops/pipelines/library/service-endpoints) vo
 1. Dans Azure DevOps, accédez au projet contenant votre pipeline cible et ouvrez les **Paramètres du projet** en bas à gauche.
 1. Sous **Pipelines** sélectionnez **Connexions de service** puis **Nouvelle connexion de service** en haut à droite.
 1. Sélectionnez **Azure Resource Manager**.
-1. Sélectionnez **Principal de service (automatique)** .
+![La capture d’écran montre la sélection d’Azure Resource Manager dans la liste déroulante Nouvelle connexion de service.](./media/new-service-connection.png)
+1. Dans la boîte de dialogue **Méthode d’authentification** , sélectionnez **Principal du service (automatique)** .
+    > [!NOTE]
+    > L’authentification par **Identité managée** n’est actuellement pas prise en charge pour la tâche Configuration d’application.
 1. Renseignez votre abonnement et votre ressource. Donnez un nom à votre connexion de service.
 
 Maintenant que votre connexion de service est créée, recherchez le nom du principal de service qui lui est assigné. Vous ajouterez une nouvelle attribution de rôle à ce principal de service à l’étape suivante.
@@ -41,6 +44,7 @@ Maintenant que votre connexion de service est créée, recherchez le nom du prin
 1. Sélectionnez la connexion de service que vous avez créée dans la section précédente.
 1. Sélectionnez **Gérer le principal du service**.
 1. Notez le **Nom complet** listé.
+![Capture d’écran montrant le nom complet du principal de service.](./media/service-principal-display-name.png)
 
 ## <a name="add-role-assignment"></a>Ajouter une attribution de rôle
 
@@ -48,19 +52,27 @@ Affectez les attributions de rôle App Configuration appropriées aux informatio
 
 1. Accédez à votre magasin App Configuration cible. 
 1. Sur la gauche, sélectionnez **Contrôle d’accès (IAM)** .
-1. En haut, sélectionnez **+ Ajouter** et choisissez **Ajouter une attribution de rôle**.
+1. Sur le côté droit, cliquez sur le bouton **Ajouter des attributions de rôles**.
+![Capture d’écran montrant le bouton Ajouter des attributions de rôles.](./media/add-role-assignment-button.png)
 1. Sous **Rôle**, sélectionnez **Propriétaire des données App Configuration**. Ce rôle permet à la tâche de lire et d’écrire dans le magasin App Configuration. 
 1. Sélectionnez le principal de service associé à la connexion de service que vous avez créée dans la section précédente.
+![Capture d’écran montrant la boîte de dialogue Ajouter une attribution de rôle.](./media/add-role-assignment.png)
+
   
 ## <a name="use-in-builds"></a>Utiliser dans les builds
 
 Cette section explique comment utiliser la tâche Azure App Configuration Push dans un pipeline de build Azure DevOps.
 
 1. Accédez à la page de pipeline de build en cliquant sur **Pipelines** > **Pipelines**. Vous trouverez la documentation sur les pipelines de build [ici](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
-      - Si vous créez un pipeline de build, sélectionnez **Afficher l’Assistant** sur le côté droit du pipeline, puis recherchez la tâche **Azure App Configuration Push**.
-      - Si vous utilisez un pipeline de build existant, accédez à l’onglet **Tâches** lors de la modification du pipeline, puis recherchez la tâche **Azure App Configuration Push**.
-2. Configurez les paramètres nécessaires pour que la tâche envoie les paires clé-valeur du fichier de configuration vers le magasin App Configuration. Le paramètre de **chemin du fichier de configuration**  commence à la racine du référentiel de fichiers.
-3. Enregistrez et mettez en file d’attente une build. Le journal de génération affiche les erreurs qui se sont produites pendant l’exécution de la tâche.
+      - Si vous créez un pipeline de build, à la dernière étape du processus, sous l’onglet **Révision**, sélectionnez **Afficher l’Assistant** sur le côté droit du pipeline.
+      ![Capture d’écran montrant le bouton Afficher l’Assistant pour un nouveau pipeline.](./media/new-pipeline-show-assistant.png)
+      - Si vous utilisez un pipeline de build existant, cliquez sur le bouton **Modifier** en haut à droite.
+      ![Capture d’écran montrant le bouton Modifier pour un pipeline existant.](./media/existing-pipeline-show-assistant.png)
+1. Recherchez la tâche **Azure App Configuration Push**.
+![Capture d’écran montrant la boîte de dialogue Ajouter une tâche avec Azure App Configuration Push dans la zone de recherche.](./media/add-azure-app-configuration-push-task.png)
+1. Configurez les paramètres nécessaires pour que la tâche envoie les paires clé-valeur du fichier de configuration vers le magasin App Configuration. Vous trouverez des explications sur les paramètres dans la section **Paramètres** ci-dessous ainsi que dans les info-bulles en regard de chaque paramètre.
+![Capture d’écran montrant les paramètres de la tâche Azure App Configuration Push.](./media/azure-app-configuration-push-parameters.png)
+1. Enregistrez et mettez en file d’attente une build. Le journal de génération affiche les erreurs qui se sont produites pendant l’exécution de la tâche.
 
 ## <a name="use-in-releases"></a>Utiliser dans les mises en production
 
@@ -69,8 +81,11 @@ Cette section explique comment utiliser la tâche Azure App Configuration Push d
 1. Accédez à la page de pipeline de mise en production en sélectionnant **Pipelines** > **Mises en production**. La documentation sur les pipelines de mise en production est disponible [ici](/azure/devops/pipelines/release).
 1. Choisissez un pipeline de mise en production existant. Si vous n’en avez pas, sélectionnez **+ Nouveau** pour en créer un.
 1. Sélectionnez le bouton **Modifier** dans le coin supérieur droit pour modifier le pipeline de mise en production.
-1. Choisissez la **phase** à laquelle ajouter la tâche. Vous trouverez des informations supplémentaires sur les phases [ici](/azure/devops/pipelines/release/environments).
-1. Sélectionnez **+** pour ce travail, puis ajoutez la tâche **Azure App Configuration Push** sous l’onglet **Déployer**.
+1. Dans la liste déroulante **Tâches**, choisissez l’**Étape** à laquelle vous souhaitez ajouter la tâche. Vous trouverez des informations supplémentaires sur les phases [ici](/azure/devops/pipelines/release/environments).
+![Capture d’écran montrant l’étape sélectionnée dans la liste déroulante Tâches.](./media/pipeline-stage-tasks.png)
+1. Cliquez sur **+** en regard du travail auquel vous souhaitez ajouter une nouvelle tâche.
+![Capture d’écran montrant le bouton Plus en regard du travail.](./media/add-task-to-job.png)
+1. Dans la boîte de dialogue **Ajouter des tâches**, dans la zone de recherche, tapez **Azure App Configuration Push**, puis sélectionnez cette tâche.
 1. Configurez les paramètres nécessaires dans la tâche afin d’envoyer les paires clé-valeur du fichier de configuration vers votre magasin App Configuration. Vous trouverez des explications sur les paramètres dans la section **Paramètres** ci-dessous ainsi que dans les info-bulles en regard de chaque paramètre.
 1. Enregistrez et mettez en file d’attente une mise en production. Le journal de mise en production affiche les erreurs rencontrées pendant l’exécution de la tâche.
 
@@ -80,7 +95,15 @@ Les paramètres suivants sont utilisés par la tâche App Configuration Push :
 
 - **Azure subscription** : liste déroulante contenant vos connexions de service Azure disponibles. Pour mettre à jour et actualiser votre liste de connexions de service Azure disponibles, appuyez sur le bouton **Refresh Azure subscription** (Actualiser l’abonnement Azure) à droite de la zone de texte.
 - **App Configuration Name** : liste déroulante qui charge vos magasins de configuration disponibles sous l’abonnement sélectionné. Pour mettre à jour et actualiser votre liste de magasins de configuration disponibles, appuyez sur le bouton **Refresh App Configuration Name** (Actualiser le nom App Configuration) à droite de la zone de texte.
-- **Configuration File Path** : chemin de votre fichier de configuration. Vous pouvez parcourir votre artefact de build pour sélectionner un fichier de configuration. (bouton `...` à droite de la zone de texte). Les formats de fichier pris en charge sont les suivants : yaml, json, properties.
+- **Configuration File Path** : chemin de votre fichier de configuration. Le paramètre de **chemin du fichier de configuration**  commence à la racine du référentiel de fichiers. Vous pouvez parcourir votre artefact de build pour sélectionner un fichier de configuration. (bouton `...` à droite de la zone de texte). Les formats de fichier pris en charge sont les suivants : yaml, json, properties. Voici un exemple de fichier de configuration au format json.
+    ```json
+    {
+        "TestApp:Settings:BackgroundColor":"#FFF",
+        "TestApp:Settings:FontColor":"#000",
+        "TestApp:Settings:FontSize":"24",
+        "TestApp:Settings:Message": "Message data"
+    }
+    ```
 - **Separator** : séparateur utilisé pour aplatir les fichiers .JSON et .yml.
 - **Depth** : profondeur à laquelle les fichiers .JSON et .yml seront aplatis.
 - **Prefix** : chaîne ajoutée au début de chaque clé envoyée au magasin App Configuration.
@@ -91,7 +114,7 @@ Les paramètres suivants sont utilisés par la tâche App Configuration Push :
   - **Activé** : supprime toutes les paires clé-valeur dans le magasin App Configuration qui correspondent à la fois au préfixe et à l’étiquette spécifiés avant d’envoyer de nouvelles paires clé-valeur à partir du fichier de configuration.
   - **Désactivé** : envoie toutes les paires clé-valeur du fichier de configuration dans le magasin App Configuration, et laisse intact tout le reste dans le magasin App Configuration.
 
-Après avoir renseigné les paramètres requis, exécutez le pipeline. Toutes les paires clé-valeur dans le fichier de configuration spécifié seront chargées vers App Configuration.
+
 
 ## <a name="troubleshooting"></a>Dépannage
 

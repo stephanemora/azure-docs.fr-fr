@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance vocale, logiciel de reconnaissance vocale
-ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3450d39729096bfc3077f51e2069f8f102e571a5
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102434308"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449390"
 ---
 # <a name="what-is-speech-to-text"></a>Qu’est-ce que la reconnaissance vocale ?
 
@@ -26,7 +26,12 @@ La conversion de parole en texte, également appelée reconnaissance vocale, per
 
 Par défaut, le service de reconnaissance vocale utilise le modèle de langage universel. Ce modèle a été entraîné avec des données qui sont la propriété de Microsoft et est déployé dans le cloud. Il est particulièrement adapté aux scénarios de conversation et de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et entraîner des modèles de prononciation, de langue et d’acoustique personnalisés. La personnalisation permet de prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur.
 
-Avec une entrée de texte de référence supplémentaire, le service de reconnaissance vocale permet également [l’évaluation de la prononciation](rest-speech-to-text.md#pronunciation-assessment-parameters) afin d’évaluer la prononciation orale en fournissant aux orateurs des commentaires concertant l’exactitude et la fluidité de leur façon de parler. Grâce à l’évaluation de la prononciation, les élèves qui apprennent des langues peuvent pratiquer, obtenir des commentaires instantanés et améliorer leur prononciation pour pouvoir parler et se présenter en toute confiance. Les enseignants peuvent utiliser la fonctionnalité pour évaluer la prononciation de plusieurs intervenants en temps réel. La fonctionnalité prend actuellement en charge l’anglais américain et met en corrélation les évaluations orales menées par des experts.
+Cette documentation contient les types d’articles suivants :
+
+* Les **Démarrages rapides** sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.
+* Les **Guides pratiques** contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* Les **Concepts** fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
+* Les **Tutoriels** sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.
 
 > [!NOTE]
 > La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.

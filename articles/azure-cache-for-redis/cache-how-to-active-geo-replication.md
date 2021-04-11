@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: fe777c3aa7b314dc56a42cc64712d18281a6ea7d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121165"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109486"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Configurer la géoréplication active pour les instances Azure Cache pour Redis Enterprise (préversion)
 
@@ -26,9 +26,11 @@ La géoréplication active regroupe deux instances (ou plus) Azure Cache pour Re
 >
 >
 
-1. Dans l’interface utilisateur de création **Nouveau cache Redis**, cliquez sur **Configurer** pour configurer la **Géoréplication active** sous l’onglet **Avancé**.
+1. Sous l’onglet **Avancé** de l’interface utilisateur de création **Nouveau cache Redis**, sélectionnez **Entreprise** pour la **Stratégie de clustering**.
 
     ![Configurer la géoréplication active](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+
+1. Cliquez sur **Configurer** pour configurer la **Géo-réplication active**.
 
 1. Créez un groupe de réplication pour une première instance de cache, ou sélectionnez-en un dans la liste.
 
@@ -38,7 +40,7 @@ La géoréplication active regroupe deux instances (ou plus) Azure Cache pour Re
 
     ![Géoréplication active configurée](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. Répétez les étapes ci-dessus pour toutes les autres instances de cache du groupe de géoréplication.
+1. Patientez pendant la création du premier cache. Répétez les étapes ci-dessus pour toutes les autres instances de cache du groupe de géoréplication.
 
 ## <a name="remove-from-an-active-geo-replication-group"></a>Supprimer une instance d’un groupe de géoréplication active
 

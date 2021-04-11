@@ -6,13 +6,14 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 783d9e1b4ab86f6580cf3418a0676921aef2db6a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 90ca92dc19c588d0b19adf009301cf844e0cdbde
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598199"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609041"
 ---
 # <a name="monitor-media-services"></a>Surveiller Media Services
 
@@ -37,9 +38,9 @@ robb@microsoft.com -->
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
 
-Media Services crée des données de supervision avec [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), un service de supervision de pile complète dans Azure qui fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure en plus des ressources figurant dans d’autres clouds et localement.
+Media Services crée des données de supervision avec [Azure Monitor](../../../azure-monitor/overview.md), un service de supervision de pile complète dans Azure qui fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure en plus des ressources figurant dans d’autres clouds et localement.
 
-Commencez par lire l’article [Supervision de ressources Azure avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource), qui décrit les concepts suivants :
+Commencez par lire l’article [Supervision de ressources Azure avec Azure Monitor](../../../azure-monitor/essentials/monitor-azure-resource.md), qui décrit les concepts suivants :
 
 - Qu’est-ce qu’Azure Monitor ?
 - Coûts associés à la supervision
@@ -49,7 +50,7 @@ Commencez par lire l’article [Supervision de ressources Azure avec Azure Monit
 
 ## <a name="monitoring-data"></a>Données de surveillance
 
-Media Services collecte les mêmes types de données de supervision que d’autres ressources Azure, lesquelles sont décrites dans [Supervision des données de ressources Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
+Media Services collecte les mêmes types de données de supervision que d’autres ressources Azure, lesquelles sont décrites dans [Supervision des données de ressources Azure](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Toutes les données collectées par Azure Monitor font partie d’un des deux types fondamentaux : métriques et journaux. Avec ces deux types, vous pouvez :
 
@@ -69,13 +70,13 @@ Les *métriques de plateforme* et le *journal d’activité* sont collectés et 
 
 Les *journaux de ressources* ne sont **pas** collectés ni stockés tant que vous n’avez pas créé un paramètre de diagnostic et que vous ne les acheminez pas vers un ou plusieurs emplacements.
 
-Pour plus d’informations sur la création d’un paramètre de diagnostic à l’aide du portail Azure, de l’interface CLI ou de PowerShell, consultez l’article [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings).
+Pour plus d’informations sur la création d’un paramètre de diagnostic à l’aide du portail Azure, de l’interface CLI ou de PowerShell, consultez l’article [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../../azure-monitor/essentials/diagnostic-settings.md).
 
 Lorsque vous créez un paramètre de diagnostic, vous spécifiez les catégories de journaux à collecter. Les catégories pour Media Services sont répertoriées dans [Référence sur la surveillance des données de Media Services](monitor-media-services-data-reference.md).
 
 ## <a name="analyzing-metrics"></a>Analyse des métriques
 
-Vous pouvez analyser les métriques de Media Services avec les métriques d’autres services Azure à l’aide de Metrics Explorer en ouvrant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started).
+Vous pouvez analyser les métriques de Media Services avec les métriques d’autres services Azure à l’aide de Metrics Explorer en ouvrant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../../../azure-monitor/essentials/metrics-getting-started.md).
 
 Pour obtenir la liste des métriques collectées pour Media Services, consultez [Référence sur la surveillance des données de Media Services](monitor-media-services-data-reference.md).
 
@@ -83,11 +84,11 @@ Pour obtenir la liste des métriques collectées pour Media Services, consultez 
 
 Les données des journaux Azure Monitor sont stockées dans des tables, chacune ayant son propre ensemble de propriétés uniques.  
 
-Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema).
+Tous les journaux de ressources dans Azure Monitor ont les mêmes champs suivis de champs spécifiques au service. Le schéma commun est décrit dans [Schéma des journaux des ressources Azure Monitor](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
 Le schéma des journaux de ressources de Media Services est disponible dans [Référence sur la surveillance des données de Media Services](monitor-media-services-data-reference.md).
 
-Le [journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) est un journal de plateforme dans Azure qui fournit des insights de tous les événements de niveau abonnement. Vous pouvez l’afficher indépendamment ou le router vers Azure Monitor Logs, où vous pouvez effectuer des requêtes bien plus complexes à l’aide de Log Analytics.
+Le [journal d’activité](../../../azure-monitor/essentials/activity-log.md) est un journal de plateforme dans Azure qui fournit des insights de tous les événements de niveau abonnement. Vous pouvez l’afficher indépendamment ou le router vers Azure Monitor Logs, où vous pouvez effectuer des requêtes bien plus complexes à l’aide de Log Analytics.
 
 Pour obtenir la liste des types de journaux de ressources collectés pour Media Services, consultez [Référence sur la surveillance des données de Media Services](monitor-media-services-data-reference.md).
 
@@ -102,7 +103,7 @@ Voici quelques éléments que vous pouvez examiner avec les journaux de diagnost
 
 ## <a name="alerts"></a>Alertes
 
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), sur des [journaux](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) et sur le [journal d’activité](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts).
+Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](../../../azure-monitor/alerts/alerts-metric-overview.md), sur des [journaux](../../../azure-monitor/alerts/alerts-unified-log.md) et sur le [journal d’activité](../../../azure-monitor/alerts/activity-log-alerts.md).
 
 Les métriques de Media Services sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour les alertes, car elles peuvent être échantillonnées fréquemment. Une alerte peut être déclenchée rapidement avec une logique relativement simple.
 
