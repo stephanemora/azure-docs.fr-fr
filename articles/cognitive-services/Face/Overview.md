@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532254"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285465"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
@@ -28,6 +28,12 @@ ms.locfileid: "95532254"
 Le service Visage Azure fournit les algorithmes d’intelligence artificielle qui détectent, reconnaissent et analysent les visages humains dans des images. Les logiciels de reconnaissance faciale sont importants dans de nombreux domaines, notamment la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
 
 Le service Visage fournit plusieurs fonctions d’analyse faciale différentes, chacune décrite dans les sections suivantes.
+
+Cette documentation contient les types d’articles suivants :
+* Les [guides de démarrage rapide](./Quickstarts/client-libraries.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
+* Les [guides patiques](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* Les [articles conceptuels](./concepts/face-detection.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
+* Les [tutoriels](./Tutorials/FaceAPIinCSharpTutorial.md) sont des guides plus longs qui montrent comment utiliser ce service en tant que composant dans des solutions métier plus larges.
 
 ## <a name="face-detection"></a>Détection des visages
 

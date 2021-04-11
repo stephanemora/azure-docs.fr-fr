@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/16/2020
 ms.author: aahi
 keywords: local, Docker, conteneur, Kubernetes
-ms.openlocfilehash: 3b0a39e9d84a56bac3117df9279954e3756d465a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 007dfe6d67d504286b9546fe0139055b58dc700f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065818"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285601"
 ---
 # <a name="azure-cognitive-services-containers"></a>Conteneurs Azure Cognitive Services
 
@@ -76,7 +76,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 
 | Service |  Conteneur | Description | Disponibilité |
 |--|--|--|--|
-| [Vision par ordinateur][cv-containers] | **Lire OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Le conteneur Read OCR vous permet d’extraire du texte imprimé et manuscrit à partir d’images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](./computer-vision/concept-recognizing-text.md). | Préversion contrôlée. [Demandez l’accès][request-access]. |
+| [Vision par ordinateur][cv-containers] | **Lire OCR** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Le conteneur Read OCR vous permet d’extraire du texte imprimé et manuscrit à partir d’images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](./computer-vision/overview-ocr.md). | Préversion contrôlée. [Demandez l’accès][request-access]. |
 | [Analyse spatiale][spa-containers] | **Analyse spatiale** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | Analyser le flux vidéo en temps réel afin de comprendre les relations spatiales entre les personnes, leurs déplacements et les interactions avec des objets dans des environnements physiques. | Préversion contrôlée. [Demandez l’accès][request-access]. |
 | [Visage][fa-containers] | **Visage** | Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées. | Non disponible |
 | [Form recognizer][fr-containers] | **Form Recognizer** | Form Understanding applique la technologie de Machine Learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires. | Non disponible | 
