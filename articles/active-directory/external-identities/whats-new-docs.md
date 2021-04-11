@@ -1,7 +1,7 @@
 ---
 title: Nouveautés des identités externes d’Azure Active Directory
 description: Identités externes Azure Active Directory - Nouvelle documentation et documentation mise à jour.
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,39 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: dda3f7c8f4a9a21e16ebab7d243a004c01a40eed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0654992831dcda65c3d5f53cc22aef0afd4d277
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453663"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449747"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identités externes d’Azure Active Directory : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation sur les identités externes Azure Active Directory. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés liées au service d’identités externes, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Mars 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Fournisseur d’identité de compte Microsoft (MSA) pour External Identities (préversion)](microsoft-account.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Ajouter un connecteur d’API à un workflow d’utilisateur](self-service-sign-up-add-api-connector.md)
+- [Présentation de l’accès des utilisateurs invités dans Azure Active Directory B2B](what-is-b2b.md)
+- [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](user-properties.md)
+- [Tutoriel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration](tutorial-bulk-invite.md)
+- [Ajouter un flux de travail d’approbation personnalisé à l’inscription en libre-service](self-service-sign-up-add-approvals.md)
+- [Réinitialisation de l’état d’acceptation d’un utilisateur invité](reset-redemption-status.md)
+- [Utiliser des connecteurs d’API pour personnaliser et étendre l’inscription en libre-service](api-connectors-overview.md)
+- [FAQ sur Azure Active Directory B2B Collaboration](faq.md)
+- [Utilisation d’invitations Azure Active Directory B2B Collaboration](redemption-experience.md)
+- [Fournisseurs d’identité pour les identités externes](identity-providers.md)
+- [Ajouter un flux utilisateur d’inscription en libre-service à une application (préversion)](self-service-sign-up-user-flow.md)
+- [Authentification par envoi d’un code secret à usage unique par e-mail](one-time-passcode.md)
+- [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](add-users-administrator.md)
+
 
 ## <a name="february-2021"></a>Février 2021
 

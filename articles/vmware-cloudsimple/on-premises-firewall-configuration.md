@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6ff057d99e29c7c6fe30e77f38a0bff265dbe7bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3cc9ad0c694be8f95ddcffbc3d952d59b83f89f3
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86998887"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077208"
 ---
 # <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Accès à votre environnement de cloud privé CloudSimple et à vos applications à partir d’un emplacement local
 
@@ -43,7 +43,7 @@ Pour configurer un Active Directory local en tant que source d’identité sur u
 | 389 (TCP/UDP) | Réseau de gestion de cloud privé | Contrôleurs de domaine Active Directory locaux     | Requis pour la communication LDAP entre le serveur vCenter de cloud privé et les contrôleurs de domaine Active Directory pour l’authentification utilisateur.                |
 | 636 (TCP)     | Réseau de gestion de cloud privé | Contrôleurs de domaine Active Directory locaux     | Requis pour la communication LDAP sécurisé (LDAPS) entre le serveur vCenter de cloud privé et les contrôleurs de domaine Active Directory pour l’authentification utilisateur. |
 | 3268 (TCP)    | Réseau de gestion de cloud privé | Serveurs de catalogue global Active Directory locaux | Requis pour la communication LDAP dans les déploiements de contrôleurs à plusieurs domaines.                                                                        |
-| 3269 (TCP)    | Réseau de gestion de cloud privé | Serveurs de catalogue global Active Directory locaux | Requis pour la communication LDAPS dans les déploiements de contrôleurs à plusieurs domaines.                                                                       |                                           |
+| 3269 (TCP)    | Réseau de gestion de cloud privé | Serveurs de catalogue global Active Directory locaux | Requis pour la communication LDAPS dans les déploiements de contrôleurs à plusieurs domaines.                                                                       |
 
 ## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Ports communs requis pour l’accès aux machines virtuelles de charge de travail
 

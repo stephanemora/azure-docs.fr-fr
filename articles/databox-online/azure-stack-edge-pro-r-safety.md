@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7b3589349feed2e20711aa756d8be8ebc433ac0b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100363064"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077599"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instructions de sécurité pour Azure Stack Edge Pro R
 
@@ -37,7 +37,8 @@ Les icônes de danger suivantes doivent être observées lors de la configuratio
 | Icône | Description |
 |:--- |:--- |
 | ![Lire toutes les instructions au préalable](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Lire toutes les instructions au préalable |
-| ![Icône Avis](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **AVIS :** | Signale des informations considérées comme importantes, mais non associées à un danger. || ![Symbole de danger](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Symbole de danger |
+| ![Icône Avis](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **AVIS :** | Signale des informations considérées comme importantes, mais non associées à un danger. |
+| ![Symbole de danger](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Symbole de danger |
 | ![Icône de risque de basculement](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Risque de basculement|
 | ![Icône de poids important](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Risque de poids important|
 | ![Icône de choc électrique](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Risque d’électrocution |
@@ -45,7 +46,7 @@ Les icônes de danger suivantes doivent être observées lors de la configuratio
 | ![Icône Plusieurs sources d’alimentation](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Plusieurs sources d’alimentation. Débranchez tous les cordons d’alimentation pour supprimer toute alimentation de l’équipement. |
 | ![Icône Points de pincement](./media/azure-stack-edge-pro-r-safety/icon-pinching-points.png)  | Des points de pincement sont présents. |
 | ![Icône Composants ou surfaces chauds](./media/azure-stack-edge-pro-r-safety/icon-hot-component-surface.png)  | Indique des composants ou des surfaces chauds. |
-|
+
 
 ## <a name="handling-precautions-and-site-selection"></a>Précautions de manipulation et sélection du site
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 2cdf068d31cf621538eb265977ea0dae20e16e85
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a01571f4a1f852deb84b7f20d61b8048e8000790
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109320"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490095"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario d’encodage
 
@@ -103,7 +103,7 @@ Si vous avez précédemment utilisé des flux de travail pour copier des fichier
 
 ## <a name="indexer-v1-audio-transcription-to-the-new-audioanalyzer-basic-mode"></a>Transcription audio d’indexeur v1 au nouveau « mode de base » AudioAnalyzer
 
-Pour les clients qui utilisent le processeur indexeur v1 dans l’API v2, vous devez créer une transformation qui appelle le nouvel `AudioAnalyzer` en [mode de base](how-to-create-basic-audio-transform.md) avant de soumettre un travail.
+Pour les clients qui utilisent le processeur indexeur v1 dans l’API v2, vous devez créer une transformation qui appelle le nouvel `AudioAnalyzer` en [mode de base](transform-create-basic-audio-how-to.md) avant de soumettre un travail.
 
 ## <a name="encoding-transforms-and-jobs-concepts-tutorials-and-how-to-guides"></a>Concepts, tutoriels et guides pratiques concernant l’encodage, les transformations et les travaux
 
@@ -127,18 +127,18 @@ Pour les clients qui utilisent le processeur indexeur v1 dans l’API v2, vous d
 
 - [Créer une entrée de travail à partir d’une URL HTTPS](job-input-from-http-how-to.md)
 - [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md)
-- [Créer une transformation audio simple](how-to-create-basic-audio-transform.md)
+- [Créer une transformation audio simple](transform-create-basic-audio-how-to.md)
 - Avec .NET
-  - [Comment encoder avec une transformation personnalisée - .NET](encode-custom-presets-how-to.md)
-  - [Comment créer une superposition à l’aide de Media Encoder Standard](how-to-create-overlay.md)
-  - [Comment générer des miniatures à l’aide de Media Encoder Standard avec .NET](media-services-generate-thumbnails-dotnet.md)
+  - [Comment encoder avec une transformation personnalisée - .NET](transform-custom-presets-how-to.md)
+  - [Comment créer une superposition à l’aide de Media Encoder Standard](transform-create-overlay-how-to.md)
+  - [Comment générer des miniatures à l’aide de Media Encoder Standard avec .NET](transform-generate-thumbnails-dotnet-how-to.md)
 - Avec l’interface de ligne de commande Azure
-  - [Comment encoder une transformation personnalisée avec Azure CLI](encode-custom-preset-cli-how-to.md)
+  - [Comment encoder une transformation personnalisée avec Azure CLI](transform-custom-preset-cli-how-to.md)
 - Avec REST
-  - [Comment encoder avec une transformation personnalisée - REST](encode-custom-preset-rest-how-to.md)
-  - [Comment générer des miniatures à l’aide de l’encodeur standard avec REST](media-services-generate-thumbnails-rest.md)
-- [Sous-découper une vidéo lors de l’encodage avec Media Services - .NET](subclip-video-dotnet-howto.md)
-- [Sous-découper une vidéo lors de l’encodage avec Media Services - REST](subclip-video-rest-howto.md)
+  - [Comment encoder avec une transformation personnalisée - REST](transform-custom-preset-rest-how-to.md)
+  - [Comment générer des miniatures à l’aide de l’encodeur standard avec REST](transform-generate-thumbnails-rest-how-to.md)
+- [Sous-découper une vidéo lors de l’encodage avec Media Services - .NET](transform-subclip-video-dotnet-how-to.md)
+- [Sous-découper une vidéo lors de l’encodage avec Media Services - REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="samples"></a>Exemples
 
