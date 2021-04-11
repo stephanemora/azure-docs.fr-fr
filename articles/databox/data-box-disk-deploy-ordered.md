@@ -8,13 +8,12 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c83e46932e8d2a28d8503fe3fb6514988c364d97
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 04ae2589e8abfab4826f2286d5f00869c24442f5
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92125267"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057964"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutoriel : Commander une solution Azure Data Box Disk
 
@@ -63,7 +62,7 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
 
     ![Sélectionnez l’option Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Paramètre|Value|
+    |Paramètre|Valeur|
     |---|---|
     |Abonnement|Sélectionnez l’abonnement pour lequel le service Data Box est activé.<br> L’abonnement est lié à votre compte de facturation. |
     |Type de transfert| Importer vers Azure|
@@ -76,7 +75,7 @@ Effectuez les étapes suivantes pour commander Data Box Disk.
 
 5. Dans **Commande**, indiquez les **Détails de la commande**. Entrez ou sélectionnez les informations suivantes :
 
-    |Paramètre|Value|
+    |Paramètre|Valeur|
     |---|---|
     |Nom|Indiquez un nom convivial pour suivre la commande.<br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre. |
     |Resource group| Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |

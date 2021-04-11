@@ -3,12 +3,12 @@ title: Définir plusieurs instances d’une variable
 description: Utilisez l’opération copy dans un modèle Azure Resource Manager (modèle ARM) pour effectuer une itération à plusieurs reprises lors de la création d’une variable.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: b8acd85659b843cb482e1ccc61e28da03431db1b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e1f6dfeb7b701b09ad1a9505d5dbcfddf2cd6b0b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96905891"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385703"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Itération de variable dans les modèles ARM
 
@@ -40,10 +40,10 @@ Le nombre ne peut pas dépasser 800.
 
 Le nombre ne peut pas être négatif. Il peut être zéro si vous déployez le modèle avec une version récente d’Azure CLI, de PowerShell ou de l’API REST. Plus précisément, vous devez utiliser :
 
-* Azure PowerShell **2.6** ou version ultérieure
-* Azure CLI **2.0.74** ou version ultérieure
-* API REST version **2019-05-10** ou ultérieure
-* Les [déploiements liés](linked-templates.md) doivent utiliser la version **2019-05-10** de l’API ou une version ultérieure pour le type de ressource de déploiement
+- Azure PowerShell **2.6** ou version ultérieure
+- Azure CLI **2.0.74** ou version ultérieure
+- API REST version **2019-05-10** ou ultérieure
+- Les [déploiements liés](linked-templates.md) doivent utiliser la version **2019-05-10** de l’API ou une version ultérieure pour le type de ressource de déploiement
 
 Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
 
@@ -53,30 +53,30 @@ L’exemple suivant montre comment créer un tableau de valeurs de chaîne :
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "itemCount": {
-            "type": "int",
-            "defaultValue": 5
-        }
-     },
-    "variables": {
-        "copy": [
-            {
-                "name": "stringArray",
-                "count": "[parameters('itemCount')]",
-                "input": "[concat('item', copyIndex('stringArray', 1))]"
-            }
-        ]
-    },
-    "resources": [],
-    "outputs": {
-        "arrayResult": {
-            "type": "array",
-            "value": "[variables('stringArray')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "stringArray",
+        "count": "[parameters('itemCount')]",
+        "input": "[concat('item', copyIndex('stringArray', 1))]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "arrayResult": {
+      "type": "array",
+      "value": "[variables('stringArray')]"
+    }
+  }
 }
 ```
 
@@ -84,11 +84,11 @@ Le modèle précédent retourne un tableau avec les valeurs suivantes :
 
 ```json
 [
-    "item1",
-    "item2",
-    "item3",
-    "item4",
-    "item5"
+  "item1",
+  "item2",
+  "item3",
+  "item4",
+  "item5"
 ]
 ```
 
@@ -96,34 +96,34 @@ L’exemple suivant montre comment créer un tableau d’objets avec trois propr
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "itemCount": {
-            "type": "int",
-            "defaultValue": 5
-        }
-    },
-    "variables": {
-        "copy": [
-            {
-                "name": "objectArray",
-                "count": "[parameters('itemCount')]",
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('objectArray')]"
-                }
-            }
-        ]
-    },
-    "resources": [],
-    "outputs": {
-        "arrayResult": {
-            "type": "array",
-            "value": "[variables('objectArray')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "variables": {
+    "copy": [
+      {
+        "name": "objectArray",
+        "count": "[parameters('itemCount')]",
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('objectArray')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "arrayResult": {
+      "type": "array",
+      "value": "[variables('objectArray')]"
+    }
+  }
 }
 ```
 
@@ -131,31 +131,31 @@ L’exemple précédent retourne un tableau avec les valeurs suivantes :
 
 ```json
 [
-    {
-        "name": "myDataDisk1",
-        "diskSizeGB": "1",
-        "diskIndex": 0
-    },
-    {
-        "name": "myDataDisk2",
-        "diskSizeGB": "1",
-        "diskIndex": 1
-    },
-    {
-        "name": "myDataDisk3",
-        "diskSizeGB": "1",
-        "diskIndex": 2
-    },
-    {
-        "name": "myDataDisk4",
-        "diskSizeGB": "1",
-        "diskIndex": 3
-    },
-    {
-        "name": "myDataDisk5",
-        "diskSizeGB": "1",
-        "diskIndex": 4
-    }
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
 ]
 ```
 
@@ -167,37 +167,37 @@ Vous pouvez également utiliser l’élément `copy` dans une variable. L’exem
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "itemCount": {
-            "type": "int",
-            "defaultValue": 5
-        }
-    },
-    "variables": {
-        "topLevelObject": {
-            "sampleProperty": "sampleValue",
-            "copy": [
-                {
-                    "name": "disks",
-                    "count": "[parameters('itemCount')]",
-                    "input": {
-                        "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                        "diskSizeGB": "1",
-                        "diskIndex": "[copyIndex('disks')]"
-                    }
-                }
-            ]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "objectResult": {
-            "type": "object",
-            "value": "[variables('topLevelObject')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "itemCount": {
+      "type": "int",
+      "defaultValue": 5
     }
+  },
+  "variables": {
+    "topLevelObject": {
+      "sampleProperty": "sampleValue",
+      "copy": [
+        {
+          "name": "disks",
+          "count": "[parameters('itemCount')]",
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        }
+      ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "objectResult": {
+      "type": "object",
+      "value": "[variables('topLevelObject')]"
+    }
+  }
 }
 ```
 
@@ -205,34 +205,34 @@ L’exemple précédent retourne un objet avec les valeurs suivantes :
 
 ```json
 {
-    "sampleProperty": "sampleValue",
-    "disks": [
-        {
-            "name": "myDataDisk1",
-            "diskSizeGB": "1",
-            "diskIndex": 0
-        },
-        {
-            "name": "myDataDisk2",
-            "diskSizeGB": "1",
-            "diskIndex": 1
-        },
-        {
-            "name": "myDataDisk3",
-            "diskSizeGB": "1",
-            "diskIndex": 2
-        },
-        {
-            "name": "myDataDisk4",
-            "diskSizeGB": "1",
-            "diskIndex": 3
-        },
-        {
-            "name": "myDataDisk5",
-            "diskSizeGB": "1",
-            "diskIndex": 4
-        }
-    ]
+  "sampleProperty": "sampleValue",
+  "disks": [
+    {
+      "name": "myDataDisk1",
+      "diskSizeGB": "1",
+      "diskIndex": 0
+    },
+    {
+      "name": "myDataDisk2",
+      "diskSizeGB": "1",
+      "diskIndex": 1
+    },
+    {
+      "name": "myDataDisk3",
+      "diskSizeGB": "1",
+      "diskIndex": 2
+    },
+    {
+      "name": "myDataDisk4",
+      "diskSizeGB": "1",
+      "diskIndex": 3
+    },
+    {
+      "name": "myDataDisk5",
+      "diskSizeGB": "1",
+      "diskIndex": 4
+    }
+  ]
 }
 ```
 
@@ -321,10 +321,10 @@ Les exemples suivants illustrent des scénarios courants de création de plusieu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM](template-tutorial-create-multiple-instances.md).
-* Pour connaître les autres utilisations de l’élément copy, consultez :
-  * [Itération de ressource dans les modèles ARM](copy-resources.md)
-  * [Itération de propriété dans les modèles ARM](copy-properties.md)
-  * [Itération de sortie dans les modèles ARM](copy-outputs.md)
-* Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
-* Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
+- Pour suivre un tutoriel, consultez [Tutoriel : Créer plusieurs instances de ressources grâce à des modèles ARM](template-tutorial-create-multiple-instances.md).
+- Pour connaître les autres utilisations de l’élément copy, consultez :
+  - [Itération de ressource dans les modèles ARM](copy-resources.md)
+  - [Itération de propriété dans les modèles ARM](copy-properties.md)
+  - [Itération de sortie dans les modèles ARM](copy-outputs.md)
+- Pour plus d’informations sur les différentes sections d’un modèle, consultez [Présentation de la structure et de la syntaxe des modèles ARM](template-syntax.md).
+- Pour savoir comment déployer votre modèle, consultez [Déployer des ressources avec des modèles ARM et Azure PowerShell](deploy-powershell.md).
