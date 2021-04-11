@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99575853"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567251"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Exigences en matière de stockage d’objets BLOB Azure Stack Edge
 
@@ -70,7 +70,7 @@ Pour installer le client PHP via Composer :
 
 ## <a name="endpoint-declaration"></a>Déclaration de point de terminaison
 
-Dans le kit de développement logiciel (SDK) de stockage d’objets BLOB Azure Stack Edge, le suffixe de point de terminaison- `<device serial number>.microsoftdatabox.com` identifie le domaine Azure Stack Edge. Pour plus d’informations sur le point de terminaison du service BLOB, accédez à [transférer des données par le biais de comptes de stockage des GPU Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+Dans le kit de développement logiciel (SDK) de stockage d’objets BLOB Azure Stack Edge, le suffixe de point de terminaison- `<device serial number>.microsoftdatabox.com` identifie le domaine Azure Stack Edge. Pour plus d’informations sur le point de terminaison du service BLOB, accédez à [transférer des données par le biais de comptes de stockage des GPU Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 
 ## <a name="examples"></a>Exemples

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0eaa73fa7e0a9896a875af7e3a3aab22db2a37d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036591"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657057"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics
 Les journaux d’événements Windows sont les [sources de données](../agents/agent-data-sources.md) les plus courantes pour les agents Log Analytics sur Windows puisque de nombreuses applications écrivent dans le journal des événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.
@@ -28,6 +28,10 @@ Azure Monitor collecte uniquement les événements des journaux d’événements
 Lorsque vous tapez le nom d’un journal d’événements, Azure Monitor suggère des noms communs de journaux d’événements. Si le journal que vous voulez ajouter n’apparaît pas dans la liste, vous pouvez l’ajouter en saisissant le nom complet du journal. Vous trouverez le nom complet du journal à l’aide de l’Observateur d’événements. Dans l’Observateur d’événements, ouvrez la page *Propriétés* du journal et copiez la chaîne du champ *Nom complet*.
 
 [![Configurer les événements Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+
+> [!IMPORTANT]
+> Vous ne pouvez pas configurer la collecte d’événements de sécurité à partir de l’espace de travail. Vous devez utiliser [Azure Security Center](../../security-center/security-center-enable-data-collection.md) ou [Azure Sentinel](../../sentinel/connect-windows-security-events.md) pour collecter des événements de sécurité.
+
 
 > [!NOTE]
 > Les événements critiques du journal d’événements Windows auront un niveau de gravité « Erreur » dans les journaux d’Azure Monitor.

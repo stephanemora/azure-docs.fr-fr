@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1a251f5718ee91a90ba9ba0e65c5cc7cb39096bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200687"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937190"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publier et s’abonner avec Azure IoT Edge
 
@@ -334,7 +334,7 @@ Notez que le port 1883 (MQTT), sans TLS, est utilisé dans ce premier exemple. U
 
 Le client MQTT **sub_client** est maintenant démarré et attend les messages entrants sur `test_topic`.
 
-#### <a name="publish"></a>Publish
+#### <a name="publish"></a>Publier
 
 Connectez votre client MQTT **pub_client** au répartiteur MQTT et publiez un message sur le même `test_topic` que ci-dessus en exécutant la commande suivante sur votre appareil IoT Edge à partir d’un autre terminal :
 
@@ -430,9 +430,9 @@ Voici un exemple de configuration de pont IoT Edge MQTT qui republie tous les me
                 },
                 {
                     "direction": "out",
-                    "topic": "",
-                    "inPrefix": "/local/telemetry",
-                    "outPrefix": "/remote/messages"
+                    "topic": "#",
+                    "inPrefix": "/local/telemetry/",
+                    "outPrefix": "/remote/messages/"
                 }
             ]
         }]

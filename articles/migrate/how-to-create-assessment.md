@@ -1,33 +1,33 @@
 ---
-title: Créer une évaluation de machine virtuelle Azure avec Azure Migrate Server Assessment | Microsoft Docs
-description: Décrit comment créer une évaluation de machine virtuelle Azure avec l’outil Azure Migrate Server Assessment
+title: Créer une évaluation de machine virtuelle Azure avec l’outil de découverte et d’évaluation Azure Migrate | Microsoft Docs
+description: Décrit comment créer une évaluation de machine virtuelle Azure avec l’outil de découverte et d’évaluation Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
-ms.openlocfilehash: 178bdca78c6f011c607de8e1f5d5eabcdbaab7d4
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: f901fe23d2ff04e7ad9ba920dd90ebab8a39246c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567703"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786717"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Créer une évaluation de machine virtuelle Azure
 
-Cet article explique comment créer une évaluation de machine virtuelle Azure pour des machines virtuelles VMware locales ou des machines virtuelles Hyper-V avec Azure Migrate : Server Assessment.
+Cet article explique comment créer une évaluation de machine virtuelle Azure pour des serveurs locaux dans votre environnement de serveur VMware, Hyper-V ou physique/autre, avec Azure Migrate : découverte et évaluation.
 
 [Azure Migrate](migrate-services-overview.md) vous aide à migrer vers Azure. Azure Migrate offre un hub centralisé pour suivre la découverte, l’évaluation et la migration d’une infrastructure, d’applications et de données locales vers Azure. Le hub fournit des outils Azure pour l’évaluation et la migration, ainsi que des offres d’éditeurs de logiciels indépendant (ISV) tiers. 
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 - Assurez-vous que vous avez [créé](./create-manage-projects.md) un projet Azure Migrate.
-- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
-- Pour créer une évaluation, vous devez configurer une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
+- Si vous avez déjà créé un projet, assurez-vous d’avoir [ajouté](how-to-assess.md)Azure Migrate : outil de découverte et d’évaluation.
+- Pour créer une évaluation, vous devez configurer une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les serveurs locaux et envoie des métadonnées et des données de performances à Azure Migrate : découverte et évaluation. [Plus d’informations](migrate-appliance.md)
 
 
 ## <a name="azure-vm-assessment-overview"></a>Vue d’ensemble des évaluations de machine virtuelle Azure
-Il existe deux types de critères de dimensionnement que vous pouvez utiliser pour créer des évaluations de machine virtuelle Azure à l’aide d’Azure Migrate : Server Assessment.
+Il existe deux types de critères de dimensionnement que vous pouvez utiliser pour créer une évaluation de machine virtuelle Azure à l’aide d’Azure Migrate : découverte et évaluation.
 
 **Évaluation** | **Détails** | **Données**
 --- | --- | ---
@@ -40,23 +40,23 @@ Il existe deux types de critères de dimensionnement que vous pouvez utiliser po
 
 Exécutez une évaluation comme suit :
 
-1. Dans la page **Serveurs** > **Serveurs Windows et Linux**, cliquez sur **Évaluer et migrer des serveurs**.
+1. Sur la page **Vue d’ensemble** > **Windows, Linux et SQL Server**, cliquez sur **Évaluer et migrer des serveurs**.
 
    ![Emplacement du bouton Évaluer et migrer des serveurs](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. Dans **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
+2. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Évaluer**, puis sélectionnez **machine virtuelle Azure**
 
     ![Emplacement du bouton Évaluer](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
-3. Dans **Évaluer les serveurs** > **Type d’évaluation**, sélectionnez **Machine virtuelle Azure**.
+3. Dans **Évaluer les serveurs** > **Type d’évaluation**
 4. Dans **Source de découverte** :
 
-    - Si vous avez découvert des ordinateurs à l’aide de l’appliance, sélectionnez **Machines découvertes par l’appliance Azure Migrate**.
-    - Si vous avez découvert des ordinateurs à l’aide d’un fichier CSV importé, sélectionnez **Machines importées**. 
+    - Si vous avez découvert des serveurs à l’aide de l’appliance, sélectionnez **Serveurs découverts par l’appliance Azure Migrate**.
+    - Si vous avez découvert des serveurs à l’aide d’un fichier CSV importé, sélectionnez **Serveurs importés**. 
     
-1. Cliquez sur **Modifier** pour examiner les propriétés d’évaluation.
+1. Cliquez sur **Modifier** pour passer en revue les propriétés de l’évaluation.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Emplacement du bouton Modifier pour examiner les propriétés d’évaluation":::
+    ![Emplacement du bouton Tout afficher pour passer en revue les propriétés de l’évaluation](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. Dans **Propriétés d’évaluation** > **Propriétés de la cible** :
     - Dans **Emplacement cible**, sélectionnez la région Azure vers laquelle vous souhaitez effectuer la migration.
@@ -69,7 +69,7 @@ Exécutez une évaluation comme suit :
         - Si vous choisissez d’utiliser une instance réservée, vous ne pourrez pas spécifier l’option **Remise (%)** ni l’option **Durée de fonctionnement de la machine virtuelle**. 
         - [Plus d’informations](https://aka.ms/azurereservedinstances)
  1. Dans **Taille de la machine virtuelle** :
-     - Dans **Critère de dimensionnement**, choisissez le type d’évaluation que vous souhaitez effectuer : basée sur les données de configuration, basée sur les métadonnées de l’ordinateur ou basée sur les données de performances. Si vous utilisez des données de performances :
+     - Dans **Critères de dimensionnement**, sélectionnez si vous souhaitez baser l’évaluation sur les données/métadonnées de la configuration du serveur ou sur les données basées sur le niveau de performance. Si vous utilisez des données de performances :
         - Dans **Historique des performances**, indiquez la période de données sur laquelle vous souhaitez baser l’évaluation.
         - Dans **Utilisation en centile**, spécifiez la valeur de centile que vous souhaitez utiliser pour l’échantillon de performances. 
     - Dans **Série de machines virtuelles**, spécifiez la série de machines virtuelles Azure que vous souhaitez utiliser.
@@ -83,7 +83,7 @@ Exécutez une évaluation comme suit :
         Mémoire | 8 Go | 16 Go
    
 1. Dans **Tarifs** :
-    - Dans **Offre**, spécifiez l’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit, le cas échéant. Évaluation de serveur estime le coût de cette offre.
+    - Dans **Offre**, spécifiez l’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit, le cas échéant. L’évaluation estime le coût de cette offre.
     - Dans **Devise**, sélectionnez la devise de facturation de votre compte.
     - Dans **Remise (%)** , ajoutez les remises applicables à votre abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
     - Dans **Durée de fonctionnement de la machine virtuelle**, spécifiez la durée (en jours par mois ou en heures par jour) pendant laquelle les machines virtuelles doivent s’exécuter.
@@ -99,49 +99,49 @@ Exécutez une évaluation comme suit :
 
 1. Dans **Évaluer les serveurs**, cliquez sur **Suivant**.
 
-1. Dans **Sélectionner les machines à évaluer** > **Nom de l’évaluation**, spécifiez un nom pour l’évaluation. 
+1. Dans **Sélectionner les serveurs à évaluer** > **Nom de l’évaluation**, spécifiez un nom pour l’évaluation. 
 
 1. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer**, puis spécifiez un nom de groupe. 
+    
+     ![Ajouter des machines virtuelles à un groupe](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Ajouter des machines virtuelles à un groupe":::
 
 1. Sélectionnez l’appliance, puis sélectionnez les machines virtuelles que vous souhaitez ajouter au groupe. Cliquez ensuite sur **Suivant**.
 
 
 1. Dans **Vérifier + créer l’évaluation**, passez en revue les détails de l’évaluation, puis cliquez sur **Créer une évaluation** pour créer le groupe et lancer l’évaluation.
 
-1. Une fois l’évaluation créée, vous pouvez la voir dans **Serveurs** > **Azure Migrate : Server Assessment** > **Évaluations**.
+1. Une fois l’évaluation créée, affichez-la dans **Serveurs** > **Azure Migrate : découverte et évaluation** > **Évaluations**.
 
 1. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
     > [!NOTE]
     > Pour les évaluations basées sur les performances, nous vous recommandons d’attendre au moins un jour après le démarrage de la découverte pour créer l’évaluation. Cela permet de collecter des données de performances avec un plus haut niveau de confiance. Dans l’idéal, une fois que vous avez démarré la découverte, vous devriez attendre la période de performances que vous avez spécifiée (jour/semaine/mois) afin d’obtenir un haut niveau de confiance.
 
-
 ## <a name="review-an-azure-vm-assessment"></a>Passer en revue une évaluation de machine virtuelle Azure
 
 Une évaluation de machine virtuelle Azure décrit :
 
-- **Préparé pour Azure** : Indique si les machines virtuelles peuvent faire l’objet d’une migration vers Azure.
+- **Préparé pour Azure** : Indique si les serveurs peuvent faire l’objet d’une migration vers Azure.
 - **Estimation des coûts mensuels** : Coûts mensuels de calcul et de stockage estimés pour l’exécution des machines virtuelles dans Azure.
 - **Estimation des coûts de stockage mensuels** : Coûts estimés pour le stockage sur disque après la migration.
 
 ### <a name="view-an-azure-vm-assessment"></a>Passer en revue une évaluation de machine virtuelle Azure
 
-1. Dans **Objectifs de migration** >  **Serveurs**, cliquez sur **Évaluations** dans **Azure Migrate : Évaluation de serveur**.
-2. Dans **Évaluations**, cliquez sur une évaluation pour l’ouvrir.
+1. Dans **Windows, Linux et SQL Server** > **Azure Migrate : découverte et évaluation**, cliquez sur le numéro à côté de **Évaluation de machine virtuelle Azure**.
+2. Dans **Évaluations**, sélectionnez une évaluation pour l’ouvrir. Voici un exemple (estimations et coûts, à titre d’exemple uniquement) : 
 
     ![Récapitulatif de l’évaluation](./media/how-to-create-assessment/assessment-summary.png)
 
 ### <a name="review-azure-readiness"></a>Examiner la préparation pour Azure
 
-1. Dans **Préparé pour Azure**, vérifiez si les machines virtuelles sont prêtes pour la migration vers Azure.
-2. Passez en revue l’état des machines virtuelles :
+1. Dans **Préparé pour Azure**, vérifiez si les serveurs sont prêts pour la migration vers Azure.
+2. Évaluer l’état du serveur :
     - **Disponible pour Azure** : Azure Migrate recommande une taille de machine virtuelle et donne des estimations de coût pour les machines virtuelles de l’évaluation.
     - **Disponible sous conditions** : Montre des problèmes et leur correction suggérée.
     - **Non disponible pour Azure** : Montre des problèmes et leur correction suggérée.
     - **État de la préparation inconnu** : Utilisé quand Azure Migrate ne peut pas évaluer la préparation, en raison de problèmes de disponibilité des données.
 
-3. Cliquez sur un état **Préparé pour Azure**. Vous pouvez voir les informations relatives à l’état de préparation des machines virtuelles et explorer ces dernières en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.
+3. Cliquez sur un état **Préparé pour Azure**. Vous pouvez voir les informations relatives à l’état de préparation des serveurs et explorer ces derniers en détail, notamment en ce qui concerne les valeurs pour le calcul, le stockage et le réseau.
 
 
 
@@ -149,14 +149,14 @@ Une évaluation de machine virtuelle Azure décrit :
 
 Cette vue montre une estimation des coûts de calcul et de stockage liés à l’exécution des machines virtuelles dans Azure.
 
-1. Passez en revue les coûts mensuels de calcul et de stockage. Les coûts sont agrégés pour toutes les machines virtuelles du groupe évalué.
+1. Passez en revue les coûts mensuels de calcul et de stockage. Les coûts sont agrégés pour tous les serveurs du groupe évalué.
 
-    - Les estimations des coûts sont basées sur les suggestions de taille d’une machine ainsi que sur ses disques et ses propriétés.
+    - Les estimations des coûts sont basées sur les suggestions de taille d’un serveur ainsi que sur ses disques et ses propriétés.
     - Les coûts mensuels estimés pour le calcul et le stockage sont affichés.
-    - L’estimation des coûts porte sur l’exécution des machines virtuelles locales en tant que machines virtuelles IaaS. Azure Migrate Server Assessment ne prend pas en compte les coûts PaaS ou SaaS.
+    - L’estimation des coûts porte sur l’exécution des serveurs locaux en tant que machines virtuelles IaaS. L’évaluation de machine virtuelle Azure ne prend pas en compte les coûts PaaS ni SaaS.
 
 2. Vous pouvez passer en revue les estimations des coûts de stockage mensuels. Cette vue montre les coûts de stockage agrégés pour le groupe évalué, répartis selon différents types de disque de stockage.
-3. Vous pouvez explorer les détails de machines virtuelles spécifiques.
+3. Vous pouvez explorer les détails de serveurs spécifiques.
 
 
 ### <a name="review-confidence-rating"></a>Examiner le niveau de confiance

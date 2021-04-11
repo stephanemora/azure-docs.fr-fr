@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 0dcb750871eeae504ddb3d4e3851c834bcad125c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604540"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567116"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrer des machines virtuelles VMware vers Azure (sans agent)
 
@@ -91,7 +91,7 @@ Activez la réplication comme suit :
     - Chiffrement double avec des clés gérées par la plateforme et des clés gérées par le client
 
    > [!NOTE]
-   > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](https://go.microsoft.com/fwlink/?linkid=2151800) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
+   > Pour répliquer des machines virtuelles avec une clé gérée par le client, vous devez [créer un jeu de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) sous le groupe de ressources cible. Un objet de jeu de chiffrement de disque mappe les disques managés à un coffre de clés contenant les clés gérées par le client à utiliser pour le chiffrement côté serveur.
   
 10. Dans **Azure Hybrid Benefit** :
 
@@ -189,7 +189,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 ## <a name="complete-the-migration"></a>Effectuer la migration
 
 1. Une fois la migration terminée, cliquez avec le bouton droit sur la machine virtuelle > **Arrêter la réplication**. Cette action arrête la réplication pour la machine locale et nettoie les informations d’état de la réplication de la machine virtuelle.
-2. Nous installons automatiquement l’agent VM pour les machines virtuelles Windows et Linux pendant la migration. Si la machine est dotée d’un système d’exploitation Linux, passez en revue les [exigences](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) de l’agent Linux de machine virtuelle Azure sur les machines migrées pour vérifier que l’installation de l’agent VM Linux est effectuée correctement. 
+2. Nous installons automatiquement l’agent VM pour les machines virtuelles Windows et Linux pendant la migration. Si la machine est dotée d’un système d’exploitation Linux, passez en revue les [exigences](../virtual-machines/extensions/agent-linux.md#requirements) de l’agent Linux de machine virtuelle Azure sur les machines migrées pour vérifier que l’installation de l’agent VM Linux est effectuée correctement. 
 3. Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
 4. Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
 5. Réduisez le trafic vers l’instance de machine virtuelle Azure migrée.

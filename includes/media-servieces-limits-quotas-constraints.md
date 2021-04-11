@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 59ff0ba854fa609e6d29f3473f662a89ab5f3dbc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 419d8d0cd20c13bffdd192060d81975ee94b47fe
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556905"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106126009"
 ---
 > [!NOTE]
 > Pour les ressources qui ne sont pas corrigées, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas d’autres comptes Azure Media Services pour obtenir des limites supérieures.
@@ -66,9 +66,9 @@ Les enregistrements de travaux de votre compte qui ont plus de 90 jours sont aut
 | --- | --- |
 | Événements en direct <sup>(4)</sup> par compte Media Services |5|
 | Sorties en direct par événement en direct |3 <sup>(5)</sup> |
-| Durée maximale de la sortie en direct | [Taille de la fenêtre DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
+| Durée maximale de la sortie en direct | [Taille de la fenêtre DVR](../articles/media-services/latest/live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> Pour plus d’informations sur les limites relatives aux événements en direct, consultez [Comparaison et limites des types d’événements en direct](../articles/media-services/latest/live-event-types-comparison.md).
+<sup>4</sup> Pour plus d’informations sur les limites relatives aux événements en direct, consultez [Comparaison et limites des types d’événements en direct](../articles/media-services/latest/live-event-types-comparison-reference.md).
 
 <sup>5</sup> Les sorties en direct démarrent dès leur création et s’arrêtent lors de leur suppression.
 

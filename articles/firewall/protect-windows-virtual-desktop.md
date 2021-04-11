@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94654981"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566024"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utiliser le Pare-feu Azure pour protéger les déploiements de Windows Virtual Desktop
 
@@ -54,7 +54,7 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 - Créez une collection de règles de réseau, puis ajoutez les règles suivantes :
 
    - Autoriser DNS : autorisez le trafic à partir de votre adresse IP privée ADDS vers * pour les ports TCP et UDP 53.
-   - Autoriser KMS : autorisez le trafic à partir de vos machines virtuelles Windows Virtual Desktop vers le port TCP 1688 du service d’activation Windows. Pour plus d’informations sur les adresses IP de destination, consultez [L’activation de Windows échoue dans un scénario de tunneling forcé](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Autoriser KMS : autorisez le trafic à partir de vos machines virtuelles Windows Virtual Desktop vers le port TCP 1688 du service d’activation Windows. Pour plus d’informations sur les adresses IP de destination, consultez [L’activation de Windows échoue dans un scénario de tunneling forcé](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution).
 
 > [!NOTE]
 > Certains déploiements n’ont peut-être pas besoin de règles DNS ; par exemple, les contrôleurs de domaine Azure Active Directory transfèrent les requêtes DNS à Azure DNS à l’adresse 168.63.129.16.

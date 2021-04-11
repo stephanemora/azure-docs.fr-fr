@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033151"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104590209"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Règles de trafic sortant Azure Load Balancer
 
@@ -36,11 +36,11 @@ Avec les règle de trafic sortant, vous pouvez définir explicitement le comport
 Les règles de trafic sortant vous permettent de déterminer :
 
 * **Quelles machines virtuelles doivent être traduites vers quelles adresses IP publiques.**
-     * Deux règles : le pool principal A utilise l’adresse IP A et B, le pool principal B utilise l’adresse IP C et D.
+     * Deux règles : le pool principal 1 utilise l’adresse IP bleue 1 et 2, le pool principal 2 utilise le préfixe d’adresse IP jaune.
 * **Comment les ports SNAT de trafic sortant sont alloués.**
-     * Le pool principal B est le seul pool effectuant des connexions sortantes, attribuez au pool principal B tous les ports SNAT et aucun au pool principal A.
+     * Si le pool principal 2 est le seul pool effectuant des connexions sortantes, attribuez au pool principal 2 tous les ports SNAT et aucun au pool principal 1.
 * **Les protocoles qui fournissent la traduction sortante.**
-     * Le pool principal B a besoin de ports UDP pour le trafic sortant. Le pool principal A a besoin de TCP. Donnez les ports TCP à A et les ports UDP à B.
+     * If backend pool 2 needs UDP ports for outbound, and backend pool 1 needs TCP, give TCP ports to 1 and UDP ports to 2.
 * **La durée à utiliser comme délai d’inactivité des connexions sortantes ( 4 à 120 minutes).**
      * S’il existe des connexions de longue durée avec les KeepAlive, réservez les ports inactifs pour les connexions de longue durée pendant jusqu’à 120 minutes. Supposer que les connexions obsolètes sont abandonnées et les mettre en production les ports en 4 minutes pour les nouvelles connexions 
 * **La réinitialisation TCP au terme du délai d’inactivité.**

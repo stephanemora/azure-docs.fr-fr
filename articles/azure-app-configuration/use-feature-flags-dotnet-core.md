@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4d54e1ff07b250b5595d2f8aee5f022bd2359721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726425"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729505"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
@@ -218,7 +218,7 @@ Par convention, la section `FeatureManagement` de ce document JSON est utilisée
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Utiliser l’injection de dépendances pour accéder à IFeatureManager 
 
-Pour certaines opérations, telles que la vérification manuelle des valeurs d’indicateurs de fonctionnalités, vous devez obtenir une instance de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances. Dans l’exemple suivant, un argument de type `IFeatureManager` est ajouté à la signature du constructeur d’un contrôleur. Le runtime résout automatiquement la référence et fournit une interface lors de l’appel du constructeur. Si vous utilisez un modèle d’application dans lequel le contrôleur a déjà un ou plusieurs arguments d’injection de dépendances dans le constructeur, par exemple `ILogger`, vous pouvez simplement ajouter `IFeatureManager` comme argument supplémentaire :
+Pour certaines opérations, telles que la vérification manuelle des valeurs d’indicateurs de fonctionnalités, vous devez obtenir une instance de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?preserve-view=true&view=azure-dotnet-preview). Dans ASP.NET Core MVC, vous pouvez accéder au gestionnaire de fonctionnalités `IFeatureManager` par le biais de l’injection de dépendances. Dans l’exemple suivant, un argument de type `IFeatureManager` est ajouté à la signature du constructeur d’un contrôleur. Le runtime résout automatiquement la référence et fournit une interface lors de l’appel du constructeur. Si vous utilisez un modèle d’application dans lequel le contrôleur a déjà un ou plusieurs arguments d’injection de dépendances dans le constructeur, par exemple `ILogger`, vous pouvez simplement ajouter `IFeatureManager` comme argument supplémentaire :
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     
@@ -322,7 +322,7 @@ public IActionResult Index()
 }
 ```
 
-Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctionnalité de contrôle est défini sur *off*, une interface [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?view=azure-dotnet-preview) inscrite est appelée. L’interface `IDisabledFeaturesHandler` par défaut retourne un code d’état 404 au client sans corps de réponse.
+Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctionnalité de contrôle est défini sur *off*, une interface [IDisabledFeaturesHandler](/dotnet/api/microsoft.featuremanagement.mvc.idisabledfeatureshandler?preserve-view=true&view=azure-dotnet-preview) inscrite est appelée. L’interface `IDisabledFeaturesHandler` par défaut retourne un code d’état 404 au client sans corps de réponse.
 
 ## <a name="mvc-views"></a>Vues MVC
 

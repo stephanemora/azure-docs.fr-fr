@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bf2360bda55735aa8ef4258da5ae47f673f4d71b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c5ffdecf768be0962950bb3691dbb11fb0e70120
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738920"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565008"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Base de référence de la sécurité Azure pour HDInsight
 
@@ -38,7 +38,7 @@ Pour réduire le risque de perte de données via l’exfiltration, limitez le tr
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des interfaces réseau
 
@@ -52,19 +52,19 @@ Pour réduire le risque de perte de données via l’exfiltration, limitez le tr
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications avec des adresses IP connues comme étant malveillantes
 
 **Instructions** : Pour obtenir des protections contre les attaques DDoS, activez la protection Azure DDoS standard sur le réseau virtuel sur lequel votre instance Azure HDInsight est déployée. Utilisez la fonctionnalité Threat Intelligence intégrée à Azure Security Center pour refuser les communications avec des adresses IP Internet connues comme étant malveillantes ou inutilisées.
 
-- [Guide pratique pour configurer la protection DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Guide pratique pour configurer la protection DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](/azure/security-center/security-center-alerts-service-layer)
+- [Présentation de la fonctionnalité Threat Intelligence intégrée à Azure Security Center](../security-center/azure-defender.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
@@ -76,7 +76,7 @@ Pour réduire le risque de perte de données via l’exfiltration, limitez le tr
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions (IDS/IPS) basés sur le réseau
 
@@ -94,17 +94,17 @@ Pour réduire le risque de perte de données via l’exfiltration, limitez le tr
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
 **Instructions** : Utilisez les étiquettes de service du réseau virtuel pour définir les contrôles d’accès réseau sur les groupes de sécurité réseau (NSG) attachés au sous-réseau dans lequel votre cluster Azure HDInsight est déployé. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
-- [Comprendre et utiliser des étiquettes de service pour Azure HDInsight](/azure/virtual-network/security-overview#service-tags)
+- [Comprendre et utiliser des étiquettes de service pour Azure HDInsight](../virtual-network/network-security-groups-overview.md#service-tags)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -120,7 +120,7 @@ Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiemen
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
@@ -130,7 +130,7 @@ Utilisez l’une des définitions de stratégie Azure intégrée en lien avec l�
 
 Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI) Azure pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes.
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 - [Guide pratique pour créer un réseau virtuel](../virtual-network/quick-create-portal.md)
 
@@ -138,19 +138,19 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
 **Instructions** : Utilisez le journal d’activité Azure pour superviser les configurations des ressources réseau et détecter les changements des ressources réseau associées à vos déploiements Azure HDInsight. Créez des alertes dans Azure Monitor, qui se déclenchent lors de la modification de ressources réseau critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
@@ -166,7 +166,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
@@ -178,7 +178,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4 : Collecter les journaux de sécurité des systèmes d’exploitation
 
@@ -186,11 +186,11 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 - [Guide pratique pour intégrer un cluster Azure HDInsight à Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-- [Comment configurer la période de conservation d’un espace de travail Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
@@ -198,11 +198,11 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 - [Guide pratique pour intégrer un cluster Azure HDInsight à Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-- [Comment configurer la période de conservation d’un espace de travail Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Comment configurer la période de conservation d’un espace de travail Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -212,7 +212,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -220,17 +220,17 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 - [Guide pratique pour gérer les alertes dans Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
 **Instructions** : Azure HDInsight est fourni avec Clamscan préinstallé et activé pour les images de nœud de cluster. Toutefois, vous devez gérer le logiciel et agréger/superviser manuellement tous les journaux générés par Clamscan.
 
-- [Comprendre Clamscan](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Comprendre Clamscan](./hdinsight-faq.md#security-and-certificates)
 
 **Responsabilité** : Customer
 
@@ -242,7 +242,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10 : Activer l’enregistrement d’audit en ligne de commande
 
@@ -250,7 +250,7 @@ Vous pouvez utiliser Azure PowerShell ou l’interface de ligne de commande (CLI
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -270,7 +270,7 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
@@ -280,7 +280,7 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
@@ -294,17 +294,17 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
 **Conseil** : utilisez le broker d’ID Azure HDInsight pour vous connecter à des clusters du Pack Sécurité Entreprise (ESP) à l’aide de l’authentification multifacteur, sans fournir de mot de passe. Si vous êtes déjà connecté à d’autres services Azure, comme le portail Azure, vous pouvez vous connecter à votre cluster Azure HDInsight avec une expérience d’authentification unique (SSO).
 
-- [Guide pratique pour activer le broker d’ID Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker)
+- [Guide pratique pour activer le broker d’ID Azure HDInsight](./domain-joined/identity-broker.md#enable-hdinsight-id-broker)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
@@ -316,7 +316,7 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
@@ -328,19 +328,19 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
 **Instructions** : Comme les clusters Azure HDInsight pour lesquels le Pack Sécurité Entreprise est configuré peuvent être connectés à un domaine, les utilisateurs du domaine peuvent utiliser leurs informations d’identification de domaine pour s’authentifier. Vous pouvez utiliser les rapports de sécurité Azure Active Directory (Azure AD) pour générer des journaux et des alertes quand une activité suspecte ou potentiellement dangereuse se produit dans l’environnement Azure AD. Utiliser Azure Security Center pour superviser les activités liées aux identités et aux accès.
 
-- [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Guide pratique pour identifier les utilisateurs Azure AD pour lesquels une activité à risque a été signalée](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Guide pratique pour superviser l’activité liée aux identités et aux accès des utilisateurs dans Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
@@ -350,7 +350,7 @@ Vous pouvez également suivre les recommandations liées à la gestion des ident
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
@@ -364,7 +364,7 @@ Comme les clusters Azure HDInsight pour lesquels le Pack Sécurité Entreprise (
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
@@ -374,7 +374,7 @@ Comme les clusters Azure HDInsight pour lesquels le Pack Sécurité Entreprise (
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
@@ -386,29 +386,29 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12 : Alerter en cas d’écart de comportement de connexion à un compte
 
 **Instructions** : Comme les clusters Azure HDInsight pour lesquels le Pack Sécurité Entreprise (ESP) est configuré peuvent être connectés à un domaine, les utilisateurs du domaine peuvent utiliser leurs informations d’identification de domaine pour s’authentifier auprès des clusters. Utilisez les détections de risque et la fonctionnalité Identity Protection d’Azure Active Directory (Azure AD) pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. De plus, vous pouvez ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
-- [Guide pratique pour afficher les connexions risquées Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Guide pratique pour afficher les connexions risquées Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Guide pratique pour configurer et activer des stratégies de risque Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
 **Instructions** : Non disponible. Customer Lockbox n’est actuellement pas pris en charge pour Azure HDInsight.
 
-- [Liste des services pris en charge pour Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Liste des services pris en charge pour Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -418,11 +418,11 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Instructions** : Utilisez des étiquettes sur des ressources associées à vos déploiements Azure HDInsight pour faciliter le suivi des ressources Azure qui stockent ou traitent des informations sensibles.
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
@@ -432,11 +432,11 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 - [Guide pratique pour sécuriser Azure Data Lake Storage](../data-lake-store/data-lake-store-security-overview.md)
 
-- [Comment sécuriser des comptes de Stockage Azure](/azure/storage/common/storage-security-guide)
+- [Comment sécuriser des comptes de Stockage Azure](../storage/blobs/security-recommendations.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
@@ -450,7 +450,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -462,7 +462,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
@@ -488,7 +488,7 @@ La configuration de stratégies RBAC avec Apache Ranger vous permet d’associer
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
@@ -500,35 +500,35 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
 **Instructions** : Si vous utilisez Azure SQL Database pour stocker des métadonnées Apache Hive et Apache Oozie, vérifiez que les données SQL restent chiffrées en permanence. Pour les comptes de Stockage Azure et Data Lake Storage (Gen1 ou Gen2), nous vous recommandons d’autoriser Microsoft à gérer vos clés de chiffrement. Vous avez toutefois la possibilité de gérer vos propres clés.
 
-- [Guide pratique pour gérer les clés de chiffrement pour les comptes Stockage Azure](/azure/storage/common/storage-encryption-keys-portal)
+- [Guide pratique pour gérer les clés de chiffrement pour les comptes Stockage Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Guide pratique pour créer un compte Azure Data Lake Storage à l’aide de clés de chiffrement gérées par le client](../data-lake-store/data-lake-store-get-started-portal.md)
 
-- [Comprendre le chiffrement pour Azure SQL Database](/azure/sql-database/sql-database-technical-overview#data-encryption)
+- [Comprendre le chiffrement pour Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md#data-encryption)
 
-- [Guide pratique pour configurer le chiffrement transparent des données (TDE, Transparent Data Encryption) pour SQL Database à l’aide de clés gérées par le client](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)
+- [Guide pratique pour configurer le chiffrement transparent des données (TDE, Transparent Data Encryption) pour SQL Database à l’aide de clés gérées par le client](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
 **Instructions** : Configurez les paramètres de diagnostic de comptes de stockage Azure associés à des clusters Azure HDInsight pour superviser et journaliser toutes les opérations CRUD sur les données de cluster. Activez l’audit pour tous les comptes de Stockage ou Data Lake Stores associés au cluster Azure HDInsight.
 
-- [Guide pratique pour activer une journalisation/un audit supplémentaires pour un compte Stockage Azure](/azure/storage/common/storage-monitor-storage-account)
+- [Guide pratique pour activer une journalisation/un audit supplémentaires pour un compte Stockage Azure](../storage/common/manage-storage-analytics-logs.md)
 
 - [Guide pratique pour activer une journalisation/un audit supplémentaires pour Azure Data Lake Storage](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
@@ -548,7 +548,7 @@ Pour la plateforme sous-jacente managée par Microsoft, Microsoft considère tou
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
@@ -560,7 +560,7 @@ Microsoft pour tenir à jour et mettre à jour les images de nœud Azure HDInsig
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
@@ -572,7 +572,7 @@ Microsoft pour tenir à jour et mettre à jour les images de nœud Azure HDInsig
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
@@ -580,7 +580,7 @@ Microsoft pour tenir à jour et mettre à jour les images de nœud Azure HDInsig
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
@@ -588,7 +588,7 @@ Microsoft pour tenir à jour et mettre à jour les images de nœud Azure HDInsig
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -608,31 +608,31 @@ Bien que les ressources Azure classiques puissent être découvertes via Azure R
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
 **Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
 **Conseils** : Utilisez des étiquettes, des groupes d’administration et diviser des abonnements, le cas échéant, pour organiser et suivre les ressources. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
 
-- [Guide pratique pour créer des abonnements Azure supplémentaires](/azure/billing/billing-create-subscription)
+- [Guide pratique pour créer des abonnements Azure supplémentaires](../cost-management-billing/manage/create-subscription.md)
 
-- [Guide pratique pour créer des groupes d’administration](/azure/governance/management-groups/create)
+- [Guide pratique pour créer des groupes d’administration](../governance/management-groups/create-management-group-portal.md)
 
-- [Guide pratique pour créer et utiliser des étiquettes](/azure/azure-resource-manager/resource-group-using-tags)
+- [Guide pratique pour créer et utiliser des étiquettes](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
@@ -640,7 +640,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Azure R
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -658,7 +658,7 @@ Utilisez le service Azure Resource Graph pour interroger et découvrir les resso
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
@@ -666,7 +666,7 @@ Utilisez le service Azure Resource Graph pour interroger et découvrir les resso
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
@@ -676,7 +676,7 @@ Utilisez le service Azure Resource Graph pour interroger et découvrir les resso
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
@@ -684,7 +684,7 @@ Utilisez le service Azure Resource Graph pour interroger et découvrir les resso
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
@@ -697,11 +697,11 @@ Pour plus d’informations, consultez les références suivantes :
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Guide pratique pour refuser un type de ressource spécifique avec Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
@@ -709,7 +709,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
@@ -719,7 +719,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -735,7 +735,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
@@ -743,7 +743,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -755,7 +755,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
@@ -763,7 +763,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
@@ -775,7 +775,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -785,7 +785,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
@@ -793,7 +793,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -805,7 +805,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
@@ -813,7 +813,7 @@ Pour plus d’informations, consultez les références suivantes :
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
@@ -823,13 +823,13 @@ Tous les disques managés dans Azure HDInsight sont protégés par Azure Storage
 
 Key Vault peut également être utilisé avec des déploiements Azure HDInsight pour gérer les clés du stockage de cluster (comptes de Stockage Azure et Azure Data Lake Storage)
 
-- [Guide pratique pour apporter sa propre clé pour Apache Kafka sur Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
+- [Guide pratique pour apporter sa propre clé pour Apache Kafka sur Azure HDInsight](./disk-encryption.md)
 
-- [Guide pratique pour gérer les clés de chiffrement pour les comptes Stockage Azure](/azure/storage/common/storage-encryption-keys-portal)
+- [Guide pratique pour gérer les clés de chiffrement pour les comptes Stockage Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
@@ -839,7 +839,7 @@ Key Vault peut également être utilisé avec des déploiements Azure HDInsight 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -849,7 +849,7 @@ Key Vault peut également être utilisé avec des déploiements Azure HDInsight 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -859,11 +859,11 @@ Key Vault peut également être utilisé avec des déploiements Azure HDInsight 
 
 **Instructions** : Azure HDInsight est fourni avec Clamscan préinstallé et activé pour les images de nœud de cluster. Toutefois, vous devez gérer le logiciel et agréger/superviser manuellement tous les journaux générés par Clamscan.
 
-- [Comprendre Clamscan pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Comprendre Clamscan pour Azure HDInsight](./hdinsight-faq.md#security-and-certificates)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2 : Pré-analyser les fichiers à charger sur des ressources Azure non liées au calcul
 
@@ -875,17 +875,17 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3 : Vérifier que les logiciels et signatures anti-programme malveillant sont mis à jour
 
 **Instructions** : Azure HDInsight est fourni avec Clamscan préinstallé et activé pour les images de nœud de cluster. Clamscan effectue automatiquement des mises à jour du moteur et des définitions. Toutefois, l’agrégation et la gestion des journaux devront être effectuées manuellement.
 
-- [Comprendre Clamscan pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
+- [Comprendre Clamscan pour Azure HDInsight](./hdinsight-faq.md#security-and-certificates)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -897,11 +897,11 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 - [Guide pratique pour configurer la redondance du stockage pour les comptes Stockage Azure](../storage/common/storage-redundancy.md)
 
-- [Guide pratique pour configurer la redondance pour Azure SQL Database](/azure/sql-database/sql-database-active-geo-replication)
+- [Guide pratique pour configurer la redondance pour Azure SQL Database](../azure-sql/database/active-geo-replication-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés managées par le client
 
@@ -915,29 +915,29 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
 **Conseil** : si Azure Key Vault est utilisé avec votre déploiement Azure HDInsight, testez la restauration des clés gérées par le client sauvegardées.
 
-- [Guide pratique pour apporter sa propre clé pour Apache Kafka sur Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
+- [Guide pratique pour apporter sa propre clé pour Apache Kafka sur Azure HDInsight](./disk-encryption.md)
 
 - [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés managées par le client
 
 **Conseil** : si Azure Key Vault est utilisé avec votre déploiement Azure HDInsight, activez la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-- [Guide pratique pour activer la suppression réversible dans Azure Key Vault](/azure/key-vault/key-vault-ovw-soft-delete)
+- [Guide pratique pour activer la suppression réversible dans Azure Key Vault](../key-vault/general/soft-delete-overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -955,7 +955,7 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -963,7 +963,7 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -973,7 +973,7 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -983,7 +983,7 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -995,7 +995,7 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -1005,7 +1005,7 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -1021,9 +1021,9 @@ Pré-analysez tous les fichiers téléchargés vers toute ressource Azure associ
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- En savoir plus sur les [bases de référence de la sécurité Azure](/azure/security/benchmarks/security-baselines-overview)
+- Consultez [Vue d’ensemble d’Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- En savoir plus sur les [bases de référence de la sécurité Azure](../security/benchmarks/security-baselines-overview.md)

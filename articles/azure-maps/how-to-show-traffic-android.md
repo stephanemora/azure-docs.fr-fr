@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 36b3666f12b48468467e76f4c281d58d8018478c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aabe246c343537a42c33d3eaad0bfae3989022fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098534"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604513"
 ---
 # <a name="show-traffic-data-on-the-map-android-sdk"></a>Affichage des données de trafic sur la carte (Android SDK)
 
@@ -179,7 +179,7 @@ map.events.add(OnFeatureClick { features: List<Feature>? ->
 
 ::: zone-end
 
-La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, des informations de trafic en temps réel sur la carte avec un message toast indiquant les détails de l’incident.
+La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, des informations de trafic en temps réel sur la carte avec un message flottant indiquant les détails de l’incident.
 
 ![Carte présentant des informations de trafic en temps réel avec un message toast indiquant les détails de l’incident](media/how-to-show-traffic-android/android-traffic-details.png)
 

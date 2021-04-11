@@ -3,34 +3,34 @@ title: Fonctions système sur les journaux Azure Monitor
 description: Créer des requêtes personnalisées sur les journaux Azure Monitor à l'aide de fonctions système
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510413"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564906"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Fonctions système sur les journaux Azure Monitor
 
 Le service Sauvegarde Azure fournit un ensemble de fonctions, appelées fonctions système ou fonctions de solution, qui sont disponibles par défaut dans vos espaces de travail Log Analytics (LA).
  
-Ces fonctions opèrent sur les données figurant dans les [tables Sauvegarde Azure brutes](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) de LA, et renvoient les données mises en forme pour vous permettre de récupérer facilement les informations de toutes vos entités en lien avec la sauvegarde, à l'aide de requêtes simples. Les utilisateurs peuvent transmettre des paramètres à ces fonctions pour filtrer les données renvoyées par celles-ci. 
+Ces fonctions opèrent sur les données figurant dans les [tables Sauvegarde Azure brutes](./backup-azure-reports-data-model.md) de LA, et renvoient les données mises en forme pour vous permettre de récupérer facilement les informations de toutes vos entités en lien avec la sauvegarde, à l'aide de requêtes simples. Les utilisateurs peuvent transmettre des paramètres à ces fonctions pour filtrer les données renvoyées par celles-ci. 
 
 Nous vous recommandons d'utiliser les fonctions système lors de l'interrogation de vos données de sauvegarde dans les espaces de travail LA afin de créer des rapports personnalisés, car celles-ci présentent un certain nombre d'avantages, comme détaillé dans la section ci-dessous.
 
 ## <a name="benefits-of-using-system-functions"></a>Avantages des fonctions système
 
-* **Des requêtes plus simples** : l'utilisation de fonctions vous permet de réduire le nombre de jointures nécessaires dans vos requêtes. Par défaut, les fonctions renvoient des schémas « aplatis » qui intègrent toutes les informations relatives à l'entité (instance de sauvegarde, travail, coffre, etc.) interrogée. Par exemple, si vous avez besoin d'une liste de travaux de sauvegarde réussis par nom d'élément de sauvegarde et conteneur associé, un simple appel à la fonction **_AzureBackup_getJobs()** vous donnera toutes les informations que vous recherchez pour chaque travail. A contrario, l'interrogation directe des tables brutes vous obligerait à effectuer plusieurs jointures entre les tables [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) et [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup).
+* **Des requêtes plus simples** : l'utilisation de fonctions vous permet de réduire le nombre de jointures nécessaires dans vos requêtes. Par défaut, les fonctions renvoient des schémas « aplatis » qui intègrent toutes les informations relatives à l'entité (instance de sauvegarde, travail, coffre, etc.) interrogée. Par exemple, si vous avez besoin d'une liste de travaux de sauvegarde réussis par nom d'élément de sauvegarde et conteneur associé, un simple appel à la fonction **_AzureBackup_getJobs()** vous donnera toutes les informations que vous recherchez pour chaque travail. A contrario, l'interrogation directe des tables brutes vous obligerait à effectuer plusieurs jointures entre les tables [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) et [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup).
 
-* **Transition plus fluide à partir de l'événement de diagnostic hérité** : l'utilisation de fonctions système vous permet de passer en douceur de l'[événement de diagnostic hérité](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport en mode AzureDiagnostics) aux [événements spécifiques aux ressources](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). Toutes les fonctions système fournies par le service Sauvegarde Azure vous permettent de spécifier un paramètre pour déterminer si la fonction doit interroger les données uniquement à partir des tables spécifiques aux ressources, ou à la fois à partir de la table héritée et des tables spécifiques aux ressources (avec déduplication des enregistrements).
+* **Transition plus fluide à partir de l'événement de diagnostic hérité** : l'utilisation de fonctions système vous permet de passer en douceur de l'[événement de diagnostic hérité](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport en mode AzureDiagnostics) aux [événements spécifiques aux ressources](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). Toutes les fonctions système fournies par le service Sauvegarde Azure vous permettent de spécifier un paramètre pour déterminer si la fonction doit interroger les données uniquement à partir des tables spécifiques aux ressources, ou à la fois à partir de la table héritée et des tables spécifiques aux ressources (avec déduplication des enregistrements).
     * Si vous avez réussi à migrer vers les tables spécifiques aux ressources, vous pouvez choisir d'exclure la table héritée de l'interrogation.
     * Si vous êtes actuellement en cours de migration et que vous disposez dans la table héritée de données dont vous avez besoin à des fins d'analyse, vous pouvez choisir d'inclure la table héritée. Au terme de la transition, si vous n'avez plus besoin des données de la table héritée, vous pouvez simplement mettre à jour la valeur du paramètre transmis à la fonction dans vos requêtes, afin d'exclure la table héritée.
-    * Si vous n'utilisez que la table héritée, les fonctions continueront de fonctionner lorsque vous choisirez d'inclure celle-ci via le même paramètre. Il est toutefois recommandé de [basculer au plus tôt vers les tables spécifiques aux ressources](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace).
+    * Si vous n'utilisez que la table héritée, les fonctions continueront de fonctionner lorsque vous choisirez d'inclure celle-ci via le même paramètre. Il est toutefois recommandé de [basculer au plus tôt vers les tables spécifiques aux ressources](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace).
 
 * **Réduction du risque d'interruption des requêtes personnalisées** : si le service Sauvegarde Azure améliore le schéma des tables LA sous-jacentes pour prendre en charge de futurs scénarios de création de rapports, la définition des fonctions sera également mise à jour pour tenir compte des modifications apportées au schéma. Ainsi, si vous utilisez des fonctions système pour créer des requêtes personnalisées, vos requêtes ne seront pas interrompues, même si des modifications sont apportées au schéma sous-jacent des tables.
 
 > [!NOTE]
-> Les fonctions système sont gérées par Microsoft et leurs définitions ne peuvent pas être modifiées par les utilisateurs. Si vous avez besoin de fonctions modifiables, vous pouvez créer des [fonctions enregistrées](https://docs.microsoft.com/azure/azure-monitor/logs/functions) dans LA.
+> Les fonctions système sont gérées par Microsoft et leurs définitions ne peuvent pas être modifiées par les utilisateurs. Si vous avez besoin de fonctions modifiables, vous pouvez créer des [fonctions enregistrées](../azure-monitor/logs/functions.md) dans LA.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Types de fonctions système offertes par le service Sauvegarde Azure
 
@@ -390,4 +390,4 @@ Vous trouverez ci-dessous quelques exemples de requêtes qui vous permettront de
     ````
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur la solution Rapports de sauvegarde](https://docs.microsoft.com/azure/backup/configure-reports)
+[En savoir plus sur la solution Rapports de sauvegarde](./configure-reports.md)

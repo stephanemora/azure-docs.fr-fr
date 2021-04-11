@@ -4,7 +4,7 @@ description: Cet article répertorie et décrit les options de configuration YAM
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 11/29/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a41a788a84770201996fd369d9b47031674afee3
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367255"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799545"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Options de configuration YAML pour personnaliser les tâches de build
+
+> [!Note]
+> Le 1er mars 2022, l’extension Microsoft Security Code Analysis (MSCA) sera supprimée. Les clients MSCA existants conserveront leur accès à MSCA jusqu’au 1er mars 2022. Pour découvrir d’autres options dans Azure DevOps, consultez [Outils d’analyse du code source OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools). Pour les clients qui prévoient de migrer vers GitHub, vous pouvez consulter [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Cet article répertorie toutes les options de configuration YAML disponibles dans chacune des tâches de build. Il commence par les tâches correspondant aux outils d’analyse du code de sécurité. Il se termine par les tâches post-traitement.
 
@@ -82,7 +85,7 @@ Cet article répertorie toutes les options de configuration YAML disponibles dan
 
 | **InputType**      | **Type**     | **Applicable**            | **Obligatoire** | **Valeur par défaut**             | **Options (pour les listes déroulantes)**                                   | **Description**                                                                                                                                                                                                                                                                                                                   |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| userProvideBuildInfo | Liste déroulante | toujours | True | auto | auto, msBuildInfo | Options permettant à un utilisateur de fournir la version MSBuild, l’architecture MSBuild et la ligne de commande de build pour l’analyse Roslyn. Si **Auto** est sélectionné, cette tâche récupère les informations de build des tâches (de build) **MSBuild**, **VSBuild** et/ou **.NET Core**précédentes dans le même pipeline.
+| userProvideBuildInfo | Liste déroulante | toujours | True | auto | auto, msBuildInfo | Options permettant à un utilisateur de fournir la version MSBuild, l’architecture MSBuild et la ligne de commande de build pour l’analyse Roslyn. Si **Auto** est sélectionné, cette tâche récupère les informations de build des tâches (de build) **MSBuild**, **VSBuild** et/ou **.NET Core** précédentes dans le même pipeline.
 | msBuildVersion | Liste déroulante | userProvideBuildInfo == msBuildInfo | True | 16,0 | 15.0, 16.0 | Version de MSBuild.
 | msBuildArchitecture | Liste déroulante | userProvideBuildInfo == msBuildInfo | True | x86 | DotNetCore, x64, x86 | Architecture de MSBuild. Remarque : Si la ligne de commande de build appelle **dotnet.exe build**, choisissez l’option **Via .NET Core**.
 | msBuildCommandline | string | userProvideBuildInfo == msBuildInfo | True |  |  | Ligne de commande complète de la build pour la compilation de votre solution ou de vos projets.<br/><br/>Remarques : La ligne de commande doit commencer par un chemin d’accès complet à **MSBuild.exe** ou **dotnet.exe**.<br/>La commande s’exécute avec $(Build.SourcesDirectory) en tant que répertoire de travail.

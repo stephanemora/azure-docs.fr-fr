@@ -3,15 +3,15 @@ title: Procédure pas à pas Azure Advisor Windows Virtual Desktop – Azure
 description: Résolution des recommandations Azure Advisor pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 666f882dec6c00b9fe5421485afded1fbd57d961
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90033028"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448302"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Résolution des recommandations Azure Advisor
 
@@ -72,10 +72,6 @@ Cette recommandation s’affiche sous Excellence opérationnelle.
 Vous devez débloquer des URL spécifiques pour vous assurer que votre machine virtuelle fonctionne correctement. Vous pouvez consulter la liste sur le site [Liste des URL sécurisées](safe-url-list.md). Si les URL ne sont pas débloquées, votre machine virtuelle ne fonctionnera pas correctement.
 
 Pour résoudre cette recommandation, veillez à débloquer toutes les URL figurant dans la [liste des URL sécurisées](safe-url-list.md). Vous pouvez également utiliser la balise de service ou les balises de nom de domaine complet pour débloquer des URL.
-
-## <a name="propose-new-recommendations"></a>Proposer de nouvelles recommandations
-
-Vous pouvez nous aider à améliorer Azure Advisor en nous soumettant des idées de recommandations. Votre recommandation pourrait aider un autre utilisateur à se sortir d’une situation difficile. Pour soumettre une suggestion, accédez à [notre forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations) et remplissez le formulaire de soumission. Lorsque vous remplissez le formulaire, veillez à nous donner le plus de détails possible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

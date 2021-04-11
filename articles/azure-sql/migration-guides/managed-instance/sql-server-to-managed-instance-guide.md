@@ -1,6 +1,6 @@
 ---
 title: 'SQL Server vers SQL Managed Instance : Guide de migration'
-description: Suivez ce guide pour migrer vos bases de données SQL Server vers Azure SQL Managed Instance.
+description: Ce guide vous apprend à migrer des bases de données SQL Server vers Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488951"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103564488"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guide de migration : de SQL Server vers SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -198,12 +198,8 @@ L’approche de test pour la migration de base de données comprend les activit�
 1. **Exécuter des tests de validation** : exécutez les tests de validation sur la source et sur la cible, puis analysez les résultats.
 1. **Exécuter des tests de performances**: exécutez un test de performances sur la source et sur la cible, puis analysez et comparez les résultats.
 
-   > [!NOTE]
-   > Pour obtenir de l’aide sur le développement et l’exécution de tests de validation post-migration, envisagez d’utiliser la Solution de qualité des données disponible dans le partenaire [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
-
-
-## <a name="leverage-advanced-features"></a>Tirer profit des fonctionnalités avancées 
+## <a name="leverage-advanced-features"></a>Tirer parti des fonctionnalités avancées 
 
 Veillez à tirer parti des fonctionnalités cloud avancées offertes par SQL Managed Instance, notamment la [haute disponibilité intégrée](../../database/high-availability-sla.md), la [détection des menaces](../../database/azure-defender-for-sql.md) ainsi que la [supervision et le paramétrage de votre charge de travail](../../database/monitor-tune-overview.md). 
 
@@ -214,7 +210,7 @@ Certaines fonctionnalités SQL Server sont disponibles uniquement une fois que v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir une matrice des services et outils Microsoft et tiers qui peuvent vous aider dans les différents scénarios de migration de données et de base de données ainsi que leurs tâches spécialisées, consultez [Services et outils de migration de données](../../../dms/dms-tools-matrix.md).
+- Si vous souhaitez obtenir une matrice des services et outils Microsoft et tiers qui peuvent vous aider dans différents scénarios de migration de données et de base de données ainsi que pour des tâches spécialisées, consultez [Services et outils disponibles pour les scénarios de migration de données](../../../dms/dms-tools-matrix.md).
 
 - Pour en savoir plus sur Azure SQL Managed Instance, consultez :
    - [Niveaux de service dans Azure SQL Managed Instance](../../managed-instance/sql-managed-instance-paas-overview.md#service-tiers)

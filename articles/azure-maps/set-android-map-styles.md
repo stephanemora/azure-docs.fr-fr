@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100982"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604785"
 ---
 # <a name="set-map-style-android-sdk"></a>Définition d’un style de carte (Android SDK)
 
@@ -83,7 +83,7 @@ La capture d’écran suivante montre le rendu, obtenu avec le code ci-dessus, d
 
 ## <a name="setting-the-map-camera"></a>Définition de la caméra de la carte
 
-La caméra de la carte contrôle les parties de la carte qui sont affichées. Elle peut se trouver dans la disposition ou être spécifiée programmatiquement dans le code. Dans le deuxième cas, il existe deux méthodes principales pour définir la position de la carte : avec center et zoom ou en passant un cadre englobant. Le code suivant montre comment définir toutes les options de caméra facultatives avec `center` et `zoom`.
+La caméra de la carte contrôle la région du monde qui est affichée dans le point de vue de la carte. Elle peut se trouver dans la disposition ou être spécifiée programmatiquement dans le code. Dans le deuxième cas, il existe deux méthodes principales pour définir la position de la carte : avec center et zoom ou en passant un cadre englobant. Le code suivant montre comment définir toutes les options de caméra facultatives avec `center` et `zoom`.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -104,7 +104,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -130,7 +130,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
@@ -162,7 +162,7 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -192,14 +192,14 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
 
 ::: zone-end
 
-Notez que les proportions d’un cadre englobant ne sont pas forcément les mêmes que celles de la carte. De ce fait, celle-ci affiche souvent le cadre englobant dans sa totalité, mais serré verticalement ou horizontalement seulement.
+Les proportions d’un cadre englobant ne sont pas forcément les mêmes que celles de la carte. De ce fait, la carte affiche souvent le cadre englobant dans sa totalité, mais serré verticalement ou horizontalement seulement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

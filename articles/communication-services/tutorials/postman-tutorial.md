@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492606"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044292"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutoriel : Signer et envoyer des requêtes avec Postman
 Dans ce tutoriel, nous allons configurer et utiliser Postman pour effectuer une requête auprès d’Azure Communication Services (ACS) à l’aide du protocole HTTP. À la fin de ce tutoriel, vous aurez envoyé avec succès un message SMS à l’aide des services ACS et de Postman, et pourrez utiliser Postman pour explorer d’autres API dans ACS.
@@ -68,7 +68,7 @@ Vous pouvez en apprendre davantage sur les variables en lisant la [documentation
 
 ### <a name="creating-a-pre-request-script"></a>Création d’un script de pré-requête
 
-L’étape suivante consiste à créer un script de pré-requête dans Postman. Un script de pré-requête est un script qui s’exécute avant chaque requête Postman et qui peut modifier les paramètres de la requête à votre place. Nous allons l’utiliser pour signer nos requêtes HTTP afin qu’elles puissent être autorisées par les services ACS. Pour plus d’informations sur les conditions requises pour la signature, vous pouvez [lire notre guide sur l’authentification](https://docs.microsoft.com/rest/api/communication/authentication).
+L’étape suivante consiste à créer un script de pré-requête dans Postman. Un script de pré-requête est un script qui s’exécute avant chaque requête Postman et qui peut modifier les paramètres de la requête à votre place. Nous allons l’utiliser pour signer nos requêtes HTTP afin qu’elles puissent être autorisées par les services ACS. Pour plus d’informations sur les conditions requises pour la signature, vous pouvez [lire notre guide sur l’authentification](/rest/api/communication/authentication).
 
 Nous allons créer ce script dans la collection de sorte qu’il s’exécute sur n’importe quelle requête de la collection. Pour ce faire, dans l’onglet Collection, cliquez sur le sous-onglet « Script de pré-requête ».
 
@@ -186,7 +186,7 @@ Maintenant que tout est configuré, nous sommes prêts à créer une demande ACS
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Bouton Plus de Postman.":::
 
-Cette opération crée un nouvel onglet pour notre requête dans Postman. Nous devons ensuite procéder à sa configuration. Nous allons faire une requête à l’API d’envoi de SMS. Veillez donc à vous reporter à la [documentation de cette API pour obtenir de l’aide](https://docs.microsoft.com/rest/api/communication/sms/send). Nous allons configurer la requête Postman.
+Cette opération crée un nouvel onglet pour notre requête dans Postman. Nous devons ensuite procéder à sa configuration. Nous allons faire une requête à l’API d’envoi de SMS. Veillez donc à vous reporter à la [documentation de cette API pour obtenir de l’aide](/rest/api/communication/sms/send). Nous allons configurer la requête Postman.
 
 Commencez par définir le type de requête sur `POST`, puis entrez `{{endpoint}}/sms?api-version=2021-03-07` dans le champ URL de la requête. Cette URL utilise la variable `endpoint` créée précédemment pour l’envoyer automatiquement à votre ressource ACS.
 
@@ -238,8 +238,8 @@ Le téléphone mobile qui possède le numéro que vous avez fourni pour la valeu
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Explorer les API ACS](https://docs.microsoft.com/rest/api/communication/)
-> [En savoir plus sur l’authentification](https://docs.microsoft.com/rest/api/communication/authentication)
+> [Explorer les API ACS](/rest/api/communication/)
+> [En savoir plus sur l’authentification](/rest/api/communication/authentication)
 > [En savoir plus sur Postman](https://learning.postman.com/)
 
 Vous pouvez également :
