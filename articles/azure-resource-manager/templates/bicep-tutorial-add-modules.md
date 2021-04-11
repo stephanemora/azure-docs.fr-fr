@@ -2,15 +2,15 @@
 title: 'Tutoriel : Ajouter des modules à un fichier Bicep Azure Resource Manager'
 description: Utilisez des modules pour encapsuler des détails complexes de la déclaration de ressource brute.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6efd9c230df49c83adc17361082af85b0ef9edc5
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 8c7ab1038cbe62d6f15faf56796193df12b38546
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633136"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568764"
 ---
 # <a name="tutorial-add-modules-to-azure-resource-manager-bicep-file"></a>Tutoriel : Ajouter des modules à un fichier Bicep Azure Resource Manager
 
@@ -128,4 +128,4 @@ Félicitations, vous avez terminé cette présentation sur le déploiement de fi
 La série de tutoriels suivante décrit plus en détail le déploiement de modèles.
 
 > [!div class="nextstepaction"]
-> [Ajouter des modules](./bicep-tutorial-add-modules.md)
+> [Déployer un modèle local](./deployment-tutorial-local-template.md)

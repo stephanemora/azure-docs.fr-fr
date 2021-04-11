@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: fe04615e234eaf5b006a80e6f584905626c637ba
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0b49cf4fe28e2a9b4d15f889d227b443777b1efa
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489483"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889244"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Scripts PowerShell pour IoT Edge pour Linux sur Windows
 
@@ -140,7 +140,7 @@ La commande **Get-EflowVmSshKey** est utilisée pour interroger et afficher la c
 
 ## <a name="ssh-eflowvm"></a>Ssh-EflowVm
 
-La commande **Ssh-EflowVm** est utilisée pour la connexion SSH à la machine virtuelle. Pour toute information supplémentaire, utilisez la commande `Get-Help Ssh-EflowVm -full`.
+La commande **Ssh-EflowVm** est utilisée pour la connexion SSH à la machine virtuelle. Le seul compte autorisé à accéder via SSH à la machine virtuelle est celui de l’utilisateur qui l’a créée. Pour toute information supplémentaire, utilisez la commande `Get-Help Ssh-EflowVm -full`.
 
 | Paramètre | Valeurs acceptées | Commentaires |
 | --------- | --------------- | -------- |

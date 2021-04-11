@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/09/2021
-ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556619"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889329"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -93,7 +93,7 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 
    ![ID d’objet pour l’identité attribuée par le système](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propriété | Valeur | Description |
+   | Propriété | Value | Description |
    |----------|-------|-------------|
    | **ID d’objet** | <*identity-resource-ID*> | GUID (identificateur global unique) qui représente l’identité affectée par le système pour votre application logique dans un locataire Azure AD |
    ||||
@@ -402,52 +402,54 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
      Pour plus d’informations, consultez [Exemple : Authentifier un déclencheur ou une action de connecteur géré avec une identité managée](#authenticate-managed-connector-managed-identity).
 
-     Les connexions que vous créez pour utiliser une identité managée sont un type de connexion spécial qui fonctionne uniquement avec une identité managée. Au moment de l’exécution, la connexion utilise l’identité managée qui est activée sur l’application logique. Cette configuration est enregistrée dans l’objet `parameters` de la définition de ressource de l’application logique, qui contient l’objet `$connections` qui inclut des pointeurs vers l’ID de ressource de la connexion ainsi que l’ID de ressource de l’identité, si l’identité affectée par l’utilisateur est activée.
+### <a name="connections-that-use-managed-identities"></a>Connexions qui utilisent des identités managées
 
-     Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par le système :
+Les connexions qui utilisent une identité managée sont un type particulier de connexion qui fonctionne uniquement avec une identité managée. Au moment de l’exécution, la connexion utilise l’identité managée qui est activée sur l’application logique. Cette configuration est enregistrée dans l’objet `parameters` de la définition de ressource de l’application logique, qui contient l’objet `$connections` qui inclut des pointeurs vers l’ID de ressource de la connexion ainsi que l’ID de ressource de l’identité, si l’identité affectée par l’utilisateur est activée.
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par le système :
 
-     Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par l’utilisateur :
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+ ```
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par l’utilisateur :
 
-     Pendant l’exécution, le service Logic Apps vérifie si un déclencheur et des actions de connecteur géré dans l’application logique sont configurés pour utiliser l’identité managée et que toutes les autorisations requises sont configurées pour utiliser l’identité managée pour accéder aux ressources cibles qui sont spécifiées par le déclencheur et les actions. En cas de réussite, le service Logic Apps récupère le jeton Azure AD associé à l’identité managée et utilise cette identité pour authentifier l’accès à la ressource cible et effectuer l’opération configurée dans le déclencheur et les actions.
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Pendant l’exécution, le service Logic Apps vérifie si un déclencheur et des actions de connecteur géré dans l’application logique sont configurés pour utiliser l’identité managée et que toutes les autorisations requises sont configurées pour utiliser l’identité managée pour accéder aux ressources cibles qui sont spécifiées par le déclencheur et les actions. En cas de réussite, le service Logic Apps récupère le jeton Azure AD associé à l’identité managée et utilise cette identité pour authentifier l’accès à la ressource cible et effectuer l’opération configurée dans le déclencheur et les actions.
 
 <a name="authenticate-built-in-managed-identity"></a>
 

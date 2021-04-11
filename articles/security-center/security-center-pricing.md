@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/08/2021
-ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/23/2021
+ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454362"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889448"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuit et Azure Defender activé
 Azure Defender est gratuit pendant les 30 premiers jours. Une fois les 30 jours écoulés, si vous décidez de continuer à utiliser le service, votre utilisation est automatiquement facturée.
@@ -48,6 +48,8 @@ Security Center est proposé en deux modes :
 - [Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, est-il facturé deux fois ?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [Si un agent Log Analytics émet un rapport dans plusieurs espaces de travail, l’ingestion de données gratuite de 500 Mo est-elle disponible sur chacun d’eux ?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [L’ingestion de données gratuite de 500 Mo est-elle calculée pour un espace de travail entier ou strictement machine par machine ?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [Quels sont les types de données inclus dans l’allocation quotidienne de données de 500 Mo ?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Comment puis-je suivre qui a effectué des modifications au niveau d’Azure Defender dans Security Center dans mon organisation ?
 Des abonnements Azure peuvent avoir plusieurs administrateurs autorisés à modifier les paramètres de tarification. Pour savoir quel utilisateur a effectué une modification, utilisez le journal d’activité Azure.
@@ -114,6 +116,24 @@ Oui. Si vous avez configuré votre agent Log Analytics pour envoyer des données
 Vous obtiendrez une ingestion de données gratuite de 500 Mo par jour, pour chaque machine connectée à l’espace de travail. Spécifiquement pour les types de données de sécurité directement collectés par Azure Security Center.
 
 Ces données correspondent à un tarif journalier moyenné sur l’ensemble des nœuds. Par conséquent, même si certaines machines envoient 100 Mo et que d’autres envoient 800 Mo, si le total ne dépasse pas la limite de gratuité **[nombre de machines] x 500 Mo**, aucun supplément ne vous est facturé.
+
+### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>Quels sont les types de données inclus dans l’allocation quotidienne de données de 500 Mo ?
+
+La facturation de Security Center est étroitement liée à la facturation de Log Analytics. Security Center permet une attribution de 500 Mo/nœud/jour par rapport au sous-ensemble de [types de données de sécurité](/azure/azure-monitor/reference/tables/tables-category.md#security)suivant :
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Les types de données Update et UpdateSummary sont activés lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou le ciblage de solution
+
+Si l’espace de travail est au niveau tarifaire hérité Par nœud, les allocations du Centre de sécurité et de Log Analytics sont combinées et appliquées conjointement à toutes les données ingérées facturables.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article a décrit les options tarifaires de Security Center. Consultez les documents connexes suivants :

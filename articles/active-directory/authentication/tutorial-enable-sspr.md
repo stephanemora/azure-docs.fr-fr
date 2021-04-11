@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198487"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887765"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutoriel : Permettre aux utilisateurs de déverrouiller leur compte ou de réinitialiser des mots de passe à l’aide de la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -138,6 +138,22 @@ Si vous ne souhaitez plus utiliser la fonctionnalité SSPR que vous avez configu
 1. Recherchez et sélectionnez **Azure Active Directory**, puis choisissez **Réinitialisation de mot de passe** dans le menu de gauche.
 1. Dans la page **Propriétés**, sous l’option *Réinitialisation de mot de passe en libre-service activée*, choisissez **Aucun**.
 1. Pour appliquer la modification SSPR, sélectionnez **Enregistrer**.
+
+## <a name="faqs"></a>FAQ
+
+Cette section décrit les questions courantes des administrateurs et des utilisateurs finaux qui essaient SSPR :
+
+- Pourquoi les utilisateurs fédérés attendent jusqu’à 2 minutes après avoir vu le message **Votre mot de passe a été réinitialisé** avant de pouvoir utiliser les mots de passe qui sont synchronisés en local ?
+
+  Pour les utilisateurs fédérés dont les mots de passe sont synchronisés, la source d’autorité pour les mots de passe est locale. Par conséquent, SSPR met à jour uniquement les mots de passe locaux. La resynchronisation de hachage de mot de passe sur Azure AD est planifiée toutes les 2 minutes.
+
+- Quand un utilisateur nouvellement créé, dont les données SSPR sont préremplies (telles que le téléphone et l’e-mail), visite la page d’inscription SSPR, le message **Ne perdez pas l’accès à votre compte !** apparaît comme titre de la page. Pourquoi d’autres utilisateurs dont les données SSPR sont préremplies ne voient pas le message ?
+
+  Un utilisateur qui voit le message **Ne perdez pas l’accès à votre compte !** est membre des groupes d’inscription SSPR/combinés qui sont configurés pour le locataire. Les utilisateurs qui ne voient pas ce message ne font pas partie de ces groupes.
+
+- Lorsque certains utilisateurs suivent le processus SSPR et réinitialisent leur mot de passe, pourquoi ne voient-ils pas l’indicateur du niveau de sécurité du mot de passe ?
+
+  La réécriture du mot de passe synchronisé est activée pour les utilisateurs qui ne voient pas le niveau de sécurité du mot de passe faible/fort. Étant donné que SSPR ne peut pas déterminer la stratégie de mot de passe de l’environnement local du client, il ne peut pas valider la force ou la faiblesse du mot de passe. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

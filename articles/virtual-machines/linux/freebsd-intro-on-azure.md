@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 0451047cd0fa31d27553a33b0c9318e03ffa222e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: da51fabaaa3c02137770f0b2d9a851b1f6702980
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102558948"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044047"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Présentation de FreeBSD sur Azure
 Cet article offre une vue d’ensemble de l’exécution d’une machine virtuelle FreeBSD dans Azure.
@@ -47,10 +47,10 @@ sudo pkg install bash
 Si python n’est pas installé sur votre ordinateur FreeBSD, exécutez les commandes suivantes avant l’installation. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 Pendant l’installation, vous devez répondre à la question suivante : `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Si vous répondez `y` et que vous entrez `/etc/rc.conf` comme `a path to an rc file to update`, vous pouvez rencontrer le problème suivant : `ERROR: [Errno 13] Permission denied`. Pour résoudre ce problème, vous devez accorder le droit d’écriture à l’utilisateur actif pour le fichier `etc/rc.conf`.

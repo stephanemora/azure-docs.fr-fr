@@ -3,12 +3,12 @@ title: Prise en charge du niveau Archive (préversion)
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609850"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563971"
 ---
 # <a name="archive-tier-support-preview"></a>Prise en charge du niveau Archive (préversion)
 
@@ -46,7 +46,7 @@ Clients pris en charge :
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. Connectez-vous à Azure à l’aide la cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+1. Connectez-vous à Azure à l’aide la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 1. Connectez-vous à votre abonnement :
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -128,7 +128,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 Pour les points de récupération dans l’archive, le service Sauvegarde Azure fournit une méthodologie de restauration intégrée.
 
-La restauration intégrée est un processus en deux étapes. La première étape consiste à réalimenter les points de récupération stockés dans l’archive, et à stocker celle-ci temporairement au niveau Coffre-Standard pour une durée (également appelée « durée de réalimentation ») de 10 à 30 jours. La durée par défaut est de 15 jours. Il existe deux priorités de réalimentation : Standard et Haute. Apprenez-rn davantage sur la [priorité de réalimentation](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier).
+La restauration intégrée est un processus en deux étapes. La première étape consiste à réalimenter les points de récupération stockés dans l’archive, et à stocker celle-ci temporairement au niveau Coffre-Standard pour une durée (également appelée « durée de réalimentation ») de 10 à 30 jours. La durée par défaut est de 15 jours. Il existe deux priorités de réalimentation : Standard et Haute. Apprenez-rn davantage sur la [priorité de réalimentation](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
 >[!NOTE]
 >

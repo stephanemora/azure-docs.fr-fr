@@ -4,14 +4,14 @@ description: Découvrez comment surveiller l’activité de copie dans Azure Dat
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388292"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771377"
 ---
 # <a name="monitor-copy-activity"></a>Surveiller l'activité de copie
 
@@ -59,7 +59,7 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 | rowsCopied | Nombre de lignes copiées dans le récepteur. Cette mesure ne s’applique pas lors de la copie de fichiers en l’absence d’analyse, par exemple, lorsque les jeux de données source et de récepteur sont de type binaire, ou d’un autre type de format avec des paramètres identiques.  | Valeur Int64 (aucune unité) |
 | rowsSkipped | Nombre de lignes incompatibles qui ont été ignorées. Vous pouvez faire en sorte que les lignes incompatibles soient ignorées en définissant `enableSkipIncompatibleRow` sur true. | Valeur Int64 (aucune unité) |
 | copyDuration | Durée de l’exécution de la copie. | Valeur Int32, en secondes |
-| throughput | Taux de transfert de données. | Nombre à virgule flottante, en Kbits/s |
+| throughput | Taux de transfert de données, calculé par `dataRead` divisé par `copyDuration`. | Nombre à virgule flottante, en Kbits/s |
 | sourcePeakConnections | Nombre maximal de connexions simultanées établies vers le magasin de données source lors de l’exécution de l’activité de copie. | Valeur Int32 (aucune unité) |
 | sinkPeakConnections| Nombre maximal de connexions simultanées établies vers le magasin de données récepteur lors de l’exécution de l’activité de copie.| Valeur Int32 (aucune unité) |
 | sqlDwPolyBase | Indique si PolyBase est utilisé lorsque les données sont copiées dans Azure Synapse Analytics. | Boolean |

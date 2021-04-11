@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 – .NET'
 description: Découvrez comment utiliser la bibliothèque de client Stockage File d’attente Azure v12 pour .NET afin de créer une file d’attente et d’ajouter des messages à cette file. Vous apprendrez ensuite à lire et à supprimer des messages de la file d’attente. Vous apprendrez également à supprimer une file d’attente.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22038e4145acabc067083177fcf297464972ad58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c4af7afd96f6c503f35cdb4896c3b49d4ef6ed3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97589523"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276227"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque de client Stockage File d’attente Azure v12 pour .NET
 

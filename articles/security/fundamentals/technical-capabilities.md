@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735775"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044751"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, vos ressources et vos applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -278,7 +278,7 @@ La mise en réseau Azure permet de personnaliser le comportement de routage du t
 
 Azure prend en charge la connectivité d’une liaison de réseau étendu dédiée entre votre réseau local et un réseau virtuel Microsoft Azure via [ExpressRoute](../../expressroute/expressroute-introduction.md). La liaison entre Azure et votre site se fait via une connexion dédiée qui ne passe pas par l’Internet public. Si votre application Azure s’exécute dans plusieurs centres de données, vous pouvez utiliser [Microsoft Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) pour acheminer intelligemment les requêtes des utilisateurs vers différentes instances de l’application. Vous pouvez aussi acheminer le trafic vers des services qui ne s’exécutent pas dans Azure s’ils sont accessibles par Internet.
 
-Azure prend également en charge la connectivité privée et sécurisée à vos ressources PaaS (par exemple, Stockage Azure et SQL Database) à partir de votre réseau virtuel Azure avec [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). La ressource PaaS est mappée à un [point de terminaison privé](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) dans votre réseau virtuel. Le lien entre le point de terminaison privé de votre réseau virtuel et votre ressource PaaS utilise le réseau principal de Microsoft et ne passe pas par l’Internet public. L’exposition de votre service à l’Internet public n’est plus nécessaire. Vous pouvez également utiliser Azure Private Link pour accéder à des services de partenaires ou à des clients hébergés par Azure dans votre réseau virtuel.  En outre, Azure Private Link vous permet de créer votre propre [service de liaison privée](https://docs.microsoft.com/azure/private-link/private-link-service-overview) dans votre réseau virtuel, et de le fournir à vos clients en privé dans leurs réseaux virtuels. La configuration et la consommation à l’aide d’Azure Private Link est cohérente entre le service Azure PaaS, les services appartenant au client et les services de partenaires partagés.
+Azure prend également en charge la connectivité privée et sécurisée à vos ressources PaaS (par exemple, Stockage Azure et SQL Database) à partir de votre réseau virtuel Azure avec [Azure Private Link](../../private-link/private-link-overview.md). La ressource PaaS est mappée à un [point de terminaison privé](../../private-link/private-endpoint-overview.md) dans votre réseau virtuel. Le lien entre le point de terminaison privé de votre réseau virtuel et votre ressource PaaS utilise le réseau principal de Microsoft et ne passe pas par l’Internet public. L’exposition de votre service à l’Internet public n’est plus nécessaire. Vous pouvez également utiliser Azure Private Link pour accéder à des services de partenaires ou à des clients hébergés par Azure dans votre réseau virtuel.  En outre, Azure Private Link vous permet de créer votre propre [service de liaison privée](../../private-link/private-link-service-overview.md) dans votre réseau virtuel, et de le fournir à vos clients en privé dans leurs réseaux virtuels. La configuration et la consommation à l’aide d’Azure Private Link est cohérente entre le service Azure PaaS, les services appartenant au client et les services de partenaires partagés.
 
 ## <a name="virtual-machine-security"></a>Sécurité de la machine virtuelle
 

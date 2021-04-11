@@ -3,14 +3,14 @@ title: Présentation d’Update Management Azure Automation
 description: Cet article présente la fonctionnalité Update Management qui implémente les mises à jour de vos machines Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485671"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950057"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser Update Management dans Azure Automation pour gérer les mis
 > [!NOTE]
 > À ce stade, l’activation d’Update Management directement à partir d’un serveur Azure Arc n’est pas prise en charge. Pour connaître les conditions requises et la façon de l’activer pour votre serveur, consultez [Activer Update Management à partir de votre compte Automation](../../automation/update-management/enable-from-automation-account.md).
 
-Pour télécharger et installer automatiquement des correctifs *critiques* et *de sécurité* sur votre machine virtuelle Azure, consultez [Mise à jour corrective automatique de l’invité de machine virtuelle](../../virtual-machines/windows/automatic-vm-guest-patching.md) pour les machines virtuelles Windows.
+Pour télécharger et installer automatiquement des correctifs *critiques* et *de sécurité* sur votre machine virtuelle Azure, consultez [Mise à jour corrective automatique de l’invité de machine virtuelle](../../virtual-machines/automatic-vm-guest-patching.md) pour les machines virtuelles Windows.
 
 Avant de déployer Update Management et d’activer vos machines pour la gestion, assurez-vous de bien comprendre les informations contenues dans les sections suivantes.  
 
@@ -76,8 +76,8 @@ Le tableau suivant liste les systèmes d’exploitation pris en charge pour les 
 |---------|---------|
 |Windows Server 2019 (Datacenter/Standard incluant Server Core)<br><br>Windows Server 2016 (Datacenter/Standard incluant Server Core)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM et SP1 Standard)| Update Management prend uniquement en charge les évaluations et les mises à jour correctives pour ce système d’exploitation. La fonctionnalité [Runbook Worker hybride](../automation-windows-hrw-install.md) est prise en charge pour Windows Server 2008 R2. |
-|CentOS 6 et 7 (x64)      | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 et 7 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
+|CentOS 6, 7 et 8 (x64)      | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6, 7 et 8 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 12, 15 et 15.1 (x64)     | Les agents Linux nécessitent un accès à un référentiel de mise à jour. Pour SUSE 15.x, Python 3 est requis sur l’ordinateur.      |
 |Ubuntu 14.04 LTS, 16.04 LTS et 18.04 LTS (x64)      |Les agents Linux nécessitent un accès à un référentiel de mise à jour.         |
 

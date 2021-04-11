@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433265"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104954647"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -127,13 +127,13 @@ Le résultat de l’appel de `object result = await client.GetDigitalTwinAsync("
 }
 ```
 
-Les propriétés définies du jumeau numérique sont retournées en tant que propriétés de niveau supérieur sur le jumeau numérique. Les métadonnées ou les informations système qui ne font pas partie de la définition DTDL sont retournées avec un préfixe `$`. Les propriétés des métadonnées incluent :
-* L’ID du jumeau numérique dans cette instance Azure Digital Twins, comme `$dtId`.
-* `$etag`, un champ HTTP standard attribué par le serveur web.
-* Autres propriétés dans une section `$metadata`. notamment :
-    - DTMI du modèle du jumeau numérique.
-    - État de synchronisation de chaque propriété accessible en écriture. Cela est très utile pour les appareils, où il est possible que le service et l’appareil aient des états différents (par exemple, lorsqu’un appareil est hors connexion). Actuellement, cette propriété s’applique uniquement aux appareils physiques connectés à IoT Hub. Avec les données dans la section des métadonnées, il est possible de comprendre l’état complet d’une propriété, ainsi que les horodatages des dernières modifications. Pour plus d’informations sur l’état de la synchronisation, consultez [ce tutoriel IoT Hub](../iot-hub/tutorial-device-twins.md) sur la synchronisation de l’état de l’appareil.
-    - Les métadonnées spécifiques au service, par exemple à partir d’IoT Hub ou d’Azure Digital Twins. 
+Les propriétés définies du jumeau numérique sont retournées en tant que propriétés de niveau supérieur sur le jumeau numérique. Les métadonnées ou les informations système qui ne font pas partie de la définition DTDL sont retournées avec un préfixe `$`. Les propriétés de métadonnées comprennent les valeurs suivantes :
+* `$dtId` : L’ID du jumeau numérique dans cette instance d’Azure Digital Twins
+* `$etag` : Un champ HTTP standard attribué par le serveur web. Sa valeur est mise à jour chaque fois que le jumeau est mis à jour, ce qui peut être utile pour déterminer si les données du jumeau ont été mises à jour sur le serveur depuis la vérification précédente. Vous pouvez utiliser `If-Match` pour effectuer des mises à jour et des suppressions qui se terminent uniquement si l’Etag de l’entité correspond à celui fourni. Pour plus d’informations sur ces opérations, consultez la documentation relative à [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) et à [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
+* `$metadata` : Un ensemble d’autres propriétés, notamment :
+  - DTMI du modèle du jumeau numérique.
+  - État de synchronisation de chaque propriété accessible en écriture. Cela est très utile pour les appareils, où il est possible que le service et l’appareil aient des états différents (par exemple, lorsqu’un appareil est hors connexion). Actuellement, cette propriété s’applique uniquement aux appareils physiques connectés à IoT Hub. Avec les données dans la section des métadonnées, il est possible de comprendre l’état complet d’une propriété, ainsi que les horodatages des dernières modifications. Pour plus d’informations sur l’état de la synchronisation, consultez [ce tutoriel IoT Hub](../iot-hub/tutorial-device-twins.md) sur la synchronisation de l’état de l’appareil.
+  - Les métadonnées spécifiques au service, par exemple à partir d’IoT Hub ou d’Azure Digital Twins. 
 
 Pour plus d’informations sur les classes d’assistance de sérialisation telles que `BasicDigitalTwin`, consultez [*Procédure : Utiliser les kits SDK et les API Azure Digital Twins*](how-to-use-apis-sdks.md).
 

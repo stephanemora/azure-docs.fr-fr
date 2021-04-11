@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 3b109048be4a94990c26e31aa5bc2ad36fdd0211
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102583460"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563818"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Conditions préalables à l’accès programmatique aux données d’analyse
 
@@ -24,7 +24,7 @@ Pour accéder aux données d’analyse de la place de marché commerciale par pr
 
 ## <a name="create-azure-active-directory-application"></a>Création d’une application Azure Active Directory
 
-Les informations d’identification habituelles de l’utilisateur ne peuvent pas être utilisées pour accéder par programme aux données d’analyse de la place de marché commerciale. Une application Azure Active Directory (Azure AD) doit être créée, de même qu’un secret, pour accéder aux API d’analyse. Pour savoir comment créer une application Azure AD et un secret, consultez [Guide de démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+Les informations d’identification habituelles de l’utilisateur ne peuvent pas être utilisées pour accéder par programme aux données d’analyse de la place de marché commerciale. Une application Azure Active Directory (Azure AD) doit être créée, de même qu’un secret, pour accéder aux API d’analyse. Pour savoir comment créer une application Azure AD et un secret, consultez [Guide de démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="associate-the-azure-ad-application-to-the-partner-center-tenant"></a>Associer l’application Azure AD au locataire de l’Espace partenaires
 
@@ -41,7 +41,7 @@ L’application Azure AD que vous avez créée dans le portail Azure doit être 
 
 ## <a name="generate-an-azure-ad-token"></a>Générer un jeton Azure AD
 
-Vous devez générer un jeton Azure AD à l’aide de l’ID d’application (client). Cet ID permet d’identifier de manière unique votre application cliente dans la plateforme d’identités Microsoft et la clé secrète client de l’étape précédente. Pour connaître la procédure permettant de générer un jeton Azure AD, consultez [Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow).
+Vous devez générer un jeton Azure AD à l’aide de l’ID d’application (client). Cet ID permet d’identifier de manière unique votre application cliente dans la plateforme d’identités Microsoft et la clé secrète client de l’étape précédente. Pour connaître la procédure permettant de générer un jeton Azure AD, consultez [Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md).
 
 > [!NOTE]
 > Ce jeton est valide une heure.

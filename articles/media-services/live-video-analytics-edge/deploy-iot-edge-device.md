@@ -3,12 +3,12 @@ title: Déployer Live Video Analytics sur un appareil IoT Edge - Azure
 description: Cet article répertorie les étapes permettant de déployer Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2fdf95be0966702f58afbb9df8e09a1688f9b204
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101718928"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961555"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Déployer Live Video Analytics sur un appareil IoT Edge
 
@@ -25,7 +25,7 @@ Cet article répertorie les étapes permettant de déployer Live Video Analytics
 * [Créer et configurer IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Enregistrer un appareil IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../../iot-edge/how-to-install-iot-edge.md)
-* [Créer un compte Azure Media Services](../latest/create-account-howto.md)
+* [Créer un compte Azure Media Services](../latest/account-create-how-to.md)
 
     * Utilisez l’une de ces régions : USA Est 2, USA Est, USA Centre, USA Centre Nord, Japon Est, USA Ouest, USA Ouest 2, USA Centre-Ouest, Canada Est, Royaume-Uni Sud, France Centre, France Sud, Suisse Nord, Suisse Ouest et Japon Ouest.
     * Nous vous recommandons d’utiliser des comptes de stockage universels v2 (GPv2).

@@ -5,22 +5,22 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078473"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801823"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Rechercher les frais des unités de requête pour les opérations exécutées dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB prend en charge de nombreuses API, notamment SQL, MongoDB, Cassandra, Gremlin et Table. Chaque API possède son propre ensemble d’opérations de base de données, qui vont de simples opérations ponctuelles de lecture et d'écriture à des requêtes complexes. Chaque opération de base de données consomme des ressources système en fonction de sa complexité.
 
-Le coût de toutes les opérations de base de données, normalisé par Azure Cosmos DB, est exprimé en unités de requête (RU). Les RU correspondent en quelque sorte à une devise de performances, faisant abstraction des ressources système (UC, IOPS, mémoire, etc.) requises pour effectuer les opérations de base de données prises en charge par Azure Cosmos DB. Quelle que soit l’API utilisée pour interagir avec le conteneur Azure Cosmos, les coûts sont toujours mesurés en unités de requête, Que l’opération de base de données soit une opération d’écriture, de lecture de point ou de requête, les coûts sont toujours mesurés en unités de requête. Pour plus d’informations, consultez l’article [Unités de requête et considérations](request-units.md).
+Le coût de toutes les opérations de base de données, normalisé par Azure Cosmos DB, est exprimé en unités de requête (RU). Les frais de requête sont les unités de requête consommées par toutes vos opérations de base de données. Les RU correspondent en quelque sorte à une devise de performances, faisant abstraction des ressources système (UC, IOPS, mémoire, etc.) requises pour effectuer les opérations de base de données prises en charge par Azure Cosmos DB. Quelle que soit l’API utilisée pour interagir avec le conteneur Azure Cosmos, les coûts sont toujours mesurés en unités de requête, Que l’opération de base de données soit une opération d’écriture, de lecture de point ou de requête, les coûts sont toujours mesurés en unités de requête. Pour plus d’informations, consultez l’article [Unités de requête et considérations](request-units.md).
 
 Cet article présente les différentes façons de rechercher la consommation d’[unités de requête](request-units.md) pour toute opération exécutée sur un conteneur dans l’API Azure Cosmos DB pour MongoDB. Si vous utilisez une autre API, consultez les articles [API SQL](find-request-unit-charge.md), [API Cassandra](find-request-unit-charge-cassandra.md), [API Gremlin](find-request-unit-charge-gremlin.md) et [API Table](find-request-unit-charge-table.md) pour trouver les frais de RU/s.
 
@@ -32,15 +32,19 @@ Les frais d’unités de requête sont exposés par une [commande de base de don
 
 1. [Créez un compte Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) et remplissez-le avec des données, ou sélectionnez un compte existant qui contient déjà des données.
 
-1. Accédez au volet **Explorateur de données** , puis sélectionnez le conteneur sur lequel vous voulez travailler.
+1. Accédez au volet **Explorateur de données**, puis sélectionnez le conteneur sur lequel vous voulez travailler.
 
-1. Sélectionnez **Nouvelle requête**.
+1. Sélectionnez les points de suspension ( **...** ) en regard du nom du conteneur, puis choisissez **Nouvelle requête**.
 
 1. Entrez une requête valide, puis sélectionnez **Exécuter la requête**.
 
-1. Sélectionnez **Statistiques des requêtes** pour afficher les frais réels de la demande que vous avez exécutée.
+1. Sélectionnez **Statistiques des requêtes** pour afficher les frais réels de la demande que vous avez exécutée. Cet éditeur de requête vous permet d’exécuter et d’afficher les frais d’unité de demande uniquement pour les prédicats de requête. Vous ne pouvez pas utiliser cet éditeur pour des commandes de manipulation de données telles que les instructions insert.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Capture d’écran des frais de demande de requête MongoDB sur le portail Azure":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Capture d’écran des frais de demande de requête MongoDB sur le portail Azure":::
+
+1. Pour obtenir les frais de demande pour des commandes de manipulation de données, exécutez la commande `getLastRequestStatistics` à partir d’une interface utilisateur basée sur un interpréteur de commandes, tel que l’interpréteur de commandes Mongo, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md) ou une extension VS Code avec des scripts d’interpréteur de commandes.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Utiliser le pilote .NET MongoDB
 

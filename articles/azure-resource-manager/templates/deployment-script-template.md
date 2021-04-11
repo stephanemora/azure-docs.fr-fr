@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/23/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175649"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889380"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Utiliser des scripts de déploiement dans des modèles ARM
 
@@ -131,6 +131,9 @@ L’extrait JSON ci-dessous est un exemple. Pour plus d’informations, consulte
 > [!NOTE]
 > L’exemple ne sert qu’à des fins de démonstration. Les propriétés `scriptContent` et `primaryScriptUri` ne peuvent pas coexister dans un modèle.
 
+> [!NOTE]
+> La propriété _scriptContent_ affiche un script de plusieurs lignes.  Le portail Azure et le pipeline Azure DevOps ne peuvent pas analyser un script de déploiement de plusieurs lignes. Vous pouvez chaîner les commandes PowerShell (en utilisant des points-virgules ou _\\r\\n_ or _\\n_) en une seule ligne, ou utiliser la propriété `primaryScriptUri` avec un fichier de script externe. De nombreux outils gratuits d’échappement ou d’annulation d’échappement de chaîne JSON sont disponibles. Par exemple : [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Détails des valeurs de propriété :
 
 - `identity` : Pour l’API de script de déploiement version 2020-10-01 ou ultérieure, une identité managée attribuée par l’utilisateur est facultative, sauf si vous devez effectuer des actions spécifiques à Azure dans le script.  Pour la version d’API 2019-10-01-preview, une identité managée est nécessaire, car le service de script de déploiement l’utilise pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
@@ -159,14 +162,11 @@ Détails des valeurs de propriété :
 
 - `environmentVariables` : spécifie les variables d'environnement à transmettre au script. Pour plus d'informations, consultez [Développer des scripts de déploiement](#develop-deployment-scripts).
 - `scriptContent` : précise le contenu du script. Pour exécuter un script externe, utilisez plutôt `primaryScriptUri`. Pour obtenir des exemples, consultez [Utiliser un script inclus](#use-inline-scripts) et [Utiliser un script externe](#use-external-scripts).
-  > [!NOTE]
-  > Le Portail Azure ne peut pas analyser un script de déploiement avec plusieurs lignes. Pour déployer un modèle avec le script de déploiement à partir du Portail Azure, vous pouvez chaîner les commandes PowerShell en utilisant des points-virgules en une seule ligne, ou utiliser la propriété `primaryScriptUri` avec un fichier de script externe.
-
-- `primaryScriptUri` : spécifie une URL accessible publiquement pour le script de déploiement principal avec les extensions de fichier prises en charge.
-- `supportingScriptUris` : spécifie un tableau d’URL accessibles publiquement pour les fichiers de prise en charge qui seront appelés dans `scriptContent` ou `primaryScriptUri`.
+- `primaryScriptUri` : spécifiez une URL accessible publiquement pour le script de déploiement principal avec les extensions de fichier prises en charge. Pour plus d’informations, consultez [Utiliser des scripts externes](#use-external-scripts).
+- `primaryScriptUri` : spécifiez un tableau d’URL accessibles publiquement pour les fichiers de support qui seront appelés dans `supportingScriptUris` ou `scriptContent`. Pour plus d’informations, consultez [Utiliser des scripts externes](#use-external-scripts).
 - `timeout` : précise la durée d’exécution maximale autorisée du script, définie au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
 - `cleanupPreference`. indique la préférence de nettoyage des ressources de déploiement lorsque l’exécution du script arrive à un état terminal. Le paramètre par défaut est **Always**, ce qui signifie que les ressources sont supprimées malgré l’état terminal (Succeeded, Failed, Canceled). Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
-- `retentionInterval` : spécifie l’intervalle pendant lequel le service conserve les ressources du script de déploiement une fois que l’exécution du script a atteint un état terminal. Les ressources de script de déploiement sont supprimées à la fin de cette durée. La durée est basée sur le [modèle ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle de rétention est compris entre 1 et 26 heures (PT26H). Cette propriété est utilisée quand `cleanupPreference` a la valeur **OnExpiration**. La propriété **OnExpiration** n’est pas activée actuellement. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
+- `retentionInterval` : spécifie l’intervalle pendant lequel le service conserve les ressources du script de déploiement une fois que l’exécution du script a atteint un état terminal. Les ressources de script de déploiement sont supprimées à la fin de cette durée. La durée est basée sur le [modèle ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L’intervalle de rétention est compris entre 1 et 26 heures (PT26H). Cette propriété est utilisée quand `cleanupPreference` a la valeur **OnExpiration**. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Exemples supplémentaires
 
@@ -212,7 +212,7 @@ En plus des scripts inclus, vous pouvez utiliser des fichiers de script externe.
 
 Pour plus d’informations, consultez l’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Les fichiers de script externe doivent être accessibles. Pour sécuriser vos fichiers de script qui sont stockés dans les comptes de stockage Azure, consultez [Déployer un modèle Resource Manager privé avec un jeton SAS](./secure-template-with-sas-token.md).
+Les fichiers de script externe doivent être accessibles. Pour sécuriser vos fichiers de script stockés dans des comptes de stockage Azure, générez un jeton SAP et incluez-le dans l’URI du modèle. Définissez le délai d’expiration de façon à laisser suffisamment de temps pour terminer le déploiement. Pour plus d’informations, consultez [Déployer un modèle privé ARM avec un jeton SAP](./secure-template-with-sas-token.md).
 
 Vous êtes chargé de garantir l'intégrité des scripts référencés par le script de déploiement, à savoir `primaryScriptUri` ou `supportingScriptUris`. Référencez uniquement les scripts auxquels vous faites confiance.
 
@@ -313,7 +313,7 @@ Le service de script définit l’état d’approvisionnement de la ressource su
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passer des chaînes sécurisées au script de déploiement
 
-La définition de variables d'environnement (EnvironmentVariable) dans vos instances de conteneur vous permet de fournir une configuration dynamique de l'application ou du script exécuté par le conteneur. Le script de déploiement gère les variables d’environnement sécurisées et non sécurisées de la même manière qu’Azure Container Instance. Pour plus d’informations, consultez [Définir des variables d’environnement dans des instances de conteneur](../../container-instances/container-instances-environment-variables.md#secure-values).
+La définition de variables d'environnement (EnvironmentVariable) dans vos instances de conteneur vous permet de fournir une configuration dynamique de l'application ou du script exécuté par le conteneur. Le script de déploiement gère les variables d’environnement sécurisées et non sécurisées de la même manière qu’Azure Container Instance. Pour plus d’informations, consultez [Définir des variables d’environnement dans des instances de conteneur](../../container-instances/container-instances-environment-variables.md#secure-values). Pour un exemple, voir [Exemples de modèles](#sample-templates).
 
 La taille maximale autorisée pour les variables d’environnement est de 64 Ko.
 

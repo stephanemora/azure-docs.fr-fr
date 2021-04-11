@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone OnDemand | Microsoft Docs'
-description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cornerstone OnDemand.
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Cornerstone Single Sign-On | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cornerstone Single Sign-On.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 03/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 0994126c4e31d880a792904b0c086a56f6bd90fb
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98727723"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950333"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone OnDemand
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone Single Sign-On
 
-Dans ce tutoriel, vous allez découvrir comment intégrer Cornerstone OnDemand à Azure Active Directory (Azure AD). Quand vous intégrez Cornerstone OnDemand à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez apprendre à intégrer Cornerstone Single Sign-On à Azure AD (Azure Active Directory). Quand vous intégrez Cornerstone Single Sign-On à Azure AD, vous pouvez :
 
-* Contrôler qui a accès à Cornerstone OnDemand
-* Autoriser vos utilisateurs à se connecter automatiquement à Cornerstone OnDemand avec leur compte Azure AD
+* Contrôler, dans Azure AD, qui a accès à Cornerstone Single Sign-On.
+* Permettre à vos utilisateurs de se connecter automatiquement à Cornerstone Single Sign-On avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer Cornerstone OnDemand 
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Abonnement Cornerstone OnDemand pour lequel l’authentification unique (SSO) est activée
+* Un abonnement Cornerstone Single Sign-On pour lequel l’authentification unique est activée.
 
 > [!NOTE]
 > Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
@@ -40,39 +40,39 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Cornerstone OnDemand prend en charge l’authentification unique initiée par **SP**
-* Cornerstone OnDemand prend en charge [l’approvisionnement d’utilisateurs automatique](cornerstone-ondemand-provisioning-tutorial.md)
+* Cornerstone Single Sign-On prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Cornerstone Single Sign-On prend en charge le [provisionnement automatique d’utilisateurs](cornerstone-ondemand-provisioning-tutorial.md).
 
 
-## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Ajout de Cornerstone OnDemand à partir de la galerie
+## <a name="adding-cornerstone-single-sign-on-from-the-gallery"></a>Ajout de Cornerstone Single Sign-On à partir de la galerie
 
-Pour configurer l’intégration de Cornerstone OnDemand à Azure AD, vous devez ajouter Cornerstone OnDemand disponible dans la galerie, à votre liste d’applications SaaS gérées.
+Pour configurer l’intégration de Cornerstone Single Sign-On à Azure AD, vous devez l’ajouter à votre liste d’applications SaaS managées à partir de la galerie.
 
 1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **Cornerstone OnDemand** dans la zone de recherche.
-1. Sélectionnez **Cornerstone OnDemand** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Dans la section **Ajouter à partir de la galerie**, saisissez **Cornerstone Single Sign-On** dans la zone de recherche.
+1. Sélectionnez **Cornerstone Single Sign-On** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-sso-for-cornerstone-ondemand"></a>Configurer et tester l’authentification unique Azure AD pour Cornerstone OnDemand
+## <a name="configure-and-test-azure-ad-sso-for-cornerstone-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD pour Cornerstone Single Sign-On
 
-Configurez et testez l’authentification unique Azure AD avec Cornerstone OnDemand à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Cornerstone OnDemand associé.
+Configurez et testez l’authentification unique Azure AD avec Cornerstone Single Sign-On à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Cornerstone Single Sign-On associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec Cornerstone OnDemand, effectuez les étapes suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Cornerstone Single Sign-On, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
     1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
     1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-2. **[Configurer l’authentification unique Cornerstone onDemand](#configure-cornerstone-ondemand-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    1. **[Créer un utilisateur de test Cornerstone OnDemand](#create-cornerstone-ondemand-test-user)** pour avoir un équivalent de B.Simon dans Cornerstone OnDemand lié à la représentation Azure AD de l’utilisateur.
+2. **[Configurer Cornerstone Single Sign-On](#configure-cornerstone-single-sign-on-sso)** pour configurer les paramètres d’authentification unique côté application.
+    1. **[Créer un utilisateur de test Cornerstone Single Sign-On](#create-cornerstone-single-sign-on-test-user)** pour avoir un équivalent de B.Simon dans Cornerstone Single Sign-On qui soit lié à la représentation Azure AD de l’utilisateur.
 3. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Sur le portail Azure, dans la page d’intégration de l’application **Cornerstone OnDemand**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Cornerstone Single Sign-On**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
@@ -80,18 +80,20 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<company>.csod.com/samldefault.aspx?ouid=2`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<PORTAL_NAME>.csod.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<company>.csod.com/samldefault.aspx?ouid=2`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<PORTAL_NAME>.csod.com/samldefault.aspx?ouid=<OUID>`
+
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<PORTAL_NAME>.csod.com/samldefault.aspx?ouid=<OUID>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Cornerstone OnDemand](mailto:moreinfo@csod.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse, l’identificateur et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support client de Cornerstone Single Sign-On](mailto:moreinfo@csod.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-6. Dans la section **Configurer Cornerstone onDemand**, copiez la ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer Cornerstone Single Sign-On**, copiez les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -109,41 +111,72 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Cornerstone OnDemand.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Cornerstone Single Sign-On.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-1. Dans la liste des applications, sélectionnez **Cornerstone OnDemand**.
+1. Dans la liste des applications, sélectionnez **Cornerstone Single Sign-On**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-cornerstone-ondemand-sso"></a>Configurer l’authentification unique Cornerstone OnDemand
+## <a name="configure-cornerstone-single-sign-on-sso"></a>Configurer l’authentification unique Cornerstone Single Sign-On
 
-Pour configurer l’authentification unique côté **Cornerstone OnDemand**, vous devez envoyer le **Certificat (Base64)** téléchargé et les URL correspondantes copiées depuis le Portail Azure à [l’équipe du support technique Cornerstone OnDemand](mailto:moreinfo@csod.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Connectez-vous à Cornerstone Single Sign-On en tant qu’administrateur.
 
-### <a name="create-cornerstone-ondemand-test-user"></a>Créer un utilisateur de test Cornerstone OnDemand
+1. Sélectionnez **Admin -> Tools**.
 
-L’objectif de cette section est de créer un utilisateur appelé B.Simon dans Cornerstone OnDemand. Cornerstone OnDemand prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Vous trouverez plus d’informations [ici](./cornerstone-ondemand-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
+    ![capture d’écran de la page Admin.](./media/cornerstone-ondemand-tutorial/admin.png)
+
+1. Sélectionnez le panneau **EDGE** sous **Configuration Tools**.
+
+    ![capture d’écran du panneau EDGE.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
+
+1. Sélectionnez Single Sign-On dans la section **Integrate**.
+
+    ![capture d’écran de l’option Single Sign-On.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
+
+1. Cliquez sur le bouton **Add SSO**. Sélectionnez **Inbound SAML** (Connexion SAML entrante) dans la fenêtre contextuelle illustrée ci-dessous, puis cliquez sur **Add**.
+
+    ![capture d’écran de l’option Inbound SAML.](./media/cornerstone-ondemand-tutorial/inbound.png)
+
+1. Effectuez les étapes ci-dessous dans la page suivante :
+
+    ![capture d’écran de la section de configuration de Cornerstone.](./media/cornerstone-ondemand-tutorial/configuration.png)
+
+    a. Sous **General Properties**, cliquez sur **Upload File** pour charger le fichier de **certificat (base64)** que vous avez téléchargé à partir du portail Azure.
+
+    b. Cochez la case **Enable** et, dans la zone de texte **IDP URL** (URL du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée sur le portail Azure.
+
+    c. Cliquez sur **Enregistrer**.
+
+### <a name="create-cornerstone-single-sign-on-test-user"></a>Créer un utilisateur de test Cornerstone Single Sign-On
+
+L’objectif de cette section est de créer un utilisateur appelé B.Simon dans Cornerstone Single Sign-On. Cornerstone Single Sign-On prend en charge le provisionnement automatique d’utilisateurs, qui est activé par défaut. Vous trouverez plus d’informations [ici](./cornerstone-ondemand-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
 **Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
-Pour configurer l’attribution d’utilisateurs, envoyez les informations sur l’utilisateur Azure AD que vous souhaitez approvisionner (par exemple le nom, l’adresse e-mail) à [l’équipe du support technique Cornerstone OnDemand](mailto:moreinfo@csod.com).
+1. Connectez-vous à Cornerstone Single Sign-On en tant qu’administrateur.
 
->[!NOTE]
->Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Cornerstone OnDemand pour provisionner des comptes d’utilisateurs Azure AD.
+1. Accédez à **Admin -> Users**, puis cliquez sur **Add User** en bas de la page.
+
+    ![capture d’écran montrant la création d’un utilisateur de test dans Cornerstone.](./media/cornerstone-ondemand-tutorial/user-1.png)
+
+1. Renseignez les champs obligatoires dans la page **Add new user**, puis cliquez sur **Save**.
+
+    ![capture d’écran montrant la création d’un utilisateur de test avec les champs obligatoires mis en évidence.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Cornerstone OnDemand où vous pouvez démarrer le flux de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL de connexion à Cornerstone Single Sign-On, à partir de laquelle vous pouvez lancer le flux de connexion. 
 
-* Accédez directement à l’URL de connexion à Cornerstone OnDemand pour y lancer le flux de connexion.
+* Accédez directement à l’URL de connexion à Cornerstone Single Sign-On pour lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la vignette Cornerstone OnDemand dans Mes applications, vous êtes redirigé vers l’URL de connexion à Cornerstone OnDemand. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Cornerstone Single Sign-On dans Mes applications, vous êtes redirigé vers l’URL de connexion à Cornerstone Single Sign-On. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Cornerstone OnDemand, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+Après avoir configuré Cornerstone Single Sign-On, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

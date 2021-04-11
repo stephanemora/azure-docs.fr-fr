@@ -2,15 +2,15 @@
 title: Configurer des applications Python Linux
 description: Découvrez comment configurer le conteneur Python dans lequel des applications web sont exécutées à partir du portail Azure et d’Azure CLI.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709085"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953508"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurer une application Python Linux pour Azure App Service
 
@@ -114,7 +114,7 @@ Les applications web existantes peuvent être redéployées dans Azure comme sui
 
 1. **Démarrage d’application** : Passez en revue la section [Processus de démarrage du conteneur](#container-startup-process), plus loin dans cet article, pour comprendre comment App Service tente d’exécuter votre application. App Service utilise par défaut le serveur web Gunicorn, qui doit être en mesure de trouver votre objet d’application ou le dossier *wsgi.py*. Si nécessaire, vous pouvez [personnaliser la commande de démarrage](#customize-startup-command).
 
-1. **Déploiement continu** : Configurez le déploiement continu, comme cela est décrit dans [Déploiement continu vers Azure App Service](deploy-continuous-deployment.md) si vous utilisez un déploiement Azure Pipelines ou Kudu, ou dans [Déployer sur App Service à l’aide de GitHub Actions](deploy-github-actions.md) si vous utilisez des actions GitHub.
+1. **Déploiement continu** : Configurez le déploiement continu, comme cela est décrit dans [Déploiement continu vers Azure App Service](deploy-continuous-deployment.md) si vous utilisez un déploiement Azure Pipelines ou Kudu, ou dans [Déployer sur App Service à l’aide de GitHub Actions](./deploy-continuous-deployment.md) si vous utilisez des actions GitHub.
 
 1. **Actions personnalisées** : Pour effectuer des actions dans le conteneur App Service qui héberge votre application, telles que les migrations de base de données Django, vous pouvez [vous connecter au conteneur via SSH](configure-linux-open-ssh-session.md). Pour obtenir un exemple d’exécution des migrations de base de données Django, consultez [Tutoriel : Déployer une application web Django avec PostgreSQL – Exécuter des migrations de base de données](tutorial-python-postgresql-app.md#43-run-django-database-migrations).
     - Lorsque vous utilisez le déploiement continu, vous pouvez effectuer ces actions à l’aide de commandes post-génération, comme cela est décrit précédemment sous [Personnaliser l’automatisation de la génération](#customize-build-automation).
@@ -373,6 +373,7 @@ Les sections suivantes fournissent des conseils supplémentaires par rapport à 
 - [L’application n’apparaît pas – Message « service indisponible »](#service-unavailable)
 - [setup.py ou requirements.txt est introuvable](#could-not-find-setuppy-or-requirementstxt)
 - [ModuleNotFoundError au démarrage](#modulenotfounderror-when-app-starts)
+- [Base de données verrouillée](#database-is-locked)
 - [Les mots de passe ne s’affichent pas dans une session SSH lorsqu’ils sont tapés](#other-issues)
 - [Les commandes de la session SSH semblent être coupées](#other-issues)
 - [Les ressources statiques n’apparaissent pas dans une application Django](#other-issues)
@@ -409,6 +410,14 @@ Les sections suivantes fournissent des conseils supplémentaires par rapport à 
 #### <a name="modulenotfounderror-when-app-starts"></a>ModuleNotFoundError au démarrage de l’application
 
 Si vous voyez une erreur telle que `ModuleNotFoundError: No module named 'example'`, cela signifie que Python n’a pas pu trouver un ou plusieurs de vos modules au démarrage de l’application. Cela se produit le plus souvent si vous déployez votre environnement virtuel avec votre code. Les environnements virtuels n’étant pas portables, un environnement virtuel ne doit pas être déployé avec votre code d’application. Laissez plutôt Oryx créer un environnement virtuel et installer vos packages sur l’application web en créant un paramètre d’application, `SCM_DO_BUILD_DURING_DEPLOYMENT`, et en lui attribuant la valeur `1`. Cela force Oryx à installer vos paquets chaque fois que vous déployez sur App Service. Pour plus d’informations, consultez [cet article sur la portabilité de l’environnement virtuel](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### <a name="database-is-locked"></a>La base de données est verrouillée
+
+Lorsque vous tentez d’exécuter des migrations de base de données avec une application Django, le message « sqlite3. OperationalError : la base de données est verrouillée. » peut s’afficher. L’erreur indique que votre application utilise une base de données SQLite pour laquelle l’application Django est configurée par défaut, plutôt que d’utiliser une base de données cloud, telle que PostgreSQL pour Azure.
+
+Vérifiez la variable `DATABASES` dans le fichier *settings.py* de l’application pour vous assurer que votre application utilise une base de données cloud au lieu de SQLite.
+
+Si cette erreur se produit dans l’exemple du [Didacticiel : Déployer une application web Django avec PostgreSQL](tutorial-python-postgresql-app.md), vérifiez que vous avez effectué les étapes décrites dans [Configurer les variables d’environnement pour connecter la base de données](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### <a name="other-issues"></a>Autres problèmes
 

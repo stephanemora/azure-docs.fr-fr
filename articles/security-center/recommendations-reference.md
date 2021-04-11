@@ -4,15 +4,15 @@ description: Cet article liste les recommandations de sécurité d’Azure Secur
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/14/2021
+ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: b4fe575039c6e913ca20198f204b6529f6c482c7
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466191"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801460"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -47,6 +47,10 @@ Votre degré de sécurisation est basé sur le nombre de recommandations Securit
 ## <a name="identityandaccess-recommendations"></a><a name='recs-identityandaccess'></a>Recommandations relatives à IdentityAndAccess
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
+
+## <a name="iot-recommendations"></a><a name='recs-iot'></a>Suggestions IoT
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
 ## <a name="networking-recommendations"></a><a name='recs-networking'></a>Recommandations pour la mise en réseau
 

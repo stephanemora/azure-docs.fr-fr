@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
 ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103564318"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Flux de données de mappage dans Azure Data Factory
@@ -33,11 +33,11 @@ Les flux de données sont créés à partir du volet Ressources de la fabrique, 
 
 Vous accédez au canevas du flux de données dans lequel vous pouvez créer votre logique de transformation. Sélectionnez **Ajouter une source** pour commencer à configurer votre transformation de la source. Pour plus d’informations, consultez [Transformation de la source](data-flow-source.md).
 
-## <a name="authoring-data-flows"></a>Création de flux de données
+## <a name="authoring-data-flows&quot;></a>Création de flux de données
 
 Le flux de données de mappage a un canevas de création unique conçu pour faciliter la création de logique de transformation. Le canevas de flux de données est divisé en trois parties : la barre supérieure, le graphe et le panneau de configuration. 
 
-![Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.](media/data-flow/canvas-1.png "Canevas")
+![Capture d’écran montrant le canevas du flux de données avec la barre supérieure, le graphique et le panneau de configuration étiquetés.](media/data-flow/canvas-1.png &quot;Canevas")
 
 ### <a name="graph"></a>Graph
 
@@ -63,11 +63,11 @@ L’onglet **Optimiser** contient des paramètres pour configurer des schémas d
 
 ![La capture d’écran montre l’onglet Optimiser, qui comprend l’option Partition, Type de partition et Nombre de partitions.](media/data-flow/optimize.png)
 
-#### <a name="inspect"></a>Inspecter
+#### <a name="inspect&quot;></a>Inspecter
 
 Le volet **Inspecter** permet de visualiser les métadonnées du flux de données que vous êtes en train de transformer. Vous pouvez voir le nombre de colonnes, les colonnes modifiées, les colonnes ajoutées, les types de données, l'ordre des colonnes et les références des colonnes. **Inspecter** est un affichage en lecture seule de vos métadonnées. Il n’est pas nécessaire que le mode de débogage soit activé pour voir les métadonnées dans le volet **Inspecter**.
 
-![Inspecter](media/data-flow/inspect1.png "Inspecter")
+![Inspecter](media/data-flow/inspect1.png &quot;Inspecter")
 
 À mesure que vous modifiez la forme de vos données par le biais de transformations, les changements de métadonnées sont visibles dans le volet **Inspecter**. Si votre transformation de la source ne comporte pas de schéma défini, les métadonnées ne sont pas visibles dans le volet **Inspecter**. L’absence de métadonnées est fréquent dans les scénarios de dérive de schéma.
 
