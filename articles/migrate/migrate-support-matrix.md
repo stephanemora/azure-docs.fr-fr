@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b9ea447b0204ad91065f27d265584c8787167fc2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: af0b8a4d3dfbce32e412f5294fb19ade61fd7661
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870719"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628167"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -44,7 +44,7 @@ Azure Migrate : Server Migration | N/A | Migrer des [machines virtuelles VMware
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et d’autres charges de travail de cloud. | N/A
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et d’autres charges de travail de cloud. |  Migrer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des charges de travail de cloud public.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et d’autres charges de travail de cloud.| N/A
-[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Évaluer des bases de données SQL Server. | N/A
+[DMA](/sql/dma/dma-overview) | Évaluer des bases de données SQL Server. | N/A
 [DMS](../dms/dms-overview.md) | N/A | Migrer SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Évaluer Virtual Desktop Infrastructure (VDI) | N/A
 [Movere](https://www.movere.io/) | Évaluer des machines virtuelles VMware, des machines virtuelles Hyper-V, des machines virtuelles Xen, des serveurs physiques, des stations de travail (y compris VDI) et d’autres charges de travail de cloud. | N/A
