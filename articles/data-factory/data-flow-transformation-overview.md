@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bb5021c0125c3140ef44a1ec3304b9d0ac40c30f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593859"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060225"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Vue d’ensemble de la transformation de flux de données de mappage
 
@@ -42,3 +42,4 @@ Vous trouverez ci-dessous la liste des transformations actuellement prises en ch
 | [Union](data-flow-union.md) | Entrées/sorties multiples | Combinez plusieurs flux de données verticalement. |
 | [Supprimer le tableau croisé dynamique](data-flow-unpivot.md) | Modificateur de schéma | Créer un tableau croisé dynamique pour convertir des colonnes en valeurs de ligne |
 | [Window](data-flow-window.md) | Modificateur de schéma |  Définissez des agrégations de colonnes basées sur des fenêtres dans vos flux de données. |
+| [Analyser](data-flow-parse.md). | Modificateur de schéma |  Analyser les données de colonne en Json ou texte délimité |

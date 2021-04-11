@@ -5,14 +5,14 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: e6ec59e3cb8d285652935b42493c820a7379eeb8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7c103a7eba2e5da7ac040b50fcc0009a0b7237b
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956075"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449866"
 ---
 # <a name="azure-media-player-full-setup"></a>Installation complète du Lecteur multimédia Azure #
 
@@ -20,7 +20,7 @@ Le lecteur multimédia Azure est facile à configurer. Seuls quelques instants s
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Étape 1 : Inclure les fichiers JavaScript et CSS dans l'en-tête de votre page ##
 
-Le Lecteur multimédia Azure vous permet d'accéder aux scripts à partir de la version hébergée du CDN. Il est généralement recommandé de placer JavaScript avant la balise body de fin `<body>` plutôt que `<head>`, mais le Lecteur multimédia Azure inclut un « HTML5 Shiv », qui doit se trouver dans l’en-tête des anciennes versions d’IE pour respecter la balise vidéo comme un élément valide.
+Le Lecteur multimédia Azure vous permet d'accéder aux scripts à partir de la version hébergée du CDN. Il est généralement recommandé de placer JavaScript avant la balise body de fin `<body>` plutôt que `<head>`, mais le Lecteur multimédia Azure inclut un « HTML5 Shiv », qui doit se trouver dans l'en-tête des anciennes versions IE pour respecter la balise vidéo en tant qu’élément valide.
 
 > [!NOTE]
 > Si vous utilisez déjà un HTML5 Shiv tel que [Modernizr](https://modernizr.com/), vous pouvez inclure le Lecteur multimédia Azure JavaScript partout. Cela étant, assurez-vous que votre version de Modernizr inclut le Shiv pour la vidéo.
@@ -33,7 +33,7 @@ Le Lecteur multimédia Azure vous permet d'accéder aux scripts à partir de la 
 ```
 
 > [!IMPORTANT]
-> Vous ne devez **PAS** utiliser la version `latest` en production, car elle est susceptible de changer à la demande. Remplacez `latest` par une version du Lecteur multimédia Azure. Par exemple, remplacez `latest` par `2.1.1`. Les versions du Lecteur multimédia Azure peuvent être interrogées à partir de [cet emplacement](azure-media-player-changelog.md).
+> Vous ne devez **PAS** utiliser la version `latest` en production, car elle est susceptible de changer à la demande. Remplacez `latest` par une version du Lecteur multimédia Azure. Par exemple, remplacez `latest` par `2.1.1`. Les versions du Lecteur multimédia Azure peuvent être interrogées à partir de [cet emplacement](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 > [!NOTE]
 > Depuis la version `1.2.0`, il n’est plus nécessaire d’inclure l’emplacement aux technologies de secours (elle sélectionne automatiquement l’emplacement à partir du chemin d’accès relatif du fichier azuremediaplayer.min.js). Vous pouvez modifier l’emplacement des technologies de secours en ajoutant le script suivant à `<head>` après les scripts ci-dessus.

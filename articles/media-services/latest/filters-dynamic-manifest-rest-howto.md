@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1d7bf933b487c40d571f1912341b5ef771e4e67
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2d081ded07b1d32ee7525855c1756e13dfd57aa
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90527324"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277502"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Créer des filtres avec l’API REST Media Services
 
@@ -26,7 +26,7 @@ ms.locfileid: "90527324"
 
 Quand vous transmettez votre contenu à un client (événements de streaming en direct ou vidéo à la demande), le fichier manifeste de l’élément multimédia par défaut ne permet pas toujours au client d’interagir avec le contenu comme il le voudrait. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
 
-Pour obtenir une description détaillée de cette fonctionnalité et des scénarios dans lesquels elle est utilisée, consultez [Manifestes dynamiques](filters-dynamic-manifest-overview.md) et [Filtres](filters-concept.md).
+Pour obtenir une description détaillée de cette fonctionnalité et des scénarios dans lesquels elle est utilisée, consultez [Manifestes dynamiques](filters-dynamic-manifest-concept.md) et [Filtres](filters-concept.md).
 
 Cette rubrique explique comment définir un filtre pour un élément multimédia Vidéo à la demande et utiliser les API REST pour créer des [Filtres de compte](/rest/api/media/accountfilters) et des [Filtres d’élément multimédia](/rest/api/media/assetfilters). 
 
@@ -37,10 +37,10 @@ Cette rubrique explique comment définir un filtre pour un élément multimédia
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
-- Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
-- [Configurer Postman pour les appels d’API REST Azure Media Services](media-rest-apis-with-postman.md).
+- Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-concept.md).
+- [Configurer Postman pour les appels d’API REST Azure Media Services](setup-postman-rest-how-to.md).
 
-    Suivez la dernière étape de la rubrique [Obtenir un jeton Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Suivez la dernière étape de la rubrique [Obtenir un jeton Azure AD](setup-postman-rest-how-to.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Définir un filtre  
 
@@ -121,7 +121,7 @@ Pour savoir comment créer ou mettre à jour des filtres d’élément multiméd
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres à un localisateur de streaming
 
-Vous pouvez spécifier une liste de filtres de comptes ou de ressources qui s’appliquent à votre localisateur de streaming. Le [packager dynamique (point de terminaison de streaming)](dynamic-packaging-overview.md) applique cette liste de filtres avec ceux spécifiés par votre client dans l’URL. Cette combinaison génère un [manifeste dynamique](filters-dynamic-manifest-overview.md) qui est basé sur les filtres spécifiés dans l’URL ainsi que sur ceux que vous spécifiez dans le localisateur de streaming. Nous vous recommandons d’utiliser cette fonctionnalité si vous voulez appliquer des filtres, mais que vous ne voulez pas exposer les noms de filtre dans l’URL.
+Vous pouvez spécifier une liste de filtres de comptes ou de ressources qui s’appliquent à votre localisateur de streaming. Le [packager dynamique (point de terminaison de streaming)](encode-dynamic-packaging-concept.md) applique cette liste de filtres avec ceux spécifiés par votre client dans l’URL. Cette combinaison génère un [manifeste dynamique](filters-dynamic-manifest-concept.md) qui est basé sur les filtres spécifiés dans l’URL ainsi que sur ceux que vous spécifiez dans le localisateur de streaming. Nous vous recommandons d’utiliser cette fonctionnalité si vous voulez appliquer des filtres, mais que vous ne voulez pas exposer les noms de filtre dans l’URL.
 
 Pour créer des filtres et les associer à un localisateur de streaming à l’aide de REST, utilisez l’API [Créer un localisateur de streaming](/rest/api/media/streaminglocators/create) et spécifiez `properties.filters` dans le [corps de la demande](/rest/api/media/streaminglocators/create#request-body).
                                 

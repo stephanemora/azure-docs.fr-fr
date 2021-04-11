@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3bbd778eabf150b734b04e004006dfeea2254ec4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94542675"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077471"
 ---
 # <a name="sizing-guidance"></a>Guide de dimensionnement
 
@@ -92,9 +92,9 @@ Chaque pod d’instance gérée SQL créé comporte trois conteneurs :
 
 |Nom du conteneur|Demande UC|Demande de mémoire|Limite UC|Limite de mémoire|Notes|
 |---|---|---|---|---|---|
-|fluentbit|100m|100Mi|Non spécifié|Non spécifié|Les requêtes de ressources de conteneur fluentbit _s’ajoutent_ aux requêtes spécifiées pour l’instance gérée SQL.||
-|arc-sqlmi|Utilisateur spécifié ou non spécifié.|Utilisateur spécifié ou non spécifié.|Utilisateur spécifié ou non spécifié.|Utilisateur spécifié ou non spécifié.||
-|collectd|Non spécifié|Non spécifié|Non spécifié|Non spécifié||
+|fluentbit|100m|100Mi|Non spécifié|Non spécifié|Les requêtes de ressources de conteneur fluentbit _s’ajoutent_ aux requêtes spécifiées pour l’instance gérée SQL.|
+|arc-sqlmi|Utilisateur spécifié ou non spécifié.|Utilisateur spécifié ou non spécifié.|Utilisateur spécifié ou non spécifié.|Utilisateur spécifié ou non spécifié.|
+|collectd|Non spécifié|Non spécifié|Non spécifié|Non spécifié|
 
 La taille de volume par défaut de tous les volumes persistants est de 5 Gi.
 
