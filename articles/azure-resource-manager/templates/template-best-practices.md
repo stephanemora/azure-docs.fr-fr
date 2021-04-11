@@ -3,12 +3,12 @@ title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager (modèles ARM). Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff2b9ecf0e4004aa6689294867f5ff93006211ec
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257995"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219941"
 ---
 # <a name="arm-template-best-practices"></a>Bonnes pratiques de modèle ARM
 
@@ -160,7 +160,7 @@ Lorsque votre modèle fonctionne comme prévu, nous vous recommandons de continu
 
 N’utilisez pas de paramètre pour la version d’API. Les propriétés de ressource et les valeurs peuvent varier selon la version de l’API. IntelliSense dans un éditeur de code n’est pas en mesure de déterminer le schéma correct lorsque la version de l’API est définie sur un paramètre. Si vous transmettez une version d’API qui ne correspond pas aux propriétés de votre modèle, le déploiement échoue.
 
-N’utilisez pas de variables pour la version de l’API. En particulier, n’utilisez pas la [fonction des fournisseurs](template-functions-resource.md#providers) pour accéder dynamiquement aux versions d’API lors du déploiement. Il se peut que la version d’API récupérée dynamiquement ne corresponde pas aux propriétés de votre modèle.
+N’utilisez pas de variables pour la version de l’API. 
 
 ## <a name="resource-dependencies"></a>Dépendances des ressources
 

@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549853"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105609256"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Utilisez Azure Monitor avec votre espace de travail Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ Créez ou ajoutez des paramètres de diagnostic pour votre espace de travail, un
 1. Nommez votre paramètre, sélectionnez **Envoyer à Log Analytics**, puis sélectionnez un espace de travail dans **Espace de travail Log Analytics**.
 
     > [!NOTE]
-    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Référence des journaux Diagnostics Azure](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Référence des journaux Diagnostics Azure](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Sélectionnez **Enregistrer**.
 

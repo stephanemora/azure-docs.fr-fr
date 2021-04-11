@@ -3,12 +3,12 @@ title: Comment gérer l’agent Container Insights | Microsoft Docs
 description: Cet article décrit la gestion des tâches de maintenance les plus courantes avec l’agent Log Analytics conteneurisé que Container Insights utilise.
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: 2a0c32ef797a953eca794e16fe0ace5e967f339f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b485f4d49f0dd80f712d96779098c26be3f6de1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101713794"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106442573"
 ---
 # <a name="how-to-manage-the-container-insights-agent"></a>Comment gérer l’agent Container Insights
 
@@ -79,21 +79,6 @@ curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
-
-Pour plus d'informations sur l'utilisation d'un principal de service avec cette commande, consultez la section **Utilisation du principal de service** de l'article [Activer la supervision d'un cluster Kubernetes avec Azure Arc](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script).
-
-### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Mettre à niveau un agent sur Azure Arc pour Kubernetes
-
-Exécutez la commande suivante pour procéder à la mise à niveau de l'agent sur un cluster Kubernetes avec Azure Arc.
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
-```
-
-Pour plus d'informations sur l'utilisation d'un principal de service avec cette commande, consultez la section **Utilisation du principal de service** de l'article [Activer la supervision d'un cluster Kubernetes avec Azure Arc](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script).
-
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Comment désactiver la collecte des variables d’environnement sur un conteneur
 

@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Grouper des définitions de stratégie avec des initiatives'
 description: Ce modèle Azure Policy fournit un exemple de regroupement des définitions de stratégie dans une initiative.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: aa09cafe636a4665dba6a2e746c13b95ff304895
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7bbb2efdd27ead942fa0ef48f7785eec8bce9378
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92072915"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092855"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Modèle Azure Policy : Grouper des définitions de stratégie
 

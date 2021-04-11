@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Créer un serveur – Portail Azure – Azure Database pour PostgreSQL – serveur unique'
 description: Dans ce guide de démarrage rapide, vous allez créer et gérer un serveur Azure Database pour PostgreSQL en utilisant le portail Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6b5b145e84a3844b646ec9adfb46f8a221c6d0a6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96492384"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606502"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL en utilisant le portail Azure
 

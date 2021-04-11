@@ -3,12 +3,12 @@ title: Fonctions des modèles de gestionnaire des ressources Azure
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager (modèle ARM) pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707317"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220179"
 ---
 # <a name="arm-template-functions"></a>Fonctions des modèles ARM
 
@@ -176,7 +176,6 @@ Resource Manager offre les fonctions ci-après pour obtenir des valeurs de resso
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
-* [fournisseurs](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourceGroup](template-functions-resource.md#resourcegroup) - peut être utilisée uniquement dans les déploiements sur un groupe de ressources.
 * [resourceId](template-functions-resource.md#resourceid) - peut être utilisée dans n’importe quelle étendue, mais les paramètres valides changent en fonction de l’étendue.

@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure d’exemption de stratégie
 description: Décrit la définition d’exemption de stratégie utilisée par Azure Policy pour exempter des ressources de l’évaluation d’initiatives ou de définitions.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: e6ced56c1dc65ca68998c5c58d3e985b63873e0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ecf956d7507dfa2168e4f2591e4b661423801365
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91950174"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091733"
 ---
 # <a name="azure-policy-exemption-structure"></a>Structure d’exemption Azure Policy
 

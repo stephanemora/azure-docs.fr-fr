@@ -16,19 +16,19 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c575904d994232726cf8d0d9152b02130fd29cea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 68b72cca319772fa52829c6b95237e15f083a2e7
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013250"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962660"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexation de fichiers multimédias avec Azure Media Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!IMPORTANT]
-> Il est recommandé que les clients effectuent une migration de la version 1 d’Indexer à la version 2 à l’aide du [mode de base Media Services V3 AudioAnalyzerPreset](../latest/analyzing-video-audio-files-concept.md). Les processeurs multimédias [Azure Media Indexer](media-services-index-content.md) et [Azure Media Indexer 2 Preview](./legacy-components.md) sont en phase de mise hors service. Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
+> Il est recommandé que les clients effectuent une migration de la version 1 d’Indexer à la version 2 à l’aide du [mode de base Media Services V3 AudioAnalyzerPreset](../latest/analyze-video-audio-files-concept.md). Les processeurs multimédias [Azure Media Indexer](media-services-index-content.md) et [Azure Media Indexer 2 Preview](./legacy-components.md) sont en phase de mise hors service. Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.  
 

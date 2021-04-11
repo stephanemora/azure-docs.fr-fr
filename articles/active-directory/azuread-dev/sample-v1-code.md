@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662a0f53a5d5e8e02ef3b29640009fd07bf4f1d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d2b1a60856877c24d61379a688ea630e506a848
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97652142"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075234"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -63,8 +63,8 @@ Les exemples suivants illustrent des applications web qui connectent les utilisa
 
 Les exemples suivants montrent comment implémenter le contrôle d’accès en fonction du rôle (RBAC). Le contrôle d’accès en fonction du rôle permet de restreindre les autorisations de certaines fonctionnalités dans une application web à certains utilisateurs. Les utilisateurs sont autorisés selon qu’ils appartiennent à un **groupe Azure AD** ou qu’ils ont un **rôle** d’application donné.
 
-| Plateforme | Exemple |
-|--|--|
+| Plateforme | Exemple | Description |
+|--|--|--|
 | ![Cette image affiche le logo ASP.NET Framework](media/sample-v2-code/logo-netframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Application web MVC .NET 4.5 qui utilise des **rôles** Azure AD pour l’autorisation |
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Applications mobiles clientes et de bureau appelant Microsoft Graph ou une API web
