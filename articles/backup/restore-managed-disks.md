@@ -3,19 +3,14 @@ title: Restauration de Disques managés Azure
 description: Découvrez comment restaurer des Disques managés Azure sur le Portail Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94adc8512987b50a8df07d295215ffcff873162f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101703747"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108585"
 ---
-# <a name="restore-azure-managed-disks-in-preview"></a>Restauration de Disques managés Azure (préversion)
-
->[!IMPORTANT]
->La sauvegarde de disque Azure, en préversion sans contrat de niveau de service, n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
->
->[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
+# <a name="restore-azure-managed-disks"></a>Restauration de Disques managés Azure
 
 Cet article explique comment restaurer des [Disques managés Azure](../virtual-machines/managed-disks-overview.md) à partir d’un point de restauration créé par la Sauvegarde Azure.
 

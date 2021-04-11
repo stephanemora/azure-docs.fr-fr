@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: fda59cc041cc540b95ababa6d56df6e69b0a8970
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: b1391f81c571879534258c289436d2d086b84bef
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956160"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045941"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurer une instance ADCD (Application Developers Controlled Distribution) dans IBM zD&T v1
 
@@ -191,7 +191,7 @@ Félicitations ! Vous exécutez à présent un environnement de mainframe IBM su
 
 - [Migration de mainframe : mythes et réalités](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale sur Azure](ibm-db2-purescale-azure.md)
-- [Dépannage](../../../troubleshooting/index.yml)
+- [Dépannage](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Démystifier la migration d’un mainframe vers Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

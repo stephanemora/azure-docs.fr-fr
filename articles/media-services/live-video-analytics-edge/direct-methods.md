@@ -3,12 +3,12 @@ title: Utiliser des méthodes directes dans Live Video Analytics sur IoT Edge �
 description: Live Video Analytics sur IoT Edge expose plusieurs méthodes directes. Les méthodes directes sont basées sur les conventions décrites dans cette rubrique.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 8b5c16dc72beed4ec757e48461a2fc194c113f8d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 56fbf565af45a9b3877ff8d6c48a56713ddc3da6
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97656238"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076987"
 ---
 # <a name="direct-methods"></a>Méthodes directes
 
@@ -381,7 +381,7 @@ Aspects clés :
 | Erreurs de validation du graphe | 400 | GraphValidationError |
 | Erreurs de validation du module | 400 | ModuleValidationError |
 | Erreurs de validation des ressources | 409 | ResourceValidationError |
-| Erreurs de serveur générales | Plage 500 |  |  |
+| Erreurs de serveur générales | Plage 500 |  | 
 
 ### <a name="graphinstancedelete"></a>GraphInstanceDelete
 

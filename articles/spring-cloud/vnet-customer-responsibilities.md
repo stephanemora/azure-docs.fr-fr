@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0c73d0394486472c2c3c92450aab6a1a0d329cf7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 32b41c1c4446ba34e3bfad52f1d3cbd7ed72096d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877408"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108807"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilités du client pour l’exécution d’Azure Spring Cloud dans un réseau virtuel
 Ce document comprend des spécifications pour l’utilisation d’Azure Spring Cloud dans un réseau virtuel.
@@ -54,7 +54,8 @@ Pare-feu Azure fournit une balise de nom de domaine complet (FQDN) **AzureKubern
   | *.cdn.mscr.io | HTTPS:443 | Stockage de MCR s’appuyant sur le réseau de distribution de contenu. |
   | *.data.mcr.microsoft.com | HTTPS:443 | Stockage de MCR s’appuyant sur le réseau de distribution de contenu. |
   | <i>management.azure.com</i> | HTTPS:443 | Gestion sous-jacente des clusters Kubernetes. |
-  | <i>login.microsoftonline.com</i> | HTTPS:443 | Authentification Azure Active Directory. |
+  | <i>*login.microsoftonline.com</i> | HTTPS:443 | Authentification Azure Active Directory. |
+  | <i>*login.microsoft.com</i> | HTTPS:443 | Authentification Azure Active Directory. |
   |<i>packages.microsoft.com</i>    | HTTPS:443 | Référentiel de packages Microsoft. |
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Référentiel requis pour installer les fichiers binaires requis comme kubenet et Azure CNI. |
   | *mscrl.microsoft.com* | HTTPS:80 | Chemins de chaîne de certificats Microsoft requis. |
@@ -62,5 +63,5 @@ Pare-feu Azure fournit une balise de nom de domaine complet (FQDN) **AzureKubern
   | *crl3.digicert.com* | HTTPS:80 | Chemins de chaînes de certificats SSL tiers. |
 
 ## <a name="see-also"></a>Voir aussi
-* [Accéder à votre application sur un réseau privé](spring-cloud-access-app-virtual-network.md)
-* [Exposer des applications à l’aide d’Application Gateway et de Pare-feu Azure](spring-cloud-expose-apps-gateway-azure-firewall.md)
+* [Accéder à votre application sur un réseau privé](access-app-virtual-network.md)
+* [Exposer des applications à l’aide d’Application Gateway et de Pare-feu Azure](expose-apps-gateway-azure-firewall.md)

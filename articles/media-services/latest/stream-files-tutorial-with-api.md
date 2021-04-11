@@ -2,7 +2,7 @@
 titre : Charger, encoder et diffuser avec Media Services v3 : Description d’Azure Media Services : Didacticiel illustrant le chargement d’un fichier, l’encodage d'une vidéo et la diffusion de contenu avec Azure Media Services v3.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 08/31/2020 ms.author: inhenkel
+ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.date: 03/17/2021 ms.author: inhenkel
 ---
 
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3
@@ -113,7 +113,7 @@ Dans cet exemple, la vidéo d’entrée a été chargée à partir de votre ordi
 
 Le travail prend du temps à se terminer et vous voulez être prévenu lorsque c’est le cas. L’exemple de code ci-dessous montre comment interroger le service pour connaître l’état du [travail](/rest/api/media/jobs). L’interrogation ne relève pas d'une pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid.
 
-Event Grid est conçu pour une haute disponibilité, des performances cohérentes et une mise à l’échelle dynamique. Avec Event Grid, vos applications peuvent écouter les événements de presque tous les services Azure ou de toute source personnalisée, et y réagir. La gestion simple et réactive des événements basée sur HTTP vous aide à générer des solutions efficaces grâce au filtrage et au routage intelligents des événements.  Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](job-state-events-cli-how-to.md).
+Event Grid est conçu pour une haute disponibilité, des performances cohérentes et une mise à l’échelle dynamique. Avec Event Grid, vos applications peuvent écouter les événements de presque tous les services Azure ou de toute source personnalisée, et y réagir. La gestion simple et réactive des événements basée sur HTTP vous aide à générer des solutions efficaces grâce au filtrage et au routage intelligents des événements.  Consultez [Acheminer des événements Azure Media Services vers un point de terminaison personnalisé à l’aide de CLI](monitoring/job-state-events-cli-how-to.md).
 
 Le **travail** passe généralement par les états suivants : **Planifié**, **En attente**,  **Traitement en cours**, **Terminé** (l’état final). Si le travail a rencontré une erreur, vous obtenez l’état **Erreur**. Si le travail est en cours d’annulation, vous obtenez **Annulation en cours** et **Annulé** une fois l’opération terminée.
 

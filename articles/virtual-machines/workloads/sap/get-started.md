@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038626"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599882"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -82,7 +82,8 @@ Cette section contient des documents concernant l’intégration de Microsoft Po
 
 
 ## <a name="change-log"></a>Journal des modifications
-
+- 17/03/2021 : modification de [haute disponibilité pour SAP HANA sur machines virtuelles Azure sur SLES](./sap-hana-high-availability.md), de [haute disponibilité pour SAP HANA sur machines virtuelles Azure sur RHEL](./sap-hana-high-availability-rhel.md) et de [haute disponibilité pour scale-up SAP HANA avec ANF sur RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) afin d’ajouter des instructions pour la réplication système activée par la lecture/active HANA dans le cluster Pacemaker
+- 15/03/2021 : modification de [Instance SAP ASCS/SCS avec WSFC et partage de fichiers](./sap-high-availability-guide-wsfc-file-share.md), de [Installer une instance SAP ASCS/SCS avec WSFC et partage de fichiers](./sap-high-availability-installation-wsfc-file-share.md) et de [Multi-SID SAP ASCS/SCS avec WSFC et partage de fichiers](./sap-ascs-ha-multi-sid-wsfc-file-share.md) afin de clarifier que les instances SAP ASCS/SCS et le partage SOFS doivent être déployés dans des clusters distincts
 - 03/03/2021 : modification dans le [Guide HA pour SAP ASCS/SCS avec WSFC et Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md) pour ajouter une déclaration de prudence signalant que des privilèges élevés sont requis pour l’utilisateur exécutant SWPM pendant l’installation du système SAP
 - 11/02/2021 : Modifications apportées à la [haute disponibilité d’IBM Db2 LUW sur des machines virtuelles Azure sur Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) pour modifier les commandes de cluster de stimulateur pour RHEL 8.x
 - 02/03/2021: Modification de [Configuration de Pacemaker sur RHEL dans Azure](./high-availability-guide-rhel-pacemaker.md) pour mettre à jour pcmk_host_map dans la commande stonith create

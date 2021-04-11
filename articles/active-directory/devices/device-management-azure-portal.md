@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561649"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952777"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -174,7 +174,7 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 > - Nous vous recommandons d’utiliser l’action de l’utilisateur [« Inscrire ou joindre des appareils »](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) dans l’accès conditionnel pour appliquer l’authentification multifacteur pour la jonction ou l’inscription d’un appareil. 
 > - Vous devez définir ce paramètre sur **Non** si vous utilisez la stratégie d’accès conditionnel pour exiger l’authentification multifacteur. 
 
-- **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**.
+- **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**. Vous pouvez augmenter la valeur jusqu’à 100 et, si vous entrez une valeur supérieure à 100, Azure AD la définit sur 100. Vous pouvez également utiliser une valeur illimitée pour appliquer une limite autre que les limites de quotas existantes.
 
 > [!NOTE]
 > Le paramètre **Nombre maximal d’appareils par utilisateur** s’applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.

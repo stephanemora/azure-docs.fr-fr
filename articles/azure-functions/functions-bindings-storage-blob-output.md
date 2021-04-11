@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: eaa8a4c600864f636d49813d415621d46130fff7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bb5382014f82854086d6ec6f07cfe7f67e80726a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100381651"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961028"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Liaison de sortie Stockage Blob Azure pour Azure Functions
 
@@ -300,6 +300,7 @@ Dans le fichier *function.json*, la propriété de métadonnées `queueTrigger` 
     {
       "name": "inputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
@@ -307,6 +308,7 @@ Dans le fichier *function.json*, la propriété de métadonnées `queueTrigger` 
     {
       "name": "outputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}-Copy",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
@@ -326,9 +328,8 @@ import logging
 import azure.functions as func
 
 
-def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
-         outputblob: func.Out[func.InputStream]):
-    logging.info('Python Queue trigger function processed %s', inputblob.name)
+def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[bytes]):
+    logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     outputblob.set(inputblob)
 ```
 
@@ -431,8 +432,8 @@ Accédez aux données BLOB via un paramètre qui correspond au nom désigné par
 
 Vous pouvez déclarer des paramètres de fonction comme types suivants pour écrire dans le stockage blob :
 
-* Chaînes comme `func.Out(str)`
-* Flux comme `func.Out(func.InputStream)`
+* Chaînes comme `func.Out[str]`
+* Flux comme `func.Out[func.InputStream]`
 
 Reportez-vous à l’[exemple de sortie](#example) pour plus d'informations.
 

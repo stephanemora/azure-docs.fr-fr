@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586719"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104600521"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutoriel : Visualiser et superviser vos données
 
@@ -76,6 +76,17 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 
    ![Basculer vers le classeur](./media/tutorial-monitor-data/switch-workbooks.png)
 
+
+## <a name="print-a-workbook-or-save-as-pdf"></a>Imprimer un classeur ou enregistrer au format PDF
+
+Pour imprimer un classeur ou l’enregistrer au format PDF, utilisez le menu Options à droite du titre du classeur.
+
+1. Sélectionnez Options > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Imprimer le contenu**. 
+2. Dans l’écran d’impression, ajustez vos paramètres d’impression si nécessaire ou sélectionnez **Enregistrer au format PDF** pour l’enregistrer localement.
+
+Exemple :
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Imprimez votre classeur ou enregistrez-le au format PDF.":::
 
 ## <a name="how-to-delete-workbooks"></a>Comment supprimer des classeurs
 

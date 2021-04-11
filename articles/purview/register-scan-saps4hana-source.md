@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 6d31bd0911b5cf765215e6a482a39b2458c4ba0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e00332eca076b55a884682240ef26ea3a4546d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101696047"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046060"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>Inscrire et analyser une source SAP S/4HANA (préversion)
 
@@ -25,7 +25,7 @@ La source SAP S/4HANA prend en charge l’**Analyse complète** pour extraire l
 ## <a name="prerequisites"></a>Prérequis
 
 1.  Configurez le dernier [Runtime d’intégration auto-hébergé](https://www.microsoft.com/download/details.aspx?id=39717).
-    Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Assurez-vous que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) est installé sur la machine virtuelle où est installé le runtime d’intégration auto-hébergé.
 
@@ -78,7 +78,7 @@ Dans l’écran **Inscrire des sources (SAP S/4HANA)** , procédez comme suit 
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) pour créer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, cliquez sur Runtimes d’intégration. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour créer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources.**
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0197b533f80ccb1524de2bbb9fc5c642f2626bbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8ee1f22429c1002ba8c3db5c41f5a186cc59451
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655255"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046468"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -110,7 +110,7 @@ Seuls les nœuds de passerelle sont mis hors service. Lorsque les utilisateurs s
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Comment déterminer si vos connexions sont dirigées vers d'anciens ou de nouveaux nœuds de passerelle ?
 Effectuez un test ping sur le nom de domaine complet de votre serveur, par exemple ``ping xxx.mysql.database.azure.com``. Si l'adresse IP renvoyée est l'une de celles qui sont répertoriées sous Adresses IP de passerelle (en cours de mise hors service) dans le document ci-dessus, cela signifie que votre connexion passe par l'ancienne passerelle. En revanche, si l'adresse IP renvoyée est l'une de celles qui sont répertoriées sous Adresses IP de passerelle, cela signifie que votre connexion passe par la nouvelle passerelle.
 
-Vous pouvez également effectuer un test [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) ou TCPPing sur le serveur de base de données à partir de votre application cliente avec le port 3306 et vous assurer que l’adresse IP renvoyée ne correspond pas à l'une des adresses IP en cours de mise hors service.
+Vous pouvez également effectuer un test [PSPing](/sysinternals/downloads/psping) ou TCPPing sur le serveur de base de données à partir de votre application cliente avec le port 3306 et vous assurer que l’adresse IP renvoyée ne correspond pas à l'une des adresses IP en cours de mise hors service.
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Comment savoir quand la maintenance est terminée ? Et recevrai-je une autre notification lorsque les anciennes adresses IP seront mises hors service ?
 Vous recevrez un e-mail pour vous informer du début des travaux de maintenance. La maintenance peut prendre jusqu'à un mois en fonction du nombre de serveurs que nous devons migrer dans toutes les régions. Préparez votre client pour qu'il se connecte au serveur de base de données à l'aide du nom de domaine complet ou en utilisant la nouvelle adresse IP figurant dans le tableau ci-dessus. 

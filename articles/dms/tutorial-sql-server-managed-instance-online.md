@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 4ee3e9e7d2aa0247011415b43517147fd421902a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094943"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076885"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutoriel : Procéder à la migration en ligne de SQL Server vers Azure SQL Managed Instance à l'aide de DMS
 
@@ -209,7 +209,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 1. Dans l’écran **Configurer les paramètres de migration**, fournissez les informations suivantes :
 
-    | | |
+    | Paramètre | Description |
     |--------|---------|
     |**SMB Network location share** (Partage d’emplacement réseau SMB) | Partage réseau SMB local ou partage de fichiers Azure contenant les fichiers de sauvegarde complète de base de données et les fichiers de sauvegarde du journal des transactions qu’Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ». Pour améliorer les performances, il est recommandé d’utiliser un dossier distinct pour chaque base de données à migrer. Vous pouvez fournir le chemin d’accès du partage de fichiers au niveau de la base de données à l’aide de l’option **Paramètres avancés**. Si vous avez des difficultés à vous connecter au partage SMB, consultez [Partage SMB](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity). |
     |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service utilise les informations d’identification de l’utilisateur afin de charger les fichiers de sauvegarde dans le conteneur de stockage Azure pour l'opération de restauration. Si vous choisissez le partage de fichiers Azure, utilisez le nom de compte de stockage commençant par AZURE\ en tant que nom d’utilisateur. |

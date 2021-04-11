@@ -3,12 +3,12 @@ title: Tests unitaires de l’extension Fonctions durables Azure
 description: Découvrez comment effectuer des tests unitaires sur l’extension Fonctions durables.
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: 89b6419e95b3971b0d272490e19354f300204e1e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fe5a25e0296eb183ef2426e12f7bdee35633ec78
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491042"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076630"
 ---
 # <a name="durable-functions-unit-testing"></a>Tests unitaires de l’extension Fonctions durables
 
@@ -33,13 +33,13 @@ Les exemples de cet article exigent de connaître les concepts et frameworks sui
 
 La simulation est prise en charge via l’interface suivante :
 
-* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationClient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.IDurableEntityClient) et [IDurableClient](/dotnet/api/microsoft.azure.webjobs.IDurableClient)
+* [IDurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient), [IDurableEntityClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentityclient) et [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient)
 
-* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.IDurableOrchestrationContext)
+* [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
-* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.IDurableActivityContext)
+* [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
   
-* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.IDurableEntityContext)
+* [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 Ces interfaces peuvent être utilisées avec les différents déclencheurs et liaisons pris en charge par Durable Functions. Lors de l’exécution d’Azure Functions, le runtime Functions exécute le code de votre fonction avec une implémentation concrète de ces interfaces. Pour les tests unitaires, vous pouvez transmettre une version factice de ces interfaces pour tester votre logique métier.
 

@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccc648f06cad46b490ac73fe777066c9de2ff2b9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98918075"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551643"
 ---
 # <a name="dynamic-data-masking"></a>Masquage dynamique des données 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -72,13 +72,13 @@ Vous pouvez utiliser l’API REST pour gérer par programme les règles et strat
 
 ### <a name="data-masking-policies"></a>Stratégies de masquage des données
 
-- [Créer ou mettre à jour](/rest/api/sql/datamaskingpolicies/createorupdate) : Crée ou met à jour une stratégie de masquage des données de la base de données.
-- [Obtenir](/rest/api/sql/datamaskingpolicies/get) : Fourni une stratégie de masquage des données de la base de données. 
+- [Créer ou mettre à jour](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate) : Crée ou met à jour une stratégie de masquage des données de la base de données.
+- [Obtenir](/rest/api/sql/2014-04-01/datamaskingpolicies/get) : Fourni une stratégie de masquage des données de la base de données. 
 
 ### <a name="data-masking-rules"></a>Règles de masquage de données
 
-- [Créer ou mettre à jour](/rest/api/sql/datamaskingrules/createorupdate) : Crée ou met à jour une règle de masquage des données de la base de données.
-- [Liste par base de données](/rest/api/sql/datamaskingrules/listbydatabase) : Fournit une liste des règles de masquage des données de la base de données.
+- [Créer ou mettre à jour](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate) : Crée ou met à jour une règle de masquage des données de la base de données.
+- [Liste par base de données](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase) : Fournit une liste des règles de masquage des données de la base de données.
 
 ## <a name="permissions"></a>Autorisations
 

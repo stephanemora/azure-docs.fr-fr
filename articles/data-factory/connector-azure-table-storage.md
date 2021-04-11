@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/20/2020
-ms.openlocfilehash: 1448bb3ebf541af047759bc886b2c174d89c1c50
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 5674d656385d356f596f96cd7851d2cc05839761
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383770"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597400"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 
@@ -267,6 +267,7 @@ Pour copier des données vers la Table Azure, définissez le type de récepteur 
 | azureTableInsertType |Le mode d’insertion des données dans Table Azure. Cette propriété détermine le remplacement ou la fusion des valeurs des lignes existantes dans la table de sortie avec des clés de partition et de ligne correspondantes. <br/><br/>Les valeurs autorisées sont **fusionner** (par défaut), et **remplacer**. <br/><br> Ce paramètre s’applique au niveau ligne et non au niveau table. Ces options ne suppriment pas de lignes dans la table de sortie qui n’existent pas dans l’entrée. Consultez [Insert Or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) (Entité d’insertion ou de fusion) et [Insert Or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) (Entité d’insertion ou de remplacement) pour en savoir plus sur le fonctionnement des paramètres fusionner et remplacer. |Non |
 | writeBatchSize |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des nombre entiers (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout |Insère des données dans Table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte.<br/>Les valeurs autorisées sont des intervalles de temps. Par exemple : « 00:20:00 » (20 minutes). |Non (la valeur par défaut est 90 secondes, le délai d’expiration par défaut du client de stockage) |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 **Exemple :**
 

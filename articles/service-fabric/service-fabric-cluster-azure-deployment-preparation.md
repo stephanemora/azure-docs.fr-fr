@@ -3,19 +3,19 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97109621"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046315"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
 Planifier et préparer un déploiement de cluster de production est très important.  De nombreux facteurs sont à prendre en compte.  Cet article vous guide tout au long des étapes de préparation de déploiement de cluster.
 
 ## <a name="read-the-best-practices-information"></a>Lire les informations en matière de meilleures pratiques
-Pour une bonne gestion des applications et clusters Azure Service Fabric, nous vous recommandons certaines opérations afin de renforcer la fiabilité de votre environnement de production.  Pour plus d'informations, consultez [Meilleures pratiques relatives aux applications et aux clusters Service Fabric](service-fabric-best-practices-overview.md).
+Pour une bonne gestion des applications et clusters Azure Service Fabric, nous vous recommandons certaines opérations afin de renforcer la fiabilité de votre environnement de production.  Pour plus d'informations, consultez [Meilleures pratiques relatives aux applications et aux clusters Service Fabric](./service-fabric-best-practices-security.md).
 
 ## <a name="select-the-os-for-the-cluster"></a>Sélectionner le système d'exploitation pour le cluster
 Service Fabric permet la création de clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux.  Avant de déployer votre cluster, vous devez choisir le système d’exploitation :  Windows ou Linux.  Chaque nœud (machine virtuelle) du cluster exécute le même système d’exploitation et vous ne pouvez pas combiner des machines virtuelles Linux et Windows au sein du même cluster.
@@ -117,7 +117,7 @@ Pour fournir une haute disponibilité, il est essentiel que les services puissen
 Votre application et le cluster sont prêts à accepter le trafic de production ? Avant de déployer votre cluster en production, passez en revue la [Check-list de préparation à la production](service-fabric-production-readiness-checklist.md). Assurez le bon fonctionnement de votre application et de votre cluster en passant en revue les éléments de cette check-list. Nous recommandons vivement de vérifier tous ces points avant de passer en production.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Créer un cluster Service Fabric exécutant Windows](service-fabric-best-practices-overview.md)
+* [Créer un cluster Service Fabric exécutant Windows](./service-fabric-best-practices-security.md)
 * [Créer un cluster Service Fabric exécutant Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
