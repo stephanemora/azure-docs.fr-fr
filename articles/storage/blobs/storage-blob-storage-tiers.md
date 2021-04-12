@@ -3,17 +3,17 @@ title: 'Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive'
 description: En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob Azure. Examinez les comptes de stockage qui prennent en charge la hiérarchisation.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 01/11/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928808"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656836"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
@@ -100,7 +100,9 @@ Seuls les niveaux d’accès chaud et froid peuvent être choisis comme le nivea
 
 La hiérarchisation au niveau de l’objet blob vous permet de charger des données vers le niveau d’accès de votre choix à l’aide des opérations [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block List](/rest/api/storageservices/put-block-list) et de modifier le niveau de vos données au niveau de l’objet à l’aide de l’opération [Définir un niveau d’objet blob](/rest/api/storageservices/set-blob-tier) ou de la fonctionnalité [Gestion de cycle de vie](#blob-lifecycle-management). Vous pouvez charger des données vers le niveau d'accès requis, puis facilement modifier le niveau d’accès (chaud, froid ou archive) d’un objet blob, lorsque les modes d’utilisation changent, sans avoir à déplacer des données entre les comptes. Toutes les demandes de changement de niveau se produisent immédiatement et les changements de niveau entre chaud et froid sont instantanés. La réactivation d’un objet blob à partir d’un niveau archive peut prendre plusieurs heures.
 
-L’heure de la dernière modification du niveau de l’objet blob est exposée via la propriété de l’objet blob **Access Tier Change Time**. Quand un objet blob est remplacé au niveau d’accès chaud ou froid, le nouvel objet blob a le même niveau que l’ancien objet blob, sauf si le niveau d’accès du nouvel objet blob est explicitement défini au moment de la création. Lorsqu’un objet blob est stocké au niveau archive, il ne peut pas être remplacé ; le téléchargement du même objet blob n’est donc pas possible dans ce scénario.
+L’heure de la dernière modification du niveau de l’objet blob est exposée via la propriété de l’objet blob **Access Tier Change Time**. La propriété **Access Tier Change Time** est une propriété de niveau blob qui n’est pas mise à jour lors de la modification du niveau de compte par défaut. Les propriétés de compte et les propriétés de blob sont séparées. La mise à jour de la propriété **Access Tier Change Time** sur chaque blob dans un compte de stockage à chaque changement du niveau d’accès par défaut du compte aurait un coût prohibitif.
+
+Quand un objet blob est remplacé au niveau d’accès chaud ou froid, le nouvel objet blob a le même niveau que l’ancien objet blob, sauf si le niveau d’accès du nouvel objet blob est explicitement défini au moment de la création. Lorsqu’un objet blob est stocké au niveau archive, il ne peut pas être remplacé ; le téléchargement du même objet blob n’est donc pas possible dans ce scénario.
 
 > [!NOTE]
 > Le stockage archive et la hiérarchisation au niveau de l’objet blob prennent en charge uniquement les objets blob de blocs.

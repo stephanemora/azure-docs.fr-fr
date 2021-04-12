@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4889744347b72603a0f6318f981bc2db4906b835
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433537"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590617"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connecter des applications de fonction dans Azure pour le traitement des données
 
@@ -63,7 +63,7 @@ Pour utiliser le kit SDK, vous devez inclure les packages suivants dans votre pr
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Ensuite, dans votre Explorateur de solutions Visual Studio, ouvrez le fichier _Function1.cs_ dans lequel se trouve l’exemple de code, puis ajoutez les instructions `using` suivantes concernant ces packages à votre fonction. 
+Ensuite, dans votre Explorateur de solutions Visual Studio, ouvrez le fichier _Function1.cs_ dans lequel se trouve l’exemple de code, puis ajoutez les instructions `using` suivantes concernant ces packages à votre fonction.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -97,6 +97,20 @@ Une fois votre application écrite, vous pouvez la publier sur Azure en effectua
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
+### <a name="verify-function-publish"></a>Vérifier la publication de la fonction
+
+1. Connectez-vous avec vos informations d’identification dans le [portail Azure](https://portal.azure.com/).
+2. Dans la barre de recherche en haut de la fenêtre, recherchez le **nom de votre application de fonction**.
+
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Recherchez votre application de fonction avec son nom dans le portail Azure." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+
+3. Dans la page *Application de fonction* qui s’ouvre, choisissez *Fonctions* dans les options de menu sur la gauche. Si votre fonction est correctement publiée, vous verrez le nom de votre fonction dans la liste.
+Notez que vous devrez peut-être attendre quelques minutes ou actualiser la page avant de pouvoir voir votre fonction répertoriée dans la liste des fonctions publiées.
+
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Affichez les fonctions publiées dans le portail Azure." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+
+Pour que votre application de fonction puisse accéder à Azure Digital Twins, elle devra disposer d’une identité managée par le système avec les autorisations nécessaires pour accéder à votre instance d’Azure Digital Twins. Vous allez maintenant configurer cela.
+
 ## <a name="set-up-security-access-for-the-function-app"></a>Configurer l’accès de sécurité pour l’application de fonction
 
 Vous pouvez configurer l’accès de sécurité pour l’application de fonction en utilisant l’interface Azure CLI ou le portail Azure. Suivez les étapes correspondant à l’option choisie.
@@ -104,12 +118,14 @@ Vous pouvez configurer l’accès de sécurité pour l’application de fonction
 # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli)
 
 Vous pouvez exécuter ces commandes dans [Azure Cloud Shell](https://shell.azure.com) ou dans une [installation locale d’Azure CLI](/cli/azure/install-azure-cli).
+Vous pouvez utiliser l’identité managée par le système de l’application de fonction et lui attribuer le rôle _**Propriétaire des données Azure Digital Twins**_ pour votre instance Azure Digital Twins. L'instance sera ainsi autorisée à effectuer des activités de plan de données. Ensuite, rendez l’URL de l’instance Azure Digital Twins accessible à votre fonction en définissant une variable d’environnement.
 
 ### <a name="assign-access-role"></a>Attribuer le rôle d’accès
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 Le squelette de fonction des exemples précédents nécessite qu’un jeton de porteur lui soit transmis, afin de pouvoir s’authentifier auprès d’Azure Digital Twins. Pour garantir que ce jeton du porteur sera transmis, vous devez configurer des autorisations [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) pour que l’application de fonction accède à Azure Digital Twins. Cette opération ne doit être effectuée qu’une seule fois pour chaque application de fonction.
 
-Vous pouvez utiliser l’identité managée par le système de l’application de fonction et lui attribuer le rôle _**Propriétaire des données Azure Digital Twins**_ pour votre instance Azure Digital Twins. L'instance sera ainsi autorisée à effectuer des activités de plan de données. Ensuite, rendez l’URL de l’instance Azure Digital Twins accessible à votre fonction en définissant une variable d’environnement.
 
 1. Utilisez la commande suivante pour consulter les détails de l’identité managée par le système pour la fonction. Prenez note du champ _principalId_ dans la sortie.
 
@@ -149,13 +165,15 @@ Effectuez les étapes suivantes dans le [portail Azure](https://portal.azure.com
 
 ### <a name="assign-access-role"></a>Attribuer le rôle d’accès
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 Une identité managée affectée par le système permet aux ressources Azure de s’identifier auprès des services cloud (comme Azure Key Vault, par exemple), sans stocker les informations d’identification dans le code. Une fois activées, toutes les autorisations nécessaires peuvent être accordées par le biais du contrôle d’accès en fonction du rôle Azure. Le cycle de vie de ce type d’identité managée est lié au cycle de vie de cette ressource. De plus, chaque ressource ne peut avoir qu’une seule identité managée affectée par le système.
 
 1. Dans le [portail Azure](https://portal.azure.com/), recherchez votre application de fonction en tapant son nom dans la barre de recherche. Sélectionnez votre application dans les résultats. 
 
     :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Capture d’écran du portail Azure : le nom de l’application de fonction est indiqué dans la barre de recherche du portail et le résultat de la recherche est mis en évidence.":::
 
-1. Dans la page de l’application de fonction, sélectionnez _Identité_ dans la barre de navigation située à gauche pour utiliser une identité managée pour la fonction. Dans la page _Affecté par le système_, vérifiez que l’_État_ est défini sur **Activé**. (Si ce n’est pas le cas, définissez-le maintenant, puis *enregistrez* le changement.)
+1. Dans la page de l’application de fonction, sélectionnez _Identité_ dans la barre de navigation située à gauche pour utiliser une identité managée pour la fonction. Dans la page _Affecté par le système_, vérifiez que l’_état_ est défini sur **Activé**. (Si ce n’est pas le cas, définissez-le maintenant, puis *enregistrez* le changement.)
 
     :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Capture d’écran du portail Azure : dans la page Identité de l’application de fonction, l’option État est activée." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 

@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/27/2020
-ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/10/2021
+ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247163"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630892"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Comment vérifier et publier une offre sur le marketplace commercial
 
@@ -74,6 +74,13 @@ La première étape du processus de publication est un ensemble de validations a
 - **Validation et enregistrement de la gestion des prospects** (< 15 min)
 
     Nous vérifions que votre système de gestion des prospects peut recevoir des prospects en fonction des détails fournis dans la page **Configuration de l’offre**. Cette étape est applicable uniquement pour les offres avec la gestion des prospects activée.
+
+- **Validation de l’offre** (<30 min)
+
+    Pour les offres SaaS uniquement, nous effectuons des validations rapides pour le contenu et les configurations techniques. La création d’une préversion ne sera pas bloquée en cas de problèmes de validation détectés à cette étape. Si nous trouvons des problèmes susceptibles de faire échouer la certification, un lien **Afficher le rapport de validation** s’affiche sur la page **Vue d’ensemble de l’offre**. Le rapport contient la description de toutes les violations de la stratégie.
+
+    > [!IMPORTANT]
+    > Veillez à consulter et à résoudre tous les avertissements de l’étape Validation de l’offre avant de cliquer sur le bouton **Démarrer**. Dans le cas contraire, vous risquez d’échouer à la certification, ce qui retardera la mise en ligne de votre offre.
 
 ## <a name="certification-phase"></a>Phase de certification
 
@@ -143,16 +150,19 @@ Si vous souhaitez publier l’offre ultérieurement, vous devrez redémarrer le 
 
 Une fois que l’offre est prête à être revue et approuvée, nous vous enverrons un e-mail pour vous demander de consulter et d’approuver la version préliminaire de votre offre. Vous pouvez également actualiser la page **Vue d’ensemble de l’offre** depuis votre navigateur pour voir si votre offre a atteint la phase d’approbation de publication. Si c’est le cas, le bouton **Go Live** et les liens d’aperçu seront disponibles.
 
-La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** pour une offre SaaS. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez apportées lors de la création de l’offre.
+La capture d’écran suivante montre la page **Vue d’ensemble de l’offre** dans le programme du marketplace commercial d’Espace partenaires. Les étapes de validation que vous verrez sur cette page varient en fonction du type d’offre et des sélections que vous avez apportées lors de la création de l’offre. Notez que la phase de certification peut se produire pendant la soumission à la préversion ou à la mise en ligne selon le type d’offre.
 
 ![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent.](./media/publish-status-publisher-signoff.png)
 
 ### <a name="previewing-and-approving-your-offer"></a>Aperçu et approbation de votre offre
 
 > [!IMPORTANT]
-> Pour valider le processus d’achat et d’installation de bout en bout, achetez votre offre en version préliminaire. Informez tout d’abord Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour être sûr que nous ne vous imputions pas des frais. Si votre offre est un type de référencement Me contacter, testez pour vous assurer qu’un prospect est créé comme prévu en fournissant les informations requises pour le référencement Me contacter durant la préversion.
+> Pour valider le processus d’achat et d’installation de bout en bout, achetez votre offre en version préliminaire. Informez tout d’abord Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour être sûr que nous ne vous imputions pas des frais. Si votre offre est un type de référencement _Me contacter_, testez pour vous assurer qu’un prospect est créé comme prévu en fournissant les informations requises pour le référencement Me contacter durant la préversion.
 
 Dans la page **Vue d’ensemble de l’offre**, vous verrez des liens d’aperçu sous le bouton **Mise en ligne**. Il y aura un lien soit pour l’aperçu AppSource, soit pour l’aperçu de la Place de marché Azure, ou les deux, selon les options que vous avez choisies lors de la création de votre offre. Si vous avez choisi de vendre votre offre par le biais de Microsoft, quiconque a été ajouté au public de la préversion peut tester son acquisition et son déploiement pour vérifier qu’elle répond à vos exigences au cours de cette phase.
+
+> [!IMPORTANT]
+> Veillez à consulter et à résoudre tous les avertissements de l’étape _Validation de l’offre_ avant de cliquer sur le bouton **Démarrer**. Dans le cas contraire, vous risquez d’échouer à la certification, ce qui retardera la mise en ligne de votre offre.
 
 Une fois que vous avez approuvé votre préversion, sélectionnez **Mise en ligne** pour publier votre offre sur le marketplace commercial. 
 

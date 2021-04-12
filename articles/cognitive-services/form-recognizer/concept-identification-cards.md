@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed8516f9a898131338fb5b4d75e25cd774c5ab43
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467940"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285353"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modèle prédéfini de carte d’identité de Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations des cartes d’identité gouvernementales à l’aide de son modèle prédéfini de carte d’identité. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des fonctionnalités de reconnaissance d’identités pour extraire des informations clés de passeports internationaux et de permis de conduire émis aux États-Unis (50 États + Washington D.C.). L’API des cartes d’identité extrait les informations clés de ces documents d’identité, telles que le prénom, le nom, la date de naissance, le numéro du document, etc. Cette API est disponible dans la préversion de Form Recognizer v2.1 en tant que service cloud et comme conteneur local.
+Azure Form Recognizer peut analyser et extraire des informations des cartes d’identité gouvernementales à l’aide de son modèle prédéfini de carte d’identité. Il combine nos puissantes fonctionnalités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des fonctionnalités de reconnaissance d’identités pour extraire des informations clés de passeports internationaux et de permis de conduire émis aux États-Unis (50 États + Washington D.C.). L’API des cartes d’identité extrait les informations clés de ces documents d’identité, telles que le prénom, le nom, la date de naissance, le numéro du document, etc. Cette API est disponible dans la préversion de Form Recognizer v2.1 en tant que service cloud et comme conteneur local.
 
 ## <a name="what-does-the-id-service-do"></a>Comment le service des pièces d’identité fonctionne-t-il ? 
 
@@ -31,7 +31,7 @@ Le service des identités extrait les valeurs clés des passeports internationau
 
 ### <a name="fields-extracted"></a>Champs extraits
 
-|Nom| Type | Description | Value | 
+|Nom| Type | Description | Valeur | 
 |:-----|:----|:----|:----|
 |  Pays ou région | country | Code pays conforme à la norme ISO 3166 | « USA » | 
 |  DateOfBirth | Date | Date de naissance au format AAAA-MM-JJ | « 1980-01-01 » | 

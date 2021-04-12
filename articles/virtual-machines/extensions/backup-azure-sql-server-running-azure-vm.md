@@ -4,16 +4,16 @@ description: Dans cet article, découvrez comment inscrire Sauvegarde Azure dans
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-author: dcurwin
-ms.author: dacurwin
+author: v-amallick
+ms.author: v-amallick
 ms.collection: windows
 ms.date: 07/05/2019
-ms.openlocfilehash: 46cc4b23ca7dd70da3f917a3399406480dc9fdbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 171a438b8ac2a74437c15a749d6974945877a1ee
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557095"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293751"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Sauvegarde Azure pour SQL Server s’exécutant sur une machine virtuelle Azure
 

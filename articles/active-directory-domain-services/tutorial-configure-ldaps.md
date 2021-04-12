@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579550"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933336"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -298,6 +298,21 @@ Si vous avez ajouté une entrée DNS au fichier hosts local de votre ordinateur 
 1. Sur votre machine locale, ouvrez le *Bloc-notes* en tant qu’administrateur.
 1. Recherchez et ouvrez le fichier *C:\Windows\System32\drivers\etc\hosts*
 1. Supprimez la ligne de l’enregistrement que vous avez ajouté, par exemple `168.62.205.103    ldaps.aaddscontoso.com`
+
+## <a name="troubleshooting"></a>Dépannage
+
+Si vous voyez une erreur indiquant que LDAP.exe ne peut pas se connecter, essayez d’examiner les différentes phases de l’établissement de la connexion : 
+
+1. Configuration du contrôleur de domaine
+1. Configuration du client
+1. Réseau
+1. Établissement de la session TLS
+
+Pour le nom d’objet du certificat, le contrôleur de domaine utilise le nom de domaine Azure ADDS (et non le nom de domaine Azure AD) pour rechercher le certificat dans son magasin de certificats. Les fautes d’orthographe, par exemple, empêchent le contrôleur de domaine de sélectionner le bon certificat. 
+
+Le client tente d’établir la connexion TLS en utilisant le nom que vous avez fourni. Le trafic doit aller jusqu’au bout. Le contrôleur de domaine envoie la clé publique du cert d’authentification serveur. Le cert doit avoir l’utilisation appropriée dans le certificat, le nom signé dans le nom d’objet doit être compatible pour que le client sache que le serveur est le nom DNS auquel vous vous connectez (autrement dit, un caractère générique fonctionne sans faute d’orthographe) et le client doit faire confiance à l’émetteur. Vous pouvez rechercher les problèmes dans cette chaîne dans le journal système de l’observateur d’événements et filtrer les événements où la source est égale à Schannel. Une fois ces éléments en place, ils forment une clé de session.  
+
+Pour plus d’informations, consultez l’[établissement d’une liaison TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

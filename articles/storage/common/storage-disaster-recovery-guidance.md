@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102506699"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800344"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Reprise d’activité après sinistre et basculement de compte de stockage
 
@@ -23,7 +23,7 @@ Microsoft s’efforce de faire en sorte que les services Azure soient toujours d
 
 Stockage Azure prend en charge le basculement de compte pour les comptes de stockage géoredondants. Avec le basculement de compte, vous pouvez lancer le processus de basculement pour votre compte de stockage si le point de terminaison principal devient indisponible. Le basculement met à jour le point de terminaison secondaire pour qu’il devienne le point de terminaison principal pour votre compte de stockage. Une fois le basculement terminé, les clients peuvent commencer à écrire dans le nouveau point de terminaison principal.
 
-Le basculement de compte est disponible pour les types de comptes GPv1, GPv2 et de stockage d’objets BLOB avec des déploiements d’Azure Resource Manager. Le basculement de compte est pris en charge pour toutes les régions publiques, mais n’est pas disponible dans les clouds souverains ou nationaux à l’heure actuelle.
+Le basculement de compte est disponible pour les types de comptes GPv1, GPv2 et de stockage d’objets BLOB avec des déploiements d’Azure Resource Manager. Le basculement de compte est pris en charge pour toutes les régions publiques, mais n’est pas disponible dans les clouds souverains ou nationaux à l’heure actuelle. Le basculement de compte n’est pas pris en charge pour les comptes de stockage avec un espace de noms hiérarchique activé.
 
 Cet article décrit les concepts et les processus impliqués dans un basculement de compte, et explique comment préparer votre compte de stockage pour la reprise avec le moins d’impact possible sur le client. Pour découvrir comment lancer un basculement de compte dans le Portail Azure ou PowerShell, consultez [Lancer un basculement de compte](storage-initiate-account-failover.md).
 
@@ -67,6 +67,8 @@ Microsoft vous recommande également de concevoir votre application pour l’év
 ## <a name="understand-the-account-failover-process"></a>Comprendre le processus de basculement de compte
 
 Le basculement de compte géré par le client vous permet de basculer votre compte de stockage entier vers la région secondaire si la région primaire devient indisponible pour une raison quelconque. Quand vous forcez un basculement vers la région secondaire, les clients peuvent commencer à écrire des données sur le point de terminaison secondaire une fois le basculement terminé. Le basculement prend généralement environ une heure.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### <a name="how-an-account-failover-works"></a>Fonctionnement d’un basculement de compte
 

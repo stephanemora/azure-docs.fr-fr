@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 97294bdd088f50a46786c3568f4230706f750c4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dfeb99fdbd5cf2b0784982b385d46c3a16901ec8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92520929"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory avec Mozy Enterprise
 
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD avec Mozy Enterprise, proc�
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support Mozy Enterprise](https://support.mozy.com/) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support Mozy Enterprise](https://www.safenames.net/about-us/contact-us) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -120,13 +120,13 @@ Pour configurer l’authentification unique Azure AD avec Mozy Enterprise, proc�
 
     c. URL de déconnexion
 
-### <a name="configure-mozy-enterprise-single-sign-on"></a>Configurer l’authentification unique Mozy Enterprise
+### <a name="configure-mozy-enterprise-single-sign-on&quot;></a>Configurer l’authentification unique Mozy Enterprise
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Mozy Enterprise en tant qu’administrateur.
 
 2. Dans la section **Configuration**, cliquez sur **Authentication Policy**.
    
-    ![Capture d’écran montrant l’élément Authentication Policy sélectionné à partir de Configuration.](./media/mozy-enterprise-tutorial/ic777314.png "Authentication Policy")
+    ![Capture d’écran montrant l’élément Authentication Policy sélectionné à partir de Configuration.](./media/mozy-enterprise-tutorial/ic777314.png &quot;Authentication Policy")
 
 3. Dans la section **Authentication Policy** , procédez comme suit :
    
@@ -199,7 +199,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-mozy-enterprise-test-user"></a>Créer un utilisateur de test Mozy Enterprise
+### <a name="create-mozy-enterprise-test-user&quot;></a>Créer un utilisateur de test Mozy Enterprise
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Mozy Enterprise, vous devez les approvisionner dans Mozy Enterprise. Dans le cas de Mozy Enterprise, l’approvisionnement est une tâche manuelle.
 
@@ -212,7 +212,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mozy Enterprise, vou
 
 2. Cliquez sur **Users**, puis sur **Add New User**.
    
-    ![Utilisateurs](./media/mozy-enterprise-tutorial/ic777317.png "Utilisateurs")
+    ![Utilisateurs](./media/mozy-enterprise-tutorial/ic777317.png &quot;Utilisateurs")
    
     >[!NOTE]
     >L’option **Add New User** ne s’affiche que si **Mozy** est sélectionné comme fournisseur sous **Authentication policy**. Si l’authentification SAML est configurée, les utilisateurs sont ajoutés automatiquement lors de la première connexion à l’aide de l’authentification unique.

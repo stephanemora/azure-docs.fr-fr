@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 01c9a8b62190f3b545169bb5ba6732e6799ff9f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 489f4aad78437edad2184e773d97d35af24f3249
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105559806"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285992"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Tutoriel : Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,8 +37,7 @@ Ce didacticiel d’application Java vous montre comment créer une application d
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="Application Java My ToDo List":::
 
 > [!TIP]
-> Ce didacticiel de développement d’applications part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils prérequis](#Prerequisites), nous vous recommandons de télécharger l’ensemble du projet [todo]https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) à partir de GitHub et de le générer à l’aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.  
->
+> Ce didacticiel de développement d’applications part du principe que vous avez déjà utilisé Java. Si vous débutez avec Java ou avec les [outils requis](#Prerequisites), nous vous recommandons de télécharger l’ensemble du projet [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) sur GitHub et de le générer à l’aide des [instructions fournies à la fin de cet article](#GetProject). Une fois que vous l'avez créé, vous pouvez consulter l'article pour obtenir des informations sur le code dans le contexte du projet.  
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Conditions préalables à l’exécution de ce didacticiel d’application web Java
 

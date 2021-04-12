@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 92771bb22897b0568ae601813ca919a260a31d8d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1b33892c0d37cc173fb88fc7e304ef6e48c0af57
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499388"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104802945"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Kit de développement logiciel (SDK) d’API de table Azure Cosmos DB pour Python : notes de publication et ressources
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -26,13 +26,13 @@ ms.locfileid: "102499388"
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Liens  |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
 |**Documentation de l’API**|[Documentation de référence sur l’API Python](/python/api/overview/azure/cosmosdb)|
 |**Instructions d’installation du Kit de développement logiciel (SDK)**|[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribution au Kit de développement logiciel (SDK)**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6](https://www.python.org/downloads/)|
+|**Plateforme actuellement prise en charge**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.6](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Si vous avez créé un compte d’API Table dans la préversion, créez un [nouveau compte d’API Table](create-table-dotnet.md#create-a-database-account) pour utiliser les Kits de développement logiciels (SDK) mis à la disposition générale pour l’API Table.

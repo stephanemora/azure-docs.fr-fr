@@ -5,6 +5,10 @@
   items:
     - name: "Qu’est-ce que Form Recognizer\_?"
       href: overview.md
+    - name: Support multilingue
+      href: language-support.md
+    - name: Tarification et limites
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Nouveautés
       href: whats-new.md
 - name: Démarrages rapides
@@ -91,15 +95,13 @@
   items:
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: Tarification et limites
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilité régionale
       href: 'https://go.microsoft.com/fwlink/?linkid=2087185'
-    - name: Support multilingue
-      href: language-support.md
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Chiffrement
       href: encrypt-data-at-rest.md
+    - name: Confidentialité et cookies
+      href: 'https://privacy.microsoft.com/en-US/privacystatement'

@@ -3,12 +3,12 @@ title: Phases du déploiement d’un blueprint
 description: Découvrez les étapes liées à la sécurité et aux artefacts que les services Azure Blueprints suivent lors de la création d’une attribution de blueprint.
 ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 473f8c7957994401ea6000ecc0d8023a89f8c349
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918549"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105560146"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Phases du déploiement d’un blueprint
 
@@ -27,7 +27,7 @@ Le déploiement de blueprint est déclenché en affectant un blueprint à un abo
 
 Le principal du service Azure Blueprints dispose de droits de propriétaire sur le ou les abonnements affectés lorsqu’une [identité managée affectée par le système](../../../active-directory/managed-identities-azure-resources/overview.md) est utilisée. Le rôle accordé permet à Azure Blueprints de créer et ultérieurement de révoquer l'identité managée **attribuée par le système**. Si vous utilisez une identité managée **affectée par l’utilisateur**, le principal du service Azure Blueprints n’obtient pas et ne nécessite pas de droits de propriétaire sur l’abonnement.
 
-Les droits sont accordés automatiquement si l’affectation est effectuée via le portail. Cependant, si l’affectation est effectuée via l’API REST, l’octroi des droits doit être fait avec un appel d’API distinct. L'ID d'application d'Azure Blueprints est `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mais le principal du service varie en fonction du locataire. Utilisez l’[API Graph d’Azure Active Directory](../../../active-directory/develop/active-directory-graph-api.md) et le point de terminaison REST [servicePrincipals](/graph/api/resources/serviceprincipal) pour obtenir le principal du service. Ensuite, accordez à Azure Blueprints le rôle _Propriétaire_ via le [portail](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l’[API REST](../../../role-based-access-control/role-assignments-rest.md) ou un [modèle Azure Resource Manager](../../../role-based-access-control/role-assignments-template.md).
+Les droits sont accordés automatiquement si l’affectation est effectuée via le portail. Cependant, si l’affectation est effectuée via l’API REST, l’octroi des droits doit être fait avec un appel d’API distinct. L'ID d'application d'Azure Blueprints est `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mais le principal du service varie en fonction du locataire. Utilisez l’[API Graph d’Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) et le point de terminaison REST [servicePrincipals](/graph/api/resources/serviceprincipal) pour obtenir le principal du service. Ensuite, accordez à Azure Blueprints le rôle _Propriétaire_ via le [portail](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), l’[API REST](../../../role-based-access-control/role-assignments-rest.md) ou un [modèle Azure Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
 Le service Azure Blueprints ne déploie pas directement les ressources.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: jeedes
 ms.openlocfilehash: b3fbf73ab51092f614a416355477fc552a404fd3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104581800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutoriel : Intégration d’Azure Active Directory avec Jitbit Helpdesk
@@ -98,7 +98,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon da
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentification unique Azure en lui octroyant l’accès à Jitbit Helpdesk.
 
@@ -122,13 +122,13 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-jitbit-helpdesk-sso"></a>Configurer l’authentification SSO pour Jitbit Helpdesk
+## <a name=&quot;configure-jitbit-helpdesk-sso&quot;></a>Configurer l’authentification SSO pour Jitbit Helpdesk
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Jitbit Helpdesk en tant qu’administrateur.
 
 1. Dans la barre d’outils située dans la partie supérieure, cliquez sur **Administration**.
 
-    ![Administration](./media/jitbit-helpdesk-tutorial/settings.png "Administration")
+    ![Administration](./media/jitbit-helpdesk-tutorial/settings.png &quot;Administration")
 
 1. Cliquez sur **General settings**.
 

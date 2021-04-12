@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Active Directory à Zscaler Beta
@@ -190,14 +190,14 @@ Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentific
 
     b. Sélectionnez **Activer**.
 
-## <a name="configure-proxy-settings"></a>Configuration des paramètres de proxy
+## <a name="configure-proxy-settings&quot;></a>Configuration des paramètres de proxy
 Pour configurer les paramètres de proxy dans Internet Explorer, effectuez les étapes suivantes :
 
 1. Démarrez **Internet Explorer**.
 
 2. Dans le menu **Outils**, sélectionnez **Options Internet** pour ouvrir la boîte de dialogue **Options Internet**. 
     
-     ![Boîte de dialogue Options Internet](./media/zscaler-beta-tutorial/ic769492.png "Options Internet")
+     ![Boîte de dialogue Options Internet](./media/zscaler-beta-tutorial/ic769492.png &quot;Options Internet")
 
 3. Sélectionnez l’onglet **Connexions** . 
   

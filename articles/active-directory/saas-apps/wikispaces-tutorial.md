@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 877f589c19663503b9bb0b1627f1dffe0eba1a23
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96302740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>Didacticiel : Intégration d’Azure AD à Wikispaces
@@ -176,17 +176,17 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-### <a name="create-wikispaces-test-user"></a>Créer un utilisateur de test Wikispaces
+### <a name="create-wikispaces-test-user&quot;></a>Créer un utilisateur de test Wikispaces
 
 Pour pouvoir se connecter à Wikispaces, les utilisateurs Azure AD doivent être provisionnés dans Wikispaces. Dans le cas de Wikispaces, l’approvisionnement est une tâche manuelle.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
+### <a name=&quot;to-provision-a-user-accounts-perform-the-following-steps&quot;></a>Pour approvisionner un compte d’utilisateur, procédez comme suit :
 
 1. Connectez-vous à votre site d’entreprise **Wikispaces** en tant qu’administrateur.
 
 2. Accédez à **Members**.
    
-    ![Members](./media/wikispaces-tutorial/ic787193.png "Membres") (Membres)
+    ![Members](./media/wikispaces-tutorial/ic787193.png &quot;Membres") (Membres)
 
 3. Cliquez sur **Invite People**.
    
