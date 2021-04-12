@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 – Java'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 pour Java afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-author: mhopkins-msft
+author: twooley
 ms.custom: devx-track-java
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6d42cf26bc128257aa5d0cd7ef01e8fe8749a51
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99054701"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280630"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Démarrage rapide : Gérer les objets blob avec le SDK Java v12
 

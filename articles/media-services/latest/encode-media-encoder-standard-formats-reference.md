@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: eb1b39f268934a71acb05d99bbeecb1b27b27a77
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 2fe8f5d0acb2ab7e2f1c64dde1bedb19b96111e9
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110981"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492288"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Codecs et formats de Media Encoder Standard
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Cet article contient la liste des formats de fichier d’importation et d’exportation les plus courants que vous pouvez utiliser avec [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Pour plus d’informations sur la façon de créer des préréglages personnalisés à l’aide de **StandardEncoderPreset**, consultez [Créer une transformation avec un préréglage personnalisé](encode-custom-presets-how-to.md).
+Cet article contient la liste des formats de fichier d’importation et d’exportation les plus courants que vous pouvez utiliser avec [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). Pour plus d’informations sur la façon de créer des préréglages personnalisés à l’aide de **StandardEncoderPreset**, consultez [Créer une transformation avec un préréglage personnalisé](transform-custom-presets-how-to.md).
 
 ## <a name="input-containerfile-formats"></a>Formats de conteneurs/fichiers d’entrée
 
@@ -103,4 +103,4 @@ Le tableau suivant répertorie les codecs et les formats de fichiers pris en cha
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une transformation avec un préréglage personnalisé](encode-custom-presets-how-to.md)
+[Créer une transformation avec un préréglage personnalisé](transform-custom-presets-how-to.md)

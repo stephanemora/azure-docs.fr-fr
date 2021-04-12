@@ -3,17 +3,17 @@ title: Utiliser des images partagées de machines virtuelles pour créer un grou
 description: Découvrez comment utiliser Azure PowerShell pour créer des images de machine virtuelle partagées dans le but de déployer des groupes de machines virtuelles identiques dans Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3ba826de47255143c8adefe4424448d0b80ba105
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6e8eaafa8d6e8b1f68873130b5ff56484fda049
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98678336"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444018"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Créer et utiliser des images partagées pour les groupe de machines virtuelles identiques avec Azure PowerShell
 
