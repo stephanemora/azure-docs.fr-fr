@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 357fe1844fabf6ec241d509651b4f0cbcffa3df3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa7bc6b979869a06ba7441ae33a47f82aea0704c
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009128"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063965"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique  
 
@@ -715,7 +715,7 @@ L'exemple définit la méthode UpdatePlayReadyConfigurationXMLFile que vous pouv
 ```
 
 ## <a name="using-static-encryption-to-protect-hlsv3-with-aes-128"></a>Utilisation du chiffrement statique pour protéger les contenus HLSv3 avec AES-128
-Si vous souhaitez chiffrer votre contenu HLS avec AES-128, vous pouvez choisir d'utiliser le chiffrement dynamique (option recommandée) ou le chiffrement statique (comme décrit dans cette section). Si vous choisissez d'utiliser le chiffrement dynamique, consultez la page [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-protect-with-aes128.md).
+Si vous souhaitez chiffrer votre contenu HLS avec AES-128, vous pouvez choisir d'utiliser le chiffrement dynamique (option recommandée) ou le chiffrement statique (comme décrit dans cette section). Si vous choisissez d'utiliser le chiffrement dynamique, consultez la page [Utilisation du chiffrement dynamique AES-128 et du service de distribution des clés](media-services-playready-license-template-overview.md).
 
 > [!NOTE]
 > Pour convertir votre contenu au format HLS, vous devez tout d'abord convertir/encoder votre contenu pour le Smooth Streaming.

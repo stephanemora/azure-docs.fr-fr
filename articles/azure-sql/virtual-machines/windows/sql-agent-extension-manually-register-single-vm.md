@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3cea15114e125951a8fbec73f965b272a4f8053d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181429"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284156"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ S’inscrire auprès de [l’extension SQL Server IaaS Agent](sql-server-iaas-ag
 
 Pendant le déploiement d’une image de machine virtuelle SQL Server de la Place de marché Azure via le portail Azure, la machine virtuelle SQL Server est inscrite automatiquement à l’extension. Toutefois, si vous choisissez d’installer automatiquement SQL Server sur une machine virtuelle Azure ou de configurer une machine virtuelle Azure à partir d’un disque dur virtuel personnalisé, vous devez inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent pour déverrouiller toutes les fonctionnalités et capacités de gestion. 
 
-Pour utiliser l’extension SQL IaaS Agent, vous devez d’abord [inscrire votre abonnement auprès du fournisseur **Microsoft.SqlVirtualMachine**](#register-subscription-with-rp), ce qui donne à l’extension SQL IaaS Agent la capacité de créer des ressources dans cet abonnement spécifique.
+Pour utiliser l’extension SQL IaaS Agent, vous devez d’abord [inscrire votre abonnement auprès du fournisseur **Microsoft.SqlVirtualMachine**](#register-subscription-with-resource-provider), ce qui donne à l’extension SQL IaaS Agent la capacité de créer des ressources dans cet abonnement spécifique.
 
 > [!IMPORTANT]
 > L’extension SQL IaaS Agent collecte des données dans le seul but de fournir d’autres avantages aux clients lors de l’utilisation de SQL Server dans Machines virtuelles Azure. Microsoft n’utilisera pas ces données pour les audits de gestion des licences sans le consentement préalable du client. Pour plus d’informations, consultez l’[Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
@@ -50,9 +50,9 @@ Pour inscrire votre machine virtuelle SQL Server auprès de l’extension, voici
 - La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli) ou d’[Azure PowerShell (5.0 minimum)](/powershell/azure/install-az-ps). 
 
 
-## <a name="register-subscription-with-rp"></a>Inscrire un abonnement auprès d’un fournisseur de ressources
+## <a name="register-subscription-with-resource-provider"></a>Inscription d’un abonnement auprès d’un fournisseur de ressources
 
-Pour inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent, vous devez d’abord inscrire votre abonnement auprès du fournisseur **Microsoft.SqlVirtualMachine**. Ainsi, l’extension SQL IaaS Agent peut créer des ressources dans votre abonnement.  Pour ce faire, vous pouvez utiliser le portail Azure, l’interface Azure CLI ou Azure PowerShell.
+Pour inscrire votre machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent, vous devez d’abord inscrire votre abonnement auprès du fournisseur de ressources **Microsoft.SqlVirtualMachine**. Ainsi, l’extension SQL IaaS Agent peut créer des ressources dans votre abonnement.  Pour ce faire, vous pouvez utiliser le portail Azure, l’interface Azure CLI ou Azure PowerShell.
 
 ### <a name="azure-portal"></a>Portail Azure
 

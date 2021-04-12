@@ -3,12 +3,12 @@ title: Lecture de vidéo - Azure
 description: Espace réservé
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063370"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278590"
 ---
 # <a name="video-playback"></a>Lecture de vidéo 
 
@@ -24,7 +24,7 @@ Vous pouvez utiliser des [graphes multimédias](media-graph-concept.md) pour enr
 
 ## <a name="streaming-endpoint"></a>point de terminaison de diffusion en continu 
 
-Vous pouvez utiliser Azure Media Services pour [diffuser](terminology.md#streaming) l’actif multimédia sur des lecteurs vidéo en utilisant des protocoles de streaming multimédia HTTP, comme HTTP Live Streaming (HLS) et MPEG-DASH. Cette conversion d’un contenu enregistré en formats de streaming est gérée par un [point de terminaison de streaming](../latest/streaming-endpoint-concept.md), qui est une ressource que vous devez provisionner dans votre compte Azure Media Services.
+Vous pouvez utiliser Azure Media Services pour [diffuser](terminology.md#streaming) l’actif multimédia sur des lecteurs vidéo en utilisant des protocoles de streaming multimédia HTTP, comme HTTP Live Streaming (HLS) et MPEG-DASH. Cette conversion d’un contenu enregistré en formats de streaming est gérée par un [point de terminaison de streaming](../latest/stream-streaming-endpoint-concept.md), qui est une ressource que vous devez provisionner dans votre compte Azure Media Services.
 
 ## <a name="streaming-policy"></a>Stratégie de streaming 
 
@@ -34,11 +34,11 @@ Azure Media Services vous propose différentes méthodes pour sécuriser vos flu
 * **Utiliser Advanced Encryption Standard (AES-128)**  : implémentez une méthode pour remettre les clés de déchiffrement de la vidéo uniquement aux utilisateurs authentifiés.
 * **Utiliser des systèmes de gestion des droits numériques (DRM)**  : contrôlez l’utilisation, la modification et la distribution de vidéos sur des appareils qui appliquent ces stratégies.
 
-Pour assurer la protection du contenu, vous pouvez définir et créer une [stratégie de streaming](../latest/streaming-policy-concept.md) dans votre compte Media Services, puis l’utiliser pour le streaming de tous les actifs multimédias (en supposant que tous les flux ont les mêmes critères de sécurité). Vous pouvez également utiliser l’une des stratégies prédéfinies (par exemple, Predefined_ClearStreamingOnly).
+Pour assurer la protection du contenu, vous pouvez définir et créer une [stratégie de streaming](../latest/stream-streaming-policy-concept.md) dans votre compte Media Services, puis l’utiliser pour le streaming de tous les actifs multimédias (en supposant que tous les flux ont les mêmes critères de sécurité). Vous pouvez également utiliser l’une des stratégies prédéfinies (par exemple, Predefined_ClearStreamingOnly).
 
 ## <a name="streaming-locator"></a>Localisateur de streaming  
 
-Une fois que vous avez démarré un point de terminaison de streaming dans votre compte Media Services et que vous avez une stratégie de streaming définie, vous pouvez diffuser des médias enregistrés à partir d’un actif multimédia par le biais des protocoles HLS ou DASH. Les lecteurs web et les applications mobiles ont besoin d’une URL pointant vers ce flux HLS ou DASH. Vous pouvez générer cette URL à l’aide du [localisateur de streaming](../latest/streaming-locators-concept.md). Comme expliqué dans cet article et illustré par l’exemple cité dans [Créer un localisateur de streaming et générer des URL](../latest/create-streaming-locator-build-url.md), l’URL de streaming se compose à partir du point de terminaison de streaming, de la stratégie de streaming et du localisateur de streaming.
+Une fois que vous avez démarré un point de terminaison de streaming dans votre compte Media Services et que vous avez une stratégie de streaming définie, vous pouvez diffuser des médias enregistrés à partir d’un actif multimédia par le biais des protocoles HLS ou DASH. Les lecteurs web et les applications mobiles ont besoin d’une URL pointant vers ce flux HLS ou DASH. Vous pouvez générer cette URL à l’aide du [localisateur de streaming](../latest/stream-streaming-locators-concept.md). Comme expliqué dans cet article et illustré par l’exemple cité dans [Créer un localisateur de streaming et générer des URL](../latest/create-streaming-locator-build-url.md), l’URL de streaming se compose à partir du point de terminaison de streaming, de la stratégie de streaming et du localisateur de streaming.
 
 ## <a name="content-recorded-using-file-sink"></a>Contenu enregistré à l’aide du récepteur de fichiers  
 

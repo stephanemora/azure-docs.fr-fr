@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 81cabe8dea178b2988039640065cb0eabc3287af
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ec8104a5fd8d1c524f75c7a5173015115d85a253
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470896"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064305"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -183,6 +183,10 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     Si vous avez activé Sauvegarde Azure sur vos partages de fichiers gérés par synchronisation de fichiers, les ACL de fichier peuvent continuer à être restaurées dans le cadre du workflow de restauration de la sauvegarde. Cela fonctionne pour l’ensemble du partage de fichiers ou pour des fichiers/répertoires individuels.
 
     Si vous utilisez des captures instantanées dans le cadre de la solution de sauvegarde autogérée pour les partages de fichiers gérés par synchronisation de fichiers, vos ACL peuvent ne pas être restaurées correctement en ACL NTFS si les captures instantanées ont été effectuées avant le 24 février 2020. Si cela se produit, pensez à contacter le support Azure.
+
+* <a id="afs-lastwritetime"></a>
+  **Azure File Sync synchronise-t-il le LastWriteTime pour les annuaires ?**  
+    Non, Azure File Sync ne synchronise pas le LastWriteTime pour les annuaires. C'est la procédure normale.
     
 ## <a name="security-authentication-and-access-control"></a>Sécurité, authentification et contrôle d’accès
 * <a id="ad-support"></a>
@@ -355,7 +359,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
     Vous pouvez monter le partage de fichiers à l’aide du protocole SMB si le port 445 (TCP sortant) est ouvert et que votre client prend en charge le protocole SMB 3.0 (par exemple si vous utilisez Windows 10 ou Windows Server 2016). Si le port 445 est bloqué par la stratégie de votre organisation ou par votre fournisseur de services Internet, vous pouvez utiliser Azure File Sync pour accéder à votre partage de fichiers Azure.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 * <a id="backup-share"></a>
 **Comment faire pour sauvegarder mon partage de fichiers Azure ?**  
     Vous pouvez utiliser des [instantanés de partage](storage-snapshots-files.md) périodiques pour la protection contre les suppressions accidentelles. Vous pouvez aussi utiliser AzCopy, RoboCopy ou un outil de sauvegarde tiers capable de sauvegarder un partage de fichiers monté. Le service Sauvegarde Azure propose une sauvegarde d’Azure Files. En savoir plus sur la [sauvegarder de partages de fichiers Azure par le service Sauvegarde Azure](../../backup/backup-afs.md).

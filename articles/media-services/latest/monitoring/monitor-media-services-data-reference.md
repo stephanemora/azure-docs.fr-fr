@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8908fd1acc64fb180121ac0b6a4dc38ce5a02572
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598182"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121164"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Référence sur la surveillance des données de Media Services
 
-Cet article décrit les données qui sont utiles pour la surveillance des Media Services. Pour plus d’informations sur les métriques de plateforme prises en charge dans Azure Monitor, consultez [Métriques prises en charge avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Cet article décrit les données qui sont utiles pour la surveillance des Media Services. Pour plus d’informations sur les métriques de plateforme prises en charge dans Azure Monitor, consultez [Métriques prises en charge avec Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="media-services-metrics"></a>Métriques Media Services
 
@@ -43,7 +44,7 @@ Vous pouvez surveiller les métriques de compte suivantes.
 |StreamingPolicyQuota|Quota de stratégies de diffusion en continu|Quota de stratégies de diffusion en continu dans votre compte.|
 |StreamingPolicyQuotaUsedPercentage|Pourcentage du quota de stratégies de diffusion en continu utilisé|Pourcentage du quota de stratégies de diffusion en continu déjà utilisé.|
 
-Vous devez également examiner les [quotas et limites de compte](../limits-quotas-constraints.md).
+Vous devez également examiner les [quotas et limites de compte](../limits-quotas-constraints-reference.md).
 
 ### <a name="streaming-endpoint"></a>Point de terminaison de streaming
 
@@ -59,7 +60,7 @@ Les métriques de [points de terminaison de streaming](/rest/api/media/streaming
 
 ## <a name="metric-dimensions"></a>Dimensions de métrique
 
-Pour plus d’informations sur les dimensions de métrique, consultez [Métriques multidimensionnelles](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Pour plus d’informations sur les dimensions de métrique, consultez [Métriques multidimensionnelles](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Pour plus d’informations sur les dimensions de métrique, consultez [Métrique
 
 ## <a name="media-services-diagnostic-logs"></a>Journaux de diagnostic Media Services
 
-Les journaux de diagnostic fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
+Les journaux de diagnostic fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Media Services prend en charge les journaux de diagnostic suivants :
 
@@ -81,7 +82,7 @@ Media Services prend en charge les journaux de diagnostic suivants :
 
 ## <a name="schemas"></a>Schémas
 
-Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema-properties"></a>Propriétés du schéma de journal de remise de clés
 
