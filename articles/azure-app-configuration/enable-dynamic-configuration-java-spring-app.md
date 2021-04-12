@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/09/2020
 ms.custom: devx-track-java
 ms.author: mametcal
-ms.openlocfilehash: 076ab0bb7dbc85a31b626a24d977e6fea558143e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 590f221b0a4980d462267dd8c3a73ca7d02583fd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102636536"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625515"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application Java Spring
 
@@ -89,6 +89,7 @@ Ensuite, ouvrez le fichier *pom.xml* dans un éditeur de texte, puis ajoutez un 
     ```
 
 1. Pour tester la configuration dynamique, ouvrez le portail Azure App Configuration associé à votre application. Sélectionnez l’**Explorateur de configurations**, et mettez à jour la valeur de votre clé affichée, par exemple :
+
     | Clé | Valeur |
     |---|---|
     | application/config.message | Hello – Mis à jour |

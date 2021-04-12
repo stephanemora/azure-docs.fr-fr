@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Utilisation d’étiquettes dans une définition de stratégie'
 description: Ce modèle Azure Policy fournit des exemples sur la façon d’ajouter des étiquettes paramétrables ou d’hériter d’étiquettes à partir d’un groupe de ressources dans une définition de stratégie.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3016fc7889f68fd13e993c67ca645a4af055c651
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c748eb9b8ea795f9725082ec0aa0b8065ada8c65
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88545554"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093365"
 ---
 # <a name="azure-policy-pattern-tags"></a>Modèle Azure Policy : étiquettes
 

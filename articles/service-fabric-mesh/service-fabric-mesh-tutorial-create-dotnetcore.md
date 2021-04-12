@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
 ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99626791"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutoriel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
@@ -194,7 +194,7 @@ La boîte de dialogue **Nouvelle application web ASP.NET Core** s’affiche. Dan
 
 Dans le **Gestionnaire de références**, cochez la case **Modèle** et cliquez sur **OK**.
 
-### <a name="add-a-data-context"></a>Ajouter un contexte de données
+### <a name="add-a-data-context&quot;></a>Ajouter un contexte de données
 
 Créez ensuite un contexte de données qui coordonne le traitement des données à partir du modèle de données.
 
@@ -206,7 +206,7 @@ Dans **DataContext.cs**, remplacez le contenu du champ `class DataContext` vide 
 ```csharp
 public static class DataContext
 {
-    public static Model.ToDoList ToDoList { get; } = new Model.ToDoList("Azure learning List");
+    public static Model.ToDoList ToDoList { get; } = new Model.ToDoList(&quot;Azure learning List");
 
     static DataContext()
     {

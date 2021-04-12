@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 3383af447f40ea984bce9cbc956f22ee6c5af200
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102583515"
 ---
 # <a name="get-report-api"></a>API Obtenir le rapport
@@ -39,7 +39,7 @@ Aucun
 
 | **Nom du paramètre** | **Obligatoire** | **Type** | **Description** |
 | --- | --- | --- | --- |
-| `reportId` | Non | string | Filtre permettant d’obtenir les détails des rapports avec l’élément `reportId` indiqué dans cet argument |
+| `reportId` | Non | string | Filtre permettant d’afficher uniquement les détails des rapports avec l’élément `reportId` indiqué dans cet argument |
 | `reportName` | Non | string | Filtre permettant d’afficher uniquement les détails des rapports avec l’élément `reportName` indiqué dans cet argument |
 | `queryId` | Non | boolean | Inclure les requêtes système prédéfinies dans la réponse |
 
