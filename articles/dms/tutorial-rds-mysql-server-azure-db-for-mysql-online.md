@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 3d200cd9bccecf03f5313058189e134082a1a357
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 13095824122f1d4b59ecde445efa1ea8bfa60dcd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742617"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063574"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
 Vous pouvez utiliser Azure Database Migration Service pour migrer des bases de données à partir d’une instance RDS MySQL vers [Azure Database pour MySQL](../mysql/index.yml) tandis que la base de données source reste en ligne pendant la migration. En d’autres termes, la migration peut être effectuée avec un temps d’arrêt minimal de l’application. Dans ce didacticiel, vous allez migrer l’exemple de base de données **Employés** à partir d’une instance RDS MySQL vers Azure Database pour MySQL à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
+
+> [!IMPORTANT]
+> Le scénario de migration en ligne « RDS MySQL vers Azure Database pour MySQL » sera remplacé par un scénario de migration hors connexion, très performant et en parallèle le 1er juin 2021. Pour les migrations en ligne, vous pouvez utiliser cette nouvelle offre ainsi que la [réplication des données entrantes](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication). Vous pouvez également utiliser des outils open source tels que [MyDumper/MyLoader](https://centminmod.com/mydumper.html) avec la réplication des données entrantes pour les migrations en ligne. 
 
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]

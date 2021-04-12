@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 15f5f24400e4618b679d3a40bdc363ed06c085af
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: e98f45989e3ded1eb485c3f8f6eb95aa51592a9a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123135"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278063"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Utiliser le décalage temporel et des sorties en direct pour créer une lecture vidéo à la demande
 
@@ -56,5 +56,5 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créez des sous-clips de vos vidéos](subclip-video-rest-howto.md).
+* [Créez des sous-clips de vos vidéos](transform-subclip-video-rest-how-to.md).
 * [Définissez des filtres pour vos éléments multimédias](filters-dynamic-manifest-rest-howto.md).

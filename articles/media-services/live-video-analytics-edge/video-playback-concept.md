@@ -3,12 +3,12 @@ title: Lecture de vidéo - Azure
 description: Espace réservé
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2020d64538b2fcc846ab9a146e2fc95325abd26b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87042968"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063370"
 ---
 # <a name="video-playback"></a>Lecture de vidéo 
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser Azure Media Services pour [diffuser](terminology.md#streami
 
 ## <a name="streaming-policy"></a>Stratégie de streaming 
 
-Azure Media Services vous propose différentes méthodes pour sécuriser vos flux vidéo, comme décrit dans l’article [Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](../latest/content-protection-overview.md). Les options élémentaires de protection du contenu sont les suivantes :
+Azure Media Services vous propose différentes méthodes pour sécuriser vos flux vidéo, comme décrit dans l’article [Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](../latest/drm-content-protection-concept.md). Les options élémentaires de protection du contenu sont les suivantes :
 
 * **Streaming en clair** : aucun chiffrement n’est appliqué pendant le streaming.
 * **Utiliser Advanced Encryption Standard (AES-128)**  : implémentez une méthode pour remettre les clés de déchiffrement de la vidéo uniquement aux utilisateurs authentifiés.

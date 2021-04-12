@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 - C++'
 description: Dans ce guide de démarrage rapide, vous découvrez comment utiliser la bibliothèque de client Stockage Blob Azure version 12 pour C++ afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 246d2677c784daee4cc6b083cff04b6993ab3818
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a0d2bdb1879e4f68b582ee56367f0238285a401
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006487"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278080"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 pour C++
 

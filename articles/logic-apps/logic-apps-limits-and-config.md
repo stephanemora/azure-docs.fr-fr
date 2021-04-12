@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/18/2021
-ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/05/2021
+ms.openlocfilehash: 2debf7d350f4f1fde5e86a60ad03a6858bc02743
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462914"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490333"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -27,7 +27,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 | ---- | ----- | ----- |
 | Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
 | Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
-| Flux de travail par région et par abonnement | 1 000 | |
+| Flux de travail par région et par abonnement | 1 000 | |
 | Déclencheurs par flux de travail | 10 | Lors de l’utilisation du mode Code, et non du concepteur |
 | Limite de cas de basculement d’étendue | 25 | |
 | Variables par workflow | 250 | |
@@ -120,11 +120,13 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 | Délai d’expiration d’Until | - Par défaut : PT1H (1 heure) | La durée la plus longue d’exécution de la boucle « Until » avant qu’elle ne se termine, spécifiée au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur du délai d’attente est évaluée pour chaque cycle de boucle. Si une action dans la boucle dure plus longtemps que la limite de délai d’attente, le cycle actuel ne s’arrête pas. Toutefois, le cycle suivant ne démarre pas, car la condition de limite n’est pas remplie. <p><p>Pour modifier cette limite, dans la forme de la boucle « Until », sélectionnez **Modifier les limites**, puis spécifiez la valeur de la propriété **Timeout**. |
 ||||
 
+<a name="concurrency-debatching"></a>
+
 ### <a name="concurrency-and-debatching"></a>Accès concurrentiel et décomposition
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
-| Déclencheur simultané | Avec la concurrence désactivée : Illimité <p><p>Avec la concurrence activée, ce que vous ne pouvez pas faire après l’activation : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 50 | Cette limite est le nombre maximal d’instances d’application logique pouvant être exécutées simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier cette limite, consultez [Modifier la limite de concurrence du déclencheur](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Déclencheur simultané | Avec la concurrence désactivée : Illimité <p><p>Avec la concurrence activée, ce que vous ne pouvez pas faire après l’activation : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Cette limite est le nombre maximal d’instances d’application logique pouvant être exécutées simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier cette limite, consultez [Modifier la limite de concurrence du déclencheur](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Exécutions en attente maximale | Avec la concurrence désactivée : <p><p>- Min : 1 <br>- Max : 50 <p><p>Avec la concurrence activée : <p><p>- Min : 10, plus le nombre d’exécutions simultanées (déclencher la concurrence) <br>- Max : 100 | Cette limite est le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer cette limite, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Éléments SplitOn | Avec la concurrence désactivée : 100 000 <p><p>Avec la concurrence activée : 100 | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
 ||||
@@ -325,14 +327,14 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 > [!NOTE]
 > Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pour les scénarios de production. Ce niveau limite le débit et l’utilisation et n’inclut aucun contrat de niveau de service (SLA).
 
-| Artefact | Gratuit | De base | Standard |
+| Artefact | Gratuit | De base | standard |
 |----------|------|-------|----------|
-| Contrats commerciaux EDI | 10 | 1 | 1 000 |
-| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
-| Cartes | 25 | 500 | 1 000 |
-| Schémas | 25 | 500 | 1 000 |
-| Assemblys | 10 | 25 | 1 000 |
-| Certificats | 25 | 2 | 1 000 |
+| Contrats commerciaux EDI | 10 | 1 | 1 000 |
+| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
+| Cartes | 25 | 500 | 1 000 |
+| Schémas | 25 | 500 | 1 000 |
+| Assemblys | 10 | 25 | 1 000 |
+| Certificats | 25 | 2 | 1 000 |
 | Configurations par lots | 5 | 1 | 50 |
 ||||
 
@@ -351,7 +353,7 @@ Les limites du nombre d’artefacts pour chaque niveau de compte d’intégratio
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
 |------------------|------|-------|----------|-------|
 | appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
