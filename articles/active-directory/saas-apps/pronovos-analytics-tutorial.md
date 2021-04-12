@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ProNovos Analytics.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 2c3b591ae8d4bf1489dcc96ceee3f9bc572ecc26
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92505802"
 ---
-# <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutoriel : Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics
+# <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ProNovos Analytics
 
 Dans ce tutoriel, vous allez découvrir comment intégrer ProNovos Analytics à Azure Active Directory (Azure AD). Quand vous intégrez ProNovos Analytics à Azure AD, vous pouvez :
 
@@ -47,16 +47,16 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 Pour configurer l’intégration de ProNovos Analytics à Azure AD, vous devez ajouter ProNovos Analytics de la galerie à votre liste d’applications SaaS gérées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **ProNovos Analytics** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **ProNovos Analytics** dans la zone de recherche.
 1. Sélectionnez **ProNovos Analytics** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-pronovos-analytics"></a>Configurer et tester l’authentification unique (SSO) Azure AD pour ProNovos Analytics
 
-Configurez et testez l’authentification unique (SSO) Azure AD avec ProNovos Analytics à l’aide d’un utilisateur de test nommé **B.Simon** . Pour que l’authentification unique (SSO) fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur ProNovos Analytics associé.
+Configurez et testez l’authentification unique (SSO) Azure AD avec ProNovos Analytics à l’aide d’un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique (SSO) fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur ProNovos Analytics associé.
 
 Pour configurer et tester l’authentification unique (SSO) Azure AD avec ProNovos Analytics, suivez les modules suivants :
 
@@ -71,23 +71,23 @@ Pour configurer et tester l’authentification unique (SSO) Azure AD avec ProNo
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans la page d’intégration de l’application **ProNovos Analytics** du [portail Azure](https://portal.azure.com/), recherchez la section **Gérer** , puis sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page d’intégration de l’application **ProNovos Analytics** du [portail Azure](https://portal.azure.com/), recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer** .
+1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services** , cliquez sur **Définir des URL supplémentaires** , puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion** , tapez une URL : `https://analytics.pronovos.com/Pronovos/servlet/mstrWeb`
+    Dans la zone de texte **URL de connexion**, tapez une URL : `https://analytics.pronovos.com/Pronovos/servlet/mstrWeb`
 
-4. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificateraw.png)
 
-6. Dans la section **Configurer ProNovos Analytics** , copiez la ou les URL appropriées, selon vos besoins.
+6. Dans la section **Configurer ProNovos Analytics**, copiez la ou les URL appropriées, selon vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -95,35 +95,35 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
-   1. Cliquez sur **Créer** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à ProNovos Analytics.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **ProNovos Analytics** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **ProNovos Analytics**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-pronovos-analytics-sso"></a>Configurer l’authentification unique (SSO) ProNovos Analytics
 
-Pour configurer l’authentification unique côté **ProNovos Analytics** , vous devez envoyer le **certificat (brut)** téléchargé et les URL copiées appropriées à partir du portail Azure à l’ [équipe du support technique ProNovos Analytics](mailto:support@pronovos.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **ProNovos Analytics**, vous devez envoyer le **certificat (brut)** téléchargé et les URL copiées appropriées à partir du portail Azure à l’[équipe du support technique ProNovos Analytics](mailto:support@pronovos.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-pronovos-analytics-test-user"></a>Créer un utilisateur de test ProNovos Analytics
 

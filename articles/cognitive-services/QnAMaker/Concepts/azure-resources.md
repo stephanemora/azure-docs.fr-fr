@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102214165"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
@@ -66,7 +66,7 @@ Le tableau suivant vous donne des indications d’ordre général.
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Expérimentation**        | Référence SKU Gratuite             | Niveau Gratuit   | Niveau Gratuit    | Publier jusqu’à 2 Ko, taille de 50 Mo  |
 | **Environnement Dev/Test**   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |
-| **Environnement de production** | Référence SKU standard         | De base       | Standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
+| **Environnement de production** | Référence SKU standard         | De base       | standard     | Publier jusqu’à 49 Ko, taille de 25 Go |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker managé (préversion)](#tab/v2)
 

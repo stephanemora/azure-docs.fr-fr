@@ -10,20 +10,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 03/26/2021
 ms.author: duau
-ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d2c8d4179dbaa44929031ce7e14b597b145ed72a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740781"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067603"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
-Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à votre porte d’entrée sous la section d’hôtes frontend. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
+Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à votre porte d’entrée sous la section d’hôtes frontend. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https:\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
-Par défaut, Azure Front Door prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une instance Front Door (comme `https://contoso.azurefd.net`), HTTPS est automatiquement activé pour les requêtes effectuées sur `https://contoso.azurefd.net`. Toutefois, une fois que vous intégrez le domaine personnalisé « www.contoso.com », vous devez également activer HTTPS pour cet hôte frontend.   
+Par défaut, Azure Front Door prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une instance Front Door (comme `https://contoso.azurefd.net`), HTTPS est automatiquement activé pour les requêtes effectuées sur `https://contoso.azurefd.net`. Toutefois, une fois que vous intégrez le domaine personnalisé « www.contoso.com », vous devez également activer HTTPS pour cet hôte front-end.   
 
 Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisée :
 
@@ -63,15 +63,16 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 
 2. Dans la liste des hôtes frontend, sélectionnez le domaine personnalisé pour lequel vous souhaitez activer le protocole HTTPS.
 
-3. Sous la section **HTTPS sur un domaine personnalisé**, cliquez sur **Activé**, puis sélectionnez **Porte d’entrée managée** en tant que source du certificat.
+3. Sous la section **HTTPS sur un domaine personnalisé**, sélectionnez **Activé**, puis **Porte d’entrée managée** en tant que source du certificat.
 
-4. Cliquez sur Enregistrer.
+4. Sélectionnez Enregistrer.
 
-5. Faites [Valider le domaine](#validate-the-domain).
+5. Passez à [Valider le domaine](#validate-the-domain).
 
 > [!NOTE]
 > Pour les certificats managés AFD, la limite de 64 caractères de DigiCert est appliquée. En cas de dépassement de cette limite, la validation échoue.
 
+L’activation du protocole HTTPS par le biais du certificat managé Front Door n’est pas prise en charge pour les domaines apex/racines (exemple : contoso.com). Vous pouvez utiliser votre propre certificat pour ce scénario.  Pour plus d’informations, passez à l’option 2.
 
 ### <a name="option-2-use-your-own-certificate"></a>Option n°2 : utiliser votre propre certificat ;
 
@@ -128,23 +129,25 @@ Accordez à Azure Front Door l’autorisation d’accéder aux certificats de vo
 
 3. Sous Type de gestion de certificats, sélectionnez **Utiliser mon propre certificat**. 
 
-4. Azure Front Door nécessite que l’abonnement du compte Key Vault soit identique à celui de Front Door. Sélectionnez un coffre de clés, un certificat (secret) et une version du certificat.
+4. Azure Front Door nécessite que l’abonnement du compte Key Vault soit identique à celui de Front Door. Sélectionnez un coffre de clés, un secret et une version de secret.
 
     Azure Front Door liste les informations suivantes : 
-    - les comptes du coffre de clés de votre ID d’abonnement ; 
-    - les certificats (secrets) dans le coffre de clés sélectionné ; 
-    - les versions disponibles du certificat.
+    - Les comptes du coffre de clés de votre ID d’abonnement. 
+    - Les secrets sous le coffre de clés sélectionné. 
+    - Les versions de secrets disponibles.
+
+    > [!NOTE]
+    >  Pour effectuer automatiquement une rotation du certificat avec la dernière version quand une version plus récente est disponible dans votre coffre de clés, choisissez « La plus récente » comme version du secret. Si une version spécifique est sélectionnée, vous devez resélectionner manuellement la nouvelle version pour la rotation du certificat. Le déploiement de la nouvelle version du certificat/secret peut prendre jusqu’à 24 heures. 
  
-5. Lorsque vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire. Passez à [En attente de la propagation](#wait-for-propagation).
+5. Quand vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire. Passez à [En attente de la propagation](#wait-for-propagation).
 
 ## <a name="validate-the-domain"></a>Valider le domaine
 
-Si vous avez déjà un domaine personnalisé en cours d’utilisation qui est mappé à votre point de terminaison personnalisé avec un enregistrement CNAME, ou si vous utilisez votre propre certificat, passez à  
-[Le domaine personnalisé est mappé à votre porte d’entrée](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Autrement, si l’entrée d’enregistrement CNAME pour votre domaine n’existe plus ou si elle contient le sous-domaine afdverify, passez à [Le domaine personnalisé n’est pas mappé à votre porte d’entrée](#custom-domain-is-not-mapped-to-your-front-door).
+Si vous avez déjà un domaine personnalisé en cours d’utilisation qui est mappé à votre point de terminaison personnalisé avec un enregistrement CNAME, ou si vous utilisez votre propre certificat, passez à [Domaine personnalisé mappé à votre porte d’entrée](#custom-domain-is-mapped-to-your-front-door-by-a-cname-record). Autrement, si l’entrée d’enregistrement CNAME pour votre domaine n’existe plus ou si elle contient le sous-domaine afdverify, passez à [Le domaine personnalisé n’est pas mappé à votre porte d’entrée](#custom-domain-is-not-mapped-to-your-front-door).
 
 ### <a name="custom-domain-is-mapped-to-your-front-door-by-a-cname-record"></a>Le domaine personnalisé est mappé à votre porte d’entrée par un enregistrement CNAME
 
-Lors de l’ajout d’un domaine personnalisé aux hôtes frontend de votre porte d’entrée, vous avez créé un enregistrement CNAME dans la table DNS de votre bureau d’enregistrement de domaines afin de le mapper au nom d’hôte .azurefd.net par défaut de votre porte d’entrée. Si cet enregistrement CNAME existe toujours et s’il ne contient pas le sous-domaine afdverify, l’autorité de certification DigiCert l’utilise pour valider automatiquement la propriété de votre domaine personnalisé. 
+Lors de l’ajout d’un domaine personnalisé aux hôtes frontend de votre porte d’entrée, vous avez créé un enregistrement CNAME dans la table DNS de votre bureau d’enregistrement de domaines afin de le mapper au nom d’hôte .azurefd.net par défaut de votre porte d’entrée. Si cet enregistrement CNAME existe toujours et qu’il ne contient pas le sous-domaine afdverify, l’autorité de certification DigiCert l’utilise pour valider automatiquement la propriété de votre domaine personnalisé. 
 
 Si vous utilisez votre propre certificat, la validation du domaine n’est pas nécessaire.
 
@@ -171,7 +174,7 @@ Dès que vous avez activé HTTPS sur votre domaine personnalisé, l’autorité 
 
 ![Enregistrement WHOIS](./media/front-door-custom-domain-https/whois-record.png)
 
-DigiCert envoie également un e-mail de vérification à des adresses e-mail supplémentaires. Si les informations sur l’inscrit WHOIS sont privées, vérifiez que vous pouvez effectuer directement l’approbation à partir de l’une des adresses suivantes :
+DigiCert envoie également un e-mail de vérification à d’autres adresses e-mail. Si les informations sur l’inscrit WHOIS sont privées, vérifiez que vous pouvez effectuer directement l’approbation à partir de l’une des adresses suivantes :
 
 admin@&lt;votre-nom-de-domaine.com&gt;  
 administrateur@&lt;votre-nom-de-domaine.com&gt;  
@@ -181,11 +184,11 @@ postmaster@&lt;votre-nom-de-domaine.com&gt;
 
 Au bout de quelques minutes, vous devriez recevoir un e-mail similaire à celui de l’exemple suivant et vous demandant d’approuver la requête. Si vous utilisez un filtre de courrier indésirable, ajoutez admin@digicert.com à sa liste verte. Si vous ne recevez pas d’e-mail dans les 24 heures, contactez le support Microsoft.
 
-Lorsque vous cliquez sur le lien d’approbation, vous êtes dirigé vers un formulaire d’approbation en ligne. Suivez les instructions du formulaire ; deux options de vérification vous sont proposées :
+Quand vous sélectionnez le lien d’approbation, vous êtes dirigé vers un formulaire d’approbation en ligne. Suivez les instructions du formulaire ; deux options de vérification vous sont proposées :
 
-- Vous pouvez approuver toutes les commandes futures passées par l’intermédiaire du même compte pour le même domaine racine, par exemple contoso.com. Nous vous recommandons cette approche si vous prévoyez d’ajouter des domaines personnalisés pour le même domaine racine.
+- Vous pouvez approuver toutes les commandes futures passées par l’intermédiaire du même compte pour le même domaine racine, par exemple contoso.com. Cette approche est recommandée si vous prévoyez d’ajouter des domaines personnalisés pour le même domaine racine.
 
-- Vous pouvez approuver uniquement le nom d’hôte spécifique utilisé dans cette requête. L’approbation supplémentaire est nécessaire pour les demandes suivantes.
+- Vous pouvez approuver uniquement le nom d’hôte spécifique utilisé dans cette requête. Une approbation supplémentaire est nécessaire pour les demandes suivantes.
 
 Après l’approbation, DigiCert termine la création du certificat pour votre nom de domaine personnalisé. Le certificat est valide pendant un an et est automatiquement renouvelé avant son expiration.
 
@@ -195,7 +198,7 @@ Une fois le nom de domaine validé, l’activation de la fonctionnalité HTTPS s
 
 ### <a name="operation-progress"></a>Progression de l’opération
 
-Le tableau suivant présente le déroulement de l’opération qui s’exécute lorsque vous activez HTTPS. Une fois que vous avez activé HTTPS, les quatre étapes de l’opération s’affichent dans la boîte de dialogue Domaine personnalisé. À mesure que chaque étape devient active, des détails de sous-étape supplémentaires s’affichent sous l’étape qui est en cours d’exécution. Toutes ces sous-étapes ne se produiront pas. Lorsqu’une étape se termine correctement, une coche verte apparaît en regard de celle-ci. 
+Le tableau suivant présente le déroulement de l’opération qui s’exécute lorsque vous activez HTTPS. Une fois que vous avez activé HTTPS, les quatre étapes de l’opération s’affichent dans la boîte de dialogue Domaine personnalisé. À mesure que chaque étape devient active, d’autres détails apparaissent sous l’étape en cours. Toutes ces sous-étapes ne se produiront pas. Lorsqu’une étape se termine correctement, une coche verte apparaît en regard de celle-ci. 
 
 | Étape de l’opération | Détails de la sous-étape de l’opération | 
 | --- | --- |
@@ -204,8 +207,8 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 | | Votre requête HTTPS a été correctement envoyée. |
 | 2 Validation du domaine | Le domaine est automatiquement validé si l’enregistrement CNAME est mappé à l’hôte frontend .azurefd.net par défaut de votre porte d’entrée. Sinon, une demande de vérification est envoyée à l’adresse de messagerie répertoriée dans l’enregistrement de l’inscription de votre domaine (inscrit WHOIS). Vérifiez le domaine dès que possible. |
 | | La propriété du domaine a été correctement validée. |
-| | La requête de validation de la propriété du domaine a expiré ( le client n’a probablement pas répondu dans les 6 jours). Le protocole HTTPS n’est pas activé sur votre domaine. * |
-| | La requête de validation de la propriété du domaine a été rejetée par le client. Le protocole HTTPS n’est pas activé sur votre domaine. * |
+| | La requête de validation de la propriété du domaine a expiré ( le client n’a probablement pas répondu dans les 6 jours). Le protocole HTTPS ne sera pas activé sur votre domaine. * |
+| | La requête de validation de la propriété du domaine a été rejetée par le client. Le protocole HTTPS ne sera pas activé sur votre domaine. * |
 | 3 Approvisionnement du certificat | L’émission, par l’autorité de certification, du certificat nécessaire à l’activation HTTPS sur votre domaine est en cours. |
 | | Le certificat a été émis et son déploiement est en cours pour votre porte d’entrée. Ce processus peut prendre jusqu’à 1 heure. |
 | | Le certificat a été correctement déployé pour votre porte d’entrée. |
@@ -231,7 +234,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 3. *Que se passe-t-il si je ne reçois pas l’e-mail de vérification de domaine de DigiCert ?*
 
-    Si une entrée CNAME pour votre domaine personnalisé pointe directement vers le nom d’hôte de votre point de terminaison (et si vous n’utilisez pas le nom de sous-domaine afdverify), vous ne recevrez pas de courrier électronique de vérification du domaine. La validation se fait automatiquement. Autrement, si vous n’avez pas d’entrée CNAME et si vous n’avez pas reçu d’e-mail dans les 24 heures, contactez le support Microsoft.
+    Si une entrée CNAME pour votre domaine personnalisé pointe directement vers le nom d’hôte de votre point de terminaison (et si vous n’utilisez pas le nom de sous-domaine afdverify), vous ne recevrez pas d’e-mail de vérification du domaine. La validation se fait automatiquement. Autrement, si vous n’avez pas d’entrée CNAME et si vous n’avez pas reçu d’e-mail dans les 24 heures, contactez le support Microsoft.
 
 4. *Un certificat SAN est-il moins sécurisé qu’un certificat dédié ?*
     
@@ -239,17 +242,17 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 5. *Ai-je besoin d’un enregistrement CAA (Certificate Authority Authorization) auprès de mon fournisseur DNS ?*
 
-    Non, un enregistrement CAA n’est pas requis. Toutefois, si vous en avez un, il doit inclure DigiCert en tant qu’autorité de certification valide.
+    Non, un enregistrement CAA n’est pas obligatoire pour l’instant. Toutefois, si vous en avez un, il doit inclure DigiCert en tant qu’autorité de certification valide.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dans les étapes précédentes, vous avez activé le protocole HTTPS sur votre domaine personnalisé. Si vous ne souhaitez plus utiliser votre domaine personnalisé avec HTTPS, vous pouvez désactiver HTTPS en procédant comme suit :
+Dans les étapes précédentes, vous avez activé le protocole HTTPS sur votre domaine personnalisé. Si vous ne souhaitez plus utiliser votre domaine personnalisé avec HTTPS, vous pouvez désactiver HTTPS en effectuant ces étapes :
 
 ### <a name="disable-the-https-feature"></a>Désactiver la fonctionnalité HTTPS 
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre configuration **Azure Front Door**.
 
-2. Dans la liste d’hôtes frontend, cliquez sur le domaine personnalisé pour lequel vous souhaitez désactiver HTTPS.
+2. Dans la liste d’hôtes frontend, sélectionnez le domaine personnalisé pour lequel vous souhaitez désactiver HTTPS.
 
 3. Cliquez sur **Désactiver** pour désactiver HTTPS, puis cliquez sur **Enregistrer**.
 
@@ -259,7 +262,7 @@ Après la désactivation de la fonctionnalité HTTPS sur un domaine personnalis�
 
 #### <a name="operation-progress"></a>Progression de l’opération
 
-Le tableau suivant présente le déroulement de l’opération qui s’exécute lorsque vous désactivez HTTPS. Une fois que vous avez désactivé HTTPS, les trois étapes de l’opération s’affichent dans la boîte de dialogue Domaine personnalisé. À mesure que chaque étape devient active, des détails supplémentaires s’affichent sous l’étape en cours d’exécution. Lorsqu’une étape se termine correctement, une coche verte apparaît en regard de celle-ci. 
+Le tableau suivant présente le déroulement de l’opération qui s’exécute lorsque vous désactivez HTTPS. Une fois que vous avez désactivé HTTPS, les trois étapes de l’opération s’affichent dans la boîte de dialogue Domaine personnalisé. À mesure que chaque étape devient active, d’autres détails s’affichent sous l’étape en cours d’exécution. Lorsqu’une étape se termine correctement, une coche verte apparaît en regard de celle-ci. 
 
 | Progression de l’opération | Détails de l’opération | 
 | --- | --- |

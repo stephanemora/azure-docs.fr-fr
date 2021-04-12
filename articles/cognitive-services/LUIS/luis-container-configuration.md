@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001156"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurer les conteneurs Docker Language Understanding 
@@ -47,7 +47,7 @@ Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effec
 Vous trouverez ce paramètre aux emplacements suivants :
 
 * Portail Azure : Gestion des ressources **Cognitive Services**, sous **Clés**
-* Portail LUIS : Page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison). 
+* Portail LUIS : page **Paramètres des clés et point de terminaison**. 
 
 N’utilisez pas la clé de démarrage ou la clé de création. 
 
@@ -62,7 +62,7 @@ Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de 
 Vous trouverez ce paramètre aux emplacements suivants :
 
 * Portail Azure : Vue d’ensemble **Cognitive Services**, étiquetée `Endpoint`
-* Portail LUIS : Page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison), dans le cadre de l’URI de point de terminaison.
+* Portail LUIS : page **Paramètres des clés et du point de terminaison**, dans le cadre de l’URI du point de terminaison.
 
 | Obligatoire | Nom | Type de données | Description |
 |----------|------|-----------|-------------|

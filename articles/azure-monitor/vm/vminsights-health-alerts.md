@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c4b15fa2a8be32aa7397ae425f28f1deaac6b71
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052260"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024606"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>Alertes d’intégrité de l’invité de VM Insights (préversion)
 L’intégrité des invités de VM Insights vous permet de voir l’état d’intégrité d’une machine virtuelle tel que défini par un ensemble de mesures de performances échantillonnées à intervalles réguliers. Une alerte peut être créée lorsqu’une machine virtuelle ou un moniteur passe à un état défectueux. Vous pouvez afficher et gérer ces alertes avec [celles créées par les règles d’alerte dans Azure Monitor](../alerts/alerts-overview.md) et choisir d’être informé de manière proactive lors de la création d’une nouvelle alerte.
@@ -35,7 +35,7 @@ Une [alerte Azure](../alerts/alerts-overview.md) est créée pour chaque machine
 Si une alerte est déjà à l’état **Déclenché** lorsque l’état de la machine virtuelle change, une deuxième alerte n’est pas créée, mais la gravité de la même alerte est modifiée pour correspondre à l’état de la machine virtuelle. Par exemple, si la machine virtuelle passe à l’état **Critique** quand une alerte **Avertissement** était déjà à l’état **Déclenché**, la gravité de cette alerte passera à **SEV1**. Si la machine virtuelle passe à l’état **Avertissement** quand une alerte **Sev1** était déjà à l’état **Déclenché**, la gravité de cette alerte passera à **Sev2**. Si la machine virtuelle revient à un état **Sain**, l’alerte sera résolue et la gravité passera à **Sev4**.
 
 ## <a name="viewing-alerts"></a>Affichage des alertes
-Affichez les alertes créées par l’intégrité des invités de VM Insights avec d’autres [alertes dans le portail Azure](../platform/alerts-overview.md#alerts-experience). Vous pouvez sélectionner **Alertes** dans le menu **Azure Monitor** pour afficher les alertes de toutes les ressources surveillées ou sélectionner **Alertes** dans le menu d’une machine virtuelle pour afficher les alertes de cette machine virtuelle uniquement.
+Affichez les alertes créées par l’intégrité des invités de VM Insights avec d’autres [alertes dans le portail Azure](../alerts/alerts-overview.md#alerts-experience). Vous pouvez sélectionner **Alertes** dans le menu **Azure Monitor** pour afficher les alertes de toutes les ressources surveillées ou sélectionner **Alertes** dans le menu d’une machine virtuelle pour afficher les alertes de cette machine virtuelle uniquement.
 
 ## <a name="alert-properties"></a>Propriétés de l'alerte
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: 6073000f2f14f835e2bfbd91b41619101c36b10f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104866843"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Apache Hive par le biais du pilote JDBC dans HDInsight
@@ -82,7 +82,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 5. Dans la boîte de dialogue Ajouter un pilote, ajoutez les informations suivantes :
 
-    |Propriété | Value |
+    |Propriété | Valeur |
     |---|---|
     |Nom|Hive|
     |Exemple d’URL|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
@@ -99,7 +99,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
 
 7. Dans la boîte de dialogue **Ajouter un Alias**, utilisez les valeurs suivantes :
 
-    |Propriété |Value |
+    |Propriété |Valeur |
     |---|---|
     |Nom|Hive sur HDInsight|
     |Pilote|Sélectionnez le pilote **Hive** dans la liste déroulante.|

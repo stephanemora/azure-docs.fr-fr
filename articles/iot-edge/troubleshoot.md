@@ -4,16 +4,16 @@ description: Cet article vous permettra d’acquérir des compétences de diagno
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2020
+ms.date: 04/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56eff095cca1b24678f742e4c3ce8dfb1aaea2dd
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489455"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275581"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Résoudre les problèmes de votre appareil IoT Edge
 
@@ -30,6 +30,8 @@ La première étape dans la résolution des problèmes relatifs à IoT Edge cons
 
 Vous pouvez exécuter la commande `check` comme suit, ou inclure l’indicateur `--help` pour afficher une liste complète des options :
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Sur Linux :
 
 ```bash
@@ -41,6 +43,19 @@ Sur Windows :
 ```powershell
 iotedge check
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.1 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge check
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 L’outil de résolution des problèmes exécute de nombreuses vérifications qui sont triées dans les trois catégories suivantes :
 
@@ -58,6 +73,9 @@ Pour collecter des journaux à partir d’un appareil IoT Edge, la méthode la p
 
 Exécutez la commande `support-bundle` avec l’indicateur `--since` pour spécifier la période pour laquelle vous souhaitez récupérer les journaux. Par exemple `6h` obtiendra les journaux des six dernières heures, `6d` des six derniers jours, `6m` des six dernières minutes, et ainsi de suite. Incluez l’indicateur `--help` pour voir la liste complète des options.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 Sur Linux :
 
 ```bash
@@ -69,6 +87,19 @@ Sur Windows :
 ```powershell
 iotedge support-bundle --since 6h
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+```bash
+sudo iotedge support-bundle --since 6h
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 Vous pouvez également utiliser un appel de [méthode directe](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) à destination de votre appareil pour charger la sortie de la commande support-bundle dans Stockage Blob Azure.
 
@@ -102,10 +133,9 @@ Cette commande renvoie toutes les [propriétés edgeAgent signalées](./module-e
 
 Le [gestionnaire de sécurité IoT Edge](iot-edge-security-manager.md) est responsable d’opérations telles que l’initialisation du système IoT Edge au démarrage et l’approvisionnement des appareils. Si IoT Edge ne démarre pas, les journaux du gestionnaire de sécurité peuvent fournir des informations utiles.
 
-Sur Linux :
-
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+Sur Linux :
 
 * Consultez l’état du gestionnaire de sécurité IoT Edge :
 
@@ -141,42 +171,6 @@ Sur Linux :
      sudo systemctl daemon-reload
      sudo systemctl restart iotedge
      ```
-<!--end 1.1 -->
-:::moniker-end
-
-<!-- 1.2 -->
-:::moniker range=">=iotedge-2020-11"
-
-* Consultez l’état des services système IoT Edge :
-
-   ```bash
-   sudo iotedge system status
-   ```
-
-* Consultez les journaux des services système IoT Edge :
-
-   ```bash
-   sudo iotedge system logs -- -f
-   ```
-
-* Activez les journaux au niveau débogage pour afficher des journaux plus détaillés des services système IoT Edge :
-
-  1. Activez les journaux au niveau débogage.
-
-     ```bash
-     sudo iotedge system set-log-level debug
-     sudo iotedge system restart
-     ```
-
-  1. Revenez aux journaux de niveau informations par défaut après le débogage.
-
-     ```bash
-     sudo iotedge system set-log-level info
-     sudo iotedge system restart
-     ```
-
-<!-- end 1.2 -->
-:::moniker-end
 
 Sur Windows :
 
@@ -211,6 +205,43 @@ Sur Windows :
      ```powershell
      Restart-Service iotedge
      ```
+
+:::moniker-end
+<!--end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* Consultez l’état des services système IoT Edge :
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* Consultez les journaux des services système IoT Edge :
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Activez les journaux au niveau débogage pour afficher des journaux plus détaillés des services système IoT Edge :
+
+  1. Activez les journaux au niveau débogage.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Revenez aux journaux de niveau informations par défaut après le débogage.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="check-container-logs-for-issues"></a>Vérifier si les journaux d’activité des conteneurs indiquent des problèmes
 

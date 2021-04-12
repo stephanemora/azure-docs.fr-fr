@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/29/2019
 ms.openlocfilehash: 429659d605cdaf8aad978841e486a17da321cce4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929389"
 ---
-# <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Scénario : IllegalArgumentException pour l’activité Apache Spark dans Azure HDInsight
+# <a name="scenario-illegalargumentexception-for-apache-spark-activity-in-azure-hdinsight"></a>Scénario : IllegalArgumentException pour l’activité Apache Spark dans Azure HDInsight
 
 Cet article décrit la procédure à suivre pour résoudre les problèmes rencontrés lors de l’utilisation de composants Apache Spark dans des clusters Azure HDInsight.
 
@@ -28,7 +28,7 @@ Wrong FS: wasbs://additional@xxx.blob.core.windows.net/spark-examples_2.11-2.1.0
 
 Un travail Spark échoue si le fichier jar de l’application ne se trouve pas dans le stockage par défaut/principal du cluster Spark.
 
-Il s’agit d’un problème connu avec l’infrastructure open source Spark suivi dans ce bogue : [Échec du travail Spark si fs.defaultFS et le fichier jar d’application sont des URL différentes](https://issues.apache.org/jira/browse/SPARK-22587).
+Il s’agit d’un problème connu avec l’infrastructure open source Spark suivi dans ce bogue : [Échec du travail Spark si fs.defaultFS et le fichier jar d’application sont des URL différentes](https://issues.apache.org/jira/browse/SPARK-22587).
 
 Ce problème a été résolu dans Spark 2.3.0.
 

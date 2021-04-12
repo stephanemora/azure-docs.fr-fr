@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c151f78c6164cc62aac618a141a26eb1da574e3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5db02f8ca1f0c311617a787525ee2fa5856eb5dc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99218359"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045261"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Démarrage rapide : Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Python Device SDK
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, vous provisionnez une machine de développem
 - Connaissance des concepts liés au [provisionnement](about-iot-dps.md#provisioning-process).
 - Exécution des étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Python 3.5.3 ou version ultérieure](https://www.python.org/downloads/)
+- [Python 3.6 ou version ultérieure](https://www.python.org/downloads/)
 - [Git](https://git-scm.com/download/).
 
 

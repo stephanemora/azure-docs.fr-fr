@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Health Support System | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Health Support System | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Health Support System.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/29/2020
 ms.author: jeedes
 ms.openlocfilehash: 3bdd11fa8e083d3a36767c04fd20b72da2b544c5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92444999"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-health-support-system"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Health Support System
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-health-support-system"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Health Support System
 
 Dans ce tutoriel, vous allez apprendre à intégrer Health Support System à Azure Active Directory (Azure AD). Quand vous intégrez Health Support System à Azure AD, vous pouvez :
 
@@ -48,16 +48,16 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 Pour configurer l’intégration de Health Support System à Azure AD, vous devez ajouter Health Support System à votre liste d’applications SaaS managées à partir de la galerie.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory** .
-1. Accédez à **Applications d’entreprise** , puis sélectionnez **Toutes les applications** .
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application** .
-1. Dans la section **Ajouter à partir de la galerie** , tapez **Health Support System** dans la zone de recherche.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Health Support System** dans la zone de recherche.
 1. Sélectionnez **Health Support System** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-health-support-system"></a>Configurer et tester l’authentification unique Azure AD pour Health Support System
 
-Configurez et testez l’authentification unique Azure AD avec Health Support System pour un utilisateur de test nommé **B.Simon** . Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur Health Support System associé.
+Configurez et testez l’authentification unique Azure AD avec Health Support System pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur Health Support System associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Health Support System, effectuez les modules suivants :
 
@@ -72,15 +72,15 @@ Pour configurer et tester l’authentification unique Azure AD avec Health Suppo
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Health Support System** , recherchez la section **Gérer** et sélectionnez **Authentification unique** .
-1. Dans la page **Sélectionner une méthode d’authentification unique** , sélectionnez **SAML** .
-1. Dans la page **Configurer l’authentification unique avec SAML** , cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Health Support System**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base** , entrez les valeurs pour les champs suivants :  Dans la zone de texte **URL de connexion** , tapez l’URL : `https://suntory.karakoko.jp`
+1. Dans la section **Configuration SAML de base**, renseignez les champs suivants : dans la zone de texte **URL de connexion**, tapez l’URL `https://suntory.karakoko.jp`
     
-1. Dans la page **Configurer l’authentification unique avec SAML** , dans la section **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’ **URL des métadonnées de fédération d’application** , puis enregistrez-la sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
@@ -88,35 +88,35 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory** , **Utilisateurs** , puis **Tous les utilisateurs** .
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur** , effectuez les étapes suivantes :
-   1. Dans le champ **Nom** , entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur** , entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe** , puis notez la valeur affichée dans le champ **Mot de passe** .
-   1. Cliquez sur **Créer** .
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Health Support System.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise** , puis **Toutes les applications** .
-1. Dans la liste des applications, sélectionnez **Health Support System** .
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes** .
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Health Support System**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur** , puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution** .
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes** , sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle** , sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution** , cliquez sur le bouton **Attribuer** .
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
 ## <a name="configure-health-support-system-sso"></a>Configurer l’authentification unique Health Support System
 
-Pour configurer l’authentification unique côté **Health Support System** , vous devez envoyer l’ **URL des métadonnées de fédération de l’application** à l’ [équipe du support technique de Health Support System](https://wellcoms.jp/inquiry/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Health Support System**, vous devez envoyer l’**URL des métadonnées de fédération de l’application** à l’[équipe du support technique de Health Support System](https://wellcoms.jp/inquiry/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-health-support-system-test-user"></a>Créer un utilisateur de test Health Support System
 
