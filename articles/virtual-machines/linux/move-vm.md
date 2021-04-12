@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291107"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889295"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Déplacer une machine virtuelle vers un autre abonnement ou groupe de ressources
 Cet article vous explique comment déplacer une machine virtuelle entre des groupes de ressources ou des abonnements. Le déplacement d’une machine virtuelle entre abonnements peut être pratique si vous avez créé une machine virtuelle dans un abonnement personnel, et que vous souhaitez à présent la déplacer vers l’abonnement de votre entreprise.
@@ -38,6 +38,7 @@ Pour déplacer avec succès une machine virtuelle, vous devez déplacer la machi
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+La sortie `table` n’est pas disponible si vous utilisez `--interactive`. Remplacez la sortie par une autre option comme `json`.
 
 Pour déplacer une machine virtuelle et ses ressources dans un autre groupe de ressources, utilisez la commande [az resource move](/cli/azure/resource). L’exemple suivant montre comment déplacer une machine virtuelle et les ressources courantes nécessaires. Utilisez le paramètre **-ids** et transmettez la liste des ID des ressources à déplacer, séparée par des virgules (sans espaces).
 

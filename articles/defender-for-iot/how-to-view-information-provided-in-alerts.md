@@ -1,20 +1,16 @@
 ---
-title: Afficher des informations dans les alertes
+title: À propos des messages d’alerte
 description: Sélectionnez une alerte dans la fenêtre Alertes pour passer en revue les détails.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 3/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 5877db6b3bc7366f28e679882a2c784e6828b1c1
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 2fa2b265c7d3983ca6ae2d7507392dd37afabd27
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523581"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781481"
 ---
-# <a name="view-information-in-alerts"></a>Afficher des informations dans les alertes
+# <a name="about-alert-messages"></a>À propos des messages d’alerte
 
 Sélectionnez une alerte dans la fenêtre **Alertes** pour consulter les détails de l’alerte. Les détails contiennent les informations suivantes :
 
@@ -90,7 +86,7 @@ Pour télécharger un fichier PCAP, sélectionnez l’:::image type="content" so
 
 La zone **Recommandation** d’une alerte affiche des informations qui peuvent vous aider à mieux comprendre un événement. Passez en revue ces informations avant de gérer l’événement d’alerte ou d’entreprendre une action sur l’appareil ou le réseau.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)
 

@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988971"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579448"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -138,7 +138,7 @@ Après le cycle initial, tous les autres cycles effectuent les opérations suiva
 Le service de provisionnement continue à exécuter indéfiniment des cycles incrémentiels consécutifs, à des intervalles définis dans le [tutoriel propre à chaque application](../saas-apps/tutorial-list.md). Les cycles incrémentiels se poursuivent jusqu’à ce que l’un des événements suivants se produise :
 
 - Le service est arrêté manuellement à l’aide du Portail Azure ou à l’aide de la commande appropriée de l’API Microsoft Graph.
-- Un nouveau cycle initial est déclenché au moyen de l’option **Effacer l’état en cours et redémarrer** dans le Portail Azure ou à l’aide de la commande appropriée de l’API Microsoft Graph. Cette action permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
+- Un nouveau cycle initial est déclenché au moyen de l’option **Redémarrer l’approvisionnement.** dans le Portail Azure ou à l’aide de la commande appropriée de l’API Microsoft Graph. Cette action permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
 - Une nouveau cycle initial est déclenché en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue. Cette action permet également d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
 - Le processus d’approvisionnement est mis en quarantaine (voir ci-dessous) en raison d’un taux d’erreur élevé et reste en quarantaine pendant plus de quatre semaines. Dans ce cas, le service sera automatiquement désactivé.
 

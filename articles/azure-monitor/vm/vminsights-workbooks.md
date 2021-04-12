@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798848"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568798"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Créer des rapports interactifs VM Insights avec des classeurs
 
@@ -103,13 +103,13 @@ Chaque section a ses propres paramètres avancés, accessibles par le biais de l
 
 ![Capture d’écran de la boîte de dialogue Paramètres avancés dans la section Classeur des machines virtuelles d’Azure Monitor. L’icône qui ouvre la boîte de dialogue est mise en évidence.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Paramètre | Description |
 | ---------------- |:-----|
-| **Largeur personnalisée**    | Personnalise la taille d’un élément afin de faire tenir un grand nombre d’éléments sur une seule ligne. Vous pouvez ainsi mieux organiser vos tableaux et graphiques pour créer des rapports interactifs complets.  |
-| **Visible sous conditions** | Spécifiez cette option pour masquer les étapes en fonction d’une valeur de paramètre en mode lecture. |
-| **Exporter un paramètre**| Permet de sélectionner une ligne dans le tableau ou le graphique pour faire en sorte que des valeurs soient modifiées ou deviennent visibles.  |
-| **Afficher la requête en mode lecture** | Affiche la requête au-dessus du graphique ou du tableau même en mode lecture.
-| **Afficher le bouton Ouvrir dans Analytics en mode lecture** | Ajoute l’icône bleue Analytics dans le coin droit du graphique pour vous permettre d’y accéder en un seul clic.|
+| Largeur personnalisée    | Personnalise la taille d’un élément afin de faire tenir un grand nombre d’éléments sur une seule ligne. Vous pouvez ainsi mieux organiser vos tableaux et graphiques pour créer des rapports interactifs complets.  |
+| Visible sous conditions | Spécifiez cette option pour masquer les étapes en fonction d’une valeur de paramètre en mode lecture. |
+| Exporter un paramètre| Permet de sélectionner une ligne dans le tableau ou le graphique pour faire en sorte que des valeurs soient modifiées ou deviennent visibles.  |
+| Afficher la requête en mode lecture | Affiche la requête au-dessus du graphique ou du tableau même en mode lecture.
+| Afficher le bouton Ouvrir dans Analytics en mode lecture | Ajoute l’icône bleue Analytics dans le coin droit du graphique pour vous permettre d’y accéder en un seul clic.|
 
 La plupart de ces paramètres sont relativement intuitifs, mais pour comprendre comment fonctionne l’option **Exporter un paramètre**, il est préférable d’examiner un classeur qui utilise cette fonctionnalité.
 
@@ -152,12 +152,12 @@ Les paramètres sont linéaires et appliqués aux différentes étapes du classe
  
 Quatre types de paramètres différents sont actuellement pris en charge :
 
-|                  |      |
+| Paramètre | Description |
 | ---------------- |:-----|
-| **Text**    | Permet à l’utilisateur de modifier une zone de texte. Vous pouvez éventuellement fournir une requête pour renseigner la valeur par défaut. |
-| **Liste déroulante** | Permet à l’utilisateur de choisir parmi un ensemble de valeurs. |
-| **Sélecteur d’intervalle de temps**| Permet à l’utilisateur de choisir parmi un ensemble prédéfini de valeurs d’intervalle de temps, ou de sélectionner un élément à partir d’un intervalle de temps personnalisé.|
-| **Sélecteur de ressource** | Permet à l’utilisateur de choisir parmi les ressources sélectionnées pour le classeur.|
+| Texte    | Permet à l’utilisateur de modifier une zone de texte. Vous pouvez éventuellement fournir une requête pour renseigner la valeur par défaut. |
+| Liste déroulante | Permet à l’utilisateur de choisir parmi un ensemble de valeurs. |
+| Sélecteur d’intervalle de temps| Permet à l’utilisateur de choisir parmi un ensemble prédéfini de valeurs d’intervalle de temps, ou de sélectionner un élément à partir d’un intervalle de temps personnalisé.|
+| Sélecteur de ressource | Permet à l’utilisateur de choisir parmi les ressources sélectionnées pour le classeur.|
 
 ### <a name="using-a-text-parameter"></a>Utilisation d’un paramètre de texte
 

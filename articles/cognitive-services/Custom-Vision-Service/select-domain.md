@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0b1358f67e2b10078e24168bdb779cd708ac2403
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 8aba6f13957d37f843114572f001029baf41ded6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095661"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889346"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Sélectionner un domaine pour un projet Custom Vision
 
@@ -25,12 +25,17 @@ Sous l’onglet Paramètres de votre projet Custom Vision, vous pouvez sélectio
 
 |Domain|Objectif|
 |---|---|
-|__Généralités__| Optimisé pour un large éventail de tâches de classification d’images. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine General. ID : `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Généralités__| Optimisé pour un large éventail de tâches de classification d’images. Si aucun autre domaine spécifique n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez un des domaines généraux. ID : `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
 |__General [A1]__| Optimisé pour une meilleure précision avec un temps d’inférence comparable à celui du domaine General. Recommandé pour les jeux de données volumineux ou les scénarios utilisateur plus difficiles. Ce domaine nécessite un entraînement plus long. ID : `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
+|__Général [A2]__| Optimisé pour une meilleure précision avec un temps d’inférence plus rapide que les domaines Général [A1] et Général. Recommandé pour la plupart des jeux de données. Ce domaine nécessite moins de temps d’apprentissage que les domaines Général et Général [A1]. ID : `2e37d7fb-3a54-486a-b4d6-cfc369af0018` |
 |__Food__ (Nourriture)|Optimisé pour les photographies de plats, tels que vous pouvez les voir dans un menu de restaurant. Si vous souhaitez classer des photographies de fruits ou de légumes distincts, utilisez le domaine Food (Nourriture). ID : `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Landmarks__ (Monuments et sites)|Optimisé pour les monuments et sites reconnaissables, naturels et artificiels. Ce domaine fonctionne mieux lorsque le monument ou le site est clairement visible dans la photographie. Ce domaine fonctionne même si le monument ou le site est légèrement masqué par des personnes placées devant lui. ID : `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Retail__ (Commerce)|Optimisé pour les images qui se trouvent dans des catalogues de vente ou sur des site Web commerciaux. Si vous souhaitez un classement de grande précision pour des robes, des pantalons et des chemises, utilisez ce domaine. ID : `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Compact Domains__ (Domaines compacts)| Optimisés en fonction des contraintes liées à la classification en temps réel sur les périphériques.|
+
+
+> [!NOTE]
+> Les domaines Général[A1] et Général[A2] peuvent être utilisés pour un large éventail de scénarios et sont optimisés pour la précision. Utilisez le modèle Général[A2] pour améliorer la vitesse d’inférence et avoir un temps d’apprentissage réduit. Pour les jeux de données plus volumineux, vous souhaiterez peut-être utiliser Général[A1] pour obtenir une meilleure précision que Général[A2], bien que cela nécessite davantage de temps d’apprentissage et d’inférence. Le modèle Général requiert plus de temps d’inférence que Général[A1] et Général[A2].
 
 ## <a name="object-detection"></a>Détection d’objets
 

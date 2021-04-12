@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 1/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e72ff144a56f44ccaa695b7dab328e42052fce39
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0512308fbaa0a725c6ecca573c70c90d8c04e247
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101678375"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558378"
 ---
 # <a name="ports-used-with-device-update-for-iot-hub"></a>Ports utilisés avec le service Device Update pour IoT Hub
 ADU utilise un grand nombre de ports réseau à des fins différentes.
@@ -27,4 +27,4 @@ Connexion de l’agent ADU à Azure IoT Hub  | 8883 (protocole MQTT)
 ## <a name="use-azure-iot-hub-supported-protocols"></a>Utiliser des protocoles pris en charge par Azure IoT Hub
 L’agent ADU peut être modifié pour utiliser l’un des protocoles Azure IoT Hub pris en charge.
 
-[Découvrez-en plus](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols#:~:text=Table%202%20%20%20,%201%20more%20rows) sur la liste actuelle des protocoles pris en charge.
+[Découvrez-en plus](../iot-hub/iot-hub-devguide-protocols.md) sur la liste actuelle des protocoles pris en charge.

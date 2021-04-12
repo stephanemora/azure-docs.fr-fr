@@ -8,16 +8,16 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: ''
-ms.openlocfilehash: 215abb1ce8d65b5ecdd25aeb78c17c70e801a9d2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 9d40bbd7e08d8d3869166827a22f3f08536532bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555052"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590702"
 ---
 # <a name="generate-arm-template-for-cloud-services-extended-support-using-the-azure-portal"></a>Générer un modèle ARM pour les services cloud (prise en charge étendue) à l’aide du portail Azure
 
-Cet article explique comment récupérer le modèle ARM et le fichier de paramètres à partir du [portail Azure](https://portal.azure.com) après le déploiement du service cloud (support étendu). Le modèle ARM et le fichier de paramètres peuvent être utilisés dans des déploiements futurs pour mettre à niveau ou mettre à jour un service cloud (prise en charge étendue)
+Cet article explique comment télécharger le modèle ARM et le fichier de paramètres à partir du [portail Azure](https://portal.azure.com) après le déploiement du service cloud (support étendu). Le modèle ARM et le fichier de paramètres peuvent être utilisés dans des déploiements futurs pour mettre à niveau ou mettre à jour un service cloud (prise en charge étendue)
 
 ## <a name="get-arm-template-via-portal"></a>Obtenir un modèle ARM via le portail
 

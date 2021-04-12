@@ -1,20 +1,16 @@
 ---
 title: Améliorer la résolution des noms de ports et de VLAN
 description: Personnalisez les noms de ports et de VLAN sur vos capteurs afin d’enrichir la résolution d’appareil.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: de6fbe70d5a5359ad4e4c276642b9b9ed0cef00f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803577"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784167"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Améliorer la résolution des noms de ports et de VLAN
+# <a name="enhance-port-vlan-and-os-resolution"></a>Améliorer la résolution de port, de VLAN et de système d’exploitation
 
 Vous pouvez personnaliser les noms de ports et de VLAN sur vos capteurs afin d’enrichir la résolution d’appareil.
 
@@ -72,7 +68,7 @@ Les noms de VLAN peuvent contenir jusqu’à 50 caractères ASCII.
 > Les noms de VLAN ne sont pas synchronisés entre le capteur et la console de gestion. Vous devez également définir le nom sur la console de gestion.  
 Pour les commutateurs Cisco, ajoutez la ligne suivante à la configuration d’étendue : `monitor session 1 destination interface XX/XX encapsulation dot1q`. Dans cette commande, la chaîne *XX/XX* correspond au nom et au numéro du port.
 
-Pour configurer des VLAN :
+Pour configurer les noms de VLAN :
 
 1. Dans le menu latéral, sélectionnez **Paramètres système**.
 
@@ -81,6 +77,21 @@ Pour configurer des VLAN :
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Utilisez les paramètres système pour modifier vos VLAN.":::
 
 3. Ajoutez un nom unique en regard de chaque ID de VLAN.
+
+## <a name="improve-device-operating-system-classification-data-enhancement"></a>Améliorez la classification des systèmes d’exploitation des appareils : amélioration des données
+
+Les capteurs découvrent automatiquement de nouveaux appareils en continu, ainsi que les modifications apportées aux appareils précédemment découverts, y compris aux types de systèmes d’exploitation.
+
+Dans certains cas, des conflits peuvent être détectés dans les systèmes d’exploitation découverts. Cela peut se produire, par exemple, si vous disposez d’une version de système d’exploitation dédiée à des systèmes de bureau ou de serveur. Si c’est le cas, vous recevrez une notification avec des classifications de systèmes d’exploitation facultatives.
+
+:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Améliorez les données.":::
+
+Examinez les suggestions afin d’enrichir la classification du système d’exploitation. Ces informations apparaît dans l’inventaire des appareils, dans rapports d’exploration de données et d’autres affichages. La tenue à jour de ces informations peut améliorer la précision des rapports d’analyse des alertes, des menaces et des risques.
+
+Pour accéder aux suggestions de système d’exploitation :
+
+1. Sélectionnez **Paramètres système**.
+1. Sélectionnez **Amélioration des données**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: af110a66bc7ef5737f3d2d97a85ca07525b1d9e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d361744ffe66a1ea91849149d05c6741eff600f5
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96744701"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077310"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Codes pays/région de co-vente
 
@@ -273,7 +273,6 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Yémen                               | YE        |
 | Zambie                              | ZM        |
 | Zimbabwe                            | ZW        |
-|   |   |   |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

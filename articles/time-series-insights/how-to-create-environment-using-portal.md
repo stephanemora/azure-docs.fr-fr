@@ -10,16 +10,20 @@ services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 56f7ac6f4403867e5e4e53b55b241912cdc57454
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 09068d966df871d4b6804978a543db50bccbee37
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464329"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952845"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-portal"></a>Créer un environnement Azure Time Series Insights Gen2 à l'aide du portail Azure
 
 Cet article explique comment créer un environnement Azure Time Series Insights Gen2 via le [portail Azure](https://portal.azure.com/).
+
+Le tutoriel d’approvisionnement de l’environnement vous guidera à travers le processus. Vous apprendrez à sélectionner l’ID de la série chronologique correct et à afficher des exemples de deux charges utiles JSON.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
 
 ## <a name="overview"></a>Vue d’ensemble
 

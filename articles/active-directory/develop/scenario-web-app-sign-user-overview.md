@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573045"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578292"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
 
@@ -43,6 +43,12 @@ Si vous êtes développeur Java, essayez le démarrage rapide suivant :
 
 [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Si vous êtes développeur Node.js, essayez le démarrage rapide suivant :
+
+[Démarrage rapide : Ajouter une connexion avec Microsoft à une application web Node.js](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Si vous développez avec Python, essayez le démarrage rapide suivant :
@@ -62,7 +68,7 @@ Les applications web authentifient un utilisateur dans un navigateur web. Dans c
 Lors d’une deuxième phase, vous pouvez permettre à l’application d’appeler des API web de la part de l’utilisateur connecté. Cette phase suivante est un autre scénario, que vous trouverez dans l’article [Application web qui appelle des API web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> L’ajout de connexions à une application web consiste à protéger l’application web et à valider un jeton utilisateur, ce qui correspond à l’action des bibliothèques **d’intergiciels**. Dans le cas de .NET, ce scénario ne demande pas encore la bibliothèque MSAL (Microsoft Authentication Library), qui concerne l’acquisition d’un jeton pour appeler des API protégées. Les bibliothèques d’authentification sont introduites dans le scénario de suivi lorsque l’application web doit appeler les API web.
+> L’ajout de connexions à une application web consiste à protéger l’application web et à valider un jeton utilisateur, ce qui correspond à l’action des bibliothèques **d’intergiciels**. Dans le cas de .NET, ce scénario ne demande pas encore la bibliothèque MSAL (Microsoft Authentication Library), qui concerne l’acquisition d’un jeton pour appeler des API protégées. Les bibliothèques d’authentification pour .NET sont introduites dans le scénario de suivi lorsque l’application web doit appeler les API web.
 
 ## <a name="specifics"></a>Spécificités
 
@@ -87,6 +93,10 @@ Passez à l’article suivant de ce scénario, [Inscription d’application](./s
 # <a name="java"></a>[Java](#tab/java)
 
 Passez à l’article suivant de ce scénario, [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Passez à l’article suivant de ce scénario, [Inscription d’application](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

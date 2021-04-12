@@ -21,7 +21,7 @@ Pour être autorisé à accéder aux ressources Media Services et à l’API Med
 * **Authentification d’un principal de service** : Utilisée pour authentifier un service (applications web, applications de fonction, applications logiques, API et microservices, par exemple). Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés, Par exemple, pour les applications web, un niveau intermédiaire devrait toujours se connecter à Media Services avec un principal de service.
 * **Authentification utilisateur** : Utilisée pour authentifier une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct.
 
-L’API Media Services implique que l’utilisateur ou l'application à l'origine des requêtes API REST ait accès à la ressource de compte Media Services et utilise un rôle **Contributeur** ou **Propriétaire**. L’API est accessible avec le rôle **Lecteur**, mais seules les opérations **Get** ou **List** sont disponibles.Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les comptes Media Services](rbac-overview.md).
+L’API Media Services implique que l’utilisateur ou l'application à l'origine des requêtes API REST ait accès à la ressource de compte Media Services et utilise un rôle **Contributeur** ou **Propriétaire**. L’API est accessible avec le rôle **Lecteur**, mais seules les opérations **Get** ou **List** sont disponibles.Pour en savoir plus, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC) pour les comptes Media Services](security-rbac-concept.md).
 
 Au lieu de créer un principal de service, envisagez d’utiliser des identités gérées pour permettre aux ressources Azure d'accéder à l’API Media Services via Azure Resource Manager. Pour en savoir plus sur les identités managées pour les ressources Azure, consultez [Que sont les identités managées pour les ressources Azure ?](../../active-directory/managed-identities-azure-resources/overview.md)
 
@@ -52,7 +52,7 @@ Dans la figure suivante, les nombres représentent le flux des requêtes dans l�
 
 Les exemples suivants montrent comment se connecter à un principal de service Azure AD :
 
-* [Se connecter avec REST](media-rest-apis-with-postman.md)  
+* [Se connecter avec REST](setup-postman-rest-how-to.md)  
 * [Se connecter avec Java](configure-connect-java-howto.md)
 * [Se connecter avec .NET](configure-connect-dotnet-howto.md)
 * [Se connecter avec Node.js](configure-connect-nodejs-howto.md)

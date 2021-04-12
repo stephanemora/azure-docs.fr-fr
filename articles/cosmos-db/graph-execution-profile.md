@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
 ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087483"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Guide pratique pour utiliser l’étape de profil d’exécution pour évaluer vos requêtes Gremlin
@@ -139,21 +139,21 @@ Voici un exemple annoté de sortie retournée :
 ## <a name="execution-profile-response-objects"></a>Objets de réponse de profil d’exécution
 
 La réponse d’une fonction executionProfile() génère une hiérarchie d’objets JSON avec la structure suivante :
-  - **Objet d’opération Gremlin**  : représente l’intégralité de l’opération Gremlin qui a été exécutée. Contient les propriétés suivantes.
-    - `gremlin`: instruction Gremlin explicite qui a été exécutée.
-    - `totalTime`: durée, en millisecondes, nécessaire à l’exécution de l’étape. 
-    - `metrics`: tableau qui contient tous les opérateurs de runtime Cosmos DB qui ont été exécutés pour répondre à la requête. Cette liste est triée par ordre d’exécution.
+  - **Objet d’opération Gremlin** : représente l’intégralité de l’opération Gremlin qui a été exécutée. Contient les propriétés suivantes.
+    - `gremlin` : l’instruction Gremlin explicite qui a été exécutée.
+    - `totalTime` : durée, en millisecondes, de l’exécution de l’étape. 
+    - `metrics` : tableau contenant tous les opérateurs de runtime Cosmos DB qui ont été exécutés pour répondre à la requête. Cette liste est triée par ordre d’exécution.
     
-  - **Opérateurs de runtime Cosmos DB**  : représente chacun des composants de l’opération Gremlin entière. Cette liste est triée par ordre d’exécution. Chaque objet contient les propriétés suivantes :
-    - `name`: nom de l’opérateur. Il s’agit du type d’étape qui a été évaluée et exécutée. Pour en savoir plus, consultez le tableau ci-dessous.
-    - `time`: durée, en millisecondes, nécessaire à l’exécution d’un opérateur donné.
-    - `annotations`: contient des informations supplémentaires propres à l’opérateur exécuté.
-    - `annotations.percentTime`: pourcentage de la durée totale consacré à l’exécution de l’opérateur en question.
-    - `counts`: nombre d’objets qui ont été retournés à partir de la couche de stockage par cet opérateur. Ce nombre est contenu dans la valeur scalaire `counts.resultCount`.
-    - `storeOps`: représente une opération de stockage qui peut couvrir une ou plusieurs partitions.
-    - `storeOps.fanoutFactor`: représente le nombre de partitions sollicitées par cette opération de stockage spécifique.
-    - `storeOps.count`: représente le nombre de résultats retournés par cette opération de stockage.
-    - `storeOps.size`: représente la taille en octets du résultat d’une opération de stockage donnée.
+  - **Opérateurs de runtime Cosmos DB** : représente chacun des composants de l’opération Gremlin entière. Cette liste est triée par ordre d’exécution. Chaque objet contient les propriétés suivantes :
+    - `name` : nom de l’opérateur. Il s’agit du type d’étape qui a été évaluée et exécutée. Pour en savoir plus, consultez le tableau ci-dessous.
+    - `time` : durée, en millisecondes, nécessaire à l’exécution d’un opérateur donné.
+    - `annotations` : contient des informations supplémentaires spécifiques de l’opérateur exécuté.
+    - `annotations.percentTime` : pourcentage de la durée totale nécessaire à l’exécution de l’opérateur spécifique.
+    - `counts` : nombre d’objets retournés à partir de la couche de stockage par cet opérateur. Ce nombre est contenu dans la valeur scalaire `counts.resultCount`.
+    - `storeOps` : représente une opération de stockage pouvant s’étendre sur une ou plusieurs partitions.
+    - `storeOps.fanoutFactor` : représente le nombre de partitions auxquelles cette opération de stockage spécifique a accédé.
+    - `storeOps.count` : représente le nombre de résultats retournés par cette opération de stockage.
+    - `storeOps.size` : représente la taille en octets du résultat d’une opération de stockage donnée.
 
 Opérateur de runtime Gremlin Cosmos DB|Description
 ---|---
@@ -177,7 +177,7 @@ Voici quelques exemples d’optimisations courantes qui peuvent être détectée
 
 ### <a name="blind-fan-out-query-patterns"></a>Modèles de requête de distribution ramifiée aveugle
 
-Considérez la réponse de profil d’exécution suivante provenant d’un **graphe partitionné**  :
+Considérez la réponse de profil d’exécution suivante provenant d’un **graphe partitionné** :
 
 ```json
 [

@@ -2,14 +2,14 @@
 title: Série de vidéos de procédures sur le portail Azure
 description: Découvrez des démonstrations vidéo sur l’utilisation des services Azure dans le portail. Affichez et liez directement les dernières vidéos de guides pratiques.
 keywords: ''
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: aeb80f0ac9b160747d75a50acc7c21b211c9fe28
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550439"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104771513"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vidéos de procédures sur le portail Azure
 
@@ -17,17 +17,17 @@ La série de vidéos de procédures du portail Azure explique comment utiliser l
 
 ## <a name="featured-video"></a>Vidéo recommandée
 
-Dans cette vidéo, nous vous montrons comment utiliser les vues d’Azure Cost Management.
+Dans cette vidéo proposée, nous vous montrons comment créer des onglets et des alertes dans les classeurs Azure.
 
-> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
+> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
 
-[Comment utiliser les vues d’Azure Cost Management](https://www.youtube.com/watch?v=VRJA5bn2VH0)
+[Comment créer des onglets et des alertes dans des classeurs Azure](https://www.youtube.com/watch?v=3XY3lYgrRvA)
 
 Visionnez ces vidéos récentes que vous avez peut-être manquées :
 
-| [Comment utiliser des pastilles pour filtrer dans le portail Azure](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Comment obtenir une vue de visualisation de vos ressources](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Comment épingler du contenu sur votre tableau de bord Portail Azure](https://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [Comment gérer facilement votre machine virtuelle](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [Comment utiliser des pastilles pour filtrer dans le portail Azure](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Comment obtenir une vue de visualisation de vos ressources](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![Image de la vidéo YouTube sur l’utilisation de pastilles pour filtrer dans le portail Azure](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Image de la vidéo YouTube sur la façon d’obtenir une vue de visualisation de vos ressources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Image de la vidéo YouTube sur la manière d’épingler du contenu sur votre tableau de bord Portail Azure](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [![Image de la vidéo YouTube sur la manière de gérer facilement votre machine virtuelle](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Image de la vidéo YouTube sur l’utilisation de pastilles pour filtrer dans le portail Azure](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Image de la vidéo YouTube sur la façon d’obtenir une vue de visualisation de vos ressources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## <a name="video-playlist"></a>Sélection vidéo
 

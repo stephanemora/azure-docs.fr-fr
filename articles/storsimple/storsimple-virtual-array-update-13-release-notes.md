@@ -4,14 +4,14 @@ description: Décrit les problèmes critiques non résolus d’Azure StorSimple 
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e50f866c0bd44ca54c2f4df78b9507aa7077169
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452558"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104657550"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.3
 
@@ -31,6 +31,11 @@ Update 1.3 correspond à la version logicielle 10.0.10319.0.
 Cette mise à jour contient les améliorations suivantes : KB4540725
 
 - Transport Layer Security (TLS) 1.2 est une mise à jour obligatoire et doit être installée. À partir de cette version, TLS 1.2 devient le protocole standard pour toutes les communications du Portail Azure.
+  
+   Si l’avertissement suivant s’affiche, vous devez mettre à jour le logiciel sur l’appareil avant de continuer :
+
+   Un ou plusieurs appareils StorSimple exécutent une version logicielle plus ancienne. La dernière mise à jour disponible pour TLS 1.2 est une mise à jour obligatoire qui doit être installée immédiatement sur ces appareils. Le protocole TLS 1.2 est utilisé pour toutes les communications sur le portail Azure et, sans cette mise à jour, l’appareil ne pourra pas communiquer avec le service StorSimple.
+
 - Les correctifs de bogues de nettoyage de la mémoire (garbage collection) améliorent les performances du cycle de nettoyage de la mémoire quand l’appareil et le compte de stockage se trouvent dans deux régions distantes.
 - Correction des échecs de sauvegarde en raison de délais d’attente d’objets blob.
 - Mises à jour des correctifs de sécurité du système d’exploitation/.NET Framework :
@@ -65,4 +70,4 @@ Vous recherchez une note de version antérieure ? Accédez à :
 - [Notes de publication de StorSimple Virtual Array Update 0.4](./storsimple-virtual-array-update-04-release-notes.md)
 - [Notes de publication de StorSimple Virtual Array Update 0.3](./storsimple-ova-update-03-release-notes.md)
 - [Notes de publication de StorSimple Virtual Array Update 0.1 et 0.2](./storsimple-ova-update-01-release-notes.md)
-- [Notes de publication de StorSimple Virtual Array General Availability](/azure/storsimple/storsimple-ova-pp-release-notes)
+- [Notes de publication de StorSimple Virtual Array General Availability](./storsimple-virtual-array-update-06-release-notes.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397465"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599661"
 ---
 # <a name="how-an-application-gateway-works"></a>Fonctionnement d’une passerelle d’application
 
@@ -30,7 +30,7 @@ Cet article explique comment une passerelle d’application accepte les requête
 
 4. Si un WAF (pare-feu d’applications web) est utilisé, la passerelle d’application vérifie les en-têtes de requête et le corps, le cas échéant, par rapport aux règles WAF. Cette action détermine si la requête est valide ou si elle représente une menace pour la sécurité. Si la requête est valide, elle est routée vers le back-end. Si la requête est non valide et que le pare-feu d’applications web est en mode Prévention, elle est bloquée en tant que menace pour la sécurité. S’il est en mode Détection, la requête est évaluée et journalisée, mais toujours transférée au serveur back-end.
 
-Azure Application Gateway peut être utilisé en tant qu’équilibreur de charge d’application interne ou en tant qu’équilibreur de charge d’application accessible sur Internet. Une passerelle d’application accessible sur Internet utilise des adresses IP publiques. Le nom DNS d’une passerelle d’application accessible sur Internet peut être résolu publiquement en son adresse IP publique. Ainsi, les passerelles d’application accessibles sur Internet peuvent router les requêtes des clients vers Internet.
+Azure Application Gateway peut être utilisé en tant qu’équilibreur de charge d’application interne ou en tant qu’équilibreur de charge d’application accessible sur Internet. Une passerelle d’application accessible sur Internet utilise des adresses IP publiques. Le nom DNS d’une passerelle d’application accessible sur Internet peut être résolu publiquement en son adresse IP publique. Ainsi, les passerelles d’application accessibles sur Internet peuvent router les requêtes des clients depuis Internet.
 
 Les passerelles d’application internes utilisent uniquement des adresses IP privées. Si vous utilisez une [zone DNS privée](../dns/private-dns-overview.md) ou personnalisée, le nom de domaine doit pouvoir être résolu en l’adresse IP privée d’Application Gateway en interne. Les équilibreurs de charge internes peuvent donc router uniquement les requêtes des clients ayant accès à un réseau virtuel pour la passerelle d’application.
 
@@ -52,9 +52,9 @@ Quand une passerelle d’application envoie la requête d’origine au back-end,
 
  >[!NOTE]
 >Si le pool de back-ends :
-> - **Est un point de terminaison public** , la passerelle d’application utilise son adresse IP publique front-end pour joindre le serveur. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
-> - **Contient un FQDN pouvant être résolu de façon interne ou une adresse IP privée** , la passerelle d’application route la requête vers le back-end à l’aide de ses adresses IP privées d’instance.
-> - **Contient un point de terminaison externe ou un FQDN pouvant être résolu de manière externe** , la passerelle d’application route la requête vers le back-end à l’aide de son adresse IP publique front-end. La résolution DNS est basée sur une zone DNS privée ou un serveur DNS personnalisé, si ce type de configuration existe, ou utilise le DNS par défaut fourni par Azure. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
+> - **Est un point de terminaison public**, la passerelle d’application utilise son adresse IP publique front-end pour joindre le serveur. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
+> - **Contient un FQDN pouvant être résolu de façon interne ou une adresse IP privée**, la passerelle d’application route la requête vers le back-end à l’aide de ses adresses IP privées d’instance.
+> - **Contient un point de terminaison externe ou un FQDN pouvant être résolu de manière externe**, la passerelle d’application route la requête vers le back-end à l’aide de son adresse IP publique front-end. La résolution DNS est basée sur une zone DNS privée ou un serveur DNS personnalisé, si ce type de configuration existe, ou utilise le DNS par défaut fourni par Azure. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
 
 ### <a name="modifications-to-the-request"></a>Modifications apportées à la requête
 

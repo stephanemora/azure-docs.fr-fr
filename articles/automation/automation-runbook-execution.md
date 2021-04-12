@@ -3,14 +3,14 @@ title: Exécution d'un Runbook dans Azure Automation
 description: Cet article fournit une vue d’ensemble du traitement des runbooks dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586050"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954341"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -34,7 +34,8 @@ Le diagramme suivant illustre le cycle de vie d’une tâche de runbook pour les
 
 Les runbooks d’Azure Automation peuvent s’exécuter dans un bac à sable Azure ou dans un [runbook Worker hybride](automation-hybrid-runbook-worker.md). 
 
-Les runbooks conçus pour s’authentifier et s’exécuter sur des ressources dans Azure s'exécutent dans un bac à sable Azure, à savoir un environnement partagé utilisé par plusieurs travaux. Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable. L’environnement de bac à sable Azure ne prend pas en charge les opérations interactives. Il empêche l’accès à tous les serveurs COM hors processus. Il requiert également l’utilisation de fichiers MOF locaux pour les runbooks effectuant des appels Win32.
+Les runbooks conçus pour s’authentifier et s’exécuter sur des ressources dans Azure s'exécutent dans un bac à sable Azure, à savoir un environnement partagé utilisé par plusieurs travaux. Les travaux qui utilisent le même bac à sable sont liés par les limitations de ressources du bac à sable. L’environnement de bac à sable Azure ne prend pas en charge les opérations interactives. Il empêche l’accès à tous les serveurs COM hors processus, et ne prend pas en charge les [appels WMI](/windows/win32/wmisdk/wmi-architecture) au fournisseur Win32 dans votre runbook.  Ces scénarios sont pris en charge uniquement en exécutant le runbook sur un Runbook Worker hybride Windows.
+
 
 Vous pouvez également utiliser un [runbook Worker hybride](automation-hybrid-runbook-worker.md) pour exécuter des runbooks directement sur l’ordinateur qui héberge le rôle et avec les ressources disponibles dans l’environnement. Azure Automation stocke et gère les runbooks et les remet à un ou plusieurs ordinateurs assignés.
 
@@ -221,7 +222,7 @@ Les runbooks qui s’exécutent dans les bacs à sable Azure ne prennent pas en 
 
 Les tâches de runbook dans les bacs à sable Azure ne peuvent avoir accès aux caractéristiques des appareils ou des applications. Pour interroger les métriques de performances sur Windows, notamment celles, courantes, qui portent sur l’utilisation de la mémoire et du processeur, L’API la plus utilisée est WMI. Cependant, quelle que soit l’API utilisée, les tâches qui s’exécutent dans le cloud ne peuvent avoir accès à l’implémentation Microsoft de WBEM (Web-Based Enterprise Management). Cette plateforme est basée sur CIM (Common Information Model), qui fait office de standard sectoriel pour la définition des caractéristiques des appareils et des applications.
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 
 Les services externes, par exemple, Azure DevOps Services et GitHub, peuvent démarrer un runbook dans Azure Automation. Pour effectuer ce type de démarrage, le service utilise un [webhook](automation-webhooks.md) via une requête HTTP unique. L’utilisation d’un Webhook permet de démarrer runbooks sans implémenter une fonctionnalité Azure Automation complète.
 

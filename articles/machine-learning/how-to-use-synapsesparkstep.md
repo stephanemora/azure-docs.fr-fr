@@ -10,16 +10,18 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455057"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868645"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Guide pratique pour utiliser Apache Spark (alimenté par Azure Synapse Analytics) dans votre pipeline Machine Learning (préversion)
 
 Dans cet article, vous allez apprendre à utiliser des pools Apache Spark alimentés par Azure Synapse Analytics comme cible de calcul pour une étape de préparation des données dans un pipeline Azure Machine Learning. Vous découvrirez comment un même pipeline peut utiliser des ressources de calcul adaptées à l’étape spécifique, telle que la préparation des données ou l’entraînement. Vous verrez comment les données sont préparées pour l’étape Spark et comment elles sont passées à l’étape suivante. 
+
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -90,6 +92,8 @@ La première étape consiste à configurer le `SynapseCompute`. L’argument `li
 Une fois la configuration créée, vous créez une `ComputeTarget` de Machine Learning en passant le `Workspace`, la `ComputeTargetAttachConfiguration` et le nom par lequel vous souhaitez faire référence au calcul dans l’espace de travail de Machine Learning. L’appel à `ComputeTarget.attach()` étant asynchrone, l’exemple se bloque jusqu’à la fin de l’appel.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>Créer une `SynapseSparkStep` qui utilise le pool Apache Spark lié
+
+L’exemple de notebook [Travail Spark sur le pool Synapse Spark](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) définit un pipeline de Machine Learning simple. Tout d’abord, le notebook définit une étape de préparation des données gérée par le `synapse_compute` défini à l’étape précédente. Ensuite, le notebook définit une étape d’entraînement gérée par une cible de calcul mieux adaptée à l’entraînement. L’exemple de notebook utilise la base de données Titanic Survival pour démontrer l’entrée et la sortie de données ; il ne nettoie pas les données et ne crée pas de modèle prédictif à proprement parler. Étant donné qu’il n’y a pas d’entraînement réel dans cet exemple, l’étape d’entraînement utilise une ressource de calcul basée sur le processeur peu coûteuse.
 
 Les données circulent dans un pipeline de Machine Learning par le biais d’objets `DatasetConsumptionConfig`, qui peuvent contenir des données tabulaires ou des ensembles de fichiers. Les données proviennent souvent de fichiers d’un stockage d’objets blob situé dans le magasin de données d’un espace de travail. Le code suivant illustre un code standard permettant de créer une entrée pour un pipeline de Machine Learning :
 

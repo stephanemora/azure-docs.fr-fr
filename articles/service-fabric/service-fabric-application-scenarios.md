@@ -3,12 +3,12 @@ title: Scénarios et conception d’applications
 description: Vue d'ensemble des catégories d'applications cloud dans Service Fabric. Traite de la conception d’applications à l’aide de services avec ou sans état
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575667"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045754"
 ---
 # <a name="service-fabric-application-scenarios"></a>Scénarios d'applications Service Fabric
 
@@ -68,7 +68,7 @@ Voici un exemple d’application qui utilise des services avec état : ![ appli
 
 * Commencez à créer des services sans et avec état au moyen des modèles de programmation [Reliable Services](service-fabric-reliable-services-quick-start.md) et [Reliable Actors](service-fabric-reliable-actors-get-started.md) de Service Fabric.
 * Accédez au Centre des architectures Azure pour obtenir des conseils sur la [création de microservices sur Azure](/azure/architecture/microservices/).
-* Accédez aux [bonnes pratiques relatives aux applications et aux clusters Azure Service Fabric](service-fabric-best-practices-overview.md) pour obtenir des conseils sur la conception des applications.
+* Accédez aux [bonnes pratiques relatives aux applications et aux clusters Azure Service Fabric](./service-fabric-best-practices-security.md) pour obtenir des conseils sur la conception des applications.
 
 * Voir aussi :
   * [Compréhension des microservices](service-fabric-overview-microservices.md)
