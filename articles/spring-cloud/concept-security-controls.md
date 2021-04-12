@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 62a0bd19f6b10bbe6561f5587ed85d4d1e5880b3
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1447e7eec9909c8af33005aab00c267e1a251720
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104877398"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966824"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Contrôles de sécurité pour le service Azure Spring Cloud
 
@@ -34,7 +34,7 @@ Un contrôle de sécurité est une qualité ou une caractéristique d’un servi
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Étiquette du service | Oui | Utilisez la balise de service **AzureSpringCloud** pour définir les contrôles d’accès réseau sortants sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou [Pare-feu Azure](../firewall/service-tags.md) pour autoriser le trafic vers les applications Azure Spring Cloud.<br><br>*Remarque :* Actuellement, seule la nouvelle instance de service Azure Spring Cloud créée après le 14/07/2020 prend en charge la balise de service **AzureSpringCloud**. | [Balises de service](../virtual-network/service-tags-overview.md) |
+| Étiquette du service | Oui | Utilisez la balise de service **AzureSpringCloud** pour définir les contrôles d’accès réseau sortants sur des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md#security-rules) ou [Pare-feu Azure](../firewall/service-tags.md) pour autoriser le trafic vers les applications Azure Spring Cloud. | [Balises de service](../virtual-network/service-tags-overview.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

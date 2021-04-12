@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593093"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Créer des workflows d’application logique à partir de modèles prédéfinis
@@ -44,7 +44,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
 
    ![Spécifier les détails de l’application logique](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | Paramètre | Value | Description | 
+   | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
    | **Nom** | *nom-de-votre-application-logique* | Donnez un nom unique à l’application logique. | 
    | **Abonnement** | *nom-de-votre-abonnement-Azure* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | 
@@ -97,9 +97,9 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    > [!NOTE] 
    > De nombreux modèles incluent des connecteurs qui pourraient déjà figurer dans des propriétés requises. Toutefois, certains modèles pourraient encore nécessiter que vous fournissiez des valeurs avant de pouvoir déployer correctement l’application logique. Si vous essayez de déployer sans compléter les champs de propriété manquants, vous obtenez un message d’erreur. 
 
-## <a name="update-logic-apps-with-templates"></a>Mettre à jours des applications logiques avec des modèles
+## <a name="update-logic-apps-with-templates&quot;></a>Mettre à jours des applications logiques avec des modèles
 
-1. Dans le [portail Azure](https://portal.azure.com "Portail Azure"), recherchez et ouvrez votre application logique dans le concepteur d’application logique.
+1. Dans le [portail Azure](https://portal.azure.com &quot;Portail Azure"), recherchez et ouvrez votre application logique dans le concepteur d’application logique.
 
 2. Dans la barre d’outils du concepteur, choisissez **Modèles**. Cette action ayant pour effet de supprimer toutes les modifications non enregistrées, un message d’avertissement s’affiche pour vous permettre confirmer votre volonté de continuer. Pour confirmer, choisissez **OK**. Par exemple :
 

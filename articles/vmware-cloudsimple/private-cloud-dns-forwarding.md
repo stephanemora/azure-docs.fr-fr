@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3481e21a93fbf5f658c5ca00513ea179c8f95400
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899199"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Permettre à des serveurs DNS de cloud privé CloudSimple de transférer une recherche DNS de ressources locales à vos serveurs DNS
@@ -32,7 +32,7 @@ Le transfert de recherche DNS pour votre serveur DNS local vous permet d’utili
 Une connexion réseau doit être établie de votre réseau de cloud privé à votre réseau local pour que le transfert DNS fonctionne.  Vous pouvez configurer la connexion réseau comme suit :
 
 * [Connecter un réseau local à CloudSimple à l’aide d’ExpressRoute](on-premises-connection.md)
-* [Configurer une passerelle VPN site à site](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
+* [Configurer une passerelle VPN de site à site](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 Les ports de pare-feu doivent être ouverts sur cette connexion pour que le transfert DNS fonctionne.  Les ports utilisés sont le port TCP 53 ou le port UDP 53.
 
@@ -44,10 +44,10 @@ Les ports de pare-feu doivent être ouverts sur cette connexion pour que le tran
 Pour activer le transfert DNS de cloud privé vers un emplacement local, envoyez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en fournissant les informations suivantes.
 
 * Type de problème : **Technique**
-* Abonnement : **Abonnement dans lequel le service CloudSimple est déployé**
-* Service : **VMware Solution by CloudSimple**
-* Type de problème : **Conseil ou Procédure...**
-* Sous-type de problème : **J’ai besoin d’aide avec NW**
+* Abonnement : **abonnement dans lequel le service CloudSimple est déployé**
+* Service : **Solution VMware par CloudSimple**
+* Type de problème : **avis ou comment faire...**
+* Sous-type de problème : **besoin d’aide avec NW**
 * Indiquez le nom de domaine de votre domaine local dans le volet d’informations.
 * Fournissez la liste de vos serveurs DNS locaux vers lesquels la recherche sera transférée à partir de votre cloud privé dans le volet d’informations.
 

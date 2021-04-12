@@ -3,15 +3,15 @@ title: FAQ sur Windows Virtual Desktop – Azure
 description: Foire aux questions et meilleures pratiques concernant Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720271"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582134"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Windows Virtual Desktop
 
@@ -110,7 +110,7 @@ Une fois que vous avez créé un pool d’hôtes, vous ne pouvez plus en modifie
 
 Les limitations ou quotas dans FSLogix dépendent de la structure de stockage utilisée pour stocker les fichiers VHD(X) de profil utilisateur.
 
-Le tableau suivant donne un exemple du nombre de ressources dont un profil FSLogix a besoin pour prendre en charge chaque utilisateur. Les besoins peuvent varier considérablement en fonction de l’utilisateur, des applications et de l’activité de chaque profil.
+Le tableau suivant donne un exemple du nombre d’IOPS dont un profil FSLogix a besoin pour prendre en charge chaque utilisateur. Les besoins peuvent varier considérablement en fonction de l’utilisateur, des applications et de l’activité de chaque profil.
 
 | Ressource | Condition requise |
 |---|---|
@@ -140,3 +140,22 @@ Enfin, si vous avez activé le fournisseur de ressources à partir du compte pro
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>À quelle fréquence dois-je activer mes machines virtuelles pour éviter des problèmes d’inscription ?
 
 Une fois que vous avez inscrit une machine virtuelle dans un pool hôte au sein du service Windows Virtual Desktop, l’agent actualise régulièrement le jeton de la machine virtuelle chaque fois que celle-ci est active. Le certificat du jeton d’inscription est valide pendant 90 jours. En raison de cette limite de 90 jours, nous vous recommandons de démarrer vos machines virtuelles tous les 90 jours. La désactivation de votre machine virtuelle dans ce délai limitera l’expiration ou la non-validité de son jeton d’inscription. Si vous avez démarré votre machine virtuelle après 90 jours et que vous rencontrez des problèmes d’inscription, suivez les instructions du [Guide de résolution des problèmes de l’agent Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour supprimer la machine virtuelle du pool hôte, réinstaller l’agent, puis réinscrire la machine virtuelle dans le pool.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Puis-je définir des options de disponibilité lors de la création de pools d’hôtes ?
+
+Oui. Les pools d’hôtes Windows Virtual Desktop ont une option permettant de sélectionner un groupe à haute disponibilité ou des zones de disponibilité lorsque vous créez une machine virtuelle. Ces options de disponibilité sont les mêmes que celles utilisées par Azure Compute. Si vous sélectionnez une zone pour la machine virtuelle que vous créez dans un pool d’hôtes, le paramètre s’applique automatiquement à toutes les machines virtuelles que vous créez dans cette zone. Si vous préférez répartir vos machines virtuelles de pool d’hôtes dans plusieurs zones, vous devez suivre les instructions fournies dans [Ajouter des machines virtuelles avec le portail Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) pour sélectionner manuellement une nouvelle zone pour chaque nouvelle machine virtuelle que vous créez.
+
+## <a name="which-availability-option-is-best-for-me"></a>Quelle est l’option de disponibilité la mieux adaptée à mes besoins ?
+
+L’option de disponibilité que vous devez utiliser pour vos machines virtuelles dépend de l’emplacement de votre image et de ses champs de disque managé. Le tableau suivant explique la relation de chaque paramètre avec ces variables pour vous aider à déterminer l’option la mieux adaptée à votre déploiement. 
+
+| Option de disponibilité | Emplacement de l’image | Bouton d’option (case d’option) Utiliser un disque managé |
+|---|---|---|
+| Aucun | Galerie | Désactivé avec « Oui » comme valeur par défaut |
+| Aucun | Stockage d'objets blob | Activé avec « Non » comme valeur par défaut |
+| Zone de disponibilité | Galerie (option de stockage d’objets blob désactivée) | Désactivé avec « Oui » comme valeur par défaut |
+| Groupe à haute disponibilité avec SKU géré (disque managé) | Galerie | Désactivé avec « Oui » comme valeur par défaut |
+| Groupe à haute disponibilité avec SKU géré (disque managé) | Stockage d'objets blob | Activé avec « Non » comme valeur par défaut |
+| Groupe à haute disponibilité avec SKU géré (disque managé) | Stockage d’objets blob (option Galerie désactivée) | Activé avec « Non » comme valeur par défaut |
+| Groupe à haute disponibilité (nouvellement créé par l’utilisateur) | Galerie | Désactivé avec « Oui » comme valeur par défaut |
+| Groupe à haute disponibilité (nouvellement créé par l’utilisateur) | Stockage d'objets blob | Activé avec « Non » comme valeur par défaut |

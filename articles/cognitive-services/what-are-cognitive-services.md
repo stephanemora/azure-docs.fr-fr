@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 85bcdb319431f1079cdbc8b94f0313f1dd6b67d6
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 71f8635d1cd96a6436cfc902622bf18bc608a143
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601999"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867183"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Présentation d’Azure Cognitive Services
 
@@ -39,11 +39,11 @@ Les sections suivantes de cet article fournissent la liste des services qui font
 
 |Nom du service|Description du service|
 |:-----------|:------------------|
-|[Vision par ordinateur](./computer-vision/index.yml "Vision par ordinateur")|Le service Vision par ordinateur vous donne accès à des algorithmes cognitifs avancés pour le traitement d’images et le retour d’informations.|
-|[Service Custom Vision](./custom-vision-service/overview.md "Service Vision personnalisée")|Le Service Vision personnalisée vous permet de créer des classifieurs d’images personnalisés.|
-|[Visage](./face/index.yml "Face")| Le service Visage donne accès à des algorithmes d’analyse du visage permettant la détection et la reconnaissance d’attributs faciaux.|
-|[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifie et extrait les données de paires clé-valeur et de table des documents du formulaire ; il sort ensuite des données structurées, notamment les relations dans le fichier d’origine.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer vous permet d’extraire des informations de vos vidéos.|
+|[Vision par ordinateur](./computer-vision/index.yml "Vision par ordinateur")|Le service Vision par ordinateur vous donne accès à des algorithmes cognitifs avancés pour le traitement d’images et le retour d’informations. Consultez le [Guide de démarrage rapide de la Vision par ordinateur](./computer-vision/quickstarts-sdk/client-library.md) pour commencer à utiliser le service.|
+|[Service Custom Vision](./custom-vision-service/index.yml "Service Vision personnalisée")|Le service Custom Vision vous permet de créer, de déployer et d’améliorer vos propres classifieurs d’images. Un classifieur d’images est un service d’IA qui applique des étiquettes à des images sur la base de leurs caractéristiques visuelles. |
+|[Visage](./face/index.yml "Face")| Le service Visage donne accès à des algorithmes d’analyse du visage permettant la détection et la reconnaissance d’attributs faciaux. Consultez le [Guide de démarrage rapide de Visage](./face/quickstarts/client-libraries.md) pour commencer à utiliser le service.|
+|[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer identifie et extrait les données de paires clé-valeur et de table des documents du formulaire ; il sort ensuite des données structurées, notamment les relations dans le fichier d’origine. Consultez le [Guide de démarrage rapide de Form Recognizer](./form-recognizer/quickstarts/client-library.md) pour commencer.|
+|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|Video Indexer vous permet d’extraire des informations de vos vidéos. Consultez le [Guide de démarrage rapide de Video Indexer](/media-services/video-indexer/video-indexer-get-started.md) pour commencer.|
 
 ## <a name="speech-apis"></a>Les API Speech
 
@@ -59,20 +59,20 @@ Les sections suivantes de cet article fournissent la liste des services qui font
 
 |Nom du service|Description du service|
 |:-----------|:------------------|
-|[Language Understanding (LUIS)](./luis/index.yml "Language Understanding")|Le service Language Understanding (LUIS) permet à votre application de comprendre ce qu’une personne souhaite avec ses propres mots.|
-|[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker vous permet de générer un service de questions et réponses à partir de votre contenu semi-structuré.|
-|[Analyse de texte](./text-analytics/index.yml "Analyse de texte")| Analyse de texte effectue un traitement en langage naturel sur du texte brut pour l’analyse des sentiments, l’extraction de phrases clés et la détection de la langue.|
+|[Language Understanding (LUIS)](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) est un service d’IA conversationnelle qui applique une intelligence de machine learning personnalisée au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général et d’en extraire des informations détaillées pertinentes. Consultez le [Guide de démarrage rapide de LUIS](./luis/get-started-portal-build-app.md) pour commencer à utiliser le service.|
+|[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker vous permet de générer un service de questions et réponses à partir de votre contenu semi-structuré. Consultez le [Guide de démarrage rapide de QnA Maker](./qnamaker/quickstarts/create-publish-knowledge-base.md) pour commencer à utiliser le service.|
+|[Analyse de texte](./text-analytics/index.yml "Analyse de texte")| Analyse de texte effectue un traitement en langage naturel sur du texte brut pour l’analyse des sentiments, l’extraction de phrases clés et la détection de la langue. Consultez le [Guide de démarrage rapide d’Analyse de texte](./text-analytics/quickstarts/client-libraries-rest-api.md) pour commencer à utiliser le service.|
 |[Translator](./translator/index.yml "Convertisseur")|Translator fournit une traduction de texte basée sur l’ordinateur quasiment en temps réel.|
-| [Lecteur immersif](./immersive-reader/index.yml "Lecteur immersif") | Le Lecteur immersif ajoute à vos applications des fonctionnalités de compréhension et de lecture de l’écran. |
+| [Lecteur immersif](./immersive-reader/index.yml "Lecteur immersif") | Le Lecteur immersif ajoute à vos applications des fonctionnalités de compréhension et de lecture de l’écran. Consultez le [Guide de démarrage rapide du Lecteur immersif](./immersive-reader/quickstarts/client-libraries.md) pour commencer à utiliser le service. |
 
 ## <a name="decision-apis"></a>API de décision
 
 |Nom du service|Description du service|
 |:-----------|:------------------|
-|[Détecteur d’anomalies](./anomaly-detector/index.yml "Le détecteur d’anomalies") |Le Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique.|
-|[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator assure la surveillance de contenu potentiellement choquant, indésirable ou à risque.|
-|[Metrics Advisor](./metrics-advisor/index.yml) (préversion) | Metrics Advisor assure une détection personnalisable des anomalies sur des données de série chronologique multivariées, ainsi qu’un portail web complet pour vous aider à utiliser ce service.|
-|[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.|
+|[Détecteur d’anomalies](./anomaly-detector/index.yml "Le détecteur d’anomalies") |Le Détecteur d’anomalies vous permet de surveiller et de détecter des anomalies dans vos données de série chronologique. Consultez le [Guide de démarrage rapide du Détecteur d’anomalies](./anomaly-detector/quickstarts/client-libraries.md) pour commencer à utiliser le service.|
+|[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator assure la surveillance de contenu potentiellement choquant, indésirable ou à risque. Consultez le [Guide de démarrage rapide de Content Moderator](./content-moderator/client-libraries.md) pour commencer à utiliser le service.|
+|[Metrics Advisor](./metrics-advisor/index.yml) (préversion) | Metrics Advisor assure une détection personnalisable des anomalies sur des données de série chronologique multivariées, ainsi qu’un portail web complet pour vous aider à utiliser ce service. Consultez le [Guide de démarrage rapide de Metrics Advisor](./metrics-advisor/quickstarts/rest-api-and-client-library.md) pour commencer à utiliser le service. |
+|[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel. Consultez le [Guide de démarrage rapide de Personalizer](./personalizer/quickstart-personalizer-sdk.md) pour commencer à utiliser le service.|
 
 ## <a name="search-apis"></a>API de recherche
 
@@ -92,7 +92,16 @@ Les sections suivantes de cet article fournissent la liste des services qui font
 |[Recherche d’entreprises locales Bing](/azure/cognitive-services/bing-local-business-search/ "La Recherche d’entreprises locales Bing")| L’API Recherche d’entreprises locales Bing permet à vos applications de rechercher les coordonnées d’entreprises à proximité à l’aide de requêtes.|
 |[Vérification orthographique Bing](/azure/cognitive-services/bing-spell-check/ "Vérification orthographique Bing")|La Vérification orthographique Bing vous permet d’effectuer une vérification grammaticale et orthographique contextuelle.|
 
-## <a name="development-options"></a>Options de développement 
+## <a name="get-started-with-cognitive-services"></a>Prise en main de Cognitive Services
+
+Commencez par créer une ressource Cognitive Services avec des guides pratiques de démarrage rapide en utilisant les méthodes suivantes :
+
+* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Portail Azure")
+* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
+* [Bibliothèques clientes du kit SDK Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Modèles Azure Resource Manager (ARM)](./create-account-resource-manager-template.md?tabs=portal "Modèles Azure Resource Manager (ARM)")
+
+## <a name="using-cognitive-services-in-different-development-environments"></a>Utilisation de Cognitive Services dans différents environnements de développement
 
 Avec Azure et Cognitive Services, vous avez accès à diverses options de développement, dont les suivantes :
 
@@ -102,15 +111,6 @@ Avec Azure et Cognitive Services, vous avez accès à diverses options de dével
 * Des outils comme Apache Spark, Azure Databricks, Azure Synapse Analytics et Azure Kubernetes Service pour les scénarios de Big Data 
 
 Pour plus d’informations, consultez [Options de développement Cognitive Services](./cognitive-services-development-options.md).
-
-## <a name="learn-with-the-quickstarts"></a>Apprendre avec les guides de démarrage rapide
-
-Commencez par créer une ressource Cognitive Services avec des guides pratiques de démarrage rapide en utilisant les méthodes suivantes :
-
-* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Portail Azure")
-* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
-* [Bibliothèques clientes du kit SDK Azure](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
-* [Modèles Azure Resource Manager (ARM)](./create-account-resource-manager-template.md?tabs=portal "Modèles Azure Resource Manager (ARM)")
 
 <!--
 ## Subscription management
@@ -128,7 +128,7 @@ Azure Cognitive Services propose un modèle de sécurité en couches, notamment 
 
 ## <a name="containers-for-cognitive-services"></a>Conteneurs pour Cognitive Services
 
- Cognitive Services fournit des conteneurs à déployer dans le cloud Azure ou localement. En savoir plus sur les [Conteneurs Cognitive Services](cognitive-services-container-support.md "Conteneurs Cognitive Services").
+ Azure Cognitive Services offre plusieurs conteneurs Docker qui vous permettent d’utiliser localement les mêmes API que celles disponibles dans Azure. Grâce à ces conteneurs, Cognitive Services se trouve au plus près de vos données du point de vue de la conformité, de la sécurité et de l’exploitation. En savoir plus sur les [Conteneurs Cognitive Services](cognitive-services-container-support.md "Conteneurs Cognitive Services").
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
@@ -154,3 +154,4 @@ Cognitive Services propose plusieurs options de support pour vous aider à crée
 
 * [Créer un compte Cognitive Services](cognitive-services-apis-create-account.md "Créer un compte Cognitive Services")
 * [Documentation sur les nouveautés de Cognitive Services](whats-new-docs.md "Documentation sur les nouveautés de Cognitive Services")
+* [Planifier et gérer les coûts pour Cognitive Services](plan-manage-costs.md)

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 15bad877be00e143ce6f6956a4e1f23378c275c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b984a17c8c10c3dff7c57b7d0223ba8b4197012
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521779"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640117"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Effectuer l'apprentissage de modèles avec des jeux de données Azure Machine Learning 
 
@@ -38,7 +38,7 @@ Pour créer des jeux de données et effectuer un entraînement avec eux, vous av
 * Le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/install) (version 1.13.0 ou ultérieure), qui inclut le package `azureml-datasets`.
 
 > [!Note]
-> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](/python/api/azureml-dataprep/). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
+> Certaines classes de jeu de données ont des dépendances avec le package [azureml-dataprep](https://pypi.org/project/azureml-dataprep/). Pour les utilisateurs Linux, ces classes sont uniquement prises en charge dans les distributions suivantes :  Red Hat Enterprise Linux, Ubuntu, Fedora et CentOS.
 
 ## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Utiliser des jeux de données dans des scripts d’apprentissage Machine Learning
 

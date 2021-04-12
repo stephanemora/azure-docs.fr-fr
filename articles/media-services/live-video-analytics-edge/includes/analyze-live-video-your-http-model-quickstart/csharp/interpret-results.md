@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 373b7b8dbf2ccc516edbbb3b87e284d88dfaf0c2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99508485"
 ---
 Quand vous exécutez le graphe multimédia, les résultats du nœud processeur d’extension HTTP passe par le nœud récepteur IoT Hub au hub IoT. Les messages qui s’affichent dans la fenêtre **SORTIE** contiennent une section `body` et une section `applicationProperties`. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
@@ -18,7 +18,7 @@ Quand un graphe multimédia est instancié, le nœud source RTSP tente de se con
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "dataVersion": "1.0",
@@ -61,10 +61,10 @@ Dans l’exemple suivant, deux voitures ont été détectées dans la même imag
           },
           "tag": {
             "confidence": 0.8714089393615723,
-            "value": "car"
+            "value&quot;: &quot;car"
           }
         },
-        "type": "entity"
+        "type&quot;: &quot;entity"
       },
       {
         "entity": {
@@ -76,10 +76,10 @@ Dans l’exemple suivant, deux voitures ont été détectées dans la même imag
           },
           "tag": {
             "confidence": 0.7042660713195801,
-            "value": "car"
+            "value&quot;: &quot;car"
           }
         },
-        "type": "entity"
+        "type&quot;: &quot;entity"
       }
     ]
   }

@@ -3,12 +3,12 @@ title: "Résoudre l'erreur : Le runtime d'Azure Functions est inaccessible"
 description: Découvrez comment résoudre les problèmes relatifs à un compte de stockage non valide.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: a62001cedd695badc72eb76c93ea9c3cb4507403
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 392882fc2f0394e61aee973a20479d8f1fa9bc92
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499626"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606971"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Résoudre l'erreur : « Le runtime d'Azure Functions est inaccessible »
 
@@ -59,6 +59,7 @@ Votre application de fonction doit être en mesure d’accéder au compte de sto
 * L’application de fonction est déployée sur votre environnement ASE (App Service Environment) sans les règles de réseau appropriées pour autoriser le trafic vers et depuis le compte de stockage.
 
 * Le pare-feu du compte de stockage est activé et non configuré pour autoriser le trafic vers et depuis des fonctions. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Vérifiez que le paramètre `allowSharedKeyAccess` est défini sur `true`, qui est sa valeur par défaut. Pour plus d’informations, consultez [Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## <a name="daily-execution-quota-is-full"></a>Le quota d'exécution quotidien a été atteint
 
