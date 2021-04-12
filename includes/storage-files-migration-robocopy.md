@@ -1,18 +1,19 @@
 ---
-title: Mapper une structure de dossiers à une topologie Azure File Sync
-description: Mappez une structure de fichiers et de dossiers existante à des partages de fichiers Azure à des fins d'utilisation avec Azure File Sync. Bloc de texte commun, partagé entre plusieurs documents de migration.
+title: Fichier include
+description: Fichier include
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: cde85e245c8cc6ae8c55b24270f125bacc111737
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.custom: include file
+ms.openlocfilehash: 6158964c04a689ed421f216c2910f47d7a39e2be
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102547546"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081019"
 ---
 ```console
 Robocopy /MT:16 /NP /NFL /NDL /B /MIR /IT /COPY:DATSO /COPY:DATSO /DCOPY:DAT /UNILOG:<FilePathAndName> <SourcePath> <Dest.Path> 

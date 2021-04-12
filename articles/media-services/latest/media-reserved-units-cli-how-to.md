@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: c5fa3aa8397ea6e13500717f035c414af8de8e3d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870158"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121674"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Mise à l'échelle des unités réservées Multimédia
 
@@ -26,7 +26,7 @@ Cet article explique comment procéder à la mise à l'échelle des unités rés
 
 ## <a name="prerequisites"></a>Prérequis
 
-[Créer un compte Media Services](./create-account-howto.md).
+[Créer un compte Media Services](./account-create-how-to.md).
 
 Familiarisez-vous avec les [unités réservées Multimédia](concept-media-reserved-units.md).
 
@@ -46,8 +46,8 @@ Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unit
 
 ## <a name="next-step"></a>Étape suivante
 
-[Analyser des vidéos](analyze-videos-tutorial-with-api.md)
+[Analyser des vidéos](analyze-videos-tutorial.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Quotas et limites](limits-quotas-constraints.md)
+* [Quotas et limites](limits-quotas-constraints-reference.md)

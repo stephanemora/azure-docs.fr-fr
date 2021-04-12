@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 31e30b4853da03e28a4a2d15292050805f5bc292
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97674040"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106064141"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Cas de test par défaut de la boîte à outils de test de modèle Resource Manager
 
-Cet article décrit les tests par défaut qui sont exécutés avec la [boîte à outils de test de modèle](test-toolkit.md). Il fournit des exemples qui réussissent le test ou y échouent. Il comprend le nom de chaque test.
+Cet article décrit les tests par défaut exécutés avec le [kit de ressources de test de modèle](test-toolkit.md) pour les modèles Azure Resource Manager (modèles ARM). Il fournit des exemples qui réussissent le test ou y échouent. Il comprend le nom de chaque test. Pour exécuter un test spécifique, consultez [Paramètres de test](test-toolkit.md#test-parameters).
 
 ## <a name="use-correct-schema"></a>Utiliser le schéma correct
 
@@ -137,7 +137,7 @@ L’exemple suivant **réussit** ce test.
 
 Nom du test : **L’emplacement ne doit pas être codé en dur**
 
-Vos modèles doivent comporter un paramètre d'emplacement nommé. Utilisez ce paramètre pour définir l'emplacement des ressources dans votre modèle. Dans le modèle principal (nommé azuredeploy.json ou mainTemplate.json), ce paramètre peut correspondre par défaut à l'emplacement du groupe de ressources. Dans les modèles liés ou imbriqués, le paramètre d'emplacement ne doit pas comporter d'emplacement par défaut.
+Vos modèles doivent comporter un paramètre d'emplacement nommé. Utilisez ce paramètre pour définir l'emplacement des ressources dans votre modèle. Dans le modèle principal (nommé _azuredeploy.json_ ou _mainTemplate.json_), ce paramètre peut correspondre par défaut à l’emplacement du groupe de ressources. Dans les modèles liés ou imbriqués, le paramètre d'emplacement ne doit pas comporter d'emplacement par défaut.
 
 Les utilisateurs de votre modèle peuvent disposer de régions limitées. Lorsque vous codez en dur l'emplacement des ressources, les utilisateurs peuvent ne pas être en mesure de créer une ressource dans cette région. Ils peuvent être bloqués même si vous définissez l'emplacement des ressources sur `"[resourceGroup().location]"`. Le groupe de ressources peut avoir été créé dans une région à laquelle les autres utilisateurs n'ont pas accès. L’utilisation du modèle est bloquée pour ces utilisateurs.
 
@@ -393,11 +393,11 @@ Lorsque vous incluez des paramètres pour `_artifactsLocation` et `_artifactsLoc
 * Si vous fournissez un paramètre, vous devez fournir l’autre
 * `_artifactsLocation` doit être une **chaîne**
 * `_artifactsLocation` doit posséder une valeur par défaut dans le modèle principal
-* `_artifactsLocation` ne peut pas posséder une valeur par défaut dans un modèle imbriqué 
+* `_artifactsLocation` ne peut pas posséder une valeur par défaut dans un modèle imbriqué
 * Par défaut, `_artifactsLocation` doit être définie sur `"[deployment().properties.templateLink.uri]"` ou sur l’URL de référentiel brute
 * `_artifactsLocationSasToken` doit être une **secureString**
 * `_artifactsLocationSasToken` ne peut avoir qu’une chaîne vide comme valeur par défaut
-* `_artifactsLocationSasToken` ne peut pas posséder une valeur par défaut dans un modèle imbriqué 
+* `_artifactsLocationSasToken` ne peut pas posséder une valeur par défaut dans un modèle imbriqué
 
 ## <a name="declared-variables-must-be-used"></a>Les variables déclarées doivent être utilisées
 
@@ -520,7 +520,7 @@ Le prochain exemple **réussit** ce test.
 
 Nom du test : **ResourceIds ne doit pas contenir**
 
-Lors de la génération d’ID de ressource, n’utilisez pas de fonctions inutiles pour les paramètres facultatifs. Par défaut, la fonction [resourceId](template-functions-resource.md#resourceid) utilise le groupe actuel d’abonnements et de ressources. Vous n’avez pas besoin de fournir ces valeurs.  
+Lors de la génération d’ID de ressource, n’utilisez pas de fonctions inutiles pour les paramètres facultatifs. Par défaut, la fonction [resourceId](template-functions-resource.md#resourceid) utilise le groupe actuel d’abonnements et de ressources. Vous n’avez pas besoin de fournir ces valeurs.
 
 L’exemple suivant **échoue** à ce test, car vous n’avez pas besoin de fournir l’ID d’abonnement et le nom de groupe de ressources actuels.
 
@@ -691,7 +691,40 @@ L’exemple suivant **échoue**, car il utilise une fonction [list*](template-fu
 }
 ```
 
+## <a name="use-protectedsettings-for-commandtoexecute-secrets"></a>Utiliser protectedSettings pour les secrets commandToExecute
+
+Nom du test : **CommandToExecute doit utiliser ProtectedSettings pour les secrets**
+
+Dans une extension de script personnalisé, utilisez la propriété encrypted `protectedSettings` quand `commandToExecute` inclut des données secrètes telles qu’un mot de passe. Des types de données secrètes sont, par exemple, les fonctions ou scripts `secureString`, `secureObject` ou `list()`.
+
+Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles, consultez [Windows](
+/azure/virtual-machines/extensions/custom-script-windows), [Linux](/azure/virtual-machines/extensions/custom-script-linux) et le schéma [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions).
+
+Dans cet exemple, un modèle avec un paramètre nommé `adminPassword` et le type `secureString` **passe** le test car la propriété chiffrée `protectedSettings` comprend `commandToExecute`.
+
+```json
+"properties": [
+  {
+    "protectedSettings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
+Le test **échoue** si la propriété non chiffrée `settings` comprend `commandToExecute`.
+
+```json
+"properties": [
+  {
+    "settings": {
+      "commandToExecute": "[parameters('adminPassword')]"
+    }
+  }
+]
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur l’exécution de la boîte à outils de test, consultez [Utiliser le kit de ressources de test de modèle ARM](test-toolkit.md).
-- Pour suivre un module Microsoft Learn couvrant l’utilisation du kit de ressources de test, consultez [Prévisualisation des modifications et validation des ressources Azure à l’aide de simulations et du kit de ressources de test de modèle ARM](/learn/modules/arm-template-test/).
+* Pour en savoir plus sur l’exécution de la boîte à outils de test, consultez [Utiliser le kit de ressources de test de modèle ARM](test-toolkit.md).
+* Pour suivre un module Microsoft Learn couvrant l’utilisation du kit de ressources de test, consultez [Prévisualisation des modifications et validation des ressources Azure à l’aide de simulations et du kit de ressources de test de modèle ARM](/learn/modules/arm-template-test/).

@@ -28,14 +28,14 @@ Ce didacticiel explique les procédures suivantes :
 Les éléments suivants sont requis pour suivre le didacticiel :
 
 - Installez Visual Studio Code ou Visual Studio.
-- [Créer un compte Media Services](./create-account-howto.md).<br/>Veillez à copier les détails de l’accès à l’API au format JSON ou à stocker les valeurs nécessaires pour se connecter au compte Media Services dans le format de fichier .env utilisé dans cet exemple.
+- [Créer un compte Media Services](./account-create-how-to.md).<br/>Veillez à copier les détails de l’accès à l’API au format JSON ou à stocker les valeurs nécessaires pour se connecter au compte Media Services dans le format de fichier .env utilisé dans cet exemple.
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](./access-api-howto.md) et enregistrez les informations d’identification. Vous devez les utiliser pour accéder à l’API dans cet exemple ou les entrer dans le format de fichier .env. 
 - Une caméra ou appareil (tel qu’un ordinateur portable) utilisé pour diffuser un événement.
-- Un encodeur logiciel local qui encode votre flux de caméra et l’envoie au service de streaming en direct Media Services avec le protocole RTMP ; consultez les [encodeurs live locaux recommandés](recommended-on-premises-live-encoders.md). La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.  
+- Un encodeur logiciel local qui encode votre flux de caméra et l’envoie au service de streaming en direct Media Services avec le protocole RTMP ; consultez les [encodeurs live locaux recommandés](encode-recommended-on-premises-live-encoders.md). La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.  
 - Pour cet exemple, nous vous recommandons de commencer avec un encodeur logiciel comme le logiciel gratuit [Open Broadcast Software OBS Studio](https://obsproject.com/download). 
 
 > [!TIP]
-> Veillez à consulter [Diffusion en continu avec Media Services v3](live-streaming-overview.md) avant de commencer. 
+> Veillez à consulter [Diffusion en continu avec Media Services v3](stream-live-streaming-concept.md) avant de commencer. 
 
 ## <a name="download-and-configure-the-sample"></a>Télécharger et configurer l’exemple
 
@@ -70,15 +70,15 @@ Pour commencer à utiliser les API Media Services avec .NET, vous devez créer u
 
 ### <a name="create-a-live-event"></a>Créer un événement en temps réel
 
-Cette section montre comment créer un type de **transmission directe** d’événement en direct (LiveEventEncodingType défini sur Aucun). Pour plus d’informations sur les autres types d’événements en direct disponibles, consultez [Types d’événements en direct](live-events-outputs-concept.md#live-event-types). En plus de Pass-through, vous pouvez utiliser un événement en direct de transcodage en temps réel pour un encodage cloud à débit adaptatif 720P ou 1080P. 
+Cette section montre comment créer un type de **transmission directe** d’événement en direct (LiveEventEncodingType défini sur Aucun). Pour plus d’informations sur les autres types d’événements en direct disponibles, consultez [Types d’événements en direct](live-event-outputs-concept.md#live-event-types). En plus de Pass-through, vous pouvez utiliser un événement en direct de transcodage en temps réel pour un encodage cloud à débit adaptatif 720P ou 1080P. 
  
 Voici quelques éléments que vous voudrez probablement spécifier lors de la création de l’événement en temps réel :
 
 * Protocole d’ingestion de l’événement en direct (les protocoles RTMP(S) et Smooth Streaming sont pris en charge).<br/>Vous ne pouvez pas changer l’option de protocole pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. Si vous avez besoin d’autres protocoles, créez des événements en direct distincts pour chaque protocole de streaming.  
 * Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à recevoir du contenu vidéo sur cet événement en direct. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).<br/>Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.<br/>Les adresses IP doivent utiliser un des formats suivants : adresses IPv4 à quatre chiffres ou plage d’adresses CIDR.
-* Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. <br/>Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. La facturation commence donc dès le démarrage de l’événement en direct. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
+* Lors de la création de l’événement, vous pouvez spécifier qu’il démarre automatiquement. <br/>Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. La facturation commence donc dès le démarrage de l’événement en direct. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing-concept.md).
 Il existe également des modes veille qui permettent de démarrer l’événement en direct dans un état « alloué » à moindre coût qui accélère le passage à l’état « En cours d’exécution ». C’est utile dans les cas où, par exemple, les hotpools doivent remettre les canaux rapidement aux streamers.
-* Pour qu’une URL d’ingestion soit prévisible et plus facile à gérer dans un encodeur live matériel, affectez la valeur true à la propriété « useStaticHostname ». Pour plus d’informations, consultez [URL de réception des événements en direct](live-events-outputs-concept.md#live-event-ingest-urls).
+* Pour qu’une URL d’ingestion soit prévisible et plus facile à gérer dans un encodeur live matériel, affectez la valeur true à la propriété « useStaticHostname ». Pour plus d’informations, consultez [URL de réception des événements en direct](live-event-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet/Live/LiveEventWithDVR/Program.cs#CreateLiveEvent)]
 
@@ -128,7 +128,7 @@ Les sorties en direct démarrent dès leur création et s’arrêtent à leur su
 #### <a name="create-a-streaming-locator"></a>Créer un localisateur de streaming
 
 > [!NOTE]
-> Après la création de votre compte Media Services, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer le streaming de votre contenu et tirer parti de l’[empaquetage dynamique](dynamic-packaging-overview.md) et du chiffrement dynamique, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
+> Après la création de votre compte Media Services, un point de terminaison de streaming **par défaut** est ajouté à votre compte à l’état **Arrêté**. Pour démarrer le streaming de votre contenu et tirer parti de l’[empaquetage dynamique](encode-dynamic-packaging-concept.md) et du chiffrement dynamique, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état **En cours d’exécution**.
 
 Quand vous publiez l’actif multimédia à l’aide d’un localisateur de streaming, l’événement en direct (jusqu’à la longueur de la fenêtre DVR) reste visible jusqu’à l’expiration ou la suppression du localisateur de streaming, en fonction de ce qui se produit en premier. C’est comme cela que vous pouvez mettre l’enregistrement sur « cassette virtuelle » à la disposition de votre public pour le regarder en direct et à la demande. La même URL peut être utilisée pour regarder l’événement en direct, la fenêtre DVR ou l’actif multimédia à la demande quand l’enregistrement est terminé (quand la sortie en direct est supprimée).
 
