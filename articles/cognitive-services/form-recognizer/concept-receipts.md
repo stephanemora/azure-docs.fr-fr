@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8248b3ed21561340e963c848dee4430c48829ab1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467355"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285295"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modèle de reçu prédéfini dans Form Recognizer
 
-Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../computer-vision/concept-recognizing-text.md) avec des modèles de Deep Learning pour extraire des informations clés des tickets de caisse.
+Azure Form Recognizer peut analyser et extraire des informations dans des reçus à l’aide de son modèle de reçu prédéfini. Il combine nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../computer-vision/overview-ocr.md) avec des modèles de Deep Learning pour extraire des informations clés des tickets de caisse.
 
 ## <a name="understanding-receipts"></a>Comprendre les tickets de caisse
 

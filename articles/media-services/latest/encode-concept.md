@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 22f4c5bba3ea6836a8c9b016315f3cfae36cb52d
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: cd37175bd85e31ddc18c8267cdf01f7dc6249a0b
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111013"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491914"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Encodage vidéo et audio avec Media Services
 
@@ -31,7 +31,7 @@ Les vidéos sont généralement fournies aux appareils et aux applications par [
 > Media Services ne facture pas les travaux annulés ou erronés. Par exemple, un travail qui a atteint 50 % de progression et qui est annulé n’est pas facturé à hauteur de 50 % des minutes du travail. Vous n’êtes facturé que pour les travaux terminés.
 
 * Pour le téléchargement progressif, vous pouvez utiliser Azure Media Services afin de convertir un fichier multimédia numérique (mezzanine) en fichier [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) qui contient la vidéo encodée avec le codec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) et le son encodé avec le codec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Ce fichier MP4 est écrit dans un actif multimédia dans votre compte de stockage. Vous pouvez utiliser les SDK ou les API Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour télécharger le fichier directement. Si vous avez créé l’actif multimédia de sortie avec un nom de conteneur spécifique dans le stockage, utilisez cet emplacement. Sinon, vous pouvez utiliser Media Services pour [lister les URL de conteneurs d’actifs multimédias](/rest/api/media/assets/listcontainersas). 
-* Pour préparer le contenu pour une diffusion en streaming à débit adaptatif, le fichier mezzanine doit être encodé à plusieurs débits (du plus élevé au plus faible). Pour garantir une transition appropriée de la qualité, le débit et la résolution de la vidéo sont réduits en parallèle. Il en résulte ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de débits (voir [Échelle de débit adaptatif générée automatiquement](encode-autogen-bitrate-ladder.md)). Vous pouvez utiliser Media Services pour encoder vos fichiers mezzanine à plusieurs débits binaires. Dans ce cas, vous obtiendrez un ensemble de fichiers MP4 et de fichiers de configuration de diffusion en continu associés écrits dans une ressource de votre compte de stockage. Vous pouvez ensuite utiliser la fonctionnalité d’[empaquetage dynamique](encode-dynamic-packaging-concept.md) dans Media Services pour diffuser la vidéo par le biais de protocoles de streaming tels que [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) et [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Vous devrez pour cela créer un [localisateur de streaming](streaming-locators-concept.md) et générer des URL de streaming correspondant aux protocoles pris en charge, qui peuvent ensuite être remises aux appareils/applications en fonction de leurs fonctionnalités.
+* Pour préparer le contenu pour une diffusion en streaming à débit adaptatif, le fichier mezzanine doit être encodé à plusieurs débits (du plus élevé au plus faible). Pour garantir une transition appropriée de la qualité, le débit et la résolution de la vidéo sont réduits en parallèle. Il en résulte ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de débits (voir [Échelle de débit adaptatif générée automatiquement](encode-autogen-bitrate-ladder.md)). Vous pouvez utiliser Media Services pour encoder vos fichiers mezzanine à plusieurs débits binaires. Dans ce cas, vous obtiendrez un ensemble de fichiers MP4 et de fichiers de configuration de diffusion en continu associés écrits dans une ressource de votre compte de stockage. Vous pouvez ensuite utiliser la fonctionnalité d’[empaquetage dynamique](encode-dynamic-packaging-concept.md) dans Media Services pour diffuser la vidéo par le biais de protocoles de streaming tels que [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) et [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Vous devrez pour cela créer un [localisateur de streaming](stream-streaming-locators-concept.md) et générer des URL de streaming correspondant aux protocoles pris en charge, qui peuvent ensuite être remises aux appareils/applications en fonction de leurs fonctionnalités.
 
 Le diagramme suivant illustre le workflow d’encodage à la demande avec l’empaquetage dynamique.
 
@@ -41,11 +41,11 @@ Cette rubrique vous explique comment encoder votre contenu avec Media Services v
 
 ## <a name="transforms-and-jobs"></a>Transformations et travaux
 
-Pour encoder avec Media Services v3, vous devez créer une [transformation](/rest/api/media/transforms) et un [travail](/rest/api/media/jobs). La transformation définit une recette à appliquer pour vos paramètres et sorties d’encodage ; le travail est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transforms-jobs-concept.md).
+Pour encoder avec Media Services v3, vous devez créer une [transformation](/rest/api/media/transforms) et un [travail](/rest/api/media/jobs). La transformation définit une recette à appliquer pour vos paramètres et sorties d’encodage ; le travail est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transform-jobs-concept.md).
 
 Lors de l’encodage avec Media Services, vous utilisez des préréglages pour indiquer comment traiter les fichiers multimédias en entrée. Dans Media Services v3, vous utilisez l’encodeur standard pour coder vos fichiers. Par exemple, vous pouvez spécifier la résolution vidéo et/ou le nombre de canaux audio souhaité dans le contenu encodé.
 
-Vous pouvez commencer rapidement à utiliser un des préréglages intégrés recommandés et basés sur les bonnes pratiques du secteur, ou vous pouvez choisir de créer un préréglage personnalisé pour les besoins de votre scénario ou de votre appareil. Pour plus d’informations, consultez [Encoder avec une transformation personnalisée](encode-custom-presets-how-to.md).
+Vous pouvez commencer rapidement à utiliser un des préréglages intégrés recommandés et basés sur les bonnes pratiques du secteur, ou vous pouvez choisir de créer un préréglage personnalisé pour les besoins de votre scénario ou de votre appareil. Pour plus d’informations, consultez [Encoder avec une transformation personnalisée](transform-custom-presets-how-to.md).
 
 À partir de janvier 2019, en cas de codage avec l’encodeur standard pour produire des fichiers MP4, un nouveau fichier .mpi est généré et ajouté à la ressource de sortie. Ce fichier MPI est destiné à améliorer les performances pour les scénarios d’[empaquetage dynamique](encode-dynamic-packaging-concept.md) et de diffusion en continu.
 
@@ -84,8 +84,8 @@ Vous pouvez faire en sorte de créer un [travail](/rest/api/media/jobs/create) a
 
 Consultez les exemples :
 
-* [Sous-cliper une vidéo avec .NET](subclip-video-dotnet-howto.md)
-* [Sous-cliper une vidéo avec REST](subclip-video-rest-howto.md)
+* [Sous-cliper une vidéo avec .NET](transform-subclip-video-dotnet-how-to.md)
+* [Sous-cliper une vidéo avec REST](transform-subclip-video-rest-how-to.md)
 
 ## <a name="built-in-presets"></a>Préréglages intégrés
 
@@ -136,9 +136,9 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 
 #### <a name="examples"></a>Exemples
 
-- [Personnaliser des préréglages avec .NET](encode-custom-presets-how-to.md)
-- [Personnaliser des préréglages avec l’interface CLI](encode-custom-preset-cli-how-to.md)
-- [Personnaliser des préréglages avec REST](encode-custom-preset-rest-how-to.md)
+- [Personnaliser des préréglages avec .NET](transform-custom-presets-how-to.md)
+- [Personnaliser des préréglages avec l’interface CLI](transform-custom-preset-cli-how-to.md)
+- [Personnaliser des préréglages avec REST](transform-custom-preset-rest-how-to.md)
 
 
 ## <a name="preset-schema"></a>Schéma de préréglage
@@ -165,4 +165,4 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 * [Charger, encoder et diffuser en continu à l’aide de Media Services](stream-files-tutorial-with-api.md).
 * [Encoder à partir d’une URL HTTPS à l’aide de préréglages intégrés](job-input-from-http-how-to.md).
 * [Encoder un fichier local à l’aide de préréglages intégrés](job-input-from-local-file-how-to.md).
-* [Créer un préréglage intégré pour les besoins de votre scénario ou votre appareil](encode-custom-presets-how-to.md).
+* [Créer un préréglage intégré pour les besoins de votre scénario ou votre appareil](transform-custom-presets-how-to.md).
