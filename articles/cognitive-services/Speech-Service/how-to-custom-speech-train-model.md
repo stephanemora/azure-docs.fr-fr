@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373366"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103491110"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Entraîner et déployer un modèle Custom Speech
 
@@ -61,7 +61,7 @@ La table **Formation** affiche une nouvelle entrée correspondant au nouveau mod
 Consultez le [Guide pratique](how-to-custom-speech-evaluate-data.md) sur l’évaluation et l’amélioration de la justesse du modèle Custom Speech. Si vous choisissez de tester l’exactitude, il est important de sélectionner un jeu de données acoustique différent de celui que vous avez utilisé avec votre modèle pour vous faire une idée réaliste des performances du modèle.
 
 > [!NOTE]
-> Les modèles de base et les modèles personnalisés ne peuvent être utilisés que jusqu’à une certaine date (voir [Cycle de vie du modèle](custom-speech-overview.md#model-lifecycle)). Speech Studio affiche cette date dans la colonne **Expiration** de chaque modèle et point de terminaison. Après cette demande, la demande envoyée à un point de terminaison ou à une transcription par lots peut échouer ou revenir au modèle de base.
+> Les modèles de base et les modèles personnalisés ne peuvent être utilisés que jusqu’à une certaine date (voir [Cycle de vie des modèles et des points de terminaison](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio affiche cette date dans la colonne **Expiration** de chaque modèle et point de terminaison. Après cette demande, la demande envoyée à un point de terminaison ou à une transcription par lots peut échouer ou revenir au modèle de base.
 >
 > Réentraînez votre modèle à l’aide du modèle de base le plus récent pour tirer parti des améliorations de précision et pour éviter que votre modèle expire.
 

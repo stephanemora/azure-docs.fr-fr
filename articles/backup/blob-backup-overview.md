@@ -3,12 +3,12 @@ title: Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure
 description: Découvrez la sauvegarde opérationnelle des objets blob Azure (préversion).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743048"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558752"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Vue d’ensemble de la sauvegarde opérationnelle des objets blob Azure (préversion)
 
@@ -22,7 +22,7 @@ La sauvegarde opérationnelle d’objets blob est une solution de **sauvegarde l
 
 La sauvegarde opérationnelle utilise des fonctionnalités de plateforme blob pour protéger les données et permettre la récupération si nécessaire :
 
-- **Restauration à un instant dans le passé** : la restauration [d’objets blob à un instant dans le passé](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) permet de restaurer des données blob à un état antérieur. Elle utilise la **suppression réversible**, le **flux de modification** et le **contrôle de version des objets blob** pour conserver les données pendant la durée spécifiée. La sauvegarde opérationnelle prend en charge l’activation de la restauration à un instant dans le passé ainsi que les fonctionnalités sous-jacentes pour garantir la rétention des données pendant la durée spécifiée.
+- **Restauration à un instant dans le passé** : la restauration [d’objets blob à un instant dans le passé](../storage/blobs/point-in-time-restore-overview.md) permet de restaurer des données blob à un état antérieur. Elle utilise la **suppression réversible**, le **flux de modification** et le **contrôle de version des objets blob** pour conserver les données pendant la durée spécifiée. La sauvegarde opérationnelle prend en charge l’activation de la restauration à un instant dans le passé ainsi que les fonctionnalités sous-jacentes pour garantir la rétention des données pendant la durée spécifiée.
 
 - **Verrou de suppression** : le verrou de suppression empêche la suppression du compte de stockage lorsqu’elle est effectuée par accident ou par des utilisateurs non autorisés. La sauvegarde opérationnelle peut également être configurée pour appliquer automatiquement un verrou de suppression, et ainsi réduire les possibilités de perte de données liées à la suppression du compte de stockage.
 
@@ -63,9 +63,9 @@ La sauvegarde opérationnelle offre la possibilité de restaurer tous les objets
 
 Aucuns frais de gestion ni frais d’instance ne sont engagés avec l’utilisation de la sauvegarde opérationnelle pour les objets blob. Toutefois, les frais suivants sont facturés :
 
-- Les restaurations sont effectuées avec la restauration à un instant dans le passé des objets blob et induisent des frais en fonction de la quantité de données traitées. Pour plus d’informations, consultez [Tarifs de la restauration à un instant dans le passé](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing).
+- Les restaurations sont effectuées avec la restauration à un instant dans le passé des objets blob et induisent des frais en fonction de la quantité de données traitées. Pour plus d’informations, consultez [Tarifs de la restauration à un instant dans le passé](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
-- La rétention des données proposée par la [Suppression réversible pour les objets blob](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), la [Prise en charge du flux de modification dans le Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed) et le [Contrôle de version des objets blob](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- La rétention des données proposée par la [Suppression réversible pour les objets blob](../storage/blobs/soft-delete-blob-overview.md), la [Prise en charge du flux de modification dans le Stockage Blob Azure](../storage/blobs/storage-blob-change-feed.md) et le [Contrôle de version des objets blob](../storage/blobs/versioning-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

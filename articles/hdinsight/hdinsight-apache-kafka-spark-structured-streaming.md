@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 72c82e8f425b05dde37352225dd7167b089ba48a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104868458"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
@@ -137,7 +137,7 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il co
 
 2. Utilisez les informations suivantes pour renseigner les entrées dans la section **Modèle personnalisé** :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | --- | --- |
     | Abonnement | Votre abonnement Azure |
     | Resource group | Le groupe de ressources qui contient les ressources. |

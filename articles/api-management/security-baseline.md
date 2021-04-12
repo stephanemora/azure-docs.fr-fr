@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d965ec2f846f09dd61342b3961e7ea8106f6a19f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 6f54bd88e58ccfef068900fc3c7b249cde1c233d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954885"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105558548"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Base de référence sur la sécurité Azure pour la Gestion des API
 
@@ -1002,9 +1002,9 @@ La fonctionnalité de sauvegarde et de restauration de service de la Gestion des
 
 - [Comment implémenter une récupération d’urgence à l’aide d’une sauvegarde de service et la récupérer dans Gestion des API Azure](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [Appeler l’opération de sauvegarde de la Gestion des API](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+- [Appeler l’opération de sauvegarde de la Gestion des API](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-- [Appeler l’opération de restauration de la Gestion des API](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+- [Appeler l’opération de restauration de la Gestion des API](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Responsabilité** : Customer
 
@@ -1046,7 +1046,7 @@ Vous pouvez utiliser des identités managées afin d’obtenir des certificats p
 
 Activez la suppression réversible dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante.
 
-- [Guide pratique pour activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md)
+- [Activer la suppression réversible dans Key Vault](../storage/blobs/soft-delete-blob-overview.md)
 
 **Responsabilité** : Customer
 

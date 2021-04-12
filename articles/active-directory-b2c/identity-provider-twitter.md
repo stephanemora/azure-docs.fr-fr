@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 397fff3fafad52b3b989049096fb2d3e1fa2cba1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 3699743c5d1b3330715984d2b6116cfebafe74f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488514"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579822"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C
 
@@ -69,6 +69,8 @@ Pour permettre aux utilisateurs disposant d'un compte Twitter dans Azure AD B2C 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="add-twitter-identity-provider-to-a-user-flow"></a>Ajouter un fournisseur d’identité Twitter à un workflow d’utilisateur 
+
+À ce stade, le fournisseur d’identité Twitter a été configuré, mais il n’est encore disponible dans aucune des pages de connexion. Pour ajouter le fournisseur d’identité Twitter à un flux d’utilisateur :
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Sélectionnez le flux d'utilisateurs que vous souhaitez ajouter au fournisseur d'identité Twitter.

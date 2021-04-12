@@ -1,17 +1,17 @@
 ---
 title: Notification de maintenance planifiée dans Azure Database pour PostgreSQL - Serveur unique
 description: Cet article décrit la fonctionnalité de notification de maintenance planifiée dans Azure Database pour PostgreSQL - Serveur unique
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58b30217b4b974d0bc6ccceb34f32ec124eee3c4
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98735739"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550403"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notification de maintenance planifiée dans Azure Database pour PostgreSQL - Serveur unique
 

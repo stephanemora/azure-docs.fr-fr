@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0a382ad948e7fd2efc6ab59eb94da3d6cbb210d7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644844"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443767"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Démarrage rapide : Déployer le connecteur Azure IoT pour FHIR (préversion) à l’aide du portail Azure
 
@@ -50,7 +50,7 @@ Entrez les paramètres pour la nouvelle fonctionnalité Connecteur Azure IoT pou
 
 [![Créer un connecteur IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
-|Paramètre|Value|Description |
+|Paramètre|Valeur|Description |
 |---|---|---|
 |Nom du connecteur|Un nom unique|Entrez un nom pour identifier votre fonctionnalité Connecteur Azure IoT pour FHIR. Ce nom doit être unique au sein d’une ressource API Azure pour FHIR. Le nom peut uniquement contenir des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit commencer et se terminer par une lettre ou un chiffre et comprendre entre 3 et 24 caractères.|
 |Type de résolution|Rechercher ou Créer|Sélectionnez **Rechercher** si vous disposez d’un processus hors bande pour créer des ressources FHIR [Appareil](https://www.hl7.org/fhir/device.html) et [Patient](https://www.hl7.org/fhir/patient.html) dans votre API Azure pour FHIR. La fonctionnalité Connecteur Azure IoT pour FHIR utilise la référence à ces ressources lors de la création d’une ressource FHIR [Observation](https://www.hl7.org/fhir/observation.html) pour représenter les données d’appareil. Sélectionnez **Créer** quand vous souhaitez que la fonctionnalité Connecteur Azure IoT pour FHIR crée des ressources simples Appareil et Patient dans votre API Azure pour FHIR en utilisant des valeurs d’identificateurs respectives présentes dans les données de l’appareil.|
@@ -171,6 +171,11 @@ Déployez le [modèle d’application de surveillance continue des patients](../
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Connecter vos données IoT à l’aide de la fonctionnalité Connecteur Azure IoT pour FHIR (préversion)
 
 Une fois que vous avez déployé votre application IoT Central, vos deux appareils simulés prêts à l’emploi commencent à générer des données de télémétrie. Pour ce tutoriel, nous allons ingérer les données de télémétrie du simulateur *Smart Vitals Patch* dans FHIR via la fonctionnalité Connecteur Azure IoT pour FHIR. Pour exporter vos données IoT vers la fonctionnalité Connecteur Azure IoT pour FHIR, nous souhaitons [configurer une exportation de données continue au sein d’IoT Central](../../iot-central/core/howto-export-data.md). Nous devons tout d’abord créer une connexion à la destination, puis créer une tâche d’exportation de données pour qu’elle s’exécute en continu : 
+
+> [!NOTE]
+> Vous pouvez sélectionner l' **exportation de données** et l' **exportation de données (héritée)** dans le IOT central paramètres d’application pour cette section.
+
+[![IoT Central les paramètres d’exportation de données](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 Créer une nouvelle destination :
 - Accédez à l’onglet **destinations** et créez une nouvelle destination.

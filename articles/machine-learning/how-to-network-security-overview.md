@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518673"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103573470"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels
 
@@ -36,7 +36,6 @@ Cet article part du principe que vous connaissez déjà les sujets suivants :
 + [Azure Private Link](how-to-configure-private-link.md)
 + [Groupes de sécurité réseau (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Pare-feu de réseau](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Exemple de scénario
 
 Dans cette section, vous allez découvrir comment on peut configurer un scénario de réseau courant pour sécuriser la communication Azure Machine Learning avec des adresses IP privées.
@@ -62,8 +61,8 @@ Les cinq sections suivantes vous montrent comment sécuriser le scénario résea
 1. Sécuriser l’[**environnement d’entraînement**](#secure-the-training-environment).
 1. Sécuriser l’[**environnement d’inférence**](#secure-the-inferencing-environment).
 1. Facultatif : [**activer la fonctionnalité studio**](#optional-enable-studio-functionality).
-1. Configurer les [**paramètres de pare-feu**](#configure-firewall-settings)
-
+1. Configurer les [**paramètres de pare-feu**](#configure-firewall-settings).
+1. Configurer la [résolution de noms DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Sécuriser l’espace de travail et les ressources associées
 
 Utilisez la procédure ci-dessous pour sécuriser votre espace de travail et les ressources associées. Ces étapes permettent à vos services de communiquer dans le réseau virtuel.
@@ -186,3 +185,5 @@ Cet article fait partie d’une série en cinq parties sur les réseaux virtuels
 * [Partie 3 : Sécuriser l’environnement d’entraînement](how-to-secure-training-vnet.md)
 * [Partie 4 : Sécuriser l’environnement d’inférence](how-to-secure-inferencing-vnet.md)
 * [Partie 5 : Activer la caractéristique studio](how-to-enable-studio-virtual-network.md)
+
+Consultez également l’article sur l’utilisation du [DNS personnalisé](how-to-custom-dns.md) pour la résolution de noms.

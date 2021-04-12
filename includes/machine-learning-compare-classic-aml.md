@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/08/2021
 ms.author: peterlu
 ms.openlocfilehash: ff64a0948402ff152e45bd4702d986f51b9547aa
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563185"
 ---
 Le tableau suivant récapitule les principales différences entre ML Studio (classique) et Azure Machine Learning.

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
@@ -9,27 +9,27 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93375870"
 ---
 1. Accédez à la [Console Google Cloud](https://console.developers.google.com/cloud-resource-manager)et connectez-vous avec les informations d’identification de votre compte Google. 
 2. Sélectionnez **Create Project** dans la barre d’outils. 
    
     ![Création d’un projet](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
-3. Pour **Nom de projet** , saisissez un nom pour votre projet, et cliquez sur **Créer**.
+3. Pour **Nom de projet**, saisissez un nom pour votre projet, et cliquez sur **Créer**.
 4. Sélectionnez le bouton **Alertes** sur la barre d’outils, puis votre projet dans la liste. Le tableau de bord s’affiche pour votre projet. Vous pouvez aussi accéder directement au tableau de bord à l’aide de l’URL suivante : `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Sélectionner votre projet dans Alertes](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Notez le **Numéro de projet** situé dans la vignette **Informations du projet** sur le tableau de bord. 
 
     ![ID de projet](./media/mobile-services-enable-google-cloud-messaging/project-number.png)
-6. Dans le tableau de bord, sur la vignette **API** , sélectionnez **Accéder à la présentation des API**. 
+6. Dans le tableau de bord, sur la vignette **API**, sélectionnez **Accéder à la présentation des API**. 
 
     ![Lien Présentation de l’API](./media/mobile-services-enable-google-cloud-messaging/go-to-api-overview.png)
-7. Dans la page **API** , sélectionnez **ENABLE APIS AND SERVICES** (ACTIVER LES API ET LES SERVICES). 
+7. Dans la page **API**, sélectionnez **ENABLE APIS AND SERVICES** (ACTIVER LES API ET LES SERVICES). 
 
     ![Bouton Enable APIs and Services (Activer les API et les services)](./media/mobile-services-enable-google-cloud-messaging/enable-api-services-button.png)
 8. Recherchez **Google Cloud Messaging** et sélectionnez-le. 

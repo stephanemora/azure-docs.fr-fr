@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416228"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110251"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Exécuter une restauration automatique pour les machines virtuelles Hyper-V
 
@@ -26,7 +26,7 @@ Cet article explique comment restaurer automatiquement des machines virtuelles A
 ## <a name="before-you-start"></a>Avant de commencer
 
 1. [Examinez en revue les types de restaurations automatiques](failover-failback-overview.md#hyper-v-reprotectionfailback) que vous pouvez utiliser : récupération dans l’emplacement d’origine et récupération dans un autre emplacement.
-2. Assurez-vous que les machines virtuelles Azure utilisent un compte de stockage et non des disques managés. La restauration automatique de machines virtuelles Hyper-V répliquées à l’aide de la gestion de disques managés n’est pas prise en charge.
+2. Assurez-vous que les machines virtuelles Azure utilisent un compte de stockage et non des disques managés. La restauration automatique des machines virtuelles Hyper-V, qui ont basculé sur des machines Azure à l’aide de disques managés, n’est pas prise en charge.
 3. Vérifiez que l’hôte Hyper-V local (ou le serveur System Center VMM si vous utilisez Site Recovery) est en cours d’exécution et connecté à Azure. 
 4. Assurez-vous que le basculement et la validation sont terminés pour les machines virtuelles. Vous n’avez pas besoin de configurer des composants Site Recovery spécifiques pour la restauration automatique de machines virtuelles Hyper-V à partir d’Azure.
 5. Le temps nécessaire pour effectuer la synchronisation des données et démarrer la machine virtuelle locale dépend de plusieurs facteurs. Pour accélérer le téléchargement des données, vous pouvez configurer l’agent Microsoft Azure Recovery Services afin qu’il utilise davantage de threads pour effectuer le téléchargement en parallèle. [Plus d’informations](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)
