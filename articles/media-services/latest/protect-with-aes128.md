@@ -43,7 +43,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Consultez l’article [Présentation de la protection du contenu](content-protection-overview.md).
 * Installez Visual Studio Code ou Visual Studio.
-* [Créer un compte Media Services](./create-account-howto.md).
+* [Créer un compte Media Services](./account-create-how-to.md).
 * Obtenez les informations d’identification nécessaires pour utiliser les API Media Services en respectant l’[accès aux API](./access-api-howto.md).
 
 ## <a name="download-code"></a>Télécharger le code

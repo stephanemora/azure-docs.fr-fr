@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6d1f504458aed440464015a34479d75992fe5c45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 796ac876537aa06253ad6eeec99adaf48de61c79
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149373"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167258"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Exécuter des runbooks sur un Runbook Worker hybride
 
@@ -268,7 +268,7 @@ Pour créer un porte-clés et une paire de clés GPG, utilisez le [compte nxaut
 1. Utilisez l’application sudo pour vous connecter en tant que compte **nxautomation**.
 
     ```bash
-    sudo su – nxautomation
+    sudo su - nxautomation
     ```
 
 1. Une fois que vous utilisez **nxautomation**, générez la paire de clés GPG. GPG vous guide tout au long des étapes. Vous devez fournir un nom, une adresse e-mail, un délai d’expiration et une phrase secrète. Ensuite, patientez jusqu’à ce que l’entropie soit suffisante sur la machine pour que la clé soit générée.
@@ -304,7 +304,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 Une fois que vous avez configuré la validation de signature, utilisez la commande GPG suivante pour signer le runbook.
 
 ```bash
-gpg –-clear-sign <runbook name>
+gpg --clear-sign <runbook name>
 ```
 
 Le runbook signé est appelé **<runbook name>.asc**.
@@ -320,7 +320,7 @@ Quand vous démarrez un runbook dans le portail Azure, une option **Exécuter su
 Quand vous démarrez un runbook à l’aide de PowerShell, utilisez le paramètre `RunOn` avec l’applet de commande [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook). L’exemple suivant utilise Windows PowerShell pour démarrer un runbook nommé **Test-Runbook** sur un groupe de runbooks Workers hybrides nommé MyHybridGroup.
 
 ```azurepowershell-interactive
-Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
+Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 ## <a name="logging"></a>Journalisation

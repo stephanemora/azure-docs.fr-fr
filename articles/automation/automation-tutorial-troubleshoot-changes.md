@@ -4,15 +4,15 @@ description: Cet article explique comment résoudre les problèmes liés aux mod
 services: automation
 ms.subservice: change-inventory-management
 keywords: modification, suivi, suivi des modifications, change tracking, inventory, inventaire, automatisation, automation
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587928"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775802"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Résoudre les problèmes liés aux modifications apportées à une machine virtuelle Azure
 
@@ -212,11 +212,11 @@ L’affichage des modifications dans le Portail Azure est pratique, mais pouvoir
 
 16. Pour **DÉTAILS**, sélectionnez **Modifier les détails**.
 
-    ![Ajouter un groupe d'actions](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Utilisation et estimation des coûts." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. Dans le volet E-mail/SMS/Push/Voix, entrez un nom, activez la case à cocher **E-mail**, puis entrez une adresse e-mail valide. Lorsque cela est fait, cliquez sur **OK** dans le volet, puis sur **OK** dans la page d’ajout d’un groupe d’actions.
+17. Dans le volet **E-mail/SMS/Push/Voix**, entrez un nom, cochez la case **E-mail**, puis entrez une adresse e-mail valide. Une fois terminé, cliquez sur **OK** dans le volet, puis sur **OK** dans la page **Ajouter un groupe d’actions**.
 
-18. Pour personnaliser l’objet de l’e-mail d’alerte, sélectionnez **Personnaliser les actions**. 
+18. Pour personnaliser l’objet de l’e-mail d’alerte, sélectionnez **Personnaliser les actions**.
 
 19. Pour **Créer une règle**, sélectionnez **Objet de l’e-mail**, puis choisissez **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié. L’image suivante est un exemple d’e-mail reçu quand le service W3SVC s’arrête.
 

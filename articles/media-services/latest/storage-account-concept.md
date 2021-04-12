@@ -57,4 +57,4 @@ Voici les principaux scénarios qui aboutissent à un compte Media Services n’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment attacher un compte de stockage à votre compte Media Services, consultez [Créer un compte](./create-account-howto.md).
+Pour savoir comment attacher un compte de stockage à votre compte Media Services, consultez [Créer un compte](./account-create-how-to.md).

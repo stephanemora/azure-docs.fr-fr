@@ -1,18 +1,14 @@
 ---
 title: Créer et gérer des utilisateurs
 description: Créer et gérer des utilisateurs de capteurs et de la console de gestion locale. Les utilisateurs peuvent se voir attribuer le rôle d’administrateur, d’analyste de sécurité ou d’utilisateur en lecture seule.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 2afc3cb2b9cfc0ac6b75c98198d9f0965b6dc04c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522340"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779016"
 ---
 # <a name="about-defender-for-iot-console-users"></a>À propos des utilisateurs de la console Defender pour IoT
 
@@ -162,7 +158,7 @@ Deux types d’authentifications LDAP sont pris en charge :
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>Autorisations Active Directory et Defender pour IoT
 
-Vous pouvez associer les groupes Active Directory définis ici à des niveaux d’autorisation spécifiques. Par exemple, configurez un groupe Active Directory spécifique et attribuez à tous les utilisateurs du groupe les autorisations de lecture seule. Pour plus d’informations, consultez [Créer et gérer des utilisateurs](how-to-create-and-manage-users.md).
+Vous pouvez associer les groupes Active Directory définis ici à des niveaux d’autorisation spécifiques. Par exemple, configurez un groupe Active Directory spécifique et attribuez des autorisations de lecture seule à tous les utilisateurs du groupe.
 
 Pour configurer Active Directory :
 
@@ -170,11 +166,11 @@ Pour configurer Active Directory :
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Consulter les paramètres de votre Active Directory":::.
 
-1. Dans le volet **Paramètres système**, sélectionnez **Active Directory**.
+2. Dans le volet **Paramètres système**, sélectionnez **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Modifiez vos configurations Active Directory.":::
 
-1. Dans la boîte de dialogue **Modifier la configuration Active Directory**, sélectionnez **Active Directory intégration activée** > **Enregistrer**. La boîte de dialogue **Modifier la configuration Active Directory** se développe et vous pouvez maintenant entrer les paramètres pour configurer Active Directory.
+3. Dans la boîte de dialogue **Modifier la configuration Active Directory**, sélectionnez **Active Directory intégration activée** > **Enregistrer**. La boîte de dialogue **Modifier la configuration Active Directory** se développe et vous pouvez maintenant entrer les paramètres pour configurer Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Entrer les paramètres pour configurer Active Directory.":::
 
@@ -183,7 +179,7 @@ Pour configurer Active Directory :
     > - Pour tous les paramètres d’Active Directory, utilisez uniquement des minuscules. Utilisez des minuscules même lorsque les configurations d’Active Directory utilisent des majuscules.
     > - Vous ne pouvez pas configurer à la fois LDAP et LDAP sécurisé pour le même domaine. Toutefois, vous pouvez utiliser les deux pour des domaines différents en même temps.
 
-1. Définissez les paramètres du serveur Active Directory comme suit :
+4. Définissez les paramètres du serveur Active Directory comme suit :
 
    | Paramètre serveur | Description |
    |--|--|
@@ -193,11 +189,15 @@ Pour configurer Active Directory :
    | Groupes Active Directory | Entrez les noms des groupes qui sont définis dans la configuration de votre Active Directory sur le serveur LDAP. |
    | Domaines approuvés | Pour ajouter un domaine approuvé, ajoutez le nom du domaine et le type de connexion d’un domaine approuvé. <br />Vous ne pouvez configurer des domaines approuvés que pour les utilisateurs qui ont été définis dans les utilisateurs. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>Groupes ActiveDirectory pour la console de gestion locale
+
+Si vous créez des groupes Active Directory pour les utilisateurs de la console de gestion locale, vous devez créer une règle de groupe d’accès pour chaque groupe Active Directory. Les informations d’identification Active Directory de la console de gestion locale ne fonctionneront pas si une règle de groupe d’accès n’existe pas pour le groupe d’utilisateurs Active Directory. Consultez [Définir le contrôle d’accès global](how-to-define-global-user-access-control.md).
+
 1. Sélectionnez **Enregistrer**.
 
-1. Pour ajouter un serveur approuvé, sélectionnez **Ajouter un serveur** et configurez un autre serveur.
+2. Pour ajouter un serveur approuvé, sélectionnez **Ajouter un serveur** et configurez un autre serveur.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Réinitialisation du mot de passe d’un utilisateur pour le capteur ou la console de gestion locale
+## <a name="resetting-passwords"></a>Réinitialisation des mots de passe
 
 ### <a name="cyberx-or-support-user"></a>Utilisateur CyberX ou Support
 
@@ -265,7 +265,7 @@ Pour réinitialiser le mot de passe d’un utilisateur sur la console de gestion
 
 1. Sélectionnez **Update**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="see-also"></a>Voir aussi
 
 [Activer et configurer votre capteur](how-to-activate-and-set-up-your-sensor.md)
 [Activer et configurer votre console de gestion locale](how-to-activate-and-set-up-your-on-premises-management-console.md)

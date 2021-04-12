@@ -1,24 +1,14 @@
 ---
 title: Forum aux questions sur Defender for IoT
 description: Trouvez des réponses à la plupart des questions fréquemment posées sur les fonctionnalités et le service Azure Defender pour IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/07/2020
-ms.author: rkarlin
-ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/02/2021
+ms.openlocfilehash: 0ce8ded3eea344d72679e0f8b805f45b00279b58
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247463"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778591"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Forum aux questions sur Azure Defender pour IoT
 
@@ -57,23 +47,17 @@ Par exemple :
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>Comment Defender pour IoT se compare-t-il par rapport à la concurrence ?
 
-Là où les autres solutions fournissent un ensemble de fonctionnalités qui permettent aux clients de créer leurs propres solutions, Defender pour IoT fournit une solution de sécurité IoT de bout en bout unique qui offre une vue plus large sur la sécurité de toutes vos ressources liées à Azure. Azure permet un déploiement rapide et une intégration complète avec les jumeaux de module IoT Hub, pour une intégration aisée avec les outils de gestion des appareils existants.
+Azure Defender pour IoT offre une sécurité complète sur l’ensemble de vos appareils IoT/OT. Pour les **organisations d’utilisateurs finaux**, Azure Defender pour IoT offre une sécurité sans agent, au niveau de la couche réseau, qui est rapidement déployée, fonctionne avec divers équipements OT propriétaires et différents systèmes Windows hérités et interagit avec Azure Sentinel et d’autres outils SOC. La solution peut être déployée localement ou dans des environnements connectés à Azure. Pour les **fabricants d’appareils IoT**, Azure Defender pour IoT propose des agents légers permettant d’intégrer la sécurité de la couche appareil dans les nouvelles initiatives IoT/OT.
 
+## <a name="do-i-have-to-be-an-azure-customer"></a>Dois-je être un client Azure ?
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>Dois-je être un client Azure IoT ?
+Non, pour la version sans agent d’Azure Defender pour IoT, vous n’avez pas besoin d’être un client Azure. Toutefois, si vous souhaitez envoyer des alertes à Azure Sentinel, configurer les capteurs du réseau et surveiller leur intégrité à partir du cloud et tirer parti des mises à jour automatiques des logiciels et du renseignement sur les menaces, vous devrez connecter le capteur à Azure via Azure IoT Hub.
 
-Oui. Pour les déploiements connectés au Cloud, Azure Defender pour IoT s’appuie sur la connectivité et l’infrastructure Azure IoT.
+Pour la version d’Azure Defender pour IoT basée sur un agent, vous devez être un client Azure.
+
 ## <a name="can-i-create-my-own-alerts"></a>Puis-je créer mes propres alertes ?
 
-Oui. Vous pouvez définir une alerte personnalisée pour un ensemble prédéfini de comportements, comme l’adresse IP et les ports ouverts. Consultez [Créer des alertes personnalisées](quickstart-create-custom-alerts.md) pour en savoir plus sur les alertes personnalisées et la façon de les créer.
-
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>Où puis-je voir les journaux ? Puis-je personnaliser les journaux ?
-
-- Affichez les alertes et recommandations depuis votre espace de travail Log Analytics. Configurez la taille de stockage et la durée dans l’espace de travail.
-
-- Les données brutes de votre agent de sécurité peuvent également être stockées dans votre compte Log Analytics. Envisagez les exigences de taille, durée et stockage ainsi que les coûts associés avant de modifier la configuration de cette option.
-
-
+Oui, vous pouvez créer des alertes personnalisées basées sur plusieurs paramètres, notamment l’adresse IP/MAC, le type de protocole, la classe, le service, la fonction, la commande, etc., ainsi que les valeurs des balises personnalisées contenues dans les charges utiles.  Consultez [Créer des alertes personnalisées](quickstart-create-custom-alerts.md) pour en savoir plus sur les alertes personnalisées et la façon de les créer.
 
 ## <a name="what-happens-when-the-internet-connection-stops-working"></a>Que se passe-t-il lorsque la connexion Internet cesse de fonctionner ?
 

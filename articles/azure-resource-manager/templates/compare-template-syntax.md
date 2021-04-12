@@ -4,10 +4,10 @@ description: Compare des modèles Azure Resource Manager développés avec JSON 
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 225e52e9534a77a01502b762f043a4f34df19caa
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103461792"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>Comparaison de JSON et Bicep pour les modèles

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175038"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048100"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Inscrire et analyser une source Teradata (préversion)
 
@@ -25,7 +25,7 @@ La source Teradata gère l’**Analyse complète** pour extraire les métadonné
 ## <a name="prerequisites"></a>Prérequis
 
 1.  Configurez le dernier [runtime d’intégration auto-hébergé](https://www.microsoft.com/download/details.aspx?id=39717).
-    Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Assurez-vous que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) est installé sur la machine virtuelle où est installé le runtime d’intégration auto-hébergé.
 
@@ -70,7 +70,7 @@ Dans l’écran **Inscrire des sources (Teradata)** , effectuez les actions suiv
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1.  Dans le centre d’administration, cliquez sur **Runtimes d’intégration**. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) pour configurer un runtime d’intégration auto-hébergé
+1.  Dans le centre d’administration, cliquez sur **Runtimes d’intégration**. Assurez-vous qu’un runtime d’intégration auto-hébergé est configuré. Si ce n’est pas le cas, suivez les étapes mentionnées [ici](./manage-integration-runtimes.md) pour configurer un runtime d’intégration auto-hébergé
 
 2.  Accédez aux **Sources**.
 
@@ -90,7 +90,7 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
     -   Indiquez un nom d’utilisateur pour la connexion au serveur de base de données dans le champ d’entrée Nom d’utilisateur
     -   Stockez le mot de passe du serveur de base de données dans la clé secrète.
 
-        Pour en savoir plus sur les informations d’identification, reportez-vous au lien [ici](https://docs.microsoft.com/azure/purview/manage-credentials)
+        Pour en savoir plus sur les informations d’identification, reportez-vous au lien [ici](./manage-credentials.md)
 
 6.  **Schéma** : répertorie le sous-ensemble de schémas à importer, exprimé sous la forme d’une liste séparée par des points-virgules. Par exemple : schema1; schema2. Tous les schémas utilisateur sont importés si cette liste est vide. Tous les schémas système (par exemple, SysAdmin) et les objets sont ignorés par défaut. Si la liste est vide, tous les schémas disponibles sont importés.
 

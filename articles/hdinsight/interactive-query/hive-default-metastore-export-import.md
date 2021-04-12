@@ -7,12 +7,12 @@ ms.reviewer: ''
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: 825204fe40125a65e8e6f27c6973417813700a9e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4a0258d5e448c59baa1cd63e98058fe7116a8485
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743107"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566113"
 ---
 # <a name="migrate-default-hive-metastore-db-to-external-metastore-db"></a>Migration de la base de données metastore Hive DB par défaut vers une base de données metastore externe
 
@@ -46,7 +46,7 @@ L’action est semblable au remplacement de liens symboliques par leur chemin co
 
 Un cluster HDInsight créé après le 15/10/2020 ne prend en charge la fonctionnalité SQL Export/Import pour la base de données metastore Hive par défaut qu’en utilisant `sqlpackage`.
 
-1. Installez [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) sur le cluster.
+1. Installez [sqlpackage](/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) sur le cluster.
 
 2. Exportez la base de données metastore par défaut dans le fichier BACPAC en exécutant la commande suivante.
 
