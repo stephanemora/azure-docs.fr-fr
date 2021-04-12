@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d764c6b6cff6a0ba23d659d4fda63e21aac9b155
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99094554"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644188"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Rôle Lecteurs de répertoire dans Azure Active Directory pour Azure SQL
 
@@ -25,13 +25,13 @@ ms.locfileid: "99094554"
 
 Azure Active Directory (Azure AD) a introduit [l’utilisation des groupes cloud pour gérer les attributions de rôles dans Azure Active Directory (préversion)](../../active-directory/roles/groups-concept.md). Cela permet d’affecter des rôles Azure AD à des groupes.
 
-Lors de l’activation d’une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) pour Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics, le rôle [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) Azure AD doit être attribué à l’identité pour permettre l’accès en lecture à l’[API Graph Azure AD](../../active-directory/develop/active-directory-graph-api.md). L’identité managée de SQL Database et Azure Synapse est appelée identité du serveur. L’identité managée de SQL Managed Instance est appelée « identité de l’instance gérée » et est automatiquement affectée lors de la création de l’instance. Pour plus d’informations sur l’affectation d’une identité de serveur à une instance SQL Database ou Azure Synapse, consultez [Permettre aux principaux de service de créer des utilisateurs Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+Lors de l’activation d’une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) pour Azure SQL Database, Azure SQL Managed Instance ou Azure Synapse Analytics, le rôle [**Lecteurs de répertoire**](../../active-directory/roles/permissions-reference.md#directory-readers) Azure AD doit être attribué à l’identité pour permettre l’accès en lecture à l’[API Graph Azure AD](/graph/migrate-azure-ad-graph-planning-checklist). L’identité managée de SQL Database et Azure Synapse est appelée identité du serveur. L’identité managée de SQL Managed Instance est appelée « identité de l’instance gérée » et est automatiquement affectée lors de la création de l’instance. Pour plus d’informations sur l’affectation d’une identité de serveur à une instance SQL Database ou Azure Synapse, consultez [Permettre aux principaux de service de créer des utilisateurs Azure AD](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
 Le rôle **Lecteurs de répertoire** est nécessaire pour :
 
 - Créer des connexions Azure AD pour SQL Managed Instance
 - L’emprunt d’identité d’utilisateurs Azure AD dans Azure SQL
-- Migrer les utilisateurs SQL Server qui utilisent l’authentification Windows vers SQL Managed Instance avec l’authentification Azure AD (à l’aide de la commande [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration))
+- Migrer les utilisateurs SQL Server qui utilisent l’authentification Windows vers SQL Managed Instance avec l’authentification Azure AD (à l’aide de la commande [ALTER USER (Transact-SQL)](/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true#d-map-the-user-in-the-database-to-an-azure-ad-login-after-migration))
 - Changer l’administrateur Azure AD pour SQL Managed Instance
 - Autoriser les [principaux de service (applications)](authentication-aad-service-principal.md) à créer des utilisateurs Azure AD dans Azure SQL
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fecb7381786c36b077d329f68ca48ab10f65a984
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92895054"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à ScaleX Enterprise
 
@@ -87,7 +87,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://platform.rescale.com/saml2/<company id>/sso/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique ScaleX Enterprise](https://info.rescale.com/contact_sales). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique ScaleX Enterprise](https://about.rescale.com/contactus.html). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Votre application ScaleX Enterprise s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **emailaddress** est mappé à **user.mail**. L’application ScaleX Enterprise s’attend à ce que **emailaddress** soit mappé à **user.userprincipalname**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier**.
 

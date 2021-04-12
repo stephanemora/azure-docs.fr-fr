@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98882278"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migration à partir de StorSimple 1200 vers Azure File Sync
@@ -210,13 +210,13 @@ Vous avez terminé la migration d’un partage/groupe de partages vers une racin
 Vous pouvez essayer d’exécuter quelques-unes de ces copies en parallèle. Nous vous recommandons de traiter l’étendue d’un partage de fichiers Azure à la fois.
 
 > [!WARNING]
-> Quand vous avez déplacé toutes les données de votre stockage StorSimple vers le serveur Windows Server et que la migration est terminée : revenez à ***tous** les groupes de synchronisation dans le Portail Azure et définissez le pourcentage d’espace de volume libre assuré par la hiérarchisation cloud sur une valeur mieux adaptée à l’utilisation du cache, par exemple 20 %. 
+> Quand vous avez déplacé toutes les données de votre stockage StorSimple vers Windows Server et que la migration est terminée : revenez à ***tous*** les groupes de synchronisation dans le Portail Azure et définissez le pourcentage d’espace de volume libre assuré par la hiérarchisation cloud sur une valeur mieux adaptée à l’utilisation du cache, par exemple 20 %. 
 
 La stratégie de libération d’espace de volume par hiérarchisation cloud agit au niveau du volume avec potentiellement plusieurs points de terminaison pour la synchronisation à partir du volume. Si vous oubliez de définir l’espace libre sur un point de terminaison de serveur, la synchronisation continue d’appliquer la règle la plus restrictive et tente de conserver un espace disque disponible de 99 %. Dans ce cas, vous n’obtiendrez pas les performances attendues du cache local, sauf si vous souhaitez seulement disposer de l’espace de noms pour un volume contenant uniquement des données d’archivage auxquelles il est rarement fait accès.
 
 ## <a name="troubleshoot"></a>Dépanner
 
-Le problème que vous êtes le plus susceptible de rencontrer est un échec de la commande RoboCopy de type _« Volume plein » côté Windows Server. Dans ce cas, la vitesse de téléchargement est probablement supérieure à la vitesse de chargement. Toutes les heures, la hiérarchisation cloud retire le contenu du disque Windows Server local, qui a été synchronisé.
+Le problème que vous êtes le plus susceptible de rencontrer est un échec de la commande RoboCopy de type *« Volume plein »* côté Windows Server. Dans ce cas, la vitesse de téléchargement est probablement supérieure à la vitesse de chargement. Toutes les heures, la hiérarchisation cloud retire le contenu du disque Windows Server local, qui a été synchronisé.
 
 Laissez la synchronisation s’effectuer et la hiérarchisation cloud libérer l’espace disque. Vous pouvez observer l’opération dans l’Explorateur de fichiers sur votre serveur Windows Server.
 
