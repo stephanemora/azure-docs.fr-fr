@@ -2,17 +2,17 @@
 title: S’authentifier avec un principal de service
 description: Fournir un accès aux images de votre registre de conteneurs privé à l’aide d’un principal du service Azure Active Directory.
 ms.topic: article
-ms.date: 10/04/2019
-ms.openlocfilehash: 8d49628576a1c337efaea3e5286fef00e39def17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/15/2021
+ms.openlocfilehash: a32538e5fc5354427bafc5098634becdcedd1239
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259137"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285533"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
-Vous pouvez utiliser un principal de service Azure Active Directory (Azure AD) pour fournir l’accès `docker push` et `pull` à votre registre de conteneurs. En utilisant un principal de service, vous pouvez fournir l’accès aux applications et services « sans affichage ».
+Vous pouvez utiliser un principal de service Azure Active Directory (Azure AD) pour fournir le tirage, l’envoi ou un autre accès à votre registre de conteneurs. En utilisant un principal de service, vous pouvez fournir l’accès aux applications et services « sans affichage ».
 
 ## <a name="what-is-a-service-principal"></a>Qu’est-ce qu’un principal de service ?
 
@@ -52,7 +52,7 @@ Une fois que vous disposez d’un principal de service auquel vous avez accordé
 * **Nom d'utilisateur** - ID d’application du principal de service (également appelé *ID client*)
 * **Mot de passe** - mot de passe du principal de service (également appelé *clé secrète client*)
 
-Chaque valeur correspond à un GUID sous la forme `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
+Chaque valeur est au format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. 
 
 > [!TIP]
 > Vous pouvez régénérer le mot de passe d’un principal du service en exécutant la commande [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset).
@@ -66,7 +66,7 @@ Par exemple, utilisez les informations d’identification pour extraire une imag
 
 ### <a name="use-with-docker-login"></a>Utiliser avec la connexion Docker
 
-Vous pouvez exécuter `docker login` à l’aide d’un principal de service. Dans l’exemple suivant, l’ID d’application du principal de service est transmis dans la variable d'environnement `$SP_APP_ID`, et le mot de passe dans la variable `$SP_PASSWD`. Pour connaître les meilleures pratiques de gestion des informations d'identification Docker, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+Vous pouvez exécuter `docker login` à l’aide d’un principal de service. Dans l’exemple suivant, l’ID d’application du principal de service est transmis dans la variable d'environnement `$SP_APP_ID`, et le mot de passe dans la variable `$SP_PASSWD`. Pour connaître les pratiques recommandées de gestion des informations d’identification Docker, consultez la référence de la commande [docker login](https://docs.docker.com/engine/reference/commandline/login/).
 
 ```bash
 # Log in to Docker with service principal credentials

@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 03/30/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7420ffbe5b365c635c1eac2620cfd54ceb649ebf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d5749894fd277ff6a2f77e3db9721e6989d72ac
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211802"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109235"
 ---
 # <a name="managed-hsm-logging"></a>Journalisation pour HSM managé 
 
@@ -74,9 +74,10 @@ az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource 
 Éléments consignés :
 
 * Toutes les requêtes d’API REST authentifiées, ce qui inclut les requêtes ayant échoué suite à des autorisations d’accès, des erreurs système ou des requêtes incorrectes.
-* Opérations sur le HSM managé lui-même, notamment la création, la suppression et la mise à jour d’attributs tels que des balises.
+* Les opérations de plan managées sur la ressource HSM managé elle-même, notamment la création, la suppression et la mise à jour d’attributs comme des balises.
 * Opérations liées au domaine de sécurité, telles que l’initialisation et le téléchargement, l’initialisation de la récupération, le chargement
 * Opérations de sauvegarde complète du HSM, de restauration et de restauration sélective
+* Opérations de gestion des rôles comme créer/afficher/supprimer des attributions de rôles et créer/afficher/supprimer des définitions de rôle personnalisées
 * Opérations sur les clés, notamment :
   * Création, modification ou suppression des clés.
   * Signature, vérification, chiffrement, déchiffrement, enveloppement et désenveloppement de clés, listage de clés.
@@ -121,30 +122,13 @@ Les objets blob individuels sont stockés sous forme de texte, au format JSON. E
 ]
 ```
 
-Le tableau ci-après répertorie les noms de champ et leurs descriptions :
 
-| Nom du champ | Description |
-| --- | --- |
-| **TenantId** | ID de locataire Azure Active Directory de l’abonnement dans lequel le HSM managé est créé |
-| **time** |Date et heure en temps universel coordonné (UTC). |
-| **resourceId** |ID de ressource Azure Resource Manager. Pour les journaux pour HSM managé, il s’agit toujours de l’ID de ressource de HSM managé. |
-| **operationName** |Nom de l’opération, comme indiqué dans le tableau suivant. |
-| **operationVersion** |Version d’API REST demandée par le client. |
-| **category** |Type de résultat. Pour les journaux pour HSM managé, **AuditEvent** est la seule valeur disponible. |
-| **resultType** |Résultat de la requête d’API REST. |
-| **properties** |Informations variables en fonction de l’opération (**operationName**)|
-| **resultSignature** |État HTTP |
-| **resultDescription** |Description supplémentaire du résultat le cas échéant. |
-| **durationMs** |Délai nécessaire pour répondre à la demande API REST, en millisecondes. La latence du réseau n’est pas incluse dans ce chiffre et donc, le temps mesuré côté client peut ne pas correspondre à cette durée. |
-| **callerIpAddress** |Adresse IP du client qui a effectué la requête. |
-| **correlationId** |GUID facultatif que le client peut transmettre pour mettre en corrélation les journaux côté client avec les journaux côté service. |
-| **identity** |Identité issue du jeton qui a été présenté dans la requête d’API REST. Il s’agit généralement d’un « utilisateur », d’un « principal du service ». |
-| **requestUri** | URI de demande de l’API REST |
-| **clientInfo** | 
 
 ## <a name="use-azure-monitor-logs"></a>Utiliser les journaux d’activité Azure Monitor
 
-Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux **AuditEvent** pour HSM managé. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin. 
+Vous pouvez utiliser la solution Key Vault dans les journaux Azure Monitor pour consulter les journaux **AuditEvent** pour HSM managé. Dans les journaux Azure Monitor, vous utilisez des requêtes de journaux pour analyser les données et obtenir les informations dont vous avez besoin.
+
+Pour plus d’informations, notamment sur la procédure de configuration correspondante, consultez [Azure Key Vault dans Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

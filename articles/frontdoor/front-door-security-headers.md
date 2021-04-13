@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e8462b98aee1d34b6c7a2ed671667223eca45a25
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91270047"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551915"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>Tutoriel : Ajouter des en-têtes de sécurité avec le moteur de règles
 
@@ -41,6 +41,9 @@ Dans ce tutoriel, vous allez apprendre à :
 1. Pour l’opérateur, choisissez **Ajouter** pour ajouter cet en-tête en tant que réponse à toutes les demandes entrantes adressées à cette route.
 
 1. Ajoutez le nom de l’en-tête : **Content-Security-Policy** et définissez les valeurs que cet en-tête doit accepter. Dans ce scénario, nous choisissons *« script-src 'self' https://apiphany.portal.azure-api.net  »* .
+
+   > [!NOTE]
+   > Les valeurs d’en-tête sont limitées à 128 caractères.
 
 1. Une fois que vous avez ajouté toutes les règles souhaitées à votre configuration, n’oubliez pas d’accéder à votre route préférée pour associer la configuration de votre moteur de règles à votre règle de routage. Cette étape est nécessaire pour permettre à la règle de fonctionner. 
 

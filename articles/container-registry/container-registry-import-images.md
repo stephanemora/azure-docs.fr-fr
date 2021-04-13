@@ -3,22 +3,22 @@ title: Importer les images conteneur
 description: Importez des images conteneur dans un registre de conteneurs Azure à l’aide d’API Azure sans avoir à exécuter de commandes Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b481a2b4f0a08f0ccbfd33f7059e5d8e0c04f5f0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988249"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221498"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importer des images conteneur dans un registre de conteneurs
 
 Vous pouvez facilement importer (copier) des images conteneur dans un registre de conteneurs Azure sans recourir à des commandes Docker. Vous pouvez par exemple importer des images d’un registre de développement dans un registre de production ou copier des images de base à partir d’un registre public.
 
-Azure Container Registry gère un certain nombre de scénarios courants de copie d’images à partir d’un registre existant :
+Azure Container Registry gère un certain nombre de scénarios courants de copie d’images et d’autre artefacts à partir d’un registre existant :
 
-* Importer à partir d’un registre public
+* Importer des images à partir d’un registre public
 
-* Importer à partir d'un autre registre de conteneurs Azure dans un abonnement ou locataire Azure identique ou différent
+* Importez des images ou des artefacts OCI, dont des graphiques Helm 3 à partir d’un autre Azure Container Registry, dans le même ou dans un autre abonnement ou locataire Azure
 
 * Importer à partir d’un registre de conteneurs privé non-Azure
 

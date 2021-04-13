@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a832c8956f7a3d4f8669209d7ed311e7555e1e75
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100558128"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644255"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rôles et exigences pour Azure Data Share 
 
@@ -19,26 +19,22 @@ Cet article décrit les rôles et les autorisations nécessaires pour partager e
 
 ## <a name="roles-and-requirements"></a>Rôles et conditions requises
 
-À l’aide du service Azure Data Share, vous pouvez partager des données sans échanger les informations d’identification entre le fournisseur de données et le consommateur de données. Le service Azure Data Share utilise des identités managées (précédemment appelées MSI) pour s’authentifier auprès du magasin de données Azure. 
+À l’aide du service Azure Data Share, vous pouvez partager des données sans échanger les informations d’identification entre le fournisseur de données et le consommateur de données. Pour le partage basé sur instantané, le service Azure Data Share utilise des identités managées (précédemment appelées MSI) pour s’authentifier auprès du magasin de données Azure. L’identité managée de la ressource Azure Data Share doit être autorisée à accéder au magasin de données Azure pour lire ou écrire des données.
 
-L’identité managée de la ressource Azure Data Share doit être autorisée à accéder au magasin de données Azure. Le service Azure Data Share utilise ensuite cette identité managée pour lire et écrire des données pour le partage basé sur une capture instantanée et pour établir un lien symbolique pour le partage sur place. 
-
-Pour partager ou recevoir des données à partir d’un magasin de données Azure, l’utilisateur doit au moins disposer des autorisations suivantes. Des autorisations supplémentaires sont requises pour le partage basé sur SQL.
+Pour partager ou recevoir des données à partir d’un magasin de données Azure, l’utilisateur doit au moins disposer des autorisations suivantes. 
 
 * Autorisation d’écrire dans le magasin de données Azure. En règle générale, cette autorisation existe dans le rôle **Contributeur**.
-* Autorisation de créer une attribution de rôle dans le magasin de données Azure. En règle générale, l’autorisation de créer des attributions de rôles existe dans le rôle **Propriétaire**, le rôle Administrateur des accès utilisateur ou un rôle personnalisé doté de l’autorisation Microsoft.Authorization/role assignments/write. Cette autorisation n’est pas requise si l’identité managée de la ressource de partage de données est déjà autorisée à accéder au magasin de données Azure. Consultez le tableau ci-dessous pour connaître le rôle requis.
 
-Voici un résumé des rôles attribués à l’identité managée de la ressource Data Share :
+Pour le partage basé sur l’instantané de stockage et de lac de données, vous devez également disposer de l’autorisation de créer une attribution de rôle dans le magasin de données Azure. En règle générale, l’autorisation de créer des attributions de rôles existe dans le rôle **Propriétaire**, le rôle Administrateur des accès utilisateur ou un rôle personnalisé doté de l’autorisation *Microsoft.Authorization/role assignments/write*. Cette autorisation n’est pas requise si l’identité managée de la ressource de partage de données est déjà autorisée à accéder au magasin de données Azure. Voici un résumé des rôles attribués à l’identité managée de la ressource Data Share :
 
 |**Type de magasin de données**|**Magasin de données source de fournisseurs de données**|**Magasin de données cible de consommateurs de données**|
 |---|---|---|
 |Stockage Blob Azure| Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
 |Azure Data Lake Gen1 | Propriétaire | Non pris en charge
 |Azure Data Lake Gen2 | Lecteur des données blob du stockage | Contributeur aux données Blob du stockage
-|Cluster Azure Data Explorer | Contributeur | Contributeur
 |
 
-Pour le partage basé sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Une autorisation d’administrateur Azure Active Directory est requise pour créer cet utilisateur. Voici un résumé de l’autorisation requise par l’utilisateur SQL.
+Pour le partage basé sur instantané SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share. Une autorisation d’administrateur Azure Active Directory est requise pour créer cet utilisateur. Voici un résumé de l’autorisation requise par l’utilisateur SQL.
 
 |**Type de base de données SQL**|**Autorisation de l’utilisateur SQL fournisseur de données**|**Autorisation de l’utilisateur SQL consommateur de données**|
 |---|---|---|
@@ -47,14 +43,9 @@ Pour le partage basé sur SQL, un utilisateur SQL doit être créé à partir d�
 |
 
 ### <a name="data-provider"></a>Fournisseur de données
+Pour le partage basé sur instantané de stockage et de lac de données, pour ajouter un jeu de données dans Azure Data Share, l’identité managée de la ressource de partage de données du fournisseur doit être autorisée à accéder au magasin de données Azure source. Par exemple, dans le cas d’un compte de stockage, l’identité managée de la ressource de partage de données se voit octroyer le rôle de *lecteur des données Blob du stockage*. Cette opération est effectuée automatiquement par le service Azure Data Share lorsque l’utilisateur ajoute un jeu de données via le Portail Azure et que l’utilisateur dispose de l’autorisation appropriée. Par exemple, l’utilisateur est propriétaire du magasin de données Azure ou est membre d’un rôle personnalisé qui dispose de l’autorisation *Microsoft.Authorization/role assignments/write*. 
 
-Pour ajouter un jeu de données dans Azure Data Share, l’identité managée de la ressource de partage de données du fournisseur doit être autorisée à accéder au magasin de données Azure source. Par exemple, dans le cas d’un compte de stockage, l’identité managée de la ressource de partage de données se voit octroyer le rôle de lecteur des données Blob du stockage. 
-
-Cette opération est effectuée automatiquement par le service Azure Data Share lorsque l’utilisateur ajoute un jeu de données via le Portail Azure et que l’utilisateur dispose de l’autorisation appropriée. Par exemple, l’utilisateur est propriétaire du magasin de données Azure ou est membre d’un rôle personnalisé qui dispose de l’autorisation Microsoft.Authorization/role assignments/write. 
-
-L’utilisateur peut également demander au propriétaire du magasin de données Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au magasin de données Azure. Cette action ne doit être effectuée qu’une seule fois par ressource de partage de données.
-
-Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous.  
+L’utilisateur peut également demander au propriétaire du magasin de données Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au magasin de données Azure. Cette action ne doit être effectuée qu’une seule fois par ressource de partage de données. Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous.  
 
 1. Accédez au magasin de données Azure.
 1. Sélectionnez **Contrôle d’accès (IAM)** .
@@ -65,16 +56,12 @@ Pour créer une attribution de rôle pour l’identité managée de la ressource
 
 Pour en savoir plus sur l’attribution de rôle, reportez-vous à [Attribuer des rôles Azure à l’aide du portail Azure](../role-based-access-control/role-assignments-portal.md). Si vous partagez des données à l’aide d’API REST, vous pouvez créer une attribution de rôle à l’aide d’une API en vous référant à [Attribuer des rôles Azure à l’aide du portail Azure à l’aide de l’API REST](../role-based-access-control/role-assignments-rest.md). 
 
-Pour les sources basées sur SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share lors d’une connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Cet utilisateur doit disposer de l’autorisation *db_datareader*. Vous trouverez un exemple de script avec d’autres prérequis pour le partage basé sur SQL dans le tutoriel [Partager à partir d’Azure SQL Database ou Azure Synapse Analytics](how-to-share-from-sql.md). 
+Pour le partage basé sur instantané SQL, un utilisateur SQL doit être créé à partir d’un fournisseur externe dans la base de données SQL portant le même nom que la ressource Azure Data Share lors d’une connexion à la base de données SQL à l’aide de l’authentification Azure Active Directory. Cet utilisateur doit disposer de l’autorisation *db_datareader*. Vous trouverez un exemple de script avec d’autres prérequis pour le partage basé sur SQL dans le tutoriel [Partager à partir d’Azure SQL Database ou Azure Synapse Analytics](how-to-share-from-sql.md). 
 
 ### <a name="data-consumer"></a>Consommateur de données
-Pour recevoir des données, l’identité managée de la ressource de partage de données du consommateur doit être autorisée à accéder au magasin de données Azure cible. Par exemple, dans le cas d’un compte de stockage, l’identité managée de la ressource de partage de données se voit octroyer le rôle de contributeur aux données Blob du stockage. 
+Pour recevoir des données dans le compte de stockage, l’identité managée de la ressource de partage de données du consommateur doit être autorisée à accéder au compte de stockage cible. Le rôle *Contributeur de données de l'objet blob de stockage* doit être accordé à l’identité managée de la ressource du partage de données. Cette opération est effectuée automatiquement par le service Azure Data Share si l’utilisateur spécifie un compte de stockage cible via le Portail Azure et que l’utilisateur dispose de l’autorisation appropriée. Par exemple, l’utilisateur est propriétaire du compte de stockage ou est membre d’un rôle personnalisé qui dispose de l’autorisation *Microsoft.Authorization/role assignments/write*. 
 
-Cette opération est effectuée automatiquement par le service Azure Data Share si l’utilisateur spécifie une banque de données cible via le Portail Azure et que l’utilisateur dispose de l’autorisation appropriée. Par exemple, l’utilisateur est propriétaire du magasin de données Azure ou est membre d’un rôle personnalisé qui dispose de l’autorisation Microsoft.Authorization/role assignments/write. 
-
-L’utilisateur peut également demander au propriétaire du magasin de données Azure d’ajouter manuellement l’identité managée de la ressource de partage de données au magasin de données Azure. Cette action ne doit être effectuée qu’une seule fois par ressource de partage de données.
-
-Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous. 
+L’utilisateur peut également demander au propriétaire du compte de stockage d’ajouter manuellement l’identité managée de la ressource de partage de données au compte de stockage. Cette action ne doit être effectuée qu’une seule fois par ressource de partage de données. Pour créer une attribution de rôle pour l’identité managée de la ressource de partage de données manuellement, suivez les étapes ci-dessous. 
 
 1. Accédez au magasin de données Azure.
 1. Sélectionnez **Contrôle d’accès (IAM)** .

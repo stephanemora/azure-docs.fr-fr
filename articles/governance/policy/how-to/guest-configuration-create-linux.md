@@ -1,15 +1,15 @@
 ---
 title: Créer des stratégies Guest Configuration pour Linux
 description: Découvrez comment créer une stratégie Guest Configuration pour des machines virtuelles Linux.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d356960987ecfe9a1e1858a28b93060dbf4aa634
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99525345"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096561"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Créer des stratégies Guest Configuration pour Linux
 
@@ -90,9 +90,7 @@ DSC agit comme un wrapper pour InSpec afin de normaliser son exécution, ainsi q
 
 Le nom de la configuration personnalisée doit être cohérent partout. Le nom du fichier .zip du package de contenu, celui de la configuration dans le fichier MOF et celui de l’affectation d’invité dans le modèle Azure Resource Manager (modèle ARM) doivent être identiques.
 
-Les cmdlets PowerShell aident à créer le package.
-Aucun dossier de niveau racine ou dossier de version n’est requis.
-Le format du package doit être un fichier .zip. Et il ne peut pas dépasser une taille totale de 100 Mo lors de la décompression.
+Les cmdlets PowerShell aident à créer le package. Aucun dossier de niveau racine ou dossier de version n’est requis. Le format du package doit être un fichier .zip. et il ne peut pas dépasser une taille totale de 100 Mo lorsqu’il est décompressé.
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Configuration Guest Configuration personnalisée sur Linux
 
@@ -211,7 +209,7 @@ Paramètres de la cmdlet `Publish-GuestConfigurationPackage` :
 - **Chemin d’accès** : emplacement du package à publier
 - **ResourceGroupName** : nom du groupe de ressources dans lequel se trouve le compte de stockage
 - **StorageAccountName** : nom du compte de stockage dans lequel le package doit être publié
-- **StorageContainerName** (par défaut *guestconfiguration*) : nom du conteneur de stockage dans le compte de stockage
+- **StorageContainerName** (par défaut _guestconfiguration_) : nom du conteneur de stockage dans le compte de stockage
 - **Force** : remplacer le package existant dans le compte de stockage du même nom
 
 L’exemple ci-dessous publie le package dans le conteneur de stockage nommé « guestconfiguration ».
@@ -277,7 +275,7 @@ Avec la stratégie créée dans Azure, la dernière étape consiste à attribuer
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Utilisation de paramètres dans des stratégies personnalisées Guest Configuration
 
-Guest Configuration prend en charge la substitution des propriétés d’une configuration lors d’une exécution. Cette fonctionnalité signifie que les valeurs du fichier MOF dans le package n’ont pas à être considérées comme statiques. Les valeurs de substitution sont fournies via Azure Policy et n’impactent pas la création ni la compilation des configurations.
+Guest Configuration prend en charge la substitution des propriétés d’une configuration lors d’une exécution. Cette fonctionnalité signifie que les valeurs du fichier MOF dans le package n’ont pas à être considérées comme statiques. Les valeurs de substitution sont fournies via Azure Policy et ne modifient pas la création ni la compilation des configurations.
 
 Avec InSpec, les paramètres sont généralement gérés en tant qu’entrée au moment de l’exécution ou en tant que code à l’aide d’attributs. La configuration d’invité masque ce processus afin que l’entrée puisse être fournie lors de l’attribution de la stratégie. Un fichier d’attributs est automatiquement créé sur l’ordinateur. Vous n’avez pas besoin de créer et d’ajouter un fichier à votre projet. Il existe deux étapes pour ajouter des paramètres à votre projet d’audit Linux.
 
@@ -350,8 +348,7 @@ Si vous souhaitez publier une mise à jour de la stratégie, effectuez la modifi
 > [!NOTE]
 > La propriété `version` de l’affectation de configuration invité n’a d’influence que sur les packages qui sont hébergés par Microsoft. La meilleure pratique pour le contenu personnalisé du contrôle de version consiste à inclure la version dans le nom de fichier.
 
-Tout d’abord, lorsque vous exécutez `New-GuestConfigurationPackage`, spécifiez un nom qui rende le package unique par rapport aux versions précédentes. Vous pouvez inclure un numéro de version dans le nom, par exemple `PackageName_1.0.0`.
-Le numéro dans cet exemple ne sert qu’à rendre le package unique, et non à spécifier que le package doit être considéré comme plus récent ou plus ancien que les autres.
+Tout d’abord, lorsque vous exécutez `New-GuestConfigurationPackage`, spécifiez un nom qui rende le package unique par rapport aux versions précédentes. Vous pouvez inclure un numéro de version dans le nom, par exemple `PackageName_1.0.0`. Le numéro dans cet exemple ne sert qu’à rendre le package unique, et non à spécifier que le package doit être considéré comme plus récent ou plus ancien que les autres.
 
 Ensuite, mettez à jour les paramètres utilisés avec la cmdlet `New-GuestConfigurationPolicy` en suivant chacune des explications ci-dessous.
 

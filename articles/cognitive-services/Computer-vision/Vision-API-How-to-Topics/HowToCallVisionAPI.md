@@ -1,7 +1,7 @@
 ---
-title: Appeler l’API Vision par ordinateur
+title: Appeler l’API Analyse d’image
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment appeler l’API Vision par ordinateur avec l’API REST dans Azure Cognitive Services.
+description: Apprenez à appeler l'API Analyse d'images à l'aide de l'API REST dans Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: abb367b64da0811a1ff46efe60b60485375f809f
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 25907319be5fc79cf4c7d6e46499bacce54cea77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486061"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286434"
 ---
-# <a name="call-the-computer-vision-api"></a>Appeler l’API Vision par ordinateur
+# <a name="call-the-image-analysis-api"></a>Appeler l’API Analyse d’image
 
-Cet article explique comment appeler l’API Vision par ordinateur avec l’API REST. Les exemples sont écrits en C# avec la bibliothèque de client d’API Vision par ordinateur et en tant qu’appels HTTP POST ou GET. Cet article se concentre sur les points suivants :
+Cet article explique comment appeler l'API Analyse d'images à l'aide de l'API REST. Les exemples sont fournis en C#, avec la bibliothèque de client de l'API Analyse d'images, et en tant qu'appels HTTP POST ou GET. Cet article se concentre sur les points suivants :
 
 - Obtention d’étiquettes, d’une description et de catégories
 - Obtention d’informations spécifique à un domaine, ou « celebrities » (célébrités)
@@ -49,11 +49,11 @@ Les fonctionnalités offrent les options suivantes :
   
 ## <a name="authorize-the-api-call"></a>Autoriser l’appel d’API
 
-Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé peut être passée via un paramètre de chaîne de requête ou spécifiée dans l’en-tête de la demande.
+Chaque appel de l'API Analyse d'images nécessite une clé d'abonnement. Cette clé peut être passée via un paramètre de chaîne de requête ou spécifiée dans l’en-tête de la demande.
 
 Vous pouvez passer la clé d’abonnement de l’une des façons suivantes :
 
-* Passez-la via une chaîne de requête, comme dans cet exemple de l’API Vision par ordinateur :
+* Passez-la via une chaîne de requête, comme dans cet exemple :
 
   ```
   https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -74,9 +74,9 @@ Vous pouvez passer la clé d’abonnement de l’une des façons suivantes :
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Charger une image sur le service API Vision par ordinateur
+## <a name="upload-an-image-to-the-image-analysis-service"></a>Charger une image vers le service Analyse d'images
 
-La façon la plus simple d’effectuer l’appel de l’API Vision par ordinateur est de charger une image directement pour retourner des étiquettes, une description et des « célébrités ». Pour cela, vous envoyez une demande de « POST » avec l’image binaire dans le corps HTTP ainsi que les données lues à partir de l’image. La méthode de chargement est la même pour tous les appels de l’API Vision par ordinateur. La seule différence concerne les paramètres de requête que vous spécifiez. 
+Pour appeler l'API Analyse d'images, le plus simple consiste à charger directement une image pour renvoyer des étiquettes, une description et des « célébrités ». Pour cela, vous envoyez une demande de « POST » avec l’image binaire dans le corps HTTP ainsi que les données lues à partir de l’image. La méthode de chargement est la même pour tous les appels de l'API Analyse d’images. La seule différence concerne les paramètres de requête que vous spécifiez. 
 
 Pour une image spécifiée, obtenez des étiquettes et une description en utilisant une des options suivantes :
 
@@ -254,4 +254,4 @@ Ces erreurs sont identiques à celles de vision.analyze, avec en plus l’erreur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour utiliser l’API REST, consultez les [Informations de référence sur l’API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+Pour utiliser l'API REST, consultez les [Informations de référence sur l'API Analyse d'images](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).

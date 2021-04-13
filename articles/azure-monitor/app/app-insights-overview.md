@@ -4,12 +4,12 @@ description: Gestion des performances et suivi de l’utilisation de votre appli
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f25a53cb227d6894aaabaf82033178f15f61c173
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575701"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076205"
 ---
 # <a name="what-is-application-insights"></a>Présentation d’Application Insights
 Application Insights, fonctionnalité d’[Azure Monitor](../overview.md), est un service extensible de gestion des performances des applications (APM) destiné aux développeurs et aux professionnels de DevOps. Utilisez-le pour superviser vos applications en temps réel. Ce service détecte automatiquement les anomalies de performances et intègre de puissants outils analytiques conçus pour vous aider à diagnostiquer les problèmes et à comprendre l’usage que les utilisateurs font de votre application.  Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Il fonctionne avec des applications sur un large éventail de plateformes, notamment .NET, Node.js, Java et Python, qu’elles soient hébergées localement, de manière hybride ou dans n’importe quel cloud public. Il s’intègre à votre processus DevOps et offre des points de connexion à un large éventail d’outils de développement. Il peut surveiller et analyser les données de télémétrie des applications mobiles en s’intégrant à Visual Studio App Center.
@@ -47,7 +47,7 @@ Application Insights est destiné à l’équipe de développement et permet de 
 
 Il existe de nombreuses manières d’explorer vos données. Consultez les articles suivants :
 
-|  |  |
+| Description de l’article   | Image |
 | --- | --- |
 | [**Détection intelligente et alertes manuelles**](./proactive-diagnostics.md)<br/>Configurez des alertes automatiques qui s’adaptent aux modèles télémétriques habituels de votre application et se déclenchent quand un comportement inhabituel est détecté. Vous pouvez également [définir des alertes](../alerts/alerts-log.md) sur des niveaux particuliers de mesures personnalisées ou standard. |![Exemple d’alerte](./media/app-insights-overview/alerts-tn.png) |
 | [**Mise en correspondance d’applications**](./app-map.md)<br/>Explorez les composants de votre application, avec des alertes et des métriques clés. |![Mise en correspondance d’applications](./media/app-insights-overview/appmap-tn.png)  |

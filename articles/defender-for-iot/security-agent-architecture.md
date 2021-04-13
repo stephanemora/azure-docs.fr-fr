@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Vue d’ensemble des agents de sécurité'
-description: Dans ce guide de démarrage rapide, vous allez découvrir l’architecture des agents de sécurité utilisés dans le service Azure Defender pour IoT.
+description: Suivez ce guide de démarrage rapide pour vous familiariser avec l'architecture des agents de sécurité utilisés dans le service Azure Defender pour IoT.
 ms.topic: quickstart
-ms.date: 01/24/2021
-ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.date: 4/4/2021
+ms.openlocfilehash: 0937cccb0335f4eee16ca3590babe9574320b89f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778506"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384974"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>Démarrage rapide : Architecture de référence des agents de sécurité
 
@@ -33,7 +33,7 @@ Les agents de sécurité Defender pour IoT sont développés en tant que projets
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun
+- Aucun
 
 ## <a name="agent-supported-platforms"></a>Plateformes prises en charge par l’agent
 
@@ -48,8 +48,7 @@ Defender pour IoT propose différents agents d'installation pour les versions 3
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez obtenu une vue d’ensemble de haut niveau de l’architecture du micro-agent Defender IoT et des programmes d’installation disponibles.
-
-Pour poursuivre votre prise en main du déploiement de Defender pour IoT, lisez les articles suivants :
+Pour poursuivre votre prise en main du déploiement de Defender pour IoT, consultez : 
 
 > [!div class="nextstepaction"]
 > [Méthodes d’authentification des agents de sécurité](concept-security-agent-authentication-methods.md)

@@ -10,22 +10,29 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 3/16/2021
+ms.date: 4/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310122177d4bd1603f5f498aa2a51620eeda4a20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2aba8d9de5e068cd98675f67cb26b0eac8d1ad6d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592742"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552821"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles Azure AD dans Privileged Identity Management
 
 Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez vérifier les accès régulièrement. Vous pouvez utiliser Azure AD Privileged Identity Management (PIM) pour créer des révisions d’accès pour les rôles Azure AD privilégiés. Vous pouvez également configurer des révisions d’accès périodiques qui interviennent automatiquement.
 
 Cet article explique comment créer une ou plusieurs révisions d’accès pour les rôles Azure AD privilégiés.
+
+## <a name="prerequisite-license"></a>Licence requise
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Pour plus d’informations sur les licences pour PIM, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,9 +42,11 @@ Cet article explique comment créer une ou plusieurs révisions d’accès pour 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle Administrateur de rôle privilégié.
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Sélectionnez des **rôles Azure AD**.
+1. Sélectionnez **Identity Governance**
+ 
+1. Sélectionnez **Rôles Azure AD** sous **Azure Active Directory Privileged Identity Management**.
+ 
+1. Sélectionnez de nouveau **Rôles Azure AD** sous **Gérer**.
 
 1. Sous Gérer, sélectionnez **Révisions d’accès**, puis sélectionnez **Nouveau**.
 
@@ -57,9 +66,11 @@ Cliquez sur **Nouveau** pour créer une révision d’accès.
 
 1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
 
-1. Dans la section **Utilisateurs**, sélectionnez un ou plusieurs rôles dont vous souhaitez vérifier l’appartenance.
+1. Dans la section **Étendue des utilisateurs**, sélectionnez l’étendue de la révision. Pour réviser les utilisateurs et les groupes ayant accès au rôle Azure AD, sélectionnez **Utilisateurs et groupes**, ou sélectionnez **(Préversion) Principaux de service** pour réviser les comptes d’ordinateurs ayant accès au rôle Azure AD.
 
     ![Étendue des utilisateurs pour la révision d’une appartenance à un rôle](./media/pim-how-to-start-security-review/users.png)
+
+1. Sous **Réviser l’appartenance au rôle**, sélectionnez les rôles Azure AD privilégiés à réviser. 
 
     > [!NOTE]
     > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +88,9 @@ Cliquez sur **Nouveau** pour créer une révision d’accès.
 
     ![Liste pour les réviseurs des utilisateurs ou membres sélectionnés (auto)](./media/pim-how-to-start-security-review/reviewers.png)
 
-    - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
-    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles. Les groupes affectés au rôle ne feront pas partie de la révision lorsque cette option est sélectionnée.
-    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire. Les groupes affectés au rôle seront examinés par le réviseur de secours, le cas échéant. 
+    - **Utilisateurs sélectionnés** : utilisez cette option pour désigner un utilisateur spécifique pour terminer la révision. Cette option est disponible quelle que soit l’étendue de la révision, et les réviseurs sélectionnés peuvent réviser des utilisateurs, de groupes et des principaux du service. 
+    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles. Les groupes assignés au rôle ne feront pas partie de la révision quand cette option est sélectionnée. Cette option est disponible uniquement si la révision est limitée à des **Utilisateurs et groupes**.
+    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. Cette option n’est disponible que si la révision est limitée à des **Utilisateurs et groupes**. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire. Les groupes affectés au rôle seront examinés par le réviseur de secours, le cas échéant. 
 
 ### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
 

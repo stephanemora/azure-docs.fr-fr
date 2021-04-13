@@ -1,30 +1,27 @@
 ---
-title: Glossaire de Monitor pour Windows Virtual Desktop (préversion) – Azure
+title: Glossaire de Monitor pour Windows Virtual Desktop – Azure
 description: Glossaire des termes et des concepts liés à Azure Monitor pour Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+manager: femila
+ms.openlocfilehash: 8ed4c2cffffca79ea545358b8ad639118e87e013
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576621"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448200"
 ---
-# <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Glossaire d’Azure Monitor pour Windows Virtual Desktop (préversion)
-
->[!IMPORTANT]
->Azure Monitor pour Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Glossaire d’Azure Monitor pour Windows Virtual Desktop
 
 Dans cet article figurent la liste et une brève description des termes et concepts clés relatifs à Azure Monitor pour Windows Virtual Desktop (préversion).
 
 ## <a name="alerts"></a>Alertes
 
-Toutes les alertes Azure Monitor actives configurées sur l’abonnement et classées avec la [gravité 1](#severity-1-alerts) s’affichent sur la page Vue d’ensemble. Pour savoir comment configurer des alertes, consultez [Réponse aux événements avec les alertes Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
+Toutes les alertes Azure Monitor actives configurées sur l’abonnement et classées avec la [gravité 0](#severity-0-alerts) s’affichent sur la page Vue d’ensemble. Pour savoir comment configurer des alertes, consultez [Réponse aux événements avec les alertes Azure Monitor](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="available-sessions"></a>Sessions disponibles
 
@@ -40,7 +37,7 @@ Nombre total d’utilisateurs ayant commencé une session au cours des dernière
 
 ## <a name="daily-alerts"></a>Alertes quotidiennes
 
-Nombre total [d’alertes de gravité 1](#severity-1-alerts) déclenchées au cours des dernières 24 heures.
+Nombre total d’alertes déclenchées chaque jour.
 
 ## <a name="daily-connections-and-reconnections"></a>Connexions et reconnexions quotidiennes
 
@@ -78,7 +75,7 @@ Chaque problème ou erreur de diagnostic comprend un message expliquant la cause
 
 ## <a name="input-delay"></a>Délai d’entrée
 
-Dans Azure Monitor pour Windows Virtual Desktop, délai d’entrée par compteur de performances de processus pour chaque session. Sur la page du niveau de performance de l’hôte, à <aka.ms/azmonwvdi>, ce compteur de performances est configuré pour envoyer un rapport au service toutes les 30 secondes. Ces intervalles de 30 secondes sont appelés « échantillons », et le rapport indique le pire scénario dans cette fenêtre. La valeur médiane et la valeur P95 reflètent la valeur médiane et le 95e percentile pour tous les exemples.
+Dans Azure Monitor pour Windows Virtual Desktop, délai d’entrée par compteur de performances de processus pour chaque session. Sur la page du niveau de performance de l’hôte, à [aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks), ce compteur de performances est configuré pour envoyer un rapport au service toutes les 30 secondes. Ces intervalles de 30 secondes sont appelés « échantillons », et le rapport indique le pire scénario dans cette fenêtre. La valeur médiane et la valeur P95 reflètent la valeur médiane et le 95e percentile pour tous les exemples.
 
 Sous **Délai d’entrée par hôte**, vous pouvez sélectionner une ligne d’hôte de session pour filtrer tous les autres visuels de la page sur cet hôte. Vous avez également la possibilité de sélectionner un nom de processus pour filtrer le graphe des délais d’entrée médians dans le temps.
 
@@ -114,16 +111,11 @@ Dans le tableau suivant figure la liste des compteurs de performances recommand�
 |PhysicalDisk(\*)\\Avg. Disk sec/Read|30 secondes|
 |PhysicalDisk(\*)\\Avg. Disk sec/Transfer|30 secondes|
 |PhysicalDisk(\*)\\Avg. Disk sec/Write|30 secondes|
-|Process(\*)\\% Processor Time|20 secondes.|
-|Process(\*)\\% User Time|30 secondes|
-|Process(\*)\\Thread Count|30 secondes|
-|Process(\*)\\ IO Write Operations/sec|30 secondes|
-|Process(\*)\\ IO Read Operations/sec|30 secondes|
 |Processor Information(_Total)\\% Processor Time|30 secondes|
 |Terminal Services(\*)\\Active Sessions|60 secondes|
 |Terminal Services(\*)\\Inactive Sessions|60 secondes|
 |Terminal Services(\*)\\Total Sessions|60 secondes|
-|\*User Input Delay per Process(\*)\\Max Input Delay|30 secondes|
+|\*Retard d’entrée utilisateur par processus(\*)\\Délai d’entrée maximal|30 secondes|
 |\*User Input Delay per Session(\*)\\Max Input Delay|30 secondes|
 |RemoteFX Network(\*)\\Current TCP RTT|30 secondes|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 secondes|
@@ -149,13 +141,13 @@ Il est également possible de sélectionner des entrées pour afficher des infor
 
 ## <a name="round-trip-time-rtt"></a>Temps d’aller-retour
 
-Estimation du temps d’aller-retour de la connexion entre l’emplacement de l’utilisateur final et la région Azure de la machine virtuelle. Pour voir quels emplacements présentent la meilleure latence, recherchez celui de votre choix dans [l’outil estimateur d’expérience Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Estimation du temps d’aller-retour de la connexion entre l’emplacement de l’utilisateur final et la région Azure de l’hôte de la session. Pour voir quels emplacements présentent la meilleure latence, recherchez celui de votre choix dans [l’outil estimateur d’expérience Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 
 ## <a name="session-history"></a>Historique de session
 
 L’élément **Sessions** indique l’état de toutes les sessions, connectées ou non. Les **Sessions inactives** affichent uniquement les sessions déconnectées.
 
-## <a name="severity-1-alerts"></a>Alertes de gravité 1
+## <a name="severity-0-alerts"></a>Alertes de gravité 0
 
 Éléments les plus urgents à prendre en charge immédiatement. Si vous ne résolvez pas ces problèmes, votre déploiement Windows Virtual Desktop risque de ne plus fonctionner.
 
@@ -171,11 +163,11 @@ La page Rapport utilisateur permet d’afficher l’historique des connexions et
 
 Nombre d’utilisateurs présents dans chaque noyau de machine virtuelle. Le suivi du nombre maximal d’utilisateurs par cœur au fil du temps peut permettre de déterminer si l’environnement s’exécute toujours avec un nombre élevé, faible ou fluctuant d’utilisateurs par cœur. Connaître le nombre d’utilisateurs actifs vous aidera à mettre efficacement l’environnement à l’échelle et à lui affecter les ressources nécessaires.
 
-## <a name="windows-events"></a>Événements Windows
+## <a name="windows-event-logs"></a>Journaux des événements Windows
 
 Les journaux des événements Windows sont des sources de données collectées par les agents Log Analytics sur des machines virtuelles Windows. Vous pouvez collecter des événements à partir de journaux standard comme Système et Application, ainsi que des journaux personnalisés créés par les applications que vous souhaitez surveiller.
 
-Dans le tableau suivant figure la liste des événements Windows requis par Azure Monitor pour Windows Virtual Desktop :
+Le tableau suivant répertorie les journaux des événements Windows requis par Azure Monitor pour Windows Virtual Desktop :
 
 |Nom d'événement|Type d'événement|
 |---|---|
@@ -186,14 +178,14 @@ Dans le tableau suivant figure la liste des événements Windows requis par Azur
 | Microsoft-FSLogix-Apps/Operational|Erreur, Avertissement et Information|
 |Microsoft-FSLogix-Apps/Admin|Erreur, Avertissement et Information|
 
-Pour plus d’informations sur les événements Windows, consultez [Propriétés des enregistrements des événements Windows](../azure-monitor/agents/data-sources-windows-events.md).
+Pour plus d’informations sur les journaux des événements Windows, consultez [Propriétés des enregistrements d’événements Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour bien démarrer avec Azure Monitor pour Windows Virtual Desktop, consultez les articles suivants :
+- Pour commencer, consultez [Monitoring d’un déploiement avec Azure Monitor pour Windows Virtual Desktop](azure-monitor.md).
+- Pour estimer, mesurer et gérer les coûts de stockage de vos données, consultez [Estimer les coûts d’Azure Monitor](azure-monitor-costs.md).
+- Si vous rencontrez un problème, consultez notre [guide de résolution des problèmes](troubleshoot-azure-monitor.md) pour obtenir de l’aide en lien avec les problèmes connus.
 
-- [Monitoring d’un déploiement avec Azure Monitor pour Windows Virtual Desktop](azure-monitor.md)
-- [Résolution des problèmes liés à Azure Monitor pour Windows Virtual Desktop](troubleshoot-azure-monitor.md)
 
 Vous pouvez également configurer Azure Advisor pour savoir comment résoudre ou éviter les problèmes courants. Pour plus d’informations, consultez [Utilisation d’Azure Advisor avec Windows Virtual Desktop](azure-advisor.md).
 
@@ -203,4 +195,4 @@ Si vous avez besoin d’aide ou si vous avez des questions, consultez les ressou
    
 - Pour savoir comment laisser des commentaires, consultez [Vue d’ensemble de la résolution des problèmes, des commentaires et du support pour Windows Virtual Desktop](troubleshoot-set-up-overview.md#report-issues).
 
-- Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) ou notre [forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- Vous pouvez également formuler vos commentaires concernant Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app)

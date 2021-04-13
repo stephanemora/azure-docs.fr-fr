@@ -4,13 +4,13 @@ description: Ce guide de démarrage rapide montre comment créer une application
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/13/2020
-ms.openlocfilehash: 2048079a9b1eb5234d03c6fe57073228bd892d53
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 03/29/2021
+ms.openlocfilehash: e0972998fad647c1c70be814cb7c13f14a6e1141
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019158"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277026"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Démarrage rapide : Utiliser une application domotique prédéfinie
 
@@ -52,7 +52,7 @@ Sélectionnez **Terminé**.
 
     Une fois le domaine ajouté, la zone de domaine prédéfini affiche un bouton **Supprimer le domaine**.
 
-## <a name="intents-and-entities"></a>Intentions et entités
+## <a name="intents-and-entities&quot;></a>Intentions et entités
 
 1. Sélectionnez **Intentions** dans le volet de navigation de gauche pour consulter les intentions du domaine HomeAutomation. Il contient des exemples d’énoncés, tels que `HomeAutomation.QueryState` et     `HomeAutomation.SetDevice`.
 
@@ -61,8 +61,8 @@ Sélectionnez **Terminé**.
 
 1. Sélectionnez l’intention **HomeAutomation.TurnOff**. L’intention contient une liste d’exemples d’énoncés qui sont associés à des entités.
 
-    > [!div class="mx-imgBorder"]
-    > [![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class=&quot;mx-imgBorder&quot;]
+    > [![Capture d’écran de l’intention HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png &quot;Capture d’écran de l’intention HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 1. Si vous souhaitez afficher les entités pour l’application, sélectionnez **Entités**. Si vous cliquez sur l’une des entités, par exemple **HomeAutomation.DeviceName**, vous verrez la liste des valeurs qui lui sont associées. 
  
@@ -220,7 +220,5 @@ Pour recevoir une prédiction LUIS dans un chatbot ou une autre application clie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez appeler le point de terminaison à partir du code :
-
 > [!div class="nextstepaction"]
-> [Appeler un point de terminaison LUIS à l’aide d’un code](./luis-get-started-get-intent-from-rest.md)
+> [Développement itératif d'applications pour LUIS](./luis-concept-app-iteration.md)

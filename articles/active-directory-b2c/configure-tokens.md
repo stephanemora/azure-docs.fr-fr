@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f22a55a65b7dc4fd4f714d880804e6fd65dbbe46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f5586b43143763ebf36adb15d96fdb2a91b5f5c
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101654372"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443472"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurer les jetons dans Azure Active Directory B2C
 
@@ -228,6 +228,10 @@ L’élément OutputClaim contient les attributs suivants :
 - **AlwaysUseDefaultValue** : force l’utilisation de la valeur par défaut.
 
 ::: zone-end
+
+## <a name="authorization-code-lifetime"></a>Durée de vie du code d’autorisation
+
+Lorsque vous utilisez le [flux de code d’autorisation OAuth 2.0](authorization-code-flow.md), l’application peut utiliser le code d’autorisation pour demander un jeton d’accès pour une ressource cible. Les codes d’autorisation ont une durée de vie courte et expirent au bout de 10 minutes. Il n’est pas possible de configurer la durée de vie du code d’autorisation. Assurez-vous que votre application utilise les codes d’autorisation dans un délai de 10 minutes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

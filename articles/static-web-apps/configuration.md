@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: cshoe
-ms.openlocfilehash: 324a8e75488d74fc6aa52e499b8dde616cd9beb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 280c13fdee281acc4f805aba27a10277eb3988c2
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034045"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218972"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurer Azure Static Web Apps
 
@@ -37,8 +37,9 @@ Pour plus de détails, consultez l’[exemple de fichier config](#example-config
 
 ## <a name="routes"></a>Itinéraires
 
-Les règles de routage vous permettent de définir le modèle des URL qui permettent d’accéder à votre application sur le web. Les itinéraires sont définis sous la forme d’un tableau de règles d’acheminement. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
+Les règles de routage vous permettent de définir le modèle des URL qui permettent d’accéder à votre application sur le web. Les itinéraires sont définis sous forme de tableau de règles d’acheminement. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
 
+- Les règles sont définies dans le tableau `routes`, même en présence d’un seul itinéraire.
 - Les règles sont exécutées dans l’ordre dans lequel elles apparaissent dans le tableau `routes`.
 - L’évaluation des règles s’arrête à la première correspondance : les règles d’acheminement ne sont pas enchaînées les unes aux autres.
 - Vous avez un contrôle total sur les noms de rôles personnalisés.
@@ -50,7 +51,7 @@ Le fichier par défaut pour le contenu statique est le fichier *index.html*.
 
 ## <a name="defining-routes"></a>Définition des itinéraires
 
-Chaque règle est composée d’un modèle d’itinéraire, ainsi que d’une ou plusieurs des propriétés facultatives de la règle. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
+Chaque règle est composée d’un modèle d’itinéraire, ainsi que d’une ou plusieurs des propriétés facultatives de la règle. Les règles de routage sont définies dans le tableau `routes`. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
 
 | Propriété de la règle  | Obligatoire | Valeur par défaut | Commentaire                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
@@ -275,7 +276,7 @@ L’exemple de configuration suivant montre comment remplacer un code d’erreur
         },
         {
             "route": "/.auth/login/twitter",
-            "statusCode": 404,
+            "statusCode": 404
         },
         {
             "route": "/logout",
@@ -315,7 +316,7 @@ L’exemple de configuration suivant montre comment remplacer un code d’erreur
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
+    }
 }
 ```
 

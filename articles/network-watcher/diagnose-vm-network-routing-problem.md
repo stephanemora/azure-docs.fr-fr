@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Diagnostiquer un problème de routage réseau de machine virtuelle – portail Azure'
+title: 'Tutoriel : Diagnostiquer un problème de routage réseau de machine virtuelle - Portail Azure'
 titleSuffix: Azure Network Watcher
 description: Dans ce didacticiel, vous allez découvrir comment diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide de la fonctionnalité de tronçon suivant d’Azure Network Watcher.
 services: network-watcher
@@ -7,7 +7,6 @@ documentationcenter: network-watcher
 author: damendo
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -17,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: bfcf9568f37a26f234a417a86eebf1b0bde67ab0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d5cd9c5d7f4a14a9a93e6984a8ef7367e5cbafc4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014499"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055091"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutoriel : Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Didacticiel : diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
 
 Lorsque vous déployez une machine virtuelle (VM), Azure crée à cet effet plusieurs itinéraires par défaut. Vous pouvez créer des itinéraires personnalisés pour remplacer les itinéraires par défaut d’Azure. Il arrive qu’une machine virtuelle ne puisse pas communiquer avec d’autres ressources à cause d’un itinéraire personnalisé. Dans ce tutoriel, vous allez apprendre à :
 

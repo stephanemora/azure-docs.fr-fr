@@ -5,9 +5,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
 ms.custom:
 - mvc
@@ -15,18 +14,18 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: fd411255247e6a37b857ac11c1b0abbd4558d02a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3e8c1a06244c46f5789506e8a77d410f5493bbf3
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549768"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106058576"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Linux avec Azure CLI
 
 Ce guide de démarrage rapide explique comment utiliser l’interface de ligne de commande Azure (CLI) pour déployer une machine virtuelle Linux dans Azure. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts.
 
-Dans ce tutoriel, nous allons installer Ubuntu 16.04 LTS. Pour voir la machine virtuelle en action, vous allez vous y connecter à l’aide de SSH et installer le serveur web NGINX.
+Dans ce tutoriel, nous allons installer la dernière image Ubuntu LTS. Pour voir la machine virtuelle en action, vous allez vous y connecter à l’aide de SSH et installer le serveur web NGINX.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -88,10 +87,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
-Établissez une connexion SSH à votre machine virtuelle comme d’habitude. Remplacez **publicIpAddress** par l’adresse IP publique de votre machine virtuelle, comme indiqué dans la sortie précédente de votre machine virtuelle :
+Établissez une connexion SSH à votre machine virtuelle comme d’habitude. Remplacez l’adresse IP dans l’exemple par l’adresse IP publique de votre machine virtuelle, comme indiqué dans la sortie précédente :
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## <a name="install-web-server"></a>Installer le serveur web

@@ -1,23 +1,23 @@
 ---
 title: 'Démarrage rapide : Ajouter l’appel VoIP à une application web avec Azure Communication Services'
-description: Dans ce tutoriel, vous allez découvrir comment utiliser la bibliothèque de client Azure Communication Services Calling pour JavaScript.
+description: Dans ce tutoriel, vous allez découvrir comment utiliser le kit de développement logiciel (SDK) Azure Communication Services Calling pour JavaScript.
 author: ddematheu
 ms.author: nimag
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d27a79e180a0219773a3094fb85f842773d75183
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7d7b62d6587a568b74d142a2ee6a93587941559d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656614"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645416"
 ---
-Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide de la bibliothèque de client Azure Communication Services Calling pour Javascript.
-Ce document référence des types dans la version 1.0.0-beta.5 de la bibliothèque appelante.
+Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Javascript.
 
 > [!NOTE]
-> Ce document utilise la version 1.0.0-beta.6 de la bibliothèque de client appelante.
+> Ce document utilise la version 1.0.0-beta.10 du kit de développement logiciel (SDK) Calling.
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,10 +41,20 @@ Voici le code :
     <h4>Azure Communication Services</h4>
     <h1>Calling Quickstart</h1>
     <input 
+      id="token-input"
+      type="text"
+      placeholder="User access token"
+      style="margin-bottom:1em; width: 200px;"
+    />
+    </div>
+    <button id="token-submit" type="button">
+        Submit
+    </button>
+    <input 
       id="callee-id-input"
       type="text"
       placeholder="Who would you like to call?"
-      style="margin-bottom:1em; width: 200px;"
+      style="margin-bottom:1em; width: 200px; display: block;"
     />
     <div>
       <button id="call-button" type="button" disabled="true">
@@ -68,34 +78,42 @@ import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
+let userTokenCredential = "";
+const userToken = document.getElementById("token-input");
 const calleeInput = document.getElementById("callee-id-input");
+const submitToken = document.getElementById("token-submit");
 const callButton = document.getElementById("call-button");
 const hangUpButton = document.getElementById("hang-up-button");
 ```
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités de la bibliothèque de client Appel Azure Communication Services :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Calling :
 
 | Nom                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient est le point d’entrée principal de la bibliothèque de client Appel.                                                                       |
+| CallClient                       | CallClient est le point d’entrée principal du kit de développement logiciel (SDK) Calling.                                                                       |
 | CallAgent                        | CallAgent sert à démarrer et à gérer les appels.                                                                                            |
 | AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implémente l’interface CommunicationTokenCredential qui est utilisée pour instancier CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Vous devez remplacer `<USER_ACCESS_TOKEN>` par un jeton d’accès utilisateur valide pour votre ressource. Consultez la documentation sur les [jetons d’accès utilisateur](../../access-tokens.md) si vous n’avez pas encore de jeton disponible. À l’aide du `CallClient`, initialisez une instance de `CallAgent` avec un `CommunicationTokenCredential` qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant à **client.js** :
+Vous devez entrer un jeton d’accès utilisateur valide pour votre ressource dans le champ de texte, puis cliquer sur Envoyer. Consultez la documentation sur les [jetons d’accès utilisateur](../../access-tokens.md) si vous n’avez pas encore de jeton disponible. À l’aide du `CallClient`, initialisez une instance de `CallAgent` avec un `CommunicationTokenCredential` qui nous permettra d’établir et de recevoir des appels. Ajoutez le code suivant à **client.js** :
 
 ```javascript
-async function init() {
-    const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
-    callAgent = await callClient.createCallAgent(tokenCredential);
-    callButton.disabled = false;
-}
-init();
+submitToken.addEventListener("click", async () => {
+  const callClient = new CallClient(); 
+  const userTokenCredential = userToken.value;
+    try {
+      tokenCredential = new AzureCommunicationTokenCredential(userTokenCredential);
+      callAgent = await callClient.createCallAgent(tokenCredential);
+      callButton.disabled = false;
+      submitToken.disabled = true;
+    } catch(error) {
+      window.alert("Please submit a valid token!");
+    }
+})
 ```
 
 ## <a name="start-a-call"></a>Démarrer un appel
@@ -107,7 +125,7 @@ callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
     call = callAgent.startCall(
-        [{ communicationUserId: userToCall }],
+        [{ id: userToCall }],
         {}
     );
     // toggle button states
@@ -128,6 +146,7 @@ hangUpButton.addEventListener("click", () => {
   // toggle button states
   hangUpButton.disabled = true;
   callButton.disabled = false;
+  submitToken.disabled = false;
 });
 ```
 

@@ -1,7 +1,7 @@
 ---
-title: Vue d’ensemble de la bibliothèque de client Chat dans Azure Communication Services
+title: Vue d’ensemble du kit SDK Conversation pour Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Découvrez la bibliothèque de client Azure Communication Services Chat.
+description: Découvrez le kit SDK Conversation Azure Communication Services.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,26 +9,26 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 705bd926c2ac6f414464254969b5c511c88891f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 520dc611e49675f35b8ba0330448438192770773
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656105"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168873"
 ---
-# <a name="chat-client-library-overview"></a>Vue d’ensemble de la bibliothèque de client Chat  
+# <a name="chat-sdk-overview"></a>Vue d’ensemble du kit SDK Conversation 
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
-Les bibliothèques de client Azure Communication Services Chat peuvent être utilisées pour ajouter un système de conversation en temps réel complet à vos applications.
+Les kits SDK Conversation Azure Communication Services peuvent être utilisés pour ajouter la fonctionnalité de conversation en temps réel riche à vos applications.
     
-## <a name="chat-client-library-capabilities"></a>Fonctionnalités de la bibliothèque de client Chat 
+## <a name="chat-sdk-capabilities"></a>Fonctionnalités du kit SDK Conversation    
 
-La liste suivante présente l’ensemble des fonctionnalités actuellement disponibles dans les bibliothèques de client Communication Services Chat.  
+La liste suivante présente l’ensemble des fonctionnalités actuellement disponibles dans les kits SDK Conversation Communication Services.  
 
 | Groupe de fonctionnalités | Fonctionnalité | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
-| Fonctionnalités principales | Créer un fil de conversation entre plusieurs utilisateurs (jusqu’à 250 utilisateurs)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
+| Fonctionnalités principales | Créer un fil de conversation entre plusieurs utilisateurs                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
 |                   | Mettre à jour le sujet d’un fil de conversation                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
 |                   | Ajouter ou supprimer des participants dans un fil de conversation                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 |                   | Choisir si vous souhaitez partager l’historique des messages de conversation avec le participant en cours d’ajout                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
@@ -37,27 +37,27 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Pour un utilisateur de communication, obtenir la liste des fils de conversation auxquels il participe                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 |                   | Obtenir des informations sur un fil de conversation                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
 |                   | Envoyer et recevoir des messages dans un fil de conversation                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
-|                   | Modifier le contenu d’un message envoyé                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Supprimer un message                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Confirmation de lecture des messages qui ont été lus par d’autres participants dans une conversation <br/> *Non disponible lorsqu’il y a plus de 20 participants dans un fil de conversation*    | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Recevoir une notification lorsque des participants tapent activement un message dans un fil de conversation <br/> *Non disponible lorsqu’il y a plus de 20 membres dans un fil de conversation*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
-|                   | Obtenir tous les messages d’un fil de conversation <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Mettre à jour le contenu de votre message envoyé                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Supprimer un message que vous avez envoyé                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Confirmation de lecture des messages qui ont été lus par d’autres participants dans une conversation                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Recevoir une notification lorsque des participants tapent activement un message dans un fil de conversation                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Obtenir tous les messages d’un fil de conversation                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Envoyer des emojis Unicode dans le contenu d’un message                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|Signalisation en temps réel (activé pour chaque package de signalisation propriétaire**)|  Abonnez-vous pour obtenir des mises à jour en temps réel des messages entrants et d’autres opérations dans votre application de conversation. Pour voir la liste des mises à jour prises en charge pour la signalisation en temps réel, consultez [Concepts de conversation](concepts.md#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |    
-| Prise en charge d’Event Grid             | Utiliser l’intégration avec Azure Event Grid et configurer votre service de communication pour exécuter une logique métier basée sur l’activité de conversation ou pour brancher un service de notifications push personnalisé   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
-| Surveillance        | Utiliser les métriques de demande d’API émises dans le portail Azure pour créer des tableaux de bord, superviser l’intégrité de votre application de conversation et définir des alertes pour détecter les anomalies      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | Configurer vos ressources Communication Services pour recevoir des journaux opérationnels de conversation à des fins de supervision et de diagnostic          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|Notifications en temps réel (activées par le package de signalisation propriétaire**)|  Les clients de conversation peuvent s’abonner pour obtenir des mises à jour en temps réel sur les messages entrants et les autres opérations qui se produisent dans un fil de conversation. Si vous souhaitez voir la liste des mises à jour prises en charge pour les notifications en temps réel, consultez [Concepts de Conversation](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
+| Intégration à Azure Event Grid             | Utilisez les événements de conversation disponibles dans Azure Event Grid pour connecter des services de notifications personnalisées, ou publier un événement particulier dans un Webhook de façon à exécuter une logique métier telle que la mise à jour des enregistrements CRM à la fin d’une conversation.   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+| Rapports </br>(Ces informations sont disponibles sous l’onglet Supervision de votre ressource Communication Services sur le portail Azure)      | Comprendre le trafic d’API à partir de votre application de conversation avec la supervision des métriques publiées dans Azure Metrics Explorer et définir des alertes pour détecter les anomalies     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Superviser et déboguer votre solution Communication Services en activant la journalisation des diagnostics pour votre ressource    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 
 
 **Le package de signalisation propriétaire est implémenté en utilisant des sockets web. Il passe à l’interrogation longue si les sockets web ne sont pas pris en charge.  
 
-## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Prise en charge de la bibliothèque de client de conversation JavaScript par système d’exploitation et navigateur 
+## <a name="javascript-chat-sdk-support-by-os-and-browser"></a>Prise en charge du kit SDK Conversation par le système d’exploitation et le navigateur    
 
 Le tableau suivant représente l’ensemble des navigateurs pris en charge et des versions actuellement disponibles.
     
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPadOS|
 |--------------------------------|----------------|--------------|-------|------|------|------|-------|
-| **Bibliothèque de client de conversation** | Firefox *, Chrome*, nouveau Edge | Firefox *, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+| **Kit SDK Conversation** | Firefox *, Chrome*, nouveau Edge | Firefox *, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
 *Notez que la dernière version est prise en charge en plus des deux versions précédentes.<br/>   
 
@@ -68,3 +68,4 @@ Le tableau suivant représente l’ensemble des navigateurs pris en charge et de
 
 Les documents suivants peuvent vous intéresser :  
 - Familiarisez-vous avec les [concepts relatifs aux conversations](../chat/concepts.md).
+- Comprendre comment les [tarifs](../pricing.md#chat) sont appliqués pour les conversations

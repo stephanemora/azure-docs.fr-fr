@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c258ac62617cb6ac954e0b8c59928225c7f477b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518736"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935569"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Surveiller et consulter les journaux d’exécution et les métriques de Machine Learning
 
@@ -110,15 +110,16 @@ Vous pouvez également modifier la table de la liste d’exécution pour sélect
 
 ![Exécution des détails dans Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-### <a name="view-log-files-for-a-run"></a>Afficher les fichiers journaux d’une exécution 
+### <a name="view-and-download-log-files-for-a-run"></a>Afficher et télécharger des fichiers journaux pour une exécution 
 
 Les fichiers journaux sont une ressource essentielle pour déboguer les charges de travail Azure ML. Vous pouvez descendre dans la hiérarchie jusqu’à une exécution spécifique pour afficher ses journaux et sorties :  
 
 1. Accédez à l’onglet **Expériences**.
 1. Sélectionnez le runID associé à une exécution spécifique.
 1. Sélectionnez **Sorties + journaux** en haut de la page.
+2. Sélectionnez **Télécharger tout** pour télécharger tous vos journaux dans un dossier zip.
 
-:::image type="content" source="media/how-to-monitor-view-training-logs/view-logs.png" alt-text="Capture d’écran de la section Sorties + journaux d’une exécution":::
+:::image type="content" source="media/how-to-monitor-view-training-logs/download-logs.png" alt-text="Capture d’écran de la section Sorties et journaux d’une exécution.":::
 
 Les tableaux ci-dessous montrent le contenu des fichiers journaux dans les dossiers qui apparaissent dans cette section.
 

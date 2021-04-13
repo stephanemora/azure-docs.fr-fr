@@ -4,15 +4,15 @@ description: Cet article explique comment configurer des comptes Azure Cosmos DB
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 69a9f0a82f5c19504564825e47f69ab8414e0909
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0470759a589927b65462f258b20446af608175c
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565831"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284030"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>Configurer un compte Azure Cosmos DB avec une sauvegarde périodique
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,11 +31,32 @@ Azure Cosmos DB sauvegarde automatiquement vos données à intervalles régulier
 
 * Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de votre application. Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans consommer de débit (RU) approvisionné supplémentaire et sans affecter les performances ou la disponibilité de votre base de données.
 
+## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
+
+Par défaut, Azure Cosmos DB stocke les données de sauvegarde en mode périodique dans un [stockage blob](../storage/common/storage-redundancy.md) géo-redondant qui est répliqué dans une [région jumelée](../best-practices-availability-paired-regions.md).  
+
+Pour vous assurer que vos données de sauvegarde restent dans la même région que celle où votre compte Azure Cosmos DB est configuré, vous pouvez modifier le stockage de sauvegarde géo-redondant par défaut et configurer un stockage localement redondant ou redondant interzone. La redondance de stockage stocke toujours plusieurs copies de vos sauvegardes afin qu’elles soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant et des catastrophes naturelles majeures.
+
+Les données de sauvegarde dans Azure Cosmos DB sont répliquées trois fois dans la région primaire. Vous pouvez configurer la redondance de stockage pour le mode de sauvegarde périodique au moment de la création du compte ou la mettre à jour pour un compte existant. Vous pouvez utiliser les trois options de redondance des données suivantes en mode de sauvegarde périodique :
+
+* **Stockage de sauvegarde géo-redondant :** Cette option permet de copier vos données de façon asynchrone dans la région jumelée.
+
+* **Stockage de sauvegarde redondant interzone** : Cette copie vos données de façon synchrone dans trois zones de disponibilité Azure au sein de la région primaire.
+
+* **Stockage de sauvegarde redondant localement :** Cette option copie vos données de façon synchrone trois fois au sein d’un même emplacement physique dans la région primaire.
+
+> [!NOTE]
+> Pour le moment, le stockage redondant interzone est uniquement disponible dans [certaines régions](high-availability.md#availability-zone-support). En fonction de la région que vous sélectionnez, cette option ne sera pas disponible pour les comptes nouveaux ou existants.
+>
+> La mise à jour de la redondance du stockage de sauvegarde n’aura aucun impact sur la tarification du stockage de sauvegarde.
+
 ## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Modifier l’intervalle de sauvegarde et la période de rétention
 
 Azure Cosmos DB effectue automatiquement une sauvegarde complète de vos données toutes les 4 heures, quel que soit le moment. Les deux dernières sauvegardes sont stockées. Il s’agit de la configuration par défaut offerte sans coût supplémentaire. Vous pouvez modifier l’intervalle de sauvegarde et la période de rétention par défaut pendant ou après la création du compte Azure Cosmos. La configuration de la sauvegarde est définie au niveau du compte Azure Cosmos, et vous devez la configurer sur chaque compte. Une fois que vous avez configuré les options de sauvegarde pour un compte, la configuration est appliquée à tous les conteneurs de ce compte. Actuellement, vous pouvez modifier les options de sauvegarde uniquement à partir du portail Azure.
 
 Si vous avez accidentellement supprimé ou endommagé vos données, **avant de créer une demande de support pour restaurer les données, veillez à allonger la période de rétention des sauvegardes de votre compte à au moins sept jours. Il est préférable d’allonger la période de rétention dans les 8 heures qui suivent l’événement.** Ainsi, l’équipe Azure Cosmos DB dispose de suffisamment de temps pour restaurer votre compte.
+
+### <a name="modify-backup-options-for-an-existing-account"></a>Modifier les options de sauvegarde pour un compte existant
 
 Procédez comme suit pour modifier les options de sauvegarde par défaut pour un compte Azure Cosmos existant :
 
@@ -48,11 +69,18 @@ Procédez comme suit pour modifier les options de sauvegarde par défaut pour un
 
    * **Copies des données conservées** : par défaut, deux copies de sauvegarde de vos données sont offertes gratuitement. Des frais supplémentaires sont facturés si vous avez besoin de plus de deux copies. Pour connaître le prix exact des copies supplémentaires, consultez la section Stockage consommé dans la [page relative à la tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-   :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-interval-retention.png" alt-text="Configurer l’intervalle de sauvegarde et la rétention pour un compte Azure Cosmos DB existant." border="true":::
+   * **Redondance du stockage de sauvegarde** : choisissez l’option de redondance de stockage requise, consultez la section [Redondance du stockage de sauvegarde ](#backup-storage-redundancy) pour les options disponibles. Par défaut, vos comptes de mode de sauvegarde périodique existants disposent d’un stockage géoredondant. Vous pouvez choisir un autre stockage, par exemple localement redondant, pour vous assurer que la sauvegarde n’est pas répliquée vers une autre région. Les modifications apportées à un compte existant sont appliquées uniquement aux sauvegardes ultérieures. Une fois la redondance de stockage de sauvegarde d’un compte existant mise à jour, il peut s’écouler jusqu’à deux fois l’intervalle de sauvegarde pour que les modifications prennent effet et **vous perdrez l’accès pour la restauration immédiate des anciennes sauvegardes.**
 
-Si vous configurez les options de sauvegarde lors de la création du compte, vous pouvez configurer une **Stratégie de sauvegarde** **Périodique** ou **Continue**. La stratégie périodique vous permet de configurer l’intervalle de sauvegarde et la rétention des sauvegardes. La stratégie continue est actuellement disponible uniquement par inscription. L’équipe Azure Cosmos DB évalue votre charge de travail et approuve votre demande.
+   > [!NOTE]
+   > Vous devez avoir le rôle [Lecteur du compte Azure Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role) attribué au niveau de l’abonnement pour configurer la redondance du stockage de sauvegarde.
 
-:::image type="content" source="./media/configure-periodic-backup-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configurer une stratégie de sauvegarde périodique ou continue pour de nouveaux comptes Azure Cosmos DB." border="true":::
+   :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-existing-accounts.png" alt-text="Configurer l’intervalle de sauvegarde, la rétention et la redondance du stockage pour un compte Azure Cosmos DB existant." border="true":::
+
+### <a name="modify-backup-options-for-a-new-account"></a>Modifier les options de sauvegarde pour un nouveau compte
+
+Lors de la configuration d’un nouveau compte, sous l’onglet **Stratégie de sauvegarde**, sélectionnez la stratégie de sauvegarde **Périodique** _. La stratégie périodique vous permet de configurer l’intervalle de sauvegarde, la rétention de sauvegarde et la redondance de stockage de sauvegarde. Par exemple, vous pouvez choisir les options _ *stockage de sauvegarde localement redondant* * ou **Stockage de sauvegarde redondant interzone** pour empêcher la réplication des données de sauvegarde en dehors de votre région.
+
+:::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-new-accounts.png" alt-text="Configurer une stratégie de sauvegarde périodique ou continue pour de nouveaux comptes Azure Cosmos DB." border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a><a id="request-restore"></a>Demander une restauration des données à partir d’une sauvegarde
 
@@ -115,8 +143,7 @@ Si vous approvisionnez le débit au niveau de la base de données, le processus 
 Les principaux qui font partie du rôle [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), propriétaire ou contributeur sont autorisés à demander une restauration ou à modifier la période de rétention.
 
 ## <a name="understanding-costs-of-extra-backups"></a>Comprendre les coûts des sauvegardes supplémentaires
-Deux sauvegardes sont effectuées gratuitement, et les sauvegardes supplémentaires sont facturées selon la tarification régionale pour le stockage de sauvegarde décrite dans [Tarification du stockage de sauvegarde](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Par exemple, si la rétention de la sauvegarde est configurée sur 240 heures, c’est-à-dire 10 jours, avec un intervalle de sauvegarde de 24 heures. Cela implique 10 copies des données de sauvegarde. En supposant 1 To de données pour la région USA Ouest 2, le coût s’élève à 0,12 x 1 000 x 8 pour le stockage de sauvegarde d’un mois donné. 
-
+Deux sauvegardes sont effectuées gratuitement, et les sauvegardes supplémentaires sont facturées selon la tarification régionale pour le stockage de sauvegarde décrite dans [Tarification du stockage de sauvegarde](https://azure.microsoft.com/pricing/details/cosmos-db/). Par exemple, si la rétention de la sauvegarde est configurée sur 240 heures, c’est-à-dire 10 jours, avec un intervalle de sauvegarde de 24 heures. Cela implique 10 copies des données de sauvegarde. En supposant 1 To de données pour la région USA Ouest 2, le coût s’élève à 0,12 x 1 000 x 8 pour le stockage de sauvegarde d’un mois donné.
 
 ## <a name="options-to-manage-your-own-backups"></a>Options pour gérer vos propres sauvegardes
 

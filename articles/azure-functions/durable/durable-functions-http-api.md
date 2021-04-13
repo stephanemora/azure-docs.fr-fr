@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84697841"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220451"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
 
@@ -128,6 +128,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 En version 2.x du runtime Functions, le format d’URL comporte les mêmes paramètres, mais présente un préfixe légèrement différent :
@@ -140,6 +141,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
     &showHistory=[true|false]
     &showHistoryOutput=[true|false]
     &showInput=[true|false]
+    &returnInternalServerErrorOnFailure=[true|false]
 ```
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
@@ -153,16 +155,17 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 | **`createdTimeFrom`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou après l’horodatage ISO8601 donné.|
 | **`createdTimeTo`**     | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées qui ont été créées pendant ou avant l’horodatage ISO8601 donné.|
 | **`runtimeStatus`**     | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, filtre la liste des instances retournées selon leur état d’exécution. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez l’article [Interrogation des instances](durable-functions-instance-management.md). |
+| **`returnInternalServerErrorOnFailure`**  | Chaîne de requête    | Paramètre facultatif. Si la valeur est `true`, cette API renvoie une réponse HTTP 500 au lieu de 200 si l’instance est dans un état d’échec. Ce paramètre est destiné aux scénarios d’interrogation d’état automatisés. |
 
 ### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
-* **HTTP 200 (OK)** : l’instance spécifiée est dans un état terminé.
+* **HTTP 200 (OK)** : l’instance spécifiée est dans un état terminé ou d’échec.
 * **HTTP 202 (acceptée)** : l’instance spécifiée est en cours d’exécution.
 * **HTTP 400 (Bad Request)** : l’instance spécifiée a échoué ou a été arrêtée.
 * **HTTP 404 (Not Found)** : l’instance spécifiée n’existe pas ou n’a pas démarré.
-* **HTTP 500 (Erreur interne du serveur)**: l’instance spécifiée a échoué avec une exception non prise en charge.
+* **HTTP 500 (erreur de serveur interne)**  : retourné uniquement lorsque `returnInternalServerErrorOnFailure` a la valeur `true` et que l’instance spécifiée a échoué avec une exception non gérée.
 
 La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
