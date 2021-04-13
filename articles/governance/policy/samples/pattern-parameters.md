@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Paramètres dans une définition de stratégie'
-description: Ce modèle Azure Policy fournit un exemple d’utilisation des paramètres de chaîne et de tableau dans une définition de stratégie, ainsi que du paramétrage de l’effet.
-ms.date: 08/17/2020
+description: Ce modèle Azure Policy fournit un exemple d’utilisation des paramètres de chaîne et de tableau dans une définition de stratégie et du paramétrage de l’effet.
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b742aaaf950e2b5670edbaa1f0134da144e675b6
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89649944"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092770"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Modèle Azure Policy : paramètres
 
@@ -16,7 +16,7 @@ Une définition de stratégie peut être rendue dynamique afin de réduire le no
 
 ## <a name="sample-1-string-parameters"></a>Exemple 1 : Paramètre de chaîne
 
-Cette définition de stratégie utilise deux paramètres (**tagName** et **tagValue**) pour définir ce que l’attribution de stratégie doit rechercher dans les ressources. Ce format permet à la définition de stratégie d’être utilisée avec autant de combinaisons nom-valeur d’étiquette que souhaité. Toutefois, il ne conserve qu’une seule définition de stratégie.
+Cette définition de stratégie utilise deux paramètres (**tagName** et **tagValue**), pour définir ce que l’attribution de stratégie doit rechercher dans les ressources. Ce format permet à la définition de stratégie d’être utilisée avec autant de combinaisons nom-valeur d’étiquette que souhaité. Toutefois, il ne conserve qu’une seule définition de stratégie.
 
 > [!NOTE]
 > Pour obtenir un exemple d’étiquette qui utilise **mode** _All_ et fonctionne avec un groupe de ressources, consultez [Modèle : Étiquettes - Exemple no1](./pattern-tags.md#sample-1-parameterize-tags).

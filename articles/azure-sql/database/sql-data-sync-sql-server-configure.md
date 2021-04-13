@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6b7ead2e54889327bfbea188ad464012c3861556
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98882227"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968609"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutoriel : configurer SQL Data Sync entre des bases de données d'Azure SQL Database et SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,7 +64,7 @@ Pour obtenir des exemples PowerShell sur la façon de configurer SQL Data Sync, 
    | **Utiliser une liaison privée** | Choisissez un point de terminaison privé managé par le service pour établir une connexion sécurisée entre le service de synchronisation et la base de données Hub. |
 
    > [!NOTE]
-   > Microsoft recommande de créer une base de données vide à utiliser comme **base de données des métadonnées de synchronisation**. SQL Data Sync crée les tables dans cette base de données et exécute une charge de travail fréquente. Cette base de données est partagée comme **base des métadonnées de synchronisation** pour l’ensemble des groupes de synchronisation dans une région et un abonnement sélectionnés. Vous ne pouvez pas modifier la base de données ou son nom sans supprimer tous les groupes de synchronisation et les agents de synchronisation dans la région.
+   > Microsoft recommande de créer une base de données vide à utiliser comme **base de données des métadonnées de synchronisation**. SQL Data Sync crée les tables dans cette base de données et exécute une charge de travail fréquente. Cette base de données est partagée comme **base des métadonnées de synchronisation** pour l’ensemble des groupes de synchronisation dans une région et un abonnement sélectionnés. Vous ne pouvez pas modifier la base de données ou son nom sans supprimer tous les groupes de synchronisation et les agents de synchronisation dans la région. En outre, une base de données de travaux élastiques ne peut pas être utilisée en tant que base de données de métadonnées SQL Data Sync, et inversement.  
 
    Sélectionnez **OK** et attendez que le groupe de synchronisation soit créé et déployé.
    
