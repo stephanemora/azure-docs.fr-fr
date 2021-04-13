@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 87076febd4597556fd2b28245f47442308cd6e6c
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108356"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284717"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installer et exécuter le conteneur d’analyse spatiale (préversion)
 
@@ -547,8 +547,8 @@ Vous devez utiliser [opérations d’analyse spatiale](spatial-analysis-operatio
 
 Si vous souhaitez commencer à consommer la sortie générée par le conteneur, consultez les articles suivants :
 
-*   Utilisez le kit de développement logiciel (SDK) Azure Event Hub pour le langage de programmation que vous avez choisi pour vous connecter au point de terminaison Azure IoT Hub et recevoir les événements. Pour plus d’informations, consultez [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
-*   Configurez le routage des messages sur votre instance IoT Hub Azure pour envoyer les événements à d’autres points de terminaison ou enregistrer les événements dans votre stockage Blob Azure, etc. Pour plus d’informations, consultez [Routage des messages IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
+*    Utilisez le kit de développement logiciel (SDK) Azure Event Hub pour le langage de programmation que vous avez choisi pour vous connecter au point de terminaison Azure IoT Hub et recevoir les événements. Pour plus d’informations, consultez [Lire des messages appareil-à-cloud à partir du point de terminaison intégré](../../iot-hub/iot-hub-devguide-messages-read-builtin.md). 
+*    Configurez le routage des messages sur votre instance IoT Hub Azure pour envoyer les événements à d’autres points de terminaison ou enregistrer les événements dans votre stockage Blob Azure, etc. Pour plus d’informations, consultez [Routage des messages IoT Hub](../../iot-hub/iot-hub-devguide-messages-d2c.md). 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Exécution de l’analyse spatiale avec un fichier vidéo enregistré
 

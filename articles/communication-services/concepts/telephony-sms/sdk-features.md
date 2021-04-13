@@ -1,45 +1,45 @@
 ---
-title: Vue d’ensemble de la bibliothèque cliente SMS pour Azure Communication Services
+title: Vue d’ensemble du kit SDK SMS pour Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
-description: Fournit une vue d’ensemble de la bibliothèque cliente SMS et de ses offres.
+description: Fournit une vue d’ensemble du kit SDK SMS et de ses offres.
 author: mikben
 manager: jken
 services: azure-communication-services
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: prakulka
+ms.date: 03/26/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 11ab634ed4b25c5fd8c0079263094c393e9dcbe6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c25dfea077510580daf2c1aab584ab9ff5caa7fe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496590"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930425"
 ---
-# <a name="sms-client-library-overview"></a>Vue d’ensemble de la bibliothèque cliente SMS
+# <a name="sms-sdk-overview"></a>Vue d’ensemble du kit SDK SMS
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Les bibliothèques clientes SMS d’Azure Communication Services peuvent être utilisées pour ajouter la messagerie SMS à vos applications.
+Les kits SDK SMS Azure Communication Services peuvent être utilisés pour ajouter la messagerie SMS à vos applications.
 
-## <a name="sms-client-library-capabilities"></a>Fonctionnalités de la bibliothèque cliente SMS
+## <a name="sms-sdk-capabilities"></a>Fonctionnalités du kit SDK SMS
 
-La liste suivante présente l’ensemble des fonctionnalités actuellement disponibles dans nos bibliothèques clientes.
+La liste suivante présente l’ensemble des fonctionnalités actuellement disponibles dans nos kits SDK.
 
 | Groupe de fonctionnalités | Fonctionnalité                                                                            | JS  | Java | .NET | Python |
 | ----------------- | ------------------------------------------------------------------------------------- | --- | ---- | ---- | ------ |
-| Fonctionnalités principales | Envoyer et recevoir des messages SMS </br> *Emojis Unicode pris en charge*                        | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Recevoir des rapports de remise pour les messages envoyés                                            | ✔️   | ✔️    | ✔️    | ✔️      |
+| Fonctionnalités principales | Envoyer et recevoir des messages SMS                                                         | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Activer des rapports de remise pour les messages envoyés                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Tous les jeux de caractères (prise en charge de la langue/Unicode)                                         | ✔️   | ✔️    | ✔️    | ✔️      |
-|                   | Prise en charge des messages longs (jusqu’à 2 048 caractères)                                           | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Prise en charge des messages longs (jusqu’à 2 048 octets)                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Concaténation automatique des messages longs                                                   | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Envoi des messages à plusieurs destinataires à la fois                                        | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Prise en charge de l’idempotence                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
+|                   | Étiquettes personnalisées pour les messages.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Événements            | Utiliser Event Grid pour configurer des webhooks afin de recevoir des messages entrants et des rapports de remise | ✔️   | ✔️    | ✔️    | ✔️      |
 | Numéro de téléphone      | Numéros gratuits                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
-| Réglementaire        | Gestion des désactivations                                                                      | ✔️   | ✔️    | ✔️    | ✔️      |
-| Surveillance        | Surveiller l’utilisation des messages envoyés et reçus                                          | ✔️   | ✔️    | ✔️    | ✔️      |
 | Appels RTPC      | Ajouter des fonctionnalités d’appel RTPC à votre numéro vert SMS                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## <a name="next-steps"></a>Étapes suivantes

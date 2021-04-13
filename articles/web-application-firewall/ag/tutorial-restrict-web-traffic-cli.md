@@ -4,16 +4,16 @@ description: Découvrez comment limiter le trafic web avec un pare-feu d’appli
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 03/29/2021
 ms.author: victorh
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 967d4d4a49809c2b5fa7a344286469bb67eec6cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d53f4b640154e4d7b02115d5043b37f6bb6e89ba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217599"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731137"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Activer le pare-feu d’applications web à l’aide d’Azure CLI
 
@@ -109,13 +109,15 @@ La création de la passerelle d’application peut prendre plusieurs minutes. Un
 
 Dans cet exemple, vous créez un groupe de machines virtuelles identiques qui fournit deux serveurs pour le pool principal dans la passerelle d’application. Les machines virtuelles dans le groupe identique sont associées au sous-réseau *myBackendSubnet*. Pour créer le groupe identique, vous pouvez utiliser la commande [az vmss create](/cli/azure/vmss#az-vmss-create).
 
+Remplacez \<username> et \<password> par vos valeurs avant de procéder à l’exécution.
+
 ```azurecli-interactive
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
   --image UbuntuLTS \
-  --admin-username azureuser \
-  --admin-password Azure123456! \
+  --admin-username <username> \
+  --admin-password <password> \
   --instance-count 2 \
   --vnet-name myVNet \
   --subnet myBackendSubnet \

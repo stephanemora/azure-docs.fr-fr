@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: 594f240eb80f38ce00e97ad4f96ac47ca4199840
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cb4b21fdb034ea2939377c1010a789de3fb8786f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102445039"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112789"
 ---
 Bien démarrer avec l’utilisation de la bibliothèque de client Custom Vision pour Java afin de générer un modèle de détection d’objet Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -100,7 +100,7 @@ Dans la classe **CustomVisionQuickstart** de l’application, créez des variabl
 
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devrez obtenir vos clés d’entrainement et de prédiction, ainsi que le point de terminaison des ressources d’entrainement.
+> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devez obtenir les clés pour vos ressources d’entraînement et de prédiction, ainsi que le point de terminaison d’API pour votre ressource d’entraînement.
 >
 > N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
 

@@ -8,101 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: vision par ordinateur, applications de vision par ordinateur, service vision par ordinateur
-ms.openlocfilehash: 804dacc4351da9e04ac75b2484b4330901a69271
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 875ef961148668a83e94c116622b5e461d2413fa
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488480"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286132"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Le service Vision par ordinateur d’Azure vous donne accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, Vision par ordinateur peut déterminer si une image contient du contenu pour adultes, identifier des marques ou des objets spécifiques ou trouver des visages humains.
+Le service Vision par ordinateur d’Azure vous donne accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. 
 
-Vous pouvez créer des applications Vision par ordinateur par le biais d’un [kit SDK de bibliothèque de client](./quickstarts-sdk/client-library.md) ou en appelant directement l’[API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005). Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
-
-Cette documentation contient les types d’articles suivants :
-* Les [guides de démarrage rapide](./quickstarts-sdk/client-library.md) sont des instructions pas à pas qui vous permettent d’effectuer des appels au service et d’obtenir des résultats en peu de temps. 
-* Les [guides patiques](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
-* Les [articles conceptuels](concept-recognizing-text.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
-* Les [tutoriels](./tutorials/storage-lab-tutorial.md) sont des guides plus longs qui montrent comment utiliser ce service en tant que composant dans des solutions métier plus larges.
-
-## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
-
-Vision par ordinateur comprend des [fonctionnalités de reconnaissance optique de caractères (OCR)](concept-recognizing-text.md). Vous pouvez utiliser la nouvelle API Lire pour extraire du texte imprimé et manuscrit d’images et de documents. Elle utilise des modèles basés sur le Deep Learning et fonctionne avec du texte sur diverses surfaces et fonds. Ces derniers comprennent les documents commerciaux, les factures, les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstarts-sdk/client-library.md).
+| Service|Description|
+|---|---|
+|[Reconnaissance optique des caractères (OCR)](overview-ocr.md)|Le service Reconnaissance optique de caractères (OCR) extrait le texte des images. Vous pouvez utiliser la nouvelle API Read pour extraire du texte imprimé et manuscrit à partir d'images et de documents. Elle utilise des modèles basés sur le Deep Learning et fonctionne avec du texte sur une variété de surfaces et d'arrière-plans. Ces derniers comprennent les documents commerciaux, les factures, les reçus, les affiches, les cartes de visite, les lettres et les tableaux blancs. Les API de reconnaissance optique de caractères prennent en charge l’extraction de texte imprimé en [plusieurs langues](./language-support.md). Pour vous lancer, suivez le [guide de démarrage rapide consacré au service Reconnaissance optique de caractères](quickstarts-sdk/client-library.md).|
+|[Analyse d’image](overview-image-analysis.md)| Le service Analyse d'images extrait de nombreuses caractéristiques visuelles à partir d'images, telles que des objets, des visages, du contenu pour adultes et des descriptions de texte générées automatiquement. Pour vous lancer, suivez le [guide de démarrage rapide consacré au service Analyse d'images](quickstarts-sdk/image-analysis-client-library.md).|
+| [Analyse spatiale](intro-to-spatial-analysis-public-preview.md)| Le service Analyse spatiale détecte la présence de personnes et analyse leurs déplacements sur un flux vidéo, et produit des événements auxquels d'autres systèmes peuvent répondre. Pour démarrer, installez le [conteneur Analyse spatiale](spatial-analysis-container.md).|
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Vision par ordinateur pour la gestion des ressources numériques
 
 Vision par ordinateur peut contribuer à de nombreux scénarios de gestion des actifs numériques (DAM). La gestion des actifs numériques est le processus métier d’organisation, de stockage et de récupération des éléments multimédias enrichis, et de gestion des droits et autorisations numériques. Par exemple, une entreprise peut décider de regrouper et d’identifier des images sur la base de logos, de visages, d’objets, de couleurs, ou d’autres éléments visibles. Vous pouvez également [générer automatiquement des légendes pour des images](./Tutorials/storage-lab-tutorial.md) et y associer des mots clés afin qu’elles puissent faire l’objet d’une recherche. Pour une solution gestion des actifs numériques tout-en-un utilisant Cognitive Services, Recherche cognitive Azure et une fonctionnalité de création de rapports intelligents, consultez le [Guide de l’accélérateur de solution d’exploration des connaissances](https://github.com/Azure-Samples/azure-search-knowledge-mining) sur GitHub. Pour d’autres exemples de Vision par ordinateur, consultez le dépôt [Modèles de solution Vision par ordinateur](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates).
-
-## <a name="analyze-images-for-insight"></a>Analyser des images pour obtenir des informations
-
-Vous pouvez analyser des images pour fournir des insights sur leurs caractéristiques visuelles. Toutes les fonctionnalités listées dans le tableau ci-dessous sont fournies par l’API [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b). Pour bien démarrer, suivez un [guide de démarrage rapide](./quickstarts-sdk/client-library.md).
-
-
-### <a name="tag-visual-features"></a>Identifier les composants visuels à l’aide de balises
-
-Identifier les composants visuels d’une image et les marquer à l’aide de balises à partir d’un ensemble de milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Quand les étiquettes sont ambigües ou inhabituelles, la réponse de l’API fournit des conseils pour clarifier le contexte de l’étiquette. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc. [Identifier les composants visuels à l’aide de balises](concept-tagging-images.md)
-
-### <a name="detect-objects"></a>Détecter des objets
-
-La détection d’objets est similaire au balisage, mais l’API retourne les coordonnées de cadre englobant pour chaque balise appliquée. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection liste ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter d’autres relations entre les objets dans une image. Elle vous permet également de savoir quand il existe plusieurs instances de la même balise dans une image. [Détecter des objets](concept-object-detection.md)
-
-### <a name="detect-brands"></a>Détecter les marques
-
-Identifiez les marques commerciales dans les images ou vidéos à partir d’une base de données de milliers de logos internationaux. Vous pouvez utiliser cette fonctionnalité, par exemple, pour déterminer quelles marques sont les plus populaires sur les réseaux sociaux, et lesquelles prédominent dans les médias. [Détecter les marques](concept-brand-detection.md)
-
-### <a name="categorize-an-image"></a>Catégoriser une image
-
-Identifier et catégoriser une image dans son ensemble en utilisant une [taxonomie des catégories](Category-Taxonomy.md) comprenant des hiérarchies héréditaires parent/enfant. Les catégories peuvent être utilisées seules ou avec nos nouveaux modèles de balisage.<br/>Actuellement, l’anglais est la seule langue prise en charge pour le balisage et la catégorisation des images. [Catégoriser une image](concept-categorizing-images.md)
-
-### <a name="describe-an-image"></a>Décrire une image
-
-Générer une description de l’intégralité d’une image dans un langage lisible utilisant des phrases complètes. Les algorithmes du service Vision par ordinateur génèrent différentes descriptions selon les objets identifiés dans l’image. Chacune des descriptions est évaluée, et un score de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas. [Décrire une image](concept-describing-images.md)
-
-### <a name="detect-faces"></a>Détecter des visages
-
-Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Le service Vision par ordinateur fournit un sous-ensemble des fonctionnalités du service [Visage](../face/index.yml). Utilisez le service Visage pour effectuer une analyse plus détaillée (reconnaissance faciale, détection de la posture, etc.). [Détecter des visages](concept-detecting-faces.md)
-
-### <a name="detect-image-types"></a>Détecter les types d’images
-
-Détecter les caractéristiques relatives à une image, par exemple si une image est un dessin au trait ou s’il pourrait s’agir d’une image clipart. [Détecter les types d’images](concept-detecting-image-types.md)
-
-### <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
-
-Utiliser des modèles de domaine pour détecter et identifier le contenu spécifique à un domaine dans une image, notamment pour reconnaître des célébrités ou des éléments géographiques. Par exemple, si une image contient des célébrités, le service Vision par ordinateur peut utiliser un modèle de domaine pour célébrités afin de déterminer si les personnes détectées dans l’image correspondent à des célébrités connues. [Détecter le contenu spécifique à un domaine](concept-detecting-domain-content.md)
-
-### <a name="detect-the-color-scheme"></a>Détecter le jeu de couleurs
-
-Analyser l’utilisation des couleurs dans une image. Le service Vision par ordinateur peut déterminer si une image est en noir et blanc ou en couleur. Pour les images en couleur, il peut également identifier les couleurs dominantes et d’accentuation. [Détecter le jeu de couleurs](concept-detecting-color-schemes.md)
-
-### <a name="generate-a-thumbnail"></a>Générer une miniature
-
-Analyser le contenu d’une image pour en générer une miniature. Le service Vision par ordinateur commence par générer une miniature de haute qualité, puis analyse les objets contenus dans l’image pour déterminer la *zone d’intérêt*. Il rogne ensuite l’image pour conserver uniquement la zone d’intérêt. La miniature générée peut être présentée à l’aide de proportions différentes de celles de l’image d’origine selon les besoins de chacun. [Générer une miniature](concept-generating-thumbnails.md)
-
-### <a name="get-the-area-of-interest"></a>Obtenir la zone d’intérêt
-
-Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Au lieu de rogner l’image et de générer une miniature, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région pour que l’application appelante puisse modifier l’image d’origine de la manière souhaitée. [Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)
-
-## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
-
-Vous pouvez utiliser Vision par ordinateur pour [détecter des contenus pour adultes](concept-detecting-adult-content.md) dans une image et retourner des scores de confiance pour différentes classifications. Le seuil de marquage du contenu peut être défini sur une échelle pour prendre en compte vos préférences.
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
-
-Utilisez des conteneurs Vision par ordinateur pour déployer localement des fonctionnalités d’API. Ces conteneurs Docker vous donnent la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles. Vision par ordinateur offre les conteneurs suivants :
-
-* Le [conteneur OCR de lecture de Vision par ordinateur (préversion)](computer-vision-how-to-install-containers.md) vous permet de reconnaître du texte imprimé et manuscrit dans les images.
-* Le [conteneur d’analyse spatiale de Vision par ordinateur (préversion)](spatial-analysis-container.md) vous permet d’analyser les vidéos en streaming temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques.
 
 ## <a name="image-requirements"></a>Exigences des images
 
@@ -119,6 +53,8 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commencez avec Vision par ordinateur en suivant le guide de démarrage rapide dans votre langage de développement préféré :
+Suivez un guide de démarrage rapide pour implémenter et exécuter un service dans votre langage de développement préféré.
 
-- [Démarrage rapide : API REST ou bibliothèques de client Vision par ordinateur](./quickstarts-sdk/client-library.md)
+* [Démarrage rapide : Reconnaissance optique de caractères (OCR)](quickstarts-sdk/client-library.md)
+* [Démarrage rapide : Analyse d'images](quickstarts-sdk/image-analysis-client-library.md)
+* [Démarrage rapide : Conteneur Analyse spatiale](spatial-analysis-container.md)

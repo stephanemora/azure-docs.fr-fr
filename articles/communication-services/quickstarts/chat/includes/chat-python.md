@@ -10,13 +10,15 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 2d1c3d3be412f6f11f9d2e300b3a97cf5634f5e4
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: bcbf2137e578f703cf70b1b47952736aa50f7f17
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495400"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178560"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
 
@@ -39,7 +41,7 @@ Utilisez un éditeur de texte pour créer un fichier appelé **send-chat.py** da
 
 ```python
 import os
-# Add required client library components from quickstart here
+# Add required SDK components from quickstart here
 
 try:
     print('Azure Communication Services - Chat Quickstart')
@@ -49,7 +51,7 @@ except Exception as ex:
     print(ex)
 ```
 
-### <a name="install-client-library"></a>Installer la bibliothèque de client
+### <a name="install-sdk"></a>Installer le kit SDK
 
 ```console
 
@@ -59,7 +61,7 @@ pip install azure-communication-chat
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités de la bibliothèque de client Azure Communication Services Chat pour Python.
+Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Chat pour Python.
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -77,13 +79,10 @@ pip install azure-communication-identity
 ```
 
 ```python
-from azure.communication.chat import ChatClient
-from azure.communication.identity._shared.user_credential import CommunicationTokenCredential
-from azure.communication.chat._shared.user_token_refresh_options import CommunicationTokenRefreshOptions
+from azure.communication.chat import ChatClient, CommunicationTokenCredential
 
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
-refresh_options = CommunicationTokenRefreshOptions(<Access Token>)
-chat_client = ChatClient(endpoint, CommunicationTokenCredential(refresh_options))
+chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"))
 ```
 
 ## <a name="start-a-chat-thread"></a>Démarrer un fil de conversation
@@ -92,64 +91,16 @@ Utilisez la méthode `create_chat_thread` pour créer un fil de conversation.
 
 - Utilisez `topic` pour attribuer un sujet au fil ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `update_thread`.
 - Utilisez `thread_participants` pour lister les `ChatThreadParticipant` à ajouter au fil de conversation. `ChatThreadParticipant` prend le type `CommunicationUserIdentifier` comme `user`, que vous avez obtenu à l’issue du processus de création décrit dans [Créer un utilisateur](../../access-tokens.md#create-an-identity)
-- Utilisez `repeatability_request_id` pour indiquer que la requête est renouvelable. Le client peut effectuer la requête plusieurs fois avec le même identifiant Repeatability-Request-ID et obtenir une réponse appropriée sans que le serveur exécute la requête plusieurs fois.
 
 `CreateChatThreadResult` est le résultat retourné par la création d’un thread, vous pouvez l’utiliser pour extraire l’`id` du fil de conversation qui a été créé. Vous pouvez ensuite utiliser cette `id` pour extraire un objet `ChatThreadClient` à l’aide de la méthode `get_chat_thread_client`. `ChatThreadClient` peut être utilisé pour effectuer d’autres opérations de conversation sur ce thread de conversation.
 
-#### <a name="without-repeatability-request-id"></a>Sans identifiant Repeatability-Request-ID
 ```python
-from datetime import datetime
 from azure.communication.chat import ChatThreadParticipant
 
-# from azure.communication.identity import CommunicationIdentityClient
-# 
-# # create an user
-# identity_client = CommunicationIdentityClient.from_connection_string('<connection_string>')
-# user = identity_client.create_user()
-# 
-# ## OR pass existing user
-# # from azure.communication.identity import CommunicationUserIdentifier
-# # user_id = 'some_user_id'
-# # user = CommunicationUserIdentifier(user_id)
-
 topic="test topic"
-participants = [ChatThreadParticipant(
-    user=user,
-    display_name='name',
-    share_history_time=datetime.utcnow()
-)]
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
 chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
-```
-
-#### <a name="with-repeatability-request-id"></a>Avec identifiant Repeatability-Request-ID
-```python
-from datetime import datetime
-from azure.communication.chat import ChatThreadParticipant
-
-# from azure.communication.identity import CommunicationIdentityClient
-# 
-# # create an user
-# identity_client = CommunicationIdentityClient.from_connection_string('<connection_string>')
-# user = identity_client.create_user()
-# 
-# ## OR pass existing user
-# # from azure.communication.identity import CommunicationUserIdentifier
-# # user_id = 'some_user_id'
-# # user = CommunicationUserIdentifier(user_id)
-
-topic="test topic"
-participants = [ChatThreadParticipant(
-    user=user,
-    display_name='name',
-    share_history_time=datetime.utcnow()
-)]
-
-repeatability_request_id = 'b66d6031-fdcc-41df-8306-e524c9f226b8' # some unique identifier
-chat_thread_client = chat_client.create_chat_thread(topic, 
-                                                    thread_participants=participants, 
-                                                    repeatability_request_id=repeatability_request_id)
 ```
 
 ## <a name="get-a-chat-thread-client"></a>Obtenir un client de fil de conversation
@@ -162,42 +113,27 @@ thread_id = create_chat_thread_result.chat_thread.id
 chat_thread_client = chat_client.get_chat_thread_client(thread_id)
 ```
 
-## <a name="get-a-chat-thread"></a>Obtenir un fil de conversation
-
-La méthode `get_chat_thread` récupère un `ChatThread` à partir du service ; `thread_id` est l’ID unique du thread.
-- Utilisez `thread_id`, requis, pour spécifier l’ID unique du thread. 
-```python
-chat_thread = chat_client.get_chat_thread(thread_id=thread_id)
-```
 
 ## <a name="list-all-chat-threads"></a>Répertorier tous les fils de conversation
-La méthode `list_chat_threads` retourne un itérateur de type `ChatThreadInfo`. Celui-ci peut être utilisé pour répertorier tous les fils de conversation.
+La méthode `list_chat_threads` retourne un itérateur de type `ChatThreadItem`. Celui-ci peut être utilisé pour répertorier tous les fils de conversation.
 
 - Utilisez `start_time` pour spécifier l’instant dans le passé le plus ancien auquel vous souhaitez accéder pour obtenir les fils de conversation.
 - Utilisez `results_per_page` pour spécifier le nombre maximal de fils de conversation retournés par page.
 
-Un itérateur de `[ChatThreadInfo]` est la réponse retournée par l’énumération des threads
+Un itérateur de `[ChatThreadItem]` est la réponse retournée par l’énumération des threads
 
 ```python
 from datetime import datetime, timedelta
 
 start_time = datetime.utcnow() - timedelta(days=2)
 
-chat_thread_infos = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
-for chat_thread_info_page in chat_thread_infos.by_page():
-    for chat_thread_info in chat_thread_info_page:
-        print(chat_thread_info)
+chat_threads = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
+for chat_thread_item_page in chat_threads.by_page():
+    for chat_thread_item in chat_thread_item_page:
+        print(chat_thread_item)
+        print('Chat Thread Id: ', chat_thread_item.id)
 ```
 
-## <a name="delete-a-chat-thread"></a>Supprimer un fil de conversation
-`delete_chat_thread` est utilisé pour supprimer un fil de conversation.
-
-- Utilisez `thread_id` pour spécifier l’identifiant thread_id d’un fil de conversation existant qui doit être supprimé
-
-```python
-thread_id = create_chat_thread_result.chat_thread.id
-chat_client.delete_chat_thread(thread_id=thread_id)
-```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envoyer un message à un fil de conversation
 
@@ -207,21 +143,8 @@ Utilisez la méthode `send_message` pour envoyer un message au fil de conversati
 - Utilisez `chat_message_type` pour spécifier le type de contenu du message. Les valeurs possibles sont « text » et « html ». Si aucune valeur n’est spécifiée, la valeur par défaut « text » est attribuée.
 - Utilisez `sender_display_name` pour spécifier le nom d’affichage de l’expéditeur ;
 
-La réponse est un identifiant « id » de type `str` qui est l’unique identifiant de ce message.
+`SendChatMessageResult` est la réponse retournée à la suite de l’envoi du message; elle contient un ID, qui est l’ID unique du message.
 
-#### <a name="message-type-not-specified"></a>Type de message non spécifié
-```python
-topic = "test topic"
-create_chat_thread_result = chat_client.create_chat_thread(topic)
-thread_id = create_chat_thread_result.chat_thread.id
-chat_thread_client = chat_client.get_chat_thread_client(create_chat_thread_result.chat_thread.id)
-
-content='hello world'
-
-send_message_result_id = chat_thread_client.send_message(content)
-```
-
-#### <a name="message-type-specified"></a>Type de message spécifié
 ```python
 from azure.communication.chat import ChatMessageType
 
@@ -235,25 +158,10 @@ content='hello world'
 sender_display_name='sender name'
 
 # specify chat message type with pre-built enumerations
-send_message_result_id_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
-print("Message sent: id: ", send_message_result_id_w_enum)
-
-# specify chat message type as string
-send_message_result_id_w_str = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type='text')
-print("Message sent: id: ", send_message_result_id_w_str)
+send_message_result_w_enum = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name, chat_message_type=ChatMessageType.TEXT)
+print("Message sent: id: ", send_message_result_w_enum.id)
 ```
 
-## <a name="get-a-specific-chat-message-from-a-chat-thread"></a>Obtenir un message de conversation spécifique à partir d’un fil de conversation
-La fonction `get_message` peut être utilisée pour récupérer un message spécifique, identifié par un message_id
-
-- Utilisez `message_id` pour spécifier l’identifiant du message.
-
-La réponse de type `ChatMessage` contient toutes les informations relatives au message unique.
-
-```python
-message_id = send_message_result_id
-chat_message = chat_thread_client.get_message(message_id)
-```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recevoir les messages de conversation d’un fil de conversation
 
@@ -277,148 +185,28 @@ for chat_message_page in chat_messages.by_page():
 
 `list_messages` retourne la version la plus récente du message, avec les modifications ou les suppressions dont le message a éventuellement fait l’objet via `update_message` et `delete_message`. Pour les messages supprimés, `ChatMessage.deleted_on` retourne une valeur datetime indiquant à quel moment ce message a été supprimé. Pour les messages modifiés, `ChatMessage.edited_on` retourne une valeur datetime indiquant à quel moment ce message a été modifié. Il est possible d’accéder à l’heure initiale de création du message à l’aide de `ChatMessage.created_on` qui peut être utilisée à des fins de classement des messages.
 
-`list_messages` retourne différents types de messages qui peuvent être identifiés par `ChatMessage.type`. Ces types sont les suivants :
+`list_messages` retourne différents types de messages qui peuvent être identifiés par `ChatMessage.type`. 
 
-- `ChatMessageType.TEXT` : Message de conversation ordinaire envoyé par un participant au fil de conversation.
+Pour en savoir plus sur les types de messages, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
 
-- `ChatMessageType.HTML` : message de conversation envoyé par un participant au fil de conversation.
-
-- `ChatMessageType.TOPIC_UPDATED`: Message système qui indique que le sujet a été mis à jour
-
-- `ChatMessageType.PARTICIPANT_ADDED` : Message système qui indique qu’un ou plusieurs participants ont été ajoutés au fil de conversation.
-
-- `ChatMessageType.PARTICIPANT_REMOVED` : Message système qui indique qu’un participant a été supprimé du fil de conversation.
-
-Pour plus d’informations, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
-
-## <a name="update-topic-of-a-chat-thread"></a>Mettre à jour le sujet d’un fil de conversation
-Vous pouvez mettre à jour le sujet d’un fil de conversation à l’aide de la méthode `update_topic`
-
-```python
-topic = "updated thread topic"
-chat_thread_client.update_topic(topic=topic)
-
-chat_thread = chat_client.get_chat_thread(chat_thread_client.thread_id)
-updated_topic = chat_thread.topic
-
-print('Updated topic: ', updated_topic)
-```
-
-## <a name="update-a-message"></a>Mettre à jour un message
-Vous pouvez mettre à jour le contenu d’un message existant à l’aide de la méthode `update_message`, identifiée par le message_id
-
-- `message_id` est l’ID unique du message.
-- `content`, facultatif, est le contenu du message à mettre à jour ; s’il n’est pas spécifié, il est considéré comme vide
-
-```python
-content = 'Hello world!'
-send_message_result_id = chat_thread_client.send_message(content=content, sender_display_name=sender_display_name)
-
-content = 'Hello! I am updated content'
-chat_thread_client.update_message(message_id=send_message_result_id, content=content)
-
-chat_message = chat_thread_client.get_message(send_message_result_id)
-print('Updated message content: ', chat_message.content.message)
-```
-
-## <a name="send-read-receipt-for-a-message"></a>Envoyer une confirmation de lecture pour un message
+## <a name="send-read-receipt"></a>Envoyer une confirmation de lecture
 La méthode `send_read_receipt` peut être utilisée pour publier un événement de confirmation de lecture sur un fil de conversation, pour le compte d’un utilisateur.
 
 - Utilisez `message_id` pour spécifier l’identifiant du dernier message lu par l’utilisateur actuel.
 
 ```python
-message_id=send_message_result_id
-chat_thread_client.send_read_receipt(message_id=message_id)
+content='hello world'
+
+send_message_result = chat_thread_client.send_message(content)
+chat_thread_client.send_read_receipt(message_id=send_message_result.id)
 ```
 
-## <a name="list-read-receipts-for-a-chat-thread"></a>Répertorier les confirmations de lecture d’un fil de conversation
-La méthode `list_read_receipts` peut être utilisée pour obtenir des confirmations de lecture pour un fil de conversation.
 
-- Utilisez `results_per_page` pour spécifier le nombre maximal de confirmations de lecture de message de conversation retournées par page.
-- Utilisez `skip` pour spécifier les accusés de lecture de message de conversation ignorés jusqu’à une position spécifiée dans la réponse.
+## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Ajouter un utilisateur comme participant au fil de conversation
 
-Un itérateur de `[ChatMessageReadReceipt]` est la réponse retournée par l’énumération des accusés de lecture
+Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utilisateurs et en supprimer. En ajoutant des utilisateurs, vous leur octroyez l’accès permettant d’envoyer des messages au fil de conversation et d’ajouter ou de supprimer d’autres participants. Avant d’appeler la méthode `add_participants`, vérifiez que vous avez acquis un nouveau jeton d’accès et une identité pour cet utilisateur. L’utilisateur aura besoin de ce jeton d’accès pour initialiser son client de conversation.
 
-```python
-read_receipts = chat_thread_client.list_read_receipts(results_per_page=5, skip=0)
-
-for read_receipt_page in read_receipts.by_page():
-    for read_receipt in read_receipt_page:
-        print('ChatMessageReadReceipt: ', read_receipt)
-        print('Sender', read_receipt.sender)
-        print('Message Id', read_receipt.chat_message_id)
-        print('Read On Timestamp', read_receipt.read_on)
-```
-
-## <a name="send-typing-notification"></a>Envoyer une notification de saisie
-La méthode `send_typing_notification` peut être utilisée pour publier un événement de saisie sur un fil de conversation, pour le compte d’un utilisateur.
-
-```python
-chat_thread_client.send_typing_notification()
-```
-
-## <a name="delete-message"></a>Supprimer un message
-La méthode `delete_message` peut être utilisée pour supprimer un message, identifié par un message_id
-
-- Utiliser `message_id` pour spécifier le message_id
-
-```python
-message_id=send_message_result_id
-chat_thread_client.delete_message(message_id=message_id)
-```
-
-## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Ajouter un utilisateur comme participant au fil de conversation
-
-Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utilisateurs et en supprimer. En ajoutant des utilisateurs, vous leur octroyez l’accès permettant d’envoyer des messages au fil de conversation et d’ajouter ou de supprimer d’autres participants. Avant d’appeler la méthode `add_participant`, vérifiez que vous avez acquis un nouveau jeton d’accès et une identité pour cet utilisateur. L’utilisateur aura besoin de ce jeton d’accès pour initialiser son client de conversation.
-
-Utilisez la méthode `add_participant` pour ajouter des participants au fil de conversation identifié par thread_id.
-
-- Utilisez `thread_participant` pour spécifier les participants à ajouter au fil de conversation ;
-- `user`, obligatoire, est le `CommunicationUserIdentifier` que vous avez créé avec `CommunicationIdentityClient` à l’étape [Créer un utilisateur](../../access-tokens.md#create-an-identity).
-- `display_name`, facultatif, est le nom d’affichage pour le participant au fil.
-- `share_history_time`, facultatif, est le moment à partir duquel l’historique de conversation est partagé avec le participant. Pour partager l’historique depuis le début du fil de conversation, attribuez à cette propriété une date égale ou antérieure à la date de création du fil. Pour ne pas partager l’historique antérieur au moment où le participant a été ajouté, définissez-la sur l’heure actuelle. Pour partager un historique partiel, attribuez-lui une date intermédiaire.
-
-Quand le participant est correctement ajouté, aucune erreur n’est générée. En cas d’erreur rencontrée lors de l’ajout d’un participant, une exception `RuntimeError` est levée
-
-```python
-from azure.communication.identity import CommunicationIdentityClient
-from azure.communication.chat import ChatThreadParticipant
-from datetime import datetime
-
-# create an user
-identity_client = CommunicationIdentityClient.from_connection_string('<connection_string>')
-new_user = identity_client.create_user()
-
-# # conversely, you can also add an existing user to a chat thread; provided the user_id is known
-# from azure.communication.identity import CommunicationUserIdentifier
-#
-# user_id = 'some user id'
-# user_display_name = "Wilma Flinstone"
-# new_user = CommunicationUserIdentifier(user_id)
-# participant = ChatThreadParticipant(
-#     user=new_user,
-#     display_name=user_display_name,
-#     share_history_time=datetime.utcnow())
-
-def decide_to_retry(error, **kwargs):
-    """
-    Insert some custom logic to decide if retry is applicable based on error
-    """
-    return True
-
-participant = ChatThreadParticipant(
-    user=new_user,
-    display_name='Fred Flinstone',
-    share_history_time=datetime.utcnow())
-
-try:
-    chat_thread_client.add_participant(thread_participant=participant)
-except RuntimeError as e:
-    if e is not None and decide_to_retry(error=e):
-        chat_thread_client.add_participant(thread_participant=participant)
-```
-
-Plusieurs utilisateurs peuvent également être ajoutés au fil de conversation à l’aide de la méthode `add_participants`, à condition qu’un nouveau jeton d’accès et qu’une nouvelle identification soient disponibles pour tous les utilisateurs.
+Un ou plusieurs utilisateurs peuvent être ajoutés au fil de conversation à l’aide de la méthode `add_participants`, à condition qu’un nouveau jeton d’accès et qu’une nouvelle identification soient disponibles pour tous les utilisateurs.
 
 Un `list(tuple(ChatThreadParticipant, CommunicationError))` est retourné. Quand le participant est correctement ajouté, une liste vide est attendue. En cas d’erreur rencontrée lors de l’ajout d’un participant, la liste est remplie avec les participants n’ayant pas pu être ajoutés, ainsi que l’erreur rencontrée.
 
@@ -451,7 +239,7 @@ for _user in new_users:
   ) 
   participants.append(chat_thread_participant) 
 
-response = chat_thread_client.add_participants(thread_participants=participants)
+response = chat_thread_client.add_participants(participants)
 
 def decide_to_retry(error, **kwargs):
     """
@@ -462,26 +250,26 @@ def decide_to_retry(error, **kwargs):
 # verify if all users has been successfully added or not
 # in case of partial failures, you can retry to add all the failed participants 
 retry = [p for p, e in response if decide_to_retry(e)]
-if len(retry) > 0:
+if retry:
     chat_thread_client.add_participants(retry)
 ```
 
 
-## <a name="remove-user-from-a-chat-thread"></a>Supprimer un utilisateur d’un fil de conversation
+## <a name="list-thread-participants-in-a-chat-thread"></a>Répertorier les participants d’un fil de conversation
 
-De la même façon que vous ajoutez un participant, vous pouvez également supprimer des participants d’un fil de conversation. Pour pouvoir effectuer une suppression, vous devez suivre les ID des participants que vous avez ajoutés.
+De la même façon que vous ajoutez un participant, vous pouvez également répertorier les participants d’une conversation.
 
-Utilisez la méthode `remove_participant` pour supprimer des participants du fil de conversation identifié par threadId.
-- `user` correspond à l’élément `CommunicationUserIdentifier` à supprimer du fil de conversation.
+Utilisez `list_participants` pour récupérer les participants à la conversation.
+- (Facultatif) Utilisez `results_per_page`, ce qui correspond au nombre maximal de participants à renvoyer par page.
+- (Facultatif) Utilisez `skip` pour ignorer les participants jusqu’à une position spécifiée dans la réponse.
+
+Un itérateur de `[ChatThreadParticipant]` est la réponse retournée par l’énumération des participants.
 
 ```python
-chat_thread_client.remove_participant(user=new_user)
-
-# # converesely you can also do the following; provided the user_id is known
-# from azure.communication.identity import CommunicationUserIdentifier
-# 
-# user_id = 'some user id'
-# chat_thread_client.remove_participant(user=CommunincationUserIdentfier(new_user))
+chat_thread_participants = chat_thread_client.list_participants()
+for chat_thread_participant_page in chat_thread_participants.by_page():
+    for chat_thread_participant in chat_thread_participant_page:
+        print("ChatThreadParticipant: ", chat_thread_participant)
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code

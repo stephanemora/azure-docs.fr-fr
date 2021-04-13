@@ -9,32 +9,20 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 74a48b05e7e3b00d331da4fcf66092490ae70374
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ee33c032293329a6af69a0b2be691092c2a8da4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490668"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729641"
 ---
 # <a name="client-and-server-architecture"></a>Architecture client et serveur
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Need to add security best practices for token management here
-> - Reference docs:
-> - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
-> - https://docs.microsoft.com/azure/aks/operator-best-practices-identity
-> - https://docs.microsoft.com/cloud-app-security/api-tokens?view=gestures-1.0-->
 
 Chaque application de Azure Communication Services aura des **applications clientes** qui utilisent des **services**  pour faciliter la connectivité de personne à personne. Cette page illustre des éléments d’architecture courants dans divers scénarios.
 
 ## <a name="user-access-management"></a>Gestion de l'accès utilisateur
 
-Les bibliothèques de client Azure Communication Services requièrent `user access tokens` pour accéder aux ressources de Communication Services en toute sécurité. `User access tokens` doivent être générés et gérés par un service approuvé en raison de la nature sensible du jeton et de la chaîne de connexion nécessaire pour les générer. L’impossibilité de gérer correctement les jetons d’accès peut entraîner des frais supplémentaires en raison d’une mauvaise utilisation des ressources. Il est fortement recommandé d’utiliser un service approuvé pour la gestion des utilisateurs. Le service approuvé va générer les jetons et les transmettre au client à l’aide d’un chiffrement approprié. Vous trouverez un exemple de flux d’architecture ci-dessous :
+Les kits SDK Azure Communication Services requièrent `user access tokens` pour accéder aux ressources de Communication Services en toute sécurité. `User access tokens` doivent être générés et gérés par un service approuvé en raison de la nature sensible du jeton et de la chaîne de connexion nécessaire pour les générer. L’impossibilité de gérer correctement les jetons d’accès peut entraîner des frais supplémentaires en raison d’une mauvaise utilisation des ressources. Il est fortement recommandé d’utiliser un service approuvé pour la gestion des utilisateurs. Le service approuvé va générer les jetons et les transmettre au client à l’aide d’un chiffrement approprié. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagramme montrant l’architecture des jetons d’accès utilisateur.":::
 
@@ -42,7 +30,7 @@ Pour plus d’informations, consultez les [meilleures pratiques de gestion des i
 
 ## <a name="browser-communication"></a>Communication du navigateur
 
-Les bibliothèques de client JavaScript Azure communications peuvent activer des applications Web avec des fonctionnalités de texte enrichi, de voix et d’interaction vidéo. L’application interagit directement avec Azure Communication Services via la bibliothèque de client pour accéder au plan de données et fournir une communication texte, vocale et vidéo en temps réel. Vous trouverez un exemple de flux d’architecture ci-dessous :
+Les kits SDK JavaScript Azure Communications peuvent activer des applications web avec des fonctionnalités de texte enrichi, de voix et d’interaction vidéo. L’application interagit directement avec Azure Communication Services via le kit SDK pour accéder au plan de données et fournir une communication texte, vocale et vidéo en temps réel. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
 :::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramme montrant l’architecture navigateur à navigateur pour Communication Services.":::
 
@@ -54,7 +42,7 @@ De nombreux scénarios sont mieux servis avec les applications natives. Azure Co
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voix et SMS sur le réseau téléphonique public commuté (RTPC)
 
-La communication sur le système téléphonique peut augmenter considérablement la portée de votre application. Pour prendre en charge les services vocaux et de SMS sur le RTPC, Azure Communication Services vous aide à [obtenir des numéros de téléphone](../quickstarts/telephony-sms/get-phone-number.md) directement à partir du portail Azure ou à l’aide des API REST et des bibliothèques de client. Une fois les numéros de téléphone acquis, ils peuvent être utilisés pour atteindre les clients à l’aide d’appels sur le RTPC et de SMS dans les scénarios entrants et sortants. Vous trouverez un exemple de flux d’architecture ci-dessous :
+La communication sur le système téléphonique peut augmenter considérablement la portée de votre application. Pour prendre en charge les services vocaux et de SMS sur le RTPC, Azure Communication Services vous aide à [obtenir des numéros de téléphone](../quickstarts/telephony-sms/get-phone-number.md) directement à partir du portail Azure ou à l’aide des API REST et des kits SDK. Une fois les numéros de téléphone acquis, ils peuvent être utilisés pour atteindre les clients à l’aide d’appels sur le RTPC et de SMS dans les scénarios entrants et sortants. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
 > [!Note]
 > Pendant la préversion publique, l’obtention de numéros de téléphone américains est disponible pour les clients dont les adresses de facturation se trouvent aux États-Unis et au Canada.
@@ -65,7 +53,7 @@ Pour plus d’informations sur les numéros de téléphone RTC, consultez [Type
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>Êtres humains communiquant avec des robots et d’autres services
 
-Azure Communication Services prend en charge la communication entre humains et système via des chaînes de texte et de voix, avec des services qui accèdent directement au plan de données Azure Communication Services. Par exemple, vous pouvez demander à un bot de répondre à des appels téléphoniques entrants ou de participer à une conversation Web. Azure Communication Services fournit des bibliothèques de client qui permettent à ces scénarios d’appeler et de discuter. Vous trouverez un exemple de flux d’architecture ci-dessous :
+Azure Communication Services prend en charge la communication entre humains et système via des chaînes de texte et de voix, avec des services qui accèdent directement au plan de données Azure Communication Services. Par exemple, vous pouvez demander à un bot de répondre à des appels téléphoniques entrants ou de participer à une conversation Web. Azure Communication Services fournit des kits SDK qui permettent à ces scénarios d’appeler et de discuter. Vous trouverez un exemple de flux d’architecture ci-dessous :
 
 :::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramme montrant l’architecture des conversations dans Communication Services.":::
 
@@ -73,7 +61,7 @@ Azure Communication Services prend en charge la communication entre humains et s
 
 Vous souhaiterez peut-être échanger des données arbitraires entre utilisateurs, par exemple pour synchroniser une réalité mixte partagée ou une expérience de gaming. Le plan de données en temps réel utilisé pour la communication avec le texte, la voix et la vidéo est directement disponible de deux façons :
 
-- **Appel de la bibliothèque de client** - les appareils d’un appel ont accès aux API pour l’envoi et la réception de données via le canal d’appel. Il s’agit du moyen le plus simple d’ajouter des communications de données à une interaction existante.
+- **Appel du Kit SDK** : Les appareils d’un appel ont accès aux API pour l’envoi et la réception de données via le canal d’appel. Il s’agit du moyen le plus simple d’ajouter des communications de données à une interaction existante.
 - **STUN/TURN** : Azure Communication Services met à votre disposition des services STUN et TURN conformes aux normes. Cela vous permet de créer une couche de transport fortement personnalisée sur ces primitives standardisées. Vous pouvez créer votre propre client conforme aux normes ou utiliser des bibliothèques open source, telles que [WinRTC](https://github.com/microsoft/winrtc).
 
 ## <a name="next-steps"></a>Étapes suivantes

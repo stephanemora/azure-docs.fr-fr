@@ -4,12 +4,12 @@ description: Fournit un récapitulatif des limitations et des paramètres de pri
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a0150a4c1a8fbd756de6fc16142f0115b05098ed
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609785"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967827"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -153,6 +153,7 @@ Sauvegarde des machines virtuelles Azure avec des verrous | Non pris en charge p
 [Machines virtuelles Spot](../virtual-machines/spot-vms.md) | Non prise en charge. La sauvegarde Azure restaure les machines virtuelles Sport en tant que machines virtuelles Azure classiques.
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | Prise en charge
 Configuration des espaces de stockage Windows des machines virtuelles Azure autonomes | Prise en charge
+[Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Prise en charge pour les modèles d’orchestration uniformes et flexibles pour la sauvegarde et la restauration d’une seule machine virtuelle Azure.
 
 ## <a name="vm-storage-support"></a>Prise en charge du stockage des machines virtuelles
 

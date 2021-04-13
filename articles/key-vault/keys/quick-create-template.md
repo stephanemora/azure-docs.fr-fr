@@ -10,16 +10,19 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: d68ec580f25bfd5f9c1a994efc15abd8835ac8a5
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 48686fb78dc4295da3bd390d92ae3837cd09a4d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093506"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639424"
 ---
-# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM (préversion)
+# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Démarrage rapide : Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM 
 
 [Azure Key Vault](../general/overview.md) est un service cloud qui propose un magasin sécurisé pour les secrets, comme les clés, les mots de passe, les certificats et autres secrets. Ce guide de démarrage rapide porte essentiellement sur le déploiement d’un modèle Azure Resource Manager (modèle ARM) en vue de créer un coffre de clés et une clé.
+
+> [!NOTE]
+> Cette fonctionnalité n’est pas disponible pour Azure Government.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -163,6 +166,9 @@ Deux ressources sont définies dans le modèle :
 - Microsoft.KeyVault/vaults/keys
 
 Vous trouverez d’autres exemples de modèles Azure Key Vault dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
+
+## <a name="deploy-the-template"></a>Déployer le modèle
+Vous pouvez utiliser le [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, Azure CLI, ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Déployer des modèles](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## <a name="review-deployed-resources"></a>Vérifier les ressources déployées
 

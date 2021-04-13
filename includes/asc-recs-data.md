@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/29/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: fe1b9fc8754ae959abf088526b5d71e0e43c158e
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 164c5e199bcb17dfe7a8ce92b169b26ecd389703
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466186"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958225"
 ---
-Il existe **64** recommandations dans cette catégorie.
+Cette catégorie compte **65** recommandations.
 
 |Recommandation |Description |Gravité |
 |---|---|---|
@@ -24,6 +24,7 @@ Il existe **64** recommandations dans cette catégorie.
 |La conservation des audits pour les serveurs SQL Server doit être définie sur au moins 90 jours |Auditez les serveurs SQL configurés avec une période de conservation d’audit inférieure à 90 jours.<br />(Stratégie associée : [Les serveurs SQL doivent être configurés avec une période de conservation d’audit de 90 jours au moins.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f89099bee-89e0-4b26-a5f4-165451757743)) |Faible |
 |L’audit sur SQL Server doit être activé |Activer l’audit sur votre serveur SQL Server pour effectuer le suivi des activités de la base de données dans toutes les bases de données sur le serveur et les enregistrer dans un journal d’audit.<br />(Stratégie associée : [L’audit sur le serveur SQL doit être activé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9)) |Faible |
 |L’approvisionnement automatique de l’agent Log Analytics doit être activé sur votre abonnement |Pour superviser les menaces et les vulnérabilités de sécurité, Azure Security Center collecte des données à partir de vos machines virtuelles Azure. Les données sont collectées par l’agent Log Analytics, auparavant appelé Microsoft Monitoring Agent (MMA). Cet agent lit divers journaux d’événements et configurations liés à la sécurité de la machine, puis copie les données dans votre espace de travail Log Analytics à des fins d’analyse. Nous vous recommandons d’activer l’approvisionnement automatique pour déployer automatiquement l’agent sur toutes les machines virtuelles Azure prises en charge et sur toutes celles qui sont créées.<br />(Stratégie associée : [Le provisionnement automatique de l’agent Log Analytics doit être activé sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f475aae12-b88a-4572-8b36-9b712b2b3a17)) |Faible |
+|Les clusters Kubernetes avec Azure Arc doivent avoir l’extension Azure Defender installée |L’extension Azure Defender pour Azure Arc fournit une protection contre les menaces à vos clusters Kubernetes avec Arc. L’extension collecte les données de tous les nœuds du plan de contrôle (maître) du cluster et les envoie au back-end Azure Defender pour Kubernetes dans le cloud pour une analyse plus approfondie. En savoir plus sur https://docs.microsoft.com/azure/security-center/defender-for-kubernetes-azure-arc.<br />(Aucune stratégie associée) |Élevé |
 |Azure Cache pour Redis doit se trouver dans un réseau virtuel |Le déploiement d’un réseau virtuel (VNet) Azure offre plus de sécurité et d’isolation pour Azure Cache pour Redis, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités pour restreindre davantage l’accès. Quand une instance Azure Cache pour Redis est configurée avec un VNet, elle n’est pas adressable publiquement et n’est accessible qu’à partir des machines virtuelles et des applications au sein du VNet.<br />(Stratégie associée : [Azure Cache pour Redis doit se trouver dans un réseau virtuel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7d092e0a-7acd-40d2-a975-dca21cae48c4)) |Moyenne |
 |Les comptes Azure Cosmos DB doivent avoir des règles de pare-feu |Les règles de pare-feu doivent être définies dans vos comptes Azure Cosmos DB pour empêcher le trafic provenant de sources non autorisées. Les comptes qui possèdent au moins une règle IP définie avec le filtre de réseau virtuel activé sont considérés comme conformes. Les comptes qui désactivent l’accès public sont également jugés conformes.<br />(Stratégie associée : [Les comptes Azure Cosmos DB doivent avoir des règles de pare-feu](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb)) |Moyenne |
 |Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos |Utilisez des clés gérées par le client pour gérer le chiffrement au repos de votre compte Azure Cosmos DB. Par défaut, les données sont chiffrées au repos avec des clés gérées par le service, mais des clés gérées par le client (CMK) sont généralement requises pour répondre aux normes de conformité réglementaire. Les CMK permettent de chiffrer les données avec une clé Azure Key Vault que vous avez créée et dont vous êtes le propriétaire. Vous avez le contrôle total et la responsabilité du cycle de vie des clés, notamment leur permutation et leur gestion. Pour en savoir plus sur le chiffrement par clés gérées par le client, consultez https://aka.ms/cosmosdb-cmk.<br />(Stratégie associée : [Les comptes Azure Cosmos DB doivent utiliser des clés gérées par les clients pour chiffrer les données au repos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1f905d99-2ab7-462c-a6b0-f709acca6c8f)) |Élevé |

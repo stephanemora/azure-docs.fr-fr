@@ -3,12 +3,12 @@ title: Stocker des charts Helm
 description: Découvrez comment stocker des graphiques Helm pour vos applications Kubernetes en utilisant des référentiels dans Azure Container Registry
 ms.topic: article
 ms.date: 06/12/2020
-ms.openlocfilehash: 69b16f35589586787e1c31a0e9755b9030af755d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9897ed6e43813c16314076b0322cd263cd2ed150
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86537865"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223079"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure
 
@@ -31,7 +31,7 @@ Helm 3 doit être utilisé pour le stockage des graphiques Helm dans Azure Cont
 * Utilisez les commandes `helm chart` dans la CLI Helm pour envoyer (push), tirer (pull) et gérer des graphiques Helm dans un registre.
 * Utiliser `helm install` pour installer des graphiques sur un cluster Kubernetes à partir d’un cache de référentiel local.
 > [!NOTE]
-> Tout comme pour Helm 3, l’utilisation des commandes [az acr helm][az-acr-helm] avec le client Helm 2 est déconseillée. Consultez la [feuille de route du produit](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga). Si vous avez déjà déployé des graphiques Helm 2, consultez cette page sur la [migration de Helm 2 vers Helm 3](https://helm.sh/docs/topics/v2_v3_migration/).
+> Tout comme pour Helm 3, l’utilisation des commandes [az acr helm][az-acr-helm] avec le client Helm 2 est déconseillée. Un préavis d’au moins 3 mois sera envoyé avant la suppression de la commande. Si vous avez déjà déployé des graphiques Helm 2, consultez cette page sur la [migration de Helm 2 vers Helm 3](https://helm.sh/docs/topics/v2_v3_migration/).
 
 ## <a name="prerequisites"></a>Prérequis
 

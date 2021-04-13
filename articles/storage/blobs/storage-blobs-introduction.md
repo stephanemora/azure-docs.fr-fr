@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6d71fc7931db77f0cf19a4e7ea70731ba19d1f6d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98703587"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937309"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Présentation du Stockage Blob Azure
 
@@ -55,7 +55,7 @@ Un conteneur regroupe un ensemble d’objets blob, à la manière d’un répert
 
 Le service Stockage Azure prend en charge trois types d’objets blob :
 
-- Les **objets blob de blocs** stockent du texte et des données binaires. Ils sont composés de blocs de données qui peuvent être gérés individuellement. Les objets blob de blocs stockent jusqu’à environ 4,75 Tio de données. Des objets blob de blocs plus volumineux sont disponibles en préversion, jusqu’à environ 190,7 Tio.
+- Les **objets blob de blocs** stockent du texte et des données binaires. Ils sont composés de blocs de données qui peuvent être gérés individuellement. Les objets blob de blocs peuvent stocker jusqu’à environ 190,7 Tio.
 - Les **objets blob d’ajout** se composent de blocs, comme les objets blob de blocs, mais sont optimisés pour les opérations d’ajout. Les objets blob d’ajout sont parfaits pour les scénarios tels que la consignation des données issues des machines virtuelles.
 - Les **objets blob de pages** stockent des fichiers à accès aléatoire d’une taille maximale de 8 Tio. Les objets blob de pages stockent les fichiers de disque dur virtuel et servent de disques pour les machines virtuelles Azure. Pour plus d’informations sur les objets blob de pages, consultez [Vue d’ensemble des objets blob de pages Azure](storage-blob-pageblob-overview.md)
 

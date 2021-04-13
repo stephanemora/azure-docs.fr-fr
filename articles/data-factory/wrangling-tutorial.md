@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 3d43a532f57feab361c6a3de79269991f46fc55d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cf15d6f669718cca8b99d67a7912d3959d9c191f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684020"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732503"
 ---
 # <a name="prepare-data-with-data-wrangling"></a>Préparer des données avec data wrangling
 
@@ -20,7 +20,7 @@ ms.locfileid: "98684020"
 La data wrangling dans la fabrique de données vous permet de créer des compositions (« mash-up ») Power Query interactives en mode natif dans ADF, puis de les exécuter à grande échelle à l’intérieur d’un pipeline ADF.
 
 > [!NOTE]
-> L’activité Power Query dans ADF est actuellement disponible en préversion publique.
+> L’activité Power Query dans ADF est actuellement disponible en préversion publique
 
 ## <a name="create-a-power-query-activity"></a>Créer une activité Power Query
 

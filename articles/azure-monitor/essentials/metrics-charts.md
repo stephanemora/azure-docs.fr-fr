@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 444185dc41532bfa55c271e2f0027eb8b71de42f
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031475"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959899"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -78,6 +78,23 @@ Pour afficher plusieurs métriques sur le même graphique, commencez par [créer
 Pour créer un autre graphique qui utilise une métrique différente, sélectionnez **Ajouter un graphique**.
 
 Pour réorganiser ou supprimer plusieurs graphiques, sélectionnez le bouton de sélection ( **…** ) pour ouvrir le menu du graphique. Choisissez ensuite **Déplacer vers le haut**, **Déplacer vers le bas** ou **Supprimer**.
+
+## <a name="time-range-controls"></a>Contrôles d'intervalle de temps
+
+En plus de la modification de l’intervalle de temps à l’aide du [panneau de sélecteur d’heure](metrics-getting-started.md#select-a-time-range), vous pouvez également effectuer un panoramique et un zoom à l’aide des contrôles de la zone de graphique.
+### <a name="pan"></a>Panoramique
+
+Pour effectuer un panoramique, cliquez sur les flèches gauche et droite sur le bord du graphique.  Cette opération déplace l’intervalle de temps sélectionné vers l’arrière et vers l’avant d’une moitié de l’intervalle de temps du graphique.  Par exemple, si vous affichez les dernières 24 heures, le fait de cliquer sur la flèche gauche entraîne le décalage de l’intervalle de temps pour s’étendre sur un jour et demi à 12 heures.
+
+La plupart des métriques prennent en charge 93 jours de rétention, mais ne vous permettent d’afficher que 30 jours à la fois.  À l’aide des contrôles panoramiques, vous pouvez examiner les 30 derniers jours, puis vous retrouver dans les 15 jours à la fois pour afficher le reste de la période de rétention.
+
+![Image GIF animée montrant les contrôles panoramiques gauche et droit.](./media/metrics-charts/metrics-pan-controls.gif)
+
+### <a name="zoom"></a>Zoom
+
+Vous pouvez cliquer et faire glisser sur le graphique pour effectuer un zoom sur une section d’un graphique.  Le zoom met à jour l’intervalle de temps du graphique pour s’étendre à votre sélection et sélectionne un plus petit fragment de temps si celui-ci est défini sur « Automatique ».  Le nouvel intervalle de temps s’applique à tous les graphiques dans Métriques.
+
+![Image GIF animée montrant la fonctionnalité de zoom des métriques.](./media/metrics-charts/metrics-zoom-control.gif)
 
 ## <a name="aggregation"></a>Agrégation
 
@@ -261,7 +278,7 @@ En cliquant sur l’option d’échec, vous êtes dirigé vers un panneau d’é
 
 ### <a name="common-problems-with-drill-into-logs"></a>Problèmes courants liés à l’exploration des journaux
 
-* Le journal et les requêtes sont désactivés : pour afficher les journaux et les requêtes recommandés, vous devez router vos journaux de diagnostic vers Log Analytics. Pour découvrir comment procéder, lisez [ce document](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings). 
+* Le journal et les requêtes sont désactivés : pour afficher les journaux et les requêtes recommandés, vous devez router vos journaux de diagnostic vers Log Analytics. Pour découvrir comment procéder, lisez [ce document](./diagnostic-settings.md). 
 * Les journaux d’activité sont uniquement fournis : la fonctionnalité d’exploration des journaux n’est disponible que pour des fournisseurs de ressources sélectionnés. Par défaut, les journaux d’activité sont fournis. 
 
  
@@ -278,4 +295,3 @@ Si vous ne voyez aucune donnée sur votre graphique, passez en revue les informa
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour créer des tableaux de bord exploitables à l’aide des métriques, consultez [Création de tableaux de bord d’indicateurs de performance clés personnalisés](../app/tutorial-app-dashboards.md).
-

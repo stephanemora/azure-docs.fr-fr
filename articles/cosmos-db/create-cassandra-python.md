@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea5a443caba25b7b5e6d843408c12e61a55b9e10
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93099717"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047437"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec le SDK Python et Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -33,7 +33,7 @@ Dans ce démarrage rapide, vous allez créer un compte d’API Cassandra Azure C
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Ou bien [essayez Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure.
-- [Python 2.7.14+ ou 3.4+](https://www.python.org/downloads/).
+- [Python 2.7 ou 3.6, ou versions ultérieures](https://www.python.org/downloads/).
 - [Git](https://git-scm.com/downloads).
 - [Pilote Python pour Apache Cassandra](https://github.com/datastax/python-driver).
 

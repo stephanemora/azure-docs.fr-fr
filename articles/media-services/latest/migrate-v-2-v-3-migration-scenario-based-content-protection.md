@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 03/26/2021
+ms.date: 04/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 74f15fc302a8499e41a1413dd8915e6442d4bbe7
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a481759da3f1e7d67accdca7b4322db53abbcb0c
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064492"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490945"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Recommandations en matière de migration basées sur un scénario de protection de contenu
 
@@ -30,46 +30,62 @@ Cet article fournit des informations et des conseils sur la migration de cas d�
 
 Utilisez la prise en charge des fonctionnalités [à plusieurs clés](architecture-design-multi-drm-system.md) dans la nouvelle API V3.
 
-Pour connaître les étapes spécifiques, consultez les concepts, tutoriels et guides pratiques relatifs à la protection de contenu.
+Pour connaître les étapes spécifiques, consultez Concepts, tutoriels et guides pratiques relatifs à la protection de contenu à la fin de cet article.
 
-## <a name="visibility-of-v2-assets-streaminglocators-and-properties-in-the-v3-api-for-content-protection-scenarios"></a>Visibilité des ressources, des StreamingLocators et des propriétés v2 dans l’API v3 pour les scénarios de protection de contenu
+> [!NOTE]
+> Le reste de cet article explique comment vous pouvez migrer votre protection du contenu v2 vers v3 avec .NET.  Si vous avez besoin d’instructions ou d’un exemple de code pour un autre langage ou une autre méthode, créez un problème GitHub pour cette page.
 
-Pendant la migration vers l’API v3, vous constaterez que vous devrez accéder à certaines propriétés ou clés de contenu de vos ressources v2. L’une des principales différences réside dans le fait que l’API v2 utilise l’**AssetID** comme clé d’identification principale, et que la nouvelle API v3 utilise le nom de Gestion des ressources Azure de l’entité comme identificateur principal.  La propriété **Asset.Name** de l’API v2 n’étant généralement pas utilisée en tant qu’identificateur unique. lors de la migration vers l’API v3, vous constaterez que vos noms de ressources v2 s’affichent désormais dans le champ **Asset.Description**.
+## <a name="v3-visibility-of-v2-assets-streaminglocators-and-properties"></a>Visibilité v3 des ressources v2, StreamingLocators et propriétés
 
-Par exemple, si vous aviez précédemment une ressource v2 avec l’ID **« nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8 »** , vous constaterez, lors de l’affichage de la liste des anciennes ressources v2 via l’API V3, que le nom sera désormais la partie GUID à la fin (en l’occurrence, **« 8cb39104-122c-496e-9ac5-7f9e2c2547b8 »** ).
+Dans l’API v2, `Assets`, `StreamingLocators` et `ContentKeys` servaient à protéger votre contenu diffusé. Lors de la migration vers l’API V3, vos `Assets`, `StreamingLocators` et `ContentKeys` de l’API v2 sont toutes exposées automatiquement dans l’API V3, et toutes leurs données y sont accessibles.
 
-Vous pouvez interroger les **StreamingLocators** associés aux ressources créées dans l’API v2 à l’aide de la nouvelle méthode v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) sur l’entité Ressource.  Référencez également la version de Kit de développement logiciel (SDK) de client .NET [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+Cependant, vous ne pouvez pas *mettre à jour* les propriétés des entités v2 via l’API v3 si elles ont été créées dans la v2.
 
-Les résultats de la méthode **ListStreamingLocators** vous fourniront les valeurs **Name** et **StreamingLocatorId** du localisateur, ainsi que la valeur **StreamingPolicyName**.
+Si vous devez mettre à jour, modifier ou transformer du contenu stocké sur des entités v2, mettez-les à jour via l’API v2 ou créer des entités d’API v3 pour les migrer.
 
-Pour trouver les **ContentKeys** utilisées dans vos **StreamingLocators** pour la protection du contenu, vous pouvez appeler la méthode [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true).  
+## <a name="asset-identifier-differences"></a>Différences entre les identificateurs de ressource
 
-Toutes les **Ressources** créées et publiées à l’aide de l’API v2 auront une [Stratégie de clé de contenu](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) et une Clé de contenu définies dans l’API v3, au lieu d’utiliser une stratégie de clé de contenu par défaut sur la [Stratégie de diffusion en continu](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept).
+Pour migrer, vous devez accéder aux propriétés ou aux clés de contenu à partir de vos ressources v2.  Il est important de comprendre que l’API v2 utilise l’`AssetId` comme clé d’identification principale, et que la nouvelle API v3 utilise le *nom de Gestion des ressources Azure* de l’entité comme identificateur principal.  (La propriété `Asset.Name` v2 n’est pas utilisée comme identificateur unique.) Avec l’API v3, votre nom de ressource v2 s’affiche désormais en tant que `Asset.Description`.
+
+Par exemple, si vous aviez précédemment une ressource v2 avec l’ID `nb:cid:UUID:8cb39104-122c-496e-9ac5-7f9e2c2547b8`, l’identificateur se trouve maintenant à la fin du GUID `8cb39104-122c-496e-9ac5-7f9e2c2547b8`. Vous le verrez lorsque vous répertorierez vos ressources v2 par le biais de l’API v3.
+
+Toutes les ressources créées et publiées à l’aide de l’API v2 auront une `ContentKeyPolicy` et une `ContentKey` dans l’API v3, au lieu d’utiliser une stratégie de clé de contenu par défaut sur la `StreamingPolicy`.
+
+Pour plus d’informations, consultez la documentation sur la [stratégie de clé de contenu](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) et la documentation sur la [stratégie de diffusion en continu](https://docs.microsoft.com/azure/media-services/latest/stream-streaming-policy-concept).
+
+## <a name="use-azure-media-services-explorer-amse-v2-and-amse-v3-tools-side-by-side"></a>Utiliser les outils Azure Media Services Explorer (AMSE) v2 et AMSE v3 côte à côte
+
+Utilisez l’[outil Azure Media Services Explorer v2](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0) avec l’[outil Azure Media Services Explorer v3](https://github.com/Azure/Azure-Media-Services-Explorer) pour comparer des données côte à côte pour un élément créé et publié via les API v2. Les propriétés doivent toutes être visibles, mais à des emplacements différents.
+
+## <a name="use-the-net-content-protection-migration-sample"></a>Utiliser l’exemple de migration de la protection du contenu .NET
+
+Vous trouverez un exemple de code pour comparer les différences des identificateurs de ressource à l’aide de [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration) sous ContentProtection dans les exemples de code de Media Services.
+
+## <a name="list-the-streaming-locators"></a>Répertorier les localisateurs de streaming
+
+Vous pouvez interroger les `StreamingLocators` associés aux ressources créées dans l’API v2 à l’aide de la nouvelle méthode v3 [ListStreamingLocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators) sur l’entité Ressource.  Référencez également la version de Kit de développement logiciel (SDK) de client .NET [ListStreamingLocatorsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocatorsasync?view=azure-dotnet&preserve-view=true)
+
+Les résultats de la méthode `ListStreamingLocators` vous fourniront les valeurs `Name` et `StreamingLocatorId` du localisateur, ainsi que la valeur `StreamingPolicyName`.
+
+## <a name="find-the-content-keys"></a>Rechercher les clés de contenu
+
+Pour trouver les `ContentKeys` utilisées dans vos `StreamingLocators`, vous pouvez appeler la méthode [StreamingLocator.ListContentKeysAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.streaminglocatorsoperationsextensions.listcontentkeysasync?view=azure-dotnet&preserve-view=true).  
 
 Pour plus d’informations sur la protection du contenu dans l’API v3, consultez l’article [Protéger votre contenu à l’aide du chiffrement dynamique de Media Services](https://docs.microsoft.com/azure/media-services/latest/drm-content-protection-concept).
 
-## <a name="how-to-list-your-v2-assets-and-content-protection-settings-using-the-v3-api"></a>Comment répertorier vos ressources et paramètres de protection de contenu de l’API v2 à l’aide de l’API v3
+## <a name="change-the-v2-contentkeypolicy-keeping-the-same-contentkey"></a>Modifier la ContentKeyPolicy v2 en conservant la même ContentKey
 
-Dans l’API v2, vous utilisez communément **Assets**, **StreamingLocators** et **ContentKeys** pour protéger votre contenu de diffusion en continu.
-Lors de la migration vers l’API V3, vos Assets, StreamingLocators et ContentKeys de l’API v2 sont toutes exposées automatiquement dans l’API V3, et toutes leurs données y sont accessibles.
+Vous devez d’abord annuler la publication (supprimer tous les localisateurs de streaming) sur la ressource via le kit de développement logiciel (SDK) v2. Voici comment faire :
 
-## <a name="can-i-update-v2-properties-using-the-v3-api"></a>Puis-je mettre à jour des propriétés de l’API v2 à l’aide de l’API v3 ?
+1. Supprimez le localisateur.
+1. Dissociez la `ContentKeyAuthorizationPolicy`.
+1. Dissociez la `AssetDeliveryPolicy`.
+1. Dissociez la `ContentKey`.
+1. Supprimez la `ContentKey`.
+1. Créez un nouveau `StreamingLocator` dans v3 à l’aide de `StreamingPolicy` et `ContentKeyPolicy` v3 en spécifiant l’identificateur de clé de contenu et la valeur de clé spécifiques nécessaires.
 
-Non, vous ne pouvez pas mettre à jour via l’API v3 des propriétés d’entités créées à l’aide de StreamingLocators, de StreamingPolicies, de Stratégies de clé de contenu et de Clés de contenu dans l’API v2.
-Si vous devez mettre à jour, modifier ou transformer du contenu stocké sur des entités v2, vous devez le faire via l’API v2 ou créer des entités d’API v3 pour les migrer.
-
-## <a name="how-do-i-change-the-contentkeypolicy-used-for-a-v2-asset-that-is-published-and-keep-the-same-content-key"></a>Comment faire pour modifier la ContentKeyPolicy utilisée pour une ressource v2 publiée tout en conservant la même clé de contenu ?
-
-Dans ce cas, vous devez d’abord annuler la publication (supprimer tous les localisateurs de diffusion en continu) sur la ressource à l’aide du Kit de développement logiciel (SDK) v2 (supprimer le localisateur, dissocier la stratégie d’autorisation de clé de contenu, dissocier la stratégie de remise de ressources, dissocier la clé de contenu, supprimer la clé de contenu), puis créer un nouveau **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** dans l’API v3 à l’aide d’une [StreamingPolicy](https://docs.microsoft.com/azure/media-services/latest/streaming-policy-concept) et d’une [ContentKeyPolicy](https://docs.microsoft.com/azure/media-services/latest/drm-content-key-policy-concept) v3.
-
-Vous devez spécifier l’identificateur de clé de contenu et la valeur de clé spécifiques nécessaires lors de la création du **[StreamingLocator](https://docs.microsoft.com/azure/media-services/latest/streaming-locators-concept)** .
-
-Notez qu’il est possible de supprimer le localisateur v2 à l’aide de l’API v3, mais que cela n’a pas pour effet de supprimer la clé de contenu ou la stratégie de clé de contenu utilisées si elles ont été créées dans l’API v2.  
-
-## <a name="using-amse-v2-and-amse-v3-side-by-side"></a>Utilisation d’AMSE v2 et d’AMSE v3 côte à côte
-
-Lors de la migration de votre contenu de l’API v2 vers l’API v3, il est recommandé d’installer l’[outil Azure Media Services Explorer v2](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v4.3.15.0), ainsi que l’[outil Azure Media Services Explorer v3](https://github.com/Azure/Azure-Media-Services-Explorer), pour faciliter la comparaison des données qu’ils affichent côte à côte pour une ressource créée et publiée via des API v2. Les propriétés doivent toutes être visibles, mais à des emplacements légèrement différents.  
-
+> [!NOTE]
+> Il est possible de supprimer le localisateur v2 à l’aide de l’API v3, mais que cela n’a pas pour effet de supprimer la clé de contenu ou la stratégie de clé de contenu si elles ont été créées dans l’API v2.
 
 ## <a name="content-protection-concepts-tutorials-and-how-to-guides"></a>Concepts, tutoriels et guides pratiques relatifs à la protection de contenu
 
@@ -80,7 +96,7 @@ Lors de la migration de votre contenu de l’API v2 vers l’API v3, il est re
 - [Azure Media Services V3 avec le modèle de licence PlayReady](drm-playready-license-template-concept.md)
 - [Vue d’ensemble du modèle de licence Widevine avec Media Services v3](drm-widevine-license-template-concept.md)
 - [Configuration et conditions de licence Apple FairPlay](drm-fairplay-license-overview.md)
-- [Stratégies de diffusion en continu](streaming-policy-concept.md)
+- [Stratégies de diffusion en continu](stream-streaming-policy-concept.md)
 - [Stratégies de clé de contenu](drm-content-key-policy-concept.md)
 
 ### <a name="tutorials"></a>Tutoriels
@@ -96,7 +112,8 @@ Lors de la migration de votre contenu de l’API v2 vers l’API v3, il est re
 
 ## <a name="samples"></a>Exemples
 
-Vous pouvez aussi [comparer les codes V2 et V3 dans les exemples de code](migrate-v-2-v-3-migration-samples.md).
+- [v2tov3MigrationSample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/ContentProtection/v2tov3Migration)
+- Vous pouvez aussi [comparer les codes V2 et V3 dans les exemples de code](migrate-v-2-v-3-migration-samples.md).
 
 ## <a name="tools"></a>Outils
 

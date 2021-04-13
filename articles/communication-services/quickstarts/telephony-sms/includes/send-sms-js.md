@@ -10,14 +10,14 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: bertong
-ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 8fe8b853fe07af40603950a61c0dd2a1df74d14e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622209"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644323"
 ---
-Commencez avec Azure Communication Services en utilisant la bibliothèque de client Communication Services SMS JavaScript pour envoyer des SMS.
+Commencez avec Azure Communication Services en utilisant le kit de développement logiciel (SDK) Communication Services SMS JavaScript pour envoyer des SMS.
 
 Le fait de suivre ce guide de démarrage rapide entraîne une petite dépense de quelques cents USD tout au plus dans votre compte Azure.
 
@@ -57,7 +57,7 @@ Utilisez un éditeur de texte pour créer un fichier appelé **send-sms.js** dan
 
 ### <a name="install-the-package"></a>Installer le package
 
-Utilisez la commande `npm install` pour installer la bibliothèque de client Azure Communication Services SMS pour JavaScript.
+Utilisez la commande `npm install` pour installer le kit de développement logiciel (SDK) Azure Communication Services SMS pour JavaScript.
 
 ```console
 npm install @azure/communication-sms --save
@@ -67,20 +67,20 @@ L’option `--save` liste la bibliothèque comme dépendance dans votre fichier 
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités de la bibliothèque de client Azure Communication Services SMS pour Node.js.
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services SMS pour Node.js.
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | Cette classe est nécessaire pour toutes les fonctionnalités SMS. Vous l’instanciez avec vos informations d’abonnement et vous l’utilisez pour envoyer des SMS. |
-| SmsSendResult               | Cette classe contient le résultat du service SMS.                                          |
-| SmsSendOptions | Cette interface fournit des options permettant de configurer la création de rapports de remise. Si `enableDeliveryReport` est défini sur `true`, un événement est émis quand la remise a réussi. |
 | SmsSendRequest | Cette interface est le modèle de génération de la demande par SMS (par exemple, configurer les numéros de téléphone d’origine et de destination, ainsi que le contenu du SMS). |
+| SmsSendOptions | Cette interface fournit des options permettant de configurer la création de rapports de remise. Si `enableDeliveryReport` est défini sur `true`, un événement est émis quand la remise a réussi. |
+| SmsSendResult               | Cette classe contient le résultat du service SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Importez le **SmsClient** à partir de la bibliothèque de client et instanciez-le avec votre chaîne de connexion. Le code ci-dessous récupère la chaîne de connexion pour la ressource à partir d’une variable d’environnement nommée `COMMUNICATION_SERVICES_CONNECTION_STRING`. Découvrez comment [gérer la chaîne de connexion de votre ressource](../../create-communication-resource.md#store-your-connection-string).
+Importez le **SmsClient** à partir du kit de développement logiciel (SDK) et instanciez-le avec votre chaîne de connexion. Le code ci-dessous récupère la chaîne de connexion pour la ressource à partir d’une variable d’environnement nommée `COMMUNICATION_SERVICES_CONNECTION_STRING`. Découvrez comment [gérer la chaîne de connexion de la ressource](../../create-communication-resource.md#store-your-connection-string).
 
-Ajoutez le code suivant dans **send-sms.js** :
+Créez un fichier nommé **send-sms.js**, ouvrez-le et ajoutez le code suivant :
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -118,7 +118,10 @@ async function main() {
 
 main();
 ```
-Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS associé à votre ressource Communication Services et `<to-phone-number>` par le numéro de téléphone auquel vous souhaitez envoyer un message.
+Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS et associé à votre ressource Communication Services, et `<to-phone-number-1>` et `<to-phone-number-2>` par le ou les numéros de téléphone auxquels vous souhaitez envoyer un message.
+
+> [!WARNING]
+> Notez que les numéros de téléphone doivent être fournis au format standard international E.164. (par exemple, +14255550123)
 
 ## <a name="send-a-1n-sms-message-with-options"></a>Envoyer un message SMS 1:N avec des options
 
@@ -127,12 +130,12 @@ Vous pouvez également transmettre un objet d’options pour spécifier si le ra
 ```javascript
 
 async function main() {
-  await smsClient.send({
+  const sendResults = await smsClient.send({
     from: "<from-phone-number>",
     to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: "Weekly Promotion!"
   }, {
-    //Optional parameter
+    //Optional parameters
     enableDeliveryReport: true,
     tag: "marketing"
   });
@@ -150,6 +153,11 @@ async function main() {
 
 main();
 ```
+
+Vous devez remplacer `<from-phone-number>` par un numéro de téléphone permettant de recevoir des SMS et associé à votre ressource Communication Services, et `<to-phone-number-1>` et `<to-phone-number-2>` par le ou les numéros de téléphone auxquels vous souhaitez envoyer un message.
+
+> [!WARNING]
+> Notez que les numéros de téléphone doivent être fournis au format standard international E.164. (par exemple, +14255550123)
 
 Le paramètre `enableDeliveryReport` est un paramètre facultatif que vous pouvez utiliser pour configurer la création de rapports de remise. C’est utile pour les scénarios où vous souhaitez émettre des événements quand des SMS sont remis. Consultez le guide de démarrage rapide [Gérer les événements SMS](../handle-sms-events.md) pour configurer la création de rapports de remise pour vos SMS.
 `tag` est un paramètre facultatif que vous pouvez utiliser pour appliquer une balise au rapport de remise.

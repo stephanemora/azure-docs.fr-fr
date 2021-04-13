@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/01/2020
+ms.date: 3/22/2021
 ms.author: pafarley
-ms.openlocfilehash: 555a6410418232ff164a441dbc90eb10236b9f36
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4c0d4dd1a834e42a75da5199b7aaed0e123f8e63
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947460"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104879628"
 ---
 [Documentation de référence](/java/api/com.microsoft.azure.management.cognitiveservices) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Package (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
@@ -124,7 +124,9 @@ La méthode suivante supprime la ressource spécifiée du groupe de ressources d
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Documentation de référence du SDK de gestion Azure](/java/api/com.microsoft.azure.management.cognitiveservices)
-* [Présentation d’Azure Cognitive Services](../../what-are-cognitive-services.md)
-* [Authentifier des requêtes auprès d’Azure Cognitive Services](../../authentication.md)
-* [Créer une ressource en utilisant le portail Azure](../../cognitive-services-apis-create-account.md)
+* Consultez **[Authentifier des requêtes auprès d’Azure Cognitive Services](../../authentication.md)** qui explique la façon de travailler en toute sécurité avec Cognitive Services.
+* Consultez **[Présentation d’Azure Cognitive Services](../../what-are-cognitive-services.md)** pour obtenir la liste des différentes catégories présentes dans Cognitive Services.
+* Consultez **[Prise en charge du langage naturel](../../language-support.md)** pour afficher la liste des langages naturels pris en charge par Cognitive Services.
+* Consultez **[Utiliser Cognitive Services en tant que conteneurs](../../cognitive-services-container-support.md)** pour comprendre comment utiliser Cognitive Services en local.
+* Consultez **[Planifier et gérer les coûts pour Cognitive Services](../../plan-manage-costs.md)** afin d’estimer le coût d’utilisation de Cognitive Services.
+* Pour plus d’informations sur le kit de développement logiciel (SDK) de gestion, consultez la **[documentation de référence du kit de développement logiciel (SDK) de gestion Azure](/java/api/com.microsoft.azure.management.cognitiveservices)** .

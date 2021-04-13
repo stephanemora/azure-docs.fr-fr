@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: 1c9e681e3c02cb65b2a54070cc778051a0e7ac53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53d59822b378a658f8b6c048de1a32db53a795d1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102432551"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285720"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Installer des conteneurs Docker OCR Read (préversion) 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102432551"
 
 Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter des conteneurs Vision par ordinateur.
 
-Le conteneur *Read* OCR vous permet d'extraire du texte imprimé et manuscrit à partir d'images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez la [documentation sur l’API Read](concept-recognizing-text.md#read-api).
+Le conteneur *Read* OCR vous permet d'extraire du texte imprimé et manuscrit à partir d'images et de documents avec la prise en charge des formats de fichier JPEG, PNG, BMP, PDF et TIFF. Pour plus d’informations, consultez ce [Guide pratique de l’API Read](Vision-API-How-to-Topics/call-read-api.md).
 
 ## <a name="read-32-preview-container"></a>Conteneur Read 3.2-preview
 
@@ -96,7 +96,7 @@ Des images conteneurs sont disponibles pour le conteneur Lire.
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
-### <a name="docker-pull-for-the-read-container"></a>Commande docker pull du conteneur Lire
+### <a name="docker-pull-for-the-read-ocr-container"></a>Commande docker pull du conteneur OCR Read
 
 # <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)
 
@@ -139,7 +139,7 @@ ApiKey={API_KEY}
 
 Cette commande :
 
-* Exécute un conteneur Lire à partir de l’image conteneur.
+* Exécute un conteneur OCR Read à partir de l’image conteneur.
 * Alloue 8 cœurs de processeur et 18 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
@@ -156,7 +156,7 @@ ApiKey={API_KEY}
 
 Cette commande :
 
-* Exécute un conteneur Lire à partir de l’image conteneur.
+* Exécute un conteneur OCR Read à partir de l’image conteneur.
 * Alloue 8 cœurs de processeur et 16 gigaoctets (Go) de mémoire.
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
@@ -392,7 +392,7 @@ Lorsque le POST asynchrone s’est correctement exécuté, il retourne le code d
 ---
 
 > [!IMPORTANT]
-> Si vous déployez plusieurs conteneurs de lecture derrière un équilibreur de charge, par exemple, sous Docker Compose ou Kubernetes, vous devez disposer d’un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](./computer-vision-resource-container-config.md).
+> Si vous déployez plusieurs conteneurs Read OCR derrière un équilibreur de charge, par exemple sous Docker Compose ou Kubernetes, vous devez avoir un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](./computer-vision-resource-container-config.md).
 
 ### <a name="synchronous-read"></a>Lecture synchrone
 
@@ -445,7 +445,7 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 * Vision par ordinateur fournit un conteneur Linux pour Docker, et encapsule le conteneur Lire.
 * Les images conteneur sont téléchargées à partir du registre de conteneurs « Conteneur (préversion) » dans Azure.
 * Les images conteneurs s’exécutent dans Docker.
-* Vous pouvez utiliser l’API REST ou kit de développement logiciel (SDK) pour appeler des opérations dans des conteneurs Lire en spécifiant l’URI hôte du conteneur.
+* Vous pouvez utiliser l’API REST ou kit de développement logiciel (SDK) pour appeler des opérations dans des conteneurs OCR Read en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
 
 > [!IMPORTANT]
@@ -454,7 +454,7 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](computer-vision-resource-container-config.md).
-* Pour en savoir plus sur la reconnaissance du texte imprimé et manuscrit, passez en revue [Vue d’ensemble de Vision par ordinateur](overview.md).
-* Pour plus d’informations sur les méthodes prises en charge par le conteneur, reportez-vous à l’[API Vision par ordinateur](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).
+* Pour en savoir plus sur la reconnaissance du texte imprimé et manuscrit, passez en revue [Vue d’ensemble de la reconnaissance optique de caractères](overview-ocr.md).
+* Reportez-vous à l’ [API Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) pour plus d’informations sur les méthodes prises en charge par le conteneur.
 * Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.md).
 * Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

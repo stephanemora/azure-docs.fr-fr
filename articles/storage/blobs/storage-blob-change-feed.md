@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1366f24ec3bd35ec23d5bf0879fced367c9f6a45
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095557"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552431"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Prise en charge du flux de modification dans Stockage Blob Azure
 
@@ -67,14 +67,11 @@ Voici quelques éléments à prendre en compte lorsque vous activez le flux de m
 Activez le flux de modification sur votre compte de stockage à l’aide du portail Azure :
 
 1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage.
+1. Accédez à l’option **Protection des données** sous **Service blob**.
+1. Sous **Suivi**, sélectionnez **Activer le flux de modification d’objet blob**.
+1. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de protection des données.
 
-2. Accédez à l’option **Protection des données** sous **Service blob**.
-
-3. Cliquez sur **Activé** sous **Flux de modification d’objets blob**.
-
-4. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de **protection des données**.
-
-    ![Capture d’écran montrant les paramètres de protection des données.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
+    :::image type="content" source="media/storage-blob-change-feed/change-feed-enable-portal.png" alt-text="Capture d’écran représentant l’activation du flux de modification dans le portail Azure":::
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

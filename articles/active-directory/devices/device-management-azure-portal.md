@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 11182b8331f218b970d867764f575ba5b7854d62
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952777"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550691"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -33,6 +33,7 @@ La page **Tous les appareils** vous permet d’effectuer les opérations suivant
 - Configurer les paramètres d’identité de votre appareil.
 - Activer ou désactiver Enterprise State Roaming.
 - Examiner les journaux d’audit liés à l’appareil.
+- Télécharger les appareils (préversion)
 
 [![Vue Tous les appareils dans le portail Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -65,7 +66,7 @@ Les deux options permettent aux administrateurs d’effectuer les opérations su
 > [!TIP]
 > - Les appareils Windows 10 hybrides joints à Azure AD n’ont pas de propriétaire. Si vous cherchiez un appareil à l’aide de son propriétaire et ne l’avez pas trouvé, recherchez-le à l’aide de son ID.
 >
-> - Si vous voyez un appareil « joint à une version hybride d’Azure AD » avec l’état « En attente » dans la colonne REGISTERED (Inscrit), cela signifie que l’appareil a été synchronisé à partir d’Azure AD Connect et qu’il attend de terminer l’inscription à partir du client. Pour en savoir plus, consultez [Planifier votre implémentation de la jointure d’Azure AD Hybride](hybrid-azuread-join-plan.md). Pour plus d’informations, consultez le [Forum aux questions sur les appareils](faq.md).
+> - Si vous voyez un appareil « joint à une version hybride d’Azure AD » avec l’état « En attente » dans la colonne REGISTERED (Inscrit), cela signifie que l’appareil a été synchronisé à partir d’Azure AD Connect et qu’il attend de terminer l’inscription à partir du client. Pour en savoir plus, consultez [Planifier votre implémentation de la jointure d’Azure AD Hybride](hybrid-azuread-join-plan.md). Pour plus d’informations, consultez le [Forum aux questions sur les appareils](faq.yml).
 >
 > - Pour certains appareils iOS, les noms d’appareils qui contiennent des apostrophes peuvent utiliser d’autres caractères qui ressemblent à des apostrophes. La recherche de ces appareils peut donc être difficile. Si les résultats que vous attendez ne s’affichent pas, vérifiez que la chaîne de recherche contient les caractères d’apostrophe attendus.
 
@@ -144,6 +145,14 @@ Pour activer la fonctionnalité de filtrage en préversion dans la vue **Tous le
 1. Sélectionnez la bannière qui indique : **Essayez les améliorations apportées au filtrage des appareils. Cliquez pour activer la préversion.**
 
 Vous avez maintenant la possibilité d’**Ajouter des filtres** à votre vue **Tous les appareils**.
+
+### <a name="download-devices-preview"></a>Télécharger les appareils (préversion)
+
+Les administrateurs d’appareils cloud, les administrateurs Intune et les administrateurs généraux peuvent utiliser l’option **Télécharger les appareils (préversion)**  pour exporter un fichier CSV d’appareils en fonction des filtres appliqués. Si aucun filtre n’est appliqué à la liste, tous les appareils sont exportés. Une exportation peut s’exécuter pendant une période allant jusqu’à une heure 
+
+La liste exportée comprend les attributs d’identité d’appareil suivants :
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## <a name="configure-device-settings"></a>Configurer les paramètres de l’appareil
 

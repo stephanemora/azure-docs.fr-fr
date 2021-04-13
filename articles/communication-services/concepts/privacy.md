@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495706"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728128"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilité des régions et résidence des données
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Azure Communication Services s’engage à aider nos clients à respecter leurs conditions en matière de confidentialité et de données personnelles. En tant que développeur qui utilise Communication Services avec une relation directe avec des êtres humains à l’aide de l’application, vous contrôlez potentiellement leurs données. Étant donné qu’Azure Communication Services stocke et chiffre ces données au repos en votre nom, nous traitons probablement ces données. Cette page récapitule la manière dont le service conserve les données et dont vous pouvez les identifier, les exporter et les supprimer.
 
@@ -58,10 +56,12 @@ Azure Communication Services gère un répertoire de numéros de téléphone ass
 
 ### <a name="chat"></a>Conversation
 
-Les threads et les messages de conversation sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un thread totalement inactif est automatiquement supprimé au bout de 30 jours. Utilisez des [API de conversation](/rest/api/communication/chat/chatthread) pour obtenir, lister, mettre à jour et supprimer des messages.
+Les threads et les messages de conversation sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un fil totalement inactif, sans aucun participant, est automatiquement supprimé au bout de 30 jours. Utilisez des [API de conversation](/rest/api/communication/chat/chatthread) pour obtenir, lister, mettre à jour et supprimer des messages.
 
 - `Get Thread`
 - `Get Message`
+- `List Messages`
+- `Update Message`
 - `Delete Thread`
 - `Delete Message`
 

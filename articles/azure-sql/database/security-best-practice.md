@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c16764d1ce985755b6a3042873cc18b09b697bcf
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96459664"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551609"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,7 @@ La gestion centralisée des identités offre les avantages suivants :
 - Attribuez des droits d’accès à des ressources à des principaux Azure AD par le biais d’une affectation de groupe : Créez des groupes de Azure AD, accordez l’accès à des groupes et ajouter des membres aux groupes. Dans votre base de données, créez des utilisateurs de base de données autonome qui mappent vos groupes Azure AD. Pour attribuer des autorisations à l’intérieur de la base de données, placez les utilisateurs associés à vos groupes Azure AD dans les rôles de base de données avec les autorisations appropriées.
   - Consultez les articles [Configurer et gérer l’authentification Azure Active Directory avec SQL](authentication-aad-configure.md) et [Utiliser Azure AD pour l’authentification auprès de SQL](authentication-aad-overview.md).
   > [!NOTE]
-  > Dans SQL Managed Instance, vous pouvez également créer des connexions qui mappent à des principaux Azure AD dans la base de données MASTER. Voir [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  > Dans SQL Managed Instance, vous pouvez également créer des connexions qui mappent à des principaux Azure AD dans la base de données MASTER. Voir [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - L’utilisation de groupes Azure AD simplifie la gestion des autorisations. Tant le propriétaire du groupe que le propriétaire de la ressource peuvent ajouter/supprimer des membres du groupe.
 
@@ -136,7 +136,7 @@ Azure AD Multi-Factor Authentication contribue à renforcer la sécurité en exi
 
 - Utilisez le mode d’authentification interactive Azure AD pour Azure SQL Database et Azure SQL Managed Instance où un mot de passe est demandé de manière interactive, suivi de l’authentification multifacteur :
   - Utilisez une authentification universelle dans SSMS. Consultez l’article [Utilisation de l’authentification Azure AD multifacteur avec Azure SQL Database, SQL Managed Instance et Azure Synapse (prise en charge de SSMS pour Multi-Factor Authentication)](authentication-mfa-ssms-overview.md).
-  - Utilisez une authentification interactive prise en charge dans SQL Server Data Tools (SSDT). Voir l’article [Prise en charge d’Azure Active Directory dans SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
+  - Utilisez une authentification interactive prise en charge dans SQL Server Data Tools (SSDT). Voir l’article [Prise en charge d’Azure Active Directory dans SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true).
   - Utilisez d’autres outils SQL prenant en charge Multi-Factor Authentication.
     - Prise en charge par l’Assistant SSMS pour l’exportation, l’extraction et le déploiement de base de données  
     - [sqlpackage.exe](/sql/tools/sqlpackage) : option ‘/ua’
@@ -196,7 +196,7 @@ Dans les cas où les mots de passe sont inévitables, assurez-vous qu’ils sont
 
 - S’il n’est pas possible d’éviter l’usage de mots de passe ou de secrets, stockez les mots de passe d’utilisateurs et les secrets d’applications dans Azure Key Vault, et gérez l’accès via des stratégies d’accès à Key Vault.
 
-- Diverses infrastructures de développement d’applications peuvent également offrir des mécanismes spécifiques de l’infrastructure pour protéger les secrets dans l’application. Par exemple : [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Diverses infrastructures de développement d’applications peuvent également offrir des mécanismes spécifiques de l’infrastructure pour protéger les secrets dans l’application. Par exemple : [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>Activer l’authentification directe pour les applications héritées
 

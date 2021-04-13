@@ -5,14 +5,14 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2021
+ms.date: 03/27/2021
 ms.author: jingwang
-ms.openlocfilehash: 12f7a87ce166be516d070b66b069f7a584a386c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3c667fe20b392bfb52b8300ce4b8b59d15a13b9a
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563502"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385426"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Démarrage rapide : Créer une fabrique de données et un pipeline avec le kit .NET SDK
 
@@ -105,12 +105,14 @@ Créez ensuite une application console .NET en C# dans Visual Studio :
    string blobDatasetName = "BlobDataset";
    string pipelineName = "Adfv2QuickStartPipeline";
    ```
+> [!NOTE]
+> Concernant les clouds souverains, vous devez utiliser les points de terminaison spécifiques au cloud appropriés pour ActiveDirectoryAuthority et ResourceManagerUrl (BaseUri). Par exemple, dans Azure US Gov, vous utiliseriez l'autorité de https://login.microsoftonline.us au lieu de https://login.microsoftonline.com, et vous utiliseriez https://management.usgovcloudapi.net au lieu de https://management.azure.com/, puis vous créeriez le client de gestion de fabrique de données. Vous pouvez utiliser Powershell pour obtenir facilement les URL des points de terminaison de différents clouds en exécutant « Get-AzEnvironment | Format-List », qui renverra une liste de points de terminaison pour chaque environnement cloud.
 
 3. Ajoutez le code suivant à la méthode **Main** qui crée une instance de la classe **DataFactoryManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, des jeux de données ainsi qu’un pipeline. Cet objet vous permet également de surveiller les détails de l’exécution du pipeline.
 
    ```csharp
    // Authenticate and create a data factory management client
-   var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
+   var context = new AuthenticationContext("https://login.microsoftonline.com/" + tenantID);
    ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
    AuthenticationResult result = context.AcquireTokenAsync(
        "https://management.azure.com/", cc).Result;
@@ -118,6 +120,7 @@ Créez ensuite une application console .NET en C# dans Visual Studio :
    var client = new DataFactoryManagementClient(cred) {
        SubscriptionId = subscriptionId };
    ```
+
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 

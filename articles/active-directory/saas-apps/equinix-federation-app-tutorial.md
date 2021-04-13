@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/27/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: b0c772b3f30b211cf83512ca2ff2f10325fb4bc1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1172cd818a3b40e908bbf5a133ea76d6b0d17b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98735086"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642867"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Equinix Federation App
 
-Dans ce tutoriel, vous allez découvrir comment intégrer Equinix Federation App à Azure Active Directory (Azure AD). Quand vous intégrez Equinix Federation App à Azure AD, vous pouvez :
+Dans ce tutoriel, vous allez découvrir comment intégrer Equinix Federation App à Azure Active Directory (Azure AD). Quand vous intégrez Equinix Federation App à Azure AD, vous pouvez effectuer les opérations suivantes :
 
 * Contrôler dans Azure AD qui a accès à Equinix Federation App.
 * Permettre aux utilisateurs de se connecter automatiquement à Equinix Federation App avec leur compte Azure AD.
@@ -37,7 +37,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Equinix Federation App prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Equinix Federation App prend en charge l’authentification unique lancée par le **fournisseur de services**.
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-equinix-federation-app-from-the-gallery"></a>Ajout d’Equinix Federation App à partir de la galerie
 
@@ -70,20 +73,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Sur le portail Azure, accédez à la page d’intégration de l’application **Equinix Federation App**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.equinix.com/sp/ACS.saml2`
-
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `Equinix:<CUSTOM_IDENTIFIER>`
-
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.equinix.com/sp/ACS.saml2`
+    Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :  `https://<customerprefix>customerportal.equinix.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Equinix Federation App](mailto:prodsecops@equinix.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Pour obtenir la valeur, contactez l’[équipe de support technique Equinix Federation App](mailto:prodsecops@equinix.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -92,6 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Equinix Federation App**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -128,13 +128,14 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans E
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Equinix Federation App, où vous pouvez lancer le processus de connexion. 
+Accédez directement à l’URL de connexion Equinix Federation App pour lancer le processus de connexion.
 
-* Accédez directement à l’URL de connexion Equinix Federation App pour lancer le processus de connexion.
-
-* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Equinix Federation App dans Mes applications vous redirige vers l’URL de connexion Equinix Federation App. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+ > [!NOTE]
+ > Il est impossible de tester votre application Azure en utilisant le lien **Tester cette application** ou en cliquant sur la vignette d’Equinix Federation App, car il s’agit d’une authentification unique lancée par le fournisseur d’identité, qu’Equinix ne prend pas en charge par défaut.  Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Equinix Federation App, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Equinix Federation App, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

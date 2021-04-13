@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+manager: femila
+ms.openlocfilehash: 12be4611f0583c6da630b9e5a0e4b5a82ebfa650
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95014830"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444273"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Création d’un locataire et d’un pool d’hôtes dans Windows Virtual Desktop (classique)
 
@@ -31,11 +31,11 @@ Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Plac
 > [!div class="mx-imgBorder"]
 > ![Capture d’écran de la sélection de Windows 10 Entreprise pour postes de travail virtuels, version 1809.](../media/AzureMarketPlace.png)
 
-## <a name="creating-windows-virtual-desktop-tenant"></a>Création d’un locataire Windows Virtual Desktop
+## <a name="creating-windows-virtual-desktop-tenant&quot;></a>Création d’un locataire Windows Virtual Desktop
 
 Cette section décrit les problèmes potentiels lors de la création du locataire Windows Virtual Desktop.
 
-### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Erreur : AADSTS650052 L’application a besoin d’accéder à un service.
+### <a name=&quot;error-aadsts650052-the-app-needs-access-to-a-service&quot;></a>Erreur : AADSTS650052 L’application a besoin d’accéder à un service.
 
 Exemple d’erreur brute :
 
@@ -406,7 +406,7 @@ Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres
 
 ### <a name="error-vmsubnet-not-available-when-configuring-virtual-networks"></a>Erreur : vmSubnet n’est pas disponible lors de la configuration des réseaux virtuels
 
-**Cause :** Dans le modèle Marketplace WVD, l’interface utilisateur affiche uniquement les sous-réseaux qui ont au moins autant d’adresses IP disponibles que le nombre total de machines virtuelles spécifiées dans le modèle. Le nombre réel d’adresses IP disponibles sur le sous-réseau doit être égal au nombre de nouvelles machines virtuelles déployées, mais il ne peut pas être calculé par l’interface utilisateur actuelle.
+**Cause :** Dans le modèle Marketplace Windows Virtual Desktop, l’interface utilisateur affiche uniquement les sous-réseaux qui ont au moins autant d’adresses IP disponibles que le nombre total de machines virtuelles spécifiées dans le modèle. Le nombre réel d’adresses IP disponibles sur le sous-réseau doit être égal au nombre de nouvelles machines virtuelles déployées, mais il ne peut pas être calculé par l’interface utilisateur actuelle.
 
 **Correctif :** Vous pouvez spécifier un sous-réseau avec au moins autant d’adresses IP disponibles que le nombre de machines virtuelles ajoutées en n’utilisant pas l’interface utilisateur de la Place de marché. Pour cela, vous pouvez spécifier le nom du sous-réseau dans le paramètre « **existingSubnetName** » quand vous [redéployez un déploiement existant](expand-existing-host-pool-2019.md#redeploy-from-azure) ou [déployez à l’aide du modèle ARM sous-jacent à partir de GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 

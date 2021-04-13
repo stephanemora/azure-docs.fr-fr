@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/31/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568048597f83616ed07954af744c94761250b5c0
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 44016d81b18e8df7b6e2ed7c14559cf19ac0c07d
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103471611"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106634"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Méthodes d’authentification dans Azure Active Directory – Jetons OATH 
 
@@ -45,19 +45,19 @@ Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeur
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
 > Veillez à inclure la ligne d’en-tête dans votre fichier CSV. Si un UPN possède un guillemet simple, placez-le dans une séquence d’échappement avec un guillemet simple supplémentaire. Par exemple, si l’UPN est my’user@domain.com, remplacez-le par my’’user@domain.com lors du chargement du fichier.
 
-Une fois que le fichier a été correctement mis en forme au format CSV, l’administrateur peut ensuite se connecter au Portail Azure et accéder à **Azure Active Directory > Sécurité > MFA > Jetons OATH** afin de charger le fichier CSV créé.
+Une fois que le fichier a été correctement mis en forme au format CSV, un administrateur général peut ensuite se connecter au Portail Azure et accéder à **Azure Active Directory > Sécurité > MFA > Jetons OATH** afin de charger le fichier CSV créé.
 
 L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Sélectionnez le bouton **Actualiser** pour obtenir l’état actuel. Si le fichier contient des erreurs, vous pouvez télécharger un fichier CSV qui répertorie les erreurs à résoudre. Les noms de champs dans le fichier CSV téléchargé sont différents de ceux de la version chargée.  
 
 Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en sélectionnant **Activer** pour le jeton et en entrant l’OTP affiché sur le jeton. Vous pouvez activer un maximum de 200 jetons OATH toutes les 5 minutes. 
 
-Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des applications d’authentification, comme l’application Microsoft Authenticator, configurées pour une utilisation à tout moment.
+Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des applications d’authentification, comme l’application Microsoft Authenticator, configurées pour une utilisation à tout moment. Les jetons OATH de matériel ne peuvent pas être attribués aux utilisateurs invités dans le locataire de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

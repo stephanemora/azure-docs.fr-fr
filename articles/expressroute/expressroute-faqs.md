@@ -5,24 +5,24 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: efa5c3192ca6f51c219cc308a776e6db7212103c
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587277"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552238"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
 ## <a name="what-is-expressroute"></a>Présentation d’ExpressRoute
 
-ExpressRoute est un service Azure qui vous permet de créer des connexions privées entre les centres de données Microsoft et une infrastructure locale ou une installation de colocalisation. Les connexions ExpressRoute ne sont pas établies via le réseau public Internet et offrent plus de sécurité, de fiabilité et de rapidité, ainsi que moins de latences que les connexions classiques sur Internet.
+ExpressRoute est un service Azure qui vous permet de créer des connexions privées entre les centres de données Microsoft et une infrastructure locale ou une installation de colocalisation. Les connexions ExpressRoute ne sont pas établies via le réseau public Internet ; elles offrent plus de sécurité, de fiabilité et de rapidité, mais moins de latences que les connexions classiques sur Internet.
 
 ### <a name="what-are-the-benefits-of-using-expressroute-and-private-network-connections"></a>Quels avantages présentent l’utilisation d’ExpressRoute et les connexions de réseau privé ?
 
-Les connexions ExpressRoute ne sont pas établies par le biais de l'Internet public. Elles offrent plus de sécurité, de fiabilité et de rapidité, ainsi que des latences inférieures et cohérentes par rapport aux connexions classiques sur Internet. Dans certains cas, l’utilisation de connexions ExpressRoute pour transférer des données entre les appareils locaux et Azure peut générer des économies significatives.
+Les connexions ExpressRoute ne passent pas par l’Internet public. Elles offrent plus de sécurité, de fiabilité et de rapidité, ainsi que des latences inférieures et cohérentes par rapport aux connexions classiques sur Internet. Dans certains cas, l’utilisation de connexions ExpressRoute pour transférer des données entre les appareils locaux et Azure peut générer des économies significatives.
 
 ### <a name="where-is-the-service-available"></a>Où le service est-il disponible ?
 
@@ -171,7 +171,7 @@ Cliquez [ici](./designing-for-high-availability-with-expressroute.md) pour en sa
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 
-Vous pouvez obtenir une haute disponibilité en connectant jusqu’à quatre circuits ExpressRoute du même emplacement de peering à votre réseau virtuel, ou en connectant des circuits ExpressRoute à différents emplacements de peering (par exemple, Singapour, Singapour2) à votre réseau virtuel. Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
+Vous pouvez obtenir une haute disponibilité en connectant jusqu’à 16 circuits ExpressRoute du même emplacement de peering à votre réseau virtuel, ou en connectant des circuits ExpressRoute à différents emplacements de peering (par exemple, Singapour, Singapour2) à votre réseau virtuel. Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Comment puis-je m’assurer que mon trafic destiné aux services publics Azure comme Stockage Azure et Azure SQL sur le peering Microsoft ou le peering public a la préférence sur le chemin ExpressRoute ?
 
@@ -265,7 +265,7 @@ Oui. ExpressRoute peut coexister avec des réseaux VPN de site à site. Voir [C
 
 ### <a name="how-do-i-enable-routing-between-my-site-to-site-vpn-connection-and-my-expressroute"></a>Comment faire pour activer le routage entre ma connexion VPN de site à site et mon ExpressRoute ?
 
-Si vous souhaitez activer le routage entre votre branche connectée à Expressoute et votre branche connectée à une connexion VPN de site à site, vous devez configurer [Azure Route Server](../route-server/expressroute-vpn-support.md).
+Si vous souhaitez activer le routage entre votre branche connectée à ExpressRoute et votre branche connectée à une connexion VPN de site à site, vous devez configurer [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Pourquoi une adresse IP publique est-elle associée à la passerelle ExpressRoute sur un réseau virtuel ?
 
@@ -351,13 +351,17 @@ Consultez la page de [tarification](https://azure.microsoft.com/pricing/details/
 Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit ExpressRoute et aux frais du fournisseur de connectivité.
 
 ## <a name="expressroute-local"></a>Emplacements ExpressRoute Local
+
 ### <a name="what-is-expressroute-local"></a>Présentation d’ExpressRoute Local
-ExpressRoute Local est une référence SKU du circuit ExpressRoute, en plus des références SKU Standard et Premium. Une fonctionnalité clé de Local est qu’un circuit Local à un emplacement de peering ExpressRoute vous donne accès uniquement à une ou deux régions Azure au sein ou à proximité du même metro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique, et un circuit Premium à toutes les régions Azure du monde. 
+
+ExpressRoute Local est une référence SKU du circuit ExpressRoute, en plus des références SKU Standard et Premium. Une fonctionnalité clé de Local est qu’un circuit Local à un emplacement de peering ExpressRoute vous donne accès uniquement à une ou deux régions Azure au sein ou à proximité du même metro. En revanche, un circuit Standard vous donne accès à toutes les régions Azure dans une zone géopolitique, et un circuit Premium à toutes les régions Azure du monde. Plus précisément, avec une référence SKU locale, vous pouvez uniquement publier des itinéraires (par le biais de Microsoft et du peering privé) à partir de la région locale correspondante du circuit ExpressRoute. Vous ne serez pas en mesure de recevoir des itinéraires pour d’autres régions que la région locale définie.
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quels sont les avantages d’ExpressRoute Local ?
+
 Alors que vous devez payer le transfert de données de sortie pour votre circuit ExpressRoute Standard ou Premium, vous ne payez pas de transfert de données de sortie séparément pour votre circuit ExpressRoute Local. En d’autres termes, le prix d’ExpressRoute Local inclut les frais de transfert de données. ExpressRoute Local est une solution plus économique si vous avez des quantités massives de données à transférer, et vous pouvez faire amener vos données à un emplacement de peering ExpressRoute proche de vos régions Azure souhaitées via une connexion privée. 
 
 ### <a name="what-features-are-available-and-what-are-not-on-expressroute-local"></a>Quelles sont les fonctionnalités respectivement disponibles et non disponibles sur ExpressRoute Local ?
+
 Par rapport à un circuit ExpressRoute Standard, un circuit Local a le même ensemble de fonctionnalités à l’exception des suivantes :
 * Étendue de l’accès à des régions Azure comme décrit ci-dessus
 * ExpressRoute Global Reach n’est pas disponible sur Local
@@ -365,6 +369,7 @@ Par rapport à un circuit ExpressRoute Standard, un circuit Local a le même ens
 ExpressRoute Local a les mêmes limites de ressources (par exemple, le nombre de réseaux virtuels par circuit) que Standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Où ExpressRoute Local est-il disponible et à quelles régions Azure chaque emplacement de peering est-il mappé ?
+
 ExpressRoute Local est disponible aux emplacements de peering proches d’une ou de deux régions Azure. Il n’est pas disponible à un emplacement de peering situé dans un état, une province ou un pays/région où il n’y a pas de région Azure. Consultez les mappages exacts à [la page Emplacements](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-microsoft-365"></a>ExpressRoute pour Microsoft 365

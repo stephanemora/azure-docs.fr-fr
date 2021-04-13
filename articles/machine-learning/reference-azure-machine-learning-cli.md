@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jordane
 author: jpe316
-ms.date: 06/22/2020
+ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e073310d62bfb772ea1120bd379cdc277137da0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519110"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219618"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installer et utiliser l’extension CLI pour Azure Machine Learning
 
@@ -60,22 +60,7 @@ Pour les autres méthodes d’authentification, consultez [Se connecter avec Azu
 
 ## <a name="install-the-extension"></a>Installer l’extension
 
-Pour installer l'extension d'interface de ligne de commande Machine Learning, utilisez la commande suivante :
-
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
-
-> [!TIP]
-> Vous pouvez trouver des exemples de fichiers à utiliser avec les commandes ci-dessous [ici](https://aka.ms/azml-deploy-cloud).
-
-Lorsque vous y êtes invité, sélectionnez `y` pour installer l’extension.
-
-Pour vérifier que l’extension a été installée, utilisez la commande suivante afin d'afficher la liste des sous-commandes spécifiques à ML :
-
-```azurecli-interactive
-az ml -h
-```
+L’extension est automatiquement installée lorsque vous essayez d’utiliser pour la première fois une commande qui commence par `az ml`.
 
 ## <a name="update-the-extension"></a>Mettre à jour de l’extension
 
@@ -84,7 +69,6 @@ Pour mettre à jour l’extension d’interface de ligne de commande Machine Lea
 ```azurecli-interactive
 az extension update -n azure-cli-ml
 ```
-
 
 ## <a name="remove-the-extension"></a>Supprimer l’extension
 

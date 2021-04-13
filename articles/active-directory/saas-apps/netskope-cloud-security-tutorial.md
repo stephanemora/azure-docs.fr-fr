@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/17/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 8435cab1855e9df871d17ff7fa393b6ab2cf0cb1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f07e9dbd574d8a27e6048154c72b9afc24b6ba4
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736337"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netskope Administrator Console
 
@@ -37,13 +37,12 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Netskope Administrator Console prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**.
+* Netskope Administrator Console prend en charge l'authentification unique initiée par **le fournisseur de services et le fournisseur d'identité**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-
-## <a name="adding-netskope-administrator-console-from-the-gallery"></a>Ajout de Netskope Administrator Console à partir de la galerie
+## <a name="add-netskope-administrator-console-from-the-gallery"></a>Ajouter Netskope Administrator Console à partir de la galerie
 
 Pour configurer l’intégration de Netskope Administrator Console à Azure AD, vous devez ajouter Netskope Administrator Console à votre liste d’applications SaaS managées à partir de la galerie.
 
@@ -142,19 +141,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur l’onglet **Settings** dans le volet de navigation de gauche.
 
-    ![Capture d’écran montrant l’élément Settings sélectionné dans le volet de navigation.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Capture d’écran montrant l’élément Settings sélectionné dans le volet de navigation.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Cliquez sur l’onglet **Administration**.
 
-    ![Capture d’écran montrant l’élément Administration sélectionné à partir de la section Settings.](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Capture d’écran montrant l’élément Administration sélectionné à partir de la section Settings.](./media/netskope-cloud-security-tutorial/administration.png)
 
 1. Cliquez sur l’onglet **SSO**.
 
-    ![Capture d’écran montrant l’option SSO sélectionnée dans Administration.](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Capture d’écran montrant l’option SSO sélectionnée dans Administration.](./media/netskope-cloud-security-tutorial/tab.png)
 
 1. Dans la section **Network Settings**, effectuez les étapes suivantes :
     
-    ![Capture d’écran montrant la zone Network Settings dans laquelle vous pouvez indiquer les valeurs décrites.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Capture d’écran montrant la zone Network Settings dans laquelle vous pouvez indiquer les valeurs décrites.](./media/netskope-cloud-security-tutorial/network.png)
 
     a. Copiez la valeur **Assertion Consumer Service URL**, puis collez-la dans la zone **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
 
@@ -162,7 +161,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur **EDIT SETTINGS** sous la section **SSO/SLO Settings**.
 
-    ![Capture d’écran montrant la section SSO/SLO Settings, dans laquelle vous pouvez sélectionner EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Capture d’écran montrant la section SSO/SLO Settings, dans laquelle vous pouvez sélectionner EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/settings.png)
 
 1. Dans la fenêtre contextuelle **Settings**, effectuez les étapes suivantes :
 
@@ -188,11 +187,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Cliquez sur l’onglet **Settings** dans le volet de navigation de gauche.
 
-    ![Capture d’écran montrant l’élément Settings sélectionné.](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Capture d’écran montrant l’élément Settings sélectionné.](./media/netskope-cloud-security-tutorial/configure-settings.png)
 
 1. Cliquez sur l’onglet **Active Platform**.
 
-    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Capture d’écran montrant l’élément Active Platform sélectionné à partir de Settings.](./media/netskope-cloud-security-tutorial/user-1.png)
 
 1. Cliquez sur l’onglet **Users** (Utilisateurs).
 

@@ -10,12 +10,12 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 54e703b096ea4e3572a6fc00aa6b7b2b99c4bcad
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: af9d520bab3ff49b30672717414fbd651c915dd4
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800742"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552375"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Suppression réversible pour les conteneurs (préversion)
 
@@ -37,7 +37,7 @@ Lorsque vous activez la suppression réversible de conteneur, vous pouvez spéci
 Lorsque vous restaurez un conteneur, cela a également pour effet de restaurer les blobs qu’il contient ainsi que leurs versions. Toutefois, vous ne pouvez utiliser une suppression réversible de conteneur que pour restaurer des blobs que si le conteneur proprement dit a été supprimé. Pour restaurer un blob supprimé quand son conteneur parent n’a pas été supprimé, vous devez utiliser la suppression réversible ou le contrôle de version de blob.
 
 > [!WARNING]
-> Une suppression réversible de conteneur ne permet de restaurer que des conteneurs entiers et les blobs qu’ils contenaient au moment de la suppression. Une suppression réversible de conteneur ne permet pas de restaurer un blob supprimé au sein d’un conteneur.
+> Une suppression réversible de conteneur ne permet de restaurer que des conteneurs entiers et ce qu’ils contenaient au moment de la suppression. Une suppression réversible de conteneur ne permet pas de restaurer un blob supprimé au sein d’un conteneur. Microsoft recommande également d’activer la suppression réversible des objets blob et la gestion des versions d’objets blob pour protéger les objets blob individuels dans un conteneur.
 
 Le diagramme suivant montre comment restaurer un conteneur supprimé quand la suppression réversible de conteneur est activée :
 
@@ -50,7 +50,7 @@ Une fois la période de rétention expirée, le conteneur est définitivement su
 La désactivation de la suppression réversible de conteneur n’entraîne pas la suppression définitive des conteneurs qui ont été précédemment supprimés de manière réversible. Tous les conteneurs supprimés de manière réversible seront définitivement supprimés à l’expiration de la période de rétention qui était en vigueur au moment de leur suppression.
 
 > [!IMPORTANT]
-> La suppression réversible d’un conteneur n’a pas pour effet de protéger contre la suppression d’un compte de stockage, mais uniquement contre la suppression de conteneurs dans ce compte. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage des ressources Azure Resource Manager, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
+> La suppression réversible du conteneur ne protège pas contre la suppression d’un compte de stockage. Il protège uniquement contre la suppression des conteneurs dans ce compte. Pour empêcher toute suppression d’un compte de stockage, configurez un verrou sur la ressource du compte de stockage. Pour plus d’informations sur le verrouillage d’un compte de stockage, consultez [Appliquer un verrou Azure Resource Manager à un compte de stockage](../common/lock-account-resource.md).
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 

@@ -10,18 +10,16 @@ ms.date: 03/10/2021
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 6ec0b32e487739c33b1b2b49bd0645130fc88581
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66edf35f292f5b681578d49b8be784de66e4d904
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104729530"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936527"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Types de numéros de téléphone dans Azure Communication Services
 
-
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 > [!IMPORTANT]
 > La disponibilité des numéros de téléphone est limitée aux abonnements Azure payants disposant d’une adresse de facturation aux États-Unis et aux ressources Communication Services qui ont un emplacement de données aux États-Unis. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure. Pour plus d’informations, consultez la section de ce document consacrée à l’[éligibilité des abonnements](#azure-subscriptions-eligibility).
@@ -31,7 +29,7 @@ Azure Communication Services vous permet d’utiliser des numéros de téléphon
 
 ## <a name="azure-subscriptions-eligibility"></a>Éligibilité des abonnements Azure
 
-Pour obtenir un numéro de téléphone, vous devez détenir un abonnement Azure payant. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure. 
+Pour obtenir un numéro de téléphone, vous devez détenir un abonnement Azure payant. Les numéros de téléphone ne peuvent pas être acquis sur des comptes d’essai ou avec des crédits gratuits Azure.
 
 La disponibilité des numéros de téléphone est limitée aux abonnements Azure disposant d’une adresse de facturation aux États-Unis et aux ressources Communication Services qui ont un emplacement de données aux États-Unis.
 
@@ -59,13 +57,13 @@ Le tableau ci-dessous résume ces types de numéros de téléphone :
 | Gratuit         | \+ 1 (*indicatif* de zone d’appel gratuit) XXX XX XX | US                      | Appel (sortant), SMS (entrant/sortant)| Attribution des numéros de téléphone à des systèmes/bots de réponse vocale interactive (IVR), applications SMS                                        |
 
 
-### <a name="phone-number-features-in-azure-communication-services"></a>Fonctionnalités de numéros de téléphone dans Azure Communication Services
+### <a name="phone-number-capabilities-in-azure-communication-services"></a>Capacités de numéros de téléphone dans Azure Communication Services
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-Pour la plupart des numéros de téléphone, nous vous autorisons à configurer un ensemble de fonctionnalités « à la carte ». Ces fonctionnalités peuvent être sélectionnées quand vous louez vos numéros de téléphone dans Azure Communication Services.
+Pour la plupart des numéros de téléphone, nous vous permettons de configurer un ensemble de capacités « à la carte ». Ces capacités peuvent être sélectionnées quand vous louez vos numéros de téléphone dans Azure Communication Services.
 
-Les fonctionnalités disponibles dépendent du pays dans lequel vous travaillez, de votre cas d’usage et du type de numéro de téléphone que vous avez sélectionné. Ces fonctionnalités varient selon le pays en raison des exigences réglementaires. Azure Communication Services offre les fonctionnalités de numéro de téléphone suivantes :
+Les capacités disponibles dépendent du pays dans lequel vous travaillez, de votre cas d’usage et du type de numéro de téléphone que vous avez sélectionné. Ces fonctionnalités varient selon le pays en raison des exigences réglementaires. Azure Communication Services offre les capacités de numéro de téléphone suivantes :
 
 - **SMS sortants unidirectionnels** Cette option vous permet d’envoyer des SMS à vos utilisateurs. Elle peut être utile dans les scénarios de notification et d’authentification à 2 facteurs.
 - **SMS entrants et sortants bidirectionnels** Cette option vous permet d’envoyer et de recevoir des messages de vos utilisateurs en utilisant les numéros de téléphone. Elle peut être utile dans les scénarios de service client.

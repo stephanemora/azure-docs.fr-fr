@@ -1,14 +1,14 @@
 ---
 title: 'Modèle : Opérateurs logiques d’une définition de stratégie'
 description: Ce modèle Azure Policy fournit des exemples d’utilisation des opérateurs logiques dans une définition de stratégie.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88545588"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106093348"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Modèle Azure Policy : opérateurs logiques
 
@@ -16,7 +16,7 @@ Une définition de stratégie peut contenir plusieurs instructions conditionnell
 
 ## <a name="sample-1-one-logical-operator"></a>Exemple 1 : Un opérateur logique
 
-Cette définition de stratégie évalue les comptes CosmosDB pour voir si les basculements automatiques et les emplacements à plusieurs écritures sont configurés. Si ce n’est pas le cas, l’[audit](../concepts/effects.md#audit) crée une entrée de journal lorsque la ressource non conforme est créée ou mise à jour.
+Cette définition de stratégie évalue les comptes [Azure Cosmos DB](../../../cosmos-db/introduction.md) pour voir si les basculements automatiques et les emplacements à plusieurs écritures sont configurés. Si ce n’est pas le cas, l’[audit](../concepts/effects.md#audit) crée une entrée de journal lorsque la ressource non conforme est créée ou mise à jour.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -41,7 +41,7 @@ Ce bloc **policyRule.if** comprend également un **allOf**, mais chacune des con
 
 ## <a name="sample-3-combining-logical-operators"></a>Exemple 3 : Combinaison d’opérateurs logiques
 
-Cette définition de stratégie évalue les comptes Java Spring pour déterminer si la trace n’est pas activée ou si elle n’est pas dans un état de réussite.
+Cette définition de stratégie évalue les comptes [Spring sur Azure](/azure/developer/java/spring-framework) pour déterminer si la trace n’est pas activée ou si elle n’est pas dans un état de réussite.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

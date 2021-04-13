@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 435a0b85d205328d10f8762498c7a981d7ee45f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9de6b8d99f09d43a045787ee6185233b9d7ef25
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611825"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443236"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Collecter les journaux Azure Active Directory B2C avec Application Insights
 
@@ -31,6 +31,18 @@ Les journaux d’activité détaillés décrits ici doivent être activés **UNI
 ## <a name="set-up-application-insights"></a>Configurer Application Insights
 
 Si vous n’en avez pas encore, créez une instance Application Insights dans votre abonnement.
+
+> [!TIP]
+> Une même instance d’Application Insights peut être utilisée pour plusieurs locataires Azure AD B2C. Ensuite, dans votre requête, vous pouvez filtrer selon le locataire ou le nom de la stratégie. Pour plus d’informations, [consultez les journaux dans les exemples Application Insights](#see-the-logs-in-application-insights).
+
+Pour utiliser une instance Application Insights de sortie dans votre abonnement, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre abonnement Azure (et non votre annuaire Azure AD B2C).
+1. Ouvrez la ressource Application Insights que vous avez créée précédemment.
+1. Sur la page **Vue d’ensemble**, enregistrez la **Clé d’instrumentation**
+
+Pour créer une instance Application Insights dans votre abonnement, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre abonnement Azure (et non votre annuaire Azure AD B2C).
@@ -96,8 +108,11 @@ Voici une liste de requêtes que vous pouvez utiliser pour afficher les journaux
 
 | Requête | Description |
 |---------------------|--------------------|
-`traces` | Consultez tous les journaux d’activité générés par Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Consultez tous les journaux d’activité générés par Azure AD B2C pour le dernier jour
+| `traces` | Obtenir tous les journaux d’activité générés par Azure AD B2C |
+| `traces | where timestamp > ago(1d)` | Obtenez tous les journaux d’activité générés par Azure AD B2C pour le dernier jour.|
+| `traces | where message contains "exception" | where timestamp > ago(2h)`|  Récupérez tous les journaux avec des erreurs au cours des deux dernières heures.|
+| `traces | where customDimensions.Tenant == "contoso.onmicrosoft.com" and customDimensions.UserJourney  == "b2c_1a_signinandup"` | Obtenez tous les journaux générés par le client Azure AD B2C  *contoso.onmicrosoft.com* pour lesquels le parcours de l’utilisateur est *b2c_1a_signinandup*. |
+| `traces | where customDimensions.CorrelationId == "00000000-0000-0000-0000-000000000000"`| Récupération de tous les journaux générés par Azure AD B2C pour un ID de corrélation. Remplacez l’ID de corrélation par votre ID de corrélation. | 
 
 Les entrées peuvent être longues. Exporter au format CSV pour une étude plus approfondie.
 

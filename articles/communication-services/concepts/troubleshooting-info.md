@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: daa89380894a57e58191edd95303a2160846da04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 80db53a5ed8d2edc90bc847578d5df4d603cc437
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492691"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107225"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -33,11 +33,11 @@ Pour vous aider à résoudre certains types de problèmes, vous pouvez être inv
 
 ## <a name="access-your-ms-cv-id"></a>Accéder à votre ID MS-CV
 
-Vous pouvez accéder à l’ID MS-CV en configurant les diagnostics dans l’instance d’objet `clientOptions` lors de l’initialisation de vos bibliothèques de client. Les diagnostics peuvent être configurés pour n’importe quelle bibliothèque de client Azure, notamment Conversation, Identité et Appel VoIP.
+Vous pouvez accéder à l’ID MS-CV en configurant les diagnostics dans l’instance d’objet `clientOptions` lors de l’initialisation de vos kits SDK. Les diagnostics peuvent être configurés pour n’importe quel kit SDK Azure, notamment Conversation, Identité et Appel VoIP.
 
 ### <a name="client-options-example"></a>Exemple d’options client
 
-Les extraits de code suivants illustrent la configuration des diagnostics. Lorsque les bibliothèques de client sont utilisées avec les diagnostics activés, les détails des diagnostics sont émis sur l’écouteur d’événements configuré :
+Les extraits de code suivants illustrent la configuration des diagnostics. Lorsque les kits SDK sont utilisés avec les diagnostics activés, les détails des diagnostics sont émis sur l’écouteur d’événements configuré :
 
 # <a name="c"></a>[C#](#tab/csharp)
 ```
@@ -79,7 +79,7 @@ chat_client = ChatClient(
 
 ## <a name="access-your-call-id"></a>Accéder à votre ID d’appel
 
-Lors de l’envoi d’une demande de support liée à des problèmes d’appel par le biais du portail Azure, vous pouvez être invité à fournir l’ID de l’appel auquel vous faites référence. Vous pouvez y accéder par le biais de la bibliothèque de client appelante :
+Lors de l’envoi d’une demande de support liée à des problèmes d’appel par le biais du portail Azure, vous pouvez être invité à fournir l’ID de l’appel auquel vous faites référence. Vous pouvez y accéder par le biais du kit SDK Appel :
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
@@ -127,7 +127,7 @@ console.log(result); // your message ID will be in the result
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Le code suivant peut être utilisé pour configurer `AzureLogger`, afin de sortir les journaux dans la console à l’aide de la bibliothèque de client JavaScript :
+Le code suivant peut être utilisé pour configurer `AzureLogger`, afin de sortir les journaux dans la console à l’aide du kit SDK JavaScript :
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
@@ -157,16 +157,16 @@ Sur Android Studio, accédez à l’Explorateur de fichiers de l’appareil en s
 
 ---
 
-## <a name="calling-client-library-error-codes"></a>Code d’erreur de la bibliothèque de client d’appel
+## <a name="calling-sdk-error-codes"></a>Codes d’erreur du kit SDK Appel
 
-La bibliothèque de client d’appel Azure Communication Services utilise les codes d’erreur suivants pour vous aider à résoudre les problèmes d’appel. Ces codes d’erreur sont exposés via la propriété `call.callEndReason` à l’issue d’un appel.
+Le kit SDK Appel Azure Communication Services utilise les codes d’erreur suivants pour vous aider à résoudre des problèmes d’appel. Ces codes d’erreur sont exposés via la propriété `call.callEndReason` à l’issue d’un appel.
 
 | Code d'erreur | Description | Action à effectuer |
 | -------- | ---------------| ---------------|
 | 403 | Interdit / Échec de l’authentification. | Vérifiez que votre jeton Communication Services est valide et qu’il n’a pas expiré. |
 | 404 | Appel introuvable. | Assurez-vous que le numéro que vous appelez (ou l’appel que vous êtes en train de joindre) existe. |
 | 408 | Le délai d’attente du contrôleur d’appel a expiré. | Le contrôleur d’appel a atteint le délai d’attente des messages de protocole provenant des points de terminaison utilisateur. Vérifiez que les clients sont connectés et disponibles. |
-| 410 | Erreur locale de pile multimédia ou d’infrastructure multimédia. | Veillez à utiliser la bibliothèque de client la plus récente dans un environnement pris en charge. |
+| 410 | Erreur locale de pile multimédia ou d’infrastructure multimédia. | Veillez à utiliser le kit SDK le plus récent dans un environnement pris en charge. |
 | 430 | Impossible de remettre le message à l’application cliente. | Vérifiez que l’application cliente est en cours d’exécution et disponible. |
 | 480 | Le point de terminaison de client distant n’est pas inscrit. | Vérifiez que le point de terminaison distant est disponible. |
 | 481 | Échec du traitement de l’appel entrant. | Soumettez une demande de support via le portail Azure. |

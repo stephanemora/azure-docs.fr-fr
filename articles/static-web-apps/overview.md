@@ -5,26 +5,26 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e81f0a9e4fc50cf0d80f2905b9328af3c721865c
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92320491"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166397"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Présentation d’Azure Static Web Apps - Préversion
 
-Azure Static Web Apps est un service qui compile et déploie automatiquement des applications web de pile complètes dans Azure à partir d’un référentiel GitHub.
+Azure Static Web Apps est un service qui génère et déploie automatiquement des applications web de pile complète sur Azure à partir d’un dépôt de code.
 
-:::image type="content" source="media/overview/static-apps-overview.png" alt-text="Vue d’ensemble de Static Web Apps":::
+:::image type="content" source="media/overview/azure-static-web-apps-overview.png" alt-text="Diagramme de présentation d’Azure Static Web Apps":::
 
-Le flux de travail Azure Static Web Apps est adapté au flux de travail quotidien des développeurs. Les applications sont générées et déployées en fonction d’interactions GitHub.
+Le flux de travail Azure Static Web Apps est adapté au flux de travail quotidien des développeurs. Les applications sont générées et déployées sur la base des modifications du code.
 
-Lorsque vous créez une ressource de Azure Static Web Apps, Azure configure un flux de travail GitHub Actions dans le référentiel de code source de l’application, qui surveille une branche de votre choix. Chaque fois que vous envoyez des validations ou que vous acceptez des demandes de tirage (pull request) dans la branche surveillée, GitHub Actions compile et déploie automatiquement votre application et son API sur Azure.
+Lorsque vous créez une ressource Azure Static Web Apps, Azure interagit directement avec GitHub ou Azure DevOps pour superviser une branche de votre choix. Chaque fois que vous envoyez des validations ou que vous acceptez des demandes de tirage (pull request) dans la branche surveillée, une build est automatiquement exécutée et votre application ainsi que l’API sont déployées sur Azure.
 
-Les applications web statiques sont généralement créées à l'aide de bibliothèques et d'infrastructures comme Angular, React, Svelte, Vue ou Blazor. Ces applications comprennent du code HTML, CSS, JavaScript et des images, qui composent l’application. Avec un serveur web traditionnel, ces ressources sont fournies à partir d’un seul serveur et de tous les points de terminaison d’API requis.
+Les applications web statiques sont généralement créées à l’aide de bibliothèques et de frameworks comme Angular, React, Svelte, Vue ou Blazor, où le rendu côté serveur n’est pas obligatoire. Ces applications comprennent du code HTML, CSS, JavaScript et des images, qui composent l’application. Avec un serveur web traditionnel, ces ressources sont fournies à partir d’un seul serveur et de tous les points de terminaison d’API requis.
 
 Avec les applications Static Web Apps, les ressources statiques sont séparées d’un serveur Web traditionnel et sont servies à partir de points répartis géographiquement dans le monde entier. Cette distribution rend le transfert des fichiers plus rapide, car les fichiers sont physiquement proches des utilisateurs finaux. En outre, les points de terminaison d’API sont hébergés à l’aide d’une [architecture serverless](../azure-functions/functions-overview.md), ce qui évite d’avoir à utiliser un serveur principal complet.
 
@@ -32,7 +32,7 @@ Avec les applications Static Web Apps, les ressources statiques sont séparées 
 
 - **Hébergement web** pour le contenu statique comme le HTML, le CSS, le JavaScript et les images.
 - **Prise en charge d’API** intégrée fournie par Azure Functions.
-- **Intégration GitHub de première classe** dans laquelle les modifications du référentiel déclenchent des compilations et des déploiements.
+- **Intégration Azure DevOps et GitHub de première classe** dans laquelle les modifications du dépôt déclenchent des builds et des déploiements.
 - **contenu statique distribué à l’échelle mondiale**, ce qui rapproche le contenu de vos utilisateurs.
 - **Certificats SSL gratuits**, automatiquement renouvelés.
 - **Domaines personnalisés** pour fournir des personnalisations à votre application.

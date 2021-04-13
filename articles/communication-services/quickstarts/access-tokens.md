@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer et gérer des jetons d’accès'
 titleSuffix: An Azure Communication Services quickstart
-description: Découvrez comment gérer des identités et des jetons d’accès à l’aide de la bibliothèque de client Azure Communication Services Identity.
+description: Découvrez comment gérer des identités et des jetons d’accès à l’aide du SDK de l’identité Azure Communication Services.
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
@@ -10,16 +10,16 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 921934e581d9b3d32cba644d85987ebb9802f73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e356219d22ee558ce3de5a96d58f24b9e7902d8a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495303"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726615"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Démarrage rapide : Créer et gérer des jetons d’accès
 
-Bien démarrer avec Azure Communication Services en utilisant la bibliothèque de client Azure Communication Services Identity. Elle vous permet de créer des identités et de gérer vos jetons d’accès. L’identité représente une entité de votre application dans la solution Azure Communication Service (par exemple, un utilisateur ou un appareil). Les jetons d’accès permettent aux bibliothèques de client Chat et Calling de s’authentifier directement auprès d’Azure Communication Services. Nous vous recommandons de générer des jetons d’accès sur un service côté serveur. Les jetons d’accès sont ensuite utilisés pour initialiser les bibliothèques de client Communication Services sur les appareils clients.
+Commencez à utiliser Azure Communication Services avec le SDK de l’identité Communication Services. Elle vous permet de créer des identités et de gérer vos jetons d’accès. L’identité représente une entité de votre application dans la solution Azure Communication Service (par exemple, un utilisateur ou un appareil). Les jetons d’accès permettent aux SDK Chat et Calling de s’authentifier directement auprès d’Azure Communication Services. Nous vous recommandons de générer des jetons d’accès sur un service côté serveur. Les jetons d’accès sont ensuite utilisés pour initialiser les SDK Communication Services sur les appareils clients.
 
 Les tarifs indiqués sur les images tout au long de ce tutoriel sont fournis à des fins de démonstration uniquement.
 
@@ -44,9 +44,14 @@ La sortie de l’application décrit chaque action terminée :
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at Fri Nov 27 2020 16:47:05 GMT-0800 (Pacific Standard Time):
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+<token signature here>
+
+Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
+
+Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
 <token signature here>
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
@@ -67,7 +72,7 @@ Dans ce démarrage rapide, vous avez appris comment :
 > [!div class="checklist"]
 > * Gérer des identités
 > * Émettre des jetons d’accès
-> * Utiliser la bibliothèque de client Azure Communication Services Identity
+> * Utiliser le SDK de l’identité Communication Services
 
 
 > [!div class="nextstepaction"]

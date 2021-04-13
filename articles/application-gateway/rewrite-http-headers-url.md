@@ -2,17 +2,17 @@
 title: Réécrire des en-têtes HTTP et une URL avec Azure Application Gateway | Microsoft Docs
 description: Cet article offre une vue d’ensemble de la réécriture d’en-têtes HTTP et d’URL dans Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/16/2020
-ms.author: surmb
-ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.author: azhussai
+ms.openlocfilehash: 3e7bdc92dc6268c712eecbd69ff014e2229b3b84
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101726510"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490962"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Réécrire des en-têtes HTTP et une URL à l’aide d’Application Gateway
 
@@ -38,7 +38,7 @@ Pour savoir comment réécrire des en-têtes de requête et de réponse avec App
 
 Vous pouvez réécrire tous les en-têtes des requêtes et des réponses à l’exclusion des en-têtes de connexion et de mise à niveau. Vous pouvez aussi utiliser la passerelle d’application pour créer des en-têtes personnalisés et les ajouter aux requêtes et réponses qui transitent par elle.
 
-### <a name="url-path-and-query-string-preview"></a>Chemin et chaîne de requête de l’URL (préversion)
+### <a name="url-path-and-query-string"></a>Chemin et chaîne de requête de l’URL
 
 Avec la fonctionnalité de réécriture d’URL d’Application Gateway, vous pouvez :
 
@@ -51,9 +51,6 @@ Avec la fonctionnalité de réécriture d’URL d’Application Gateway, vous po
 Pour savoir comment réécrire une URL avec Application Gateway à l’aide du portail Azure, consultez [cette page](rewrite-url-portal.md).
 
 ![Schéma décrivant le processus de réécriture d’une URL avec Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
-
->[!NOTE]
-> La fonctionnalité de réécriture d’URL est en préversion et est disponible uniquement pour les références SKU Standard_v2 et WAF_v2 d’Application Gateway. Son utilisation n’est pas recommandée en environnement de production. Pour en savoir plus sur les préversions, consultez les [conditions d’utilisation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="rewrite-actions"></a>Actions de réécriture
 
@@ -129,7 +126,20 @@ Application Gateway prend en charge les variables de serveur suivantes :
 | ssl_enabled               | Valeur « On » si la connexion opère en mode TLS. Sinon, chaîne vide. |
 | uri_path                  | Identifie la ressource spécifique dans l’hôte à laquelle le client web souhaite accéder. Il s’agit de la partie de l’URI de requête sans les arguments. Exemple : dans la requête `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, la valeur uri_path sera `/article.aspx` |
 
- 
+### <a name="mutual-authentication-server-variables-preview"></a>Variables de serveur d’authentification mutuelle (préversion)
+
+Application Gateway prend en charge les variables de serveur suivantes pour les scénarios d’authentification mutuelle. Utilisez ces variables serveur de la même façon que ci-dessus avec les autres variables serveur. 
+
+|   Nom de la variable    |                   Description                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_certificate        | Le certificat client au format PEM pour une connexion SSL établie. |
+| client_certificate_end_date| Date de fin du certificat client. |
+| client_certificate_fingerprint| Empreinte digitale SHA1 du certificat client pour une connexion SSL établie. |
+| client_certificate_issuer | Chaîne « DN d’émetteur » du certificat client pour une connexion SSL établie. |
+| client_certificate_serial | Numéro de série du certificat client pour une connexion SSL établie.  |
+| client_certificate_start_date| Date de début du certificat client. |
+| client_certificate_subject| Chaîne « DN de sujet » du certificat client pour une connexion SSL établie. |
+| client_certificate_verification| Résultat de la vérification du certificat client : *SUCCESS*, *FAILED:<reason>* ou *NONE* si aucun certificat n’est présent. | 
 
 ## <a name="rewrite-configuration"></a>Configuration de la réécriture
 
@@ -148,6 +158,25 @@ Un ensemble de règles de réécriture contient les éléments suivants :
       * **Chemin d’URL** : valeur vers laquelle le chemin doit être réécrit. 
       * **Chaîne de requête de l’URL** : valeur vers laquelle la chaîne de requête doit être réécrite. 
       * **Réévaluer le mappage du chemin** : utilisé pour déterminer si le mappage du chemin d’URL doit être réévalué ou non. Si cette option est désactivée, le chemin d’URL d’origine est utilisé pour la correspondance avec le chemin de modèle dans le mappage du chemin d’URL. Si la valeur est true, le mappage du chemin d’URL est réévalué pour que la correspondance avec le chemin réécrit soit vérifiée. L’activation de ce commutateur permet de router la requête vers un autre pool de back-ends après la réécriture.
+
+## <a name="rewrite-configuration-common-pitfall"></a>Erreurs courantes lors de la réécriture de la configuration
+
+* L’activation de l’option « Réévaluer le mappage de chemin » n’est pas autorisée pour les règles de routage de requête de base. Cela permet d’éviter une boucle d’évaluation infinie pour une règle de routage de base.
+
+* Il doit y avoir au moins 1 règle de réécriture conditionnelle ou 1 règle de réécriture qui n’a pas la valeur « Réévaluer le mappage de chemin » activée pour les règles de routage basées sur le chemin d’accès pour empêcher une boucle d’évaluation infinie pour une règle de routage basée sur le chemin d’accès.
+
+* Les requêtes entrantes se termineraient par un code d’erreur 500 au cas où une boucle serait créée dynamiquement en fonction des entrées du client. Application Gateway continuera à traiter les autres requêtes sans dégradation dans un tel scénario.
+
+### <a name="using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku"></a>Utilisation de la réécriture d’URL ou de la réécriture d’en-tête de l’hôte avec le pare-feu d’applications web (WAF_v2 SKU)
+
+Quand vous configurez la réécriture d’URL ou la réécriture d’en-tête d’hôte, l’évaluation du WAF se produit après la modification de l’en-tête de la requête ou des paramètres d’URL (après réécriture). Et lorsque vous supprimez la configuration de réécriture d’URL ou de réécriture de l’en-tête de l’hôte sur votre instance Application Gateway, l’évaluation du WAF sera effectuée avant la réécriture de l’en-tête. Cet ordre permet de s’assurer que les règles de WAF sont appliquées à la dernière requête reçue par votre pool principal.
+
+Par exemple, imaginons que vous avez la règle de réécriture d’en-tête suivante pour l’en-tête `"Accept" : "text/html"` : si la valeur de l’en-tête `"Accept"` est égale à `"text/html"`, réécrivez la valeur en `"image/png"`.
+
+Ici, avec seulement la réécriture d’en-tête configurée, l’évaluation WAF sera effectuée sur `"Accept" : "text/html"`. Toutefois, lorsque vous configurez la réécriture d’URL ou la réécriture d’en-tête de l’hôte, l’évaluation du WAF est effectuée sur `"Accept" : "image/png"`.
+
+>[!NOTE]
+> Les opérations de réécriture d’URL entraînent typiquement une augmentation mineure de l’utilisation du processeur de votre Application Gateway WAF. Il est recommandé de surveiller la [métrique d’utilisation du processeur](high-traffic-support.md) pendant une courte période après l’activation des règles de réécriture d’URL sur votre Application Gateway WAF.
 
 ### <a name="common-scenarios-for-header-rewrite"></a>Scénarios courants de réécriture d’en-tête
 

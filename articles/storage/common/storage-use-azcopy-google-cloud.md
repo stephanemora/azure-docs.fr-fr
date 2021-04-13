@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: c0f030683954ede013f769bf8584e6cf82bab69f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c6a53acd63b6aa882674f6aa29e1f7152f5b0a30
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555060"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728808"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>Copier les données de Google Cloud Storage vers Stockage Azure à l’aide d’AzCopy (préversion)
 
@@ -63,7 +63,7 @@ AzCopy utilise l’API [Placer un bloc à partir d’une URL](/rest/api/storages
 
 Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui ont un espace de noms hiérarchique.
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Exemple** | `azcopy copy 'https://storage.cloud.google.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
@@ -74,7 +74,7 @@ Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui
 
 Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui ont un espace de noms hiérarchique.
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exemple** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -87,7 +87,7 @@ Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui
 
 Vous pouvez copier le contenu d’un répertoire sans copier le répertoire proprement dit en utilisant le caractère générique (*).
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Exemple** | `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
@@ -97,7 +97,7 @@ Vous pouvez copier le contenu d’un répertoire sans copier le répertoire prop
 
 Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui ont un espace de noms hiérarchique.
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemple** | `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -109,7 +109,7 @@ Tout d’abord, définissez `GOOGLE_CLOUD_PROJECT` sur l’ID de projet Google C
 
 Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui ont un espace de noms hiérarchique.
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemple** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
@@ -121,7 +121,7 @@ Tout d’abord, définissez `GOOGLE_CLOUD_PROJECT` sur l’ID de projet Google C
 
 Copier un sous-ensemble de compartiments en utilisant un caractère générique (*) dans le nom du compartiment. Utilisez la même syntaxe d’URL (`blob.core.windows.net`) pour les comptes qui ont un espace de noms hiérarchique.
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Exemple** | `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |

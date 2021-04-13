@@ -10,12 +10,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d75ba091ff634bf613722e3a194407beeeda68fb
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98786003"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967232"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatiser la permutation d’un secret pour des ressources qui ont deux jeux d’informations d’authentification
 
@@ -53,11 +54,17 @@ Vous pouvez utiliser ce lien de déploiement si vous n’avez pas de coffre de c
 
     ![Capture d’écran montrant comment créer un groupe de ressources.](../media/secrets/rotation-dual/dual-rotation-1.png)
 
-Vous disposez maintenant d’un coffre de clés et de deux comptes de stockage. Vous pouvez vérifier cette configuration dans l’interface de ligne de commande (CLI) Azure en exécutant cette commande :
-
+Vous disposez maintenant d’un coffre de clés et de deux comptes de stockage. Vous pouvez vérifier cette configuration dans l’interface Azure CLI ou Azure PowerShell en exécutant cette commande :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az resource list -o table -g vaultrotation
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzResource -Name 'vaultrotation*' | Format-Table
+```
+---
 
 Le résultat doit ressembler à la sortie suivante :
 
@@ -111,49 +118,97 @@ Vous trouverez des modèles de déploiement et du code pour la fonction de permu
 ## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Ajouter les clés d’accès de compte de stockage dans Key Vault
 
 Commencez par définir votre stratégie d’accès pour accorder les autorisations **Gérer les secrets** à votre utilisateur principal :
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vaultrotation-kv -PermissionsToSecrets set,delete,get,list
+```
+---
 
 Vous pouvez maintenant créer un secret ayant pour valeur une clé d’accès de compte de stockage. Vous avez également besoin de l’ID de ressource du compte de stockage, de la période de validité du secret et de l’ID de clé à ajouter au secret, afin que la fonction de permutation puisse regénérer la clé dans le compte de stockage.
 
 Déterminez l’ID de ressource du compte de stockage. Vous pouvez trouver cette valeur dans la propriété `id`.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
+```
+---
 
 Listez les clés d’accès de compte de stockage afin de pouvoir récupérer les valeurs des clés :
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
-az storage account keys list -n vaultrotationstorage 
+az storage account keys list -n vaultrotationstorage
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
 
 Ajoutez le secret au coffre de clés avec la date d’expiration définie sur le lendemain, une période de validité de 60 jours et l’ID de ressource du compte de stockage. Exécutez cette commande, en utilisant les valeurs récupérées pour `key1Value` et `storageAccountResourceId` :
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
 az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$tags = @{
+    CredentialId='key1'
+    ProviderAddress='<storageAccountResourceId>'
+    ValidityPeriodDays='60'
+}
+Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+```
+---
 
 Le secret ci-dessus déclenchera l’événement `SecretNearExpiry` au bout de quelques minutes. Cet événement déclenchera à son tour la fonction permettant de permuter le secret, avec l’expiration définie sur 60 jours. Dans cette configuration, l’événement « SecretNearExpiry » est déclenché tous les 30 jours (30 jours avant l’expiration) et la fonction de permutation alterne la permutation entre key1 et key2.
 
 Vous pouvez vérifier que les clés d’accès ont été regénérées en récupérant la clé de compte de stockage et le secret Key Vault, puis en les comparant.
 
 Utilisez cette commande pour obtenir des informations sur le secret :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey -AsPlainText
+```
+---
 
 Remarquez que `CredentialId` est mis à jour vers l’autre `keyName` et que `value` est regénérée :
 
 ![Capture d’écran montrant la sortie de la commande az keyvault secret show pour le premier compte de stockage.](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Récupérez les clés d’accès pour comparer les valeurs :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
+
 Notez que la `value` de la clé est identique au secret du coffre de clés :
 
 ![Capture d’écran montrant la sortie de la commande az storage account keys list pour le premier compte de stockage.](../media/secrets/rotation-dual/dual-rotation-5.png)
@@ -185,36 +240,77 @@ Pour ajouter des clés de compte de stockage à une fonction existante en vue d�
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Ajouter une autre clé d’accès de compte de stockage dans Key Vault
 
 Déterminez l’ID de ressource du compte de stockage. Vous pouvez trouver cette valeur dans la propriété `id`.
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account show -n vaultrotationstorage2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccount -Name vaultrotationstorage -ResourceGroupName vaultrotation | Select-Object -Property *
+```
+---
 
 Listez les clés d’accès de compte de stockage afin de pouvoir récupérer la valeur key2 :
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
-az storage account keys list -n vaultrotationstorage2 
+az storage account keys list -n vaultrotationstorage2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrotation
+```
+---
 
 Ajoutez le secret au coffre de clés avec la date d’expiration définie sur le lendemain, une période de validité de 60 jours et l’ID de ressource du compte de stockage. Exécutez cette commande, en utilisant les valeurs récupérées pour `key2Value` et `storageAccountResourceId` :
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
 az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$tags = @{
+    CredentialId='key2';
+    ProviderAddress='<storageAccountResourceId>';
+    ValidityPeriodDays='60'
+}
+Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretVaule -Tag $tags -Expires $tomorrowDate
+```
+---
 
 Utilisez cette commande pour obtenir des informations sur le secret :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault secret show --vault-name vaultrotation-kv --name storageKey2
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzKeyVaultSecret -VaultName vaultrotation-kv -Name storageKey2 -AsPlainText
+```
+---
 
 Remarquez que `CredentialId` est mis à jour vers l’autre `keyName` et que `value` est regénérée :
 
 ![Capture d’écran montrant la sortie de la commande az keyvault secret show pour le second compte de stockage.](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Récupérez les clés d’accès pour comparer les valeurs :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az storage account keys list -n vaultrotationstorage 
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotation
+```
+---
 
 Notez que la `value` de la clé est identique au secret du coffre de clés :
 

@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53f09eed89f9667611ed4d5e0268c889609d560a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101707136"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553564"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>Démarrage rapide : Se connecter de manière sécurisée à une machine virtuelle par le biais d’un navigateur via une adresse IP privée
 
@@ -36,6 +36,10 @@ Vous pouvez vous connecter à une machine virtuelle par le biais de votre naviga
   
 * Ports de machine virtuelle nécessaires :
   * Ports d’entrée : RDP (3389)
+
+ >[!NOTE]
+ >L'utilisation d'Azure Bastion avec Azure DNS Private Zones n'est pas prise en charge pour le moment. Avant de commencer, assurez-vous que le réseau virtuel sur lequel vous prévoyez de déployer votre ressource Bastion n'est pas lié à une zone DNS privée.
+ >
 
 ### <a name="example-values"></a><a name="values"></a>Exemples de valeurs
 

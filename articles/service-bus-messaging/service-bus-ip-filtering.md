@@ -2,31 +2,30 @@
 title: Configurer des règles de pare-feu IP pour Azure Service Bus
 description: Utilisation des règles de pare-feu pour autoriser les connexions à Azure Service Bus à partir d’adresses IP spécifiques.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: e73f566533cb2357653f7f584ec9ca77333c0a63
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/29/2021
+ms.openlocfilehash: 747e15e912033c5bc6a1f64ab389f1ab03f40c0b
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100560866"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962320"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès à un espace de noms Azure Service Bus à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Service Bus sont accessibles à partir d’Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez la limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Cette fonctionnalité est utile dans les scénarios où Azure Service Bus ne doit être accessible qu’à partir de certains sites bien connus. Les règles de pare-feu permettent de configurer des règles pour accepter le trafic provenant d’adresses IPv4 spécifiques. Par exemple, si vous utilisez Service Bus avec [Azure ExpressRoute][express-route], vous pouvez créer une **règle de pare-feu** pour autoriser uniquement le trafic provenant d’adresses IP de votre infrastructure locale ou d’adresses d’une passerelle NAT d’entreprise. 
 
-> [!IMPORTANT]
-> - Les pare-feux et les réseaux virtuels sont pris en charge uniquement dans le niveau **Premium** de Service Bus. Si la mise à niveau vers le niveau **Premier** s'avère impossible, nous vous recommandons de conserver le jeton de signature d'accès partagé (SAP) en lieu sûr et de ne le partager qu'avec des utilisateurs autorisés. Pour plus d'informations sur l'authentification SAP, consultez [Authentification et autorisation](service-bus-authentication-and-authorization.md#shared-access-signature).
-> - Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
-
 ## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Service Bus. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Service Bus est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
-La mise en place de règles de pare-feu peut empêcher d’autres services Azure d’interagir avec Service Bus. En guise d’exception, vous pouvez autoriser l’accès aux ressources Service Bus à partir de certains services approuvés, même lorsque le filtrage IP est activé. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services). 
+## <a name="important-points"></a>Points importants
+- Les pare-feux et les réseaux virtuels sont pris en charge uniquement dans le niveau **Premium** de Service Bus. Si la mise à niveau vers le niveau **Premier** s'avère impossible, nous vous recommandons de conserver le jeton de signature d'accès partagé (SAP) en lieu sûr et de ne le partager qu'avec des utilisateurs autorisés. Pour plus d'informations sur l'authentification SAP, consultez [Authentification et autorisation](service-bus-authentication-and-authorization.md#shared-access-signature).
+- Spécifiez **au moins une règle de pare-feu IP ou une règle de réseau virtuel** pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
+- La mise en place de règles de pare-feu peut empêcher d’autres services Azure d’interagir avec Service Bus. En guise d’exception, vous pouvez autoriser l’accès aux ressources Service Bus à partir de certains **services approuvés**, même lorsque le filtrage IP est activé. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services). 
 
-Les services Microsoft suivants doivent se trouver sur un réseau virtuel
-- Azure App Service
-- Azure Functions
+    Les services Microsoft suivants doivent se trouver sur un réseau virtuel
+    - Azure App Service
+    - Azure Functions
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Cette section explique comment utiliser le portail Azure afin de créer des règles de pare-feu IP pour un espace de noms Service Bus. 

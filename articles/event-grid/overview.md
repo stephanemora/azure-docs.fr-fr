@@ -3,12 +3,12 @@ title: Qu'est-ce qu'Azure Event Grid ?
 description: Envoyez des données d'événement d'une source vers des gestionnaires avec Azure Event Grid. Créez des applications basées sur des événements et intégrez-les à des services Azure.
 ms.topic: overview
 ms.date: 01/28/2021
-ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a410f56da9e28403fb98d92332e6d67c064bac4d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99055130"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934860"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -22,7 +22,8 @@ Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarr
 
 :::image type="content" source="./media/overview/functional-model.png" alt-text="Modèle Event Grid de sources et de gestionnaires" lightbox="./media/overview/functional-model-big.png":::
 
-Cette image montre comment Event Grid connecte les sources et les gestionnaires, mais il ne s'agit pas d'une liste exhaustive des intégrations prises en charge.
+> [!NOTE]
+> Cette image montre comment Event Grid connecte les sources et les gestionnaires, mais il ne s'agit pas d'une liste exhaustive des intégrations prises en charge. Pour obtenir une liste de toutes les sources d’événements prises en charge, consultez la section suivante. 
 
 ## <a name="event-sources"></a>Sources d’événement
 
@@ -38,6 +39,7 @@ Les services Azure suivants prennent en charge l’envoi d’événements vers E
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
+- [Azure Policy](./event-schema-policy.md)
 - [Groupes de ressources Azure](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734037"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106271507"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’**Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -23,7 +23,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 
 | Ressource | Limite | 
 | --- | --- |
-| Réseaux virtuels |1 000 |
+| Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
 | Peerings VNet par réseau virtuel |500 |
 | [Passerelles de réseau virtuel (passerelles VPN) par réseau virtuel](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
@@ -73,12 +73,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                           |
 | Configurations d’adresses IP frontales              | 600                           |
 | Taille de pool de serveur principal                       | 1 000 configurations d’adresses IP, réseau virtuel unique |
-| Ressources back-end par équilibreur de charge <sup>1<sup> | 250                   |
+| Ressources back-end par équilibreur de charge <sup>1<sup> | 1,200                   |
 | Ports de haute disponibilité                 | 1 par serveur frontal interne       |
 | Règles de trafic sortant par Load Balancer        | 600                           |
 | Équilibreurs de charge par machine virtuelle                   | 2 (1 public et 1 interne)   |
 
-<sup>1</sup> La limite est fixée à 150 ressources, dans toute combinaison de ressources de machines virtuelles autonomes, de ressources de groupes à haute disponibilité et de groupes de sélection élective de groupes de machines virtuelles identiques.
+<sup>1</sup> La limite est fixée à 1 200 ressources, dans toute combinaison de ressources de machines virtuelles autonomes, de ressources de groupes à haute disponibilité et de groupes de sélection élective de groupes de machines virtuelles identiques.
 
 **Load Balancer de base**
 

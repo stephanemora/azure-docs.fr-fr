@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631365"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109792"
 ---
-# <a name="common-errors"></a>Erreurs courantes
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Erreurs généralement rencontrées pendant ou après la migration vers le service Azure Database pour MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database pour MySQL est un service complètement managé, reposant sur MySQL Community Edition. L’expérience MySQL dans un environnement de service managé peut différer de l’exécution de MySQL dans votre environnement spécifique. Dans cet article, vous verrez certaines des erreurs courantes que les utilisateurs peuvent rencontrer en migrant vers le service Azure Database pour MySQL ou en développant sur ce service pour la première fois.
 
@@ -48,7 +50,7 @@ BEGIN
 END;
 ```
 
-**Résolution** :  Pour résoudre cette erreur, affectez la valeur 1 à log_bin_trust_function_creators sur le portail, dans le panneau des [paramètres du serveur](howto-server-parameters.md), exécutez les instructions DDL ou importez le schéma pour créer les objets souhaités, puis rétablissez la valeur précédente du paramètre log_bin_trust_function_creators après la création.
+**Résolution** : Pour résoudre cette erreur, affectez la valeur 1 à log_bin_trust_function_creators dans le panneau des [paramètres du serveur](howto-server-parameters.md) dans le portail, exécutez les instructions DDL ou importez le schéma pour créer les objets souhaités. Vous pouvez maintenir log_bin_trust_function_creators sur 1 pour votre serveur afin d’éviter l’erreur à l’avenir. Nous vous recommandons de définir log_bin_trust_function_creators, car le risque de sécurité mis en évidence dans la [documentation de la communauté MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) est minimal dans le service Azure DB pour MySQL puisque le journal des emplacements n’est exposé à aucune menace.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>ERREUR 1227 (42000) à la ligne 101 : Accès refusé ; vous avez au minimum besoin d’un des SUPER privilèges pour cette opération. Échec de l’opération avec code de sortie 1
 
@@ -84,6 +86,14 @@ L’erreur ci-dessus peut se produire lors de l’exécution de CREATE VIEW avec
 
 > [!Tip] 
 > Utilisez sed ou perl pour modifier un fichier dump ou un script SQL et remplacer l’instruction DEFINER= statement
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>ERREUR 1227 (42000) à la ligne 18 : Accès refusé ; vous avez au minimum besoin d’un des SUPER privilèges pour cette opération
+
+L’erreur ci-dessus peut se produire si vous tentez d’importer le fichier dump à partir du serveur MySQL avec GTID activé sur le serveur Azure Database pour MySQL cible. Mysqldump ajoute l’instruction SET @@SESSION.sql_log_bin=0 à un fichier dump à partir d’un serveur sur lequel des GTID sont en cours d’utilisation, ce qui désactive la journalisation binaire pendant le rechargement du fichier dump.
+
+**Résolution** : Pour résoudre cette erreur lors de l’importation, supprimez ou commentez les lignes ci-dessous dans votre fichier mysqldump, puis réexécutez l’importation pour vérifier qu’elle est correcte. 
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN ; SET @@SESSION.SQL_LOG_BIN= 0 ; SET @@GLOBAL.GTID_PURGED='' ; SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN ;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>Erreurs de connexion courantes liées à la connexion de l’administrateur du serveur
 

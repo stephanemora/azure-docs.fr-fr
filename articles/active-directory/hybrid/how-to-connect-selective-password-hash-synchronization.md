@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5a73f4eba9581965470b95111e6dda1d8014e4cb
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602857"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167496"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuration de la synchronisation sélective du hachage de mot de passe pour Azure AD Connect
 
@@ -26,7 +26,7 @@ La [synchronisation sélective du hachage de mot de passe](whatis-phs.md) est l�
 Si vous souhaitez exclure un sous-ensemble d’utilisateurs de la synchronisation du hachage de leurs mots de passe sur Azure AD, vous pouvez configurer la synchronisation sélective du hachage de mot de passe à l’aide des étapes guidées fournies dans cet article.
 
 >[!Important]
-> Microsoft ne prend pas en charge la modification ou l’utilisation de la synchronisation Azure AD Connect en dehors des configurations ou des actions documentées de façon formelle. Ces configurations ou actions peuvent entraîner un état de synchronisation Azure AD Connect incohérent ou non pris en charge. Par conséquent, Microsoft ne peut pas garantir que nous serons capables de fournit un support technique efficace pour de tels déploiements. 
+> Microsoft ne prend pas en charge la modification ou l’utilisation de la synchronisation Azure AD Connect en dehors des configurations ou des actions documentées de façon formelle. Ces configurations ou actions peuvent entraîner un état de synchronisation Azure AD Connect incohérent ou non pris en charge. Par conséquent, Microsoft ne peut pas garantir que l’équipe du support technique sera en mesure de fournir un support efficace pour de tels déploiements. 
 
 
 ## <a name="consider-your-implementation"></a>Réfléchir à votre implémentation  
@@ -36,6 +36,9 @@ Pour réduire l’effort administratif de la configuration, vous devez d’abord
 
 > [!Important]
 > Quelle que soit l’option de configuration choisie, une synchronisation initiale obligatoire (synchronisation complète) pour appliquer les modifications est effectuée automatiquement lors du cycle de synchronisation suivant.
+
+> [!Important]
+> La configuration de la synchronisation sélective du hachage de mot de passe influence directement la réécriture du mot de passe. Les modifications de mot de passe ou les réinitialisations de mot de passe lancées dans Azure Active Directory sont réécrites dans Active Directory local uniquement si l’utilisateur est dans l’étendue de la synchronisation de hachage de mot de passe. 
 
 ### <a name="the-admindescription-attribute"></a>Attribut adminDescription
 Les deux scénarios s’appuient sur la définition de l’attribut adminDescription des utilisateurs sur une valeur spécifique.  Cela permet d’appliquer les règles et c’est ce qui permet à la synchronisation sélective du hachage de mot de passe de fonctionner.
@@ -90,7 +93,7 @@ Si cet attribut n’est pas renseigné ou si la valeur est différente de **PHSF
      ![Démarrer l’éditeur de règles de synchronisation](media/how-to-connect-selective-password-hash-synchronization/exclude-1.png)
  2. Sélectionnez la règle **Entrant depuis AD – Utilisateur AccountEnabled** pour le connecteur de forêt Active Directory sur lequel vous souhaitez configurer la synchronisation sélective du hachage de mot de passe, puis cliquez sur **Modifier**. Sélectionnez **Oui** dans la boîte de dialogue suivante pour créer une copie modifiable de la règle d’origine.
      ![Sélectionner une règle](media/how-to-connect-selective-password-hash-synchronization/exclude-2.png)
- 3. La première règle désactivera la synchronisation du hachage de mot de passe. Donnez le nom suivant à la nouvelle règle personnalisée : **Entrant depuis AD – Utilisateur AccountEnabled – Filtrer les utilisateurs par PHS**.
+ 3. La première règle désactivera la synchronisation du hachage de mot de passe. Donnez le nom suivant à la nouvelle règle personnalisée : **Entrant depuis AD – Utilisateur AccountEnabled – Filtrer les utilisateurs par PHS**.
  Remplacez la valeur de précédence par un nombre inférieur à 100 (par exemple **90** ou la valeur la plus basse disponible dans votre environnement).
  Assurez-vous que les cases à cocher **Activer la synchronisation de mot de passe** et **Désactivé** sont décochées.
  Cliquez sur **Suivant**.
@@ -134,6 +137,9 @@ Une fois toutes les configurations terminées, vous devez modifier l’attribut 
    
   ![Modifier l’attribut](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+Vous pouvez également utiliser la commande PowerShell suivante pour modifier l’attribut **adminDescription** d’un utilisateur :
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>Plus d’utilisateurs exclus que d’utilisateurs inclus
 La section suivante décrit comment activer la synchronisation sélective du hachage de mot de passe lorsque le nombre d’utilisateurs à **exclure** **est supérieur** au nombre d’utilisateurs à **inclure**.
@@ -159,7 +165,7 @@ Si cet attribut n’est pas renseigné ou si la valeur est différente de **PHSI
      ![Type de règle](media/how-to-connect-selective-password-hash-synchronization/include-1.png)
  2. Sélectionnez la règle **Entrant depuis AD – Utilisateur AccountEnabled** pour la forêt Active Directory sur laquelle vous souhaitez configurer la synchronisation sélective du hachage de mot de passe, puis cliquez sur **Modifier**. Sélectionnez **Oui** dans la boîte de dialogue suivante pour créer une copie modifiable de la règle d’origine.
      ![Entrant à partir d’AD](media/how-to-connect-selective-password-hash-synchronization/include-2.png)
- 3. La première règle désactivera la synchronisation du hachage de mot de passe. Donnez le nom suivant à la nouvelle règle personnalisée : **Entrant depuis AD – Utilisateur AccountEnabled – Filtrer les utilisateurs par PHS**.
+ 3. La première règle désactivera la synchronisation du hachage de mot de passe. Donnez le nom suivant à la nouvelle règle personnalisée : **Entrant depuis AD – Utilisateur AccountEnabled – Filtrer les utilisateurs par PHS**.
  Remplacez la valeur de précédence par un nombre inférieur à 100 (par exemple **90** ou la valeur la plus basse disponible dans votre environnement).
  Assurez-vous que les cases à cocher **Activer la synchronisation de mot de passe** et **Désactivé** sont décochées.
  Cliquez sur **Suivant**.
@@ -202,7 +208,9 @@ Une fois toutes les configurations terminées, vous devez modifier l’attribut 
 
   ![Modifier les attributs](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ Vous pouvez également utiliser la commande PowerShell suivante pour modifier l’attribut **adminDescription** d’un utilisateur :
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Qu’est-ce que la synchronisation de hachage de mot de passe ?](whatis-phs.md)

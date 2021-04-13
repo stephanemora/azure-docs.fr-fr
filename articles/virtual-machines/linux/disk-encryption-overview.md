@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1ea83dc62c2752e34584b89de2cdb6dbde3dfa0
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580349"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443916"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -44,7 +44,7 @@ Azure Disk Encryption n’est pas disponible non plus sur les [machines virtuell
 
 | Machine virtuelle | Mémoire minimale requise |
 |--|--|
-| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
+| Machines virtuelles Linux lors du chiffrement des volumes de données uniquement| 2 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est de 4 Go ou moins | 8 Go |
 | Machines virtuelles Linux lors du chiffrement des volumes de système d’exploitation et de données, et où l’utilisation du système de fichiers racine (/) est supérieure à 4 Go | L’utilisation du système de fichiers racine * 2. Par exemple, une utilisation du système de fichiers racine de 16 Go nécessite au moins 32 Go de RAM |
 
@@ -71,7 +71,8 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | Red Hat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 8.2 | 8,2 | RedHat:RHEL:8.2:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| Red Hat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM: 7.8.2020111201 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM:7.9.2020111202 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| Red Hat | RHEL 7.9 | 7_9 | RedHat:RHEL:7_9:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.7 | 7,7 | RedHat:RHEL:7.7:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | Red Hat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
@@ -84,8 +85,9 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | Disque de système d’exploitation et de données |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.8.2020111100 | Disque de système d’exploitation et de données |
-| OpenLogic | CentOS 7.8 | 7.8 | OpenLogic:CentOS:7_8:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | Disque de système d’exploitation et de données |
+| OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.7 | 7,7 | OpenLogic:CentOS:7.7:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Disque de système d’exploitation et de données |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | Disque de système d’exploitation et de données |

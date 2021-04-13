@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 04/06/2021
 ms.author: duau
-ms.openlocfilehash: 50e047325ad17710794b1640715ab1938373fe85
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a7e81c57552fdc24262522343a08fdabba71bfd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96019461"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552578"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Équilibrage de charge avec la suite de livraison d’application Azure
 
@@ -40,7 +40,7 @@ Lorsque vous combinez ces services globaux et régionaux, votre application bén
 
 ## <a name="global-load-balancing"></a>Équilibrage de charge global
 **Traffic Manager** assure un équilibrage de charge DNS global. Il examine les requêtes DNS entrantes et répond avec un backend intègre, suivant la stratégie de routage choisie par le client. Les différentes méthodes de routage disponibles sont les suivantes :
-- **Le routage des performances envoie les demandes au backend le plus proche avec la latence la plus faible.
+- Le **routage des performances** envoie les demandes au backend le plus proche avec la latence la plus faible.
 - Le **routage par priorité** permet de rediriger l’ensemble du trafic vers un backend, les autres backends jouant le rôle de backends de secours.
 - Le **routage du trafic en tourniquet (round robin)** pondéré permet de répartir le trafic en fonction de la pondération associée à chaque backend.
 - **Le routage géographique** garantit que les demandes provenant de régions géographiques spécifiques sont gérées par des backends mappés pour ces régions. (Par exemple, toutes les demandes en provenance d’Espagne doivent être dirigées vers la région Azure France centre)

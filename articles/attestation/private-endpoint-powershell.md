@@ -5,14 +5,14 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732307"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628524"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Démarrage rapide : Création d’un point de terminaison privé avec Azure PowerShell
 
@@ -21,7 +21,7 @@ Démarrez avec Azure Private Link en utilisant un point de terminaison privé po
 Dans ce guide de démarrage rapide, vous allez créer un point de terminaison privé pour Azure Attestation et déployer une machine virtuelle pour tester la connexion privée.  
 
 > [!NOTE]
-> L’implémentation actuelle inclut uniquement l’option d’approbation automatique. L’abonnement doit être en liste verte pour pouvoir procéder à la création d’un point de terminaison privé. Veuillez contacter l’équipe de service ou envoyer une demande de support Azure via la [Page de support Azure](https://azure.microsoft.com/support/options/) avant de passer aux étapes ci-dessous.
+> L’implémentation actuelle inclut uniquement l’option d’approbation automatique. L’abonnement doit être ajouté à une liste verte pour pouvoir procéder à la création d’un point de terminaison privé. Veuillez contacter l’équipe de service ou envoyer une demande de support Azure via la [Page de support Azure](https://azure.microsoft.com/support/options/) avant de passer aux étapes ci-dessous.
 
 ## <a name="prerequisites"></a>Prérequis
 

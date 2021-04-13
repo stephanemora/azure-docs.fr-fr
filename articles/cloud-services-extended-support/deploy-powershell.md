@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: bcf6b2f6b964a056b9d90f08c0586fcbdec5b260
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865619"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167274"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Déployer un service cloud (support étendu) à l’aide d’Azure PowerShell
 
 Cet article montre comment utiliser le module PowerShell `Az.CloudService` pour déployer, dans Azure, une instance Cloud Services (support étendu) qui dispose de plusieurs rôles (WebRole et WorkerRole) et de l’extension Bureau à distance. 
-
-> [!IMPORTANT]
-> Cloud Services (support étendu) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -73,13 +69,14 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Serv
     $virtualNetwork = New-AzVirtualNetwork -Name “ContosoVNet” -Location “East US” -ResourceGroupName “ContosOrg” -AddressPrefix "10.0.0.0/24" -Subnet $subnet 
     ```
  
-7. Créez une adresse IP publique et (éventuellement) définissez sa propriété d’étiquette DNS. Si vous utilisez une adresse IP statique, elle doit être référencée comme adresse IP réservée dans le fichier de configuration de service.  
+7. Créez une adresse IP publique et définissez sa propriété d’étiquette DNS. Azure Cloud Services (support étendu) prend uniquement en charge les adresses IP publiques de référence SKU (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) [De base]. Les adresses IP publiques de référence SKU standard ne fonctionnent pas avec Azure Cloud Services.
+Si vous utilisez une adresse IP statique, vous devez la référencer comme adresse IP réservée dans le fichier de configuration de service (.cscfg). 
 
     ```powershell
     $publicIp = New-AzPublicIpAddress -Name “ContosIp” -ResourceGroupName “ContosOrg” -Location “East US” -AllocationMethod Dynamic -IpAddressVersion IPv4 -DomainNameLabel “contosoappdns” -Sku Basic 
     ```
 
-8. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge créé à partir de la plateforme.  
+8. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. La plateforme Azure crée automatiquement une ressource d’équilibreur de charge de référence SKU « Classique » dans le même abonnement que la ressource de service cloud. La ressource d’équilibreur de charge est une ressource en lecture seule dans ARM. Les mises à jour de la ressource sont prises en charge uniquement par le biais des fichiers de déploiement de service cloud (.cscfg & .csdef).
 
     ```powershell
     $publicIP = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp  

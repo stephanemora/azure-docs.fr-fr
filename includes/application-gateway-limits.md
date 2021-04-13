@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 4c7c68bf690097004f2f3310a8d89ce954d7f87f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c98d88d66e89df3efe186212d8c004ec2a65158d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98612917"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106450562"
 ---
 | Ressource | Limite | Remarque |
 | --- | --- | --- |
@@ -35,7 +35,7 @@ ms.locfileid: "98612917"
 | Nombre d’ensembles de règles de réécriture |400| |
 | Nombre de configurations d’en-tête ou d’URL par ensemble de règles de réécriture|40| |
 | Nombre de conditions par ensemble de règles de réécriture|40| |
-| Connexions WebSocket simultanées |Passerelles moyenne 20 Ko<br> Passerelles volumineuses 50 Ko| |
+| Connexions WebSocket simultanées |Passerelles moyennes 20 000<sup>2</sup><br> Grandes passerelles 50 000<sup>2</sup>| |
 | Longueur maximale d’URL|32 Ko| |
 | Taille d’en-tête maximale pour HTTP/2 |4 Ko| |
 | Taille de téléchargement maximale Standard |2 Go | |
@@ -45,3 +45,5 @@ ms.locfileid: "98612917"
 | Exclusions WAF maximales par passerelle applicative|40||
 
 <sup>1</sup> Dans le cas des références SKU compatibles WAF, vous devez limiter le nombre de ressources à 40.
+
+<sup>2</sup> La limite est par instance Application Gateway, et non par ressource Application Gateway.

@@ -6,15 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 03/10/2021
+ms.date: 04/05/2021
 ms.author: victorh
-Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: bb89b6acbc76a4020ee721e87272b154bab6d0a4
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615565"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385171"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -55,7 +54,6 @@ Les problèmes connus du service Pare-feu Azure sont les suivants :
 
 |Problème  |Description  |Limitation des risques  |
 |---------|---------|---------|
-|Si vous mettez à jour une règle de l’adresse IP au groupe IP ou vice-versa en utilisant le portail, les deux types sont enregistrés, mais un seul est présenté sur le portail.|Ce problème se produit avec les règles classiques.<br><br>Lorsque vous utilisez le portail pour mettre à jour le type de source d’une règle NAT d’une adresse IP à un groupe IP ou vice-versa, il enregistre les deux types dans le serveur principal, mais présente uniquement le type récemment mis à jour.<br><br>Le même problème se pose lorsque vous mettez à jour le type de destination d’une règle de réseau ou d’application de l’adresse IP au type de groupe IP ou vice-versa.|Un correctif du portail est prévu pour mars 2021.<br><br>En attendant, utilisez Azure PowerShell, Azure CLI ou l’API pour modifier une règle d’une adresse IP à un groupe IP ou vice-versa.|
 |Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exemple ICMP) ne fonctionnent pas pour le trafic lié à Internet.|Les règles de filtrage réseau des protocoles autres que TCP/UDP ne fonctionnent pas avec SNAT pour votre adresse IP publique. Les protocoles autres que TCP/UDP sont pris en charge entre les sous-réseaux du rayon et les réseaux virtuels.|Le service Pare-feu Azure utilise Standard Load Balancer, [qui ne prend pas en charge SNAT pour les protocoles IP pour le moment](../load-balancer/load-balancer-overview.md). Nous étudions les possibilités de prendre en charge ce scénario dans une prochaine version.|
 |Protocole ICMP non pris en charge par PowerShell et l’interface de ligne de commande|Azure PowerShell et l’interface CLI ne prennent pas en charge le protocole ICMP en tant que protocole valide dans les règles de réseau.|Il est toujours possible d’utiliser le protocole ICMP par le biais du portail et de l’API REST. Nous travaillons actuellement à ajouter à PowerShell et à l’interface de ligne de commande la prise en charge du protocole ICMP.|
 |Les balises FQDN requièrent une définition protocole : port|Les règles d’application avec des balises FQDN requièrent une définition port : protocole.|Vous pouvez utiliser **https** en tant que valeur port : protocole. Nous travaillons actuellement à rendre ce champ facultatif lorsque des balises FQDN sont utilisées.|
@@ -79,6 +77,7 @@ Les problèmes connus du service Pare-feu Azure sont les suivants :
 |Démarrer/Arrêter ne fonctionne pas avec un pare-feu configuré en mode tunnel forcé.|Démarrer/Arrêter ne fonctionne pas avec le pare-feu Azure configuré en mode tunnel forcé. Toute tentative de démarrage de Pare-feu Azure avec le tunneling forcé configuré provoque l’erreur suivante :<br><br>*Set-AzFirewall : impossible d’ajouter la configuration IP de gestion AzureFirewall FW-xx à un pare-feu existant. Redéployez avec une configuration IP de gestion si vous souhaitez utiliser la prise en charge du tunneling forcé.<br>StatusCode : 400<br>ReasonPhrase : Requête incorrecte*|En cours d’examen.<br><br>En guise de solution de contournement, vous pouvez supprimer le pare-feu existant et en créer un nouveau avec les mêmes paramètres.|
 |Impossible d’ajouter des étiquettes de stratégie de pare-feu au moyen du portail|La stratégie du Pare-feu Azure a une limite de prise en charge des correctifs qui vous empêche d’ajouter une étiquette à l’aide du portail Azure. L’erreur suivante est générée : *Impossible d’enregistrer les étiquettes de la ressource*.|Un correctif est en cours d’étude. Vous pouvez aussi utiliser l’applet de commande Azure PowerShell `Set-AzFirewallPolicy` pour mettre à jour les balises.|
 |IPv6 pas encore pris en charge|Si vous ajoutez une adresse IPv6 à une règle, le pare-feu échoue.|Utilisez uniquement des adresses IPv4. La prise en charge d’IPv6 est en cours d’examen.|
+|La mise à jour de plusieurs groupes d'adresses IP échoue en générant une erreur de conflit.|Lorsque vous mettez à jour au moins deux IPGroups attachés au même pare-feu, l'une des ressources échoue.|Il s'agit d'un problème/d'une limitation connu(e). <br><br>Lorsque vous mettez à jour un IPGroup, une mise à jour est déclenchée sur tous les pare-feu auxquels ce groupe est attaché. Si la mise à jour d'un deuxième IPGroup est lancée alors que la première est toujours en cours sur le pare-feu (état *Mise à jour*), celle-ci échoue.<br><br>Pour éviter l'échec, les IPGroups attachés au même pare-feu doivent être mis à jour un par un. Prévoyez suffisamment de temps entre les mises à jour pour permettre au pare-feu de sortir de l'état *Mise à jour*.| 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

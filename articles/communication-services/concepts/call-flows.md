@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cc8e0edd1109162f0b426be31eb875ba8465d091
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7651142d1c2b24da64d9f72dd2300dc0c3807e93
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490770"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937873"
 ---
 # <a name="call-flow-basics"></a>Principes de base des flux d’appels
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include-phone-numbers.md)]
 
 La section ci-dessous offre une vue d’ensemble des flux d’appels dans Azure Communication Services. Les flux multimédias et de signalisation dépendent des types d’appels que vos utilisateurs effectuent. Des exemples de types d’appels incluent VoIP un-à-un, RTPC un-à-un et les appels de groupe combinant des participants connectés par VoIP et RTPC. Passez en revue [Types d’appels](./voice-video-calling/about-call-types.md).
 
@@ -26,7 +26,7 @@ La section ci-dessous offre une vue d’ensemble des flux d’appels dans Azure 
 
 Lorsque vous établissez un appel d’égal à égal ou de groupe, deux protocoles sont utilisés en arrière-plan : HTTP (REST) pour la signalisation et SRTP pour les flux multimédias.
 
-La signalisation entre bibliothèques de client ou entre les bibliothèques de client et les contrôleurs de signalisation des services de communication est gérée avec HTTP REST (TLS). Pour le trafic multimédia en temps réel (RTP), le protocole UDP (User Datagram Protocol) est préféré. Si l’utilisation du protocole UDP est bloquée par votre pare-feu, la bibliothèque de client utilise le protocole TCP (Transmission Control Protocol) pour le contenu multimédia.
+La signalisation entre les kits SDK, ou entre les kits SDK et les contrôleurs de signalisation Communication Services, est gérée avec HTTP REST (TLS). Pour le trafic multimédia en temps réel (RTP), le protocole UDP (User Datagram Protocol) est préféré. Si l’utilisation du protocole UDP est bloquée par votre pare-feu, le kit SDK utilise le protocole TCP (Transmission Control Protocol) pour le contenu multimédia.
 
 Passons en revue les protocoles de signalisation et multimédias dans différents scénarios.
 
@@ -34,21 +34,21 @@ Passons en revue les protocoles de signalisation et multimédias dans différent
 
 ### <a name="case-1-voip-where-a-direct-connection-between-two-devices-is-possible"></a>Cas n° 1 : VoIP où une connexion directe entre deux appareils est possible
 
-Dans des appels VoIP un-à-un ou des appels vidéo, le trafic préfère le chemin le plus direct. Le « chemin direct » signifie que si deux bibliothèques de client peuvent s’atteindre mutuellement directement, elles établissent une connexion directe. Cela est généralement possible lorsque deux bibliothèques de client se trouvent dans le même sous-réseau (par exemple, dans un sous-réseau 192.168.1.0/24) ou dans deux sous-réseaux lorsque les appareils résident dans des sous-réseaux qui peuvent se voir mutuellement (les bibliothèques de client dans le sous-réseau 10.10.0.0/16 et le sous-réseau 192.168.1.0/24 peuvent s’atteindre mutuellement).
+Dans des appels VoIP un-à-un ou des appels vidéo, le trafic préfère le chemin le plus direct. Le « chemin direct » signifie que si deux kits SDK peuvent se joindre l’un l’autre directement, ils établissent une connexion directe. Cela est généralement possible lorsque deux kits SDK se trouvent dans le même sous-réseau (par exemple, dans un sous-réseau 192.168.1.0/24) ou dans deux sous-réseaux lorsque les appareils résident dans des sous-réseaux qui peuvent se voir mutuellement (les kits SDK dans le sous-réseau 10.10.0.0/16 et le sous-réseau 192.168.1.0/24 peuvent se joindre l’un l’autre).
 
 :::image type="content" source="./media/call-flows/about-voice-case-1.png" alt-text="Schéma montrant un appel VoIP direct entre les utilisateurs et Communication Services.":::
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Cas n° 2 : VoIP où une connexion directe entre les appareils n’est pas possible, mais où la connexion entre les périphériques NAT est possible
 
-Si deux appareils se trouvent dans des sous-réseaux qui ne peuvent pas s’atteindre mutuellement (par exemple, Alice travaille dans un café et Bob travaille dans son bureau à domicile), mais que la connexion entre les périphériques NAT est possible, les bibliothèques de client côté client établissent la connexion via les périphériques NAT.
+Si deux appareils se trouvent dans des sous-réseaux qui ne peuvent pas se joindre l’un l’autre (par exemple, Alice travaille dans un café et Bob travaille dans son bureau à domicile), mais que la connexion entre les appareils NAT est possible, les kits SDK côté client établissent la connexion via les appareils NAT.
 
-Pour Alice, il s’agit du traducteur d’adresses réseau (NAT) du café et, pour Bob, du traducteur d’adresses réseau de son bureau à domicile. L’appareil d’Alice envoie l’adresse externe de son traducteur d’adresses réseau et Bob fait de même. Les bibliothèques de client apprennent ces adresses externes à partir d’un service STUN (Session Traversal Utilities for NAT) qu’Azure Communication Services fournit gratuitement. La logique qui gère la négociation entre Alice et Bob est incorporée dans les bibliothèques de client fournies par Azure Communication Services. (Vous n’avez pas besoin d’une configuration supplémentaire)
+Pour Alice, il s’agit du traducteur d’adresses réseau (NAT) du café et, pour Bob, du traducteur d’adresses réseau de son bureau à domicile. L’appareil d’Alice envoie l’adresse externe de son traducteur d’adresses réseau et Bob fait de même. Les kits SDK apprennent ces adresses externes à partir d’un service STUN (Session Traversal Utilities for NAT) qu’Azure Communication Services fournit gratuitement. La logique qui gère l’établissement d’une liaison entre les appareils d’Alice et de Bob est incorporée aux kits SDK fournis par Azure Communication Services. (Vous n’avez pas besoin d’une configuration supplémentaire)
 
 :::image type="content" source="./media/call-flows/about-voice-case-2.png" alt-text="Schéma montrant un appel VoIP exploitant une connexion STUN.":::
 
 ### <a name="case-3-voip-where-neither-a-direct-nor-nat-connection-is-possible"></a>Cas n° 3 : VoIP où aucune connexion directe ni NAT n’est possible
 
-Si un appareil client ou les deux se trouvent derrière un traducteur d’adresses réseau symétrique, un service cloud distinct servant à relayer le contenu multimédia entre les deux bibliothèques de client est requis. Ce service est appelé TURN (Traversal Using Relays around NAT) et est également fourni par Communication Services. La bibliothèque de client Communication Services Calling utilise automatiquement les services TURN en fonction des conditions de réseau détectées. L’utilisation du service TURN de Microsoft fait l’objet d’une facturation distincte.
+Si un appareil client ou les deux se trouvent derrière un traducteur d’adresses réseau symétrique, un service cloud distinct servant à relayer le contenu multimédia entre les deux kits SDK est nécessaire. Ce service est appelé TURN (Traversal Using Relays around NAT) et est également fourni par Communication Services. Le kit SDK Appel Communication Services utilise automatiquement les services TURN en fonction des conditions de réseau détectées. L’utilisation du service TURN de Microsoft fait l’objet d’une facturation distincte.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Schéma montrant un appel VoIP exploitant une connexion TURN.":::
 
@@ -72,15 +72,15 @@ Le protocole RTP (Real-Time Protocol) par défaut pour les appels de groupe est 
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls.png" alt-text="Schéma montrant le flux de processus multimédia UDP dans Communication Services.":::
 
-Si la bibliothèque de client ne peut pas utiliser le protocole UDP pour le contenu multimédia en raison des restrictions du pare-feu, une tentative d’utilisation du protocole TCP (Transmission Control Protocol) est effectuée. Notez que le composant de processeur multimédia nécessite le protocole UDP. Ainsi, lorsque cela se produit, le service TURN de Communication Services est ajouté à l’appel de groupe pour traduire le protocole TCP en protocole UDP. Des frais liés à TURN sont facturés dans ce cas, sauf si les fonctionnalités TURN sont désactivées manuellement.
+Si le kit SDK ne peut pas utiliser le protocole UDP pour le contenu multimédia en raison des restrictions du pare-feu, une tentative d’utilisation du protocole TCP (Transmission Control Protocol) est effectuée. Notez que le composant de processeur multimédia nécessite le protocole UDP. Ainsi, lorsque cela se produit, le service TURN de Communication Services est ajouté à l’appel de groupe pour traduire le protocole TCP en protocole UDP. Des frais liés à TURN sont facturés dans ce cas, sauf si les fonctionnalités TURN sont désactivées manuellement.
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Schéma montrant le flux du processus multimédia TCP dans Communication Services.":::
 
-### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Case 5 : Bibliothèque cliente de Communication Services et Microsoft Teams dans une réunion Teams planifiée
+### <a name="case-5-communication-services-sdk-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Cas n° 5 : Kit SDK Communication Services et Microsoft Teams dans une réunion Teams planifiée
 
 La signalisation transite par le contrôleur de signalisation. Les flux multimédias transitent par le processeur multimédia. Le contrôleur de signalisation et le processeur multimédia sont partagés entre Communication Services et Microsoft Teams.
 
-:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramme montrant la bibliothèque cliente de Communication Services et le client Teams dans une réunion Teams planifiée.":::
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagramme montrant le kit SDK Communication Services et le client Teams dans une réunion Teams planifiée.":::
 
 
 

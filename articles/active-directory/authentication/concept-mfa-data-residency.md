@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7381ab62eb39c555c6b4eb34f150fc71bea1f10f
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 26c8df67a8cfed92e478caacca1171b7a48fa9ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561462"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932894"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multifactor-authentication"></a>Résidence des données et données client pour l’authentification multifacteur Azure AD
 
@@ -37,7 +37,7 @@ Les données personnelles représentent des informations au niveau de l’utilis
 * Utilisateurs bloqués
 * Utilisateurs ignorés
 * Demandes de modification du jeton de l’appareil Microsoft Authenticator
-* Rapports d’activité d’authentification multifacteur
+* Rapports d’activité d’authentification multifacteur. Stocke l’activité d’authentification multifacteur à partir des composants locaux de l’authentification multifacteur : extension NPS, adaptateur AD FS et serveur MFA.
 * Activations Microsoft Authenticator
 
 Ces informations sont conservées pendant 90 jours.

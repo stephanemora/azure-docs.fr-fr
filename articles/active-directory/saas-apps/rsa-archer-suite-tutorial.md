@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 397d59c60ed90e0e25df671baa3d46660eff1d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d96f1e0413dac8477e2fc40bf84e88318abf3f9d
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181575"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rsa-archer-suite"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à RSA Archer Suite
 
@@ -43,7 +43,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-rsa-archer-suite-from-the-gallery"></a>Ajout de RSA Archer Suite à partir de la galerie
+## <a name="add-rsa-archer-suite-from-the-gallery"></a>Ajouter RSA Archer Suite à partir de la galerie
 
 Pour configurer l’intégration de RSA Archer Suite à Azure AD, vous devez ajouter RSA Archer Suite à votre liste d’applications SaaS managées, à partir de la galerie.
 
@@ -53,7 +53,6 @@ Pour configurer l’intégration de RSA Archer Suite à Azure AD, vous devez aj
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **RSA Archer Suite** dans la zone de recherche.
 1. Sélectionnez **RSA Archer Suite** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-rsa-archer-suite"></a>Configurer et tester l’authentification unique (SSO) Azure AD pour RSA Archer Suite
 
@@ -74,7 +73,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **RSA Archer Suite**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -141,7 +140,7 @@ Dans cette section, vous autorisez B.Simon à utiliser l’authentification uniq
 
 1. Effectuez les étapes ci-après dans la page suivante.
 
-    ![Configurer l’authentification unique RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuring-saml-sso.png)
+    ![Configurer l’authentification unique RSA Archer Suite](./media/rsa-archer-suite-tutorial/configuration.png)
 
     a. Accédez à l’onglet **Single Sign-On** (Authentification unique), puis sélectionnez **SAML** pour **Single Sign-On Mode** (Mode d’authentification unique) dans la liste déroulante.
 

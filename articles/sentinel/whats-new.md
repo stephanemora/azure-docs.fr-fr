@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: 74cd5ce5912e5a656342a43b7c2b165fdf3c32d4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604251"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490292"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -32,13 +32,51 @@ Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions
 
 ## <a name="march-2021"></a>Mars 2021
 
+- [Définir les classeurs pour qu’ils s’actualisent automatiquement en mode affichage](#set-workbooks-to-automatically-refresh-while-in-view-mode)
+- [Nouvelles détections pour le pare-feu Azure](#new-detections-for-azure-firewall)
 - [Règles d’automatisation et guides opérationnels déclenchés par incident](#automation-rules-and-incident-triggered-playbooks) (y compris la toute nouvelle documentation des guides opérationnels)
 - [Nouveaux enrichissements d’alerte : mappage d’entité amélioré et détails personnalisés](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
 - [Imprimer vos classeurs Azure Sentinel ou enregistrer au format PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Filtres d’incident et préférences de tri désormais enregistrés dans votre session (préversion publique)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Intégration des incidents Microsoft 365 Defender (préversion publique)](#microsoft-365-defender-incident-integration-public-preview)
 - [Nouveaux connecteurs de service Microsoft avec Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
- 
+
+### <a name="set-workbooks-to-automatically-refresh-while-in-view-mode"></a>Définir les classeurs pour qu’ils s’actualisent automatiquement en mode affichage
+
+Les utilisateurs d’Azure Sentinel peuvent désormais utiliser la nouvelle [fonctionnalité d’Azure Monitor](https://techcommunity.microsoft.com/t5/azure-monitor/azure-workbooks-set-it-to-auto-refresh/ba-p/2228555) pour actualiser automatiquement les données de classeur pendant une session d’affichage.
+
+Dans chaque classeur ou modèle de classeur, sélectionnez :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false"::: **Actualisation automatique** pour afficher vos options d’intervalle. Sélectionnez l’option que vous souhaitez utiliser pour la session d’affichage en cours, puis **Appliquer**.
+
+- Les intervalles d’actualisation pris en charge sont compris entre **5 minutes** et **1 jour**.
+- Par défaut, l’actualisation automatique est désactivée. Pour optimiser les performances, l’actualisation automatique est également désactivée chaque fois que vous fermez un classeur, et elle ne s’exécute pas en arrière-plan. Activez l’actualisation automatique en fonction des besoins la prochaine fois que vous ouvrirez le classeur.
+- L’actualisation automatique est suspendue lorsque vous modifiez un classeur, et les intervalles d’actualisation automatique sont redémarrés chaque fois que vous revenez en mode d’affichage à partir du mode d’édition.
+
+    Les intervalles sont également redémarrés si vous actualisez manuellement le classeur en sélectionnant le bouton :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Actualiser**.
+
+Pour plus d’informations, consultez [Tutoriel : Visualiser et surveiller vos données](tutorial-monitor-your-data.md) et la [documentation d’Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
+
+### <a name="new-detections-for-azure-firewall"></a>Nouvelles détections pour le pare-feu Azure
+
+Plusieurs détections prêtes à l’emploi pour le pare-feu Azure ont été ajoutées à la zone [Analytique](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) dans Azure Sentinel. Ces nouvelles détections permettent aux équipes de sécurité d’obtenir des alertes si des machines sur le réseau interne tentent d’interroger ou de se connecter à des noms de domaine Internet ou à des adresses IP associées à des IOC connus, comme défini dans la requête de règle de détection.
+
+Les nouvelles détections sont les suivantes :
+
+- [Balise réseau Solorigate](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+- [Domaines et hachages GALLIUM connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+- [Known IRIDIUM IP (Adresse IP IRIDIUM connue)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+- [Domaines/adresses IP de groupe Phosphorus connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+- [Domaines THALLIUM inclus dans DCU](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+- [Hachages maldoc liés à ZINC connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+- [Domaines de groupe STRONTIUM connus](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+- [NOBELIUM - Domaine et IOC IP - Mars 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+
+
+Les détections pour les pare-feu Azure sont ajoutées en permanence à la galerie de modèles intégrée. Pour obtenir les détections les plus récentes pour le pare-feu Azure, sous **Modèles de règle**, filtrez les **Sources de données** par **Pare-feu Azure** :
+
+:::image type="content" source="media/whats-new/new-detections-analytics-efficiency-workbook.jpg" alt-text="Nouvelles détections dans le classeur d’efficacité analytique":::
+
+Pour plus d’informations, consultez [Nouvelles détections pour le pare-feu Azure dans Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-network-security/new-detections-for-azure-firewall-in-azure-sentinel/ba-p/2244958).
+
 ### <a name="automation-rules-and-incident-triggered-playbooks"></a>Règles d’automatisation et guides opérationnels déclenchés par incident
 
 Les règles d’automatisation sont un nouveau concept dans Azure Sentinel, qui vous permet de gérer de manière centralisée l’automatisation de la gestion des incidents. En plus de vous permettre d’affecter des guides opérationnels aux incidents (pas seulement aux alertes comme auparavant), les règles d’automatisation vous permettent également d’automatiser les réponses pour plusieurs règles d’analyse à la fois, d’étiqueter, d’attribuer ou de fermer automatiquement des incidents sans nécessiter de guides opérationnels et de contrôler l’ordre des actions exécutées. Les règles d’automatisation simplifient l’utilisation de l’automatisation dans Azure Sentinel et vous permettent de simplifier des flux de travail complexes pour vos processus d’orchestration d’incident.

@@ -1,18 +1,18 @@
 ---
 title: 'Modèle : Effets d’une définition de stratégie'
 description: Ce modèle Azure Policy fournit un exemple d’utilisation des différents effets d’une définition de stratégie.
-ms.date: 10/14/2020
+ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fa95fdc793e7762c39525a83f38ae952f532a60
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92073034"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092838"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modèle Azure Policy : Effets
 
-Azure Policy a un certain nombre d’[effets](../concepts/effects.md) qui déterminent la façon dont le service réagit aux ressources non conformes. Certains effets sont simples et ne nécessitent aucune propriété supplémentaire dans la définition de stratégie, tandis que d’autres nécessitent plusieurs propriétés.
+Azure Policy a de nombreux [effets](../concepts/effects.md) qui déterminent la façon dont le service réagit aux ressources non conformes. Certains effets sont simples et ne nécessitent aucune propriété supplémentaire dans la définition de stratégie, tandis que d’autres nécessitent plusieurs propriétés.
 
 ## <a name="sample-1-simple-effect"></a>Exemple 1 : Effet simple
 

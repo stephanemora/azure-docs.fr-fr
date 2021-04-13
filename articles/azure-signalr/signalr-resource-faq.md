@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d3b84756f390930be5124c6bda54d07078d29053
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579316"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166919"
 ---
 # <a name="azure-signalr-service-faq"></a>FAQ sur Azure SignalR Service
 
@@ -62,13 +62,13 @@ Pour les nouvelles applications, seuls les modes par défaut et serverless peuve
 
 Le mode classique vise à assurer la compatibilité descendante des applications existantes. Il ne doit donc pas être utilisé pour les nouvelles applications.
 
-Pour plus d’informations sur le mode de service, consultez [cette documentation](concept-service-mode.md).
+Pour plus d’informations sur le mode de service, consultez [Mode de service dans Azure SignalR Service](concept-service-mode.md).
 
 ## <a name="can-i-send-message-from-client-in-serverless-mode"></a>Puis-je envoyer un message du client en mode serverless ?
 
 Vous pouvez envoyer un message du client si vous définissez la configuration en amont dans votre instance SignalR. La configuration en amont est un ensemble de points de terminaison qui peuvent recevoir des messages et des événements de connexion du service SignalR. Si aucune configuration en amont n’est définie, les messages provenant du client sont ignorés.
 
-Pour plus d’informations sur la configuration en amont, consultez [cette documentation](concept-upstream.md).
+Pour plus d’informations sur la configuration en amont, consultez [Paramètres en amont](concept-upstream.md).
 
 La configuration en amont (Upstream) est actuellement en préversion publique.
 

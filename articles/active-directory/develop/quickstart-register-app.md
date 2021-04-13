@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175428"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055682"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
@@ -56,7 +56,10 @@ Effectuez les étapes suivantes pour créer l’inscription d’application :
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Capture d’écran du portail Azure dans un navigateur web : le volet Inscrire une application.":::
 
-Une fois l’inscription terminée, le portail Azure affiche le volet **Vue d’ensemble** de l’inscription de l’application. Vous voyez l’**ID d’application (client)** . Aussi appelée *ID client*, cette valeur identifie de manière unique votre application dans la plateforme d’identités Microsoft.
+Une fois l’inscription terminée, le portail Azure affiche le volet **Vue d’ensemble** de l’inscription de l’application. Vous voyez l’**ID d’application (client)** . Aussi appelée *ID client*, cette valeur identifie de manière unique votre application dans la plateforme d’identités Microsoft. 
+
+> [!IMPORTANT]
+> Par défaut, les inscriptions de nouvelles applications sont masquées aux utilisateurs. Quand vous êtes prêt pour rendre l’application visible aux utilisateurs dans la [page Mes applications](../user-help/my-apps-portal-end-user-access.md), vous pouvez l’activer. Pour activer l’application, dans le portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise**, puis sélectionnez l’application. Puis, dans la page **Propriétés**, basculez **Visible pour les utilisateurs ?** sur Oui.
 
 Le code de votre application, ou plus généralement une bibliothèque d’authentification servant dans votre application, utilise également l’ID client. L’ID est utilisé dans le cadre de la validation des jetons de sécurité reçus de la plateforme d’identités.
 
@@ -89,7 +92,7 @@ Pour configurer des paramètres d’application en fonction de la plateforme ou 
     | **Application monopage** | Entrez un **URI de redirection** pour votre application. Cet URI est l’emplacement où la plateforme d’identités Microsoft redirige le client d’un utilisateur et envoie des jetons de sécurité après authentification.<br/><br/>Sélectionnez cette plateforme si vous générez une application web côté client en utilisant JavaScript ou un framework comme Angular, Vue.js, React.js ou Blazor WebAssembly. |
     | **iOS / macOS** | Entrez l’**ID de bundle** d’applications. Recherchez-le dans **Paramètres de build** ou dans Xcode, dans *info.plist*.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez un **ID de bundle**. |
     | **Android** | Entrez le **Nom du package** d’applications. Recherchez-le dans le fichier *AndroidManifest.xml*. Générez et entrez également le **Hachage de signature**.<br/><br/>Un URI de redirection est automatiquement généré quand vous spécifiez ces paramètres. |
-    | **Applications de bureau et mobiles** | Sélectionnez l’un des **URI de redirection suggérés**. Ou spécifiez un **URI de redirection personnalisé**.<br/><br/>Pour les applications de bureau, nous recommandons<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Sélectionnez cette plateforme pour les applications mobiles qui n’utilisent pas la toute dernière bibliothèque d’authentification Microsoft (MSAL), ou qui n’utilisent pas de répartiteur. Sélectionnez également cette plateforme pour les applications de bureau. |
+    | **Applications de bureau et mobiles** | Sélectionnez l’un des **URI de redirection suggérés**. Ou spécifiez un **URI de redirection personnalisé**.<br/><br/>Pour les applications de bureau utilisant un navigateur incorporé, nous vous recommandons<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Pour les applications de bureau utilisant un navigateur système, nous vous recommandons<br/>`http://localhost`<br/><br/>Sélectionnez cette plateforme pour les applications mobiles qui n’utilisent pas la toute dernière bibliothèque d’authentification Microsoft (MSAL), ou qui n’utilisent pas de répartiteur. Sélectionnez également cette plateforme pour les applications de bureau. |
 1. Sélectionnez **Configurer** pour effectuer la configuration de la plateforme.
 
 ### <a name="redirect-uri-restrictions"></a>Restrictions applicables aux URI de redirection

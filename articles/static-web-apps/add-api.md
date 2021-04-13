@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 33adaf33ba15b49b0a7e4d3e8f1b2a8c435a7966
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650680"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449033"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Ajouter une API dans Azure Static Web Apps (en préversion) avec Azure Functions
 

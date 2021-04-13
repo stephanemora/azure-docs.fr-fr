@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a084b8d14acc02c67b0678cd7fa9e5993b629a51
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104578519"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075013"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -99,13 +99,15 @@ Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir un
 >
 > Où :
 > - `Enter_the_Application_Id_here` : est l’**ID d’application (client)** pour l’application que vous avez inscrite.
+>    
+>    Pour connaître les valeurs de l’**ID d’application (client)** , consultez la page **Vue d’ensemble** de l’application dans le portail Azure.
 > - `Enter_the_Tenant_Info_Here` : est défini sur l’une des options suivantes :
 >   - Si votre application prend en charge **Comptes dans cet annuaire organisationnel**, remplacez cette valeur avec l’**ID de locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
 >   - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
->   - Si votre application prend en charge **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**, remplacez cette valeur par `common`
+>   - Si votre application prend en charge **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**, remplacez cette valeur par `common`.
 >
-> > [!TIP]
-> > Pour connaître les valeurs de l’**ID d’Application (client)** , de l’**ID de l’annuaire (locataire)** , et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
+>     Pour connaître les valeurs de l’**ID de l’annuaire (locataire)** et les **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le portail Azure.
+>
 
 ## <a name="more-information"></a>Informations complémentaires
 
@@ -137,9 +139,9 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Où : | Description |
-> |---------|---------|
-> | `ClientId` | Est l’**ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
+|Où : | Description |
+|---------|---------|
+| `ClientId` | Est l’**ID d’application (client)** de l’application inscrite dans le portail Azure. Vous pouvez retrouver cette valeur dans la page **Vue d’ensemble** de l’application dans le portail Azure. |
 
 ### <a name="requesting-tokens"></a>Demande de jetons
 
@@ -159,9 +161,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Où :| Description |
-> |---------|---------|
-> | `_scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
+|Où :| Description |
+|---------|---------|
+| `_scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
 
@@ -174,10 +176,10 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Où : | Description |
-> |---------|---------|
-> | `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
-> | `firstAccount` | Spécifie le premier utilisateur dans le cache (MSAL prend en charge plusieurs utilisateurs dans une seule application). |
+|Où : | Description |
+|---------|---------|
+| `scopes` | Contient les étendues demandées, comme `{ "user.read" }` pour Microsoft Graph ou `{ "api://<Application ID>/access_as_user" }` pour les API web personnalisées. |
+| `firstAccount` | Spécifie le premier utilisateur dans le cache (MSAL prend en charge plusieurs utilisateurs dans une seule application). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: b63f42ccc0a9d8d138e38a262db528fd36ea701a
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: d36bae57a9e1609e053326cf7288b5b1bc470cef
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123035"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166885"
 ---
 # <a name="deploy-cloud-services-extended-support-by-using-the-azure-sdk"></a>Déployer Azure Cloud Services (support étendu) à l’aide du SDK Azure
 
@@ -156,7 +156,8 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Ser
     m_NrpClient.VirtualNetworks.CreateOrUpdate(resourceGroupName, “ContosoVNet”, vnet);
     ```
 
-7. Créez une adresse IP publique et (éventuellement) définissez sa propriété d’étiquette DNS. Si vous utilisez une adresse IP statique, elle doit être référencée comme adresse IP réservée dans le fichier de configuration de service.
+7. Créez une adresse IP publique et définissez sa propriété d’étiquette DNS. Azure Cloud Services (support étendu) prend uniquement en charge les adresses IP publiques de référence SKU (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) [De base]. Les adresses IP publiques de référence SKU standard ne fonctionnent pas avec Azure Cloud Services.
+Si vous utilisez une adresse IP statique, vous devez la référencer comme adresse IP réservée dans le fichier de configuration de service (.cscfg).
 
     ```csharp
     PublicIPAddress publicIPAddressParams = new PublicIPAddress(name: “ContosIp”) 
@@ -171,7 +172,7 @@ Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Ser
     PublicIPAddress publicIpAddress = m_NrpClient.PublicIPAddresses.CreateOrUpdate(resourceGroupName, publicIPAddressName, publicIPAddressParams);
     ```
 
-8. Créez un objet de profil réseau et associez l’IP publique au serveur frontal de l’équilibreur de charge créé à partir de la plateforme.
+8. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. La plateforme Azure crée automatiquement une ressource d’équilibreur de charge de référence SKU « Classique » dans le même abonnement que la ressource de service cloud. La ressource d’équilibreur de charge est une ressource en lecture seule dans ARM. Les mises à jour de la ressource sont prises en charge uniquement par le biais des fichiers de déploiement de service cloud (.cscfg & .csdef).
 
     ```csharp
     LoadBalancerFrontendIPConfiguration feipConfiguration = new LoadBalancerFrontendIPConfiguration() 

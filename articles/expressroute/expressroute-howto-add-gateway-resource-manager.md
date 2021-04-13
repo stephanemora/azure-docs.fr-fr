@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 120bfe2eefae3c1721073060231c6c2a1962b7c8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739056"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110272"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 | Nom d’IP publique de passerelle  | *gwpip* |
 
 > [!IMPORTANT]
-> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](../virtual-network/ipv6-overview.md).
 > 
 > 
 
@@ -77,7 +77,7 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
    ```azurepowershell-interactive
    $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
    ```
-1. Ajoutez un sous-réseau de passerelle à votre réseau virtuel. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Le sous-réseau de passerelle doit être d’une taille de /27 ou supérieure (/26,/25, etc.).
+1. Ajoutez un sous-réseau de passerelle à votre réseau virtuel. Le sous-réseau de passerelle doit être nommé « GatewaySubnet ». Le sous-réseau de passerelle doit être d’une taille de /27 ou supérieure (/26,/25, etc.). Si vous envisagez de connecter 16 circuits ExpressRoute à votre passerelle, vous **devez** créer un sous-réseau de passerelle dont la taille minimale est de /26.
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26

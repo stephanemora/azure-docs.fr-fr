@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ffffeb38aeb9d1f01f376d58a52323bb7b84b306
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3c105fe217834dc9e0e652a42ebf3b526972b228
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98676321"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961368"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Démarrage rapide : Mettre à l’échelle les ressources de calcul d’un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics à l’aide de T-SQL
 
@@ -99,12 +99,12 @@ Pour modifier les unités Data Warehouse Unit :
 
 ## <a name="monitor-scale-change-request"></a>Suivre la requête de modification d’échelle
 
-Pour afficher la progression de la demande de modification précédente, vous pouvez utiliser la syntaxe T-SQL `WAITFORDELAY` pour interroger la vue de gestion dynamique (DMV) sys.dm_operation_status.
+Pour afficher la progression de la demande de modification précédente, vous pouvez utiliser la syntaxe T-SQL `WAITFORDELAY` pour interroger la vue de gestion dynamique (DMV) [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true).
 
 Pour interroger l’état de modification des objets de service :
 
 1. Cliquez avec le bouton droit sur **Master**, puis sélectionnez **Nouvelle requête**.
-2. Exécutez la requête suivante pour interroger la vue de gestion dynamique sys.dm_operation_status.
+2. Exécutez la requête suivante pour interroger la vue de gestion dynamique [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azure-sqldw-latest&preserve-view=true).
 
     ```sql
     WHILE

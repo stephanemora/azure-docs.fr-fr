@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: allensu
-ms.openlocfilehash: a226682c2580a871e1b2fc4db71f369f3bcc3abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a4688c196551f3ab6b5713d8939f53af161d1e3
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010161"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505006"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -75,6 +75,7 @@ Azure CDN prend en charge les en-têtes de la directive de cache HTTP suivants, 
 - Lorsqu’elle est utilisée dans une requête HTTP du client vers les emplacements des points de présence (POP) de CDN, la directive `Cache-Control` est ignorée par l’ensemble des profils Azure CDN, par défaut.
 - Lorsqu’elle est utilisée dans une réponse HTTP du client vers les emplacements POP de CDN :
      - **Azure CDN Standard/Premium de Verizon** et **Azure CDN Standard de Microsoft** prennent en charge l’ensemble des directives `Cache-Control`.
+     - **Azure CDN standard/Premium de Verizon** et **Azure CDN Standard de Microsoft** honore les comportements de mise en cache pour les directives Cache-Control dans [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **Azure CDN Standard d’Akamai** prend uniquement en charge les directives `Cache-Control` suivantes ; toutes les autres sont ignorées :
          - `max-age`: Un cache peut stocker le contenu pendant le nombre de secondes spécifié. Par exemple : `Cache-Control: max-age=5`. Cette directive spécifie le maximum de temps durant lequel le contenu est considéré comme actualisé.
          - `no-cache`: Mise en cache du contenu, qui doit cependant être validé avant chaque distribution à partir du cache. Équivaut à `Cache-Control: max-age=0`.

@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 3021d049a38f1d883518fc7c45aa8ca0a906c2f7
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889125"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221583"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement de stockage
 
@@ -71,9 +71,12 @@ Cette section vous montre comment créer un déclencheur d’événements de sto
 
 1. Si votre pipeline possède des paramètres, vous pouvez les spécifier dans la barre de navigation latérale du paramètre d’exécution du déclencheur. Le déclencheur d’événements de stockage capture le chemin de dossier et le nom de fichier du blob dans les propriétés `@triggerBody().folderPath` et `@triggerBody().fileName`. Pour utiliser les valeurs de ces propriétés dans un pipeline, vous devez mapper les propriétés aux paramètres de pipeline. Après le mappage des propriétés aux paramètres, vous pouvez accéder aux valeurs capturées par le déclencheur à l’aide de l’expression `@pipeline().parameters.parameterName` tout au long du pipeline. Pour plus d’informations, consultez [Référencer des métadonnées de déclencheur dans des pipelines](how-to-use-trigger-parameterization.md)
 
-    :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Capture d’écran des propriétés de mappage du déclencheur d’événements de stockage aux paramètres de pipeline.":::
+   :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Capture d’écran des propriétés de mappage du déclencheur d’événements de stockage aux paramètres de pipeline.":::
 
-    Dans l’exemple précédent, le déclencheur est configuré pour se déclencher lorsqu’un chemin d’accès à un objet Blob se terminant par .csv est créé dans le dossier _event-testing_ du conteneur _sample-data_. Les propriétés **folderPath** et **filename** capturent l’emplacement du nouvel objet Blob. Par exemple, lorsque MoviesDB.csv est ajouté au chemin d’accès sample-data/event-testing, `@triggerBody().folderPath` a la valeur de `sample-data/event-testing` et `@triggerBody().fileName` a la valeur de `moviesDB.csv`. Ces valeurs sont mappées dans l’exemple aux paramètres de pipeline `sourceFolder` et `sourceFile` peuvent être utilisés dans l’ensemble du pipeline en tant que `@pipeline().parameters.sourceFolder` et `@pipeline().parameters.sourceFile` respectivement.
+   Dans l’exemple précédent, le déclencheur est configuré pour se déclencher lorsqu’un chemin d’accès à un objet Blob se terminant par .csv est créé dans le dossier _event-testing_ du conteneur _sample-data_. Les propriétés **folderPath** et **filename** capturent l’emplacement du nouvel objet Blob. Par exemple, lorsque MoviesDB.csv est ajouté au chemin d’accès sample-data/event-testing, `@triggerBody().folderPath` a la valeur de `sample-data/event-testing` et `@triggerBody().fileName` a la valeur de `moviesDB.csv`. Ces valeurs sont mappées dans l’exemple aux paramètres de pipeline `sourceFolder` et `sourceFile` peuvent être utilisés dans l’ensemble du pipeline en tant que `@pipeline().parameters.sourceFolder` et `@pipeline().parameters.sourceFile` respectivement.
+
+   > [!NOTE]
+   > Si vous créez votre pipeline et votre déclencheur dans [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), vous devez utiliser `@trigger().outputs.body.fileName` et `@trigger().outputs.body.folderPath` en guise de paramètres. Ces deux propriétés capturent les informations BLOB. Utilisez ces propriétés au lieu de `@triggerBody().fileName` et `@triggerBody().folderPath`.
 
 1. Une fois que vous avez terminé, cliquez sur **Terminer**.
 

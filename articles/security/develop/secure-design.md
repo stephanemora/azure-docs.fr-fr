@@ -10,15 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96487675"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729131"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -34,7 +31,7 @@ Avant de commencer à développer votre application cloud, prenez le temps de co
 
 Utilisez les ressources suivantes pendant la phase de formation, afin de vous familiariser avec les services Azure disponibles pour les développeurs, et avec les bonnes pratiques en matière de sécurité sur Azure :
 
-  - Le [Guide sur Azure pour les développeurs](https://azure.microsoft.com/campaigns/developer-guide/) montre comment bien démarrer avec Azure. Ce guide vous présente les services que vous pouvez utiliser pour exécuter vos applications, stocker vos données, intégrer l’intelligence, générer des applications IoT et déployer vos solutions de manière plus efficace et sécurisée.
+  - Le [Guide pour les développeurs sur Azure](https://azure.microsoft.com/campaigns/developer-guide/) montre comment bien démarrer avec Azure. Ce guide vous présente les services que vous pouvez utiliser pour exécuter vos applications, stocker vos données, intégrer l’intelligence, générer des applications IoT et déployer vos solutions de manière plus efficace et sécurisée.
 
   - Le [Guide de prise en main pour les développeurs Azure](../../guides/developer/azure-developer-guide.md) fournit des informations essentielles aux développeurs qui souhaitent commencer à utiliser la plateforme Azure pour leurs besoins de développement.
 
@@ -126,7 +123,7 @@ En ce qui concerne le développement, utilisez une bibliothèque de codages séc
 Veillez à utiliser la toute dernière version de votre framework, ainsi que toutes les fonctionnalités de sécurité disponibles dans le framework. Microsoft propose un [ensemble complet d’outils de développement](https://azure.microsoft.com/product-categories/developer-tools/) destiné à tous les développeurs, quels que soient la plateforme ou le langage dont ils se servent, pour fournir des applications cloud. Vous pouvez développer dans le langage de votre choix en choisissant parmi différents [kits SDK](https://azure.microsoft.com/downloads/).
 Vous pouvez profiter d’environnements de développement intégrés (IDE) complets et d’éditeurs équipés de fonctions de débogage avancé, ainsi que du support Azure intégré.
 
-Microsoft offre un éventail de [langages, frameworks et outils](../../index.yml?panel=sdkstools-all&pivot=sdkstools) que vous pouvez utiliser pour développer des applications sur Azure. Par exemple, [Azure pour les développeurs .NET et .NET Core](/dotnet/azure/). À chaque langage et framework que nous proposons, correspondent des guides de démarrage rapide, des tutoriels et des informations de référence sur les API pour vous mettre rapidement le pied à l’étrier.
+Microsoft offre un éventail de [langages, frameworks et outils](../../index.yml?panel=sdkstools-all&pivot=sdkstools) que vous pouvez utiliser pour développer des applications sur Azure. Par exemple, [Azure pour les développeurs .NET et .NET Core](/dotnet/azure/). À chaque langage et framework que nous proposons, vous trouverez des guides de démarrage rapide, des tutoriels et des informations de référence sur les API pour vous mettre rapidement le pied à l’étrier.
 
 Azure présente toute une gamme de services à utiliser pour héberger des applications web et des sites web. Ces services vous permettent de développer dans votre langage de prédilection, que ce soit .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) est un de ces services.
@@ -153,7 +150,7 @@ La modélisation de la conception de l’application et l’énumération des me
 
 | Menace | Propriété de sécurité | Atténuation des risques potentiels sur la plateforme Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Usurpation d’identité               | Authentification        | [Exiger des connexions HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio&view=aspnetcore-2.1). |
+| Usurpation d’identité               | Authentification        | [Exiger des connexions HTTPS](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
 | Falsification              | Intégrité             | Valider des certificats SSL/TLS. Les applications qui utilisent les protocoles SSL/TLS doivent intégralement vérifier les certificats X.509 des entités auxquelles elles se connectent. Utiliser des certificats Azure Key Vault pour [gérer vos certificats x509](../../key-vault/general/about-keys-secrets-certificates.md). |
 | Répudiation            | Non-répudiation       | Activez [la surveillance et les diagnostics Azure](/azure/architecture/best-practices/monitoring).|
 | Divulgation d’informations | Confidentialité       | Chiffrer les données sensibles [au repos](../fundamentals/encryption-atrest.md) et [en transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
@@ -233,7 +230,7 @@ Implémentez l’accès *juste-à-temps* (JIT) pour réduire davantage le temps 
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Obligation d’une nouvelle authentification pour les transactions importantes
 
-Une [falsification de requête intersites](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (également connue sous le nom de *XSRF* ou *CSRF*) est une attaque contre des applications hébergées sur le web, dans lesquelles un site web malveillant influence l’interaction entre un navigateur client et une application web qui fait confiance à ce navigateur. Ces attaques de falsification de requête intersites sont possibles, car les navigateurs web envoient automatiquement certains types de jetons d’authentification avec chaque requête vers un site web.
+Une [falsification de requête intersites](/aspnet/core/security/anti-request-forgery) (également connue sous le nom de *XSRF* ou *CSRF*) est une attaque contre des applications hébergées sur le web, dans lesquelles un site web malveillant influence l’interaction entre un navigateur client et une application web qui fait confiance à ce navigateur. Ces attaques de falsification de requête intersites sont possibles, car les navigateurs web envoient automatiquement certains types de jetons d’authentification avec chaque requête vers un site web.
 Cette forme d’exploitation est également appelée *one-click attack* (attaque en un clic) ou *session riding* (détournement de session) du fait que l’attaque profite de la session précédemment authentifiée de l’utilisateur.
 
 La meilleure façon de se défendre contre ce genre d’attaque revient à demander à l’utilisateur quelque chose que lui seul peut fournir avant chaque transaction importante, comme un achat, une désactivation de compte ou une modification de mot de passe. Vous pouvez demander à l’utilisateur d’entrer de nouveau son mot de passe, d’effectuer un test captcha ou d’envoyer un jeton secret dont il est l’unique détenteur. La méthode la plus courante est le jeton secret.
@@ -303,7 +300,7 @@ Assurez-vous que :
 
 ### <a name="use-logging-and-alerting"></a>Utiliser la journalisation et les alertes
 
-[Enregistrez dans un journal](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1) vos problèmes de sécurité pour les besoins des enquêtes de sécurité, et déclenchez des alertes par rapport à ces problèmes pour que les personnes aient bien connaissance à temps de ces problèmes. Activez l’audit et la journalisation sur tous les composants. Les journaux d’audit doivent capturer le contexte de l’utilisateur et identifier tous les événements importants.
+[Enregistrez dans un journal](/aspnet/core/fundamentals/logging/) vos problèmes de sécurité pour les besoins des enquêtes de sécurité, et déclenchez des alertes par rapport à ces problèmes pour que les personnes aient bien connaissance à temps de ces problèmes. Activez l’audit et la journalisation sur tous les composants. Les journaux d’audit doivent capturer le contexte de l’utilisateur et identifier tous les événements importants.
 
 Vérifiez que vous n’enregistrez aucune donnée sensible fournie par un utilisateur sur votre site. Voici quelques exemples de données sensibles :
 

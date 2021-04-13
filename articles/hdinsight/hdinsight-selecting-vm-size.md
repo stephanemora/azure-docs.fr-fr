@@ -7,10 +7,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98931779"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Sélection de la taille de machine virtuelle adaptée à votre cluster Azure HDInsight
@@ -25,11 +25,11 @@ Pour plus d’informations sur la planification d’autres aspects de votre clus
 
 La taille et le type de machine virtuelle sont déterminés par la puissance de traitement de l’UC, la taille de la RAM et la latence du réseau :
 
-- Processeur : la taille de machine virtuelle détermine le nombre de cœurs. Plus il y a de cœurs, plus chaque nœud peut atteindre un degré élevé de calcul parallèle. En outre, certains types de machines virtuelles ont des cœurs plus rapides.
+- UC : la taille de machine virtuelle détermine le nombre de cœurs. Plus il y a de cœurs, plus chaque nœud peut atteindre un degré élevé de calcul parallèle. En outre, certains types de machines virtuelles ont des cœurs plus rapides.
 
-- RAM : la taille de machine virtuelle détermine également la quantité de RAM disponible sur la machine virtuelle. Pour les charges de travail qui stockent des données en mémoire pour le traitement, au lieu de lire à partir du disque, vérifiez que vos nœuds worker disposent de suffisamment de mémoire pour stocker les données.
+- RAM : la taille de machine virtuelle détermine également la quantité de RAM disponible sur la machine virtuelle. Pour les charges de travail qui stockent des données en mémoire pour le traitement, au lieu de lire à partir du disque, vérifiez que vos nœuds worker disposent de suffisamment de mémoire pour stocker les données.
 
-- Réseau : pour la plupart des types de clusters, les données traitées par le cluster ne se trouvent pas sur le disque local, mais dans un service de stockage externe comme Data Lake Storage ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/sizes.md).
+- Réseau : Pour la plupart des types de clusters, les données traitées par le cluster ne se trouvent pas sur le disque local, mais dans un service de stockage externe comme Data Lake Storage ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/sizes.md).
 
 ## <a name="understanding-vm-optimization"></a>Comprendre l’optimisation des machines virtuelles
 

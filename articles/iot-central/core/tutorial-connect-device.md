@@ -11,18 +11,18 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 3beba1db82cc2a618ba7544228975c953b01acd9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bbf94b6e000d5c082debd6a0d41a8d62b8b3f26e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106064900"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491083"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central
 
 *Cet article s’applique aux créateurs de solutions et aux développeurs d’appareils.*
 
-Ce tutoriel vous explique comment, en tant que développeur d’appareils, connecter une application cliente à votre application Azure IoT Central. L’application simule le comportement d’un appareil à thermostat. Quand l’application se connecte à IoT Central, elle envoie l’ID du modèle de l’appareil à thermostat. IoT Central utilise cet ID du modèle pour récupérer le modèle d’appareil et créer un modèle pour votre appareil. Vous ajoutez des personnalisations et des vues au modèle d’appareil pour permettre à un opérateur d’interagir avec un appareil.
+Ce tutoriel vous explique comment, en tant que développeur d’appareils, connecter une application cliente à votre application Azure IoT Central. L'application simule le comportement d'un régulateur de température. Lorsque l'application se connecte à IoT Central, elle envoie l'ID du modèle au modèle de régulateur de température. IoT Central utilise cet ID du modèle pour récupérer le modèle d’appareil et créer un modèle pour votre appareil. Vous ajoutez des personnalisations et des vues au modèle d’appareil pour permettre à un opérateur d’interagir avec un appareil.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -70,7 +70,7 @@ En tant que développeur d’appareils, vous pouvez utiliser la vue **Données b
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="Vue Données brutes":::
 
-Dans cette vue, vous pouvez sélectionner les colonnes à afficher et définir une plage de temps à afficher. La colonne **Données démodélisées** affiche les données de l’appareil qui ne correspondent à aucune définition de propriété ou de télémétrie dans le modèle d’appareil.
+Dans cette vue, vous pouvez sélectionner les colonnes à afficher et définir une plage de temps à afficher. La colonne **Données non modélisées** affiche les données d'appareil qui ne correspondent à aucune propriété ou définition de télémétrie dans le modèle d'appareil.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

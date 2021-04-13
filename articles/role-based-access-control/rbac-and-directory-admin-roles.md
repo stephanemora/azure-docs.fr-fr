@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/04/2021
+ms.date: 03/31/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 24ff39fba5ce4b484f23595a9f7d718b12faae10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd5533f4bc8420ee6d8900e8a17dfe7099d7945f
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037266"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107195"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Rôles d’administrateur d’abonnement classique, rôles Azure et rôles Azure AD
 
@@ -115,7 +115,7 @@ Globalement, les rôles Azure contrôlent les autorisations pour gérer les ress
 | --- | --- |
 | Gérer l’accès aux ressources Azure | Gérer l’accès aux ressources Azure Active Directory |
 | Prise en charge des rôles personnalisés | Prise en charge des rôles personnalisés |
-| L’étendue peut être spécifiée à plusieurs niveaux (groupe d’administration, abonnement, groupe de ressources, ressource) | L’étendue est au niveau du locataire |
+| L’étendue peut être spécifiée à plusieurs niveaux (groupe d’administration, abonnement, groupe de ressources, ressource) | L’[étendue](../active-directory/roles/custom-overview.md#scope) peut être spécifiée au niveau du locataire (à l’échelle de l’organisation), d’une unité administrative ou d’un objet individuel (par exemple, une application spécifique) |
 | Les informations sur les rôles sont accessibles dans le portail Azure, Azure CLI, Azure PowerShell, les modèles Azure Resource Manager et l’API REST | Les informations sur les rôles sont accessibles dans le portail d’administration Azure, le centre d’administration Office 365, Microsoft Graph et AzureAD PowerShell |
 
 ### <a name="do-azure-roles-and-azure-ad-roles-overlap"></a>Les rôles Azure et les rôles Azure AD se chevauchent-ils ?

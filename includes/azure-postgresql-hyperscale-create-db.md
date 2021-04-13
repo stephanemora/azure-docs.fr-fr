@@ -9,10 +9,10 @@ ms.date: 12/16/2020
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: 26289f6bdfa086708548d17125a6dfdf50b02a8f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97665207"
 ---
 ## <a name="create-a-hyperscale-citus-server-group"></a>Créer un groupe de serveurs Hyperscale (Citus)
@@ -39,7 +39,7 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
    > Le mot de passe d'administration du serveur que vous spécifiez ici est requis pour se connecter au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
 
 5. Cliquez sur **Configurer le groupe de serveurs**. Laissez inchangés les paramètres de cette section et cliquez sur **Enregistrer**.
-6. Cliquez sur **Suivant : Networking (Réseau) >** au bas de la page.
+6. Cliquez sur **Next : Networking (Suivant : Réseau) >** au bas de la page.
 
 7. Sous l’onglet **Networking** (Réseau), cliquez sur la case d’option **Public endpoint** (Point de terminaison public).
    ![Public endpoint (Point de terminaison public) sélectionné](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)

@@ -8,20 +8,18 @@ ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7cfc8fc24aea938b997fead4ca762ce7178e3386
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5a23d6a06c8cdff4deabac5251597b7ffe0c833
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490617"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728043"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutoriel : Préparer une application web pour Azure Communication Services (Node.js)
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 Vous pouvez utiliser Azure Communication Services pour ajouter des communications en temps réel à vos applications. Dans ce tutoriel, vous allez apprendre à configurer une application web qui prend en charge Azure Communication Services. C’est un tutoriel d’introduction qui aidera les développeurs débutants à bien démarrer avec les communications en temps réel.
 
-À la fin de ce tutoriel, vous disposerez d’une application web de base qui sera configurée avec les bibliothèques de client d’Azure Communication Services. Vous pourrez alors utiliser cette application pour commencer à créer votre solution de communications en temps réel.
+À la fin de ce tutoriel, vous disposerez d’une application web de référence qui est configurée avec les SDK Azure Communication Services. Vous pourrez alors utiliser cette application pour commencer à créer votre solution de communications en temps réel.
 
 N’hésitez pas à consulter la [page Azure Communication Services sur GitHub](https://github.com/Azure/communication) pour nous faire part de vos commentaires.
 
@@ -37,7 +35,7 @@ Dans ce tutoriel, vous allez apprendre à :
 - Compte Azure avec un abonnement actif. Pour plus d’informations, consultez [Créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) Le compte gratuit vous octroie 200 $ de crédits Azure pour essayer la combinaison de services de votre choix.
 - [Visual Studio Code](https://code.visualstudio.com/) pour la modification du code dans votre environnement de développement local.
 - [webpack](https://webpack.js.org/) pour créer un bundle de votre code et l’héberger localement.
-- [Node.js](https://nodejs.org/en/) pour installer et gérer les dépendances, telles que les bibliothèques de client d’Azure Communication Services et le webpack.
+- [Node.js](https://nodejs.org/en/) pour installer et gérer les dépendances, telles que les SDK Azure Communication Services et le webpack.
 - [nvm et npm](/windows/nodejs/setup-on-windows) pour la gestion de versions.
 - L’[extension Stockage Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) pour Visual Studio Code. Vous avez besoin de cette extension pour publier votre application dans Stockage Azure. [Découvrez-en plus sur l’hébergement de sites web statiques dans le service Stockage Azure](../../storage/blobs/storage-blob-static-website.md).
 - L’[extension Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Cette extension vous permet de déployer des sites web avec l’option de configurer l’intégration continue et la livraison continue (CI/CD) entièrement managées.
@@ -293,7 +291,7 @@ Pour arrêter le serveur, vous pouvez exécuter `Ctrl+C` dans votre terminal. Po
 
 ## <a name="add-the-azure-communication-services-packages"></a>Ajouter les packages Azure Communication Services
 
-Utilisez la commande `npm install` pour installer la bibliothèque de client Azure Communication Services calling pour JavaScript.
+Utilisez la commande `npm install` pour installer le SDK Azure Communication Services Calling pour JavaScript.
 
 ```Console
 npm install @azure/communication-common --save

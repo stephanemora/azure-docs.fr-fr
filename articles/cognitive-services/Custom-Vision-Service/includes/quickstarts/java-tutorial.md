@@ -4,12 +4,12 @@ ms.custom: devx-track-java
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/13/2020
-ms.openlocfilehash: a3b2fcc4e58eb23b82bdb65682fd568d79a724c5
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c169572e8af8ba992e604fc51b31db1146f11fda
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444993"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106112975"
 ---
 Bien démarrer avec l’utilisation de la bibliothèque de client Custom Vision pour Java afin de générer un modèle de classification d’images Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Utilisez cet exemple comme modèle pour générer votre propre application de reconnaissance d’image.
 
@@ -99,8 +99,10 @@ Dans la classe **CustomVisionQuickstart** de l’application, créez des variabl
 
 
 > [!IMPORTANT]
-> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. Les clés et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources, sous **Gestion des ressources**. Vous devrez obtenir vos clés d’entrainement et de prédiction, ainsi que le point de terminaison des ressources d’entrainement.
+> Accédez au portail Azure. Si les ressources Custom Vision que vous avez créées dans la section **Prérequis** ont été déployées, cliquez sur le bouton **Accéder à la ressource** sous **Étapes suivantes**. La clé et le point de terminaison se trouvent dans les pages **Clé et point de terminaison** des ressources. Vous devez obtenir les clés pour vos ressources d’entraînement et de prédiction, ainsi que le point de terminaison d’API pour votre ressource d’entraînement.
 >
+> Vous trouverez la valeur de l’ID de ressource de prédiction sous l’onglet **Propriétés** de la ressource, listé comme **ID d’abonnement**.
+> 
 > N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services-security.md) de Cognitive Services.
 
 Dans la méthode **main** de l’application, ajoutez des appels pour les méthodes utilisées dans ce guide de démarrage rapide. Vous les définirez plus tard.

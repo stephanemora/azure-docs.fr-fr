@@ -1,5 +1,5 @@
 ---
-title: Supervision des diagnostics Azure - Azure Attestation
+title: Supervision des diagnostics Azure pour Azure Attestation
 description: Supervision des diagnostics Azure pour Azure Attestation
 services: attestation
 author: msmbaldwin
@@ -7,22 +7,20 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d01e7817906927295591353b710afe2899aacdf1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2773be4bc67e125c18d5d38c951685e4f4fceaf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726476"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168346"
 ---
-# <a name="setting-up-diagnostics-with-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Configuration des diagnostics avec un point de terminaison de Module de plateforme sécurisée (TPM) d’Azure Attestation
+# <a name="set-up-diagnostics-with-a-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Configurer des diagnostics avec un point de terminaison de Module de plateforme sécurisée (TPM) d’Azure Attestation
 
-Les [journaux de plateforme](../azure-monitor/essentials/platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](../azure-monitor/essentials/data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations. 
+Cet article vous aide dans la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations. Les [journaux de plateforme](/azure/azure-monitor/platform/platform-logs-overview) dans Azure, y compris le journal des activités Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](/azure/azure-monitor/platform/data-platform-metrics) sont collectées par défaut et stockées dans la base de données Métriques Azure Monitor.
 
-Le service de point de terminaison TPM est activé avec le paramètre de diagnostic et peut être utilisé pour superviser l’activité. Pour configurer [Azure Monitor](../azure-monitor/overview.md) pour le point de terminaison du service TPM à l’aide de PowerShell, suivez les étapes ci-dessous. 
+Avant de commencer, assurez-vous d’avoir [configuré Azure Attestation avec Azure PowerShell](quickstart-powershell.md).
 
-Configurez le service Azure Attestation. 
-
-[Configurer Azure Attestation avec Azure PowerShell](./quickstart-powershell.md)
+Le service de point de terminaison TPM est activé dans les paramètres de diagnostic et peut être utilisé pour superviser l’activité. Configurez la [Supervision Azure](/azure/azure-monitor/overview) pour le point de terminaison du service TPM en utilisant le code suivant.
 
 ```powershell
 
@@ -41,4 +39,5 @@ Configurez le service Azure Attestation.
  Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
 
 ```
-Les journaux d’activité se trouvent dans la section Conteneurs du compte de stockage. Pour plus d’informations, consultez [Collecter des journaux de ressources à partir d’une ressource Azure et les analyser avec Azure Monitor - Azure Monitor](../azure-monitor/essentials/tutorial-resource-logs.md)
+
+Les journaux d’activité se trouvent dans la section **Conteneurs** du compte de stockage. Pour plus d’informations, consultez [Collecter et analyser des journaux de ressources à partir d’une ressource Azure](/azure/azure-monitor/learn/tutorial-resource-logs).

@@ -4,14 +4,14 @@ description: Découvrez comment copier des données d’un système de fichiers 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/29/2021
 ms.author: jingwang
-ms.openlocfilehash: a7cfcd77c4aeb12e2fca98a3564f34683b41ee21
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c49b543b13dddf4c4ba7e36196795c6a0d638ae2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588998"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731953"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -35,6 +35,9 @@ Plus précisément, ce connecteur de système de fichiers prend en charge ce qui
 - Copie de fichiers depuis/vers un ordinateur local ou un partage de fichiers réseau. Pour utiliser un partage de fichiers Linux, installez [Samba](https://www.samba.org/) sur votre serveur Linux.
 - Copie de fichiers en utilisant une authentification **Windows**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+
+> [!NOTE]
+> Le lecteur réseau mappé n’est pas pris en charge lors du chargement de données à partir d’un partage de fichiers réseau. Utilisez le chemin d’accès réel à la place, par exemple ` \\server\share`.
 
 ## <a name="prerequisites"></a>Prérequis
 
