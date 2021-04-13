@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: c937f9d75613b6550a2f05dd63a8b31dd83fe0b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98251758"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445719"
 ---
 # <a name="required-url-list"></a>Liste des URL requises
 
@@ -72,8 +72,8 @@ Le tableau suivant liste les URL facultatives auxquelles vos machines virtuelles
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|None|
 |login.windows.net|443|Se connecter à Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Mises à jour pour le logiciel client OneDrive|oneclient.sfx.ms|
-|*.digicert.com|443|Vérification de la révocation de certificat|None|
-|*.azure-dns.com|443|Résolution d’Azure DNS|None|
+|*.digicert.com|443|Vérification de la révocation de certificat|Aucun|
+|*.azure-dns.com|443|Résolution d’Azure DNS|Aucun|
 |*.azure-dns.net|443|Résolution d’Azure DNS|None|
 
 >[!NOTE]

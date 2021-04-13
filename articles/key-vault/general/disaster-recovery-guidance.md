@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: d66fe736936963e601aad7cba7bdaa94f0c3ec3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27184e267bb0472dad6fc9176dfdeee68d5eae58
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96518445"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611818"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilité et redondance d’Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault dispose de plusieurs couches de redondance pour garantir que vos
 > [!NOTE]
 > Ce guide s’applique aux coffres. Les pools HSM managés utilisent un autre modèle de haute disponibilité et de reprise d’activité. Pour plus d’informations, consultez [Guide de reprise d’activité pour un HSM managé](../managed-hsm/disaster-recovery-guide.md).
 
-Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Pour plus d’informations sur les paires de régions spécifiques, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md). L’exception au modèle de régions jumelées est Brésil Sud, qui offre uniquement la possibilité de conserver les données résidant dans cette région. Brésil Sud utilise un stockage redondant interzone (ZRS) pour répliquer vos données trois fois dans la seule et même localisation/région.   
+Le contenu de votre coffre de clés est répliqué dans la région ainsi que dans une région secondaire éloignée d’au moins 240 km, mais située au sein de la même zone géographique, afin de maintenir une durabilité élevée de vos clés et secrets. Pour plus d’informations sur les paires de régions spécifiques, consultez [Régions jumelées Azure](../../best-practices-availability-paired-regions.md). L’exception au modèle de régions jumelées est Brésil Sud, qui offre uniquement la possibilité de conserver les données résidant dans cette région. Brésil Sud utilise un stockage redondant interzone (ZRS) pour répliquer vos données trois fois dans la seule et même localisation/région. Pour AKV Premium, seules 2 des 3 régions sont utilisées pour répliquer des données à partir des HSM.  
 
 En cas d’échec de composants du service Key Vault, d’autres composants de la même région interviennent pour traiter votre demande afin de garantir l’intégrité des fonctionnalités. Vous n’avez besoin d’effectuer aucune action pour démarrer ce processus. Il se produit automatiquement sans que vous le perceviez.
 

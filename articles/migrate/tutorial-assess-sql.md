@@ -5,20 +5,17 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d4078d1403df01475c6055dded2bd012e97af98e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053513"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557987"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Tutoriel : Évaluer des instances SQL en vue de leur migration vers Azure SQL
 
 Dans le cadre de votre migration vers Azure, vous devez évaluer vos charges de travail locales afin de déterminer la préparation nécessaire, d’identifier les risques et d’estimer les coûts ainsi que le niveau de complexité de la tâche.
 Cet article explique comment évaluer les bases de données d’instances SQL découvertes en vue de leur migration vers Azure SQL à l’aide de l’outil Azure Migrate : Détection et évaluation.
-
-> [!Note]
-> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour tester cette fonctionnalité, utilisez [**ce lien**](https://aka.ms/AzureMigrate/SQL) afin de créer un projet dans la région **Australie Est**. Si vous avez déjà un projet en Australie Est et si vous souhaitez tester cette fonctionnalité, vérifiez que vous avez effectué ces [**prérequis**](how-to-discover-sql-existing-project.md) dans le portail.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -35,6 +32,8 @@ Dans ce tutoriel, vous allez apprendre à :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 - Avant de suivre ce tutoriel pour évaluer vos instances SQL en vue de leur migration vers Azure SQL, assurez-vous d’avoir découvert les instances SQL que vous souhaitez évaluer à l’aide de l’appliance Azure Migrate [en suivant ce tutoriel](tutorial-discover-vmware.md).
+- Si vous voulez tester cette fonctionnalité dans un projet existant, vérifiez que vous avez rempli les [prérequis](how-to-discover-sql-existing-project.md) indiqués dans cet article.
+
 
 ## <a name="run-an-assessment"></a>Exécuter une évaluation
 Exécutez une évaluation comme suit :
@@ -194,4 +193,4 @@ Le niveau de confiance vous permet d’estimer la fiabilité des suggestions qui
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus](concepts-azure-sql-assessment-calculation.md) sur le mode de calcul des évaluations d’Azure SQL.
-- Commencez à migrer des instances et des bases de données SQL à l’aide d’[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
+- Commencez à migrer des instances et des bases de données SQL à l’aide d’[Azure Database Migration Service](../dms/dms-overview.md).

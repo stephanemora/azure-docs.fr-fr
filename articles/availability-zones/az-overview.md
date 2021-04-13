@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596006"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384253"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -87,7 +87,7 @@ Si une offre de service n’est pas disponible dans une région spécifique, vou
 Comme mentionné précédemment, Azure classe les services en trois catégories : de base, standard et spécialisés. Les catégories de service sont attribuées lors de la mise en disponibilité générale. Souvent, les services démarrent leur cycle de vie en tant que services spécialisés, et les augmentations de la demande et de l’utilisation peuvent leur valoir une promotion au niveau général ou de base. Le tableau suivant répertorie les catégories attribuées aux services de base standard. Notez les points suivants concernant le tableau :
 
 - Certains services ne sont pas régionaux. Pour plus d’informations et pour obtenir la liste des services non régionaux, consultez les [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/).
-- Les services ou machines virtuelles de génération antérieure ne sont pas répertoriés. Pour plus d’informations, consultez la documentation sur [Tailles de machines virtuelles des générations précédentes](../virtual-machines/sizes-previous-gen.md).
+- Les services ou machines virtuelles de génération antérieure ne sont pas répertoriés. Pour plus d’informations, voir la documentation [Tailles de machines virtuelles des générations précédentes](../virtual-machines/sizes-previous-gen.md).
 - Aucune catégorie n’est attribuée aux services avant la disponibilité générale (GA). Pour plus d’informations et pour obtenir la liste des services disponibles en préversion, consultez [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/). 
 
 > [!div class="mx-tableFixed"]

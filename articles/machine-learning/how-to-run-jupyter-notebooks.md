@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fec4eb55f43bd17db5935ab32e5429927c74f5b9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066207"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220706"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -46,16 +46,19 @@ Vous pouvez également lancer Jupyter ou JupyterLab à partir de la barre d’ou
 
 Utilisez le mode focus pour développer votre affichage actuel afin de pouvoir vous concentrer sur vos onglets actifs. Le mode focus masque l’explorateur de fichiers Notebooks.
 
-1. Dans la barre d’outils de la fenêtre du terminal, sélectionnez **Mode focus** pour activer le mode focus. En fonction de la largeur de la fenêtre, il peut se trouver sous l’élément de menu **…** dans la barre d’outils.
+1. Dans la barre d’outils de la fenêtre du terminal, sélectionnez **Mode focus** pour activer le mode focus. Selon la largeur de votre fenêtre, l’outil peut se trouver sous l’élément de menu **…** dans la barre d’outils.
 1. En mode focus, revenez à l’affichage standard en sélectionnant **Affichage standard**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Activer/désactiver le mode focus et l’affichage standard":::
 
 ## <a name="code-completion-intellisense"></a>Saisie semi-automatique du code (IntelliSense)
 
-[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) est une aide à la saisie semi-automatique de code qui comprend un certain nombre de fonctionnalités : Liste des membres, Informations sur les paramètres, Info Express et Compléter le mot. Ces fonctionnalités vous aident à en savoir plus sur le code que vous utilisez, à suivre les paramètres que vous entrez et à ajouter des appels aux propriétés et aux méthodes avec seulement quelques séquences de touches.  
+[IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) est une aide à la saisie semi-automatique de code, qui inclut de nombreuses fonctionnalités : Liste des membres, Informations sur les paramètres, Informations rapides et Compléter le mot. L’action de quelques touches suffit pour :
+* En savoir plus sur le code que vous utilisez
+* Suivre les paramètres que vous tapez
+* Ajouter des appels aux propriétés et aux méthodes 
 
-### <a name="use-code-snippets-preview"></a>Utiliser des extraits de code (préversion)
+### <a name="insert-code-snippets-preview"></a>Insérer des extraits de code (préversion)
 
 Utilisez **Ctrl + Espace** pour déclencher les extraits de code IntelliSense.  Faites défiler les suggestions ou commencez à taper pour rechercher le code à insérer.  Une fois que vous avez inséré du code, déplacez-vous dans les arguments afin de personnaliser le code pour votre propre usage.
 
@@ -67,7 +70,7 @@ Vous pouvez parcourir liste et y rechercher des extraits de code à l’aide de 
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Ouvrir l’outil du panneau d’extrait de code dans la barre d’outils du notebook":::
 
-À partir du panneau des extraits, vous pouvez également envoyer une demande d’ajout d’extrait de code.
+À partir du panneau des extraits de code, vous pouvez également envoyer une demande d’ajout d’extrait de code.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Le panneau d’extrait de code vous permet de proposer un nouvel extrait de code":::
 
@@ -91,7 +94,7 @@ Dans la barre d’outils du bloc-notes, sélectionnez le menu, puis **Fichier&gt
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Capture d’écran de l’outil d’enregistrement dans la barre d’outils du bloc-notes":::
 
-Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes. L’enregistrement automatique met à jour uniquement le fichier *ipynb* initial, et non le fichier de point de contrôle.
+Chaque bloc-notes est enregistré de façon automatique toutes les 30 secondes. L’enregistrement automatique met à jour uniquement le fichier *ipynb* initial, pas le fichier de point de contrôle.
  
 Sélectionnez **Points de contrôle** dans le menu du bloc-notes pour créer un point de contrôle nommé et restaurer le bloc-notes à un point de contrôle enregistré.
 
@@ -285,8 +288,8 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 ## <a name="troubleshooting"></a>Dépannage
 
 * Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre réseau autorise les connexions WebSocket à *.instances.azureml.net et *.instances.azureml.ms. 
-
 * Quand l’instance de calcul est déployée dans un espace de travail de liaison privée, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md#compute-instance). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour <nom-instance>.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
+
     
 ## <a name="next-steps"></a>Étapes suivantes
 

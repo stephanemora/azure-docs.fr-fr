@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501565"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552952"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -36,11 +36,11 @@ Un utilisateur qui s’est connecté à un pool SQL serverless doit être autori
 L’**identité de l’utilisateur** (également appelée « pass-through Azure AD ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessous, elle n’est pas prise en charge pour le type d’utilisateur SQL.
 
 > [!IMPORTANT]
-> Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage.
-> Même si vous êtes propriétaire d’un compte de stockage, vous devez vous ajouter à l’un des rôles de données blob de stockage.
->
-> Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
->
+> Le jeton d'authentification AAD peut être mis en cache par les applications clientes. Par exemple, PowerBI met en cache le jeton AAD et réutilise le même jeton pendant une heure. Les requêtes longues peuvent échouer si le jeton expire au milieu de l'exécution de celles-ci. Si des requêtes échouent parce que le jeton d'accès AAD expire au milieu de celles-ci, envisagez de passer à l'[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à la [signature d'accès partagé](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+
+Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage. Vous pouvez également spécifier des règles ACL affinées pour accéder aux fichiers et aux dossiers. Même si vous êtes propriétaire d’un compte de stockage, vous devez vous ajouter à l’un des rôles de données blob de stockage.
+Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 
 ### <a name="shared-access-signature"></a>[Signature d’accès partagé](#tab/shared-access-signature)
 
@@ -54,6 +54,10 @@ Vous pouvez obtenir un jeton SAS en accédant au **portail Azure -> Compte de 
 > Jeton SAS : ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
 Pour autoriser l’accès à l’aide du jeton SAP, vous devez créer des informations d’identification incluses dans l’étendue de la base de données ou du serveur 
+
+
+> [!IMPORTANT]
+> Vous ne pouvez pas accéder aux comptes de stockage privés avec le jeton SAS. Envisagez de passer à l'[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à l'[authentification directe Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) pour accéder au stockage protégé.
 
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
@@ -84,7 +88,7 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 | Type d’autorisation  | Stockage Blob   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Prise en charge\*      | Non pris en charge   | Prise en charge\*     |
-| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Prise en charge        | Prise en charge     |
+| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Pris en charge        | Prise en charge     |
 | [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Prise en charge\*      | Prise en charge\*        | Prise en charge\*     |
 
 \* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
@@ -100,6 +104,15 @@ Lors de l’accès à un stockage protégé par le pare-feu, vous pouvez utilise
 #### <a name="user-identity"></a>Identité de l’utilisateur
 
 Pour accéder au stockage protégé par le pare-feu via une identité utilisateur, vous pouvez utiliser le module PowerShell Az.Storage.
+#### <a name="configuration-via-azure-portal"></a>Configuration via le portail Azure
+
+1. Recherchez votre compte de stockage sur le portail Azure.
+1. Accédez à Mise en réseau sous la section Paramètres.
+1. Dans la section « Instances de ressources », ajoutez une exception pour votre espace de travail Synapse.
+1. Sélectionnez le type de ressource Microsoft.Synapse/workspaces.
+1. Sélectionnez le nom de votre espace de travail sous forme de nom d'instance.
+1. Cliquez sur Enregistrer.
+
 #### <a name="configuration-via-powershell"></a>Configuration via PowerShell
 
 Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et ajouter une exception pour l’espace de travail synapse.

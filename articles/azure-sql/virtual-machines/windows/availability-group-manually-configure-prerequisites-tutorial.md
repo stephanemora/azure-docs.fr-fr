@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c64a4e06ed452c895c1bc2cf20adc2d9c0060c3
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508740"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219261"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutoriel : Prérequis de la création de groupes de disponibilité sur SQL Server sur des machines virtuelles Azure
 
@@ -69,11 +69,11 @@ Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratui
 
 Azure crée le groupe de ressources et épingle un raccourci vers celui-ci dans le portail.
 
-## <a name="create-the-network-and-subnets"></a>Créer un réseau et des sous-réseaux
+## <a name="create-the-network-and-subnet"></a>Créer le réseau et le sous-réseau
 
 L’étape suivante consiste à créer les réseaux et les sous-réseaux dans le groupe de ressources Azure.
 
-La solution utilise un réseau virtuel avec deux sous-réseaux. Pour plus d’informations sur les réseaux dans Azure, consultez la page [Présentation du réseau virtuel](../../../virtual-network/virtual-networks-overview.md).
+La solution utilise un réseau virtuel et un sous-réseau. Pour plus d’informations sur les réseaux dans Azure, consultez la page [Présentation du réseau virtuel](../../../virtual-network/virtual-networks-overview.md).
 
 Pour créer le réseau virtuel dans le portail Azure :
 
@@ -100,48 +100,13 @@ Pour créer le réseau virtuel dans le portail Azure :
 
    Votre espace d’adressage et votre plage d’adresses de sous-réseau peuvent être différents de ceux indiqués dans ce tableau. En fonction de votre abonnement, le portail suggère un espace d’adressage disponible et la plage d’adresses de sous-réseau correspondante. Si vous ne disposez pas d’un espace d’adressage suffisant, utilisez un autre abonnement.
 
-   L’exemple utilise le nom de sous-réseau **Admin**. Ce sous-réseau est destiné aux contrôleurs de domaine.
+   L’exemple utilise le nom de sous-réseau **Admin**. Ce sous-réseau est destiné aux contrôleurs de domaine et machines virtuelles SQL Server.
 
 5. Sélectionnez **Create** (Créer).
 
    ![Configurer le réseau virtuel](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 
 Vous revenez au tableau de bord du portail et Azure vous avertit lorsque le réseau est créé.
-
-### <a name="create-a-second-subnet"></a>Créer un deuxième sous-réseau
-
-Le nouveau réseau virtuel dispose d'un sous-réseau, nommé **Admin**. Les contrôleurs de domaine utilisent ce sous-réseau. Les machines virtuelles SQL Server utilisent un deuxième sous-réseau nommé **SQL**. Pour configurer ce sous-réseau :
-
-1. Dans votre tableau de bord, sélectionnez le groupe de ressources que vous avez créé, **SQL-HA-RG**. Recherchez le réseau dans le groupe de ressources, sous **Ressources**.
-
-    Si **SQL-HA-RG** n’est pas visible, sélectionnez **Groupes de ressources** et filtrez les données en fonction du nom du groupe de ressources.
-
-2. Sélectionnez **autoHAVNET** dans la liste des ressources. 
-3. Sur le réseau virtuel **autoHAVNET**, sous **Paramètres**, sélectionnez **Sous-réseaux**.
-
-    Vous pouvez voir le sous-réseau que vous avez déjà créé.
-
-   ![Voir le sous-réseau déjà créé](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
-
-5. Pour créer un deuxième sous-réseau, sélectionnez **+ Sous-réseau**.
-6. Sur **Ajouter un sous-réseau**, configurez le sous-réseau en saisissant **sqlsubnet** sous **Nom**. Azure spécifie automatiquement une **plage d’adresses** valide. Vérifiez que cette plage d’adresses comporte au moins 10 adresses. Dans un environnement de production, vous pouvez avoir besoin de davantage d’adresses.
-7. Sélectionnez **OK**.
-
-    ![Configurer le sous-réseau](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
-
-Le tableau suivant récapitule les paramètres de configuration du réseau :
-
-| **Champ** | Valeur |
-| --- | --- |
-| **Nom** |**autoHAVNET** |
-| **Espace d’adressage** |Cette valeur dépend des espaces d’adressage disponibles dans votre abonnement. 10.0.0.0/16 est une valeur courante. |
-| **Nom du sous-réseau** |**admin** |
-| **Plage d’adresses de sous-réseau** |Cette valeur dépend des plages d’adresses disponibles dans votre abonnement. 10.0.0.0/24 est une valeur courante. |
-| **Nom du sous-réseau** |**sqlsubnet** |
-| **Plage d’adresses de sous-réseau** |Cette valeur dépend des plages d’adresses disponibles dans votre abonnement. 10.0.1.0/24 est une valeur courante. |
-| **Abonnement** |Spécifiez l’abonnement à utiliser. |
-| **Groupe de ressources** |**SQL-HA-RG** |
-| **Lieu** |Spécifiez le même emplacement que celui choisi pour le groupe de ressources. |
 
 ## <a name="create-availability-sets"></a>Créer des groupes à haute disponibilité
 

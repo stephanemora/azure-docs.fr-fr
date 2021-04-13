@@ -1,14 +1,14 @@
 ---
-title: À propos des alertes de capteur
+title: Comprendre les alertes de capteur
 description: Utilisez des alertes pour vous aider à améliorer la sécurité et l’opération de votre réseau.
-ms.date: 11/30/2020
+ms.date: 3/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a34871342e9a868ba593ae894fdd91b5e99c5a44
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781345"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729420"
 ---
 # <a name="about-sensor-alerts"></a>À propos des alertes de capteur
 
@@ -64,9 +64,10 @@ Par exemple :
 
   - Les événements de programmes malveillants détectés sur les périphériques réseau sont signalés dans les rapports d’évaluation des risques. Quand les alertes relatives aux événements de programmes malveillants ont le *micro désactivé*, les appareils affectés ne sont pas calculés dans le rapport d’évaluation des risques.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Apprentissage et modes d’apprentissage informatique intelligent](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [Afficher les informations fournies dans les alertes](how-to-view-information-provided-in-alerts.md)
-- [Gérer l’événement d’alerte](how-to-manage-the-alert-event.md)
-- [Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)
+[Apprentissage et modes d’apprentissage informatique intelligent](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+[Afficher les informations fournies dans les alertes](how-to-view-information-provided-in-alerts.md)
+[Gérer l’événement d’alerte](how-to-manage-the-alert-event.md)
+[Accélérer les workflows d’alerte](how-to-accelerate-alert-incident-response.md)
+[Types d’alertes et descriptions](alert-engine-messages.md)

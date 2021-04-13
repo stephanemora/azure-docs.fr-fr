@@ -7,12 +7,12 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39bab52a564439d34b8702de11edabe7f0d6dfbc
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119082"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492254"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilisation des propriétés dans une solution Azure IoT Central
 
@@ -39,7 +39,7 @@ Le tableau suivant décrit les paramètres de configuration d’une fonctionnali
 | Type de fonctionnalité | Propriété.                                                                                                                                                                                                                          |
 | Type sémantique   | Type sémantique de la propriété, telles que la température, l’état ou l’événement. Le choix du type sémantique détermine lequel des champs suivants est disponible.                                                                       |
 | schéma          | Type de données de propriété, tel que double, chaîne ou vecteur. Les options disponibles sont déterminées par le type sémantique. Le schéma n’est pas disponible pour les types sémantiques d’événement et d’état.                                               |
-| Accessible en écriture       | Si la propriété n’est pas inscriptible, l’appareil peut signaler des valeurs de propriété à Azure IoT Central. Si la propriété est inscriptible, l’appareil peut signaler des valeurs de propriété à Azure IoT Central. Azure IoT Central peut alors envoyer des mises à jour de propriétés à l’appareil. |
+| Accessible en écriture       | Si la propriété n’est pas accessible en écriture, l’appareil peut signaler des valeurs de propriété à Azure IoT Central. Si la propriété est accessible en écriture, l’appareil peut signaler des valeurs de propriété à Azure IoT Central. Azure IoT Central peut alors envoyer des mises à jour de propriétés à l’appareil. |
 | severity        | Disponible uniquement pour le type sémantique d’événement. Les gravités sont **Erreur**, **Information** ou **Avertissement**.                                                                                                                         |
 | Valeurs d’état    | Disponible uniquement pour le type sémantique d’état. Définissez les valeurs d’état possibles, chacune ayant un nom d’affichage, un nom, un type d’énumération et une valeur.                                                                                   |
 | Unité            | Unité pour la valeur des propriétés, telles que **mph**, **%** ou **&deg;C**.                                                                                                                                                              |
@@ -80,7 +80,7 @@ Cet exemple montre deux propriétés. Ces propriétés sont liées à la défini
 * `@type` spécifie le type de capacité : `Property`. L’exemple précédent montre également le type sémantique `Temperature` pour les deux propriétés.
 * `name` pour la propriété.
 * `schema` spécifie le type de données pour la propriété. Cette valeur peut être un type primitif, tel que double, entier, valeur booléenne ou chaîne. Les types d’objets complexes et les mappages sont également pris en charge.
-* `writable`. Par défaut, les propriétés sont en lecture seule. Vous pouvez marquer une propriété comme étant accessible en écriture, à l’aide de ce champ.
+* `writable`. Par défaut, les propriétés sont en lecture seule. Ce champ vous permet de marquer une propriété comme étant accessible en écriture.
 
 Des champs facultatifs, tels que le nom d’affichage et la description, vous permettent d’ajouter des détails à l’interface et aux fonctionnalités.
 
@@ -219,7 +219,7 @@ Le message de réponse doit inclure les champs `ac` et `av`. Le champ `ad` est f
 
 Pour plus d’informations sur les jumeaux d'appareil, consultez [Configurer vos appareils à partir d’un service backend](../../iot-hub/tutorial-device-twins.md).
 
-Quand l’opérateur définit une propriété inscriptible dans l’application Azure IoT Central, l’application utilise une propriété souhaitée du jumeau d’appareil pour envoyer la valeur à l’appareil. L’appareil répond alors en utilisant une propriété signalée du jumeau d’appareil. Quand Azure IoT Central reçoit la valeur de la propriété rapportée, il met à jour l’affichage des propriétés avec l’état **Accepté**.
+Quand l’opérateur définit une propriété accessible en écriture dans l’application Azure IoT Central, celle-ci utilise une propriété souhaitée du jumeau d’appareil pour envoyer la valeur à l’appareil. L’appareil répond alors en utilisant une propriété signalée du jumeau d’appareil. Quand Azure IoT Central reçoit la valeur de la propriété rapportée, il met à jour l’affichage des propriétés avec l’état **Accepté**.
 
 L’affichage suivant montre les propriétés accessibles en écriture. Lorsque vous entrez la valeur et sélectionnez **Enregistrer**, l’état initial est **En attente**. Lorsque l’appareil accepte la modification, l’état passe à **Accepté**.
 

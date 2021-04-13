@@ -4,12 +4,12 @@ description: Insérez quelques lignes de code dans votre application de périph�
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d658d7e64f720a3fb700d157cd5194ff50a48c33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8e866dc30d83f1b1f080a1be385026dcfbc77320
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471623"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122099"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -702,6 +702,9 @@ appInsights.setAuthenticatedUserContext(validatedId, accountId);
 Dans [Metrics Explorer](../essentials/metrics-charts.md), vous pouvez créer un graphique qui compte les **Utilisateurs authentifiés** et les **Comptes d’utilisateur**.
 
 Vous pouvez également [rechercher](./diagnostic-search.md) les points de données client avec des comptes et des noms d’utilisateur spécifiques.
+
+> [!NOTE]
+> La [propriété EnableAuthenticationTrackingJavaScript de la classe ApplicationInsightsServiceOptions](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) dans le kit SDK .NET Core simplifie la configuration JavaScript nécessaire pour injecter le nom d’utilisateur en tant qu’ID d’authentification pour chaque trace envoyée par le kit SDK JavaScript d’Application Insights. Lorsque cette propriété est définie sur true, le nom d’utilisateur de l’utilisateur dans ASP.NET Core est imprimé avec la [télémétrie côté client](asp-net-core.md#enable-client-side-telemetry-for-web-applications). L’ajout manuel de `appInsights.setAuthenticatedUserContext` n’est donc plus nécessaire, car il est déjà injecté par le kit SDK pour ASP.NET Core. L’ID d’authentification est également envoyé au serveur sur lequel le kit SDK dans .NET Core l’identifie et l’utilise pour toute télémétrie côté serveur, comme décrit dans la [référence de l' API JavaScript](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). Toutefois, pour les applications JavaScript qui ne fonctionnent pas de la même façon que ASP.NET Core MVC (comme les applications web SPA), vous devez tout de même ajouter `appInsights.setAuthenticatedUserContext` manuellement.
 
 ## <a name="filtering-searching-and-segmenting-your-data-by-using-properties"></a><a name="properties"></a>Filtrage, recherche et segmentation de vos données à l’aide des propriétés
 

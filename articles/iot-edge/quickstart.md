@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: aa8c4abf57308ca3da05db6ecede7a330af04bdb
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 5444f6adb9d441cb6253c180cf2d079c1c36316c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463542"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562679"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Windows (préversion)
 
@@ -60,8 +60,8 @@ Assurez-vous que votre appareil IoT Edge répond à la configuration requise sui
 
   
 * Configuration matérielle requise
-  * Mémoire libre minimale : 2 Go
-  * Espace disque disponible minimal : 10 Go
+  * Mémoire disponible minimale : 2 Go
+  * Espace disque disponible minimal : 10 Go
 
 
 >[!NOTE]

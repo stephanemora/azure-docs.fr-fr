@@ -2,24 +2,24 @@
 title: Réécriture d’URL et de chaîne de requête avec Azure Application Gateway – Portail Azure
 description: Découvrez comment utiliser le Portail Azure pour configurer une passerelle Azure Application Gateway de façon à réécrire l’URL et la chaîne de requête.
 services: application-gateway
-author: surajmb
+author: azhar2005
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 7/16/2020
-ms.author: surmb
-ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 4/05/2021
+ms.author: azhussai
+ms.openlocfilehash: b8ddc5e57b9ce56d6bce7e220bc840ba0fa43ae2
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92215771"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384755"
 ---
-# <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Réécriture d’URL avec Azure Application Gateway – Portail Azure (préversion)
+# <a name="rewrite-url-with-azure-application-gateway---azure-portal"></a>Réécriture d’URL avec Azure Application Gateway – Portail Azure
 
 Cet article explique comment utiliser le Portail Azure pour configurer une instance [SKU Application Gateway v2](application-gateway-autoscaling-zone-redundant.md) de façon à réécrire l’URL.
 
 >[!NOTE]
-> La fonctionnalité de réécriture d’URL est en préversion et est disponible uniquement pour les références SKU Standard_v2 et WAF_v2 d’Application Gateway. Son utilisation n’est pas recommandée en environnement de production. Pour en savoir plus sur les préversions, consultez les [conditions d’utilisation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La fonctionnalité de réécriture d’URL est disponible uniquement pour les références (SKU) Standard_v2 et WAF_v2 d’Application Gateway. Quand la réécriture d’URL est configurée sur une passerelle avec WAF activé, l’évaluation du WAF porte sur les en-têtes et l’URL de demande réécrits. [Plus d’informations](rewrite-http-headers-url.md#using-url-rewrite-or-host-header-rewrite-with-web-application-firewall-waf_v2-sku)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

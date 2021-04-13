@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 093fcfd95d291d959ed49cc39a227a99f14a0383
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 798b898f6e2367e3096bcf985715fd48de3d394f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488242"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930215"
 ---
 # <a name="quickstart-create-your-own-ui-framework-component"></a>Démarrage rapide : Créer votre propre composant de l’infrastructure d’interface utilisateur
 
@@ -47,7 +47,7 @@ cd my-app
 
 ### <a name="install-the-package"></a>Installer le package
 
-Utilisez la commande `npm install` pour installer la bibliothèque de client Azure Communication Services Calling pour JavaScript. Déplacez le tarball fourni (préversion privée) vers le répertoire my-app.
+Utilisez la commande `npm install` pour installer le SDK Azure Communication Services Calling pour JavaScript. Déplacez le tarball fourni (préversion privée) vers le répertoire my-app.
 
 ```console
 
@@ -71,9 +71,9 @@ npm run start
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités de la bibliothèque cliente d’interface utilisateur Azure Communication Services :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK d’interface utilisateur Azure Communication Services :
 
-| Name                                  | Description                                                  |
+| Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | Fournisseur| Fournisseur d’interface utilisateur Fluent qui permet aux développeurs de modifier les composants d’interface utilisateur Fluent sous-jacents|
 | CallingProvider| Fournisseur appelant utilisé pour instancier un appel. Nécessaire pour ajouter des composants de base|

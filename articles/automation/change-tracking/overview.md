@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed29def305bfa33a0a947a331775de89275e5f7f
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572612"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220864"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Présentation de la fonctionnalité Suivi des modifications et inventaire
 
@@ -40,6 +40,8 @@ Les machines connectées à des espaces de travail Log Analytics utilisent l’[
 
 > [!NOTE]
 > Le suivi des modifications et inventaire vous demande d’établir une liaison entre un espace de travail Log Analytics et votre compte Automation. Pour obtenir la liste définitive des régions prises en charge, consultez [Mappages Azure Workspace](../how-to/region-mappings.md). Les mappages de région n’empêchent pas de gérer les machines virtuelles dans une autre région depuis votre compte Automation.
+
+En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse vous permet d’effectuer des opérations à grande échelle sur plusieurs locataires Azure Active Directory (Azure AD) à la fois, améliorant ainsi l’efficacité des tâches de gestion telles que Suivi des modifications et inventaire parmi les locataires dont vous êtes responsable. La tâche Suivi des modifications et inventaire peut gérer des machines dans plusieurs abonnements au sein d’un même locataire ou entre plusieurs locataires à l’aide de la [gestion des ressources déléguée Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## <a name="current-limitations"></a>Limites actuelles
 

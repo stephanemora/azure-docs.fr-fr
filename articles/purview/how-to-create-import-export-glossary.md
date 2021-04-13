@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
-ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 04/02/2021
+ms.openlocfilehash: 6796a53ac05e8db606b29447a8792fa509c03d7e
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952403"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284081"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Comment créer, importer et exporter des termes de glossaire
 
@@ -34,7 +34,7 @@ Pour créer un terme de glossaire, procédez comme suit :
 
 5. Définissez l’**État** du terme. Les nouveaux termes ont par défaut l’état **Brouillon**.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Capture d’écran des choix d’état." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Capture d’écran des choix d’état.":::
 
    Ces marqueurs d’état sont des métadonnées associées au terme. Actuellement, vous pouvez définir l’état suivant sur chaque terme :
 
@@ -92,9 +92,10 @@ Vous devez être en mesure d’exporter des termes d’un glossaire tant que les
 
 2. Sélectionnez **Exporter** pour télécharger les termes sélectionnés.
 
- > [!Important]
-   > Si les termes dans une hiérarchie appartiennent à des modèles de termes différents, vous devez les fractionner dans différents fichiers .CSV pour l’importation. En outre, la mise à jour d’un parent d’un terme n’est actuellement pas prise en charge par le processus d’importation.
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Capture d’écran de la page Termes de glossaire, avec sélection d’un fichier à Exporter.":::
 
+   > [!Important]
+   > Si les termes dans une hiérarchie appartiennent à des modèles de termes différents, vous devez les fractionner dans différents fichiers .CSV pour l’importation. En outre, la mise à jour d’un parent d’un terme n’est actuellement pas prise en charge par le processus d’importation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

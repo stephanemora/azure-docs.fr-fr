@@ -3,16 +3,16 @@ title: Authentifier avec l’identité gérée
 description: Donnez accès aux images de votre registre de conteneurs privé à l’aide d’une identité managée Azure affectée par l’utilisateur ou par le système.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2ab27e8548882b5bd296dc45e4bb74d3d6ba357b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041465"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285482"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Utiliser une identité managée Azure pour s’authentifier auprès d’un registre de conteneurs Azure 
 
-Utilisez une [identité managée pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) pour vous authentifier auprès d’un registre de conteneurs Azure à partir d’une autre ressource Azure, sans avoir à fournir ou à gérer les informations d’identification du registre. Par exemple, configurez une identité managée affectée par l’utilisateur ou par le système sur une machine virtuelle Linux pour accéder aux images conteneur à partir de votre registre de conteneurs, comme avec un registre public.
+Utilisez une [identité managée pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) pour vous authentifier auprès d’un registre de conteneurs Azure à partir d’une autre ressource Azure, sans avoir à fournir ou à gérer les informations d’identification du registre. Par exemple, configurez une identité managée affectée par l’utilisateur ou par le système sur une machine virtuelle Linux pour accéder aux images conteneur à partir de votre registre de conteneurs, comme avec un registre public. Vous pouvez également configurer un cluster Azure Kubernetes Service pour utiliser son [identité gérée](../aks/use-managed-identity.md) pour extraire des images de conteneur d’Azure Container Registry pour les déploiements de pod.
 
 Dans cet article, vous découvrirez les identités managées et apprendrez à :
 
@@ -27,23 +27,14 @@ Docker doit être installé localement pour que vous puissiez configurer un regi
 
 ## <a name="why-use-a-managed-identity"></a>Pourquoi utiliser une identité managée ?
 
-Une identité managée pour ressources Azure fournit aux services Azure une identité automatiquement managée dans Azure Active Directory (Azure AD). [Certaines ressources Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), y compris les machines virtuelles, sont configurables avec une identité managée. Ensuite, utilisez l’identité pour accéder aux autres ressources Azure, sans indiquer les informations d’identification dans le code ou les scripts.
+Si vous n’êtes pas familiarisé de la fonctionnalité identités managées pour ressources Azure, consultez cette [Vue d’ensemble](../active-directory/managed-identities-azure-resources/overview.md).
 
-Les identités managées sont de deux types :
+Après avoir configuré des ressources Azure sélectionnées avec une identité managée, accordez-lui l’accès de votre choix à une autre ressource, tout comme un principal de sécurité. Par exemple, donnez-lui un rôle disposant des autorisations pull (tirage), push/pull (tirage/envoi), etc. sur un registre privé dans Azure. (Pour connaître la liste complète des rôles de registre, voir [Rôles et autorisations Azure Container Registry](container-registry-roles.md).) Vous pouvez accorder à une identité l’accès à une ou plusieurs ressources.
 
-* Les *identités affectées par l’utilisateur*, que vous pouvez affecter à plusieurs ressources et conserver aussi longtemps que vous le souhaitez. Les identités attribuées par l’utilisateur sont actuellement en préversion.
+Ensuite, utilisez l’identité pour vous authentifier auprès d’un [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sans aucune information d’identification dans votre code. Il existe plusieurs méthodes d’authentification en fonction du scénario. Pour pouvoir accéder à un registre de conteneurs Azure à partir d’une machine virtuelle à l’aide d’une identité managée, vous vous authentifiez avec Azure Resource Manager. 
 
-* Une *identité affectée par le système*, propre à une ressource spécifique (comme une machine virtuelle), qui possède la même durée de vie que cette ressource.
-
-Après avoir configuré une ressource Azure avec une identité managée, accordez-lui l’accès de votre choix à une autre ressource, tout comme un principal de sécurité. Par exemple, donnez-lui un rôle disposant des autorisations pull (tirage), push/pull (tirage/envoi), etc. sur un registre privé dans Azure. (Pour connaître la liste complète des rôles de registre, voir [Rôles et autorisations Azure Container Registry](container-registry-roles.md).) Vous pouvez accorder à une identité l’accès à une ou plusieurs ressources.
-
-Ensuite, utilisez l’identité pour vous authentifier auprès d’un [service prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), sans aucune information d’identification dans votre code. Pour pouvoir accéder à un registre de conteneurs Azure à partir d’une machine virtuelle à l’aide d’une identité managée, vous vous authentifiez avec Azure Resource Manager. Il existe plusieurs méthodes d’authentification en fonction du scénario :
-
-* [acquérir un jeton d’accès Azure AD](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programmatiquement à l’aide d’appels HTTP ou REST ;
-
-* utiliser les [kits SDK Azure](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md) ;
-
-* [se connecter à Azure CLI ou à PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md) avec l’identité. 
+> [!NOTE]
+> Actuellement, les services tels qu’Azure Web App pour conteneurs ou Azure Container Instances ne peuvent pas utiliser leur identité managée pour s’authentifier auprès d’Azure Container Registry lors de l’extraction d’une image conteneur pour déployer la ressource de conteneur elle-même. L’identité est disponible uniquement une fois que le conteneur est en cours d’exécution. Pour déployer ces ressources à l’aide d’images d’Azure Container Registry, il est recommandé d’utiliser une méthode d’authentification différente, telle que le [principal du service](container-registry-auth-service-principal.md).
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 
@@ -230,8 +221,6 @@ Un message `Login succeeded` devrait apparaître. Vous pouvez maintenant exécut
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
-> [!NOTE]
-> Les identités de service géré affectées par le système peuvent être utilisées pour interagir avec des instances Azure Container Registry et App Service peut utiliser des identités de service géré affectées par le système. Toutefois, vous ne pouvez pas les combiner, car App Service ne peut pas utiliser MSI pour communiquer avec Azure Container Registry. La seule méthode consiste à activer l’administrateur sur Azure Container Registry et à utiliser le nom d’utilisateur/mot de passe de l’administrateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

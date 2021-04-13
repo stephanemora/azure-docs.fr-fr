@@ -1,25 +1,27 @@
 ---
 title: Bien démarrer avec l’interopérabilité de Teams sur Azure Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: Dans ce guide de démarrage rapide, vous allez apprendre à rejoindre une réunion Teams avec la bibliothèque de client Azure Communication Chat.
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment participer à une réunion Teams à l’aide du kit SDK Conversation Azure Communication Services.
 author: askaur
 ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 75580931b2df33b02b9759b6faaa5bec548daaae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ba3a589c5d0f09f24950bd3fee8edc7f4dcd4601
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496170"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169060"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Démarrage rapide : Joindre votre application de conversation à une réunion Teams
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 > [!IMPORTANT]
 > Pour activer/désactiver l’[interopérabilité des locataires Teams](../../concepts/teams-interop.md), remplissez [ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-Démarrez avec Azure Communication Services en connectant votre solution de conversation à Microsoft Teams à l’aide de la bibliothèque de client JavaScript. 
+Démarrez avec Azure Communication Services en connectant votre solution de conversation à Microsoft Teams au moyen du kit SDK JavaScript. 
 
 ## <a name="prerequisites"></a>Prérequis 
 

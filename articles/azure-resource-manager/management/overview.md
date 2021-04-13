@@ -2,14 +2,14 @@
 title: Présentation d’Azure Resource Manager
 description: Explique comment utiliser Azure Resource Manager pour les tâches de déploiement, de gestion et de contrôle d’accès des ressources sur Azure.
 ms.topic: overview
-ms.date: 09/01/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97858516"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608542"
 ---
 # <a name="what-is-azure-resource-manager"></a>Qu’est-ce qu’Azure Resource Manager ?
 
@@ -91,7 +91,7 @@ Lorsque vous définissez votre groupe de ressources, vous devez prendre en compt
 
 * Quand vous supprimez un groupe de ressources, toutes les ressources présentes dans ce groupe sont également supprimées. Pour obtenir des informations sur la façon dont Azure Resource Manager orchestre ces suppressions, consultez [Suppression d’un groupe de ressources et de ressources Azure Resource Manager](delete-resource-group.md).
 
-* Vous pouvez déployer jusqu’à 800 instances d’un type de ressource dans chaque groupe de ressources. Certains types de ressources sont [exemptés de la limite de 800 instances](resources-without-resource-group-limit.md).
+* Vous pouvez déployer jusqu’à 800 instances d’un type de ressource dans chaque groupe de ressources. Certains types de ressources sont [exemptés de la limite de 800 instances](resources-without-resource-group-limit.md). Pour plus d’informations, consultez les [limites du groupe de ressources](azure-subscription-service-limits.md#resource-group-limits).
 
 * Certaines ressources peuvent exister en dehors d’un groupe de ressources. Ces ressources sont déployées dans l’[abonnement](../templates/deploy-to-subscription.md), le [groupe d’administration](../templates/deploy-to-management-group.md) ou le [locataire](../templates/deploy-to-tenant.md). Seuls des types de ressources spécifiques sont pris en charge dans ces étendues.
 
@@ -112,6 +112,8 @@ Le service Azure Resource Manager est conçu pour la résilience et la disponibi
 Cette résilience s’applique aux services qui reçoivent des demandes par le biais de Resource Manager. Par exemple, Key Vault bénéficie de cette résilience.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+* Pour en savoir plus sur les limites appliquées entre les services Azure, consultez [Abonnement Azure et limites, quotas et contraintes de service](azure-subscription-service-limits.md).
 
 * Pour en savoir plus sur le déplacement des ressources, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](move-resource-group-and-subscription.md).
 

@@ -2,19 +2,19 @@
 title: Tutoriel – Connecter et surveiller les métriques de l’application Azure Synapse Spark
 description: Tutoriel – Découvrez comment intégrer votre serveur Prometheus local à l’espace de travail Azure Synapse pour obtenir les métriques de l’application Azure Spark en quasi-temps réel grâce au connecteur Synapse Prometheus.
 services: synapse-analytics
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: bd04c692655161a2ba8d4ff51a8ff07e9b9bd374
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d22975199eedae353f2dc12588671ae4b54c85ab
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695841"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109316"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutoriel : Connecter et surveiller les métriques de l’application Azure Synapse Spark
 
@@ -152,7 +152,7 @@ Vous pouvez utiliser le flux des informations d’identification du client pour 
 | grant_type    | True     | Spécifie le type d’autorisation demandée. Dans un flux d'octroi d'informations d'identification de client, la valeur doit être client_credentials. |
 | client_id     | True     | L’ID de l’application (principal de service) que vous avez inscrite dans le Portail Azure ou Azure CLI.        |
 | client_secret | True     | Le secret généré pour l’application (principal de service)                                                  |
-| resource      | True     | L’URI de ressource Synapse doit être https://dev.azuresynapse.net                                                  |
+| resource      | True     | L’URI de ressource Synapse doit être « https://dev.azuresynapse.net  »                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -176,7 +176,7 @@ La réponse se présente ainsi :
 
 ### <a name="2-list-running-applications-in-the-azure-synapse-workspace"></a>2. Liste des applications en cours d’exécution dans l’espace de travail Azure Synapse
 
-Si vous souhaitez obtenir la liste des applications Spark pour un espace de travail Synapse, consultez ce document [Surveillance – Obtenir la liste des travaux Spark](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+Si vous souhaitez obtenir la liste des applications Spark pour un espace de travail Synapse, consultez ce document [Surveillance – Obtenir la liste des travaux Spark](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### <a name="3-collect-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Collecter les métriques de l’application Spark avec les API REST ou Prometheus

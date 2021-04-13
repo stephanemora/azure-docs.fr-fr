@@ -3,16 +3,16 @@ title: Configurer l’authentification Facebook
 description: Découvrez comment configurer l’authentification Facebook pour en faire un fournisseur d’identité pour votre application App Service ou Azure Functions.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: b6aad323c0d6fa8f59c9fad203640c477b162503
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bc639eaea76b3309d6ed047e73c726040da19639
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80519954"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078007"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-facebook-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Facebook
 
@@ -52,29 +52,24 @@ Pour effectuer la procédure de cet article, vous avez besoin d’un compte Face
 
 ## <a name="add-facebook-information-to-your-application"></a><a name="secrets"> </a>Ajouter des informations Facebook à votre application
 
-1. Connectez-vous au [Azure portal]et accédez à votre application App Service.
-1. Sélectionnez **Paramètres** > **Authentification/Autorisation**, puis vérifiez que **l’authentification App Service** est activée, sur **On**.
-1. Sélectionnez **Facebook**, puis collez-y les valeurs d’ID d’application et de secret d’application que vous avez obtenues précédemment. Activez toutes les étendues nécessaires à votre application.
-1. Sélectionnez **OK**.
+1. Connectez-vous au [Portail Azure] et accédez à votre application.
+1. Sélectionnez **Authentification** dans le menu de gauche. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité).
+1. Sélectionnez **Facebook** dans la liste déroulante de fournisseurs d’identité. Collez-y les valeurs d'ID d'application et de clé secrète d'application que vous avez obtenues précédemment.
 
-   ![Capture d’écran des paramètres Facebook d’application mobile][0]
+    Le secret est stocké sous la forme d’un [paramètre d’application](./configure-common.md#configure-app-settings) d’emplacement fixe nommé `FACEBOOK_PROVIDER_AUTHENTICATION_SECRET`. Vous pouvez mettre à jour ce paramètre ultérieurement pour utiliser des [références Key Vault](./app-service-key-vault-references.md) si vous souhaitez gérer le secret dans Azure Key Vault.
 
-    Par défaut, App Service fournit une authentification, mais ne restreint pas l’accès autorisé au contenu et aux API de votre site. Vous avez besoin d’autoriser les utilisateurs dans votre code d’application.
-1. (Facultatif) Pour restreindre l’accès aux seuls utilisateurs authentifiés par Facebook, définissez **Action à exécuter quand une demande n’est pas authentifiée** sur **Facebook**. Quand vous définissez cette fonctionnalité, votre application exige que toutes les demandes soient authentifiées. Elle redirige également toutes les demandes non authentifiées vers Facebook à des fins d’authentification.
+1. S’il s’agit du premier fournisseur d’identité configuré pour l’application, vous êtes également invité à fournir une section **Paramètres d’authentification App Service**. Sinon, vous pouvez passer à l’étape suivante.
+    
+    Ces options déterminent la manière dont votre application répond aux requêtes non authentifiées, et les sélections par défaut redirigent toutes les requêtes de connexion à l’aide de ce nouveau fournisseur. Vous pouvez modifier ce comportement maintenant ou ajuster ces paramètres ultérieurement à partir de l’écran principal **Authentification** en choisissant **Modifier** en regard de **Paramètres d’authentification**. Pour en savoir plus sur ces options, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
 
-   > [!CAUTION]
-   > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications qui ont une page d’accès publique disponible, comme dans de nombreuses applications monopages. Pour de telles applications, préférez **Autoriser les requêtes anonymes (aucune action)** . L’application démarre alors elle-même manuellement l’authentification. Pour plus d’informations, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
+1. (Facultatif) Cliquez sur **Suivant : Étendues** et ajoutez les étendues nécessaires à l’application. Celles-ci seront demandées au moment de la connexion pour les flux basés sur un navigateur.
+1. Cliquez sur **Add**.
 
-1. Sélectionnez **Enregistrer**.
-
-Vous êtes maintenant prêt à utiliser Facebook pour l’authentification dans votre application.
+Vous êtes maintenant prêt à utiliser Facebook pour l’authentification dans votre application. Le fournisseur est répertorié sur l’écran **Authentification**. À partir de là, vous pouvez modifier ou supprimer cette configuration de fournisseur.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Étapes suivantes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-[0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
 
 <!-- URLs. -->
 [Développeurs Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286

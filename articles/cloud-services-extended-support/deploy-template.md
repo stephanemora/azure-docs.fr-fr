@@ -8,36 +8,35 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9849648c8a0a76ff89a6f95e64eeade791e7135c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865585"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381772"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Déployer un service cloud (support étendu) à l’aide de modèles ARM
 
 Ce tutoriel explique comment créer un déploiement d’un service cloud (support étendu) à l’aide de [modèles ARM](../azure-resource-manager/templates/overview.md). 
 
-> [!IMPORTANT]
-> Cloud Services (support étendu) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 ## <a name="before-you-begin"></a>Avant de commencer
 
 1. Consultez les [prérequis du déploiement](deploy-prerequisite.md) de Cloud Services (support étendu) et créez les ressources associées.
 
-2. Créez un groupe de ressources à l’aide du [portail Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) ou de [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Cette étape est facultative si vous utilisez un groupe de ressources existant.
+2. Créez un groupe de ressources à l’aide du [portail Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) ou de [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Cette étape est facultative si vous utilisez un groupe de ressources existant.
+
+3. Créez une adresse IP publique et définissez sa propriété d'étiquette DNS. Azure Cloud Services (support étendu) prend uniquement en charge les adresses IP publiques de référence SKU (https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#basic) [De base]. Les adresses IP publiques de référence SKU standard ne fonctionnent pas avec Azure Cloud Services.
+Si vous utilisez une adresse IP statique, elle doit être référencée comme adresse IP réservée dans le fichier de configuration de service (.cscfg). Si vous utilisez une adresse IP existante, ignorez cette étape et ajoutez les informations d’adresse IP directement dans les paramètres de configuration de l’équilibreur de charge de votre modèle ARM.
+
+4. Créez un objet de profil réseau et associez l’adresse IP publique au serveur front-end de l’équilibreur de charge. La plateforme Azure crée automatiquement une ressource d'équilibreur de charge de référence SKU « Classique » dans le même abonnement que la ressource de service cloud. La ressource d'équilibreur de charge est une ressource en lecture seule dans ARM. Les mises à jour de la ressource sont uniquement prises en charge par le biais des fichiers de déploiement de service cloud (.cscfg et .csdef).
  
-3. Créez un compte de stockage en utilisant le [portail Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) ou [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Cette étape est facultative si vous utilisez un compte de stockage existant.
+5. Créez un compte de stockage en utilisant le [portail Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Cette étape est facultative si vous utilisez un compte de stockage existant.
 
-4. Chargez vos fichiers de définition de service (.csdef) et de configuration de service (.cscfg) dans le compte de stockage en utilisant le [portail Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenez les URI SAS des deux fichiers à ajouter au modèle ARM plus loin dans ce tutoriel.
+6. Chargez vos fichiers de définition de service (.csdef) et de configuration de service (.cscfg) dans le compte de stockage en utilisant le [portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenez les URI SAS des deux fichiers à ajouter au modèle ARM plus loin dans ce tutoriel.
 
-5. (Facultatif) Créez un coffre de clés et chargez les certificats.
+6. (Facultatif) Créez un coffre de clés et chargez les certificats.
 
-    -  Les certificats peuvent être joints aux services cloud pour sécuriser les communications à destination et en provenance du service. Pour que des certificats puissent être utilisés, leurs empreintes numériques doivent être spécifiées dans votre fichier de configuration de service (.cscfg) et chargées dans un coffre de clés. Il est possible de créer un coffre de clés par le biais du [portail Azure](/azure/key-vault/general/quick-create-portal) ou de [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    -  Les certificats peuvent être joints aux services cloud pour sécuriser les communications à destination et en provenance du service. Pour que des certificats puissent être utilisés, leurs empreintes numériques doivent être spécifiées dans votre fichier de configuration de service (.cscfg) et chargées dans un coffre de clés. Il est possible de créer un coffre de clés par le biais du [portail Azure](../key-vault/general/quick-create-portal.md) ou de [PowerShell](../key-vault/general/quick-create-powershell.md).
     - Le coffre de clés associé doit se trouver dans la même région et le même abonnement que le service cloud.
     - Les autorisations appropriées doivent être activées pour le coffre de clés associé afin que la ressource Cloud Services (support étendu) puisse récupérer le certificat à partir de Key Vault. Pour plus d’informations, consultez [Certificats et coffre de clés](certificates-and-key-vault.md)
     - Le coffre de clés doit être référencé dans la section OsProfile du modèle ARM présenté dans les étapes ci-dessous.
@@ -351,7 +350,7 @@ Ce tutoriel explique comment créer un déploiement d’un service cloud (suppor
           }
         },
         {
-          "apiVersion": "2020-10-01-preview",
+          "apiVersion": "2021-03-01",
           "type": "Microsoft.Compute/cloudServices",
           "name": "[variables('cloudServiceName')]",
           "location": "[parameters('location')]",

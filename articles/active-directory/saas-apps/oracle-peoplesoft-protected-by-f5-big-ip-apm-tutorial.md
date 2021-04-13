@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af149f0c1db7f354be6bd968bbd0cf858493d4c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92522289"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219295"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -40,19 +40,19 @@ Pour commencer, vous devez disposer de ce qui suit :
     2. Licence autonome F5 BIG-IP Access Policy Manager™ (APM) 
     3. Licence de composant additionnel F5 BIG-IP Access Policy Manager™ (APM) sur une instance existante de BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
     4. Outre la licence ci-dessus, il est possible de bénéficier d’une licence pour le système F5 avec : 
-        * Un abonnement au filtrage d’URL pour utiliser la base de données de catégories d’URL 
-        * Un abonnement à F5 IP Intelligence pour détecter et bloquer les attaquants connus et le trafic malveillant 
-        * Un module de sécurité matériel (HSM) réseau pour protéger et gérer les clés numériques pour une authentification forte
-1. Un système F5 BIG-IP provisionné avec les modules APM (LTM est facultatif) 
+        * Un abonnement au filtrage d’URL pour utiliser la base de données de catégories d’URL. 
+        * Un abonnement à F5 IP Intelligence pour détecter et bloquer les attaquants connus et le trafic malveillant. 
+        * Un module de sécurité matériel (HSM) réseau pour protéger et gérer les clés numériques pour une authentification forte.
+1. Un système F5 BIG-IP provisionné avec les modules APM (LTM est facultatif).
 1. Bien que facultatif, il est vivement recommandé de déployer les systèmes F5 dans un [groupe d’appareils de synchronisation/basculement](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), qui comprend la paire en veille active, avec une adresse IP flottante pour la haute disponibilité. Il est possible de bénéficier d’une redondance d’interface plus poussée en utilisant le protocole LACP (Link Aggregation Control Protocol). LACP gère les interfaces physiques connectées comme une interface virtuelle unique (groupe agrégé) et détecte les échecs d’interface au sein du groupe.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Oracle PeopleSoft - Protected by F5 BIG-IP APM prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
+* Oracle PeopleSoft - Protected by F5 BIG-IP APM prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**.
 
-## <a name="adding-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Ajout d’Oracle PeopleSoft - Protected by F5 BIG-IP APM à partir de la galerie
+## <a name="add-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Ajouter Oracle PeopleSoft - Protected by F5 BIG-IP APM à partir de la galerie
 
 Pour configurer son intégration à Azure AD, vous devez ajouter Oracle PeopleSoft - Protected by F5 BIG-IP APM à votre liste d’applications SaaS gérées, depuis la galerie.
 
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Oracle PeopleSoft - Protected by F5 BIG-IP APM**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -231,7 +231,7 @@ Accédez à **Local Traffic > Profiles > SSL > Client > +** (Trafic local > Prof
 >[!Note]
 > Référence https://docs.oracle.com/cd/E12530_01/oam.1014/e10356/people.htm
 
-1. Connectez-vous à la console PeopleSoft `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` à l’aide des informations d’identification d’administrateur (par exemple : PS/PS)
+1. Connectez-vous à la console PeopleSoft `https://<FQDN>.peoplesoft.f5.com/:8000/psp/ps/?cmd=start` à l’aide des informations d’identification d’administrateur (par exemple : PS/PS).
 
     ![Libre-service Gestionnaire](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-console.png)
 
@@ -302,7 +302,7 @@ Si vous souhaitez ajouter la prise en charge de la déconnexion unique pour tous
 
     * Accédez à **Local Traffic > Virtual Servers > Virtual Server List > PeopleSoftApp > Resources** (Trafic local > Serveurs virtuels > Liste des serveurs virtuels > PeopleSoftApp > Ressources). Cliquez sur le bouton **Manage...** (Gérer) :   
 
-    * Spécifiez `<Name>` comme règle iRule activée, puis cliquez sur **Finished** (Terminé).
+    * Spécifiez `<Name>` comme règle iRule activée, puis cliquez sur **Terminé**.
 
         ![_iRule_PeopleSoftApp ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/irule-people-soft.png)
 
@@ -329,9 +329,8 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Cliquez sur **Tester cette application** dans le portail Azure : vous devez être connecté automatiquement à l’instance d’Oracle PeopleSoft-Protected by F5 BIG-IP APM pour laquelle vous avez configuré l’authentification unique. 
 
-Vous pouvez aussi utiliser le panneau d’accès Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Oracle PeopleSoft-Protected by F5 BIG-IP APM dans le volet d’accès, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Oracle PeopleSoft-Protected by F5 BIG-IP APM pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
-
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Si, quand vous cliquez sur la vignette Oracle PeopleSoft-Protected by F5 BIG-IP APM dans Mes applications, le mode Fournisseur de services est configuré, vous êtes redirigé vers la page de connexion de l’application pour lancer le processus de connexion ; s’il s’agit du mode Fournisseur d’identité, vous êtes automatiquement connecté à l’instance d’Oracle PeopleSoft-Protected by F5 BIG-IP APM pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir configuré Oracle PeopleSoft - Protected by F5 BIG-IP APM, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Après avoir configuré Oracle PeopleSoft - Protected by F5 BIG-IP APM, vous pouvez appliquer le contrôle de session qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

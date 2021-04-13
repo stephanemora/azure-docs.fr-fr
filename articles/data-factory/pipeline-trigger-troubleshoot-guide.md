@@ -3,16 +3,16 @@ title: Résoudre les problèmes liés à l’orchestration et aux déclencheurs 
 description: Utiliser différentes méthodes pour résoudre des problèmes de déclencheurs de pipeline dans Azure Data Factory.
 author: ssabat
 ms.service: data-factory
-ms.date: 03/13/2021
+ms.date: 04/01/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49205025e26f7c0eb609638e70a58c9c0c14748e
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461995"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385409"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Résoudre les problèmes liés à l’orchestration et aux déclencheurs de pipeline dans Azure Data Factory
 
@@ -83,7 +83,26 @@ Vous avez atteint la limite de capacité du runtime d’intégration. Vous exéc
 - Exécutez vos pipelines à différents moments de déclenchement.
 - Créez un nouveau runtime d’intégration et répartissez vos pipelines sur plusieurs runtimes d’intégration.
 
-### <a name="how-to-perform-activity-level-errors-and-failures-in-pipelines"></a>Comment gérer les erreurs et échecs au niveau des activités dans les pipelines
+### <a name="a-pipeline-run-error-while-invoking-rest-api-in-a-web-activity"></a>Erreur d’exécution du pipeline lors de l’appel d’API REST dans une activité web
+
+**Problème**
+
+Message d’erreur :
+
+`
+Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFailed”,”message”:”The client ‘<client>’ with object id ‘<object>’ does not have authorization to perform action ‘Microsoft.DataFactory/factories/pipelineruns/cancel/action’ over scope ‘/subscriptions/<subscription>/resourceGroups/<resource group>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelineruns/<pipeline run id>’ or the scope is invalid. If access was recently granted, please refresh your credentials.”}}
+`
+
+**Cause**
+
+Les pipelines peuvent utiliser l’activité web pour appeler les méthodes de l’API REST ADF si et seulement si le rôle contributeur est attribué au membre Azure Data Factory. Vous devez d’abord configurer l’ajout de l’identité gérée Azure Data Factory au rôle de sécurité contributeur. 
+
+**Résolution :**
+
+Avant d’utiliser l’API REST d’Azure Data Factory sous l’onglet Paramètres d’une activité web, la sécurité doit être configurée. Des pipelines Azure Data Factory peuvent utiliser l’activité web pour appeler les méthodes de l’API REST ADF si et seulement si le rôle *Contributeur* est attribué à l’identité managée Azure Data Factory. Commencez par ouvrir le portail Azure et cliquer sur le lien **Toutes les ressources** dans le menu de gauche. Sélectionnez **Azure Data Factory** pour ajouter l’identité managée ADF avec le rôle Contributeur en cliquant sur le bouton **Ajouter** dans la zone *Ajouter une attribution de rôle*.
+
+
+### <a name="how-to-check-and-branch-on-activity-level-success-and-failure-in-pipelines"></a>Comment vérifier et créer des branches de réussite et d’échec au niveau de l’activité dans les pipelines
 
 **Cause**
 
@@ -95,7 +114,7 @@ Azure Data Factory évalue le résultat de toutes les activités au niveau feuil
 
 * Implémentez les contrôles au niveau de l’activité en procédant de la manière décrite dans [Comment gérer les échecs et erreurs de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Utilisez Azure Logic Apps pour surveiller les pipelines à intervalles réguliers en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Surveiller visuellement le pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Surveiller visuellement le pipeline](./monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Guide pratique pour surveiller les échecs de pipeline à intervalles réguliers
 
@@ -105,7 +124,7 @@ Vous devrez peut-être surveiller les pipelines Data Factory à intervalles rég
 
 **Résolution :**
 * Vous pouvez configurer une application logique Azure pour interroger tous les pipelines ayant échoué toutes les 5 minutes, en procédant de la manière décrite dans [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Ensuite, vous pouvez signaler des incidents à votre système de tickets.
-* [Surveiller visuellement le pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Surveiller visuellement le pipeline](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>Augmenter le degré de parallélisme n’entraîne pas un débit plus élevé
 
@@ -115,7 +134,7 @@ Le degré de parallélisme dans *ForEach* correspond en fait au degré maximal d
 
 Faits connus concernant *ForEach*
  * Foreach comporte une propriété appelée batch count(n), où la valeur par défaut est 20 et la valeur maximale est 50.
- * Le nombre de lots (batch count), n, sert à construire n files d’attente. Nous aborderons plus tard en détail la façon dont ces files d’attente sont construites.
+ * Le nombre de lots (batch count), n, sert à construire n files d’attente. 
  * Chaque file d’attente s’exécute séquentiellement, mais plusieurs files d’attente peuvent s’exécuter en parallèle.
  * Les files d’attente sont créées au préalable. Cela signifie qu’il n’y a aucun rééquilibrage des files d’attente pendant l’exécution.
  * À tout moment, un élément au maximum est traité par file d’attente. Cela signifie qu’au maximum n éléments sont traités à un moment donné.
@@ -124,7 +143,8 @@ Faits connus concernant *ForEach*
 **Résolution :**
 
  * Vous ne devez pas utiliser l’activité *SetVariable* dans une commande *For Each* exécutée en parallèle.
- * En tenant compte de la façon dont les files d’attente sont construites, le client peut améliorer les performances de foreach en définissant plusieurs commandes *foreach*, où chaque commande foreach aura des éléments avec un temps de traitement similaire. Cela permet de s’assurer que les longues exécutions sont traitées en parallèle plutôt que séquentiellement.
+ * En tenant compte de la façon dont les files d’attente sont construites, le client peut améliorer les performances de Foreach en définissant plusieurs commandes *Foreach* ayant chacune des éléments dont le temps de traitement est similaire. 
+ * Cela permet de s’assurer que les longues exécutions sont traitées en parallèle plutôt que séquentiellement.
 
  ### <a name="pipeline-status-is-queued-or-stuck-for-a-long-time"></a>L’état du pipeline est mis en file d’attente ou bloqué pendant une longue période
  
@@ -146,8 +166,8 @@ Cela peut se produire si vous n’avez pas implémenté la fonctionnalité temps
 
 **Résolution :**
 
-* Si le démarrage de chaque activité de copie prend jusqu’à 2 minutes et que le problème se produit principalement à la jonction du réseau virtuel (plutôt que dans le runtime d’intégration Azure), il peut s’agir d’un problème de performances de copie. Pour passer en revue les étapes de dépannage, accédez à [Amélioration des performances de copie.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* Vous pouvez utiliser la fonctionnalité temps réel pour réduire le temps de démarrage du cluster pour les activités de flux de données. Consultez [Runtime d'intégration Data Flow](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime).
+* Si le démarrage de chaque activité de copie prend jusqu’à 2 minutes et que le problème se produit principalement à la jonction du réseau virtuel (plutôt que dans le runtime d’intégration Azure), il peut s’agir d’un problème de performances de copie. Pour passer en revue les étapes de dépannage, accédez à [Amélioration des performances de copie.](./copy-activity-performance-troubleshooting.md)
+* Vous pouvez utiliser la fonctionnalité temps réel pour réduire le temps de démarrage du cluster pour les activités de flux de données. Consultez [Runtime d'intégration Data Flow](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime).
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Atteinte des problèmes de capacité dans le runtime d'intégration auto-hébergé (SHIR, Self Hosted Integration Runtime)
  
@@ -157,7 +177,7 @@ Cela peut se produire si vous n’avez pas effectué de scale-up du SHIR en fonc
 
 **Résolution :**
 
-* Si vous rencontrez un problème de capacité provenant du runtime d’intégration auto-hébergé, mettez à niveau la machine virtuelle pour augmenter le nœud afin d’équilibrer les activités. Si vous recevez un message d’erreur relatif à une erreur ou défaillance générale de l’IR auto-hébergé, à une mise à niveau de l’IR auto-hébergé ou à des problèmes de connectivité de l’IR auto-hébergé, ce qui peut générer une longue file d’attente, consultez [Résoudre les problèmes liés au runtime d’intégration auto-hébergé](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide).
+* Si vous rencontrez un problème de capacité provenant du runtime d’intégration auto-hébergé, mettez à niveau la machine virtuelle pour augmenter le nœud afin d’équilibrer les activités. Si vous recevez un message d’erreur relatif à une erreur ou défaillance générale de l’IR auto-hébergé, à une mise à niveau de l’IR auto-hébergé ou à des problèmes de connectivité de l’IR auto-hébergé, ce qui peut générer une longue file d’attente, consultez [Résoudre les problèmes liés au runtime d’intégration auto-hébergé](./self-hosted-integration-runtime-troubleshoot-guide.md).
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Messages d’erreur dus à des files d’attente longues pour la copie ADF et Data Flow
 
@@ -166,10 +186,10 @@ Cela peut se produire si vous n’avez pas effectué de scale-up du SHIR en fonc
 Des messages d’erreur liés à de longues files d’attente peuvent apparaître pour différentes raisons. 
 
 **Résolution :**
-* Si vous recevez un message d’erreur de n’importe quelle source ou destination via des connecteurs, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de connecteur](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide).
-* Si vous recevez un message d’erreur sur le flux de données de mappage, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de flux de données](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide).
-* Si vous recevez un message d’erreur sur d’autres activités, telles que Databricks, les activités personnalisées ou HDI, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’activité](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide).
-* Si vous recevez un message d’erreur sur l’exécution des packages SSIS, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’exécution de package Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) et le [Guide de résolution des problèmes de gestion du runtime d’intégration.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+* Si vous recevez un message d’erreur de n’importe quelle source ou destination via des connecteurs, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de connecteur](./connector-troubleshoot-guide.md).
+* Si vous recevez un message d’erreur sur le flux de données de mappage, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes de flux de données](./data-flow-troubleshoot-guide.md).
+* Si vous recevez un message d’erreur sur d’autres activités, telles que Databricks, les activités personnalisées ou HDI, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’activité](./data-factory-troubleshoot-guide.md).
+* Si vous recevez un message d’erreur sur l’exécution des packages SSIS, ce qui peut générer une longue file d’attente, accédez au [Guide de résolution des problèmes d’exécution de package Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) et le [Guide de résolution des problèmes de gestion du runtime d’intégration.](./ssis-integration-runtime-management-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

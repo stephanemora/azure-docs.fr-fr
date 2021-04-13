@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d877f666e03bbbe2b9d4f01bc9059b95f9a1f6b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095358"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385273"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -63,7 +63,7 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
    :::column span="":::
       Centre de l’Australie  
       Australie Est  
-      Sud-Australie Est  
+      Australie Sud-Est  
       Brésil Sud  
       Centre du Canada  
       Est du Canada  
@@ -78,7 +78,8 @@ Vous pouvez utiliser l’analytique du trafic pour les régions prises en charge
       USA Est 2  
       USA Est 2 (EUAP)  
       France Centre  
-      Allemagne Centre-Ouest Japon Est  
+      Allemagne Centre-Ouest  
+      Japon Est  
       OuJapon Est  
       Centre de la Corée  
       Corée du Sud  
@@ -118,7 +119,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
    :::column span="":::
       Centre de l’Australie  
       Australie Est  
-      Sud-Australie Est  
+      Australie Sud-Est  
       Brésil Sud  
       Centre du Canada  
       Inde centrale  
@@ -130,9 +131,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
    :::column span="":::
       USA Est 2  
       USA Est 2 (EUAP)  
-      France Centre  
-      Allemagne Centre-Ouest  
-      Japon Est  
+      France Centre Japon Est  
       Centre de la Corée  
       Centre-Nord des États-Unis  
       Europe Nord  

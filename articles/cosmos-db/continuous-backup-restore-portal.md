@@ -4,15 +4,15 @@ description: Découvrez comment identifier le point de restauration et configure
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 04/05/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 707ef9f60891c1da7c13638e233ee74e78fc20dd
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381866"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283935"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>Configurer et gérer la sauvegarde en continu et la restauration à un instant dans le passé (préversion) – Portail Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -32,6 +32,10 @@ Lorsque vous créez un compte Azure Cosmos DB, pour l’option **Stratégie de s
 
 :::image type="content" source="./media/continuous-backup-restore-portal/configure-continuous-backup-portal.png" alt-text="Approvisionner un compte Azure Cosmos DB avec une configuration de sauvegarde continue." border="true":::
 
+## <a name="backup-storage-redundancy"></a>Redondance du stockage de sauvegarde
+
+Par défaut, Azure Cosmos DB stocke les données de sauvegarde en mode continu dans des objets blob de stockage localement redondants. Pour les régions pour lesquelles la redondance de zone est configurée, la sauvegarde est stockée dans des objets blob de stockage redondants interzone. Dans ce mode, vous ne pouvez pas mettre à jour la redondance du stockage de sauvegarde.
+
 ## <a name="restore-a-live-account-from-accidental-modification"></a><a id="restore-live-account"></a>Restaurer un compte actif à la suite d’une modification accidentelle
 
 Vous pouvez utiliser Portail Azure pour restaurer un compte actif ou certaines bases de données et certains conteneurs sous celui-ci. Pour restaurer vos données, procédez comme suit :
@@ -46,7 +50,7 @@ Vous pouvez utiliser Portail Azure pour restaurer un compte actif ou certaines b
 
    * **Point de restauration (UTC)**  : Un timestamp au cours des 30 derniers jours. Le compte doit exister à cette date. Vous pouvez spécifier le point de restauration en heure UTC. Il peut être aussi proche de la seconde quand vous souhaitez le restaurer. Sélectionnez le lien **Cliquez ici** pour obtenir de l’aide sur l’[identification du point de restauration](#event-feed).
 
-   * **Emplacement** : Région de destination où le compte est restauré. Le compte doit exister dans cette région à l’heure donnée (par exemple, USA Ouest ou USA Est). Un compte ne peut être restauré que dans les régions où le compte source existait.
+   * **Emplacement** : Région de destination où le compte est restauré. Le compte doit exister dans cette région à l’horodatage donné (par exemple, USA Ouest ou USA Est). Un compte ne peut être restauré que dans les régions où le compte source existait.
 
    * **Restaurer une ressource** : Vous pouvez choisir soit **Intégralité du compte**, soit **une base de données ou un conteneur** à restaurer. Les bases de données et les conteneurs doivent exister à l’heure donnée. En fonction du point de restauration et de l’emplacement sélectionnés, les ressources de restauration sont renseignées, ce qui permet à l’utilisateur de sélectionner des bases de données ou des conteneurs spécifiques qui doivent être restaurés.
 

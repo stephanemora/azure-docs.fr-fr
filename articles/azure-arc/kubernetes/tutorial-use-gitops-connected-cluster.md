@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec83d8d56ad67d8c64c6ac3151ca3819e88c0616
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121471"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449594"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutoriel : Déployer des configurations à l’aide de GitOps sur un cluster Kubernetes avec Azure Arc 
 
@@ -21,7 +21,7 @@ Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps 
 > [!div class="checklist"]
 > * Créer une configuration sur un cluster Kubernetes avec Azure Arc à l’aide d’un exemple de dépôt Git.
 > * Vérifier que la configuration a été correctement créée.
-> * Appliquer une configuration à partir d’un dépôt Git privé.
+> * Appliquer une configuration à partir d'un référentiel Git privé.
 > * Valider la configuration de Kubernetes.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -30,6 +30,14 @@ Dans ce tutoriel, vous allez appliquer des configurations à l’aide de GitOps 
 - Cluster Kubernetes avec Azure Arc connecté.
     - Si vous n’avez pas encore connecté de cluster, consultez notre [guide de démarrage rapide sur la connexion d’un cluster Kubernetes avec Azure Arc](quickstart-connect-cluster.md).
 - Compréhension suffisante des avantages et de l’architecture de cette fonctionnalité. Pour plus d’informations, consultez l’article [Configurations et GitOps - Kubernetes avec Azure Arc](conceptual-configurations.md).
+- Installez l'extension `k8s-configuration` d'Azure CLI, version >= 1.0.0 :
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
+
+    >[!TIP]
+    > Si l'extension `k8s-configuration` est déjà installée, vous pouvez la mettre à jour vers la version la plus récente à l'aide de la commande suivante - `az extension update --name k8s-configuration`
 
 ## <a name="create-a-configuration"></a>Créer une configuration
 
@@ -141,7 +149,7 @@ Tout comme les clés privées, vous pouvez fournir le contenu known_hosts direct
 >[!NOTE]
 >* Le chart d’opérateur Helm version 1.2.0+ prend en charge l’authentification privée pour la version Helm HTTPS.
 >* La version Helm HTTPS n’est pas prise en charge pour les clusters managés AKS.
->* Si vous avez besoin de Flux pour accéder au dépôt Git via votre proxy, vous devez mettre à jour les agents Azure Arc avec les paramètres du proxy. Pour plus d’informations, consultez [Se connecter à l’aide d’un serveur proxy sortant](./connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* Si vous avez besoin de Flux pour accéder au dépôt Git via votre proxy, vous devez mettre à jour les agents Azure Arc avec les paramètres du proxy. Pour plus d’informations, consultez [Se connecter à l’aide d’un serveur proxy sortant](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
 
 
 ## <a name="additional-parameters"></a>Paramètres supplémentaires

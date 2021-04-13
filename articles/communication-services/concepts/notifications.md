@@ -9,19 +9,16 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 21c247c2fb9e1532c4580eea894c97e2bff84f92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e1b7e091fe09bc2c093cc84473bd07917347f26d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657040"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220788"
 ---
 # <a name="communication-services-notifications"></a>Notifications Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-
-Les bibliothèques de client Azure Communication Services Chat et Calling créent un canal de messagerie en temps réel qui permet l’envoi (push) des messages de signalisation aux clients connectés de manière efficace et fiable. Cela vous permet de créer des fonctionnalités de communication riches en temps réel dans vos applications sans avoir à implémenter une logique d’interrogation HTTP compliquée. Toutefois, sur les applications mobiles, ce canal de signalisation reste connecté uniquement quand votre application est active au premier plan. Si vous souhaitez que vos utilisateurs reçoivent des appels entrants ou des messages de conversation lorsque votre application est en arrière-plan, vous devez utiliser des notifications Push.
+Les kits de développement logiciel (SDK) Azure Communication Services Chat et Calling créent un canal de messagerie en temps réel qui permet l’envoi (push) des messages de signalisation aux clients connectés de manière efficace et fiable. Cela vous permet de créer des fonctionnalités de communication riches en temps réel dans vos applications sans avoir à implémenter une logique d’interrogation HTTP compliquée. Toutefois, sur les applications mobiles, ce canal de signalisation reste connecté uniquement quand votre application est active au premier plan. Si vous souhaitez que vos utilisateurs reçoivent des appels entrants ou des messages de conversation lorsque votre application est en arrière-plan, vous devez utiliser des notifications Push.
 
 Les notifications Push vous permettent d’envoyer des informations à partir de votre application vers les appareils mobiles des utilisateurs. Vous pouvez utiliser des notifications Push pour afficher une boîte de dialogue, émettre un signal sonore ou afficher l’interface utilisateur des appels entrants. Azure Communication Services fournit des intégrations avec [Azure Event Grid](../../event-grid/overview.md) et [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md) qui vous permettent d’ajouter des notifications Push à vos applications.
 
@@ -70,13 +67,24 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 #### <a name="using-the-azure-portal-to-link-your-notification-hub"></a>Utilisation du portail Azure pour lier votre hub de notification
 
-Dans le portail, accédez à votre ressource Azure Communication Services. Dans la ressource Communication Services, sélectionnez Notifications Push dans le menu de gauche de la page Communication Services et connectez le hub de notification que vous avez provisionné précédemment. Vous devez fournir vos chaîne de connexion et ID de ressource ici :
+1. Dans le portail, accédez à votre ressource Azure Communication Services.
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Capture d’écran montrant les paramètres de notifications Push dans le portail Azure.":::
+1. Dans la ressource Communication Services, sélectionnez **Notifications Push** dans le menu de gauche de la page Communication Services et connectez le hub de notification que vous avez approvisionné précédemment.
+
+1. Sélectionnez **Connecter le hub de notification**. La liste des hubs de notification disponibles pour la connexion s’affiche.
+ 
+1. Sélectionnez le hub de notification que vous souhaitez utiliser pour cette ressource.
+ 
+   - S’il vous faut créer un hub, sélectionnez **Créer un hub de notification** pour obtenir un nouveau hub approvisionné pour cette ressource.
+
+   :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Capture d’écran montrant les paramètres de notifications Push dans le portail Azure.":::
+
+Le hub de notification que vous avez lié à l’état connecté est à présent affiché.
+
+Si vous souhaitez utiliser un autre hub pour la ressource, sélectionnez **Déconnecter**, puis répétez les étapes pour lier cet autre hub de notification.
 
 > [!NOTE]
-> Si la chaîne de connexion du hub de notification Azure est mise à jour, la ressource Communication Services doit également être mise à jour.
-Toute modification relative à la façon dont le hub est lié est reflétée dans le plan de données (par exemple lors de l’envoi d’une notification) pendant une période maximale de ``10`` minutes. Cela s’applique également lorsque le hub est lié pour la première fois **si** des notifications ont été envoyées avant.
+> Toute modification relative à la façon dont le hub est lié est reflétée dans le plan de données (par exemple lors de l’envoi d’une notification) pendant une période maximale de 10 minutes. Ce même comportement s’applique lorsque le hub est lié pour la première fois, **si** des notifications ont été envoyées avant la modification.
 
 ### <a name="device-registration"></a>Enregistrement de l’appareil
 

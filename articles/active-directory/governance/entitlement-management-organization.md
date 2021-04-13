@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98059379"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222519"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -42,7 +42,7 @@ Par exemple, supposons que vous travaillez chez Woodgrove Bank et que vous souha
 - Graphic Design Institute utilise Azure AD, et ses utilisateurs ont un nom d’utilisateur principal qui se termine par *graphicdesigninstitute.com*.
 - Contoso n’utilise pas encore Azure AD. Les utilisateurs Contoso ont un nom d’utilisateur principal qui se termine par *contoso.com*.
 
-Dans ce cas, vous pouvez configurer deux organisations connectées. Vous devez créer une organisation connectée pour Graphic Design Institute et une autre pour Contoso. Si vous ajoutez ensuite ces deux organisations connectées à une stratégie, les utilisateurs de chaque organisation qui ont un nom d’utilisateur principal correspondant à la stratégie peuvent demander des packages d’accès. Les utilisateurs dont le nom d’utilisateur principal comprend le domaine *graphicdesigninstitute.com* sont ceux de l’organisation connectée à Graphics Institute et sont autorisés à envoyer des demandes. Les utilisateurs dont le nom d’utilisateur principal comprend le domaine *contoso.com* sont ceux de l’organisation connectée à Contoso et sont également autorisés à demander des packages. De plus, étant donné que Graphic Design Institute utilise Azure AD, tous les utilisateurs dont le nom principal correspond à un [domaine vérifié](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) suivi de leur locataire (comme dans *graphicdesigninstitute.example*), peuvent également demander des packages d’accès à l’aide de la même stratégie.
+Dans ce cas, vous pouvez configurer deux organisations connectées. Vous devez créer une organisation connectée pour Graphic Design Institute et une autre pour Contoso. Si vous ajoutez ensuite ces deux organisations connectées à une stratégie, les utilisateurs de chaque organisation qui ont un nom d’utilisateur principal correspondant à la stratégie peuvent demander des packages d’accès. Les utilisateurs dont le nom d’utilisateur principal comprend le domaine contoso.com sont ceux de l’organisation connectée à Contoso et sont également autorisés à demander des packages. Les utilisateurs dont le nom d’utilisateur principal comprend le domaine *graphicdesigninstitute.com* sont ceux de l’organisation connectée à Graphics Institute et sont autorisés à envoyer des demandes. De plus, étant donné que Graphic Design Institute utilise Azure AD, tous les utilisateurs dont le nom principal correspond à un [domaine vérifié](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) suivi de leur locataire (comme dans *graphicdesigninstitute.example*), peuvent également demander des packages d’accès à l’aide de la même stratégie. Si vous avez activé l’[ authentification par mot de passe à usage unique par (OTP) par e-mail](../external-identities/one-time-passcode.md), cela inclut les utilisateurs de ces domaines qui ne disposent pas encore de comptes Azure AD qui s’authentifieront à l’aide de l’OTP par e-mail lors de l’accès à vos ressources. 
 
 ![Exemple d’organisation connectée](./media/entitlement-management-organization/connected-organization-example.png)
 

@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: ff83b488a6e3193eee8cb12af7de0a60b42e4c75
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771394"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612515"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant sur Hyper-V avec l’outil de découverte et d’évaluation d’Azure Migrate
 
-Dans le cadre de votre migration vers Azure, vous devez découvrir vos charges de travail locales et réaliser votre inventaire. 
+Dans le cadre de votre migration vers Azure, vous devez découvrir vos charges de travail locales et réaliser votre inventaire.
 
 Ce tutoriel vous montre comment découvrir des serveurs locaux sur des hôtes Hyper-V avec l’outil Azure Migrate : découverte et évaluation, en utilisant une appliance Azure Migrate légère. Vous allez déployer l’appliance en tant que serveur sur un hôte Hyper-V afin de découvrir de façon continue les métadonnées relatives aux machines et aux performances.
 
@@ -42,7 +42,7 @@ Avant de commencer ce tutoriel, vérifiez les prérequis.
 --- | ---
 **Hôte Hyper-V** | Les hôtes Hyper-V sur lesquels les serveurs sont situés peuvent être autonomes ou appartenir à un cluster.<br/><br/> L’hôte doit exécuter Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Vérifiez que les connexions entrantes sont autorisées sur le port 5985 WinRM (HTTP), afin de permettre à l’appliance de se connecter en vue de tirer (pull) les données de performances et les métadonnées de serveurs avec une session CIM (Common Information Model).
 **Étapes de déploiement d’appliance** | L’hôte Hyper-V doit allouer des ressources à un serveur pour l’appliance :<br/><br/> - 16 Go de RAM, 8 processeurs virtuels et environ 80 Go de stockage sur disque.<br/><br/> - Un commutateur virtuel externe et un accès à Internet sur l’appliance, directement ou via un proxy.
-**Serveurs** | Les serveurs peuvent exécuter le système d’exploitation Windows ou Linux. 
+**Serveurs** | Les serveurs peuvent exécuter le système d’exploitation Windows ou Linux.
 
 ## <a name="prepare-an-azure-user-account"></a>Préparer un compte de stockage Azure
 
@@ -56,7 +56,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 
     ![Zone de recherche pour rechercher l’abonnement Azure](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet. 
+2. Dans la page **Abonnements**, sélectionnez l’abonnement dans lequel vous souhaitez créer un projet.
 3. Dans l’abonnement, sélectionnez **Contrôle d’accès (IAM)**  > **Vérifier l’accès**.
 4. Dans **Vérifier l’accès**, recherchez le compte d’utilisateur correspondant.
 5. Dans **Ajouter une attribution de rôle**, cliquez sur **Ajouter**.
@@ -101,7 +101,7 @@ Déléguer les informations d’identification si les disques de serveur se trou
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. Après avoir validé l’intégrité du script, exécutez-le sur chaque hôte Hyper-V à l’aide de la commande PowerShell suivante :
+3. Après avoir validé l’intégrité du script, exécutez ce dernier sur chaque hôte Hyper-V à l’aide de la commande PowerShell suivante avec des autorisations élevées :
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
@@ -176,7 +176,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 
         **Scénario** | **Télécharger** | **SHA256**
         --- | --- | ---
-        Hyper-V (8,91 Go) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V (8,91 Go) | [Version la plus récente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Pour Azure Government :
 
@@ -224,11 +224,11 @@ Configurez l’appliance pour la première fois.
       - Seuls les proxys HTTP sont pris en charge.
       - Si vous avez ajouté des détails de proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
     - **Synchronisation de l’heure** : L’heure est vérifiée. L’heure de l’appliance doit être synchronisée avec l’heure Internet pour que la découverte de serveur fonctionne correctement.
-    - **Installer les mises à jour** : Azure Migrate : découverte et évaluation vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
+    - **Installer les mises à jour** : Azure Migrate: Discovery and assessment vérifie que les dernières mises à jour sont installées sur l’appliance. Une fois la vérification terminée, vous pouvez cliquer sur **Afficher les services de l’appliance** pour voir l’état et les versions des composants s’exécutant sur l’appliance.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : découverte et évaluation > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : Discovery and Assessment > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
 1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
 
     ![Boîte de dialogue modale indiquant le code de l’appareil](./media/tutorial-discover-vmware/device-code.png)
@@ -293,5 +293,3 @@ Une fois la découverte terminée, vous pouvez vérifier que les serveurs appara
 
 - [Évaluer les serveurs d’un environnement Hyper-V](tutorial-assess-hyper-v.md) en vue de les migrer vers des machines virtuelles Azure
 - [Passer en revue les données](migrate-appliance.md#collected-data---hyper-v) que l’appliance collecte pendant la découverte
-
-

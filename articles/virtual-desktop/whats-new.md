@@ -3,17 +3,17 @@ title: Nouveautés de Windows Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 02/23/2021
+ms.date: 03/20/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
-manager: lizross
+manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: c0b4ad17c5aefe29a313b9eaf75fc87ce4d88720
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499881"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505414"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -35,6 +35,18 @@ Consultez ces articles pour en savoir plus sur les mises à jour de nos clients 
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="windows-virtual-desktop-agent-updates"></a>Mises à jour de l’agent Windows Virtual Desktop
+
+L’agent Windows Virtual Desktop se met à jour au moins une fois par mois.
+
+Voici les modifications apportées à l'agent Windows Virtual Desktop :
+
+- Version 1.0.2866.1500 : cette mise à jour publiée le 26 mars 2021 corrige un problème lié à la vérification de l'intégrité de la pile.
+- Version 1.0.2800.2802 : cette mise à jour publiée le 10 mars 2021 comporte des améliorations générales et des correctifs de bogues.
+- Version 1.0.2800.2800 : cette mise à jour publiée le 2 mars 2021 corrige un problème de connexion inversée.
+- Version 1.0.2800.2700 : cette mise à jour publiée le 10 février 2021 comporte des améliorations générales et des correctifs de bogues.
+- Version 1.0.2800.2700 : cette mise à jour publiée le 4 février 2021 corrige un problème d'accès refusé.
 
 ## <a name="fslogix-updates"></a>Mises à jour FSLogix
 

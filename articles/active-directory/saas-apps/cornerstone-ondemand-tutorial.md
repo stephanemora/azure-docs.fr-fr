@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: jeedes
-ms.openlocfilehash: f7167df523ca6f84eacd92fc7af1011e8b3b00b6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ba6eb0a1b607fc05c4d0c660dd3d7016f81ef4b3
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950333"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449492"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-single-sign-on"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone Single Sign-On
 
@@ -123,49 +123,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-cornerstone-single-sign-on-sso"></a>Configurer l’authentification unique Cornerstone Single Sign-On
 
-1. Connectez-vous à Cornerstone Single Sign-On en tant qu’administrateur.
-
-1. Sélectionnez **Admin -> Tools**.
-
-    ![capture d’écran de la page Admin.](./media/cornerstone-ondemand-tutorial/admin.png)
-
-1. Sélectionnez le panneau **EDGE** sous **Configuration Tools**.
-
-    ![capture d’écran du panneau EDGE.](./media/cornerstone-ondemand-tutorial/edge-panel.png)
-
-1. Sélectionnez Single Sign-On dans la section **Integrate**.
-
-    ![capture d’écran de l’option Single Sign-On.](./media/cornerstone-ondemand-tutorial/single-sign-on.png)
-
-1. Cliquez sur le bouton **Add SSO**. Sélectionnez **Inbound SAML** (Connexion SAML entrante) dans la fenêtre contextuelle illustrée ci-dessous, puis cliquez sur **Add**.
-
-    ![capture d’écran de l’option Inbound SAML.](./media/cornerstone-ondemand-tutorial/inbound.png)
-
-1. Effectuez les étapes ci-dessous dans la page suivante :
-
-    ![capture d’écran de la section de configuration de Cornerstone.](./media/cornerstone-ondemand-tutorial/configuration.png)
-
-    a. Sous **General Properties**, cliquez sur **Upload File** pour charger le fichier de **certificat (base64)** que vous avez téléchargé à partir du portail Azure.
-
-    b. Cochez la case **Enable** et, dans la zone de texte **IDP URL** (URL du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée sur le portail Azure.
-
-    c. Cliquez sur **Enregistrer**.
+Pour configurer l'authentification unique côté **Cornerstone Single Sign-On**, vous devez envoyer le **Certificat (Base64)** téléchargé et les URL correspondantes copiées depuis le portail Azure à [l'équipe du support technique Cornerstone Single Sign-On](mailto:moreinfo@csod.com) ou contacter votre partenaire. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-cornerstone-single-sign-on-test-user"></a>Créer un utilisateur de test Cornerstone Single Sign-On
 
 L’objectif de cette section est de créer un utilisateur appelé B.Simon dans Cornerstone Single Sign-On. Cornerstone Single Sign-On prend en charge le provisionnement automatique d’utilisateurs, qui est activé par défaut. Vous trouverez plus d’informations [ici](./cornerstone-ondemand-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
-
-**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
-
-1. Connectez-vous à Cornerstone Single Sign-On en tant qu’administrateur.
-
-1. Accédez à **Admin -> Users**, puis cliquez sur **Add User** en bas de la page.
-
-    ![capture d’écran montrant la création d’un utilisateur de test dans Cornerstone.](./media/cornerstone-ondemand-tutorial/user-1.png)
-
-1. Renseignez les champs obligatoires dans la page **Add new user**, puis cliquez sur **Save**.
-
-    ![capture d’écran montrant la création d’un utilisateur de test avec les champs obligatoires mis en évidence.](./media/cornerstone-ondemand-tutorial/user-2.png)
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
