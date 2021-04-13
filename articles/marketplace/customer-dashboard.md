@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3a26f7c63b639f9aeb6a8f526e77dacb37fb4d87
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555633"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106068062"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Clients dans l’analytique de la Place de marché commerciale
 
@@ -163,6 +163,7 @@ _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 | CommerceRootCustomer | Client racine de commerce | Un ID de compte de facturation peut être associé à plusieurs ID de client.<br>Une combinaison d’un ID de compte de facturation et d’un ID de client peut être associée à plusieurs abonnements de la Place de marché commerciale.<br>Le Client racine de commerce est le nom du client de l’abonnement. | CommerceRootCustomer |
 | ID de client | ID de client | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure. | CustomerId |
 | ID de compte de facturation | ID de compte de facturation | L’identifiant du compte sur lequel la facturation est générée. Mappez l’**ID de compte de facturation** à l’**ID client** pour connecter votre rapport de transactions de paiement avec les rapports Client, Commande et Utilisation. | BillingAccountId |
+| Type de client | Type de client | La valeur de ce champ signifie le type du client. Les valeurs possibles sont les suivantes :<ul><li>individu</li> <li>organization</li></ul> | CustomerType |
 |||||
 
 ### <a name="customers-page-filters"></a>Filtres de la page Clients

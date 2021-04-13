@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
-ms.openlocfilehash: 3f35f00e5fcd26c7aa4bb685dc80f48eabb88b6d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ff024ff97baa8a80ae6b1fcdafba010e482afd98
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102547932"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106074620"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Opération what-if de déploiement de modèle ARM
 
@@ -32,7 +32,7 @@ Pour plus d’informations sur l’installation des modules, consultez [Installe
 
 ## <a name="install-azure-cli-module"></a>Installer le module Azure CLI
 
-Pour utiliser une simulation dans Azure CLI, vous devez disposer d’Azure CLI 2.5.0 ou une version ultérieure. Si nécessaire, [installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli).
+Pour utiliser une simulation dans Azure CLI, vous devez disposer d’Azure CLI 2.14.0 ou d’une version ultérieure. Si nécessaire, [installez la dernière version d’Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="see-results"></a>Afficher les résultats
 
@@ -364,17 +364,17 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
       id:
 "/subscriptions/./resourceGroups/ExampleGroup/providers/Microsoft.Network/virtualNet
-works/vnet-001"
-      location:        "centralus"
-      name:            "vnet-001"
-      tags.CostCenter: "12345"
-      tags.Owner:      "Team A"
-      type:            "Microsoft.Network/virtualNetworks"
+works/vnet-001&quot;
+      location:        &quot;centralus&quot;
+      name:            &quot;vnet-001&quot;
+      tags.CostCenter: &quot;12345&quot;
+      tags.Owner:      &quot;Team A&quot;
+      type:            &quot;Microsoft.Network/virtualNetworks&quot;
 
 Resource changes: 1 to delete.
 
 Are you sure you want to execute the deployment?
-[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is &quot;Y"):
 ```
 
 Vous voyez les modifications attendues et pouvez confirmer que vous souhaitez que le déploiement s’exécute.

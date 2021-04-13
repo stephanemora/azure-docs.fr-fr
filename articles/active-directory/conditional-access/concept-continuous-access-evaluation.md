@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99524666"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055771"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -52,6 +52,9 @@ L’évaluation continue de l’accès est implémentée en permettant à des se
 
 Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches SharePoint Online de l’organisation, ainsi qu’à Teams à partir d’applications clientes Microsoft 365 quelques minutes après la survenance de l’un de ces événements critiques. 
 
+> [!NOTE] 
+> Les équipes ne prennent pas encore en charge les événements à risque pour les utilisateurs.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>Évaluation de la stratégie d’accès conditionnel (préversion)
 
 Exchange et SharePoint sont en mesure de synchroniser des stratégies d’accès conditionnel clés afin qu’elles puissent être évaluées dans le service lui-même.
@@ -59,11 +62,11 @@ Exchange et SharePoint sont en mesure de synchroniser des stratégies d’accès
 Ce processus permet l’émergence du scénario dans lequel des utilisateurs perdent l’accès à des fichiers, à des e-mails, à des éléments du calendrier ou à des tâches de l’organisation à partir d’applications clientes Microsoft 365 ou de SharePoint Online immédiatement après des changements d’emplacement réseau.
 
 > [!NOTE]
-> Les combinaisons de fournisseurs d’applications et de ressources ne sont pas toutes prises en charge. Consultez le tableau ci-dessous. Office fait référence à Word, Excel et PowerPoint
+> Les combinaisons de fournisseurs d’applications et de ressources ne sont pas toutes prises en charge. Consultez le tableau ci-dessous. Office fait référence à Word, Excel et PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Prise en charge | Prise en charge | Non pris en charge | Non pris en charge | Prise en charge |
+| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 | **Exchange Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 
 | | Applications web Office | Applications Win32 Office | Office pour iOS | Office pour Android | Office pour Mac |
@@ -71,23 +74,20 @@ Ce processus permet l’émergence du scénario dans lequel des utilisateurs per
 | **SharePoint Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 | **Exchange Online** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 
+| | Web OneDrive | OneDrive Win32 | IOS OneDrive | Android OneDrive | Mac OneDrive |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+
 ### <a name="client-side-claim-challenge"></a>Contestation de revendication côté client
 
 Avant l’évaluation de l’accès continu, les clients essayaient toujours de relire le jeton d’accès à partir de leur cache tant qu’il n’avait pas expiré. Avec l’EAC, nous introduisons un nouveau cas où un fournisseur de ressources peut rejeter un jeton même s’il n’a pas expiré. Pour informer les clients qu’ils doivent contourner leur cache, même si les jetons mis en cache n’ont pas expiré, nous introduisons un mécanisme appelé **contestation de revendication** destiné à indiquer que le jeton a été rejeté et qu’un nouveau jeton d’accès doit être émis par Azure AD. L’EAC requiert une mise à jour du client pour comprendre la constestation de revendication. La dernière version des applications suivantes prend en charge la contestation de revendication :
 
-- Outlook Windows
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Teams pour Windows (uniquement pour les ressources Teams)
-- Teams iOS (uniquement pour les ressources Teams)
-- Teams Android (uniquement pour les ressources Teams)
-- Teams Mac (uniquement pour les ressources Teams)
-- Word/Excel/PowerPoint pour Windows
-- Word/Excel/PowerPoint pour iOS
-- Word/Excel/PowerPoint pour Android
-- Word/Excel/PowerPoint pour Mac
+| | Web | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **Équipes** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **Office** | Non pris en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+| **OneDrive** | Prise en charge | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
 
 ### <a name="token-lifetime"></a>Durée de vie des jetons
 
@@ -163,17 +163,17 @@ Si ce scénario existe dans votre environnement, afin d’éviter les boucles in
 
 Pour une explication concernant les canaux Office Update, consultez [Vue d’ensemble des canaux de mise à jour pour Microsoft 365 Apps](/deployoffice/overview-update-channels). Nous recommandons aux organisations de ne pas désactiver le Gestionnaire de comptes web (WAM).
 
-### <a name="policy-change-timing"></a>Synchronisation des changements de stratégie
+### <a name="group-membership-and-policy-update-effective-time"></a>Appartenance aux groupes et temps effectif de mise à jour de stratégie
 
-En raison du retard potentiel de réplication entre Azure AD et les fournisseurs de ressources, jusqu’à 2 heures peuvent s’écouler avant que les changements de stratégie opérés par les administrateurs prennent effet pour Exchange Online.
+L’appartenance au groupe et la mise à jour de la stratégie effectuées par les administrateurs peuvent prendre jusqu’à une journée pour être effective. Certaines optimisations ont été effectuées pour les mises à jour de stratégie qui réduisent le délai à deux heures. Toutefois, il ne couvre pas encore tous les scénarios. 
 
-Exemple : À 11h00, un administrateur ajoute une stratégie pour empêcher une plage d’adresses IP d’accéder à la messagerie. Un utilisateur arrivé avant cette heure, dont l’adresse IP figure dans cette plage d’adresses, pourrait continuer à accéder au courrier jusqu’à 13h00.
+En cas d’urgence et si vous devez mettre à jour vos stratégies ou que la modification de l’appartenance au groupe doit être appliquée immédiatement à certains utilisateurs, vous devez utiliser cette [commande PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) ou « révoquer la session » dans la page de profil utilisateur pour révoquer la session des utilisateurs, ce qui garantit que les stratégies mises à jour seront appliquées immédiatement.
 
 ### <a name="coauthoring-in-office-apps"></a>Co-création dans les applications Office
 
-Quand plusieurs utilisateurs collaborent simultanément sur le même document, l’accès de l’utilisateur au document peut ne pas être immédiatement révoqué par l’évaluation continue de l’accès, en fonction d’événements de révocation d’utilisateur ou de changement de stratégie. Dans ce cas, l’utilisateur perd complètement l’accès par la suite, quand il ferme le document, quand il ferme Word, Excel ou PowerPoint, ou après une période de 10 heures.
+Quand plusieurs utilisateurs collaborent simultanément sur le même document, l’accès de l’utilisateur au document peut ne pas être immédiatement révoqué par l’évaluation continue de l’accès, en fonction des événements de révocation d’utilisateur ou de changement de stratégie. Dans ce cas, l’utilisateur perd complètement l’accès par la suite, quand il ferme le document, quand il ferme Word, Excel ou PowerPoint, ou après une période de 10 heures.
 
-Pour réduire cette durée, un administrateur SharePoint peut réduire la durée de vie maximale des sessions de cocréation pour les documents stockés dans SharePoint Online et OneDrive Entreprise, en [configurant une stratégie d’emplacement réseau dans SharePoint Online](/sharepoint/control-access-based-on-network-location). Une fois cette configuration modifiée, la durée de vie maximale des sessions de cocréation est réduite à 15 minutes, et peut être ajustée davantage à l’aide de la commande SharePoint Online PowerShell « Set-SPOTenant –IPAddressWACTokenLifetime ».
+Pour réduire cette durée, un administrateur SharePoint peut réduire la durée de vie maximale des sessions de cocréation pour les documents stockés dans SharePoint Online et OneDrive Entreprise, en [configurant une stratégie d’emplacement réseau dans SharePoint Online](/sharepoint/control-access-based-on-network-location). Une fois cette configuration modifiée, la durée de vie maximale des sessions de cocréation est réduite à 15 minutes, et peut être ajustée davantage à l’aide de la commande SharePoint Online PowerShell « Set-SPOTenant –IPAddressWACTokenLifetime »
 
 ### <a name="enable-after-a-user-is-disabled"></a>Activer après la désactivation d’un utilisateur
 

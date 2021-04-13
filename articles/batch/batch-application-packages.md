@@ -2,17 +2,17 @@
 title: Déployer des packages d’application sur des nœuds de calcul
 description: Utilisez la fonctionnalité de packages d’applications d’Azure Batch pour gérer facilement plusieurs applications et versions pour l’installation sur des nœuds de calcul Batch.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033729"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045788"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -59,6 +59,9 @@ Avec des packages d’application, la tâche de démarrage de votre pool ne doit
 ## <a name="upload-and-manage-applications"></a>Téléchargement et gestion des applications
 
 Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) ou les API de Batch Management pour gérer les packages d’application dans votre compte Batch. Les sections suivantes expliquent comment lier un compte de stockage, et comment ajouter et gérer des applications et des packages d’application dans le portail Azure.
+
+> [!NOTE]
+> Bien que vous puissiez définir des valeurs d’application dans la ressource [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) d’un [modèle ARM](quick-create-template.md), il n’est actuellement pas possible d’utiliser un modèle ARM pour télécharger des packages d’application à utiliser dans votre compte Batch. Vous devez les télécharger dans votre compte de stockage lié comme décrit [ci-dessous](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Lier un compte de stockage
 

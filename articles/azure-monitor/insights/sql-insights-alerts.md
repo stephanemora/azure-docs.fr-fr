@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
 ms.openlocfilehash: 5fe853ee0f7a113bfb8b0511744d9087f67927c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104608659"
 ---
 # <a name="create-alerts-with-sql-insights-preview"></a>Créer des alertes avec SQL Insights (préversion)
@@ -19,7 +19,7 @@ SQL Insights comprend un ensemble de modèles de règles d’alerte que vous pou
 > Si vous avez des demandes sur d’autres modèles de règles d’alerte SQL Insights, envoyez vos commentaires en utilisant le lien au bas de cette page ou en utilisant le lien de commentaires sur SQL Insights dans le portail Azure.
 
 ## <a name="enable-alert-rules"></a>Activer des règles d’alerte 
-Effectuez les étapes suivantes pour activer les alertes dans Azure Monitor à partir du portail Azure. Les règles d’alerte créées seront étendues à toutes les ressources SQL surveillées sous le profil de surveillance sélectionné.  Lorsqu’une règle d’alerte est déclenchée, elle se déclenche sur l’instance ou la base de données SQL spécifique.
+Effectuez les étapes suivantes pour activer les alertes dans Azure Monitor à partir du portail Azure.Les règles d’alerte créées seront étendues à toutes les ressources SQL surveillées sous le profil de surveillance sélectionné.  Lorsqu’une règle d’alerte est déclenchée, elle se déclenche sur l’instance ou la base de données SQL spécifique.
 
 > [!NOTE]
 > Vous pouvez également créer des [règles d’alerte de journal](../alerts/alerts-log.md) personnalisées en exécutant des requêtes sur les jeux de données de la table *InsightsMetrics*, puis en enregistrant ces requêtes en tant que règle d’alerte. 

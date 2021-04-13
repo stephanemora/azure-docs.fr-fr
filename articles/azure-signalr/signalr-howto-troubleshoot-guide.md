@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589161"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048202"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guide de dépannage pour résoudre des problèmes courants rencontrés avec Azure SignalR Service
 
@@ -348,7 +348,7 @@ Pour SignalR ASP.NET, un problème connu a été résolu dans le Kit de dévelop
 
 ## <a name="thread-pool-starvation"></a>Insuffisance du pool de threads
 
-Si votre serveur rencontre une insuffisance, cela signifie qu’aucun thread ne traite de messages. Tous les threads se bloquent dans une méthode donnée.
+Si votre serveur rencontre une insuffisance, cela signifie qu’aucun thread ne traite de messages. Tous les threads ne répondent pas dans une certaine méthode.
 
 Ce scénario est normalement provoqué par Async sur Sync ou par `Task.Result`/`Task.Wait()` dans les méthodes asynchrones.
 

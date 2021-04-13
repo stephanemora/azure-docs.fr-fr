@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802197"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607318"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -73,9 +73,9 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 
 | Type de compte de stockage | Régions prises en charge | Services pris en charge |
 |--|--|--|
-| Universel v2<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br />  Europe occidentale<br /> France Centre<br /> Japon Est<br /> Afrique du Sud Nord<br /> Sud du Royaume-Uni<br /> USA Centre<br /> USA Est<br /> USA Est 2<br /> USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
-| BlockBlobStorage<sup>1</sup> | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> France Centre <br /> Japon Est<br /> Sud du Royaume-Uni <br /> USA Est <br /> USA Est 2 <br /> USA Ouest 2| Objets blob de blocs Premium uniquement |
-| FileStorage | Asie du Sud-Est<br /> Australie Est<br /> Europe septentrionale<br /> Europe occidentale<br /> France Centre <br /> Japon Est<br /> Sud du Royaume-Uni <br /> USA Est <br /> USA Est 2 <br /> USA Ouest 2 | Partages de fichiers Premium uniquement |
+| Universel v2<sup>1</sup> | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Est<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Inde Centre<br /> (Asie-Pacifique) Japon Est<br /> (Asie-Pacifique) Corée Centre<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Norvège Est<br /> (Europe) Suisse Nord<br /> (Europe) Royaume-Uni Sud<br /> (Moyen-Orient) Émirats arabes unis Nord<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Nord<br />(États-Unis) USA Centre Sud<br /> (États-Unis) USA Ouest<br /> (USA) USA Ouest 2 | Objets blob de blocs<br /> Objets blob de pages<sup>2</sup><br /> Partages de fichiers (standard)<br /> Tables<br /> Files d’attente<br /> |
+| BlockBlobStorage<sup>1</sup> | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Est<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Inde Centre<br /> (Asie-Pacifique) Japon Est<br /> (Asie-Pacifique) Corée Centre<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Norvège Est<br /> (Europe) Suisse Nord<br /> (Europe) Royaume-Uni Sud<br /> (Moyen-Orient) Émirats arabes unis Nord<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Nord<br />(États-Unis) USA Centre Sud<br /> (États-Unis) USA Ouest<br /> (USA) USA Ouest 2 | Objets blob de blocs Premium uniquement |
+| FileStorage | (Afrique) Afrique du Sud Nord<br /> (Asie-Pacifique) Asie Est<br /> (Asie-Pacifique) Asie Sud-Est<br /> (Asie-Pacifique) Australie Est<br /> (Asie-Pacifique) Inde Centre<br /> (Asie-Pacifique) Japon Est<br /> (Asie-Pacifique) Corée Centre<br /> (Canada) Canada Centre<br /> (Europe) Europe Nord<br /> (Europe) Europe Ouest<br /> (Europe) France Centre<br /> (Europe) Allemagne Centre-Ouest<br /> (Europe) Norvège Est<br /> (Europe) Suisse Nord<br /> (Europe) Royaume-Uni Sud<br /> (Moyen-Orient) Émirats arabes unis Nord<br /> (Amérique du Sud) Brésil Sud<br /> (États-Unis) USA Centre<br /> (États-Unis) USA Est<br /> (États-Unis) USA Est 2<br /> (États-Unis) USA Centre Nord<br />(États-Unis) USA Centre Sud<br /> (États-Unis) USA Ouest<br /> (USA) USA Ouest 2 | Partages de fichiers Premium uniquement |
 
 <sup>1</sup> Le niveau archive n’est pas actuellement pris en charge sur les comptes ZRS.<br />
 <sup>2</sup> Les comptes de stockage qui contiennent des disques managés Azure pour les machines virtuelles utilisent toujours LRS. Les disques non managés Azure doivent également utiliser LRS. Il est possible de créer un compte de stockage utilisant GRS pour les disques non managés Azure, mais cela n’est pas recommandé en raison de problèmes potentiels relatifs à la cohérence de la géoréplication asynchrone. Ni les disques managés, ni les disques non managés ne prennent en charge ZRS ou GZRS. Pour plus d’informations sur les disques managés, voir [Tarification des disques managés Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -127,15 +127,30 @@ Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et R
 
 Les réplications GZRS et RA-GZRS sont prises en charge dans les régions suivantes :
 
-- Asie du Sud-Est
-- Europe septentrionale
-- Europe occidentale
-- Japon Est
-- Sud du Royaume-Uni
-- USA Centre
-- USA Est
-- USA Est 2
-- USA Ouest 2
+- (Afrique) Afrique du Sud Nord
+- (Asie-Pacifique) Asie Est
+- (Asie-Pacifique) Asie Sud-Est
+- (Asie-Pacifique) Australie Est
+- (Asie-Pacifique) Inde Centre
+- (Asie-Pacifique) Japon Est
+- (Asie-Pacifique) Corée Centre
+- (Canada) Canada Centre
+- (Europe) Europe Nord
+- (Europe) Europe Ouest
+- (Europe) France Centre
+- (Europe) Allemagne Centre-Ouest
+- (Europe) Norvège Est
+- (Europe) Suisse Nord
+- (Europe) Royaume-Uni Sud
+- (Moyen-Orient) Émirats arabes unis Nord
+- (Amérique du Sud) Brésil Sud
+- (États-Unis) USA Centre
+- (États-Unis) USA Est
+- (États-Unis) USA Est 2
+- (États-Unis) USA Centre Nord
+- (États-Unis) USA Centre Sud
+- (États-Unis) USA Ouest
+- (USA) USA Ouest 2
 
 Pour plus d’informations sur la tarification, consultez les détails de la tarification d’[objets BLOB](https://azure.microsoft.com/pricing/details/storage/blobs), de [Fichiers](https://azure.microsoft.com/pricing/details/storage/files/), de [Files d’attente](https://azure.microsoft.com/pricing/details/storage/queues/) et de [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 

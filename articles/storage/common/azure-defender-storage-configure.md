@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: cdfc54b1eca3b07202148b7099884a04f35939ef
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e2f044ab267365885260b031638572846184bc83
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698142"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063183"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurer Azure Defender pour le stockage
 
@@ -50,7 +50,7 @@ Vous pouvez configurer Azure Defender pour le stockage de plusieurs façons, qui
 
 ### <a name="azure-security-center"></a>[Centre de sécurité Azure](#tab/azure-security-center)
 
-Lorsque vous vous abonnez au niveau Standard dans Azure Security Center, Azure Defender est automatiquement configuré sur tous vos comptes de stockage. Vous pouvez activer ou désactiver Azure Defender pour vos comptes de stockage sous un abonnement spécifique comme suit :
+Azure Defender est intégré à Azure Security Center. Lorsque vous activez Azure Defender sur votre abonnement, Azure Defender pour le stockage Azure est automatiquement activé pour tous vos comptes de stockage. Vous pouvez activer ou désactiver Azure Defender pour vos comptes de stockage sous un abonnement spécifique comme suit :
 
 1. Lancez **Azure Security Center** dans le [portail Azure](https://portal.azure.com).
 1. Dans le menu principal, sous **Gestion**, sélectionnez **Tarification et paramètres**.
@@ -94,20 +94,38 @@ Utilisez Azure Policy pour activer Azure Defender dans les comptes de stockage s
 
     :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Attribuer la stratégie pour activer Azure Defender pour le stockage":::
 
-### <a name="rest-api"></a>[REST API](#tab/rest-api)
-
-Utilisez les commandes de l’API Rest pour créer, mettre à jour ou obtenir le paramètre Azure Defender pour un compte de stockage spécifique.
-
-- [Protection avancée contre les menaces – Créer](/rest/api/securitycenter/advancedthreatprotection/create)
-- [Protection avancée contre les menaces – Obtenir](/rest/api/securitycenter/advancedthreatprotection/get)
-
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilisez les cmdlets PowerShell suivantes :
+Pour activer Azure Defender pour un compte de stockage avec PowerShell, commencez par vérifier que vous avez installé le module [Az.Security](https://www.powershellgallery.com/packages/Az.Security). Ensuite, appelez la commande [Enable-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection). N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
 
-- [Activer la protection avancée contre les menaces](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Obtenir la protection avancée contre les menaces](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Désactiver la protection avancée contre les menaces](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+```azurepowershell
+Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
+```
+
+Pour vérifier le paramètre Azure Defender pour un compte de stockage avec PowerShell, appelez la commande [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection). N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+
+```azurepowershell
+Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/"
+```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour activer Azure Defender pour un compte de stockage avec Azure CLI, appelez la commande [az security atp storage update](/cli/azure/security/atp/storage#az_security_atp_storage_update). N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+
+```azurecli
+az security atp storage update \
+    --resource-group <resource-group> \
+    --storage-account <storage-account> \
+    --is-enabled true
+```
+
+Pour vérifier la paramètre Azure Defender pour un compte de stockage avec Azure CLI, appelez la commande [az security atp storage show](/cli/azure/security/atp/storage#az_security_atp_storage_show). N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+
+```azurecli
+az security atp storage show \
+    --resource-group <resource-group> \
+    --storage-account <storage-account>
+```
 
 ---
 
@@ -137,5 +155,6 @@ Les alertes sont générées en cas de détection de tentatives d’accès ou d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [Journaux dans les comptes de stockage Azure ](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- En savoir plus sur [Azure Security Center](../../security-center/security-center-introduction.md)
+- [Présentation d’Azure Defender pour le stockage](../../security-center/defender-for-storage-introduction.md)
+- [Centre de sécurité Azure](../../security-center/security-center-introduction.md)
+- [Journaux dans des comptes de stockage Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)

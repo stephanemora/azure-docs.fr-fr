@@ -3,12 +3,12 @@ title: Configurer l’intégration Prometheus Container Insights | Microsoft Doc
 description: Cet article explique comment configurer l’agent Container Insights, afin qu’il récupère des métriques à partir de Prometheus avec votre cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731729"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109639"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configurer le scraping des métriques Prometheus avec Container Insights
 
@@ -48,7 +48,7 @@ Quand une URL est indiquée, Container Insights ne capture que le point de termi
 |------|-----|-----------|-------|-------------|
 | À l’ensemble du cluster | | | | Spécifiez l’une des trois méthodes suivantes pour capturer les points de terminaison pour les mesures. |
 | | `urls` | String | Tableau séparé par des virgules | Point de terminaison HTTP (adresse IP ou chemin d’URL valide spécifié). Par exemple : `urls=[$NODE_IP/metrics]`. ($NODE_IP est un paramètre Container Insights spécifique et peut être utilisé à la place d’une adresse IP de nœud. Doit être tout en majuscules.) |
-| | `kubernetes_services` | String | Tableau séparé par des virgules | Tableau de services Kubernetes pour la capture des mesures à partir des kube-state-metrics. Par exemple : `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `kubernetes_services` | String | Tableau séparé par des virgules | Tableau de services Kubernetes pour la capture des mesures à partir des kube-state-metrics. Les noms de domaine complets doivent être utilisés ici. Par exemple : `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | True ou False | Lorsque la valeur est définie sur `true` dans les paramètres du cluster, Container Insights capture les pods Kubernetes sur l’ensemble du cluster pour les annotations Prometheus suivantes :<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | True ou False | Permet la capture du pod. `monitor_kubernetes_pods` doit être défini sur `true`. |
 | | `prometheus.io/scheme` | String | http ou https | La valeur par défaut est la capture de HTTP. Si nécessaire, affectez la valeur `https`. | 

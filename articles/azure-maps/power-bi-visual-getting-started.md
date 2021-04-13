@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96904701"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Prise en main du visuel Power BI Azure Maps
 
-<Token>**S’APPLIQUE À :** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les *_consommateurs_* _ ![Green check mark.](media/power-bi-visual/yes.png) Service Power BI pour les concepteurs et les développeurs ![Coche verte.](media/power-bi-visual/yes.png) Power BI Desktop ![X signifiant Non.](media/power-bi-visual/no.png) Nécessite une licence Pro ou Premium</Token>
+<Token>**S’APPLIQUE À :** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les **_consommateurs_** ![Coche verte.](media/power-bi-visual/yes.png) Service Power BI pour les concepteurs et les développeurs ![Coche verte.](media/power-bi-visual/yes.png) Power BI Desktop ![X signifiant Non.](media/power-bi-visual/no.png) Nécessite une licence Pro ou Premium </Token>
 
 Cet article explique comment utiliser le visuel Microsoft Azure Maps pour Power BI.
 
@@ -47,7 +47,7 @@ Pour en savoir plus à propos de la confidentialité et des conditions d’utili
 
 ## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Comportement et configuration requise du visuel Azure Maps (préversion)
 
-Voici quelques considérations et exigences concernant le visuel _ *Azure Maps** :
+Voici quelques considérations et exigences concernant le visuel **Azure Maps**. :
 
 -   Le visuel **Azure Maps** (préversion) doit être activé dans Power BI Desktop. Pour activer le visuel **Azure Maps**, sélectionnez **Fichier** &gt; **Options et paramètres** &gt; **Options** &gt; **Fonctionnalités en préversion**, puis cochez la case **Visuel Azure Maps**. Si le visuel Azure Maps n’est pas disponible après cela, cela signifie sans doute qu’un commutateur administrateur de locataire dans le Portail d’administration doit être activé.
 -   Le jeu de données doit inclure des champs qui contiennent des informations sur la **latitude** et la **longitude**. Le géocodage des champs d’emplacement sera ajouté dans une prochaine mise à jour.

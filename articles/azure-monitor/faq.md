@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa91644eab9d28ffb20de8ec8c0fe00488922b67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606954"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563376"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -80,7 +80,7 @@ L’Explorateur de données Azure est un service d’exploration de données rap
 
 ### <a name="how-do-i-retrieve-log-data"></a>Comment récupérer des données de journal ?
 Toutes les données sont récupérées à partir d’un espace de travail Log Analytics à l’aide d’une requête de journal écrite en langage de requête Kusto (KQL). Vous pouvez écrire vos propres requêtes ou utiliser des solutions et insights incluant des requêtes de journal pour une application ou un service spécifique. Consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](logs/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Puis-je supprimer des données à partir d’un espace de travail Log Analytics ?
 Les données sont supprimées d’un espace de travail en fonction de sa [période de rétention](logs/manage-cost-storage.md#change-the-data-retention-period). Vous pouvez supprimer des données spécifiques pour des raisons de confidentialité ou de conformité. Consultez [Comment exporter et supprimer des données privées](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) pour plus d’informations.
 
@@ -828,26 +828,27 @@ Dans ce cas, l’option **Essayer maintenant** s’affiche quand vous ouvrez la 
 ## <a name="sql-insights-preview"></a>Insights SQL (préversion)
 
 ### <a name="what-versions-of-sql-server-are-supported"></a>Quelles versions de SQL Server sont prises en charge ?
-Consultez [Versions prises en charge](insights/sql-insights-overview.md#supported-versions) pour connaître les versions de SQL prises en charge.
+Nous prenons en charge SQL Server 2012 et toutes les versions plus récentes. Pour plus d’informations, consultez [Versions prises en charge](insights/sql-insights-overview.md#supported-versions).
 
 ### <a name="what-sql-resource-types-are-supported"></a>Quels types de ressources SQL sont pris en charge ?
+- Azure SQL Database
+- Azure SQL Managed Instance
+- SQL Server sur des machines virtuelles Azure (SQL Server s’exécutant sur des machines virtuelles inscrites auprès du fournisseur de [machines virtuelles SQL](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md))
+- Machines virtuelles Azure (SQL Server s’exécutant sur des machines virtuelles non inscrites auprès du fournisseur de [machines virtuelles SQL](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md))
 
-- Azure SQL Database. Une seule base de données, pas plusieurs bases de données dans un pool élastique.
-- Azure SQL Managed Instance 
-- Machines virtuelles Azure SQL ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) et machines virtuelles Azure sur lesquelles SQL Server est installé.
+Pour plus d’informations à ce sujet et sur les scénarios sans prise en charge ou avec une prise en charge limitée, consultez [Versions prises en charge](insights/sql-insights-overview.md#supported-versions).
 
-### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>Quels sont les systèmes d’exploitation pris en charge pour la machine exécutant SQL Server ?
-Tout système d’exploitation prenant en charge l’exécution de la version prise en charge de SQL.
+### <a name="what-operating-systems-for-the-virtual-machine-running-sql-server-are-supported"></a>Quels sont les systèmes d’exploitation pris en charge pour la machine virtuelle exécutant SQL Server ?
+Nous prenons en charge tous les systèmes d’exploitation spécifiés par la documentation [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) et [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) pour SQL Server sur les machines virtuelles Azure.
 
-### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>Quels sont les systèmes d’exploitation pris en charge pour le serveur de surveillance à distance ?
+### <a name="what-operating-system-for-the-monitoring-virtual-machine-are-supported"></a>Quels sont les systèmes d’exploitation pris en charge pour la surveillance de la machine virtuelle ?
+Ubuntu 18.04 est actuellement le seul système d’exploitation pris en charge pour la surveillance de la machine virtuelle.
 
-Ubuntu 18.04 est actuellement le seul système d’exploitation pris en charge.
-
-### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Où seront stockées les données de surveillance dans Log Analytics 
-Toutes les données de surveillance sont stockées dans la table **InsightsMetrics**. La colonne **Origin** a la valeur *solutions.AZM.ms/Telegraf/SqlInsights*. La colonne **Namespace** a des valeurs qui commencent par *sqlserver_* .
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Où seront stockées les données de surveillance dans Log Analytics ?
+Toutes les données de surveillance sont stockées dans la table **InsightsMetrics**. La colonne **Origin** a la valeur `solutions.azm.ms/telegraf/SqlInsights`. La colonne **Namespace** a des valeurs qui commencent par `sqlserver_` .
 
 ### <a name="how-often-is-data-collected"></a>À quelle fréquence les données sont-elles collectées ? 
-Pour plus de détails sur la fréquence de collecte des différentes données, consultez [Données collectées par SQL Insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights).
+La fréquence de collecte de données est personnalisable. Consultez [Données collectées par SQL Insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) pour plus d’informations sur les fréquences par défaut et consultez [Créer un profil de surveillance SQL](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) pour obtenir des instructions sur la personnalisation des fréquences. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous ne trouvez pas de réponse à votre question ici, vous pouvez consulter les forums suivants pour plus de questions et réponses.

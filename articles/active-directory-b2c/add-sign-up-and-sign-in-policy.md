@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97618597"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043748"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Configurer un flux d’inscription et de connexion dans Azure Active Directory B2C
 
@@ -66,6 +67,7 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
     ![Page de sélection des attributs et revendications avec trois revendications sélectionnées](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+2. Suivez les étapes pour [gérer le flux pour « Vous avez oublié votre mot de passe ? »](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) dans la stratégie d’inscription ou de connexion.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
@@ -73,7 +75,7 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
 1. Cliquez sur **Exécuter le flux d’utilisateur**, puis sélectionnez **S’inscrire maintenant**.
 
-    ![Page Exécuter le flux d'utilisateur du portail avec bouton Exécuter le flux d'utilisateur en surbrillance](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![Page Exécuter le flux d'utilisateur du portail avec bouton Exécuter le flux d'utilisateur en surbrillance](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. Entrez une adresse e-mail valide, cliquez sur **Envoyer un code de vérification**, entrez le code de vérification que vous recevez, puis sélectionnez **Vérifier le code**.
 1. Entrez un nouveau mot de passe et confirmez-le.

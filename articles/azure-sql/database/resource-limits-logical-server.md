@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691227"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543514"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de ressources pour les serveurs Azure SQL Database et Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Cet article fournit une vue d’ensemble des limites de ressources pour le serveur logique utilisé par Azure SQL Database et Azure Synapse Analytics. Il fournit des informations sur ce qui se passe quand ces limites de ressources sont atteintes ou dépassées et décrit les mécanismes de gouvernance des ressources utilisés pour appliquer ces limites.
+Cet article fournit une vue d’ensemble des limites de ressources pour le [serveur logique utilisé](logical-servers.md) par Azure SQL Database et Azure Synapse Analytics. Il fournit des informations sur ce qui se passe quand ces limites de ressources sont atteintes ou dépassées et décrit les mécanismes de gouvernance des ressources utilisés pour appliquer ces limites.
 
 > [!NOTE]
-> Pour les limites d’Azure SQL Managed Instance, consultez [Limites de ressources de SQL Database pour les instances gérées](../managed-instance/resource-limits.md).
+> Pour les limites d’Azure SQL Managed Instance, consultez [Limites de ressources pour les instances managées](../managed-instance/resource-limits.md).
 
 ## <a name="maximum-resource-limits"></a>Limites maximales de ressources
 
 | Ressource | Limite |
 | :--- | :--- |
-| Bases de données par serveur | 5 000 |
-| Nombre par défaut de serveurs par abonnement dans n’importe quelle région | 20 |
-| Nombre maximal de serveurs par abonnement dans n’importe quelle région | 200 |  
-| Quota DTU/eDTU par serveur | 54 000 |  
-| Quota vCore par serveur/instance | 540 |
-| Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores. Par exemple, si chaque pool contient 1 000 unités DTU, alors un serveur peut prendre en charge 54 pools.|
+| Bases de données par serveur logique | 5 000 |
+| Nombre par défaut de serveurs logiques par abonnement dans une région | 20 |
+| Nombre maximal de serveurs logiques par abonnement dans une région | 200 |  
+| Quota DTU / eDTU par serveur logique | 54 000 |  
+| Quota vCore par serveur logique | 540 |
+| Nombre maximal de pools par serveur logique | Limité par le nombre de DTU ou de vCores. Par exemple, si chaque pool contient 1 000 unités DTU, alors un serveur peut prendre en charge 54 pools.|
 |||
 
 > [!IMPORTANT]
-> Le nombre de bases de données approchant la limite par serveur, les éléments suivants peuvent se produire :
+> Le nombre de bases de données approchant la limite par serveur logique, ce qui suit peut se produire :
 >
-> - Augmentation de latence dans l’exécution de requêtes sur la base de données master.  Cela inclut les vues de statistiques d’utilisation des ressources telles que sys.resource_stats.
+> - Augmentation de latence dans l’exécution de requêtes sur la base de données master.  Cela inclut les vues de statistiques d’utilisation des ressources telles que `sys.resource_stats`.
 > - Augmentation de latence des opérations de gestion et le rendu des points de vue de portails qui impliquent des bases de données sur le serveur.
 
 > [!NOTE]
-> Pour augmenter le quota DTU/eDTU ou vCore, ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, envoyez une nouvelle demande de support dans le Portail Azure. Pour plus d’informations, voir [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md).
+> Pour augmenter le quota DTU/eDTU ou vCore, ou pour obtenir une quantité de serveurs logiques supérieure à la quantité par défaut, envoyez une nouvelle demande de support dans le Portail Azure. Pour plus d’informations, voir [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Taille de stockage
 

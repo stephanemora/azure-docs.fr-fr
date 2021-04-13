@@ -1,17 +1,17 @@
 ---
 title: Serveurs dans Azure Database pour PostgreSQL - Serveur flexible (Préversion)
 description: Cet article indique les éléments à prendre en considération et fournit des instructions pour configurer et gérer le serveur flexible Azure Database pour PostgreSQL.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 5cd4454d5b77d18940f6693a25a691a01f4fedec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90930708"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626841"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>Serveurs - Azure Database pour PostgreSQL - Serveur flexible
 
@@ -42,8 +42,8 @@ Dans une base de données Azure Database pour serveur PostgreSQL, vous pouvez cr
 
 Les éléments suivants permettent de garantir un accès sécurisé à votre base de données :
 
-|||
-|:--|:--|
+| Concept de sécurité | Description |
+| :-- | :-- |
 | **Authentification et autorisation** | Le serveur de base de données Azure pour PostgreSQL prend en charge l’authentification PostgreSQL native. Vous pouvez vous connecter et vous authentifier auprès du serveur avec les informations de connexion d’administrateur du serveur. |
 | **Protocole** | Le service prend en charge un protocole par messages utilisé par PostgreSQL. |
 | **TCP/IP** | Le protocole est pris en charge via TCP/IP et des sockets du domaine Unix. |

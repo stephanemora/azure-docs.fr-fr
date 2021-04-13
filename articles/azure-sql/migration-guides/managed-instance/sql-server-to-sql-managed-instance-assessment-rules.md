@@ -1,5 +1,5 @@
 ---
-title: Règles d’évaluation pour la migration de SQL Server vers SQL Managed Instance
+title: Règles d’évaluation pour la migration de SQL Server vers Azure SQL Managed Instance
 description: Règles d’évaluation pour identifier les problèmes liés à l’instance SQL Server source qui doivent être résolus avant la migration vers Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: 760a6496ff297ae6328810589f780b430d55b18a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054087"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026034"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-managed-instance-migration"></a>Règles d’évaluation pour la migration de SQL Server vers SQL Managed Instance
+# <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Règles d’évaluation pour la migration de SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Les outils de migration valident votre instance de SQL Server source en exécutant un certain nombre de règles d’évaluation afin d’identifier les problèmes à résoudre avant la migration de votre base de données SQL Server vers Azure SQL Managed Instance. 
@@ -215,7 +215,7 @@ La transaction distribuée SQL BEGIN DISTRIBUTED TRANSACTION démarrée par Tran
 
 
 **Recommandation**   
-Examinez la section Objets affectés dans Azure Migrate pour voir tous les objets utilisant la transaction BEGIN DISTRUBUTED TRANSACTION. Envisagez de migrer les bases de données participantes vers Azure SQL Managed Instance où les transactions distribuées sur plusieurs instances sont prises en charge (actuellement en préversion). Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure.
+Examinez la section Objets affectés dans Azure Migrate pour voir tous les objets utilisant la transaction BEGIN DISTRUBUTED TRANSACTION. Envisagez de migrer les bases de données participantes vers Azure SQL Database où les transactions distribuées sur plusieurs instances sont prises en charge (actuellement en préversion). Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure.
 
 Informations supplémentaires : [Transactions sur plusieurs serveurs pour Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
 
@@ -229,7 +229,7 @@ La transaction distribuée SQL BEGIN DISTRIBUTED TRANSACTION démarrée par Tran
 
 
 **Recommandation**   
-Examinez la section Objets affectés dans Azure Migrate pour voir tous les objets utilisant la transaction BEGIN DISTRUBUTED TRANSACTION. Envisagez de migrer les bases de données participantes vers Azure SQL Managed Instance où les transactions distribuées sur plusieurs instances sont prises en charge (actuellement en préversion). Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure. 
+Examinez la section Objets affectés dans Azure Migrate pour voir tous les objets utilisant la transaction BEGIN DISTRUBUTED TRANSACTION. Envisagez de migrer les bases de données participantes vers Azure SQL Database où les transactions distribuées sur plusieurs instances sont prises en charge (actuellement en préversion). Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure. 
 
 Informations supplémentaires : [Transactions sur plusieurs serveurs pour Azure SQL Managed Instance](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
 

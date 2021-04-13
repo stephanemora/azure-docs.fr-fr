@@ -2,14 +2,14 @@
 title: Simuler des défaillances dans les microservices Azure
 description: Cet article présente les actions de testabilité de Microsoft Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 06/07/2017
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9f8221d92ded33350b182cce5d28dd889beae4a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595018"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732871"
 ---
 # <a name="testability-actions"></a>Actions de testabilité
 Pour simuler une infrastructure non fiable, Azure Service Fabric procure aux développeurs, autrement dit à vous, des moyens d’intégrer des défaillances et des transitions d’état réalistes. Elles sont exposées en tant qu’actions de testabilité. Les actions sont les API de bas niveau provoquant l’injection des erreurs, la transition entre les états ou la validation. En combinant ces actions, vous êtes en mesure d’écrire des scénarios de test complets pour vos services.
@@ -34,6 +34,7 @@ Pour une qualité améliorée de validation, exécutez le service et la charge d
 | InvokeQuorumLoss |Entraîne une perte de quorum dans une partition considérée de service avec état. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Sans perte de données |
 | MovePrimary |Déplace le réplica principal spécifié d’un service avec état sur le nœud de cluster spécifié. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Sans perte de données |
 | MoveSecondary |Déplace le réplica secondaire actuel d’un service avec état sur un nœud de cluster différent. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Sans perte de données |
+| MoveInstance | Déplace l’instance actuelle d’un service sans état sur un nœud de cluster différent. | MoveInstanceAsync | Move-ServiceFabricInstance | Sans perte de données |
 | RemoveReplica |Simule une défaillance de réplica en supprimant un réplica d’un cluster. Cette action ferme le réplica et entraîne le passage au rôle « None », ce qui supprime l’intégralité de l’état du cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Sans perte de données |
 | RestartDeployedCodePackage |Simule une défaillance de processus de package de code en redémarrant un package de code déployé sur un nœud de cluster. Cela interrompt le processus de package de code qui redémarrera l’ensemble des réplicas du service utilisateur hébergés dans ce processus. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Avec perte de données |
 | RestartNode |Simule la défaillance d’un nœud de cluster Service Fabric en redémarrant un nœud. |RestartNodeAsync |Restart-ServiceFabricNode |Avec perte de données |

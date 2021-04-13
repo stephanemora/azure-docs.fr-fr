@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: a0c3a3cbaa71d627f54550cf92c067afbb1eb3f0
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d0fd9ab8286496b9801d6c10682761f1264e040a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786207"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120909"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,7 +79,7 @@ Activités | Activités à exécuter. | Liste des activités | Oui
 Si la valeur de **isSequential** est définie sur False, l’activité effectue l’itération en parallèle avec un maximum de 20 itérations simultanées. Ce paramètre doit être utilisé avec précaution. Si les itérations simultanées écrivent dans le même dossier, mais dans des fichiers différents, cette approche convient. Si les itérations simultanées écrivent en même temps dans le même fichier, cette approche entraînera très probablement une erreur. 
 
 ## <a name="iteration-expression-language"></a>Langage d’expression de l’itération
-Dans l’activité ForEach, fournissez un tableau sur lequel effectuer l’itération pour la propriété **items**. Utilisez `@item()` pour itérer sur une seule énumération dans l’activité ForEach. Par exemple, si **items** est un tableau [1, 2, 3], `@item()` retourne 1 dans la première itération, 2 dans la deuxième, et 3 dans la troisième.
+Dans l’activité ForEach, fournissez un tableau sur lequel effectuer l’itération pour la propriété **items**. Utilisez `@item()` pour itérer sur une seule énumération dans l’activité ForEach. Par exemple, si **items** est un tableau [1, 2, 3], `@item()` retourne 1 dans la première itération, 2 dans la deuxième, et 3 dans la troisième. Vous pouvez également utiliser `@range(0,10)` comme expression pour effectuer une itération dix fois commençant par 0 et se terminant par 9.
 
 ## <a name="iterating-over-a-single-activity"></a>Itération sur une activité unique
 **Scénario :** Copier à partir du même fichier source dans Stockage Blob Azure vers plusieurs fichiers de destination dans Stockage Blob Azure.

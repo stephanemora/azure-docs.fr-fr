@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101645465"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543956"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planifier la configuration de Mes applications Azure Active Directory
 
@@ -74,31 +74,19 @@ Les administrateurs peuvent configurer les éléments suivants :
 
 ## <a name="plan-consent-configuration"></a>Planifier la configuration du consentement
 
-Il existe deux types de consentement : le consentement de l’utilisateur et le consentement pour les applications qui accèdent aux données.
-
-![Capture d’écran de la configuration du consentement](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>Consentement de l’utilisateur pour les applications 
 
-Les utilisateurs ou les administrateurs doivent accepter les conditions d’utilisation et les stratégies de confidentialité de l’application. Vous devez décider si les utilisateurs ou seuls les administrateurs peuvent donner leur consentement aux applications. **Si vos règles d’entreprise l’autorisent, nous vous recommandons d’utiliser le consentement de l’administrateur pour conserver le contrôle des applications dans votre locataire**.
+Pour qu’un utilisateur puisse se connecter à une application et que l’application puisse accéder aux données de votre organisation, un utilisateur ou un administrateur doit accorder les permissions d’application. Vous pouvez configurer si le consentement de l’utilisateur est autorisé et dans quelles conditions. **Microsoft vous recommande d’autoriser uniquement le consentement de l’utilisateur pour les applications d’éditeurs vérifiés.**
 
-Pour utiliser le consentement de l’administrateur, vous devez être un administrateur général de l’organisation, et les applications doivent être :
-
-* Inscrites dans votre organisation.
-
-* Inscrites dans une autre organisation Azure AD et précédemment autorisées par au moins un utilisateur.
-
-Si vous voulez permettre aux utilisateurs de donner leur consentement, vous devez décider si vous souhaitez qu’ils puissent consentir à toute application, ou seulement dans des circonstances spécifiques.
-
-Pour plus d’informations, consultez [Configurer le consentement de l’utilisateur final pour une application dans Azure Active Directory](../manage-apps/configure-user-consent.md).
+Pour plus d’informations, consultez [Configurer le consentement des utilisateurs finaux aux applications](../manage-apps/configure-user-consent.md)
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>Consentement du propriétaire du groupe pour les applications qui accèdent aux données
 
-Déterminez si les propriétaires des groupes de sécurité Azure AD ou des groupes M365 sont en mesure de donner leur consentement aux applications pour accéder aux données des groupes dont ils sont propriétaires. Vous pouvez refuser, autoriser tous les propriétaires de groupe ou autoriser uniquement un sous-ensemble de propriétaires de groupes.
+Les propriétaires de groupes et d’équipes peuvent autoriser des applications telles que des applications publiées par des fournisseurs tiers à accéder aux données de votre organisation associées à un groupe. Pour en savoir plus, consultez [Consentement propre à la ressource dans Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent). 
+
+Vous pouvez configurer si vous souhaitez autoriser ou désactiver cette fonctionnalité.
 
 Pour plus d’informations, consultez [Configurer les autorisations du consentement de groupe](../manage-apps/configure-user-consent-groups.md).
-
-Ensuite, configurez vos [paramètres de consentement pour l’utilisateur et le propriétaire du groupe](https://portal.azure.com/) dans le portail Azure.
 
 ### <a name="plan-communications"></a>Planifier les communications
 

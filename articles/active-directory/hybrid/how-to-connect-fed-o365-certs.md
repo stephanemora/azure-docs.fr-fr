@@ -16,22 +16,29 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e81cb9018d817fb206915a81fdc3bdd60f6b08c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686867"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611886"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renouveler des certificats de fédération pour Microsoft 365 et Azure Active Directory
 ## <a name="overview"></a>Vue d’ensemble
 Afin d’assurer la fédération réussie entre Azure Active Directory (Azure AD) et Active Directory Federation Services (AD FS), les certificats utilisés par AD FS pour signer les jetons de sécurité destinés à Azure AD doivent correspondre à la configuration d’Azure AD. Toute incompatibilité peut entraîner une rupture de l’approbation. Azure AD garantit la synchronisation de ces informations lorsque vous déployez AD FS et le proxy d’application web (pour l’accès extranet).
+
+> [!NOTE]
+> Cet article fournit des informations sur la gestion de vos certificats de fédération.  Pour obtenir des informations sur la rotation d’urgence, consultez [Rotation d’urgence des certificats AD FS](how-to-connect-emergency-ad-fs-certificate-rotation.md)
 
 Cet article fournit des informations supplémentaires pour gérer vos certificats de signature de jetons et les maintenir synchronisés avec Azure AD dans les scénarios suivants :
 
 * Vous ne déployez pas le proxy d’application web ; les métadonnées de fédération ne sont donc pas disponibles dans l’extranet.
 * Vous n’utilisez pas la configuration par défaut d’AD FS pour les certificats de signature de jetons.
 * Vous utilisez un fournisseur d’identité tiers.
+
+> [!IMPORTANT]
+> Microsoft recommande vivement d’utiliser un module de sécurité matériel (HSM) pour protéger et sécuriser les certificats.
+> Pour plus d’informations, consultez [Module de sécurité matériel](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) dans les meilleures pratiques pour la sécurisation des AD FS.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configuration par défaut d’AD FS pour les certificats de signature de jetons
 Les certificats de signature et de déchiffrement de jetons sont généralement des certificats auto-signés, valables pendant un an. Par défaut, AD FS inclut un processus de renouvellement automatique appelé **AutoCertificateRollover**. Si vous utilisez AD FS 2.0 ou version ultérieure, Microsoft 365 et Azure AD mettent automatiquement à jour votre certificat avant qu’il n’arrive à expiration.

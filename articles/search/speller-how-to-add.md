@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
-ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232356"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625906"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Ajouter la vérification orthographique aux requêtes dans le service Recherche cognitive
 
@@ -25,7 +25,7 @@ Vous pouvez améliorer le rappel en corrigeant l’orthographe de termes de requ
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-+ Un index de recherche existant avec du contenu en anglais
++ Un index de recherche existant avec du contenu en anglais. Actuellement, la correction de l’orthographe ne fonctionne pas avec les [synonymes](search-synonyms.md). Évitez de l’utiliser sur des index qui spécifient une carte de synonymes dans une définition de champ.
 
 + Un client de recherche pour l’envoi de requêtes
 

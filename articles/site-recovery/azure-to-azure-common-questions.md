@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5309fd60640c45ade42bab4c5727cf1f0a8d9d70
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397948"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105025473"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -73,7 +73,7 @@ Oui, vous pouvez répliquer des machines virtuelles Azure vers n’importe quel 
 
 ### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>Puis-je répliquer des machines virtuelles d’une zone de disponibilité dans une autre région ?
 
-Oui, vous pouvez répliquer des machines virtuelles de zones de disponibilité vers une autre région Azure. La machine virtuelle cible peut être déployée en tant qu’instance unique, dans un groupe à haute disponibilité ou dans une zone de disponibilité si elle est prise en charge dans la région cible. 
+Oui, vous pouvez répliquer des machines virtuelles de zones de disponibilité vers une autre région Azure. 
 
 ### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>Puis-je répliquer des machines virtuelles non zones dans une zone de la même région ? 
 

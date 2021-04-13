@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d80caf767d923ce2539ca254a8312371155a3104
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553729"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607590"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
 
@@ -52,7 +52,7 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : vous avez tenté de supprimer une galerie contenant au moins une définition d’image existante. Une galerie doit être vide pour qu’il soit possible de la supprimer.  
 **Solution de contournement** : supprimez toutes les définitions d’images que contient la galerie, puis supprimez la galerie. Si la définition d’image contient des versions d’images, vous devez supprimer celles-ci avant de supprimer les définitions d’images.
 
-**Message** : *Le nom de galerie « <galleryName\> » n’est pas unique dans l’abonnement « <subscriptionId> ». Choisissez un autre nom de galerie.*  
+**Message** : *Le nom de galerie « <galleryName\> » n’est pas unique dans l’abonnement « <subscriptionID> ». Choisissez un autre nom de galerie.*  
 **Cause** : une galerie existante porte le même nom, et vous avez tenté d’en créer une autre avec le même nom.  
 **Solution de contournement** : choisissez un autre nom pour la galerie.
 
@@ -127,7 +127,7 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : vous avez tenté de supprimer une définition d’image contenant des versions d’image. Une définition d’image doit être vide pour qu’il soit possible de la supprimer.  
 **Solution de contournement** : supprimez toutes les versions d’image que contient la définition d’image, puis supprimez la définition d’image.
 
-**Message** : *Impossible de lier le paramètre <property\>. Impossible de convertir la valeur <value\> en type <propertyType\>. Impossible de faire correspondre le nom d’identificateur <value\> à un nom d’énumérateur valide. Spécifiez l’un des noms d’énumérateur suivants, puis réessayez : <choice1\>, <choice2\>, …*  
+**Message** : *Impossible de lier le paramètre <property\>. Impossible de convertir la valeur <value\> en type <propertyType\>. Impossible de faire correspondre le nom d’identificateur <value\> à un nom d’énumérateur valide. Spécifiez l’un des noms d’énumérateur suivants, puis réessayez : <choice\_1\>, <choice\_2\>, …*  
 **Cause** : la propriété a une liste restreinte de valeurs possibles et <value\> n’est pas l’une d’elles.  
 **Solution de contournement** : choisissez l’une des valeurs <choice\> possibles.
 
@@ -185,7 +185,7 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : lors de la création d’une version d’image à l’aide d’une liste de disques et/ou de captures instantanées de disques, au moins deux disques ou captures instantanées de disque ont le même ID de ressource.  
 **Solution de contournement** : supprimez ou modifiez tout ID de source de disque en double.
 
-**Message** : *L’ID de propriété <resourceID\> dans le chemin « properties.storageProfile.<diskImages\>.source.id » n’est pas valide. L’ID de ressource complet attendu commence par « /subscriptions/{subscriptionId} » ou « /providers/{resourceProviderNamespace}/ ».*  
+**Message** : *ID de propriété <resourceID\> dans le chemin « properties.storageProfile.<diskImages\>.source.id » n’est pas valide. L’ID de ressource complet attendu commence par « /subscriptions/<subscriptionID> » ou « /providers/<resourceProviderNamespace>/ ».*  
 **Cause** : le format de la valeur <resourceID\> n’est pas correct.  
 **Solution de contournement** : vérifiez que l’ID de la ressource est correct.
 
@@ -261,12 +261,12 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : l’ID de la ressource de la source est peut-être incorrect.  
 **Solution de contournement** : assurez-vous que l’ID de la ressource de la source est correct.
 
-**Message** : *Un jeu de chiffrement de disque est requis pour le disque « galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId » dans la région cible « <region\_1\> », car le jeu de chiffrement de disque « <diskEncryptionSetID\> » est utilisé pour le disque correspondant dans la région « <region\_2\> »* .  
-**Cause** : un chiffrement a été utilisé sur le disque de système d’exploitation dans la région <region\_2\>, mais pas dans la région <region\_1\>.  
+**Message** : *Un jeu de chiffrement de disque est requis pour le disque « galleryArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId » dans la région cible « <region\_1\> », car le jeu de chiffrement de disque « <diskEncryptionSetID\> » est utilisé pour le disque correspondant dans la région « <region\_2\> »*  
+**Cause** : Un chiffrement a été utilisé sur le disque de système d’exploitation dans la région <region\_2\>, mais pas dans la région <region\_1\>.  
 **Solution de contournement** : si vous utilisez un chiffrement sur le disque de système d’exploitation, utilisez-le dans toutes les régions.
 
-**Message** : *Un jeu de chiffrement de disque est requis pour le « LUN <number\> » du disque dans la région cible « <Region\_1\> », car le jeu de chiffrement de disque « <diskEncryptionSetID\> » est utilisé pour le disque correspondant dans la région « <Region\_2\> »* .  
-**Cause** : un chiffrement a été utilisé sur le disque de données dans le LUN <number\> dans la région <Region\_2\>, mais pas dans la région <Region\_1\>.  
+**Message** : *Un jeu de chiffrement de disque est requis pour le « LUN <number\> » du disque dans la région cible « <region\_1\> », car le jeu de chiffrement de disque « <diskEncryptionSetID\> » est utilisé pour le disque correspondant dans la région « <region\_2\> »*  
+**Cause** : Un chiffrement a été utilisé sur le disque de données dans le LUN <number\> dans la région <region\_2\>, mais pas dans la région <region\_1\>.  
 **Solution de contournement** : si vous utilisez un chiffrement sur un disque de données, utilisez-le dans toutes les régions.
 
 **Message** : *Un lun [<number\>] non valide a été spécifié dans encryption.dataDiskImages. Le lun doit avoir l’une des valeurs suivantes ['0,9'].*  
@@ -303,7 +303,7 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : la définition d’image utilisée pour déployer la machine virtuelle ne contient pas de versions d’image incluses dans la dernière version.  
 **Solution de contournement** : assurez-vous qu’il existe au moins une version d’image pour laquelle « Exclure de la plus récente » est défini sur False. 
 
-**Message** : *Le client a l’autorisation d’effectuer l’action « Microsoft.Compute/galleries/images/versions/read » sur l’étendue <resourceID\>, mais le locataire actuel, <tenantId1\>, n’est pas autorisé à accéder à l’abonnement lié <subscriptionID2\>.*  
+**Message** : *Le client a l’autorisation d’effectuer l’action « Microsoft.Compute/galleries/images/versions/read » sur l’étendue <resourceID\>, mais le locataire actuel, <tenantID\>, n’est pas autorisé à accéder à l’abonnement lié <subscriptionID\>.*  
 **Cause** : la machine virtuelle ou le groupe identique ont été créés à l’aide d’une image SIG dans un autre locataire. Vous avez tenté d’apporter une modification à la machine virtuelle ou au groupe identique, mais vous n’avez pas accès à l’abonnement possédant l’image.  
 **Solution de contournement** : contactez le propriétaire de l’abonnement de la version d’image pour accorder un accès en lecture à la version d’image.
 
@@ -327,12 +327,17 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : l’image source actuelle pour le groupe identique est généralisée, mais elle est mise à jour avec une image source spécialisée. L’image source actuelle et la nouvelle image source pour un groupe identique doivent avoir le même état.  
 **Solution de contournement** : pour mettre à jour le groupe identique, utilisez une version d’image généralisée.
 
-**Message**: *Le jeu de chiffrement de disque <diskEncryptionSetId\> dans le service Shared Image Gallery <versionId\> appartient à un abonnement <subscriptionID1\>, et ne peut pas être utilisé avec une ressource «» dans un abonnement <subscriptionID2\>* .  
+**Message**: *Le jeu de chiffrement de disque <diskEncryptionSetID\> dans le service Shared Image Gallery <versionID\> appartient à un abonnement <subscriptionID\_1\>, et ne peut pas être utilisé avec une ressource «» dans un abonnement <subscriptionID\_2\>*  
 **Cause** : le jeu de chiffrement de disque utilisé pour chiffrer la version d’image réside dans un abonnement différent de l’abonnement hébergeant la version d’image.  
 **Solution de contournement** : utilisez le même abonnement pour la version d’image et le jeu de chiffrement du disque.
 
 **Message** : *La création de la machine virtuelle ou du groupe de machines virtuelles identiques prend beaucoup de temps.*  
 **Solution de contournement** : Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à la valeur **OSType** de la source utilisée pour créer la version d’image. 
+
+**Message** : *La ressource avec l’ID <vmID \> a un plan différent ['{\"name\":\"<name>\",\"publisher\":\"<publisher>\",\"product\":\"<product>\",\"promotionCode\":\"<promotionCode>\"}'] duplan d’image de la Galerie parent ['null'].*  
+**Cause** : La définition de l’image parente pour la version de l’image en cours de déploiement n’a pas d’informations sur le plan d’achat.  
+**Solution de contournement** : Créez une définition d’image avec les mêmes détails du plan d’achat que le message d’erreur et créez la version de l’image dans la définition de l’image.
+
 
 ## <a name="creating-a-disk-from-an-image-version"></a>Création d’un disque à partir d’une version d’image ##
 

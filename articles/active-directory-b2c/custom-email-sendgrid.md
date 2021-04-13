@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 86f40944af9fb49b0402a33e5009b99d60be61f0
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489183"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031305"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Vérification des e-mails personnalisée avec SendGrid
 
@@ -43,7 +43,7 @@ Stockez ensuite la clé API SendGrid dans une clé de stratégie Azure AD B2C po
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 1. Dans **Options**, choisissez **Manuel**.
 1. Entrez un **nom** pour la clé de stratégie. Par exemple : `SendGridSecret`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-1. Dans **Secret**, entrez la clé secrète client que vous avez enregistrée.
+1. Dans **Secret**, entrez la clé API SendGrid que vous avez précédemment enregistrée.
 1. Pour **Utilisation de la clé**, sélectionnez **Signature**.
 1. Sélectionnez **Create** (Créer).
 

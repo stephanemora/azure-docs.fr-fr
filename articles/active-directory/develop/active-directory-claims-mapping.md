@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4c7474b001284286ed589f6b7995db6bc7fd50af
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94647594"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075064"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -304,7 +304,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | streetaddress | Adresse postale |
 | Utilisateur | postalcode | Code postal |
 | Utilisateur | preferredlanguage | Langue par défaut |
-| Utilisateur | onpremisesuserprincipalname | UPN local |*
+| Utilisateur | onpremisesuserprincipalname | UPN local |
 | Utilisateur | mailNickName | pseudonyme de messagerie |
 | Utilisateur | extensionattribute1 | Attribut d’extension 1 |
 | Utilisateur | extensionattribute2 | Attribut d’extension 2 |
@@ -419,16 +419,6 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 | ExtractMailPrefix | None |
 | Join | Le suffixe joint doit être un domaine vérifié du locataire de ressources. |
 
-### <a name="custom-signing-key"></a>Clé de signature personnalisée
-
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser la cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) pour créer des informations d’identification de clé de certificat pour votre objet d’application.
-
-Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous :
-
-```
-https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
-```
-
 ### <a name="cross-tenant-scenarios"></a>Scénarios inter-locataires
 
 Les stratégies de mappage de revendications ne s’appliquent pas aux utilisateurs invités. Si un utilisateur invité tente d’accéder à une application avec une stratégie de mappage de revendications assignée à son principal du service, le jeton par défaut est émis (la stratégie est sans effet).
@@ -531,6 +521,33 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="security-considerations"></a>Considérations relatives à la sécurité
+
+Les applications qui reçoivent des jetons s’appuient sur le fait que les valeurs de revendication sont émises par Azure AD et ne peuvent pas être falsifiées. Toutefois, lorsque vous modifiez le contenu d’un jeton via des stratégies de mappage de revendications, ces hypothèses peuvent ne plus être correctes. Les applications doivent explicitement confirmer que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications pour se protéger contre les stratégies de mappage de revendications créées par des intervenants malveillants. Cela peut être fait des manières suivantes :
+
+- Configurer une clé de signature personnalisée
+- Mettrez à jour le manifeste d’application pour accepter les revendications mappées.
+ 
+Sans cela, Azure AD renverra un code d’erreur [`AADSTS50146`](reference-aadsts-error-codes.md#aadsts-error-codes).
+
+### <a name="custom-signing-key"></a>Clé de signature personnalisée
+
+Pour ajouter une clé de signature personnalisée à l’objet du principal de service, vous pouvez utiliser la cmdlet Azure PowerShell [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) pour créer des informations d’identification de clé de certificat pour votre objet d’application.
+
+Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous :
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
+
+### <a name="update-the-application-manifest"></a>Mettre à jour le manifeste de l’application
+
+Vous pouvez également définir la propriété `acceptMappedClaims` à la valeur `true` dans le [manifeste de l’application](reference-app-manifest.md). Comme indiqué dans le [type de ressource apiApplication](/graph/api/resources/apiapplication#properties), cela permet à une application d’utiliser le mappage de revendications sans spécifier de clé de signature personnalisée.
+
+Cela nécessite que l’audience du jeton demandé utilise un nom de domaine vérifié de votre locataire Azure AD, ce qui signifie que vous devez vous assurer de définir `Application ID URI` (représenté par `identifierUris` dans le manifeste de l’application) par exemple sur `https://contoso.com/my-api` ou (simplement en utilisant le nom du locataire par défaut) `https://contoso.onmicrosoft.com/my-api`.
+
+Si vous n’utilisez pas un domaine vérifié, Azure AD retourne un code d’erreur `AADSTS501461` avec le message *« AcceptMappedClaims est pris en charge uniquement pour une audience de jetons correspondant au GUID de l’application ou une audience dans les domaines vérifiés du locataire. Vous pouvez modifier l’identificateur de ressource ou utiliser une clé de signature propre à l’application. »*
 
 ## <a name="see-also"></a>Voir aussi
 

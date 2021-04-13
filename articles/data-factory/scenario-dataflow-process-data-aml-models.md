@@ -11,10 +11,10 @@ ms.date: 1/31/2021
 ms.author: amberz
 ms.co-author: Donnana
 ms.openlocfilehash: 45cd44cc0678b7f3a006a88bf66be2bca091af76
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104595377"
 ---
 # <a name="process-data-from-automated-machine-learning-models-by-using-data-flows"></a>Traiter des données à partir de modèles Machine Learning automatisé à l’aide de flux de données
@@ -72,7 +72,7 @@ Supposons que nous devions supprimer un nombre de lignes inférieur à deux.
 
     ![Capture d’écran montrant la configuration de l’activité Agréger pour obtenir le nombre de lignes.](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
 
-1. À l’aide de l’activité Récepteur, sélectionnez le **type de récepteur** **Cache** dans l’onglet **Récepteur**. Sélectionnez ensuite la colonne souhaitée dans la liste déroulante **Colonnes clés** de l’onglet **Paramètres**.
+1. À l’aide de l’activité de récepteur, sélectionnez le **Type de récepteur** comme **Cache** sous l’onglet **Récepteur**. Sélectionnez ensuite la colonne souhaitée dans la liste déroulante **Colonnes clés** de l’onglet **Paramètres**.
 
     ![Capture d’écran montrant la configuration de l’activité CacheSink pour obtenir le nombre de lignes d’un récepteur mis en cache.](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
 

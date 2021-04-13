@@ -3,14 +3,14 @@ title: Forum aux questions
 description: Réponses aux questions fréquemment posées sur le service Azure Container Registry
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97606281"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045737"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -260,11 +260,23 @@ Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous po
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Comment activer l’accès par tirage (pull) anonyme ?
 
-La configuration d’un registre de conteneurs Azure pour l’accès par tirage (pull) anonyme (public) est actuellement une fonctionnalité en préversion. Si vous avez [des ressources de jeton ou de mappage d’étendue (utilisateur)](./container-registry-repository-scoped-permissions.md) dans votre registre, supprimez-les avant de déclencher un ticket de support (les mappages d’étendue système peuvent être ignorés). Pour activer l’accès public, veuillez ouvrir un ticket de support à https://aka.ms/acr/support/create-ticket. Pour plus d’informations, consultez le [Forum de commentaires Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+La configuration d’un registre de conteneurs Azure pour un accès par extraction anonyme (non authentifié) est actuellement une fonctionnalité d’évaluation, disponible dans les [niveaux de service](container-registry-skus.md) Standard et Premium. 
+
+Pour activer l’accès par extraction anonyme, mettez à jour un registre à l’aide d’Azure CLI (version 2.21.0 ou ultérieure) et transmettez le paramètre `--anonymous-pull-enabled` à la commande [az acr update](/cli/azure/acr#az_acr_update) :
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+Vous pouvez désactiver l’accès par extraction anonyme à tout moment en affectant `--anonymous-pull-enabled` à `false`.
 
 > [!NOTE]
-> * Seules les API requises pour extraire une image connue sont accessibles de façon anonyme. Aucune autre API destinée à des opérations comme une liste d’étiquettes ou une liste de référentiels n’est accessible de manière anonyme.
 > * Avant de tenter une opération d’extraction anonyme, exécutez `docker logout` pour vous assurer que vous effacez les informations d’identification existantes de Docker.
+> * Seules les opérations de plan de données sont disponibles pour les clients non authentifiés.
+> * Le registre peut limiter un taux élevé de requêtes non authentifiées.
+
+> [!WARNING]
+> L’accès en extraction anonyme s’applique actuellement à tous les référentiels du registre. Si vous gérez l’accès au référentiel à l’aide de [jetons délimités par le référentiel](container-registry-repository-scoped-permissions.md), sachez que tous les utilisateurs peuvent extraire de ces référentiels dans un registre activé pour l’extraction anonyme. Nous vous recommandons de supprimer des jetons lorsque l’accès par extraction anonyme est activé.
 
 ### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>Comment faire envoyer des couches non distribuable à un registre ?
 

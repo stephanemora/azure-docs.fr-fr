@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96018322"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608610"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 
@@ -58,6 +58,10 @@ Vous avez besoin de deux clés d’accès au cas où vous souhaiteriez les mettr
 
 ## <a name="do-you-save-my-storage-account-keys"></a>Enregistrez-vous mes clés de compte de stockage ?
 Votre clé de compte de stockage sert à créer des jetons d’accès à court terme pour le service Microsoft Genomics afin de lire les fichiers d’entrée et d’écrire les fichiers de sortie. La durée de vie par défaut d’un jeton est de 48 heures. Vous pouvez modifier la durée du jeton avec l’option `-sas/--sas-duration` de la commande submit. La valeur est exprimée en heures.
+
+## <a name="does-microsoft-genomics-store-customer-data"></a>Le service Microsoft Genomics stocke-t-il les données client ?
+
+Non. Microsoft Genomics ne stocke pas de données client.
 
 ## <a name="what-genome-references-can-i-use"></a>Quelle référence au génome puis-je utiliser ?
 

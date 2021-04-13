@@ -1,17 +1,17 @@
 ---
 title: Utiliser Azure Active Directory – Azure Database pour MySQL
 description: Découvrez comment configurer Azure Active Directory (Azure AD) pour l’authentification avec Azure Database pour MySQL
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/23/2020
-ms.openlocfilehash: f5890ddb2a4b1599dbcfd1e624c9fbe71a564de7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 492e56e09129f9d47b863624cd72cd508801c143
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102442755"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728264"
 ---
 # <a name="use-azure-active-directory-for-authentication-with-mysql"></a>Utiliser Azure Active Directory pour l’authentification avec MySQL
 
@@ -78,7 +78,6 @@ Exemple (pour le cloud public) :
 ```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
-
 La valeur de la ressource ci-dessus doit être spécifiée exactement comme indiqué. Pour les autres clouds, la valeur de la ressource peut être recherchée à l’aide de ce qui suit :
 
 ```azurecli-interactive
@@ -90,6 +89,13 @@ Pour Azure CLI version 2.0.71 et les versions ultérieures, la commande peut êt
 ```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
+Avec PowerShell, vous pouvez utiliser la commande suivante pour obtenir le jeton d’accès :
+
+```azurepowershell-interactive
+$accessToken = Get-AzAccessToken -ResourceUrl https://ossrdbms-aad.database.windows.net
+$accessToken.Token | out-file C:\temp\MySQLAccessToken.txt
+```
+
 
 Une fois l’authentification réussie, Azure AD retourne un jeton d’accès :
 
@@ -105,13 +111,17 @@ Une fois l’authentification réussie, Azure AD retourne un jeton d’accès :
 
 Le jeton est une chaîne base 64 qui code toutes les informations relatives à l’utilisateur authentifié et qui est destinée au service Azure Database pour MySQL.
 
-> [!NOTE]
-> La validité du jeton d’accès est comprise entre 5 minutes et 60 minutes. Nous vous recommandons d’obtenir le jeton d’accès juste avant de lancer la connexion à Azure Database pour MySQL.
+La validité du jeton d’accès est comprise entre ***5 minutes et 60 minutes***. Nous vous recommandons d’obtenir le jeton d’accès juste avant de lancer la connexion à Azure Database pour MySQL. Vous pouvez utiliser la commande PowerShell suivante pour voir la validité du jeton. 
+
+```azurepowershell-interactive
+$accessToken.ExpiresOn.DateTime
+```
 
 ### <a name="step-3-use-token-as-password-for-logging-in-with-mysql"></a>Étape 3 : Utiliser un jeton comme mot de passe pour la connexion avec MySQL
 
-Lors de la connexion, vous devez utiliser le jeton d’accès comme mot de passe utilisateur MySQL. Lorsque vous utilisez des clients GUI tels que MySQLWorkbench, vous pouvez utiliser la méthode ci-dessus pour récupérer le jeton. 
+Lors de la connexion, vous devez utiliser le jeton d’accès comme mot de passe utilisateur MySQL. Lorsque vous utilisez des clients GUI tels que MySQLWorkbench, vous pouvez utiliser la méthode décrite ci-dessus pour récupérer le jeton. 
 
+#### <a name="using-mysql-cli"></a>Utilisation de l’interface CLI MySQL
 Lorsque vous utilisez l’interface CLI, vous pouvez utiliser ce raccourci pour vous connecter : 
 
 **Exemple (Linux/macOS) :**
@@ -121,8 +131,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+#### <a name="using-mysql-workbench"></a>Utilisation de MySQL Workbench
+* Lancez MySQL Workbench, cliquez sur l’option Base de données, puis sur « Se connecter à la base de données »
+* Dans le champ nom d’hôte, entrez le nom de domaine complet MySQL, par exemple mydb.mysql.database.azure.com
+* Dans le champ nom d’utilisateur, entrez le nom de l’administrateur Azure Active Directory MySQL et ajoutez-le avec le nom du serveur MySQL, et non le nom de domaine complet, par exemple user@tenant.onmicrosoft.com@mydb
+* Dans le champ mot de passe, cliquez sur « Stocker dans le coffre » et collez le jeton d’accès à partir du fichier, par exemple C:\temp\MySQLAccessToken.txt
+* Cliquez sur l’onglet Avancé et n’oubliez pas de cocher « Activer le plug-in d’authentification en texte clair »
+* Cliquez sur OK pour vous connecter à la base de données
 
-Considérations importantes à prendre en compte lors de la connexion :
+#### <a name="important-considerations-when-connecting"></a>Considérations importantes à prendre en compte lors de la connexion :
 
 * `user@tenant.onmicrosoft.com` est le nom de l’utilisateur ou du groupe Azure AD auquel vous essayez de vous connecter
 * Ajoutez toujours le nom du serveur après le nom de groupe/utilisateur Azure AD (par exemple, `@mydb`)

@@ -4,16 +4,16 @@ description: Comprendre la planification d’un déploiement Azure Files. Vous p
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879845"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023518"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
@@ -26,7 +26,7 @@ Cet article traite principalement de considérations relatives au déploiement, 
 
 ## <a name="available-protocols"></a>Protocoles disponibles
 
-Azure Files offre deux protocoles pouvant être utilisés lors du montage de vos partages de fichiers, SMB et NFS (Network File System). Pour plus d’informations sur ces protocoles, consultez [Protocoles de partage de fichiers Azure](storage-files-compare-protocols.md).
+Azure Files propose deux protocoles pouvant être utilisés lors du montage de vos partages de fichiers, SMB et NFS (Network File System). Pour plus d’informations sur ces protocoles, consultez [Protocoles de partage de fichiers Azure](storage-files-compare-protocols.md).
 
 > [!IMPORTANT]
 > L’essentiel du contenu de cet article s’applique uniquement aux partages SMB. Tout ce qui s’applique aux partages NFS indique spécifiquement être applicable.
@@ -65,7 +65,7 @@ Bien que d’un point de vue technique il soit beaucoup plus facile de monter vo
 
 - **Tunneling réseau à l’aide d’un VPN ExpressRoute, de site à site ou de point à site**. Le tunneling dans un réseau virtuel permet d’accéder aux partages de fichiers Azure depuis l’environnement local, même si le port 445 est bloqué.
 - **Points de terminaison privés**. Les points de terminaison privés attribuent à votre compte de stockage une adresse IP dédiée depuis l’espace d’adressage du réseau virtuel. Le tunneling réseau est ainsi possible sans avoir à ouvrir de réseaux locaux sur la totalité des plages d’adresses IP détenues par les clusters de stockage Azure. 
-- **Transfert DNS**. Configurez votre DNS local afin de résoudre le nom de votre compte de stockage (c’est-à-dire `storageaccount.file.core.windows.net` pour les régions du cloud public) sur l’adresse IP de vos points de terminaison privés.
+- **Transfert DNS** : Configurez votre DNS local afin de résoudre le nom de votre compte de stockage (`storageaccount.file.core.windows.net` pour les régions du cloud public) sur l’adresse IP de vos points de terminaison privés.
 
 Pour planifier la mise en réseau associée au déploiement d’un partage de fichiers Azure, consultez [Considérations relatives à la mise en réseau Azure Files](storage-files-networking-overview.md).
 
@@ -94,12 +94,12 @@ Azure Files adopte une approche multicouche pour garantir que vos données sont 
 ### <a name="soft-delete"></a>Suppression réversible
 La suppression réversible pour les partages de fichiers (préversion) est un paramètre de niveau de compte de stockage qui vous permet de récupérer votre partage de fichiers en cas de suppression accidentelle. Lors de la suppression d’un partage de fichiers, celui-ci passe par un état transitoire de suppression réversible au lieu d’être supprimé définitivement. Vous pouvez configurer la durée pendant laquelle les données supprimées de manière réversible sont récupérables avant leur suppression définitive, et annuler la suppression du partage à tout moment lors de la période de rétention. 
 
-Nous vous recommandons d’activer la suppression réversible pour la plupart des partages de fichiers. Si vous avez un flux de travail dans lequel la suppression de partage est courante et attendue, vous pouvez décider de configurer une période de rétention très brève ou de ne pas activer la suppression réversible.
+Nous vous recommandons d’activer la suppression réversible pour la plupart des partages de fichiers. Si vous avez un flux de travail dans lequel la suppression de partage est courante et attendue, vous pouvez décider de configurer une période de rétention brève ou de ne pas activer la suppression réversible.
 
 Pour plus d’informations sur la suppression réversible, consultez [Prévenir les suppressions de données accidentelles](./storage-files-prevent-file-share-deletion.md).
 
 ### <a name="backup"></a>Sauvegarde
-Vous pouvez sauvegarder votre partage de fichiers Azure via des [captures instantanées de partage](./storage-snapshots-files.md), qui sont des copies en lecture seule de votre partage à un instant dans le passé. Les captures instantanées sont incrémentielles, ce qui signifie qu’elles ne contiennent que les données modifiés depuis la capture instantanée précédente. Vous pouvez avoir jusqu’à 200 captures instantanées par partage de fichiers et les conserver pendant jusqu’à 10 ans. Vous pouvez soit prendre manuellement ces captures instantanées dans le portail Azure, via PowerShell ou l’interface de ligne de commande (CLI), soit d’utiliser [Sauvegarde Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Les captures instantanées sont stockées dans votre partage de fichiers, ce qui signifie que, si vous supprimez votre partage de fichiers, vos captures instantanées sont également supprimées. Pour protéger vos sauvegardes de captures instantanées contre des suppressions accidentelles, assurez-vous que la suppression réversible est activée pour votre partage.
+Vous pouvez sauvegarder votre partage de fichiers Azure via des [captures instantanées de partage](./storage-snapshots-files.md), qui sont des copies en lecture seule de votre partage à un instant dans le passé. Les captures instantanées sont incrémentielles, ce qui signifie qu’elles ne contiennent que les données modifiées depuis la capture instantanée précédente. Vous pouvez avoir jusqu’à 200 captures instantanées par partage de fichiers et les conserver pendant jusqu’à 10 ans. Vous pouvez soit prendre manuellement ces captures instantanées dans le portail Azure, via PowerShell ou l’interface de ligne de commande (CLI), soit d’utiliser [Sauvegarde Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Les captures instantanées sont stockées dans votre partage de fichiers, ce qui signifie que, si vous supprimez votre partage de fichiers, vos captures instantanées sont également supprimées. Pour protéger vos sauvegardes de captures instantanées contre des suppressions accidentelles, assurez-vous que la suppression réversible est activée pour votre partage.
 
 La [Sauvegarde Azure pour les partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) gère la planification et la rétention des captures instantanées. Ses fonctionnalités grand-père-père-fils vous permettent de prendre des captures instantanées quotidiennes, hebdomadaires, mensuelles et annuelles, dont les périodes de rétention diffèrent. Le service Sauvegarde Azure orchestre également l’activation de la suppression réversible, et pose un verrou de suppression sur un compte de stockage dès qu’un partage de fichiers dans celui-ci est configuré pour la sauvegarde. Enfin, le service Sauvegarde Azure offre certaines fonctionnalités de surveillance et d’alerte clés, qui permettent aux clients d’avoir une vue consolidée de leur parc de sauvegarde.
 
@@ -107,10 +107,10 @@ Sauvegarde Azure vous permet d’effectuer des restaurations au niveau élément
 
 Pour plus d’informations sur la sauvegarde, consultez [À propos de la sauvegarde des partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Advanced Threat Protection pour Azure Files (préversion)
-Advanced Threat Protection (ATP) pour Stockage Azure fournit une couche supplémentaire de renseignement sur la sécurité, qui génère des alertes quand elle détecte une activité anormale sur votre compte de stockage, par exemple, des tentatives inhabituelles d’accès au compte de stockage. ATP exécute également une analyse de réputation du hachage de programme malveillant et déclenche une alerte concernant les programmes malveillants connus. Vous pouvez configurer ATP au niveau d’un abonnement ou d’un compte de stockage via Azure Security Center. 
+### <a name="azure-defender-for-azure-files"></a>Azure Defender pour Azure Files 
+Azure Defender pour Azure Files (anciennement Advanced Threat Protection pour Stockage Azure) fournit une couche supplémentaire de renseignement sur la sécurité, qui génère des alertes quand elle détecte une activité anormale sur votre compte de stockage, par exemple, des tentatives inhabituelles d’accès. Il exécute également une analyse de réputation du hachage de programme malveillant et déclenche une alerte concernant les programmes malveillants connus. Vous pouvez configurer Azure Defender au niveau d’un abonnement ou d’un compte de stockage via Azure Security Center. 
 
-Pour plus d’informations, consultez [Advanced Threat Protection pour Stockage Azure](../common/azure-defender-storage-configure.md).
+Pour plus d’informations, consultez [Présentation d’Azure Defender pour le Stockage](../../security-center/defender-for-storage-introduction.md).
 
 ## <a name="storage-tiers"></a>Niveaux de stockage
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

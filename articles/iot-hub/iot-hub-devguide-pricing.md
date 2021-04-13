@@ -11,12 +11,12 @@ ms.date: 03/11/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4c7382f84522333b6aae0d79941aae8f2147a12f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5b67f505a71d2af7950422a86ab45ef8aebb3bf4
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "81729158"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056434"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informations sur les tarifs Azure IoT Hub
 
@@ -33,9 +33,9 @@ La [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/
 | Messages Cloud vers appareil | Les messages envoyés avec succès sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé 2 messages. |
 | Chargements de fichiers | Le transfert de fichiers vers Stockage Azure n’est pas mesuré par IoT Hub. Les messages de lancement et de complétion du transfert de fichiers sont facturés en tant que messages, par incréments de 4 Ko. Par exemple, le transfert d’un fichier de 10 Mo est facturé deux messages, en plus du coût de Stockage Azure. |
 | Méthodes directes | Les demandes réussies de méthodes sont facturées par blocs de 4 Ko, tandis que les réponses sont elles aussi facturées par blocs de 4 Ko, en tant que messages supplémentaires. Les demandes dirigées vers des appareils déconnectés sont facturées en tant que messages, par blocs de 4 Ko. Par exemple, une méthode avec un corps de 4 Ko qui génère une réponse sans corps de l’appareil est facturée comme deux messages. Une méthode avec un corps de 6 Ko qui génère une réponse de 1 Ko de l’appareil est facturée comme deux messages pour la demande, plus un autre message pour la réponse. |
-| Lectures de jumeaux de l’appareil et du module | Les lectures de jumeaux de l’appareil ou du module et du backend de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau de 6 Ko est facturée comme 12 messages. |
-| Mises à jour de jumeaux d’appareil ou de module (balises et propriétés) | Les mises à jour de jumeaux à partir de l’appareil ou du module et du backend de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau de 6 Ko est facturée comme 12 messages. |
-| Requêtes de jumeaux de l’appareil et du module | Les requêtes sont facturées en tant que messages, en fonction de la taille du résultat, par blocs de 512 octets. |
+| Lectures de jumeaux de l’appareil et du module | Les lectures de jumeaux de l’appareil ou du module et du backend de la solution sont facturées en tant que messages, par blocs de 4 Ko. Par exemple, la lecture d’un jumeau de 8 Ko est facturée comme 2 messages. |
+| Mises à jour de jumeaux d’appareil ou de module (balises et propriétés) | Les mises à jour de jumeaux à partir de l’appareil ou du module et du backend de la solution sont facturées en tant que messages, par blocs de 4 Ko. Par exemple, la lecture d’un jumeau de 12 Ko est facturée comme 3 messages. |
+| Requêtes de jumeaux de l’appareil et du module | Les requêtes sont facturées en tant que messages, en fonction de la taille du résultat, par blocs de 4 Ko. |
 | Opérations de travaux <br/> (créer, mettre à jour, répertorier, supprimer) | Non facturé. |
 | Opérations de travaux par appareil | Les opérations de travaux (comme les mises à jour de jumeaux et les méthodes) sont facturées normalement. Par exemple, un travail entraînant 1 000 appels de méthode avec des demandes de 1 Ko et des réponses à corps vide est facturé comme 1 000 messages. |
 | Keep-alive messages | Lorsque vous utilisez les protocoles AMQP ou MQTT, des messages sont échangés pour établir la connexion et les messages échangés dans la négociation ne sont pas facturés. |

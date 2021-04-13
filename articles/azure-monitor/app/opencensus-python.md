@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704410"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047420"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurer Azure Monitor pour votre application Python
 
@@ -19,7 +19,7 @@ Azure Monitor prend en charge le traçage distribué, la collecte de métriques 
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le kit SDK prend uniquement en charge Python v2.7 et v3.4-v3.7.
+- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le Kit de développement logiciel (SDK) prend uniquement en charge les versions 2.7 et 3.6+ de Python.
 - Créez une [ressource](./create-new-resource.md) Application Insights. Vous recevrez votre propre clé d’instrumentation (ikey) pour votre ressource.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Instrumentez à l’aide du Kit de développement logiciel (SDK) OpenCensus Python pour Azure Monitor

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104607651"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611971"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Mettre à l’échelle une migration sans agent de machines virtuelles VMware vers Azure
 
@@ -68,8 +68,8 @@ Dans **Télécharger l’appliance Azure Migrate**, cliquez sur **Télécharger*
 > 1. Ouvrez une invite de commandes en tant qu’administrateur.
 > 2. Exécutez la commande suivante pour générer le code de hachage du fichier compressé :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemple d’utilisation du cloud public : ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Téléchargez la dernière version du programme d’installation de l’appliance de montée en puissance parallèle à partir du portail si la valeur de hachage calculée ne correspond pas à la chaîne suivante : e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74.
+    - Exemple d’utilisation du cloud public : ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Téléchargez la dernière version du programme d’installation de l’appliance de montée en puissance parallèle à partir du portail si la valeur de hachage calculée ne correspond pas à la chaîne suivante : 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Exécuter le script du programme d’installation Azure Migrate
 Le script du programme d’installation effectue les opérations suivantes :
@@ -108,7 +108,7 @@ Avant de commencer, assurez-vous que [ces points de terminaison Azure](migrate-a
 - Acceptez les **termes du contrat de licence** et lisez les informations relatives aux tiers.
 - Dans le gestionnaire de configuration > **Configurer les prérequis**, procédez comme suit :
    - **Connectivité** : l’appliance vérifie que le serveur a accès à Internet. Si le serveur utilise un proxy :
-     1. Cliquez sur **Configurer le proxy** et spécifiez l’adresse du proxy (sous la forme http://ProxyIPAddress ou http://ProxyFQDN) ) et le port d’écoute.
+     1. Cliquez sur **Configurer le proxy** pour spécifier l’adresse du proxy sous la forme http://ProxyIPAddress ou http://ProxyFQDN), ainsi que le port d’écoute.
      2. Spécifiez les informations d’identification si le proxy nécessite une authentification.
      3. Seuls les proxys HTTP sont pris en charge.
      4. Si vous avez ajouté les détails du proxy ou désactivé le proxy et/ou l’authentification, cliquez sur **Enregistrer** pour relancer la vérification de la connectivité.
@@ -150,7 +150,7 @@ Pour terminer l’inscription de l’appliance de montée en puissance parallèl
 Une fois les fichiers importés, l’inscription de l’appliance de montée en puissance parallèle s’achève et l’horodateur de la dernière importation réussie s’affiche. Vous pouvez également consulter les détails de l’inscription en cliquant sur **Afficher les détails**.
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Capture d’écran montrant l’inscription de l’appliance de scale-out avec un projet Azure Migrate.":::
 
-À ce stade, vous devez vous revalider le fait que l’appliance de montée en puissance parallèle est en mesure de se connecter à votre serveur vCenter. Cliquez sur **Revalider** pour valider la connectivité vCenter Server à partir de l’appliance de montée en puissance parallèle.
+À ce stade, vous devez revalider le fait que l’appliance de montée en puissance parallèle est en mesure de se connecter à votre serveur vCenter. Cliquez sur **Revalider** pour valider la connectivité vCenter Server à partir de l’appliance de montée en puissance parallèle.
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Capture d’écran montrant la vue des informations d’identification et sources de découverte à valider.":::
 
 > [!IMPORTANT]
@@ -176,4 +176,4 @@ Dans cet article, vous avez appris :
 - Comment répliquer des machines virtuelles à l’aide d’une appliance de montée en puissance parallèle
 
 
-[En savoir plus](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) sur la migration de serveurs vers Azure à l’aide de l’outil de migration de serveur d’Azure Migrate.
+[En savoir plus](./tutorial-migrate-vmware.md) sur la migration de serveurs vers Azure à l’aide de l’outil de migration de serveur d’Azure Migrate.

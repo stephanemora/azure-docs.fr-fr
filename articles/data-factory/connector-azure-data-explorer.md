@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100379979"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027395"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure Data Explorer à l’aide d’Azure Data Factory
 
@@ -52,7 +52,14 @@ Les sections suivantes fournissent des informations détaillées sur les propri�
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
-Le connecteur d’Azure Data Explorer utilise l’authentification du principal du service. Suivez ces étapes pour obtenir un principal de service et accorder des autorisations :
+Le connecteur Azure Data Explorer prend en charge les types d’authentification suivants. Consultez les sections correspondantes pour plus d’informations :
+
+- [Authentification d’un principal du service](#service-principal-authentication)
+- [Identités managées pour authentifier les ressources Azure](#managed-identity)
+
+### <a name="service-principal-authentication"></a>Authentification d’un principal du service
+
+Pour utiliser l’authentification du principal du service, procédez comme suit pour obtenir un principal du service et accorder des autorisations :
 
 1. Inscrivez une entité d’application dans Azure Active Directory en suivant les étapes décrites dans [Inscrire votre application à un locataire Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Prenez note des valeurs suivantes, qui vous permettent de définir le service lié :
 
@@ -66,7 +73,7 @@ Le connecteur d’Azure Data Explorer utilise l’authentification du principal 
     - **En tant que récepteur**, accorder au moins le rôle **Ingéreur de base de données** à votre base de données
 
 >[!NOTE]
->Lorsque vous utilisez l’interface utilisateur Data Factory pour créer, votre compte d’utilisateur de connexion est utilisé pour répertorier les clusters, bases de données et tables Azure Data Explorer. Entrez manuellement le nom si vous n’avez pas d’autorisation pour ces opérations.
+>Lorsque vous utilisez l’interface utilisateur Data Factory pour créer, votre compte d’utilisateur de connexion est utilisé par défaut pour répertorier les clusters, bases de données et tables Azure Data Explorer. Vous pouvez choisir de répertorier les objets à l’aide du principal de service en cliquant sur la liste déroulante à côté du bouton actualiser, ou en entrant manuellement le nom si vous n’êtes pas autorisé à effectuer ces opérations.
 
 Les propriétés suivantes sont prises en charge pour le service lié Azure Data Explorer :
 
@@ -78,8 +85,9 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 | tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. C’est ce que vous connaissez sous le nom « ID d’autorité » dans la [chaîne de connexion Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. C’est ce que vous connaissez sous le nom « ID d'application cliente AAD » dans la [chaîne de connexion Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application. C’est ce que vous connaissez sous le nom « Clé d'application cliente AAD » dans la [chaîne de connexion Kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez les données sécurisées stockées dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
-**Exemple de propriétés du service lié :**
+**Exemple : utilisation de l’authentification de la clé du principal de service**
 
 ```json
 {
@@ -95,6 +103,44 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
+
+Pour utiliser des identités managées afin d’authentifier des ressources Azure, procédez comme suit pour accorder des autorisations :
+
+1. [Récupérez les informations d’identité managée de Data Factory](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur de l’**ID d’objet d’identité managée** générée en même temps que votre fabrique.
+
+2. Accordez les autorisations qui conviennent à l’identité managée dans Azure Data Explorer. Consultez [Gérer les autorisations de base de données d’Azure Data Explorer](/azure/data-explorer/manage-database-permissions) pour obtenir des informations détaillées sur les rôles et les autorisations, ainsi que la gestion des autorisations. En règle générale, vous devez :
+
+    - **En tant que source**, accorder au moins le rôle **Observateur de base de données** à votre base de données
+    - **En tant que récepteur**, accorder au moins le rôle **Ingéreur de base de données** à votre base de données
+
+>[!NOTE]
+>Lorsque vous utilisez l’interface utilisateur Data Factory pour créer, votre compte d’utilisateur de connexion est utilisé pour répertorier les clusters, bases de données et tables Azure Data Explorer. Entrez manuellement le nom si vous n’avez pas d’autorisation pour ces opérations.
+
+Les propriétés suivantes sont prises en charge pour le service lié Azure Data Explorer :
+
+| Propriété | Description | Obligatoire |
+|:--- |:--- |:--- |
+| type | La propriété **type** doit être définie sur **AzureDataExplorer**. | Oui |
+| endpoint | URL de point de terminaison du cluster Azure Data Explorer, avec le format `https://<clusterName>.<regionName>.kusto.windows.net`. | Oui |
+| database | Nom de base de données. | Oui |
+| connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d'intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+
+**Exemple : Utilisation de l’authentification d’identité managée**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }

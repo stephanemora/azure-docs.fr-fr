@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server vers SQL Database : Guide de migration'
+title: 'De SQL Server vers Azure SQL Database : Guide de migration'
 description: Suivez ce guide pour migrer vos bases de données SQL Server vers Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563842"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564923"
 ---
-# <a name="migration-guide-sql-server-to-sql-database"></a>Guide de migration : de SQL Server vers SQL Database
+# <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guide de migration : de SQL Server vers SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Ce guide vous aide à migrer votre instance de SQL Server vers Azure SQL Database. 
@@ -30,7 +30,7 @@ Vous pouvez migrer SQL Server s’exécutant en local ou sur :
 - Compute Engine (Google Cloud Platform – GCP)  
 - Cloud SQL pour SQL Server (Google Cloud Platform - GCP) 
 
-Pour plus d’informations sur la migration, consultez la [vue d’ensemble de la migration](sql-server-to-sql-database-overview.md). Pour d’autres scénarios, consultez le [guide de migration de base de données](https://datamigration.microsoft.com/).
+Pour plus d’informations sur la migration, consultez la [vue d’ensemble de la migration](sql-server-to-sql-database-overview.md). Pour obtenir d’autres guides de migration, consultez [Migration de base de données](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Flux du processus de migration":::
 
@@ -38,9 +38,11 @@ Pour plus d’informations sur la migration, consultez la [vue d’ensemble de l
 
 Pour pouvoir migrer votre serveur SQL Server vers Azure SQL Database, vous devez disposer des prérequis suivants : 
 
-- Choix d’une [méthode de migration](sql-server-to-sql-database-overview.md#compare-migration-options) et des outils correspondants 
-- [Outil DMA (Assistant Migration de données)](https://www.microsoft.com/download/details.aspx?id=53595) installé sur une machine qui peut se connecter à votre serveur SQL Server source
-- Instance cible d’[Azure SQL Database](../../database/single-database-create-quickstart.md)
+- Choix d’une [méthode de migration](sql-server-to-sql-database-overview.md#compare-migration-options) et des outils correspondants.
+- [Outil DMA (Assistant Migration de données)](https://www.microsoft.com/download/details.aspx?id=53595) installé sur une machine qui peut se connecter à votre serveur SQL Server source.
+- une instance cible d’[Azure SQL Database](../../database/single-database-create-quickstart.md) ; 
+- Connectivité et autorisations nécessaires pour accéder à la fois à la source et à la cible. 
+
 
 
 ## <a name="pre-migration"></a>Prémigration
@@ -150,7 +152,7 @@ Quand vous utilisez des options de migration qui répliquent/synchronisent en pe
 Une fois que vous avez vérifié que les données sont identiques sur la source et la cible, vous pouvez effectuer le basculement de l’environnement source vers l’environnement cible. Il est important de planifier le processus de basculement avec les équipes métier/applicatives. Ainsi, vous avez la garantie que l’interruption minimale qui a lieu pendant le basculement n’affecte pas la continuité de l’activité. 
 
 > [!IMPORTANT]
-> Pour plus d’informations sur les étapes spécifiques associées à l’exécution d’un basculement dans le cadre de migrations à l’aide du service DMS, consultez [Exécution du basculement de migration](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> Pour plus d’informations sur les étapes spécifiques associées à l’exécution d’un basculement dans le cadre de migrations à l’aide du service DMS, consultez [Exécution du basculement de migration](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="migration-recommendations"></a>Recommandations en matière de migration
 

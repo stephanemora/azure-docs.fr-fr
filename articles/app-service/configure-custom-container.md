@@ -4,12 +4,12 @@ description: Découvrez comment configurer un conteneur personnalisé dans Azure
 ms.topic: article
 ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1d1a1292bc7583e4934ac176c34d2768700d11c5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704869"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105036762"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurer un conteneur personnalisé pour Azure App Service
 
@@ -112,6 +112,8 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 ```
 
 Lorsque votre application s’exécute, les paramètres d’application App Service sont automatiquement injectés dans le processus en tant que variables d’environnement. Vous pouvez vérifier les variables d’environnement de conteneur avec l’URL `https://<app-name>.scm.azurewebsites.net/Env)`.
+
+Si votre application utilise des images à partir d’un registre privé ou d’un Docker Hub, les informations d’identification permettant d’accéder au référentiel sont enregistrées dans les variables d’environnement : `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` et `DOCKER_REGISTRY_SERVER_PASSWORD`. En raison des risques de sécurité, aucun de ces noms de variables réservés n’est exposé à l’application.
 
 ::: zone pivot="container-windows"
 Pour des conteneurs basés sur IIS ou .NET Framework (version 4.0 ou ultérieure), ils sont automatiquement injectés par App Service dans `System.ConfigurationManager` en tant que paramètres d’application .NET et chaînes de connexion. Pour toute autre langage ou infrastructure, ils sont fournis en tant que variables d’environnement pour le processus, avec l’un des préfixes correspondants suivants :

@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449609"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026621"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -147,6 +147,11 @@ Si vous utilisez les fonctionnalités suivantes de l’activité Copy, la traça
 - Option de détection de partition source pour les magasins basés sur des fichiers
 - Copie de données dans un récepteur basé sur des fichiers avec paramètre de nombre maximal de lignes par fichier
 - Ajout de colonnes supplémentaires pendant la copie
+
+En plus de la traçabilité des données, le schéma de la ressource de données (affiché sous l’onglet Ressource -> Schéma) est signalé pour les connecteurs suivants :
+
+- Fichiers CSV et Parquet sur Azure Blob,Azure File Storage, ADLS Gen1, ADLS Gen2 et Amazon S3
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
 ### <a name="data-factory-data-flow-support"></a>Prise en charge de Data Flow dans Data Factory
 

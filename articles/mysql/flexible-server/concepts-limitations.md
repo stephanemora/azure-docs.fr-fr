@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94543083"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105034518"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitations dans Azure Database pour MySQL – Serveur flexible (préversion)
 
@@ -89,8 +89,12 @@ Les éléments suivants ne sont pas pris en charge :
 - Avec la restauration à un instant dans le passé, les nouveaux serveurs sont créés avec les mêmes configurations de calcul et de stockage que le serveur source sur lequel il est basé. Vous pouvez effectuer un scale-down du calcul du serveur nouvellement restauré après sa création.
 - La restauration d’un serveur supprimé n’est pas prise en charge.
 
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>Fonctionnalités disponibles sur un serveur unique, mais pas encore prises en charge dans le serveur flexible 
+Toutes les fonctionnalités disponibles pour le serveur unique Azure Database pour MySQL sont encore disponibles dans le serveur flexible. Pour obtenir la liste complète des fonctionnalités pour un serveur unique et un serveur flexible, reportez-vous à [Choix de l’option de serveur MySQL appropriée dans la documentation Azure.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Comprendre [ce qui est disponible pour les options de calcul et de stockage](concepts-compute-storage.md)
+- En savoir plus sur [Choix de l’option de serveur MySQL appropriée dans la documentation Azure](../select-right-deployment-type.md)
+- Comprendre [ce qui est disponible pour les options de calcul et de stockage dans le serveur flexible](concepts-compute-storage.md)
 - Découvrir les [versions MySQL prises en charge](concepts-supported-versions.md)
-- Consulter le [guide pratique pour sauvegarder et restaurer un serveur à l’aide du portail Azure](how-to-restore-server-portal.md)
+- Démarrage rapide : [Utiliser le Portail Azure pour créer un serveur flexible Azure Database pour MySQL](quickstart-create-server-portal.md)

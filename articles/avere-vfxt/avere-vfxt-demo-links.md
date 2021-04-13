@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 31e32bfc0a2c3279375148bdf3da7d4a4829af1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 43162c4c9812015952c749446d160ab1c0d84392
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88271071"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639401"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Projets de démonstration AVERE vFXT
 
@@ -29,7 +29,7 @@ Des exemples de tutoriels sont fournis sur [GitHub](https://github.com/Azure/Ave
 
 ## <a name="vfxt-performance"></a>Performances de vFXT
 
-* [Mesurer les performances de vFXT avec vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) : configuration de test de base pour générer des charges de travail petites et moyennes afin de tester les sous-systèmes de mémoire et de disque de vFXT
+* [Mesurer les performances de vFXT avec vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) : Configuration de test de base pour générer des charges de travail petites et de taille moyenne afin de tester les sous-systèmes de mémoire et de disque de vFXT
 
 ## <a name="client-setup"></a>Configuration cliente
 

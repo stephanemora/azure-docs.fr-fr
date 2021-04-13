@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630778"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045244"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>Comment tester et publier une offre SaaS sur la place de marché commerciale
 
 Cet article explique comment utiliser l’Espace partenaires afin de soumettre votre offre SaaS pour publication, afficher un aperçu de votre offre, la tester, puis la publier en direct sur la place de marché commerciale. Vous devez avoir déjà créé une offre que vous souhaitez publier.
+
+> [!NOTE]
+> Nous vous recommandons de créer une offre de test et de développement (DEV) distincte comme un moyen à faible risque de test avant de publier votre offre de production (PROD). Procédez comme suit pour créer et tester l’offre DEV avant de publier votre offre (PROD).
 
 ## <a name="submit-your-offer-for-publishing"></a>Soumettre votre offre pour publication
 
@@ -48,7 +51,7 @@ Pour afficher un aperçu de votre offre, procédez comme suit.
 
 1. Sur la page **Vue d’ensemble de l’offre**, sélectionnez un lien d’aperçu sous le bouton **Démarrer**.
 
-1. Pour valider le flux d’achat et d’installation de bout en bout, achetez votre offre en préversion. Commencez par informer Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour vous assurer que nous ne vous imputions pas de frais.
+1. Pour valider le flux d’achat et d’installation de bout en bout, achetez les plans dans votre offre en préversion. Commencez par informer Microsoft avec un [ticket de support](https://aka.ms/marketplacesupport) pour vous assurer que nous ne vous imputions pas de frais.
 
 1. Si votre offre SaaS prend en charge la [facturation contrôlée à l’aide du service de contrôle de la place de marché commerciale](./partner-center-portal/saas-metered-billing.md), examinez et suivez les meilleures pratiques de test détaillées dans les [API de facturation contrôlée de la place de marché](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
@@ -60,10 +63,10 @@ Pour afficher un aperçu de votre offre, procédez comme suit.
 
 ## <a name="publish-your-offer-live"></a>Publier votre offre en ligne
 
-Après avoir complètement testé votre préversion, sélectionnez **Démarrer** pour publier votre offre sur le place de marché commerciale.
+Après avoir complètement testé votre préversion, sélectionnez **Démarrer** pour publier votre offre sur le place de marché commerciale. Si votre offre est déjà en ligne dans la place de marché commerciale, les mises à jour que vous effectuez ne sont pas mises en ligne tant que vous ne sélectionnez pas **Démarrer**.
 
-   > [!TIP]
-   > Si votre offre est déjà en ligne dans la place de marché commerciale, les mises à jour que vous effectuez ne sont pas mises en ligne tant que vous ne sélectionnez pas **Démarrer**.
+> [!IMPORTANT]
+> Ne sélectionnez jamais **En ligne** pour une [offre de développement/test](create-saas-dev-test-offer.md).
 
 Maintenant que vous avez choisi de rendre votre offre disponible dans la place de marché commerciale, nous effectuons une série de contrôles de validation finaux pour nous assurer que l’offre en ligne est configurée exactement comme sa préversion. Pour plus d’informations sur ces contrôles de validation, consultez [Phase de publication](review-publish-offer.md#publish-phase).
 

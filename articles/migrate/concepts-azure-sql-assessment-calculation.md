@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a22fa184f91cb409f7a4d7795a4bc34bdd83e598
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778319"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077803"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Vue d’ensemble de l’évaluation (migrer vers Azure SQL)
 
-Cet article fournit une vue d’ensemble des évaluations relatives à la migration d’instances SQL Server locales d’un environnement VMware vers des bases de données SQL Azure ou des instances gérées à l’aide de l’[outil de découverte et d’évaluation d’Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
+Cet article fournit une vue d’ensemble des évaluations relatives à la migration d’instances SQL Server locales d’un environnement VMware vers des bases de données SQL Azure ou des instances gérées à l’aide de l’[outil de découverte et d’évaluation d’Azure Migrate](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 ## <a name="whats-an-assessment"></a>Qu'est-ce qu'une évaluation ?
 Une évaluation avec l’outil de découverte et d’évaluation est une capture instantanée de données à un point dans le temps, qui permet de mesurer l’état de préparation à la migration de serveurs locaux vers Azure et d’en estimer l’effet.
@@ -28,6 +28,9 @@ Il existe trois types d’évaluations que vous pouvez créer à l’aide de l�
 **Microsoft Azure** | Évaluations pour migrer vos serveurs locaux vers des machines virtuelles Azure. <br/><br/> Ce type d’évaluation vous permet d’évaluer vos serveurs locaux dans un environnement [VMware](how-to-set-up-appliance-vmware.md) et [Hyper-V](how-to-set-up-appliance-hyper-v.md), ainsi que vos [serveurs physiques](how-to-set-up-appliance-physical.md) pour une migration vers des machines virtuelles Azure.
 **Azure SQL** | Évaluations pour migrer vos serveurs SQL Server locaux de votre environnement VMware vers Azure SQL Database ou Azure SQL Managed Instance.
 **Azure VMware Solution (AVS)** | Évaluations pour migrer vos serveurs locaux vers [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Vous pouvez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) locales pour la migration vers Azure VMware Solution (AVS) avec ce type d’évaluation. [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Si le nombre d’évaluations de machines virtuelles Azure ou AVS est incorrect sur l’outil Découverte et évaluation, cliquez sur le nombre total d’évaluations pour accéder à toutes les évaluations et recalculer les évaluations de la machine virtuelle Azure ou AVS. L’outil Découverte et évaluation affiche alors le nombre correct pour ce type d’évaluation. 
 
 Une évaluation Azure SQL fournit un critère de dimensionnement :
 
@@ -80,7 +83,7 @@ Voici ce qu’incluent les propriétés d’évaluation d’Azure SQL :
 **Utilisation en centile** | L’utilisation en centile spécifie la valeur de centile de l’échantillon de performances utilisé pour le dimensionnement adéquat.
 **Facteur de confort** | Mémoire tampon utilisée pendant l’évaluation. Il prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une instance à 10 cœurs avec 20 % d’utilisation correspond normalement à une instance à deux cœurs. Avec un facteur de confort de 2.0, le résultat est plutôt une instance à quatre cœurs.
 **Programme d’offre/de licences** | [Offre Azure](https://azure.microsoft.com/support/legal/offer-details/) dans laquelle vous êtes inscrit. Pour le moment, vous ne pouvez choisir qu’entre le paiement à l’utilisation et le Dev/Test de paiement à l’utilisation. Notez que vous pouvez bénéficier d’une remise supplémentaire en demandant une capacité de réserve et Azure Hybrid Benefit en plus de l’offre de paiement à l’utilisation.
-**Niveau de service** | Option de niveau de service la plus appropriée en fonction des besoins de votre entreprise pour la migration vers Azure SQL Database et/ou Azure SQL Managed Instance.<br/><br/>**Recommandé** si vous souhaitez qu’Azure Migrate recommande le niveau de service le plus adapté à vos serveurs. Ce peut être Usage général ou Critique pour l’entreprise. <br/><br/> **Usage général** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail axées sur le budget. [En savoir plus](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **Critique pour l’entreprise** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail à faible latence avec une haute résilience aux échecs et aux basculements rapides. [En savoir plus](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**Niveau de service** | Option de niveau de service la plus appropriée en fonction des besoins de votre entreprise pour la migration vers Azure SQL Database et/ou Azure SQL Managed Instance.<br/><br/>**Recommandé** si vous souhaitez qu’Azure Migrate recommande le niveau de service le plus adapté à vos serveurs. Ce peut être Usage général ou Critique pour l’entreprise. <br/><br/> **Usage général** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail axées sur le budget. [En savoir plus](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **Critique pour l’entreprise** si vous souhaitez une configuration d’Azure SQL conçue pour des charges de travail à faible latence avec une haute résilience aux échecs et aux basculements rapides. [En savoir plus](../azure-sql/database/service-tier-business-critical.md)
 **Devise** | Devise de facturation de votre compte.
 **Remise (%)** | Toute remise propre à un abonnement que vous recevez en plus de l’offre Azure. Le paramètre par défaut est 0 %.
 **Azure Hybrid Benefit** | Spécifie si vous disposez déjà d’une licence SQL Server. <br/><br/> Si c’est le cas et si vous êtes couvert par une Software Assurance active des abonnements SQL Server, vous pouvez demander Azure Hybrid Benefit au moment d’importer les licences dans Azure.
@@ -124,7 +127,7 @@ Si vous sélectionnez le type de déploiement cible **Recommandé** dans les pro
 Si l’instance SQL n’est pas prête pour Azure SQL Database et Azure SQL Managed Instance, le type de déploiement Recommandé est marqué comme *Potentiellement prêt pour une machine virtuelle Azure*.
 - L’utilisateur est incité à créer une évaluation dans Azure Migrate avec un type d’évaluation tel que « Machine virtuelle Azure » pour déterminer si le serveur sur lequel l’instance s’exécute est prêt à migrer plutôt vers une machine virtuelle Azure. Notez les points suivants :
     - Les évaluations des machines virtuelles Azure dans Azure Migrate sont actuellement axées sur une approche lift-and-shift et ne prennent pas en compte les métriques de performances spécifiques de l’exécution des instances et des bases de données SQL sur la machine virtuelle Azure. 
-    - Quand vous exécutez une évaluation de machine virtuelle Azure sur un serveur, les estimations de taille et de coût recommandées sont effectuées pour toutes les instances en cours d’exécution sur le serveur et peuvent être migrées vers une machine virtuelle Azure à l’aide de l’outil de migration de serveur. Avant de migrer, [passez en revue les instructions relatives aux performances](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) de SQL Server sur les machines virtuelles Azure.
+    - Quand vous exécutez une évaluation de machine virtuelle Azure sur un serveur, les estimations de taille et de coût recommandées sont effectuées pour toutes les instances en cours d’exécution sur le serveur et peuvent être migrées vers une machine virtuelle Azure à l’aide de l’outil de migration de serveur. Avant de migrer, [passez en revue les instructions relatives aux performances](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) de SQL Server sur les machines virtuelles Azure.
 
 
 ## <a name="calculate-sizing"></a>Calculer le dimensionnement

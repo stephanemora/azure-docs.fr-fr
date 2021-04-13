@@ -4,19 +4,19 @@ description: Utilisez Azure IoT Edge pour créer un appareil de passerelle proxy
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492708"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027344"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Guide pratique pour utiliser un appareil IoT Edge en tant que passerelle
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492708"
 
 Les appareils IoT Edge peuvent fonctionner en tant que passerelles, en fournissant une connexion entre d’autres appareils sur le réseau et sur IoT Hub.
 
-Le module hub IoT Edge agit comme IoT Hub, de sorte qu’il peut gérer les connexions à partir de tous les appareils qui ont une identité auprès d’IoT Hub, y compris d’autres appareils IoT Edge. Ce type de modèle de passerelle est appelé *transparent*, car les messages peuvent passer d’appareils en aval à IoT Hub comme s’il n’existait pas de passerelle entre eux.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-À partir de la version 1.2 d’IoT Edge, les passerelles transparentes peuvent gérer les connexions en aval à partir d’autres appareils IoT Edge.
-::: moniker-end
+Le module hub IoT Edge agit comme IoT Hub, de sorte qu’il peut gérer les connexions à partir d’autres appareils qui ont une identité avec le même IoT Hub. Ce type de modèle de passerelle est appelé *transparent*, car les messages peuvent passer d’appareils en aval à IoT Hub comme s’il n’existait pas de passerelle entre eux.
 
 Pour les appareils qui ne se connectent pas ou ne peuvent pas se connecter à IoT Hub eux-mêmes, les passerelles IoT Edge peuvent leur fournir cette connexion. Ce type de modèle de passerelle est appelé *traduction*, car l’appareil IoT Edge doit effectuer le traitement des messages entrants d’appareils en aval avant de les transmettre à IoT Hub. Ces scénarios requièrent des modules supplémentaires sur la passerelle IoT Edge pour gérer les étapes de traitement.
 
@@ -51,17 +46,19 @@ Pour plus d’informations sur la façon dont le hub IoT Edge gère la communica
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-Les appareils IoT Edge ne peuvent pas se trouver en aval d’une passerelle IoT Edge.
-
 ![Diagramme : modèle de passerelle transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>Dans IoT Edge, versions 1.1 et antérieures, des appareils IoT Edge ne peuvent pas se trouver en aval d’une passerelle IoT Edge.
+>
+>À partir de la version 1.2 d’IoT Edge, les passerelles transparentes peuvent gérer les connexions à partir d’appareils IoT Edge en aval. Pour plus d’informations, passez à la version [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) de cet article.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-À partir de la version 1.2.0, les appareils IoT Edge peuvent se connecter via des passerelles transparentes.
+À partir de la version 1.2 d’IoT Edge, les passerelles transparentes peuvent gérer les connexions à partir d’appareils IoT Edge en aval.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

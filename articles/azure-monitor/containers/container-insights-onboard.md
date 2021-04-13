@@ -3,12 +3,12 @@ title: Activer Container Insights | Microsoft Docs
 description: Cet article explique comment activer et configurer Container Insights afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708354"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109350"
 ---
 # <a name="enable-container-insights"></a>Activer Container Insights
 
@@ -64,6 +64,7 @@ Avant de commencer, vérifiez que vous respectez les exigences suivantes :
 - Pour afficher les données de surveillance, vous devez avoir le rôle [*Lecteur Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) dans l’espace de travail Log Analytics, configuré avec Container Insights.
 
 - Les métriques Prometheus ne sont pas recueillies par défaut. Avant de [configurer l’agent](container-insights-prometheus-integration.md) pour recueillir les métriques, il est important de consulter la [documentation Prometheus](https://prometheus.io/) pour comprendre les données pouvant être récupérées et les méthodes prises en charge.
+- Un cluster AKS peut être associé à un espace de travail Log Analytics dans un autre abonnement Azure dans le même locataire Azure AD. Cette opération ne peut pas être effectuée actuellement avec le Portail Azure, mais elle peut être effectuée avec Azure CLI ou le modèle Resource Manager.
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 

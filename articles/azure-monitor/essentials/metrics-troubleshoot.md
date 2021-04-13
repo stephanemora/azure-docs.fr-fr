@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: bc1978f6ed0aa3e38f25fa03fc54ddc7d4efb9c3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033331"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961062"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -43,7 +43,7 @@ Certaines ressources n’émettent pas leurs métriques en permanence. Par exemp
 
 [La plupart des métriques dans Azure sont stockées 93 jours](../essentials/data-platform-metrics.md#retention-of-metrics). Toutefois, vos interrogations peuvent porter sur 30 jours de données au maximum pour un même graphique. Cette limitation ne s’applique pas aux [métriques reposant sur un journal](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
-**Solution :** Si le graphique est vide ou affiche uniquement une partie des données de métrique, vérifiez que l’intervalle entre les dates de début et de fin dans le sélecteur d’heure ne dépasse pas 30 jours.
+**Solution :** Si le graphique est vide ou affiche uniquement une partie des données de métrique, vérifiez que l’intervalle entre les dates de début et de fin dans le sélecteur d’heure ne dépasse pas 30 jours. Une fois que vous avez sélectionné un intervalle de 30 jours, vous pouvez faire [défiler](metrics-charts.md#pan) le graphique pour afficher la fenêtre de rétention complète.
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Toutes les valeurs de métrique étaient en dehors de la plage verrouillée de l’axe y.
 

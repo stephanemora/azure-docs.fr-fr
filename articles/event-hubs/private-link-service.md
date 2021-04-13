@@ -3,12 +3,12 @@ title: Intégrer Azure Event Hubs au service Azure Private Link
 description: Découvrir comment intégrer Azure Event Hubs au service Azure Private Link
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94427749"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960841"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs via des points de terminaison privés 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Event Hubs, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaire ou de client hébergés par Azure via un **point de terminaison privé** dans votre réseau virtuel.
@@ -17,11 +17,10 @@ Un point de terminaison privé est une interface réseau qui vous permet de vous
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link ?](../private-link/private-link-overview.md)
 
-> [!WARNING]
-> L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.  Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains services approuvés, même lorsque les points de terminaison privés sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
-
->[!NOTE]
-> Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. Il ne sont pas pris en charge dans le niveau **De base**.
+## <a name="important-points"></a>Points importants
+- Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. Il ne sont pas pris en charge dans le niveau **De base**.
+- L’activation des points de terminaison privés peut empêcher d’autres services Azure d’interagir avec Event Hubs.  Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains **services approuvés**, même lorsque les points de terminaison privés sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
+- Spécifiez **au moins une règle d’adresse IP ou une règle de réseau virtuel** pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Ajouter un point de terminaison privé avec le portail Azure
 
@@ -51,8 +50,8 @@ Si vous avez déjà un espace de noms Event Hubs, vous pouvez créer une connexi
 
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Onglet Réseaux - Option Réseaux sélectionnée" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
-    > [!NOTE]
-    > Par défaut, l’option **Réseaux sélectionnés** est sélectionnée. Si vous ne spécifiez pas de règle de pare-feu IP ou n’ajoutez pas de réseau virtuel, l’espace de noms est accessible via l’Internet public. 
+    > [!WARNING]
+    > Par défaut, l’option **Réseaux sélectionnés** est sélectionnée. Si vous ne spécifiez pas de règle de pare-feu IP ou n’ajoutez pas de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès). 
 1. Sélectionnez l’onglet **Connexions des points de terminaison privés** en haut de la page. 
 1. Sélectionnez le bouton **+ Point de terminaison privé** en haut de la page.
 

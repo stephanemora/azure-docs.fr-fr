@@ -4,14 +4,14 @@ description: En savoir plus sur l’identité managée pour Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888989"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562458"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
@@ -28,8 +28,7 @@ Lors de la création d’une fabrique de données, une identité managée est cr
 L’identité managée pour Data Factory bénéficie des fonctionnalités suivantes :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md), pour laquelle l’identité managée de fabrique de données est utilisée pour l’authentification auprès d’Azure Key Vault.
-- Connecteurs, notamment [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) et [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md).
-- [Activité web](control-flow-web-activity.md).
+- Accédez aux magasins de données ou aux calculs à l’aide de l’authentification d’identité managée, y compris le stockage Blob Azure, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, une activité Databricks, une activité web, etc. Pour plus d’informations, consultez les articles relatifs au connecteur et à l’activité.
 
 ## <a name="generate-managed-identity"></a>Générer une identité managée
 
@@ -157,11 +156,10 @@ Les informations relatives à l'identité managée sont disponibles sur le porta
 
 - ID d’objet de l’identité managée
 - Locataire de l’identité managée
-- ID d'application de l'identité managée
 
 Les informations relatives à l'identité managée apparaissent également lorsque vous créez un service lié qui prend en charge l'authentification de l'identité managée, comme Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-Lors de l'octroi de l'autorisation, utilisez l'ID d'objet ou le nom de la fabrique de données (comme nom d'identité managée) pour trouver cette identité.
+Lors de l’octroi de l’autorisation, sous l’onglet Access Control (IAM) de la ressource Azure -> Ajouter une attribution de rôle -> Affecter l’accès à -> sélectionnez Data Factory sous Identité managée par le système -> sélectionnez par nom de fabrique. En général, vous pouvez utiliser l’ID d’objet ou le nom de la fabrique de données (comme nom d’identité managée) pour trouver cette identité. Si vous avez besoin d’obtenir l’ID d’application de l’identité managée, vous pouvez utiliser PowerShell.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Récupérer l’identité managée à l’aide de PowerShell
 

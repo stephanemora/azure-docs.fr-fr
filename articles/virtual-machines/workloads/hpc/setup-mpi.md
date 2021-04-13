@@ -1,5 +1,5 @@
 ---
-title: Configurer l’interface de transmission de messages pour HPC - Machines virtuelles Azure | Microsoft Docs
+title: Configurer l’interface de passage de messages pour (MPI) HPC - Machines virtuelles Azure | Microsoft Docs
 description: Découvrez comment configurer MPI pour HPC sur Azure.
 author: vermagit
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 8f071dfe817d15b745575fbfb70ff662a643db70
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 66de34c43ab1b3a6b4245f77196793bf9ad8530c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721357"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606638"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurer l’interface de transmission de messages pour HPC
 
@@ -64,6 +64,11 @@ Exécuter HPC-X
 ```bash
 ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tests/osu-micro-benchmarks-5.3.2/osu_latency
 ```
+
+### <a name="optimizing-mpi-collectives"></a>Optimisation des collectifs MPI
+
+Les primitives de communication de collectifs MPI fournissent un moyen flexible et portable d’implémenter des opérations de communication de groupe. Elles sont largement utilisées dans plusieurs applications scientifiques parallèles et ont un impact significatif sur les performances globales d’application. Reportez-vous à l'[article TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) pour plus d’informations sur les paramètres de configuration afin d’optimiser les performances de communication collective à l’aide de HPC-X et de la bibliothèque HCOLL pour la communication collective.
+
 > [!NOTE] 
 > Avec HPC-X 2.7.4+, il peut être nécessaire de passer explicitement LD_LIBRARY_PATH si la version UCX sur MOFED est différente de celle de HPC-X.
 

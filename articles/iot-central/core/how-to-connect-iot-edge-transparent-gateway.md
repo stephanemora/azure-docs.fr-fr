@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bdfb5f65106f3f8843b4aa52b752f5e563ab03f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102619935"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045329"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>Guide pratique pour connecter des appareils via une passerelle transparente IoT Edge
 
@@ -23,7 +23,7 @@ IoT Edge prend en charge les modèles de passerelle [*transparente* et de *tradu
 
 Cet article utilise des machines virtuelles pour héberger l’appareil en aval et la passerelle. Dans un scénario réel, l’appareil en aval et la passerelle s’exécutent sur des appareils physiques de votre réseau local.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce tutoriel, vous avez besoin d’un compte Azure actif.
 
@@ -186,7 +186,7 @@ Votre passerelle transparente est maintenant configurée et prête à démarrer 
 
 ## <a name="provision-a-downstream-device"></a>Approvisionner un appareil en aval
 
-Actuellement, IoT Edge ne permet pas d’approvisionner automatiquement un appareil en aval dans votre application IoT Central. Les étapes suivantes vous montrent comment approvisionner l’appareil `thermostat1`. Pour effectuer cette procédure, vous avez besoin d’un environnement Python 3.5 (ou version ultérieure) installé et d’une connexion Internet. Python 3.5 est préinstallé sur [Azure Cloud Shell](https://shell.azure.com/) :
+Actuellement, IoT Edge ne permet pas d’approvisionner automatiquement un appareil en aval dans votre application IoT Central. Les étapes suivantes vous montrent comment approvisionner l’appareil `thermostat1`. Pour effectuer cette procédure, vous avez besoin d’un environnement Python 3.6 (ou version ultérieure) installé et d’une connexion Internet. Python 3.7 est préinstallé sur [Azure Cloud Shell](https://shell.azure.com/) :
 
 1. Exécutez la commande suivante pour installer le module `azure.iot.device` :
 

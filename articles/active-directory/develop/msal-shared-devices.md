@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 9e48d8f55efa8bc4c82eaa973a6feaeb42390064
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cf8869002fb3e0170331709af3da5b971a098740
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578772"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612396"
 ---
 # <a name="overview-of-shared-device-mode"></a>Vue d’ensemble du mode d’appareil partagé
 
@@ -27,7 +27,7 @@ Le mode d’appareil partagé est une fonctionnalité Azure Active Directory qui
 >[!IMPORTANT]
 > Mode d’appareil partagé pour iOS [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-## <a name="what-are-frontline-workers"></a>Que sont les travailleurs de première ligne ?
+## <a name="what-are-frontline-workers"></a>Qui sont les travailleurs de première ligne ?
 
 Les travailleurs de première ligne sont les employés en magasin, les agents de maintenance et sur le terrain, le personnel médical et autres utilisateurs qui ne restent pas assis devant un ordinateur et qui n’utilisent pas l’e-mail de l’entreprise pour collaborer. Les sections suivantes présentent les aspects et les défis liés à la prise en charge des travailleurs de première ligne, suivis d’une introduction aux fonctionnalités fournies par Microsoft qui permettent à votre application d’être utilisée par les travailleurs de première ligne d’une organisation.
 

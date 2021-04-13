@@ -3,30 +3,30 @@ title: Monter un système de fichiers virtuel sur un pool
 description: Découvrez comment monter un système de fichiers virtuel sur un pool Batch.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 08/13/2019
-ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89145482"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626025"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
-Azure Batch prend désormais en charge le montage de stockage cloud ou d’un système de fichiers externe sur les nœuds de calcul Windows ou Linux dans vos pools Batch. Lorsqu’un nœud de calcul rejoint un pool, le système de fichiers virtuel est monté et traité comme un lecteur local sur ce nœud. Vous pouvez monter des systèmes de fichiers tels qu’Azure Files, le stockage blob Azure, NFS (Network File System), avec un [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), ou CIFS (Common Internet File System).
+Azure Batch prend en charge le montage de stockage cloud ou d’un système de fichiers externe sur les nœuds de calcul Windows ou Linux dans vos pools Batch. Lorsqu’un nœud de calcul rejoint un pool, le système de fichiers virtuel est monté et traité comme un lecteur local sur ce nœud. Vous pouvez monter des systèmes de fichiers tels qu’Azure Files, le stockage blob Azure, NFS (Network File System), avec un [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), ou CIFS (Common Internet File System).
 
 Dans cet article, vous allez apprendre à monter un système de fichiers virtuel sur un pool de nœuds de calcul à l’aide de la [Bibliothèque de gestion Batch pour .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
-> Le montage d’un système de fichiers virtuel est pris en charge sur les pools Batch créés le ou après le 19/8/2019. Les pools Batch créés avant le 19/8/2019 ne prennent pas en charge cette fonctionnalité.
-> 
-> Les API servant à monter des systèmes de fichiers sur un nœud de calcul font partie de la bibliothèque [Batch .NET](/dotnet/api/microsoft.azure.batch).
+> Le montage d’un système de fichiers virtuel est pris en charge sur les pools Batch créés le 8 août 2019 ou après. Les pools Batch créés avant cette date ne prennent pas en charge cette fonctionnalité.
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Avantages du montage sur un pool
 
 Le montage du système de fichiers sur le pool, au lieu de laisser les tâches récupérer leurs propres données à partir d’un jeu de données volumineux, facilite et rend plus efficace l’accès aux données nécessaires pour les tâches.
 
-Imaginez un scénario avec plusieurs tâches nécessitant l’accès à un jeu de données commun, comme le rendu d’un film. Chaque tâche restitue un ou plusieurs frames à la fois à partir des fichiers de scène. En montant un lecteur contenant les fichiers de scène, il est plus facile pour les nœuds de calcul d’accéder aux données partagées. En outre, le système de fichiers sous-jacent peut être choisi et mis à l’échelle indépendamment en fonction des performances et de l’échelle (débit et IOPS) requises par le nombre de nœuds de calcul qui accèdent simultanément aux données. Par exemple, il est possible d'utiliser un cache en mémoire distribué [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), qui peut être utilisé pour prendre en charge des rendus d’images à grande échelle avec des milliers de nœuds de rendu simultanés, en accédant aux données source qui résident localement. En guise d’alternative, pour les données qui se trouvent déjà dans le stockage d'objets blob sur le cloud, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) peut être utilisé pour monter ces données en tant que système de fichiers local. Blobfuse est disponible uniquement sur les nœuds Linux. Toutefois, [Azure Files](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) fournit un workflow similaire et est disponible sur Windows et Linux.
+Imaginez un scénario avec plusieurs tâches nécessitant l’accès à un jeu de données commun, comme le rendu d’un film. Chaque tâche restitue un ou plusieurs frames à la fois à partir des fichiers de scène. En montant un lecteur contenant les fichiers de scène, il est plus facile pour les nœuds de calcul d’accéder aux données partagées.
+
+En outre, le système de fichiers sous-jacent peut être choisi et mis à l’échelle indépendamment en fonction des performances et de l’échelle (débit et IOPS) requises par le nombre de nœuds de calcul qui accèdent simultanément aux données. Par exemple, il est possible d'utiliser un cache en mémoire distribué [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), qui peut être utilisé pour prendre en charge des rendus d’images à grande échelle avec des milliers de nœuds de rendu simultanés, en accédant aux données source qui résident localement. En guise d’alternative, pour les données qui se trouvent déjà dans le stockage d'objets blob sur le cloud, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) peut être utilisé pour monter ces données en tant que système de fichiers local. Blobfuse est disponible uniquement sur les nœuds Linux même si [Azure Files](../storage/files/storage-files-introduction.md) fournit un workflow similaire et est disponible sur Windows et Linux.
 
 ## <a name="mount-a-virtual-file-system-on-a-pool"></a>Monter un système de fichiers virtuel sur un pool  
 
@@ -78,9 +78,11 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Système de fichiers blob Azure
 
-Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès des comptes de stockage](../storage/common/storage-account-keys-manage.md) ou [Utiliser des signatures d’accès partagé (SAS)](../storage/common/storage-sas-overview.md). Pour plus d’informations sur l’utilisation de blobfuse, consultez le [Forum aux questions sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) de blobfuse. Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence sur FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès du compte de stockage](../storage/common/storage-account-keys-manage.md) ou [Accorder un accès limité aux ressources de stockage Azure à l’aide de signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). Pour plus d’informations et des conseils sur l’utilisation de blobfuse, consultez le blobfuse .
 
-Outre le guide de résolution des problèmes, les problèmes GitHub dans le référentiel blobfuse sont un moyen utile de vérifier les problèmes et solutions pour blobfuse. Pour plus d’informations, consultez [Problèmes blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
+Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+
+Pour plus d’informations et de conseils sur l’utilisation de blobfuse, consultez la [FAQ sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Vous pouvez également consulter les [Problèmes GitHub dans le référentiel blobfuse](https://github.com/Azure/azure-storage-fuse/issues) pour vérifier les problèmes actuels de blobfuse et leur résolution.
 
 ```csharp
 new PoolAddParameter
@@ -106,7 +108,7 @@ new PoolAddParameter
 
 ### <a name="network-file-system"></a>Système de gestion de fichiers en réseau
 
-Les systèmes de fichiers réseau (NFS) peuvent également être montés sur des nœuds de pool, ce qui permet aux nœuds Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. Il peut s’agir d’un serveur NFS unique déployé dans le cloud ou d’un serveur NFS local accessible via un réseau virtuel. Vous pouvez également tirer parti de la solution de mise en cache en mémoire distribuée [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md), qui fournit une connectivité transparente au stockage local, lit les données à la demande dans son cache et offre des performances et une évolutivité élevées pour les nœuds de calcul basés sur le cloud.
+Les systèmes de fichiers réseau (NFS) peuvent être montés sur des nœuds de pool, ce qui permet à Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. Il peut s’agir d’un serveur NFS unique déployé dans le cloud ou d’un serveur NFS local accessible via un réseau virtuel. Vous pouvez également utiliser la solution de cache en mémoire distribuée [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) pour les tâches de calcul intensif de données (HPC)
 
 ```csharp
 new PoolAddParameter
@@ -129,7 +131,7 @@ new PoolAddParameter
 
 ### <a name="common-internet-file-system"></a>Common Internet File System
 
-Les systèmes de fichiers Common Internet File Systems (CIFS) peuvent également être montés sur des nœuds de pool, ce qui permet aux nœuds Azure Batch d’accéder facilement aux systèmes de fichiers traditionnels. CIFS est un protocole de partage de fichiers qui fournit un mécanisme ouvert et multiplateforme pour la demande de fichiers et de services de serveur réseau. CIFS est basé sur la version améliorée du protocole SMB (Server Message Block) de Microsoft pour le partage de fichiers intranet et Internet, et est utilisé pour monter des systèmes de fichiers externes sur des nœuds Windows. Pour en savoir plus sur SMB, consultez [Serveur de fichiers et SMB](/windows-server/storage/file-server/file-server-smb-overview).
+Le montage de [CIFS (Common Internet File System)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) sur des nœuds de pool est un autre moyen de fournir l’accès aux systèmes de fichiers traditionnels. CIFS est un protocole de partage de fichiers qui fournit un mécanisme ouvert et multiplateforme pour la demande de fichiers et de services de serveur réseau. CIFS est basé sur la version améliorée du protocole [SMB (Server Message Block)](/windows-server/storage/file-server/file-server-smb-overview) pour le partage de fichiers intranet et Internet, et peut être utilisé pour monter des systèmes de fichiers externes sur des nœuds Windows.
 
 ```csharp
 new PoolAddParameter
@@ -154,7 +156,7 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnostiquer les erreurs de montage
 
-Si une configuration de montage échoue, le nœud de calcul dans le pool échoue et l’état du nœud devient inutilisable. Pour diagnostiquer un échec de configuration de montage, examinez la propriété [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) pour plus d’informations sur l’erreur.
+Si une configuration de montage échoue, le nœud de calcul dans le pool échoue et l’état du nœud est défini sur `unusable`. Pour diagnostiquer un échec de configuration de montage, examinez la propriété [`ComputeNodeError`](/rest/api/batchservice/computenode/get#computenodeerror) pour plus d’informations sur l’erreur.
 
 Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-task-output-files.md) pour télécharger les fichiers `*.log`. Les fichiers `*.log` contiennent des informations sur le montage du système de fichiers à l’emplacement `AZ_BATCH_NODE_MOUNTS_DIR`. Les fichiers journaux de montage ont le format : `<type>-<mountDirOrDrive>.log` pour chaque montage. Par exemple, un montage `cifs` dans un répertoire de montage nommé `test` aura un fichier journal de montage nommé `cifs-test.log`.
 
@@ -176,9 +178,25 @@ Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-ta
 | Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
+## <a name="networking-requirements"></a>Configuration requise du réseau
+
+Lorsque vous utilisez des montages de fichiers virtuels avec des [pools Azure batch dans un réseau virtuel](batch-virtual-network.md), gardez à l’esprit les exigences suivantes et assurez-vous qu’aucun trafic requis n’est bloqué.
+
+- **Azure Files** :
+  - Requiert l’ouverture du port TCP 445 pour le trafic vers/à partir de l’étiquette de service « stockage ». Pour plus d’informations, consultez [Utiliser un partage de fichiers Azure avec Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
+- **BlobFuse** :
+  - Requiert l’ouverture du port TCP 443 pour le trafic vers/à partir de l’étiquette de service « stockage ».
+  - Les machines virtuelles doivent avoir accès à https://packages.microsoft.com pour télécharger les packages blobfuse et gpg. Selon votre configuration, vous pouvez également avoir besoin d’accéder à d’autres URL pour télécharger des packages supplémentaires.
+- **NFS (Network File System)**  :
+  - Nécessite l’accès au port 2049 (par défaut, votre configuration peut avoir d’autres exigences).
+  - Les machines virtuelles doivent avoir accès au gestionnaire de package approprié pour télécharger le package nfs-common (pour Debian ou Ubuntu) ou nfs-utils (pour CentOS). Cette URL peut varier en fonction de la version de votre système d’exploitation. Selon votre configuration, vous pouvez également avoir besoin d’accéder à d’autres URL pour télécharger des packages supplémentaires.
+- **CIFS (Common Internet File System)**  :
+  - Nécessite l’accès au port TCP 445.
+  - Les machines virtuelles doivent avoir accès au ou aux gestionnaires de package appropriés pour télécharger le package cifs-utils. Cette URL peut varier en fonction de la version de votre système d’exploitation.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez-en davantage sur le montage d’un partage Azure Files avec [Windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
+- Apprenez-en plus sur le montage d’un partage de fichiers Azure Files avec [Windows](../storage/files/storage-how-to-use-files-windows.md) ou [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Découvrez-en davantage sur l’utilisation et le montage de systèmes de fichiers virtuels [blobfuse](https://github.com/Azure/azure-storage-fuse).
 - Consultez [Vue d’ensemble du système de fichiers réseau](/windows-server/storage/nfs/nfs-overview) pour en savoir plus sur NFS et ses applications.
 - Pour plus d’informations sur CIFS, consultez [Vue d’ensemble du protocole SMB et du protocole CIFS de Microsoft](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview).

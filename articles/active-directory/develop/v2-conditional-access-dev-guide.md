@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ed8007c81479c73e4503d74af4c4043e503baf2b
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584228"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120144"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -72,10 +72,10 @@ Plus précisément, toutes les étendues de Microsoft Graph représentent un jeu
 Par exemple, si une application demande les étendues suivantes de Microsoft Graph,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-Une application peut s’attendre à ce que ses utilisateurs répondent à toutes les stratégies définies sur Bookings et Exchange. Certaines étendues peuvent mapper vers plusieurs jeux de données si elles disposent de l’accès.
+Une application peut s’attendre à ce que ses utilisateurs répondent à toutes les stratégies définies sur Teams et Exchange. Certaines étendues peuvent mapper vers plusieurs jeux de données si elles disposent de l’accès.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformité à une stratégie d’accès conditionnel
 

@@ -3,12 +3,12 @@ title: Configurer un labo pour utiliser une passerelle des services Bureau à di
 description: Découvrez comment configurer un labo dans Azure DevTest Labs avec une passerelle des services Bureau à distance afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: dcf5191dea64c3d7bf28b9ce1c616d3d2defb73e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b15d4d39199c1a30eae292ece67f4553b656f530
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695693"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639587"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configurer votre labo dans Azure DevTest Labs pour utiliser une passerelle des services Bureau à distance
 Dans Azure DevTest Labs, vous pouvez configurer une passerelle des services Bureau à distance pour votre labo afin de garantir un accès sécurisé aux machines virtuelles de labo sans avoir à exposer le port RDP. Le labo fournit un emplacement centralisé permettant aux utilisateurs de votre labo de voir toutes les machines virtuelles auxquelles ils ont accès et de s’y connecter. Le bouton **Se connecter** dans la page **Machine virtuelle** crée un fichier RDP spécifique à la machine que vous pouvez ouvrir pour vous connecter à cette dernière. Vous pouvez personnaliser et sécuriser davantage la connexion RDP en connectant votre labo à une passerelle des services Bureau à distance. 
@@ -36,7 +36,7 @@ Pour utiliser la fonctionnalité d’authentification du jeton DevTest Labs, il
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Exigences relatives aux machines de passerelle des services Bureau à distance
 - Un certificat TLS/SSL doit être installé sur la machine de passerelle pour gérer le trafic HTTPS. Le certificat doit correspondre le nom de domaine complet (FQDN) de l’équilibreur de charge de la batterie de serveurs de passerelle ou au nom de domaine complet de la machine elle-même s’il n’en existe qu’une. Les certificats TLS/SSL utilisant des caractères génériques ne fonctionnent pas.  
 - Un certificat de signature installé sur la ou les machines de passerelle. Créez un certificat de signature à l’aide du script [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1).
-- Installez le module d’[authentification enfichable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) qui prend en charge l’authentification du jeton pour la passerelle des services Bureau à distance. `RDGatewayFedAuth.msi`, qui est fourni avec des [images System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807), est un exemple de ce type de module. Pour plus d’informations sur System Center, consultez la [documentation de System Center](/system-center/) et les [détails des tarifs](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Installez le module d’[authentification enfichable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) qui prend en charge l’authentification du jeton pour la passerelle des services Bureau à distance. `RDGatewayFedAuth.msi`, qui est fourni avec des [images System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807&preserve-view=true), est un exemple de ce type de module. Pour plus d’informations sur System Center, consultez la [documentation de System Center](/system-center/) et les [détails des tarifs](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - Le serveur de passerelle peut gérer les requêtes adressées à `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
 
     gateway-hostname est le nom de domaine complet (FQDN) de l’équilibreur de charge de la batterie de serveurs de passerelle ou le nom de domaine complet de la machine elle-même s’il n’en existe qu’une. `{lab-machine-name}` est le nom de la machine de labo que vous essayez de connecter, et `{port-number}` est le port sur lequel la connexion sera établie.  Par défaut, ce port est le port 3389.  Toutefois, si la machine virtuelle utilise la fonctionnalité d’[adresse IP partagée](devtest-lab-shared-ip.md) dans DevTest Labs, le port sera différent.
@@ -79,7 +79,7 @@ Configurer le labo pour utiliser l’authentification du jeton à l’aide des �
 1. **Enregistrez** les changements.
 
     > [!NOTE] 
-    > En cliquant sur **Enregistrer**, vous acceptez les [termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > En cliquant sur **Enregistrer**, vous acceptez les [Termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 S’il est préférable de configurer le labo par le biais de l’automatisation, consultez [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) pour obtenir un exemple de script PowerShell permettant de définir les paramètres de **nom d’hôte de passerelle** et de **secret du jeton de passerelle**. Le [dépôt GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fournit également un modèle Azure Resource Manager qui crée ou met à jour un labo avec les paramètres de **nom d’hôte de passerelle** et de **secret du jeton de passerelle**.
@@ -94,7 +94,7 @@ Voici un exemple de groupe de sécurité réseau qui autorise uniquement le traf
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>Exemple pour créer une passerelle des services Bureau à distance
 
 > [!NOTE] 
-> En utilisant les exemples de modèles, vous acceptez les [termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> En utilisant les exemples de modèles, vous acceptez les [Termes du contrat de licence de la passerelle des services Bureau à distance](https://www.microsoft.com/licensing/product-licensing/products). Pour plus d’informations sur la passerelle distante, consultez [Bienvenue dans les services Bureau à distance](/windows-server/remote/remote-desktop-services/Welcome-to-rds) et [Déployer votre environnement Bureau à distance](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 Le [dépôt GitHub Azure DevTest Labs](https://github.com/Azure/azure-devtestlab) fournit quelques exemples destinés à vous aider à configurer les ressources nécessaires pour utiliser l’authentification du jeton et la passerelle des services Bureau à distance avec DevTest Labs. Ces exemples incluent des modèles Azure Resource Manager pour les machines de passerelle, les paramètres de labo et l’application de fonction.
 
@@ -105,14 +105,14 @@ Suivez ces étapes afin de configurer un exemple de solution pour la batterie de
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
-    $cer.Import(‘path-to-certificate’);
+    $cer.Import('path-to-certificate');
     $hash = $cer.GetCertHashString()
     ```
 
     Pour obtenir l’encodage en Base64 à l’aide de PowerShell, utilisez la commande suivante.
 
     ```powershell
-    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes(‘path-to-certificate’))
+    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes('path-to-certificate'))
     ```
 3. Télécharger les fichiers à partir de [https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/GatewaySample/arm/gateway).
 

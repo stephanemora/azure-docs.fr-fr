@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/22/2021
-ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/23/2021
+ms.openlocfilehash: fa21acc09858f4468e53788428e4928dc381a94e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737555"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107854"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup>|2 800|3200|3600|4000|6 400|9 600|
-|Taux maximal de journaux par pool (Mbits/s)|42|48|48|48|48|48|
+|Taux maximal de journaux par pool (Mbits/s)|42|48|54|60|62.5|62.5|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -120,7 +120,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup>|800|1 600|2 400|3200|4000|4 800|5600|
-|Taux maximal de journaux par pool (Mbits/s)|12|24|36|48|48|48|48|
+|Taux maximal de journaux par pool (Mbits/s)|12|24|36|48|60|62.5|62.5|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -152,7 +152,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup> |6 400|7 200|8,000|9 600|12 800|16 000|16 000|
-|Taux maximal de journaux par pool (Mbits/s)|48|48|48|48|48|48|48|
+|Taux maximal de journaux par pool (Mbits/s)|62.5|62.5|62.5|62.5|62.5|62.5|62.5|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -182,11 +182,11 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1536|
 |Taille maximale du journal (Go)|336|336|336|336|512|
-|Taille maximale des données TempDB (Go)|333|333|333|333|333|
+|Taille maximale des données TempDB (Go)|37|46|56|65|74|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup>|2560|3200|3840|4480|5120|
-|Taux maximal de journaux par pool (Mbits/s)|48|48|48|48|48|
+|Taux maximal de journaux par pool (Mbits/s)|48|60|62.5|62.5|62.5|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|400|500|600|700|800|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|800|1 000|1200|1400|1 600|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|
@@ -195,7 +195,6 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
-
 
 <sup>1</sup> Consultez [Gestion des ressources dans les pools élastiques denses](elastic-pool-resource-management.md) pour obtenir des informations supplémentaires.
 
@@ -215,11 +214,11 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1536|1536|1536|3 072|3 072|4096|
 |Taille maximale du journal (Go)|512|512|512|1 024|1 024|1 024|
-|Taille maximale des données TempDB (Go)|83,25|92,5|111|148|166,5|333|
+|Taille maximale des données TempDB (Go)|83|93|111|148|167|333|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup>|5760|6 400|7680|10240|11520|12800|
-|Taux maximal de journaux par pool (Mbits/s)|48|48|48|48|48|48|
+|Taux maximal de journaux par pool (Mbits/s)|62.5|62.5|62.5|62.5|62.5|62.5|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|900|1 000|1200|1 600|1800|3600|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|1800|2000|2 400|3200|3600|7200|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -234,7 +233,6 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 <sup>2</sup> La valeur maximale pour les tailles d’E/S est comprise entre 8 Ko et 64 Ko. Les IOPS réelles dépendent de la charge de travail. Pour plus d’informations, consultez [Gouvernance des E/S de données](resource-limits-logical-server.md#resource-governance).
 
 <sup>3</sup> Pour connaître le nombre maximal de Workers simultanés (requêtes) pour une base de données individuelle, consultez [Limites de ressources des bases de données uniques](resource-limits-vcore-single-databases.md). Par exemple, si le pool élastique utilise Gen5 et que le nombre maximal de vCores par base de données est défini sur 2, le nombre maximal de Workers simultanés est de 200.  Si le nombre maximal de vCores par base de données est défini sur 0,5, le nombre maximal de Workers simultanés est de 50, puisque le nombre maximal de Workers est de 100 sur Gen5. Pour les autres paramètres de nombre maximal de vCores par base de données qui sont inférieurs ou égaux à 1 vCore, le nombre maximum de Workers simultanés est adapté en conséquence.
-
 
 ## <a name="general-purpose---provisioned-compute---dc-series"></a>Usage général – calcul approvisionné – série DC
 
@@ -252,7 +250,7 @@ Vous pouvez définir le niveau de service, la taille de calcul (objectif de serv
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup>|800|1 600|2 400|3200|
-|Taux maximal de journaux par pool (Mbits/s)|9,4|18,8|28,1|32,8|
+|Taux maximal de journaux par pool (Mbits/s)|12|24|36|48|
 |Nombre maximal de Workers simultanés par pool (requêtes) <sup>3</sup>|168|336|504|672|
 |Nombre maximal de connexions simultanées par pool (requêtes) <sup>3</sup>|168|336|504|672|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|
@@ -446,12 +444,12 @@ Si tous les vCore d’un pool élastique sont occupés, chaque base de données 
 |Génération de calcul|Série M|Série M|Série M|Série M|Série M|
 |vCores|20|24|32|64|128|
 |Mémoire (Go)|588,6|706,3|941,8|1883,5|3767,0|
-|Nombre maximal de bases de données par pool <sup>1</sup>|100|100|100|100|100|100|
+|Nombre maximal de bases de données par pool <sup>1</sup>|100|100|100|100|100|
 |Prise en charge de ColumnStore|Oui|Oui|Oui|Oui|Oui|
 |Stockage In-Memory OLTP (Go)|172|216|304|704|1768|
 |Taille maximale des données (Go)|1 280|1536|2 048|4096|4096|
 |Taille maximale du journal (Go)|427|512|683|1 024|1 024|
-|Taille maximale des données TempDB (Go)|4096|2 048|1 024|768|640|
+|Taille maximale des données TempDB (Go)|640|768|1 024|2 048|4096|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’IOPS de données par pool <sup>2</sup>|31 248|37 497|49 996|99 993|160 000|

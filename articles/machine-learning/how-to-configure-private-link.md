@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 6fd497e0bc0fd282d57779c483f1e39e8f5ab60a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b5283e5779cc79ce0a745190b57884a6ca0f7e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505475"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056009"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurer Azure Private Link pour un espace de travail Azure Machine Learning
 
@@ -175,7 +175,7 @@ Pour plus d’informations sur Machines virtuelles Microsoft Azure, consultez la
 Dans certains cas, vous pouvez autoriser une personne à se connecter à votre espace de travail sécurisé sur un point de terminaison public, plutôt que par le biais du réseau virtuel. Après la configuration d’un espace de travail avec un point de terminaison privé, vous pouvez éventuellement activer l’accès public à l’espace de travail. Cela n’a pas pour effet de supprimer le point de terminaison privé. Toutes les communications assurées entre les composants derrière le réseau virtuel sont toujours sécurisées. Un accès public est permis uniquement à l’espace de travail, en plus de l’accès privé via le réseau virtuel.
 
 > [!WARNING]
-> Lors de la connexion au point de terminaison public, certaines caractéristiques du studio ne parviendront pas à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure.
+> Lors de la connexion au point de terminaison public, certaines caractéristiques du studio ne parviendront pas à accéder à vos données. Ce problème se produit quand les données sont stockées sur un service sécurisé derrière le réseau virtuel. Par exemple, un compte de stockage Azure. Notez également que les fonctionnalités d’instance de calcul Jupyter/JupyterLab/RStudio et les notebooks en cours d’exécution ne fonctionneront pas.
 
 Pour activer l’accès public à un espace de travail avec liaison privée, procédez comme suit :
 

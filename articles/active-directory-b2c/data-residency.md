@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e724b3517d9e5a63d8699e9f66c51cf41f02012
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92309681"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092515"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
 
 La disponibilité régionale et la résidence des données sont deux concepts très différents qui ne s’appliquent pas à Azure Active Directory B2C de la même façon qu’à Azure. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.
 
-Azure Active Directory B2C est **généralement disponible dans le monde entier** avec l’option de **résidence des données** dans les régions **États-Unis, Europe ou Asie-Pacifique**.
+Azure Active Directory B2C est **généralement disponible dans le monde entier** avec l’option de **résidence des données** dans les régions **États-Unis, Europe ou Asie-Pacifique**. Azure AD B2C est en **version préliminaire publique** en Australie.
 
 La [disponibilité régionale](#region-availability) fait référence à l’endroit où se trouve le service pour utilisation.
 
@@ -53,11 +53,15 @@ Les données des pays/régions suivants sont conservées en **Europe** :
 
 Les données des pays/régions suivants sont conservées en **Asie-Pacifique** :
 
-> Afghanistan (AF), Région administrative spéciale de Hong Kong (HK), Inde (IN), Indonésie (ID), Japon (JP), Corée (KR), Malaisie (MY), Philippines (PH), Singapour (SG), Sri Lanka (LK), Taïwan (TW) et Thaïlande (TH).
+> Afghanistan (AF), Région administrative spéciale de Hong Kong (HK), Inde (IN), Indonésie (ID), Japon (JP), Corée (KR), Malaisie (MY), Philippines (PH), Singapour (SG), Sri Lanka (LK), Taïwan (TW) et Thaïlande (TH)
+
+Les données des pays/régions suivants sont conservées en **Australie** (préversion) :
+
+> Australie et Nouvelle Zélande
 
 Les pays/régions suivants sont en cours d’ajout à cette liste. Pour le moment, vous pouvez toujours utiliser Azure Active Directory B2C en choisissant l’un des pays ci-dessus.
 
-> Argentine, Australie, Brésil, Chili, Colombie, Équateur, Iraq, Nouvelle-Zélande, Paraguay, Pérou, Uruguay et Venezuela.
+> Argentine, Brésil, Chili, Colombie, Équateur, Iraq Paraguay, Pérou, Uruguay et Venezuela
 
 ## <a name="remote-profile-solution"></a>Solution Profil distant
 
@@ -66,18 +70,6 @@ Avec les [stratégies personnalisées](custom-policy-overview.md) Azure AD B2C, 
 - Après la connexion, une fois que les informations d’identification ont été validées avec un compte local ou social, Azure AD B2C appelle l’API REST, qui envoie l’identificateur unique de l’utilisateur en tant que clé primaire d’utilisateur (adresse e-mail ou objectId utilisateur). L’API REST lit les données de la base de données distante et retourne le profil utilisateur.  
 
 Une fois l’inscription, la modification de profil ou la connexion terminée, Azure AD B2C inclut le profil utilisateur dans le jeton d’accès qui est retourné à l’application. Pour plus d’informations, consultez l’[exemple de solution Profil distant Azure AD B2C](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) dans GitHub.
-
-## <a name="preview-tenant"></a>Client de la version préliminaire
-
-Si vous avez créé un locataire B2C pendant la période de préversion d’Azure AD B2C, il est probable que votre **type de locataire** indique **Aperçu du client**.
-
-Si c’est le cas, vous devez utiliser votre locataire UNIQUEMENT à des fins de développement et de test. N’UTILISEZ PAS un locataire en préversion pour les applications de production.
-
-**Il n’existe aucun chemin de migration** à partir d’un locataire B2C en préversion vers un locataire B2C à l’échelle de la production. Vous devez créer un locataire B2C pour vos applications de production.
-
-Il existe des problèmes connus liés à la suppression d’un locataire B2C en préversion et à la recréation d’un locataire B2C à l’échelle de la production portant le même nom de domaine. *Vous devez créer un locataire B2C à l’échelle de la production portant un nom de domaine différent*.
-
-![Capture d’écran d’un type de locataire, en tant que locataire en version préliminaire.](./media/data-residency/preview-b2c-tenant.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101646552"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639742"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Microsoft Dynamics 365 Fraud Protection avec Azure Active Directory B2C
 
-Dans cet exemple de didacticiel, nous fournissons des conseils sur l’intégration de [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) avec Azure Active Directory (AD) B2C.
+Dans cet exemple de didacticiel, nous fournissons des conseils sur l’intégration de [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) avec Azure Active Directory (AD) B2C.
 
 Microsoft DFP fournit aux clients la possibilité d’évaluer si le risque de tentatives de création de nouveaux comptes et les tentatives de connexion à l’écosystème du client sont frauduleux. L’évaluation de Microsoft DFP peut être utilisée par le client pour bloquer les tentatives suspectes de création de nouveaux comptes factices ou les piéger, ou bien pour compromettre les comptes existants. La protection des comptes comprend l’identification de l’empreinte des appareils par intelligence artificielle, des API pour l’évaluation des risques en temps réel, une règle et une liste pour optimiser la stratégie de risque en fonction des besoins de l’entreprise du client et une carte de performance pour surveiller l’efficacité et les tendances de la protection contre les fraudes dans l’écosystème du client.
 
@@ -85,7 +85,7 @@ L' [identification par collecte d’empreintes des appareils Microsoft DFP](/dyn
 
 ### <a name="deploy-the-azure-ad-b2c-api-code"></a>Déployer le code de l’API Azure AD B2C
 
-Déployez le [code d’API fourni](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) dans un service Azure. Le code peut être publié [à partir de Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Déployez le [code d’API fourni](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) dans un service Azure. Le code peut être publié [à partir de Visual Studio](/visualstudio/deployment/quickstart-deploy-to-azure).
 
 Configurer CORS, ajouter l’**origine autorisée** `https://{your_tenant_name}.b2clogin.com`
 
@@ -102,8 +102,8 @@ Configurez les paramètres de l’application dans le [service d’application d
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings:InstanceId | Configuration de Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Votre ID client de collecte d’empreintes d’appareils Microsoft |     |
-| FraudProtectionSettings:ApiBaseUrl |  Votre URL de base à partir du portail Microsoft DFP   | Supprimer « -int » pour appeler l’API de production à la place
-|  TokenProviderConfig : Ressource | https://api.dfp.dynamics-int.com |   Supprimer « -int » pour appeler l’API de production à la place  |
+| FraudProtectionSettings:ApiBaseUrl |  Votre URL de base à partir du portail Microsoft DFP   | Supprimer « -int » pour appeler l’API de production à la place|
+|  TokenProviderConfig : Ressource  | Votre URL de base - https://api.dfp.dynamics-int.com     | Supprimer « -int » pour appeler l’API de production à la place|
 |   TokenProviderConfig:ClientId       |ID de votre application cliente Azure AD de prestataire de protection contre la fraude      |       |
 | TokenProviderConfig:Authority | https://login.microsoftonline.com/<directory_ID> | Autorité de locataire Azure AD de prestataire de protection contre la fraude |
 | TokenProviderConfig:CertificateThumbprint* | Empreinte numérique du certificat à utiliser pour l’authentification auprès de votre application cliente Azure AD de prestataire |

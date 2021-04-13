@@ -4,25 +4,20 @@ description: Fournit un résumé des paramètres de prise en charge et des limit
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707215"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612855"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice de prise en charge de la Sauvegarde de disque Azure (en préversion)
-
->[!IMPORTANT]
->La Sauvegarde de disque Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
+# <a name="azure-disk-backup-support-matrix"></a>Matrice de prise en charge de sauvegarde de disques Azure
 
 Vous pouvez utiliser [Sauvegarde Azure](./backup-overview.md) pour protéger les disques Azure. Cet article résume la disponibilité régionale, les scénarios pris en charge et les limitations.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La Sauvegarde de disque Azure est disponible en préversion dans les régions suivantes : USA Ouest, USA Centre-Ouest, USA Est 2, Canada Centre, Royaume-Uni Ouest, Suisse Nord, Suisse Ouest, Australie Centre, Australie Centre 2, Corée Centre, Corée Sud, Japon Ouest, Asie Est, Émirats arabes unis Nord, Brésil Sud, Inde Centre. 
+La sauvegarde de disques Azure est disponible dans les régions suivantes : USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Centre Nord, Canada Centre, Brésil Sud, Afrique du Sud Nord, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, Europe Nord, Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, France Centre, Norvège Est, Émirats arabes unis Nord, Australie Centre, Australie Centre 2, Australie Est, Corée Centre, Corée Sud, Japon Est, Japon Ouest, Asie Est, Asie Sud-Est, Inde Centre. 
 
 D’autres régions seront annoncées quand elles seront disponibles.
 
@@ -56,7 +51,7 @@ D’autres régions seront annoncées quand elles seront disponibles.
 
 - Actuellement, l’expérience du portail Azure pour configurer la sauvegarde des disques est limitée à un maximum de 20 disques d’un même abonnement.
 
-- Actuellement (pendant la préversion), l’utilisation de PowerShell et Azure CLI pour configurer la sauvegarde et la restauration des disques n’est pas prise en charge.
+- La sauvegarde de disques Azure prend en charge PowerShell. Actuellement, Azure CLI n’est pas pris en charge.
 
 - Lors de la configuration de la sauvegarde, le disque à sauvegarder sélectionné et le groupe de ressources d’instantanés dans lequel les captures instantanées doivent être stockées doivent faire partie du même abonnement. Vous ne pouvez pas créer d'instantané incrémentiel pour un disque particulier en dehors de l'abonnement associé à ce disque. Apprenez-en davantage sur les [instantanés incrémentiels](../virtual-machines/disks-incremental-snapshots.md#restrictions) pour les disques managés. Pour plus d’informations sur le choix d’un groupe de ressources d’instantanés, consultez [Configurer une sauvegarde](backup-managed-disks.md#configure-backup).
 
@@ -66,7 +61,7 @@ D’autres régions seront annoncées quand elles seront disponibles.
 
 - La prise en charge des [liaisons privées](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) pour des disques managés vous permet de limiter l’exportation et l’importation de disques managés afin qu’elles ne se produisent que dans votre réseau virtuel Azure. Le Sauvegarde de disque Azure prend en charge la sauvegarde de disques sur lesquels des points de terminaison privés sont activés. Cela n’inclut pas que les données de sauvegarde ou les captures instantanées soient accessibles via le point de terminaison privé.
 
-- Pendant la préversion, vous ne pouvez pas désactiver la sauvegarde. Par conséquent, l’option **Arrêter la sauvegarde et conserver les données de sauvegarde** n’est pas prise en charge. Vous pouvez supprimer une instance de sauvegarde, ce qui entraînera non seulement l’arrêt de la sauvegarde, mais également la suppression de toutes les données de sauvegarde.
+- Vous pouvez supprimer une instance de sauvegarde, ce qui entraînera non seulement l’arrêt de la sauvegarde, mais également la suppression de toutes les données de sauvegarde. Actuellement, vous ne pouvez pas désactiver une sauvegarde, car l’option **arrêter la sauvegarde et conserver les données de sauvegarde** n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

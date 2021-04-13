@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d58e8b5ce9fb444fa501f897cca722613d9c51fe
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94917526"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967572"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sécurité du réseau pour les ressources Azure Event Grid
 Cet article explique comment utiliser les fonctionnalités de sécurité suivantes avec Azure Event Grid : 
@@ -44,7 +44,7 @@ Vous pouvez utiliser des [points de terminaison privés](../private-link/private
 
 L’utilisation de points de terminaison privés pour ressource Event Grid vous permet d’effectuer les opérations suivantes :
 
-- Sécuriser l’accès à votre rubrique ou domaine à partir d’un réseau virtuel via un réseau principal Microsoft, par opposition au réseau Internet public.
+- Sécurisez l’accès à votre rubrique ou domaine à partir d’un réseau virtuel via le réseau principal Microsoft, par opposition au réseau Internet public.
 - Se connecter en toute sécurité à partir de réseaux locaux qui se connectent au réseau virtuel à l'aide d'un VPN ou d'itinéraires ExpressRoute avec le peering privé.
 
 Quand vous créez un point de terminaison privé pour une rubrique ou un domaine dans votre réseau virtuel, une demande de consentement est envoyée pour approbation au propriétaire de la ressource. Si l’utilisateur qui demande la création du point de terminaison privé est également propriétaire de la ressource, cette demande de consentement est automatiquement approuvée. Sinon, la connexion affiche l’état **En attente** jusqu’à ce qu’elle soit approuvée. Les applications du réseau virtuel peuvent se connecter en toute transparence au service Event Grid sur le point de terminaison privé, à l’aide des mêmes chaînes de connexion et mécanismes d’autorisation qu’ils utiliseraient dans tous les cas. Les propriétaires de la ressource peuvent gérer les demandes de consentement et les points de terminaison privés, via l’onglet **Points de terminaison privés** de la ressource dans le portail Azure.

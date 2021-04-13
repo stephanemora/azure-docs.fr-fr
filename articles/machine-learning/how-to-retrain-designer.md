@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 04/06/2020
+ms.date: 03/06/2021
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed5f59fc1d751f92a7c016aa3586497659f778fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708464"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962949"
 ---
 # <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Utiliser des paramètres de pipeline pour réentraîner des modèles dans le concepteur
 
@@ -120,3 +120,5 @@ Pour effectuer un appel REST, vous devez disposer d’un en-tête d’authentifi
 Dans cet article, vous avez appris à créer un point de terminaison de pipeline d’apprentissage paramétré à l’aide du concepteur.
 
 Pour une procédure pas à pas complète de déploiement d’un modèle destiné à effectuer des prédictions, consultez le [tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md) pour former et déployer un modèle de régression.
+
+Pour savoir comment publier et envoyer un point de terminaison de pipeline à l’aide du kit de développement logiciel (SDK), consultez [cet article](how-to-deploy-pipelines.md).

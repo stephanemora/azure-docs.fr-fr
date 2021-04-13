@@ -3,19 +3,14 @@ title: Résolution des échecs de Sauvegarde sur disque Azure
 description: Découvrez comment résoudre des échecs de Sauvegarde sur disque Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737725"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107242"
 ---
-# <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Résolution des échecs de Sauvegarde sur disque Azure (en préversion)
-
->[!IMPORTANT]
->La Sauvegarde sur disque Azure est disponible en préversion sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour la disponibilité des régions, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
->
->[Remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) pour vous inscrire à la préversion.
+# <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Résolution des échecs de Sauvegarde sur disque Azure
 
 Cet article fournit des informations sur la résolution des problèmes de sauvegarde et de restauration rencontrés avec des disques Azure. Pour plus d’informations sur la disponibilité régionale, les scénarios pris en charge et les limitations de la [Sauvegarde sur disque Azure](disk-backup-overview.md), consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 
@@ -157,7 +152,7 @@ Action recommandée : Songez à utiliser un autre point de restauration à resta
 
 Message d’erreur : La sauvegarde sur disque n’est pas encore disponible dans la région du coffre de sauvegarde sous lequel la configuration de la protection est essayée.
 
-Action recommandée : Le coffre de sauvegarde doit être dans une région prise en charge par la préversion. Pour connaître la disponibilité par région, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
+Action recommandée : Le coffre de sauvegarde doit être dans une région prise en charge. Pour connaître la disponibilité par région, consultez la [matrice de prise en charge](disk-backup-support-matrix.md).
 
 ### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Code d’erreur : UserErrorDppDatasourceAlreadyHasBackupInstance
 

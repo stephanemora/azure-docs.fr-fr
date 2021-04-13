@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 9b8402e5ae4d0358d17342d30ddf36f5e1228f65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 19b32bed15a4d292a7427d8401e777c7761e45a3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393460"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104592028"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Copier des données depuis et vers le serveur SFTP à l’aide d’Azure Data Factory
 
@@ -34,7 +34,7 @@ Le connecteur SFTP est pris en charge pour les activités suivantes :
 
 Plus précisément, le connecteur SFTP prend en charge les opérations suivantes :
 
-- Copie de fichiers depuis et vers le serveur SFTP en utilisant l’authentification *De base* ou *SshPublicKey*.
+- Copie de fichiers depuis et vers le serveur SFTP en utilisant l’authentification **De base**, **Clé publique SSH** ou **multifacteur**.
 - Copie de fichiers en l’état, ou en analysant ou en générant les fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Prérequis
@@ -58,7 +58,7 @@ Les propriétés suivantes sont prises en charge pour le service lié SFTP :
 | port | Port sur lequel le serveur SFTP est à l’écoute.<br/>La valeur autorisée est un entier et la valeur par défaut est *22*. |Non |
 | skipHostKeyValidation | Spécifiez s’il faut ignorer la validation de la clé hôte.<br/>Les valeurs autorisées sont *True* et *False* (par défaut).  | Non |
 | hostKeyFingerprint | Spécifiez l’empreinte de la clé hôte. | Oui, si la valeur de « skipHostKeyValidation » est définie sur false.  |
-| authenticationType | Spécifiez le type d’authentification.<br/>Les valeurs autorisées sont *De base* et *SshPublicKey*. Pour plus d’informations sur les propriétés, consultez la section [Utiliser une authentification de base](#use-basic-authentication). Pour obtenir des exemples JSON, consultez la section [Utiliser l’authentification par clé publique SSH](#use-ssh-public-key-authentication). |Oui |
+| authenticationType | Spécifiez le type d’authentification.<br/>Les valeurs autorisées sont *De base*, *SshPublicKey* et *Multifacteur*. Pour plus d’informations sur les propriétés, consultez la section [Utiliser une authentification de base](#use-basic-authentication). Pour obtenir des exemples JSON, consultez la section [Utiliser l’authentification par clé publique SSH](#use-ssh-public-key-authentication). |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour en savoir plus, consultez la section [Conditions préalables](#prerequisites). Si le runtime d’intégration n’est pas spécifié, le service utilise le runtime d’intégration Azure par défaut. |Non |
 
 ### <a name="use-basic-authentication"></a>Utiliser une authentification de base
@@ -75,7 +75,6 @@ Pour utiliser l’authentification de base, définissez la propriété *authenti
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -117,7 +116,6 @@ Pour utiliser l’authentification par clé publique SSH, définissez la propri�
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -161,6 +159,43 @@ Pour utiliser l’authentification par clé publique SSH, définissez la propri�
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="use-multi-factor-authentication"></a>Utiliser l'authentification multifacteur
+
+Pour utiliser l’authentification multifacteur qui est une combinaison d’authentifications de base et de clé publique SSH, spécifiez le nom d’utilisateur, le mot de passe et les informations de clé privée décrites dans les sections ci-dessus.
+
+**Exemple : authentification multifacteur**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
@@ -226,17 +261,17 @@ Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres 
 | type                     | La propriété *type* sous `storeSettings` doit être définie sur *SftpReadSettings*. | Oui                                           |
 | ***Rechercher les fichiers à copier*** |  |  |
 | OPTION 1 : chemin d’accès statique<br> | Copiez à partir du chemin de dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
-| OPTION 2 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont `*` (correspond à zéro, un ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement un caractère générique ou ce caractère d’échappement. <br>Pour d’autres exemples, consultez [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
+| OPTION 2 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont `*` (correspond à zéro, un ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement un caractère générique ou ce caractère d’échappement. <br>Pour d’autres exemples, consultez [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 2 : caractère générique<br>- wildcardFileName | Nom du fichier avec des caractères génériques situé dans le chemin folderPath/wildcardFolderPath spécifié pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou à un caractère) ; utilisez `^` en guise d’échappement si votre nom de fichier contient effectivement ce caractère d’échappement ou générique.  Pour d’autres exemples, consultez [Exemples de filtres de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
 | OPTION 3 : liste de fichiers<br>- fileListPath | Indique de copier un ensemble de fichiers spécifié. Pointez sur un fichier texte qui contient une liste de fichiers que vous voulez copier (un fichier par ligne, avec le chemin relatif au chemin configuré dans le jeu de données).<br/>Lorsque vous utilisez cette option, ne spécifiez pas le nom de fichier dans le jeu de données. Pour plus d’exemples, consultez [Exemples de listes de fichiers](#file-list-examples). |Non |
 | ***Paramètres supplémentaires*** |  | |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. <br>Les valeurs autorisées sont *true* (par défaut) et *false*.<br>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. |Non |
-| deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
+| deleteFilesAfterCompletion | Indique si les fichiers binaires seront supprimés du magasin source après leur déplacement vers le magasin de destination. La suppression se faisant par fichier, lorsque l’activité de copie échoue, vous pouvez constater que certains fichiers ont déjà été copiés vers la destination et supprimés de la source, tandis que d’autres restent dans le magasin source. <br/>Cette propriété est valide uniquement dans un scénario de copie de fichiers binaires. La valeur par défaut est false. |Non |
 | modifiedDatetimeStart    | Les fichiers sont filtrés en fonction de l’attribut *Dernière modification*. <br>Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format *2018-12-01T05:00:00Z*. <br> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.<br/>Cette propriété ne s’applique pas lorsque vous configurez `fileListPath`. | Non                                            |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                            |
 | enablePartitionDiscovery | Pour les fichiers partitionnés, spécifiez s’il faut analyser les partitions à partir du chemin d’accès au fichier et les ajouter en tant que colonnes sources supplémentaires.<br/>Les valeurs autorisées sont **false** (par défaut) et **true**. | Non                                            |
 | partitionRootPath | Lorsque la découverte de partition est activée, spécifiez le chemin d’accès racine absolu pour pouvoir lire les dossiers partitionnés en tant que colonnes de données.<br/><br/>S’il n’est pas spécifié, par défaut :<br/>– Quand vous utilisez le chemin d’accès du fichier dans le jeu de données ou la liste des fichiers sur la source, le chemin racine de la partition est le chemin d’accès configuré dans le jeu de données.<br/>– Quand vous utilisez le filtre de dossiers de caractères génériques, le chemin d’accès racine de la partition est le sous-chemin d’accès avant le premier caractère générique.<br/><br/>Par exemple, en supposant que vous configurez le chemin d’accès dans le jeu de données en tant que « root/folder/year=2020/month=08/day=27 » :<br/>– Si vous spécifiez le chemin d’accès racine de la partition en tant que « root/folder/year=2020 », l’activité de copie génère deux colonnes supplémentaires, `month` et `day`, ayant respectivement la valeur « 08 » et « 27 », en plus des colonnes contenues dans les fichiers.<br/>– Si le chemin d’accès racine de la partition n’est pas spécifié, aucune colonne supplémentaire n’est générée. | Non                                            |
-| maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non                                            |
+| maxConcurrentConnections | La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non                                            |
 
 **Exemple :**
 
@@ -289,7 +324,7 @@ Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres 
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété *type* sous `storeSettings` doit être définie sur *SftpWriteSettings*. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
-| maxConcurrentConnections | Nombre de connexions simultanées possibles au magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non       |
+| maxConcurrentConnections | La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées. | Non       |
 | useTempFileRename | Indiquez si vous souhaitez effectuer un chargement dans des fichiers temporaires puis les renommer, ou si vous souhaitez écrire directement dans l’emplacement de dossier ou de fichier cible. Par défaut, Azure Data Factory écrit d’abord dans des fichiers temporaires, puis les renomme une fois le chargement terminé. Cette séquence permet (1) d’éviter les conflits susceptibles d’entraîner l’altération d’un fichier si d’autres processus écrivent dans le même fichier, et (2) de garantir l’existence de la version d’origine du fichier pendant le transfert. Si votre serveur SFTP ne prend pas en charge l’opération de renommage, désactivez cette option et vérifiez qu’aucun autre processus d’écriture n’est en cours sur le fichier cible. Pour plus d’informations, consultez le conseil de dépannage fourni après ce tableau. | Non. La valeur par défaut est *true*. |
 | operationTimeout | Délai d’attente avant l’expiration de chaque demande d’écriture au serveur SFTP. La valeur par défaut est 60 minutes (01:00:00).|Non |
 
@@ -422,7 +457,7 @@ Pour obtenir des informations sur les propriétés de l’activité Delete, cons
 |:--- |:--- |:--- |
 | type | La propriété *type* de la source d’activité de copie doit être définie sur *FileSystemSource* |Oui |
 | recursive | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Lorsque l’option « recursive » est définie sur *true* et que le récepteur est un magasin basé sur un fichier, les dossiers et sous-dossiers vides ne sont pas copiés ni créés au niveau du récepteur.<br/>Les valeurs autorisées sont *true* (par défaut) et *false* | Non |
-| maxConcurrentConnections | Nombre de connexions simultanées possibles à un magasin de stockage. Spécifiez une valeur uniquement lorsque vous souhaitez limiter le nombre de connexions simultanées au magasin de données. | Non |
+| maxConcurrentConnections |La limite supérieure de connexions simultanées établies au magasin de données pendant l’exécution de l’activité. Spécifiez une valeur uniquement lorsque vous souhaitez limiter les connexions simultanées.| Non |
 
 **Exemple :**
 

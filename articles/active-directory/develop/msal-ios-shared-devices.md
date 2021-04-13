@@ -1,7 +1,7 @@
 ---
 title: Mode d’appareil partagé pour les appareils iOS
 titleSuffix: Microsoft identity platform | Azure
-description: Découvrez comment activer le mode Appareil partagé pour permettre aux employés de terrain de partager un appareil iOS
+description: Découvrir comment activer le mode Appareil partagé pour permettre aux employés de terrain de partager un appareil iOS
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3353d87291492563acbd3a85bbae266c711377f2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578785"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611801"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Mode d’appareil partagé pour les appareils iOS
 

@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0bb17ded6822c477fe2107c66711af5e2dc384d3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519195"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107837"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Haute performance avec un serveur Triton Inference (préversion) 
 
@@ -31,6 +31,9 @@ Triton est une infrastructure *optimisée pour l’inférence*. Elle offre une m
 
 > [!TIP]
 > Les extraits de code de ce document sont fournis à titre d’illustration et n’affichent pas une solution complète. Pour obtenir un exemple de code fonctionnel, consultez les [exemples de bout en bout de Triton dans Azure Machine Learning](https://aka.ms/triton-aml-sample).
+
+> [!NOTE]
+> Le [serveur d’inférence NVIDIA Triton](https://aka.ms/nvidia-triton-docs) est un logiciel tiers Open source intégré à Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -97,7 +100,7 @@ models
         - model_1
             - model_version
                 - model_file
-                - config_file
+            - config_file
         - model_2
             ...
 ```
@@ -114,6 +117,11 @@ az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
 Pour plus d’informations sur `az ml model register`, consultez la [documentation de référence](/cli/azure/ext/azure-cli-ml/ml/model).
+
+Lors de l’inscription du modèle dans Azure Machine Learning, la valeur du paramètre `--model-path  -p` doit être le nom du dossier parent du Triton.  
+Dans l'exemple ci-dessus, `--model-path` est « models ».
+
+La valeur du paramètre `--name  -n`, « my_triton_model » dans l’exemple, est le nom du modèle connu pour l’espace de travail Azure Machine Learning. 
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -364,13 +372,17 @@ local_service.delete()
 
 
 ---
+## <a name="troubleshoot"></a>Dépanner
+
+* [Résoudre les problèmes d’échec de déploiement](how-to-troubleshoot-deployment.md), découvrez comment dépanner et résoudre les erreurs courantes que vous pouvez rencontrer lors du déploiement d’un modèle.
+
+* Si les journaux de déploiement indiquent que le **démarrage de TritonServer a échoué**, consultez la [documentation Open source de Nvidia.](https://github.com/triton-inference-server/server)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Consulter des exemples de bout-en-bout de Triton dans Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Consulter [les exemples client Triton](https://aka.ms/nvidia-client-examples)
 * Lire la [documentation du serveur Triton Inference](https://aka.ms/nvidia-triton-docs)
-* [Résoudre des problèmes d’échec de déploiement](how-to-troubleshoot-deployment.md)
 * [Déployer dans Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Mettre à jour un service web](how-to-deploy-update-web-service.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
