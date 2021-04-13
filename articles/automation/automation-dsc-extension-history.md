@@ -6,12 +6,12 @@ keywords: dsc, powershell, azure, extension
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: e51bce6e015ef7367625b010b74e5d2422b35051
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b272993cdb1b89e63190d2c8c9ef80db2327ccc1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651800"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167513"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Utiliser l’historique des versions de l’extension Azure Desired State Configuration
 
@@ -274,7 +274,7 @@ Cet article fournit des informations sur chaque version de l’extension de mach
 - **Environment :** Azure
 - **Remarques :** Cette version utilise DSC telle qu’elle est incluse dans Windows Server 2016 Technical Preview ; pour les autres systèmes d’exploitation Windows, elle installe [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (l’installation de WMF nécessite un redémarrage).
 - **Nouvelles fonctionnalités :**
-  - Dans l’extension version 2.14, des modifications ont été apportées pour l’installation de WMF RTM. Lors de la mise à niveau depuis l’extension version 2.13.2.0 vers 2.14.0.0, certaines applets de commande DSC peuvent échouer, ou votre configuration peut échouer avec une erreur : « Aucune instance trouvée avec les valeurs de propriété données ». Pour plus d’informations, consultez les [notes de publication de DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc). Les solutions de contournement pour ces problèmes ont été ajoutées dans la version 2.15. 
+  - Dans l’extension version 2.14, des modifications ont été apportées pour l’installation de WMF RTM. Lors de la mise à niveau depuis l’extension version 2.13.2.0 vers 2.14.0.0, certaines cmdlets DSC peuvent échouer, ou votre configuration peut échouer avec une erreur : « Aucune instance trouvée avec les valeurs de propriété données ». Pour plus d’informations, consultez les [notes de publication de DSC](/powershell/scripting/wmf/known-issues/known-issues-dsc). Les solutions de contournement pour ces problèmes ont été ajoutées dans la version 2.15. 
   - Si vous avez déjà installé la version 2.14 et que vous rencontrez l’un des deux problèmes mentionnés ci-dessus, vous devez effectuer ces étapes manuellement. Dans une session PowerShell avec élévation de privilèges, exécutez les commandes suivantes :
     - `Remove-Item -Path $env:SystemRoot\system32\Configuration\DSCEngineCache.mof`
     - `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`

@@ -7,12 +7,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: adcefc21ac4fc8a00d97d5ac4352bad1287b60de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1950fa5269460bd3daeb671a37a072dc4f5f050
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517631"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385256"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Démarrage rapide : Créer une fabrique de données Azure et un pipeline à l’aide de l’API REST
 
@@ -37,7 +37,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 * Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. Vous pouvez utiliser des outils tels que l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie.
 * Installez **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps). Ce guide de démarrage rapide utilise PowerShell pour appeler les API REST.
 * **Créez une application dans Azure Active Directory** en suivant [cette instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Notez les valeurs suivantes à utiliser au cours des prochaines étapes : **ID d’application**, **clientSecrets** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  ».
-
+>[!NOTE]
+>   Concernant les clouds souverains, vous devez utiliser les points de terminaison spécifiques au cloud appropriés pour ActiveDirectoryAuthority et ResourceManagerUrl (BaseUri). Vous pouvez utiliser Powershell pour obtenir facilement les URL des points de terminaison de différents clouds en exécutant « Get-AzEnvironment | Format-List », qui renverra une liste de points de terminaison pour chaque environnement cloud.  
+>    
 ## <a name="set-global-variables"></a>Définir des variables globales
 
 1. Lancez **PowerShell**. Gardez Azure PowerShell ouvert jusqu’à la fin de ce guide de démarrage rapide. Si vous fermez puis rouvrez Azure PowerShell, vous devez réexécuter ces commandes.

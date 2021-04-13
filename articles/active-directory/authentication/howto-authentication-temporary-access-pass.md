@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/31/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8774df6a2eee15f8b5a0c37362e5b20f14b07549
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579380"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167360"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurer un passe d’accès temporaire dans Azure AD pour inscrire des méthodes d’authentification sans mot de passe (préversion)
 
 Les méthodes d’authentification sans mot de passe, telles que FIDO2 et la connexion par téléphone sans mot de passe par le biais de l’application Microsoft Authenticator, permettent aux utilisateurs de se connecter en toute sécurité sans mot de passe. Les utilisateurs peuvent amorcer des méthodes sans mot de passe de l’une des deux manières suivantes :
 
-- Utilisation des méthodes d’authentification multifacteur Azure AD existantes 
+- Utilisation des méthodes Azure AD Multi-Factor Authentication existantes 
 - Utilisation d’un passe d’accès temporaire 
 
 Un passe d’accès temporaire est un code secret limité dans le temps émis par un administrateur, qui répond à des exigences d’authentification fortes et qui peut être utilisé pour intégrer d’autres méthodes d’authentification, y compris sans mot de passe. Un passe d’accès temporaire facilite également la récupération quand un utilisateur perd ou oublie son facteur d’authentification fort, comme une clé de sécurité FIDO2 ou l’application Microsoft Authenticator, mais doit se connecter pour inscrire de nouvelles méthodes d’authentification fortes.
@@ -49,15 +49,15 @@ Pour configurer la stratégie de méthode d’authentification par passe d’acc
    La valeur par défaut et la plage de valeurs autorisées sont décrites dans le tableau suivant.
 
 
-   | Paramètre          | Valeurs par défaut | Valeurs autorisées               | Commentaires                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Durée de vie minimale | 1 heure         | 10 à 43 200 minutes (30 jours) | Nombre minimal de minutes pendant lesquelles le passe d’accès temporaire est valide.                                                                                                                                                                                                                         |   |
-   | Durée de vie maximale | 24 heures       | 10 à 43 200 minutes (30 jours) | Nombre maximal de minutes pendant lesquelles le passe d’accès temporaire est valide.                                                                                                                                                                                                                         |   |
-   | Durée de vie par défaut | 1 heure         | 10 à 43 200 minutes (30 jours) | Les valeurs par défaut peuvent être remplacées par chaque passe, dans le cadre de la durée de vie minimale et maximale configurée par la stratégie.                                                                                                                                                |   |
-   | Utilisation unique     | False          | True / False                 | Lorsque la stratégie est définie sur false, les passes du locataire peuvent être utilisés une fois ou plusieurs fois pendant leur validité (durée de vie maximale). En appliquant une utilisation ponctuelle dans la stratégie de passe d’accès temporaire, tous les passes créés dans le locataire sont à usage unique. |   |
-   | Longueur           | 8              | 8 à 48 caractères              | Définit la longueur du code secret.                                                                                                                                                                                                                                      |   |
+   | Paramètre | Valeurs par défaut | Valeurs autorisées | Commentaires |
+   |---|---|---|---|
+   | Durée de vie minimale | 1 heure | 10 à 43 200 minutes (30 jours) | Nombre minimal de minutes pendant lesquelles le passe d’accès temporaire est valide. |
+   | Durée de vie maximale | 24 heures | 10 à 43 200 minutes (30 jours) | Nombre maximal de minutes pendant lesquelles le passe d’accès temporaire est valide. |
+   | Durée de vie par défaut | 1 heure | 10 à 43 200 minutes (30 jours) | Les valeurs par défaut peuvent être remplacées par chaque passe, dans le cadre de la durée de vie minimale et maximale configurée par la stratégie. |
+   | Utilisation unique | False | True / False | Lorsque la stratégie est définie sur false, les passes du locataire peuvent être utilisés une fois ou plusieurs fois pendant leur validité (durée de vie maximale). En appliquant une utilisation ponctuelle dans la stratégie de passe d’accès temporaire, tous les passes créés dans le locataire sont à usage unique. |
+   | Longueur | 8 | 8 à 48 caractères | Définit la longueur du code secret. |
 
-## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Créer une passe d’accès temporaire dans le portail Azure AD
+## <a name="create-a-temporary-access-pass"></a>Créer un passe d’accès temporaire
 
 Une fois que vous avez activé une stratégie, vous pouvez créer un passe d’accès temporaire pour un utilisateur dans Azure AD. Ces rôles peuvent effectuer les actions suivantes en lien avec un passe d’accès temporaire.
 
@@ -66,9 +66,7 @@ Une fois que vous avez activé une stratégie, vous pouvez créer un passe d’a
 - Un administrateur d’authentification peut créer, supprimer et afficher le passe d’accès temporaire d’un membre (sauf lui-même).
 - Un administrateur général peut afficher les détails du passe d’accès temporaire de l’utilisateur (sans lire le code proprement dit).
 
-Pour créer un passe d’accès temporaire :
-
-1. Connectez-vous au portail en tant qu’administrateur général, administrateur d’authentification privilégié ou administrateur d’authentification. 
+1. Connectez-vous au Portail Azure en tant qu’administrateur général, administrateur d’authentification privilégié ou administrateur d’authentification. 
 1. Cliquez sur **Azure Active Directory**, accédez à Utilisateurs, sélectionnez un utilisateur, par exemple *Chris Green*, puis choisissez **Méthodes d’authentification**.
 1. Si nécessaire, sélectionnez l’option **Essayer la nouvelle expérience des méthodes d’authentification des utilisateurs**.
 1. Sélectionnez l’option **Ajouter des méthodes d’authentification**.
@@ -80,6 +78,30 @@ Pour créer un passe d’accès temporaire :
 1. Une fois le passe d’accès temporaire ajouté, ses détails sont affichés. Prenez note de la valeur réelle du passe d’accès temporaire. Vous fournissez cette valeur à l’utilisateur. Vous ne pouvez pas afficher cette valeur après avoir cliqué sur **OK**.
    
    ![Capture d’écran des détails d’un passe d’accès temporaire](./media/how-to-authentication-temporary-access-pass/details.png)
+
+Les commandes suivantes montrent comment créer et obtenir un passe d’accès temporaire avec PowerShell :
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2021-03-11 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+c5dbd20a-8b8f-4791-a23f-488fcbde3b38 9/03/2021 11:19:17 PM False    True         60                NotYetValid           11/03/2021 6:00:00 AM
+
+```
 
 ## <a name="use-a-temporary-access-pass"></a>Utiliser un passe d’accès temporaire
 
@@ -108,6 +130,13 @@ Un passe d’accès temporaire expiré est inutilisable. Sous les **Méthodes d�
 1. Dans le portail Azure AD, accédez à **Utilisateurs**, sélectionnez un utilisateur, par exemple *Utilisateur de passe d’accès temporaire*, puis choisissez **Méthodes d’authentification**.
 1. Sur le côté droit de la méthode d’authentification **Passe d’accès temporaire (préversion)** présentée dans la liste, sélectionnez **Supprimer**.
 
+Vous pouvez également utiliser PowerShell :
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId c5dbd20a-8b8f-4791-a23f-488fcbde3b38
+```
+
 ## <a name="replace-a-temporary-access-pass"></a>Remplacer un passe d’accès temporaire 
 
 - Un utilisateur ne peut avoir qu’un seul passe d’accès temporaire. Le code secret est utilisable entre les heures de début et de fin du passe d’accès temporaire.
@@ -123,8 +152,8 @@ Gardez ces limites à l’esprit :
 
 - Lors de l’utilisation d’un passe d’accès temporaire à usage unique pour inscrire une méthode sans mot de passe telle que FIDO2 ou une connexion par téléphone, l’utilisateur doit accomplir l’inscription dans les 10 minutes suivant la connexion avec le passe. Cette limitation ne s’applique pas à un passe d’accès temporaire utilisable plusieurs fois.
 - Des utilisateurs invités ne peuvent pas se connecter avec un passe d’accès temporaire.
-- Les utilisateurs concernés par la stratégie d’inscription Réinitialisation du mot de passe en libre-service (SSPR) seront tenus d’inscrire l’une des méthodes SSPR après s’être connectés avec un passe d’accès temporaire. Si l’utilisateur utilisera uniquement la clé FIDO2, excluez-le de la stratégie SSPR ou désactivez la stratégie d’inscription SSPR. 
-- Un passe d’accès temporaire ne peut pas être utilisé avec l’extension Network Policy Server (NPS) et l’adaptateur Services de fédération Active Directory (AD FS).
+- Les utilisateurs concernés par la stratégie d’inscription Réinitialisation du mot de passe en libre-service (SSPR) *ou* par la [stratégie d’inscription de l’authentification multifacteur Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)seront tenus d’inscrire des méthodes d’authentification après s’être connectés avec un passe d’accès temporaire. Les utilisateurs concernés par ces stratégies seront redirigés vers le [mode d’interruption de l’inscription combinée](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Cette expérience ne prend actuellement pas en charge l’inscription de FIDO2 et de la connexion par téléphone. 
+- Un passe d’accès temporaire ne peut pas être utilisé avec l’extension Network Policy Server (NPS) et l’adaptateur Services de fédération Active Directory (AD FS), ou pendant l’expérience OOBE ( Setup/Out-of-Box-Experience) Windows et AutoPilot. 
 - Lorsque l’authentification unique fluide est activée sur le locataire, les utilisateurs sont invités à entrer un mot de passe. Le lien **Utiliser plutôt un passe d’accès temporaire** sera disponible pour que l’utilisateur se connecte avec un passe d’accès temporaire.
 
   ![Capture d’écran de l’utilisation d’un passe d’accès temporaire à la place](./media/how-to-authentication-temporary-access-pass/alternative.png)

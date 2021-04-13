@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 02/10/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 3fa47935721ccfccdfe18d60a66d5cc480582e7d
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 95bc737f8a1b9b0a35b80ca2a80a7245ba407b18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428233"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104486"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -30,9 +30,9 @@ Cet article part du principe que vous disposez d’un compte Azure et d’une re
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
 Avant de pouvoir faire quoi que ce soit, vous devez installer le <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">SDK Speech pour JavaScript</a>. Suivez les instructions ci-dessous, en fonction de votre plateforme :
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navigateur web </a>
+- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Navigateur web </a>
 
 De plus, selon l’environnement cible, utilisez l’un des éléments suivants :
 
@@ -162,14 +162,14 @@ Dans de nombreux scénarios de développement d’application vocale, vous aurez
 * Intégrer le résultat à d’autres API ou services.
 * Modifier les données audio, écrire des en-têtes `.wav` personnalisés, etc.
 
-Il est facile d’apporter cette modification à partir de l’exemple précédent. Tout d’abord, supprimez le bloc `AudioConfig`, car vous allez gérer le comportement de sortie manuellement à partir de ce point pour un contrôle accru. Transmettez ensuite `undefined` pour `AudioConfig` dans le constructeur `SpeechSynthesizer`. 
+Il est facile d’apporter cette modification à partir de l’exemple précédent. Tout d’abord, supprimez le bloc `AudioConfig`, car vous allez gérer le comportement de sortie manuellement à partir de ce point pour un contrôle accru. Transmettez ensuite `undefined` pour `AudioConfig` dans le constructeur `SpeechSynthesizer`.
 
 > [!NOTE]
 > Le fait de transmettre `undefined` pour `AudioConfig`, au lieu de l’omettre comme dans l’exemple de sortie de haut-parleur précédent, n’aura pas pour effet de lire par défaut l’audio sur l’appareil de sortie actuellement actif.
 
-Cette fois, vous allez enregistrer le résultat dans une variable [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult). La propriété `SpeechSynthesisResult.audioData` retourne un `ArrayBuffer` des données de sortie, le type de flux de navigateur par défaut. Pour le code serveur, convertissez arrayBuffer en un flux de mémoire tampon. 
+Cette fois, vous allez enregistrer le résultat dans une variable [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult). La propriété `SpeechSynthesisResult.audioData` retourne un `ArrayBuffer` des données de sortie, le type de flux de navigateur par défaut. Pour le code serveur, convertissez arrayBuffer en un flux de mémoire tampon.
 
-Le code suivant fonctionne pour le code côté client. 
+Le code suivant fonctionne pour le code côté client.
 
 ```javascript
 function synthesizeSpeech() {
@@ -189,9 +189,9 @@ function synthesizeSpeech() {
 }
 ```
 
-À partir de là, vous pouvez implémenter un comportement personnalisé à partir de l’objet `ArrayBuffer` obtenu. ArrayBuffer est un type qu’il est courant de recevoir dans un navigateur et de lire dans ce format. 
+À partir de là, vous pouvez implémenter un comportement personnalisé à partir de l’objet `ArrayBuffer` obtenu. ArrayBuffer est un type qu’il est courant de recevoir dans un navigateur et de lire dans ce format.
 
-Pour le code serveur, si vous devez utiliser les données sous forme de flux à la place d’ArrayBuffer, convertissez l’objet en flux. 
+Pour le code serveur, si vous devez utiliser les données sous forme de flux à la place d’ArrayBuffer, convertissez l’objet en flux.
 
 ```javascript
 function synthesizeSpeech() {
@@ -342,3 +342,11 @@ Pour passer à une voix neuronale, remplacez `name` par une des [options de voix
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Obtenir des événements de pose faciale
+
+La reconnaissance vocale peut être un bon moyen de piloter l’animation des expressions faciales.
+Souvent, les [visèmes](../../../how-to-speech-synthesis-viseme.md) sont utilisées pour représenter les principaux éléments de parole observés, tels que la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier.
+Vous pouvez vous abonner à l’événement de visème dans le kit de développement logiciel (SDK) Speech.
+Ensuite, vous pouvez appliquer des événements de visème pour animer le visage d’un personnage au fur et à mesure de la lecture audio.
+Découvrez [comment obtenir des événements de visème](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

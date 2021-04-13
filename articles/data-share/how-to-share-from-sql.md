@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/24/2021
-ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740373"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644676"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partager et recevoir des données d’Azure SQL Database et d’Azure Synapse Analytics
 
@@ -36,7 +36,20 @@ Lorsque les données sont reçues dans une table SQL, et si la table cible n’e
 Vous trouverez ci-dessous la liste des prérequis pour le partage de données à partir d’une source SQL. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prérequis pour le partage depuis Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW)
-Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/hIE-TjJD8Dc) pour configurer les prérequis.
+
+
+Pour partager des données à l’aide de l’authentification Azure Active Directory, voici une liste des conditions préalables :
+
+* Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW) avec des tables et des vues que vous voulez partager.
+* Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**.
+* **Administrateur Azure Active Directory** SQL Server
+* Accès au pare-feu SQL Server. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez à SQL Server. Sélectionnez *Pare-feu et réseaux virtuels* dans le volet de navigation gauche.
+    1. Cliquez sur **Oui** pour l’option *Autoriser les services et les ressources Azure à accéder à ce serveur*.
+    1. Cliquez sur **+ Ajouter une adresse IP cliente**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP.
+    1. Cliquez sur **Enregistrer**. 
+
+Pour partager des données à l’aide de l’authentification SQL, vous trouverez ci-dessous une liste des conditions préalables. Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/hIE-TjJD8Dc) pour configurer les prérequis.
 
 * Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW) avec des tables et des vues que vous voulez partager.
 * Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**.
@@ -132,7 +145,9 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
     ![AddDatasets](./media/add-datasets.png "Ajouter des jeux de données")    
 
-1. Sélectionnez votre serveur SQL Server ou votre espace de travail Synapse, fournissez les informations d’identification si vous y êtes invité et sélectionnez **Suivant** pour accéder à l’objet que vous souhaitez partager, puis sélectionnez « Ajouter des jeux de données ». Vous pouvez sélectionner des tables et des vues d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW) ou des tables du pool SQL dédié Azure Synapse Analytics (espace de travail). 
+1. Sélectionnez votre serveur SQL Server ou espace de travail Synapse. Si vous utilisez l’authentification AAD et que la case à cocher **Autoriser Data Share à exécuter le script SQL de création d’utilisateur ci-dessus en mon nom** s’affiche, cochez la case. Si vous utilisez l’authentification SQL, fournissez les informations d’identification et suivez les étapes de la section conditions préalables pour exécuter le script à l’écran. Cela permet à la ressource Data Share de lire à partir de votre base de données SQL. 
+
+   Sélectionnez **Suivant** pour accéder à l’objet à partager, puis sélectionnez « Add Datasets » (Ajouter des jeux de données). Vous pouvez sélectionner des tables et des vues d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW) ou des tables du pool SQL dédié Azure Synapse Analytics (espace de travail). 
 
     ![SelectDatasets](./media/select-datasets-sql.png "Sélectionner des jeux de données")    
 
@@ -176,7 +191,18 @@ Si vous choisissez de recevoir des données dans le service Stockage Azure, vous
 Si vous choisissez de recevoir des données dans Azure SQL Database, Azure Synapse Analytics, vous trouverez ci-dessous la liste des conditions préalables. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prérequis pour la réception de données dans Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW)
-Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/aeGISgK1xro) pour configurer les prérequis.
+
+Pour recevoir des données dans un serveur SQL sur lequel vous êtes l'**administrateur Azure Active Directory**, voici la liste des conditions préalables :
+
+* Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW).
+* Autorisation d’écrire dans les bases de données sur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**.
+* Accès au pare-feu SQL Server. Pour ce faire, procédez comme suit : 
+    1. Dans le portail Azure, accédez à SQL Server. Sélectionnez *Pare-feu et réseaux virtuels* dans le volet de navigation gauche.
+    1. Cliquez sur **Oui** pour l’option *Autoriser les services et les ressources Azure à accéder à ce serveur*.
+    1. Cliquez sur **+ Ajouter une adresse IP cliente**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP.
+    1. Cliquez sur **Enregistrer**. 
+    
+Pour recevoir des données dans un serveur SQL sur lequel vous êtes n’êtes pas l'**administrateur Azure Active Directory**, voici la liste des conditions préalables. Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/aeGISgK1xro) pour configurer les prérequis.
 
 * Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW).
 * Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**. 
@@ -264,11 +290,11 @@ Suivez les étapes ci-dessous pour configurer l’emplacement où vous souhaitez
 
    ![Mapper sur cible](./media/dataset-map-target.png "Mapper sur cible") 
 
-1. Sélectionnez un de magasin de données cible dans lequel vous souhaitez que les données arrivent. Tous les fichiers de données ou les tables dans le magasin de données cible ayant le même chemin et le même nom seront remplacés. 
+1. Sélectionnez un de magasin de données cible dans lequel vous souhaitez que les données arrivent. Tous les fichiers de données ou les tables dans le magasin de données cible ayant le même chemin et le même nom seront remplacés. Si vous recevez des données dans SQL Target et que la case à cocher **Autoriser Data Share à exécuter le script SQL de création d’un utilisateur en mon nom** s’affiche, cochez la case. Dans le cas contraire, suivez les instructions de la section conditions préalables pour exécuter le script à l’écran. Cela donne une autorisation d’écriture sur la ressource Data Share à votre base de données SQL cible.
 
    ![Compte de stockage cible](./media/dataset-map-target-sql.png "Magasin de données cible") 
 
-1. Pour le partage basé sur un instantané, si le fournisseur de données a créé une planification d’instantané pour fournir une mise à jour régulière des données, vous pouvez également activer la planification des instantanés en sélectionnant l’onglet **Planification d’instantanés**. Cochez la case en regard de la planification d’instantané et sélectionnez **+ Activer**.
+1. Pour le partage basé sur un instantané, si le fournisseur de données a créé une planification d’instantané pour fournir une mise à jour régulière des données, vous pouvez également activer la planification des instantanés en sélectionnant l’onglet **Planification d’instantanés**. Cochez la case en regard de la planification d’instantané et sélectionnez **+ Activer**. Notez que le premier instantané planifié démarre dans un délai d’une minute après l’heure planifiée et que les instantanés suivants démarrent en quelques secondes après l’heure planifiée.
 
    ![Activer la planification d’instantané](./media/enable-snapshot-schedule.png "Activer la planification d’instantané")
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e0bba85cc99e1751f39172ac320fe721d6f02e87
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100635385"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076783"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -30,8 +30,19 @@ Pour pouvoir lire les secrets dans Key Vault, vous devez créer un coffre et don
 
 1. Créez une [stratégie d’accès dans Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) pour l’identité d’application que vous avez créée précédemment. Activez l’autorisation de secret « Get » sur cette stratégie. Ne configurez pas les paramètres « application autorisée » ou `applicationId` car ils sont incompatibles avec une identité managée.
 
-   > [!IMPORTANT]
-   > Les références Key Vault ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés avec des [restrictions de réseau](../key-vault/general/overview-vnet-service-endpoints.md)à moins que l’application ne soit hébergée au sein [de App Service Environment](./environment/intro.md).
+### <a name="access-network-restricted-vaults"></a>Accéder aux coffres restreints du réseau
+
+> [!NOTE]
+> Les applications basées sur Linux ne sont actuellement pas en mesure de résoudre les secrets stockés dans un coffre de clés restreint du réseau à moins que l’application ne soit hébergée au sein de [App Service Environment](./environment/intro.md).
+
+Si votre coffre est configuré avec des [restrictions réseau](../key-vault/general/overview-vnet-service-endpoints.md), vous devrez également vous assurer que l’application dispose d’un accès réseau.
+
+1. Vérifiez que les fonctionnalités de mise en réseau sortantes de l’application sont configurées, comme décrit dans les [fonctionnalités de mise en réseau App Service](./networking-features.md) et les [options de mise en réseau Azure Functions](../azure-functions/functions-networking-options.md).
+
+2. Assurez-vous que la configuration du coffre compte pour le réseau ou le sous-réseau auquel votre application accède.
+
+> [!IMPORTANT]
+> L’accès à un coffre via l’intégration de réseau virtuel est actuellement incompatible avec les [mises à jour automatiques pour les secrets sans une version spécifiée](#rotation).
 
 ## <a name="reference-syntax"></a>Syntaxe de référence
 
@@ -56,6 +67,9 @@ Sinon :
 ```
 
 ## <a name="rotation"></a>Rotation
+
+> [!IMPORTANT]
+> [L’accès à un coffre via l’intégration de réseau virtuel](#access-network-restricted-vaults) est actuellement incompatible avec les mises à jour automatiques pour les secrets sans une version spécifiée.
 
 Si aucune version n’est spécifiée dans la référence, l’application utilise la dernière version qui existe dans Key Vault. Lorsque des versions plus récentes sont disponibles, par exemple avec un événement de renouvellement, l’application est automatiquement mise à jour de façon à utiliser la dernière version dans un délai d’un jour. Toutes les modifications de configuration apportées à l’application entraînent une mise à jour immédiate à la dernière version de tous les secrets indiqués.
 

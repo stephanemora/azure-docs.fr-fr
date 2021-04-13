@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889822"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105604836"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problèmes connus avec les machines virtuelles des séries H et N
 
@@ -24,9 +24,18 @@ Sur Ubuntu-18.04, l’OFED Mellanox s’est avéré incompatible avec les noyaux
 La solution temporaire consiste à utiliser l’image **Canonical:UbuntuServer:18_04-lts-gen2:18.04.202101290** disponible sur la place de marché, ou une version antérieure, et à ne pas mettre à jour le noyau.
 Ce problème devrait être résolu avec un MOFED plus récent (à déterminer).
 
-## <a name="known-issues-on-hbv3"></a>Problèmes connus sur HBv3
-- Actuellement, InfiniBand est pris en charge uniquement sur la machine virtuelle 120-Core (Standard_HB120rs_v3).
-- Actuellement, les performances réseau accélérées Azure ne sont pas prise en charge sur les machines de série HBv3 dans toutes les régions.
+## <a name="mpi-qp-creation-errors"></a>Erreurs de création MPI QP
+Si, lors de l’exécution de charges de travail MPI, les erreurs de création InfiniBand QP, comme illustré ci-dessous, sont levées, nous vous suggérons de redémarrer la machine virtuelle et de réessayer la charge de travail. Ce problème sera corrigé ultérieurement.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+Vous pouvez vérifier les valeurs du nombre maximal de paires de files d’attente lorsque le problème est observé comme suit.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Performances réseau accélérées sur HB, HC, HBv2 et NDv2
 

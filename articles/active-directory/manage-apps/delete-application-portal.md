@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 1/5/2021
 ms.author: kenwith
-ms.openlocfilehash: 187f4a1d524e0343130808aa4b4c18222fa982c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59d6044cf42109501941b3f4ff54375aed7fab7c
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259268"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504870"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Démarrage rapide : Supprimer une application de votre locataire Azure Active Directory (Azure AD)
 
@@ -51,7 +51,7 @@ Pour supprimer une application de votre locataire Azure AD :
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous aurez terminé cette série de guides de démarrage rapide, envisagez de supprimer l’application pour nettoyer votre locataire de test. La suppression d’application est traitée dans ce guide de démarrage rapide.
+Lorsque vous aurez terminé cette série de guides de démarrage rapide, supprimez l'application pour nettoyer votre locataire de test. La suppression d’application est traitée dans ce guide de démarrage rapide.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

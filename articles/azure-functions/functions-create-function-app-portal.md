@@ -4,12 +4,12 @@ description: Apprenez à créer votre première fonction Azure pour une exécuti
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea5b6a9e51b6982a33dc748f72557ed539b8e2e0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492112"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385987"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
@@ -60,11 +60,7 @@ Créez ensuite une fonction dans la nouvelle application de fonction.
 
     ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-1. Collez l’URL de fonction dans la barre d’adresse de votre navigateur. Ajoutez la valeur de la chaîne de requête `?name=<your_name>` à la fin de cette URL, puis appuyez sur la touche Entrée pour exécuter la requête. 
-
-    L’exemple suivant montre la réponse dans le navigateur :
-
-    ![Réponse de la fonction dans le navigateur.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
+1. Collez l’URL de fonction dans la barre d’adresse de votre navigateur. Ajoutez la valeur de la chaîne de requête `?name=<your_name>` à la fin de cette URL, puis appuyez sur la touche Entrée pour exécuter la requête. Le navigateur doit afficher un message de réponse qui renvoie la valeur de votre chaîne de requête. 
 
     Si l’URL de la demande incluait une [clé d’accès](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), cela signifie que vous avez choisi le niveau d’accès **Fonction** au lieu de l’option **Anonyme** lors de la création de la fonction. Dans ce cas, vous devez ajouter `&name=<your_name>`.
 

@@ -2,14 +2,14 @@
 title: Déplacer des ressources vers un nouvel abonnement ou un nouveau groupe de ressources
 description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 800e605571ae18b008a86b4add4b0b2adce9c140
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670203"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078381"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -18,6 +18,12 @@ Cet article vous montre comment déplacer des ressources Azure vers un autre abo
 Le groupe source et le groupe cible sont verrouillés pendant l’opération de déplacement. Les opérations d’écriture et de suppression sont bloquées sur les groupes de ressources tant que le déplacement n’est pas terminé. Ce verrou signifie que vous ne pouvez pas ajouter, mettre à jour ou supprimer des ressources dans les groupes de ressources. Cela ne signifie pas que les ressources sont figées. Par exemple, si vous déplacez un serveur logique SQL Azure et ses bases de données vers un nouveau groupe de ressources ou un nouvel abonnement, les applications qui utilisent les bases de données ne subissent aucun temps d’arrêt. Elles peuvent toujours lire et écrire dans les bases de données. Le verrou peut durer jusqu’à quatre heures, mais la plupart des déplacements se terminent en moins de temps.
 
 Déplacer une ressource la déplace seulement vers un nouveau groupe de ressources ou un nouvel abonnement. Cette opération ne change pas l’emplacement de la ressource.
+
+## <a name="changed-resource-id"></a>ID de ressource modifié
+
+Quand vous déplacez une ressource, vous modifiez son ID de ressource. Le format standard d’un ID de ressource est `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. Lorsque vous déplacez une ressource vers un nouveau groupe de ressources ou un nouvel abonnement, vous modifiez une ou plusieurs valeurs dans ce chemin d’accès.
+
+Si vous utilisez l’ID de ressource n’importe où, vous devez modifier cette valeur. Par exemple, si vous avez un [tableau de bord personnalisé](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) dans le portail qui référence un ID de ressource, vous devez mettre à jour cette valeur. Recherchez les scripts ou modèles qui doivent être mis à jour pour le nouvel ID de ressource.
 
 ## <a name="checklist-before-moving-resources"></a>Liste de contrôle avant le déplacement de ressources
 
@@ -36,7 +42,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
    * [Conseils pour le déplacement de machines virtuelles](./move-limitations/virtual-machines-move-limitations.md)
    * Pour déplacer un abonnement Azure vers un nouveau groupe d’administration, consultez [Déplacer des abonnements](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. Si vous déplacez une ressource à laquelle un rôle Azure est affecté directement (ou est affecté à une ressource enfant de cette ressource), l’attribution de rôle n’est pas déplacée et devient orpheline. Après le déplacement, vous devez recréer l’attribution de rôle. Finalement, l’attribution de rôle orpheline sera automatiquement supprimée, mais il est recommandé de supprimer l’attribution de rôle avant de déplacer la ressource.
+1. Si vous déplacez une ressource à laquelle un rôle Azure est affecté directement (ou est affecté à une ressource enfant de cette ressource), l’attribution de rôle n’est pas déplacée et devient orpheline. Après le déplacement, vous devez recréer l’attribution de rôle. Finalement, l’attribution de rôle orpheline est automatiquement supprimée, mais nous vous recommandons de supprimer l’attribution de rôle avant le déplacement.
 
     Pour plus d’informations sur la gestion des attributions de rôles, consultez [Lister les attributions de rôle Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) et [Attribuer des rôles Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -118,7 +124,7 @@ Pour illustrer cela, nous avons une seule ressource dépendante.
 
 ## <a name="validate-move"></a>Valider le déplacement
 
-[L’opération de validation du déplacement](/rest/api/resources/resources/validatemoveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour vérifier si le déplacement va réussir. La validation est appelée automatiquement quand vous envoyez une demande de déplacement. Utilisez cette opération seulement quand vous devez prédéterminer les résultats. Pour exécuter cette opération, vous avez besoin des éléments suivants :
+[L’opération de validation du déplacement](/rest/api/resources/resources/moveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour vérifier si le déplacement va réussir. La validation est appelée automatiquement quand vous envoyez une demande de déplacement. Utilisez cette opération seulement quand vous devez prédéterminer les résultats. Pour exécuter cette opération, vous avez besoin des éléments suivants :
 
 * Nom du groupe de ressources source
 * ID de ressource du groupe de ressources cible
@@ -235,7 +241,7 @@ Si vous recevez une erreur, consultez [Résoudre les problèmes liés au déplac
 
 ## <a name="use-rest-api"></a>Avec l’API REST
 
-Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez l’opération [Déplacer des ressources](/rest/api/resources/Resources/MoveResources).
+Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez l’opération [Déplacer des ressources](/rest/api/resources/resources/moveresources).
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
@@ -260,7 +266,7 @@ Le déplacement d’une ressource est une opération complexe qui a des phases d
 
 **Question : Pourquoi mon groupe de ressources est-il verrouillé pendant quatre heures pendant le déplacement des ressources ?**
 
-Une demande de déplacement est autorisée à s’exécuter un maximum de quatre heures. Pour empêcher les ressources déplacées d’être modifiées, les groupes de ressources sources et de destination sont verrouillés pendant la durée du déplacement des ressources.
+Une demande de déplacement est autorisée à s’exécuter un maximum de quatre heures. Pour empêcher les ressources déplacées d’être modifiées, les groupes de ressources sources et de destination sont verrouillés le déplacement des ressources.
 
 Une demande de déplacement comporte deux phases. Dans la première phase, la ressource est déplacée. Dans la deuxième phase, des notifications sont envoyées à d’autres fournisseurs de ressources qui dépendent de la ressource déplacée. Un groupe de ressources peut être verrouillé durant l’intégralité du délai de quatre heures lorsqu’un fournisseur de ressources échoue dans l’une ou l’autre phase. Pendant le temps imparti, Resource Manager retente l’étape qui a échoué.
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 1d9918786b22faddaeb07a12f0840b36a11ffe4d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: b55f0562ae08a6e5a6b38bd0b6fc9f781b94ab64
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778379"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078687"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Vue d’ensemble de l’évaluation (migrer vers Azure VMware Solution)
 
@@ -31,6 +31,9 @@ Les évaluations que vous créez avec Azure Migrate sont une capture instantané
 **Microsoft Azure** | Évaluations pour migrer vos serveurs locaux vers des machines virtuelles Azure. Ce type d’évaluation vous permet d’évaluer vos serveurs locaux dans un environnement [VMware](how-to-set-up-appliance-vmware.md) et [Hyper-V](how-to-set-up-appliance-hyper-v.md), ainsi que vos [serveurs physiques](how-to-set-up-appliance-physical.md) pour une migration vers des machines virtuelles Azure.
 **Azure SQL** | Évaluations pour migrer vos serveurs SQL Server locaux de votre environnement VMware vers Azure SQL Database ou Azure SQL Managed Instance.
 **Azure VMware Solution (AVS)** | Évaluations pour migrer vos serveurs locaux vers [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). Vous pouvez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) locales pour la migration vers Azure VMware Solution (AVS) avec ce type d’évaluation. [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md)
+
+> [!NOTE]
+> Si le nombre d’évaluations de machines virtuelles Azure ou AVS est incorrect sur l’outil Découverte et évaluation, cliquez sur le nombre total d’évaluations pour accéder à toutes les évaluations et recalculer les évaluations de la machine virtuelle Azure ou AVS. L’outil Découverte et évaluation affiche alors le nombre correct pour ce type d’évaluation. 
 
 L’évaluation Azure VMware Solution (AVS) fournit deux options de critères de dimensionnement :
 
@@ -135,7 +138,7 @@ Voici le contenu d’une évaluation AVS :
 
 Les évaluations AVS évaluent chaque machine virtuelle locale pour qu’elle soit adaptée à AVS en examinant les propriétés du serveur. Il attribue également chaque serveur évalué à l’une des catégories de pertinence suivantes :
 
-- **Disponible pour AVS** : Le serveur peut être migré tel quel vers Azure (AVS) sans aucune modification. Elle démarrera dans AVS avec une prise en charge complète d’AVS.
+- **Disponible pour Azure VMware Solution** : Le serveur peut être migré tel quel vers Azure (Azure VMware Solution) sans aucune modification. Elle démarrera dans AVS avec une prise en charge complète d’AVS.
 - **Disponible sous conditions** : La machine virtuelle peut présenter des problèmes de compatibilité avec la version actuelle de vSphere, ainsi qu’exiger des outils VMware et ou d’autres paramètres avant que toutes les fonctionnalités de la machine virtuelle puissent être obtenues dans AVS.
 - **Non disponible pour AVS** : La machine virtuelle ne démarrera pas dans AVS. Par exemple, si la machine virtuelle VMware locale est associée à un appareil externe tel qu’un CD-ROM, l’opération VMware VMotion échouera (si vous utilisez VMware VMotion).
 - **État de la préparation inconnu** : Azure Migrate n’a pas pu déterminer l’état de préparation du serveur, car les métadonnées collectées dans l’environnement local sont insuffisantes.
@@ -282,7 +285,7 @@ Une fois les suggestions de dimensionnement terminées, Azure Migrate calcule le
 
 Dans le rapport de préparation à Azure pour l’évaluation Azure VMware Solution (AVS), vous pouvez voir les outils suggérés suivants :
 
-- **VMware HCX ou Enterprise** : pour les serveurs VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/tutorial-deploy-vmware-hcx.md)
+- **VMware HCX ou Enterprise** : pour les serveurs VMware, la solution VMware Hybrid Cloud Extension (HCX) est l’outil de migration recommandé pour migrer votre charge de travail locale vers votre cloud privé Azure VMware Solution (AVS). [En savoir plus](../azure-vmware/tutorial-deploy-vmware-hcx.md)
 - **Inconnue** : pour des serveurs importés via un fichier CSV, l’outil de migration par défaut est inconnu. Pour les serveurs VMware, il est cependant recommandé d’utiliser la solution VMWare Hybrid Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Étapes suivantes

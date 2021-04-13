@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0e1cfe0ae53d1e1b35c5ec29d6c11b0891137e6d
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 53c3ca542e78246410e84a56b8b4af0d50b721f0
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106074401"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385341"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -76,6 +76,7 @@ Les notes de publication suivantes concernent la version 12.0.0.0 de l’agent A
     - Amélioration des performances de détection des modifications pour détecter les fichiers modifiés dans le partage de fichiers Azure.
     - Améliorations des performances des sessions de synchronisation de réconciliation. 
     - Améliorations de la synchronisation pour réduire les erreurs ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED et ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED.
+    - Correction d’un bogue qui entraîne une altération des données si la hiérarchisation cloud est activée et que les fichiers hiérarchisés sont copiés à l’aide de Robocopy avec le paramètre /B.
     - Correction d’un bogue pouvant entraîner l’échec de la hiérarchisation des fichiers sur le serveur 2019 si la déduplication des données est activée sur le volume.
     - Correction d’un bogue pouvant entraîner l’échec de la compression des fichiers par AFSDiag quand un fichier est d’une taille supérieure à 2Gio.
 
@@ -131,8 +132,6 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lors de la copie de fichiers à l’aide de Robocopy, utilisez l’option /MIR pour conserver les horodatages des fichiers. Les plus anciens fichiers sont ainsi hiérarchisés plus tôt que les derniers fichiers utilisés.
-    > [!Warning]  
-    > Le commutateur Robocopy /B n'est pas pris en charge avec Azure File Sync. L'utilisation du commutateur Robocopy /B avec un point de terminaison de serveur Azure File Sync comme source peut entraîner une corruption de fichiers.
 
 ## <a name="agent-version-11200"></a>Version de l’agent 11.2.0.0
 Les notes de publication suivantes concernent la version 11.2.0.0 de l’agent Azure File Sync publiée le 2 février 2021. Ces notes s’ajoutent aux notes de publication de la version 11.1.0.0.

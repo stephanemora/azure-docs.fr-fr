@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020
-ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/04/2021
+ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209200"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382638"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
@@ -47,6 +47,7 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 1. Cliquez sur Exécuter. Cette opération exécute uniquement le code que vous avez sélectionné.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Chargement d’autres données sur les taxis new-yorkais
+
 1. Accédez au **Centre des connaissances**, puis cliquez sur **Browse gallery** (Parcourir la galerie).
 1. Sélectionnez l’onglet **SQL scripts** (Scripts SQL) en haut.
 1. Sélectionnez l’exemple d’ingestion de données **Load the New York Taxicab dataset** (Charger le jeu de données New York Taxicab), puis cliquez sur **Continue**.
@@ -61,6 +62,6 @@ Le **centre des connaissances** vous permet d’effectuer trois opérations :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Bien démarrer avec Azure Synapse Analytics](get-started.md)
-* [Créer un espace de travail](quickstart-create-workspace.md)
-* [Utiliser un pool SQL serverless](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [Ajouter un administrateur](get-started-add-admin.md)
+

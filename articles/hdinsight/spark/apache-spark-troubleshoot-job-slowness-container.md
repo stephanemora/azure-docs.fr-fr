@@ -4,12 +4,12 @@ description: Un travail Apache Spark s’exécute lentement quand le conteneur d
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/21/2019
-ms.openlocfilehash: c26baec66248ca00ef212acf3d773c2566b3aea9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d256292956b42c65722ea5f9c87d6835297d1d40
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946360"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219091"
 ---
 # <a name="apache-spark-job-run-slowly-when-the-azure-storage-container-contains-many-files-in-azure-hdinsight"></a>Un travail Apache Spark s’exécute lentement quand le conteneur de stockage Azure contient de nombreux fichiers dans Azure HDInsight
 
@@ -28,6 +28,8 @@ Pour suivre les partitions, Spark doit gérer un `FileStatusCache` qui contient 
 Dans Spark 2,1, même si nous n’avons pas besoin de mettre à jour le cache après chaque écriture, Spark vérifie si une colonne de partition existante correspond à celle proposée dans la demande d’écriture actuelle. Cette opération entraîne de nombreuses opérations de listing au début de chaque écriture.
 
 Dans Spark 2,2, quand des données sont écrites avec le mode Append, ce problème de performances doit être résolu.
+
+Dans Spark 2.3, le même comportement que dans Spark 2.2 est attendu.
 
 ## <a name="resolution"></a>Résolution
 

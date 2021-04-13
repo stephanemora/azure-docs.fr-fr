@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Rejoindre une réunion Teams à partir d’une application iOS'
-description: Dans ce tutoriel, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque de client Azure Communication Services Calling pour iOS.
+description: Dans ce tutoriel, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour iOS.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487985"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108176"
 ---
-Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide de la bibliothèque de client Azure Communication Services Calling pour iOS.
+Dans ce démarrage rapide, vous allez découvrir comment rejoindre une réunion Teams à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour iOS.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -178,7 +178,7 @@ struct ContentView_Previews: PreviewProvider {
 ## <a name="get-the-teams-meeting-link"></a>Obtenir le lien de réunion Teams
 
 Le lien de réunion Teams peut être récupéré par le biais des API Graph. Cette procédure est détaillée dans la [documentation de Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-La bibliothèque de client Communication Services Calling accepte un lien de réunion Teams complet. Ce lien est retourné dans le cadre de la ressource `onlineMeeting`, accessible sous la [propriété `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Vous pouvez également récupérer les informations de réunion requises à partir de l’URL **Rejoindre la réunion** disponible dans l’invitation à la réunion Teams.
+Le kit SDK Communication Services Calling accepte un lien de réunion Teams complet. Ce lien est retourné dans le cadre de la ressource `onlineMeeting`, accessible sous la [propriété `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Vous pouvez également récupérer les informations de réunion requises à partir de l’URL **Rejoindre la réunion** disponible dans l’invitation à la réunion Teams.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Lancer l’application et rejoindre la réunion Teams
 

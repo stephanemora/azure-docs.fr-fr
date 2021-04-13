@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: fbf2a30d029a579026fa9c590f59bedff594f4b8
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889057"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109201"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Haute disponibilité des services Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,22 +48,22 @@ Dès que le moteur de base de données ou que le système d'exploitation est mis
 
 ## <a name="general-purpose-service-tier-zone-redundant-availability-preview"></a>Disponibilité redondante interzone du niveau de service Usage général (préversion)
 
-La configuration redondante interzone pour le niveau de service Usage général utilise [Zones de disponibilité Azure](../../availability-zones/az-overview.md)  pour répliquer les bases de données sur plusieurs emplacements physiques au sein d’une région Azure. En sélectionnant la redondance dans une zone, vous pouvez rendre vos bases de données uniques à usage général et vos pools élastiques nouveaux et existants résistants à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application.
+La configuration redondante interzone pour le niveau de service Usage général est proposée pour le calcul provisionné et sans serveur. Cette configuration utilise des [Zones de disponibilité Azure](../../availability-zones/az-overview.md)  pour répliquer les bases de données sur plusieurs emplacements physiques au sein d’une région Azure.En sélectionnant la redondance dans une zone, vous pouvez rendre vos bases de données uniques sans serveur et approvisionnées à usage général et vos pools élastiques nouveaux et existants résistants à un plus grand éventail d’échecs, notamment les pannes graves de centre de données, sans aucune modification de la logique d’application.
 
 La configuration redondante interzone pour le niveau Usage général contient deux couches :  
 
-- Une couche de données avec état, comprenant les fichiers de base de données (.mdf/.ldf) stockés dans le [partage de fichiers du stockage](../../storage/files/storage-how-to-create-file-share.md) redondant interzone (ZRS PFS). Avec le [stockage redondant interzone](../../storage/common/storage-redundancy.md), les fichiers de données et les fichiers journaux sont copiés de façon synchrone sur trois zones de disponibilité Azure physiquement isolées.
-- Une couche de calcul sans état, qui exécute le processus sqlservr.exe et contient uniquement des données transitoires et mises en cache comme TempDB, les bases de données model sur le SSD attaché, ainsi que le cache du plan, le pool de mémoires tampons et le pool columnstore en mémoire. Ce nœud sans état est géré par Azure Service Fabric qui initialise sqlservr.exe, contrôle l’intégrité du nœud et effectue le basculement vers un autre nœud si nécessaire. Pour les bases de données redondantes interzones à usage général, les nœuds avec une capacité de rechange sont facilement disponibles dans d’autres zones de disponibilité pour le basculement.
+- Une couche de données avec état, comprenant les fichiers de base de données (.mdf/.ldf) stockés dans ZRS (stockage redondant interzone). Avec [ZRS](../../storage/common/storage-redundancy.md), les fichiers de données et les fichiers journaux sont copiés de façon synchrone sur trois zones de disponibilité Azure physiquement isolées.
+- Une couche de calcul sans état, qui exécute le processus sqlservr.exe et contient uniquement des données transitoires et mises en cache comme TempDB, les bases de données model sur le SSD attaché, ainsi que le cache du plan, le pool de mémoires tampons et le pool columnstore en mémoire. Ce nœud sans état est géré par Azure Service Fabric qui initialise sqlservr.exe, contrôle l’intégrité du nœud et effectue le basculement vers un autre nœud si nécessaire. Pour les bases de données redondantes interzones à usage général sans serveur et approvisionnées, les nœuds avec une capacité de rechange sont facilement disponibles dans d’autres zones de disponibilité pour le basculement.
 
 La version redondante interzone de l’architecture de haute disponibilité pour le niveau de service à usage général est illustrée dans le diagramme suivant :
 
 ![Configuration redondante interzone pour le niveau Usage général](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> La configuration redondante interzone n’est disponible que lorsque le matériel de calcul Gen5 est sélectionné. Cette fonctionnalité n'est pas disponible dans SQL Managed Instance. La configuration de zone redondante pour le niveau usage général n’est disponible que dans les régions suivantes : USA Est, USA Est 2, USA Ouest 2, Europe Nord, Europe Ouest, Asie Sud-Est, Australie Est, Japon Est, Royaume-Uni Sud et France Centre.
+> La configuration redondante interzone n’est disponible que lorsque le matériel de calcul Gen5 est sélectionné. Cette fonctionnalité n'est pas disponible dans SQL Managed Instance. La configuration de zone redondante pour le niveau usage général sans serveur et approvisionné n’est disponible que dans les régions suivantes : USA Est, USA Est 2, USA Ouest 2, Europe Nord, Europe Ouest, Asie Sud-Est, Australie Est, Japon Est, Royaume-Uni Sud et France Centre.
 
 > [!NOTE]
-> Les bases de données à usage général dont la taille est de 80 vcore peuvent subir une altération des performances avec une configuration redondante interzone. En outre, les opérations telles que la sauvegarde, la restauration, la copie de base de données et la configuration de relations de récupération d’urgence de zone géographique peuvent connaître un ralentissement des performances pour toutes les bases de données uniques de plus de 1 To. 
+> Les bases de données à usage général dont la taille est de 80 vcore peuvent subir une altération des performances avec une configuration redondante interzone. En outre, les opérations telles que la sauvegarde, la restauration, la copie de base de données, la configuration de relations de géo-récupération d’urgence et la rétrogradation d’une base de données redondante dans une zone de Critique pour l’entreprise à Usage général peuvent rencontrer des performances plus lentes pour toutes les bases de données de plus de 1 To. Pour plus d’informations, consultez notre [documentation sur la latence relative à la mise à l’échelle d’une base de données](single-database-scale.md).
 > 
 > [!NOTE]
 > La préversion n'est pas couverte par l'instance réservée
@@ -119,7 +119,7 @@ La [récupération de base de données accélérée](../accelerated-database-rec
 
 ## <a name="testing-application-fault-resiliency"></a>Test de résilience aux erreurs de l’application
 
-La haute disponibilité est un élément fondamental de la plateforme SQL Database et SQL Managed Instance ; elle fonctionne de manière transparente pour votre application de base de données. Toutefois, nous avons conscience que vous souhaitez peut-être tester, avant le déploiement en production, la manière dont les opérations de basculement automatique initiées pendant les événements, planifiés ou non, impacteraient une application. Vous pouvez déclencher manuellement un basculement en appelant une API spéciale pour redémarrer une base de données, un pool élastique ou une instance gérée. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, un seul appel de basculement est autorisé toutes les 15 minutes pour chaque base de données, pool élastique ou instance gérée.
+La haute disponibilité est un élément fondamental de la plateforme SQL Database et SQL Managed Instance ; elle fonctionne de manière transparente pour votre application de base de données. Toutefois, nous avons conscience que vous souhaitez peut-être tester, avant le déploiement en production, la manière dont les opérations de basculement automatique initiées pendant les événements, planifiés ou non, impacteraient une application. Vous pouvez déclencher manuellement un basculement en appelant une API spéciale pour redémarrer une base de données, un pool élastique ou une instance gérée. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone sans serveur et approvisionnée, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, un seul appel de basculement est autorisé toutes les 15 minutes pour chaque base de données, pool élastique ou instance gérée.
 
 Un basculement peut être initié à l’aide de PowerShell, de l’API REST ou d’Azure CLI :
 

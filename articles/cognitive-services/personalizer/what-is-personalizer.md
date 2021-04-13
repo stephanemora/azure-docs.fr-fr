@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizer, Azure personalizer, machine learning
-ms.openlocfilehash: 913b4d989865a50b23d58c5493368997248f8db8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b2577502907b69e134651c93ab7a98fc51e9aaa6
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928555"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169247"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -21,11 +21,14 @@ Azure Personalizer est un service cloud qui permet à vos applications de choisi
 > [!TIP]
 > Le contenu est toute unité d’information, comme du texte, des images, des URL, des e-mails, etc., ou tout autre élément que vous voulez sélectionner et présenter à vos utilisateurs.
 
-Avant de commencer, n’hésitez pas à essayer [Personalizer avec cette démonstration interactive](https://personalizationdemo.azurewebsites.net/).
+Cette documentation contient les types d’articles suivants :  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* Les [**Démarrages rapides**](quickstart-personalizer-sdk.md) sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.  
+* Les [**Guides pratiques**](how-to-settings.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.  
+* Les [**Concepts**](how-personalizer-works.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.  
+* Les [**Tutoriels**](tutorial-use-personalizer-web-app.md) sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.  
+
+Avant de commencer, essayez [Personalizer avec cette démonstration interactive](https://personalizationdemo.azurewebsites.net/).
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Comment Personalizer sélectionne l’élément de contenu le mieux adapté ?
 
@@ -100,18 +103,6 @@ Utilisez Personalizer si votre contenu :
         * Immédiatement après avoir affiché le contenu
         * Ou ultérieurement, sur un système hors connexion
     1. [Évaluez votre boucle](concepts-offline-evaluation.md) avec une évaluation hors connexion après une certaine période d’utilisation. L’évaluation hors connexion permet de tester et d’évaluer l’efficacité du service Personalizer sans changer votre code ni affecter l’expérience utilisateur.
-
-## <a name="complete-a-quickstart"></a>Suivre un guide de démarrage rapide
-
-Nous proposons des guides de démarrage rapide en C#, en JavaScript et en Python. Chaque guide de démarrage rapide est conçu pour vous montrer des modèles de conception de base et vous permettre d’exécuter du code en moins de 10 minutes. 
-
-* [Démarrage rapide : Guide pratique pour la bibliothèque de client Personalizer](./quickstart-personalizer-sdk.md)
-
-Une fois que vous avez pu vous familiariser avec le service Personalizer, essayez nos tutoriels et découvrez comment utiliser Personalizer dans des applications web, des chatbots ou un notebook Azure.
-
-* [Tutoriel : Utiliser Personalizer dans une application web .NET](tutorial-use-personalizer-web-app.md)
-* [Tutoriel : Utiliser Personalizer dans un chatbot .NET](tutorial-use-personalizer-chat-bot.md)
-* [Tutoriel : Utiliser Personalizer dans un notebook Azure](tutorial-use-azure-notebook-generate-loop-data.md)
 
 ## <a name="reference"></a>Informations de référence 
 

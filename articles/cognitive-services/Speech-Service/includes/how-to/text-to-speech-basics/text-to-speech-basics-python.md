@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: d990deca3f435f0b1e3fbdd3388371a11813662a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98f13df2c4da993147ba3ef4157340910fcbc5d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947943"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719717"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -102,7 +102,7 @@ Dans de nombreux scénarios de développement d’application vocale, vous aurez
 * Intégrer le résultat à d’autres API ou services.
 * Modifier les données audio, écrire des en-têtes `.wav` personnalisés, etc.
 
-Il est facile d’apporter cette modification à partir de l’exemple précédent. Tout d’abord, supprimez `AudioConfig`, car vous allez gérer le comportement de sortie manuellement à partir de ce point pour un contrôle accru. Transmettez ensuite `None` pour `AudioConfig` dans le constructeur `SpeechSynthesizer`. 
+Il est facile d’apporter cette modification à partir de l’exemple précédent. Tout d’abord, supprimez `AudioConfig`, car vous allez gérer le comportement de sortie manuellement à partir de ce point pour un contrôle accru. Transmettez ensuite `None` pour `AudioConfig` dans le constructeur `SpeechSynthesizer`.
 
 > [!NOTE]
 > Le fait de transmettre `None` pour `AudioConfig`, au lieu de l’omettre comme dans l’exemple de sortie de haut-parleur précédent, n’aura pas pour effet de lire par défaut l’audio sur l’appareil de sortie actuellement actif.
@@ -206,3 +206,11 @@ Pour passer à une voix neuronale, remplacez `name` par une des [options de voix
   </voice>
 </speak>
 ```
+
+## <a name="get-facial-pose-events"></a>Obtenir des événements de pose faciale
+
+La reconnaissance vocale peut être un bon moyen de piloter l’animation des expressions faciales.
+Souvent, les [visèmes](../../../how-to-speech-synthesis-viseme.md) sont utilisées pour représenter les principaux éléments de parole observés, tels que la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier.
+Vous pouvez vous abonner à l’événement de visème dans le kit de développement logiciel (SDK) Speech.
+Ensuite, vous pouvez appliquer des événements de visème pour animer le visage d’un personnage au fur et à mesure de la lecture audio.
+Découvrez [comment obtenir des événements de visème](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

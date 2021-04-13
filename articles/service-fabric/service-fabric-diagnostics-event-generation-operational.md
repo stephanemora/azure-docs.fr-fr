@@ -1,16 +1,14 @@
 ---
 title: Liste des événements Azure Service Fabric
 description: Liste complète des événements fournis par Azure Service Fabric pour faciliter la surveillance des clusters.
-author: srrengar
 ms.topic: reference
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1ba21aaac831abb07544944420f2b77e1753955
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "85846644"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279780"
 ---
 # <a name="list-of-service-fabric-events"></a>Liste des événements Service Fabric 
 
@@ -39,6 +37,12 @@ Vous trouverez plus de détails sur les mises à niveau de cluster [ici](service
 | 29630 | ClusterUpgradeRollbackCompleted | Mettre à niveau | La restauration d’une mise à niveau de cluster est terminée | CM | Avertissement | 
 | 29631 | ClusterUpgradeDomainCompleted | Mettre à niveau | Un domaine de mise à niveau a terminé la mise à niveau pendant une mise à niveau de cluster | CM | Informationnel | 
 
+**Événements de positionnement**
+| EventId | Nom | Category | Description |Source (tâche) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 17616 | Décision |StateTransition | Une opération de positionnement a été planifiée pour décider du positionnement des nouveaux réplicas. | CRM | Informationnel |
+
+
 ## <a name="node-events"></a>Événements de nœud
 
 **Événements du cycle de vie des nœuds** 
@@ -55,6 +59,13 @@ Vous trouverez plus de détails sur les mises à niveau de cluster [ici](service
 | 25622 | NodeOpenFailed | StateTransition |  Un nœud n’est pas arrivé à démarrer et à joindre l’anneau | FabricNode | Error | 
 | 25624 | NodeClosed | StateTransition |  Un nœud s’est fermé avec succès | FabricNode | Informationnel | 
 | 25626 | NodeAborted | StateTransition |  Un nœud s’est arrêté de manière anormale | FabricNode | Error | 
+
+**Événements de nœud de l’enregistreur d’événements Ktl** 
+
+| EventId | Nom | Category | Description |Source (tâche) | Level |
+| --- | --- | --- | --- | --- | --- | 
+| 50187 | SharedLogWriteThrottled | Intégrité | Les écritures dans le journal partagé sont limitées | KtlLoggerNode | Informationnel | 
+| 50188 | SharedLogWriteUnthrottled | Intégrité | Les écritures dans le journal partagé ne sont plus limitées | KtlLoggerNode | Informationnel | 
 
 ## <a name="application-events"></a>Événements liés aux applications
 

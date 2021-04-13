@@ -4,16 +4,16 @@ description: En savoir plus sur la suppression réversible pour les partages de 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 03/29/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 0fecc9fc954a1ac648e8f60badf69ad1d2e8f1cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a879aff7c3fcaa7ac2c15be295c6c5bdca25ccdf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93126938"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937292"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Empêcher la suppression accidentelle de partages de fichiers Azure
 
@@ -33,7 +33,7 @@ Pour les partages de fichiers Premium supprimés de manière réversible, le quo
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Activation ou désactivation de la suppression réversible
 
-La suppression réversible pour les partages de fichiers est activée au niveau du compte de stockage. Ainsi, les paramètres de suppression réversible s’appliquent à tous les partages de fichiers au sein d’un compte de stockage. Vous pouvez activer ou désactiver la suppression réversible à tout moment. Lorsque vous créez un compte de stockage, la suppression réversible des partages de fichiers est désactivée par défaut. Vous pouvez l’activer pendant le déploiement ou à tout moment après cela. La suppression réversible restera désactivée par défaut pour les comptes de stockage existants. Si vous avez configuré [la copie de sauvegarde de partage de fichiers Azure](../../backup/azure-file-share-backup-overview.md) pour un partage de fichiers Azure, la suppression réversible pour les partages de fichiers Azure sera automatiquement activée sur le compte de stockage de ce partage.
+La suppression réversible pour les partages de fichiers est activée au niveau du compte de stockage. Ainsi, les paramètres de suppression réversible s’appliquent à tous les partages de fichiers au sein d’un compte de stockage. La suppression réversible est activée par défaut pour les nouveaux comptes de stockage et peut être désactivée ou activée à tout moment. La suppression réversible n’est pas activée automatiquement pour les comptes de stockage existants, sauf si la [sauvegarde de partage de fichiers Azure](../../backup/azure-file-share-backup-overview.md) a été configurée pour un partage de fichiers Azure dans ce compte de stockage. Si la sauvegarde de partage de fichiers Azure a été configurée, la suppression réversible pour les partages de fichiers Azure est alors automatiquement activée sur le compte de stockage de ce partage.
 
 Si vous activez la suppression réversible pour les partages de fichiers, supprimez certains partages de fichiers, puis désactivez la suppression réversible, si les partages ont été enregistrés pendant cette période, vous pouvez toujours y accéder et les récupérer. Lorsque vous activez la suppression réversible, vous devez également configurer la période de rétention.
 

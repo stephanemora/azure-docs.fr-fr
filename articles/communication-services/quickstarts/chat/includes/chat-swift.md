@@ -10,19 +10,21 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: dedea2a622cb0eece92bb8b57871c76daa05fb68
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 30dcda4d7bb95ac59add104452415a0ddfc3c016
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495401"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106178620"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
+
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
 
 - Créer un compte Azure avec un abonnement actif. Pour plus d’informations, consultez [Créer un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Installez [Xcode](https://developer.apple.com/xcode/) et [Cocoapods](https://cocoapods.org/) : nous allons utiliser Xcode pour créer une application iOS pour le guide de démarrage rapide et Cocoapods pour installer les dépendances.
-- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer des ressources Azure Communication Services](../../create-communication-resource.md). Vous devrez **enregistrer le point de terminaison de votre ressource** pour ce guide de démarrage rapide.
+- Créer une ressource Azure Communication Services. Pour plus d’informations, consultez [Créer une ressource Azure Communication](../../create-communication-resource.md). Vous devrez **enregistrer le point de terminaison de votre ressource** pour ce guide de démarrage rapide.
 - Créez **deux** utilisateurs ACS et émettez pour eux un jeton d’accès utilisateur [Jeton d’accès utilisateur](../../access-tokens.md). Veillez à définir l’étendue sur **chat** (conversation) et **prenez note de la chaîne du jeton et de la chaîne userId**. Dans ce guide de démarrage rapide, nous allons créer un fil de conversation avec un participant initial, puis ajouter un deuxième participant au fil.
 
 ## <a name="setting-up"></a>Configuration
@@ -128,7 +130,7 @@ Ce guide de démarrage rapide ne couvre pas la création d’un niveau de servic
 Apprenez-en davantage sur les [jetons d’accès utilisateur](../../access-tokens.md).
 
 ## <a name="object-model"></a>Modèle objet 
-Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités de la bibliothèque de client Azure Communication Services Chat pour JavaScript.
+Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Chat pour JavaScript.
 
 | Nom                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -275,5 +277,4 @@ Remplacez `<USER ID>` par l’ID d’utilisateur de Communication Services du pa
 ## <a name="run-the-code"></a>Exécuter le code
 
 Dans Xcode, cliquez sur le bouton Run (Exécuter) pour générer et exécuter le projet. Dans la console, vous pouvez voir la sortie du code et la sortie de l’enregistreur d’événements du ChatClient.
-
 

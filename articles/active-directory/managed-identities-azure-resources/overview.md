@@ -12,19 +12,19 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/06/2020
+ms.date: 04/05/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5390811c8da4a8cace32e0e7ba4524e8c537a26a
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c49ded056c642fa91331b7cc98d18da34d9c73a6
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055584"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504348"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Que sont les identités managées pour les ressources Azure ?
 
-La gestion des secrets et des informations d’identification pour sécuriser la communication entre les différents services constitue un défi courant pour les développeurs. Sur Azure, les identités managées évitent aux développeurs d’avoir à gérer les informations d’identification en fournissant une identité pour la ressource Azure dans Azure AD et en l’utilisant pour obtenir des jetons Azure Active Directory (Azure AD). Cela permet également d’accéder à [Azure Key Vault](../../key-vault/general/overview.md), où les développeurs peuvent stocker les informations d’identification de manière sécurisée. Les identités managées pour ressources Azure résolvent ce problème en fournissant des services Azure avec une identité managée automatiquement dans Azure AD.
+La gestion des secrets et des informations d'identification utilisés pour sécuriser la communication entre les différents composants d'une solution constitue un défi courant pour les développeurs. Les identités managées permettent aux développeurs de ne plus avoir à gérer les informations d'identification. Les identités managées fournissent une identité utilisée par les applications lorsqu'elles se connectent à des ressources qui prennent en charge l'authentification Azure Active Directory (Azure AD). Les applications peuvent utiliser l'identité managée pour obtenir des jetons Azure AD. Par exemple, une application peut utiliser une identité managée pour accéder à des ressources comme [Azure Key Vault](../../key-vault/general/overview.md) où les développeurs peuvent stocker des informations d'identification de manière sécurisée, ou pour accéder à des comptes de stockage.
 
 À quoi une identité managée peut-elle servir ?
 
@@ -33,7 +33,7 @@ La gestion des secrets et des informations d’identification pour sécuriser la
 Voici quelques-uns des avantages de l’utilisation des identités managées :
 
 - Vous n’avez pas besoin de gérer les informations d’identification. Vous n’avez même pas accès à ces dernières.
-- Vous pouvez utiliser des identités managées pour vous authentifier auprès d’un service Azure qui prend en charge l’authentification Azure AD, notamment Azure Key Vault.
+- Vous pouvez utiliser des identités managées pour vous authentifier auprès de ressources qui prennent en charge l'[authentification Azure Active Directory](../authentication/overview-authentication.md), y compris vos propres applications.
 - Les identités managées peuvent être utilisées sans coût supplémentaire.
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Le tableau ci-dessous montre les différences entre les deux types d’identité
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Comment puis-je utiliser des identités managées pour les ressources Azure ?
 
-![Quelques exemples de la façon dont un développeur peut utiliser des identités managées pour accéder aux ressources à partir de son code sans gérer les informations d’authentification](media/overview/azure-managed-identities-examples.png)
+![Quelques exemples de la façon dont un développeur peut utiliser des identités managées pour accéder aux ressources à partir de son code sans gérer les informations d’authentification](media/overview/when-use-managed-identities.png)
 
 ## <a name="what-azure-services-support-the-feature"></a>Quels sont les services Azure qui prennent en charge la fonctionnalité ?<a name="which-azure-services-support-managed-identity"></a>
 

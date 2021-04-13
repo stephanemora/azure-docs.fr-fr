@@ -1,5 +1,5 @@
 ---
-title: Migration vers les conteneurs OCR Read v3.x
+title: Migration vers les conteneurs Read v3.x
 titleSuffix: Azure Cognitive Services
 description: Découvrir comment migrer vers les conteneurs OCR Read v3
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/29/2021
 ms.author: aahi
-ms.openlocfilehash: baa91e21979022064aaf13aca6079f8d092d673e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221151"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284683"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrer vers des conteneurs OCR Read v3.x
 
@@ -24,7 +24,7 @@ Si vous utilisez la version 2 du conteneur OCR Read de Vision par ordinateur, u
 
 ## <a name="configuration-changes"></a>Modifications de configuration
 
-* `ReadEngineConfig:ResultExpirationPeriod` n’est plus pris en charge. Le conteneur Read a une tâche Cron intégrée qui supprime les résultats et les métadonnées associés à une requête à l’issue de 48 heures.
+* `ReadEngineConfig:ResultExpirationPeriod` n’est plus pris en charge. Le conteneur OCR Read comporte une tâche Cron intégrée qui supprime les résultats et les métadonnées associés à une requête au bout de 48 heures.
 * `Cache:Redis:Configuration` n’est plus pris en charge. Le cache n’est pas utilisé dans les conteneurs v3.x, donc vous n’avez pas besoin de le définir.
 
 ## <a name="api-changes"></a>Modifications d'API
@@ -39,7 +39,7 @@ Pour plus d’informations sur la mise à jour de vos applications pour utiliser
 
 ## <a name="memory-requirements"></a>Besoins en mémoire
 
-Les exigences et les suggestions sont basées sur des tests d’évaluation effectués avec une seule requête par seconde, à partir d’une image de 8 Mo d’une lettre d’entreprise analysée qui contient 29 lignes et 803 caractères au total. Le tableau suivant indique l’allocation de ressources minimale et recommandée pour chaque conteneur Lire.
+Les exigences et les suggestions sont basées sur des tests d’évaluation effectués avec une seule requête par seconde, à partir d’une image de 8 Mo d’une lettre d’entreprise analysée qui contient 29 lignes et 803 caractères au total. Le tableau suivant décrit l'allocation de ressources minimale et recommandée pour chaque conteneur OCR Read.
 
 |Conteneur  |Minimum | Recommandé  |
 |---------|---------|------|
@@ -81,7 +81,7 @@ Définissez le minuteur avec `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`,
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](computer-vision-resource-container-config.md).
-* Pour en savoir plus sur la reconnaissance du texte imprimé et manuscrit, passez en revue [Vue d’ensemble de Vision par ordinateur](overview.md).
-* Pour plus d’informations sur les méthodes prises en charge par le conteneur, reportez-vous à l’[API Vision par ordinateur](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+* Pour en savoir plus sur la reconnaissance de texte imprimé et manuscrit, passez en revue [Vue d'ensemble de la reconnaissance optique de caractères](overview-ocr.md).
+* Pour plus d'informations sur les méthodes prises en charge par le conteneur, reportez-vous à l'[API Read](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 * Pour résoudre les problèmes liés à la fonctionnalité Vision par ordinateur, reportez-vous au [Forum aux questions (FAQ)](FAQ.md).
 * Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)

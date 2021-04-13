@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0939216e1d96e898d7c45b9e7a3ec72453b263d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102444163"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958065"
 ---
 Commencez à utiliser la reconnaissance faciale avec la bibliothèque de client Visage pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
@@ -22,7 +22,7 @@ Utilisez la bibliothèque de client Visage pour Python pour :
 
 * [Détecter des visages sur une image](#detect-faces-in-an-image)
 * [Rechercher des visages semblables](#find-similar-faces)
-* [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group)
+* [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup)
 * [Identifier un visage](#identify-a-face)
 * [Vérifier les visages](#verify-faces)
 
@@ -86,7 +86,7 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 * [Authentifier le client](#authenticate-the-client)
 * [Détecter des visages sur une image](#detect-faces-in-an-image)
 * [Rechercher des visages semblables](#find-similar-faces)
-* [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group)
+* [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup)
 * [Identifier un visage](#identify-a-face)
 * [Vérifier les visages](#verify-faces)
 
@@ -133,7 +133,7 @@ Utilisez le code suivant pour afficher les détails sur les correspondances sur 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_findsimilar_print)]
 
-## <a name="create-and-train-a-person-group"></a>Créer et entraîner un groupe de personnes
+## <a name="create-and-train-a-persongroup"></a>Créer et effectuer l'apprentissage d’un objet PersonGroup
 
 Le code suivant crée un **PersonGroup** avec trois objets **Person** différents. Il associe chaque objet **Person** à un ensemble d’exemples d’images, puis s’entraîne pour pouvoir reconnaître chaque personne. 
 
@@ -174,7 +174,7 @@ Une fois que vous avez attribué des visages, vous devez entraîner le **PersonG
 L’opération d’identification prend une image d’une personne (ou de plusieurs personnes) et recherche l’identité de chaque visage dans l’image (recherche avec reconnaissance faciale). Il compare chaque visage détecté à un **PersonGroup**, une base de données comprenant différents objets **Person** dont les caractéristiques du visage sont connues.
 
 > [!IMPORTANT]
-> Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni à la section [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group).
+> Pour exécuter cet exemple, vous devez d’abord exécuter le code fourni dans [Créer et effectuer l'apprentissage d’un objet PersonGroup](#create-and-train-a-persongroup).
 
 ### <a name="get-a-test-image"></a>Obtenir une image de test
 

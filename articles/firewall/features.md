@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8dbfb23d4314f8ceb13ad36ca9733e446e176090
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612845"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278179"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
@@ -55,7 +55,7 @@ Les Zones de disponibilité de Pare-feu Azure sont disponibles dans les régions
 > [!NOTE]
 > Les Zones de disponibilité ne peuvent être configurées que pendant le déploiement. Vous ne pouvez pas configurer un pare-feu existant pour y inclure des Zones de disponibilité.
 
-Pour plus d’informations sur les zones de disponibilité, consultez [Régions et zones de disponibilité dans Azure](../availability-zones/az-overview.md).
+Pour plus d’informations sur les Zones de disponibilité, consultez [Régions et Zones de disponibilité dans Azure](../availability-zones/az-overview.md).
 
 ## <a name="unrestricted-cloud-scalability"></a>Extensibilité du cloud sans limites
 
@@ -86,6 +86,8 @@ Le filtrage basé sur [Threat Intelligence](threat-intel.md) peut être activé 
 Toutes les adresses IP du trafic réseau virtuel sortant sont traduites en adresse IP publique de Pare-feu Azure (Source Network Address Translation). Vous pouvez identifier et autoriser le trafic entre votre réseau virtuel et des destinations Internet distantes. Le Pare-feu Azure ne traduit pas l’adresse réseau source (SNAT) quand l’adresse IP de destination correspond à une plage d’adresses IP privées selon le document [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 Si votre organisation utilise une plage d’adresses IP publiques pour les réseaux privés, Pare-feu Azure traduit l’adresse réseau source du trafic en une des adresses IP privées du pare-feu dans AzureFirewallSubnet. Vous pouvez configurer Pare-feu Azure pour qu’il n’effectue **pas** une telle traduction. Pour plus d’informations, consultez [Plages d’adresses IP privées SNAT du Pare-feu Azure](snat-private-range.md).
+
+Vous pouvez surveiller l’utilisation des ports SNAT dans les métriques du pare-feu Azure. Pour plus d’informations et voir notre recommandation sur l’utilisation des ports SNAT, consultez notre [documentation sur les métriques et les journaux de pare-feu](logs-and-metrics.md#metrics).
 
 ## <a name="inbound-dnat-support"></a>Prise en charge du trafic DNAT entrant
 

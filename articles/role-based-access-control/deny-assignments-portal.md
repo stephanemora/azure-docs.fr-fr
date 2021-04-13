@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 92046b3a944a747ce76d2426855eec7b6bc2cd70
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "84790244"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077837"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Répertorier les affectations de refus à l’aide du portail Azure
 
@@ -54,7 +54,7 @@ Effectuez ces étapes pour répertorier les affectations de refus au niveau de l
 
     ![Affectations de refus - Colonnes](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Colonne | Description  |
     | --- | --- |
     | **Nom** | Nom de l’affectation de refus. |
     | **Type de principal** | Utilisateur, groupe, groupe défini par le système ou principal du service. |
@@ -79,7 +79,7 @@ Suivez ces étapes pour répertorier des détails supplémentaires sur une affec
 
     Le panneau **Utilisateurs** comprend les deux sections suivantes.
 
-    |  |  |
+    | Paramètre de refus  | Description |
     | --- | --- |
     | **L’affectation de refus s’applique à**  | Principaux de sécurité auxquels l’affectation de refus s’applique. |
     | **L’affectation de refus exclut** | Principaux de sécurité qui sont exclus de l’affectation de refus. |

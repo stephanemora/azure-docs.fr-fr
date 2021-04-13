@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: 9c53cb53517c4696a1bb47c2cb72335979d58d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3c65d3a7316d431c57d9fb75775e271bf9f34ca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178828"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106223266"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gérer des pools de nœuds système dans Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,8 @@ Les pools de nœuds système présentent les restrictions suivantes :
 * Le paramètre osType des pools de nœuds système doit être Linux.
 * Le paramètre osType des pools de nœuds utilisateur peut être Linux ou Windows.
 * Les pools de nœuds système doivent contenir au moins un nœud, et les pools de nœuds utilisateur peuvent contenir zéro, un ou plusieurs nœuds.
-* Les pools de nœuds système nécessitent une référence SKU de machine virtuelle d’au moins 2 processeurs virtuels et de 4 Go de mémoire.
+* Les pools de nœuds système nécessitent une référence SKU de machine virtuelle d’au moins 2 processeurs virtuels et de 4 Go de mémoire. Mais les machines virtuelles burstables (série B) ne sont pas recommandées.
+* Un minimum de deux nœuds à 4 processeurs virtuels est recommandé (par exemple, Standard_DS4_v2), en particulier pour les clusters de grande taille (plusieurs réplicas de pod CoreDNS, 3-4+ modules complémentaires, etc.).
 * Les pools de nœuds système doivent prendre en charge au moins 30 pods, comme décrit par la [formule des valeurs minimale et maximale pour les pods][maximum-pods].
 * Les pools de nœuds Spot nécessitent des pools de nœuds utilisateur.
 * L’ajout d’un pool de nœuds système supplémentaire ou la modification du pool de nœuds système ne déplace *PAS* automatiquement les pods. Les pods système peuvent continuer à s’exécuter sur le même pool de nœuds, même si vous le transformez en pool de nœuds utilisateur. Si vous supprimez ou réduisez la taille d’un pool de nœuds exécutant des pods système correspondant précédemment à un pool de nœuds système, ces pods système sont redéployés avec la planification préféré vers le nouveau pool de nœuds système.

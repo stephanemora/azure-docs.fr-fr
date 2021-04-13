@@ -7,27 +7,28 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 02/19/2021
-ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 80d1e4f39d69f761b801ccec834c0228057e4847
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461672"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448523"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
 > [!NOTE]
 > Pour utiliser cette fonctionnalité, votre organisation doit disposer d’un [plan de support Azure](https://azure.microsoft.com/support/plans/) avec un niveau minimal de **développeur**.
 
-Customer Lockbox pour Microsoft Azure fournit une interface dans laquelle les clients peuvent vérifier et approuver/refuser les demandes d’accès aux données client. Il est utilisé lorsqu’un ingénieur Microsoft doit accéder aux données client dans le cadre d’une demande de support.
+La plupart des opérations, le support et le dépannage effectués par le personnel et les sous-traitants de Microsoft ne nécessitent pas l’accès aux données client. Dans les rares cas où un tel accès est requis, Customer Lockbox pour Microsoft Azure fournit une interface dans laquelle les clients peuvent vérifier et approuver/refuser les demandes d’accès aux données client. Elle est utilisée dans les cas où un ingénieur Microsoft a besoin d’accéder aux données client, que ce soit en réponse à un ticket de support initié par le client ou à un problème identifié par Microsoft.
 
 Cet article décrit comment activer Customer Lockbox et comment les demandes de Lockbox sont initiées, suivies et stockées en vue d’audits et de révisions ultérieurs.
 
 <a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
-## <a name="supported-services-and-scenarios-general-availability"></a>Services et scénarios pris en charge (disponibilité générale)
+## <a name="supported-services-and-scenarios"></a>Services et scénarios pris en charge
 
-Les services suivants sont désormais généralement disponibles pour Customer Lockbox :
+### <a name="general-availability"></a>Disponibilité générale
+Les services suivants sont généralement disponibles pour Customer Lockbox :
 
 - Gestion des API Azure
 - Azure App Service
@@ -49,6 +50,12 @@ Les services suivants sont désormais généralement disponibles pour Customer L
 - Azure Synapse Analytics
 - Machines virtuelles dans Azure (couvrant l’accès au Bureau à distance, l’accès aux images mémoire et les disques managés)
 
+### <a name="public-preview"></a>Version préliminaire publique
+Les services suivants sont en préversion pour Customer Lockbox :
+
+- Azure Machine Learning
+- Azure Batch
+
 ## <a name="enable-customer-lockbox"></a>Activer Customer Lockbox
 
 Vous pouvez désormais activer Customer Lockbox à partir du [module d’administration](https://aka.ms/customerlockbox/administration) dans le panneau Customer Lockbox.  
@@ -66,7 +73,7 @@ Les étapes suivantes décrivent un workflow classique pour une demande Customer
 
 3. Un ingénieur du support Azure examine la demande de service et détermine les étapes suivantes pour résoudre le problème.
 
-4. Si l’ingénieur du support ne parvient pas à résoudre le problème à l’aide des données de télémétrie et des outils standard, l’étape suivante consiste à demander des autorisations élevées à l’aide d’un service d’accès juste à temps (JAT). Cette demande peut provenir de l’ingénieur du support technique d’origine ou d’un autre ingénieur, car le problème est réaffecté à l’équipe Azure DevOps.
+4. Si l’ingénieur du support ne parvient pas à résoudre le problème à l’aide des données générées par le service et des outils standard, l’étape suivante consiste à demander des autorisations élevées à l’aide d’un service d’accès juste à temps (JAT). Cette demande peut provenir de l’ingénieur du support technique d’origine ou d’un autre ingénieur, car le problème est réaffecté à l’équipe Azure DevOps.
 
 5. Une fois la demande d’accès soumise par l’ingénieur Azure, le service juste-à-temps évalue la demande en tenant compte des facteurs suivants :
     - Étendue de la ressource
@@ -129,8 +136,10 @@ Nous avons introduit un nouveau contrôle de base de référence ([3.13](../benc
 
 Les demandes de Customer Lockbox ne sont pas déclenchées dans les scénarios de support d’ingénierie suivants :
 
-- Un ingénieur Microsoft doit réaliser une activité qui ne fait pas partie des procédures de fonctionnement standard. Par exemple, pour récupérer ou restaurer des services dans des scénarios inattendus ou imprévisibles.
-- Un ingénieur Microsoft accède à la plateforme Azure dans le cadre de la résolution des problèmes et accède par inadvertance aux données client. Par exemple, lors de la résolution des problèmes, l’équipe de réseau Azure capture des paquets sur un périphérique réseau. Dans ce scénario, si le client chiffre les données en transit, l’ingénieur ne peut pas les lire.
+- Scénarios d’urgence qui ne répondent pas aux procédures de fonctionnement standard. Par exemple, si une panne de service majeure nécessite une attention immédiate pour récupérer ou restaurer des services dans un scénario inattendu ou imprévisible. Ces événements d’urgence sont rares et, dans la plupart des cas, ne nécessitent aucun accès aux données client pour être résolus.
+- Un ingénieur Microsoft accède à la plateforme Azure dans le cadre de la résolution des problèmes et est exposé par inadvertance aux données client. Par exemple, lors de la résolution des problèmes, l’équipe de réseau Azure capture des paquets sur un périphérique réseau. Il est rare que ces scénarios exigent l’accès à des quantités significatives de données client. Les clients peuvent renforcer la protection de leurs données grâce à l’utilisation du chiffrement de données en transit et au repos.
+
+Les demandes de Customer Lockbox ne sont pas non plus déclenchées par des demandes juridiques externes pour les données. Pour plus d’informations, consultez la discussion sur les [Demandes gouvernementales de données](https://www.microsoft.com/trust-center/) dans le centre de gestion de la confidentialité Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

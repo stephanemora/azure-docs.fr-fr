@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: b695df29b7a4704ee9e4e25e402fa0de8f2b7685
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dc6eaaec334e7373f1a673bd1513ef05b761fee6
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008210"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450019"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Supervision des applications Java sans code avec Azure Monitor Application Insights
 
@@ -34,11 +34,11 @@ L’agent 3.0 prend en charge Java 8 et versions ultérieures.
 >
 > Examinez soigneusement toutes les [options de configuration](./java-standalone-config.md) ci-dessous, car la structure JSON a complètement changé, en plus du nom de fichier désormais en minuscules.
 
-Téléchargez [applicationinsights-agent-3.0.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
+Téléchargez [applicationinsights-agent-3.0.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.3/applicationinsights-agent-3.0.3.jar)
 
 **2. Pointer la machine virtuelle Java (JVM) vers l’agent**
 
-Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` aux arguments JVM de votre application
+Ajoutez `-javaagent:path/to/applicationinsights-agent-3.0.3.jar` aux arguments JVM de votre application
 
 Les arguments JVM standard incluent `-Xmx512m` et `-XX:+UseG1GC`. Par conséquent, si vous savez où ajouter ces derniers, vous savez déjà où ajouter celui-ci.
 
@@ -54,7 +54,7 @@ Pointez l’agent sur votre ressource Application Insights, soit en définissant
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Soit en créant un fichier config nommé `applicationinsights.json` et en le plaçant dans le même répertoire que `applicationinsights-agent-3.0.2.jar`, avec le contenu suivant :
+Soit en créant un fichier config nommé `applicationinsights.json` et en le plaçant dans le même répertoire que `applicationinsights-agent-3.0.3.jar`, avec le contenu suivant :
 
 ```json
 {
@@ -129,6 +129,10 @@ Pour plus d’informations, consultez [Options de configuration](./java-standalo
 
 * Micrometer (y compris les métriques de Spring Boot Actuator)
 * Métriques JMX
+
+### <a name="azure-sdks"></a>SDK Azure
+
+* Cette fonctionnalité est en préversion. Pour savoir comment l’activer, consultez les [options de configuration](./java-standalone-config.md#auto-collected-azure-sdk-telemetry).
 
 ## <a name="send-custom-telemetry-from-your-application"></a>Envoyer des données de télémétrie personnalisées à partir de votre application
 
@@ -328,7 +332,7 @@ requestTelemetry.setName("myname");
 ### <a name="get-the-request-telemetry-id-and-the-operation-id-using-the-2x-sdk"></a>Procurez-vous l'ID de la télémétrie de requête et l'ID de l'opération à l'aide du kit de développement logiciel (SDK) 2.x
 
 > [!NOTE]
-> Cette fonctionnalité n'est disponible qu'à partir de la version 3.0.3-BETA
+> Cette fonctionnalité n’est disponible que dans la version 3.0.3 et les versions ultérieures
 
 Ajoutez `applicationinsights-web-2.6.2.jar` à votre application (toutes les versions 2.x sont prises en charge par Application Insights pour Java 3.0, mais il est préférable d’utiliser la dernière version si vous avez le choix) :
 
