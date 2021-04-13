@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2f0b6feea5e586c87191b22f42e3ab86e85ba7b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0072e699107ea51764a728ce3e9987b86b2a6806
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97032522"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492322"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -156,7 +156,7 @@ Pour supprimer un appareil réel ou simulé depuis votre application Azure IoT C
 
 ## <a name="change-a-property"></a>Modifier une propriété
 
-Les propriétés de cloud sont les métadonnées associées à l’appareil comme la ville et le numéro de série. Les propriétés de cloud existent uniquement dans l’application IoT Central et ne sont pas synchronisées avec vos appareils. Les propriétés accessibles en écriture contrôlent le comportement d’un appareil et vous permettent de définir l’état d’un appareil à distance, par exemple en définissant la température cible d’un thermostat.  Les propriétés de l’appareil sont définies par l’appareil et sont en lecture seule dans IoT Central. Vous pouvez afficher et mettre à jour des propriétés dans les vues **Détails de l’appareil** relatives à votre appareil.
+Les propriétés de cloud sont les métadonnées associées à l’appareil comme la ville et le numéro de série. Les propriétés de cloud existent uniquement dans l’application IoT Central et ne sont pas synchronisées avec vos appareils. Les propriétés accessibles en écriture contrôlent le comportement d’un appareil et vous permettent de définir l’état d’un appareil à distance, par exemple, en définissant la température cible d’un thermostat.  Les propriétés de l’appareil sont définies par l’appareil et sont en lecture seule dans IoT Central. Vous pouvez afficher et mettre à jour des propriétés dans les vues **Détails de l’appareil** relatives à votre appareil.
 
 1. Choisissez **Appareils** dans le volet gauche.
 

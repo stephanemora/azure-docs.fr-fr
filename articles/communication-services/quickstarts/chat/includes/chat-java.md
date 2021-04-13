@@ -10,21 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 146053ffd72b24216bfa86577787727257da2516
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 7fe50a6236cf67f1048dddecbf46fea836ec05c5
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495396"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106125788"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 ou ultérieure.
+- [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 8 ou ultérieure.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Chaîne de connexion et ressource Communication Services déployée. [Créez une ressource Communication Services](../../create-communication-resource.md).
 - [Jeton d’accès utilisateur](../../access-tokens.md). Veillez à définir l’étendue sur « chat » (conversation) et notez la chaîne token ainsi que la chaîne userId.
-
 
 ## <a name="setting-up"></a>Configuration
 
@@ -48,7 +47,7 @@ Mettez à jour le fichier POM de votre application pour utiliser Java 8 ou vers
 </properties>
 ```
 
-### <a name="add-the-package-references-for-the-chat-client-library"></a>Ajouter les références de package pour la bibliothèque de client de conversation
+### <a name="add-the-package-references-for-the-chat-sdk"></a>Ajouter les références de package pour le kit de développement logiciel (SDK) Chat
 
 Dans votre fichier POM, référencez le package `azure-communication-chat` avec les API de conversation (Chat) :
 
@@ -56,7 +55,7 @@ Dans votre fichier POM, référencez le package `azure-communication-chat` avec 
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -66,13 +65,13 @@ Pour l’authentification, votre client doit référencer le package `azure-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0</version>
 </dependency>
 ```
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités de la bibliothèque de client Azure Communication Services Chat pour Java.
+Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Chat pour Java.
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -82,33 +81,31 @@ Les classes et interfaces suivantes gèrent quelques-unes des principales foncti
 | ChatThreadAsyncClient | Cette classe est nécessaire à la fonctionnalité de fil de conversation (Chat Thread) asynchrone. Vous obtenez une instance via ChatAsyncClient et l’utilisez pour envoyer/recevoir/mettre à jour/supprimer des messages, ajouter/supprimer/obtenir des utilisateurs, envoyer des notifications de saisie et des accusés de lecture. |
 
 ## <a name="create-a-chat-client"></a>Créer un client de conversation
-Pour créer un client de conversation, vous allez utiliser le point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises. Les jetons d’accès utilisateur vous permettent de créer des applications clientes qui s’authentifient directement auprès d’Azure Communication Services. Une fois que vous avez généré ces jetons sur votre serveur, transmettez-les en retour à un appareil client. Vous devez utiliser la classe CommunicationTokenCredential de la bibliothèque de client commune pour passer le jeton à votre client de conversation. 
+Pour créer un client de conversation, vous allez utiliser le point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises. Les jetons d’accès utilisateur vous permettent de créer des applications clientes qui s’authentifient directement auprès d’Azure Communication Services. Une fois que vous avez généré ces jetons sur votre serveur, transmettez-les en retour à un appareil client. Vous devez utiliser la classe CommunicationTokenCredential du kit de développement logiciel (SDK) commun pour transmettre le jeton à votre client de conversation.
 
 En savoir plus sur l’[Architecture de conversation](../../../concepts/chat/concepts.md)
 
 Si vous devez ajouter des instructions d’importation, veillez à ajouter uniquement des importations des espaces de noms com.azure.communication.chat et com.azure.communication.chat.models, et non de l’espace de noms com.azure.communication.chat.implementation. Dans le fichier App.java qui a été généré via Maven, vous pouvez commencer avec le code suivant :
 
 ```Java
+package com.communication.quickstart;
+
 import com.azure.communication.chat.*;
 import com.azure.communication.chat.models.*;
 import com.azure.communication.common.*;
-import com.azure.core.http.HttpClient;
+import com.azure.core.http.rest.PagedIterable;
 
 import java.io.*;
+import java.util.*;
 
 public class App
 {
     public static void main( String[] args ) throws IOException
     {
         System.out.println("Azure Communication Services - Chat Quickstart");
-        
+
         // Your unique Azure Communication service endpoint
         String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
-        // Create an HttpClient builder of your choice and customize it
-        // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
-        NettyAsyncHttpClientBuilder yourHttpClientBuilder = new NettyAsyncHttpClientBuilder();
-        HttpClient httpClient = yourHttpClientBuilder.build();
 
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
@@ -119,43 +116,58 @@ public class App
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
         builder.endpoint(endpoint)
-            .credential(userCredential)
-            .httpClient(httpClient);
+            .credential(userCredential);
         ChatClient chatClient = builder.buildClient();
     }
 }
 ```
-
 
 ## <a name="start-a-chat-thread"></a>Démarrer un fil de conversation
 
 Utilisez la méthode `createChatThread` pour créer un fil de conversation.
 `createChatThreadOptions` est utilisé pour décrire la demande de fil.
 
-- Utilisez `topic` pour attribuer un sujet à cette conversation ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `UpdateThread`.
+- Utilisez le paramètre `topic` du constructeur pour attribuer un sujet à cette conversation ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `UpdateThread`.
 - Utilisez `participants` pour lister les participants au fil à ajouter à la conversation. `ChatParticipant` prend l’utilisateur que vous avez créé dans le démarrage rapide [Jeton d’accès utilisateur](../../access-tokens.md).
 
-La réponse `chatThreadClient` est utilisée pour effectuer les opérations sur le fil de conversation créé : ajout de participants au fil de conversation, envoi d’un message, suppression d’un message, etc. Elle contient une propriété `chatThreadId` qui est l’ID unique du fil de conversation. La propriété est accessible par la méthode publique .getChatThreadId().
+`CreateChatThreadResult` correspond à la réponse renvoyée par la création d’un fil de conversation.
+Elle contient une méthode `getChatThread()` qui renvoie l'objet `ChatThread` permettant d’obtenir le client de fil de conversation à partir duquel obtenir `ChatThreadClient` pour effectuer des opérations sur la conversation créée : ajout de participants, envoi d’un message, etc. L'objet `ChatThread` contient également la méthode `getId()` qui récupère l’ID unique de la conversation.
 
 ```Java
-List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
-
 ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
-    
+
 ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
+    .addParticipant(firstThreadParticipant)
+    .addParticipant(secondThreadParticipant);
 
-CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
-    .setTopic("Topic")
-    .setParticipants(participants);
-ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
-String chatThreadId = chatThreadClient.getChatThreadId();
+CreateChatThreadResult result = chatClient.createChatThread(createChatThreadOptions);
+String chatThreadId = result.getChatThread().getId();
+```
+
+## <a name="list-chat-threads"></a>Répertorier les fils de conversation
+
+Utilisez la méthode `listChatThreads` pour récupérer la liste des fils de conversation existants.
+
+```java
+PagedIterable<ChatThreadItem> chatThreads = chatClient.listChatThreads();
+
+chatThreads.forEach(chatThread -> {
+    System.out.printf("ChatThread id is %s.\n", chatThread.getId());
+});
+```
+
+## <a name="get-a-chat-thread-client"></a>Obtenir un client de fil de conversation
+
+La méthode `getChatThreadClient` retourne un client de fil pour un fil qui existe déjà. Elle peut être utilisée pour effectuer des opérations sur le fil créé : ajout de participants, envoi d’un message, etc. `chatThreadId` est l’ID unique du fil de conversation existant.
+
+```Java
+ChatThreadClient chatThreadClient = chatClient.getChatThreadClient(chatThreadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envoyer un message à un fil de conversation
@@ -179,84 +191,66 @@ SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendC
 String chatMessageId = sendChatMessageResult.getId();
 ```
 
-
-## <a name="get-a-chat-thread-client"></a>Obtenir un client de fil de conversation
-
-La méthode `getChatThreadClient` retourne un client de fil pour un fil qui existe déjà. Elle peut être utilisée pour effectuer des opérations sur le fil créé : ajout de participants, envoi d’un message, etc. `chatThreadId` est l’ID unique du fil de conversation existant.
-
-```Java
-String chatThreadId = "Id";
-ChatThread chatThread = chatClient.getChatThread(chatThreadId);
-```
-
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recevoir les messages de conversation d’un fil de conversation
 
 Vous pouvez récupérer les messages de conversation en interrogeant la méthode `listMessages` sur le client de fil de conversation selon des intervalles définis.
 
 ```Java
-chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
-    System.out.printf("Response headers are %s. Url %s  and status code %d %n", resp.getHeaders(),
-        resp.getRequest().getUrl(), resp.getStatusCode());
-    resp.getItems().forEach(message -> {
-        System.out.printf("Message id is %s.", message.getId());
-    });
+chatThreadClient.listMessages().forEach(message -> {
+    System.out.printf("Message id is %s.\n", message.getId());
 });
 ```
 
 `listMessages` retourne la version la plus récente du message, avec les modifications ou les suppressions dont le message a éventuellement fait l’objet via .editMessage() et .deleteMessage(). Pour les messages supprimés, `chatMessage.getDeletedOn()` retourne une valeur datetime indiquant à quel moment ce message a été supprimé. Pour les messages modifiés, `chatMessage.getEditedOn()` retourne une valeur datetime indiquant à quel moment ce message a été modifié. Il est possible d’accéder à l’heure initiale de création du message à l’aide de `chatMessage.getCreatedOn()` ; elle peut être utilisée à des fins de classement des messages.
 
-`listMessages` retourne différents types de messages qui peuvent être identifiés par `chatMessage.getType()`. Ces types sont les suivants :
+Pour en savoir plus sur les types de messages, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
 
-- `text` : Message de conversation ordinaire envoyé par un participant au fil de conversation.
+## <a name="send-read-receipt"></a>Envoyer une confirmation de lecture
 
-- `html` : message de conversation envoyé par un participant au fil de conversation.
+Utilisez la méthode `sendReadReceipt` pour publier un événement de confirmation de lecture sur un fil de conversation, pour le compte d’un utilisateur.
+`chatMessageId` correspond à ID unique du message de conversation lu.
 
-- `topicUpdated`: Message système qui indique que le sujet a été mis à jour
+```Java
+String chatMessageId = message.getId();
+chatThreadClient.sendReadReceipt(chatMessageId);
+```
 
-- `participantAdded` : Message système qui indique qu’un ou plusieurs participants ont été ajoutés au fil de conversation.
+## <a name="list-chat-participants"></a>Répertorier les participants à la conversation
 
-- `participantRemoved` : Message système qui indique qu’un participant a été supprimé du fil de conversation.
+Utilisez `listParticipants` pour récupérer une collection paginée contenant les participants du fil de conversation identifié par chatThreadId.
 
-Pour plus d’informations, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
+```Java
+PagedIterable<ChatParticipant> chatParticipantsResponse = chatThreadClient.listParticipants();
+chatParticipantsResponse.forEach(chatParticipant -> {
+    System.out.printf("Participant id is %s.\n", ((CommunicationUserIdentifier) chatParticipant.getCommunicationIdentifier()).getId());
+});
+```
 
 ## <a name="add-a-user-as-participant-to-the-chat-thread"></a>Ajouter un utilisateur comme participant au fil de conversation
 
 Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utilisateurs et en supprimer. En ajoutant des utilisateurs, vous leur permettez d’envoyer des messages au fil de conversation et d’ajouter/supprimer d’autres participants. Vous devez commencer par obtenir un nouveau jeton d’accès et une identité pour cet utilisateur. Avant d’appeler la méthode addParticipants, vérifiez que vous avez acquis un nouveau jeton d’accès et une identité pour cet utilisateur. L’utilisateur aura besoin de ce jeton d’accès pour initialiser son client de conversation.
 
-Utilisez la méthode `addParticipants` pour ajouter des participants au fil identifié par threadId.
+Utilisez la méthode `addParticipants` pour ajouter des participants au fil.
 
-- Utilisez `listParticipants` pour lister les participants à ajouter au fil de conversation.
 - `communicationIdentifier`, obligatoire. Il s’agit du CommunicationIdentifier que vous avez créé avec le CommunicationIdentityClient dans le guide de démarrage rapide [Jeton d’accès utilisateur](../../access-tokens.md).
-- `display_name`, facultatif, est le nom d’affichage pour le participant au fil.
-- `share_history_time`, facultatif, est le moment à partir duquel l’historique de conversation est partagé avec le participant. Pour partager l’historique depuis le début du fil de conversation, attribuez à cette propriété une date égale ou antérieure à la date de création du fil. Pour ne pas partager l’historique antérieur au moment où le participant a été ajouté, définissez-la sur l’heure actuelle. Pour partager un historique partiel, attribuez-lui la date de votre choix.
+- `displayName`, facultatif, est le nom d’affichage pour le participant au fil.
+- `shareHistoryTime`, facultatif, est le moment à partir duquel l’historique de conversation est partagé avec le participant. Pour partager l’historique depuis le début du fil de conversation, attribuez à cette propriété une date égale ou antérieure à la date de création du fil. Pour ne pas partager l’historique antérieur au moment où le participant a été ajouté, définissez-la sur l’heure actuelle. Pour partager un historique partiel, attribuez-lui la date de votre choix.
 
 ```Java
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity1)
-    .setDisplayName("Display Name 1");
+ChatParticipant thirdThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user3)
+    .setDisplayName("Display Name 3");
 
-ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setCommunicationIdentifier(identity2)
-    .setDisplayName("Display Name 2");
+ChatParticipant fourthThreadParticipant = new ChatParticipant()
+    .setCommunicationIdentifier(user4)
+    .setDisplayName("Display Name 4");
 
-participants.add(firstThreadParticipant);
-participants.add(secondThreadParticipant);
+participants.add(thirdThreadParticipant);
+participants.add(fourthThreadParticipant);
 
-AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
-    .setParticipants(participants);
-chatThreadClient.addParticipants(addChatParticipantsOptions);
-```
-
-## <a name="remove-participant-from-a-chat-thread"></a>Supprimer un participant d’un fil de conversation
-
-De la même façon que vous ajoutez un participant à un fil de conversation, vous pouvez supprimer des participants d’un fil de conversation. Pour ce faire, vous devez suivre les identités des participants que vous avez ajoutés.
-
-Utilisez `removeParticipant`, où `identifier` est le CommunicationUserIdentifier que vous avez créé.
-
-```Java
-chatThreadClient.removeParticipant(identity);
+chatThreadClient.addParticipants(participants);
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code

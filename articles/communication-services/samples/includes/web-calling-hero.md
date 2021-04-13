@@ -10,22 +10,20 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0504467e387c0875a8e00bd1cf638ec437232092
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103487919"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554521"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-L’**exemple de bannière d’appel de groupe** Azure Communication Services illustre comment la bibliothèque de client web Appel Communication Services peut être utilisée pour créer une expérience d’appel de groupe.
+L'**exemple de bannière d'appel de groupe** Azure Communication Services illustre de quelle façon le SDK web Communication Services Calling peut être utilisé pour créer une expérience d'appel de groupe.
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment fonctionne l’exemple avant de l’exécuter sur votre ordinateur local. Ensuite, vous le déploierez sur Azure à l’aide de vos propres ressources Azure Communication Services.
 
 ## <a name="download-code"></a>Télécharger le code
 
-Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
+Recherchez le projet correspondant à cet exemple sur [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero). Une version [Interopérabilité avec Teams](../../concepts/teams-interop.md) de l'exemple est disponible sur une [branche](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/teams-interop) distincte.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -48,6 +46,9 @@ Composants de l’écran principal d’appel :
 - **Galerie multimédia** : scène principale montrant les participants. Si une caméra est activée pour un participant, son flux vidéo est affiché ici. Chaque participant a une vignette individuelle qui comporte son nom d’affichage et son flux vidéo (le cas échéant).
 - **En-tête**: il s’agit de l’emplacement où se trouvent les principales commandes d’appel pour basculer entre les barres latérales de paramètres et de participants, activer/désactiver la vidéo et le micro, partager l’écran et quitter l’appel.
 - **Barre latérale** : c’est ici que les informations sur les participants et les paramètres sont affichées, en fonction de l’option choisie à l’aide des commandes de l’en-tête. Le composant peut être fermé à l’aide du « X » situé en haut à droite. La barre latérale des participants affiche une liste des participants et un lien pour inviter davantage d’utilisateurs à discuter. La barre latérale des paramètres vous permet de configurer les paramètres du microphone et de la caméra.
+
+> [!NOTE]
+> Compte tenu des limitations relatives au SDK Web Calling, un seul flux vidéo distant est restitué. Pour plus d'informations, consultez [Prise en charge des flux du SDK Calling](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#calling-sdk-streaming-support).
 
 Vous trouverez ci-dessous des informations supplémentaires sur les prérequis et les étapes à suivre pour configurer l’exemple.
 
@@ -96,7 +97,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec la [bibliothèque de client d’appel](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l'[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Documentation supplémentaire

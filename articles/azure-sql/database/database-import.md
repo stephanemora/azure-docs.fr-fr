@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: d59f08fc061bace55a7cd3d774380046055828ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618608"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642036"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Importer un fichier BACPAC Ruby dans une base de données dans Azure SQL Database ou Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Pour migrer une base de données vers une [instance managée Azure SQL](../manag
 
 1. Sélectionnez le compte de stockage et le conteneur pour le fichier BACPAC, puis sélectionnez le fichier BACPAC à partir duquel importer.
 
-1. Spécifiez la taille de la nouvelle base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination. Pour obtenir la liste des valeurs possibles pour une nouvelle base de données dans Azure SQL Database, consultez [Créer une base de données](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Spécifiez la taille de la nouvelle base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination. Pour obtenir la liste des valeurs possibles pour une nouvelle base de données dans Azure SQL Database, consultez [Créer une base de données](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
    ![Importation2 de base de données](./media/database-import/sql-server-import-database-settings.png)
 
@@ -147,7 +147,7 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="cancel-the-import-request"></a>Annuler la demande d’importation
 
-Utilisez l’[API Opérations sur les bases de données - Annulation](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) ou la [commande PowerShell Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) ; voici un exemple de commande PowerShell.
+Utilisez l’[API Opérations sur les bases de données - Annulation](/rest/api/sql/databaseoperations/cancel) ou la [commande PowerShell Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) ; voici un exemple de commande PowerShell.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 74e657ba8934057d5720eef47bc5ffe11a3a5ece
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 791591f3d98f9e6902e89a880c464e6a609e3a1f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445199"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599040"
 ---
 <a name="HOLTop"></a>
 
@@ -267,17 +267,17 @@ def sentiment_analysis_with_opinion_mining_example(client):
                 sentence.confidence_scores.negative,
             ))
             for mined_opinion in sentence.mined_opinions:
-                aspect = mined_opinion.aspect
-                print("......'{}' aspect '{}'".format(aspect.sentiment, aspect.text))
-                print("......Aspect score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
-                    aspect.confidence_scores.positive,
-                    aspect.confidence_scores.negative,
+                target = mined_opinion.target
+                print("......'{}' target '{}'".format(target.sentiment, target.text))
+                print("......Target score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                    target.confidence_scores.positive,
+                    target.confidence_scores.negative,
                 ))
-                for opinion in mined_opinion.opinions:
-                    print("......'{}' opinion '{}'".format(opinion.sentiment, opinion.text))
-                    print("......Opinion score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
-                        opinion.confidence_scores.positive,
-                        opinion.confidence_scores.negative,
+                for assessment in mined_opinion.assessments:
+                    print("......'{}' assessment '{}'".format(assessment.sentiment, assessment.text))
+                    print("......Assessment score:\n......Positive={0:.2f}\n......Negative={1:.2f}\n".format(
+                        assessment.confidence_scores.positive,
+                        assessment.confidence_scores.negative,
                     ))
             print("\n")
         print("\n")
@@ -298,33 +298,33 @@ Positive=0.84
 Neutral=0.00
 Negative=0.16
 
-......'negative' aspect 'food'
-......Aspect score:
+......'negative' target 'food'
+......Target score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'negative' opinion 'unacceptable'
-......Opinion score:
+......'negative' assessment 'unacceptable'
+......Assessment score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'negative' aspect 'service'
-......Aspect score:
+......'negative' target 'service'
+......Target score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'negative' opinion 'unacceptable'
-......Opinion score:
+......'negative' assessment 'unacceptable'
+......Assessment score:
 ......Positive=0.01
 ......Negative=0.99
 
-......'positive' aspect 'concierge'
-......Aspect score:
+......'positive' target 'concierge'
+......Target score:
 ......Positive=1.00
 ......Negative=0.00
 
-......'positive' opinion 'nice'
-......Opinion score:
+......'positive' assessment 'nice'
+......Assessment score:
 ......Positive=1.00
 ......Negative=0.00
 
@@ -799,41 +799,41 @@ key_phrase_extraction_example(client)
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Utiliser l’API de manière asynchrone avec l’opération d’analyse
+## <a name="use-the-api-asynchronously-with-the-batch-analyze-operation"></a>Utiliser l’API de manière asynchrone avec l’opération d’analyse par lots
 
 # <a name="version-31-preview"></a>[Version préliminaire de la version 3.1](#tab/version-3-1)
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-Créez une fonction appelée `analyze_example()` qui prend le client comme argument, puis appelle la fonction `begin_analyze()`. Il en résultera une opération durable qui sera interrogée pour obtenir des résultats.
+Créez une fonction appelée `analyze_batch_actions_example()` qui prend le client comme argument, puis appelle la fonction `begin_analyze_batch_actions()`. Il en résultera une opération durable qui sera interrogée pour obtenir des résultats.
 
 ```python
-    def analyze_example(client):
+    def analyze_batch_actions_example(client):
         documents = [
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = text_analytics_client.begin_analyze(
+        poller = text_analytics_client.begin_analyze_batch_actions(
             documents,
             display_name="Sample Text Analysis",
             entities_recognition_tasks=[EntitiesRecognitionTask()]
         )
 
         result = poller.result()
+        action_results = [action_result for action_result in list(result) if not action_result.is_error]
 
-        for page in result:
-            for task in page.entities_recognition_results:
-                print("Results of Entities Recognition task:")
-                
-                docs = [doc for doc in task.results if not doc.is_error]
-                for idx, doc in enumerate(docs):
-                    print("\nDocument text: {}".format(documents[idx]))
-                    for entity in doc.entities:
-                        print("Entity: {}".format(entity.text))
-                        print("...Category: {}".format(entity.category))
-                        print("...Confidence Score: {}".format(entity.confidence_score))
-                        print("...Offset: {}".format(entity.offset))
-                    print("------------------------------------------")
+        entities_recognition_task_result = action_results[0]
+        print("Results of Entities Recognition action:")
+        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
+
+        for idx, doc in enumerate(docs):
+            print("\nDocument text: {}".format(documents[idx]))
+            for entity in doc.entities:
+                print("Entity: {}".format(entity.text))
+                print("...Category: {}".format(entity.category))
+                print("...Confidence Score: {}".format(entity.confidence_score))
+                print("...Offset: {}".format(entity.offset))
+            print("------------------------------------------")
 
 analyze_example(client)
 ```
@@ -858,7 +858,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-Vous pouvez également utiliser l’opération d’analyse pour détecter les informations d’identification personnelle et l’extraction de phrases clés. Consultez l’[exemple d’analyse](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples) sur GitHub.
+Vous pouvez également utiliser l’opération d’analyse par lots pour détecter les informations d’identification personnelle et exécuter une extraction de phrases clés. Consultez l’[exemple d’analyse par lots](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py) sur GitHub.
 
 # <a name="version-30"></a>[Version 3.0](#tab/version-3)
 

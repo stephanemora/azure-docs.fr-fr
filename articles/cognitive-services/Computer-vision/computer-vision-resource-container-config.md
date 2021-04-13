@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 7b421877b2a41074bf901817c7ad8922083c3e77
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102611893"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285670"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>Configurer des conteneurs Docker OCR Read
 
@@ -34,8 +34,8 @@ Les paramètres de configuration spécifiques au conteneur sont les suivants :
 |Obligatoire|Paramètre|Objectif|
 |--|--|--|
 |Non|ReadEngineConfig:ResultExpirationPeriod| Conteneurs v2.0 uniquement. Période d’expiration du résultat, en heures. L'intervalle par défaut est de 48 heures. Le paramètre spécifie à quel moment le système doit effacer les résultats de la reconnaissance. Par exemple, si `resultExpirationPeriod=1`, le système efface le résultat de la reconnaissance 1 heure après le processus. Si `resultExpirationPeriod=0`, le système efface le résultat de la reconnaissance après récupération du résultat.|
-|Non|Cache:Redis| Conteneurs v2.0 uniquement. Active le stockage Redis pour le stockage des résultats. Un cache est *obligatoire* si plusieurs conteneurs de lecture sont placés derrière un équilibreur de charge.|
-|Non|Queue:RabbitMQ|Conteneurs v2.0 uniquement. Active RabbitMQ pour la répartition des tâches. Ce paramètre est utile lorsque plusieurs conteneurs de lecture sont placés derrière un équilibreur de charge.|
+|Non|Cache:Redis| Conteneurs v2.0 uniquement. Active le stockage Redis pour le stockage des résultats. Un cache est *obligatoire* si plusieurs conteneurs OCR de lecture sont placés derrière un équilibreur de charge.|
+|Non|Queue:RabbitMQ|Conteneurs v2.0 uniquement. Active RabbitMQ pour la répartition des tâches. Ce paramètre est utile lorsque plusieurs conteneurs OCR de lecture sont placés derrière un équilibreur de charge.|
 |Non|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | Conteneurs v3.x uniquement. Délai à l'issue duquel un message devient invisible car un rôle de travail est en train de le traiter. |
 |Non|Storage::DocumentStore::MongoDB|Conteneurs v2.0 uniquement. Active MongoDB pour le stockage permanent des résultats. |
 |Non|Storage:ObjectStore:AzureBlob:ConnectionString| Conteneurs v3.x uniquement. Chaîne de connexion de stockage d'objets blob Azure. |
@@ -119,7 +119,7 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 ## <a name="container-docker-examples"></a>Exemples de conteneur Docker
 
-Les exemples Docker suivants s’appliquent au conteneur Lire.
+Les exemples Docker suivants s’appliquent au conteneur OCR Read.
 
 
 # <a name="version-32-preview"></a>[Version 3.2-preview](#tab/version-3-2)

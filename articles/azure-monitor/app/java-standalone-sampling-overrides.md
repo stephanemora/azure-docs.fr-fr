@@ -6,23 +6,22 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 03d3093f14d97b2cc64d91e0d1b7adf34204a021
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962276"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448880"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Remplacements d’échantillonnage (préversion) – Azure Monitor Application Insights pour Java
 
 > [!NOTE]
-> La fonctionnalité de remplacements d’échantillonnage est en préversion.
+> La fonctionnalité de remplacements d’échantillonnage est en préversion depuis la mise en production 3.0.3.
 
-Voici quelques cas d’usage des remplacements d’échantillonnage :
- * Supprimer la collecte de télémétrie pour les contrôles d’intégrité.
- * Supprimer la collecte de télémétrie pour les appels de dépendance bruyants.
- * Réduire le bruit des contrôles d’intégrité ou des appels de dépendance bruyants sans les supprimer complètement.
- * Collecter 100 % de la télémétrie pour un type de demande important (par exemple, `/login`) même si vous avez configuré l’échantillonnage par défaut sur une valeur inférieure.
+Les remplacements d’échantillonnage vous permettent de remplacer le [pourcentage d’échantillonnage par défaut](./java-standalone-config.md#sampling), par exemple :
+ * Définir le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les contrôles d’intégrité bruyants.
+ * Définir le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les appels de dépendance bruyants.
+ * Définir le pourcentage d’échantillonnage sur 100 pour un type de demande important (par exemple `/login`), même si vous avez configuré l’échantillonnage par défaut sur une valeur inférieure.
 
 ## <a name="terminology"></a>Terminologie
 
@@ -79,10 +78,10 @@ Seul le premier remplacement d’échantillonnage correspondant est utilisé.
 
 Si aucun remplacement d’échantillonnage ne correspond :
 
-* S’il s’agit de la première étendue dans la trace, le [pourcentage d’échantillonnage normal](./java-standalone-config.md#sampling) est utilisé.
+* S’il s’agit du premier intervalle dans la trace, le [pourcentage d’échantillonnage normal](./java-standalone-config.md#sampling) est utilisé.
 * S’il ne s’agit pas de la première étendue de la trace, la décision d’échantillonnage parente est utilisée.
 
-> [!IMPORTANT]
+> [!WARNING]
 > Quand la décision est prise de ne pas collecter d’étendue, aucune des étendues en aval n’est collectée, même s’il existe des remplacements d’échantillonnage correspondant à l’étendue en aval.
 > Ce comportement est nécessaire car, autrement, il en résulterait des traces rompues, avec la collecte en aval d’étendues apparentées à des étendues non collectées.
 

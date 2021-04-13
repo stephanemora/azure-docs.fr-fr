@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+manager: femila
+ms.openlocfilehash: 1ff8c645b1ad670f3824920d39aa0c6bf9783408
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526600"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445548"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
@@ -44,6 +44,26 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 |Intégration d’Azure Active Directory|[Active Directory natif et Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services et Active Directory natif](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Prise en charge d’Active Directory natif ou d’Azure Active Directory Domain Services uniquement|
 
 Une fois que vous avez choisi votre méthode de stockage, consultez [Tarification de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) pour obtenir des informations sur nos plans de tarification.
+
+## <a name="azure-files-tiers"></a>Niveaux Azure Files
+
+Azure Files offre deux niveaux de stockage : Premium et Standard. Ces niveaux vous permettent d’adapter les performances et le coût de vos partages de fichiers en fonction des exigences de votre scénario.
+
+- Les partages de fichiers Premium adossés à des disques SSD et déployés dans le type compte de stockage FileStorage. Les partages de fichiers Premium offrent des performances élevées et une faible latence cohérentes pour les charges de travail utilisant beaucoup d’entrées et sorties (E/S). 
+
+- Les partages de fichiers Standard sont adossés à des lecteurs de disque dur (HDD) et déployés dans le type compte de stockage version 2 universel (GPv2). Les partages de fichiers Standard offrent des performances fiables pour les charges de travail d’E/S moins sensibles à la variabilité des performances, telles que les partages de fichiers à usage général et les environnements de dev/test. Les partages de fichiers standard sont disponibles uniquement dans le cadre d’un modèle de facturation avec paiement à l’utilisation.
+
+Le tableau suivant répertorie nos recommandations concernant le niveau de performances à utiliser en fonction de votre charge de travail. Ces recommandations vous aideront à sélectionner le niveau de performances correspondant à vos objectifs de performance, à votre budget et à vos considérations régionales. Nous avons basé ces recommandations sur les exemples de scénarios de des [types de charges de travail Bureau à distance](/windows-server/remote/remote-desktop-services/remote-desktop-workloads). 
+
+| Type de charge de travail | Niveau de fichier recommandé |
+|--------|-----------|
+| Léger (moins de 200 utilisateurs) | Partages de fichiers Standard |
+| Light (plus de 200 utilisateurs) | Partages de fichiers Premium ou Standard avec plusieurs partages de fichiers |
+|Moyenne|Partages de fichiers Premium|
+|Intensif|Partages de fichiers Premium|
+|Power|Partages de fichiers Premium|
+
+Pour plus d’informations sur les performances d’Azure Files, consultez [Partage de fichiers et objectifs de mise à l’échelle des fichiers](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets). Pour plus d’informations sur la tarification, consultez [Tarification d’Azure Files](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

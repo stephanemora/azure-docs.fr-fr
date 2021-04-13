@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2b4079b6d4eb39b65a7a60cd4d149c7748ab39ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5f9e28ac568f70801b2bd955c201712cfcb80084
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102178879"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963324"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utiliser le disque Azure CSI (Container Storage interface) pour Azure Files dans Azure Kubernetes Service (AKS) (préversion)
 Le disque CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des disques Azure.
@@ -71,9 +71,9 @@ test.txt
 
 Les classes de stockage par défaut sont adaptées aux scénarios les plus courants, mais pas à tous. Dans certains cas, vous souhaiterez peut-être personnaliser votre propre classe de stockage avec vos propres paramètres. Par exemple, dans le cadre d’un scénario, vous pouvez être amené à modifier la classe `volumeBindingMode`.
 
-Les classes de stockage par défaut utilisent une classe `volumeBindingMode: Immediate` qui garantit que cela se produit immédiatement après la création du PVC. Si vos pools de nœuds sont limités en termes de topologie, par exemple à l’aide de zones de disponibilité, les volumes persistants sont liés ou approvisionnés sans tenir compte des exigences de planification du pod (dans ce cas, il se trouve dans une zone spécifique).
+Vous pouvez utiliser une classe `volumeBindingMode: Immediate` qui garantit que cela se produit immédiatement après la création du PVC. Si vos pools de nœuds sont limités en termes de topologie, par exemple à l’aide de zones de disponibilité, les volumes persistants sont liés ou approvisionnés sans tenir compte des exigences de planification du pod (dans ce cas, il se trouve dans une zone spécifique).
 
-Dans un tel scénario, vous pouvez utiliser `volumeBindingMode: WaitForFirstConsumer`, qui retarde la liaison et l’approvisionnement d’un volume persistant jusqu’à ce qu’un pod utilisant le PVC soit créé. Ainsi, le volume persistant est conforme et approvisionné dans la zone de disponibilité (ou une autre topologie) spécifiée par les contraintes de planification du pod.
+Dans un tel scénario, vous pouvez utiliser `volumeBindingMode: WaitForFirstConsumer`, qui retarde la liaison et l’approvisionnement d’un volume persistant jusqu’à ce qu’un pod utilisant le PVC soit créé. Ainsi, le volume persistant est conforme et approvisionné dans la zone de disponibilité (ou une autre topologie) spécifiée par les contraintes de planification du pod. Les classes de stockage par défaut utilisent la classe `volumeBindingMode: WaitForFirstConsumer`.
 
 Créez un fichier nommé `sc-azuredisk-csi-waitforfirstconsumer.yaml` et collez le manifeste suivant.
 La classe de stockage est identique à la classe de stockage `managed-csi`, mais avec une classe `volumeBindingMode` différente.

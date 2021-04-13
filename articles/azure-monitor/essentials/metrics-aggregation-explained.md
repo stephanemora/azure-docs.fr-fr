@@ -5,13 +5,13 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 01/12/2020
-ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/10/2021
+ms.openlocfilehash: c89b352954f114ec9da22cad6751bb57ef59899b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031393"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106381795"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Explication de l’agrégation et de l’affichage des métriques Azure Monitor
 
@@ -26,6 +26,7 @@ Lorsque vous ajoutez une métrique à un graphique, Metrics Explorer présélect
 Nous allons tout d’abord définir quelques termes :
 
 - **Valeur de métrique** : valeur de mesure collectée pour une ressource spécifique.
+- **Base de données de série chronologique** : base de données optimisée pour le stockage et la récupération de points de données contenant tous une valeur et un horodatage correspondant. 
 - **Période** : période de temps générique.
 - **Intervalle de temps** : temps écoulé entre deux collectes de valeurs de métrique. 
 - **Plage temporelle** : période affichée sur un graphique. La valeur par défaut est généralement de 24 heures. Seules les plages précises sont disponibles. 
@@ -33,7 +34,9 @@ Nous allons tout d’abord définir quelques termes :
 - **Type d’agrégation** : type de statistique calculé à partir de plusieurs valeurs de métriques.  
 - **Agrégat** : processus qui consiste à utiliser plusieurs valeurs d’entrée, puis à les utiliser pour produire une seule valeur de sortie via les règles définies par le type d’agrégation. Par exemple, en utilisant la moyenne de plusieurs valeurs.  
 
-Les métriques correspondent à une série de valeurs de métriques capturées à un intervalle de temps régulier. Lorsque vous tracez un graphique, les valeurs de la métrique sélectionnée sont agrégées séparément pendant la granularité temporelle (également appelée « fragment de temps »). Vous sélectionnez la taille de la granularité temporelle à l’aide du [panneau du sélecteur d’heure Metrics Explorer](../essentials/metrics-getting-started.md#select-a-time-range). Si vous n’effectuez pas de sélection explicite, la granularité temporelle est automatiquement sélectionnée en fonction de la plage temporelle actuellement sélectionnée. Une fois la sélection effectuée, les valeurs de métriques qui ont été capturées à chaque intervalle de granularité temporelle sont agrégées et placées sur le graphique (un point de données par intervalle).
+## <a name="summary-of-process"></a>Résumé du processus
+
+Les métriques sont une série de valeurs stockées avec un horodatage. Dans Azure, la plupart des métriques sont stockées dans la base de données de série chronologique des métriques Azure. Lorsque vous tracez un graphique, les valeurs des métriques sélectionnées sont extraites de la base de données, puis agrégées séparément en fonction de la granularité temporelle choisie (également appelée fragment de temps). Vous sélectionnez la taille de la granularité temporelle à l’aide du [panneau du sélecteur d’heure Metrics Explorer](../essentials/metrics-getting-started.md#select-a-time-range). Si vous n’effectuez pas de sélection explicite, la granularité temporelle est automatiquement sélectionnée en fonction de la plage temporelle actuellement sélectionnée. Une fois la sélection effectuée, les valeurs de métriques qui ont été capturées à chaque intervalle de granularité temporelle sont agrégées et placées sur le graphique (un point de données par intervalle).
 
 ## <a name="aggregation-types"></a>Types d’agrégation 
 
@@ -82,9 +85,11 @@ Il est important de déterminer ce qui est « normal » pour votre charge de t
 
 ## <a name="how-the-system-collects-metrics"></a>Comment le système collecte les métriques
 
-La collecte des données varie selon la métrique. Il existe deux types de périodes de collecte.
+La collecte des données varie selon la métrique. 
 
 ### <a name="measurement-collection-frequency"></a>Fréquence de collecte des mesures 
+
+Il existe deux types de périodes de collecte.
 
 - **Régulier** : la métrique est collectée à un intervalle de temps qui ne varie pas.
 

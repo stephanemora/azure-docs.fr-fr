@@ -11,20 +11,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 03/16/2021
+ms.date: 04/05/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 110a94c78427087f4ca5555f59055ab8e3bebcee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87c0ce72348f67c22759915a3a15c69193ad2f60
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104592589"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552787"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Créer une révision d’accès des rôles de ressources Azure dans Privileged Identity Management
 
 Les besoins d’accès aux rôles de ressources Azure privilégiés des employés évoluent au fil du temps. Pour réduire les risques associés aux attributions de rôles obsolètes, vous devez vérifier les accès régulièrement. Vous pouvez utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour créer des révisions d’accès pour l’accès privilégié aux rôles de ressources Azure. Vous pouvez également configurer des révisions d’accès périodiques qui interviennent automatiquement. Cet article explique comment créer une ou plusieurs révisions d’accès.
+
+## <a name="prerequisite-license"></a>Licence requise
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]. Pour plus d’informations sur les licences pour PIM, consultez [Exigences relatives aux licences pour l’utilisation de Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+>  Actuellement, vous pouvez étendre une révision d’accès aux principaux de service ayant accès à Azure AD et aux rôles de ressource Azure (préversion) avec une édition Azure Active Directory Premium P2 active dans votre locataire. Le modèle de licence pour les principaux de service sera finalisé pour la disponibilité générale de cette fonctionnalité, et des licences supplémentaires peuvent être nécessaires.
 
 ## <a name="prerequisite-role"></a>Rôle prérequis
 
@@ -34,9 +41,9 @@ Les besoins d’accès aux rôles de ressources Azure privilégiés des employé
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec un utilisateur auquel est attribué l’un des rôles prérequis.
 
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Dans le menu de gauche, sélectionnez **Ressources Azure**.
+1. Sélectionnez **Identity Governance**
+ 
+1. Dans le menu de gauche, sélectionnez **Ressources Azure** sous  **Azure AD Privileged Identity Management**.
 
 1. Sélectionnez la ressource que vous souhaitez gérer, par exemple, un abonnement.
 
@@ -58,9 +65,12 @@ Les besoins d’accès aux rôles de ressources Azure privilégiés des employé
 
 1. Utilisez le paramètre **Fin** pour spécifier comment mettre fin à la série de révisions d’accès récurrentes. Les séries accès récurrentes peuvent se terminer de trois façons : elles peuvent s’exécuter de façon continue pour démarrer des révisions indéfiniment, s’exécuter jusqu’à une date spécifique ou s’exécuter jusqu’à ce qu’un nombre défini d’occurrences se soient produites. Un autre administrateur d’utilisateur, ou un autre administrateur d’entreprise ou vous-même pouvez arrêter la série après sa création en modifiant la date définie dans la zone **Paramètres**, afin qu’elle s’arrête à cette date.
 
-1. Dans la section **Utilisateurs**, sélectionnez un ou plusieurs rôles dont vous souhaitez vérifier l’appartenance.
+1. Dans la section **Utilisateurs**, sélectionnez la portée de la révision. Pour examiner des utilisateurs, sélectionnez **Utilisateurs ou sélectionner (préversion) des principaux de service**  pour examiner les comptes de machine ayant accès au rôle Azure.   
 
     ![Étendue des utilisateurs pour la révision d’une appartenance à un rôle](./media/pim-resource-roles-start-access-review/users.png)
+
+
+1. Sous **Vérifier l’appartenance au rôle** , sélectionnez les rôles Azure privilégiés à examiner. 
 
     > [!NOTE]
     > - Les rôles sélectionnés ici incluent des [rôles permanents et éligibles](../privileged-identity-management/pim-how-to-add-role-to-user.md).
@@ -77,9 +87,9 @@ Les besoins d’accès aux rôles de ressources Azure privilégiés des employé
 
     ![Liste pour les réviseurs des utilisateurs ou membres sélectionnés (auto)](./media/pim-resource-roles-start-access-review/reviewers.png)
 
-    - **Utilisateurs sélectionnés** : utilisez cette option lorsque vous ne savez pas qui a besoin de l’accès. Avec cette option, vous pouvez affecter la révision à un propriétaire de ressource ou un responsable de groupe.
-    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles. 
-    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire. 
+    - **Utilisateurs sélectionnés** : utilisez cette option pour désigner un utilisateur spécifique pour terminer la révision. Cette option est disponible quelle que soit l’étendue de la révision, et les réviseurs sélectionnés peuvent passer en revue les utilisateurs et les principaux du service. 
+    - **Membres (auto)** : utilisez cette option pour demander aux utilisateurs de réviser leurs propres attributions de rôles. Cette option est disponible uniquement si la révision est étendue aux **Utilisateurs**.
+    - **Manager** : utilisez cette option pour que le manager de l’utilisateur révise son attribution de rôle. Cette option est disponible uniquement si la révision est étendue aux **Utilisateurs**. En sélectionnant Manager, vous aurez également la possibilité d’indiquer un réviseur de secours. Les réviseurs de secours sont invités à réviser un utilisateur lorsque celui-ci n’a aucun manager spécifié dans le répertoire. 
 
 ### <a name="upon-completion-settings"></a>Paramètres de saisie semi-automatique
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: 6abed66a5fbd9987e5a8a677dde7b4a77589e907
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065042"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550759"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutoriel : Ajouter un domaine personnalisé à votre Front Door
 
@@ -70,7 +70,7 @@ Pour créer un enregistrement CNAME avec le sous-domaine afdverify :
     |---------------------------|-------|---------------------------------|
     | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Source : entrez votre nom de domaine personnalisé, y compris le sous-domaine afdverify, au format suivant : afdverify. _&lt;nom_de_domaine_personnalisé&gt;_ . Exemple : afdverify. www.contoso.com.
+    - Source : entrez votre nom de domaine personnalisé, y compris le sous-domaine afdverify, au format suivant : afdverify. _&lt;nom_de_domaine_personnalisé&gt;_ . Exemple : afdverify. www.contoso.com. Si vous mappez un domaine générique, comme \*.contoso.com, la valeur source est la même que sans le caractère générique : afdverify.contoso.com.
 
     - Tapez : entrez *CNAME*.
 

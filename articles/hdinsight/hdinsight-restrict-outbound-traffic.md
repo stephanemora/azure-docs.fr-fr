@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06990a5bd1d6619f07952e84870a01f5cd5068df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104872079"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384423"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu
 
@@ -76,7 +76,7 @@ Créez un regroupement de règles d’application permettant au cluster d’envo
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Autorise les activités de connexion Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Autorise les activités de connexion Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Remplacez `storage_account_name` par votre nom de compte de stockage réel. Pour utiliser UNIQUEMENT les connexions https, veillez à ce que l’option [« Transfert sécurisé requis »](../storage/common/storage-require-secure-transfer.md) soit activée sur le compte de stockage. Si vous utilisez un point de terminaison privé pour accéder aux comptes de stockage, cette étape n’est pas nécessaire et le trafic de stockage n’est pas transféré vers le pare-feu.|
+    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Remplacez `storage_account_name` par votre nom de compte de stockage réel. Veillez à ce que l’option [« Transfert sécurisé requis »](../storage/common/storage-require-secure-transfer.md) soit activée sur le compte de stockage. Si vous utilisez un point de terminaison privé pour accéder aux comptes de stockage, cette étape n’est pas nécessaire et le trafic de stockage n’est pas transféré vers le pare-feu.|
 
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Titre : Entrer les détails de la collection de règles d’application":::
 
@@ -84,7 +84,7 @@ Créez un regroupement de règles d’application permettant au cluster d’envo
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configurer le pare-feu avec des règles de réseau
 
-Créez les règles de réseau pour configurer correctement votre cluster HDInsight.
+Créez les règles de réseau pour configurer correctement votre cluster HDInsight. 
 
 1. Après l’étape précédente, accédez à **Collection de règles de réseau** >  **+ Ajouter une collection de règles de réseau**.
 
@@ -102,14 +102,14 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
 
     | Nom | Protocol | Adresses sources | Étiquettes de service | Ports de destination | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_5 | TCP | * | SQL | 1433 | Si vous utilisez les serveurs SQL par défaut fournis par HDInsight, configurez une règle de réseau dans la section Balises de service pour SQL qui vous permettra de consigner et d’auditer le trafic SQL. Si vous avez configuré des points de terminaison de service pour SQL Server sur le sous-réseau HDInsight, le pare-feu sera contourné. Si vous utilisez un serveur SQL personnalisé pour des metastores Ambari, Oozie, Ranger et Hive, vous devez uniquement autoriser le trafic vers vos propres serveurs SQL personnalisés.|
+    | Rule_5 | TCP | * | SQL | 1433 , 11000-11999 | Si vous utilisez les serveurs SQL par défaut fournis par HDInsight, configurez une règle de réseau dans la section Balises de service pour SQL qui vous permettra de consigner et d’auditer le trafic SQL. Si vous avez configuré des points de terminaison de service pour SQL Server sur le sous-réseau HDInsight, le pare-feu sera contourné. Si vous utilisez un serveur SQL personnalisé pour des metastores Ambari, Oozie, Ranger et Hive, vous devez uniquement autoriser le trafic vers vos propres serveurs SQL personnalisés. Consultez [Architecture de connectivité Azure SQL Database et Azure Synapse Analytics](../azure-sql/database/connectivity-architecture.md) pour voir pourquoi la plage de ports 11000-11999 est nécessaire en plus du port 1433. |
     | Rule_6 | TCP | * | Azure Monitor | * | (facultatif) Les clients qui envisagent d’utiliser la fonctionnalité de mise à l’échelle automatique doivent ajouter cette règle. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Titre : Entrer une collection de règles d’application":::
 
 1. Sélectionnez **Ajouter**.
 
-### <a name="create-and-configure-a-route-table"></a>Créer et configurer une table de routage
+### <a name="create-and-configure-a-route-table"></a>Créer et configurer une table de routage 
 
 Créez une table de routage avec les entrées suivantes :
 

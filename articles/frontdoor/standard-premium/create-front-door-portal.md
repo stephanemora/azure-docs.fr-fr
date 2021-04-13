@@ -4,20 +4,19 @@ description: Ce démarrage rapide montre comment utiliser Azure Front Door Stand
 services: frontdoor
 author: duongau
 manager: KumudD
-Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2021
+ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 18956948a32a79c1435bf4fc1554b09480c9010c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101100667"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552867"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>Démarrage rapide : Créer un profil Azure Front Door Standard/Premium – Portail Azure
 
@@ -58,7 +57,7 @@ Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://a
     | **Nom du point de terminaison** | Entrez un nom unique au monde pour votre point de terminaison. |
     | **Type d’origine** | Sélectionnez le type de ressource pour votre origin. Dans cet exemple, nous sélectionnons un service d’application comme origin pour laquelle Private Link est activé. |
     | **Nom d’hôte de l’origin** | Entrez le nom d’hôte de votre origin. |
-    | **Activer Azure Private Link** | Si vous souhaitez disposer d’une connexion privée entre Azure Front Door et votre origin. Pour plus d’informations, reportez-vous à l’[aide relative à Private Link](concept-private-link.md) et à [Activer Private Link](how-to-enable-private-link.md).
+    | **Activer Azure Private Link** | Si vous souhaitez disposer d’une connexion privée entre Azure Front Door et votre origin. Pour plus d’informations, reportez-vous à l’[aide relative à Private Link](concept-private-link.md) et à [Activer Private Link](./how-to-enable-private-link-web-app.md).
     | **Mise en cache** | Cochez la case si vous souhaitez mettre en cache le contenu plus près des utilisateurs à l’échelle mondiale en utilisant les POP de périphérie d’Azure Front Door et le réseau Microsoft. |
     | **Stratégie WAF** | Sélectionnez **Créer nouveau** ou sélectionnez une stratégie WAF existante dans la liste déroulante si vous souhaitez activer cette fonctionnalité. |
 
@@ -148,7 +147,7 @@ Configurez Azure Front Door Standard/Premium (préversion) pour diriger le trafi
     
     :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-endpoint.png" alt-text="Capture d’écran de la page Ajouter un point de terminaison.":::
 
-1. Ensuite, ajoutez un groupe d’origins qui contient vos deux applications web. Sélectionnez **+ Ajouter** pour ouvrir la page **Ajouter un groupe d’origins**. Pour Nom, entrez *myOrignGroup*, puis sélectionnez **+ Ajouter une origin**.
+1. Ensuite, ajoutez un groupe d’origins qui contient vos deux applications web. Sélectionnez **+ Ajouter** pour ouvrir la page **Ajouter un groupe d’origins**. Dans le champ Nom, entrez *myOriginGroup*, puis sélectionnez **+ Ajouter une origine**.
  
      :::image type="content" source="../media/create-front-door-portal/front-door-custom-create-add-origin-group.png" alt-text="Capture d’écran de la page Ajouter un groupe d’origins.":::
 

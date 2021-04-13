@@ -1,22 +1,24 @@
 ---
 title: 'Démarrage rapide : Ajouter l’appel VoIP à une application Android avec Azure Communication Services'
-description: Dans ce tutoriel, vous allez apprendre à utiliser la bibliothèque de client Appel Azure Communication Services pour Android.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 08/11/2020
+description: Dans ce tutoriel, vous allez découvrir comment utiliser le kit de développement logiciel (SDK) Azure Communication Services Calling pour Android.
+author: chpalm
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: a387261b392ea6718941f5eabe889e0c1a41fd5a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 38194ed7290d6cd9c4889d27ff458f950603c5be
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750335"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073592"
 ---
-Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide de la bibliothèque de client Appel Azure Communication Services pour Android.
+Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Android.
+
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
 
 > [!NOTE]
-> Ce document utilise la version 1.0.0-beta.8 de la bibliothèque de client appelante.
+> Ce document utilise la version 1.0.0-beta.8 du kit de développement logiciel (SDK) Calling.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +39,7 @@ Sélectionnez le modèle de projet « Empty Activity » sous « Phone and Tab
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Capture d’écran montrant l’option « Empty Activity » sélectionnée dans l’écran Project Template.":::
 
-Sélectionnez la bibliothèque de client minimale « API 26 : Android 8.0 (Oreo) » ou version ultérieure.
+Sélectionnez le kit de développement logiciel (SDK) minimal « API 26 : Android 8.0 (Oreo) » ou version ultérieure.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Capture d’écran montrant l’option « Empty Activity » sélectionnée dans l’écran 2 Project Template.":::
 
@@ -110,8 +112,8 @@ Afin de pouvoir demander les autorisations nécessaires pour effectuer un appel,
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--Our calling client library depends on the Apache HTTP client library.
-When targeting Android client library 28+, this library needs to be explicitly referenced.
+        <!--Our Calling SDK depends on the Apache HTTP SDK.
+When targeting Android SDK 28+, this library needs to be explicitly referenced.
 See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apache-p-->
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MainActivity">
@@ -260,11 +262,11 @@ private void getAllPermissions() {
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités de la bibliothèque de client Appel Azure Communication Services :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Calling :
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient est le point d’entrée principal de la bibliothèque de client Appel.|
+| CallClient| CallClient est le point d’entrée principal du kit de développement logiciel (SDK) Calling.|
 | CallAgent | CallAgent sert à démarrer et à gérer les appels. |
 | CommunicationUserCredential | CommunicationUserCredential est utilisé comme informations d’identification du jeton pour instancier CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier est utilisé comme type de participant différent susceptible de faire partie d’un appel.|
@@ -305,7 +307,7 @@ private void startCall() {
     
     StartCallOptions options = new StartCallOptions();
 
-    callAgent.call(
+    callAgent.startCall(
         getApplicationContext(),
         new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);

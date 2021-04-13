@@ -3,16 +3,16 @@ title: Configurer l’authentification Google
 description: Découvrez comment configurer l’authentification Google pour en faire un fournisseur d’identité pour votre application App Service ou Azure Functions.
 ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 03/29/2021
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f6bec32fa928e840569ed95c35a056db91ea9737
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80519940"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077990"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Google
 
@@ -34,21 +34,20 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 ## <a name="add-google-information-to-your-application"></a><a name="secrets"> </a>Ajouter des informations Google à votre application
 
-1. Dans le [Azure portal], accédez à votre application App Service.
-1. Sélectionnez **Paramètres** > **Authentification/Autorisation**, puis vérifiez que **l’authentification App Service** est activée, sur **On**.
-1. Sélectionnez **Google**, puis collez les valeurs d’ID d’application et de secret d’application que vous avez obtenues précédemment. Activez toutes les étendues nécessaires à votre application.
-1. Sélectionnez **OK**.
+1. Connectez-vous au [Portail Azure] et accédez à votre application.
+1. Sélectionnez **Authentification** dans le menu de gauche. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité).
+1. Sélectionnez **Google** dans la liste déroulante de fournisseurs d’identité. Collez-y les valeurs d'ID d'application et de clé secrète d'application que vous avez obtenues précédemment.
 
-   App Service fournit une authentification, mais ne restreint pas l’accès autorisé au contenu et aux API de votre site. Pour plus d’informations, consultez [Autoriser ou refuser des utilisateurs](app-service-authentication-how-to.md#authorize-or-deny-users).
+    Le secret est stocké sous la forme d’un [paramètre d’application](./configure-common.md#configure-app-settings) d’emplacement fixe nommé `GOOGLE_PROVIDER_AUTHENTICATION_SECRET`. Vous pouvez mettre à jour ce paramètre ultérieurement pour utiliser des [références Key Vault](./app-service-key-vault-references.md) si vous souhaitez gérer le secret dans Azure Key Vault.
 
-1. (Facultatif) Pour restreindre l’accès à votre site aux seuls utilisateurs authentifiés par Google, définissez **Action à exécuter quand une demande n’est pas authentifiée** sur **Google**. Quand vous définissez cette fonctionnalité, votre application exige que toutes les demandes soient authentifiées. Elle redirige également toutes les demandes non authentifiées vers Google à des fins d’authentification.
+1. S’il s’agit du premier fournisseur d’identité configuré pour l’application, vous êtes également invité à fournir une section **Paramètres d’authentification App Service**. Sinon, vous pouvez passer à l’étape suivante.
+    
+    Ces options déterminent la manière dont votre application répond aux requêtes non authentifiées, et les sélections par défaut redirigent toutes les requêtes de connexion à l’aide de ce nouveau fournisseur. Vous pouvez modifier ce comportement maintenant ou ajuster ces paramètres ultérieurement à partir de l’écran principal **Authentification** en choisissant **Modifier** en regard de **Paramètres d’authentification**. Pour en savoir plus sur ces options, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
 
-    > [!CAUTION]
-    > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications qui ont une page d’accès publique disponible, comme dans de nombreuses applications monopages. Pour de telles applications, préférez **Autoriser les requêtes anonymes (aucune action)** . L’application démarre alors elle-même manuellement l’authentification. Pour plus d’informations, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
+1. (Facultatif) Cliquez sur **Suivant : Étendues** et ajoutez les étendues nécessaires à l’application. Celles-ci seront demandées au moment de la connexion pour les flux basés sur un navigateur.
+1. Cliquez sur **Add**.
 
-1. Sélectionnez **Enregistrer**.
-
-Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votre application.
+Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votre application. Le fournisseur est répertorié sur l’écran **Authentification**. À partir de là, vous pouvez modifier ou supprimer cette configuration de fournisseur.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Étapes suivantes
 

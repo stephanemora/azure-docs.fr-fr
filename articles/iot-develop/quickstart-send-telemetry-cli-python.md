@@ -6,13 +6,13 @@ ms.author: timlt
 ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/11/2021
-ms.openlocfilehash: d73f8eeb7b69440f8db67d0b95b40ed6258ee8e7
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.date: 03/24/2021
+ms.openlocfilehash: f28ad8f93769bc95c87095a545f608827c319dd3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201785"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105106817"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-azure-iot-hub-python"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT (Python)
 
@@ -25,7 +25,7 @@ Dans ce démarrage rapide, vous allez apprendre un workflow de base relatif au d
 - Azure CLI. Vous pouvez exécuter toutes les commandes dans ce démarrage rapide à l’aide de Azure Cloud Shell, un interpréteur de commandes CLI interactif qui s’exécute dans votre navigateur. Si vous utilisez Cloud Shell, vous n’avez rien à installer. Si vous préférez installer et utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite au minimum Azure CLI version 2.0.76. Pour déterminer la version, exécutez la commande az--version. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 - [Python 3.7+](https://www.python.org/downloads/). Pour les autres versions de Python prises en charge, consultez les [fonctionnalités des appareils Azure IoT](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features).
     
-    Pour vous assurer que votre version de Python est à jour, exécutez `python --version`. Si vous avez installé Python 2 et Python 3 et que vous utilisez un environnement Python 3, installez toutes les bibliothèques en utilisant `pip3`. Cela permet de s’assurer que les bibliothèques sont installées sur votre runtime Python 3.
+    Pour vous assurer que votre version de Python est à jour, exécutez `python --version`. Si vous avez installé Python 2 et Python 3 et que vous utilisez un environnement Python 3, installez toutes les bibliothèques en utilisant `pip3`. Cette commande permet de s’assurer que les bibliothèques sont installées sur votre runtime Python 3.
     > [!IMPORTANT]
     > Dans le programme d’installation de Python, sélectionnez l’option permettant d’**ajouter Python à PATH**. Si vous avez déjà installé Python 3.7 ou une version ultérieure, vérifiez que vous avez ajouté le dossier d’installation de Python à la variable d’environnement `PATH`.
 
@@ -41,84 +41,76 @@ Dans cette section, vous allez utiliser le Kit de développement logiciel (SDK) 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
-
-    Accédez ensuite au répertoire *azure-iot-sdk-python/azure-iot-device/samples* :
+1. Accédez au répertoire *azure-iot-sdk-python/azure-iot-device/samples/pnp* :
 
     ```console
-    cd azure-iot-sdk-python/azure-iot-device/samples
+    cd azure-iot-sdk-python/azure-iot-device/samples/pnp
     ```
 1. Installez le Kit de développement logiciel (SDK) Azure IoT Python :
 
     ```console
     pip install azure-iot-device
     ```
-1. Définissez la chaîne de connexion de l’appareil comme variable d’environnement appelée `IOTHUB_DEVICE_CONNECTION_STRING`. Il s’agit de la chaîne que vous avez obtenue dans la section précédente après avoir créé votre appareil Python simulé.
+1. Définissez les deux variables d’environnement suivantes pour permettre à votre appareil simulé de se connecter à Azure IoT.
+    * Définissez une variable d’environnement appelée `IOTHUB_DEVICE_CONNECTION_STRING`. Pour la valeur de la variable, utilisez la chaîne de connexion de l’appareil que vous avez enregistrée dans la section précédente.
+    * Définissez une variable d’environnement appelée `IOTHUB_DEVICE_SECURITY_TYPE`. Pour la variable, utilisez la valeur de chaîne littérale `connectionString`.
 
     **Windows (cmd)**
 
     ```console
     set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
     ```
+    ```console
+    set IOTHUB_DEVICE_SECURITY_TYPE=connectionString
+    ```
 
     > [!NOTE]
-    > Pour Windows CMD, il n’y a pas de guillemets avant et après la chaîne de connexion.
+    > Pour Windows CMD, il n’y a pas de guillemets avant et après les valeurs de chaîne pour chaque variable.
 
-    **Linux (bash)**
+    **PowerShell**
+
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_CONNECTION_STRING='<your connection string here>'
+    ```
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
+    ```
+
+    **Bash (Linux ou Windows)**
 
     ```bash
     export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
     ```
+    ```bash
+    export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
+    ```
 
-1. Dans votre interpréteur de commandes CLI ouvert, exécutez la commande [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) pour commencer à surveiller les événements sur votre appareil IoT simulé.  Les messages d’événement seront imprimés dans le terminal au fur et à mesure de leur arrivée.
+1. Dans votre interpréteur de commandes CLI ouvert, exécutez la commande [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) pour commencer à surveiller les événements sur votre appareil IoT simulé.  Les messages d’événement sont imprimés dans le terminal au fur et à mesure de leur arrivée.
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
     ```
 
-1. Dans votre terminal Python, exécutez le code de l’exemple de fichier *simple_send_message.py* installé. Ce code accède à l’appareil IoT simulé et envoie un message au hub IoT.
+1. Dans votre terminal Python, exécutez le code de l’exemple de fichier *simple_thermostat.py* installé. Ce code accède à l’appareil IoT simulé et envoie un message au hub IoT.
 
     Pour exécuter l’exemple Python à partir du terminal :
     ```console
-    python ./simple_send_message.py
+    python ./simple_thermostat.py
     ```
+    > [!NOTE]
+    > Cet exemple de code utilise Azure IoT Plug-and-Play, qui vous permet d’intégrer des appareils intelligents dans vos solutions sans aucune configuration manuelle.  Par défaut, la plupart des exemples de cette documentation utilisent IoT Plug-and-Play. Pour en savoir plus sur les avantages et les cas d’utilisation d’IoT PnP, consultez [Qu’est ce qu’IoT Plug-and-Play ?](../iot-pnp/overview-iot-plug-and-play.md)
 
-    Si vous le souhaitez, vous pouvez exécuter le code Python à partir de l’exemple dans votre environnement de développement intégré Python :
-    ```python
-    import os
-    import asyncio
-    from azure.iot.device.aio import IoTHubDeviceClient
-
-
-    async def main():
-        # Fetch the connection string from an environment variable
-        conn_str = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
-
-        # Create instance of the device client using the authentication provider
-        device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-        # Connect the device client.
-        await device_client.connect()
-
-        # Send a single message
-        print("Sending message...")
-        await device_client.send_message("This is a message that is being sent")
-        print("Message successfully sent!")
-
-        # finally, disconnect
-        await device_client.disconnect()
-
-
-    if __name__ == "__main__":
-        asyncio.run(main())
-    ```
-
-Lorsque le code Python envoie un message de votre appareil au hub IoT, le message s’affiche dans votre interpréteur de commandes CLI qui analyse les événements :
+ Lorsque le code Python envoie un message de votre appareil au hub IoT, le message s’affiche dans votre interpréteur de commandes CLI qui analyse les événements :
 
 ```output
 Starting event monitor, use ctrl-c to stop...
 event:
-origin: <your Device name>
-payload: This is a message that is being sent
+  component: ''
+  interface: dtmi:com:example:Thermostat;1
+  module: ''
+  origin: <your device name>
+  payload:
+    temperature: 35
 ```
 
 Votre appareil est maintenant connecté en toute sécurité et envoie des données de télémétrie à Azure IoT Hub.
@@ -130,7 +122,7 @@ Si vous n’avez plus besoin des ressources Azure créées dans ce démarrage ra
 > La suppression d’un groupe de ressources est irréversible. Le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects.
 
 Pour supprimer un groupe de ressources par nom :
-1. Exécutez la commande [az group delete](/cli/azure/group#az-group-delete). Cela supprime le groupe de ressources, le hub IoT et l’inscription de l’appareil que vous avez créée.
+1. Exécutez la commande [az group delete](/cli/azure/group#az-group-delete). Cette commande supprime le groupe de ressources, le hub IoT et l’inscription de l’appareil que vous avez créés.
 
     ```azurecli
     az group delete --name MyResourceGroup
@@ -147,5 +139,5 @@ Dans ce démarrage rapide, vous avez appris un workflow de base d’application 
 L’étape suivante consiste à explorer le Kit de développement logiciel (SDK) Azure IoT Python à l’aide d’exemples d’applications.
 
 - [Exemples asynchrones](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios) : Ce répertoire contient des exemples Python asynchrones pour d’autres scénarios IoT Hub.
-- [Exemples synchrones](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples) : Ce répertoire contient des exemples Python à utiliser avec Python 2.7 ou des scénarios de compatibilité synchrone pour Python 3.5 et versions ultérieures.
+- [Exemples synchrones](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples) : Ce répertoire contient des exemples Python à utiliser avec Python 2.7 ou des scénarios de compatibilité synchrone pour Python 3.6 et ultérieur
 - [Exemples IoT Edge](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios) : Ce répertoire contient des exemples Python pour l’utilisation des modules Edge et des appareils en aval.

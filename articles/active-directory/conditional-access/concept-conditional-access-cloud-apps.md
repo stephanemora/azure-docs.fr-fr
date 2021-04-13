@@ -11,19 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 80ec5133ad12dda4a6883c663007b8b7fec2e81a
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579142"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551932"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
 Les applications cloud ou les actions représentent un signal clé dans une stratégie d’accès conditionnel. Les stratégies d’accès conditionnel permettent aux administrateurs d’affecter des contrôles à des applications ou des actions spécifiques.
 
 - Les administrateurs peuvent choisir à partir de la liste des applications qui comprend des applications Microsoft intégrées et des [application Azure AD intégrée](../manage-apps/what-is-application-management.md), entre autres des applications de la galerie et hors galerie ainsi que des applications publiées via le [proxy d’application](../manage-apps/what-is-application-proxy.md).
-- Les administrateurs peuvent choisir de définir une stratégie qui n’est pas basée sur une application cloud, mais sur une action de l’utilisateur. La seule action prise en charge est Enregistrer les informations de sécurité (préversion), qui autorise l’accès conditionnel à appliquer des contrôles dans le cadre de [l’expérience d’inscription d’informations de sécurité combinée](../authentication/howto-registration-mfa-sspr-combined.md).
+- Les administrateurs peuvent choisir de définir une stratégie qui n’est pas basée sur une application cloud, mais sur une action de l’utilisateur. Nous prenons en charge deux actions de l’utilisateur
+   - Inscrire des informations de sécurité (préversion) pour appliquer des contrôles dans le cadre de l’[expérience combinée d’enregistrement des informations de sécurité](../authentication/howto-registration-mfa-sspr-combined.md) 
+   - Inscrire ou joindre des appareils (préversion) pour appliquer des contrôles quand des utilisateurs [inscrivent](../devices/concept-azure-ad-register.md) ou [joignent](../devices/concept-azure-ad-join.md) des appareils à Azure AD. 
 
 ![Définir une stratégie d’accès conditionnel et spécifier des applications cloud](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
@@ -31,7 +33,7 @@ Les applications cloud ou les actions représentent un signal clé dans une stra
 
 La plupart des applications cloud Microsoft existantes sont incluses dans la liste des applications à partir de laquelle vous pouvez effectuer votre sélection. 
 
-Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux applications cloud suivantes à partir de Microsoft. Certaines applications comme Office 365 et Gestion Microsoft Azure comprennent plusieurs applications ou services enfants associés. La liste suivante n’est pas exhaustive et peut faire l’objet de modifications.
+Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux applications cloud suivantes à partir de Microsoft. Certaines applications comme Office 365 et Gestion Microsoft Azure comprennent plusieurs applications ou services enfants associés. Comme nous ajoutons continuellement d’autres applications, la liste suivante n’est pas exhaustive et est susceptible de changer.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -66,6 +68,8 @@ Les administrateurs peuvent affecter une stratégie d’accès conditionnel aux 
 - Skype Entreprise Online
 - Réseau privé virtuel (VPN)
 - Windows Defender ATP
+
+Les applications disponibles pour l’accès conditionnel ont suivi un processus d’intégration et de validation. Cela n’inclut pas toutes les applications Microsoft, car nombre d’entre elles sont des services principaux non censés être régis par une stratégie directement appliquée. Si vous recherchez une application manquante, vous pouvez contacter l’équipe d’application spécifique ou formuler une demande sur [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 
@@ -129,9 +133,10 @@ Les actions utilisateur sont des tâches qui peuvent être effectuées par un ut
 
 - **Enregistrer les informations de sécurité** : cette action utilisateur permet d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs pour lesquels l’inscription combinée est activée tentent d’enregistrer leurs informations de sécurité. Vous trouverez plus d’informations dans l’article [Enregistrement des informations de sécurité combinées](../authentication/concept-registration-mfa-sspr-combined.md).
 
-- **Inscrire ou joindre des appareils (préversion)** : cette action utilisateur permet aux administrateurs d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs [inscrivent](../devices/concept-azure-ad-register.md) ou [joignent](../devices/concept-azure-ad-join.md) des appareils à Azure AD. Il existe deux points clés à prendre en compte pour cette action utilisateur : 
+- **Inscrire ou joindre des appareils (préversion)** : cette action utilisateur permet aux administrateurs d’appliquer la stratégie d’accès conditionnel lorsque les utilisateurs [inscrivent](../devices/concept-azure-ad-register.md) ou [joignent](../devices/concept-azure-ad-join.md) des appareils à Azure AD. Elle apporte de la granularité à la configuration de l’authentification multifacteur pour l’inscription ou la jonction d’appareils au lieu d’une stratégie à l’échelle du locataire telle qu’elle existe actuellement. Il existe trois points clés à prendre en compte pour cette action de l’utilisateur : 
    - `Require multi-factor authentication` est le seul contrôle d’accès disponible avec cette action utilisateur. Tous les autres sont désactivés. Cette restriction empêche les conflits avec les contrôles d’accès qui dépendent d’Azure AD Device Registration ou ne s’y appliquent pas. 
-   - Quand une stratégie d’accès conditionnel est activée avec cette action utilisateur, vous devez définir **Azure Active Directory** > **Appareils** > **Paramètres d’appareil** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` sur **Non**. Dans le cas contraire, la stratégie d’accès conditionnel n’est pas appliquée correctement avec cette action utilisateur. Pour plus d’informations sur ce paramètre d’appareil, consultez [Configuration des paramètres d’appareil](../devices/device-management-azure-portal.md#configure-device-settings). Cette action utilisateur permet d’exiger l’authentification multifacteur avec une certaine flexibilité lors de l’inscription ou de la jonction d’appareils pour des utilisateurs et des groupes spécifiques ou sous certaines conditions, au lieu d’avoir une stratégie pour tout le locataire dans les Paramètres d’appareil. 
+   - Les conditions `Client apps` et `Device state` ne sont pas disponibles avec cette action de l’utilisateur, car elles dépendent de l’inscription d’appareil Azure AD pour appliquer les stratégies d’accès conditionnel.
+   - Quand une stratégie d’accès conditionnel est activée avec cette action utilisateur, vous devez définir **Azure Active Directory** > **Appareils** > **Paramètres d’appareil** - `Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication` sur **Non**. Dans le cas contraire, la stratégie d’accès conditionnel avec cette action d’utilisateur n’est pas appliquée correctement. Pour plus d’informations sur ce paramètre d’appareil, consultez [Configuration des paramètres d’appareil](../devices/device-management-azure-portal.md#configure-device-settings). 
    
 ## <a name="next-steps"></a>Étapes suivantes
 

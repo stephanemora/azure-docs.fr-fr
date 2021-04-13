@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1eb4194354a07d5b580f07cfe5962785a4e100bd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 63415037b9f91936e04fa715405bfb86bf022cdd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578019"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551762"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory
 
@@ -371,6 +371,12 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
    - Motif : la connexion avec le serveur s’est terminée anormalement.
    - Résolution : réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable.
 
+##### <a name="other-errors"></a>Autres erreurs
+
+- **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
+   - Raison : EventID 220 est présent dans les journaux des événements d’inscription d’appareil utilisateur. Windows ne peut pas accéder à l’objet ordinateur dans Active Directory. Un code d’erreur Windows peut être inclus dans l’événement. Les codes d’erreur ERROR_NO_SUCH_LOGON_SESSION (1312) et ERROR_NO_SUCH_USER (1317) ont trait à des problèmes de réplication dans un AD local.
+   - Résolution : résoudre des problèmes de réplication dans Active Directory. Les problèmes de réplication peuvent être temporaires et disparaître au bout d’un certain temps.
+
 ##### <a name="federated-join-server-errors"></a>Erreurs du serveur – Jointure fédérée
 
 | Code d’erreur du serveur | Message d’erreur du serveur | Causes possibles | Résolution |
@@ -417,4 +423,4 @@ Si les valeurs sont **NON**, il peut être dû :
 
 Poursuivez le [dépannage des appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
 
-Pour toute question, consultez [FAQ sur la gestion des appareils](faq.md)
+Pour toute question, consultez [FAQ sur la gestion des appareils](faq.yml)

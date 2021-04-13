@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
+ms.date: 04/05/2021
 ms.author: zhchia
-ms.openlocfilehash: 2fcb85b2c16bc2dd418c2260420733dd8663382a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 809b32fcf6f39ba9dec2980a79e8824e282b54b7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96179250"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106450087"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Tutoriel : Configurez Fuze pour l’approvisionnement automatique d’utilisateurs
 
@@ -144,6 +144,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
 * Fuze prend en charge les attributs SCIM personnalisés, appelés **droits**. Ces attributs peuvent uniquement être créés et ne peuvent pas être mis à jour. 
+* L'API Fuze SCIM ne prend pas en charge le filtrage sur l'attribut userName. Par conséquent, des échecs peuvent apparaître dans les journaux lorsque vous essayez de synchroniser un utilisateur existant qui n'a pas d'attribut userName mais qui existe avec une adresse électronique correspondant à l'attribut userPrincipalName dans Azure AD. 
 
 ## <a name="change-log"></a>Journal des modifications
 

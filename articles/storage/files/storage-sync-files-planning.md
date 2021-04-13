@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b106c82e3755fbd0e02f12a769d80ce4761cf026
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593201"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285856"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -351,13 +351,22 @@ Si la hiérarchisation cloud est activée, vous ne devez pas utiliser de solutio
 Si vous préférez utiliser une solution de sauvegarde locale, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation pour lequel la hiérarchisation cloud est désactivée. Lorsque vous effectuez une restauration, utilisez les options de restauration au niveau du volume ou au niveau du fichier. Les fichiers restaurés en utilisant l’option de restauration au niveau du fichier seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.  Les restaurations au niveau du volume ne remplaceront pas les versions plus récentes des fichiers dans le partage de fichiers Azure ou d’autres points de terminaison serveur.
 
 > [!WARNING]
-> Le commutateur RoboCopy /B n’est pas pris en charge avec Azure File Sync. Utilisé avec un point de terminaison de serveur Azure File Sync comme source, il risque d’entraîner une corruption de fichiers.
+> Si vous devez utiliser Robocopy /B avec un agent Azure File Sync s’exécutant sur le serveur source ou le serveur cible, effectuez une mise à niveau vers l’agent Azure File Sync version v12.0 ou ultérieure. L’utilisation de Robocopy /B avec des versions d’agent inférieures à v12.0 entraînera un endommagement des fichiers hiérarchisés durant la copie.
 
 > [!Note]  
 > La restauration complète peut engendrer des résultats inattendus et n’est pas prise en charge actuellement.
 
 > [!Note]  
 > Grâce à la version 9 de l’agent Azure File Sync, les captures instantanées VSS (notamment l’onglet Versions précédentes) sont à présent prises en charge sur les volumes avec hiérarchisation cloud activée. Toutefois, vous devez activer la compatibilité des versions précédentes via PowerShell. [Découvrez comment](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+
+## <a name="data-classification"></a>Classification des données
+Si vous avez installé un logiciel de classification des données, l’activation de la hiérarchisation cloud peut entraîner un coût accru pour deux raisons :
+
+1. Lorsque la hiérarchisation cloud est activée, vos fichiers les plus fréquemment utilisés sont mis en cache localement, et les moins fréquemment utilisés sont hiérarchisés dans le partage de fichiers Azure dans le cloud. Si votre classification des données analyse régulièrement tous les fichiers du partage de fichiers, les fichiers hiérarchisés dans le cloud doivent être rappelés chaque fois que l’analyse est effectuée. 
+
+2. Si le logiciel de classification des données utilise les métadonnées du flux de données d’un fichier, celui-ci doit être entièrement rappelé afin que le logiciel puisse voir la classification. 
+
+Ces augmentations du nombre de rappels et de la quantité de données rappelées peuvent augmenter les coûts.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

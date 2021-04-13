@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad9e5665204dbd3f99f83af3578b1996814d6fa0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596945"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728841"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -67,7 +67,7 @@ Vous pouvez exécuter un test d’évaluation des performances sur des conteneur
 
 Utilisez la commande suivante pour exécuter un test d’évaluation des performances.
 
-|    |     |
+| Syntaxe / exemple  |  Code |
 |--------|-----------|
 | **Syntaxe** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exemple** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
@@ -103,14 +103,16 @@ Avant de définir cette variable, nous vous recommandons d’exécuter un test d
 
 ### <a name="optimize-memory-use"></a>Optimiser l’utilisation de la mémoire
 
-Définissez la variable d’environnement `AZCOPY_BUFFER_GB` pour spécifier la quantité maximale de mémoire système qu’AzCopy doit utiliser lors du téléchargement et du chargement des fichiers.
-Exprimez cette valeur en gigaoctets (Go).
+Définissez la variable d’environnement `AZCOPY_BUFFER_GB` pour spécifier la quantité maximale de mémoire système qu’AzCopy doit utiliser pour la mise en mémoire tampon lors du téléchargement et du chargement des fichiers. Exprimez cette valeur en gigaoctets (Go).
 
 | Système d’exploitation | Commande  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> Le suivi des tâches entraîne toujours une surcharge supplémentaire dans l’utilisation de la mémoire. La quantité varie en fonction du nombre de transferts dans une tâche. Les mémoires tampons représentent le composant le plus volumineux de l’utilisation de la mémoire. Vous pouvez aider à contrôler la surcharge à l’aide de `AZCOPY_BUFFER_GB` pour répondre approximativement à vos besoins, mais aucun indicateur pour limiter strictement l’utilisation de la mémoire globale n’est disponible.
 
 ### <a name="optimize-file-synchronization"></a>Optimiser la synchronisation des fichiers
 

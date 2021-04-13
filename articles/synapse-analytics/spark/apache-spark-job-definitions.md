@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 15b67c969cb0464256caed58a2e7388eb7a76b9c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176618"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608768"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutoriel : Créer une définition de travail Apache Spark dans Synapse Studio
 
@@ -23,10 +23,13 @@ Ce tutoriel décrit les tâches suivantes :
 > [!div class="checklist"]
 >
 > - Créer une définition de travail Apache Spark pour PySpark (Python)
-> - Créer une définition de travail Apache Spark pour Spark(Scala)
-> - Créer une définition de travail Apache Spark pour .NET Spark (C#/F#)
+> - Créer une définition de travail Apache Spark pour Spark (Scala)
+> - Créer une définition de travail Apache Spark pour .NET Spark (C#/F#)
+> - Créer une définition de travail en important un fichier JSON
+> - Exporter un fichier de définition de travail Apache Spark vers un emplacement local
 > - Envoyer une définition de travail Apache Spark en tant que traitement par lots
 > - Ajouter une définition de travail Apache Spark dans le pipeline
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,6 +39,7 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 * Pool Apache Spark serverless.
 * Un compte de stockage ADLS Gen2. Vous devez être le **contributeur aux données Blob du stockage** du système de fichiers ADLS Gen2 que vous souhaitez utiliser. Si ce n’est pas le cas, vous devez ajouter l’autorisation manuellement.
 * Si vous ne souhaitez pas utiliser le stockage par défaut de l’espace de travail, liez le compte de stockage ADLS Gen2 nécessaire à Synapse Studio. 
+
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Créer une définition de travail Apache Spark pour PySpark (Python)
 
@@ -160,6 +164,57 @@ Dans cette section, vous créez une définition de travail Apache Spark pour .NE
 
       ![publication de la définition dotnet](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
+## <a name="create-apache-spark-job-definition-by-importing-a-json-file"></a>Créer une définition de travail Apache Spark en important un fichier JSON
+
+ Vous pouvez importer un fichier JSON local existant dans l’espace de travail Azure Synapse à partir du menu **Actions** (...) de l’Explorateur de définition de travail Apache Spark pour créer une définition de travail Apache Spark.
+
+ ![créer une définition d’importation](./media/apache-spark-job-definitions/create-import-definition.png)
+
+ 
+ La définition de travail Spark est entièrement compatible avec l’API Livy. Vous pouvez ajouter des paramètres supplémentaires pour d’autres propriétés Livy [(Documents Livy - API REST (apache.org)](https://livy.incubator.apache.org/docs/latest/rest-api.html) dans le fichier JSON local. Vous pouvez également spécifier les paramètres liés à la configuration Spark dans la propriété config, comme indiqué ci-dessous. Ensuite, vous pouvez réimporter le fichier JSON afin de créer une définition de travail Apache Spark pour votre traitement par lots. Exemple JSON pour l’importation de définitions Spark :
+ 
+```Scala
+   {
+  "targetBigDataPool": {
+    "referenceName": "socdemolarge",
+    "type": "BigDataPoolReference"
+  },
+  "requiredSparkVersion": "2.3",
+  "language": "scala",
+  "jobProperties": {
+    "name": "robinSparkDefinitiontest",
+    "file": "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/wordcount.jar",
+    "className": "WordCount",
+    "args": [
+      "adl://socdemo-c14.azuredatalakestore.net/users/robinyao/shakespeare.txt"
+    ],
+    "jars": [],
+    "files": [],
+    "conf": {
+      "spark.dynamicAllocation.enabled": "false",
+      "spark.dynamicAllocation.minExecutors": "2",
+      "spark.dynamicAllocation.maxExecutors": "2"
+    },
+    "numExecutors": 2,
+    "executorCores": 8,
+    "executorMemory": "24g",
+    "driverCores": 8,
+    "driverMemory": "24g"
+  }
+}
+
+```
+
+![autres propriétés Livy](./media/apache-spark-job-definitions/other-livy-properties.png)
+
+## <a name="export-an-existing-apache-spark-job-definition-file"></a>Exporter un fichier de définition de travail Apache Spark existant
+
+ Vous pouvez exporter des fichiers de définition de travail Apache Spark existants vers un emplacement local à partir du menu **Actions** (...) de l’Explorateur de fichiers. Vous pouvez poursuivre la mise à jour du fichier JSON pour des propriétés Livy supplémentaires, puis le réimporter afin de créer une définition de travail, si nécessaire.
+
+ ![créer une définition d’exportation](./media/apache-spark-job-definitions/create-export-definition.png)
+
+ ![créer une définition d’exportation 2](./media/apache-spark-job-definitions/create-export-definition-2.png)
+
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Envoyer une définition de travail Apache Spark en tant que traitement par lots
 
 Après avoir créé une définition de travail Apache Spark, vous pouvez l’envoyer à un pool Apache Spark. Vérifiez que vous êtes bien le **contributeur aux données Blob du stockage** du système de fichiers ADLS Gen2 que vous souhaitez utiliser. Si ce n’est pas le cas, vous devez ajouter l’autorisation manuellement.
@@ -202,6 +257,7 @@ Dans cette section, vous allez ajouter une définition de travail Apache Spark d
      ![add to pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
      ![add to pipeline2](./media/apache-spark-job-definitions/add-to-pipeline02.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

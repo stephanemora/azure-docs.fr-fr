@@ -4,12 +4,12 @@ description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la f
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 2879d104d534733651ba76ab5521541adad0a51c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 07fc6ee0afb29f9d6c701c7eb2c65be988971eaf
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725354"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612634"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 
@@ -21,7 +21,7 @@ Le service de sauvegarde Azure fournit des solutions simples, sécurisées et re
 
 - **Localement** - Sauvegardez des fichiers, des dossiers et l’état du système à l’aide de l’[agent Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md). Ou utilisez l’agent DPM ou Serveur de sauvegarde Azure (MABS) pour protéger les machines virtuelles locales ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) et [VMware](backup-azure-backup-server-vmware.md)) et d’autres [charges de travail locales](backup-mabs-protection-matrix.md).
 - **Machines virtuelles Azure** - [Sauvegardez des machines virtuelles Windows/Linux entières](backup-azure-vms-introduction.md) (à l’aide d’extensions de sauvegarde) ou sauvegardez des fichiers, des dossiers et l’état du système à l’aide de l’[agent MARS](backup-azure-manage-mars.md).
-- **Disques managés Azure** - [Sauvegarde de Disques managés Azure (préversion)](backup-managed-disks.md)
+- **Disques managés Azure** - Vous pouvez [Sauvegarder les disques managés Azure](backup-managed-disks.md)
 - **Partages Azure Files** - [Sauvegarder des partages de fichiers Azure sur un compte de stockage](backup-afs.md)
 - **SQL Server sur des machines virtuelles Azure** -  [Sauvegardez des bases de données SQL Server qui s’exécutent sur les machines virtuelles Azure](backup-azure-sql-database.md).
 - **Bases de données SAP HANA sur des machines virtuelles Azure** - [Sauvegardez des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure](backup-azure-sap-hana-database.md).

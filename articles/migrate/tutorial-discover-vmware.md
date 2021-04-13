@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: f394fd4b1b4124c259489580fb5dc320fedf73fa
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 09b04c67519bfa920a3781612823c5755cbc6d2d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863647"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627793"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir les serveurs fonctionnant dans un environnement VMware avec l’outil Azure Migrate : découverte et évaluation
 
@@ -34,11 +34,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
-
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel, vérifiez les prérequis.
-
 
 **Prérequis** | **Détails**
 --- | ---
@@ -98,7 +96,6 @@ Dans le client web vSphere, configurez un compte de la façon suivante :
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Case à cocher permettant d’autoriser les opérations invité pour le rôle Lecture seule":::
 
-
 > [!NOTE]
 > Vous pouvez définir l’étendue du compte vCenter Server pour limiter la détection à des centres de donnés vCenter Server, des clusters, un dossier de clusters, des hôtes, un dossier d’hôtes ou des serveurs individuels spécifiques. [**En savoir plus**](set-discovery-scope.md) sur la définition de l’étendue du compte d’utilisateur vCenter Server.
 
@@ -106,7 +103,7 @@ Dans le client web vSphere, configurez un compte de la façon suivante :
 
 Vous avez besoin d’un compte d’utilisateur doté des privilèges nécessaires sur les serveurs pour effectuer la découverte des applications installées, l’analyse des dépendances sans agent et la découverte des instances et bases de données SQL Server. Vous pouvez fournir le compte d’utilisateur sur le gestionnaire de configuration de l’appliance. L’appliance n’installe pas d’agents sur les serveurs.
 
-1. Pour les serveurs Windows, créez un compte (local ou de domaine) avec des autorisations d’administration sur les serveurs. Pour découvrir les instances et les bases de données SQL, il faut que le compte Windows ou SQL Server soit membre du rôle serveur sysadmin. [En savoir plus](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) sur l’attribution du rôle requis au compte d’utilisateur.
+1. Pour les serveurs Windows, créez un compte (local ou de domaine) avec des autorisations d’administration sur les serveurs. Pour découvrir les instances et les bases de données SQL, il faut que le compte Windows ou SQL Server soit membre du rôle serveur sysadmin. [En savoir plus](/sql/relational-databases/security/authentication-access/server-level-roles) sur l’attribution du rôle requis au compte d’utilisateur.
 2. Pour les serveurs Linux, créez un compte avec des privilèges racine. Vous pouvez également créer un compte disposant de ces autorisations sur les fichiers /bin/netstat et /bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
 
 > [!NOTE]
@@ -118,7 +115,7 @@ Configurez un nouveau projet.
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis recherchez **Azure Migrate**.
 2. Sous **Services**, sélectionnez **Azure Migrate**.
-3. Dans **Vue d’ensemble**, sélectionnez **Créer un projet**.
+3. Dans **Vue d’ensemble** > sélectionnez une valeur en fonction de vos objectifs de migration : **Windows, Linux et SQL Server** ou **SQL Server (uniquement)** ou **Explorez d’autres scénarios** > sélectionnez **Créer un projet**.
 5. Dans **Créer un projet**, sélectionnez votre abonnement Azure et votre groupe de ressources. Créez un groupe de ressources si vous n’en avez pas.
 6. Dans **Détails du projet**, spécifiez le nom du projet ainsi que la zone géographique où vous souhaitez le créer. Passez en revue les zones géographiques prises en charge pour les clouds [publics](migrate-support-matrix.md#supported-geographies-public-cloud) et du [secteur public](migrate-support-matrix.md#supported-geographies-azure-government).
 
@@ -197,11 +194,9 @@ Importez le fichier téléchargé, puis créez un serveur dans l’environnement
 8. Dans **Mappage réseau**, spécifiez le réseau auquel se connectera. Le réseau nécessite une connexion à Internet pour envoyer des métadonnées à Azure Migrate.
 9. Passez en revue les paramètres, confirmez-les, puis cliquez sur **Finish** (Terminer).
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
 Vérifiez que le serveur de l’appliance peut se connecter aux URL Azure pour les clouds [publics](migrate-appliance.md#public-cloud-urls) et ceux du [secteur public](migrate-appliance.md#government-cloud-urls).
-
 
 ### <a name="4-configure-the-appliance"></a>4. Configurer l’appliance
 
@@ -233,7 +228,7 @@ Configurez l’appliance pour la première fois.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
-1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : découverte et évaluation > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
+1. Collez la **clé de projet** copiée à partir du portail. Si vous n’avez pas la clé, accédez à **Azure Migrate : Discovery and Assessment > Découvrir > Gérer les appliances existantes**, sélectionnez le nom d’appliance que vous avez indiqué au moment de générer la clé, puis copiez la clé correspondante.
 1. Vous aurez besoin d’un code d’appareil pour vous authentifier auprès d’Azure. Le fait de cliquer sur **Connexion** ouvre une boîte de dialogue modale comprenant le code de l’appareil, comme celle affichée ci-dessous.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Boîte de dialogue modale indiquant le code de l’appareil":::
@@ -282,6 +277,8 @@ Si vous souhaitez utiliser ces fonctionnalités, vous pouvez fournir des informa
 - Vous pouvez voir l’**État de validation** de toutes les informations d’identification de domaine dans la table des informations d’identification. Seules les informations d’identification de domaine seront validées.
 - Si la validation échoue, vous pouvez cliquer sur état **Échec** pour voir l’erreur rencontrée, puis cliquer sur **Revalider les informations d’identification** après avoir corrigé le problème afin de valider à nouveau les informations d’identification de domaine qui ont échoué.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Panneau 3 sur le gestionnaire de configuration de l’appliance pour fournir plusieurs informations d’identification":::
+
 ### <a name="start-discovery"></a>Démarrer la découverte
 
 1. Cliquez sur **Démarrer la découverte** pour lancer la découverte du vCenter Server. Une fois la découverte lancée, vous pouvez vérifier son état par rapport à l’adresse IP ou au le nom de domaine complet de vCenter Server dans la table des sources.
@@ -290,8 +287,8 @@ Si vous souhaitez utiliser ces fonctionnalités, vous pouvez fournir des informa
 1. Au cours de l’inventaire logiciel, les informations d’identification des serveurs ajoutées sont comparées aux serveurs et validées pour l’analyse des dépendances sans agent. Vous pouvez activer l’analyse des dépendances sans agent pour les serveurs à partir du portail. Seuls les serveurs dont la validation réussit peuvent être sélectionnés pour activer l’analyse des dépendances sans agent.
 
 > [!Note]
->Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur true). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [**approuver l’autorité racine du certificat**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [**En savoir plus**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>Azure Migrate chiffre la communication entre l’appliance Azure Migrate et les instances SQL Server sources (avec la propriété Chiffrer la connexion définie sur TRUE). Ces connexions sont chiffrées avec [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (défini sur true). La couche transport utilise le protocole SSL pour chiffrer le canal et contourner la chaîne de certificats afin de valider l’approbation. Le serveur d’appliance doit être configuré pour [**approuver l’autorité racine du certificat**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Si aucun certificat n’a été approvisionné sur le serveur à son démarrage, SQL Server génère un certificat auto-signé qui est utilisé pour chiffrer les paquets d’ouverture de session. [**En savoir plus**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 La découverte fonctionne comme ceci :
 

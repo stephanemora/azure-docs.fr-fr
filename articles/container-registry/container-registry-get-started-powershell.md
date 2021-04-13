@@ -4,12 +4,12 @@ description: Apprenez rapidement à créer un registre de conteneurs Docker priv
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91d4209ccf558bf7c8038d8a753ec038428bc484
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6928f1c45cdac93b70797daf41205b4c5db27e0
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96020000"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283816"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure PowerShell
 
@@ -55,7 +55,7 @@ Dans ce guide de démarrage rapide, vous allez créer un registre *De base*. Il 
 
 ## <a name="log-in-to-registry"></a>Se connecter au registre
 
-Avant d’extraire et d’envoyer des images conteneurs, vous devez vous connecter au registre. Dans des scénarios de production, vous devez utiliser une identité individuelle ou un principal de service pour un accès au registre de conteneur, mais pour simplifier ce guide de démarrage rapide, activez l’utilisateur administrateur sur votre registre avec la commande [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] :
+Avant d’extraire et d’envoyer des images conteneurs, vous devez vous connecter au registre. Pour que ce guide de démarrage rapide reste bref, activez l'utilisateur administrateur sur votre registre à l'aide de la commande [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]. Dans les scénarios de production, vous devez utiliser une autre [méthode d'authentification](container-registry-authentication.md) pour l'accès au registre, comme un principal de service. 
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -68,6 +68,10 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 ```
 
 Une fois l’opération terminée, la commande renvoie `Login Succeeded`.
+
+> [!TIP]
+> Azure CLI fournit la commande `az acr login`, qui vous permettra de vous connecter à un registre de conteneurs en utilisant votre [identité individuelle](container-registry-authentication.md#individual-login-with-azure-ad), sans transmettre les informations d'identification Docker.
+
 
 [!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 

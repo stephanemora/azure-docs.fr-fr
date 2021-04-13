@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Créer un groupe d’administration avec Go'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Go pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b6ca4d10f2a86ecb55fec2afe72b4aabfbb94f9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bf2d2c556cfd6ada6d31fc6ee797888ed0899573
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100101657"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091444"
 ---
 # <a name="quickstart-create-a-management-group-with-go"></a>Démarrage rapide : Créer un groupe d’administration avec Go
 

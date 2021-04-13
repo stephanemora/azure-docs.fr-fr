@@ -7,14 +7,14 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 3/2/2021
 ms.author: rahugup
-ms.openlocfilehash: ecc31019ccedc21683eed1a3186cec91d4c5c567
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 2c1a0ee78e866a12105eca77653b1063943d06db
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466590"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105561064"
 ---
-# <a name="containerize-java-web-applications-and-migrate-to-azure-kubernetes-service"></a>Conteneuriser des applications web Java et migrer vers Azure Kubernetes Service
+# <a name="java-web-app-containerization-and-migration-to-azure-kubernetes-service"></a>Conteneurisation d’applications web Java et leur migration vers Azure Kubernetes Service
 
 Cet article explique comment conteneuriser des applications web Java (s’exécutant sur Apache Tomcat) et les migrer vers [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) à l’aide de l’outil Conteneurisation d’applications d’Azure Migrate. Le processus de conteneurisation ne requiert pas d’accès à votre codebase et constitue un moyen simple de conteneuriser des applications existantes. L’outil fonctionne en utilisant l’état en cours d’exécution des applications sur un serveur pour déterminer les composants d’application, et vous aide à les empaqueter dans une image conteneur. Vous pouvez ensuite déployer l’application conteneurisée sur Azure Kubernetes service (AKS).
 
@@ -59,7 +59,7 @@ Avant de commencer ce didacticiel, vous devez :
 
 **Prérequis** | **Détails**
 --- | ---
-**Identifier une machine pour installer l’outil** | Il s’agit de trouver une machine Windows pour installer et exécuter l’outil Conteneurisation d’applications d’Azure Migrate. La machine Windows peut être un serveur (Windows Server 2016 ou version ultérieure) ou un système d’exploitation client (Windows 10), ce qui signifie que l’outil peut également s’exécuter sur votre ordinateur de bureau. <br/><br/> La machine Windows exécutant l’outil doit disposer d’une connectivité réseau aux serveurs/machines virtuelles hébergeant les applications ASP.NET à conteneuriser.<br/><br/> Assurez-vous qu’un espace de 6 Go est disponible sur la machine Windows exécutant l’outil Conteneurisation d’applications d’Azure Migrate pour le stockage des artefacts d’application. <br/><br/> La machine Windows doit avoir accès à Internet, directement ou via un proxy. <br/> <br/>Installez l’outil Microsoft Web Deploy sur la machine exécutant l’outil d’assistance Conteneurisation d’applications et le serveur d’applications s’il n’est pas déjà installé. Vous pouvez télécharger l’outil à partir d’[ici](https://aka.ms/webdeploy3.6).
+**Identifier une machine pour installer l’outil** | Il s’agit de trouver une machine Windows pour installer et exécuter l’outil Conteneurisation d’applications d’Azure Migrate. La machine Windows peut être un serveur (Windows Server 2016 ou version ultérieure) ou un système d’exploitation client (Windows 10), ce qui signifie que l’outil peut également s’exécuter sur votre ordinateur de bureau. <br/><br/> La machine Windows exécutant l’outil doit disposer d’une connectivité réseau aux serveurs/machines virtuelles qui hébergent les applications web Java à conteneuriser.<br/><br/> Assurez-vous qu’un espace de 6 Go est disponible sur la machine Windows exécutant l’outil Conteneurisation d’applications d’Azure Migrate pour le stockage des artefacts d’application. <br/><br/> La machine Windows doit avoir accès à Internet, directement ou via un proxy.
 **Serveurs d’applications** | - Activez une connexion Secure Shell (SSH) sur le port 22 des serveurs exécutant les applications Java à conteneuriser. <br/>
 **Application web Java** | Actuellement, l’outil prend en charge : <br/><br/> - applications s’exécutant sur Tomcat 8 ou version ultérieure ;<br/> - serveurs d’applications sur Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7 ; <br/> - applications utilisant Java version 7 ou ultérieure.  <br/><br/> Actuellement, l’outil ne prend pas en charge : <br/><br/> - serveurs d’applications exécutant plusieurs instances Tomcat. <br/>  
 
@@ -104,7 +104,7 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 3. Exécutez le script d’installation à l’aide de la commande ci-dessous :
 
    ```powershell
-   .\App ContainerizationInstaller.ps1
+   .\AppContainerizationInstaller.ps1
    ```
 
 ## <a name="launch-the-app-containerization-tool"></a>Lancer l’outil Conteneurisation d’applications
@@ -178,7 +178,7 @@ Paramétrer la configuration a pour effet de rendre celle-ci disponible en tant 
 
 ### <a name="externalize-file-system-dependencies"></a>Externaliser les dépendances du système de fichiers
 
- Vous pouvez ajouter d’autres dossiers que votre application utilise. Spécifiez s’ils doivent faire partie de l’image conteneur ou s’ils doivent être externalisés via des volumes persistants sur un partage de fichiers Azure. L’utilisation de volumes persistants fonctionne parfaitement pour des applications avec état qui stockent l’état en dehors du conteneur ou ont un autre contenu statique stocké sur le système de fichiers. [En savoir plus](https://docs.microsoft.com/azure/aks/concepts-storage)
+ Vous pouvez ajouter d’autres dossiers que votre application utilise. Spécifiez s’ils doivent faire partie de l’image conteneur ou s’ils doivent être externalisés via des volumes persistants sur un partage de fichiers Azure. L’utilisation de volumes persistants fonctionne parfaitement pour des applications avec état qui stockent l’état en dehors du conteneur ou ont un autre contenu statique stocké sur le système de fichiers. [En savoir plus](../aks/concepts-storage.md)
 
 1. Sous Dossiers de l’application, cliquez sur **Modifier** pour passer en revue les dossiers d’application détectés. Les dossiers d’application détectés ont été identifiés comme des artefacts obligatoires requis par l’application, et seront copiés dans l’image conteneur.
 
@@ -194,7 +194,7 @@ Paramétrer la configuration a pour effet de rendre celle-ci disponible en tant 
 ## <a name="build-container-image"></a>Générer l’image conteneur
 
 
-1. **Sélectionner Azure Container Registry** : utilisez la liste déroulante pour sélectionner un [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) qui sera utilisé pour générer et stocker les images conteneurs pour les applications. Vous pouvez utiliser un Azure Container Registry existant ou en créer un à l’aide de l’option Créer un registre.
+1. **Sélectionner Azure Container Registry** : utilisez la liste déroulante pour sélectionner un [Azure Container Registry](../container-registry/index.yml) qui sera utilisé pour générer et stocker les images conteneurs pour les applications. Vous pouvez utiliser un Azure Container Registry existant ou en créer un à l’aide de l’option Créer un registre.
 
     ![Capture d’écran de la sélection d’un Azure Container Registry d’application.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 

@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98797844"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641405"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Vue d’ensemble de la migration : SQL Server vers SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ Vous pouvez migrer SQL Server s’exécutant en local ou sur :
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform – GCP)
 
-Pour d’autres scénarios, consultez le [guide de migration de base de données](https://datamigration.microsoft.com/). 
+Pour obtenir d’autres guides de migration, consultez [Migration de base de données](https://docs.microsoft.com/data-migration). 
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -140,7 +140,7 @@ Pour obtenir une aide supplémentaire, consultez les ressources suivantes qui on
 |[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Ce livre blanc décrit les étapes à suivre pour configurer plusieurs machines virtuelles Azure dans une configuration de groupe de disponibilité Always On SQL Server.|
 |[Machines virtuelles Azure prenant en charge les disques SSD Ultra par région](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Ces scripts PowerShell fournissent une option de programmation permettant de récupérer la liste des régions qui prennent en charge les machines virtuelles Azure prenant en charge les disques SSD Ultra.|
 
-Ces ressources ont été développées dans le cadre du programme Data SQL Ninja, qui est sponsorisé par l’équipe d’ingénierie Groupe de données Azure. La charte fondamentale du programme Data SQL Ninja a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux opportunités de migration de plateforme de données vers la plateforme de données Azure de Microsoft. Si vous pensez que votre organisation aimerait participer au programme Data SQL Ninja, contactez votre équipe en charge des compte et demandez-lui de soumettre une candidature.
+L’équipe d’ingénierie SQL des données a développé ces ressources. La charte fondamentale de cette équipe a pour objet d’initier et d’accélérer une modernisation complexe et de faire face aux projets de migration de plateforme de données vers la plateforme Azure Data de Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

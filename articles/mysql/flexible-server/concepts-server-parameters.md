@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: f83f743b692ae5a625a4c881b12cbad999f1f606
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d64dc4f3c034279aee7401503bbb60883c9ed4e7
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105106766"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492237"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql---flexible-server"></a>Paramètres de serveur dans Azure Database pour MySQL – Serveur flexible
 
@@ -39,9 +39,11 @@ Reportez-vous aux sections suivantes pour en savoir plus sur les limites des dif
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Dans Azure Database pour MySQL – Serveur flexible, les journaux binaires sont toujours activés (autrement dit,`log_bin` est défini sur ON). Si vous souhaitez utiliser des déclencheurs, vous obtiendrez une erreur similaire à *Vous n’avez pas le SUPER privilège et la journalisation binaire est activée (vous pouvez utiliser la variable `log_bin_trust_function_creators` moins sécurisée)* . 
+Dans Azure Database pour MySQL – Serveur flexible, les journaux binaires sont toujours activés (autrement dit,`log_bin` est défini sur ON). log_bin_trust_function_creators est défini sur ON par défaut dans les serveurs flexibles. 
 
-Le format de journalisation binaire est toujours **ROW** et toutes les connexions au serveur utilisent **TOUJOURS** la journalisation binaire basée sur les lignes. Avec la journalisation binaire basée sur les lignes, les problèmes de sécurité n’existent pas et la journalisation binaire ne peut pas s’arrêter, ce qui vous permet de définir [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) sur **TRUE** de manière sécurisée.
+Le format de journalisation binaire est toujours **ROW** et toutes les connexions au serveur utilisent **TOUJOURS** la journalisation binaire basée sur les lignes. Avec la journalisation binaire basée sur les lignes, les problèmes de sécurité n’existent pas et la journalisation binaire ne peut pas s’arrêter, ce qui vous permet, en toute sécurité, d’autoriser que [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) reste défini sur **TRUE**.
+
+Quand [`log_bin_trust_function_creators`] est défini sur OFF, si vous tentez de créer des déclencheurs, vous obtenez une erreur similaire à *Vous n’avez pas le SUPER privilège`log_bin_trust_function_creators` et la journalisation binaire est activée (vous pouvez utiliser la variable*  moins sécurisée). 
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 

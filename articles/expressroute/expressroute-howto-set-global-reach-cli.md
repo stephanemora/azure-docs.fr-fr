@@ -56,7 +56,7 @@ Quand vous exécutez la commande pour activer la connectivité, tenez compte des
 
 * *peer-circuit* doit correspondre à l'ID de ressource complet. Par exemple :
 
-  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+  > /subscriptions/{votre_id_d’abonnement}/resourceGroups/{votre_groupe_de_ressources}/providers/Microsoft.Network/expressRouteCircuits/{votre_nom_de_circuit}/peerings/AzurePrivatePeering
 
 * *address-prefix* doit correspondre à un sous-réseau IPv4 « /29 » (par exemple, « 10.0.0.0/29 »). Nous utilisons les adresses IP de ce sous-réseau pour établir la connexion entre les deux circuits ExpressRoute. Vous ne pouvez pas les utiliser dans vos réseaux virtuels Azure ou vos réseaux locaux.
 

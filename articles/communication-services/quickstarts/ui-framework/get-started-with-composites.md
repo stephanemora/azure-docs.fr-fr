@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7356fb90914e948b6a74a478ce1e19722b224346
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7d6b0d01ec3de1cb4ce91b1c81cd8a0ccd73b1d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488055"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105825796"
 ---
 # <a name="quickstart-get-started-with-ui-framework-composite-components"></a>Démarrage rapide : Bien démarrer avec les composants composites de l’infrastructure d’interface utilisateur
 
@@ -47,7 +47,7 @@ cd my-app
 
 ### <a name="install-the-package"></a>Installer le package
 
-Utilisez la commande `npm install` pour installer la bibliothèque de client Azure Communication Services Calling pour JavaScript. Déplacez le tarball fourni (préversion privée) vers le répertoire my-app.
+Utilisez la commande `npm install` pour installer le SDK Azure Communication Services Calling pour JavaScript. Déplacez le tarball fourni (préversion privée) vers le répertoire my-app.
 
 ```console
 
@@ -71,9 +71,9 @@ npm run start
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités de la bibliothèque cliente d’interface utilisateur Azure Communication Services :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK d’interface utilisateur Azure Communication Services :
 
-| Name                                  | Description                                                  |
+| Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | GroupCall | Composant composite qui restitue une expérience d’appel de groupe avec les contrôles et la galerie des participants. |
 | GroupChat | Composant composite qui restitue une expérience de conversation de groupe avec un thread et une entrée de conversation |

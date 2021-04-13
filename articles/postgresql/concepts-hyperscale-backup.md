@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 90b2a39b9a5f3b4d011ff1a1ef3651dff75a1cf6
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92485373"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968303"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Sauvegarde et restauration dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -58,7 +58,7 @@ Les paramètres de pare-feu et les paramètres de serveur PostgreSQL ne sont pas
 Après une restauration à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les opérations suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
 
 * Si le nouveau serveur est destiné à remplacer le serveur d’origine, redirigez les clients et les applications clientes vers le nouveau serveur
-* Vérifiez que les règles de pare-feu et de réseau virtuel appropriées sont en place au niveau du serveur pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du groupe de serveurs d’origine.
+* Vérifiez que le pare-feu approprié au niveau du serveur est en place pour permettre aux utilisateurs de se connecter. Ces règles ne sont pas copiées à partir du groupe de serveurs d’origine.
 * Ajustez les paramètres du serveur PostgreSQL, si nécessaire. Les paramètres ne sont pas copiés à partir du groupe de serveurs d’origine.
 * Assurez-vous que les connexions et les autorisations appropriées au niveau de la base de données sont en place
 * Configurer les alertes, selon les besoins

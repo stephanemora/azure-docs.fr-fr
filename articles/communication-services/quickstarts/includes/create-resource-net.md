@@ -2,25 +2,25 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 778255dc7259bd66a7c7059ede855464c1e39569
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 443595a52458d7ff7c168f4c120257cfb60fad2e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444292"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110885"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/dotnet/).
-- La dernière version de la [bibliothèque de client .NET Core](https://dotnet.microsoft.com/download/dotnet-core) pour votre système d’exploitation.
-- Procurez-vous la dernière version de la [bibliothèque de client .NET Identity](/dotnet/api/azure.identity).
-- Procurez-vous la dernière version de la [bibliothèque de client .NET Management](../../concepts/sdk-options.md).
+- Dernière version du [kit SDK .NET Core](https://dotnet.microsoft.com/download/dotnet-core) pour votre système d’exploitation.
+- Procurez-vous la dernière version du [SDK .NET Identity](/dotnet/api/azure.identity).
+- Procurez-vous la dernière version du [SDK .NET Management](../../concepts/sdk-options.md).
 
-## <a name="installing-the-client-library"></a>Installation de la bibliothèque de client
+## <a name="installing-the-sdk"></a>Installation du SDK
 
-Tout d’abord, incluez la bibliothèque de client Communication Services Management dans votre projet C# :
+Tout d’abord, incluez le SDK Communication Services Management dans votre projet C# :
 
 ```csharp
 using Azure.ResourceManager.Communication;
@@ -121,11 +121,11 @@ Maintenant que vous êtes authentifié, vous pouvez effectuer des appels d’API
 
 Dans chacun des exemples suivants, nous attribuons les ressources Communication Services à un groupe de ressources existant.
 
-Si vous avez besoin de créer un groupe de ressources, vous pouvez le faire à l’aide du [portail Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md) ou de la [bibliothèque de client Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
+Si vous avez besoin de créer un groupe de ressources, vous pouvez le faire à l’aide du [portail Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md) ou du [kit de développement logiciel (SDK) Azure Resource Manager](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md).
 
 ### <a name="create-and-manage-a-communication-services-resource"></a>Créer et gérer une ressource Communication Services
 
-L’instance du client de bibliothèque Communication Services Management (``Azure.ResourceManager.Communication.CommunicationManagementClient``) peut être utilisée pour effectuer des opérations sur des ressources Communication Services.
+L’instance du client du kit de développement logiciel (SDK) Communication Services Management (``Azure.ResourceManager.Communication.CommunicationManagementClient``) peut être utilisée pour effectuer des opérations sur des ressources Communication Services.
 
 #### <a name="create-a-communication-services-resource"></a>Créer une ressource Communication Services
 
@@ -173,7 +173,7 @@ await acsClient.CommunicationService.StartDeleteAsync(resourceGroupName, resourc
 
 ## <a name="managing-keys-and-connection-strings"></a>Gestion des clés et des chaînes de connexion
 
-Chaque ressource Communication Services a une paire de clés d’accès et les chaînes de connexion correspondantes. Ces clés sont accessibles par le biais de la bibliothèque de client Management, puis elles sont utilisées par d’autres bibliothèques de client Communication Services pour s’authentifier auprès d’Azure Communication Services.
+Chaque ressource Communication Services a une paire de clés d’accès et les chaînes de connexion correspondantes. Ces clés sont accessibles par le biais du kit de développement logiciel (SDK) Management, puis elles sont utilisées par d’autres kits de développement logiciel (SDK) Communication Services pour s’authentifier auprès d’Azure Communication Services.
 
 #### <a name="get-access-keys-for-a-communication-services-resource"></a>Obtenir des clés d’accès pour une ressource Communication Services
 

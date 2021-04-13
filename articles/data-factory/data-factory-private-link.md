@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d572509b3b2b3a0fc69f207d005984ee07ce34a4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100389176"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076817"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link pour Azure Data Factory
 
@@ -54,7 +54,7 @@ L’activation du service Private Link pour chacun des canaux de communication p
    - Les communications de commande entre le runtime d’intégration auto-hébergé et le service Azure Data Factory peuvent être établies en toute sécurité dans un environnement de réseau privé. Le trafic entre le runtime d’intégration auto-hébergé et le service Azure Data Factory transite par une liaison privée. 
 - **Non pris en charge pour l’instant** :
    - Une création interactive qui utilise un runtime d’intégration auto-hébergé, par exemple, pour tester la connexion, parcourir la liste des dossiers et la liste des tables, obtenir le schéma et afficher un aperçu des données transite par Private Link.
-   - La nouvelle version du runtime d’intégration auto-hébergé peut être téléchargée automatiquement à partir du centre de téléchargement Microsoft si vous activez la mise à jour automatique.
+   - La nouvelle version du runtime d’intégration auto-hébergé, qui peut être téléchargée automatiquement à partir du centre de téléchargement Microsoft si vous activez la mise à jour automatique, n’est pas prise en charge à l’heure actuelle.
 
    > [!NOTE]
    > Pour les fonctionnalités non encore prises en charge, vous devez toujours configurer le domaine et le port précédemment mentionnés dans le réseau virtuel ou le pare-feu de votre entreprise. 

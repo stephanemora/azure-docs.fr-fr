@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 12/26/2020
-ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 4d497adf5229819527608157a7a840d514f4292c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594255"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732344"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -178,6 +178,12 @@ Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.database.windows
 
 Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour les sessions en lecture seule, utilisez `<fog-name>.secondary.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers le serveur principal. Il est également recommandé d’indiquer une intention de lecture dans la chaîne de connexion à l’aide de `ApplicationIntent=ReadOnly`.
 
+> [!NOTE]
+> Dans les niveaux de service Premium, Critique pour l’entreprise et Hyperscale, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](read-scale-out.md) pour décharger des charges de travail de requête en lecture seule, en utilisant le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
+>
+> - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `ApplicationIntent=ReadOnly` et `<fog-name>.database.windows.net`.
+> - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `ApplicationIntent=ReadOnly` et `<fog-name>.secondary.database.windows.net`.
+
 ### <a name="preparing-for-performance-degradation"></a>Préparation à une détérioration des performances
 
 Une application Azure classique fait appel à plusieurs services Azure et inclut plusieurs composants. Le basculement automatique du groupe de basculement est déclenché en fonction de l’état des seuls composants Azure SQL. Il peut arriver que les autres services Azure de la région primaire ne soient pas affectés par la panne et que leurs composants soient toujours disponibles dans cette région. Une fois que les bases de données primaires ont basculé vers la région de récupération d’urgence, la latence entre les composants dépendants peut augmenter. Pour éviter les conséquences négatives d’une latence plus élevée sur les performances de l’application, vérifiez que tous les composants de l’application sont redondants dans la région de récupération d’urgence et suivez ces [consignes de sécurité réseau](#failover-groups-and-network-security).
@@ -267,7 +273,7 @@ Quand vous effectuez des opérations OLTP, utilisez `<fog-name>.zone_id.database
 Si vous avez une charge de travail en lecture seule isolée logiquement et qui est tolérante à une certaine obsolescence des données, vous pouvez utiliser la base de données secondaire dans l’application. Pour vous connecter directement à l’instance géorépliquée secondaire, utilisez `<fog-name>.secondary.<zone_id>.database.windows.net`, car l’URL du serveur et la connexion sont automatiquement dirigées vers l’instance géorépliquée secondaire.
 
 > [!NOTE]
-> Dans les niveaux de service Premium, Critique pour l’entreprise et Hyperscale, Azure SQL Database prend en charge l’utilisation de [réplicas en lecture seule](read-scale-out.md) pour exécuter des charges de travail de requête en lecture seule, en utilisant la capacité d’un ou de plusieurs réplicas en lecture seule et le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
+> Dans le niveau Critique pour l’entreprise, SQL Managed Instance prend en charge l’utilisation de [réplicas en lecture seule](read-scale-out.md) pour décharger des charges de travail de requête en lecture seule, en utilisant le paramètre `ApplicationIntent=ReadOnly` dans la chaîne de connexion. Lorsque vous avez configuré une instance géorépliquée secondaire, vous pouvez utiliser cette fonction pour vous connecter à un réplica en lecture seule à l’emplacement primaire ou à l’emplacement géorépliqué.
 >
 > - Pour vous connecter à un réplica en lecture seule à l’emplacement primaire, utilisez `ApplicationIntent=ReadOnly` et `<fog-name>.<zone_id>.database.windows.net`.
 > - Pour vous connecter à un réplica en lecture seule à l’emplacement secondaire, utilisez `ApplicationIntent=ReadOnly` et `<fog-name>.secondary.<zone_id>.database.windows.net`.

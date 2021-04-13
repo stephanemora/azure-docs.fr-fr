@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 94c3917b0912835799818597f94f3880ea3a7639
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 98b312066294f2c4ed7f9b089e0f8ea1a68fe4be
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889533"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059698"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installer et approvisionner Azure IoT Edge pour Linux sur un appareil Windows (version préliminaire)
 
@@ -42,10 +42,10 @@ Cet article répertorie les étapes à suivre pour configurer IoT Edge sur un ap
 
   * Windows 10 version 1809 ou ultérieure ; build 17763 ou ultérieure
   * Éditions Professionnel, Entreprise ou Serveur
-  * RAM minimale : 4 Go (8 Go recommandés)
-  * Stockage minimal : 10 Go
-  * Si vous créez un déploiement à l’aide de Windows 10, veillez à activer Hyper-V. Pour plus d’informations, découvrez comment [Installer Hyper-V sur Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
-  * Si vous créez un nouveau déploiement à l’aide de Windows Server, veillez à installer le rôle Hyper-V. Pour plus d’informations, découvrez comment [Installer le rôle Hyper-V sur Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * Mémoire disponible minimale : 2 Go
+  * Espace disque disponible minimal : 10 Go
+  * Si vous créez un déploiement à l’aide de Windows 10, veillez à activer Hyper-V. Pour plus d’informations, découvrez comment [Installer Hyper-V sur Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+  * Si vous créez un nouveau déploiement à l’aide de Windows Server, veillez à installer le rôle Hyper-V. Pour plus d’informations, découvrez comment [Installer le rôle Hyper-V sur Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
   * Si vous créez un déploiement à l’aide d’une machine virtuelle, veillez à configurer correctement la virtualisation imbriquée. Pour plus d’informations, consultez le guide sur la [virtualisation imbriquée](nested-virtualization.md).
 
 * Accès à Windows Admin Center avec l’extension Azure IoT Edge pour Windows Admin Center installée :
@@ -117,7 +117,16 @@ Si vous préférez effectuer un déploiement sur un appareil cible distant plut�
 
    ![Sélectionnez votre appareil pour vérifier qu’il est pris en charge](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Acceptez les paramètres par défaut dans l’onglet **2.2. Paramètres**.
+1. Sous l’onglet **Paramètres 2.2**, vérifiez les paramètres de configuration de votre déploiement. Une fois que vous êtes satisfait des paramètres, sélectionnez **Suivant**.
+
+   ![Vérifier les paramètres de configuration de votre déploiement](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >Si vous utilisez une machine virtuelle Windows, il est recommandé d’utiliser un commutateur par défaut plutôt qu’un commutateur externe pour vous assurer que la machine virtuelle Linux créée dans le déploiement peut obtenir une adresse IP.
+   >
+   >L’utilisation d’un commutateur par défaut affecte une adresse IP interne à la machine virtuelle Linux. Cette adresse IP interne ne peut pas être atteinte en dehors de la machine virtuelle Windows, mais elle peut être connectée à la machine virtuelle Windows en local.
+   >
+   >Si vous utilisez Windows Server, notez qu’Azure IoT Edge pour Linux sur Windows ne prend pas en charge automatiquement le commutateur par défaut. Pour une machine virtuelle Windows Server locale, assurez-vous que la machine virtuelle Linux peut obtenir une adresse IP via le commutateur externe. Pour une machine virtuelle Windows Server dans Azure, configurez un commutateur interne avant de déployer IoT Edge pour Linux sur Windows.
 
 1. Dans l’onglet **2.3. Déploiement**, vous pouvez suivre la progression du déploiement. Le processus complet comprend le téléchargement du package Azure IoT Edge pour Linux sur Windows, l’installation du package, la configuration de l’appareil hôte et la configuration de la machine virtuelle Linux. Ce processus peut prendre plusieurs minutes. Voici l’illustration d’un déploiement réussi.
 
@@ -168,7 +177,7 @@ Si vous ne l’avez pas déjà fait, installez IoT Edge pour Linux sur Windows s
    ```
 
    > [!NOTE]
-   > Vous pouvez exécuter cette commande sans paramètres ou éventuellement personnaliser le déploiement avec des paramètres. Pour voir ce qu’ils signifient, consultez les [informations de référence sur le script PowerShell IoT Edge pour Linux sur Windows](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow).
+   > Vous pouvez exécuter cette commande sans paramètres ou éventuellement personnaliser le déploiement avec des paramètres. Pour voir les significations des paramètres et les valeurs par défaut, consultez les [informations de référence sur le script PowerShell IoT Edge pour Linux sur Windows](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow).
 
 1. Entrez « Y » pour accepter les termes du contrat de licence.
 
@@ -370,4 +379,6 @@ Vérifiez que IoT Edge pour Linux sur Windows a été correctement installé et 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Passez à [Déployer des modules IoT Edge](how-to-deploy-modules-portal.md) pour savoir comment déployer des modules sur votre appareil.
+* Passez à [Déployer des modules IoT Edge](how-to-deploy-modules-portal.md) pour savoir comment déployer des modules sur votre appareil.
+* Découvrez comment [gérer les certificats sur votre IoT Edge pour Linux sur une machine virtuelle Windows](how-to-manage-device-certificates.md) et à transférer des fichiers du système d’exploitation hôte vers votre machine virtuelle Linux.
+* Découvrez comment [configurer vos appareils IoT Edge pour qu’ils communiquent par le biais d’un serveur proxy](how-to-configure-proxy-support.md).
