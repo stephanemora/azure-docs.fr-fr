@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Bien démarrer'
-description: Dans ce guide de démarrage rapide, vous allez découvrir le workflow de base du déploiement de Defender pour IoT.
+description: Suivez ce guide de démarrage rapide pour vous familiariser avec le workflow de base du déploiement de Defender pour IoT.
 ms.topic: quickstart
 ms.date: 2/18/2021
-ms.openlocfilehash: c6136d734570714b691a4ba3c2a72305c4c85590
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: aa26ea26a3fb0a08d931657cb7ad236c68972e2f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784490"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384951"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Démarrage rapide : Bien démarrer avec Defender pour IoT
 
@@ -20,7 +20,7 @@ Cet article donne une vue d’ensemble de la procédure permettant de configurer
 
 ## <a name="prerequisites"></a>Prérequis
 
-Aucun
+- Aucun
 
 ## <a name="permission-requirements"></a>Spécifications relatives aux autorisations
 
@@ -60,11 +60,14 @@ L’inscription comprend plusieurs opérations :
 Pour vous inscrire :
 
 1. Accédez au portail Azure Defender pour IoT.
+
 1. Sélectionnez **Intégrer un abonnement**.
+
 1. Sur la page **Tarifs**, sélectionnez un abonnement ou créez-en un, puis ajoutez le nombre d’appareils validés.
+
 1. Sélectionnez l’onglet **Téléchargez la console de gestion locale** et enregistrez le fichier d’activation téléchargé. Ce fichier contient les appareils validés agrégés que vous avez définis. Il sera chargé dans la console de gestion après la connexion initiale.
 
-Pour plus d’informations sur la manière de désactiver un abonnement, consultez [Désactiver un abonnement](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
+Pour plus d’informations sur la manière de désactiver un abonnement, consultez [Désactiver un abonnement](how-to-manage-subscriptions.md#offboard-a-subscription).
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>Installation et configuration de la console de gestion locale
 
@@ -87,6 +90,7 @@ Pour installer et configurer la console de gestion, procédez comme suit :
 Intégrez un capteur en l’inscrivant auprès d’Azure Defender pour IoT et en téléchargeant un fichier d’activation de capteur :
 
 1. Définissez un nom de capteur et associez-le à un abonnement.
+
 1. Choisissez un mode d’administration du capteur :
 
    - **Capteurs connectés au cloud** : les informations détectées par les capteurs s’affichent dans la console de ces derniers. Par ailleurs, les données des alertes, transmises par le biais d’un hub IoT, sont partageables avec d’autres services Azure, comme Azure Sentinel.
@@ -102,9 +106,13 @@ Pour plus d’informations, consultez [Intégration et gestion des capteurs sur 
 Téléchargez le package ISO sur le portail Azure Defender pour IoT, installez le logiciel et configurez le capteur.
 
 1. Sélectionnez **Bien démarrer** sur le portail Defender pour IoT.
+
 1. Sélectionnez **Configurer le capteur**.
+
 1. Choisissez une version et sélectionnez **Télécharger**.
+
 1. Installez le logiciel du capteur. Pour plus d’informations, consultez [Installation de Defender pour IoT](how-to-install-software.md).
+
 1. Activez et configurez votre capteur. Pour plus d’informations, consultez [Connexion à un capteur et activation](how-to-activate-and-set-up-your-sensor.md).
 
 ## <a name="connect-sensors-to-an-on-premises-management-console"></a>Connexion des capteurs à une console de gestion locale

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/11/2021
 ms.custom: mvc
-ms.openlocfilehash: 4f6dc61b0e05fcb16a03a1183518069b98aa575f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 17740763777372a5eaed6941974c120860839279
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771411"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382707"
 ---
 # <a name="tutorial-discover-physical-servers-with-azure-migrate-discovery-and-assessment"></a>Tutoriel : Découvrir des serveurs physiques avec l’outil de découverte et d’évaluation d’Azure Migrate
 
@@ -80,6 +80,9 @@ Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de 
 Configurez un compte que l’appliance peut utiliser pour accéder aux serveurs physiques.
 
 - Pour les **serveurs Windows**, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+    > [!Note]
+    > Pour Windows Server 2008 et 2008 R2, vérifiez que WMF 3.0 est installé sur les serveurs et que le compte de domaine/local utilisé pour accéder aux serveurs a été ajouté aux groupes suivants : Utilisateurs de l'Analyseur de performances, Utilisateurs du journal des performances et WinRMRemoteWMIUsers.
+
 - Pour les **serveurs Linux**, vous devez disposer d’un compte racine sur les serveurs Linux que vous voulez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
 
 **Commande** | **Objectif**

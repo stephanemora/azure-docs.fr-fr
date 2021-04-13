@@ -1,18 +1,18 @@
 ---
-title: Utiliser Purview Studio
-description: Cet article conceptuel explique comment utiliser Azure Purview Studio.
+title: Utiliser Azure Purview Studio
+description: Cet article explique comment utiliser Azure Purview Studio.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/12/2020
-ms.openlocfilehash: ca25bbb72ff853f819f3e8ce4e0092ddb762b156
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 04/02/2021
+ms.openlocfilehash: ba22c322d47d8738b1d607597d6f93b8b8456616
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183809"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106283867"
 ---
 # <a name="use-purview-studio"></a>Utiliser Purview Studio
 
@@ -26,7 +26,7 @@ Cet article donne une vue d’ensemble des principales fonctionnalités d’Azur
 
 * Pour lancer votre compte Purview, accédez à Comptes Purview sur le Portail Azure, sélectionnez le compte souhaité et lancez-le.
 
-   :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Capture d’écran de la sélection permettant de lancer le catalogue du compte Azure Purview.":::
+  :::image type="content" source="./media/use-purview-studio/launch-from-portal.png" alt-text="Capture d’écran de la sélection permettant de lancer le catalogue du compte Azure Purview.":::
 
 * Pour lancer un compte Purview, vous pouvez également accéder à `https://web.purview.azure.com`, puis sélectionner **Azure Active Directory** et le nom du compte.
 
@@ -34,32 +34,33 @@ Cet article donne une vue d’ensemble des principales fonctionnalités d’Azur
 
 **Accueil** est la page de démarrage du client Azure Purview.
 
- :::image type="content" source="./media/use-purview-studio/purview-homepage.png" alt-text="Capture d’écran de la page d’accueil":::
+:::image type="content" source="./media/use-purview-studio/purview-homepage.png" alt-text="Capture d’écran de la page d’accueil":::
 
 Dans la liste suivante figurent les principales fonctionnalités de la **page d’accueil**. Chacun des numéros de la liste correspond à un nombre encadré dans la capture d’écran précédente.
 
 1. Nom convivial du catalogue. Vous pouvez définir le nom du catalogue dans **Centre de gestion** > **Informations sur le compte**.
 
 2. L’analytique du catalogue indique les volumes suivants :
-    - Utilisateurs, groupes et applications
-    - Sources de données
-    - Éléments multimédias
-    - Termes de glossaire
+
+   * Utilisateurs, groupes et applications
+   * Sources de données
+   * Éléments multimédias
+   * Termes de glossaire
 
 3. La zone de recherche permet de rechercher des ressources de données dans le catalogue de données.
 
 4. Les boutons Accès rapide donnent accès aux fonctions fréquemment utilisées de l’application. Les boutons présentés dépendent du rôle affecté à votre compte d’utilisateur.
 
-    - Pour *Organisateur de données* : **Centre des connaissances**, **Parcourir les ressources**, **Gérer le glossaire** et **Afficher des insights**.
-    - Pour *Lecteur de données* : **Centre des connaissances**, **Parcourir les ressources**, **Afficher le glossaire** et **Afficher des insights**.
-    - Pour *Administrateur de sources de données* + *Organisateur de données*, les boutons proposés sont **Centre des connaissances**, **Inscrire des sources de données**, **Parcourir les ressources** et **Gérer le glossaire**.
-    - Pour *Administrateur de sources de données* + *Lecteur de données*, les boutons proposés sont **Centre des connaissances**, **Inscrire des sources de données**, **Parcourir les ressources** et **Afficher le glossaire**.
+   * Pour *Organisateur de données* : **Centre des connaissances**, **Parcourir les ressources**, **Gérer le glossaire** et **Afficher des insights**.
+   * Pour *Lecteur de données* : **Centre des connaissances**, **Parcourir les ressources**, **Afficher le glossaire** et **Afficher des insights**.
+   * Pour *Administrateur de sources de données* + *Organisateur de données*, les boutons proposés sont **Centre des connaissances**, **Inscrire des sources de données**, **Parcourir les ressources** et **Gérer le glossaire**.
+   * Pour *Administrateur de sources de données* + *Lecteur de données*, les boutons proposés sont **Centre des connaissances**, **Inscrire des sources de données**, **Parcourir les ressources** et **Afficher le glossaire**.
 
 5. La barre de navigation de gauche aide à localiser les pages principales de l’application. Les boutons présentés dépendent du rôle affecté à votre compte d’utilisateur.
 
-    - Pour *Organisateur de données* : **Accueil**, **Glossaire**, **Insights** et **Centre de gestion**.
-    - Pour *Lecteur de données* : **Accueil**, **Glossaire**, **Insights** et **Centre de gestion**.
-    - Pour *Administrateur de sources de données* + *Organisateur/lecteur de données*, les boutons sont **Accueil**, **Sources**, **Glossaire**, **Insights** et **Centre de gestion**.
+   * Pour *Organisateur de données* : **Accueil**, **Glossaire**, **Insights** et **Centre de gestion**.
+   * Pour *Lecteur de données* : **Accueil**, **Glossaire**, **Insights** et **Centre de gestion**.
+   * Pour *Administrateur de sources de données* ou *Organisateur/lecteur de données*, les boutons sont **Accueil**, **Sources**, **Glossaire**, **Insights** et **Centre de gestion**.
   
 6. L’onglet **Récemment consultés** donne la liste des ressources de données récemment consultées. Pour plus d’informations sur l’accès aux ressources, consultez [Rechercher dans le catalogue de données](how-to-search-catalog.md) et [Parcourir par type de ressource](how-to-browse-catalog.md#browse-experience).  L’onglet **Mes éléments** correspond à la liste des ressources de données détenues par l’utilisateur connecté.
 7. **Liens utiles** contient des liens vers l’état de la région, la documentation, les tarifs, la vue d’ensemble et l’état Purview.
@@ -76,7 +77,7 @@ Chacune des expériences utilisateur d’Azure Purview Studio comporte une visit
 :::image type="content" source="./media/use-purview-studio/guided-tour.png" alt-text="Capture d’écran de la visite guidée":::
 
 > [!Important]
-   > Le rôle Administrateur de sources de données n’a pas accès à Purview Studio.
+> Le rôle *Administrateur de sources de données* n’a pas accès à Purview Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

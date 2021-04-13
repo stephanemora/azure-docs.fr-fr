@@ -3,12 +3,12 @@ title: 'Tutoriel : Appairer des environnements locaux avec un cloud privé'
 description: Découvrez comment créer un appairage ExpressRoute Global Reach avec un cloud privé dans une solution Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 798b822989127ccbb00e971de2cc4147ac234259
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564498"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449560"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutoriel : Appairer des environnements locaux avec un cloud privé
 
@@ -55,7 +55,7 @@ Maintenant que vous avez créé une clé d’autorisation pour le circuit Expres
 1. Créez une connexion cloud locale. Effectuez l’une des opérations suivantes, puis sélectionnez **Créer** :
 
    - Sélectionnez le **circuit ExpressRoute** dans la liste ou
-   - Si vous avez l’ID de circuit, collez-le dans le champ et fournissez la clé d’autorisation.
+   - Si vous disposez de l'ID du circuit, collez-le dans le champ et fournissez la clé d'autorisation que vous venez de créer.
 
    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Entrez l’ID ExpressRoute et la clé d’autorisation créés, puis sélectionnez Créer.":::   
    

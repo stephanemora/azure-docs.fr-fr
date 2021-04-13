@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 4c8bd66dde54ff90ea2191fba58f10c87c45cf68
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495397"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105958093"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous de :
@@ -43,15 +43,15 @@ dotnet build
 
 ### <a name="install-the-package"></a>Installer le package
 
-Installer la bibliothèque de client Azure Communication Chat pour .NET
+Installer le kit de développement logiciel (SDK) Azure Communication Chat pour .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Chat --version 1.0.0
 ```
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes suivantes gèrent quelques-unes des principales fonctionnalités de la bibliothèque de client Azure Communication Services Chat pour C#.
+Les classes suivantes gèrent quelques-unes des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Chat pour C#.
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
@@ -60,7 +60,7 @@ Les classes suivantes gèrent quelques-unes des principales fonctionnalités de 
 
 ## <a name="create-a-chat-client"></a>Créer un client de conversation
 
-Pour créer un client de conversation, vous allez utiliser votre point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises. Vous devez utiliser la classe `CommunicationIdentityClient` de la bibliothèque de client Identity pour créer un utilisateur et émettre un jeton à transmettre à votre client de conversation.
+Pour créer un client de conversation, vous allez utiliser votre point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises. Vous devez utiliser la classe `CommunicationIdentityClient` du kit de développement logiciel (SDK) Identity pour créer un utilisateur et émettre un jeton à transmettre à votre client de conversation.
 
 Apprenez-en davantage sur les [jetons d’accès utilisateur](../../access-tokens.md).
 
@@ -115,6 +115,17 @@ string threadId = "<THREAD_ID>";
 ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
+## <a name="list-all-chat-threads"></a>Répertorier tous les fils de conversation
+Utilisez `GetChatThreads` pour récupérer tous les fils de conversation dont fait partie l’utilisateur.
+
+```csharp
+AsyncPageable<ChatThreadItem> chatThreadItems = chatClient.GetChatThreadsAsync();
+await foreach (ChatThreadItem chatThreadItem in chatThreadItems)
+{
+    Console.WriteLine($"{ chatThreadItem.Id}");
+}
+```
+
 ## <a name="send-a-message-to-a-chat-thread"></a>Envoyer un message à un fil de conversation
 
 Utilisez `SendMessage` pour envoyer un message à un fil de conversation.
@@ -124,17 +135,8 @@ Utilisez `SendMessage` pour envoyer un message à un fil de conversation.
 - Utilisez `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur. S’il n’est pas spécifié, une chaîne vide est définie.
 
 ```csharp
-var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
-```
-## <a name="get-a-message"></a>Obtenir un message
-
-Utilisez `GetMessage` pour récupérer un message à partir du service.
-`messageId` est l’ID unique du message.
-
-`ChatMessage` est la réponse retournée à la suite de l’obtention du message. Elle contient un ID, qui est l’identifiant unique du message, ainsi que d’autres champs. Reportez-vous à Azure.Communication.Chat.ChatMessage
-
-```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+string messageId = sendChatMessageResult.Id;
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recevoir les messages de conversation d’un fil de conversation
@@ -167,25 +169,6 @@ await foreach (ChatMessage message in allMessages)
 
 Pour plus d’informations, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types).
 
-## <a name="update-a-message"></a>Mettre à jour un message
-
-Vous pouvez mettre à jour un message qui a déjà été envoyé en appelant `UpdateMessage` sur `ChatThreadClient`.
-
-```csharp
-string id = "id-of-message-to-edit";
-string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
-```
-
-## <a name="deleting-a-message"></a>Suppression d’un message
-
-Vous pouvez supprimer un message en appelant `DeleteMessage` sur `ChatThreadClient`.
-
-```csharp
-string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(messageId: id);
-```
-
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Ajouter un utilisateur comme participant au fil de conversation
 
 Une fois qu’un fil est créé, vous pouvez y ajouter des utilisateurs ou en supprimer. En ajoutant des utilisateurs, vous leur permettez d’envoyer des messages au fil de conversation et d’ajouter ou de supprimer d’autres participants. Avant d’appeler `AddParticipants`, vérifiez que vous avez acquis un nouveau jeton d’accès et une identité pour cet utilisateur. L’utilisateur aura besoin de ce jeton d’accès pour initialiser son client de conversation.
@@ -209,14 +192,6 @@ var participants = new[]
 
 await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
-## <a name="remove-user-from-a-chat-thread"></a>Supprimer un utilisateur d’un fil de conversation
-
-De la même manière que vous pouvez ajouter un utilisateur à un fil, vous pouvez supprimer des utilisateurs d’un fil de conversation. Pour ce faire, vous devez suivre l’identité `CommunicationUser` du participant que vous avez ajouté.
-
-```csharp
-var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
-```
 
 ## <a name="get-thread-participants"></a>Obtenir les participants au fil de conversation
 
@@ -230,14 +205,6 @@ await foreach (ChatParticipant participant in allParticipants)
 }
 ```
 
-## <a name="send-typing-notification"></a>Envoyer une notification de saisie
-
-Utilisez `SendTypingNotification` pour indiquer que l’utilisateur est en train de taper une réponse dans le fil de conversation.
-
-```csharp
-await chatThreadClient.SendTypingNotificationAsync();
-```
-
 ## <a name="send-read-receipt"></a>Envoyer une confirmation de lecture
 
 Utilisez `SendReadReceipt` pour informer les autres participants que le message est lu par l’utilisateur.
@@ -246,17 +213,6 @@ Utilisez `SendReadReceipt` pour informer les autres participants que le message 
 await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
-## <a name="get-read-receipts"></a>Obtenir des confirmations de lecture
-
-Utilisez `GetReadReceipts` pour vérifier l’état des messages et déterminer ceux qui sont lus par d’autres participants d’un fil de conversation.
-
-```csharp
-AsyncPageable<ChatMessageReadReceipt> allReadReceipts = chatThreadClient.GetReadReceiptsAsync();
-await foreach (ChatMessageReadReceipt readReceipt in allReadReceipts)
-{
-    Console.WriteLine($"{readReceipt.ChatMessageId}:{((CommunicationUserIdentifier)readReceipt.Sender).Id}:{readReceipt.ReadOn}");
-}
-```
 ## <a name="run-the-code"></a>Exécuter le code
 
 Exécutez l’application à partir de votre répertoire d’application avec la commande `dotnet run`.

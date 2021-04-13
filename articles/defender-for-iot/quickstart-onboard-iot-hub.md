@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Intégrer Defender pour IoT à une solution basée sur un agent'
-description: Dans ce guide de démarrage rapide, vous allez découvrir comment intégrer et activer le service de sécurité Defender pour IoT dans votre hub Azure IoT.
+description: Suivez ce guide de démarrage rapide pour apprendre à intégrer et activer le service de sécurité Defender pour IoT dans votre instance d'Azure IoT Hub.
 ms.topic: quickstart
 ms.date: 1/20/2021
-ms.openlocfilehash: b795773ae0eb667cf7f53f4209b6476ba937b17f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2704f8989ab39825cef052ca5556a2e6461efe75
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780954"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384491"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Démarrage rapide : Intégrer Defender pour IoT à une solution basée sur un agent
 

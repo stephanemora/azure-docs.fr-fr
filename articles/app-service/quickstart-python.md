@@ -9,19 +9,16 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fa0939dabdef27366d6c5d211a4d9879046c681
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104592351"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382661"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Démarrage rapide : Créer une application Python en utilisant Azure App Service sur Linux
 
-Dans ce démarrage rapide, vous déployez une application web Python dans [App Service sur Linux](overview.md#app-service-on-linux), le service d’hébergement web hautement scalable et autocorrectif d’Azure. Vous utilisez l’[interface de ligne de commande (CLI) Azure](/cli/azure/install-azure-cli) locale sur un ordinateur Mac, Linux ou Windows pour déployer un exemple avec les frameworks Flask ou Django. L’application web que vous configurez utilise un niveau App Service gratuit. Vous n’êtes donc pas facturé quand vous suivez la procédure décrite dans cet article.
-
-> [!TIP]
-> Si vous préférez plutôt utiliser Visual Studio Code, suivez notre **[démarrage rapide Visual Studio Code App Service](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .
+Dans ce démarrage rapide, vous déployez une application web Python dans [App Service sur Linux](overview.md#app-service-on-linux), le service d’hébergement web hautement scalable et autocorrectif d’Azure. Vous utilisez l’[interface de ligne de commande (CLI) Azure](/cli/azure/install-azure-cli) locale sur un ordinateur Mac, Linux ou Windows pour déployer un exemple avec les frameworks Flask ou Django. L'application web que vous configurez utilise un niveau App Service de base peu coûteux dans le cadre de votre abonnement Azure.
 
 ## <a name="set-up-your-initial-environment"></a>Configurer votre environnement initial
 

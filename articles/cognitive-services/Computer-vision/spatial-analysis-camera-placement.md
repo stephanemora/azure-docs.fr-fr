@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4c2d1cd1c73b377d85501fd31d0f5a1893df5183
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d58e4303078733eb1014171271d27907ff7a95b0
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102487419"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286264"
 ---
 # <a name="camera-placement-guide"></a>Guide de positionnement de la caméra
 
-Cet article fournit des recommandations relatives au positionnement de la caméra en vue d’une analyse spatiale (version préliminaire publique). Il inclut des instructions générales ainsi que des recommandations spécifiques concernant la hauteur, l’angle et la distance entre le point focal et la caméra pour toutes les opérations incluses. 
+Cet article fournit des recommandations relatives au positionnement de la caméra en vue d’une analyse spatiale (préversion publique). Il inclut des instructions générales ainsi que des recommandations spécifiques concernant la hauteur, l’angle et la distance entre le point focal et la caméra pour toutes les opérations incluses. 
 
 > [!NOTE]
 > Ce guide est conçu pour la caméra Axis M3045-V. Cette caméra utilise une résolution de 1 920 x 1 080, un champ horizontal de 106 degrés, un champ de vision vertical de 59 degrés, et une longueur focale fixe de 2,8 mm. Les principes ci-dessous s’appliquent à toutes les caméras, mais des instructions spécifiques sur la hauteur de la caméra et la distance entre le point focal et la caméra doivent être ajustées pour une utilisation avec d’autres caméras. 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e9f44ea2af832729a47bf4b719b90f9b14e401b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd5d8c3e2c6e4ee5556568ebd23ac99b48300e9d
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555854"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382013"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>Tutoriel : Activer la reprise d’activité pour les machines virtuelles Windows
 
@@ -22,10 +22,10 @@ Ce tutoriel explique comment configurer la reprise d’activité après sinistre
 
 > [!div class="checklist"]
 > * Activer la reprise d’activité après sinistre pour une machine virtuelle Windows
-> * Effectuer un exercice de reprise d’activité
+> * Procéder à une simulation de récupération d'urgence pour vérifier qu'elle fonctionne comme prévu
 > * Arrêter la réplication de la machine virtuelle après le test
 
-Quand vous activez la réplication pour une machine virtuelle, l’extension de service Mobilité Site Recovery est installée sur la machine virtuelle, puis elle est inscrite auprès d’[Azure Site Recovery](../../site-recovery/site-recovery-overview.md). Pendant la réplication, les écritures réalisées sur les disques de machine virtuelle sont envoyées à un compte de stockage de cache de la région source. Les données sont envoyées de cet emplacement vers la région cible, et des points de récupération sont générés à partir des données.  Lorsque vous basculez une machine virtuelle pendant une reprise d’activité après sinistre, un point de récupération est utilisé pour restaurer la machine virtuelle dans la région cible.
+Quand vous activez la réplication pour une machine virtuelle, l’extension de service Mobilité Site Recovery est installée sur la machine virtuelle, puis elle est inscrite auprès d’[Azure Site Recovery](../../site-recovery/site-recovery-overview.md). Pendant la réplication, les écritures réalisées sur les disques de machine virtuelle sont envoyées à un compte de stockage de cache de la région source. Les données sont envoyées de cet emplacement vers la région cible, et des points de récupération sont générés à partir des données.  Lorsque vous basculez une machine virtuelle pendant une récupération d'urgence, un point de récupération est utilisé pour créer une machine virtuelle dans la région cible.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
@@ -58,27 +58,69 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     Étiquette AzureSiteRecovery | Permet d’accéder au service Site Recovery dans n’importe quelle région.
     GuestAndHybridManagement | Utilisez-la si vous souhaitez mettre automatiquement à niveau l’agent Mobilité Site Recovery qui est exécuté sur les machines virtuelles où est activée la réplication.
 5.  Sur les machines virtuelles Windows, installez les dernières mises à jour Windows pour garantir que les machines virtuelles disposent des certificats racines les plus récents.
- 
-## <a name="enable-disaster-recovery"></a>Activer la reprise d’activité après sinistre
+
+## <a name="create-a-vm-and-enable-disaster-recovery"></a>Créer une machine virtuelle et activer la récupération d'urgence
+
+Lorsque vous créez une machine virtuelle, vous avez la possibilité d'activer la récupération d'urgence.
+
+1. [Création d’une machine virtuelle](quick-create-portal.md) :
+2. Sous l'onglet **Gestion**, sélectionnez **Activer la récupération d'urgence**.
+3. Dans **Région secondaire**, sélectionnez la région cible vers laquelle vous souhaitez répliquer une machine virtuelle pour la récupération d'urgence.
+4. Dans **Abonnement secondaire**, sélectionnez l'abonnement cible dans lequel la machine virtuelle cible sera créée. La machine virtuelle cible est créée lors du basculement de la machine virtuelle source de la région source vers la région cible.
+5. Dans **Coffre Recovery Services**, sélectionnez le coffre que vous souhaitez utiliser pour la réplication. Si vous n’avez pas de coffre, cliquez sur **Créer**. Sélectionnez le groupe de ressources dans lequel vous souhaitez placer le coffre, ainsi qu'un nom de coffre.
+6. Dans **Stratégie Site Recovery**, conservez la stratégie par défaut, ou sélectionnez **Créer** pour définir des valeurs personnalisées.
+
+    - Les points de récupération sont créés à partir de captures instantanées des disques des machines virtuelles qui sont prises à un moment précis dans le temps. Lorsque vous basculez une machine virtuelle, vous utilisez un point de récupération pour la restaurer dans la région cible. 
+    - Un point de récupération de cohérence en cas d'incident est créé toutes les cinq minutes. Ce paramètre ne peut pas être modifié. Un instantané de cohérence en cas d'incident capture les données qui se trouvaient sur le disque lorsque l'instantané a été pris. Il n’ajoute aucune donnée en mémoire. 
+    - Par défaut, Site Recovery conserve les points de récupération de cohérence en cas d'incident pendant 24 heures. Vous pouvez définir une valeur personnalisée comprise entre 0 et 72 heures.
+    - Un instantané de cohérence des applications est pris toutes les 4 heures. Un instantané de cohérence des applications 
+    - Par défaut, Site Recovery conserve les points de récupération pendant 24 heures.
+
+7. Dans **Options de disponibilité**, spécifiez si la machine virtuelle est déployée de manière autonome, dans une zone de disponibilité ou dans un groupe à haute disponibilité.
+
+    :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Activez la réplication sur la page des propriétés de gestion de la machine virtuelle."
+
+8. Finalisez la création de la machine virtuelle.
+
+## <a name="enable-disaster-recovery-for-an-existing-vm"></a>Activer la récupération d'urgence sur une machine virtuelle Linux existante
+
+Si vous souhaitez activer la récupération d'urgence sur une machine virtuelle existante plutôt que sur une nouvelle machine virtuelle, utilisez cette procédure.
 
 1. Dans le portail Azure, ouvrez la page des propriétés de la machine virtuelle.
 2. Dans **Opérations**, sélectionnez **Récupération d’urgence**.
-3. Dans **De base** > **Région cible**, sélectionnez la région vers laquelle vous souhaitez répliquer la machine virtuelle. Les régions source et cible doivent se trouver dans le même locataire Azure Active Directory.
-4. Cliquez sur **Réviser + lancer la réplication**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disaster-recovery.png" alt-text="Activez la réplication dans les propriétés de la machine virtuelle, dans la page de reprise d’activité après sinistre.":::
+    :::image type="content" source="./media/tutorial-disaster-recovery/existing-vm.png" alt-text="Ouvrez les options de récupération d'urgence d'une machine virtuelle existante.":::
 
-5. Dans **Réviser + lancer la réplication**, vérifiez les paramètres :
+3. Dans **De base**, si la machine virtuelle est déployée dans une zone de disponibilité, vous pouvez sélectionner la récupération d'urgence entre les zones de disponibilité.
+4. Dans **Région cible**, sélectionnez la région vers laquelle vous souhaitez répliquer la machine virtuelle. Les régions source et cible doivent se trouver dans le même locataire Azure Active Directory.
 
-    - **Paramètres de la cible**. Par défaut, Site Recovery copie les paramètres source pour créer les ressources cibles.
-    - **Paramètres de stockage - Compte de stockage de cache**. Recovery utilise un compte de stockage situé dans la région source. Les modifications des machines virtuelles sources sont mises en cache dans ce compte avant d’être répliquées vers l’emplacement cible.
-    - **Paramètres de stockage - Disque de réplica**. Par défaut, Site Recovery crée des disques managés de réplica dans la région cible qui reflètent ceux de la machine virtuelle source, avec le même type de stockage (Standard ou Premium).
-    - **Paramètres de réplication**. Affiche des informations sur le coffre, et indique que les points de récupération créés par Site Recovery seront conservés pendant 24 heures.
-    - **Paramètres d’extension**. Indique que Site Recovery gère les mises à jour de l’extension de service Mobilité Site Recovery qui est installée sur les machines virtuelles que vous répliquez. Le compte Azure Automation indiqué gère le processus de mise à jour.
+    :::image type="content" source="./media/tutorial-disaster-recovery/basics.png" alt-text="Définir les options de récupération d'urgence de base d'une machine virtuelle.":::
+
+5. Sélectionnez **Suivant : Paramètres avancés**.
+6. Dans **Paramètres avancés**, vous pouvez passer les paramètres en revue et modifier les valeurs des paramètres personnalisés. Par défaut, Site Recovery copie les paramètres source pour créer les ressources cibles.
+
+    - **Abonnement cible**. Abonnement dans lequel la machine virtuelle cible est créée après le basculement.
+    - **Groupe de ressources de la machine virtuelle cible**. Groupe de ressources dans lequel la machine virtuelle cible est créée après le basculement.
+    - **Réseau virtuel cible**. Réseau virtuel Azure dans lequel se trouve la machine virtuelle cible lorsqu'elle est créée après le basculement.
+    - **Disponibilité de la cible**. Lorsque la machine virtuelle cible est créée en tant qu'instance autonome, dans un groupe à haute disponibilité ou dans une zone de disponibilité.
+    - **Placement de proximité**. Le cas échéant, sélectionnez le groupe de placement de proximité dans lequel se trouve la machine virtuelle cible après le basculement.
+    - **Paramètres de stockage - Compte de stockage de cache**. La récupération utilise un compte de stockage situé dans la région source comme magasin de données temporaire. Les modifications des machines virtuelles sources sont mises en cache dans ce compte avant d’être répliquées vers l’emplacement cible.
+        - Par défaut, un compte de stockage de cache est créé pour chaque coffre et réutilisé.
+        - Vous pouvez sélectionner un autre compte de stockage si vous souhaitez personnaliser le compte de cache de la machine virtuelle.
+    - **Paramètres de stockage - Disque de réplica managé**. Par défaut, Site Recovery crée des disques de réplica managés dans la région cible.
+        -  Par défaut, le disque managé cible reflète les disques managés de la machine virtuelle source, en utilisant le même type de stockage (HDD/SSD standard ou SSD Premium).
+        - Vous pouvez personnaliser le type de stockage conformément à vos besoins.
+    - **Paramètres de réplication**. Affiche le coffre dans lequel se trouvent la machine virtuelle et la stratégie de réplication utilisée pour celle-ci. Par défaut, les points de récupération créés par Site Recovery pour la machine virtuelle sont conservés pendant 24 heures.
+    - **Paramètres d’extension**. Indique que Site Recovery gère les mises à jour de l’extension de service Mobilité Site Recovery qui est installée sur les machines virtuelles que vous répliquez.
+        - Le compte Azure Automation indiqué gère le processus de mise à jour.
+        - Vous pouvez personnaliser le compte Automation.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/settings-summary.png" alt-text="Page montrant un résumé des paramètres de cible et de réplication.":::
 
-2. Sélectionnez **Démarrer la réplication**. Le déploiement démarre, et Site Recovery commence à créer des ressources cibles. Vous pouvez superviser la progression de la réplication dans les notifications.
+
+6. Sélectionnez **Réviser + lancer la réplication**.
+
+7. Sélectionnez **Démarrer la réplication**. Le déploiement démarre, et Site Recovery commence à créer des ressources cibles. Vous pouvez superviser la progression de la réplication dans les notifications.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/notifications.png" alt-text="Notification concernant la progression de la réplication.":::
 

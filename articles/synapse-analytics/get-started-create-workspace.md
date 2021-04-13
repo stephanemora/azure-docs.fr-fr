@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: fb30913d71df46f4c0afedd475d40205c1429258
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122201"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106218938"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -37,16 +37,16 @@ Remplissez les champs suivants :
 
 1. **Abonnement** : Choisissez un abonnement.
 1. **Groupe de ressources** : Utilisez n’importe quel groupe de ressources.
-1. **Groupe de ressources** : Laissez ce champ vide.
-
+1. **Groupe de ressources managé** : Laissez ce champ vide.
 
 ## <a name="basics-tab--workspace-details"></a>Onglet Général > Détails de l’espace de travail
 Remplissez les champs suivants :
 
 1. **Nom de l’espace de travail** : Choisissez un nom unique au monde. Dans ce tutoriel, nous utiliserons **myworkspace**.
 1. **Région** : Choisissez n’importe quelle région.
-1. **Sélectionnez Data Lake Storage Gen2**
-1. Cliquez sur le bouton **À partir de l’abonnement**.
+
+Sous **Sélectionner Data Lake Storage Gen2** :
+
 1. À côté de **Nom du compte**, cliquez sur **Créer**, puis nommez le nouveau compte de stockage **contosolake** ou avec un nom similaire, car ce nom doit être unique.
 1. À côté de **Nom du système de fichiers**, cliquez sur **Créer**, puis nommez-le **users**. Cette opération crée un conteneur de stockage appelé **users**. L’espace de travail utilise ce compte de stockage comme compte de stockage « principal » pour les tables Spark et les journaux des applications Spark.
 1. Cochez la case « Attribuez-moi le rôle Contributeur aux données blob du stockage sur le compte Data Lake Storage Gen2 ». 

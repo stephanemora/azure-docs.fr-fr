@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
-ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9198fa6fdd52c91b5be5697fcecbda89a3dbdb3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706807"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276890"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Guide pratique : limiter la latence lors de l’utilisation du service Visage
 
@@ -86,6 +86,7 @@ Si votre ordinateur dispose d’une connexion lente au service Visage, le temps 
 Atténuations :
 - Quand vous créez votre abonnement au service Visage, veillez à choisir la région la plus proche de l’endroit où votre application est hébergée.
 - Si vous devez appeler plusieurs méthodes du service, appelez-les en parallèle si la conception de votre application le permet. Pour obtenir un exemple, consultez la section précédente.
+- Si des latences plus longues affectent l’expérience utilisateur, choisissez un seuil de délai d’attente (par exemple, un maximum de 5 s) avant de retenter l’appel d’API 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

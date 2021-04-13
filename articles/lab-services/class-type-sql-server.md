@@ -5,18 +5,18 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fb1b9e3458d08b8387c7f3978ff83c097fad2375
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659707"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644034"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configurer un laboratoire pour gérer et développer avec SQL Server
 
 Cet article décrit comment configurer un laboratoire pour une classe de base sur le développement et le gestion de SQL Server dans Azure Lab Services.  Les concepts relatifs aux bases de données sont l’un des cours d’introduction enseignés dans la plupart des départements d’informatique à l’université. Le langage SQL est une norme internationale.  SQL est le langage standard pour la gestion des bases de données relationnelles, notamment l’ajout, la récupération et la gestion du contenu dans une base de données.  Il est surtout indiqué pour sa capacité de traitement rapide, sa fiabilité, sa facilité et sa flexibilité d’utilisation.
 
-Dans cet article, nous allons voir comment configurer un modèle de machine virtuelle dans un laboratoire avec [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) et [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  Nous utiliserons une [base de données SQL Server](../azure-sql/database/sql-database-paas-overview.md) partagée pour l’ensemble du laboratoire. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) est une offre de moteur de base de données PaaS (platform-as-a-service) d’Azure.
+Dans cet article, nous allons voir comment configurer un modèle de machine virtuelle dans un laboratoire avec [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) et [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  Nous utiliserons une [base de données SQL Server](../azure-sql/database/sql-database-paas-overview.md) partagée pour l’ensemble du laboratoire. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) est une offre de moteur de base de données PaaS (platform-as-a-service) d’Azure.
 
 ## <a name="lab-configuration"></a>Configuration du laboratoire
 
@@ -50,7 +50,7 @@ Maintenant que la partie réseau est traitée, créons une base de données SQL 
 9. Choisissez une région comme **emplacement**.  Si possible, entrez le même emplacement que le compte lab et le réseau virtuel appairé pour réduire la latence.
 10. Cliquez sur **OK** pour revenir au formulaire **Créer une base de données SQL**.
 11. Cliquez sur le lien **Configurer la base de données** sous le paramètre **Calcul + Stockage**.
-12. Modifiez les paramètres de base de données en fonction des besoins de la classe.  Vous avez le choix entre les options Provisionné et Serverless.  Dans cet exemple, nous allons utiliser l’option Serverless avec mise à l’échelle automatique et affecter à vCores max. la valeur 4 et à vCores min. la valeur 1. Conservons la valeur minimale pour le paramètre de pause automatique, c’est-à-dire 1 heure. Cliquez sur **Appliquer**.
+12. Modifiez les paramètres de base de données en fonction des besoins de la classe.  Vous avez le choix entre les options Provisionné et Serverless.  Dans cet exemple, nous allons utiliser l’option Serverless avec mise à l’échelle automatique et affecter à vCores max. la valeur 4 et à vCores min. la valeur 1. Nous conserverons la valeur minimale pour le paramètre de pause automatique, c’est-à-dire 1 heure. Cliquez sur **Appliquer**.
 13. Cliquez sur **Suivant : Réseau**.
 14. Sous l’onglet Réseau, choisissez Point de terminaison privé comme **Méthode de connectivité**.
 15. Sous la section **Points de terminaison privés**, cliquez sur **Ajouter un point de terminaison privé**.
@@ -60,7 +60,7 @@ Maintenant que la partie réseau est traitée, créons une base de données SQL 
 19. Laissez SqlServer comme Sous-ressource cible.
 20. Pour **Réseau virtuel**, choisissez le même réseau virtuel que celui appairé au compte Lab.
 21. Pour **Sous-réseau**, choisissez le sous-réseau dans lequel vous souhaitez héberger le point de terminaison.  L’adresse IP affectée au point de terminaison provient de la plage affectée à ce sous-réseau.
-22. Pour **Intégrer à une zone DNS privée**, indiquez **Non**. Pour plus de simplicité, nous allons utiliser le DNS d’Azure sur sa propre zone DNS privée ou nos propres serveurs DNS.
+22. Pour **Intégrer à une zone DNS privée**, indiquez **Non**. Pour plus de simplicité, nous utiliserons le DNS d’Azure sur sa propre zone DNS privée ou nos propres serveurs DNS.
 23. Cliquez sur **OK**.
 24. Cliquez sur **Suivant : Paramètres supplémentaires**.
 25. Pour le paramètre **Utiliser des données existantes**, choisissez **Exemple**.  Les données de la base de données AdventureWorksLT seront utilisées lors de la création de la base de données.
@@ -82,9 +82,9 @@ Maintenant que notre laboratoire est créé, modifions la machine modèle avec l
 
 ## <a name="visual-studio"></a>Visual Studio
 
-L’image choisie ci-dessus comprend [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/).  Toutes les charges de travail et tous les ensembles d’outils sont déjà installés dans l’image.  Utilisez Visual Studio Installer pour [installer des outils facultatifs](/visualstudio/install/modify-visual-studio?view=vs-2019).  [Connectez-vous à Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) pour déverrouiller l’édition Community.
+L’image choisie ci-dessus comprend [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/).  Toutes les charges de travail et tous les ensembles d’outils sont déjà installés dans l’image.  Utilisez Visual Studio Installer pour [installer des outils facultatifs](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true).  [Connectez-vous à Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&preserve-view=true#how-to-sign-in-to-visual-studio) pour déverrouiller l’édition Community.
 
-Visual Studio inclut l’ensemble d’outils **Traitement et stockage des données** qui comprend SQL Server Data Tools (SSDT).  Pour plus d’informations sur les fonctionnalités de SSDT, consultez la [vue d’ensemble de SQL Server Data Tools](/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Pour vérifier que la connexion au serveur SQL partagé pour la classe réussira, consultez le [guide pratique pour se connecter à une base de données et parcourir les objets existants](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Si vous y êtes invité, ajoutez l’adresse IP de la machine modèle à la [liste des ordinateurs autorisés](../azure-sql/database/firewall-configure.md) à se connecter à votre instance SQL Server.
+Visual Studio inclut l’ensemble d’outils **Traitement et stockage des données** qui comprend SQL Server Data Tools (SSDT).  Pour plus d’informations sur les fonctionnalités de SSDT, consultez la [vue d’ensemble de SQL Server Data Tools](/sql/ssdt/sql-server-data-tools).  Pour vérifier que la connexion au serveur SQL partagé pour la classe réussira, consultez le [guide pratique pour se connecter à une base de données et parcourir les objets existants](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects). Si vous y êtes invité, ajoutez l’adresse IP de la machine modèle à la [liste des ordinateurs autorisés](../azure-sql/database/firewall-configure.md) à se connecter à votre instance SQL Server.
 
 Visual Studio prend en charge plusieurs charges de travail, notamment **Web et cloud** et **Bureau et mobile**.  Ces deux charges de travail prennent en charge SQL Server comme source de données. Pour plus d’informations sur l’utilisation d’ASP.NET Core pour SQL Server, consultez le tutoriel [Créer une application ASP.NET Core et SQL Database dans Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md).  Utilisez la bibliothèque [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) pour vous connecter à une base de données SQL à partir d’une application [Xamarin](/xamarin).
 
@@ -100,7 +100,7 @@ Visual Studio prend en charge plusieurs charges de travail, notamment **Web et c
 6. Dans la page **Prêt pour l’installation**, cliquez sur **Suivant**.
 7. Attendez que le programme d’installation s’exécute.  Cliquez sur **Terminer**.
 
-Une fois Azure Data Studio installé, nous allons configurer la connexion à Azure SQL Database.
+Une fois Azure Data Studio installé, nous pouvons passer à la configuration de la connexion à Azure SQL Database.
 
 1. Dans la **page d’accueil** d’Azure Data Studio, cliquez sur le lien **Nouvelle connexion**.
 2. Dans la zone **Détails de la connexions**, indiquez les informations nécessaires.
@@ -113,7 +113,7 @@ Une fois Azure Data Studio installé, nous allons configurer la connexion à Azu
 
 ## <a name="install-sql-server-management-studio"></a>Installer SQL Server Management Studio
 
-[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) est un environnement intégré pour la gestion des infrastructures SQL.  SSMS est un outil qui permet aux administrateurs de base de données de déployer, de superviser et de mettre à niveau l’infrastructure des données.
+[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) est un environnement intégré pour la gestion des infrastructures SQL.  SSMS est un outil qui permet aux administrateurs de base de données de déployer, de superviser et de mettre à niveau l’infrastructure des données.
 
 1. [Téléchargez SQL Server Management Studio](https://aka.ms/ssmsfullsetup). Une fois le téléchargement terminé, démarrez le programme d’installation.
 2. Dans la **page d’accueil**, cliquez sur **Installer**.

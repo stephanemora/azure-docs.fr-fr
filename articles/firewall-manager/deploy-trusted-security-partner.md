@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/31/2021
 ms.author: victorh
-ms.openlocfilehash: 906687e08c9f31890a9ecec9154079e704512832
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b8e10eef89df12807cabd96d64d9c7d659f91d6c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96485720"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109507"
 ---
 # <a name="deploy-a-security-partner-provider"></a>Déployer un fournisseur de partenaire de sécurité
 
@@ -90,28 +90,25 @@ Pour que vous puissiez configurer des tunnels vers la passerelle VPN de votre hu
    
 2. Vous pouvez consulter l’état de la création du tunnel sur le portail Azure Virtual WAN dans Azure. Une fois que l’état des tunnels est **connecté** à la fois sur Azure et sur le portail partenaire, passez aux étapes suivantes pour configurer des routes afin de sélectionner les filiales et les réseaux virtuels qui doivent envoyer le trafic Internet au partenaire.
 
-## <a name="configure-route-settings"></a>Configurer les paramètres de routage
+## <a name="configure-security-with-firewall-manager"></a>Configurer la sécurité avec Firewall Manager
 
 1. Accédez à Azure Firewall Manager -> Hubs sécurisés. 
 2. Sélectionnez un hub. L’état du hub doit maintenant indiquer **Provisionné** au lieu de **Connexion sécurisée en attente**.
 
    Vérifiez que le fournisseur tiers peut se connecter au hub. Les tunnels sur la passerelle VPN doivent se trouver dans un état **connecté**. Cet état est plus révélateur de l’intégrité de la connexion entre le hub et le partenaire tiers que l’état précédent.
-3. Sélectionnez le hub, puis accédez à **Paramètres de routage**.
+3. Sélectionnez le hub et accédez à **Configurations de sécurité**.
 
    Quand vous déployez un fournisseur tiers sur le hub, il convertit ce dernier en *hub virtuel sécurisé*. Ainsi, le fournisseur tiers publie une route 0.0.0.0/0 (par défaut) vers le hub. Toutefois, les connexions de réseau virtuel et les sites connectés au hub n’obtiennent pas cette route par défaut, sauf si vous choisissez les connexions qui doivent l’obtenir.
-4. Sous **Trafic Internet**, sélectionnez **De réseau virtuel vers Internet** ou **De filiale vers Internet** ou les deux pour que les routes soient configurées afin que l’envoi transite par le tiers.
+4. Configurez la sécurité WAN virtuelle en définissant le **Trafic Internet** via le Pare-feu Azure et le **Trafic privé** via un partenaire de sécurité approuvé. Cela sécurise automatiquement les connexions individuelles dans le WAN virtuel.
 
-   Cela indique uniquement le type de trafic à router vers le hub, mais n’affecte pas encore les routes sur les réseaux virtuels ou les filiales. Ces routes ne sont pas propagées par défaut à tous les réseaux virtuels/filiales attachés au hub.
-5. Vous devez sélectionner **Connexions sécurisées** et sélectionner les connexions sur lesquelles ces routes doivent être définies. Cela indique les réseaux virtuels/filiales qui peuvent commencer à envoyer du trafic Internet vers le fournisseur tiers.
-6. Dans **Paramètres de routage**, sélectionnez **Connexions sécurisées** sous Trafic Internet, puis sélectionnez le réseau virtuel ou les filiales (*sites* dans Virtual WAN) à sécuriser. Sélectionnez **Sécuriser le trafic Internet**.
-   ![Sécuriser le trafic Internet](media/deploy-trusted-security-partner/secure-internet-traffic.png)
-7. Revenez à la page des hubs. L’état **Partenaire de sécurité** du hub doit désormais être **Sécurisé**.
+   :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Configuration de la sécurité":::
+5. De plus, si votre organisation utilise des plages d’adresses IP publiques dans des réseaux virtuels et des filiales, vous devez spécifier ces préfixes IP explicitement à l’aide de **Préfixes de trafic privé**. Les adresses IP publiques peuvent être spécifiées individuellement ou en tant qu’agrégats.
 
 ## <a name="branch-or-vnet-internet-traffic-via-third-party-service"></a>Trafic Internet de filiale ou de réseau virtuel via un service tiers
 
 Ensuite, vous pouvez vérifier si des machines virtuelles de réseau virtuel ou le site de filiale peuvent accéder à Internet et vérifier que le trafic est acheminé vers le service tiers.
 
-Une fois terminées les étapes du paramétrage des routes, les machines virtuelles de réseau virtuel ainsi que les sites de filiale reçoivent une route 0/0 vers le service tiers. Vous ne pouvez pas utiliser le protocole RDP ou SSH dans ces machines virtuelles. Pour vous connecter, vous pouvez déployer le service [Azure Bastion](../bastion/bastion-overview.md) dans un réseau virtuel appairé.
+Une fois les étapes du paramétrage des itinéraires terminées, les machines virtuelles de réseau virtuel ainsi que les sites de filiale reçoivent une route 0/0 vers le service tiers. Vous ne pouvez pas utiliser le protocole RDP ou SSH dans ces machines virtuelles. Pour vous connecter, vous pouvez déployer le service [Azure Bastion](../bastion/bastion-overview.md) dans un réseau virtuel appairé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

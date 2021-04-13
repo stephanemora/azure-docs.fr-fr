@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6d3be90cc81b1bcd9a55fc8e53cb9f2238e8c6de
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98183470"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285975"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procédure : Déployer une application web de comptage de personnes
 
@@ -172,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Pour installer le conteneur, créez une nouvelle Web App pour conteneurs Azure et renseignez les paramètres requis. Accédez ensuite à l’onglet **Docker** et sélectionnez **Conteneur unique**, puis **Azure Container Registry**. Utilisez l’instance Azure Container Registry à laquelle vous avez envoyé l’image ci-dessus.
+Pour installer le conteneur, créez un nouveau Azure App Service et renseignez les paramètres requis. Accédez ensuite à l’onglet **Docker** et sélectionnez **Conteneur unique**, puis **Azure Container Registry**. Utilisez l’instance Azure Container Registry à laquelle vous avez envoyé l’image ci-dessus.
 
 ![Entrer les détails de l’image](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -189,7 +189,7 @@ Une fois ces 2 paramètres ajoutés, cliquez sur **Enregistrer**. Cliquez ensuit
 
 ### <a name="test-the-app"></a>Tester l’application
 
-Accédez à l’application web Azure et vérifiez que le déploiement a réussi et que l’application web est en cours d’exécution. Accédez à l’URL configurée : `<yourapp>.azurewebsites.net` pour afficher l’application en cours d’exécution.
+Accédez au service Azure et vérifiez que le déploiement a réussi et que l’application web est en cours d’exécution. Accédez à l’URL configurée : `<yourapp>.azurewebsites.net` pour afficher l’application en cours d’exécution.
 
 ![test du déploiement](./media/spatial-analysis/solution-app-output.png)
 

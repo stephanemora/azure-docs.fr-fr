@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100585423"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641973"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
-Dans nos discussions avec les clients Azure actuels et futurs, une question revient souvent : « Avez-vous une liste de tous les services et technologies de sécurité proposés par Azure ? ».
+Dans nos discussions avec les clients Azure actuels et futurs, une question revient souvent : « Avez-vous une liste de tous les services et technologies liés à la sécurité proposés par Azure ? »
 
 Quand vous évaluez les options d’un fournisseur de services cloud, il est utile de disposer de ces informations. Nous avons donc confectionné cette liste pour vous aider à démarrer.
 
@@ -59,8 +59,8 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Pare-feu&nbsp;SQL&nbsp;Azure](../../azure-sql/database/firewall-configure.md)|Fonctionnalité de contrôle d’accès réseau qui protège la base de données contre les attaques réseau. |
 |[Chiffrement&nbsp;au niveau des cellules&nbsp;SQL&nbsp;Azure](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| Technologie de sécurité des bases de données qui fournit un chiffrement à un niveau granulaire.  |
 | [Chiffrement de connexion&nbsp;SQL&nbsp;Azure](../../azure-sql/database/logins-create-manage.md)|Pour assurer la sécurité, SQL Database contrôle l’accès avec des règles de pare-feu qui limitent la connectivité par adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. |
-| [Chiffrement systématique SQL Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protège les données sensibles, comme les numéros de carte bancaire ou les numéros d’identification (par exemple les numéros de sécurité sociale), stockées dans Azure SQL Database ou dans des bases de données SQL Server.  |
-| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Fonctionnalité de sécurité de base de données qui chiffre le stockage de toute une base de données. |
+| [Chiffrement systématique SQL Azure](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protège les données sensibles, comme les numéros de carte bancaire ou les numéros d’identification (par exemple les numéros de sécurité sociale), stockées dans Azure SQL Database ou dans des bases de données SQL Server.  |
+| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| Fonctionnalité de sécurité de base de données qui chiffre le stockage de toute une base de données. |
 | [Audit Azure SQL Database](../../azure-sql/database/auditing-overview.md)|Fonctionnalité d’audit de base de données qui suit les événements de base de données et les consigne dans un journal d’audit, dans votre compte de stockage Azure.  |
 
 

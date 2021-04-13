@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f102bbe45fd5eea853ba63def4f1c1a92888ca46
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487098"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285941"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -40,7 +40,7 @@ La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponibl
 * Extrayez uniquement le texte des pages sélectionnées pour un document multipage.
 * Disponible en tant que [conteneur Distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) pour un déploiement local.
 
-[Découvrez-en plus](concept-recognizing-text.md) sur l’API Lire.
+Pour en savoir plus, consultez le [guide pratique consacré à l'API Read](Vision-API-How-to-Topics/call-read-api.md).
 
 > [!div class="nextstepaction"]
 > [Utiliser la préversion publique de l’API Lire v 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
@@ -48,19 +48,19 @@ La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponibl
 
 ## <a name="january-2021"></a>Janvier 2021
 
-### <a name="spatial-analysis-container-update"></a>Mise à jour du conteneur d’analyse spatiale
+### <a name="spatial-analysis-container-update"></a>Mise à jour du conteneur Analyse spatiale
 
-Une nouvelle version du [conteneur d’analyse spatiale](spatial-analysis-container.md) a été publiée avec un nouvel ensemble de fonctionnalités. Ce conteneur Docker vous permet d’analyser des vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. 
+Une nouvelle version du [conteneur Analyse spatiale](spatial-analysis-container.md) a été publiée avec un nouvel ensemble de fonctionnalités. Ce conteneur Docker vous permet d’analyser des vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. 
 
-* Des [opérations d’analyse spatiale](spatial-analysis-operations.md) peuvent maintenant être configurées pour détecter si une personne porte un appareil de protection respiratoire comme un masque. 
+* Des [opérations d'analyse spatiale](spatial-analysis-operations.md) peuvent maintenant être configurées pour détecter si une personne porte un appareil de protection respiratoire comme un masque. 
     * Un classifieur de masque peut être activé pour les opérations `personcount`, `personcrossingline` et `personcrossingpolygon` en configurant le paramètre `ENABLE_FACE_MASK_CLASSIFIER`.
     * Les attributs `face_mask` et `face_noMask` sont retournés en tant que métadonnées avec un score de confiance pour chaque personne détectée dans le flux vidéo.
 * L’opération *personcrossingpolygon* a été étendue pour permettre le calcul du temps de séjour d’une personne dans une zone. Vous pouvez définir le paramètre `type` dans la configuration de zone de l’opération sur `zonedwelltime`. Un nouvel événement de type *personZoneDwellTimeEvent* inclut alors le champ `durationMs` complété avec le nombre de millisecondes que la personne a passé dans la zone.
 * **Changement cassant** : l’événement *personZoneEvent* a été renommé *personZoneEnterExitEvent*. Cet événement est déclenché par l’opération *personcrossingpolygon* quand une personne entre dans la zone ou la quitte et fournit des informations directionnelles avec le côté numéroté de la zone qui a été franchie.
 * L’URL de la vidéo peut être fournie en tant que « Paramètre privé/obscurci » dans toutes les opérations. L’obscurcissement est actuellement facultatif et ne fonctionne que si `KEY` et `IV` sont fournis en tant que variables d’environnement.
 * L’étalonnage est activé par défaut pour toutes les opérations. Définissez `do_calibration: false` pour le désactiver.
-* Ajout de la prise en charge du réétalonnage automatique (désactivé par défaut) via le paramètre `enable_recalibration`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](./spatial-analysis-operations.md)
-* Paramètres d’étalonnage de caméra sur `DETECTOR_NODE_CONFIG`. Pour plus d’informations, consultez [Opérations d’analyse spatiale](./spatial-analysis-operations.md).
+* Ajout de la prise en charge du réétalonnage automatique (désactivé par défaut) via le paramètre `enable_recalibration`. Pour plus d'informations, consultez [Opérations d'analyse spatiale](./spatial-analysis-operations.md).
+* Paramètres d’étalonnage de caméra sur `DETECTOR_NODE_CONFIG`. Pour plus d'informations, consultez [Opérations d'analyse spatiale](./spatial-analysis-operations.md).
 
 
 ## <a name="october-2020"></a>Octobre 2020
@@ -71,9 +71,9 @@ L’API Vision par ordinateur en disponibilité générale a été mise à nivea
 
 ## <a name="september-2020"></a>Septembre 2020
 
-### <a name="spatial-analysis-container-preview"></a>Conteneur d’analyse spatiale en préversion
+### <a name="spatial-analysis-container-preview"></a>Conteneur Analyse spatiale en préversion
 
-Le [conteneur d’analyse spatiale](spatial-analysis-container.md) est maintenant en préversion. La fonctionnalité d’analyse spatiale de Vision par ordinateur vous permet d’analyser les vidéos en streaming en temps réel afin de comprendre les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. L’analyse spatiale est un conteneur Docker que vous pouvez utiliser localement. 
+Le [conteneur Analyse spatiale](spatial-analysis-container.md) est désormais disponible en préversion. La fonctionnalité Analyse spatiale de Vision par ordinateur vous permet d'analyser les vidéos en streaming en temps réel afin d'analyser les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. Analyse spatiale est un conteneur Docker que vous pouvez utiliser localement. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>La préversion publique de l’API Lire v3.1 ajoute la reconnaissance optique de caractères (OCR) pour le japonais
 La préversion publique de l’API Lire v3.1 de Vision par ordinateur ajoute les fonctionnalités suivantes :
@@ -83,7 +83,7 @@ La préversion publique de l’API Lire v3.1 de Vision par ordinateur ajoute les
 
 * Cette préversion de l’API Lire prend en charge le français, l’allemand, l’anglais, le chinois simplifié, l’espagnol, l’italien, le japonais, le néerlandais et le portugais.
 
-Pour en savoir plus, consultez la [vue d’ensemble de l’API de lecture](concept-recognizing-text.md).
+Pour en savoir plus, consultez le [guide pratique consacré à l'API Read](Vision-API-How-to-Topics/call-read-api.md).
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la préversion publique 2 de l’API Lire v3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -95,18 +95,20 @@ La prise en charge du chinois simplifié est ajoutée à la préversion publique
 
 * Cette préversion de l’API de lecture prend en charge l’anglais, le néerlandais, le français, l’allemand, l’italien, le portugais, le chinois simplifié et l’espagnol.
 
-Pour en savoir plus, consultez la [vue d’ensemble de l’API de lecture](concept-recognizing-text.md).
+Pour en savoir plus, consultez le [guide pratique consacré à l'API Read](Vision-API-How-to-Topics/call-read-api.md).
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur la préversion publique 1 de l’API Lire v3.1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Mai 2020
-L’API Vision par ordinateur v 3.0 est en disponibilité générale, avec des mises à jour de l’[API Lire](concept-recognizing-text.md) :
+L'API Vision par ordinateur v3.0 est en phase de disponibilité générale, avec des mises à jour de l'API Read :
 
 * Prise en charge de l’anglais, du néerlandais, du français, de l’allemand, de l’italien, du portugais et de l’espagnol
 * Précision accrue
 * Score de confiance pour chaque mot extrait
 * Nouveau format de sortie
+
+Pour en savoir plus, consultez la [Présentation de la Reconnaissance optique de caractères (OCR)](overview-ocr.md).
 
 ## <a name="march-2020"></a>Mars 2020
 

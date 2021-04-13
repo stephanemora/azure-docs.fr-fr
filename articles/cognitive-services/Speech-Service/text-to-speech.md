@@ -12,18 +12,25 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversion de texte par synthèse vocale
-ms.openlocfilehash: 653f9fcd9d3d8d6347d961603acc6eb481ee7f41
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 1a7ff7befc1a5e82c5518cf103a81b35ec38c7db
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869172"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449356"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Dans cette vue d’ensemble, vous allez découvrir les avantages et les capacités du service de conversion de texte par synthèse vocale, qui permet à vos applications, outils ou appareils de convertir du texte en voix synthétisée quasi humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou à votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans un nombre limité de langues et de paramètres régionaux. Pour obtenir la liste complète des voix, langues et paramètres régionaux pris en charge, consultez [Langues prises en charge](language-support.md#text-to-speech).
+
+Cette documentation contient les types d’articles suivants :
+
+* Les **Démarrages rapides** sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.
+* Les **Guides pratiques** contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
+* Les **Concepts** fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
+* Les **Tutoriels** sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.
 
 > [!NOTE]
 > La reconnaissance vocale Bing a été mise hors service le 15 octobre 2019. Si vos applications, outils ou produits utilisent les API Reconnaissance vocale Bing ou Custom Speech, nous avons créé des guides pour vous aider à effectuer leur migration vers le service Speech.
@@ -44,7 +51,7 @@ Dans cette vue d’ensemble, vous allez découvrir les avantages et les capacit�
 * Visèmes : Les [visèmes](how-to-speech-synthesis-viseme.md) sont les principaux éléments de parole observés, y compris la position des lèvres, de la mâchoire et de la langue lors de la production d’un phonème particulier. Les visèmes ont une corrélation forte avec les voix et les phonèmes. À l’aide des événements de visème dans le kit de développement logiciel (SDK) Speech, vous pouvez générer des données d’animation faciale qui peuvent être utilisées pour animer des visages dans la communication, l’enseignement, le divertissement et le service à la clientèle.
 
 > [!NOTE]
-> Visème fonctionne uniquement pour la voix `en-US-AriaNeural` dans la région USA Ouest (`westus`) et sera disponible pour toutes les voix `en-US` d’ici fin avril 2021.
+> Viseme ne fonctionne que pour la voix `en-US-AriaNeural` pour le moment.
 
 ## <a name="get-started"></a>Prise en main
 

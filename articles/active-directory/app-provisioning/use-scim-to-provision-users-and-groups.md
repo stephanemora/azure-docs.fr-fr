@@ -12,12 +12,12 @@ ms.date: 03/22/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d517aaa6121120399e09bfef8aa6dd36e745563
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105022940"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449447"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutoriel : Développer et planifier le provisionnement pour un point de terminaison SCIM
 
@@ -168,10 +168,10 @@ Plusieurs points de terminaison sont définis dans la RFC SCIM. Vous pouvez comm
 |--|--|
 |/User|Permet d’effectuer des opérations CRUD sur un objet utilisateur.|
 |/Group|Permet d’effectuer des opérations CRUD sur un objet groupe.|
-|/ServiceProviderConfig|Fournit des détails sur les fonctionnalités de la norme SCIM prises en charge, par exemple les ressources prises en charge et la méthode d’authentification.|
-|/ResourceTypes|Spécifie les métadonnées relatives à chaque ressource.|
 |/Schemas|L’ensemble des attributs pris en charge par chaque client et chaque fournisseur de services peut varier. Un fournisseur de services peut inclure `name`, `title` et `emails`, tandis qu’un autre fournisseur de services utilise `name`, `title` et `phoneNumbers`. Le point de terminaison /Schemas permet la découverte des attributs pris en charge.|
 |/Bulk|Les opérations en bloc vous permettent d’effectuer des opérations sur un grand nombre d’objets ressource à la fois (par exemple, pour mettre à jour les appartenances dans un grand groupe).|
+|/ServiceProviderConfig|Fournit des détails sur les fonctionnalités de la norme SCIM prises en charge, par exemple les ressources prises en charge et la méthode d’authentification.|
+|/ResourceTypes|Spécifie les métadonnées relatives à chaque ressource.|
 
 **Exemple de liste de points de terminaison**
 
@@ -1329,9 +1329,9 @@ Utilisez la liste de vérification pour intégrer rapidement votre application e
 > * Trois informations d’identification de test sans date d’expiration pour l’application (obligatoire)
 > * Prise en charge de l’octroi de code d’autorisation OAuth ou d’un jeton de longue durée, comme décrit ci-dessous (obligatoire)
 > * Établissement d’un point de contact d’ingénierie et de support pour la prise en charge de l’intégration des clients à la galerie de publications (obligatoire)
+> * [Prise en charge de la détection de schéma (obligatoire)](https://tools.ietf.org/html/rfc7643#section-6)
 > * Prise en charge de la mise à jour de l’appartenance à plusieurs groupes avec un seul correctif
 > * Documentation publique de votre point de terminaison SCIM
-> * [Prise en charge de la découverte de schéma](https://tools.ietf.org/html/rfc7643#section-6)
 
 ### <a name="authorization-to-provisioning-connectors-in-the-application-gallery"></a>Autorisation des connecteurs de provisionnement dans la galerie d’applications
 La spécification SCIM ne définit pas un schéma propre à SCIM pour l’authentification et l’autorisation. En outre, elle s’appuie sur l’utilisation de normes industrielles existantes.

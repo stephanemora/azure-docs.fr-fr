@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185765"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448268"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Créer des scripts PowerShell pour l’attachement de l’application MSIX (préversion)
 
@@ -27,7 +27,7 @@ Cet article vous guide tout au long de la configuration des scripts PowerShell p
 
 ## <a name="install-certificates"></a>Installer des certificats
 
-Vous devez installer des certificats sur tous les hôtes de session dans le pool hôte qui hébergera les points d’accès à partir des packages d’attachement d’application MSIX.
+Vous devez installer des certificats sur tous les hôtes de session dans le pool hôte qui hébergera les applications à partir des packages d’attachement d’application MSIX.
 
 Si votre application utilise un certificat qui n’est pas approuvé publiquement ou qui a été auto-signé, procédez comme suit pour l’installer :
 

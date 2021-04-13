@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Go'
+title: 'Démarrage rapide : Bibliothèque de client Reconnaissance optique de caractères pour Go'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser la bibliothèque cliente Vision par ordinateur pour Go avec ce guide de démarrage rapide.
+description: Ce guide de démarrage rapide vous permettra de vous familiariser avec la bibliothèque de client Reconnaissance optique de caractères pour Go.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,19 +10,16 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 9cb46a57792ecdd650a8a9f5025a5055257057ec
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: b935b8a467097eb60c095c5d317f13693ef68b62
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622243"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284768"
 ---
 <a name="HOLTop"></a>
 
-Utilisez la bibliothèque de client Vision par ordinateur pour :
-
-* Analyser une image pour identifier les étiquettes, la description textuelle, les visages, le contenu pour adultes, etc.
-* Lire du texte imprimé et manuscrit avec l’API Lire.
+Utilisez la bibliothèque de client OCR pour lire du texte imprimé et manuscrit à partir d'images.
 
 [Documentation de référence](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
@@ -33,7 +30,6 @@ Utilisez la bibliothèque de client Vision par ordinateur pour :
 * Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur </a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
     * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* [Créez des variables d’environnement](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) pour la clé et l’URL du point de terminaison, nommées respectivement `COMPUTER_VISION_SUBSCRIPTION_KEY` et `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -96,28 +92,25 @@ Créez des variables pour votre clé d’abonnement et votre point de terminaiso
 > [!IMPORTANT]
 > N’oubliez pas de supprimer la clé d’abonnement de votre code une fois que vous avez terminé, et ne la publiez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](../../../../key-vault/general/overview.md).
 
-Ensuite, vous commencerez à ajouter du code pour effectuer différentes opérations Vision par ordinateur.
+Ensuite, vous commencerez à ajouter du code pour effectuer différentes opérations OCR.
 
 > [!div class="nextstepaction"]
 > [J’ai configuré le client](?success=set-up-client#object-model) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client)
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et interfaces suivantes prennent en charge certaines des fonctionnalités principales du SDK Go pour Vision par ordinateur.
+Les classes et interfaces suivantes gèrent certaines des principales fonctionnalités du SDK OCR Go.
 
 |Nom|Description|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Cette classe est nécessaire pour toutes les fonctionnalités Vision par ordinateur, telles que l’analyse d’images et la lecture de texte. Vous l’instanciez avec vos informations d’abonnement, et vous l’utilisez pour effectuer la plupart des opérations relatives aux images.|
-|[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Ce type contient les résultats d’un appel de fonction **AnalyzeImage**. Il existe des types similaires pour chacune des fonctions propres à une catégorie.|
 |[ReadOperationResult](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ReadOperationResult)| Ce type contient les résultats d’une opération de lecture par lots. |
-|[VisualFeatureTypes](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#VisualFeatureTypes)| Ce type définit les différentes analyses d’images qui peuvent être effectuées lors d’une opération d’analyse standard. Vous spécifiez un ensemble de valeurs VisualFeatureTypes en fonction de vos besoins. |
 
 ## <a name="code-examples"></a>Exemples de code
 
-Ces extraits de code vous montrent comment effectuer les tâches suivantes avec la bibliothèque de client Vision par ordinateur pour Go :
+Ces extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client OCR pour Go :
 
 * [Authentifier le client](#authenticate-the-client)
-* [Analyser une image](#analyze-an-image)
 * [Lire du texte imprimé et manuscrit](#read-printed-and-handwritten-text)
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
@@ -130,105 +123,13 @@ Créez une fonction `main` et ajoutez-lui le code suivant pour instancier un cli
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [J’ai authentifié le client](?success=authenticate-client#analyze-an-image) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
+> [J’ai authentifié le client](?success=authenticate-client#read-printed-and-handwritten-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
 
-## <a name="analyze-an-image"></a>Analyser une image
 
-Le code suivant utilise l’objet client pour analyser une image distante et afficher les résultats dans la console. Vous pouvez obtenir une description textuelle, une catégorisation, une liste d’étiquettes, les marques détectées, les visages détectés, les indicateurs de contenu pour adultes, les couleurs principales et le type d’image.
-
-### <a name="set-up-test-image"></a>Configurer une image de test
-
-Enregistrez d’abord une référence à l’URL de l’image que vous souhaitez analyser. Placez ce contenu dans votre fonction `main`.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
-
-> [!TIP]
-> Vous pouvez également analyser une image locale. Consultez les méthodes [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient), telles que **DescribeImageInStream**. Ou consultez l’exemple de code sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) pour obtenir des scénarios impliquant des images locales.
-
-### <a name="specify-visual-features"></a>Spécifier les caractéristiques visuelles
-
-Les appels de fonction suivants extraient différentes fonctionnalités visuelles de l’exemple d’image. Vous allez définir ces fonctions dans les sections suivantes.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze)]
-
-### <a name="get-image-description"></a>Obtenir une description d’image
-
-La fonction suivante obtient la liste des légendes générées pour l’image. Pour plus d’informations sur la description des images, consultez [Décrire les images](../../concept-describing-images.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
-
-### <a name="get-image-category"></a>Obtenir une catégorie d’image
-
-La fonction suivante obtient la catégorie détectée de l’image. Pour plus d’informations, consultez [Classer des images](../../concept-categorizing-images.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
-
-### <a name="get-image-tags"></a>Obtenir des étiquettes d’image
-
-La fonction suivante obtient l’ensemble des étiquettes détectées dans l’image. Pour plus d’informations, consultez [Étiquettes de contenu](../../concept-tagging-images.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_tags)]
-
-### <a name="detect-objects"></a>Détecter des objets
-
-La fonction suivante détecte les objets courants présents dans l’image et les affiche sur la console. Pour plus d’informations, consultez [Détection des objets](../../concept-object-detection.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_objects)]
-
-### <a name="detect-brands"></a>Détecter les marques
-
-Le code suivant détecte les marques et logos d’entreprise dans l’image, et les affiche sur la console. Pour plus d’informations, consultez [Détection des marques](../../concept-brand-detection.md).
-
-Tout d’abord, déclarez une référence à une nouvelle image dans votre fonction `main`.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brand_url)]
-
-Le code suivant définit la fonction de détection des marques.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brands)]
-
-### <a name="detect-faces"></a>Détecter des visages
-
-La fonction suivante retourne les visages détectés dans l’image avec les coordonnées de leur rectangle, et sélectionne certains attributs du visage. Pour plus d’informations, consultez [Détection des visages](../../concept-detecting-faces.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_faces)]
-
-### <a name="detect-adult-racy-or-gory-content"></a>Détecter des contenus pour adultes, choquants ou sordides
-
-La fonction suivante imprime la présence détectée de contenu pour adultes dans l’image. Pour plus d’informations, consultez [Contenu pour adultes choquant ou sordide](../../concept-detecting-adult-content.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_adult)]
-
-### <a name="get-image-color-scheme"></a>Obtenir le modèle de couleurs d’une image
-
-La fonction suivante affiche les attributs de couleur détectés dans l’image, comme les couleurs dominantes et la couleur d’accentuation. Pour plus d’informations, consultez [Jeux de couleurs](../../concept-detecting-color-schemes.md).
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_color)]
-
-### <a name="get-domain-specific-content"></a>Obtenir le contenu spécifique à un domaine
-
-La Vision par ordinateur peut utiliser des modèles spécialisés pour effectuer une analyse approfondie des images. Pour plus d’informations, consultez [Contenu spécifique à un domaine](../../concept-detecting-domain-content.md). 
-
-Le code suivant analyse des données relatives aux célébrités détectées dans l’image.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_celebs)]
-
-Le code suivant analyse des données relatives aux monuments détectés dans l’image.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_landmarks)]
-
-### <a name="get-the-image-type"></a>Obtenir le type d’image
-
-La fonction suivante affiche des informations sur le type d’image, qu’il s’agisse d’une image clipart ou d’un dessin au trait.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
-
-> [!div class="nextstepaction"]
-> [J’ai analysé une image](?success=analyze-image#read-printed-and-handwritten-text) [J’ai rencontré un problème](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Lire du texte imprimé et manuscrit
 
-Vision par ordinateur peut lire du texte visible dans une image et le convertir en flux de caractères. Le code de cette section définit une fonction (`RecognizeTextReadAPIRemoteImage`) qui utilise l’objet client pour détecter et extraire du texte imprimé ou manuscrit dans l’image.
+Le service OCR peut lire du texte visible dans une image et le convertir en flux de caractères. Le code de cette section définit une fonction (`RecognizeTextReadAPIRemoteImage`) qui utilise l’objet client pour détecter et extraire du texte imprimé ou manuscrit dans l’image.
 
 Ajoutez la référence et l’appel de fonction de l’exemple d’image dans votre fonction `main`.
 
@@ -282,8 +183,8 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Référence de l’API Vision par ordinateur (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+> [Informations de référence sur l'API OCR (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
 
-* [Qu’est-ce que le service Vision par ordinateur ?](../../overview.md)
+* [Vue d’ensemble de la reconnaissance OCR](../../overview-ocr.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: normesta
-ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c9eb1aa2e88019609f5ab26c2e995e4e43063ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100516276"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640815"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Fonctionnalités du stockage de blobs disponibles dans Azure Data Lake Storage Gen2
 
@@ -50,7 +50,7 @@ Le tableau suivant présente la prise en charge de chaque fonctionnalité de sto
 |Accès public anonyme |Mise à la disposition générale|Mise à la disposition générale| Consultez [Configurer l’accès en lecture public anonyme pour les conteneurs et les objets blob](anonymous-read-access-configure.md).|
 |Basculement de compte géré par le client|Pas encore pris en charge|Pas encore pris en charge|[Récupération d’urgence et basculement de compte](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Clés fournies par le client|Pas encore pris en charge|Pas encore pris en charge|[Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](encryption-customer-provided-keys.md)|
-|Étendues de chiffrement|Pas encore pris en charge|Pas encore pris en charge|[Créer et gérer des étendues de chiffrement (version préliminaire)](encryption-scope-manage.md)|
+|Étendues de chiffrement|Pas encore pris en charge|Pas encore pris en charge|[Créer et gérer des étendues de chiffrement](encryption-scope-manage.md)|
 |Modifier le flux|Pas encore pris en charge|Pas encore pris en charge|[Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)|
 |Réplication d’objets|Pas encore pris en charge|Pas encore pris en charge|[Configurer la réplication d’objets pour des objets blob de blocs](object-replication-configure.md)|
 |Gestion des versions des objets blob|Pas encore pris en charge|Pas encore pris en charge|[Activer et gérer le contrôle de version des objets blob](versioning-enable.md)|
