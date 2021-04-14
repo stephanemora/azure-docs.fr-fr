@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e67219e0b029ce401ffc05c009a5cc4a96680a9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fdd8b10c7106380c296c8131ade909ee88d0f8
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593388"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107089"
 ---
 # <a name="co-sell-requirements"></a>Exigences en matière de co-vente
 
@@ -35,7 +35,7 @@ Pour obtenir le statut Prêt pour la co-vente, vous devez remplir les conditions
 
 **Tous les partenaires** :
 
-- Avoir un ID MPN et un [compte de Place de marché commerciale actif dans l’Espace partenaires](./partner-center-portal/create-account.md).
+- Avoir un ID MPN et un [compte de Place de marché commerciale actif dans l’Espace partenaires](create-account.md).
 - Vérifier que vous disposez d’un [profil métier](/partner-center/create-a-marketing-profile) complet dans l’Espace partenaires. En tant que partenaire Microsoft qualifié, votre profil métier vous aide à présenter votre activité aux clients qui recherchent vos solutions et votre expertise uniques afin de répondre à leurs besoins métier, et donc à générer des [références](/partner-center/referrals).
 - Compléter l’onglet **Co-vente avec Microsoft** et publier l’offre sur la Place de marché commerciale.
 - Indiquez un contact commercial pour chaque zone géographique éligible à la co-vente ainsi que la nomenclature requise.
@@ -59,7 +59,7 @@ Nous mettons des modèles à votre disposition pour vous aider à créer ces doc
 
 ### <a name="publish-your-offer-live"></a>Publier votre offre en ligne
 
-Pour être éligible au statut Prêt pour la co-vente, votre offre ou solution doit être publiée et active dans au moins l’un des magasins en ligne de la Place de marché commerciale : Place de marché Microsoft Azure ou Microsoft AppSource. Pour plus d’informations sur la publication d’offres sur la Place de marché commerciale, consultez [Guide de publication par type d’offre](publisher-guide-by-offer-type.md). Si vous n’avez encore jamais publié d’offre sur la Place de marché commerciale, vérifiez que vous disposez d’un [compte de Place de marché commerciale](./partner-center-portal/create-account.md).
+Pour être éligible au statut Prêt pour la co-vente, votre offre ou solution doit être publiée et active dans au moins l’un des magasins en ligne de la Place de marché commerciale : Place de marché Microsoft Azure ou Microsoft AppSource. Pour plus d’informations sur la publication d’offres sur la Place de marché commerciale, consultez [Guide de publication par type d’offre](publisher-guide-by-offer-type.md). Si vous n’avez encore jamais publié d’offre sur la Place de marché commerciale, vérifiez que vous disposez d’un [compte de Place de marché commerciale](create-account.md).
 
 ## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Conditions requises pour le statut Co-vente Azure IP avec incentives
 

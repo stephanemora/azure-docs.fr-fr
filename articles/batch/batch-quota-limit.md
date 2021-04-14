@@ -2,14 +2,14 @@
 title: Quotas et limites du service
 description: En savoir plus sur les contraintes, les limites et les quotas par défaut d’Azure Batch, et comment demander une augmentation de quota
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 04/06/2021
 ms.custom: seodec18
-ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6e17a90cc573205bcb964a0428e0b7320323b8a6
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99052378"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553547"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -19,7 +19,7 @@ Gardez ces quotas à l’esprit quand vous concevez et que vous augmentez vos ch
 
 Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch ou répartir vos charges de travail entre plusieurs comptes Batch se trouvant dans le même abonnement mais dans différentes régions Azure.
 
-Si vous envisagez d’exécuter des charges de travail de production dans Batch, vous devrez peut-être affecter à un ou plusieurs des quotas une valeur supérieure à la valeur par défaut. Si vous souhaitez augmenter un quota, vous pouvez ouvrir une [demande de service clientèle](#increase-a-quota) en ligne gratuitement.
+Si vous envisagez d’exécuter des charges de travail de production dans Batch, vous devrez peut-être affecter à un ou plusieurs des quotas une valeur supérieure à la valeur par défaut. Pour augmenter un quota, vous pouvez [demander une augmentation de quota](#increase-a-quota) gratuitement.
 
 ## <a name="resource-quotas"></a>Quotas de ressources
 
@@ -33,7 +33,7 @@ Notez également que les quotas ne sont pas des valeurs garanties. Les quotas pe
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Quotas de cœurs en mode de service Batch
 
-Des quotas de cœurs existent pour chaque série de machines virtuelles prises en charge par Batch et s’affichent sur la page **Quotas** dans le portail. Les limites de quota de la série de machines virtuelles peuvent être mises à jour avec une demande de support, comme indiqué ci-dessous. Pour les nœuds dédiés, Batch applique une limite de quota de cœurs pour chaque série de machines virtuelles, ainsi qu’une limite de quota de cœurs total pour l’ensemble du compte Batch. Pour les nœuds de basse priorité, Batch applique uniquement un quota de cœurs total pour le compte Batch, sans aucune distinction entre les différentes séries de machines virtuelles.
+Des quotas de cœurs existent pour chaque série de machines virtuelles prise en charge par Batch. Ces quotas de cœurs sont affichés dans la page **Quotas** du portail Azure. Les limites de quota de la série de machines virtuelles peuvent être mises à jour avec une demande de support, comme indiqué ci-dessous. Pour les nœuds dédiés, Batch applique une limite de quota de cœurs pour chaque série de machines virtuelles ainsi qu’une limite de quota de cœurs total pour l’ensemble du compte Batch. Pour les nœuds de basse priorité, Batch applique uniquement un quota de cœurs total pour le compte Batch, sans aucune distinction entre les différentes séries de machines virtuelles.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quotas de cœurs en mode Abonnement utilisateur
 
@@ -84,65 +84,66 @@ Pour voir vos quotas de compte Batch dans le [portail Azure](https://portal.azur
 
 ## <a name="increase-a-quota"></a>Augmenter un quota
 
-Vous pouvez demander une augmentation de quota pour votre compte Batch ou votre abonnement à l’aide du [portail Azure](https://portal.azure.com). Le type d’augmentation de quota varie selon le mode d’allocation de pool de votre compte Batch. Pour demander une augmentation de quota, vous devez inclure la série de machines virtuelles dont vous souhaitez augmenter le quota. Lorsque l’augmentation de quota est appliquée, elle l’est pour toutes les séries de machines virtuelles.
+Vous pouvez demander une augmentation de quota pour votre compte Batch ou votre abonnement à l’aide du [portail Azure](https://portal.azure.com) ou de l’[API REST de quota Azure](#azure-quota-rest-api).
 
-1. Sélectionnez la mosaïque **Aide + Support** dans le tableau de bord du portail, ou le point d’interrogation ( **?** ) dans le coin supérieur droit du portail.
-1. Sélectionnez **Nouvelle demande de support** > **De base**.
+Le type d’augmentation de quota varie selon le mode d’allocation de pool de votre compte Batch. Pour demander une augmentation de quota, vous devez inclure la série de machines virtuelles dont vous souhaitez augmenter le quota. Lorsque l’augmentation de quota est appliquée, elle l’est pour toutes les séries de machines virtuelles.
+
+Une fois que vous avez envoyé votre demande de support, le support Azure vous contactera. Les demandes de quota peuvent être effectuées en quelques minutes ou jusqu’à deux jours ouvrables.
+
+### <a name="azure-portal"></a>Portail Azure
+
+1. Dans la page **Quotas**, sélectionnez **Demander une augmentation de quota**. Vous pouvez également sélectionner la vignette **Aide + support** dans le tableau de bord de votre portail (ou à partir du point d’interrogation ( **?** ) en haut à droite du portail), puis sélectionner **Nouvelle demande de support.**
+
 1. Dans **De base** :
 
-    1. **Type de problème** > **Limites du service et des abonnements (quotas)**
-
+    1. Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
     1. Sélectionnez votre abonnement.
-
-    1. **Type de quota** > **Batch**
-
-       Sélectionnez **Suivant**.
+    1. Pour **Type de quota**, sélectionnez **Batch**.
+    1. Sélectionnez **Suivant** pour continuer.
 
 1. Dans **Détails** :
 
-    1. Dans **Fournir des détails**, spécifiez l’emplacement, le type de quota et le compte Batch.
+    1. Dans la section **Fournir des détails**, spécifiez l’emplacement, le type de quota et le compte Batch (le cas échéant), puis sélectionnez le ou les quotas à augmenter.
 
        :::image type="content" source="media/batch-quota-limit/quota-increase.png" alt-text="Capture d’écran de la page Détails du quota lors d’une demande d’augmentation du quota.":::
 
        Types de quotas :
 
-       * **Par compte Batch**  
-         Valeurs propres à un seul et même compte Batch, incluant les cœurs dédiés et basse priorité ainsi que le nombre de travaux et de pools.
+       - **Par compte Batch**  
+         Utilisez cette option pour demander des augmentations de quota spécifiques à un seul compte Batch, notamment les cœurs dédiés et les cœurs à faible priorité ainsi que le nombre de travaux et de pools.
 
-       * **Par région**  
-         Valeurs qui s’appliquent à tous les comptes Batch d’une région et qui incluent le nombre de comptes Batch par région et par abonnement.
+         Si vous sélectionnez cette option, spécifiez le compte Batch auquel cette requête doit s’appliquer, puis sélectionnez le ou les quotas à mettre à jour. Indiquez la nouvelle limite que vous demandez pour chaque ressource.
 
-       Un quota basse priorité est une valeur unique dans toutes les séries de machines virtuelles. Si vous avez besoin de références SKU avec contraintes, vous devez sélectionner **Cœurs basse priorité** et inclure les familles de machines virtuelles à la demande.
+         Un quota basse priorité est une valeur unique dans toutes les séries de machines virtuelles. Si vous avez besoin de références SKU avec contraintes, vous devez sélectionner **Cœurs basse priorité** et inclure les familles de machines virtuelles à la demande.
 
-    1. Sélectionnez un **niveau de gravité** en fonction de [l’impact sur votre activité](https://aka.ms/supportseverity).
+       - **Tous les comptes de cette région**  
+         Utilisez cette option pour demander des augmentations de quota qui s’appliquent à tous les comptes Batch d’une région, par exemple le nombre de comptes Batch par région et par abonnement.
 
-       Sélectionnez **Suivant**.
+    1. Dans **Méthode de support**, sélectionnez une **Gravité** en fonction de l’[impact commercial](https://aka.ms/supportseverity) ainsi que du mode de contact et de la langue de support par défaut.
 
-1. Dans **Informations de contact** :
+    1. Dans **Informations de contact**, vérifiez et entrez les coordonnées nécessaires.
 
-    1. Sélectionnez une **méthode de contact préférée**.
+1. Sélectionnez **Vérifier + créer**, puis sélectionnez **Créer** pour envoyer la demande de support.
 
-    1. Vérifiez et entrez les informations de contact requises.
+### <a name="azure-quota-rest-api"></a>API REST de quota Azure
 
-       Sélectionnez **Créer** pour envoyer la demande de support.
+Vous pouvez utiliser l’API REST de quota Azure pour demander une augmentation de quota au niveau de l’abonnement ou du compte Batch.
 
-Une fois que vous avez envoyé votre demande de support, le support Azure vous contactera. Les demandes de quota peuvent être effectuées en quelques minutes ou jusqu’à deux jours ouvrables.
+Pour obtenir des détails et des exemples, consultez [Demander une augmentation de quota à l’aide de l’API REST du support Azure](/rest/api/support/quota-payload#azure-batch).
 
 ## <a name="related-quotas-for-vm-pools"></a>Quotas associés pour les pools de machines virtuelles
 
-Les pools Batch dans la configuration de machine virtuelle déployés dans un réseau virtuel Azure allouent automatiquement des ressources de mise en réseau Azure supplémentaires. Les ressources suivantes sont nécessaires pour chacun des 50 nœuds de pools dans un réseau virtuel :
+Les [pools Batch présents dans la configuration de machine virtuelle et déployés sur un réseau virtuel Azure](batch-virtual-network.md) allouent automatiquement des ressources Azure Networking supplémentaires. Ces ressources sont créées dans l’abonnement qui contient le réseau virtuel spécifié au moment de la création du pool Batch.
+
+Les ressources suivantes sont créées pour chaque nœud de 100 pools dans un réseau virtuel :
 
 - Un seul [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - Une seule [adresse IP publique](../virtual-network/public-ip-addresses.md)
 - Un seul [équilibreur de charge](../load-balancer/load-balancer-overview.md)
 
-Ces ressources sont allouées dans l’abonnement contenant le réseau virtuel fourni lors de la création du pool Batch. Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si vous planifiez des déploiements de pools de grande taille dans un réseau virtuel, vérifiez les quotas de l’abonnement pour ces ressources. Si nécessaire, demandez une augmentation sur le portail Azure en sélectionnant **Aide et support**.
+Ces ressources sont limitées par les [quotas de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Si vous planifiez des déploiements de grands pools dans un réseau virtuel, vous devrez peut-être demander une augmentation de quota pour une ou plusieurs de ces ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créer un compte Azure Batch à l’aide du portail Azure](batch-account-create-portal.md).
-* Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
-* En savoir plus sur [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
-
-[account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
-[quota_increase]: ./media/batch-quota-limit/quota-increase.png
+- Apprenez-en davantage sur le [flux de travail et les ressources principales du service Batch](batch-service-workflow-features.md), telles que les pools, les nœuds, les travaux et les tâches.
+- En savoir plus sur [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).

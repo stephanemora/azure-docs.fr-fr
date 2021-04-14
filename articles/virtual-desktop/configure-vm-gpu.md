@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f95b9c1615cc58d9cc0589bad98c7315e571686e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95018339"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709461"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -23,10 +23,10 @@ Suivez les instructions de cet article pour créer une machine virtuelle Azure o
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Sélectionner une taille de machine virtuelle Azure optimisée pour le GPU appropriée
 
-Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](../virtual-machines/nv-series.md), [NVv3](../virtual-machines/nvv3-series.md) ou [NVv4](../virtual-machines/nvv4-series.md). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau, et permettent aux applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût.
+Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](../virtual-machines/nv-series.md), [NVv3](../virtual-machines/nvv3-series.md) ou [NVv4](../virtual-machines/nvv4-series.md). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau et permettent à la plupart des applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût.
 
 >[!NOTE]
->Les machines virtuelles de la série NC, NCv2, NCv3, ND et NDv2 d’Azure ne conviennent généralement pas aux hôtes de session Windows Virtual Desktop. Ces machines virtuelles sont adaptées à des outils de calcul ou de Machine Learning hautes performances spécialisés, comme ceux créés avec NVIDIA CUDA. L’accélération générale des applications et des appareils de bureau avec des GPU NVIDIA nécessite une licence NVIDIA GRID. Celle-ci est fournie par Azure pour les tailles de machine virtuelle recommandées, mais pas pour les machines virtuelles de la série NC/ND.
+>Les machines virtuelles de la série NC, NCv2, NCv3, ND et NDv2 d’Azure ne conviennent généralement pas aux hôtes de session Windows Virtual Desktop. Ces machines virtuelles sont adaptées à des outils de calcul ou de Machine Learning hautes performances spécialisés, comme ceux créés avec NVIDIA CUDA. Elles ne prennent pas en charge l’accélération par GPU pour la plupart des applications ni pour l’interface utilisateur Windows.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Créer un pool d’hôtes, provisionner votre machine virtuelle et configurer un groupe d’applications
 
@@ -41,9 +41,10 @@ Vous devez également configurer un groupe d’applications ou utilisez le group
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installer des pilotes graphiques pris en charge dans votre machine virtuelle
 
-Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Windows Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la page [Systèmes d’exploitation et pilotes pris en charge](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer des pilotes à partir du fournisseur graphique approprié, manuellement ou à l’aide d’une extension de machine virtuelle Azure.
+Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N dans Windows Virtual Desktop, vous devez installer des pilotes graphiques appropriés. Suivez les instructions de la rubrique [Systèmes d’exploitation et pilotes pris en charge](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) pour installer les pilotes. Seuls les pilotes distribués par Azure sont pris en charge.
 
-Seuls les pilotes distribués par Azure sont pris en charge pour Windows Virtual Desktop. Pour les machines virtuelles Azure de la série NV avec des GPU NVIDIA, seuls les [pilotes NVIDIA GRID](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), et non pas les pilotes NVIDIA Tesla (CUDA), prennent en charge l’accélération GPU pour les applications et appareils de bureau à usage général.
+* Pour les machines virtuelles Azure de série NV ou NVv3, seuls les pilotes NVIDIA GRID, et non les pilotes NVIDIA CUDA, prennent en charge l’accélération par GPU pour la plupart des applications et pour l’interface utilisateur Windows. Si vous choisissez d’installer les pilotes manuellement, veillez à installer les pilotes GRID. Si vous choisissez d’installer les pilotes à l’aide de l’extension de machine virtuelle Azure, les pilotes GRID sont automatiquement installés pour ces tailles de machine virtuelle.
+* Pour les machines virtuelles Azure de série NVv4, installez les pilotes AMD fournis par Azure. Vous pouvez les installer automatiquement à l’aide de l’extension de machine virtuelle Azure, ou vous pouvez les installer manuellement.
 
 Après l’installation du pilote, le redémarrage de la machine virtuelle est nécessaire. Utilisez les étapes de vérification dans les instructions ci-dessus pour confirmer que les pilotes graphiques ont été correctement installés.
 

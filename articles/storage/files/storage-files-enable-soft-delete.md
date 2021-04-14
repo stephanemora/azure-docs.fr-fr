@@ -4,16 +4,16 @@ description: Découvrez comment activer la suppression réversible sur des parta
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 77381700f4257006b50e56ab7ffc037ef99d297c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 428ef41340cd565bef0fa3c1e6519fb8862b091a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218551"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727567"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Activer la suppression réversible sur les partages de fichiers Azure
 
@@ -26,12 +26,12 @@ Les sections suivantes montrent comment activer et utiliser la suppression réve
 ## <a name="getting-started"></a>Prise en main
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Accédez à votre compte de stockage et sélectionnez **Suppression réversible** sous **Service de fichiers**.
-1. Sélectionnez **Activé** pour la **suppression réversible de partage de fichiers**.
+1. Accédez à votre compte de stockage, puis sélectionnez **Partages de fichiers** sous **Service de fichiers**.
+1. Sélectionnez **Activé** pour **Suppression réversible pour tous les partages de fichiers**.
 1. Sélectionnez **Période de rétention du partage de fichiers en jours** et entrez un nombre de votre choix.
 1. Sélectionnez **Enregistrer** pour confirmer vos paramètres de conservation des données.
 
-:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Capture d’écran du volet des paramètres de suppression réversible du compte de stockage. Mise en surbrillance de la section des partages de fichiers, du commutateur activer/désactiver, de la définition d’une période de rétention et de l’option Enregistrer. Cela active la suppression réversible pour tous les partages de fichiers dans votre compte de stockage.":::
+:::image type="content" source="media/storage-how-to-recover-deleted-account/enable-soft-delete-files.png" alt-text="Capture d’écran du volet des paramètres de suppression réversible du compte de stockage. Mise en surbrillance de la section de suppression réversible des partages de fichiers, du commutateur d’activation/de désactivation, de la définition d’une période de conservation et de l’option d’enregistrement. Cela entraîne l’activation de la suppression réversible pour tous les partages de fichiers dans votre compte de stockage.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -125,12 +125,12 @@ Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $account
 
 ## <a name="disable-soft-delete"></a>Désactiver la suppression réversible
 
-Si vous souhaitez cesser d’utiliser la suppression réversible ou supprimer définitivement un partage de fichiers, suivez ces instructions :
+Pour cesser d’utiliser la suppression réversible, suivez ces instructions. Pour supprimer définitivement un partage de fichiers qui a été supprimé de manière réversible, vous devez le restaurer, désactiver la suppression réversible, puis le supprimer à nouveau. 
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. Accédez à votre compte de stockage et sélectionnez **Suppression réversible** sous **Paramètres**.
-1. Sous **Partages de fichiers**, sélectionnez **Désactivé** pour **Suppression réversible pour les partages de fichiers**.
+1. Accédez à votre compte de stockage, puis sélectionnez **Partages de fichiers** sous **Service de fichiers**.
+1. Sélectionnez **Désactivé** pour **Suppression réversible pour tous les partages de fichiers**.
 1. Sélectionnez **Enregistrer** pour confirmer vos paramètres de conservation des données.
 
     :::image type="content" source="media/storage-how-to-recover-deleted-account/disable-soft-delete-files.png" alt-text="La désactivation de la suppression réversible vous permet de supprimer immédiatement et définitivement tous les partages de fichiers de votre compte de stockage.":::

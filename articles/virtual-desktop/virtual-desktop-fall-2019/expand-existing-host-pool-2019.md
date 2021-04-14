@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ab661943542b3621792dfe0ca8c3fb26f64508a5
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+manager: femila
+ms.openlocfilehash: f82b831d887f0ebdd659167935f2134583b3bb87
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106120705"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551949"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Développer d’un pool d’hôtes existant avec de nouveaux hôtes de session dans Windows Virtual Desktop (classique)
 
@@ -39,7 +39,7 @@ Vous aurez également besoin des informations suivantes recueillies lors de la c
 Les trois sections suivantes sont trois méthodes que vous pouvez utiliser pour développer le pool d’hôtes. Vous pouvez vous servir de l’outil de déploiement avec lequel êtes les plus à l’aise.
 
 >[!NOTE]
->Pendant la phase de déploiement, des messages d’erreur s’affichent pour les ressources de machine virtuelle hôte de session précédentes si elles sont arrêtées. Ces erreurs se produisent parce qu’Azure ne peut pas exécuter l’extension de DSC PowerShell pour vérifier que les machines virtuelles hôtes de session sont correctement inscrites auprès de votre pool d’hôtes existant. Vous pouvez ignorer ces erreurs en toute sécurité, ou éviter les erreurs en démarrant toutes les machines virtuelles hôtes de session dans le pool d’hôtes existant avant de commencer le processus de déploiement.
+>Pendant la phase de déploiement, des messages d’erreur s’affichent pour les ressources de machine virtuelle hôte de session précédentes si elles sont arrêtées. Ces erreurs se produisent parce qu’Azure ne peut pas exécuter l’extension de DSC PowerShell pour vérifier que les machines virtuelles hôtes de session sont correctement inscrites auprès de votre pool d’hôtes existant. L’hôte de session dont le nom se termine par « -0 » doit être en cours d’exécution. Toutefois, vous pouvez ignorer ces erreurs pour d’autres hôtes de session ou vous pouvez éviter les erreurs en démarrant toutes les machines virtuelles hôtes de session dans le pool d’hôtes existant avant de commencer le processus de déploiement.
 
 ## <a name="redeploy-from-azure"></a>Redéployer à partir d’Azure
 

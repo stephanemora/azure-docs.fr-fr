@@ -9,10 +9,10 @@ author: sgilley
 ms.author: sgilley
 ms.date: 11/06/2019
 ms.openlocfilehash: 754c9799ed4c2fd90cbcf1e9717b0be21edd54cb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "75659868"
 ---
 >[!IMPORTANT]
@@ -36,7 +36,7 @@ La suppression du groupe de ressources supprime également toutes les ressources
 
 Dans le concepteur où vous avez créé votre expérience, supprimez des ressources individuelles en les sélectionnant, puis en sélectionnant le bouton **Supprimer**.
 
-La cible de calcul que vous avez créée ici *est automatiquement mise à l’échelle* sur zéro nœud quand elle n’est pas utilisée. Cette action est effectuée pour réduire les frais. Si vous souhaitez supprimer la cible de calcul, procédez comme suit :
+La cible de calcul que vous avez créée ici *est automatiquement mise à l’échelle* sur zéro nœud quand elle n’est pas utilisée. Cette action est effectuée pour réduire les frais. Si vous souhaitez supprimer la cible de calcul, procédez comme suit :
 
 ![Supprimer des ressources](./media/aml-ui-cleanup/delete-asset.png)
 

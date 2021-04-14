@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: e92d509cdbeba142ec1c740277b45aa3eb5fd21e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564604"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104801891"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Stratégies Gestion des API pour valider les demandes et les réponses
 
@@ -95,7 +95,7 @@ Dans l’exemple suivant, la charge utile JSON dans les demandes et les réponse
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-content-type-action | [Action](#actions) à effectuer pour les demandes ou les réponses avec un type de contenu qui n’est pas spécifié dans le schéma API. |  Oui     | N/A   |
-| max-size | Longueur maximale du corps de la demande ou de la réponse, vérifiée par rapport à l’en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko).  | Oui       | N/A   |
+| max-size | Longueur maximale, en octets, du corps de la demande ou de la réponse, vérifiée par rapport à l'en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko).  | Oui       | N/A   |
 | size-exceeded-action | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps dépasse la taille spécifiée dans `max-size`. |  Oui     | N/A   |
 | errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Oui    | N/A   |
 | type | Type de contenu pour lequel exécuter la validation du corps, vérifié par rapport à l’en-tête `Content-Type`. La valeur ne respecte pas la casse. S’il est vide, il s’applique à chaque type de contenu spécifié dans le schéma API. |   Non    |  N/A  |
@@ -115,7 +115,7 @@ Cette stratégie peut être utilisée dans les [sections](./api-management-howto
 La stratégie `validate-parameters` valide les paramètres d’en-tête, de demande ou de chemin d’accès dans les demandes par rapport au schéma API.
 
 > [!IMPORTANT]
-> Si vous avez importé une API à l’aide d’une version de l’API de gestion antérieure à `2021-01-01-preview`, la stratégie `validate-parameters` peut ne pas fonctionner. Vous devrez peut-être réimporter votre API à l’aide de l’API de gestion version `2021-01-01-preview` ou ultérieure.
+> Si vous avez importé une API à l’aide d’une version de l’API de gestion antérieure à `2021-01-01-preview`, la stratégie `validate-parameters` peut ne pas fonctionner. Vous pouvez être amené à [réimporter votre API](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) à l'aide de la version `2021-01-01-preview` ou ultérieure de l'API de gestion.
 
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
@@ -145,6 +145,7 @@ Dans cet exemple, tous les paramètres de requête et de chemin d’accès sont 
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+    </headers>   
 </validate-parameters>
 ```
 

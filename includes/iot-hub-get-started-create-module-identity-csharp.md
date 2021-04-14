@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: iot-hub
 author: chrissie926
 ms.service: iot-hub
@@ -9,10 +9,10 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68883831"
 ---
 ## <a name="create-a-module-identity"></a>Création d’un module d’identité
@@ -23,7 +23,7 @@ En exécutant cette application console, une clé et un ID uniques sont génér�
 
 1. Ouvrez Visual Studio et sélectionnez **Créer un projet**.
 
-1. Dans **Créer un projet**, sélectionnez **Application console (.NET Framework)** .
+1. Dans **Créer un projet**, sélectionnez **Application console (.NET Framework)**.
 
 1. Sélectionnez **Suivant** pour ouvir **Configurer votre nouveau projet**. Nommez le projet *CreateIdentity* et nommez la solution *IoTHubGetStarted*. Assurez-vous que la version du .NET Framework est définie sur 4.6.1 ou supérieur.
 

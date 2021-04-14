@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/09/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dbeb3cd4fccf80f434e6c7ac08c658632f64b135
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9cd193eb6ff2858440f1cd9a62bdd53d58d6047d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096851"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256291"
 ---
 # <a name="tutorial-configure-zscaler-private-access-with-azure-active-directory-b2c"></a>Tutoriel : Configurer Zscaler Private Access avec Azure Active Directory B2C
 
@@ -96,7 +96,7 @@ Après la configuration d’Azure AD B2C, le reste de la configuration du fourni
 >[!Note]
 >Cette étape est requise uniquement si vous n’avez pas encore configuré de stratégies personnalisées. Si vous disposez déjà d’une ou de plusieurs stratégies personnalisées, vous pouvez ignorer cette étape.
 
-Pour configurer des stratégies personnalisées sur votre abonné Azure Active Directory B2C, consultez [Démarrage avec des stratégies personnalisées dans Azure Active Directory B2C](./custom-policy-get-started.md).
+Pour configurer des stratégies personnalisées sur votre abonné Azure Active Directory B2C, consultez [Démarrage avec des stratégies personnalisées dans Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ### <a name="step-3-register-zpa-as-a-saml-application-in-azure-ad-b2c"></a>Étape 3 : Inscrire ZPA en tant qu’application SAML dans Azure AD B2C
 
@@ -149,7 +149,7 @@ Accédez à un portail utilisateur ZPA ou à une application d’accès au navig
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Inscrire une application SAML dans Azure AD B2C](./saml-service-provider.md)
 - [Guide de configuration pas à pas pour ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
 - [Configurer un fournisseur d’identité pour l’authentification unique](https://help.zscaler.com/zpa/configuring-idp-single-sign)

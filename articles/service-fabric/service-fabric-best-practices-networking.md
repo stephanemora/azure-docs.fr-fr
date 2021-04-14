@@ -5,12 +5,12 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: de6a80f73a97a5732f00e10107fff2330038210a
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732562"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122014"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -87,7 +87,7 @@ Plus d’informations sur les règles de sécurité de trafic entrant :
 
 * **Application**. La plage des ports d’application doit suffire à couvrir les exigences en matière de points de terminaison de vos applications. Cette plage doit être exclusive à partir de la plage de ports dynamiques de la machine, c’est-à-dire la plage ephemeralPorts comme défini dans la configuration. Service Fabric utilise ces ports chaque fois que des nouveaux ports sont nécessaires, et prend également en charge l’ouverture du pare-feu pour ces ports sur les nœuds.
 
-* **SMB**. Le protocole SMB est utilisé par le service ImageStore pour deux scénarios. Ce port est nécessaire pour télécharger les packages à partir de l’ImageStore par les nœuds, ainsi que pour les répliquer entre les réplicas. 
+* **SMB**. Facultatif, la version 7.1 (et ultérieure) du runtime n’utilise plus le protocole SMB par défaut. Le protocole SMB est utilisé par le service ImageStore pour deux scénarios. Ce port est nécessaire pour télécharger les packages à partir de l’ImageStore par les nœuds, ainsi que pour les répliquer entre les réplicas. 
 
 * **RDP**. Facultatif, si le protocole RDP est requis à partir d’Internet ou de VirtualNetwork pour des scénarios JumpBox. 
 

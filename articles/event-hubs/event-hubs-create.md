@@ -3,12 +3,12 @@ title: Démarrage rapide Azure - Créer un Event Hub à l'aide du portail Azure
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un hub d’événements Azure à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bf83c53792c4934f43e0039d092bb3e36954bf7b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742039"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303115"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
@@ -54,7 +54,7 @@ Un espace de noms Event Hubs fournit un conteneur délimité unique, dans lequel
    1. Sélectionnez le **groupe de ressources** que vous avez créé à l’étape précédente.   
    1. Entrez un **nom** pour l’espace de noms. Le système vérifie immédiatement si le nom est disponible.  
    1. Sélectionnez un **emplacement** pour l’espace de noms.
-   1. Choisissez le **niveau tarifaire** (De base ou Standard). Pour en savoir plus sur les différences entre les niveaux de base et standard, consultez [Tarifs Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/), [Différences entre les niveaux](event-hubs-faq.md#what-is-the-difference-between-event-hubs-basic-and-standard-tiers) et [Quotas et limites](event-hubs-quotas.md). 
+   1. Choisissez le **niveau tarifaire** (De base ou Standard). Pour en savoir plus sur les différences entre les niveaux de base et standard, consultez [Tarifs Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/), [Différences entre les niveaux](event-hubs-faq.yml#what-is-the-difference-between-event-hubs-basic-and-standard-tiers-) et [Quotas et limites](event-hubs-quotas.md). 
    1. Laissez le paramètre **Unités de débit** tel quel. Les unités de débit sont des unités de capacité achetées préalablement. Pour découvrir les unités de débit, consultez [Scalabilité avec Event Hubs](event-hubs-scalability.md#throughput-units).  
    1. Au bas de la page, sélectionnez **Vérifier + créer**.
       

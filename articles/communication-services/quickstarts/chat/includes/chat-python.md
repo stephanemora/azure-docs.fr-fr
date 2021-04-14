@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: bcbf2137e578f703cf70b1b47952736aa50f7f17
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 31704e705b828cc0070e3b79f5d527cfa9deb0c3
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106178560"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386673"
 ---
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
@@ -90,13 +90,11 @@ chat_client = ChatClient(endpoint, CommunicationTokenCredential("<Access Token>"
 Utilisez la méthode `create_chat_thread` pour créer un fil de conversation.
 
 - Utilisez `topic` pour attribuer un sujet au fil ; le sujet peut être mis à jour après que le fil de conversation a été créé à l’aide de la fonction `update_thread`.
-- Utilisez `thread_participants` pour lister les `ChatThreadParticipant` à ajouter au fil de conversation. `ChatThreadParticipant` prend le type `CommunicationUserIdentifier` comme `user`, que vous avez obtenu à l’issue du processus de création décrit dans [Créer un utilisateur](../../access-tokens.md#create-an-identity)
+- Utilisez `thread_participants` pour lister les `ChatParticipant` à ajouter au fil de conversation. `ChatParticipant` prend le type `CommunicationUserIdentifier` comme `user`, que vous avez obtenu à l’issue du processus de création décrit dans [Créer un utilisateur](../../access-tokens.md#create-an-identity)
 
 `CreateChatThreadResult` est le résultat retourné par la création d’un thread, vous pouvez l’utiliser pour extraire l’`id` du fil de conversation qui a été créé. Vous pouvez ensuite utiliser cette `id` pour extraire un objet `ChatThreadClient` à l’aide de la méthode `get_chat_thread_client`. `ChatThreadClient` peut être utilisé pour effectuer d’autres opérations de conversation sur ce thread de conversation.
 
 ```python
-from azure.communication.chat import ChatThreadParticipant
-
 topic="test topic"
 
 create_chat_thread_result = chat_client.create_chat_thread(topic)
@@ -208,11 +206,11 @@ Une fois qu’un fil de conversation est créé, vous pouvez y ajouter des utili
 
 Un ou plusieurs utilisateurs peuvent être ajoutés au fil de conversation à l’aide de la méthode `add_participants`, à condition qu’un nouveau jeton d’accès et qu’une nouvelle identification soient disponibles pour tous les utilisateurs.
 
-Un `list(tuple(ChatThreadParticipant, CommunicationError))` est retourné. Quand le participant est correctement ajouté, une liste vide est attendue. En cas d’erreur rencontrée lors de l’ajout d’un participant, la liste est remplie avec les participants n’ayant pas pu être ajoutés, ainsi que l’erreur rencontrée.
+Un `list(tuple(ChatParticipant, CommunicationError))` est retourné. Quand le participant est correctement ajouté, une liste vide est attendue. En cas d’erreur rencontrée lors de l’ajout d’un participant, la liste est remplie avec les participants n’ayant pas pu être ajoutés, ainsi que l’erreur rencontrée.
 
 ```python
 from azure.communication.identity import CommunicationIdentityClient
-from azure.communication.chat import ChatThreadParticipant
+from azure.communication.chat import ChatParticipant
 from datetime import datetime
 
 # create 2 users
@@ -225,14 +223,14 @@ new_users = [identity_client.create_user() for i in range(2)]
 # user_id = 'some user id'
 # user_display_name = "Wilma Flinstone"
 # new_user = CommunicationUserIdentifier(user_id)
-# participant = ChatThreadParticipant(
+# participant = ChatParticipant(
 #     user=new_user,
 #     display_name=user_display_name,
 #     share_history_time=datetime.utcnow())
 
 participants = []
 for _user in new_users:
-  chat_thread_participant = ChatThreadParticipant(
+  chat_thread_participant = ChatParticipant(
     user=_user,
     display_name='Fred Flinstone',
     share_history_time=datetime.utcnow()
@@ -263,13 +261,13 @@ Utilisez `list_participants` pour récupérer les participants à la conversatio
 - (Facultatif) Utilisez `results_per_page`, ce qui correspond au nombre maximal de participants à renvoyer par page.
 - (Facultatif) Utilisez `skip` pour ignorer les participants jusqu’à une position spécifiée dans la réponse.
 
-Un itérateur de `[ChatThreadParticipant]` est la réponse retournée par l’énumération des participants.
+Un itérateur de `[ChatParticipant]` est la réponse retournée par l’énumération des participants.
 
 ```python
 chat_thread_participants = chat_thread_client.list_participants()
 for chat_thread_participant_page in chat_thread_participants.by_page():
     for chat_thread_participant in chat_thread_participant_page:
-        print("ChatThreadParticipant: ", chat_thread_participant)
+        print("ChatParticipant: ", chat_thread_participant)
 ```
 
 ## <a name="run-the-code"></a>Exécuter le code

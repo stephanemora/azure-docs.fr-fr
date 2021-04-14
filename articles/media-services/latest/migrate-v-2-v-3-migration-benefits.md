@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9dd3525f4efec3c49950839306ee5419c7850c69
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598386"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275411"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Étape 1 : Comprendre les avantages de la migration vers l’API Media Services v3
 
@@ -22,7 +22,9 @@ ms.locfileid: "104598386"
 
 <hr color="#5ea0ef" size="10">
 
-![étapes de migration 2](./media/migration-guide/steps-1.svg)
+![étapes de migration 2](./media/migration-guide/steps-1.svg)
+
+## <a name="use-the-latest-api"></a>Utiliser l'API le plus récent
 
 Nous vous encourageons à commencer dès maintenant à utiliser la version 2020-05-01 de l’API Azure Media Services v3 pour bénéficier des avantages suivants : nouvelles fonctionnalités, optimisations du fonctionnement et des performances uniquement disponibles dans la version 3 de l’API actuelle.
 
@@ -42,25 +44,21 @@ Des améliorations significatives ont été apportées à Media Services avec la
 | Prise en charge des liaisons privées | Les clients ont accès à des points de terminaison Media Services pour la remise de clés, LiveEvents et StreamingEndpoints par le biais d’un PrivateEndpoint sur leur réseau virtuel. |
 | Prise en charge des [clés gérées par le client](concept-use-customer-managed-keys-byok.md) ou de BYOK (Bring Your Own Key) | Les clients peuvent chiffrer les données de leur compte Media Services à l’aide d’une clé dans leur coffre de clés Azure. |
 | **Éléments multimédias** | |
-| Un élément multimédia peut avoir plusieurs [localisateurs de streaming](streaming-locators-concept.md), chacun avec des paramètres différents d’[empaquetage dynamique](dynamic-packaging-overview.md) et de chiffrement dynamique. | Il existe une limite de 100 localisateurs de streaming autorisés sur chaque élément multimédia. Les clients peuvent stocker une seule copie du contenu multimédia dans l’élément, mais partager différentes URL de streaming avec différentes stratégies de streaming ou stratégies de protection de contenu en fonction d’un public ciblé.
+| Un élément multimédia peut avoir plusieurs [localisateurs de streaming](stream-streaming-locators-concept.md), chacun avec des paramètres différents d’[empaquetage dynamique](encode-dynamic-packaging-concept.md) et de chiffrement dynamique. | Il existe une limite de 100 localisateurs de streaming autorisés sur chaque élément multimédia. Les clients peuvent stocker une seule copie du contenu multimédia dans l’élément, mais partager différentes URL de streaming avec différentes stratégies de streaming ou stratégies de protection de contenu en fonction d’un public ciblé.
 | **Traitement des travaux** ||
-| La version 3 introduit le concept des  [transformations](transforms-jobs-concept.md)  pour le traitement de travaux basé sur fichier. | Vous pouvez utiliser une transformation pour créer des configurations réutilisables, créer des modèles Azure Resource Manager, et isoler des paramètres de traitement entre plusieurs clients ou locataires. |
+| La version 3 introduit le concept des  [transformations](transform-jobs-concept.md)  pour le traitement de travaux basé sur fichier. | Vous pouvez utiliser une transformation pour créer des configurations réutilisables, créer des modèles Azure Resource Manager, et isoler des paramètres de traitement entre plusieurs clients ou locataires. |
 | Pour le traitement de travaux basé sur fichier, vous pouvez utiliser une URL HTTP(S) comme entrée. | Vous n’avez pas besoin de contenu déjà stocké dans Azure ni de créer des ressources d’entrée. |
 | **Événements en direct** ||
 | Événements en direct Premium 1080 p | La nouvelle référence SKU d’événement en direct permet aux clients d’obtenir un encodage cloud avec une sortie pouvant aller jusqu’à une résolution de 1 080 p. |
-| Nouvelle prise en charge du streaming en direct [à faible latence](live-event-latency.md) sur des événements en direct. | Cette prise en charge permet aux utilisateurs de regarder des événements en direct en étant plus près du temps réel que si ce paramètre n’est pas activé. |
-| L’aperçu des événements en direct prend en charge l’ [empaquetage dynamique](dynamic-packaging-overview.md)  et le chiffrement dynamique. | Ceci permet la protection du contenu sur l’aperçu, ainsi que l’empaquetage DASH et HLS. |
+| Nouvelle prise en charge du streaming en direct [à faible latence](live-event-latency-reference.md) sur des événements en direct. | Cette prise en charge permet aux utilisateurs de regarder des événements en direct en étant plus près du temps réel que si ce paramètre n’est pas activé. |
+| L’aperçu des événements en direct prend en charge l’ [empaquetage dynamique](encode-dynamic-packaging-concept.md)  et le chiffrement dynamique. | Ceci permet la protection du contenu sur l’aperçu, ainsi que l’empaquetage DASH et HLS. |
 | Les sorties en direct remplacent les programmes | La sortie en direct est plus simple à utiliser que l’entité du programme dans les API v2. |
 | Amélioration de l’ingestion RTMP pour les événements en direct, avec une prise en charge d’un plus grand nombre d’encodeurs | Augmente la stabilité et offre une flexibilité des encodeurs sources. |
 | Les événements en direct peuvent être diffusés en streaming 24 h/24, 7 j/7 | Vous pouvez héberger un événement en direct et capter l’attention de votre public pendant plus longtemps. |
 | Transcription en direct pendant les événements en direct | La transcription en direct permet aux clients de transcrire automatiquement la parole en texte en temps réel pendant la diffusion des événements en direct. L’accessibilité des événements en direct s’en retrouve considérablement améliorée. |
-| [Mode veille](live-events-outputs-concept.md#standby-mode) sur les événements en direct | Les événements en direct en état de veille sont moins coûteux que les événements en direct en cours d’exécution. Les clients peuvent ainsi gérer un ensemble d’événements en direct prêts à démarrer en quelques secondes à un coût inférieur à celui d’un ensemble d’événements en direct en cours. La réduction du prix des événements en direct en état de veille prendra effet en février 2021 dans la plupart des régions. Les régions restantes suivront en avril 2021.
+| [Mode veille](live-event-outputs-concept.md#standby-mode) sur les événements en direct | Les événements en direct en état de veille sont moins coûteux que les événements en direct en cours d’exécution. Les clients peuvent ainsi gérer un ensemble d’événements en direct prêts à démarrer en quelques secondes à un coût inférieur à celui d’un ensemble d’événements en direct en cours. La réduction du prix des événements en direct en état de veille prendra effet en février 2021 dans la plupart des régions. Les régions restantes suivront en avril 2021.
 |**Protection du contenu** ||
-| La [protection du contenu](content-key-policy-concept.md)  prend en charge les fonctionnalités à plusieurs clés. | Les clients peuvent maintenant utiliser plusieurs clés de chiffrement de contenu sur leurs localisateurs de streaming. |
+| La [protection du contenu](drm-content-key-policy-concept.md)  prend en charge les fonctionnalités à plusieurs clés. | Les clients peuvent maintenant utiliser plusieurs clés de chiffrement de contenu sur leurs localisateurs de streaming. |
 | **Surveillance** | |
 | Prise en charge des notifications [Azure EventGrid](monitoring/reacting-to-media-services-events.md) | Les notifications EventGrid sont enrichies de fonctionnalités. Il existe plus de types de notifications, une prise en charge élargie du SDK pour la réception des notifications dans votre propre application et d’autres services Azure existants pouvant jouer le rôle de gestionnaires d’événements. |
 | [Prise en charge et intégration d’Azure Monitor dans le portail Azure](monitoring/monitor-events-portal-how-to.md) | Les clients peuvent visualiser l’utilisation du quota de leur compte Media Services, voir les statistiques en temps réel des points de terminaison de streaming, mais aussi ingérer et archiver des statistiques pour des événements en direct. Les clients peuvent maintenant définir des alertes et prendre les mesures nécessaires en fonction de données de métriques en temps réel. |
-
-## <a name="next-steps"></a>Étapes suivantes
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

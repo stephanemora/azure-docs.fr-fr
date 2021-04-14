@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563818"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106800"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Conditions préalables à l’accès programmatique aux données d’analyse
 
@@ -20,7 +20,7 @@ Avant de pouvoir accéder par programme aux données d’analyse de la place de 
 
 ## <a name="commercial-marketplace-enrollment"></a>Inscription à la place de marché commerciale
 
-Pour accéder aux données d’analyse de la place de marché commerciale par programme, vous devez être inscrit au programme de la place de marché commerciale et disposer d’un compte Espace partenaires. Pour en savoir plus, consultez [Créer un compte Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/create-account.md).
+Pour accéder aux données d’analyse de la place de marché commerciale par programme, vous devez être inscrit au programme de la place de marché commerciale et disposer d’un compte Espace partenaires. Pour en savoir plus, consultez [Créer un compte Place de marché commerciale dans l’Espace partenaires](create-account.md).
 
 ## <a name="create-azure-active-directory-application"></a>Création d’une application Azure Active Directory
 

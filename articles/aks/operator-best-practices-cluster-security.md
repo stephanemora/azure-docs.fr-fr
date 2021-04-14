@@ -5,12 +5,12 @@ description: Découvrir les meilleures pratiques de l’opérateur relatives à 
 services: container-service
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: a56cf35fe3780aa53b12581358bd91fe44e8c8a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a758a3e972e47baeba440639c1c6bcf34219d7c0
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585058"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121368"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -122,12 +122,34 @@ Tandis qu’AppArmor fonctionne pour toutes les applications Linux, [seccomp (*s
 
 Pour voir seccomp en action, créez un filtre qui empêche la modification des autorisations sur un fichier. Établissez une connexion [SSH][aks-ssh] vers un nœud AKS, puis créez un filtre seccomp nommé */var/lib/kubelet/seccomp/prevent-chmod* et collez le contenu suivant :
 
-```
+```json
 {
   "defaultAction": "SCMP_ACT_ALLOW",
   "syscalls": [
     {
       "name": "chmod",
+      "action": "SCMP_ACT_ERRNO"
+    },
+    {
+      "name": "fchmodat",
+      "action": "SCMP_ACT_ERRNO"
+    },
+    {
+      "name": "chmodat",
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}
+```
+
+Dans les versions 1.19 et ultérieures, vous devez configurer les éléments suivants :
+
+```json
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "names": ["chmod","fchmodat","chmodat"],
       "action": "SCMP_ACT_ERRNO"
     }
   ]
@@ -144,6 +166,29 @@ metadata:
   annotations:
     seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
 spec:
+  containers:
+  - name: chmod
+    image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+    command:
+      - "chmod"
+    args:
+     - "777"
+     - /etc/hostname
+  restartPolicy: Never
+```
+
+Dans les versions 1.19 et ultérieures, vous devez configurer les éléments suivants :
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chmod-prevented
+spec:
+  securityContext:
+    seccompProfile:
+      type: Localhost
+      localhostProfile: prevent-chmod
   containers:
   - name: chmod
     image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11

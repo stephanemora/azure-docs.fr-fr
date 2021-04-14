@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91363203"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105035798"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -47,7 +47,15 @@ Cet article explique comment activer l’accès au portail des développeurs pou
     Les contrôles qui vous permettent d’entrer d’autres informations nécessaires apparaissent dans le volet. Il s’agit notamment des contrôles **ID client** et **Clé secrète client**. (Vous trouverez des informations sur ces contrôles plus loin dans l’article.)
 9. Prenez note du contenu de **l’URL de redirection**.
     
-   ![Étapes à suivre pour ajouter un fournisseur d’identité dans le portail Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Ajouter un fournisseur d’identité dans Portail Azure":::
+    > [!NOTE]
+    > Il existe deux URL de redirection :<br/>
+    > **URL de redirection** : Pointe vers le portail des développeurs le plus récent de Gestion des API.<br/>
+    > **URL de redirection (portail déconseillé)**  : Pointe vers le portail des développeurs déconseillé de Gestion des API.
+    >
+    > Nous vous recommandons d’utiliser l’URL de redirection du portail des développeurs le plus récent.
+   
 10. Dans votre navigateur, ouvrez un autre onglet. 
 11. Accédez au [portail Azure - Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire une application dans Active Directory.
 12. Sous **Gérer**, sélectionnez **Inscriptions des applications**.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ee161944a48135778d12942964a88455ab756e
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d707106d66c77ad1f3a1156906add8bb85fd0ce0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055771"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305971"
 ---
 # <a name="continuous-access-evaluation"></a>Évaluation de l’accès continu
 
@@ -142,7 +142,7 @@ Dans l’exemple suivant, un administrateur d’accès conditionnel a configuré
 Pour l’évaluation continue de l’accès, nous n’avons d’insights que sur les emplacements nommés sur la base de l’adresse IP. Nous n’avons pas d’insights sur d’autres paramètres d’emplacement, tels que des [adresses IP approuvées pour l’authentification multifacteur](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou des emplacements basés sur le pays. Quand la provenance de l’utilisateur est une adresse IP approuvée pour l’authentification multifacteur ou un emplacement approuvé, à savoir une adresse IP approuvée pour l’authentification multifacteur ou un emplacement de pays, l’évaluation continue de l’accès n’est pas appliquée après le déplacement de l’utilisateur vers un autre emplacement. Dans ce cas, nous émettons un jeton d’évaluation continue de l’accès d’une heure sans vérification de l’application d’adresse IP instantanée.
 
 > [!IMPORTANT]
-> Quand vous configurez des emplacements pour l’évaluation continue de l’accès, utilisez uniquement la [condition d’emplacement d’accès conditionnel basé sur l’adresse IP](../conditional-access/location-condition.md#preview-features), et configurez toutes les adresses IP, **y compris IPv4 et IPv6**, que votre fournisseur d’identité et votre fournisseur de ressources peuvent voir. N’utilisez pas les conditions d’emplacement de pays ni la fonctionnalité d’adresses IP approuvées disponibles dans la page des paramètres de service Authentification multifacteur Azure AD.
+> Quand vous configurez des emplacements pour l’évaluation continue de l’accès, utilisez uniquement la [condition d’emplacement d’accès conditionnel basé sur l’adresse IP](../conditional-access/location-condition.md), et configurez toutes les adresses IP, **y compris IPv4 et IPv6**, que votre fournisseur d’identité et votre fournisseur de ressources peuvent voir. N’utilisez pas les conditions d’emplacement de pays ni la fonctionnalité d’adresses IP approuvées disponibles dans la page des paramètres de service Authentification multifacteur Azure AD.
 
 ### <a name="ip-address-configuration"></a>Configuration de l'adresse IP
 

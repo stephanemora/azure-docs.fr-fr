@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: b02c5bbf2e6accbea9c7a33dc26c4e89e46bb697
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 13c659592b7e0b45d0d58519e3620babb8cb3c6a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97679139"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107565"
 ---
 # <a name="power-bi-app-creation-overview"></a>Vue d’ensemble de la création d’applications Power BI
 
@@ -72,7 +72,7 @@ Une fois votre application créée et testée dans Power BI, enregistrez l’URL
 
 Les exigences de l’entreprise incluent des obligations procédurales, contractuelles et légales. Vous devez respecter les consignes suivantes :
 
-- Vous devez être inscrit en tant qu’éditeur du marketplace commercial. Si vous n’êtes pas inscrit, suivez les étapes décrites dans [Créer un compte de marketplace commercial dans Espace partenaires](create-account.md).
+- Vous devez être inscrit en tant qu’éditeur du marketplace commercial. Si vous n’êtes pas inscrit, suivez les étapes décrites dans [Créer un compte de marketplace commercial dans Espace partenaires](../create-account.md).
 - Fournissez un contenu conforme aux critères définis pour que votre offre soit répertoriée sur AppSource. Pour plus d’informations, voir [Vous avez une application à répertorier sur AppSource ? Voici comment faire](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Acceptez et suivez la [déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement).
 

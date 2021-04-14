@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 84d5f1e4035fb730d33b7bc8dd375273610f0bfb
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4601f2d6eddbbe8809dfd46a7e0cc5aa3c40c722
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771938"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209568"
 ---
 # <a name="data-source-schema-reference"></a>Informations de référence sur les schémas de source de données
 
@@ -51,7 +51,7 @@ Le tableau suivant répertorie les fournisseurs tiers pris en charge et leur doc
 | **Réseau** | Fortigate   | ALL   | CommonSecurityLog | [Structure du schéma du journal](https://docs.fortinet.com/document/fortigate/6.2.3/fortios-log-message-reference/738142/log-schema-structure)         |
 | **Réseau** | Barracuda | Pare-feu d’application web |  CommonSecurityLog   | [Configuration de Syslog et d’autres journaux](https://campus.barracuda.com/product/webapplicationfirewall/doc/4259935/how-to-configure-syslog-and-other-logs/)  |
 | **Réseau** | Cisco | ASA | CommonSecurityLog | [Messages Syslog de la série Cisco ASA](https://www.cisco.com/c/en/us/td/docs/security/asa/syslog/b_syslog/about.html)    |
-| **Réseau** | Cisco | Firepower   | CommonSecurityLog | [Messages Syslog de Cisco Firepower Threat Defense](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.pdf)    |
+| **Réseau** | Cisco | Firepower   | CommonSecurityLog | [Messages Syslog de Cisco Firepower Threat Defense](https://www.cisco.com/c/en/us/td/docs/security/firepower/Syslogs/b_fptd_syslog_guide.html)    |
 | **Réseau** | Cisco   | Umbrella  | Table des journaux personnalisés  | [Formats des journaux et contrôle de version](https://docs.umbrella.com/deployment-umbrella/docs/log-formats-and-versioning)   |
 | **Réseau**   | Cisco | Meraki    | CommonSecurityLog |   [Exemples de types d’événements et de journaux Syslog](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Event_Types_and_Log_Samples)    |
 | **Réseau**   | Zscaler | Nano Streaming Service (NSS)|   CommonSecurityLog | [Mise en forme des flux NSS](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-feeds/formatting-nss-feeds) (Web, pare-feu, DNS et journaux de tunnel uniquement) |

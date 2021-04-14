@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: reconnaissance de l’intention
-ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018699"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210361"
 ---
 # <a name="what-is-intent-recognition"></a>Qu’est-ce que la reconnaissance de l’intention ?
 
@@ -33,7 +33,7 @@ Grâce à la reconnaissance de l’intention, vos applications, outils et appare
 
 ## <a name="get-started"></a>Bien démarrer
 
-Consultez le [démarrage rapide](quickstarts/intent-recognition.md) pour prendre en main la reconnaissance de l’intention.
+Consultez le [démarrage rapide](get-started-intent-recognition.md) pour prendre en main la reconnaissance de l’intention.
 
 ## <a name="sample-code"></a>Exemple de code
 
@@ -53,6 +53,6 @@ Exemple de code pour la reconnaissance de l’intention :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Suivre le [démarrage rapide](quickstarts/intent-recognition.md) sur la reconnaissance de l’intention
+* Suivre le [démarrage rapide](get-started-intent-recognition.md) sur la reconnaissance de l’intention
 * [Obtenir gratuitement une clé d’abonnement au service Speech](overview.md#try-the-speech-service-for-free)
 * [Obtenir le kit SDK Speech](speech-sdk.md)

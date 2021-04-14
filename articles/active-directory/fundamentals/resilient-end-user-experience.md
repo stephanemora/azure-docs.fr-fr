@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 53cdbfb3ba531330c37f86233cbed990da4efaf4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557902"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258382"
 ---
 # <a name="resilient-end-user-experience"></a>Expérience résiliente de l’utilisateur final
 
@@ -40,9 +40,9 @@ Pour vous aider à configurer les tâches d’identité les plus courantes, Azur
 
 Choisissez des flux d’utilisateurs intégrés si les besoins de votre entreprise peuvent ainsi être satisfaits. Dans la mesure où ils ont été largement testés par Microsoft, vous pouvez réduire au minimum les tests nécessaires à la validation des fonctions, des performances ou de l’échelle de ces flux d’utilisateurs d’identité au niveau des stratégies. Vous devez toujours tester vos applications sur le plan des fonctionnalités, des performances et de la mise à l’échelle.
 
-Si vous [choisissez des stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md) en raison des exigences de votre entreprise, veillez à effectuer des tests au niveau des stratégies pour les fonctions, les performances ou l’échelle en plus des tests au niveau des applications.
+Si vous [choisissez des stratégies personnalisées](../../active-directory-b2c/user-flow-overview.md) en raison des exigences de votre entreprise, veillez à effectuer des tests au niveau des stratégies pour les fonctions, les performances ou l’échelle en plus des tests au niveau des applications.
 
-Reportez-vous à l’article qui [compare les flux d’utilisateurs et les stratégies personnalisées](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) pour vous aider à décider.
+Reportez-vous à l’article qui [compare les flux d’utilisateurs et les stratégies personnalisées](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies) pour vous aider à décider.
 
 ## <a name="choose-multiple-idps"></a>Choisir plusieurs IDP
 

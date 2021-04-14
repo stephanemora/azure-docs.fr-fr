@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/04/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 4604616cd4f2d6c75c272586df1331fc405061cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "70737489"
 ---
 ## <a name="error-conditionheadersnotsupported-from-a-web-application-using-azure-files-from-browser"></a>Erreur ConditionHeadersNotSupported sur une application web utilisant Azure Files à partir du navigateur
@@ -21,7 +21,7 @@ L’erreur ConditionHeadersNotSupported se produit quand vous accédez à du con
 
 ![Erreur relative aux en-têtes conditionnels avec Azure Files](media/storage-files-condition-headers/conditionalerror.png)
 
-### <a name="cause"></a>Cause :
+### <a name="cause"></a>Cause
 
 Les en-têtes conditionnels ne sont pas encore pris en charge. Les applications qui utilisent ces en-têtes doivent demander le fichier complet pour chaque accès au fichier.
 

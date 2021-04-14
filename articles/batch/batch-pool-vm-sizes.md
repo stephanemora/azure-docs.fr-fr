@@ -2,25 +2,20 @@
 title: Choisir des tailles et des images de machines virtuelles pour les pools
 description: Quelle taille de machine virtuelle et quelle version de système d’exploitation choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800480"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105027378"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille et une image de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
 Lorsque vous sélectionnez une taille de nœud pour un pool Azure Batch, vous avez le choix entre quasiment toutes les tailles de machine virtuelle disponibles dans Azure. Azure propose une gamme de tailles pour les machines virtuelles Windows et Linux pour différentes charges de travail.
 
 ## <a name="supported-vm-series-and-sizes"></a>Tailles et séries de machine virtuelle prises en charge
-
-Quelques exceptions et limites s’appliquent quant au choix d’une taille de machine virtuelle pour votre pool Batch :
-
-- Certaines séries ou tailles de machine virtuelle ne sont pas prises en charge dans Batch.
-- Certaines tailles de machine virtuelle sont limitées et doivent être activées explicitement avant de pouvoir être allouées.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pools dans la configuration de la machine virtuelle
 
@@ -32,16 +27,14 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | Un | Toutes les tailles *sauf* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Toutes les tailles |
 | B | Non pris en charge |
-| DC | Non pris en charge |
+| DCsv2 | Toutes les tailles |
 | Dv2, DSv2 | Toutes les tailles |
 | Dv3, Dsv3 | Toutes les tailles |
-| Dav4 | Toutes les tailles |
-| Dasv4 | Toutes les tailles |
+| Dav4, Dasv4 | Toutes les tailles |
 | Ddv4, Ddsv4 |  Toutes les tailles |
 | Dv4, Dsv4 | Non pris en charge |
 | Ev3, Esv3 | Toutes les tailles, à l’exception de E64is_v3 |
-| Eav4 | Toutes les tailles |
-| Easv4 | Toutes les tailles |
+| Eav4, Easv4 | Toutes les tailles |
 | Edv4, Edsv4 |  Toutes les tailles |
 | Ev4, Esv4 | Non pris en charge |
 | F, Fs | Toutes les tailles |
@@ -50,6 +43,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | H | Toutes les tailles |
 | HB | Toutes les tailles |
 | HBv2 | Toutes les tailles |
+| HBv3 | Standard_HB120rs_v3 (autres tailles non disponibles pour le moment) |
 | HC | Toutes les tailles |
 | Ls | Toutes les tailles |
 | Lsv2 | Toutes les tailles |
@@ -58,7 +52,7 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | NC | Toutes les tailles |
 | NCv2 | Toutes les tailles |
 | NCv3 | Toutes les tailles |
-| NCasT4_v3 | Aucune – pas encore disponible |
+| NCasT4_v3 | Toutes les tailles |
 | ND | Toutes les tailles |
 | NDv2 | Aucune – pas encore disponible |
 | NV | Toutes les tailles |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dc20ca3f3cf6197f8a3ed3a7e0362046f129d369
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435448"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305869"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -168,13 +168,11 @@ Les utilisateurs bénéficient de l’authentification unique sur les appareils 
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
 
-Vos utilisateurs bénéficient de l’authentification unique à partir d’appareils joints à Azure AD quand un appareil a accès à un contrôleur de domaine local.
+Vos utilisateurs bénéficient de l’authentification unique à partir d’appareils joints à Azure AD quand un appareil a accès à un contrôleur de domaine local. [Découvrir le fonctionnement](azuread-join-sso.md)
 
 ### <a name="printers"></a>Imprimantes
 
-Pour les imprimantes, vous devez déployer l’[impression cloud hybride](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) pour la découverte des imprimantes sur les appareils joints à Azure AD. 
-
-Les imprimantes ne peuvent pas être découvertes automatiquement dans un environnement cloud uniquement, mais vos utilisateurs peuvent également utiliser le chemin UNC des imprimantes pour les ajouter directement. 
+Nous recommandons le déploiement de la fonctionnalité [Impression universelle](/universal-print/fundamentals/universal-print-whatis) pour disposer d’une solution de gestion de l’impression basée sur le cloud sans dépendance locale. 
 
 ### <a name="on-premises-applications-relying-on-machine-authentication"></a>Applications locales s’appuyant sur l’authentification de la machine
 
@@ -221,7 +219,7 @@ Choisissez votre ou vos approches de déploiement en consultant le tableau ci-de
 
 ## <a name="configure-your-device-settings"></a>Configurer les paramètres de vos appareils
 
-Le portail Azure vous permet de contrôler le déploiement d’appareils joints à Azure AD dans votre organisation. Pour configurer les paramètres concernés, dans la **page Azure Active Directory**, sélectionnez `Devices > Device settings`.
+Le portail Azure vous permet de contrôler le déploiement d’appareils joints à Azure AD dans votre organisation. Pour configurer les paramètres concernés, dans la **page Azure Active Directory**, sélectionnez `Devices > Device settings`. [En savoir plus](device-management-azure-portal.md)
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>Les utilisateurs peuvent joindre des appareils à Azure AD
 
@@ -235,11 +233,13 @@ Choisissez **Sélectionné** et sélectionnez les utilisateurs que vous voulez a
 
 ![Administrateurs locaux supplémentaires sur les appareils joints à Azure AD](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>Exiger Multi-factor Auth pour joindre des appareils
+### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>Exiger l’authentification multifacteur (MFA) pour joindre des appareils
 
 Sélectionnez **« Oui »** si vous exigez que les utilisateurs effectuent MFA lors de la jonction d’appareils à Azure AD. Pour les utilisateurs joignant des appareils à Azure AD avec MFA, l’appareil lui-même devient un second facteur.
 
 ![Exiger Multi-factor Auth pour joindre des appareils](./media/azureadjoin-plan/03.png)
+
+**Recommandation :** Utilisez l’action de l’utilisateur [Inscrire ou joindre des appareils](/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#user-actions) dans un accès conditionnel pour l’application de l’authentification MFA afin de joindre des appareils.
 
 ## <a name="configure-your-mobility-settings"></a>Configurer vos paramètres de mobilité
 

@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 1eefb7097f672552956e90a19e0a7b411cae8a24
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 832cc1d4f9ec3cec4ada6e964e3ab2f6f023dd41
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455682"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554496"
 ---
-### <a name="standard-and-neural-voices"></a>Voix standard et neuronales
+### <a name="neural-and-standard-voices"></a>Voix neuronales et standard
 
-Servez-vous de ce tableau pour connaître la **disponibilité des voix standard** par région/point de terminaison :
+Servez-vous de ce tableau pour connaître la **disponibilité des voix neuronales et standard** par région/point de terminaison :
 
 | Région | Point de terminaison |
 |--------|----------|
@@ -34,26 +34,13 @@ Servez-vous de ce tableau pour connaître la **disponibilité des voix standard*
 | États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Centre-USA Ouest | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | USA Ouest | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > [Les voix en préversion](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) ne sont disponibles que dans les 3 régions suivantes : USA Est, Europe Ouest et Asie Sud-Est.
-
-Servez-vous de ce tableau pour connaître la **disponibilité des voix neuronales** par région/point de terminaison :
-
-| Région | Point de terminaison |
-|--------|----------|
-| Australie Est | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
-| Centre du Canada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
-| USA Est | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
-| USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### <a name="custom-voices"></a>Voix personnalisées
 

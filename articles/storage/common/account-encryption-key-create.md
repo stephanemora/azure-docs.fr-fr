@@ -6,123 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2020
+ms.date: 03/31/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8150375eff98374e21d200d98c04158b07f1c243
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f2bc71100a92d1811d69af31a7a3085af36f60a8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92789690"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121929"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente
 
 Le stockage Azure chiffre toutes les données dans un compte de stockage au repos. Par défaut, Stockage File d’attente et Stockage Table utilisent une clé qui est limitée au service et gérée par Microsoft. Vous pouvez également choisir d’utiliser des clés gérées par le client pour chiffrer les données des files d’attente ou des tables. Pour utiliser des clés gérées par le client avec des files d’attente et des tables, vous devez d’abord créer un compte de stockage qui utilise une clé de chiffrement limitée au compte et non pas au service. Après avoir créé un compte qui utilise la clé de chiffrement de compte pour les données des files d’attente et des tables, vous pouvez configurer des clés gérées par le client pour ce compte de stockage.
 
 Cet article explique comment créer un compte de stockage qui s’appuie sur une clé limitée au compte. Une fois le compte créé, Microsoft utilise la clé de compte pour chiffrer les données dans le compte et il gère la clé. Vous pouvez par la suite configurer des clés gérées par le client pour le compte pour tirer parti de ces avantages, notamment la capacité à fournir vos propres clés, de mettre à jour la version de la clé, d’effectuer la rotation des clés et de révoquer les contrôles d’accès.
-
-## <a name="about-the-feature"></a>À propos de la fonctionnalité
-
-Pour créer un compte de stockage qui s’appuie sur la clé de chiffrement du compte pour Stockage File d’attente et Stockage Table, vous devez d’abord vous inscrire pour utiliser cette fonctionnalité avec Azure. En raison d’une capacité limitée, notez que plusieurs mois peuvent être nécessaires avant que les demandes d’accès soient approuvées.
-
-Vous pouvez créer un compte de stockage qui s’appuie sur la clé de chiffrement du compte pour Stockage File d’attente et Stockage Table dans les régions suivantes :
-
-- USA Est
-- États-Unis - partie centrale méridionale
-- USA Ouest 2  
-
-### <a name="register-to-use-the-account-encryption-key"></a>S’inscrire pour utiliser la clé de chiffrement de compte
-
-Afin de vous inscrire pour utiliser la clé de chiffrement de compte avec le Stockage Table ou File d’attente, utilisez PowerShell ou Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Pour vous inscrire à l’aide de PowerShell, appelez la commande [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature).
-
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Pour vous inscrire avec Azure CLI, appelez la commande [az feature register](/cli/azure/feature#az-feature-register).
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature register --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Modèle](#tab/template)
-
-N/A
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Vérifier l’état de votre inscription
-
-Pour vérifier l’état de votre inscription au Stockage Table ou File d’attente, utilisez PowerShell ou Azure CLI.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Pour vérifier l’état de votre inscription à l’aide de PowerShell, appelez la commande [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForQueues
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName AllowAccountEncryptionKeyForTables
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Pour vérifier l’état de votre inscription à l’aide d’Azure CLI, appelez la commande [az feature](/cli/azure/feature#az-feature-show).
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForQueues
-az feature show --namespace Microsoft.Storage \
-    --name AllowAccountEncryptionKeyForTables
-```
-
-# <a name="template"></a>[Modèle](#tab/template)
-
-N/A
-
----
-
-### <a name="re-register-the-azure-storage-resource-provider"></a>Réinscrire le fournisseur de ressources Stockage Azure
-
-Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure. Utilisez PowerShell ou Azure CLI pour réinscrire le fournisseur de ressources.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Pour réinscrire le fournisseur de ressources à l’aide de PowerShell, appelez la commande [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Pour réinscrire le fournisseur de ressources à l’aide d’Azure CLI, appelez la commande [az provider register](/cli/azure/provider#az-provider-register).
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
-# <a name="template"></a>[Modèle](#tab/template)
-
-N/A
-
----
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Créer un compte qui utilise la clé de chiffrement de compte
 
@@ -247,6 +147,10 @@ az storage account show /
 N/A
 
 ---
+
+## <a name="pricing-and-billing"></a>Tarification et facturation
+
+Un compte de stockage créé pour utiliser une clé de chiffrement limitée au compte est facturé pour la capacité de stockage et les transactions Table à un tarif différent de celui d’un compte qui utilise la clé par défaut limitée au service. Pour plus d’informations, consultez [Tarification Stockage Table Azure](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

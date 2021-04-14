@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 96917b805640f0cfe38f28ba263e2e7ce55bce7f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3d8c8f8df162d31c4f646866d7c82e9af237eaa8
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106066158"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553802"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Attacher des pools Apache Spark (avec Azure Synapse Analytics) pour le data wrangling (préversion)
 
@@ -198,6 +198,7 @@ df = spark.read.option("header", "true").csv("wasbs://demo@dprepdata.blob.core.w
 Le code suivant montre comment lire des données à partir d’**ADLS GEN 1 (Azure Data Lake Storage Generation 1)** avec vos informations d’identification de principal de service. 
 
 ```python
+%%synapse
 
 # setup service principal which has access of the data
 sc._jsc.hadoopConfiguration().set("fs.adl.account.<storage account name>.oauth2.access.token.provider.type","ClientCredential")
@@ -207,7 +208,7 @@ sc._jsc.hadoopConfiguration().set("fs.adl.account.<storage account name>.oauth2.
 sc._jsc.hadoopConfiguration().set("fs.adl.account.<storage account name>.oauth2.credential", "<client secret>")
 
 sc._jsc.hadoopConfiguration().set("fs.adl.account.<storage account name>.oauth2.refresh.url",
-https://login.microsoftonline.com/<tenant id>/oauth2/token)
+"https://login.microsoftonline.com/<tenant id>/oauth2/token")
 
 df = spark.read.csv("adl://<storage account name>.azuredatalakestore.net/<path>")
 
@@ -216,14 +217,15 @@ df = spark.read.csv("adl://<storage account name>.azuredatalakestore.net/<path>"
 Le code suivant montre comment lire des données à partir d’**ADLS GEN 2 (Azure Data Lake Storage Generation 2)** avec vos informations d’identification de principal de service. 
 
 ```python
+%%synapse
+
 # setup service principal which has access of the data
 sc._jsc.hadoopConfiguration().set("fs.azure.account.auth.type.<storage account name>.dfs.core.windows.net","OAuth")
 sc._jsc.hadoopConfiguration().set("fs.azure.account.oauth.provider.type.<storage account name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
 sc._jsc.hadoopConfiguration().set("fs.azure.account.oauth2.client.id.<storage account name>.dfs.core.windows.net", "<client id>")
 sc._jsc.hadoopConfiguration().set("fs.azure.account.oauth2.client.secret.<storage account name>.dfs.core.windows.net", "<client secret>")
 sc._jsc.hadoopConfiguration().set("fs.azure.account.oauth2.client.endpoint.<storage account name>.dfs.core.windows.net",
-https://login.microsoftonline.com/<tenant id>/oauth2/token)
-
+"https://login.microsoftonline.com/<tenant id>/oauth2/token")
 
 df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows.net/<path>")
 
@@ -308,9 +310,11 @@ input1 = train_ds.as_mount()
 
 ```
 
-## <a name="example-notebook"></a>Exemple de bloc-notes
+## <a name="example-notebooks"></a>Exemples de notebooks
 
-Pour obtenir un exemple de code détaillé sur l’exécution de la préparation des données et de la formation des modèles à partir d’un seul notebook avec Azure Synapse Analytics et Azure Machine Learning, consultez ce [notebook de bout en bout](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb).
+Une fois vos données préparées, découvrez comment [tirer parti d’un cluster Synapse Spark en tant que cible de calcul pour l’entraînement de modèle](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb).
+
+Consultez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_session_on_synapse_spark_pool.ipynb) pour découvrir des concepts et des démonstrations supplémentaires des fonctionnalités d’intégration d’Azure Synapse Analytics et d’Azure Machine Learning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

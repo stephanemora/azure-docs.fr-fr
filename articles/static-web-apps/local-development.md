@@ -2,207 +2,152 @@
 title: Configurer le développement local pour Azure Static Web Apps
 description: Apprendre à définir votre environnement de développement local pour Azure Static Web Apps
 services: static-web-apps
-author: burkeholland
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.author: buhollan
+ms.date: 04/02/2021
+ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a45d490d060febc18d77c8487c9f562fd2a914a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91326165"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275504"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurer le développement local pour Azure Static Web Apps en préversion
 
-Une instance Azure Static Web Apps est constituée de deux types d’applications différents. La première est une application web pour votre contenu statique. Les applications web sont souvent créées avec des infrastructures et des bibliothèques frontales ou avec des générateurs de site statiques. Le deuxième aspect est l’API, qui est une application Azure Functions qui fournit un environnement de développement back-end complet.
+Lorsqu'il est publié dans le cloud, un site Azure Static Web Apps englobe de nombreux services qui fonctionnent ensemble comme s'il s'agissait de la même application. Ces services comprennent :
 
-En cas d’exécution dans le cloud, Azure Static Web Apps mappe en toute transparence les requêtes à l’itinéraire `api`entre l’application web et l’application Azure Functions sans nécessiter de configuration CORS. Localement, vous devez configurer votre application pour imiter ce comportement.
+- L'application web statique
+- L'API Azure Functions
+- Les services d'authentification et d'autorisation
+- Les services de routage et de configuration
 
-Cet article présente les bonnes pratiques recommandées pour le développement local, notamment les concepts suivants :
+Ces services doivent communiquer entre eux, et Azure static Web Apps gère cette intégration pour vous dans le cloud.
 
-- Configurer l’application web pour le contenu statique
-- Configuration de l’application Azure Functions pour l’API de votre application
-- Débogage et exécution de l’application
-- Bonne pratiques pour la structure des fichiers et des dossiers de votre application
+Lorsqu'ils sont exécutés localement, en revanche, ces services ne sont pas automatiquement liés entre eux.
+
+Pour offrir une expérience similaire à celle dont vous bénéficiez dans Azure, l'[interface de ligne de commande (CLI) Azure Static Web Apps](https://github.com/Azure/static-web-apps-cli) fournit les services suivants :
+
+- Un serveur local de sites statiques
+- Un proxy vers le serveur de développement de l'infrastructure frontale
+- Un proxy vers vos points de terminaison d'API, disponible via Azure Functions Core Tools
+- Un serveur d'authentification et d'autorisation fictif
+- La mise en œuvre des itinéraires et paramètres de configuration locaux
+
+## <a name="how-it-works"></a>Fonctionnement
+
+Le graphique suivant montre comment les demandes sont gérées localement.
+
+:::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Flux de demandes et de réponses de l'interface CLI Azure Static Web App":::
+
+> [!IMPORTANT]
+> Naviguez jusqu'à [http://localhost:4280](http://localhost:4280) pour accéder à l'application servie par l'interface CLI.
+
+- Les **demandes** adressées au port `4280` sont transférées vers le serveur approprié en fonction de leur type.
+
+- Les demandes de **contenu statique**, telles que HTML ou CSS, sont gérées par le serveur de contenu statique de l'interface CLI interne ou par le serveur de l'infrastructure frontale à des fins de débogage.
+
+- Les demandes **d'authentification et d'autorisation** sont gérées par un émulateur, qui fournit un profil d'identité factice à votre application.
+
+- Le **runtime Functions Core Tools** gère les demandes envoyées à l'API du site.
+
+- Les **réponses** de tous les services sont renvoyées au navigateur comme s'il s’agissait d'une seule et même application.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) pour Visual Studio Code
-- [Extension Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) pour Visual Studio Code
-  - Nécessaire uniquement si vous n’utilisez pas d’infrastructure JavaScript front-end ou l’interface CLI d’un générateur de site statique
+- **Site Azure Static Web Apps existant** : si vous n'en avez pas, commencez avec l'application de démarrage [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate).
+- **[Node.js](https://nodejs.org) avec npm** : exécutez la version [Node.js LTS](https://nodejs.org), qui inclut l'accès à [npm](https://www.npmjs.com/).
+- **[Visual Studio Code](https://code.visualstudio.com/)**  : utilisé pour le débogage de l'application API, mais non requis pour l'interface CLI.
 
-## <a name="run-projects-locally"></a>Exécuter des projets localement
+## <a name="get-started"></a>Bien démarrer
 
-L’exécution locale d’une application Azure Static Web App implique trois processus, selon que votre projet contient ou non une API.
+Ouvrez un terminal dans le dossier racine de votre site Azure Static Web Apps existant.
 
-- Exécution d’un serveur web local
-- Exécution de l’API
-- Connexion du projet web à l’API
+1. Installez l'interface CLI.
 
-En fonction du mode de création d’un site web, un serveur web local peut ou non être requis pour exécuter l’application dans le navigateur. Lorsque vous utilisez des infrastructures JavaScript front-end et des générateurs de site statiques, cette fonctionnalité est intégrée à leurs interfaces de ligne de commande (CLI) respectives. Les liens suivants pointent vers la référence CLI et vous proposent une sélection d’infrastructures, de bibliothèques et de générateurs.
+    `npm install -g @azure/static-web-apps-cli`
 
-### <a name="javascript-frameworks-and-libraries"></a>Bibliothèques et infrastructures JavaScript
+1. Si nécessaire, générez votre application.
 
-- [CLI Angular](https://angular.io/cli)
-- [CLI Vue](https://cli.vuejs.org/guide/creating-a-project.html)
-- [CLI React](https://create-react-app.dev/)
+    Exécutez `npm run build`, ou la commande équivalente de votre projet.
 
-### <a name="static-site-generators"></a>Générateurs de sites statiques
+1. Accédez au répertoire de sortie de votre application. Les dossiers de sortie sont souvent nommés _build_ (ou nom similaire).
 
-- [CLI Gatsby](https://www.gatsbyjs.org/docs/gatsby-cli/)
-- [Hugo](https://gohugo.io/getting-started/quick-start/)
-- [Jekyll](https://jekyllrb.com/docs/usage/)
+1. Démarrez l'interface CLI.
 
-Si vous utilisez un outil CLI pour traiter votre site, vous pouvez vous rendre directement à la section [Exécution de l’API](#run-api-locally).
+    `swa start`
 
-### <a name="running-a-local-web-server-with-live-server"></a>Exécution d’un serveur web local avec Live Server
+1. Accédez à [http://localhost:4280](http://localhost:4280) pour afficher l'application dans le navigateur.
 
-L’extension Live Server pour Visual Studio Code fournit un serveur web de développement local qui sert du contenu statique.
+### <a name="other-ways-to-start-the-cli"></a>Autres façons de démarrer l'interface CLI
 
-#### <a name="create-a-repository"></a>Créer un référentiel
+| Description | Commande |
+|--- | --- |
+| Servir un dossier spécifique | `swa start ./output-folder` |
+| Utiliser un serveur de développement d'infrastructure en cours d'exécution | `swa start http://localhost:3000` |
+| Démarrer une application Functions dans un dossier | `swa start ./output-folder --api ./api` |
+| Utiliser une application Functions en cours d'exécution | `swa start ./output-folder --api http://localhost:7071` |
 
-1. Vérifiez que vous êtes connecté à GitHub et accédez à [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) pour créer un projet GitHub nommé **vanilla-api**, en utilisant ce modèle.
+## <a name="authorization-and-authentication-emulation"></a>Émulation d'autorisation et d'authentification
 
-    :::image type="content" source="media/local-development/vanilla-api.png" alt-text="Nouvelle fenêtre de référentiel GitHub":::
+L'interface CLI Static Web Apps émule le [flux de sécurité](./authentication-authorization.md) implémenté dans Azure. Lorsqu'un utilisateur se connecte, vous pouvez définir un profil d'identité factice renvoyé à l'application.
 
-1. Ouvrez Visual Studio Code.
+Par exemple, lorsque vous tentez d'accéder à `/.auth/login/github`, une page est renvoyée pour vous permettre de définir un profil d'identité.
 
-1. Appuyez sur **F1** pour ouvrir la palette de commandes.
+> [!NOTE]
+> L'émulateur fonctionne avec n'importe quel fournisseur de sécurité, pas seulement GitHub.
 
-1. Tapez **clone** dans la zone de recherche, puis sélectionnez **Git: Clone**.
+:::image type="content" source="media/local-development/auth-emulator.png" alt-text="Émulateur d'authentification et d'autorisation au niveau local":::
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Option git clone dans Visual Studio Code":::
+L'émulateur présente une page qui vous permet de fournir les valeurs suivantes pour le [principal de client](./user-information.md#client-principal-data) :
 
-1. Entrez la valeur suivante dans **URL du dépôt**.
+| Valeur | Description |
+| --- | --- |
+| **Nom d’utilisateur** | Nom du compte associé au fournisseur de sécurité. Cette valeur apparaît en tant que propriété `userDetails` dans le principal de client, et elle est générée automatiquement si vous ne fournissez pas de valeur. |
+| **ID d'utilisateur** | Valeur générée automatiquement par l'interface CLI.  |
+| **Rôles** | Liste de noms de rôles, chaque nom figurant sur une nouvelle ligne.  |
 
-   ```http
-   git@github.com:<YOUR_GITHUB_ACCOUNT>/vanilla-api.git
-   ```
+Une fois connecté :
 
-1. Sélectionnez un emplacement de dossier pour le nouveau projet.
+- Vous pouvez utiliser le point de terminaison `/.auth/me` ou un point de terminaison de fonction pour récupérer le [principal de client](./user-information.md)de l'utilisateur.
 
-1. Lorsque vous êtes invité à ouvrir le référentiel cloné, sélectionnez **Ouvrir**.
+- Accédez à `./auth/logout` pour effacer le principal de client et déconnecter l'utilisateur fictif.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Ouvrir dans une nouvelle fenêtre":::
+## <a name="debugging"></a>Débogage
 
-Visual Studio Code ouvre le projet cloné dans l’éditeur.
+Il existe deux contextes de débogage dans une application web statique. Le premier concerne le site de contenu statique et le second les fonctions API. Un débogage local est possible en permettant à l'interface CLI Static Web Apps d'utiliser des serveurs de développement pour l'un ou l'autre de ces contextes (ou les deux).
 
-### <a name="run-the-website-locally-with-live-server"></a>Exécuter le site web localement avec Live Server
+Les étapes suivantes présentent un scénario commun qui utilise des serveurs de développement pour les deux contextes de débogage.
 
-1. Appuyez sur **F1** pour ouvrir la palette de commandes.
+1. Démarrez le serveur de développement de site statique. Cette commande est spécifique à l'infrastructure frontale que vous utilisez, mais elle est souvent fournie sous forme de commandes telles que `npm run build`, `npm start` ou `npm run dev`.
 
-1. Tapez **Live Server** dans la zone de recherche et sélectionnez **Live Server : Ouvrir avec Live Server**
+1. Ouvrez le dossier de l'application API dans Visual Studio Code et démarrez une session de débogage.
 
-    Un onglet de navigateur s’ouvre pour afficher l’application.
+1. Transmettez les adresses du serveur statique et du serveur d'API à la commande `swa start` en les répertoriant dans l'ordre.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Site statique simple s’exécutant dans le navigateur":::
+    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
 
-    Cette application envoie une requête HTTP au point de terminaison `api/message`. Pour le moment, cette requête échoue car la partie API de cette application doit être démarrée.
+Les captures d'écran suivantes illustrent les terminaux d'un scénario de débogage classique :
 
-### <a name="run-api-locally"></a>Exécuter l’API localement
+Le site de contenu statique s'exécute via `npm run dev`.
 
-Les API Azure Static Web Apps sont propulsées par Azure Functions. Pour plus d’informations sur l’ajout d’une API à un projet Azure Static Web Apps, consultez [Ajouter une API dans Azure Static Web Apps avec Azure Functions](add-api.md).
+:::image type="content" source="media/local-development/run-dev-static-server.png" alt-text="Serveur de développement de site statique":::
 
-Dans le cadre du processus de création d’API, une configuration de lancement est créée pour Visual Studio Code. Cette configuration se trouve dans le dossier _.vscode_. Ce dossier contient tous les paramètres requis pour la génération et l’exécution locales de l’API.
+L'application API Azure Functions exécute une session de débogage dans Visual Studio Code.
 
-1. Dans Visual Studio Code, appuyez sur **F5** pour démarrer l’API.
+:::image type="content" source="media/local-development/visual-studio-code-debugging.png" alt-text="Débogage d'API dans Visual Studio Code":::
 
-1. La nouvelle instance de terminal qui s’ouvre affiche la sortie du processus de build de l’API.
+L'interface CLI Static Web Apps est lancée à l'aide des deux serveurs de développement.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API exécutée dans Visual Studio Code terminal":::
+:::image type="content" source="media/local-development/static-web-apps-cli-terminal.png" alt-text="Terminal CLI Azure Static Web Apps":::
 
-   La barre d’état de Visual Studio Code est maintenant orange. Cette couleur indique que l’API est en cours d’exécution et que le débogueur est joint.
+Désormais, les demandes qui passent par le port `4280` sont acheminées vers le serveur de développement de contenu statique ou la session de débogage d'API.
 
-1. Ensuite, appuyez sur **Ctrl/Cmd** et cliquez sur l’URL dans le terminal pour ouvrir une fenêtre de navigateur qui appelle l’API.
-
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Résultat de l’affichage du navigateur pour l’appel d’API":::
-
-### <a name="debugging-the-api"></a>Débogage de l’API
-
-1. Ouvrez le fichier _api/GetMessage/index.js_ dans Visual Studio Code.
-
-1. Cliquez à la ligne 2 dans la marge de gauche pour définir un point d’arrêt. Le point rouge qui apparaît indique que le point d’arrêt est défini.
-
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Point d’arrêt dans Visual Studio Code":::
-
-1. Dans le navigateur, actualisez la page en cours d’exécution dans <http://127.0.0.1:7071/api/message>.
-
-1. Le point d’arrêt est atteint dans Visual Studio Code et l’exécution du programme est suspendue.
-
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Point d’arrêt atteint dans Visual Studio Code":::
-
-   Une [expérience de débogage complète est disponible dans Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging) pour votre API.
-
-1. Appuyez sur le bouton **Continuer** dans la barre de débogage pour poursuivre l’exécution.
-
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Bouton Continuer dans Visual Studio Code":::
-
-### <a name="calling-the-api-from-the-application"></a>Appel de l’API à partir de l’application
-
-Une fois déployé, Azure Static Web Apps mappe automatiquement ces requêtes avec les points de terminaison dans le dossier _api_. Ce mappage garantit que les requêtes de l’application à l’API se présentent comme dans l’exemple suivant.
-
-```javascript
-let response = await fetch("/api/message");
-```
-
-Selon que votre application est générée avec une interface CLI de l’infrastructure JavaScript, il existe deux façons de configurer le chemin d’accès à l’itinéraire `api` lors de l’exécution locale de votre application.
-
-- Fichiers de configuration de l’environnement (recommandés pour les bibliothèques et infrastructures JavaScript)
-- Proxy local
-
-### <a name="environment-configuration-files"></a>Fichiers de configuration de l’environnement
-
-Si vous compilez votre application avec des infrastructures front-end possédant une interface CLI, vous devez utiliser des fichiers de configuration d’environnement. Chaque infrastructure ou bibliothèque a une façon différente de gérer ces fichiers de configuration d’environnement. Il est courant de disposer d’un fichier de configuration pour le développement utilisé lorsque votre application s’exécute localement, et d’un fichier de configuration pour la production qui est utilisé lorsque votre application s’exécute en production. Votre interface CLI pour l’infrastructure JavaScript ou le générateur de site statique va automatiquement utiliser le fichier de développement dans le cas d’une exécution locale, et le fichier de production lorsque votre application est générée par Azure Static Web Apps.
-
-Dans le fichier de configuration de développement, vous pouvez spécifier le chemin d’accès à l’API, qui pointe vers l’emplacement local `http:127.0.0.1:7071` où l’API s’exécute localement pour votre site.
-
-```
-API=http:127.0.0.1:7071/api
-```
-
-Dans le fichier de configuration de production, spécifiez le chemin d’accès à l’API en tant que `api`. De cette façon, votre application appellera l’API via « yoursite.com/api » lors de l’exécution en production.
-
-```
-API=api
-```
-
-Ces valeurs de configuration peuvent être référencées en tant que variables d’environnement Node dans le code JavaScript de l’application web.
-
-```js
-let response = await fetch(`${process.env.API}/message`);
-```
-
-Lorsque l’interface de ligne de commande est utilisée pour exécuter votre site en mode de développement ou pour générer le site en production, la valeur `process.env.API` est remplacée par la valeur du fichier de configuration approprié.
-
-Pour plus d’informations sur la configuration des fichiers d’environnement pour les infrastructures et les bibliothèques JavaScript front-end, consultez les articles suivants :
-
-- [Variables d’environnement Angular](https://angular.io/guide/build#configuring-application-environments)
-- [React - Ajout de variables d’environnement personnalisées](https://create-react-app.dev/docs/adding-custom-environment-variables/)
-- [Vue - Modes et variables d’environnement](https://cli.vuejs.org/guide/mode-and-env.html)
-
-[!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
-
-##### <a name="restart-live-server"></a>Redémarrer Live Server
-
-1. Dans Visual Studio Code, appuyez sur **F1** pour ouvrir la palette de commandes.
-
-1. Tapez **Live Server** et sélectionnez **Live Server : Arrêter Live Server**.
-
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Arrêter la commande Live Server dans la palette de commandes Visual Studio":::
-
-1. Appuyez sur **F1** pour ouvrir la palette de commandes.
-
-1. Tapez **Live Server** et sélectionnez **Live Server : Ouvrir avec Live Server**.
-
-1. Actualisez l’application en cours d’exécution à l’adresse `http://locahost:3000`. Le navigateur affiche maintenant le message retourné par l’API.
-
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Hello affiché dans le navigateur à partir de l’API":::
+Pour plus d'informations sur les différents scénarios de débogage, avec des conseils sur la personnalisation des ports et des adresses de serveur, consultez le [Référentiel de l'interface CLI Azure Static Web Apps](https://github.com/Azure/static-web-apps-cli).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configurer les paramètres d’application](application-settings.md)
+> [Configuration de votre application](configuration.md)

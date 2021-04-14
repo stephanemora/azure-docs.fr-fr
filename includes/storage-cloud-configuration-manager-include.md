@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: cedfd719a5f0aeed6fc2e932d3aa5189b83c9796
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026643"
 ---
 La [Bibliothèque Microsoft Azure Configuration Manager pour .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) que vous avez référencée ci-dessus fournit une classe pour l’analyse d’une chaîne de connexion à partir d’un fichier de configuration. La classe [CloudConfigurationManager](/previous-versions/azure/reference/mt634650(v=azure.100)) analyse les paramètres de configuration. Elle analyse les paramètres des applications clientes qui s’exécutent sur le Bureau, sur un appareil mobile, sur une machine virtuelle Azure ou dans un service cloud Azure.

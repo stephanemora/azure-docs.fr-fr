@@ -3,12 +3,12 @@ title: Nouveautés des concentrateurs d'événements Azure ? - service d'ingest
 description: Apprenez-en plus sur Azure Event Hubs, un service de diffusion en continu Big Data qui ingère des millions d’événements par seconde.
 ms.topic: overview
 ms.date: 01/13/2021
-ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35e89f60e93ec759d852641653ad138d7672cc37
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98195758"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303047"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - plateforme de streaming de Big Data et service d’ingestion d’événements
 Azure Event Hubs est une plateforme de streaming de Big Data et un service d’ingestion d’événements. Il peut recevoir et traiter des millions d’événements par seconde. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel.
@@ -92,4 +92,4 @@ Pour commencer à utiliser Event Hubs, consultez les tutoriels **Envoyer et rece
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 
 - [Vue d’ensemble des fonctionnalités des concentrateurs d’événements](event-hubs-features.md)
-- [Forum aux questions](event-hubs-faq.md).
+- [Forum aux questions](event-hubs-faq.yml).

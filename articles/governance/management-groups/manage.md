@@ -3,12 +3,12 @@ title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 05e78d66c29e500842d14a6eeb563c4569ecf0bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09d11450ff63046ab458f930f64534d10863f451
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596491"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258348"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -388,5 +388,5 @@ Pour en savoir plus sur les groupes d’administration, consultez :
 - [Créer des groupes d’administration pour organiser les ressources Azure](./create-management-group-portal.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](./manage.md)
 - [Consulter les groupes d’administration dans le module Azure PowerShell Resources](/powershell/module/az.resources#resources)
-- [Consulter les groupes d’administration dans l’API REST](/rest/api/resources/managementgroups)
+- [Consulter les groupes d’administration dans l’API REST](/rest/api/managementgroups/managementgroups)
 - [Consulter les groupes d’administration dans Azure CLI](/cli/azure/account/management-group)

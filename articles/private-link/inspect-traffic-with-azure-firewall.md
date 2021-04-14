@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575120"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641997"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utiliser Pare-feu Azure pour inspecter le trafic destiné à un point de terminaison privé
 
@@ -25,8 +25,8 @@ Vous devrez peut-être inspecter ou bloquer le trafic des clients vers les servi
 
 Les limites suivantes s'appliquent :
 
-* Les groupes de sécurité réseau (NSG) ne s’appliquent pas aux points de terminaison privés
-* Les itinéraires définis par l’utilisateur (UDR) ne s’appliquent pas aux points de terminaison privés
+* Les groupes de sécurité réseau (NSG) sont ignorés par le trafic provenant des points de terminaison privés
+* Les itinéraires définis par l’utilisateur (UDR) sont ignorés par le trafic provenant des points de terminaison privés
 * Une table de routage unique peut être attachée à un sous-réseau
 * Une table de routage prend en charge jusqu’à 400 itinéraires
 
@@ -35,7 +35,8 @@ Pare-feu Azure filtre le trafic à l’aide des éléments suivants :
 * [Nom de domaine complet dans les règles de réseau](../firewall/fqdn-filtering-network-rules.md) pour les protocoles TCP et UDP
 * [Nom de domaine complet dans les règles d’application](../firewall/features.md#application-fqdn-filtering-rules) pour HTTP, HTTPS et MSSQL. 
 
-La plupart des services exposés sur des points de terminaison privés utilisent le protocole HTTPS. L’utilisation de règles d’application par-dessus des règles de réseau est recommandée lors de l’utilisation d’Azure SQL.
+> [!IMPORTANT] 
+> L’utilisation de règles d’application plutôt que de règles de réseau est recommandée lors de l’inspection du trafic destiné à des points de terminaison privés afin de maintenir la symétrie du flux. Si des règles de réseau sont utilisées, ou si une NVA est utilisée à la place de Pare-feu Azure, la SNAT doit être configurée pour le trafic destiné aux points de terminaison privés.
 
 > [!NOTE]
 > Le filtrage FQDN SQL est pris en charge uniquement en [mode proxy](../azure-sql/database/connectivity-architecture.md#connection-policy) (port 1433). Le mode **proxy** peut entraîner une plus grande latence par rapport au mode de *redirection*. Si vous souhaitez continuer à utiliser le mode de redirection, qui est le mode par défaut pour les clients se connectant dans Azure, vous pouvez filtrer l’accès en utilisant le nom de domaine complet dans les règles de réseau du pare-feu.
@@ -46,12 +47,9 @@ La plupart des services exposés sur des points de terminaison privés utilisent
 
 Ce scénario est l’architecture la plus extensible pour se connecter en privé à plusieurs services Azure à l’aide de points de terminaison privés. Un itinéraire pointant vers l’espace d’adressage du réseau où sont déployés les points de terminaison privés est créé. Cette configuration réduit les frais administratifs et évite d’atteindre la limite des 400 itinéraires.
 
-Si les réseaux virtuels sont appairés, les connexions d’un réseau virtuel client au pare-feu Azure dans un réseau virtuel hub sont facturées.
+Si les réseaux virtuels sont appairés, les connexions d’un réseau virtuel client au pare-feu Azure dans un réseau virtuel hub sont facturées. Les connexions de Pare-feu Azure dans un réseau virtuel hub vers des points de terminaison privés dans un réseau virtuel appairé ne sont pas facturées.
 
 Pour plus d’informations sur les frais liés aux connexions à l’aide de réseaux virtuels appairés, consultez la section FAQ de la page [Tarification](https://azure.microsoft.com/pricing/details/private-link/).
-
->[!NOTE]
-> Ce scénario peut être implémenté à l’aide de règles de réseau NVA ou Pare-feu Azure tiers, au lieu de règles d’application.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>Scénario 2 : Architecture hub-and-spoke – Réseau virtuel partagé pour les points de terminaison privés et les machines virtuelles
 
@@ -69,21 +67,15 @@ Les frais administratifs liés au maintien de la table de routage augmentent à 
 
 Selon votre architecture globale, il est possible d’atteindre la limite des 400 itinéraires. Nous vous recommandons d’utiliser le scénario 1 dans la mesure du possible.
 
-Si les réseaux virtuels sont appairés, les connexions d’un réseau virtuel client au pare-feu Azure dans un réseau virtuel hub sont facturées.
+Si les réseaux virtuels sont appairés, les connexions d’un réseau virtuel client au pare-feu Azure dans un réseau virtuel hub sont facturées. Les connexions de Pare-feu Azure dans un réseau virtuel hub vers des points de terminaison privés dans un réseau virtuel appairé ne sont pas facturées.
 
 Pour plus d’informations sur les frais liés aux connexions à l’aide de réseaux virtuels appairés, consultez la section FAQ de la page [Tarification](https://azure.microsoft.com/pricing/details/private-link/).
-
->[!NOTE]
-> Ce scénario peut être implémenté à l’aide de règles de réseau NVA ou Pare-feu Azure tiers, au lieu de règles d’application.
 
 ## <a name="scenario-3-single-virtual-network"></a>Scénario 3 : Réseau virtuel unique
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="Réseau virtuel unique" border="true":::
 
-La mise en œuvre présente certaines limites : une migration vers une architecture hub-and-spoke n’est pas possible. Les mêmes considérations que celles du scénario 2 s’appliquent. Dans ce scénario, les frais d’appairage de réseaux virtuels ne s’appliquent pas.
-
->[!NOTE]
-> Si vous souhaitez implémenter ce scénario à l’aide d’une NVA ou d’un pare-feu Azure tiers, des règles de réseau sont requises pour le trafic SNAT destiné aux points de terminaison privés, au lieu des règles d’application. Dans le cas contraire, la communication entre les machines virtuelles et les points de terminaison privés échoue.
+Utilisez ce modèle lorsqu’il n’est pas possible d’effectuer une migration vers une architecture hub-and-spoke. Les mêmes considérations que celles du scénario 2 s’appliquent. Dans ce scénario, les frais d’appairage de réseaux virtuels ne s’appliquent pas.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>Scénario 4 : Trafic local vers des points de terminaison privés
 
@@ -97,9 +89,6 @@ Vous pouvez implémenter cette architecture si vous avez configuré la connectiv
 Si vos besoins en matière de sécurité exigent que le trafic client vers les services exposés via des points de terminaison privés soit acheminé par une appliance de sécurité, déployez ce scénario.
 
 Les mêmes considérations que celles du scénario 2 ci-dessus s’appliquent. Dans ce scénario, il n’y a pas de frais d’appairage de réseaux virtuels. Pour plus d’informations sur la manière de configurer vos serveurs DNS afin de permettre aux charges de travail locales d’accéder à des points de terminaison privés, consultez [Charges de travail locales à l’aide d’un redirecteur DNS](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder).
-
->[!NOTE]
-> Si vous souhaitez implémenter ce scénario à l’aide d’une NVA ou d’un pare-feu Azure tiers, des règles de réseau sont requises pour le trafic SNAT destiné aux points de terminaison privés, au lieu des règles d’application. Dans le cas contraire, la communication entre les machines virtuelles et les points de terminaison privés échoue.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -128,6 +117,7 @@ Créez trois réseaux virtuels et leurs sous-réseaux correspondants pour :
 Dans les étapes suivantes, remplacez les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
 ### <a name="azure-firewall-network"></a>Réseau de Pare-feu Azure
+
 | Paramètre                   | Valeur                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -138,6 +128,7 @@ Dans les étapes suivantes, remplacez les paramètres du tableau ci-dessous par 
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### <a name="virtual-machine-network"></a>Réseau de machines virtuelles
+
 | Paramètre                   | Valeur                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -148,13 +139,14 @@ Dans les étapes suivantes, remplacez les paramètres du tableau ci-dessous par 
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### <a name="private-endpoint-network"></a>Réseau de point de terminaison privé
+
 | Paramètre                   | Valeur                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | États-Unis - partie centrale méridionale      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -454,7 +446,7 @@ Cette règle autorise la communication via le pare-feu que nous avons créé dan
 
 6. Dans **Ajouter une collection de règles d’application**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez **SQLPrivateEndpoint**. |
     | Priorité | Entrez **100**. |
@@ -575,7 +567,7 @@ Dans cette section, vous allez vous connecter de manière privée à SQL Databas
     Address: 10.2.0.4
     ```
 
-2. Installez les [outils en ligne de commande SQL Server](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Installez les [outils en ligne de commande SQL Server](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Exécutez la commande suivante pour vous connecter à SQL Server. Utilisez l’administrateur de serveur et le mot de passe que vous avez définis lorsque vous avez créé le serveur SQL aux étapes précédentes.
 

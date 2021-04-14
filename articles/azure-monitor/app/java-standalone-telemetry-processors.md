@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 991e52c13a5730b83552abb6b922d4d7a57c5429
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734568"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024113"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processeurs de télémétrie (préversion) – Azure Monitor Application Insights pour Java
 
@@ -21,10 +21,13 @@ ms.locfileid: "101734568"
 L’agent Java 3.0 pour Application Insights peut traiter des données de télémétrie avant leur exportation.
 
 Voici quelques cas d’utilisation des processeurs de télémétrie :
- * Créer des données sensibles.
+ * Masquer des données sensibles.
  * Ajouter de manière conditionnelle des dimensions personnalisées.
  * Mettre à jour le nom de l’étendue, qui est utilisé pour agréger des données de télémétrie similaires dans le portail Azure.
- * Supprimer les attributs d’étendue pour contrôler les coûts d’ingestion.
+ * Annuler des attributs d’étendue spécifiques pour contrôler les coûts d’ingestion.
+
+> [!NOTE]
+> Si vous envisagez d’annuler des étendues spécifiques (entières) pour contrôler le coût d’ingestion, consultez [Remplacements d’échantillonnage](./java-standalone-sampling-overrides.md).
 
 ## <a name="terminology"></a>Terminologie
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e00ef81afc709a9072eedbb07983057f57eb08
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950589"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304294"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingérer des données de télémétrie IoT Hub dans Azure Digital Twins
 
@@ -45,7 +45,7 @@ Chaque fois qu’un événement de télémétrie de température est envoyé par
 
 Dans cette section, vous allez configurer un [jumeau numérique](concepts-twins-graph.md) dans Azure Digital Twins qui représentera le thermostat et sera mis à jour avec les informations d’IoT Hub.
 
-Pour créer un jumeau de type thermostat, vous devez d’abord charger le [modèle](concepts-models.md) de thermostat sur votre instance, qui décrit les propriétés d’un thermostat et sera utilisé ultérieurement pour créer le jumeau. 
+Pour créer un jumeau de type thermostat, vous devez d’abord charger le [modèle](concepts-models.md) de thermostat sur votre instance, qui décrit les propriétés d’un thermostat et sera utilisé ultérieurement pour créer le jumeau.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 

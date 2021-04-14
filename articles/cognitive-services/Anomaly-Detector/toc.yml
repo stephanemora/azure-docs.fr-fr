@@ -3,12 +3,18 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que le détecteur d’anomalies\_?"
+    - name: "Qu’est-ce que le détecteur d’anomalies (multivarié)\_?"
+      href: overview-multivariate.md
+    - name: "Qu’est-ce que le détecteur d’anomalies (univarié)\_?"
       href: overview.md
     - name: Tarification et limites
       href: 'https://aka.ms/adpricing'
-- name: Démarrage rapide sur le détecteur d’anomalies
-  href: ./quickstarts/client-libraries.md
+- name: Démarrages rapides sur le détecteur d’anomalies
+  items:
+    - name: Bibliothèques de client multivariées
+      href: ./quickstarts/client-libraries-multivariate.md
+    - name: Bibliothèques de client univariées
+      href: ./quickstarts/client-libraries.md
 - name: Exemples
   items:
     - name: Démonstration interactive
@@ -39,10 +45,18 @@
               href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Concepts
   items:
-    - name: Bonnes pratiques de l’API Détecteur d’anomalies
+    - name: Bonnes pratiques de l’API Détecteur d’anomalies (multivarié)
+      href: concepts/best-practices-multivariate.md
+    - name: Bonnes pratiques de l’API Détecteur d’anomalies (univarié)
       href: concepts/anomaly-detection-best-practices.md
+    - name: Architecture de maintenance prédictive (multivariée)
+      href: concepts/multivariate-architecture.md
+    - name: Résolution des problèmes multivariés
+      href: concepts/troubleshoot.md
     - name: Détection des anomalies SR (Spectral Residual) et CNN (Convolutional Neural Net)
       href: 'https://arxiv.org/abs/1906.03821'
+    - name: Détection d’anomalies de séries chronologiques multivariée via un réseau à graphe d’attention
+      href: 'https://arxiv.org/abs/2009.02040'
 - name: Tutoriels
   items:
     - name: Visualiser les anomalies en lot avec Power BI

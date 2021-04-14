@@ -1,19 +1,16 @@
 ---
 title: Configurer la reprise d’activité après sinistre des machines virtuelles VMware sur Azure à l’aide d’Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware locales vers Azure avec Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bd87265140a0bfaeb7ef4dada6dd76be1269654b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6044de81253b9069631ff3cdae687d90a0287fea
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92369367"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580580"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 

@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 765c3653dae4f514263cd8db636d9cec42d56d15
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606315"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107616"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
@@ -62,7 +62,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Types et fonctions spatiaux de topologie PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
+> |[timescaledb](https://docs.timescale.com/latest)                    |1.7.4             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | Dictionnaire de recherche de texte qui supprime les accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Génère des identificateurs uniques universels (UUID)|
 
@@ -108,7 +108,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | Types et fonctions spatiaux de topologie PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | Dictionnaire de recherche de texte qui supprime les accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Génère des identificateurs uniques universels (UUID)|
 
@@ -154,7 +154,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Types et fonctions spatiaux de topologie PostGIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | Dictionnaire de recherche de texte qui supprime les accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Génère des identificateurs uniques universels (UUID)|
 

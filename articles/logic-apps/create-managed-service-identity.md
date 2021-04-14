@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/09/2021
-ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/30/2021
+ms.openlocfilehash: 54880f22fae7f9a193a13745702345f5f7efdc32
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889329"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210915"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -19,9 +19,13 @@ Pour accéder facilement à d’autres ressources protégées par Azure Active D
 
 Azure Logic Apps prend en charge les identités managées [*affectées par le système*](../active-directory/managed-identities-azure-resources/overview.md) et [*affectées par l’utilisateur*](../active-directory/managed-identities-azure-resources/overview.md). Votre application logique ou vos connexions individuelles peuvent utiliser soit l’identité affectée par le système, soit *une seule* identité affectée par l’utilisateur, que vous pouvez partager dans un groupe d’applications logiques, mais pas les deux.
 
+<a name="triggers-actions-managed-identity"></a>
+
 ## <a name="where-can-logic-apps-use-managed-identities"></a>Où Logic Apps peut-il utiliser des identités managées ?
 
 Actuellement, seuls [des déclencheurs et des actions intégrés spécifiques](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) et [des connecteurs gérés spécifiques](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) qui prennent en charge Azure AD OAuth peuvent utiliser une identité managée pour l’authentification. Par exemple, voici une sélection :
+
+<a name="built-in-managed-identity"></a>
 
 **Déclencheurs et actions intégrés**
 
@@ -33,6 +37,8 @@ Actuellement, seuls [des déclencheurs et des actions intégrés spécifiques](.
 
 > [!NOTE]
 > Même si l’action et le déclencheur HTTP peuvent authentifier les connexions aux comptes Stockage Azure derrière des pare-feu Azure à l’aide de l’identité managée affectée par le système, ils ne peuvent pas utiliser l’identité managée affectée par l’utilisateur pour authentifier les mêmes connexions.
+
+<a name="managed-connectors-managed-identity"></a>
 
 **Connecteurs gérés**
 
@@ -93,7 +99,7 @@ Pour configurer l’identité managée à utiliser, suivez le lien de cette iden
 
    ![ID d’objet pour l’identité attribuée par le système](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
-   | Propriété | Value | Description |
+   | Propriété | Valeur | Description |
    |----------|-------|-------------|
    | **ID d’objet** | <*identity-resource-ID*> | GUID (identificateur global unique) qui représente l’identité affectée par le système pour votre application logique dans un locataire Azure AD |
    ||||
@@ -402,55 +408,6 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
      Pour plus d’informations, consultez [Exemple : Authentifier un déclencheur ou une action de connecteur géré avec une identité managée](#authenticate-managed-connector-managed-identity).
 
-### <a name="connections-that-use-managed-identities"></a>Connexions qui utilisent des identités managées
-
-Les connexions qui utilisent une identité managée sont un type particulier de connexion qui fonctionne uniquement avec une identité managée. Au moment de l’exécution, la connexion utilise l’identité managée qui est activée sur l’application logique. Cette configuration est enregistrée dans l’objet `parameters` de la définition de ressource de l’application logique, qui contient l’objet `$connections` qui inclut des pointeurs vers l’ID de ressource de la connexion ainsi que l’ID de ressource de l’identité, si l’identité affectée par l’utilisateur est activée.
-
-Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par le système :
-
-```json
-"parameters": {
-   "$connections": {
-      "value": {
-         "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
-            "connectionProperties": {
-               "authentication": {
-                  "type": "ManagedServiceIdentity"
-               }
-            },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-         }
-      }
-   }
-}
- ```
-
-Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par l’utilisateur :
-
-```json
-"parameters": {
-   "$connections": {
-      "value": {
-         "<action-name>": {
-            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-            "connectionName": "{connection-name}",
-            "connectionProperties": {
-               "authentication": {
-                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                  "type": "ManagedServiceIdentity"
-               }
-            },
-            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-         }
-      }
-   }
-}
-```
-
-Pendant l’exécution, le service Logic Apps vérifie si un déclencheur et des actions de connecteur géré dans l’application logique sont configurés pour utiliser l’identité managée et que toutes les autorisations requises sont configurées pour utiliser l’identité managée pour accéder aux ressources cibles qui sont spécifiées par le déclencheur et les actions. En cas de réussite, le service Logic Apps récupère le jeton Azure AD associé à l’identité managée et utilise cette identité pour authentifier l’accès à la ressource cible et effectuer l’opération configurée dans le déclencheur et les actions.
-
 <a name="authenticate-built-in-managed-identity"></a>
 
 #### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>Exemple : Authentifier le déclencheur ou l’action intégré avec une identité managée
@@ -477,7 +434,7 @@ Pour exécuter l’[opération de capture instantanée d’objet blob](/rest/api
 |----------|----------|---------------|-------------|
 | **Méthode** | Oui | `PUT`| Méthode HTTP utilisée par l’opération de capture instantanée d’objet blob |
 | **URI** | Oui | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID de ressource d’un fichier de Stockage Blob Azure dans l’environnement global (public) Azure qui utilise cette syntaxe |
-| **En-têtes** | Pour Stockage Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Les valeurs d’en-tête `x-ms-blob-type`, `x-ms-version` et `x-ms-date` sont requises pour les opérations du service Stockage Azure. <p><p>**Important !** Dans le déclencheur HTTP sortant et les demandes d’action pour Stockage Azure, l’en-tête requiert la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter. La valeur `x-ms-date` doit être la date actuelle. Dans le cas contraire, votre application logique échoue avec une erreur `403 FORBIDDEN`. Pour obtenir la date actuelle au format requis, vous pouvez utiliser l’expression dans l’exemple de valeur. <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [En-têtes de demande – Capture instantanée d’objet blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Contrôle de version pour les services Stockage Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **En-têtes** | Pour Stockage Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r')}` | Les valeurs d’en-tête `x-ms-blob-type`, `x-ms-version` et `x-ms-date` sont requises pour les opérations du service Stockage Azure. <p><p>**Important !** Dans le déclencheur HTTP sortant et les demandes d’action pour Stockage Azure, l’en-tête requiert la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter. La valeur `x-ms-date` doit être la date actuelle. Dans le cas contraire, votre application logique échoue avec une erreur `403 FORBIDDEN`. Pour obtenir la date actuelle au format requis, vous pouvez utiliser l’expression dans l’exemple de valeur. <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [En-têtes de demande – Capture instantanée d’objet blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Contrôle de version pour les services Stockage Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
 | **Requêtes** | Uniquement pour l’opération de capture instantanée de blob | `comp` = `snapshot` | Nom et valeur du paramètre de requête pour l’opération. |
 |||||
 
@@ -549,6 +506,83 @@ L’action Azure Resource Manager, **Lire une ressource**, peut utiliser l’ide
 1. Une fois la connexion créée, le concepteur peut extraire les valeurs, le contenu ou le schéma dynamiques à l’aide de l’authentification par identité managée.
 
 1. Continuez à créer l’application logique comme vous le souhaitez.
+
+<a name="logic-app-resource-definition-connection-managed-identity"></a>
+
+### <a name="logic-app-resource-definition-and-connections-that-use-a-managed-identity"></a>Définition et connexions de ressources d’application logique qui utilisent une identité managée
+
+Une connexion qui active et utilise une identité managée est un type particulier de connexion qui fonctionne uniquement avec une identité managée. Au moment de l’exécution, la connexion utilise l’identité managée qui est activée sur l’application logique. Cette configuration est enregistrée dans l’objet `parameters` de la définition de ressource de l’application logique, qui contient l’objet `$connections` qui inclut des pointeurs vers l’ID de ressource de la connexion ainsi que l’ID de ressource de l’identité, si l’identité affectée par l’utilisateur est activée.
+
+Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par le système :
+
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Cet exemple montre à quoi ressemble la configuration lorsque l’application logique active l’identité managée affectée par l’utilisateur :
+
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Pendant l’exécution, le service Logic Apps vérifie si un déclencheur et des actions de connecteur géré dans l’application logique sont configurés pour utiliser l’identité managée et que toutes les autorisations requises sont configurées pour utiliser l’identité managée pour accéder aux ressources cibles qui sont spécifiées par le déclencheur et les actions. En cas de réussite, le service Logic Apps récupère le jeton Azure AD associé à l’identité managée et utilise cette identité pour authentifier l’accès à la ressource cible et effectuer l’opération configurée dans le déclencheur et les actions.
+
+<a name="arm-templates-connection-resource-managed-identity"></a>
+
+## <a name="arm-template-for-managed-connections-and-managed-identities"></a>Modèle ARM pour les connexions managées et les identités managées
+
+Si vous automatisez le déploiement avec un modèle ARM et si votre application logique inclut un déclencheur ou une action de connecteur managé qui utilise une identité managée, vérifiez que la définition de ressource de la connexion sous-jacente inclut la propriété `parameterValueType` avec `Alternative` comme valeur de propriété. Sinon, votre déploiement ARM ne pourra pas configurer la connexion pour utiliser l’identité managée à des fins d’authentification, et la connexion ne fonctionnera pas dans le workflow de votre application logique. Cet impératif s’applique uniquement aux [déclencheurs et actions de connecteur managé spécifiques](#managed-connectors-managed-identity) pour lesquels vous avez sélectionné l’[option **Se connecter avec une identité managée**](#authenticate-managed-connector-managed-identity).
+
+Par exemple, voici la définition de ressource de connexion sous-jacente pour une action Azure Automation qui utilise une identité managée où la définition inclut la propriété `parameterValueType`, dont la valeur de propriété est `Alternative` :
+
+```json
+{
+    "type": "Microsoft.Web/connections",
+    "name": "[variables('automationAccountApiConnectionName')]",
+    "apiVersion": "2016-06-01",
+    "location": "[parameters('location')]",
+    "kind": "V1",
+    "properties": {
+        "api": {
+            "id": "[subscriptionResourceId('Microsoft.Web/locations/managedApis', parameters('location'), 'azureautomation')]"
+        },
+        "customParameterValues": {},
+        "displayName": "[variables('automationAccountApiConnectionName')]",
+        "parameterValueType": "Alternative"
+    }
+},
+```
 
 <a name="remove-identity"></a>
 

@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d9eb28ad19d53df542769a89b839668bbb205e30
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100555235"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256104"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurer le fournisseur d’identité d’un compte local
 
@@ -143,7 +143,7 @@ Après avoir téléchargé le pack de démarrage
 
 1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
 
-1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Par exemple, mettez à jour `/phone-number-passwordless/`**`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez inscrites en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework*.
+1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). Par exemple, mettez à jour `/phone-number-passwordless/`**`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez inscrites en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework*.
 1. Télécharger les fichiers de stratégie
 
 ::: zone-end

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100094999"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642109"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Se connecter et démarrer des applications à partir du portail Mes applications
 
@@ -39,11 +39,12 @@ Si vous n’avez pas accès au portail **Mes applications**, contactez le suppor
 
 ## <a name="supported-browsers"></a>Navigateurs pris en charge
 
-Vous pouvez accéder au portail **Mes applications** dans les navigateurs web suivants :
+Vous pouvez accéder au portail **Mes applications** dans l’un des navigateurs web suivants. Microsoft vous recommande d’utiliser le navigateur le plus récent compatible avec votre système d’exploitation.
 
-- Microsoft Edge (la version mobile d’Edge est actuellement le seul navigateur mobile pris en charge)
-- Google Chrome
-- Mozilla Firefox, version 26.0 ou version ultérieure
+- Microsoft Edge (version la plus récente, bureau et mobile)
+- Safari (version la plus récente, Mac et iOS)
+- Chrome (version la plus récente, bureau et mobile)
+- Firefox (version la plus récente)
 
 Vous pouvez accéder au portail Mes applications et l’utiliser sur votre ordinateur, ou à partir de la version mobile du navigateur Edge sur un appareil mobile iOS ou Android.
 

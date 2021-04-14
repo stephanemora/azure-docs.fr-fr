@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/10/2021
-ms.openlocfilehash: 0e60ac6da55c11d45e8b691b4883b0f5f93a2498
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.date: 03/26/2021
+ms.openlocfilehash: 313cca7a0db81502ac68a2cb7e9981f712a82548
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103563927"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933109"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage
 
@@ -143,13 +143,6 @@ Renvoie la première valeur non nulle d'un jeu d'entrées. Toutes les entrées d
 * ``coalesce(10, 20) -> 10``  
 * ``coalesce(toString(null), toString(null), 'dumbo', 'bo', 'go') -> 'dumbo'``  
 ___
-### <code>collect</code>
-<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
-Collecte toutes les valeurs de l’expression dans le groupe agrégé dans un tableau. Les structures peuvent être collectées et transformées en d’autres structures au cours de ce processus. Le nombre d’éléments est égal au nombre de lignes dans ce groupe, et peut contenir des valeurs Null. Le nombre d’éléments collectés doit être petit.  
-* ``collect(salesPerson)``
-* ``collect(firstName + lastName))``
-* ``collect(@(name = salesPerson, sales = salesAmount) )``
-___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
 Obtient les noms de toutes les colonnes de sortie pour un flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument.  
@@ -277,6 +270,10 @@ ___
 <code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
 Échappe une chaîne conformément à un format. Les valeurs littérales pour le format acceptable sont « json », « xml », « ecmascript », « html », « java ».
 ___
+### <code>expr</code>
+<code><b>expr(<i>&lt;expr&gt;</i> : string) => any</b></code><br/><br/>
+Génère une expression à partir d’une chaîne. Cela revient à écrire cette expression sous une forme non littérale. Ceci peut être utilisé pour passer des paramètres sous forme de représentations de chaîne.
+*   expr(‘price * discount’) => any ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
 Calcule la factorielle d’un nombre.  
@@ -856,6 +853,13 @@ ___
 Selon certains critères, obtient la moyenne des valeurs d’une colonne.  
 * ``avgIf(region == 'West', sales)``  
 ___
+### <code>collect</code>
+<code><b>collect(<i>&lt;value1&gt;</i> : any) => array</b></code><br/><br/>
+Collecte toutes les valeurs de l’expression dans le groupe agrégé dans un tableau. Les structures peuvent être collectées et transformées en d’autres structures au cours de ce processus. Le nombre d’éléments est égal au nombre de lignes dans ce groupe, et peut contenir des valeurs Null. Le nombre d’éléments collectés doit être petit.  
+* ``collect(salesPerson)``
+* ``collect(firstName + lastName))``
+* ``collect(@(name = salesPerson, sales = salesAmount) )``
+___
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Obtient le nombre agrégé de valeurs. Si la ou les colonnes facultatives sont spécifiées, les valeurs Null ne sont pas comptabilisées.  
@@ -900,6 +904,10 @@ Obtient la première valeur d’un groupe de colonnes. Si le deuxième paramètr
 * ``first(sales)``  
 * ``first(sales, false)``  
 ___
+### <code>isDistinct</code>
+<code><b>isDistinct(<i>&lt;value1&gt;</i> : any , <i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
+Détermine si une colonne ou un ensemble de colonnes est distinct. Elle ne compte pas Null comme une valeur distincte *   ``isDistinct(custId, custName) => boolean``
+*   ___
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtient l’aplatissement d’une colonne.  
@@ -1217,6 +1225,14 @@ ___
 
 Les fonctions de conversion permettent de convertir des données et de tester des types de données.
 
+### <code>isBitSet</code>
+<code><b>isBitSet (<value1> : array, <value2>:integer ) => boolean</b></code><br/><br/>
+Vérifie si une position de bit est définie dans ce bitset * ``isBitSet(toBitSet([10, 32, 98]), 10) => true``
+___
+### <code>setBitSet</code>
+<code><b>setBitSet (<value1> : array, <value2>:array) => array</b></code><br/><br/>
+Fixe la position des bits dans ce bitset * ``setBitSet(toBitSet([10, 32]), [98]) => [4294968320L, 17179869184L]``
+___  
 ### <code>isBoolean</code>
 <code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
 Détermine si la valeur de chaîne est une valeur booléenne conformément aux règles de ``toBoolean()``
@@ -1431,6 +1447,11 @@ Sélectionnez un tableau de colonnes par son nom dans le flux. Vous pouvez trans
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
+### <code>byPath</code>
+<code><b>byPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => any</b></code><br/><br/>
+Recherche un chemin d’accès hiérarchique par nom dans le flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument. Si aucun chemin d’accès n’est trouvé, la valeur Null est renvoyée. Les noms/chemins de colonnes connus au moment de la conception doivent être adressés uniquement par leur nom ou leur chemin en notation pointée. Les entrées calculées ne sont pas prises en charge, mais vous pouvez utiliser des substitutions de paramètre.  
+* ``byPath('grandpa.parent.child') => column`` 
+___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Sélectionne une valeur de colonne selon sa position relative (base 1) dans le flux. Si la position est hors limites, une valeur Null est retournée. Le type de la valeur retournée doit être converti par l’une des fonctions de conversion de type (TO_DATE, TO_STRING, etc.). Les entrées calculées ne sont pas prises en charge, mais vous pouvez utiliser des substitutions de paramètre.  
@@ -1439,6 +1460,11 @@ Sélectionne une valeur de colonne selon sa position relative (base 1) dans le f
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+___
+### <code>hasPath</code>
+<code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
+Vérifie s’il existe un certain chemin d’accès hiérarchique par nom dans le flux. Vous pouvez transmettre un nom de flux facultatif en tant que deuxième argument. Les noms/chemins de colonnes connus au moment de la conception doivent être adressés uniquement par leur nom ou leur chemin en notation pointée. Les entrées calculées ne sont pas prises en charge, mais vous pouvez utiliser des substitutions de paramètre.  
+* ``hasPath('grandpa.parent.child') => boolean``
 ___
 ### <code>hex</code>
 <code><b>hex(<value1>: binary) => string</b></code><br/><br/>

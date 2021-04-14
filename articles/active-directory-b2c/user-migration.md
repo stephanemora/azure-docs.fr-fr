@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2d4a61f653c5bedb31223d2eb3d37b92a076821
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3e60b80a4ebeaef7d31d4c0c1d9d4bfc41ec3a56
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010165"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256206"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrer des utilisateurs vers Azure AD B2C
 
@@ -43,7 +43,7 @@ Utilisez le flux de migration fluide si les mots de passe en texte en clair dans
 - Le mot de passe est stocké dans un format chiffré unidirectionnel, comme avec une fonction de hachage.
 - Le mot de passe est stocké par le fournisseur d’identité précédent de telle façon que vous ne pouvez pas y accéder. Par exemple, quand le fournisseur d’identité valide les informations d’identification en appelant un service web.
 
-Le flux de migration fluide nécessite néanmoins toujours la prémigration des comptes d’utilisateur, mais il utilise ensuite une [stratégie personnalisée](custom-policy-get-started.md) pour interroger une [API REST](custom-policy-rest-api-intro.md) (que vous créez) pour définir le mot de passe de chaque utilisateur lors de la première connexion.
+Le flux de migration fluide nécessite néanmoins toujours la prémigration des comptes d’utilisateur, mais il utilise ensuite une [stratégie personnalisée](user-flow-overview.md) pour interroger une [API REST](custom-policy-rest-api-intro.md) (que vous créez) pour définir le mot de passe de chaque utilisateur lors de la première connexion.
 
 Le flux de migration fluide comporte ainsi deux phases : la *prémigration* et la *définition des informations d’identification*.
 

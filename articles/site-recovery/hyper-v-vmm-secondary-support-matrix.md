@@ -1,18 +1,15 @@
 ---
 title: Prendre en charge la récupération d’urgence matrice-Hyper-V sur un site VMM secondaire avec Azure Site Recovery
 description: Résume la prise en charge de la réplication des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
-ms.openlocfilehash: af7baf413c9054ef3e5bf527851ac06c113cdce7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f34d660c4012e192a157dc836574bc1ab25233
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86131163"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579945"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 

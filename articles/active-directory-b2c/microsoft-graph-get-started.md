@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0dcb959184e12ffa22ae25443087684123598e47
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98675184"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382457"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Inscrire une application Microsoft Graph
 
@@ -56,31 +56,38 @@ Pour permettre à vos scripts et applications d'interagir avec l’[API Microsof
 1. Sélectionnez **Inscription**.
 1. Enregistrez l’**ID d’application (client)** indiqué dans la page d’aperçu de l’application. Vous utiliserez cette valeur ultérieurement.
 
-### <a name="grant-api-access"></a>Accorder un accès à l’API
+## <a name="grant-api-access"></a>Accorder un accès à l’API
 
-Accordez ensuite les autorisations d’application inscrites pour manipuler les ressources de locataire par le biais d’appels à l’API Microsoft Graph.
+Pour permettre à votre application d’accéder aux données dans Microsoft Graph, accordez à l’application inscrite les [autorisations d’application](https://docs.microsoft.com/graph/permissions-reference) qui conviennent. Les autorisations effectives de votre application correspondent au niveau complet des privilèges impliqués par l’autorisation. Par exemple, pour *créer*, *lire*, *mettre à jour* et *supprimer* chaque utilisateur de votre locataire Azure AD B2C, ajoutez l’autorisation **User.ReadWrite.All**. 
+
+> [!NOTE]
+> L’autorisation **User.ReadWrite.All** ne permet pas de mettre à jour les mots de passe des comptes d’utilisateurs. Si votre application doit mettre à jour les mots de passe des comptes d’utilisateurs, [accordez le rôle Administrateur d’utilisateurs](#optional-grant-user-administrator-role). Lorsque vous accordez le rôle [Administrateur d’utilisateurs](../active-directory/roles/permissions-reference.md#user-administrator), l’autorisation **User.ReadWrite.All** n’est pas nécessaire. Le rôle Administrateur d’utilisateurs comprend tout ce qui est nécessaire pour gérer les utilisateurs.
+
+Vous pouvez accorder à votre application plusieurs autorisations d’application. Par exemple, si votre application doit également gérer des groupes au sein de votre locataire Azure AD B2C, ajoutez l’autorisation **Group.ReadWrite.All**. 
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="create-client-secret"></a>Créer un secret client
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+## <a name="optional-grant-user-administrator-role"></a>[Facultatif] Accorder le rôle Administrateur d’utilisateurs
 
-Vous disposez maintenant d’une application autorisée à *créer*, *lire*, *mettre à jour* et *supprimer* des utilisateurs dans votre locataire Azure AD B2C. Passez à la section suivante pour ajouter des autorisations de *mise à jour des mots de passe*.
+Si votre application ou script doit mettre à jour les mots de passe des utilisateurs, attribuez le rôle *Administrateur d'utilisateurs* à votre application. Le rôle [Administrateur d’utilisateurs](../active-directory/roles/permissions-reference.md#user-administrator) dispose d’un ensemble fixe d’autorisations que vous accordez à votre application. 
 
-## <a name="enable-user-delete-and-password-update"></a>Activer la suppression d’utilisateurs et la mise à jour des mots de passe
-
-L’autorisation *Accéder en lecture et en écriture aux données de l’annuaire* n’inclut **PAS** la possibilité de supprimer des utilisateurs ou de mettre à jour des mots de passe pour les comptes d'utilisateur.
-
-Si votre application ou script doit supprimer des utilisateurs ou mettre à jour leur mot de passe, attribuez le rôle *Administrateur d'utilisateurs* à votre application :
+Pour ajouter le rôle *Administrateur d’utilisateurs*, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et utilisez le filtre **Répertoire + abonnement** pour basculer vers votre locataire Azure AD B2C.
 1. Recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Rôles et administrateurs**.
-1. Sélectionnez le rôle **Administrateur d’utilisateurs**.
+1. Sélectionnez le rôle **Administrateur d’utilisateurs**. 
 1. Sélectionnez **Ajouter des affectations**.
-1. Dans la zone de texte **Sélectionner**, entrez le nom de l’application que vous avez inscrite, par exemple *managementapp1*. Sélectionnez votre application quand elle apparaît dans les résultats de la recherche.
+1. Dans la zone de texte **Sélectionner**, entrez le nom ou l’ID de l’application que vous avez inscrite, par exemple *managementapp1*. Lorsqu’elle apparaît dans les résultats de la recherche, sélectionnez votre application.
 1. Sélectionnez **Ajouter**. La propagation complète des autorisations peut prendre quelques minutes.
+
+## <a name="create-client-secret"></a>Créer un secret client
+
+Votre application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter une clé secrète client, procédez comme suit :
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
