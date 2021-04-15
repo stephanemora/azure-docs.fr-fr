@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: luquinta
 ms.reviewer: jrasnick
-ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d045c1ec96bb7b31a710a28e30e3d428922b65e
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018659"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378548"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utiliser .NET pour Apache Spark avec Azure Synapse Analytics
 
@@ -29,19 +29,10 @@ Vous pouvez analyser des données avec .NET pour Apache Spark par le biais de d�
 Consultez le tutoriel pour apprendre à utiliser Azure Synapse Analytics pour [créer des définitions de travaux Apache Spark pour des pools Synapse Spark](apache-spark-job-definitions.md). Si vous n’avez pas empaqueté votre application pour l’envoyer à Azure Synapse, effectuez les étapes suivantes.
 
 1. Exécutez les commandes suivantes pour publier votre application. Veillez à remplacer *mySparkApp* par le chemin d’accès de votre application.
-
-   **Sur Windows :**
-
-   ```dotnetcli
-   cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
-   ```
    
-   **Sur Linux :**
-
    ```dotnetcli
    cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
+   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.18.04-x64
    ```
 
 2. Compressez le contenu du dossier de publication, `publish.zip` par exemple, qui a été créé à la suite de l’étape 1. Tous les assemblys doivent se trouver dans la première couche du fichier zip et il ne doit y avoir aucune couche de dossier intermédiaire. Cela signifie que lorsque vous décompressez `publish.zip`, tous les assemblys sont extraits dans votre répertoire de travail actuel.

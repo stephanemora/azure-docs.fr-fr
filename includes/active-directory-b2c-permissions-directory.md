@@ -3,14 +3,14 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 04/05/2021
 ms.author: mimart
-ms.openlocfilehash: f8c972bdb9195008c2983d3993e8d9369749b284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a2382146cd8b85b8eef54b924a206dda7107b0f
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200173"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382456"
 ---
 #### <a name="app-registrations"></a>[Inscriptions des applications](#tab/app-reg-ga/) 
 
@@ -19,8 +19,9 @@ ms.locfileid: "85200173"
 1. Sélectionnez l’onglet **API Microsoft**, puis **Microsoft Graph**.
 1. Sélectionnez **Autorisations de l’application**.
 1. Développez le groupe d’autorisations approprié et activez la case à cocher de l’autorisation à accorder à votre application de gestion. Par exemple :
+    * **User** > **User.ReadWrite.All** : Pour les scénarios de migration ou de gestion d’utilisateurs.
+    * **Group** > **Group.ReadWrite.All**: Pour créer des groupes, lire et mettre à jour les appartenances aux groupes et supprimer des groupes.
     * **AuditLog** > **AuditLog.Read.All** : Pour lire les journaux d’audit de l’annuaire.
-    * **Directory** > **Directory.ReadWrite.All** : Pour les scénarios de migration ou de gestion d’utilisateurs.
     * **Policy** > **Policy.ReadWrite.TrustFramework** : Pour les scénarios d’intégration continue/livraison continue (CI/CD). Par exemple, pour le déploiement de stratégies personnalisées avec Azure Pipelines.
 1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
 1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .

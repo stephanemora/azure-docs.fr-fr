@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: e708536395807fc74dc5bfd73836e050832cca39
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2ef5a3b162d62fa79ed01a156345070ee12b4862
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493337"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110676"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>Autoriser une identité managée à accéder aux ressources de communication de votre environnement de développement
 
-La bibliothèque de client Azure Identity fournit une prise en charge de l’authentification par jeton Azure Active Directory (Azure AD) pour le SDK Azure. Les versions les plus récentes des bibliothèques de client Azure Communication Services pour .NET, Java, Python et JavaScript s’intègrent à la bibliothèque Azure Identity afin de fournir un moyen simple et sécurisé d’acquérir un jeton OAuth 2.0 pour l’autorisation des demandes Azure Communication Services.
+Le kit SDK Azure Identity fournit une prise en charge de l’authentification par jeton Azure AD (Azure Active Directory) pour le kit SDK Azure. Les dernières versions des kits SDK Azure Communication Services pour .NET, Java, Python et JavaScript s’intègrent avec la bibliothèque Azure Identity afin de fournir un moyen simple et sécurisé d’acquérir un jeton OAuth 2.0 pour l’autorisation des requêtes Azure Communication Services.
 
-L’un des avantages de la bibliothèque de client Azure Identity est qu’elle vous permet d’utiliser le même code pour vous authentifier auprès de plusieurs services, que votre application soit exécutée dans l’environnement de développement ou dans Azure. La bibliothèque cliente Azure Identity authentifie un principal de sécurité. Lorsque votre code s’exécute dans Azure, le principal de sécurité est une identité managée pour les ressources Azure. Dans l’environnement de développement, étant donné que l’identité managée n’existe pas, la bibliothèque de client authentifie soit l’utilisateur, soit l’application inscrite à des fins de test.
+L’un des avantages du kit SDK Azure Identity est qu’il vous permet d’utiliser le même code pour vous authentifier auprès de plusieurs services, que votre application s’exécute dans l’environnement de développement ou dans Azure. Le kit SDK Azure Identity authentifie un principal de sécurité. Lorsque votre code s’exécute dans Azure, le principal de sécurité est une identité managée pour les ressources Azure. Dans l’environnement de développement, dans la mesure où l’identité managée n’existe pas, le kit SDK authentifie soit l’utilisateur, soit l’application inscrite à des fins de test.
 
 ## <a name="prerequisites"></a>Prérequis
 
- - Azure CLI. [Guide d'installation](https://docs.microsoft.com/cli/azure/install-azure-cli)
+ - Azure CLI. [Guide d'installation](/cli/azure/install-azure-cli)
  - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free).
 
 ## <a name="setting-up"></a>Configuration
@@ -35,7 +35,7 @@ Les identités managées doivent être activées sur les ressources Azure que vo
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modèle Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Bibliothèques clientes Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Kits SDK Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 - [App Services](../../app-service/overview-managed-identity.md)
 
 ## <a name="authenticate-a-registered-application-in-the-development-environment"></a>Authentifier une application inscrite dans l’environnement de développement
@@ -68,7 +68,7 @@ La commande `az ad sp create-for-rbac` retourne une liste de propriétés de pri
 
 #### <a name="set-environment-variables"></a>Définir des variables d’environnement
 
-La bibliothèque de client Azure Identity lit les valeurs de trois variables d’environnement au moment de l’exécution pour authentifier l’application. Le tableau suivant indique la valeur à définir pour chaque variable d’environnement.
+Le kit SDK Azure Identity lit les valeurs de trois variables d’environnement au moment de l’exécution pour authentifier l’application. Le tableau suivant indique la valeur à définir pour chaque variable d’environnement.
 
 |Variable d’environnement|Valeur
 |-|-

@@ -5,17 +5,17 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96001160"
 ---
 Fluentd est un collecteur de données open source pour la journalisation unifiée. Les paramètres `Fluentd` gèrent la connexion du conteneur à un serveur [Fluentd](https://www.fluentd.org). Le conteneur comprend un fournisseur de journalisation Fluentd qui permet à votre conteneur d’écrire des données de journaux d’activité et, éventuellement, de métriques, sur un serveur Fluentd.
 
 Le tableau suivant décrit les paramètres de configuration pris en charge sous la section `Fluentd`.
 
-| Name | Type de données | Description |
+| Nom | Type de données | Description |
 |------|-----------|-------------|
 | `Host` | String | Adresse IP ou nom d’hôte DNS du serveur Fluentd. |
 | `Port` | Integer | Port du serveur Fluentd.<br/> La valeur par défaut est 24224. |

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: 09366dea1a0d77052b6f99e9f5ab52c270e341b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dced3cde1aae082bd64d785212b40e100013e0bf
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87047017"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312890"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personnaliser un modèle de personne avec l’API Video Indexer
 
@@ -35,7 +35,7 @@ Chaque compte possède une limite de 50 modèles de personne. Si vous n’avez p
 
 ## <a name="create-a-new-person-model"></a>Créer un nouveau modèle de personne
 
-Pour créer un nouveau modèle de personne sur le compte spécifié, utilisez l'API [Créer un modèle de personne](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
+Pour créer un nouveau modèle de personne sur le compte spécifié, utilisez l'API [Créer un modèle de personne](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Person-Model).
 
 La réponse fournit le nom et l’ID généré du modèle de personne que vous venez de créer au format de l’exemple ci-dessous.
 
@@ -46,11 +46,11 @@ La réponse fournit le nom et l’ID généré du modèle de personne que vous v
 }
 ```
 
-Utilisez ensuite la valeur **id** pour le paramètre **personModelId** lors du [chargement d’une vidéo à indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou de la [réindexation d’une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Utilisez ensuite la valeur **id** pour le paramètre **personModelId** lors du [chargement d’une vidéo à indexer](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) ou de la [réindexation d’une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video).
 
 ## <a name="delete-a-person-model"></a>Supprimer un modèle de personne
 
-Pour supprimer un modèle de personne personnalisé sur le compte spécifié, utilisez l'API [Supprimer un modèle de personne](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
+Pour supprimer un modèle de personne personnalisé sur le compte spécifié, utilisez l'API [Supprimer un modèle de personne](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Person-Model).
 
 Une fois le modèle de personne supprimé, l’index des vidéos actuelles utilisant le modèle supprimé restera inchangé jusqu’à ce que vous les réindexiez. Au moment de la réindexation, les visages nommés dans le modèle supprimé ne sont pas reconnus par Video Indexer dans vos vidéos actuelles indexées à l’aide de ce modèle, mais les visages sont tout de même détectés. Les vidéos actuelles indexées à l’aide du modèle supprimé utiliseront désormais le modèle de personne par défaut de votre compte. Si des faces du modèle supprimé sont également nommées dans le modèle par défaut de votre compte, ces visages continueront d’être reconnus dans les vidéos.
 
@@ -58,7 +58,7 @@ Aucun contenu n’est retourné en cas de suppression effective du modèle de pe
 
 ## <a name="get-all-person-models"></a>Obtenir tous les modèles de personne
 
-Pour obtenir tous les modèles de personne sur le compte spécifié, utilisez l'API [Obtenir un modèle de personne](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
+Pour obtenir tous les modèles de personne sur le compte spécifié, utilisez l'API [Obtenir un modèle de personne](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Person-Models).
 
 La réponse fournit une liste de tous les modèles de personne de votre compte (dont le modèle de personne par défaut du compte spécifié), ainsi que le nom et l’ID de chacun au format de l’exemple ci-dessous.
 
@@ -75,7 +75,7 @@ La réponse fournit une liste de tous les modèles de personne de votre compte (
 ]
 ```
 
-Vous pouvez choisir le modèle que vous souhaitez utiliser pour une vidéo en utilisant la valeur `id` du modèle de personne pour le paramètre `personModelId` lors du [chargement d’une vidéo à indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou de la [réindexation d’une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Vous pouvez choisir le modèle que vous souhaitez utiliser pour une vidéo en utilisant la valeur `id` du modèle de personne pour le paramètre `personModelId` lors du [chargement d’une vidéo à indexer](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) ou de la [réindexation d’une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video).
 
 ## <a name="update-a-face"></a>Mettre à jour un visage
 
@@ -85,7 +85,7 @@ Le système reconnaît alors les occurrences du même visage dans vos autres vid
 
 Vous pouvez mettre à jour un visage que Video Indexer a reconnu comme une célébrité avec un nouveau nom. Le nouveau nom affecté est prioritaire sur la reconnaissance de célébrités intégrée.
 
-Pour mettre à jour le visage, utilisez l'API [Mettre à jour un visage dans une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
+Pour mettre à jour le visage, utilisez l'API [Mettre à jour un visage dans une vidéo](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Face).
 
 Les noms étant uniques pour les modèles de personne, si vous affectez la même valeur de paramètre `name` à deux visages du même modèle de personne, Video Indexer identifie les visages comme appartenant à la même personne et les rapproche quand vous réindexez votre vidéo.
 

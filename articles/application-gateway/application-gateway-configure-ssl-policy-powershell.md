@@ -8,18 +8,21 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed81ca2c8f409b7f6c4a6f30f9bf75e594c6c208
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93397890"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221702"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions des stratégies TLS et les suites de chiffrement sur Application Gateway
 
 Apprenez à configurer les versions des stratégies TLS/SSL et les suites de chiffrement sur Application Gateway. Vous pouvez effectuer votre choix dans une liste de stratégies prédéfinies contenant différentes configurations de versions de stratégies TLS et suites de chiffrement activées. Vous avez également la possibilité de définir une [stratégie TLS personnalisée](#configure-a-custom-tls-policy) en fonction de vos besoins.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Nous vous recommandons d'utiliser TLS 1.2 comme version minimale du protocole TLS pour une meilleure sécurité sur votre instance d'Application Gateway. 
 
 ## <a name="get-available-tls-options"></a>Accéder aux options TLS disponibles
 
@@ -217,4 +220,6 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment rediriger le trafic HTTP vers un point de terminaison HTTPS, voir la page [Vue d’ensemble de la redirection dans Application Gateway](./redirect-overview.md).
+Pour savoir comment rediriger le trafic HTTP vers un point de terminaison HTTPS, voir la page [Vue d’ensemble de la redirection dans Application Gateway](./redirect-overview.md). 
+
+Reportez-vous à la configuration des stratégies SSL spécifiques de l'écouteur décrite dans [Configurer des stratégies SSL spécifiques aux écouteurs via le portail](./application-gateway-configure-listener-specific-ssl-policy.md).

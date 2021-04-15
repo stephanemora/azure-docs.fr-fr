@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: wesmc
 ms.openlocfilehash: 498a7ee28b9404d0733e4615f4df635a8c904b51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67176872"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
@@ -84,9 +84,9 @@ Les valeurs correspondent aux tailles de cache suivantes :
 | Valeur | De base et Standard<br>taille du cache | Premium<br>taille du cache |
 | :---: | :------------------------------: | :-------------------: |
 | 0     | 250 Mo (par défaut)                 | n/a                   |
-| 1     | 1 Go                             | 6 Go (par défaut)        |
+| 1     | 1 Go                             | 6 Go (par défaut)        |
 | 2     | 2,5 Go                           | 13 Go                 |
-| 3     | 6 Go                             | 26 Go                 |
+| 3     | 6 Go                             | 26 Go                 |
 | 4     | 13 Go                            | 53 Go                 |
 | 5     | 26 Go                            | 120 Go                |
 | 6     | 53 Go                            | n/a                   |

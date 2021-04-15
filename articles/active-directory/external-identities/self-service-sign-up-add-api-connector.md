@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 0c9bbdb831df9c51c6d80e6c441ac7bdd2778428
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008720"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044547"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur
 
@@ -36,7 +36,7 @@ Pour utiliser un [connecteur d’API](api-connectors-overview.md), vous devez d�
 
 5. Indiquez un nom d’affichage pour l’appel. Par exemple, **Vérifier l’état d’approbation**.
 6. Indiquez l’**URL du point de terminaison** pour l’appel d’API.
-7. Choisissez le **type d'authentification** et configurez les informations d'authentification pour appeler votre API. Consultez la section ci-dessous pour connaître les options de sécurisation de votre API.
+7. Choisissez le **Type d'authentification** et configurez les informations d'authentification pour appeler votre API. Consultez la section ci-dessous pour connaître les options de sécurisation de votre API.
 
     ![Configurer un connecteur d'API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
@@ -53,13 +53,24 @@ L’authentification de base HTTP est définie dans le document [RFC 2617](https
 > [!IMPORTANT]
 > Cette fonctionnalité actuellement disponible en préversion est fournie sans contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-L'authentification par certificat client est une authentification mutuelle basée sur un certificat dans laquelle le client fournit un certificat client au serveur pour prouver son identité. Dans ce cas, Azure Active Directory utilisera le certificat que vous chargez dans le cadre de la configuration du connecteur d'API. Cela se produit dans le cadre de la négociation SSL. Seuls les services disposant des certificats appropriés peuvent accéder à votre service API. Le certificat client est un certificat numérique X.509. Dans les environnements de production, il doit être signé par une autorité de certification. 
+L'authentification par certificat client est une méthode d'authentification mutuelle basée sur un certificat, dans laquelle le client fournit un certificat client au serveur pour prouver son identité. Dans ce cas, Azure Active Directory utilisera le certificat que vous chargez dans le cadre de la configuration du connecteur d'API. Cela se produit dans le cadre de la négociation SSL. Votre service API peut alors limiter l'accès aux seuls services qui disposent des certificats appropriés. Le certificat client est un certificat numérique PKCS12 (PFX) X.509. Dans les environnements de production, il doit être signé par une autorité de certification. 
 
-Pour créer un certificat, vous pouvez utiliser [Azure Key Vault](../../key-vault/certificates/create-certificate.md), qui propose des options pour les certificats auto-signés et des intégrations auprès de fournisseurs d'émetteurs de certificats pour les certificats signés. Vous pouvez ensuite [exporter le certificat](../../key-vault/certificates/how-to-export-certificate.md) et le charger pour l'utiliser dans la configuration des connecteurs d'API. Notez que le mot de passe n'est requis que pour les fichiers de certificat protégés par un mot de passe. Vous pouvez également utiliser la cmdlet [New-SelfSignedCertificate](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) de PowerShell pour générer un certificat auto-signé.
+Pour créer un certificat, vous pouvez utiliser [Azure Key Vault](../../key-vault/certificates/create-certificate.md), qui propose des options pour les certificats auto-signés et des intégrations auprès de fournisseurs d'émetteurs de certificats pour les certificats signés. Paramètres recommandés :
+- **Objet** : `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Type de contenu** : `PKCS #12`
+- **Type d'action de la durée de vie** : `Email all contacts at a given percentage lifetime` ou `Email all contacts a given number of days before expiry`
+- **Type de clé** : `RSA`
+- **Taille de la clé** : `2048`
+- **Clé privée exportable** : `Yes` (afin de pouvoir exporter un fichier pfx)
 
-Pour Azure App Service et Azure Functions, consultez [Configurer l'authentification mutuelle TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) pour savoir comment activer et valider le certificat à partir de votre point de terminaison d'API.
+Vous pouvez ensuite [exporter le certificat](../../key-vault/certificates/how-to-export-certificate.md). Vous pouvez également utiliser la [cmdlet New-SelfSignedCertificate](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) de PowerShell pour générer un certificat auto-signé.
 
-Nous vous recommandons de définir des alertes de rappel avant la date d'expiration de votre certificat. Pour charger un nouveau certificat sur un connecteur d'API existant, sélectionnez le connecteur d'API sous **Tous les connecteurs d'API**, puis cliquez sur **Charger un nouveau certificat**. Le dernier certificat chargé qui n'a pas expiré et dont la date de début est dépassée sera automatiquement utilisé par Azure Active Directory.
+Une fois que vous disposez d'un certificat, vous pouvez le charger dans le cadre de la configuration du connecteur d'API. Notez que le mot de passe n'est requis que pour les fichiers de certificat protégés par un mot de passe.
+
+Votre API doit implémenter l'autorisation basée sur les certificats clients envoyés afin de protéger les points de terminaison d'API. Pour Azure App Service et Azure Functions, consultez [Configurer l'authentification mutuelle TLS](../../app-service/app-service-web-configure-tls-mutual-auth.md) afin de savoir comment activer et *valider le certificat à partir de votre code d'API*.  Vous pouvez également utiliser le service Gestion des API Azure pour protéger votre API, et [vérifier les propriétés des certificats clients](
+../../api-management/api-management-howto-mutual-certificates-for-clients.md) pour les comparer avec les valeurs souhaitées à l'aide d'expressions de stratégie.
+ 
+Nous vous recommandons de définir des alertes de rappel avant la date d'expiration de votre certificat. Vous devrez générer un nouveau certificat et répéter les étapes ci-dessus. Votre service API peut temporairement continuer à accepter les anciens et les nouveaux certificats pendant le déploiement du nouveau certificat. Pour charger un nouveau certificat sur un connecteur d'API existant, sélectionnez le connecteur d'API sous **Tous les connecteurs d'API**, puis cliquez sur **Charger un nouveau certificat**. Le dernier certificat chargé qui n'a pas expiré et dont la date de début est dépassée sera automatiquement utilisé par Azure Active Directory.
 
 ### <a name="api-key"></a>Clé d’API
 Certains services utilisent un mécanisme de « clé API » pour obfusquer l'accès à vos points de terminaison HTTP pendant le développement. Pour [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), vous pouvez effectuer cette opération en incluant le `code` comme paramètre de requête dans l'**URL du point de terminaison**. Par exemple, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 

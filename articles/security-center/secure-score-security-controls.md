@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: b19a7c156abf32e2a0f6d70717145a6ed5ab42ce
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f5d98dd9bf893065f2bf9c37cbec4384d0f7c94
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099673"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727138"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Degré de sécurisation dans Azure Security Center
 
@@ -69,7 +69,7 @@ Le score maximal pour ce contrôle, Appliquer des mises à jour système, est to
 |**Degré de sécurisation actuel du contrôle de sécurité**|<br>![Équation pour le calcul du degré de sécurisation d’un contrôle de sécurité](media/secure-score-security-controls/secure-score-equation-single-control.png)<br><br>Chaque contrôle de sécurité individuel contribue au degré de sécurisation global. Chaque ressource concernée par une recommandation dans le contrôle contribue au degré de sécurisation actuel du contrôle. Le degré de sécurisation actuel de chaque contrôle correspond à la mesure de l’état des ressources *comprises* dans ce contrôle.<br>![Info-bulles présentant les valeurs utilisées lors du calcul du degré de sécurisation actuel du contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Dans cet exemple, le score (ou degré) maximal de 6 est divisé par 78, car il s’agit de la somme des ressources saines et non saines.<br>6 / 78 = 0,0769<br>En multipliant ce score par le nombre de ressources saines (4), vous obtenez le score actuel :<br>0,0769 \* 4 = **0,31**<br><br>|
 |**Degré de sécurisation**<br>Abonnement unique|<br>![Équation pour le calcul du score sécurisé d’un abonnement](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Degré de sécurisation d’un abonnement avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Dans cet exemple, vous pouvez voir un abonnement pour lequel tous les contrôles de sécurité sont disponibles (avec un degré de sécurisation maximal potentiel de 60 points). Le degré de sécurisation indique 28 points sur 60 points possibles, et les 32 points restants correspondent aux valeurs figurant dans la colonne « Potential score increase » (Augmentation potentielle du degré de sécurisation) des contrôles de sécurité.<br>![Liste des contrôles et augmentation potentielle du score](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Degré de sécurisation**<br>Abonnements multiples|<br>![Équation pour le calcul du score sécurisé pour plusieurs abonnements](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>Lors du calcul du score combiné pour plusieurs abonnements, Security Center comprend un *poids* pour chaque abonnement. Les pondérations relatives de vos abonnements sont déterminées par Security Center en fonction de facteurs tels que le nombre de ressources.<br>Le score actuel de chaque abonnement est calculé de la même façon que pour un abonnement unique, mais le poids est appliqué comme indiqué dans l’équation.<br>Quand vous consultez plusieurs abonnements, le degré de sécurisation évalue toutes les ressources de toutes les stratégies activées, et regroupe leur impact combiné sur le degré maximal de chaque contrôle de sécurité.<br>![Degré de sécurisation pour plusieurs abonnements avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Le score combiné **n’est pas** une moyenne. Il s’agit plutôt d’une évaluation de l’état de toutes les ressources de tous les abonnements.<br>Ici aussi, si vous accédez à la page des recommandations et si vous ajoutez les points que vous pouvez potentiellement gagner, vous constaterez qu’il s’agit de la différence entre le score actuel (24) et le score maximal possible (60).|
-||||
+
 
 ### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Quelles sont les recommandations incluses dans les calculs du degré de sécurisation ?
 
@@ -98,7 +98,7 @@ Nous recommandons à chaque organisation d’examiner attentivement les initiati
 > [!TIP]
 > Pour plus d’informations sur l’examen et la modification de vos initiatives, consultez [Utilisation de stratégies de sécurité](tutorial-security-policy.md). 
 
-Bien que l’initiative de sécurité par défaut de Security Center soit basée sur les meilleures pratiques et les normes du secteur, il existe des scénarios dans lesquels les recommandations intégrées répertoriées ci-dessous peuvent ne pas être entièrement adaptées à votre organisation. Par conséquent, il est parfois nécessaire d’ajuster l’initiative par défaut (sans compromettre la sécurité) pour s’assurer qu’elle est alignée sur les propres stratégies de votre organisation, les normes du secteur, les normes réglementaires et les benchmarks que vous êtes tenu de respecter.<br><br>
+Bien que l’initiative de sécurité par défaut de Security Center soit basée sur les bonnes pratiques et les standards du secteur, il existe des scénarios dans lesquels les recommandations intégrées listées ci-dessous ne sont pas tout à fait adaptées à votre organisation. Il est donc parfois nécessaire de modifier l’initiative par défaut (sans compromettre la sécurité) pour garantir son alignement sur les propres stratégies de votre organisation. ainsi que sur les standards du secteur, les standards réglementaires et les points de référence que vous êtes tenu de respecter.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>

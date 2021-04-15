@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise le client Guest Configuration pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: a18f230c1b7b1eb2c953542e276127f4f47cbb39
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 6fb3ed3644ccdb5de8f03bedf56943a91570322b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802520"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105733024"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -176,7 +176,10 @@ L’extension de configuration d’invité écrit les fichiers journaux aux empl
 
 Windows : `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
 
-Linux : `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+Linux
+
+- Machine virtuelle Azure : `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
+- Machine virtuelle Azure : `/var/lib/GuestConfig/arc_policy_logs/gc_agent.log`
 
 ### <a name="collecting-logs-remotely"></a>Collecte des journaux à distance
 
@@ -210,9 +213,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 Le client de configuration invité télécharge des packages de contenu sur un ordinateur et extrait le contenu.
 Pour vérifier quel contenu a été téléchargé et stocké, consultez les emplacements de dossier indiqués ci-dessous.
 
-Windows : `c:\programdata\guestconfig\configurations`
+Windows : `c:\programdata\guestconfig\configuration`
 
-Linux : `/var/lib/guestconfig/configurations`
+Linux : `/var/lib/GuestConfig/Configuration`
 
 ## <a name="guest-configuration-samples"></a>Exemples de la configuration d’invité
 

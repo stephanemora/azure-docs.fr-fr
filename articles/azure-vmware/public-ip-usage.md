@@ -3,12 +3,12 @@ title: Comment utiliser la fonctionnalité d’adresse IP publique dans Azure VM
 description: Cet article explique comment utiliser la fonctionnalité d’adresse IP publique dans Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 794e24e531d464adf58d5a06b5a411ada18c4a60
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99581378"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023654"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Comment utiliser la fonctionnalité d’adresse IP publique dans Azure VMware Solution
 
@@ -47,6 +47,9 @@ Le serveur web reçoit la demande et répond avec les informations ou la page de
 
 ## <a name="test-case"></a>Cas de test
 Dans ce scénario, vous allez publier le serveur web IIS sur Internet. Utilisez la fonctionnalité d’adresse IP publique dans Azure VMware Solution pour publier le site web sur une adresse IP publique.  Vous allez configurer des règles NAT sur le pare-feu et accéder à la ressource Azure VMware Solution (machines virtuelles avec un serveur de ressources) avec une adresse IP publique.
+
+>[!TIP]
+>Pour activer le trafic de sortie, vous devez définir Configuration de la sécurité > Trafic Internet sur **Pare-feu Azure**.
 
 ## <a name="deploy-virtual-wan"></a>Déployer Azure Virtual WAN.
 
@@ -152,7 +155,7 @@ Une fois que tous les composants sont déployés, vous pouvez les voir dans le g
 
 ## <a name="limitations"></a>Limites
 
-Vous pouvez avoir 100 adresses IP publiques par SDDC.
+Vous pouvez avoir 100 IP publiques par cloud privé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

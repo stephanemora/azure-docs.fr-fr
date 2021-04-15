@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30348d7ca12ded2d1f4b0522a7cabeadf0553a07
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37ff3300935e90304754b5f2b375df0adecdaefa
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953353"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256240"
 ---
 # <a name="overview-of-policy-keys-in-azure-active-directory-b2c"></a>Vue d’ensemble des clés de stratégie dans Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) stocke les secrets et les certificats 
  Cet article traite de ce que vous devez savoir sur les clés de stratégie utilisées par Azure AD B2C.
 
 > [!NOTE]
-> Actuellement, la configuration des clés de stratégie est limitée aux [stratégies personnalisées](./custom-policy-get-started.md) uniquement.
+> Actuellement, la configuration des clés de stratégie est limitée aux [stratégies personnalisées](./user-flow-overview.md) uniquement.
 
 Vous pouvez configurer des secrets et des certificats pour établir la confiance entre les services dans le portail Azure, sous le menu **Clés de stratégie**. Les clés peuvent être symétriques ou asymétriques. Le chiffrement *symétrique*, ou chiffrement à clé privée, consiste à utiliser un secret partagé est utilisé pour chiffrer et déchiffrer les données. Le chiffrement *asymétrique*, ou chiffrement à clé publique, est un système de chiffrement qui utilise des paires de clés, composées de clés publiques partagées avec l’application par partie de confiance et des clés privées connues uniquement d’Azure AD B2C.
 

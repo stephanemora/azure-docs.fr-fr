@@ -4,12 +4,12 @@ ms.author: dapine
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 2bfb700ac5c220b780c05c8d415a4506c7a2f871
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2a5935079a339e85713e9cbcd0f32c211cabbb5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96001161"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729893"
 ---
 Les paramètres `Logging` gèrent la prise en charge de la journalisation ASP.NET Core pour votre conteneur. Vous pouvez utiliser pour votre conteneur les mêmes paramètres et valeurs de configuration que ceux d’une application ASP.NET Core. 
 
@@ -17,8 +17,8 @@ Le conteneur prend en charge les fournisseurs de journalisation suivants :
 
 |Fournisseur|Objectif|
 |--|--|
-|[Console](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Fournisseur de journalisation `Console` ASP.NET Core. Tous les paramètres de configuration ASP.NET Core et les valeurs par défaut de ce fournisseur de journalisation sont pris en charge.|
-|[Déboguer](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Fournisseur de journalisation `Debug` ASP.NET Core. Tous les paramètres de configuration ASP.NET Core et les valeurs par défaut de ce fournisseur de journalisation sont pris en charge.|
+|[Console](/aspnet/core/fundamentals/logging/#console-provider)|Fournisseur de journalisation `Console` ASP.NET Core. Tous les paramètres de configuration ASP.NET Core et les valeurs par défaut de ce fournisseur de journalisation sont pris en charge.|
+|[Déboguer](/aspnet/core/fundamentals/logging/#debug-provider)|Fournisseur de journalisation `Debug` ASP.NET Core. Tous les paramètres de configuration ASP.NET Core et les valeurs par défaut de ce fournisseur de journalisation sont pris en charge.|
 |[Disque](#disk-logging)|Fournisseur de journalisation JSON. Ce fournisseur de journalisation écrit les données de journal dans le montage de sortie.|
 
 Cette commande de conteneur stocke des informations de journalisation au format JSON dans le montage de sortie :
@@ -50,9 +50,9 @@ Logging:Console:LogLevel:Default=Debug
 
 Le fournisseur de journalisation `Disk` prend en charge les paramètres de configuration suivants :
 
-| Name | Type de données | Description |
+| Nom | Type de données | Description |
 |------|-----------|-------------|
 | `Format` | String | Format de sortie des fichiers journaux.<br/> **Remarque :** Cette valeur doit être définie sur `json` pour activer le fournisseur de journalisation. Si cette valeur est spécifiée sans que le montage de sortie soit aussi spécifié pendant l’instanciation d’un conteneur, une erreur se produit. |
 | `MaxFileSize` | Integer | Taille maximale, en mégaoctets (Mo), d’un fichier journal. Dès que la taille du fichier journal actif atteint ou dépasse cette valeur, un nouveau fichier journal est commencé par le fournisseur de journalisation. Si la valeur -1 est spécifiée, la taille du fichier journal est limitée uniquement par la taille de fichier maximale, le cas échéant, pour le montage de sortie. La valeur par défaut est 1. |
 
-Pour plus d’informations sur la configuration de la prise en charge de la journalisation ASP.NET Core, consultez [Configuration d’un fichier de paramètres](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+Pour plus d’informations sur la configuration de la prise en charge de la journalisation ASP.NET Core, consultez [Configuration d’un fichier de paramètres](/aspnet/core/fundamentals/logging/).

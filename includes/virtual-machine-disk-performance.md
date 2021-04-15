@@ -9,10 +9,10 @@ ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 4770ac0181c64ef800aa02ba87284c8add357e36
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92518054"
 ---
 Cet article vous aide à clarifier les performances des disques et la procédure lorsque vous combinez des machines virtuelles Azure et des disques Azure. Il explique également comment vous pouvez diagnostiquer les goulots d’étranglement des E/S de disque et les modifications que vous pouvez apporter pour optimiser les performances.
@@ -24,7 +24,7 @@ Les performances de votre application sont limitées lorsqu’elle nécessite pl
 
 ## <a name="disk-io-capping"></a>Limitation d’E/S disque
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde non mises en cache : 12 800
@@ -46,7 +46,7 @@ Tous les disques attachés sont des disques E30 et peuvent uniquement gérer des
 
 ## <a name="virtual-machine-io-capping"></a>Limitation des E/S de machine virtuelle
 
-**Configuration**  :
+**Configuration** :
 
 - Standard_D8s_v3
   - E/S par seconde non mises en cache : 12 800

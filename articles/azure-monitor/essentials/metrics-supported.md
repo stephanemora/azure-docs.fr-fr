@@ -4,14 +4,14 @@ description: Liste des métriques disponibles pour chaque type de ressource avec
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 02/06/2021
+ms.date: 04/01/2021
 ms.author: robb
-ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6f664450d5450782d9a01d75abfb5a96b3e0bba6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033501"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221192"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -55,7 +55,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 > [!IMPORTANT] 
 > Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les métriques ont par ailleurs été réorganisées par ordre alphabétique. En raison de ces informations complémentaires, une barre de défilement horizontale est susceptible d’apparaître en bas des tableaux ci-dessous, en fonction de la largeur de votre fenêtre de navigateur. Si vous pensez qu’il manque des informations, utilisez la barre de défilement pour afficher l’intégralité du tableau.
-
 ## <a name="microsoftaadiamazureadmetrics"></a>microsoft.aadiam/azureADMetrics
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -148,7 +147,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |HttpIncomingRequestDuration|Oui|HttpIncomingRequestDuration|Count|Average|Latence sur une requête HTTP.|StatusCode, Authentication|
 |ThrottledHttpRequestCount|Oui|ThrottledHttpRequestCount|Count|Count|Requêtes HTTP limitées.|Aucune dimension|
 
-
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -203,7 +201,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |tomcat.threads.current|Oui|tomcat.threads.current|Count|Total|Nombre de threads actuel de Tomcat|Deployment, AppName, Pod|
 |total-requests|Oui|total-requests|Count|Average|Nombre total de demandes au cours de la durée de vie du processus|Deployment, AppName, Pod|
 |working-set|Oui|working-set|Count|Average|Quantité de la plage de travail utilisée par le processus (Mo)|Deployment, AppName, Pod|
-
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -376,8 +373,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|RequestLatency|Oui|Latence des demandes|Millisecondes|Total|Temps pris par le serveur pour traiter la demande.|Opération, authentification, protocole|
-|RequestsTraffic|Oui|Trafic des demandes|Pourcentage|Count|Nombre de demandes effectuées|Opération, Authentification, Protocole, StatusCode, StatusCodeClass|
+|RequestLatency|Oui|Latence des demandes|Millisecondes|Total|Temps pris par le serveur pour traiter la demande.|Opération, Authentification, Protocole, Centre de données|
+|RequestsTraffic|Oui|Trafic des demandes|Pourcentage|Count|Nombre de demandes effectuées|Opération, Authentification, Protocole, StatusCode, StatusCodeClass, Centre de données|
 
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
@@ -604,7 +601,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |totalkeys|Oui|Nombre total de clés|Count|Maximale||Aucune dimension|
 |usedmemory|Oui|Mémoire utilisée|Octets|Maximale||Aucune dimension|
 |usedmemorypercentage|Oui|Pourcentage de mémoire utilisé|Pourcentage|Maximale||InstanceId|
-|usedmemoryRss|Oui|Taille de la mémoire résidente utilisée|Octets|Maximale||InstanceId|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -619,7 +615,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |ByteHitRatio|Oui|Taux de réussite en octets|Pourcentage|Average|Rapport entre le nombre total d’octets trouvés dans le cache et le nombre total d’octets des réponses|Point de terminaison|
-|OriginHealthPercentage|Oui|Pourcentage d’intégrité de l’origine|Pourcentage|Average|Pourcentage de sondes d’intégrité réussies de AFDX vers les backends.|Origine, OriginPool|
+|OriginHealthPercentage|Oui|Pourcentage d’intégrité de l’origine|Pourcentage|Average|Pourcentage de sondes d’intégrité réussies de AFDX vers les backends.|Origin, OriginGroup|
 |OriginLatency|Oui|latence de l’origine|Millisecondes|Average|Temps calculé à partir du moment où la demande est envoyée par la périphérie AFDX au back-end jusqu’à ce qu’AFDX reçoive le dernier octet de la réponse du back-end.|Origine, Point de terminaison|
 |OriginRequestCount|Oui|Nombre de demandes de l’origine|Count|Total|Nombre de demandes envoyées depuis AFDX à l’origine.|HttpStatus, HttpStatusGroup, Origine, Point de terminaison|
 |Percentage4XX|Oui|Pourcentage de 4XX|Pourcentage|Average|Pourcentage de toutes les demandes client pour lesquelles le code d’état de la réponse est 4XX|Point de terminaison, ClientRegion, ClientCountry|
@@ -804,8 +800,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
-|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés|Aucune dimension|
+|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle. Disponible uniquement sur des machines virtuelles extensibles de la série B|Aucune dimension|
+|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés. Disponible uniquement sur des machines virtuelles extensibles de la série B|Aucune dimension|
 |Pourcentage de bande passante du disque de données consommée|Oui|Pourcentage de bande passante du disque de données consommée|Pourcentage|Average|Pourcentage de bande passante du disque de données consommée|Numéro d'unité logique|
 |Pourcentage d’IOPS du disque de données consommées|Oui|Pourcentage d’IOPS du disque de données consommées|Pourcentage|Average|Pourcentage d'E/S de disque de données consommées par minute|Numéro d'unité logique|
 |Bande passante maximale en mode rafale du disque de données|Oui|Bande passante maximale en mode rafale du disque de données|Count|Average|Débit maximal en octets par seconde que le disque de données peut atteindre avec le mode rafale|Numéro d'unité logique|
@@ -859,8 +855,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
-|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés|Aucune dimension|
+|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle. Disponible uniquement sur des machines virtuelles extensibles de la série B|Aucune dimension|
+|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés. Disponible uniquement sur des machines virtuelles extensibles de la série B|Aucune dimension|
 |Pourcentage de bande passante du disque de données consommée|Oui|Pourcentage de bande passante du disque de données consommée|Pourcentage|Average|Pourcentage de bande passante du disque de données consommée|Numéro d'unité logique, VMName|
 |Pourcentage d’IOPS du disque de données consommées|Oui|Pourcentage d’IOPS du disque de données consommées|Pourcentage|Average|Pourcentage d'E/S de disque de données consommées par minute|Numéro d'unité logique, VMName|
 |Bande passante maximale en mode rafale du disque de données|Oui|Bande passante maximale en mode rafale du disque de données|Count|Average|Débit maximal en octets par seconde que le disque de données peut atteindre avec le mode rafale|Numéro d'unité logique, VMName|
@@ -914,8 +910,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle|Aucune dimension|
-|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés|Aucune dimension|
+|Crédits de processeur consommés|Oui|Crédits de processeur consommés|Count|Average|Nombre total de crédits consommés par la machine virtuelle. Disponible uniquement sur des machines virtuelles extensibles de la série B|Aucune dimension|
+|Crédits de processeurs restants|Oui|Crédits de processeurs restants|Count|Average|Nombre total de crédits pouvant être consommés. Disponible uniquement sur des machines virtuelles extensibles de la série B|Aucune dimension|
 |Pourcentage de bande passante du disque de données consommée|Oui|Pourcentage de bande passante du disque de données consommée|Pourcentage|Average|Pourcentage de bande passante du disque de données consommée|Numéro d'unité logique|
 |Pourcentage d’IOPS du disque de données consommées|Oui|Pourcentage d’IOPS du disque de données consommées|Pourcentage|Average|Pourcentage d'E/S de disque de données consommées par minute|Numéro d'unité logique|
 |Bande passante maximale en mode rafale du disque de données|Oui|Bande passante maximale en mode rafale du disque de données|Count|Average|Débit maximal en octets par seconde que le disque de données peut atteindre avec le mode rafale|Numéro d'unité logique|
@@ -992,11 +988,25 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |apiserver_current_inflight_requests|Non|Demandes en cours|Count|Average|Nombre maximal de demandes en cours actuellement utilisées sur le serveur d’API par type de demande au cours de la dernière seconde|requestKind|
+|cluster_autoscaler_cluster_safe_to_autoscale|Non|Intégrité des clusters|Count|Average|Détermine si l’autoscaler de cluster entreprend ou non une action sur le cluster||
+|cluster_autoscaler_scale_down_in_cooldown|Non|Recharge de scale-down|Count|Average|Détermine si le scale-down est en recharge. Aucun nœud n’est supprimé au cours de cette période||
+|cluster_autoscaler_unneeded_nodes_count|Non|Nœuds inutiles|Count|Average|L’autoscaler de cluster marque ces nœuds comme des candidats pour la suppression et ils sont finalement supprimés||
+|cluster_autoscaler_unschedulable_pods_count|Non|Pods non planifiables|Count|Average|Nombre de pods actuellement non planifiables dans le cluster||
 |kube_node_status_allocatable_cpu_cores|Non|Nombre total de cœurs d’unité centrale disponibles dans un cluster géré|Count|Average|Nombre total de cœurs d’unité centrale disponibles dans un cluster géré||
 |kube_node_status_allocatable_memory_bytes|Non|Quantité totale de mémoire disponible dans un cluster géré|Octets|Average|Quantité totale de mémoire disponible dans un cluster géré||
 |kube_node_status_condition|Non|États pour les différentes conditions de nœud|Count|Average|États pour les différentes conditions de nœud|condition, status, status2, node|
 |kube_pod_status_phase|Non|Nombre de pods par phase|Count|Average|Nombre de pods par phase|phase, espace de noms, pod|
 |kube_pod_status_ready|Non|Nombre de pods en état Prêt|Count|Average|Nombre de pods en état Prêt|espace de noms, pod, condition|
+|node_cpu_usage_millicores|Oui|Utilisation de l’UC en millicœurs|MilliCores|Moyenne|Mesure agrégée de l’utilisation du processeur sur le cluster en millicœurs|node, nodepool|
+|node_cpu_usage_percentage|Oui|Pourcentage d’utilisation du processeur|Pourcentage|Average|Moyenne agrégée d’utilisation du processeur, mesurée en pourcentage sur le cluster|node, nodepool|
+|node_disk_usage_bytes|Oui|Octets utilisés sur le disque|Octets|Average|Espace disque utilisé en octets par appareil|node, nodepool, device|
+|node_disk_usage_percentage|Oui|Pourcentage d’utilisation du disque|Pourcentage|Average|Espace disque utilisé en pourcentage par appareil|node, nodepool, device|
+|node_memory_rss_bytes|Oui|Mémoire RSS en octets|Octets|Average|Mémoire RSS du conteneur utilisée, en octets|node, nodepool|
+|node_memory_rss_percentage|Oui|Mémoire RSS en pourcentage|Pourcentage|Average|Mémoire RSS du conteneur utilisée, en pourcentage|node, nodepool|
+|node_memory_working_set_bytes|Oui|Plage de travail de la mémoire en octets|Octets|Average|Mémoire de plage de travail du conteneur utilisée, en octets|node, nodepool|
+|node_memory_working_set_percentage|Oui|Mémoire de plage de travail en pourcentage|Pourcentage|Average|Mémoire de plage de travail du conteneur utilisée, en pourcentage|node, nodepool|
+|node_network_in_bytes|Oui|Réseau en octets|Octets|Average|Octets reçus sur le réseau|node, nodepool|
+|node_network_out_bytes|Oui|Octets de sortie réseau|Octets|Average|Octets réseau transmis|node, nodepool|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft.CustomProviders/resourceproviders
@@ -1199,6 +1209,20 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |txlogs_storage_used|Oui|Stockage des journaux des transactions utilisé|Octets|Average|Stockage des journaux des transactions utilisé|Aucune dimension|
 |write_iops|Oui|E/S par seconde en écriture|Count|Average|Nombre d’opérations d’écriture d’E/S de disque de données par seconde|Aucune dimension|
 |write_throughput|Oui|Débit d’écriture en octets/s|Count|Average|Octets écrits par seconde sur le disque de données pendant la période d’analyse|Aucune dimension|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft.DBForPostgreSQL/serverGroupsv2
+
+|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|active_connections|Oui|Connexions actives|Count|Average|Connexions actives|ServerName|
+|cpu_percent|Oui|Pourcentage d’UC|Pourcentage|Average|Pourcentage d’UC|ServerName|
+|iops|Oui|E/S par seconde|Count|Average|Opérations d’E/S par seconde|ServerName|
+|memory_percent|Oui|Pourcentage de mémoire|Pourcentage|Average|Pourcentage de mémoire|ServerName|
+|network_bytes_egress|Oui|Network Out|Octets|Total|Sortie réseau entre connexions actives|ServerName|
+|network_bytes_ingress|Oui|Network In|Octets|Total|Entrée réseau entre connexions actives|ServerName|
+|storage_percent|Oui|Pourcentage de stockage|Pourcentage|Average|Pourcentage de stockage|ServerName|
+|storage_used|Oui|Stockage utilisé|Octets|Average|Stockage utilisé|ServerName|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
@@ -1444,6 +1468,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |CassandraTableUpdate|Non|Table Cassandra mise à jour|Count|Count|Table Cassandra mise à jour|ResourceName, ChildResourceName |
 |CreateAccount|Oui|Compte créé|Count|Count|Compte créé|Aucune dimension|
 |DataUsage|Non|Utilisation des données|Octets|Total|Utilisation totale des données signalée à une granularité de 5 minutes|CollectionName, DatabaseName, Region|
+|DedicatedGatewayRequests|Oui|DedicatedGatewayRequests|Count|Count|Demandes au niveau de la passerelle dédiée|DatabaseName, CollectionName, CacheExercised, OperationName, Region|
 |DeleteAccount|Oui|Compte supprimé|Count|Count|Compte supprimé|Aucune dimension|
 |DocumentCount|Non|Nombre de documents|Count|Total|Nombre total de documents signalé à une granularité de 5 minutes|CollectionName, DatabaseName, Region|
 |DocumentQuota|Non|Quota de document|Octets|Total|Quota de stockage total signalé à une granularité de 5 minutes|CollectionName, DatabaseName, Region|
@@ -1679,12 +1704,16 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |CategorizedGatewayRequests|Oui|Demandes de la passerelle par catégorie|Count|Total|Nombre de demandes de la passerelle par catégories (1xx/2xx/3xx/4xx/5xx)|httpStatus|
 |GatewayRequests|Oui|Demandes de la passerelle|Count|Total|Nombre de demandes de la passerelle|httpStatus|
 |KafkaRestProxy.ConsumerRequest.m1_delta|Oui|Débit des demandes de consommateur du proxy REST|CountPerSecond|Total|Nombre de demandes de consommateur au proxy REST Kafka|Machine, Rubrique|
+|KafkaRestProxy.ConsumerRequestFail.m1_delta|Oui|Échecs de demandes de consommateur de proxy REST|CountPerSecond|Total|Exceptions de demande de consommateur|Machine, Rubrique|
 |KafkaRestProxy.ConsumerRequestTime.p95|Oui|Latence des demandes de consommateur du proxy REST|Millisecondes|Average|Latence des messages dans une demande de consommateur via le proxy REST Kafka|Machine, Rubrique|
+|KafkaRestProxy.ConsumerRequestWaitingInQueueTime.p95|Oui|Backlog de demande de consommateur de proxy REST|Millisecondes|Average|Longueur de file d’attente de proxy REST de consommateur|Machine, Rubrique|
 |KafkaRestProxy.MessagesIn.m1_delta|Oui|Débit des messages de producteur du proxy REST|CountPerSecond|Total|Nombre de messages de producteur via le proxy REST Kafka|Machine, Rubrique|
 |KafkaRestProxy.MessagesOut.m1_delta|Oui|Débit des messages de consommateur du proxy REST|CountPerSecond|Total|Nombre de messages de consommateur via le proxy REST Kafka|Machine, Rubrique|
 |KafkaRestProxy.OpenConnections|Oui|Connexions simultanées du proxy REST|Count|Total|Nombre de connexions simultanées via le proxy REST Kafka|Machine, Rubrique|
 |KafkaRestProxy.ProducerRequest.m1_delta|Oui|Débit des demandes de producteur du proxy REST|CountPerSecond|Total|Nombre de demandes de producteur au proxy REST Kafka|Machine, Rubrique|
+|KafkaRestProxy.ProducerRequestFail.m1_delta|Oui|Échecs de demandes de producteur de proxy REST|CountPerSecond|Total|Exceptions de demande de producteur|Machine, Rubrique|
 |KafkaRestProxy.ProducerRequestTime.p95|Oui|Latence des demandes de producteur du proxy REST|Millisecondes|Average|Latence des messages dans une demande de producteur via le proxy REST Kafka|Machine, Rubrique|
+|KafkaRestProxy.ProducerRequestWaitingInQueueTime.p95|Oui|Backlog de demande de producteur de proxy REST|Millisecondes|Average|Longueur de file d’attente de proxy REST de producteur|Machine, Rubrique|
 |NumActiveWorkers|Oui|Nombre de collaborateurs actifs|Count|Maximale|Nombre de collaborateurs actifs|MetricName|
 
 
@@ -1705,9 +1734,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |IoTConnectorMeasurementIngestionLatencyMs|Oui|Latence moyenne de la phase de regroupement|Millisecondes|Average|Délai entre le moment où le connecteur IoT a reçu les données de l’appareil et le moment où les données sont traitées par l’étape de conversion FHIR.|Opération, ConnectorName|
 |IoTConnectorNormalizedEvent|Oui|Nombre de messages normalisés|Count|SUM|Nombre total de valeurs normalisées mappées produites par la phase de normalisation du connecteur Azure IoT pour FHIR.|Opération, ConnectorName|
 |IoTConnectorTotalErrors|Oui|Nombre total d'erreurs|Count|SUM|Nombre total d’erreurs consignées par le connecteur Azure IoT pour FHIR|Nom, opération, ErrorType, ErrorSeverity, ConnectorName|
-|ServiceApiErrors|Oui|Erreurs du service|Count|SUM|Nombre total d’erreurs de serveur internes générées par le service.|Protocole, Authentification, Opération, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiLatency|Oui|Latence du service|Millisecondes|Average|Latence de réponse du service.|Protocole, Authentification, Opération, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiRequests|Oui|Service Requests|Count|SUM|Nombre total de demandes reçues par le service.|Protocole, Authentification, Opération, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalErrors|Oui|Nombre total d’erreurs|Count|SUM|Nombre total d’erreurs de serveur internes rencontrées par le service.|Protocole, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Oui|Latence totale|Millisecondes|Average|Latence de réponse du service.|Protocol|
 |TotalRequests|Oui|Total de requêtes|Count|SUM|Nombre total de demandes reçues par le service.|Protocol|
@@ -1790,18 +1816,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |dataExport.messages.filtered|Oui|Messages d’exportation de données filtrés|Count|Total|Nombre de messages passés par des filtres dans l’exportation de données|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.received|Oui|Messages d’exportation de données reçus|Count|Total|Nombre de messages entrants pour l’exportation de données, avant le filtrage et le traitement de l’enrichissement|exportId, exportDisplayName, destinationId, destinationDisplayName|
 |dataExport.messages.written|Oui|Messages d’exportation de données écrits|Count|Total|Nombre de messages écrits sur une destination|exportId, exportDisplayName, destinationId, destinationDisplayName|
-
-
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ApiLatency|Non|ApiLatency|6|0|Mesure la latence des demandes d’API adressées à Microsoft.IoTSpaces en millisecondes|Aucune dimension|
-|FunctionExecutionLatency|Non|FunctionExecutionLatency|6|0|Mesure la latence de l’exécution des fonctions définies par l’utilisateur en millisecondes pour Microsoft.IoTSpaces|Aucune dimension|
-|MessageEgressFailure|Non|MessageEgressFailure|2|3|Recherche une chaîne localisée similaire à l’événement de nombre de mesures en échec dans Count pour Microsoft.IoTSpaces|Aucune dimension|
-|MessageEgressLatency|Non|MessageEgressLatency|6|0|Mesure la latence en millisecondes du répartiteur vers d’autres points de terminaison pour Microsoft.IoTSpaces|Aucune dimension|
-|MessageEgressSuccess|Non|MessageEgressSuccess|2|3|Recherche une chaîne localisée similaire à l’événement de nombre de mesures effectuées dans Count pour Microsoft.IoTSpaces|Aucune dimension|
-|ProcessingLatency|Non|ProcessingLatency|6|0|Mesure la latence en millisecondes entre l’ingestion des messages et l’événement distribué pour Microsoft.IoTSpaces|Aucune dimension|
 
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>microsoft.keyvault/managedhsms
@@ -2021,6 +2035,8 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |ContentKeyPolicyCount|Oui|Nombre de stratégies de clé de contenu|Count|Average|Nombre de stratégies de clé de contenu déjà créées dans le compte de service multimédia actuel|Aucune dimension|
 |ContentKeyPolicyQuota|Oui|Quota de stratégies de clé de contenu|Count|Average|Nombre de stratégies de clé de contenu autorisées pour le compte de service multimédia actuel|Aucune dimension|
 |ContentKeyPolicyQuotaUsedPercentage|Oui|Pourcentage du quota de stratégies de clé de contenu utilisé|Pourcentage|Average|Pourcentage de stratégies de clé de contenu utilisées dans le compte de service multimédia actuel|Aucune dimension|
+|MaxChannelsAndLiveEventsCount|Oui|Quota maximum d’événements en direct|Count|Maximale|Nombre maximum d’événements en direct autorisés dans le compte Media Services actif|Aucune dimension|
+|MaxRunningChannelsAndLiveEventsCount|Oui|Quota maximum d’événements en direct en cours d’exécution|Count|Maximale|Nombre maximum d’événements en direct en cours d’exécution autorisés dans le compte Media Services actif|Aucune dimension|
 |RunningChannelsAndLiveEventsCount|Oui|Nombre d’événements en direct en cours d’exécution|Count|Average|Nombre total d’événements en direct en cours d’exécution dans le compte Media Services actif|Aucune dimension|
 |StreamingPolicyCount|Oui|Nombre de stratégies de diffusion en continu|Count|Average|Nombre de stratégies de streaming déjà créées dans le compte de service multimédia actuel|Aucune dimension|
 |StreamingPolicyQuota|Oui|Quota de stratégies de diffusion en continu|Count|Average|Nombre de stratégies de streaming autorisées pour le compte de service multimédia actuel|Aucune dimension|
@@ -2041,9 +2057,9 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|UC|Oui|Utilisation de l’UC|Pourcentage|Average|Utilisation de l’UC pour les points de terminaison de streaming Premium. Ces données ne sont pas disponibles pour les points de terminaison de streaming Standard.|VmId|
+|UC|Oui|Utilisation de l’UC|Pourcentage|Average|Utilisation de l’UC pour les points de terminaison de streaming Premium. Ces données ne sont pas disponibles pour les points de terminaison de streaming Standard.|Aucune dimension|
 |Sortie|Oui|Sortie|Octets|Total|Quantité de données de sortie, en octets.|OutputFormat|
-|EgressBandwidth|Non|Bande passante en sortie|BitsPerSecond|Average|Sortie de la bande passante en bits par seconde.|VmId|
+|EgressBandwidth|Non|Bande passante en sortie|BitsPerSecond|Average|Sortie de la bande passante en bits par seconde.|Aucune dimension|
 |Demandes|Oui|Demandes|Count|Total|Demandes à un point de terminaison de streaming.|OutputFormat, HttpStatusCode, ErrorCode|
 |SuccessE2ELatency|Oui|Latence de réussite de bout en bout|Millisecondes|Average|Latence moyenne des demandes réussies, en millisecondes.|OutputFormat|
 
@@ -2086,7 +2102,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |---|---|---|---|---|---|---|
 |AverageReadLatency|Oui|Latence de lecture moyenne|Millisecondes|Average|Latence de lecture moyenne en millisecondes par opération|Aucune dimension|
 |AverageWriteLatency|Oui|Latence d’écriture moyenne|Millisecondes|Average|Latence d’écriture moyenne en millisecondes par opération|Aucune dimension|
-|CbsVolumeBackupActive|Oui|Indique si la sauvegarde du volume est suspendue|Count|Average|La stratégie de sauvegarde est-elle suspendue pour le volume ? 1 si oui, sinon 0.|Aucune dimension|
+|CbsVolumeBackupActive|Oui|Indique si la sauvegarde du volume est suspendue|Count|Average|La stratégie de sauvegarde est-elle suspendue pour le volume ? 0 si oui, 1 si non.|Aucune dimension|
 |CbsVolumeLogicalBackupBytes|Oui|Nombre d’octets de la sauvegarde du volume|Octets|Average|Nombre total d’octets sauvegardés pour ce volume.|Aucune dimension|
 |CbsVolumeOperationComplete|Oui|Indique si l’opération de sauvegarde du volume est terminée|Count|Average|La dernière opération de sauvegarde ou de restauration du volume s’est-elle terminée correctement ? 1 si oui, sinon 0.|Aucune dimension|
 |CbsVolumeOperationTransferredBytes|Oui|Nombre d’octets transférés lors de la dernière sauvegarde du volume|Octets|Average|Nombre total d’octets transférés pour la dernière opération de sauvegarde ou de restauration|Aucune dimension|
@@ -2154,6 +2170,17 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |Débit|Non|Débit|BitsPerSecond|Average|Débit traité par ce pare-feu|Aucune dimension|
 
 
+## <a name="microsoftnetworkbastionhosts"></a>microsoft.network/bastionHosts
+
+|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|pingmesh|Non|État de communication Bastion|Count|Average|L’état de la communication affiche 1 si toute la communication est bonne, et 0 si elle est mauvaise.||
+|sessions|Non|Nombre de sessions|Count|Total|Nombre de sessions pour le Bastion. Afficher en somme et par instance.|host|
+|total|Oui|Mémoire totale|Count|Average|Statistiques de mémoire totale.|host|
+|usage_user|Non|Utilisation du processeur|Count|Average|Statistiques d’utilisation de l’UC.|cpu, host|
+|utilisés|Oui|Mémoire utilisée|Count|Average|Statistiques d’utilisation de la mémoire.|host|
+
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -2201,10 +2228,10 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |ErGatewayConnectionBitsOutPerSecond|Non|BitsOutPerSecond|BitsPerSecond|Average|Bits sortant d’Azure par seconde|ConnectionName|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Oui|Nombre de routes publiées pour le pair (préversion)|Count|Maximale|Nombre de routes publiées pour le pair par ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Oui|Nombre de routes apprises du pair (préversion)|Count|Maximale|Nombre de routes apprises du pair par ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Oui|Utilisation du processeur (préversion)|Count|Average|Utilisation du processeur de la passerelle ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Oui|Utilisation du processeur|Count|Average|Utilisation du processeur de la passerelle ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|Non|Fréquence de changement des routes (préversion)|Count|Total|Fréquence de changement des routes dans la passerelle ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|Non|Nombre de machines virtuelles dans le réseau virtuel (préversion)|Count|Maximale|Nombre de machines virtuelles dans le réseau virtuel|Aucune dimension|
-|ExpressRouteGatewayPacketsPerSecond|Non|Paquets par seconde (préversion)|CountPerSecond|Average|Nombre de paquets de la passerelle ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|Non|Paquets par seconde|CountPerSecond|Average|Nombre de paquets de la passerelle ExpressRoute|roleInstance|
 
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
@@ -2366,10 +2393,10 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |AverageBandwidth|Oui|Bande passante S2S de passerelle|BytesPerSecond|Average|Bande passante site à site moyenne d’une passerelle en octets par seconde|Aucune dimension|
 |ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Oui|Nombre de routes publiées pour le pair (préversion)|Count|Maximale|Nombre de routes publiées pour le pair par ExpressRouteGateway|roleInstance|
 |ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Oui|Nombre de routes apprises du pair (préversion)|Count|Maximale|Nombre de routes apprises du pair par ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCpuUtilization|Oui|Utilisation du processeur (préversion)|Count|Average|Utilisation du processeur de la passerelle ExpressRoute|roleInstance|
+|ExpressRouteGatewayCpuUtilization|Oui|Utilisation du processeur|Count|Average|Utilisation du processeur de la passerelle ExpressRoute|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|Non|Fréquence de changement des routes (préversion)|Count|Total|Fréquence de changement des routes dans la passerelle ExpressRoute|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|Non|Nombre de machines virtuelles dans le réseau virtuel (préversion)|Count|Maximale|Nombre de machines virtuelles dans le réseau virtuel|Aucune dimension|
-|ExpressRouteGatewayPacketsPerSecond|Non|Paquets par seconde (préversion)|CountPerSecond|Average|Nombre de paquets de la passerelle ExpressRoute|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|Non|Paquets par seconde|CountPerSecond|Average|Nombre de paquets de la passerelle ExpressRoute|roleInstance|
 |P2SBandwidth|Oui|Bande passante P2S de passerelle|BytesPerSecond|Average|Bande passante point à site moyenne d’une passerelle en octets par seconde|Aucune dimension|
 |P2SConnectionCount|Oui|Nombre de connexions P2S|Count|Maximale|Nombre de connexions point à site d’une passerelle|Protocol|
 |TunnelAverageBandwidth|Oui|Bande passante de tunnel|BytesPerSecond|Average|Bande passante moyenne d’un tunnel en octets par seconde|ConnectionName, RemoteIP|
@@ -2379,6 +2406,13 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |TunnelIngressBytes|Oui|Octets d’entrée de tunnel|Octets|Total|Octets entrants d’un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Oui|Rejet de paquets TS d’entrée de tunnel pour incompatibilité|Count|Total|Nombre de rejets de paquets entrants du sélecteur de trafic pour incompatibilité dans un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Oui|Paquets en entrée de tunnel|Count|Total|Nombre de paquets entrants d’un tunnel|ConnectionName, RemoteIP|
+|TunnelNatAllocations|Non|Allocations NAT de tunnel|Count|Total|Nombre d’allocations pour une règle NAT sur un tunnel|NatRule, ConnectionName, RemoteIP|
+|TunnelNatedBytes|Non|Octets traduits de tunnel|Octets|Total|Nombre d’octets traduits sur un tunnel par une règle NAT |NatRule, ConnectionName, RemoteIP|
+|TunnelNatedPackets|Non|Paquets traduits de tunnel|Count|Total|Nombre de paquets traduits sur un tunnel par une règle NAT|NatRule, ConnectionName, RemoteIP|
+|TunnelNatFlowCount|Non|Flux NAT de tunnel|Count|Total|Nombre de flux NAT sur un tunnel par type de flux et règle NAT|NatRule, ConnectionName, RemoteIP, FlowType|
+|TunnelNatPacketDrop|Non|Rejets de paquets NAT de tunnel|Count|Total|Nombre de paquets traduits sur un tunnel qui ont été rejetés, par type de rejet et règle NAT|NatRule, ConnectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|Non|Octets traduits en sens inverse de tunnel|Octets|Total|Nombre d’octets traduits en sens inverse par une règle NAT sur un tunnel|NatRule, ConnectionName, RemoteIP|
+|TunnelReverseNatedPackets|Non|Paquets traduits en sens inverse de tunnel|Count|Total|Nombre de paquets traduits en sens inverse par une règle NAT sur un tunnel|NatRule, ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
@@ -2408,6 +2442,13 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |TunnelIngressBytes|Oui|Octets d’entrée de tunnel|Octets|Total|Octets entrants d’un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPacketDropTSMismatch|Oui|Rejet de paquets TS d’entrée de tunnel pour incompatibilité|Count|Total|Nombre de rejets de paquets entrants du sélecteur de trafic pour incompatibilité dans un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressPackets|Oui|Paquets en entrée de tunnel|Count|Total|Nombre de paquets entrants d’un tunnel|ConnectionName, RemoteIP|
+|TunnelNatAllocations|Non|Allocations NAT de tunnel|Count|Total|Nombre d’allocations pour une règle NAT sur un tunnel|NatRule, ConnectionName, RemoteIP|
+|TunnelNatedBytes|Non|Octets traduits de tunnel|Octets|Total|Nombre d’octets traduits sur un tunnel par une règle NAT |NatRule, ConnectionName, RemoteIP|
+|TunnelNatedPackets|Non|Paquets traduits de tunnel|Count|Total|Nombre de paquets traduits sur un tunnel par une règle NAT|NatRule, ConnectionName, RemoteIP|
+|TunnelNatFlowCount|Non|Flux NAT de tunnel|Count|Total|Nombre de flux NAT sur un tunnel par type de flux et règle NAT|NatRule, ConnectionName, RemoteIP, FlowType|
+|TunnelNatPacketDrop|Non|Rejets de paquets NAT de tunnel|Count|Total|Nombre de paquets traduits sur un tunnel qui ont été rejetés, par type de rejet et règle NAT|NatRule, ConnectionName, RemoteIP, DropType|
+|TunnelReverseNatedBytes|Non|Octets traduits en sens inverse de tunnel|Octets|Total|Nombre d’octets traduits en sens inverse par une règle NAT sur un tunnel|NatRule, ConnectionName, RemoteIP|
+|TunnelReverseNatedPackets|Non|Paquets traduits en sens inverse de tunnel|Count|Total|Nombre de paquets traduits en sens inverse par une règle NAT sur un tunnel|NatRule, ConnectionName, RemoteIP|
 
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -2574,16 +2615,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |QueryPoolJobQueueLength|Oui|Longueur de la file d'attente des travaux du pool de requêtes (jeux de données) (Gen1)|Count|Average|Nombre de travaux contenus dans la file d’attente du pool de threads de requêtes. Prise en charge uniquement pour les ressources Power BI Embedded de génération 1.|Aucune dimension|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/accounts
-
-|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ScanCancelled|Oui|Analyse annulée|Count|Total|Indique le nombre d’analyses annulées.|ResourceId|
-|ScanCompleted|Oui|Analyse effectuée|Count|Total|Indique le nombre d’analyses correctement effectuées.|ResourceId|
-|ScanFailed|Oui|Analyse ayant échoué|Count|Total|Indique le nombre d’analyses ayant échoué.|ResourceId|
-|ScanTimeTaken|Oui|Durée de l’analyse|Secondes|Total|Indique la durée totale d’analyse en secondes.|ResourceId|
-
-
 ## <a name="microsoftpurviewaccounts"></a>microsoft.purview/accounts
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -2682,6 +2713,15 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |OutboundTraffic|Oui|Trafic sortant|Octets|Total|Trafic sortant de service|Aucune dimension|
 |SystemErrors|Oui|Erreurs système|Pourcentage|Maximale|Pourcentage d’erreurs système|Aucune dimension|
 |UserErrors|Oui|Erreurs d’utilisateur|Pourcentage|Maximale|Pourcentage d’erreurs d’utilisateur|Aucune dimension|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft.SignalRService/WebPubSub
+
+|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ConnectionCount|Oui|Nombre de connexions|Count|Maximale|Nombre de connexions utilisateur|Aucune dimension|
+|InboundTraffic|Oui|Trafic entrant|Octets|Total|Trafic entrant de service|Aucune dimension|
+|OutboundTraffic|Oui|Trafic sortant|Octets|Total|Trafic sortant de service|Aucune dimension|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -2902,6 +2942,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |---|---|---|---|---|---|---|
 |ServerSyncSessionResult|Oui|Résultat de session de synchronisation|Count|Average|Métrique consignant une valeur de 1 chaque fois que le point de terminaison de serveur termine une session de synchronisation avec le point de terminaison cloud|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncBatchTransferredFileBytes|Oui|Octets synchronisés|Octets|Total|Taille totale des fichiers transférés pour les sessions de synchronisation|SyncGroupName, ServerEndpointName, SyncDirection|
+|StorageSyncRecallComputedSuccessRate|Oui|Taux de réussite de rappel de hiérarchisation cloud|Pourcentage|Average|Pourcentage de tous les rappels réussis|SyncGroupName, ServerName|
 |StorageSyncRecalledNetworkBytesByApplication|Oui|Taille de rappel de hiérarchisation cloud par application|Octets|Total|Taille des données rappelées par application|SyncGroupName, ServerName, ApplicationName|
 |StorageSyncRecalledTotalNetworkBytes|Oui|Taille de rappel de la hiérarchisation cloud|Octets|Total|taille des données rappelées ;|SyncGroupName, ServerName|
 |StorageSyncRecallIOTotalSizeBytes|Oui|Rappel de hiérarchisation cloud|Octets|Total|Taille totale des données rappelées par le serveur|ServerName|
@@ -2956,6 +2997,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |LateInputEvents|Oui|Événements d’entrée tardifs|Count|Total|Événements d’entrée tardifs|LogicalName, PartitionId|
 |OutputEvents|Oui|Événements de sortie|Count|Total|Événements de sortie|LogicalName, PartitionId|
 |OutputWatermarkDelaySeconds|Oui|Délai en filigrane|Secondes|Maximale|Délai en filigrane|LogicalName, PartitionId|
+|ProcessCPUUsagePercentage|Oui|% d’utilisation de l’UC (préversion)|Pourcentage|Maximale|% d’utilisation de l’UC (préversion)|LogicalName, PartitionId|
 |ResourceUtilization|Oui|Utilisation de % d’unités de diffusion|Pourcentage|Maximale|Utilisation de % d’unités de diffusion|LogicalName, PartitionId|
 
 
@@ -3136,7 +3178,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |AverageResponseTime|Oui|Temps de réponse moyen (déconseillé)|Secondes|Average|Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes.|Instance|
 |BytesReceived|Oui|Données entrantes|Octets|Total|Quantité de bande passante entrante, en Mio, consommée par l’application.|Instance|
 |BytesSent|Oui|Données sortantes|Octets|Total|Quantité de bande passante sortante, en Mio, consommée par l’application.|Instance|
-|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC). Non applicable à Azure Functions.|Instance|
+|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, Non applicable à Azure Functions. consultez https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC).|Instance|
 |CurrentAssemblies|Oui|Assemblys actuels|Count|Average|Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application.|Instance|
 |FileSystemUsage|Oui|Utilisation de systèmes de fichiers|Octets|Average|Pourcentage du quota de systèmes de fichiers consommé par l’application.|Aucune dimension|
 |FunctionExecutionCount|Oui|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions. Présent uniquement pour Azure Functions.|Instance|
@@ -3180,7 +3222,7 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |AverageResponseTime|Oui|Temps de réponse moyen (déconseillé)|Secondes|Average|Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes.|Instance|
 |BytesReceived|Oui|Données entrantes|Octets|Total|Quantité de bande passante entrante, en Mio, consommée par l’application.|Instance|
 |BytesSent|Oui|Données sortantes|Octets|Total|Quantité de bande passante sortante, en Mio, consommée par l’application.|Instance|
-|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC).|Instance|
+|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, Non applicable à Azure Functions. consultez https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC).|Instance|
 |CurrentAssemblies|Oui|Assemblys actuels|Count|Average|Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application.|Instance|
 |FileSystemUsage|Oui|Utilisation de systèmes de fichiers|Octets|Average|Pourcentage du quota de systèmes de fichiers consommé par l’application.|Aucune dimension|
 |FunctionExecutionCount|Oui|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions|Instance|
@@ -3224,7 +3266,6 @@ Pour obtenir des informations complémentaires importantes, consultez [Vue d’e
 |FunctionHits|Oui|FunctionHits|Count|Total|FunctionHits|Instance|
 |SiteErrors|Oui|SiteErrors|Count|Total|SiteErrors|Instance|
 |SiteHits|Oui|SiteHits|Count|Total|SiteHits|Instance|
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

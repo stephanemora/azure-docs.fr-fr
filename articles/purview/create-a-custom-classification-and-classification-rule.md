@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 2/5/2021
-ms.openlocfilehash: 2966618619aa40ed60c2f3d0fb2c8e080d34a016
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 3/24/2021
+ms.openlocfilehash: 7d6baee49250509e50cdeeea8cf8ca6cec5b362d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102617044"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222150"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classifications personnalisées dans Azure Purview
 
@@ -68,7 +68,7 @@ nombre d’instances, nom formel, règles de classification associées (le cas �
 
 ## <a name="custom-classification-rules"></a>Règles de classification personnalisées
 
-Le service de catalogue fournit un ensemble de règles de classification par défaut, utilisées par l’analyseur pour détecter automatiquement certains types de données. Vous pouvez également ajouter vos propres règles de classification personnalisées pour détecter d’autres types de données qui vous intéressent. Cette fonctionnalité peut être très puissante si vous recherchez certaines données dans votre patrimoine de données.
+Le service de catalogue fournit un ensemble de règles de classification par défaut, utilisées par l’analyseur pour détecter automatiquement certains types de données. Vous pouvez également ajouter vos propres règles de classification personnalisées pour détecter d’autres types de données qui vous intéressent. Cette fonctionnalité peut être puissante si vous recherchez certaines données dans votre patrimoine de données.
 
 Prenons par exemple une société nommée Contoso. Les ID employés sont standardisés dans l’ensemble de l’entreprise avec le mot \"Employee\" suivi d’un GUID, soit EMPLOYEE{GUID}. Par exemple, une instance d’un ID d’employé se présente comme ceci : `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55`.
 
@@ -109,7 +109,7 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Créer une règle regex" border="true":::
 
-1. Si vous décidez de générer un modèle regex suggéré, après avoir téléchargé un fichier, sélectionnez l’un des modèles suggérés et cliquez sur **Ajouter aux modèles** pour utiliser les modèles de données et de colonnes suggérés. Vous pouvez modifier les modèles suggérés ou faire vos propres modèles sans télécharger de fichier.
+1. Si vous décidez de générer un modèle regex suggéré, après avoir téléchargé un fichier, sélectionnez l’un des modèles suggérés, puis **Ajouter aux modèles** pour utiliser les modèles de données et de colonnes suggérés. Vous pouvez modifier les modèles suggérés ou faire vos propres modèles sans télécharger de fichier.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/suggested-regex.png" alt-text="Générer une expression régulière suggérée" border="true":::
 
@@ -128,6 +128,14 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/verify-rule.png" alt-text="Vérifier la règle avant de la créer" border="true":::
 
+1. Testez la règle de classification avant de terminer le processus de création pour vérifier qu’elle appliquera des balises à vos ressources. Les classifications de la règle seront appliquées aux exemples de données chargées de la même façon que dans une analyse. Ainsi, toutes les classifications système et votre classification personnalisée seront mises en correspondance avec les données de votre fichier.
+
+   Les fichiers d’entrée peuvent inclure des fichiers délimités (CSV, PSV, SSV, TSV), JSON ou du contenu XML. Le contenu sera analysé en fonction de l’extension du fichier d’entrée. Les données délimitées peuvent porter une extension de fichier correspondant à l’un des types mentionnés. Par exemple, un fichier nommé MySampleData.csv peut contenir des données TSV. Le contenu délimité doit également présenter un minimum de 3 colonnes.
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-screen.png" alt-text="Tester la règle avant de la créer" border="true":::
+
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/test-rule-uploaded-file-result-screen.png" alt-text="Afficher les classifications appliquées après avoir chargé un fichier de test" border="true":::
+
 ### <a name="creating-a-dictionary-rule"></a>Création d’une règle de dictionnaire
 
 1. Si vous créez une règle de dictionnaire, l’écran suivant s’affiche. Téléchargez un fichier qui contient toutes les valeurs possibles pour la classification que vous créez dans une seule colonne.
@@ -136,7 +144,7 @@ Pour créer une règle de classification personnalisée, procédez comme suit :
 
 1. Une fois le dictionnaire généré, vous pouvez ajuster les seuils de correspondance distincte et minimale, puis soumettre la règle.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Règle de dictionnaire Purview - ajuster le seuil de correspondance distincte et le seuil de correspondance minimale" border="true":::
+- **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. Le seuil de correspondances distinctes n’a rien à voir avec les critères spéciaux, mais il s’agit d’une condition préalable pour les critères spéciaux. La valeur suggérée est 8. Elle peut être ajustée manuellement dans une plage comprise entre 2 et 32. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Créer une règle de dictionnaire, avec la coche de dictionnaire généré." border="true":::
 

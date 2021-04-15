@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b7b7f1c5fb0a7991707a26b4a7f54fb3ffaf7bab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eff33a8670ee8eb9ee32655956ee0e913ddaa4c1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033518"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258127"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
@@ -56,6 +56,6 @@ Un compte client est créé dans votre locataire avant l’étape d'authentifica
 
 ::: zone pivot="b2c-custom-policy"
 
-Pour activer l’authentification multifacteur, récupérez les packs de démarrage de stratégies personnalisées sur GitHub, puis mettez à jour les fichiers XML du pack de démarrage **SocialAndLocalAccountsWithMFA** avec le nom de votre locataire Azure AD B2C. **SocialAndLocalAccountsWithMFA** permet d’activer les options d’authentification sociale, locale et multifacteur. Pour plus d’informations, consultez [Bien démarrer avec les stratégies personnalisées dans Active Directory B2C](custom-policy-get-started.md). 
+Pour activer l’authentification multifacteur, récupérez les packs de démarrage de stratégies personnalisées sur GitHub, puis mettez à jour les fichiers XML du pack de démarrage **SocialAndLocalAccountsWithMFA** avec le nom de votre locataire Azure AD B2C. **SocialAndLocalAccountsWithMFA** permet d’activer les options d’authentification sociale, locale et multifacteur. Pour plus d’informations, consultez [Bien démarrer avec les stratégies personnalisées dans Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
 
 ::: zone-end
