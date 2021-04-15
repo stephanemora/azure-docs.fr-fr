@@ -1,14 +1,14 @@
 ---
 title: Capturer une trace de navigateur pour la résolution des problèmes
 description: Capturer des informations réseau à partir d’une trace de navigateur pour résoudre les problèmes liés au portail Azure.
-ms.date: 05/11/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745993"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105563483"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturer une trace de navigateur pour la résolution des problèmes
 
@@ -190,13 +190,13 @@ Les étapes suivantes montrent comment utiliser les outils de développement dan
 
     ![Capture d’écran des résultats de la trace du navigateur](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Exporter/Importer HAR**, puis **Tout enregistrer sous HAR**.
+1. Une fois que vous avez reproduit le comportement inattendu du portail, sélectionnez **Save All As HAR** (Tout enregistrer au format HAR).
 
     ![Capture d’écran de l’option « Export as HAR » (Exporter en tant que HAR)](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Arrêtez l’enregistreur d’actions sur Windows ou l’enregistrement d’écran sur Mac, puis sauvegardez l’enregistrement.
 
-1. De retour dans le volet Outils de développement du navigateur, sélectionnez l’onglet **Console**. Cliquez avec le bouton de droite, sélectionnez **Exporter le message visible sur**, puis enregistrez la sortie de la console dans un fichier texte.
+1. Retournez dans le volet des outils de développement du navigateur pour sélectionner l’onglet **Console**. Cliquez avec le bouton droit sur l’un des messages, sélectionnez **Export Visible Messages To** (Exporter les messages visibles vers), puis enregistrez la sortie de la console dans un fichier texte.
 
     ![Capture d’écran de la sortie de la console](media/capture-browser-trace/firefox-console-select.png)
 

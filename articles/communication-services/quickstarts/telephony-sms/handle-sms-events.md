@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Gérer les événements SMS
+title: 'Démarrage rapide : Gérer les événements SMS pour les rapports de remise et les messages entrants'
 titleSuffix: An Azure Communication Services quickstart
 description: Découvrez comment gérer les événements SMS avec Azure Communication Services.
 author: mikben
@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655986"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728587"
 ---
-# <a name="quickstart-handle-sms-events"></a>Démarrage rapide : Gérer les événements SMS
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Démarrage rapide : Gérer les événements SMS pour les rapports de remise et les messages entrants
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -117,6 +114,7 @@ Dans ce guide de démarrage rapide, vous avez appris comment consommer des évé
 > [Envoyer un SMS](../telephony-sms/send.md)
 
 Vous voudrez peut-être aussi :
+
 
  - [Découvrir les concepts de gestion des événements](../../../event-grid/event-schema-communication-services.md)
  - [Découvrir Event Grid](../../../event-grid/overview.md)

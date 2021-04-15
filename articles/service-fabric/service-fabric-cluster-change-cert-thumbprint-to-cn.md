@@ -3,12 +3,12 @@ title: Mettre à jour un cluster pour utiliser le nom commun du certificat
 description: Découvrez comment convertir un certificat de cluster Azure Service Fabric de déclarations basées sur l’empreinte en noms communs.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: f719b1eb39da776827c6babec61e9e6701bb4602
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97900788"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308011"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>Convertir des certificats de cluster de déclarations basées sur l’empreinte en noms communs
 
@@ -45,7 +45,7 @@ Pour convertir un cluster à l’aide d’un certificat auto-signé déclaré pa
 
 ## <a name="upload-the-certificate-and-install-it-in-the-scale-set"></a>Charger le certificat et l’installer dans le groupe identique
 
-Dans Azure, le mécanisme recommandé pour l’obtention et l’approvisionnement des certificats implique Azure Key Vault et ses outils. Un certificat correspondant à la déclaration de certificat de cluster doit être approvisionné sur chaque nœud des groupes de machines virtuelles identiques qui composent votre cluster. Pour plus d’informations, consultez [Secrets sur des groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
+Dans Azure, le mécanisme recommandé pour l’obtention et l’approvisionnement des certificats implique Azure Key Vault et ses outils. Un certificat correspondant à la déclaration de certificat de cluster doit être approvisionné sur chaque nœud des groupes de machines virtuelles identiques qui composent votre cluster. Pour plus d’informations, consultez [Secrets sur des groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-securely-ship-a-certificate-to-the-vm-).
 
 Il est important d’installer les certificats de cluster actuels et cibles sur les machines virtuelles de chaque type de nœud du cluster avant de modifier les déclarations de certificat du cluster. Le parcours entre l’émission de certificats et l’approvisionnement sur un nœud Service Fabric est abordé en détail dans [Parcours d’un certificat](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 

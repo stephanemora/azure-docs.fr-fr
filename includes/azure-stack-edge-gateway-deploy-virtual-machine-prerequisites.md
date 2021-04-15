@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 71d5a910e36762d096763c4f45a13cbdad47414d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730622"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554353"
 ---
-Avant de pouvoir déployer des machines virtuelles sur votre appareil Azure Stack Edge, vous devez configurer votre client pour qu’il se connecte à l’appareil via Azure Resource Manager sur Azure PowerShell. Pour obtenir des instructions détaillées, consultez [Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md).
+Avant de pouvoir déployer des machines virtuelles sur votre appareil Azure Stack Edge, vous devez configurer votre client pour qu’il se connecte à l’appareil via Azure Resource Manager sur Azure PowerShell. Pour obtenir des instructions détaillées, consultez [Se connecter à Azure Resource Manager sur votre appareil Azure Stack Edge](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md).
 
 Assurez-vous de pouvoir utiliser les étapes suivantes pour accéder à l’appareil à partir de votre client. Vous avez déjà effectué cette configuration quand vous vous êtes connecté à Azure Resource Manager. Vous vérifiez maintenant que la configuration a réussi. 
 
@@ -23,9 +23,9 @@ Assurez-vous de pouvoir utiliser les étapes suivantes pour accéder à l’appa
 
 1. Pour appeler les API de l’appareil local à des fins d’authentification, entrez : 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    Indiquez le nom d’utilisateur *EdgeARMuser* et votre mot de passe pour vous connecter via Azure Resource Manager.
+    Indiquez le nom d’utilisateur *EdgeArmUser* et votre mot de passe pour vous connecter via Azure Resource Manager.
 
 1. Si vous avez configuré le calcul pour Kubernetes, vous pouvez ignorer cette étape. Dans le cas contraire, vérifiez que vous avez activé une interface réseau pour le calcul en procédant comme suit : 
 
@@ -38,5 +38,3 @@ Assurez-vous de pouvoir utiliser les étapes suivantes pour accéder à l’appa
 
     > [!NOTE]
     > Si vous créez des machines virtuelles GPU, sélectionnez une interface réseau connectée à Internet. Cela vous permet d’installer une extension GPU sur votre appareil.
-
-

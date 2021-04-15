@@ -10,14 +10,14 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67018a2ec6b9239661a7022ad7fb9eeb6c9a5f64
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105709716"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385579"
 ---
-# <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrer vers l’authentification cloud à l’aide du lancement intermédiaire (préversion)
+# <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrer vers l’authentification cloud avec un lancement intermédiaire
 
 Le lancement intermédiaire vous permet de tester des groupes d'utilisateurs de manière sélective avec des fonctionnalités d'authentification cloud comme Azure AD Multi-Factor Authentication (MFA), l'accès conditionnel, Identity Protection pour les informations d'identification divulguées ou Identity Governance avant le basculement de vos domaines.  Cet article explique comment procéder. Toutefois, avant d’effectuer le lancement intermédiaire, vous devez prendre en compte les implications si une ou plusieurs des conditions suivantes sont remplies :
     
@@ -79,7 +79,7 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 - Les administrateurs peuvent déployer l’authentification cloud à l’aide de groupes de sécurité. Pour éviter toute latence de synchronisation lorsque vous utilisez des groupes de sécurité Active Directory locaux, nous vous recommandons d’utiliser des groupes de sécurité cloud. Les conditions suivantes s’appliquent :
 
     - Vous pouvez utiliser 10 groupes maximum par fonctionnalité. Autrement dit, vous pouvez utiliser 10 groupes pour la *synchronisation du hachage de mot de passe*, *l’authentification directe* et *l’authentification unique transparente*.
-    - Les groupes imbriqués *ne sont pas pris en charge*. Cette étendue s’applique également à la version préliminaire publique.
+    - Les groupes imbriqués *ne sont pas pris en charge*. 
     - Les groupes dynamiques *ne sont pas pris en charge* pour le lancement intermédiaire.
     - Les objets contact du groupe bloquent l’ajout du groupe.
 
@@ -168,19 +168,19 @@ Vous pouvez déployer l’une de ces options :
 
 Effectuez les actions suivantes :
 
-1. Connectez-vous au [Portail Azure AD](https://aka.ms/stagedrolloutux) pour accéder à la préversion de l’expérience utilisateur.
+1. Pour accéder à l’expérience utilisateur, connectez-vous au [portail Azure AD](https://aka.ms/stagedrolloutux).
 
-2. Sélectionnez le lien **Activer le lancement intermédiaire pour la connexion utilisateur managée (préversion)** .
+2. Sélectionnez le lien **Activer le lancement intermédiaire pour la connexion utilisateur managée**.
 
    Par exemple, si vous souhaitez activer *l’option A*, assurez-vous que les contrôles **synchronisation de hachage de mot de passe** et **authentification unique transparente** sont sur **Activer**, comme indiqué dans les images suivantes.
 
-   ![La page Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![La page « Activer les fonctionnalités de lancement intermédiaire (préversion) »](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Ajoutez les groupes à la fonctionnalité pour activer *l’authentification directe* et *l’authentification unique transparente*. Assurez-vous que les groupes de sécurité n’ont pas plus de 200 membres au départ pour éviter l’expiration de l’expérience utilisateur.
 
-   ![La page « Gérer les groupes pour la synchronisation de hachage de mot de passe (préversion) »](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >Les membres d’un groupe sont automatiquement activés pour le lancement intermédiaire. Les groupes dynamiques et imbriqués ne sont pas pris en charge pour le lancement intermédiaire.

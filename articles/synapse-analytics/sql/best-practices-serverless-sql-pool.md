@@ -10,18 +10,27 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dcd48354372a196ea903c335e5e22caf20e25996
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104720387"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219652"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Meilleures pratiques pour un pool SQL serverless dans Azure Synapse Analytics
 
 Cet article présente un ensemble de meilleures pratiques pour l’utilisation d’un pool SQL serverless. Un pool SQL serverless est une ressource dans Azure Synapse Analytics.
 
 Un pool SQL serverless vous permet d’interroger des fichiers dans vos comptes de stockage Azure. Il ne dispose pas de capacités de stockage ou d’ingestion locales. Cela qui signifie que tous les fichiers que la requête cible sont externes au pool SQL serverless. Tout ce qui est lié à la lecture de fichiers à partir du stockage peut avoir un impact sur les performances des requêtes.
+
+Voici quelques recommandations générales :
+- Assurez-vous que vos applications clientes sont colocalisées avec le pool SQL Server serverless.
+  - Si vous utilisez des applications clientes en dehors d'Azure (par exemple, Power BI Desktop, SSMS, ADS), vérifiez que vous utilisez le pool serverless d'une région proche de votre ordinateur client.
+- Assurez-vous que le stockage (Azure Data Lake, Cosmos DB) et le pool SQL serverless se trouvent dans la même région.
+- Essayez d'[optimiser la disposition du stockage](#prepare-files-for-querying) en utilisant le partitionnement et en maintenant vos fichiers dans une fourchette comprise entre 100 Mo et 10 Go.
+- Si vous renvoyez un grand nombre de résultats, assurez-vous que vous utilisez SSMS ou ADS, et non Synapse Studio. Synapse Studio est un outil web qui n'est pas conçu pour les jeux de résultats volumineux. 
+- Si vous filtrez les résultats par colonne de chaînes, essayez d'utiliser un classement `BIN2_UTF8`.
+- Essayez de mettre en cache les résultats côté client en utilisant le mode d'importation de Power BI ou Azure Analysis Services, et actualisez-les régulièrement. Les pools SQL serverless ne peuvent pas fournir une expérience interactive en mode Requête directe de Power BI si vous utilisez des requêtes complexes ou si vous traitez une grande quantité de données.
 
 ## <a name="client-applications-and-network-connections"></a>Applications clientes et connexions réseau
 
@@ -66,7 +75,11 @@ Si possible, vous pouvez préparer les fichiers pour améliorer les performances
 
 ### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>Colocaliser votre stockage analytique CosmosDB et votre pool SQL serverless
 
-Assurez-vous que votre stockage analytique CosmosDB est placé dans la même région que l’espace de travail Synapse. Les requêtes entre régions peuvent entraîner des latences énormes.
+Assurez-vous que votre stockage analytique CosmosDB est placé dans la même région que l’espace de travail Synapse. Les requêtes entre régions peuvent entraîner des latences énormes. Utilisez la propriété region dans la chaîne de connexion pour spécifier explicitement la région dans laquelle le magasin analytique est placé (voir [Interroger CosmosDb à l'aide du pool SQL serverless](query-cosmos-db-analytical-store.md#overview)) :
+
+```
+'account=<database account name>;database=<database name>;region=<region name>'
+```
 
 ## <a name="csv-optimizations"></a>Optimisations de protocole CSV
 

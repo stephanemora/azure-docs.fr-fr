@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108396"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047930"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Utiliser Gestion des API Azure avec des microservices déployés dans Azure Kubernetes Service
 
@@ -95,7 +95,7 @@ Pour obtenir une clé d’abonnement permettant d’accéder aux API, un abonnem
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Option 3 : Déployer APIM dans le réseau virtuel de cluster
 
-Dans certains cas, les clients ayant des contraintes réglementaires ou des exigences de sécurité strictes peuvent trouver les solutions facultatives 1 et 2 non viables en raison des points de terminaison exposés publiquement. Dans d’autres cas, le cluster AKS et les applications qui consomment les microservices peuvent résider dans le même réseau virtuel, de sorte qu’il n’y a aucune raison d’exposer le cluster publiquement, car tout le trafic de l’API reste dans le réseau virtuel. Pour ces scénarios, vous pouvez déployer Gestion des API dans le réseau virtuel de cluster. [Le niveau Premium de Gestion des API](https://aka.ms/apimpricing) prend en charge le déploiement de réseau virtuel. 
+Dans certains cas, les clients ayant des contraintes réglementaires ou des exigences de sécurité strictes peuvent trouver les solutions facultatives 1 et 2 non viables en raison des points de terminaison exposés publiquement. Dans d’autres cas, le cluster AKS et les applications qui consomment les microservices peuvent résider dans le même réseau virtuel, de sorte qu’il n’y a aucune raison d’exposer le cluster publiquement, car tout le trafic de l’API reste dans le réseau virtuel. Pour ces scénarios, vous pouvez déployer Gestion des API dans le réseau virtuel de cluster. Les [niveaux Premium et Développeur de Gestion des API](https://aka.ms/apimpricing) prennent en charge le déploiement de réseau virtuel. 
 
 Il existe deux modes de [déploiement de Gestion des API dans un réseau virtuel](./api-management-using-with-vnet.md) : externe et interne. 
 

@@ -1,14 +1,14 @@
 ---
 title: Obtenir les changements des ressources
 description: Découvrez comment savoir quand une ressource a été modifiée, obtenir une liste des propriétés modifiées et évaluer les différences.
-ms.date: 01/27/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 500a2d58c5fc9e1b63a544978c4b583eba60a63e
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100594646"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219074"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
@@ -145,6 +145,10 @@ Chaque événement de modification détecté pour **resourceId** a les propriét
 - **beforeSnapshot** : contient les propriétés **snapshotId** et **timestamp** de l’instantané de ressource qui a été créé avant qu’une modification n’ait été détectée.
 - **afterSnapshot** : contient les propriétés **snapshotId** et **timestamp** de l’instantané de ressource qui a été créé après la détection de la modification.
 - **changeType** : décrit le type de la modification détectée pour l’ensemble de l’enregistrement de modification, entre **beforeSnapshot** et **afterSnapshot**. Les valeurs sont les suivantes : _Create_, _Update_ et _Delete_. Le tableau de propriétés **propertyChanges** est inclus uniquement quand **changeType** a la valeur _Update_.
+
+  > [!IMPORTANT]
+  > La valeur _Create_ n’est disponible que pour les ressources ayant existé précédemment et supprimées au cours des 14 derniers jours.
+
 - **propertyChanges** : ce tableau de propriétés détaille toutes les propriétés de ressource qui ont été mises à jour entre **beforeSnapshot** et **afterSnapshot** :
   - **propertyName** : nom de la propriété de ressource qui a été modifiée.
   - **changeCategory** : décrit l’effet de la modification. Les valeurs sont les suivantes : _System_ et _User_.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/10/2021
 ms.author: inhenkel
-ms.openlocfilehash: cb7500489cc4516b8cf44dd029c0831103dc53a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: add2a4aba1f7664b919e88992b2a1d71e8291b53
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103007930"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226767"
 ---
 # <a name="microsoft-azure-media-services-common-scenarios"></a>Scénarios courants de Microsoft Azure Media Services
 
@@ -49,7 +49,7 @@ Cliquez sur l’image pour l’afficher en plein écran.
 
 [![Diagramme montrant certains des objets les plus couramment utilisés lors du développement par rapport au modèle de données d’objet Azure Media Services.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
-Vous pouvez afficher l’ensemble du modèle [ici](https://media.windows.net/API/$metadata?api-version=2.15).  
+Vous pouvez afficher l’ensemble du modèle [ici](https://m.eet.com/media/1170326/ms-part1.pdf).  
 
 ## <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Protéger le contenu stocké et assurer une diffusion multimédia en continu en clair (sans chiffrement)
 

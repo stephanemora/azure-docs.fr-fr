@@ -2,13 +2,13 @@
 title: Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 description: Découvrez comment Sauvegarde Azure vous permet de chiffrer vos données de sauvegarde à l’aide de clés gérées par le client (CMK).
 ms.topic: conceptual
-ms.date: 07/08/2020
-ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 04/01/2021
+ms.openlocfilehash: b6cb1a288d0052b39bbeb52ed9fd20e68a6427ed
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716735"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167888"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Chiffrement des données de sauvegarde à l’aide de clés gérées par le client
 
@@ -33,7 +33,7 @@ Cet article aborde les sujets suivants :
 
 - Elle n’est pas liée à [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), qui utilise le chiffrement basé sur l’invité des disques d’une machine virtuelle à l’aide de BitLocker (pour Windows) et de DM-Crypt (pour Linux)
 
-- Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région**. De même, les clés doivent être de type **RSA 2048** uniquement et doivent être à l’état **activé**.
+- Le coffre Recovery Services ne peut être chiffré qu’avec des clés stockées dans un coffre de clés Azure, situé dans la **même région**. De même, les clés doivent être des **clés RSA** uniquement et doivent être à l’état **activé**.
 
 - Le déplacement d’un coffre Recovery Services chiffré par clé CMK d’un groupe de ressources ou d’un abonnement vers un autre n’est pas actuellement pris en charge.
 - Lorsque vous déplacez un coffre Recovery Services déjà chiffré avec des clés gérées par le client vers un nouveau locataire, vous devez le mettre à jour pour recréer et reconfigurer son identité managée et sa CMK (qui doivent se trouver dans le nouveau locataire). Si cela n’est pas fait, les opérations de sauvegarde et de restauration échoueront. En outre, toutes les autorisations de contrôle d’accès en fonction du rôle (RBAC) configurées dans l’abonnement devront être reconfigurées.
@@ -42,6 +42,9 @@ Cet article aborde les sujets suivants :
 
     >[!NOTE]
     >Utilisez le module Az 5.3.0 ou version ultérieure afin d’utiliser des clés gérées par le client pour les sauvegardes dans le coffre Recovery Services.
+    
+    >[!Warning]
+    >Si vous utilisez PowerShell pour gérer les clés de chiffrement pour Sauvegarde, nous vous déconseillons de mettre à jour les clés à partir du portail.<br></br>Si vous mettez à jour la clé à partir du portail, vous ne pourrez plus utiliser PowerShell pour mettre à jour la clé de chiffrement, jusqu’à ce qu’une mise à jour de PowerShell prenant en charge le nouveau modèle soit disponible. Toutefois, vous pouvez continuer à mettre à jour la clé depuis le portail Azure.
 
 Si vous n'avez pas encore créé et configuré votre coffre Recovery Services, [cliquez ici pour accéder aux instructions correspondantes](backup-create-rs-vault.md).
 
@@ -59,22 +62,32 @@ Cette section implique les étapes suivantes :
 
 Il est nécessaire de suivre toutes ces étapes dans l’ordre indiqué ci-dessus pour obtenir les résultats souhaités. Chaque étape est décrite en détail ci-dessous.
 
-### <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Activer une identité managée pour votre coffre Recovery Services
+## <a name="enable-managed-identity-for-your-recovery-services-vault"></a>Activer une identité managée pour votre coffre Recovery Services
 
-Sauvegarde Azure utilise l’identité managée affectée par le système pour authentifier le coffre Recovery Services et lui permettre d’accéder aux clés de chiffrement stockées dans le coffre de clés Azure. Pour activer l’identité managée pour votre coffre Recovery Services, suivez les étapes indiquées ci-dessous.
+Sauvegarde Azure utilise les identités managées affectées par le système et les identités managées affectées par l’utilisateur pour authentifier le coffre Recovery Services et lui permettre d’accéder aux clés de chiffrement stockées dans le coffre de clés Azure. Pour activer l’identité managée pour votre coffre Recovery Services, suivez les étapes indiquées ci-dessous.
 
 >[!NOTE]
 >Une fois activée, l'identité managée ne doit **pas** être désactivée (même temporairement). La désactivation de l’identité managée peut entraîner un comportement incohérent.
+
+### <a name="enable-system-assigned-managed-identity-for-the-vault"></a>Activer l’identité managée affectée par le système pour le coffre
 
 **Dans le portail :**
 
 1. Accédez à votre coffre Recovery Services -> **Identité**.
 
-    ![Paramètres d’identité](./media/encryption-at-rest-with-cmk/managed-identity.png)
+    ![Paramètres d’identité](media/encryption-at-rest-with-cmk/enable-system-assigned-managed-identity-for-vault.png)
 
-1. Cliquez sur le bouton bascule sous **État** pour le définir sur la valeur **Activé**, puis sélectionnez **Enregistrer**.
+1. Accédez à l’onglet **Affectée par le système**.
 
-1. Un ID d’objet est généré, qui correspond à l’identité managée affectée par le système du coffre.
+1. Modifiez l’**état** sur **Activé**.
+
+1. Cliquez sur **Enregistrer** pour activer l’identité pour le coffre.
+
+Un ID d’objet est généré, qui correspond à l’identité managée affectée par le système du coffre.
+
+>[!NOTE]
+>Une fois activée, l’identité managée ne doit pas être désactivée (même temporairement). La désactivation de l’identité managée peut entraîner un comportement incohérent.
+
 
 **Avec PowerShell :**
 
@@ -98,7 +111,28 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Attribuer des autorisations au coffre Recovery Services pour lui permettre d’accéder à la clé de chiffrement dans le coffre de clés Azure
+### <a name="assign-user-assigned-managed-identity-to-the-vault"></a>Attribuer une identité managée affectée par l’utilisateur au coffre
+
+Pour attribuer l’identité managée affectée par l’utilisateur à votre coffre Recovery Services, procédez comme suit :
+
+1.  Accédez à votre coffre Recovery Services -> **Identité**.
+
+    ![Attribuer une identité managée affectée par l’utilisateur au coffre](media/encryption-at-rest-with-cmk/assign-user-assigned-managed-identity-to-vault.png)
+
+1.  Accédez à l’onglet **Affectée par l’utilisateur**.
+
+1.  Cliquez sur **+Ajouter** pour ajouter une identité managée affectée par l’utilisateur.
+
+1.  Dans le panneau **Ajouter une identité managée affectée par l’utilisateur** qui s’ouvre, sélectionnez l’abonnement correspondant à votre identité.
+
+1.  Sélectionnez l’identité dans la liste. Vous pouvez également filtrer par le nom de l’identité ou du groupe de ressources.
+
+1.  Une fois cela fait, cliquez sur **Ajouter** pour terminer l’attribution de l’identité.
+
+## <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Attribuer des autorisations au coffre Recovery Services pour lui permettre d’accéder à la clé de chiffrement dans le coffre de clés Azure
+
+>[!Note]
+>Si vous utilisez des identités affectées par l’utilisateur, les mêmes autorisations doivent être attribuées à l’identité affectée par l’utilisateur.
 
 Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffre de clés Azure qui contient la clé de chiffrement. Pour cela, vous devez autoriser l’identité managée du coffre Recovery Services à accéder au coffre de clés.
 
@@ -120,7 +154,7 @@ Vous devez maintenant autoriser le coffre Recovery Services à accéder au coffr
 
 1. Sélectionnez **Enregistrer** pour enregistrer les modifications apportées à la stratégie d’accès du coffre de clés Azure.
 
-### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
+## <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Activer la suppression réversible et la protection contre le vidage sur le coffre de clés Azure
 
 Vous devez **activer la suppression réversible et la protection contre le vidage**  sur votre coffre de clés Azure qui stocke votre clé de chiffrement. Cette opération s’effectue dans l’interface utilisateur d’Azure Key Vault comme indiqué ci-dessous. (Vous pouvez aussi définir ces propriétés au moment de créer le coffre de clés). Pour en savoir plus sur ces propriétés Key Vault, consultez [cette page](../key-vault/general/soft-delete-overview.md).
 
@@ -160,7 +194,7 @@ Vous pouvez aussi activer la suppression réversible et la protection contre le 
     Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
     ```
 
-### <a name="assign-encryption-key-to-the-rs-vault"></a>Attribuer une clé de chiffrement au coffre RS
+## <a name="assign-encryption-key-to-the-rs-vault"></a>Attribuer une clé de chiffrement au coffre RS
 
 >[!NOTE]
 > Avant de continuer, vérifiez les points suivants :
@@ -172,7 +206,7 @@ Vous pouvez aussi activer la suppression réversible et la protection contre le 
 
 Une fois les éléments ci-dessus vérifiés, poursuivez en sélectionnant la clé de chiffrement de votre coffre.
 
-#### <a name="to-assign-the-key-in-the-portal"></a>Pour attribuer la clé dans le portail :
+### <a name="to-assign-the-key-in-the-portal"></a>Pour attribuer la clé dans le portail :
 
 1. Accédez à votre coffre Recovery Services -> **Propriétés**.
 
@@ -192,7 +226,7 @@ Une fois les éléments ci-dessus vérifiés, poursuivez en sélectionnant la cl
     1. Recherchez la clé dans le coffre de clés et sélectionnez-la dans le volet de sélection de clé.
 
         >[!NOTE]
-        >Lorsque vous spécifiez la clé de chiffrement à l’aide du volet du sélecteur de clés, la clé fait automatiquement l’objet d’une rotation chaque fois qu’une nouvelle version est activée.
+        >Lorsque vous spécifiez la clé de chiffrement à l’aide du volet du sélecteur de clés, la clé fait automatiquement l’objet d’une rotation chaque fois qu’une nouvelle version est activée. [En savoir plus](#enabling-auto-rotation-of-encryption-keys) sur l’activation de la rotation automatique des clés de chiffrement.
 
         ![Sélectionner une clé dans le coffre de clés](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -206,7 +240,7 @@ Une fois les éléments ci-dessus vérifiés, poursuivez en sélectionnant la cl
 
     ![Journal d’activité](./media/encryption-at-rest-with-cmk/activity-log.png)
 
-#### <a name="to-assign-the-key-with-powershell"></a>Pour attribuer la clé avec PowerShell :
+### <a name="to-assign-the-key-with-powershell"></a>Pour attribuer la clé avec PowerShell :
 
 Utilisez la commande [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) pour activer le chiffrement à l’aide de clés gérées par le client, et attribuer ou mettre à jour la clé de chiffrement à utiliser.
 
@@ -249,8 +283,8 @@ Avant de poursuivre la configuration de la protection, nous vous recommandons vi
 > Avant de poursuivre la configuration de la protection, vous devez avoir **correctement** effectué les étapes suivantes :
 >
 >1. Création de votre coffre de sauvegarde.
->1. Activation de l’identité managée affectée par le système du coffre de sauvegarde.
->1. Attribution d’autorisations à votre coffre de sauvegarde pour lui permettre d’accéder aux clés de chiffrement à partir de votre coffre de clés.
+>1. Activation de l’identité managée affectée par le système du coffre Recovery Services ou attribution d’une identité managée affectée par l’utilisateur au coffre.
+>1. Attribution d’autorisations à votre coffre de sauvegarde (ou l’identité managée affectée par l’utilisateur) pour lui permettre d’accéder aux clés de chiffrement à partir de votre coffre de clés.
 >1. Activation de la suppression définitive et de la protection contre le vidage pour votre coffre de clés.
 >1. Affectation d’une clé de chiffrement valide à votre coffre de sauvegarde.
 >
@@ -311,6 +345,44 @@ Quand vous effectuez une restauration de fichiers, les données restaurées sont
 ### <a name="restoring-sap-hanasql-databases-in-azure-vms"></a>Restauration de bases de données SAP HANA/SQL dans des machines virtuelles Azure
 
 Quand vous restaurez à partir d’une base de données SAP HANA/SQL sauvegardée qui s’exécute dans une machine virtuelle Azure, les données restaurées sont chiffrées à l’aide de la clé de chiffrement utilisée à l’emplacement de stockage cible. Il peut s’agir d’une clé gérée par le client ou d’une clé gérée par la plateforme utilisée pour chiffrer les disques de la machine virtuelle.
+
+## <a name="additional-topics"></a>Rubriques supplémentaires
+
+### <a name="enable-encryption-using-customer-managed-keys-at-vault-creation-in-preview"></a>Activer le chiffrement à l’aide de clés gérées par le client lors de la création du coffre (en préversion)
+
+>[!NOTE]
+>L’activation du chiffrement lors de la création du coffre à l’aide de clés gérées par le client est en préversion publique limitée et nécessite d’ajouter les abonnements à une liste d’autorisation. Pour vous inscrire à la préversion, remplissez le [formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapURDNTVVhGOUxXSVBZMEwxUU5FNDkyQkU4Ny4u) et écrivez-nous à l’adresse [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+Lorsque votre abonnement a été ajouté à la liste d’autorisation, l’onglet **Chiffrement de sauvegarde** s’affiche. Cela vous permet d’activer le chiffrement sur la sauvegarde à l’aide de clés gérées par le client lors de la création d’un coffre Recovery Services. Pour activer le chiffrement, procédez comme suit :
+
+1. A côté de l’onglet **Informations de base**, sur l’onglet **Chiffrement de sauvegarde**, spécifiez la clé de chiffrement et l’identité à utiliser pour le chiffrement.
+
+   ![Activer le chiffrement au niveau du coffre](media/encryption-at-rest-with-cmk/enable-encryption-using-cmk-at-vault.png)
+
+
+   >[!NOTE]
+   >Les paramètres s’appliquent uniquement à Sauvegarde et sont facultatifs.
+
+1. Sélectionnez **Utiliser une clé gérée par le client** comme type de chiffrement.
+
+1. Pour spécifier la clé à utiliser pour le chiffrement, sélectionnez l’option appropriée.
+
+   Vous pouvez fournir l’URI de la clé de chiffrement ou parcourir et sélectionner la clé. Lorsque vous spécifiez la clé à l’aide de l’option **Sélectionner le coffre de clés**, la rotation automatique de la clé de chiffrement est activée automatiquement. [En savoir plus sur la rotation automatique](#enabling-auto-rotation-of-encryption-keys). 
+
+1. Spécifiez l’identité managée affectée par l’utilisateur pour gérer le chiffrement avec des clés gérées par le client. Cliquez sur **Sélectionner** pour parcourir et sélectionner l’identité requise.
+
+1. Une fois cela fait, passez à l’ajout d’étiquettes (facultatif) et continuez à créer le coffre.
+
+### <a name="enabling-auto-rotation-of-encryption-keys"></a>Activer la rotation automatique des clés de chiffrement
+
+Lorsque vous spécifiez la clé gérée par le client qui doit être utilisée pour chiffrer les sauvegardes, utilisez les méthodes suivantes :
+
+- Entrer l’URI de la clé
+- Sélectionner dans le coffre de clés
+
+L’utilisation de l’option **Sélectionner dans le coffre de clés** permet d’activer la rotation automatique pour la clé sélectionnée. Cela élimine l’effort manuel de mise à jour vers la version suivante. Toutefois, en utilisant cette option :
+- La mise à jour de la version de la clé peut nécessiter jusqu’à une heure pour prendre effet.
+- Lorsqu’une nouvelle version de la clé prend effet, l’ancienne version doit également être disponible (à l’état activé) pour au moins une tâche de sauvegarde ultérieure après que la mise à jour de la clé a pris effet.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

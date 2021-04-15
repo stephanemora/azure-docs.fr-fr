@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: c3a0a8bd5805757b92e3f5b046335c8883b4ba72
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888921"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562033"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classement sémantique dans Recherche cognitive Azure
 
@@ -24,32 +24,34 @@ Le classement sémantique est une extension du pipeline d’exécution de requê
 
 Le classement sémantique est gourmand en ressources et en temps. Pour terminer le traitement dans le respect de latence attendue d’une opération de requête, les entrées du classeur sémantique sont consolidées et réduites afin que les étapes de résumé et de reclassement sous-jacentes puissent être effectuées le plus rapidement possible.
 
-## <a name="preparation-for-semantic-ranking"></a>Préparation pour le classement sémantique
+## <a name="pre-processing"></a>Prétraitement
 
-Avant d’évaluer la pertinence, le contenu doit être réduit à un certain nombre d’entrées que le classeur sémantique peut gérer efficacement . La réduction du contenu comprend la séquence d’étapes suivante.
+Avant d’évaluer la pertinence, le contenu doit être réduit à un nombre gérable d’entrées que le ranker sémantique peut gérer efficacement.
 
-1. La réduction du contenu commence par l’utilisation du jeu de résultats initial que renvoie l’[algorithme de classement](index-ranking-similarity.md) par défaut qu’utilise la recherche par mot clé. Les résultats de la recherche peuvent inclure jusqu’à 1 000 concordances, mais le classement sémantique ne traite que les 50 premières. 
+1. Tout d’abord, la réduction du contenu commence par le jeu de résultats initial que renvoie l’[algorithme de classement](index-ranking-similarity.md) par défaut utilisé par la recherche par mot clé. Pour une requête donnée, les résultats peuvent être une poignée de documents, jusqu’à la limite maximale de 1 000 documents. Comme le traitement d’un grand nombre de correspondances prendrait trop de temps, seuls les 50 premiers documents sont classés dans le classement sémantique.
 
-   Selon la requête, le nombre de résultats initiaux peut être sensiblement inférieur à 50 à concordances trouvées. Quel que soit le nombre de documents, le jeu de résultats initial constitue le corpus de documents pour le classement sémantique.
+   Quel que soit le nombre de documents, qu’il s’agisse de 1 ou de 50, le jeu de résultats initial établit la première itération du corpus de documents pour le classement sémantique.
 
-1. Dans le corpus de documents, le contenu de chaque champ dans « searchFields » est extrait et combiné dans une chaîne longue.
+1. Ensuite, dans tout le corpus, le contenu de chaque champ dans « searchFields » est extrait et combiné dans une chaîne longue.
 
-1. Toutes les chaînes excessivement longues sont découpées pour garantir que la longueur totale est conforme aux exigences d’entrée de l’étape de résumé. Cet exercice de découpage est la raison pour laquelle il est important de placer les champs courts en premier dans « searchFields », afin de s’assurer de leur inclusion dans la chaîne. Si vous avez des documents très volumineux avec des champs contenant beaucoup de texte, tout ce qui se trouve après la limite maximale est ignoré.
+1. Après la consolidation des chaînes, toute chaîne excessivement longue est découpée pour garantir que la longueur totale est conforme aux exigences d’entrée mentionnées l’étape de résumé.
+
+   Cet exercice de découpage est la raison pour laquelle il est important de placer les champs courts en premier dans « searchFields », afin de s’assurer de leur inclusion dans la chaîne. Si vous avez des documents très volumineux avec des champs contenant beaucoup de texte, tout ce qui se trouve après la limite maximale est ignoré.
 
 Chaque document est désormais représenté par une seule chaîne longue.
 
 > [!NOTE]
-> Les entrées de paramètre pour les modèles sont des jetons, ou unités lexicales, pas des caractères ou des mots. La segmentation du texte en unités lexicales est déterminée en partie par l’affectation de l’analyseur à des champs pouvant faire l’objet d’une recherche. Pour obtenir des informations sur la façon dont les chaînes sont segmentées en unités lexicales, vous pouvez examiner la sortie de jeton d’un analyseur à l’aide de l’[API REST Analyseur de test](/rest/api/searchservice/test-analyzer).
+> La chaîne est composée de jetons, et non de caractères ou de mots. La segmentation du texte en unités lexicales est déterminée en partie par l’affectation de l’analyseur à des champs pouvant faire l’objet d’une recherche. Si vous utilisez un analyseur spécialisé, tel que nGram ou EdgeNGram, vous pouvez exclure ce champ de searchFields. Pour obtenir des informations sur la façon dont les chaînes sont segmentées en unités lexicales, vous pouvez examiner la sortie de jeton d’un analyseur à l’aide de l’[API REST Analyseur de test](/rest/api/searchservice/test-analyzer).
 
-## <a name="summarization"></a>Résumé
+## <a name="extraction"></a>Extraction
 
-Après une réduction de chaîne, il est possible de transmettre les entrées réduites via des modèles de compréhension et de représentation linguistique de lecture automatique qui déterminent les expressions et les phrases résumant le mieux le document par rapport à la requête.
+Après une réduction de chaîne, il est possible de transmettre les entrées réduites via des modèles de compréhension et de représentation linguistique de lecture automatique qui déterminent les expressions et les phrases résumant le mieux le document par rapport à la requête. Cette phase extrait de la chaîne le contenu qui sera transmis au ranker sémantique.
 
-Les entrées pour le résumé sont les chaînes longues obtenues pour chaque document durant la phase de préparation. À partir d’une entrée donnée, le modèle de résumé trouve le passage représentant le mieux le document correspondant. Ce passage constitue également une [légende sémantique](semantic-how-to-query-request.md) pour le document. Chaque légende est disponible en texte brut, avec des mises en surbrillance, et comprend moins de 200 mots par document.
+Les entrées pour le résumé sont les chaînes longues obtenues pour chaque document durant la phase de préparation. À partir de chaque chaîne, le modèle de résumé trouve un passage qui est le plus représentatif. Ce passage constitue également une [légende sémantique](semantic-how-to-query-request.md) pour le document. Chaque légende est disponible dans une version en texte brut et une version en surbrillance et compte souvent moins de 200 mots par document.
 
 Une [réponse sémantique](semantic-answers.md) est également retournée si vous avez spécifié le paramètre « answers », si la requête a été posée en tant que question, et si un passage peut être trouvé dans la chaîne longue susceptible de fournir une réponse à la question.
 
-## <a name="scoring-and-ranking"></a>Scoring et classement
+## <a name="semantic-ranking"></a>Classement sémantique
 
 1. Les légendes sont évaluées sur le plan de leur pertinence conceptuelle et sémantique, par rapport à la requête fournie.
 

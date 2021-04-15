@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0b49cf4fe28e2a9b4d15f889d227b443777b1efa
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: a24b39107d8f78c049afa230fe678ec92852eeb0
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889244"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959685"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Scripts PowerShell pour IoT Edge pour Linux sur Windows
 
@@ -41,17 +41,20 @@ La commande **Deploy-Eflow** est la principale méthode de déploiement. La comm
 | registrationId | ID d’inscription d’un appareil IoT Edge existant | ID d’inscription pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
 | identityCertLocVm | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu du certificat d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
 | identityCertLocWin | Chemin du répertoire | Chemin d’accès source absolu du certificat d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
-| identityPkLocVm |  | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu de la clé privée d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
+| identityPkLocVm | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu de la clé privée d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
 | identityPkLocWin | Chemin du répertoire | Chemin d’accès source absolu de la clé privée d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**X509** ou **symétrique**). |
 | vmSizeDefintion | Pas plus de 30 caractères | Définition du nombre de cœurs et de RAM disponible pour la machine virtuelle. **Valeur par défaut** : Standard_K8S_v1. |
 | vmDiskSize | Entre 8 Go et 256 Go | Taille de disque maximale du disque dur virtuel de taille dynamique. **Valeur par défaut** : 16 Go. |
 | vmUser | Pas plus de 30 caractères | Nom d’utilisateur pour la connexion à la machine virtuelle. |
-| vnetType | **Transparent** ou **ICS** | Type de commutateur virtuel. **Valeur par défaut** : Transparent. |
+| vnetType | **Transparent** ou **ICS** | Type de commutateur virtuel. **Valeur par défaut** : Transparent. Transparent fait référence à un commutateur externe, alors qu’ICS fait référence à un commutateur interne. |
 | vnetName | Pas plus de 64 caractères | Nom du commutateur virtuel. **Valeur par défaut** : Externe. |
 | enableVtpm | None | **Paramètre booléen**. Créez la machine virtuelle avec le TPM activé ou désactivé. |
 | mobyPackageVersion | Pas plus de 30 caractères |  Version du package Moby à vérifier ou à installer sur la machine virtuelle.  **Valeur par défaut :** 19.03.11. |
 | iotedgePackageVersion | Pas plus de 30 caractères | Version du package IoT Edge à vérifier ou à installer sur la machine virtuelle. **Valeur par défaut :** 1.1.0. |
 | installPackages | None | **Paramètre booléen**. Lorsqu’il est activé, le script tente d’installer les packages Moby et IoT Edge plutôt que de vérifier seulement si les packages sont présents. |
+
+>[!NOTE]
+>Par défaut, si le processus ne trouve pas de commutateur externe portant le nom `External`, il recherchera tout commutateur externe existant permettant d’obtenir une adresse IP. Si aucun commutateur externe n’est disponible, il recherche un commutateur interne. Si aucun commutateur interne n’est disponible, il tente de créer le commutateur par défaut qui lui permettra d’obtenir une adresse IP.
 
 ## <a name="verify-eflowvm"></a>Verify-EflowVm
 
@@ -71,7 +74,7 @@ La commande **Provision-EflowVm** ajoute les informations d’approvisionnement 
 | registrationId | ID d’inscription d’un appareil IoT Edge existant | ID d’inscription pour l’approvisionnement d’un appareil IoT Edge (**DPS**). |
 | identityCertLocVm | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu du certificat d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
 | identityCertLocWin | Chemin du répertoire | Chemin d’accès source absolu du certificat d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
-| identityPkLocVm |  | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu de la clé privée d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
+| identityPkLocVm  | Chemin d’accès au répertoire ; doit se trouver dans un dossier qui peut être détenu par le service `iotedge` | Chemin d’accès de destination absolu de la clé privée d’identité sur votre machine virtuelle pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
 | identityPkLocWin | Chemin du répertoire | Chemin d’accès source absolu de la clé privée d’identité dans Windows pour l’approvisionnement d’un appareil IoT Edge (**DPS**, **X509**). |
 
 ## <a name="get-eflowvmname"></a>Get-EflowVmName
@@ -150,6 +153,6 @@ La commande **Ssh-EflowVm** est utilisée pour la connexion SSH à la machine vi
 
 Découvrez comment utiliser ces commandes dans l’article suivant :
 
-* [Installer Azure IoT Edge pour Linux sur Windows](how-to-install-iot-edge-windows.md)
+* [Installer Azure IoT Edge pour Linux sur Windows](./how-to-install-iot-edge-windows-on-windows.md)
 
 * Reportez-vous aux [informations de référence sur le script PowerShell IoT Edge pour Linux sur Windows](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) pour toutes les commandes disponibles via PowerShell.

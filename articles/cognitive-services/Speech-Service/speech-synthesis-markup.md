@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ffa8528da454fd29c937a2d49accdda617fe62dd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869019"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966943"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -117,7 +117,7 @@ Selon la langue du Kit de développement logiciel (SDK) Speech, vous définirez 
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
+Pour plus d’informations, consultez <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -126,7 +126,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
+Pour plus d’informations, consultez <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -135,7 +135,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
+Pour plus d’informations, consultez <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
 
 ```java
 speechConfig.setProperty(
@@ -144,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
+Pour plus d’informations, consultez <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -153,7 +153,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
+Pour plus d’informations, consultez <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -162,7 +162,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
+Pour plus d’informations, consultez <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -170,7 +170,7 @@ Pour plus d’informations, consultez <a href="https://docs.microsoft.com/object
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
+Pour plus d’informations, consultez <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -213,14 +213,9 @@ Actuellement, des ajustements de style oral sont pris en charge pour ces voix ne
 * `zh-CN-XiaoxuanNeural` (version préliminaire)
 * `zh-CN-XiaoruiNeural` (version préliminaire)
 
-L’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée.
+L’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée. Actuellement, les ajustements de style oral sont pris en charge pour les voix neuronales en chinois (mandarin, simplifié).
 
-Actuellement, des ajustements de style oral sont pris en charge pour ces voix neuronales :
-* `zh-CN-XiaoxiaoNeural`
-
-En plus d’ajuster les styles d’élocution et le degré de style, vous pouvez aussi ajuster le paramètre `role` afin que la voix imite un âge et un sexe différents. Par exemple, une voix masculine peut devenir plus aigüe et changer d’intonation pour imiter une voix féminine.
-
-Actuellement, les ajustements de jeux de rôle sont pris en charge pour ces voix neuronales :
+En plus d’ajuster les styles d’élocution et le degré de style, vous pouvez aussi ajuster le paramètre `role` afin que la voix imite un âge et un sexe différents. Par exemple, une voix masculine peut devenir plus aigüe et changer d’intonation pour imiter une voix féminine, mais le nom de la voix ne changera pas. Actuellement, les ajustements de jeux de rôle sont pris en charge pour ces voix neuronales en chinois (mandarin, simplifié) :
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -238,15 +233,15 @@ Les modifications ci-dessus sont appliquées au niveau de la phrase, et les styl
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> Pour le moment, `styledegree` prend uniquement en charge zh-CN-XiaoxiaoNeural. `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.
+> À l’heure actuelle, `styledegree` ne prend en charge que les voix neuronales en chinois (mandarin, simplifié). `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.
 
 **Attributs**
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `style` | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques à la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le style doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
-| `styledegree` | Spécifie l’intensité du style d’élocution. **Valeurs acceptées** : 0,01 à 2 incluse. La valeur par défaut est 1, ce qui correspond à l’intensité de style prédéfinie. L’unité minimale est 0,01, ce qui aboutit à une légère tendance pour le style cible. La valeur 2 produit un doublement de l’intensité de style par défaut.  | Facultatif (Pour le moment, `styledegree` prend uniquement en charge zh-CN-XiaoxiaoNeural.)|
-| `role` | Spécifie le jeu de rôle. La voix correspond à un âge et un sexe différents.  | Facultatif (Pour le moment, `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.)|
+| `styledegree` | Spécifie l’intensité du style d’élocution. **Valeurs acceptées** : 0,01 à 2 incluse. La valeur par défaut est 1, ce qui correspond à l’intensité de style prédéfinie. L’unité minimale est 0,01, ce qui aboutit à une légère tendance pour le style cible. La valeur 2 produit un doublement de l’intensité de style par défaut.  | Facultatif (à l’heure actuelle, `styledegree` ne prend en charge que les voix neuronales en chinois (mandarin, simplifié).)|
+| `role` | Spécifie le jeu de rôle. La voix correspondra à un âge et un sexe différents, mais le nom de la voix ne changera pas.  | Facultatif (Pour le moment, `role` prend uniquement en charge zh-CN-XiaomoNeural et zh-CN-XiaoxuanNeural.)|
 
 Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pour chaque voix neuronale.
 
@@ -254,6 +249,7 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Exprime un ton formel, confiant et autoritaire pour la diffusion des actualités |
 |                         | `style="newscast-casual"` | Exprime un ton polyvalent et décontracté pour la diffusion d’informations générales        |
+|                         | `style="narration-professional"` | Exprime un ton professionnel et objectif pour la lecture de contenu        |
 |                         | `style="customerservice"` | Exprime un ton convivial et pragmatique pour le support technique  |
 |                         | `style="chat"`            | Exprime un ton informel et détendu                         |
 |                         | `style="cheerful"`        | Exprime un ton positif et joyeux                         |
@@ -321,17 +317,19 @@ Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pou
 |                         | `style="angry"`           | Exprime un ton fâché et énervé, avec une hauteur de voix plus basse, une intensité plus grande et une énergie vocale plus élevée. L’orateur est en colère, mécontent et offensé.       |
 |                         | `style="fearful"`         | Exprime un ton effrayé et nerveux, avec une plus grande hauteur de voix, une plus grande énergie vocale et un débit plus rapide. L’orateur est dans un état de tension et de malaise.                          |
 
-Reportez-vous à ce tableau pour déterminer les rôles pris en charge pour chaque voix neuronale.
+Utilisez ce tableau pour vérifier les rôles pris en charge et leurs définitions.
 
-| Voix                   | Role                       | Description                                                 |
-|-------------------------|----------------------------|-------------------------------------------------------------|
-| `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | La voix imite celle d’une jeune femme adulte.                 |
-|                         | `role="OlderAdultMale"`    | La voix imite celle d’un homme adulte plus âgé.                   |
-|                         | `role="Girl"`              | La voix imite celle d’une petite fille.                               |
-|                         | `role="Boy"`               | La voix imite celle d’un petit garçon.                                |
-| `zh-CN-XiaoxuanNeural`  | `role="YoungAdultFemale"`  | La voix imite celle d’une jeune femme adulte.                 |
-|                         | `role="OlderAdultFemale"`  | La voix imite celle d’une femme adulte plus âgée.                 |
-|                         | `role="OlderAdultMale"`    | La voix imite celle d’un homme adulte plus âgé.                   |
+|Role                     | Description                |
+|-------------------------|----------------------------|
+|`role="Girl"`            | La voix imite celle d’une petite fille. |
+|`role="Boy"`             | La voix imite celle d’un petit garçon. |
+|`role="YoungAdultFemale"`| La voix imite celle d’une jeune femme adulte.|
+|`role="YoungAdultMale"`  | La voix imite celle d’un jeune homme adulte.|
+|`role="OlderAdultFemale"`| La voix imite celle d’une femme adulte plus âgée.|
+|`role="OlderAdultMale"`  | La voix imite celle d’un homme adulte plus âgé.|
+|`role="SeniorFemale"`    | La voix imite celle d’une femme d’âge mûr.|
+|`role="SeniorMale"`      | La voix imite celle d’un homme d’âge mûr.|
+
 
 **Exemple**
 
@@ -876,7 +874,7 @@ Nous n’allons pas lire les éléments bookmark.
 L’élément bookmark peut être utilisé pour faire référence à un emplacement spécifique dans le texte ou la séquence de balises.
 
 > [!NOTE]
-> L’élément `bookmark` fonctionne uniquement pour la voix `en-US-AriaNeural` dans la région USA Ouest (`westus`) pour l’instant.
+> Actuellement, l’élément `bookmark` ne fonctionne que pour la voix `en-US-AriaNeural`.
 
 **Syntaxe**
 

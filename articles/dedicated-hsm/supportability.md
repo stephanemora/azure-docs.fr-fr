@@ -10,28 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 03/27/2019
-ms.author: mbaldwin
-ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: cd949bdb7c489478df6a16d6dccd0bf358637604
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881005"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606927"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Prise en charge Azure HSM dédié
 
-Le service HSM dédié d’Azure fournit un appareil physique à usage exclusif du client, avec un contrôle administratif complet et une responsabilité de la gestion. L’appareil mis à disposition est un [modèle Gemalto SafeNet Luna 7 HSM A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Une fois l’approvisionnement effectué par un client, Microsoft n’aura aucun accès d’administration au-delà d’un attachement de port sériel physique dans un rôle de surveillance.  Sans accès, Microsoft ne peut ni assurer une maintenance au niveau logiciel, ni assumer des responsabilités d’administration de système. Par conséquent, les clients sont responsables des activités opérationnelles classiques.
-Ils sont entièrement responsables des applications qui utilisent les HSM et doivent utiliser Gemalto pour bénéficier d’un support ou d’une assistance basée sur du conseil . En raison de l’étendue de la propriété du client en matière d’hygiène opérationnelle, Microsoft ne peut offrir aucun type de garantie de haute disponibilité pour ce service. Il est la responsabilité du client de s’assurer que ses applications sont correctement configurées pour atteindre une haute disponibilité. Microsoft surveille l’intégrité de l’appareil et la connectivité réseau et assure leur maintenance.
+Le service HSM dédié d’Azure fournit un appareil physique à usage exclusif du client, avec un contrôle administratif complet et une responsabilité de la gestion. L’appareil mis à disposition est un [modèle Thales Luna 7 HSM A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Une fois l’approvisionnement effectué par un client, Microsoft n’aura aucun accès d’administration au-delà d’un attachement de port sériel physique dans un rôle de surveillance.  Sans accès, Microsoft ne peut ni assurer une maintenance au niveau logiciel, ni assumer des responsabilités d’administration de système. Par conséquent, les clients sont responsables des activités opérationnelles classiques.
+Ils sont entièrement responsables des applications qui utilisent les HSM et doivent se rapprocher de Thales pour bénéficier d'un support ou d'une assistance sous forme de conseils. En raison de l’étendue de la propriété du client en matière d’hygiène opérationnelle, Microsoft ne peut offrir aucun type de garantie de haute disponibilité pour ce service. Il est la responsabilité du client de s’assurer que ses applications sont correctement configurées pour atteindre une haute disponibilité. Microsoft surveille l’intégrité de l’appareil et la connectivité réseau et assure leur maintenance.
 
 ## <a name="getting-support"></a>Obtention d’une assistance
 
-Le support technique pour Dedicated HSM est un effort conjoint entre Microsoft et Gemalto. Tous les problèmes de matériel ou de chemin réseau seront résolus par Microsoft, et tout ce qui concerne le module HSM proprement dit, comme la configuration, les logiciel, le microprogramme et le développement d’application, sera traité par Gemalto. Ce modèle de prise en charge garantit l’accès le plus rapide au support le plus efficace. En cas de doute sur un problème particulier, envoyez une demande de support à Microsoft, et nous veillerons à vous diriger correctement. Microsoft restera impliqué dans tous les scénarios de support et s’efforcera de procurer à ses clients la meilleure expérience de support possible.
+Le service clientèle de Dedicated HSM est le fruit d'une collaboration entre Microsoft et Thales. Tous les problèmes de matériel ou de chemin réseau seront résolus par Microsoft, et tout ce qui concerne le module HSM proprement dit, comme la configuration, le logiciel, le microprogramme et le développement d'application, sera traité par Thales. Ce modèle de prise en charge garantit l’accès le plus rapide au support le plus efficace. En cas de doute sur un problème particulier, envoyez une demande de support à Microsoft, et nous veillerons à vous diriger correctement. Microsoft restera impliqué dans tous les scénarios de support et s’efforcera de procurer à ses clients la meilleure expérience de support possible.
 
-## <a name="gemalto-support"></a>Support de Gemalto
+## <a name="thales-support"></a>Support Thales
 
-Les clients qui utilisent le service Dedicated HSM sont éligibles au support technique de Gemalto conformément à leur Plan de support Plus. Cela nécessite simplement un processus d’inscription par le biais du portail de support Gemalto. Un ID de client et des instructions vous seront fournis dans le cadre de l’engagement initial auprès de Microsoft afin d’accéder au service Dedicated HSM. Pour bénéficier du support de Gemalto, ils doivent passer par leur [portail de support client](https://supportportal.gemalto.com/csm/).
-Un aspect important à noter est que Gemalto fournit tous les logiciels et la documentation nécessaires pour utiliser le HSM (par exemple le logiciel d’accès client et les kits SDK) par le biais du téléchargement à partir du portail de support client.
+Les clients qui utilisent le service Dedicated HSM sont éligibles au support technique de Thales conformément à leur Plan de support Plus. Ils doivent simplement suivre un processus d'inscription par le biais du portail de support Thales. Un ID de client et des instructions vous seront fournis dans le cadre de l’engagement initial auprès de Microsoft afin d’accéder au service Dedicated HSM. Pour bénéficier du support de Thales, ils doivent passer par le [portail du service clientèle](https://supportportal.thalesgroup.com/csm) de celui-ci.
+Il convient de noter que Thales propose en téléchargement tous les logiciels et toute la documentation nécessaires à l'utilisation du HSM (par exemple, le logiciel d'accès client et les SDK) à partir du portail de son service clientèle.
 
 ### <a name="software-components"></a>Composants logiciels
 
@@ -43,15 +43,15 @@ Différents composants logiciels sont utilisés dans la configuration de périph
 
 ### <a name="guidance"></a>Assistance
 
-Gemalto met à disposition des instructions d’administration et de configuration via le [portail de support client](https://supportportal.gemalto.com/csm/). Après la connexion à l’aide d’un ID client valide, ces documents sont disponibles au téléchargement. Gemalto fournit également une série de guides d’intégration pour aider les clients avec différents scénarios et intégrations de logiciels. Pour plus d’informations, consultez le [site partenaire de Gemalto pour Microsoft](https://safenet.gemalto.com/partners/microsoft/).
+Thales fournit des instructions d'administration et de configuration par le biais du [portail de son service clientèle](https://supportportal.thalesgroup.com/csm). Après la connexion à l’aide d’un ID client valide, ces documents sont disponibles au téléchargement. Thales fournit également une série de guides d'intégration pour aider les clients à aborder différents scénarios et intégrations de logiciels. Pour plus d'informations, consultez le [site partenaire de Thales pour Microsoft](https://cpl.thalesgroup.com/partners/overview).
 
 ### <a name="support"></a>Support
 
-Tout problème ou toute question relatifs au logiciel et liés à l’utilisation des HSM dans le cadre du service HSM dédié doivent être soumis directement à Gemalto. Tous les composants logiciels répertoriés ci-dessus et toute configuration HSM personnalisée après le déploiement seront traités par Gemalto. Pour plus d’informations, consultez le [portail de support client Gemalto](https://supportportal.gemalto.com/csm/).
+Tout problème ou question de niveau logiciel concernant l'utilisation des HSM dans le cadre du service Dedicated HSM doit être adressé directement au support de Thales. Tous les composants logiciels énumérés ci-dessus, ainsi que toute configuration personnalisée des HSM après l'approvisionnement, seront pris en charge par Thales. Pour plus d'informations, consultez le [portail du service clientèle de Thales](https://supportportal.thalesgroup.com/csm).
 
 ### <a name="consulting-services"></a>Services de conseil
 
-Pour toute assistance lors de la conception, du développement et du déploiement d’applications personnalisées qui utilisent HSM, contactez votre responsable de compte Gemalto.
+Pour toute assistance lors de la conception, du développement et du déploiement d'applications personnalisées qui utilisent HSM, contactez votre responsable de compte Thales.
 
 ## <a name="microsoft-support"></a>Support Microsoft
 
@@ -68,17 +68,16 @@ Les problèmes tels que les suivants doivent être signalés à Microsoft :
 * Problèmes d’accès au réseau
 * Problèmes d’approvisionnement et de suppression de privilèges d’accès.
 
-Microsoft a accès à l’appareil par le biais d’un port sériel physique via un rôle de surveillance (autrement dit, pas un rôle d’administration) qui permet une télémétrie d’intégrité de base.  Cela permet à Microsoft fournir une notification proactive des problèmes au client, sauf si ce dernier choisit de limiter cette autorisation. 
+Microsoft a accès au port série physique de l'appareil via un rôle de surveillance (non administratif) qui permet d'obtenir des données de télémétrie de base sur l'intégrité.  Cela permet à Microsoft fournir une notification proactive des problèmes au client, sauf si ce dernier choisit de limiter cette autorisation. 
 
 ### <a name="provisioning-and-decommissioning"></a>Approvisionnement et désaffectation
 
-Une fois un client dispose d’une inscription approuvée pour le service HSM dédié, il peut créer des ressources HSM (actuellement par le biais de PowerShell ou de l’interface de ligne de commande et non du portail Azure). La ressource passe par un processus d’allocation qui mappe un appareil physique dans une région spécifiée au réseau virtuel prédéfini d’un client (VNet). Une fois visible sur un VNet, le client peut accéder à l'appareil et le configurer plus en détail selon ses besoins. Les clients accèdent à leurs HSM dédiés à l’aide des outils et logiciels clients Gemalto. Le processus de création de ressources est pris en charge par Microsoft. Le processus de configuration personnalisé et les autres processus sont pris en charge par Gemalto. (voir le support Gemalto ci-dessus). Lorsqu’un client a terminé d’utiliser un HSM, il doit être réinitialisé (ou remis à zéro) pour s’assurer que les données ne sont pas persistantes. Le processus de réinitialisation de l’appareil supprime toutes les données et toute la configuration personnalisées. Microsoft libère l’appareil et le renvoie vide au pool. Cela signifie que lorsque l’appareil est renvoyé au pool, il n’y aucune preuve de l’activité du client précédent. 
+Une fois un client dispose d’une inscription approuvée pour le service HSM dédié, il peut créer des ressources HSM (actuellement par le biais de PowerShell ou de l’interface de ligne de commande et non du portail Azure). La ressource passe par un processus d’allocation qui mappe un appareil physique dans une région spécifiée au réseau virtuel prédéfini d’un client (VNet). Une fois visible sur un VNet, le client peut accéder à l'appareil et le configurer plus en détail selon ses besoins. Les clients accèdent à leurs HSM dédiés à l'aide des outils et logiciels clients Thales. Le processus de création de ressources est pris en charge par Microsoft. Le processus de configuration personnalisé et les autres processus sont pris en charge par Thales. (Voir support Thales ci-dessus). Lorsqu’un client a terminé d’utiliser un HSM, il doit être réinitialisé (ou remis à zéro) pour s’assurer que les données ne sont pas persistantes. Le processus de réinitialisation de l’appareil supprime toutes les données et toute la configuration personnalisées. Microsoft libère l’appareil et le renvoie vide au pool. Cela signifie que lorsque l’appareil est renvoyé au pool, il n’y aucune preuve de l’activité du client précédent. 
 
 ### <a name="hardware-issues"></a>Problèmes matériels
 
 L’appareil HSM a des dispositifs d’alimentation et des ventilateurs redondants et remplaçables.  Toutefois, l’enlèvement des ventilateurs génèrera quand même un événement de falsification. En cas de défaillance d’un composant, Microsoft utilise le processus le plus approprié pour résoudre le problème au niveau du composant d’une manière qui provoque une interruption minimale et le plus faible risque en termes de disponibilité des services pour nos clients.
-N’importe quelle défaillance plus grave de l’appareil entraîne son remplacement par un appareil neuf du pool libre. Le client inclut simplement le nouvel appareil dans la paire à haute disponibilité existante pour qu’il soit synchronisé et retrouve un état opérationnel complet. Les dispositifs de support des données de l’appareil défaillant sont enlevés et détruits dans le centre de données. Seul le châssis est renvoyé à Gemalto pour être recyclé.
-
+Toute défaillance plus grave de l'appareil entraînera son remplacement par un appareil neuf du pool libre. Le client inclut simplement le nouvel appareil dans la paire à haute disponibilité existante pour qu’il soit synchronisé et retrouve un état opérationnel complet. Les dispositifs de support des données de l’appareil défaillant sont enlevés et détruits dans le centre de données. 
 
 ### <a name="networking-issues"></a>Problèmes de mise en réseau
 
@@ -87,7 +86,7 @@ Si les clients rencontrent des problèmes d’accès réseau à l’appareil HSM
 ## <a name="service-level-expectations-for-support"></a>Attentes de niveau de service pour le support
 
 Pour les niveaux de service du support Microsoft, reportez-vous au [plan de support Azure](https://azure.microsoft.com/support/plans/).
-Pour les niveaux de service de support Gemalto, reportez-vous à [Éléments principaux du support Gemalto](https://azure.microsoft.com/support/plans/).
+Pour en savoir plus sur les niveaux de service du support Thales, reportez-vous à [Bases du support Thales](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,13 +2,13 @@
 title: Agent Microsoft Azure Recovery Services (MARS) – FAQ
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/05/2021
+ms.openlocfilehash: 98f558c091f1680c165ee26ffb20a8022ab15520
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94917356"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107174"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Foire aux questions : agent Microsoft Azure Recovery Services (MARS)
 
@@ -100,6 +100,10 @@ Cet avertissement, qui peut s’afficher même si vous avez configuré une strat
 
 * Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser.
 * Si vous recevez cet avertissement, [reconfigurez](backup-azure-manage-windows-server.md) la stratégie de sauvegarde, puis exécutez une sauvegarde à la demande pour resynchroniser les données du serveur local avec Azure.
+
+### <a name="i-see-a-few-jobs-are-stuck-in-the-in-progress-state-for-a-long-time-under-backup-jobs-in-the-azure-portal-how-can-i-resolve-these"></a>Je vois que quelques travaux sont bloqués avec l’état En cours pendant une longue période sous les travaux de sauvegarde dans le portail Azure. Comment puis-je résoudre ces travaux ?
+
+Cela peut se produire si un travail n’a pas pu s’effectuer en raison par exemple de problèmes de connectivité réseau, de l’arrêt de la machine ou de l’arrêt du processus. Aucune action de l’utilisateur n’est requise. Ces travaux seront automatiquement marqués comme ayant **Échoué** au bout de 30 jours. [En savoir plus](backup-windows-with-mars-agent.md#run-an-on-demand-backup) sur l’exécution d’un travail de sauvegarde à la demande à l’aide de l’agent MARS.
 
 ## <a name="manage-the-backup-cache-folder"></a>Gérer le dossier du cache de sauvegarde
 

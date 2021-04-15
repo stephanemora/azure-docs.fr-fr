@@ -5,25 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608144"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605635"
 ---
-# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Dépannage du DK (kit de développement) Azure Percept
+# <a name="azure-percept-dk-troubleshooting"></a>Résolution des problèmes liés à Azure Percept DK
 
 Consultez les conseils ci-dessous pour obtenir des conseils généraux de dépannage pour le DK Azure Percept.
 
 ## <a name="general-troubleshooting-commands"></a>Commandes de dépannage générales
 
-Pour exécuter ces commandes : 
-1. Connectez-vous à l’[AP Wi-Fi du kit de développement](./quickstart-percept-dk-set-up.md)
-1. [Établissez une session SSH avec le kit de développement](./how-to-ssh-into-percept-dk.md)
-1. Entrez les commandes dans le terminal SSH.
+Pour exécuter ces commandes, connectez-vous via [SSH au kit de développement](./how-to-ssh-into-percept-dk.md), puis entrez les commandes à l’invite du client SSH.
 
 Pour rediriger une sortie vers un fichier .txt de façon à l’analyser de façon plus approfondie, utilisez la syntaxe suivante :
 
@@ -43,9 +40,9 @@ Après avoir redirigé la sortie vers un fichier .txt, copiez le fichier sur vot
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` fait référence à l’emplacement sur votre PC hôte où vous voulez copier le fichier .txt. ```[remote username]``` est le nom d’utilisateur SSH choisi lors de l’[expérience de configuration](./quickstart-percept-dk-set-up.md). Si vous n’avez pas configuré une connexion SSH lors de l’expérience OOBE, votre nom d’utilisateur distant est ```root```.
+```[local host file path]``` fait référence à l’emplacement sur votre PC hôte où vous voulez copier le fichier .txt. ```[remote username]``` est le nom d’utilisateur SSH choisi lors de l’[expérience de configuration](./quickstart-percept-dk-set-up.md).
 
-Pour plus d’informations sur les commandes Azure IoT Edge, consultez la [documentation sur la résolution des problèmes liés aux appareils Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Pour plus d’informations sur les commandes Azure IoT Edge, consultez la [documentation sur la résolution des problèmes liés aux appareils Azure IoT Edge](../iot-edge/troubleshoot.md).
 
 |Catégorie :         |Commande :                    |Fonction :                  |
 |------------------|----------------------------|---------------------------|
@@ -88,11 +85,11 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[supprime toutes les images sans étiquette](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |vérifier l’état du téléchargement du conteneur Docker |
 
-## <a name="usb-updating"></a>Mise à jour USB
+## <a name="usb-updates"></a>Mises à jour USB
 
 |Erreur :                                    |Solution :                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX pendant la mise à jour flash USB via UUU |Cette erreur est le résultat d’un échec de connexion USB lors de la mise à jour UUU. Si le câble USB n’est pas connecté correctement aux ports USB sur le PC ou le PE-10X, une erreur de ce type se produit. Essayez en débranchant et en reconnectant les deux extrémités du câble USB, et en secouant légèrement le câble pour garantir une connexion sécurisée. Ceci résout presque toujours le problème. |
+|LIBUSB_ERROR_XXX pendant la mise à jour flash USB via UUU |Cette erreur est le résultat d’un échec de connexion USB lors de la mise à jour UUU. Si le câble USB n’est pas correctement connecté aux ports USB du PC ou de la carte Percept DK, une erreur de ce type se produit. Essayez de débrancher et de reconnecter les deux extrémités du câble USB, et de réajuster le câble pour garantir une connexion sécurisée. Ceci résout presque toujours le problème. |
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>États des LED de la carte mère du DK Azure Percept
 
@@ -105,5 +102,3 @@ Il y a trois petites LED en haut du support de la carte mère. Une icône de nua
 |LED 2 (Wi-Fi)   |Clignotement rapide |L’authentification a réussi, l’association de l’appareil est en cours. |
 |LED 2 (Wi-Fi)   |Activé (allumée en continu) |L’authentification et l’association ont réussi ; l’appareil est connecté à un réseau Wi-Fi. |
 |LED 3           |N/D         |LED non utilisée. |
-
-

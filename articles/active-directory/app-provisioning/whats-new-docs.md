@@ -1,7 +1,7 @@
 ---
 title: Nouveautés en matière d'approvisionnement des applications Azure Active Directory
 description: Approvisionnement des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bb8dfbaf7ee1758811016dd3ddf08367a44bfae
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453679"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443506"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Approvisionnement des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à l'approvisionnement des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière d'approvisionnement, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="march-2021"></a>Mars 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Synchronisation des attributs d’extension pour le provisionnement d’applications](user-provisioning-sync-attributes-for-mapping.md)
+- [Provisionnement d’application en état de quarantaine](application-provisioning-quarantine-status.md)
+- [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure](configure-automatic-user-provisioning-portal.md)
+- [Informations de référence sur l’écriture d’expressions pour les mappages d’attributs dans Azure AD](functions-for-customizing-application-data.md)
+- [Tutoriel : Développer un exemple de point de terminaison SCIM](use-scim-to-build-users-and-groups-endpoints.md)
+
 
 ## <a name="february-2021"></a>Février 2021
 

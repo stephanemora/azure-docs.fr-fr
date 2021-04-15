@@ -3,15 +3,15 @@ title: Microsoft Teams sur Windows Virtual Desktop - Azure
 description: Comment utiliser Microsoft Teams sur Windows Virtual Desktop
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 052d11fe0125de7970fb7d02931edfc7f3c2e4d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: ba5b80fa7f147fb5f30c60e2dc005d88010b0d71
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743115"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445514"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utiliser Microsoft Teams sur Windows Virtual Desktop
 
@@ -120,7 +120,7 @@ Après l’installation du service WebSocket et de l’application de bureau Tea
 
 3. Sélectionner **Version**.
 
-      Si les optimisations de médias sont chargées, la bannière vous indique **l’optimisation des médias WVD effectuée**. Si la bannière vous indique que **le média WVD n’est pas connecté**, quittez l’application Teams et réessayez.
+      Si les optimisations de médias sont chargées, la bannière vous indique **Optimisation des médias Windows Virtual Desktop effectuée**. Si la bannière vous indique que **le média Windows Virtual Desktop n’est pas connecté**, quittez l’application Teams et réessayez.
 
 4. Sélectionnez votre image de profil utilisateur, puis choisissez **Paramètres**.
 
@@ -148,11 +148,7 @@ Selon que l’environnement est virtualisé ou non, l’utilisation de Microsoft
 - L’application Teams ne prend pas en charge les boutons HID ou les contrôles LED d’autres appareils.
 - La nouvelle expérience de réunion (NME) n’est actuellement pas prise en charge dans les environnements VDI.
 
-Pour en savoir plus sur les problèmes connus de Teams qui ne sont pas liés à des environnements virtualisés, voir [Support pour Microsoft Teams au sein de votre organisation](/microsoftteams/known-issues).
-
-## <a name="uservoice-site"></a>Site UserVoice
-
-Envoyez des commentaires concernant Microsoft Teams sur Windows Virtual Desktop via le [site UserVoice](https://microsoftteams.uservoice.com/) de Teams.
+Pour en savoir plus sur les problèmes connus de Teams qui ne sont pas liés aux environnements virtualisés, voir [Support pour Microsoft Teams au sein de votre organisation](/microsoftteams/known-issues).
 
 ## <a name="collect-teams-logs"></a>Collecter les journaux Teams
 

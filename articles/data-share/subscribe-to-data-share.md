@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: a225989f0670e9b62b00a35bac719c9357c8a130
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/24/2021
+ms.openlocfilehash: ccfda4975b6453ed67edc2640520bc0a76df5709
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96017047"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644874"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -42,23 +42,10 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 Si vous choisissez de recevoir des données dans Azure SQL Database, Azure Synapse Analytics, vous trouverez ci-dessous la liste des conditions préalables. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prérequis pour la réception de données dans Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW)
-Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/aeGISgK1xro) pour configurer les prérequis.
 
 * Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW).
 * Autorisation d’écrire dans les bases de données sur le serveur SQL Server, qui est présente dans *Microsoft.Sql/servers/databases/write*. Cette autorisation existe dans le rôle **Contributeur**. 
-* Autorisation permettant à l’identité managée de la ressource Data Share d’accéder à Azure SQL Database ou à Azure Synapse Analytics. Pour ce faire, procédez comme suit : 
-    1. Dans le portail Azure, accédez au serveur SQL et attribuez-vous le rôle **Administrateur Azure Active Directory**.
-    1. Connectez-vous à Azure SQL Database ou à Data Warehouse à l’aide de l’[éditeur de requête](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory), ou à SQL Server Management Studio avec l’authentification Azure Active Directory. 
-    1. Exécutez le script suivant pour ajouter l’identité managée Data Share en tant que « db_datareader, db_datawriter, db_ddladmin ». Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 
-
-        ```sql
-        create user "<share_acc_name>" from external provider; 
-        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
-        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
-        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
-        ```      
-        Notez que *<share_acc_name>* est le nom de votre ressource Data Share. Si vous n’avez pas encore créé de ressource Data Share, vous pourrez le faire plus tard.         
-
+* **Administrateur Azure Active Directory** du serveur SQL
 * Accès au pare-feu SQL Server. Pour ce faire, procédez comme suit : 
     1. Dans SQL Server, dans le portail Azure, accédez à *Pare-feux et réseaux virtuels*
     1. Cliquez sur **Oui** pour l’option *Autoriser les services et les ressources Azure à accéder à ce serveur*.
@@ -92,7 +79,6 @@ Vous pouvez suivre la [démonstration pas à pas](https://youtu.be/aeGISgK1xro) 
 
 * Un cluster Azure Data Explorer dans le même centre de données Azure que le cluster Data Explorer du fournisseur de données : Si vous n’en avez pas déjà un, vous pouvez créer un [cluster Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal). Si vous ne connaissez pas le centre de données Azure du cluster du fournisseur de données, vous pouvez créer le cluster plus tard dans le processus.
 * Autorisation d’écrire dans le cluster Azure Data Explorer, qui est présente dans *Microsoft.Kusto/clusters/write*. Cette autorisation existe dans le rôle Contributeur. 
-* Autorisation d’ajouter l’attribution de rôle au cluster Azure Data Explorer, qui est présente dans *Microsoft.Authorization/role assignments/write*. Cette autorisation existe dans le rôle Propriétaire. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -175,13 +161,13 @@ Suivez les étapes ci-dessous pour configurer l’emplacement où vous souhaitez
 
    ![Mapper sur cible](./media/dataset-map-target.png "Mapper sur cible") 
 
-1. Sélectionnez un type de magasin de données cible dans lequel vous souhaitez que les données arrivent. Tous les fichiers de données ou les tables dans le magasin de données cible ayant le même chemin et le même nom seront remplacés. 
+1. Sélectionnez un type de magasin de données cible dans lequel vous souhaitez que les données arrivent. Tous les fichiers de données ou les tables dans le magasin de données cible ayant le même chemin et le même nom seront remplacés. Si vous recevez des données dans Azure SQL Database ou Azure Synapse Analytics (anciennement Azure SQL DW), cochez la case **Autoriser Data Share à exécuter le script « Créer un utilisateur » ci-dessus en mon nom**.
 
    Pour les partages sur place, sélectionnez un magasin de données à l’emplacement spécifié. L’emplacement est le centre de données Azure où se trouve le magasin de données source du fournisseur de données. Une fois le jeu de données mappé, vous pouvez suivre le lien dans le chemin cible pour accéder aux données.
 
    ![Compte de stockage cible](./media/dataset-map-target-sql.png "Stockage cible") 
 
-1. Pour le partage basé sur un instantané, si le fournisseur de données a créé une planification d’instantané pour fournir une mise à jour régulière des données, vous pouvez également activer la planification des instantanés en sélectionnant l’onglet **Planification d’instantanés**. Cochez la case en regard de la planification d’instantané et sélectionnez **+ Activer**.
+1. Pour le partage basé sur un instantané, si le fournisseur de données a créé une planification d’instantané pour fournir une mise à jour régulière des données, vous pouvez également activer la planification des instantanés en sélectionnant l’onglet **Planification d’instantanés**. Cochez la case en regard de la planification d’instantané et sélectionnez **+ Activer**. Notez que le premier instantané planifié démarre dans un délai d’une minute après l’heure planifiée et que les instantanés suivants démarrent en quelques secondes après l’heure planifiée.
 
    ![Activer la planification d’instantané](./media/enable-snapshot-schedule.png "Activer la planification d’instantané")
 

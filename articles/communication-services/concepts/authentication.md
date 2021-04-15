@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 0146ff9ce3ec4821bee7ce34700ca4198bb23ddc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9edfb63f5ce43ed325b4c4a1fa67e0e9ca52dc89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598862"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110863"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>S’authentifier auprès d’Azure Communication Services
 
@@ -24,9 +24,9 @@ Un autre type d’authentification utilise des *jetons d’accès utilisateur* p
 
 ## <a name="authentication-options"></a>Options d’authentification
 
-Le tableau suivant répertorie les bibliothèques de client Azure Communication Services ainsi que leurs options d’authentification :
+Le tableau suivant répertorie les Kits de développement logiciel (SDK) Azure Communication Services ainsi que leurs options d’authentification :
 
-| Bibliothèque de client    | Option d'authentification                               |
+| Kit SDK    | Option d'authentification                               |
 | ----------------- | ----------------------------------------------------|
 | Identité          | Clé d’accès ou identité managée                      |
 | SMS               | Clé d’accès ou identité managée                      |
@@ -38,7 +38,7 @@ Chaque option d’autorisation est décrite brièvement ci-dessous :
 
 ### <a name="access-key"></a>Clé d’accès
 
-L’authentification par clé d’accès est adaptée aux applications de service qui s’exécutent dans un environnement de service approuvé. La clé d’accès est accessible sur le Portail Azure Communication Services. L’application de service l’utilise comme informations d'identification pour initialiser les bibliothèques de client correspondantes. Consultez un exemple illustrant la manière dont il est utilisé dans la [bibliothèque de client Identity](../quickstarts/access-tokens.md). 
+L’authentification par clé d’accès est adaptée aux applications de service qui s’exécutent dans un environnement de service approuvé. La clé d’accès est accessible sur le Portail Azure Communication Services. L’application de service l’utilise comme informations d’identification pour initialiser les Kits de développement logiciel (SDK) correspondants. Consultez un exemple illustrant la manière dont il est utilisé dans le [Kit de développement logiciel (SDK) Identity](../quickstarts/access-tokens.md). 
 
 Étant donné que la clé d’accès fait partie de la chaîne de connexion de votre ressource, l’authentification avec une chaîne de connexion est équivalente à l’authentification avec une clé d’accès.
 
@@ -48,11 +48,11 @@ Si vous souhaitez appeler des API ACS manuellement à l’aide d’une clé d’
 
 Les identités managées offrent davantage de sécurité et de facilité d’utilisation par rapport à d’autres options d’autorisation. Par exemple, Azure AD vous permet d’éviter de devoir stocker votre clé d’accès au compte avec votre code, comme vous le faites avec l’autorisation par clé d’accès. Bien qu’il vous soit possible de continuer à utiliser l’autorisation par clé d’accès avec les applications Communication Services, Microsoft recommande de migrer vers Azure AD dans la mesure du possible. 
 
-Pour configurer une identité managée, [créez une application inscrite à partir d’Azure CLI](../quickstarts/managed-identity-from-cli.md). Le point de terminaison et les informations d’identification peuvent ensuite être utilisés pour authentifier les bibliothèques de client. Consultez des exemples d’utilisation de l' [identité managée](../quickstarts/managed-identity.md).
+Pour configurer une identité managée, [créez une application inscrite à partir d’Azure CLI](../quickstarts/managed-identity-from-cli.md). Le point de terminaison et les informations d’identification peuvent ensuite être utilisés pour authentifier les Kits de développement logiciel (SDK). Consultez des exemples d’utilisation de l' [identité managée](../quickstarts/managed-identity.md).
 
 ### <a name="user-access-tokens"></a>Jetons d’accès utilisateur
 
-Les jetons d’accès utilisateur sont générés à l’aide de la bibliothèque de client Identity et associés aux utilisateurs créés dans cette bibliothèque de client Identity. Consultez un exemple de création d'[utilisateurs et de génération de jetons](../quickstarts/access-tokens.md). Les jetons d’accès utilisateur sont ensuite utilisés pour authentifier les participants ajoutés aux conversations dans le kit de développement logiciel (SDK) de conversation ou d’appel. Pour plus d’informations, consultez [Ajouter la conversation à votre application](../quickstarts/chat/get-started.md). L’authentification par jeton d’accès utilisateur est différente de l’authentification par clé d’accès et identité managée, car elle est utilisée pour authentifier un utilisateur plutôt qu’une ressource Azure sécurisée.
+Les jetons d’accès utilisateur sont générés à l’aide du Kit de développement logiciel (SDK) Identity et associés aux utilisateurs créés dans ce Kit de développement logiciel (SDK) Identity. Consultez un exemple de création d'[utilisateurs et de génération de jetons](../quickstarts/access-tokens.md). Les jetons d’accès utilisateur sont ensuite utilisés pour authentifier les participants ajoutés aux conversations dans le kit de développement logiciel (SDK) de conversation ou d’appel. Pour plus d’informations, consultez [Ajouter la conversation à votre application](../quickstarts/chat/get-started.md). L’authentification par jeton d’accès utilisateur est différente de l’authentification par clé d’accès et identité managée, car elle est utilisée pour authentifier un utilisateur plutôt qu’une ressource Azure sécurisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

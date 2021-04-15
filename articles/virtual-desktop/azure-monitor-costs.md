@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 5bd89a734a20c913bacca1f5531aa76d76418c80
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 26262f83e14602d6ea93f96ec47630ef870c357d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448217"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309303"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Estimer les coûts d’Azure Monitor
 
@@ -35,7 +35,7 @@ Les jeux de données prédéfinis pour Azure Monitor pour Windows Virtual Deskto
 - Journaux des événements Windows à partir des hôtes de session
 - Diagnostics Windows Virtual Desktop à partir de l’infrastructure de service
 
-Vos coûts d’ingestion et de stockage de données dépendent de la taille, de l’intégrité et de l’utilisation de votre environnement. Les exemples d’estimation que nous allons utiliser dans cet article pour calculer les plages de coûts auxquelles vous pouvez vous attendre en vous basant sur des machines virtuelles saines qui s’exécutent dans le cadre d’une utilisation légère à intensive sont basés sur nos [recommandations de dimensionnement des machines virtuelles](/remote/remote-desktop-services/virtual-machine-recs), afin de calculer l’éventail de coûts de stockage et d’ingestion de données à attendre.
+Vos coûts d’ingestion et de stockage de données dépendent de la taille, de l’intégrité et de l’utilisation de votre environnement. Les exemples d’estimation que nous allons utiliser dans cet article pour calculer les plages de coûts auxquelles vous pouvez vous attendre en vous basant sur des machines virtuelles saines qui s’exécutent dans le cadre d’une utilisation légère à intensive sont basés sur nos [recommandations de dimensionnement des machines virtuelles](/windows-server/remote/remote-desktop-services/virtual-machine-recs), afin de calculer l’éventail de coûts de stockage et d’ingestion de données à attendre.
 
 La machine virtuelle à utilisation légère que nous allons utiliser dans notre exemple comprend les composants suivants :
 

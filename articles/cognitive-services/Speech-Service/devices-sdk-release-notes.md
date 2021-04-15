@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f9215469b1436ce9dc95c140e6969366d80d1ced
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562329"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607131"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notes de publication : Kit de développement logiciel (SDK) Speech Devices
 
@@ -25,7 +25,7 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 
 - Mise à niveau vers la nouvelle version de Microsoft Audio Stack (MAS) avec formation de faisceaux et réduction du bruit améliorées pour le message.
 - Réduction de la taille des binaires jusqu’à 70 % en fonction de la cible.
-- Prise en charge d’[Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) avec la [version binaire](https://aka.ms/sdsdk-download-APAudio).
+- Prise en charge d’[Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) avec la [version binaire](https://aka.ms/sdsdk-download-APAudio).
 - Mise à jour du composant [SDK Speech](./speech-sdk.md) vers la version 1.15.0. Pour plus d’informations, consultez ses [notes de publication](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>SDK Speech Devices 1.11.0 :
@@ -107,7 +107,7 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 **Dernières modifications**
 
 - Cette version contient plusieurs changements cassants. Pour plus d’informations concernant les API, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0).
-- Les fichiers de modèle KWS ne sont pas compatibles avec le Kit de développement logiciel (SDK) Speech Devices 1.0.1. Les fichiers de mots clés existants sont supprimés une fois les nouveaux fichiers de mots clés écrits sur l’appareil.
+- Les fichiers de modèle de reconnaissance de mot clé ne sont pas compatibles avec le kit SDK Speech Devices 1.0.1. Les fichiers de mots clés existants sont supprimés une fois les nouveaux fichiers de mots clés écrits sur l’appareil.
 
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>SDK Speech Devices 0.5.0 : Version d’août 2018
 

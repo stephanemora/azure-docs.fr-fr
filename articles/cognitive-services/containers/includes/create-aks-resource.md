@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96017850"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Créer une ressource de cluster Azure Kubernetes Service
@@ -22,7 +22,7 @@ ms.locfileid: "96017850"
 
 1. Sous l’onglet **De base**, entrez les informations suivantes :
 
-    |Paramètre|Value|
+    |Paramètre|Valeur|
     |--|--|
     |Abonnement|Sélectionnez un abonnement approprié.|
     |Resource group|Sélectionnez un groupe de ressources disponible.|

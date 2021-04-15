@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/04/2021
-ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183197"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047349"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configurer la fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ La fenêtre de maintenance *par défaut du système* est comprise entre 17h00 et
 La capacité à choisir une autre fenêtre de maintenance n’est pas disponible pour tous les niveaux de service ni toutes les régions. Pour plus d’informations sur la disponibilité, consultez [Disponibilité de la fenêtre de maintenance](maintenance-window.md#availability).
 
 > [!Important]
-> La configuration de la fenêtre de maintenance est une opération asynchrone durable, similaire à la modification du niveau de service de la ressource Azure SQL. La ressource est disponible pendant l’opération, à l’exception d’un basculement rapide qui se produit à la fin de l’opération et qui dure généralement jusqu’à 8 secondes, même en cas de transactions durables interrompues. Pour réduire l’impact du basculement, vous devez effectuer l’opération en dehors des heures de pointe.
+> La configuration de la fenêtre de maintenance est une opération asynchrone durable, similaire à la modification du niveau de service de la ressource Azure SQL. La ressource est disponible pendant l’opération, à l’exception d’une reconfiguration rapide qui se produit à la fin de l’opération et qui dure généralement jusqu’à huit secondes, même en cas de transactions durables interrompues. Pour réduire l’impact de la reconfiguration, vous devez effectuer l’opération en dehors des heures de pointe.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configurer la fenêtre de maintenance lors de la création de la base de données 
 
@@ -257,7 +257,7 @@ L’exemple suivant crée une instance managée et définit la fenêtre de maint
 ## <a name="configure-maintenance-window-for-existing-databases"></a>Configurer la fenêtre de maintenance pour des bases de données existantes
 
 
-Lors de l’application d’une sélection de fenêtre de maintenance à une base de données, vous pourrez observer dans certains cas un court basculement (plusieurs secondes), durant lequel Azure applique les modifications requises.
+Lors de l’application d’une sélection de fenêtre de maintenance à une base de données, vous pourrez observer dans certains cas une reconfiguration rapide (plusieurs secondes), durant laquelle Azure applique les modifications requises.
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

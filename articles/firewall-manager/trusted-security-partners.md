@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/30/2021
 ms.author: victorh
-ms.openlocfilehash: 923c6b685d20ff68788e7d9cfcb45ebaecb535e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 622fde49a31105b2f66a678d3e55d48fabea9487
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96490106"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105966909"
 ---
 # <a name="what-are-security-partner-providers"></a>Que sont les fournisseurs de partenaire de sécurité ?
 
@@ -30,17 +30,23 @@ Les partenaires de sécurité pris en charge sont **Zscaler**, **[Check Point](c
 
 Vous pouvez utiliser les partenaires de sécurité pour filtrer le trafic Internet dans les scénarios suivants :
 
-- Réseau virtuel vers Internet
+- Réseau virtuel à Internet
 
-   Tirez parti de la protection Internet avancée prenant en charge l’utilisateur pour vos charges de travail cloud s’exécutant sur Azure.
+   Utilisez la protection Internet avancée prenant en charge l’utilisateur pour vos charges de travail cloud s’exécutant sur Azure.
 
-- Filiale vers Internet
+- Branche à Internet
 
-   Tirez parti de votre connectivité Azure et de votre distribution mondiale pour ajouter facilement un filtrage NSaaS tiers dans le cadre des scénarios de type « filiale vers Internet ». Vous pouvez créer votre réseau de transit mondial et votre périmètre de sécurité à l’aide d’Azure Virtual WAN.
+   Utilisez votre connectivité Azure et votre distribution mondiale pour ajouter facilement un filtrage NSaaS tiers dans le cadre des scénarios branche à Internet. Vous pouvez créer votre réseau de transit mondial et votre périmètre de sécurité à l’aide d’Azure Virtual WAN.
 
 Les scénarios suivants sont pris en charge :
-- Réseau virtuel/branche à Internet par le biais d’un fournisseur de partenaire de sécurité et l’autre trafic (Spoke à Spoke, Spoke à branche, branche à Spoke) par le biais du Pare-feu Azure.
-- Réseau virtuel/branche à Internet par le biais d’un fournisseur de partenaire de sécurité
+- Deux fournisseurs de sécurité dans le hub
+
+   Réseau virtuel/branche à Internet par le biais d’un fournisseur de partenaire de sécurité et tout autre trafic (spoke à spoke, spoke à branche, branche à spoke) par le biais de Pare-feu Azure.
+- Fournisseur unique dans le hub
+
+   - Tout le trafic (spoke à spoke, spoke à branche, branche à spoke, réseau virtuel/branche à Internet) sécurisé par Pare-feu Azure<br>
+      ou
+   - Réseau virtuel/branche à Internet par le biais du fournisseur de partenaire de sécurité
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Bonnes pratiques pour le filtrage du trafic Internet dans les hubs virtuels sécurisés
 

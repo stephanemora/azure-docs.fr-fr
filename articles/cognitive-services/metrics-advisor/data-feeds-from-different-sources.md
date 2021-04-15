@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348617"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606145"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Ajouter des flux de données à partir de différentes sources dans Metrics Advisor
 
-Utilisez cet article pour rechercher les paramètres et les exigences de connexion des différents types de sources de données à Metrics Advisor. Lisez comment [Intégrer vos données](how-tos/onboard-your-data.md) pour en savoir plus sur les concepts clés de l’utilisation de vos données avec Metrics Advisor. 
+Utilisez cet article pour rechercher les paramètres et les exigences de connexion des différents types de sources de données à Metrics Advisor. Lisez comment [Intégrer vos données](how-tos/onboard-your-data.md) pour en savoir plus sur les concepts clés de l’utilisation de vos données avec Metrics Advisor. \
 
 ## <a name="supported-authentication-types"></a>Types d’authentification pris en charge
 
@@ -51,7 +51,7 @@ Utilisez cet article pour rechercher les paramètres et les exigences de connexi
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Créez une **entité d’informations d’identification** et utilisez-la pour l’authentification auprès de vos sources de données. Les sections suivantes spécifient les paramètres requis par pour une authentification *de base*. 
+Créez une entité d’informations d’identification** et utilisez-la pour l’authentification auprès de vos sources de données. Les sections suivantes spécifient les paramètres requis par pour une authentification *de base*. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
@@ -159,7 +159,7 @@ Un seul timestamp est autorisé par fichier JSON.
   * `%h` est l’heure au format `HH`
   * `%M` est la minute au format `mm`
 
-Metrics Advisor prend actuellement en charge le schéma de données dans les fichiers JSON comme suit. Exemple :
+Metrics Advisor prend actuellement en charge le schéma de données dans les fichiers JSON comme suit. Exemple :
 
 ``` JSON
 [
@@ -212,27 +212,26 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Stockage de tables Azure</span>
 
-* **Chaîne de connexion** : Consultez [Afficher et copier une chaîne de connexion](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) pour plus d’informations sur la façon de récupérer la chaîne de connexion à partir du Stockage Table Azure.
+* **Chaîne de connexion** : créez une URL de signature d’accès partagé (SAS) et renseignez-la ici. Le moyen le plus simple de générer une URL de SAS consiste à utiliser le portail Azure, car cela vous permet de naviguer dans une interface graphique. Pour créer une URL de SAS par le biais du portail Azure, commencez par accéder au compte de stockage auquel vous souhaitez accéder dans la section Paramètres, puis cliquez sur Signature d’accès partagé. Cochez au moins les cases « Table » et « Objet », puis cliquez sur le bouton Générer la chaîne de connexion et SAP. Vous devez copier et renseigner l’URL de SAS du service de table dans la zone de texte dans l’espace de travail Metrics Advisor.
 
 * **Nom de la table** : Spécifiez une table à interroger. Il se trouve dans votre instance de compte de Stockage Azure. Cliquez sur **Tables** dans la section **Service de table**.
 
-* **Requête** Vous pouvez utiliser le `@StartTime` dans votre requête. `@StartTime` est remplacé par une chaîne de format aaaa-MM-jjThh:mm:ss dans le script.
+* **Requête** Vous pouvez utiliser le `@StartTime` dans votre requête. `@StartTime` est remplacé par une chaîne de format aaaa-MM-jjThh:mm:ss dans le script. Conseil : Utilisez l’Explorateur Stockage Azure pour créer une requête avec une plage de temps spécifique et vérifiez qu’elle s’exécute correctement, puis effectuez le remplacement.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
 
 * **Hôte** : spécifiez l’hôte principal du cluster Elasticsearch.
 * **Port** : spécifiez le port principal du cluster Elasticsearch.
-* **En-tête d’autorisation** : spécifiez la valeur de l’en-tête Authorization du cluster Elasticsearch.
+* **En-tête d’autorisation** : spécifiez la valeur de l’en-tête d’autorisation du cluster Elasticsearch.
 * **Requête** : spécifiez la requête pour obtenir des données. L’espace réservé @StartTime est pris en charge. (Par exemple, lorsque les données de 2020-06-21T00:00:00Z sont ingérées, @StartTime = 2020-06-21T00:00:00)
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Requête HTTP</span>
 
-* **URL de requête** : Une URL HTTP qui peut retourner un JSON. Les espaces réservés %A,%m,%d,%h,%M sont pris en charge : %A = année au format aaaa, %m = mois au format MM, %j = jour au format jj, %h = heure au format HH, %M = minute au format mm. Par exemple : `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **URL de requête** : une URL HTTP qui peut retourner un JSON. Les espaces réservés %A,%m,%d,%h,%M sont pris en charge : %A = année au format aaaa, %m = mois au format MM, %j = jour au format jj, %h = heure au format HH, %M = minute au format mm. Par exemple : `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **Méthode de requête HTTP** : Utilisez GET ou POST.
 * **En-tête de requête** : Ajout possible de l’authentification de base. 
 * **Charge utile de la requête** : Seule la charge utile JSON est prise en charge. L’espace réservé @StartTime est pris en charge dans la charge utile. La réponse doit être au format JSON suivant : [{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}].(Par ex. lorsque les données de 2020-06-21T00:00:00Z sont ingérées, @StartTime = 2020-06-21T00:00:00.0000000+00:00)

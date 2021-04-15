@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 20087fbf4d5c37f1501df08cc294a10ddb9118e1
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 8c44e0570b08bba852d57fbb25da05d778ea8a0d
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601812"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960110"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Gérer le calcul pour un pool SQL dédié (anciennement SQL DW) dans Azure Synapse Analytics
 
@@ -92,6 +92,7 @@ Lorsque vous interrompez un pool SQL dédié (anciennement SQL DW) :
 - Les coûts de DWU sont nuls pendant toute la durée de la suspension.
 - Le stockage de données n’est pas affecté et vos données restent intactes.
 - Toutes les opérations en cours d’exécution ou en file d’attente sont annulées.
+- Les compteurs DMV sont réinitialisés.
 
 Lorsque vous reprenez un pool SQL dédié (anciennement SQL DW) :
 

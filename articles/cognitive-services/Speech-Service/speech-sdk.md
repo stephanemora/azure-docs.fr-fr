@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434454"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608083"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
@@ -67,17 +67,17 @@ La prise en charge des **assistants vocaux** est disponible sur les plateformes 
   - Java/Windows & Linux & macOS & Android (SDK Speech Devices)
   - Go
 
-#### <a name="keyword-spotting"></a>Identification de mot clé
+#### <a name="keyword-recognition"></a>Reconnaissance de mot clé
 
-Le SDK Speech prend en charge le concept d'[identification de mot clé](./custom-keyword-basics.md). Il s'agit d'identifier un mot clé dans le discours, puis de déclencher l'action correspondante. Par exemple, « Bonjour Cortana » active de l'Assistant Cortana.
+Le SDK Speech prend en charge le concept de [reconnaissance de mot clé](./custom-keyword-basics.md). Il s’agit d’identifier un mot clé dans le discours, puis de déclencher l’action correspondante. Par exemple, « Bonjour Cortana » active de l'Assistant Cortana.
 
-L’**Identification de mot clé (KWS)** est disponible sur les plateformes suivantes :
+La **reconnaissance de mot clé** est disponible sur les plateformes suivantes :
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (SDK Speech Devices)
-  - La fonctionnalité d’identification de mot clé (KWS) peut fonctionner avec n’importe quel type de microphone. Toutefois, sa prise en charge officielle est actuellement limitée aux réseaux de microphones présents dans le matériel Azure Kinect DK ou dans le Kit de développement logiciel (SDK) Speech Devices
+  - La fonctionnalité de reconnaissance de mot clé peut fonctionner avec n’importe quel type de microphone, mais la prise en charge officielle de la reconnaissance de mot clé est actuellement limitée aux réseaux de microphones présents dans le matériel Azure Kinect DK ou dans le kit SDK Speech Devices.
 
 ### <a name="meeting-scenarios"></a>Scénarios de réunion
 
@@ -114,7 +114,7 @@ La **Transcription de centre d'appels** est disponible par le biais du service R
 
 ### <a name="codec-compressed-audio-input"></a>Entrée audio compressée par codec
 
-Plusieurs des langages de programmation du SDK Speech prennent en charge les flux d'entrée audio compressés par codec. Pour plus d'informations, consultez <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Utiliser des formats d'entrée audio compressés</a>.
+Plusieurs des langages de programmation du SDK Speech prennent en charge les flux d'entrée audio compressés par codec. Pour plus d'informations, consultez <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">Utiliser des formats d'entrée audio compressés</a>.
 
 L’**entrée audio compressée par codec** est disponible sur les plateformes suivantes :
 
