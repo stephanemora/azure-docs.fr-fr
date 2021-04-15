@@ -3,17 +3,17 @@ title: Partenariat avec Azure DDoS Protection Standard
 description: Découvrez les opportunités de partenariat offertes par Azure DDoS Protection Standard.
 ms.service: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: a7a21dcaea22ed0d1c077d0c42ddb5b4bd50d24f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 625f77a6d9dbeaf612df884434ab39b943587791
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99539330"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103196"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partenariat avec Azure DDoS Protection Standard
 Cet article décrit les opportunités de partenariat offertes par Azure DDoS Protection Standard. Il est conçu pour aider les chefs de produits et les personnes en charge du développement commercial à comprendre les parcours d’investissement et à fournir des insights sur les propositions de valeur de partenariat.

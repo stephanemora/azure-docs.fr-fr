@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8301f81b21db50814df1bc764cc1fae38b4f14de
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105930232"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307637"
 ---
 # <a name="teams-embed"></a>Intégration des équipes
 
@@ -33,6 +33,6 @@ Intégration des équipes offre la plupart des fonctionnalités prises en charge
 - Expérience de la configuration des périphériques audio et vidéo en cours de réunion
 - [Arrière-plans vidéo](https://support.microsoft.com/office/change-your-background-for-a-teams-meeting-f77a2381-443a-499d-825e-509a140f4780) : participants autorisés à flouter ou à remplacer leur arrière-plan
 - [Plusieurs options pour la galerie vidéo](https://support.microsoft.com/office/using-video-in-microsoft-teams-3647fc29-7b92-4c26-8c2d-8a596904cdae) : grande galerie, mode ensemble, focus, épinglage et à la une
-- [Partage de contenu](https://support.microsoft.comoffice/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8#ID0EABAAA=Mobile) : participants autorisés à partager leur écran
+- [Partage de contenu](https://support.microsoft.com/en-us/office/share-content-in-a-meeting-in-teams-fcc2bf59-aecd-4481-8f99-ce55dd836ce8) : participants autorisés à partager leur écran
 
 Pour plus d’informations sur cette interface utilisateur comparée à d’autres kits de développement logiciel (SDK) Azure Communication, consultez [Présentation du concept du Kit de développement logiciel (SDK) d’interface utilisateur](ui-sdk-overview.md). 

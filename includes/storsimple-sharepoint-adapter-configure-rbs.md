@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95560946"
 ---
 > [!NOTE]
@@ -17,19 +17,19 @@ ms.locfileid: "95560946"
 > 
 
 #### <a name="to-configure-rbs"></a>Configuration de RBS
-1. Ouvrez la page Administration centrale de SharePoint et accédez à **Paramètres du système**. 
-2. Dans la section **Azure StorSimple**, cliquez sur **Configuration de l’adaptateur StorSimple**.
+1. Ouvrez la page Administration centrale de SharePoint, puis accédez à **Paramètres système**. 
+2. Dans la section **Azure StorSimple**, cliquez sur **Configurer l'adaptateur StorSimple**.
    
     ![Configuration de l’adaptateur StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. Sur la page **Configuration de l’adaptateur StorSimple** :
+3. Dans la page **Configurer l'adaptateur StorSimple** :
    
-   1. Assurez-vous que la case à cocher **Activer la modification du chemin d’accès** est activée.
+   1. Vérifiez que la case à cocher **Activer la modification du chemin d'accès** est sélectionnée.
    2. Dans la zone de texte, tapez le chemin d’accès UNC (Universal Naming Convention) du magasin d’objets BLOB.
       
       > [!NOTE]
       > Le volume de stockage d’objets BLOB doit être hébergé sur un volume iSCSI configuré sur l’appareil StorSimple.
 
-   3. Cliquez sur le bouton **Activer** sous chaque base de données de contenu que vous souhaitez configurer pour le stockage à distance.
+   3. Cliquez sur le bouton **Activer** situé sous chacune des bases de données de contenu que vous voulez configurer pour le stockage étendu.
       
       > [!NOTE]
       > Le magasin d’objets BLOB doit être partagé par tous les serveurs web frontaux (WFE) et le compte d’utilisateur qui est configuré pour la batterie de serveurs SharePoint doit avoir accès au partage.
@@ -40,7 +40,7 @@ ms.locfileid: "95560946"
       
       ![Désactivation activation Configuration de l’adaptateur StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Cliquez sur le bouton **Mettre à jour** pour appliquer la configuration. Quand vous cliquez sur le bouton **Mettre à jour** , l’état de configuration de RBS est actualisé sur tous les serveurs web frontaux (WFE) et la batterie entière est activée pour RBS. Le message suivant s’affiche.
+   4. Cliquez sur le bouton **Mettre à jour** pour appliquer la configuration. Lorsque vous cliquez sur le bouton **Mettre à jour**, l'état de configuration RBS est actualisé sur tous les serveurs WFE, et toute la batterie de serveurs est activée pour RBS. Le message suivant s’affiche.
       
       ![Message de configuration de l’adaptateur](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
@@ -113,7 +113,7 @@ ms.locfileid: "95560946"
    > [!WARNING]
    > Si vous n’avez pas activé RBS, il est déconseillé de déplacer la base de données de contenu sur l’appareil StorSimple. Il s'agit d'une configuration non testée.
    
-9. Passez à l’étape suivante : [Configurer le nettoyage de la mémoire](#configure-garbage-collection).
+9. Accédez à l’étape suivante : [Configuration du nettoyage de mémoire](#configure-garbage-collection).
 
 [6]: /SharePoint/administration/migrate-content-into-or-out-of-rbs
 [7]: /previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)

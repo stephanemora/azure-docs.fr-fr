@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 46b6ceff74dd3a296d26cc018b380c1c3f76664c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0db79728bbb963aa360743afc70aecc213bfb7bc
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552947"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011679"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensionner un disque de système d’exploitation ayant une partition GPT
 
@@ -400,9 +400,8 @@ Une fois la machine virtuelle redémarrée, procédez comme suit :
 > [!NOTE]
 > Afin d’utiliser la même procédure pour redimensionner tout autre volume logique, modifiez le nom LV à l’étape 12.
 
+
 ### <a name="rhel-raw"></a>RHEL RAW
->[!NOTE] 
->Prenez toujours un instantané de la machine virtuelle avant d’agrandir la taille du disque du système d’exploitation.
 
 Pour augmenter la taille du disque du système d’exploitation dans une partition RAW RHEL :
 
@@ -410,120 +409,114 @@ Pour augmenter la taille du disque du système d’exploitation dans une partiti
 1. Augmentez la taille du disque du système d’exploitation à partir du portail.
 1. Démarrez la machine virtuelle.
 
-Une fois que la machine virtuelle a redémarré, procédez comme suit :
+Une fois la machine virtuelle redémarrée, procédez comme suit :
 
 1. Accédez à votre machine virtuelle en tant qu’utilisateur **racine** à l’aide de la commande suivante :
- 
-   ```
-   sudo su
+
+   ```bash
+   [root@dd-rhel7vm ~]# sudo -i
    ```
 
-1. Installez le package **gptfdisk** requis pour augmenter la taille du disque du système d’exploitation.
+1. Une fois que la machine virtuelle a redémarré, exécutez l’étape suivante :
 
-   ```
-   yum install gdisk -y
-   ```
+   - Installez le package **cloud-utils-growpart** pour fournir la commande **growpart**, qui est nécessaire pour augmenter la taille du disque du système d’exploitation et le gestionnaire gdisk pour les dispositions du disque GPT. Ce package est préinstallé sur la plupart des images de la marketplace.
 
-1.  Pour voir tous les secteurs disponibles sur le disque, exécutez la commande suivante :
-    ```
-    gdisk -l /dev/sda
-    ```
-
-1. Vous verrez les détails indiquant le type de partition. Assurez-vous qu’il s’agit d’une partition GPT. Identifiez la partition racine. Ne modifiez pas ou ne supprimez pas la partition de démarrage (partition de démarrage du BIOS) et la partition système (« partition système EFI »)
-
-1. Utilisez la commande suivante pour démarrer le partitionnement pour la première fois. 
-    ```
-    gdisk /dev/sda
-    ```
-
-1. Un message devrait s’afficher, vous demandant de confirmer la prochaine commande ('Command: ? for help'). 
-
-   ```
-   w
+   ```bash
+   [root@dd-rhel7vm ~]# yum install cloud-utils-growpart gdisk
    ```
 
-1. Vous recevrez un avertissement indiquant « Warning! Secondary header is placed too early on the disk! Do you want to correct this problem? (Y/N): ». Vous devez appuyer sur « Y » (Oui)
+1. Utilisez la commande **lsblk-f** pour vérifier le type de partition et de système de fichiers contenant la partition racine ( **/** ) :
 
-   ```
-   Y
-   ```
-
-1. Vous devriez voir un message indiquant que les contrôles finaux sont terminés et demandant une confirmation. Appuyez sur « Y » (Oui)
-
-   ```
-   Y
-   ```
-
-1. Vérifiez si tout s’est correctement déroulé à l’aide de la commande partprobe
-
-   ```
-   partprobe
+   ```bash
+   [root@vm-dd-cent7 ~]# lsblk -f
+   NAME    FSTYPE LABEL UUID                                 MOUNTPOINT
+   sda
+   ├─sda1  xfs          2a7bb59d-6a71-4841-a3c6-cba23413a5d2 /boot
+   ├─sda2  xfs          148be922-e3ec-43b5-8705-69786b522b05 /
+   ├─sda14
+   └─sda15 vfat         788D-DC65                            /boot/efi
+   sdb
+   └─sdb1  ext4         923f51ff-acbd-4b91-b01b-c56140920098 /mnt/resource
    ```
 
-1. Les étapes ci-dessus ont permis de s’assurer que l’en-tête GPT secondaire est placé à la fin. La prochaine étape consiste à démarrer le processus de redimensionnement à l’aide de l’outil gdisk. Utilisez la commande suivante.
+1. Pour la vérification, commencez par répertorier la table de partition du disque SDA avec **gdisk**. Dans cet exemple, nous voyons un disque de 48 Go avec la partition 2 à 29 Gio. Le disque a été étendu de 30 Go à 48 Go dans le portail Azure.
 
-   ```
-   gdisk /dev/sda
-   ```
-1. Dans le menu de commande, appuyez sur « p » pour afficher la liste des partitions. Identifiez la partition racine (dans les étapes, sda2 est considéré comme la partition racine) et la partition de démarrage (dans les étapes, sda3 est considéré comme la partition de démarrage) 
+   ```bash
+   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
+   GPT fdisk (gdisk) version 0.8.10
 
-   ```
-   p
-   ```
-    ![Partition racine et partition de démarrage](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+   Partition table scan:
+   MBR: protective
+   BSD: not present
+   APM: not present
+   GPT: present
 
-1. Appuyez sur « d »pour supprimer la partition et sélectionnez le numéro de partition affecté au démarrage (dans cet exemple, il s’agit de « 3 »)
-   ```
-   d
-   3
-   ```
-1. Appuyez sur « d »pour supprimer la partition et sélectionnez le numéro de partition affecté au démarrage (dans cet exemple, il s’agit de « 2 »)
-   ```
-   d
-   2
-   ```
-    ![Supprimer la partition racine et la partition de démarrage](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+   Found valid GPT with protective MBR; using GPT.
+   Disk /dev/sda: 100663296 sectors, 48.0 GiB
+   Logical sector size: 512 bytes
+   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
+   Partition table holds up to 128 entries
+   First usable sector is 34, last usable sector is 62914526
+   Partitions will be aligned on 2048-sector boundaries
+   Total free space is 6076 sectors (3.0 MiB)
 
-1. Pour recréer la partition racine avec une taille augmentée, appuyez sur « n », entrez le numéro de la partition précédemment supprimée pour la racine (« 2 » dans cet exemple), choisissez le premier secteur comme « valeur par défaut », le dernier secteur comme « valeur du dernier secteur - secteur de démarrage » (dans ce cas, la valeur « 4096 » correspond à un secteur de démarrage de 2 Mo), puis le code hexadécimal « 8300 ».
-   ```
-   n
-   2
-   (Enter default)
-   (Calculateed value of Last sector value - 4096)
-   8300
-   ```
-1. Pour recréer une partition de démarrage, appuyez sur « n », entrez le numéro de la partition précédemment supprimée pour le démarrage (« 3 » dans cet exemple), choisissez le premier secteur comme « valeur par défaut », le dernier secteur comme « valeur par défaut », puis le code hexadécimal « EF02 ».
-   ```
-   n
-   3
-   (Enter default)
-   (Enter default)
-   EF02
+   Number  Start (sector)    End (sector)  Size       Code  Name
+      1         1026048         2050047   500.0 MiB   0700
+      2         2050048        62912511   29.0 GiB    0700
+   14            2048           10239   4.0 MiB     EF02
+   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
    ```
 
-1. Inscrivez les modifications à l’aide de la commande « w » et appuyez sur « Y » pour confirmer
-   ```
-   w
-   Y
-   ```
-1. Exécutez la commande « partprobe » pour vérifier la stabilité du disque
-   ```
-   partprobe
-   ```
-1. Redémarrez la machine virtuelle : la taille de la partition racine aura augmentée
-   ```
-   reboot
+1. Développez la partition pour la racine, dans ce cas sda2 à l’aide de la commande **growpart**. L’utilisation de cette commande étend la partition pour utiliser tout l’espace contigu sur le disque.
+
+   ```bash
+   [root@vm-dd-cent7 ~]# growpart /dev/sda 2
+   CHANGED: partition=2 start=2050048 old: size=60862464 end=62912512 new: size=98613214 end=100663262
    ```
 
-   ![Nouvelle partition racine et partition de démarrage](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+1. À présent, réimprimez la nouvelle table de partition avec **gdisk**.  Notez que la partition 2 s’est étendue à 47 Gio :
 
-1. Exécutez la commande xfs_growfs sur la partition pour la redimensionner
+   ```bash
+   [root@vm-dd-cent7 ~]# gdisk -l /dev/sda
+   GPT fdisk (gdisk) version 0.8.10
+
+   Partition table scan:
+   MBR: protective
+   BSD: not present
+   APM: not present
+   GPT: present
+
+   Found valid GPT with protective MBR; using GPT.
+   Disk /dev/sda: 100663296 sectors, 48.0 GiB
+   Logical sector size: 512 bytes
+   Disk identifier (GUID): 78CDF84D-9C8E-4B9F-8978-8C496A1BEC83
+   Partition table holds up to 128 entries
+   First usable sector is 34, last usable sector is 100663262
+   Partitions will be aligned on 2048-sector boundaries
+   Total free space is 4062 sectors (2.0 MiB)
+
+   Number  Start (sector)    End (sector)  Size       Code  Name
+      1         1026048         2050047   500.0 MiB   0700
+      2         2050048       100663261   47.0 GiB    0700
+   14            2048           10239   4.0 MiB     EF02
+   15           10240         1024000   495.0 MiB   EF00  EFI System Partition
    ```
-   xfs_growfs /dev/sda2
+
+1. Développez le système de fichiers sur la partition avec **xfs_growfs**, qui convient pour un système RedHat standard généré par la marketplace :
+
+   ```bash
+   [root@vm-dd-cent7 ~]# xfs_growfs /
+   meta-data=/dev/sda2              isize=512    agcount=4, agsize=1901952 blks
+            =                       sectsz=4096  attr=2, projid32bit=1
+            =                       crc=1        finobt=0 spinodes=0
+   data     =                       bsize=4096   blocks=7607808, imaxpct=25
+            =                       sunit=0      swidth=0 blks
+   naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+   log      =internal               bsize=4096   blocks=3714, version=2
+            =                       sectsz=4096  sunit=1 blks, lazy-count=1
+   realtime =none                   extsz=4096   blocks=0, rtextents=0
+   data blocks changed from 7607808 to 12326651
    ```
-
-   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
-
 
 1. Vérifiez que la nouvelle taille est reflétée à l’aide de la commande **df** :
 

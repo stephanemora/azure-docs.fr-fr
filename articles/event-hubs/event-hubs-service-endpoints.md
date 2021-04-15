@@ -2,27 +2,26 @@
 title: Points de terminaison de service de réseau virtuel - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’ajout d’un point de terminaison de service Microsoft.EventHub à un réseau virtuel.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/29/2021
+ms.openlocfilehash: f7f0f3ff480018c9bfc5d9c6f34cf7e2935f8d6a
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556527"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959957"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Autoriser l'accès à un espace de noms Azure Event Hubs à partir de réseaux virtuels spécifiques 
 
-L’intégration d’Event Hubs à des [points de terminaison de service de réseau virtuel][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités. Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau **De base**.
+L’intégration d’Event Hubs à des [points de terminaison de service de réseau virtuel][vnet-sep] permet de sécuriser l’accès aux fonctionnalités de messagerie à partir de charges de travail, notamment celles de machines virtuelles liées à des réseaux virtuels. Le chemin du trafic réseau est sécurisé aux deux extrémités. 
 
 Une fois configuré pour être lié à au moins un point de terminaison de service de sous-réseau de réseau virtuel, l’espace de noms Event Hubs respectif n’accepte que le trafic provenant de sous-réseaux autorisés dans les réseaux virtuels. Du point de vue du réseau virtuel, la liaison d’un espace de noms Event Hubs à un point de terminaison de service configure un tunnel de mise en réseau isolé allant du sous-réseau de réseau virtuel au service de messagerie. 
 
 Il en résulte une relation privée et isolée entre les charges de travail liées au sous-réseau et l’espace de noms Event Hubs respectif, et ce malgré le fait que l’adresse réseau observable du point de terminaison du service de messagerie figure dans une plage d’adresses IP publique. Toutefois, il existe une exception à ce comportement. Par défaut, l’activation d’un point de terminaison de service active à la règle `denyall` dans le [pare-feu IP](event-hubs-ip-filtering.md) associé au réseau virtuel. Vous pouvez ajouter des adresses IP spécifiques dans le pare-feu IP pour permettre l’accès au point de terminaison public Event Hub. 
 
->[!WARNING]
-> L’activation de réseaux virtuels pour votre espace de noms Event Hubs bloque vos demandes entrantes par défaut, sauf si les demandes proviennent d’un service opérant à partir de réseaux virtuels autorisés. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains services approuvés, même lorsque les réseaux virtuels sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
-
-> [!IMPORTANT]
-> Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
+## <a name="important-points"></a>Points importants
+- Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. Il ne sont pas pris en charge dans le niveau **De base**.
+- L’activation de réseaux virtuels pour votre espace de noms Event Hubs bloque vos demandes entrantes par défaut, sauf si les demandes proviennent d’un service opérant à partir de réseaux virtuels autorisés. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains **services approuvés**, même quand les réseaux virtuels sont activés. Pour obtenir la liste des services approuvés, consultez [Services approuvés](#trusted-microsoft-services).
+- Spécifiez **au moins une règle d’adresse IP ou une règle de réseau virtuel** pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scénarios de sécurité avancés pris en charge par l’intégration à VNet 
 

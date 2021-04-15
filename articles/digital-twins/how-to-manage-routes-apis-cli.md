@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 97fad1b984ad34722a952a31d8245eb68417a2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779968"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105936306"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
@@ -158,7 +158,7 @@ Une fois que le point de terminaison avec la file d’attente de lettres mortes 
 
 Les messages en file d’attente de lettres mortes correspondent au schéma de l’événement d’origine qui a été conçu pour être remis à votre point de terminaison d’origine.
 
-Voici un exemple de message mis en file d’attente de lettres mortes pour une [notification de création de jumeau](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications) :
+Voici un exemple de message mis en file d’attente de lettres mortes pour une [notification de création de jumeau](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications) :
 
 ```json
 {
@@ -234,12 +234,14 @@ Pour plus d’informations sur l’utilisation de l’interface CLI et sur les c
 Sans filtrage, les points de terminaison reçoivent un grand nombre d’événements d’Azure Digital Twins :
 * télémétrie déclenchée par des [jumeaux numériques](concepts-twins-graph.md) à l’aide de l’API de service d’Azure Digital Twins ;
 * notifications de changement de propriété de jumeau, déclenchées par des modifications des propriétés d’un jumeau dans l’instance Azure Digital Twins ;
-* événements de cycle de vie déclenchés lors de la création ou de la suppression de jumeaux ou de relations ;
+* Événements de cycle de vie déclenchés lors de la création ou de la suppression de jumeaux ou de relations
 
 Vous pouvez limiter les événements envoyés en ajoutant un **filtre** à un point de terminaison sur votre itinéraire d’événement.
 
 >[!NOTE]
-> Les filtres sont **sensibles à la casse** et doivent correspondre à la casse de la charge utile (qui peut ne pas nécessairement correspondre à la casse du modèle).
+> Les filtres **respectent la casse** et doivent correspondre à la casse de la charge utile. 
+>
+> Pour les filtres de télémétrie, cela signifie que la casse doit correspondre à celle de la télémétrie envoyée par l’appareil, pas nécessairement à celle définie dans le modèle du jumeau. 
 
 Pour ajouter un filtre, vous pouvez envoyer une demande PUT à *https://{Your-azure-digital-twins-hostname}/eventRoutes/{event-route-name}?api-version=2020-10-31* avec le corps suivant :
 

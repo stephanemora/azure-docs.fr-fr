@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 services: storage
 author: twooley
@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 7098f23e9b5b6f56fbbe761335afc65375aea680
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96509496"
 ---
 **Azure Data Lake Storage Gen2** n’est ni un type de compte de stockage ni un service dédié. Il s’agit de la dernière version des fonctionnalités qui sont dédiées à l’analytique du Big Data.  Ces fonctionnalités sont disponibles dans un compte de stockage universel v2 ou BlockBlobStorage, que vous pouvez obtenir en activant la fonctionnalité **Espace de noms hiérarchique** du compte. Pour les cibles de mise à l’échelle, consultez ces articles. 

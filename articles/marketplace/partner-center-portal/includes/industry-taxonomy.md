@@ -10,10 +10,10 @@ ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 3b18bba04d313091cb579498febb3f383f018bff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88604651"
 ---
 Éventuellement, sélectionnez jusqu’à deux secteurs et deux marchés verticaux sous chaque secteur d’activité. Ces catégories sont utilisées pour afficher votre offre lorsqu’un secteur d’activité et des segments verticaux sont indiqués dans les filtres de recherche et appliqués dans le magasin en ligne. Si votre offre cible un secteur d’activité ou un segment vertical précis, expliquez comment elle aide les secteurs ou les segments verticaux sélectionnés dans la description de l’offre. Dans le cas contraire, si votre offre n’est pas spécifique à un secteur, n’effectuez aucune sélection et laissez cette section vide.

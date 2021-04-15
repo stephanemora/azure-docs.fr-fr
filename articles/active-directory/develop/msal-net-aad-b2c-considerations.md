@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 84a65e9ce7360a38f552c0dea61a33ff8a94b9cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: cdbba1618815dbc8b52195169b7de2bcec2986d8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055516"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255577"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
@@ -178,7 +178,7 @@ Un symptôme d’un tel scénario est que MSAL.NET renvoie `Missing from the tok
 
 La solution de contournement suggérée consiste à utiliser la [mise en cache par stratégie](#acquire-a-token-to-apply-a-policy) décrite précédemment.
 
-Vous pouvez également utiliser la revendication `tid` si vous utilisez des [stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md) dans Azure AD B2C. Les stratégies personnalisées peuvent renvoyer des revendication supplémentaires à votre application à l’aide de la [transformation des revendications](../../active-directory-b2c/claims-transformation-technical-profile.md).
+Vous pouvez également utiliser la revendication `tid` si vous utilisez des [stratégies personnalisées](../../active-directory-b2c/user-flow-overview.md) dans Azure AD B2C. Les stratégies personnalisées peuvent renvoyer des revendication supplémentaires à votre application à l’aide de la [transformation des revendications](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Atténuation pour « Absent de la réponse de jeton »
 

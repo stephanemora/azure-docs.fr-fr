@@ -1,16 +1,16 @@
 ---
-title: Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
-description: Dans cet article, découvrez comment sauvegarder des bases de données SQL Server sur des machines virtuelles Azure avec la Sauvegarde Azure.
+title: Sauvegarder plusieurs machines virtuelles SQL Server à partir du coffre
+description: Dans cet article, découvrez comment sauvegarder des bases de données SQL Server sur des machines virtuelles Azure avec Sauvegarde Azure à partir du coffre Recovery Services.
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 4cfd8233b9a696b5b4b1981eefa81aa9723f6431
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 04/07/2021
+ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538950"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258467"
 ---
-# <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
+# <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Sauvegarder plusieurs machines virtuelles SQL Server à partir du coffre Recovery Services
 
 Les bases de données SQL Server sont des charges de travail critiques nécessitant un faible objectif de point de récupération (RPO) et une conservation à long terme. Vous pouvez sauvegarder les bases de données SQL Server qui s’exécutent sur les machines virtuelles Azure en utilisant [Sauvegarde Azure](backup-overview.md).
 
@@ -24,10 +24,6 @@ Dans cet article, vous allez apprendre à :
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
 
->[!NOTE]
->**La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** sont maintenant disponibles en préversion.<br>
->Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
-
 ## <a name="prerequisites"></a>Prérequis
 
 Pour pouvoir sauvegarder une base de données SQL Server, vérifiez les critères suivants :
@@ -35,8 +31,9 @@ Pour pouvoir sauvegarder une base de données SQL Server, vérifiez les critère
 1. Identifiez ou créez un [coffre Recovery Services](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) dans la même région et avec le même abonnement que la machine virtuelle qui héberge l’instance SQL Server.
 1. Vérifiez que la machine virtuelle dispose d’une [connectivité réseau](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 1. Assurez-vous que les bases de données SQL Server respectent les [instructions de nommage pour Sauvegarde Azure](#database-naming-guidelines-for-azure-backup).
-1. Vérifiez que la longueur combinée du nom de la machine virtuelle SQL Server et du nom du groupe de ressources ne dépasse pas 84 caractères pour les machines virtuelles Azure Resource Manager (ARM) (et 77 caractères pour les machines virtuelles classiques). Cette limitation est due au fait que certains caractères sont réservés par le service.
+1. Vérifiez que la longueur combinée du nom de la machine virtuelle SQL Server et du nom du groupe de ressources ne dépasse pas 84 caractères pour les machines virtuelles Azure Resource Manager (et 77 caractères pour les machines virtuelles classiques). Cette limitation est due au fait que certains caractères sont réservés par le service.
 1. Vérifiez que vous n’avez aucune autre solution de sauvegarde activée pour la base de données. Désactivez tous les autres sauvegardes SQL Server avant de sauvegarder la base de données.
+1. Lorsque vous utilisez SQL Server 2008 R2 ou SQL Server 2012, vous pouvez rencontrer le problème du fuseau horaire pour la sauvegarde, comme décrit [ici](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Assurez-vous que vous disposez des dernières mises à jour cumulatives pour éviter le problème lié au fuseau horaire décrit ci-dessus. Si l’application des mises à jour à l’instance de SQL sur la machine virtuelle Azure n’est pas possible, désactivez l’heure d’été (DST) pour le fuseau horaire de la machine virtuelle.
 
 > [!NOTE]
 > Vous pouvez activer Sauvegarde Azure pour une machine virtuelle Azure et une base de données SQL Server s’exécutant sur la machine virtuelle sans conflit.
@@ -63,15 +60,15 @@ Les points de terminaison privés vous permettent de vous connecter en toute sé
 
 #### <a name="nsg-tags"></a>Balises NSG
 
-Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de la balise pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/security-overview.md#service-tags) similaires pour *Azure AD* et *Stockage Azure*.  Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
+Si vous utilisez des groupes de sécurité réseau (NSG), utilisez la balise de service *AzureBackup* pour autoriser l’accès sortant vers Sauvegarde Azure. En plus de l’étiquette pour Sauvegarde Azure, vous devez également autoriser la connectivité pour l’authentification et le transfert de données en créant des [règles NSG](../virtual-network/network-security-groups-overview.md#service-tags) similaires pour Azure AD (*AzureActiveDirectory*) et Stockage Azure (*Storage*).  Les étapes suivantes décrivent le processus de création d’une règle pour la balise de Sauvegarde Azure :
 
-1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+1. Dans **Tous les services**, accédez à **Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
 
 1. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 
 1. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](../virtual-network/manage-network-security-group.md#security-rule-settings). Vérifiez que l’option **Destination** est définie sur *Balise de service* et l’option **Balise de service de destination** sur *AzureBackup*.
 
-1. Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
+1. Sélectionnez **Ajouter** pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
 
 De même, vous pouvez créer des règles de sécurité de trafic sortant NSG pour Stockage Azure et Azure AD.
 
@@ -87,11 +84,11 @@ Si vous choisissez d’autoriser l’accès aux adresses IP du service, reporte
 
 Vous pouvez également utiliser les FQDN suivants pour autoriser l’accès aux services requis à partir de vos serveurs :
 
-| Service    | Noms de domaine auxquels accéder                             |
-| -------------- | ------------------------------------------------------------ |
-| Sauvegarde Azure  | `*.backup.windowsazure.com`                             |
-| Stockage Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure AD      | Autoriser l’accès aux FQDN en vertu des sections 56 et 59 conformément à [cet article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Service    | Noms de domaine auxquels accéder                             | Ports
+| -------------- | ------------------------------------------------------------ | ---
+| Sauvegarde Azure  | `*.backup.windowsazure.com`                             | 443
+| Stockage Azure | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure AD      | Autoriser l’accès aux FQDN en vertu des sections 56 et 59 conformément à [cet article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) | Le cas échéant
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>Utiliser un serveur proxy HTTP pour acheminer le trafic
 
@@ -161,7 +158,7 @@ Comment détecter les bases de données en cours d’exécution sur une machine 
 
    ![Sélectionner Configurer la sauvegarde](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-1. Cliquez sur **Ajouter des ressources** pour consulter tous les groupes de disponibilité inscrits et les instances SQL Server autonomes.
+1. Sélectionnez **Ajouter des ressources** pour consulter tous les groupes de disponibilité inscrits et toutes les instances SQL autonomes.
 
     ![Sélectionner Ajouter des ressources](./media/backup-azure-sql-database/add-resources.png)
 
@@ -189,7 +186,7 @@ Comment détecter les bases de données en cours d’exécution sur une machine 
 
      ![Sélectionner la stratégie de sauvegarde](./media/backup-azure-sql-database/select-backup-policy.png)
 
-1. Cliquez sur **Activer la sauvegarde** pour soumettre l’opération **Configurer la protection** et suivre l’avancement de la configuration dans la zone **Notifications** du portail.
+1. Sélectionnez **Activer la sauvegarde** pour soumettre l’opération **Configurer la protection** et suivre l’avancement de la configuration dans la zone **Notifications** du portail.
 
    ![Suivre l’avancement de la configuration](./media/backup-azure-sql-database/track-configuration-progress.png)
 
@@ -214,7 +211,7 @@ Pour créer une stratégie de sauvegarde :
 
     ![Saisir un nom de stratégie](./media/backup-azure-sql-database/policy-name.png)
 
-1. Cliquez sur le lien **Modifier** correspondant à **Sauvegarde complète** pour modifier les paramètres par défaut.
+1. Sélectionnez le lien **Modifier** correspondant à **Sauvegarde complète** pour modifier les paramètres par défaut.
 
    * Sélectionner une **fréquence de sauvegarde**. Choisissez **Quotidienne** ou **Hebdomadaire**.
    * Si vous sélectionnez **quotidienne**, sélectionnez l’heure et le fuseau horaire de début du travail de sauvegarde. Si vous choisissez des sauvegardes complètes quotidiennes, vous ne pouvez pas créer de sauvegardes différentielles.
@@ -231,7 +228,7 @@ Pour créer une stratégie de sauvegarde :
        ![Paramètres d’intervalle de la durée de rétention](./media/backup-azure-sql-database/retention-range-interval.png)
 
 1. Sélectionnez **OK** pour accepter le paramètre pour les sauvegardes complètes.
-1. Cliquez sur le lien **Modifier** correspondant à **Sauvegarde différentielle** pour modifier les paramètres par défaut.
+1. Sélectionnez le lien **Modifier** correspondant à **Sauvegarde différentielle** pour modifier les paramètres par défaut.
 
     * Dans la stratégie **Sauvegarde différentielle**, sélectionnez **Activer** pour ouvrir les contrôles de fréquence et de rétention.
     * Vous pouvez déclencher une sauvegarde différentielle une fois par jour uniquement. Une sauvegarde différentielle ne peut pas être déclenchée le même jour en tant que sauvegarde complète.
@@ -240,12 +237,12 @@ Pour créer une stratégie de sauvegarde :
 
       ![Stratégie de sauvegarde différentielle](./media/backup-azure-sql-database/differential-backup-policy.png)
 
-1. Cliquez sur le lien **Modifier** correspondant à **Sauvegarde de fichier journal** pour modifier les paramètres par défaut
+1. Sélectionnez le lien **Modifier** correspondant à **Sauvegarde de fichier journal** pour modifier les paramètres par défaut.
 
     * Dans **Sauvegarde de fichier journal**, sélectionnez **Activer** et définissez les contrôles de fréquence et de rétention.
     * Les sauvegardes de fichiers journaux peuvent se produire toutes les 15 minutes et être conservées jusqu’à 35 jours.
-    * Si la base de données est en [mode de récupération simple](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15), la planification des sauvegardes de fichiers journaux de cette base de données est suspendue et aucune sauvegarde de journal n’est déclenchée.
-    * Si le mode de récupération de la base de données passe **de Complète** à **Simple**, les sauvegardes de fichiers journaux sont suspendues dans les 24 heures suivant le changement de mode de récupération. De même, si le mode de récupération sur **Simple**évolue, les sauvegardes de fichiers journaux peuvent être prises en charge pour la base de données. Les planifications de sauvegardes de journaux sont activées dans les 24 heures suivant la modification du mode de récupération.
+    * Si la base de données est en [mode de récupération simple](/sql/relational-databases/backup-restore/recovery-models-sql-server), la planification des sauvegardes de fichiers journaux de cette base de données est suspendue et aucune sauvegarde de journal n’est déclenchée.
+    * Si le mode de récupération de la base de données passe **de Complète** à **Simple**, les sauvegardes de fichiers journaux sont suspendues dans les 24 heures suivant le changement de mode de récupération. De même, si le mode de récupération sur **Simple** évolue, les sauvegardes de fichiers journaux peuvent être prises en charge pour la base de données. Les planifications de sauvegardes de journaux sont activées dans les 24 heures suivant la modification du mode de récupération.
 
       ![Stratégie de sauvegarde de fichier journal](./media/backup-azure-sql-database/log-backup-policy.png)
 
@@ -254,7 +251,7 @@ Pour créer une stratégie de sauvegarde :
 1. Après avoir terminé les modifications apportées à la stratégie de sauvegarde, sélectionnez **OK**.
 
 > [!NOTE]
-> Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que l’utilisateur effectue une sauvegarde complète hebdomadaire, une sauvegarde différentielle par jour et des journaux d’activité toutes les 2 heures. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, la sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de conservation, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.
+> Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que vous effectuez une sauvegarde complète hebdomadaire, une sauvegarde différentielle quotidienne et une sauvegarde de fichier journal toutes les deux heures. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, une sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de conservation, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.
 
 ## <a name="enable-auto-protection"></a>Activer la protection automatique  
 

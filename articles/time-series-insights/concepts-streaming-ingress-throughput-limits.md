@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3c938e7fe180e6a9cf08031a2a4565486f3f77a9
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: d86cc6af34036f5bd638b4fc78abdb54d71e6859
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504632"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306515"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de débit d’ingestion de diffusion en continu
 
@@ -59,7 +59,7 @@ Lors de la planification de votre environnement Azure Time Series Insights Gen2,
 
 Une *partition* est une séquence ordonnée d’événements conservée dans un hub. Le nombre de partitions est défini lors de la phase de création du hub et ne peut pas être modifié.
 
-Pour les meilleures pratiques de partitionnement d’Event Hubs, voir [De combien de partitions ai-je besoin ?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Pour les meilleures pratiques de partitionnement d’Event Hubs, voir [De combien de partitions ai-je besoin ?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 > [!NOTE]
 > La plupart des IoT Hubs utilisés avec Azure Time Series Insights Gen2 n’ont besoin que de quatre partitions.

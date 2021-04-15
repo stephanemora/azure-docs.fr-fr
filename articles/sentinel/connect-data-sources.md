@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 936789ef292ac6d06b9fd3ac1e9a81219f39e4ef
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101718605"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307824"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -185,7 +185,7 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 | Sysmon (événement) | [Connecter Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connecter les événements Windows](../azure-monitor/agents/data-sources-windows-events.md) <br> [Obtenir l’analyseur Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | La collection Sysmon n’est pas installée par défaut sur les machines virtuelles. Pour plus d’informations sur l’installation de l’agent Sysmon, consultez [Sysmon](/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automatiser l’inventaire des machines virtuelles](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfigurationChange  | [Automatiser le suivi des machines virtuelles](../automation/change-tracking/overview.md) | &#10007; | |
-| F5 BIG-IP | [Connecter F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| F5 BIG-IP | [Connecter F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10003; | |
 | McasShadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [Connecter Barracuda](connect-barracuda.md) | &#10003; | |
 

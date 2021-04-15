@@ -4,19 +4,19 @@ description: Consultez les descriptions d’alertes de Defender pour IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/22/2021
+ms.date: 03/29/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3c4cc5f7bb9f0c529e603b91ee96c6c1c476f20d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 42a922dab2237925c2294245e112aab70b4245f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787437"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727720"
 ---
-# <a name="defender-for-iot-engine-alerts"></a>Alertes du moteur Defender pour IoT
+# <a name="alert-types-and-descriptions"></a>Types et descriptions d’alertes
 
-Cet article décrit les alertes qui peuvent être générées à partir de moteurs Defender pour IoT. Les alertes s’affichent dans la fenêtre Alertes, où vous pouvez gérer les événements d’alerte. 
+Cet article décrit tous les types d’alerte qui peuvent être générés à partir de moteurs Defender pour IoT. Les alertes s’affichent dans la fenêtre Alertes, qui vous permet de gérer les événements d’alerte. 
 
 ## <a name="policy-engine-alerts"></a>Alertes du moteur de stratégie
 

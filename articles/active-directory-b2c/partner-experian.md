@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84e6f76bcae55ed905e11c46df66478908529970
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928696"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258025"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutoriel de configuration d’Experian avec Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ Dans les [stratégies personnalisées](https://github.com/azure-ad-b2c/partner-i
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Partie 6 : Configuration de la stratégie Azure AD B2C
 
-Pour obtenir des instructions sur la configuration de votre client Azure AD B2C et de stratégies, reportez-vous à ce [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack).
+Pour obtenir des instructions sur la configuration de votre client Azure AD B2C et de stratégies, reportez-vous à ce [document](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 >[!NOTE]
 >Cet exemple de stratégie est basé sur le [pack de démarrage de comptes locaux](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
@@ -169,4 +169,4 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

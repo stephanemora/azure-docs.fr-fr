@@ -3,12 +3,12 @@ title: Filtrage d’événements pour Azure Event Grid
 description: Explique comment filtrer des événements lors de la création d’un abonnement Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419845"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256087"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -454,7 +454,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringin"></a>StringIn
-L’opérateur **StringIn** vérifie si la valeur de **clé** **correspond exactement à** l’une des valeurs de **filtre** spécifiées. Dans l’exemple suivant, il vérifie si la valeur de l'attribut `key1` dans la section `data` est `exact` ou `string` ou `matches`. 
+L’opérateur **StringIn** vérifie si la valeur de **clé** **correspond exactement à** l’une des valeurs de **filtre** spécifiées. Dans l’exemple suivant, il vérifie si la valeur de l'attribut `key1` dans la section `data` est `contoso` ou `fabrikam` ou `factory`. 
 
 ```json
 "advancedFilters": [{

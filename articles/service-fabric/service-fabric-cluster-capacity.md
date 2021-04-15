@@ -4,12 +4,12 @@ description: Les types de nœuds, la durabilité, la fiabilité et d’autres é
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9268dfef15d8302eb31cc1b649c7fd713aab6721
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714933"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732582"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -111,7 +111,7 @@ Suivez ces recommandations pour la gestion des types de nœuds avec durabilité 
 * Conservez au minimum cinq nœuds pour tout groupe de machines virtuelles identiques sur lequel le niveau de durabilité Gold ou Silver est activé. Votre cluster entrera en état d'erreur si vous passez en dessous de ce seuil, et vous devrez nettoyer manuellement l'état (`Remove-ServiceFabricNodeState`) des nœuds supprimés.
 * Chaque groupe de machines virtuelles identiques avec le niveau de durabilité Silver ou Gold doit être mappé à son propre type de nœud dans le cluster Service Fabric. Le mappage de plusieurs groupes de machines virtuelles identiques à un type de nœud unique empêche le fonctionnement correct de la coordination entre le cluster Service Fabric et l’infrastructure Azure.
 * Ne supprimez pas d’instances de machine virtuelle aléatoires. Utilisez toujours la fonctionnalité de scale-in du groupe de machines virtuelles identiques. La suppression d’instances de machine virtuelle aléatoires risque de créer des déséquilibres au sein de l’instance de machine virtuelle répartie sur les [domaines de mise à niveau](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) et sur les [domaines d’erreur](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Ce déséquilibre peut nuire à la capacité du système à équilibrer correctement la charge entre les instances de service/réplicas de service.
-* Si vous utilisez la fonctionnalité Mise à l’échelle automatique, définissez les règles de façon à ce que le scale-in (suppression d’instances de machine virtuelle) soit effectué nœud après nœud. La descente en puissance de plusieurs instances en même temps présente des risques.
+* Si vous utilisez la fonctionnalité Mise à l’échelle automatique, définissez les règles de façon à ce que le scale-in (suppression d’instances de machine virtuelle) soit effectué nœud après nœud. La mise à l’échelle de plusieurs instances en même temps présente des risques.
 * En cas de suppression ou de désallocation de machines virtuelles sur le type de nœud principal, ne réduisez jamais le nombre de machines virtuelles d’allouées en dessous de ce qu’exige le niveau de fiabilité. Ces opérations sont bloquées pour une durée indéterminée dans un groupe identique avec un niveau de durabilité Silver ou Gold.
 
 ### <a name="changing-durability-levels"></a>Modification des niveaux de durabilité

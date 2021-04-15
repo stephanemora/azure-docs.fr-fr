@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5413a6acafa0ea54f98383fc8140a34aff0cf840
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b3e097f1c41f3047dc4e9d6cae2a05a6b19dea9d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98860037"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554934"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Systèmes d’exploitation et pilotes pris en charge
 
@@ -41,12 +41,12 @@ La série NC avec des GPU NVIDIA K80 ne prend pas en charge les applications g
 Notez que l’extension Nvidia installe toujours le dernier pilote. Nous fournissons ici des liens vers la version précédente pour les clients qui dépendent d’une version antérieure.
 
 Pour Windows Server 2019, Windows Server 2016 1607, 1709 et Windows 10 (jusqu'à la version 20H2) :
-- [GRID 12.0 (461.09)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
-- [GRID 11.3 (452.77)](https://download.microsoft.com/download/f/d/5/fd5ad39b-89cb-4990-ae85-a6fd30475584/452.77_grid_win10_server2016_server2019_64bit_azure_swl.exe) (.exe) 
+- [GRID 12.1 (461.33)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRID 12.0 (461.09)](https://download.microsoft.com/download/4/8/d/48d2d45b-bebc-44ad-9c58-e0b79a9d4ff2/461.09_grid_win10_server2016_server2019_64bit_azure_swl.exe) (.exe) 
 
 Pour Windows Server 2012 R2 : 
-- [GRID 12.0 (461.09)](https://download.microsoft.com/download/c/5/e/c5e7df99-364d-45f5-bff7-c253d59121f1/461.09_grid_server2012R2_64bit_azure_swl.exe) (.exe)
-- [GRID 11.3 (452.77)](https://download.microsoft.com/download/5/4/3/54323644-3c84-4aa1-97ec-35491f94c866/452.77_grid_server2012R2_64bit_azure_swl.exe) (.exe) 
+- [GRID 12.1 (461.33)](https://download.microsoft.com/download/9/9/c/99caf5c6-af9f-48b2-bcb0-af5ec64b8592/461.33_grid_server2012R2_64bit_azure_swl.exe) (.exe)
+- [GRID 12.0 (461.09)](https://download.microsoft.com/download/c/5/e/c5e7df99-364d-45f5-bff7-c253d59121f1/461.09_grid_server2012R2_64bit_azure_swl.exe) (.exe) 
 
 
 Pour obtenir la liste complète de tous les liens précédents du pilote Nvidia GRID, visitez [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json)

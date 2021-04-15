@@ -3,22 +3,17 @@ title: Configurer des scripts PowerShell pour l’attachement d’application MS
 description: Comment créer des scripts PowerShell pour l’attachement d’application MSIX Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 224f2e773ecd42dcbdd356531d9ce94636de002f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 143f0a9d23cdc70425147faa95258ec753b92691
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448268"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365378"
 ---
-# <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Créer des scripts PowerShell pour l’attachement de l’application MSIX (préversion)
-
-> [!IMPORTANT]
-> L’application MSIX est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-powershell-scripts-for-msix-app-attach"></a>Créer des scripts PowerShell pour l’attachement d’application MSIX
 
 Cet article vous guide tout au long de la configuration des scripts PowerShell pour l’attachement d’application MSIX.
 

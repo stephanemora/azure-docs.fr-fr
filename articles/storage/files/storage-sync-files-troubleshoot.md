@@ -4,15 +4,15 @@ description: Résolvez les problèmes courants d’un déploiement sur Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 2/1/2021
+ms.date: 4/12/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f20ebfdf9bdd1272ac1cb16e1ad88b4cbc287e5d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 54a2493d930069142a8cd6965421dd588b8d76b8
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727601"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366298"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -1053,24 +1053,6 @@ if ($role -eq $null) {
 }
 ```
 ---
-
-### <a name="how-do-i-prevent-users-from-creating-files-containing-unsupported-characters-on-the-server"></a>Comment empêcher les utilisateurs de créer des fichiers contenant des caractères non pris en charge sur le serveur ?
-Vous pouvez utiliser [File Server Resource Manager (FSRM) File Screens](/windows-server/storage/fsrm/file-screening-management) pour empêcher les fichiers contenant dans leurs noms des caractères non pris en charge d’être créés sur le serveur. Vous pouvez avoir à le faire en utilisant PowerShell car la plupart des caractères non pris en charge ne sont pas imprimables et vous devez donc caster leurs représentations hexadécimales en premier lieu comme caractères.
-
-Tout d’abord créez un groupe de fichiers FSRM à l’aide de la [cmdlet New-FsrmFileGroup](/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). Cet exemple définit le groupe comme ne contenant que deux des caractères non pris en charge, mais vous pouvez inclure autant de caractères que nécessaire dans votre groupe de fichiers.
-
-```powershell
-New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
-```
-
-Une fois que vous avez défini un groupe de fichiers FSRM, vous pourrez créer un filtre de fichiers FSRM à l’aide de la cmdlet New-FsrmFileScreen.
-
-```powershell
-New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
-```
-
-> [!Important]  
-> Notez que les écrans de fichier doivent uniquement servir à bloquer la création de caractères non pris en charge par Azure File Sync. Si les filtres de fichiers sont utilisés dans d’autres scénarios, la synchronisation tentera en permanence de télécharger les fichiers à partir du partage de fichiers Azure sur le serveur et sera bloquée en raison de l’écran de fichier, ce qui entraînera une grande suite de données. 
 
 ## <a name="cloud-tiering"></a>Hiérarchisation cloud 
 Il existe deux chemins d’accès dédiés aux défaillances dans la hiérarchisation cloud :

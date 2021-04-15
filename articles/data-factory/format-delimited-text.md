@@ -4,14 +4,14 @@ description: Cette rubrique décrit comment traiter le format de texte délimit�
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: 5b6367d2765277493ea34a4f7a23cae4b24c4dc4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: daf3691b48f7bf12e9ef51de7d4253dad9dbd2b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386592"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026868"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
 
@@ -154,7 +154,7 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par une sour
 | Lignes multilignes | Le fichier source contient-il des lignes qui s’étendent sur plusieurs lignes. Les valeurs multilignes doivent être entre guillemets. | aucun `true` ou `false` | multiLineRow |
 | Colonne où stocker le nom du fichier | Crée une colonne avec le nom et le chemin du fichier source | non | String | rowUrlColumn |
 | Après l’exécution | Supprime ou déplace les fichiers après le traitement. Le chemin du fichier commence à la racine du conteneur | non | Supprimer : `true` ou `false` <br> Déplacer : `['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| Filtrer par date de dernière modification | Choisir pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
+| Filtrer par date de dernière modification | Pour filtrer les fichiers en fonction de leur date de dernière modification | non | Timestamp | modifiedAfter <br> modifiedBefore |
 | N’autoriser aucun fichier trouvé | Si la valeur est true, aucune erreur n’est levée si aucun fichier n’est trouvé | non | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemple de source
@@ -183,8 +183,10 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 | Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Effacer le contenu du dossier | Si le dossier de destination est vidé avant l’écriture | non | `true` ou `false` | truncate |
-| Option de nom de fichier | Format de nommage des données écrites. Par défaut, un fichier par partition au format `part-#####-tid-<guid>` | non | Modèle : String <br> Par partition : String[] <br> Comme les données de la colonne : String <br> Sortie dans un fichier unique : `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Option de nom de fichier | Format de nommage des données écrites. Par défaut, un fichier par partition au format `part-#####-tid-<guid>` | non | Modèle : String <br> Par partition : String[] <br> Fichier de nom en tant que données de colonne : String <br> Sortie dans un fichier unique : `['<fileName>']` <br> Dossier de nom en tant que données de colonne : String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
 | Tout mettre entre guillemets | Placer toutes les valeurs entre guillemets | non | `true` ou `false` | quoteAll |
+
+rowFolderUrlColumn :
 
 ### <a name="sink-example"></a>Exemple de récepteur
 

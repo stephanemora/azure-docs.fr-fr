@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb1514c146dcd352451597e6182c6d99ed8836d6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96746435"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044717"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>Comment créer des plans pour votre offre SaaS
 
@@ -149,6 +149,10 @@ Les actions disponibles dans la colonne **Action** de l’onglet **Vue d’ensem
 
 - Si l’état du plan est **Brouillon**, le lien figurant dans la colonne **Action** indique **Supprimer le brouillon**.
 - Si l’état du plan est **Disponible**, le lien de la colonne **Action** est soit **Arrêter la vente du plan**, soit **Synchroniser le public privé**. Le lien **Synchroniser l’audience privé** publiera uniquement les modifications apportées à votre audience privée, sans publier d’autres mises à jour éventuellement apportées à l’offre.
+
+## <a name="before-you-publish-your-offer"></a>Avant de publier votre offre
+
+Si vous ne l’avez pas déjà fait, créez une offre Développement et test pour tester votre offre avant de la publier en production. Pour en savoir plus, consultez [Créer une offre Développement et test](create-saas-dev-test-offer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

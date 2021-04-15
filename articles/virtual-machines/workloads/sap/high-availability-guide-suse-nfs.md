@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 993baa521530ffa6a702f8324a1691850687c366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a08d82103986435593cd73a0728e7426f205a90d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101668688"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307535"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -171,7 +171,6 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
          1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **nw1-lb**).
          1. Sélectionner l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple, **nw1-frontend**, **nw-backend** et **nw1-hp**)
          1. Sélectionnez **Ports HA**.
-         1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
          * Répétez les étapes ci-dessus afin de créer une règle d’équilibrage de charge pour NW2.

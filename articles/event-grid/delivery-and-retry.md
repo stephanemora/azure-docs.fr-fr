@@ -3,12 +3,12 @@ title: Distribution et nouvelle tentative de distribution avec Azure Event Grid
 description: Décrit comment Azure Event Grid distribue des événements et gère les messages qui n’ont pas été distribués.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e24b7540ea1ac41774e2c23781265f9a61940cb1
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98247367"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276737"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -17,7 +17,7 @@ Cet article décrit comment Azure Event Grid gère les événements en l’absen
 Event Grid assure une distribution fiable. Il distribue chaque message **au moins une fois** pour chaque abonnement. Les événements sont envoyés immédiatement au point de terminaison inscrit de chaque abonnement. Si un point de terminaison n’accuse pas réception d’un événement, Event Grid effectue une nouvelle tentative de distribution.
 
 > [!NOTE]
-> Event Grid ne garantit pas l’ordre de distribution des événements, de sorte que l’abonné peut les recevoir dans le désordre. 
+> Event Grid ne garantit pas l’ordre de distribution des événements, de sorte que les abonnés peuvent les recevoir dans le désordre. 
 
 ## <a name="batched-event-delivery"></a>Livraison d’événements par lot
 
@@ -55,11 +55,11 @@ Pour plus d’informations sur l’utilisation d’Azure CLI avec Event Grid, co
 
 ## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
 
-Quand EventGrid reçoit une erreur lors d’une tentative de remise d’événement, EventGrid décide s’il doit retenter la remise ou mettre l’événement dans la file d’attente de lettres mortes ou supprimer l’événement en fonction du type d’erreur. 
+Quand EventGrid reçoit une erreur lors d’une tentative de remise d’événement, EventGrid décide s’il doit retenter la remise, mettre l’événement dans la file d’attente de lettres mortes ou supprimer l’événement en fonction du type d’erreur. 
 
 Si l’erreur retournée par le point de terminaison abonné est liée à la configuration et ne peut pas être corrigée avec des nouvelles tentatives (par exemple, si le point de terminaison est supprimé), Event Grid met l’événement dans la file d’attente de lettres mortes ou supprime l’événement si la file d’attente de lettres mortes n’est pas configurée.
 
-Voici les types de points de terminaison pour lesquels aucune nouvelle tentative ne se produit :
+Le tableau suivant décrit les types de points de terminaison et d’erreurs pour lesquels aucune nouvelle tentative ne se produit :
 
 | Type de point de terminaison | Codes d’erreur |
 | --------------| -----------|
@@ -67,7 +67,7 @@ Voici les types de points de terminaison pour lesquels aucune nouvelle tentative
 | webhook | 400 Requête incorrecte, 413 Entité de la requête trop grande, 403 Interdit, 404 Introuvable, 401 Non autorisé |
  
 > [!NOTE]
-> Si la file d’attente de lettres mortes n’est pas configurée pour le point de terminaison, les événements sont supprimés lorsque les erreurs ci-dessus se produisent. Envisagez de configurer la file d’attente de lettres mortes si vous ne souhaitez pas que ces types d’événements soient supprimés.
+> Si la file d’attente de lettres mortes n’est pas configurée pour un point de terminaison, les événements sont supprimés lorsque les erreurs ci-dessus se produisent. Envisagez de configurer la file d’attente de lettres mortes si vous ne souhaitez pas que ces types d’événements soient supprimés.
 
 Si l’erreur retournée par le point de terminaison abonné ne figure pas dans la liste ci-dessus, EventGrid effectue la nouvelle tentative à l’aide des stratégies décrites ci-dessous :
 
@@ -288,6 +288,15 @@ Tous les codes ne figurant pas dans les codes ci-dessus (200 à 204) sont consid
 | 503 Service indisponible | Nouvelle tentatives après 30 secondes ou plus |
 | Tous les autres | Nouvelle tentatives après 10 secondes ou plus |
 
+## <a name="custom-delivery-properties"></a>Propriétés de remise personnalisées
+Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. Vous pouvez configurer jusqu’à 10 en-têtes lors de la création d’un abonnement aux événements. La valeur de chaque en-tête ne doit pas être supérieure à 4 096 (4 Ko) octets. Vous pouvez définir des en-têtes personnalisés sur les événements remis aux destinations suivantes :
+
+- webhooks
+- Rubriques et files d’attente Azure Service Bus
+- Hubs d'événements Azure
+- Connexions hybrides Relay
+
+Pour plus d'informations, consultez [Propriétés de remise personnalisées](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

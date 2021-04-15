@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 588c6548afb07fb8ee3de5152c240ddd9ea2293b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 62e2306abc2d3132651fb40aab8c2f5b4d5043f4
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430188"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960875"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,6 +31,9 @@ Les informations les plus récentes seront conservées dans la table [Adresses I
 # <a name="in-progress"></a>[En cours](#tab/in-progress-ip)
 
 ## <a name="april-2021"></a>Avril 2021
+De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
+- USA Est 2 : 40.70.144.193 Cette passerelle SQL doit commencer à accepter le trafic client le 30 avril 2021.
+
 De nouvelles passerelles SQL sont ajoutées aux régions suivantes :
 - Norvège Est : 51.120.96.33
 - Asie Sud-Est : 13.67.16.193

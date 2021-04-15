@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26363031aea37c53cce098e2b6cbc2b4d93b918f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91535687"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307076"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Comprendre la procédure de conservation des données dans Azure Time Series Insights Gen1
 
@@ -85,7 +85,7 @@ Prenons l’exemple d’un environnement avec le comportement de conservation co
 Lorsque l’entrée reprend :
 
 - Les données circulent dans l’ordre où elles ont été reçues par la source d’événements
-- Les événements sont indexés en fonction de leur horodatage, sauf si vous avez dépassé les stratégies de conservation sur votre source d’événements. Pour plus d’informations sur la configuration de la conservation de la source d’événements, consultez [Forum Aux Questions (FAQ) sur Event Hubs](../event-hubs/event-hubs-faq.md)
+- Les événements sont indexés en fonction de leur horodatage, sauf si vous avez dépassé les stratégies de conservation sur votre source d’événements. Pour plus d’informations sur la configuration de la conservation de la source d’événements, consultez [Forum Aux Questions (FAQ) sur Event Hubs](../event-hubs/event-hubs-faq.yml)
 
 > [!IMPORTANT]
 > Nous vous conseillons de définir des alertes pour éviter que l’entrée ne soit suspendue. La perte de données est possible, car la conservation par défaut est définie sur 1 jour pour les sources d’événements Azure. Par conséquent, une fois que l’entrée est suspendue, vous perdrez probablement les données les plus récentes, sauf si une action supplémentaire est effectuée. Vous devez augmenter la capacité ou définir le comportement sur **Vider les données anciennes** afin d’éviter la perte de données potentielle.

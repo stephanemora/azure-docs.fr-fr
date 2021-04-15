@@ -1,14 +1,14 @@
 ---
 title: Publier une offre de services gérés sur la place de marché Azure
 description: Découvrez comment publier une offre de service géré qui intègre les clients à Azure Lighthouse.
-ms.date: 02/17/2021
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092150"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107446"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publier une offre de services gérés sur la place de marché Azure
 
@@ -16,7 +16,7 @@ Dans cet article, vous allez découvrir comment publier une offre de service man
 
 ## <a name="publishing-requirements"></a>Exigences de publication
 
-Pour créer et publier des offres, vous devez disposer d’un [compte valide dans l’Espace partenaires](../../marketplace/partner-center-portal/create-account.md). Si vous n’avez pas encore de compte, le [processus d’inscription](https://aka.ms/joinmarketplace) vous guide lors des étapes de création de compte dans l’Espace partenaires et d’inscription au programme de la Place de marché commerciale.
+Pour créer et publier des offres, vous devez disposer d’un [compte valide dans l’Espace partenaires](../../marketplace/create-account.md). Si vous n’avez pas encore de compte, le [processus d’inscription](https://aka.ms/joinmarketplace) vous guide lors des étapes de création de compte dans l’Espace partenaires et d’inscription au programme de la Place de marché commerciale.
 
 Conformément aux [exigences de certification des offres de services managés](/legal/marketplace/certification-policies#700-managed-services), vous devez disposer d’un [niveau de compétence de plateforme cloud Silver ou Gold](/partner-center/learn-about-competencies) ou être [Fournisseur de services managés Azure Expert](https://partner.microsoft.com/membership/azure-expert-msp) pour publier une offre de services managés. Vous devez également [entrer une destination de prospect qui créera un enregistrement dans votre système CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) chaque fois qu’un client déploiera votre offre.
 
@@ -26,13 +26,14 @@ Le tableau suivant peut vous aider à déterminer si des clients doivent être i
 
 |**Considération**  |**Offre de service managé**  |**Modèles ARM**  |
 |---------|---------|---------|
-|Nécessite un [compte Espace partenaires](../../marketplace/partner-center-portal/create-account.md)   |Oui         |Non        |
+|Nécessite un [compte Espace partenaires](../../marketplace/create-account.md)   |Oui         |Non        |
 |Nécessite le [niveau de compétence de plateforme cloud Silver ou Gold](/partner-center/learn-about-competencies) ou [Azure expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Oui         |Non         |
 |Disponible pour les nouveaux clients via la Place de marché Azure     |Oui     |Non       |
 |Peut limiter l’offre à des clients spécifiques     |Oui (uniquement avec des offres privées qui ne peuvent pas être utilisées avec des abonnements souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP)).         |Oui         |
 |Nécessite l’acceptation du client dans le portail Azure     |Oui     |Non   |
 |Peut utiliser une automatisation pour intégrer plusieurs abonnements, groupes de ressources ou clients |Non     |Oui    |
 |Accès immédiat aux nouveaux rôles intégrés et aux fonctionnalités d’Azure Lighthouse     |Pas toujours (mis à la disposition générale après un certain délai)         |Oui         |
+|Les clients peuvent consulter et accepter les offres mises à jour dans le portail Azure | Oui | Non |
 
 > [!NOTE]
 > Les offres de services managés peuvent ne pas être disponibles dans Azure Government et d’autres clouds nationaux.
@@ -62,6 +63,8 @@ Après avoir ajouté votre offre, un client peut déléguer un ou plusieurs abon
 > La délégation doit être effectuée par un compte non invité dans le locataire client disposant de l’autorisation `Microsoft.Authorization/roleAssignments/write`, telle que [Propriétaire](../../role-based-access-control/built-in-roles.md#owner), pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour rechercher les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Une fois que le client aura délégué un abonnement (ou un ou plusieurs groupes de ressources d’un abonnement), le fournisseur de ressources **Microsoft.ManagedServices** sera inscrit pour cet abonnement, et les utilisateurs de votre locataire pourront accéder aux ressources déléguées conformément aux autorisations de votre offre.
+
+Si vous publiez une version mise à jour de votre offre, le client peut [examiner les modifications dans le portail Azure et accepter la nouvelle version](view-manage-service-providers.md#update-service-provider-offers).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

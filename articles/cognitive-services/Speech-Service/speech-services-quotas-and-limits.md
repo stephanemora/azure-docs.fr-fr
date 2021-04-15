@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef6ed5293ec9ecf49c16f8dfb0b6604942408f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564420"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937054"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quotas et limites des services de reconnaissance vocale
 
@@ -39,7 +39,7 @@ Pour l’utilisation avec le [Kit de développement logiciel (SDK) Speech](speec
 #### <a name="batch-transcription"></a>Transcription par lot
 | Quota | Gratuit (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| Limite d’API REST | La transcription Batch n’est pas disponible pour F0 | 300 requêtes par minute |
+| Limite de l’[API REST de reconnaissance vocale V2.0 et V3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | La transcription Batch n’est pas disponible pour F0 | 300 requêtes par minute |
 | Taille maximale de fichier d’entrée audio | N/A | 1 Go |
 | Taille maximale de blob d’entrée (peut contenir plusieurs fichiers, par exemple, dans une archive zip ; veillez à noter la limite de taille de fichier indiquée ci-dessus). | N/A | 2,5 Go |
 | Taille maximale de conteneur blob | N/A | 5 Go |
@@ -63,19 +63,19 @@ Pour l’utilisation avec le [Kit de développement logiciel (SDK) Speech](speec
 ### <a name="text-to-speech-quotas-and-limits-per-speech-resource"></a>Quotas et limites de la synthèse vocale par ressource vocale
 Dans le tableau ci-dessous, les paramètres sans ligne « Réglable » ne sont **pas** réglables, quel que soit le niveau de prix.
 
-| Quota | Gratuit (F0)<sup>3</sup> | Standard (S0) |
-|--|--|--|
-| **Nombre maximal de transactions par seconde (TPS) pour les voix Standard et Neurale** | 200<sup>4</sup> | 200<sup>4</sup> |  |
-| **Limite de demandes simultanées pour Custom Voice** |  |  |
-| Valeur par défaut | 10 | 10 |
-| Réglable | Non<sup>5</sup> | Oui<sup>5</sup> |
-| **Quotas spécifiques du protocole HTTP** |  |
-| Longueur maximale de l’audio produit par demande | 10 min | 10 min |
-| Nombre maximal de balises `<voice>` distinctes en SSML | 50 | 50 |
-| **Quotas spécifiques de WebSocket** |  |  |
-|Longueur maximale de l’audio produit par tour | 10 min | 10 min |
-|Taille maximale des messages SSML par tour |64 Ko |64 Ko |
-| **Limite d’API REST** | 20 demandes par minute | 300 requêtes par minute |
+| Quota                                                                          | Gratuit (F0)<sup>3</sup>  | Standard (S0)   |
+|--------------------------------------------------------------------------------|------------------------|-----------------|
+| **Nombre maximal de transactions par seconde (TPS) pour les voix Standard et Neurale** | 200<sup>4</sup>        | 200<sup>4</sup> |
+| **Limite de demandes simultanées pour Custom Voice**                                  |                        |                 |
+| Valeur par défaut                                                                  | 10                     | 10              |
+| Réglable                                                                     | Non<sup>5</sup>         | Oui<sup>5</sup> |
+| **Quotas spécifiques du protocole HTTP**                                                       |                        |                 |
+| Longueur maximale de l’audio produit par demande                                          | 10 min                 | 10 min          |
+| Nombre maximal de balises `<voice>` distinctes en SSML                                  | 50                     | 50              |
+| **Quotas spécifiques de WebSocket**                                                  |                        |                 |
+| Longueur maximale de l’audio produit par tour                                             | 10 min                 | 10 min          |
+| Taille maximale des messages SSML par tour                                                 | 64 Ko                  | 64 Ko           |
+| **Limite d’API REST**                                                             | 20 demandes par minute | 300 requêtes par minute |
 
 
 <sup>3</sup> Pour le niveau tarifaire **gratuit (F0)** , consultez également les allocations mensuelles sur la [page de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

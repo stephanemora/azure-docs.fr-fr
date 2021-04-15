@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 9d917b3682d3b503743e706e8c952854e86fbc5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cdf46a5f0185e33e1e877e3682ab418a00725de2
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727040"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012544"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alertes et incidents de sécurité dans Azure Security Center
 
@@ -78,7 +78,7 @@ Security Center affecte un degré de gravité aux alertes pour vous aider à hi�
 | **Importante**          | il est fort probable que votre ressource ait été compromise. Vous devez étudier le problème immédiatement. Security Center est très confiant quant à l’intention malveillante et aux constats à l’origine de l’alerte. Par exemple, une alerte qui détecte l’exécution d’un outil malveillant connu, tel que Mimikatz, un outil couramment utilisé pour dérober des informations d’identification.                                                                                                               |
 | **Moyenne**        | il s’agit probablement d’une activité suspecte susceptible d’indiquer qu’une ressource est compromise. Le niveau de confiance de Security Center dans l’analyse et la recherche est moyen, tandis le niveau de confiance quant à l’intention malveillante est moyen ou élevé. Il s’agit généralement de détections basées sur des anomalies ou l’apprentissage automatique. Par exemple, une tentative de connexion depuis un emplacement anormal.                                                                                                                |
 | **Faible**           | cela peut être un positif sans gravité ou une attaque bloquée. Security Center n’est pas suffisamment confiant sur le fait que l’intention soit malveillante. L’activité est peut-être innocente. Par exemple, l’effacement des journaux est une action qui peut se produire lorsqu’un pirate tente de masquer ses traces, mais, dans de nombreux cas, il s’agit d’une opération de routine effectuée par les administrateurs. Security Center n’indique généralement pas les attaques bloquées, sauf s’il s’agit d’un cas qu’il peut être intéressant d’examiner. |
-| **Informational** | vous voyez les alertes informatives seulement lorsque vous explorez en profondeur un incident de sécurité, ou si vous utilisez l’API REST avec un ID d’alerte spécifique. Un incident est généralement constitué de plusieurs alertes, dont certaines peuvent apparaître individuellement à titre d’information seulement, mais mériter un examen plus approfondi dans le contexte des autres alertes.                                                                                                                         |
+| **Informational** | Un incident est généralement constitué de plusieurs alertes, dont certaines peuvent apparaître individuellement à titre d’information seulement, mais mériter un examen plus approfondi dans le contexte des autres alertes.                                                                                                                         |
 
 ## <a name="export-alerts"></a>Exporter les alertes
 

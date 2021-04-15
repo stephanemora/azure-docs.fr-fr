@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.openlocfilehash: fee71f9ebfc69c19adc026fce5cd78b6a8b5240b
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: df745e7612dbd5b5bb9029b89d7f74974270c2d1
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490287"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962711"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main d’Azure Metrics Explorer
 
@@ -45,7 +45,7 @@ Pour créer un graphique de métrique, à partir de votre ressource, groupe de r
 ## <a name="select-a-time-range"></a>Sélectionner un intervalle de temps
 
 > [!WARNING]
-> [La plupart des métriques dans Azure sont stockées 93 jours](../essentials/data-platform-metrics.md#retention-of-metrics). Toutefois, vos interrogations peuvent porter sur 30 jours de données au maximum pour un même graphique. Cette limitation ne s’applique pas aux [métriques reposant sur un journal](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
+> [La plupart des métriques dans Azure sont stockées 93 jours](../essentials/data-platform-metrics.md#retention-of-metrics). Toutefois, vos interrogations peuvent porter sur 30 jours de données au maximum pour un même graphique. Vous pouvez faire [un panoramique](metrics-charts.md#pan) sur le graphique pour voir la rétention complète. La limite de 30 jours ne s’applique pas aux [métriques reposant sur un journal](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics).
 
 Par défaut, le graphique affiche les dernières 24 heures de données de métriques. Utilisez le panneau du **sélecteur d’heure** pour modifier l’intervalle de temps, effectuer un zoom avant ou arrière sur votre graphique. 
 

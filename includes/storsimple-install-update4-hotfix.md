@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95563386"
 ---
 #### <a name="to-download-hotfixes"></a>Pour télécharger des correctifs logiciels
@@ -107,7 +107,7 @@ Procédez comme suit pour installer et vérifier les correctifs logiciels en mod
      > Vous devez redémarrer le contrôleur actif via la cmdlet `Restart-HcsController` avant d’appliquer la prochaine mise à jour.
      
 7. Répétez les étapes 3 à 5 pour installer l’agent MDS/Cis téléchargé vers votre dossier _FirstOrderUpdate_. 
-8. Répétez les étapes 3 à 5 pour installer les mises à jour de deuxième priorité. **Pour les mises à jour de la deuxième commande, il est possible d’installer plusieurs mises à jour en exécutant simplement `Start-HcsHotfix cmdlet` et en désignant le dossier où se trouvent les mises à jour de deuxième priorité. L’applet de commande exécute alors toutes les mises à jour disponibles dans le dossier.** La logique de mise à jour détecte les éventuelles mises à jour déjà installées et ne les applique pas. 
+8. Répétez les étapes 3 à 5 pour installer les mises à jour de deuxième priorité. **Pour les mises à jour moins prioritaires, il est possible d’installer plusieurs mises à jour en exécutant simplement `Start-HcsHotfix cmdlet` et en désignant le dossier où se trouvent les mises à jour de deuxième priorité. L’applet de commande exécute alors toutes les mises à jour disponibles dans le dossier.** La logique de mise à jour détecte les éventuelles mises à jour déjà installées et ne les applique pas. 
 
 Une fois tous les correctifs installés, utilisez l’applet de commande `Get-HcsSystem`. Les versions doivent être les suivantes :
 
@@ -123,7 +123,7 @@ Notez que si votre microprogramme de disque est déjà à jour, vous n’aurez p
 
 Pour installer les mises à jour du microprogramme de disque, suivez les instructions ci-dessous.
 
-1. Mettez l’appareil en mode maintenance. **Notez que vous ne devez pas utiliser l’accès distant Windows PowerShell quand vous vous connectez à un appareil en mode maintenance. À la place, exécutez cette applet de commande sur le contrôleur de l’appareil si vous êtes connecté par le biais de la console série de l’appareil.** Tapez :
+1. Mettez l’appareil en mode maintenance. **Notez que vous ne devez pas utiliser la communication à distance Windows PowerShell lorsque vous vous connectez à un appareil en mode maintenance. Exécutez plutôt cette applet de commande sur le contrôleur de l’appareil quand vous êtes connecté par l’intermédiaire de la console série de l’appareil.** Tapez :
    
     `Enter-HcsMaintenanceMode`
    

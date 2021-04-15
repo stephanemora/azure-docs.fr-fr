@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743944"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383584"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Questions fréquentes (FAQ) sur Azure Cloud Services (support étendu)
 Cet article traite des questions fréquemment posées relatives à Azure Cloud Services (support étendu).
@@ -58,6 +58,9 @@ Le déploiement d’Azure Cloud Services (support étendu) prend uniquement en c
 ### <a name="do-cloud-services-extended-support-deployments-support-scaling-across-clusters-availability-zones-and-regions"></a>Les déploiements d’Azure Cloud Services (support étendu) prennent-ils en charge la mise à l’échelle entre les clusters, les zones de disponibilité et les régions ?
 Les déploiements d’Azure Cloud Services (support étendu) ne peuvent pas être mis à l’échelle sur plusieurs clusters, zones de disponibilité et régions. 
 
+### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>Comment obtenir l’ID de déploiement pour mon service cloud (support étendu)
+L’ID de déploiement, ou ID privé, est accessible à l’aide de l’API [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview). Il est également disponible sur le portail Azure sous le panneau rôle et instances du service cloud (support étendu)
+
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Existe-t-il des différences de tarification entre Azure Cloud Services (classique) et Azure Cloud Services (support étendu) ?
 Azure Cloud Services (support étendu) utilise Azure Key Vault et des IP publiques du niveau De base (ARM). Les clients ayant besoin de certificats doivent utiliser Azure Key Vault pour la gestion des certificats ([en savoir plus](https://azure.microsoft.com/pricing/details/key-vault/) sur la tarification d’Azure Key Vault).  Chaque IP publique pour Azure Cloud Services (support étendu) est facturée séparément ([en savoir plus](https://azure.microsoft.com/pricing/details/ip-addresses/) sur la tarification des IP publiques.) 
 ## <a name="resources"></a>Ressources 
@@ -82,6 +85,8 @@ Les fichiers de modèle et de paramètres sont utilisés uniquement pour l’aut
 ### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Comment mon code d’application est-il modifié sur Azure Cloud Services (support étendu) ?
 Aucune modification n’est requise pour votre code d’application empaqueté au format cspkg. Vos applications existantes continueront à fonctionner comme avant. 
 
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>Cloud Services (support étendu) autorise-t-il le format de package CTP ?
+Le format de package CTP n’est pas pris en charge dans Cloud Services (support étendu). Toutefois, il permet une limite de taille de package améliorée de 800 Mo
 
 ## <a name="migration"></a>Migration
 
@@ -91,7 +96,7 @@ Non, les déploiements d’Azure Cloud Services (support étendu) sont liés à 
 ### <a name="when-do-i-need-to-migrate"></a>Quand dois-je effectuer la migration ? 
 L’estimation du temps nécessaire et de la complexité de la migration dépend d’une série de variables. La planification est l’étape la plus efficace pour comprendre l’étendue du travail, les blocages et la complexité de la migration.
 
-## <a name="networking"></a>Réseau
+## <a name="networking"></a>Réseau 
 
 ### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>Pourquoi ne puis-je pas créer de déploiement sans réseau virtuel ?
 Les réseaux virtuels sont une ressource obligatoire pour tout déploiement sur Azure Resource Manager. Le déploiement d’Azure Cloud Services (support étendu) doit se trouver dans un réseau virtuel. 
@@ -110,6 +115,9 @@ Les clients sont facturés pour l’utilisation des adresses IP sur Azure Cloud
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Puis-je utiliser un nom DNS avec Azure Cloud Services (support étendu) ? 
 Oui. Azure Cloud Services (support étendu) peut également recevoir un nom DNS. Avec Azure Resource Manager, l’étiquette DNS est une propriété facultative de l’IP publique qui est attribuée au service cloud. Le format du nom DNS pour les déploiements basés sur Azure Resource Manager est `<userlabel>.<region>.cloudapp.azure.com`.
+
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>Puis-je mettre à jour ou modifier la référence de réseau virtuel pour un service cloud existant (support étendu) ? 
+Non. La référence de réseau virtuel est obligatoire lors de la création d’un service cloud. Pour un service cloud existant, la référence de réseau virtuel ne peut pas être modifiée. L’espace d’adressage du réseau virtuel lui-même peut être modifié à l’aide des API VNet. 
 
 ## <a name="certificates--key-vault"></a>Certificats et coffres de clés
 
