@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 1/21/2021
-ms.openlocfilehash: d38ac9731959cf9a23052753b09c9e7819846705
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 3/23/2021
+ms.openlocfilehash: eedbc46ee5feb0aa6f6a26c3f5b3c67ac8ca0a5e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101664115"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044258"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planifier les événements de maintenance Azure dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,11 +27,11 @@ Apprenez à anticiper les événements de maintenance planifiée sur votre base 
 
 Pour assurer la sécurité, la conformité, la stabilité et les performances des services Azure SQL Database et Azure SQL Managed Instance, des mises à jour sont effectuées presque en permanence via les composants du service. Grâce à l’architecture de service moderne et robuste, ainsi qu’à des technologies novatrices telles que de la [mise à jour corrective à chaud](https://aka.ms/azuresqlhotpatching), la majorité des mises à jour sont entièrement transparentes et sans incidence en termes de disponibilité des services. Néanmoins, quelques rares types de mises à jour entraînent des interruptions de service courtes et nécessitent un traitement spécial. 
 
-Pour chaque base de données, Azure SQL Database et Azure SQL Managed Instance gèrent un quorum de réplicas de base de données où un seul réplica est le réplica principal. À tout moment, un réplica principal doit être en service et en ligne et au moins un réplica secondaire doit être sain. Pendant les maintenances planifiées, les membres du quorum de base de données passent hors connexion l’un après l’autre. Ce comportement permet d’avoir un réplica principal chargé de répondre et au moins un réplica secondaire en ligne pour assurer l’absence de temps d’arrêt du client. Lorsque le réplica principal doit être mis hors connexion, un processus de reconfiguration/basculement se produit et un des réplicas secondaires devient le nouveau réplica principal.  
+Pour chaque base de données, Azure SQL Database et Azure SQL Managed Instance gèrent un quorum de réplicas de base de données où un seul réplica est le réplica principal. À tout moment, un réplica principal doit être en service et en ligne et au moins un réplica secondaire doit être sain. Pendant les maintenances planifiées, les membres du quorum de base de données passent hors connexion l’un après l’autre. Ce comportement permet d’avoir un réplica principal chargé de répondre et au moins un réplica secondaire en ligne pour assurer l’absence de temps d’arrêt du client. Lorsque le réplica principal doit être mis hors connexion, un processus de reconfiguration se produit et un des réplicas secondaires devient le nouveau réplica principal.  
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Que se passe-t-il pendant un événement de maintenance planifiée ?
 
-L'événement de maintenance peut produire un ou plusieurs basculements, selon la constellation des réplicas principaux et secondaires au début de l'événement de maintenance. En moyenne, il se produit 1,7 basculement par événement de maintenance planifié. Les reconfigurations ou les basculements se terminent généralement dans les 30 secondes. La moyenne est de huit secondes. Si elle est déjà connectée, votre application doit se reconnecter au nouveau réplica principal de votre base de données. Si une nouvelle connexion est tentée alors que la base de données subit une reconfiguration avant que le nouveau réplica principal soit en ligne, vous obtenez l’erreur 40613 (base de données non disponible) : *« La base de données "{databasename}" sur le serveur "{servername}" n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. »* Si votre base de données a une requête durable, cette dernière sera interrompue pendant une reconfiguration et devra ensuite être redémarrée.
+L’événement de maintenance peut produire une ou plusieurs reconfigurations, selon la constellation des réplicas principaux et secondaires au début de l’événement de maintenance. En moyenne, il se produit 1,7 reconfiguration par événement de maintenance planifiée. Les reconfigurations se terminent généralement dans les 30 secondes. La moyenne est de huit secondes. Si elle est déjà connectée, votre application doit se reconnecter au nouveau réplica principal de votre base de données. Si une nouvelle connexion est tentée alors que la base de données subit une reconfiguration avant que le nouveau réplica principal soit en ligne, vous obtenez l’erreur 40613 (base de données non disponible) : *« La base de données "{databasename}" sur le serveur "{servername}" n'est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. »* Si votre base de données a une requête durable, cette dernière sera interrompue pendant une reconfiguration et devra ensuite être redémarrée.
 
 ## <a name="how-to-simulate-a-planned-maintenance-event"></a>Comment simuler un événement de maintenance planifiée ?
 
@@ -39,7 +39,7 @@ En vous assurant que votre application cliente est résiliente aux événements 
 
 ## <a name="retry-logic"></a>Logique de nouvelle tentative
 
-Toute application de production cliente qui se connecte à un service de base de données cloud doit implémenter une [logique de nouvelle tentative](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) de connexion robuste. Cela permettra de rendre les basculements transparents pour les utilisateurs finaux, ou du moins d'en minimiser les effets négatifs.
+Toute application de production cliente qui se connecte à un service de base de données cloud doit implémenter une [logique de nouvelle tentative](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) de connexion robuste. Cela permettra de rendre les reconfigurations transparentes pour les utilisateurs finaux, ou du moins d’en minimiser les effets négatifs.
 
 ## <a name="resource-health"></a>Intégrité des ressources
 

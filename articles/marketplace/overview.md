@@ -6,12 +6,12 @@ ms.author: mingshen
 ms.service: marketplace
 ms.topic: overview
 ms.date: 10/15/2020
-ms.openlocfilehash: 099515eb1160b131f2d56fd02f300999d5ddfd16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de8e9060f8e7ccdcf38b9f0908dfb05063811817
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780312"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103402"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Qu’est-ce que la place de marché commerciale Microsoft ?
 
@@ -82,5 +82,5 @@ Pour plus d’informations sur ces avantages, consultez [Vos avantages avec la P
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Bénéficiez d’une [Présentation de la Place de marché commerciale Microsoft](/learn/modules/intro-commercial-marketplace/) sur Microsoft Learn.
-- Les nouveaux partenaires Microsoft qui souhaitent publier une offre sur la Place de marché commerciale peuvent lire [Comment créer un compte Place de marché commerciale dans l’Espace partenaires](partner-center-portal/create-account.md).
+- Les nouveaux partenaires Microsoft qui souhaitent publier une offre sur la Place de marché commerciale peuvent lire [Comment créer un compte Place de marché commerciale dans l’Espace partenaires](create-account.md).
 - Pour plus d’informations sur les publications récentes et à venir, rejoignez la conversation dans la [Communauté des partenaires Microsoft](https://www.microsoftpartnercommunity.com/).

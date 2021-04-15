@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f1e509156beea0b3da3539306dc055291cbff0c8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598896"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314182"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Nouveautés de l’API Analyse de texte
 
@@ -39,7 +39,7 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript)
     
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’API d’Analyse de texte v3.1-Préversion.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
@@ -51,11 +51,12 @@ L’API Analyse de texte est mise à jour de manière continue. Pour vous inform
     * Nouveau type d’entité `Date`.
     * Détection d’assertion qui remplace la détection de négation (disponible uniquement dans l’API v 3.1-préversion. 4).
     * Nouvelle propriété préférée `name` pour les entités liées normalisée à partir de différents systèmes d’ontologies et de codage (disponibles uniquement dans l’API v 3.1-préversion. 4). 
-* Une nouvelle image conteneur avec la balise `3.0.015370001-onprem-amd64` avec la nouvelle version du modèle `2021-03-01` a été mise en production dans le référentiel du conteneur en préversion. 
-* L’Analyse de texte pour l’image de conteneur d’intégrité sera déplacée vers un nouveau référentiel le mois prochain.  Veuillez regarder une communication par e-mail à l’emplacement de sa nouvelle page d’accueil.
+* Une nouvelle image conteneur avec la balise `3.0.015490002-onprem-amd64` avec la nouvelle version du modèle `2021-03-01` a été mise en production dans le référentiel du conteneur en préversion. 
+    * Cette image conteneur ne sera plus disponible en téléchargement à partir de `containerpreview.azurecr.io` à compter du 26 avril 2021.
+* Une nouvelle image conteneur Analyse de texte pour l’intégrité avec ces mêmes modèle et version est désormais disponible à l’adresse `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`. À compter du 26 avril, vous pourrez uniquement télécharger le conteneur à partir de ce référentiel.
+
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’API Analyse de texte pour la santé](how-tos/text-analytics-for-health.md)
->
 
 ### <a name="text-analytics-resource-portal-update"></a>Mise à jour du portail de ressources de l’Analyse de texte
 * Les **enregistrements de texte traités** sont désormais disponibles en tant que métrique dans la section **Analyse** de votre ressource d’Analyse de texte dans le Portail Azure.  

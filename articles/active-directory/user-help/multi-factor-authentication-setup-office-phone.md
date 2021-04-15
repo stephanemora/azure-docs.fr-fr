@@ -10,19 +10,21 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c77672ce895cc63a04973c4cb3e752ca319e269d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83739207"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553411"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Configurer un téléphone professionnel comme méthode de vérification à deux facteurs
 
 Vous pouvez configurer un téléphone professionnel comme méthode de vérification à deux facteurs.
 
->[!Note]
-> Si l’option de téléphone est grisée, il est possible que votre organisation ne vous autorise pas à utiliser un numéro de téléphone à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide.
+> [!Note]
+> Si l’option **Téléphone de bureau** ne peut pas être sélectionnée, il est possible que votre organisation ne vous autorise pas à utiliser un numéro de téléphone de bureau à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide. 
+> 
+> La possibilité d’utiliser un numéro de poste avec l’option **Téléphone de bureau** ne s’affiche pas pour les utilisateurs de la méthode Inscription combinée.
 
 ## <a name="set-up-your-office-phone-number-as-your-verification-method"></a>Configurer votre numéro de téléphone professionnel comme méthode de vérification
 

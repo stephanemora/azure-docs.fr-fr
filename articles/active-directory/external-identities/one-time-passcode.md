@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30f22282b00a7ead2e19805f32d78338126e8087
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688465"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552748"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
 
@@ -64,7 +64,7 @@ Pour voir si un utilisateur invité s’authentifie à l’aide de codes secrets
 ![Capture d’écran montrant un utilisateur de code secret à usage unique avec la valeur Source définie sur Code secret à usage unique](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour leur méthode d’authentification, vous pouvez supprimer le compte d’utilisateur invité et les inviter à nouveau.
+> Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour la méthode d’authentification de l’utilisateur, vous pouvez [réinitialiser son état d’acceptation](reset-redemption-status.md).
 
 ### <a name="example"></a>Exemple
 
@@ -76,7 +76,7 @@ L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas d
 
 > [!NOTE]
 >
-> Si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail a été activée dans votre locataire et que vous la désactivez, les utilisateurs invités qui ont demandé un code secret à usage unique ne seront pas en mesure de se connecter. Vous pouvez supprimer ces utilisateurs et les réinviter pour leur permettre de se connecter avec une autre méthode d’authentification.
+> Si la fonctionnalité d’envoi d’un code secret à usage unique par e-mail a été activée dans votre locataire et que vous la désactivez, les utilisateurs invités qui ont demandé un code secret à usage unique ne seront pas en mesure de se connecter. Vous pouvez [réinitialiser leur état d’acceptation](reset-redemption-status.md) pour leur permettre de se reconnecter à l’aide d’une autre méthode d’authentification.
 
 ### <a name="to-disable-the-email-one-time-passcode-feature"></a>Procédure de désactivation de la fonctionnalité d’envoi d’un code à usage unique par e-mail
 

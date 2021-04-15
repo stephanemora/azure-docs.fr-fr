@@ -6,17 +6,17 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/18/2021
-ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.openlocfilehash: 72ab685b58f7d940fe4d682cacba6212fe80ced8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593847"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933081"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article présente des méthodes couramment employées pour résoudre les problèmes liés aux flux de données de mappage dans Azure Data Factory.
 
@@ -302,7 +302,7 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 ### <a name="error-code-df-excel-invalidrange"></a>Code d’erreur : DF-Excel-InvalidRange
 - **Message** : Une plage non valide est fournie.
-- **Recommandation** : vérifiez la valeur du paramètre et indiquez la plage valide à l’aide de la référence suivante : [format Excel dans les propriétés d’Azure Data Factory-Dataset](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recommandation** : vérifiez la valeur du paramètre et indiquez la plage valide à l’aide de la référence suivante : [format Excel dans les propriétés d’Azure Data Factory-Dataset](./format-excel.md#dataset-properties).
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>Code d’erreur : DF-Excel-WorksheetNotExist
 - **Message** : La feuille de calcul Excel n’existe pas.
@@ -317,24 +317,6 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 ### <a name="error-code-df-excel-invalidfile"></a>Code d’erreur : DF-Excel-InvalidFile
 - **Message** : un fichier Excel non valide est fourni alors que seuls les fichiers .xlsx et .xls sont pris en charge.
 
-### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Code d’erreur : DF-AdobeIntegration-InvalidMapToFilter
-- **Message** : la ressource personnalisée ne peut avoir qu’une clé/ID mappée au filtre.
-
-### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Code d’erreur : DF-AdobeIntegration-InvalidPartitionConfiguration
-- **Message** : seule une partition unique est prise en charge. Le schéma de partition peut être RoundRobin ou Hash.
-- **Recommandation** : dans les paramètres AdobeIntegration, vérifiez que vous n’avez qu’une seule partition. Le schéma de partition peut être RoundRobin ou Hash.
-
-### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Code d’erreur : DF-AdobeIntegration-KeyColumnMissed
-- **Message** : la clé doit être spécifiée pour les opérations qui ne peuvent pas être insérées.
-- **Recommandation** : indiquez les colonnes clés dans les paramètres AdobeIntegration pour les opérations qui ne oeuvent pas être insérées.
-
-### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Code d’erreur : DF-AdobeIntegration-InvalidPartitionType
-- **Message** : le type de la partition doit être roundRobin.
-- **Recommandation** : confirmez que le type de partition est roundRobin dans les paramètres AdobeIntegration.
-
-### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Code d’erreur : DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message** : le seul règlement sur la confidentialité pris en charge actuellement est le RGPD.
-- **Recommandation** : confirmez que le règlement sur la confidentialité dans les paramètres AdobeIntegration est **« RGPD »** .
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Conseils pour la résolution de problèmes divers
 - **Problème** : Une exception inattendue s’est produite et l’exécution a échoué.
@@ -360,6 +342,110 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 2. Vérifiez l’état de vos connexions aux fichiers et aux tables dans le concepteur de flux de données. En mode de débogage, sélectionnez **Aperçu des données** dans vos transformations sources pour vérifier que vous pouvez accéder à vos données.
 3. Si tout semble correct dans l’aperçu des données, accédez au concepteur de pipeline et mettez votre flux de données dans une activité de pipeline. Déboguez le pipeline pour un test de bout en bout.
 
+### <a name="improvement-on-csvcdm-format-in-data-flow"></a>Amélioration du format CSV/CDM dans le Data Flow 
+
+Si vous utilisez le **format Texte délimité ou CDM pour le flux de données de mappage dans Azure Data Factory v2**, vous pourrez être confronté à des changements de comportement de vos pipelines existants en raison de l’amélioration du format Texte délimité/CDM dans le flux de données à partir du **1er mai 2021**. 
+
+Vous pouvez rencontrer les problèmes suivants avant l’amélioration, mais après l’amélioration, les problèmes seront corrigés. Lisez le contenu suivant pour déterminer si cette amélioration vous concerne. 
+
+#### <a name="scenario-1-encounter-the-unexpected-row-delimiter-issue"></a>Scénario 1 : Vous rencontrez un problème de délimiteur de ligne inattendu
+
+ Vous êtes concerné dans les conditions suivantes :
+ - Vous utilisez le format Texte délimité avec le paramètre Multiline défini sur True ou CDM comme source.
+ - La première ligne contient plus de 128 caractères. 
+ - Le délimiteur de ligne dans les fichiers de données n’est pas `\n`.
+
+ Avant l’amélioration, le délimiteur de ligne par défaut `\n` peut être utilisé de manière inattendue pour analyser les fichiers texte délimité, car, lorsque le paramètre Multiline est défini sur True, il invalide le paramètre de délimiteur de ligne et le délimiteur de ligne est automatiquement détecté en fonction des 128 premiers caractères. Si vous ne parvenez pas à détecter le délimiteur de ligne réel, le système revient à `\n`.  
+
+ Après l’amélioration, l’un des trois délimiteurs de ligne, `\r`, `\n` ou `\r\n`, devrait fonctionner.
+ 
+ L’exemple suivant montre un changement de comportement du pipeline après l’amélioration :
+
+ **Exemple** :<br/>
+   Pour la colonne suivante :<br/>
+    `C1, C2, {long first row}, C128\r\n `<br/>
+    `V1, V2, {values………………….}, V128\r\n `<br/>
+ 
+   Avant l’amélioration, `\r` est conservé dans la valeur de la colonne. Le résultat de la colonne analysée est le suivant :<br/>
+   `C1 C2 {long first row} C128`**`\r`**<br/>
+   `V1 V2 {values………………….} V128`**`\r`**<br/> 
+
+   Après l’amélioration, le résultat de la colonne analysée doit être :<br/>
+   `C1 C2 {long first row} C128`<br/>
+   `V1 V2 {values………………….} V128`<br/>
+  
+#### <a name="scenario-2-encounter-an-issue-of-incorrectly-reading-column-values-containing-rn"></a>Scénario 2 : Vous rencontrez un problème de lecture incorrecte des valeurs de colonne contenant « \r\n »
+
+ Vous êtes concerné dans les conditions suivantes :
+ - Vous utilisez le format Texte délimité avec le paramètre Multiline défini sur True ou CDM comme source. 
+ - Le délimiteur de ligne est `\r\n`.
+
+ Avant l’amélioration, lors de la lecture de la valeur de colonne, le `\r\n` de celle-ci peut être incorrectement remplacé par `\n`. 
+
+ Après l’amélioration, `\r\n` dans la valeur de colonne ne sera pas remplacé par `\n`.
+
+ L’exemple suivant montre un changement de comportement du pipeline après l’amélioration :
+ 
+ **Exemple** :<br/>
+  
+ Pour la colonne suivante :<br/>
+  **`"A\r\n"`**`, B, C\r\n`<br/>
+
+ Avant l’amélioration, le résultat de la colonne analysée est le suivant :<br/>
+  **`A\n`**` B C`<br/>
+
+ Après l’amélioration, le résultat de la colonne analysée doit être :<br/>
+  **`A\r\n`**` B C`<br/>  
+
+#### <a name="scenario-3-encounter-an-issue-of-incorrectly-writing-column-values-containing-n"></a>Scénario 3 : Vous rencontrez un problème d’écriture incorrecte des valeurs de colonne contenant « \r\n »
+
+ Vous êtes concerné dans les conditions suivantes :
+ - Vous utilisez le format Texte délimité comme récepteur.
+ - La valeur de colonne contient `\n`.
+ - L’option Séparateur de lignes est définie sur `\r\n`.
+ 
+ Avant l’amélioration, lors de l’écriture de la valeur de colonne, le `\n` de celle-ci peut être incorrectement remplacé par `\r\n`. 
+
+ Après l’amélioration, `\n` dans la valeur de colonne ne sera pas remplacé par `\r\n`.
+ 
+ L’exemple suivant montre un changement de comportement du pipeline après l’amélioration :
+
+ **Exemple** :<br/>
+
+ Pour la colonne suivante :<br/>
+ **`A\n`**` B C`<br/>
+
+ Avant l’amélioration, le récepteur CSV est :<br/>
+  **`"A\r\n"`**`, B, C\r\n` <br/>
+
+ Après l’amélioration, le récepteur CSV doit être :<br/>
+  **`"A\n"`**`, B, C\r\n`<br/>
+
+#### <a name="scenario-4-encounter-an-issue-of-incorrectly-reading-empty-string-as-null"></a>Scénario 4 : Vous rencontrez un problème de lecture incorrecte d’une chaîne vide comme NULL
+ 
+ Vous êtes concerné dans les conditions suivantes :
+ - Vous utilisez le format Texte délimité comme source. 
+ - La valeur NULL est définie comme une valeur non vide. 
+ - La valeur de colonne est une chaîne vide et est sans guillemets. 
+ 
+ Avant l’amélioration, la valeur de colonne de la chaîne vide sans guillemets est lue comme NULL. 
+
+ Après l’amélioration, la chaîne vide ne sera pas interprétée comme une valeur NULL. 
+ 
+ L’exemple suivant montre un changement de comportement du pipeline après l’amélioration :
+
+ **Exemple** :<br/>
+
+ Pour la colonne suivante :<br/>
+  `A, ,B, `<br/>
+
+ Avant l’amélioration, le résultat de la colonne analysée est le suivant :<br/>
+  `A null B null`<br/>
+
+ Après l’amélioration, le résultat de la colonne analysée doit être :<br/>
+  `A "" (empty string) B "" (empty string)`<br/>
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour obtenir une aide supplémentaire sur la résolution des problèmes, consultez les ressources suivantes :
@@ -369,4 +455,3 @@ Pour obtenir une aide supplémentaire sur la résolution des problèmes, consult
 *  [Vidéos Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Forum Stack Overflow pour Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informations Twitter sur Data Factory](https://twitter.com/hashtag/DataFactory)
-

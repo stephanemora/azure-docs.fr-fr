@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "67177259"
 ---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Installer les mises à jour en mode maintenance via Windows PowerShell pour StorSimple
@@ -51,4 +51,4 @@ Quand vous appliquez des mises à jour en mode maintenance à l’appareil StorS
 
     Les contrôleurs redémarrent quand vous quittez le mode maintenance.
 
-7. Revenez au Portail Azure. Il se peut que le portail n’affiche pas les mises à jour installées en mode maintenance pendant 24 heures.
+7. Revenez au portail Azure. Il se peut que le portail n’affiche pas les mises à jour installées en mode maintenance pendant 24 heures.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 31f960b39e771e7bfbf67c6e52c5da8e1fc6e0ec
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104779934"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932452"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (portail)
 
@@ -153,7 +153,9 @@ Pour ajouter un filtre d’événements lors de la création d’un itinéraire 
 Vous pouvez sélectionner l’une des options de filtre courantes de base ou utiliser les options de filtre avancées pour écrire vos propres filtres personnalisés.
 
 >[!NOTE]
-> Les filtres sont **sensibles à la casse** et doivent correspondre à la casse de la charge utile (qui peut ne pas nécessairement correspondre à la casse du modèle).
+> Les filtres **respectent la casse** et doivent correspondre à la casse de la charge utile. 
+>
+> Pour les filtres de télémétrie, cela signifie que la casse doit correspondre à celle de la télémétrie envoyée par l’appareil, pas nécessairement à celle définie dans le modèle du jumeau.
 
 #### <a name="use-the-basic-filters"></a>Utiliser les filtres de base
 

@@ -3,12 +3,12 @@ title: Guide de dépannage pour Azure Service Bus | Microsoft Docs
 description: Découvrez des conseils et recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102179695"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105031288"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article fournit des conseils et des recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus. 
@@ -52,7 +52,7 @@ Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité,
     ```
     Vous pouvez utiliser des commandes équivalentes dans d’autres outils, par exemple `tnc`, `ping`, etc. 
 - Si les étapes précédentes n’ont pas résolu le problème, obtenez une trace réseau et analysez-la à l’aide d’un outil tel que [Wireshark](https://www.wireshark.org/). Contactez le [support Microsoft](https://support.microsoft.com/) si nécessaire. 
-- Pour trouver les bonnes adresses IP à ajouter à la liste d’autorisations pour vos connexions, consultez la section [Quelles adresses IP dois-je ajouter à la liste d’autorisations](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
+- Pour trouver les adresses IP appropriées à ajouter à la liste d’autorisation de vos connexions, consultez [Quelles adresses IP dois-je ajouter à la liste d’autorisation](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problèmes qui peuvent se produire avec les mises à niveau/redémarrages du service
@@ -98,6 +98,25 @@ Il existe une limite au nombre de jetons utilisés pour envoyer et recevoir des 
 
 ### <a name="resolution"></a>Résolution
 Ouvrez une nouvelle connexion à l’espace de noms Service Bus pour envoyer plus de messages.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>Échec de l’ajout d’une règle de réseau virtuel à l’aide de PowerShell
+
+### <a name="symptoms"></a>Symptômes
+Vous avez configuré deux sous-réseaux à partir d’un seul réseau virtuel dans une règle de réseau virtuel. Quand vous essayez de supprimer un sous-réseau à l’aide de l’applet de commande [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule), le sous-réseau n’est pas supprimé de la règle de réseau virtuel. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>Cause
+L’ID Azure Resource Manager que vous avez spécifié pour le sous-réseau n’est peut-être pas valide. Cela peut se produire quand le réseau virtuel se trouve dans un autre groupe de ressources que celui qui contient l’espace de noms Service Bus. Si vous ne spécifiez pas explicitement le groupe de ressources du réseau virtuel, la commande CLI construit l’ID Azure Resource Manager à l’aide du groupe de ressources de l’espace de noms Service Bus. Elle ne parvient donc pas à supprimer le sous-réseau de la règle de réseau. 
+
+### <a name="resolution"></a>Résolution
+Spécifiez l’ID Azure Resource Manager complet du sous-réseau qui inclut le nom du groupe de ressources contenant le réseau virtuel. Par exemple :
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants : 

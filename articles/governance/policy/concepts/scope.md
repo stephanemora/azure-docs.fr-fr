@@ -1,20 +1,19 @@
 ---
 title: Comprendre l’étendue dans Azure Policy
 description: Décrit le concept d’étendue dans Azure Resource Manager et comment il s’applique à Azure Policy pour contrôler les ressources qu’Azure Policy évalue.
-ms.date: 09/22/2020
+ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c198d2d2961b6d9e10a3b78481183cba7f7197ca
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90984428"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167734"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Comprendre l’étendue dans Azure Policy
 
-Il existe un certain nombre de paramètres qui déterminent les ressources qui peuvent être évaluées et les ressources qui sont évaluées par Azure Policy. Le concept principal de ces contrôles est l’_étendue_.
-Pour une vue d’ensemble de haut niveau, consultez la section [Étendue d’Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
-Cet article explique l’impact de l’_étendue_ dans Azure Policy et les objets et propriétés associés.
+Il existe de nombreux paramètres qui déterminent les ressources qui peuvent être évaluées et les ressources qui sont évaluées par Azure Policy. Le concept principal de ces contrôles est l’_étendue_. Dans Azure Policy, l’étendue est basée sur le fonctionnement de l’étendue dans Azure Resource Manager. Pour une vue d’ensemble de haut niveau, consultez la section [Étendue d’Azure Resource Manager](../../../azure-resource-manager/management/overview.md#understand-scope).
+Cet article explique l’importance de l’_étendue_ dans Azure Policy et les objets et propriétés qui y sont associés.
 
 ## <a name="definition-location"></a>Emplacement de la définition
 

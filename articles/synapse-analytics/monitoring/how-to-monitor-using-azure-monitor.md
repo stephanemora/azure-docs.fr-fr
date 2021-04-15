@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba730adaa1e3b111586012ba1849c6dc84d6db00
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609256"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553989"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Utilisez Azure Monitor avec votre espace de travail Azure Synapse Analytics
 
@@ -103,10 +103,14 @@ Connectez-vous au portail Azure, puis sélectionnez **Monitor** > **Alertes** po
 
 Voici les journaux émis par les espaces de travail Azure Synapse Analytics :
 
-| Schéma de la table Log Analytics | Nom de la catégorie de journal                 | Description |
-|-------------------------------|-------------------------------------------------|-------------|
-| SynapseGatewayApiRequests     | GatewayApiRequests             | Demandes d’API de passerelle Azure Synapse. |
-| SynapseRbacOperations         | SynapseRbacOperations          | Opérations de contrôle d’accès en fonction du rôle (SRBAC) Azure Synapse. |
+| Schéma de la table Log Analytics       | Nom de la catégorie de journal              | Description          |
+|--------------------------------|--------------------------------|----------------------|
+| SynapseGatewayApiRequests      | GatewayApiRequests             | Demandes d’API de passerelle Azure Synapse. |
+| SynapseRbacOperations          | SynapseRbacOperations          | Opérations de contrôle d’accès en fonction du rôle (SRBAC) Azure Synapse. |
+| SynapseBuiltinSqlReqsEnded     | BuiltinSqlReqsEnded            | Le pool SQL serverless intégré d’Azure Synapse a mis fin aux requêtes. |
+| SynapseIntegrationPipelineRuns | IntegrationPipelineRuns        | Le pipeline d’intégration Azure Synapse s’exécute. |
+| SynapseIntegrationActivityRuns | IntegrationActivityRuns        | L’activité d’intégration Azure Synapse s’exécute. |
+| SynapseIntegrationTriggerRuns  | IntegrationTriggerRuns         | Le déclencheur d’intégration Azure Synapse s’exécute. |
 
 ### <a name="dedicated-sql-pool-logs"></a>Journaux des pools SQL dédiés
 

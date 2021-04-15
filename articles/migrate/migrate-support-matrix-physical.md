@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 09110bb15f853f20b0be9d8c4c6f5088e7a55d8b
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869444"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382978"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matrice de prise en charge pour la découverte et l’évaluation de serveurs physiques 
 
@@ -39,6 +39,8 @@ Pour évaluer des serveurs physiques, vous créez un projet et ajoutez l’outil
 **Autorisations :**
 
 - Pour les serveurs Windows, utilisez un compte de domaine pour les serveurs joints à un domaine et un compte local pour ceux qui ne le sont pas. Le compte d’utilisateur doit être ajouté à ces groupes : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
+    > [!Note]
+    > Pour Windows Server 2008 et 2008 R2, vérifiez que WMF 3.0 est installé sur les serveurs et que le compte de domaine/local utilisé pour accéder aux serveurs a été ajouté aux groupes suivants : Utilisateurs de l'Analyseur de performances, Utilisateurs du journal des performances et WinRMRemoteWMIUsers.
 - Pour les serveurs Linux, vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. Vous pouvez également définir un compte non racine doté des fonctionnalités requises à l’aide des commandes suivantes :
 
 **Commande** | **Objectif**

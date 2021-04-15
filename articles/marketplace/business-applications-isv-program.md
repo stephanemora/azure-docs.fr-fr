@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: ce9927a66da64d64e83f10e3dfd906005635e5ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4cd22418c4f8a2f9504baf665c67a4a57f7f6f5
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99507534"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103383"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guide d'intégration au programme Microsoft Business Applications Independent Software Vendor (ISV) Connect
 
@@ -25,7 +25,7 @@ Pour s’inscrire et profiter de tous les avantages techniques, marketing et com
 
 ## <a name="set-up-your-microsoft-partner-center-account"></a>Configurer votre compte Espace partenaires Microsoft
 
-Pour configurer et gérer votre compte pour le programme ISV Connect, effectuez les étapes de l’article : [Créer un compte Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/create-account.md). Cet article fournit toutes les étapes permettant de créer un nouveau compte, ainsi que des informations sur l’ajout de nouveaux éditeurs au programme Place de marché commerciale.
+Pour configurer et gérer votre compte pour le programme ISV Connect, effectuez les étapes de l’article : [Créer un compte Place de marché commerciale dans l’Espace partenaires](create-account.md). Cet article fournit toutes les étapes permettant de créer un nouveau compte, ainsi que des informations sur l’ajout de nouveaux éditeurs au programme Place de marché commerciale.
 
 > [!NOTE]
 > Cette étape nécessite un rôle *Propriétaire* ou *Gestionnaire* dans l’Espace partenaires.

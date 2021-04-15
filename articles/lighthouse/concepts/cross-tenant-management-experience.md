@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 03/23/2021
+ms.date: 03/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: ba3cee2ecd7efcbb33c19d7ed159083e843c84a8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 12c4aaa4dda159862344675c802603fcbda2f254
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952114"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934323"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -56,8 +56,8 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
   - S’assurer que le même ensemble de stratégies est appliqué dans les environnements hybrides des clients
   - Utiliser Azure Security Center pour surveiller la conformité des environnements hybrides des clients
 - Gérer des clusters Kubernetes hybrides à grande échelle – [Kubernetes avec Azure Arc (préversion)](../../azure-arc/kubernetes/overview.md) :
-  - [Gérer des clusters Kubernetes connectés](../../azure-arc/kubernetes/connect-cluster.md) à des abonnements délégués et/ou à des groupes de ressources dans Azure
-  - [Utiliser GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) dans des clusters connectés
+  - [Gérer des clusters Kubernetes connectés](../../azure-arc/kubernetes/quickstart-connect-cluster.md) à des abonnements délégués et/ou à des groupes de ressources dans Azure
+  - [Utiliser GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) dans des clusters connectés
   - Appliquer des stratégies entre les clusters connectés
 
 [Azure Automation](../../automation/index.yml) :
@@ -77,7 +77,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 
 [Azure Cost Management + Facturation](../../cost-management-billing/index.yml) :
 
-- À partir du locataire de gestion, les fournisseurs de solutions Cloud partenaires peuvent visualiser, gérer et analyser les coûts de consommation hors taxes (hors achats) pour les clients qui relèvent du plan Azure. Le coût est basé sur les tarifs de vente au détail et l’accès Azure RBAC (contrôle d’accès en fonction du rôle Azure) dont dispose le partenaire pour l’abonnement du client.
+- À partir du locataire de gestion, les fournisseurs de solutions Cloud partenaires peuvent visualiser, gérer et analyser les coûts de consommation hors taxes (hors achats) pour les clients qui relèvent du plan Azure. Le coût est basé sur les tarifs de vente au détail et l’accès Azure RBAC (contrôle d’accès en fonction du rôle Azure) dont dispose le partenaire pour l’abonnement du client. Actuellement, vous pouvez visualiser les coûts de consommation au prix de détail pour chaque abonnement client individuel en fonction de l’accès Azure RBAC.
 
 [Azure Key Vault](../../key-vault/general/index.yml) :
 

@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperf-fy21q1
-ms.openlocfilehash: ebe34735a84e44526e6b96821a2a1da090884886
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 7bad0b17bb2fed9d9f54cdd44042ec88708f35fd
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383250"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103723"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Créer des tableaux de bord d’indicateur de performance clé à l’aide d’Azure Application Insights
 
@@ -59,7 +59,7 @@ Un tableau de bord unique peut contenir des ressources de plusieurs applications
 5. Recherchez la vignette **Markdown**, puis faites-la glisser sur votre tableau de bord.  Cette vignette permet d’ajouter du texte mis en forme dans markdown, ce qui est idéal pour l’ajout d’un texte descriptif à votre tableau de bord. Pour plus d’informations, consultez [Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé](../../azure-portal/azure-portal-markdown-tile.md).
 6. Ajoutez du texte au propriétés de la vignette, puis redimensionnez celle-ci sur le canevas du tableau de bord.
 
-    [![Modifier une vignette markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
+    [![Modifier une vignette markdown](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/markdown.png#lightbox)
 
 7. Sélectionnez **Personnalisation terminée** en haut de l’écran pour quitter le mode de personnalisation des vignettes.
 

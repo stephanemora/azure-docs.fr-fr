@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 453d7e118b946d60eb3d84c6a66abdbea7db2410
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499218"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105035640"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,6 +60,9 @@ Azure SQL Managed Instance vous permet également une mise à l’échelle :
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) utilise le mode [vCores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) et vous permet de définir le nombre maximum de cœurs UC et la quantité maximale de stockage alloués à votre instance. Toutes les bases de données au sein de l’instance gérée partageront les ressources allouées à l’instance.
 
 Quelle que soit la version, une action de mise à l’échelle (scale up ou scale down) aurait pour effet de redémarrer le processus du moteur de base de données et de le déplacer si nécessaire vers une autre machine virtuelle. Le déplacement du processus du moteur de base de données vers une nouvelle machine virtuelle est un **processus en ligne**, ce qui vous permet de continuer à utiliser votre service Azure SQL Database existant pendant sa progression. Une fois le moteur de base de données cible entièrement initialisé et prêt à traiter les requêtes, les connexions sont [basculées du moteur de base de données source vers le moteur de base de données cible](single-database-scale.md#impact).
+
+> [!NOTE]
+> Il n’est pas recommandé de mettre votre instance gérée à l’échelle si une transaction durable, telle que l’importation de données, les travaux de traitement de données, la régénération d’index, etc., est en cours d’exécution, ou si vous avez une connexion active sur l’instance. Pour éviter que la mise à l’échelle ne prenne plus de temps que d’habitude, vous devez mettre l’instance à l’échelle à la fin de toutes les opérations durables.
 
 > [!NOTE]
 > Une courte interruption de la connexion risque de se produire à la fin du processus de mise à l’échelle. Si vous avez implémenté une [Logique de nouvelles tentatives pour les erreurs temporaires standard](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors), vous ne remarquerez pas le basculement.

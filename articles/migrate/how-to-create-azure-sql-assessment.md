@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 21553adf81d5b34813785db7cd6bbe3caf71c210
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 9acc6de84c3e5bc43f482d36ade242d2315a2a4f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780483"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565110"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Créer une évaluation Azure SQL
 
@@ -18,7 +18,7 @@ Dans le cadre de votre migration vers Azure, vous devez évaluer vos charges de 
 Cet article explique comment évaluer les instances SQL découvertes en vue de leur migration vers Azure SQL à l’aide de l’outil Azure Migrate : Détection et évaluation.
 
 > [!Note]
-> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. 
+> La découverte et l’évaluation d’instances et de bases de données SQL Server s’exécutant dans votre environnement VMware sont actuellement en préversion. Pour bien démarrer, suivez [ce tutoriel](tutorial-discover-vmware.md). Si vous voulez tester cette fonctionnalité dans un projet existant, vérifiez que vous avez rempli les [prérequis](how-to-discover-sql-existing-project.md) indiqués dans cet article.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
@@ -192,4 +192,4 @@ Le niveau de confiance vous permet d’estimer la fiabilité des suggestions qui
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [En savoir plus](concepts-azure-sql-assessment-calculation.md) sur le mode de calcul des évaluations d’Azure SQL.
-- Commencez à migrer des instances et des bases de données SQL à l’aide d’[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
+- Commencez à migrer des instances et des bases de données SQL à l’aide d’[Azure Database Migration Service](../dms/dms-overview.md).

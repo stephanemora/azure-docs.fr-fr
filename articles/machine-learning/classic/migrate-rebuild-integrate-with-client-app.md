@@ -3,17 +3,17 @@ title: 'ML Studio (classique) : Migrer vers Azure Machine Learning – Consomme
 description: Intégrez des points de terminaison de pipeline aux applications clientes dans Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: bf0624e0667c9fc6998fb28898a3376ca409180d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fc7e222d400c2ded602e3d26d504896302fff014
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565605"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311785"
 ---
 # <a name="consume-pipeline-endpoints-from-client-applications"></a>Consommer des points de terminaison de pipeline à partir d’applications clientes
 

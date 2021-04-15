@@ -2,13 +2,13 @@
 title: Limites d’Azure VMware Solution
 description: Limitations d’Azure VMware Solution.
 ms.topic: include
-ms.date: 03/16/2021
-ms.openlocfilehash: 0e2359d951f5348b69e95ab7fa046981b2b7b32d
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 03/24/2021
+ms.openlocfilehash: 997a5ae96ff30226d055b7b966b128d7ec0ae5bd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622080"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105582645"
 ---
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
 
@@ -19,7 +19,7 @@ Le tableau suivant décrit les limites maximales d’Azure VMware Solution.
 | Clusters par cloud privé | 12 |
 | Nombre minimal de nœuds par cluster | 3 |
 | Nombre maximal de nœuds par cluster | 16 |
-| Nœuds par cloud privé | 64 |
+| Nœuds par cloud privé | 96 |
 | vCenter par cloud privé | 1  |
 | Jumelages de sites HCX | 3 avec l’édition Advanced, 10 avec l’édition Enterprise |
 | Centres de données défini par logiciel (SDDC) liés à ExpressRoute AVS max | 4 |

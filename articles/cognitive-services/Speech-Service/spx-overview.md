@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f1e5f38e97a1b51a2d919deebbdc452e9daf993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddba62b37c200ade87dbb51042fe0cb084a9ef9a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98539777"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106120"
 ---
 # <a name="what-is-the-speech-cli"></a>Qu’est-ce que l’interface CLI Speech ?
 
@@ -36,7 +36,7 @@ Utilisez le kit de développement logiciel (SDK) Speech lorsque :
 
 * Reconnaissance vocale : convertissez la parole en texte à partir de fichiers audio ou directement à partir d’un microphone ou transcrivez une conversation enregistrée.
 
-* Synthèse vocale : convertissez la synthèse vocale en entrée à partir de fichiers texte ou en entrée directement à partir de la ligne de commande. Personnalisez les caractéristiques de la sortie vocale à l’aide de [configurations SSML](speech-synthesis-markup.md) et [les voix standard ou neuronales](speech-synthesis-markup.md#standard-neural-and-custom-voices).
+* Synthèse vocale : convertissez la synthèse vocale en entrée à partir de fichiers texte ou en entrée directement à partir de la ligne de commande. Personnalisez les caractéristiques de la sortie vocale à l’aide de [configurations SSML](speech-synthesis-markup.md) et [les voix standard ou neuronales](speech-synthesis-markup.md#neural-and-custom-voices).
 
 * Traduction vocale : traduisez de l’audio dans une langue source en texte ou audio dans une langue cible.
 

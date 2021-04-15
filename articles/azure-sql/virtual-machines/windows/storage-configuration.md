@@ -1,5 +1,5 @@
 ---
-title: Configuration du stockage pour les machines virtuelles SQL Server | Microsoft Docs
+title: Configurer le stockage pour les machines virtuelles SQL Server | Microsoft Docs
 description: Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors du provisionnement (modèle de déploiement Azure Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,27 +13,26 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 982bd9239c5e95c9b7af09b5f54c5a09067ca7c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97356707"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565414"
 ---
-# <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
+# <a name="configure-storage-for-sql-server-vms"></a>Configurer le stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Quand vous configurez une image de machine virtuelle SQL Server dans Azure, le portail Azure permet d’automatiser la configuration de votre stockage. Cela inclut l’attachement du stockage à la machine virtuelle, ce qui permet à SQL Server d’y accéder et le configure de façon à l’optimiser en fonction de vos besoins spécifiques.
+Cet article vous explique comment configurer votre stockage pour votre instance de SQL Server sur les machines virtuelles Azure.
 
-Cette rubrique explique comment Azure configure le stockage pour vos machines virtuelles SQL Server à la fois lors de la configuration et pour les machines virtuelles existantes. Cette configuration est basée sur les [meilleures pratiques pour les performances](performance-guidelines-best-practices.md) pour les machines virtuelles Azure exécutant SQL Server.
+Les machines virtuelles SQL Server déployées à l’aide d’images du marketplace respectent automatiquement les [meilleures pratiques de stockage](performance-guidelines-best-practices-storage.md) par défaut, qui peuvent être modifiées pendant le déploiement. Certains de ces paramètres de configuration peuvent être modifiés après le déploiement. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser les paramètres de configuration automatisée du stockage, votre machine virtuelle doit répondre aux conditions suivantes :
 
-* Configurée avec une [image de galerie SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo);
+* Est approvisionnée avec une [image de la galerie SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo) ou est inscrite avec l’[extension SQL IaaS]() ;
 * Utilise le [modèle de déploiement Resource Manager](../../../azure-resource-manager/management/deployment-models.md);
 * Utilise des [SSD premium](../../../virtual-machines/disks-types.md).
 
@@ -47,7 +46,9 @@ Lors de l’approvisionnement d’une machine virtuelle Azure à l’aide d’un
 
 ![Capture d’écran mettant en surbrillance l’onglet Paramètres SQL Server et l’option Modification de la configuration.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général**, par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
+Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général**, par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. 
+
+Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -74,7 +75,7 @@ En fonction de votre choix, Azure exécute les tâches de configuration du stock
 * Associe le pool de stockage à un nouveau lecteur sur la machine virtuelle.
 * Optimise ce nouveau lecteur en fonction du type de charge de travail que vous avez spécifié (entrepôt de données, traitement transactionnel ou général).
 
-Pour plus d’informations sur la manière dont Azure configure les paramètres de stockage, consultez la section [Configuration du stockage](#storage-configuration). Pour une procédure pas à pas détaillée de la création d’une machine virtuelle SQL Server dans le portail Azure, consultez [le tutoriel de provisionnement](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
+Pour une procédure pas à pas détaillée de la création d’une machine virtuelle SQL Server dans le portail Azure, consultez [le tutoriel de provisionnement](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
 ### <a name="resource-manager-templates"></a>Modèles Resource Manager
 
@@ -111,7 +112,7 @@ Vous pouvez modifier les paramètres de disque des lecteurs configurés lors du 
 ![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-## <a name="storage-configuration"></a>Configuration du stockage
+## <a name="automated-changes"></a>Modifications automatisées
 
 Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL Server dans le portail Azure.
 
@@ -137,7 +138,7 @@ Azure utilise les paramètres suivants pour créer le pool de stockage sur les m
 <sup>1</sup> Une fois le pool de stockage créé, vous ne pouvez pas modifier le nombre de colonnes qu’il contient.
 
 
-## <a name="workload-optimization-settings"></a>Paramètres d’optimisation de la charge de travail
+### <a name="workload-optimization-settings"></a>Paramètres d’optimisation de la charge de travail
 
 Le tableau suivant décrit les trois options de type de charge de travail disponibles, ainsi que leurs optimisations :
 
@@ -149,6 +150,78 @@ Le tableau suivant décrit les trois options de type de charge de travail dispon
 
 > [!NOTE]
 > Vous pouvez uniquement spécifier le type de charge de travail si vous provisionnez une machine virtuelle SQL Server en la sélectionnant à l’étape de configuration du stockage.
+
+## <a name="enable-caching"></a>Activer la mise en cache 
+
+Modifiez la stratégie de mise en cache au niveau du disque. Vous pouvez le faire à l’aide du portail Azure, de [PowerShell](/powershell/module/az.compute/set-azvmdatadisk) ou d’[Azure CLI](/cli/azure/vm/disk). 
+
+Pour modifier votre stratégie de mise en cache dans le portail Azure, procédez comme suit :
+
+1. Arrêtez votre service SQL Server. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+1. Accédez à votre machine virtuelle, sélectionnez **Disques** sous **Paramètres**. 
+   
+   ![Capture d’écran montrant le panneau de configuration du disque de machine virtuelle dans le portail Azure.](./media/storage-configuration/disk-in-portal.png)
+
+1. Sélectionnez la stratégie de mise en cache appropriée pour votre disque dans la liste déroulante. 
+
+   ![Capture d’écran montrant la configuration de la stratégie de mise en cache du disque dans le portail Azure.](./media/storage-configuration/azure-disk-config.png)
+
+1. Une fois la modification prise en compte, redémarrez la machine virtuelle SQL Server et démarrez le service SQL Server. 
+
+
+## <a name="enable-write-accelerator"></a>Activer l’Accélérateur des écritures
+
+L’accélération d’écriture est une fonctionnalité de disque qui est uniquement disponible pour les machines virtuelles de la série M. L’objectif de l’accélération d’écriture est d’améliorer la latence d’E/S des écritures sur Stockage Premium Azure lorsque vous avez besoin d’une latence d’E/S à un chiffre en raison de charges de travail OLTP critiques ou d’environnements d’entrepôts de données de grande envergure. 
+
+Arrêtez toutes les activités de SQL Server et arrêtez le service SQL Server avant d’apporter des modifications à votre stratégie d’accélération d’écriture. 
+
+Si vos disques sont agrégés par bandes, activez l’accélération d’écriture pour chaque disque individuellement, et votre machine virtuelle Azure doit être arrêtée avant d’effectuer toute modification. 
+
+Pour activer l’accélération d’écriture à l’aide du portail Azure, procédez comme suit :
+
+1. Arrêtez votre service SQL Server. Si vos disques sont agrégés par bandes, arrêtez la machine virtuelle. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+1. Accédez à votre machine virtuelle, sélectionnez **Disques** sous **Paramètres**. 
+   
+   ![Capture d’écran montrant le panneau de configuration du disque de machine virtuelle dans le portail Azure.](./media/storage-configuration/disk-in-portal.png)
+
+1. Choisissez l’option de cache avec **Accélérateur d’écriture** pour votre disque dans la liste déroulante. 
+
+   ![Capture d’écran montrant la stratégie de mise en cache d’Accélérateur d’écriture.](./media/storage-configuration/write-accelerator.png)
+
+1. Une fois la modification prise en compte, démarrez la machine virtuelle et le service SQL Server. 
+
+## <a name="disk-striping"></a>Entrelacement de disques
+
+Pour augmenter le débit, vous pouvez ajouter des disques de données et utiliser l’entrelacement de disques. Pour déterminer le nombre de disques de données, analysez le débit et la bande passante nécessaires pour vos fichiers de données SQL Server, y compris le journal et tempdb. Les limites de débit et de bande passante varient en fonction de la taille de machine virtuelle. Pour en savoir plus, consultez [Taille de la machine virtuelle](../../../virtual-machines/sizes.md)
+
+
+* Pour Windows 8/Windows Server 2012 ou version ultérieure, utilisez des [espaces de stockage](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) en respectant les consignes suivantes :
+
+  1. Définissez l’entrelacement (taille de la bande) à 64 ko (65 536 octets) pour éviter tout impact sur les performances dû au mauvais alignement des partitions. Ces paramètres doivent être définis avec PowerShell.
+
+  2. Nombre de colonnes définies = nombre de disques physiques. Utilisez PowerShell lorsque vous configurez plus de 8 disques (et non l’interface utilisateur du gestionnaire de serveur).
+
+Par exemple, le code PowerShell suivant crée un pool de stockage avec un entrelacement de 64 Ko et un nombre de colonnes équivalent à la quantité de disques physiques dans le pool de stockage :
+
+  ```powershell
+  $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+  
+  New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" `
+      -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
+      -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
+      –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+      -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
+      -AllocationUnitSize 65536 -Confirm:$false 
+  ```
+
+  * Pour Windows 2008 R2 ou version antérieure, vous pouvez utiliser des disques dynamiques (volumes entrelacés de système d’exploitation). La taille de l’entrelacement restera 64 Ko. Cette option est déconseillée à partir de Windows 8/Windows Server 2012. Pour plus d’informations, consultez les instructions du support dans [Transition du service de disque virtuel vers l’API de gestion de stockage Windows](https://docs.microsoft.com/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api).
+ 
+  * Si vous utilisez les [espaces de stockage direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) avec des [instances de cluster de basculement SQL Server](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure), vous devez configurer un pool unique. Même si vous créez différents volumes sur ce pool unique, tous partageront les mêmes caractéristiques, par exemple la même stratégie de mise en cache.
+ 
+  * Déterminez le nombre de disques associés à votre pool de stockage en fonction de vos attentes en matière de charge. N’oubliez pas que les différentes tailles de machines virtuelles autorisent différents nombres de disques de données attachés. Pour plus d’informations, consultez [Tailles des machines virtuelles](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

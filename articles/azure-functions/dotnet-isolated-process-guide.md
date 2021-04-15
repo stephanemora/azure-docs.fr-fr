@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4da685c247427e78297df1753779ee9b5c7866b8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774930"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023195"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guide d’exécution des fonctions sur .NET 5.0 dans Azure
 
@@ -105,7 +105,7 @@ L’exemple suivant injecte une dépendance de service singleton :
 
 Pour plus d’informations, consultez [Injection de dépendances dans ASP.net Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-### <a name="middleware"></a>Middleware
+### <a name="middleware"></a>Middlewares
 
 Le processus isolé.NET prend également en charge l’inscription d’intergiciel, à nouveau à l’aide d’un modèle similaire à ce qui existe dans ASP.NET. Ce modèle vous donne la possibilité d’injecter une logique dans le pipeline d’appel, et avant et après l’exécution des fonctions.
 
@@ -147,15 +147,17 @@ Pour écrire dans une liaison de sortie, vous devez appliquer un attribut de lia
 
 ### <a name="multiple-output-bindings"></a>Liaisons de sortie multiples
 
-Les données écrites dans une liaison de sortie correspondent toujours à la valeur renvoyée de la fonction. S’il vous faut écrire dans plusieurs liaisons de sortie, vous devez créer un type de retour personnalisé. Ce type de retour doit présenter l’attribut de liaison de sortie appliqué à une ou plusieurs propriétés de la classe. L’exemple suivant écrit dans une réponse HTTP et une liaison de sortie de file d’attente :
+Les données écrites dans une liaison de sortie correspondent toujours à la valeur renvoyée de la fonction. S’il vous faut écrire dans plusieurs liaisons de sortie, vous devez créer un type de retour personnalisé. Ce type de retour doit présenter l’attribut de liaison de sortie appliqué à une ou plusieurs propriétés de la classe. L’exemple suivant d’un déclencheur HTTP permet d’écrire à la fois dans la réponse HTTP et dans une liaison de sortie de file d’attente :
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+
+Dans la mesure où la réponse d’un déclencheur HTTP est toujours considérée comme une sortie, un attribut de valeur de retour n’est pas nécessaire.
 
 ### <a name="http-trigger"></a>Déclencheur HTTP
 
 Les déclencheurs HTTP traduisent le message de requête HTTP entrant en objet [HttpRequestData] qui est transmis à la fonction. Cet objet fournit les données de la requête, notamment `Headers`, `Cookies`, `Identities`, `URL`, et un message facultatif `Body`. Cet objet est une représentation de l’objet de requête HTTP, et non de la demande elle-même. 
 
-De même, la fonction renvoie un objet [HttpReponseData], qui fournit les données utilisées pour créer la réponse HTTP, y compris le message `StatusCode`, `Headers`, voire un message `Body`.  
+De même, la fonction retourne un objet [HttpResponseData], qui fournit les données utilisées pour créer la réponse HTTP, notamment le message `StatusCode`, `Headers` et éventuellement un message `Body`.  
 
 Le code suivant correspond à un déclencheur HTTP. 
 

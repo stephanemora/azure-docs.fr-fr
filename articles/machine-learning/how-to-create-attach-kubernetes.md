@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/11/2021
-ms.openlocfilehash: bc8f7aa6827ce251799acd0673d43344c0833c3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103149322"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276652"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -48,12 +48,8 @@ Azure Machine Learning peut déployer des modèles Machine Learning entraînés 
 
 - Si vous voulez utiliser un cluster AKS privé (avec Azure Private Link), vous devez d’abord créer le cluster, puis l’**attacher** à l’espace de travail. Pour plus d’informations, consultez [Créer un cluster Azure Kubernetes Service privé](../aks/private-clusters.md).
 
-- Le nom de calcul du cluster AKS DOIT être unique au sein de l’espace de travail Azure ML.
-    - Le nom est obligatoire et doit comprendre entre 3 et 24 caractères.
-    - Les caractères valides sont les lettres majuscules et minuscules, les chiffres et le caractère -.
-    - Le nom doit commencer par une lettre.
-    - Le nom doit être unique parmi tous les calculs existants au sein d’une région Azure. Si le nom que vous choisissez n’est pas unique, une alerte s’affiche.
-   
+- Le nom de calcul du cluster AKS DOIT être unique au sein de l’espace de travail Azure ML. Il peut inclure des lettres, des chiffres et des tirets. Il doit commencer par une lettre, se terminer par une lettre ou un chiffre, et contenir entre 3 et 24 caractères.
+ 
  - Si vous souhaitez déployer des modèles sur des nœuds **GPU** ou **FPGA** (ou sur une référence SKU spécifique), vous devez créer un cluster de la référence SKU en question. Il n’est pas possible de créer un pool de nœuds secondaire dans un cluster existant et de déployer des modèles dans le pool de nœuds secondaire.
  
 - Lors de la création ou de l’attachement d’un cluster, vous pouvez indiquer s’il sera utilisé dans un contexte de __développement/test__ ou de __production__. Si vous souhaitez créer un cluster AKS à des fins de __développement__, de __validation__ et de __test__ plutôt que de production, définissez l’__objet du cluster__ sur __développement/test__. Si vous n’indiquez pas l’objet du cluster, un cluster de __production__ est créé. 

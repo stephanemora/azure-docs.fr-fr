@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Event Hubs Dedicated - Azure Event Hubs | Microsoft 
 description: Cet article fournit une vue d’ensemble d’Azure Event Hubs Dedicated, qui offre des déploiements de concentrateurs d’événements à locataire unique.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe63b074bfdd01191d81dfb7024af5532a87a12f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715613"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310765"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -71,4 +71,4 @@ Contactez votre représentant commercial Microsoft ou le support technique Micro
 
 - [Créer un cluster Event Hubs via le portail Azure](https://aka.ms/eventhubsclusterquickstart) 
 - [Tarification d’Event Hubs Dedicated](https://azure.microsoft.com/pricing/details/event-hubs/). Vous pouvez également contacter votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité Event Hubs Dedicated.
-- L’article [FAQ sur les hubs d’événements](event-hubs-faq.md) traite des informations de tarification et répond à certaines questions fréquemment posées sur Event Hubs.
+- L’article [FAQ sur les hubs d’événements](event-hubs-faq.yml) traite des informations de tarification et répond à certaines questions fréquemment posées sur Event Hubs.

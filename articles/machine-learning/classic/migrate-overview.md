@@ -3,17 +3,17 @@ title: 'ML Studio (classique) : Migrer vers Azure Machine Learning'
 description: Migrez de Studio (classique) vers Azure Machine Learning pour bénéficier d’une plateforme moderne de science des données.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7cdf016d7de66c33973ec7818fa92df28c4639dd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fafb9f7e84263c33cf1b15a52742ec9cd0380a40
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566951"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311853"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migrer vers Azure Machine Learning
 
@@ -158,7 +158,7 @@ Dans cet article, vous avez découvert les principales exigences requises pour e
 
 1. **Vue d’ensemble de la migration**.
 1. [Migrer un jeu de données](migrate-register-dataset.md).
-1. [Reconstruire un pipeline de formation Studio (classique)](migrate-rebuild-experiment.md) .
+1. [Reconstruire un pipeline de formation Studio (classique)](migrate-rebuild-experiment.md).
 1. [Reconstruire un service web Studio (classique)](migrate-rebuild-web-service.md).
 1. [Intégrer un service web Azure Machine Learning à des applications clientes](migrate-rebuild-integrate-with-client-app.md).
 1. [Migrer Exécuter un script R](migrate-execute-r-script.md).

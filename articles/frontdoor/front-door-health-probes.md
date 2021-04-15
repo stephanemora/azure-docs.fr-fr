@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449251"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550739"
 ---
 # <a name="health-probes"></a>Sondes d’intégrité
 
@@ -24,6 +24,9 @@ Pour déterminer l’intégrité et de la proximité de chaque serveur principal
 
 > [!WARNING]
 > Dans la mesure où le service Front Door a de nombreux environnements de périphérie, le volume de sonde d’intégrité adressées à vos serveurs principaux peut être conséquent, allant de 25 à 1 200 requêtes par minute, en fonction de la fréquence configurée de la sonde d’intégrité. À la fréquence de sonde par défaut de 30 secondes, le volume des requêtes de sonde sur votre serveur principal doit être d’environ 200 requêtes par minute.
+
+> [!NOTE]
+> Les sondes Front Door HTTP/HTTPS sont envoyées avec l’en-tête `User-Agent` défini sur la valeur : `Edge Health Probes`. 
 
 ## <a name="supported-protocols"></a>Protocoles pris en charge
 

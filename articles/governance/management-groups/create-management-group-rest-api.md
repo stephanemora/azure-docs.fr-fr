@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer un groupe d’administration avec l’API RE
 description: Dans ce guide de démarrage rapide, vous utilisez l’API REST pour créer un groupe d’administration afin d’organiser vos ressources dans une hiérarchie de ressources.
 ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 26a1c0a8025a00155bcf0498e6dfa89a8a73d983
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99592498"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259130"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>Démarrage rapide : Créer un groupe d’administration avec l’API REST
 
@@ -28,7 +28,7 @@ La création du premier groupe d’administration dans l’annuaire peut nécess
 
 ### <a name="create-in-rest-api"></a>Créer dans l’API REST
 
-Pour créer un groupe d’administration dans l’API REST, utilisez le point de terminaison [Groupes d’administration - Créer ou mettre à jour](/rest/api/resources/managementgroups/createorupdate). Dans cet exemple, la valeur **groupId** du groupe d’administration est _Contoso_.
+Pour créer un groupe d’administration dans l’API REST, utilisez le point de terminaison [Groupes d’administration - Créer ou mettre à jour](/rest/api/managementgroups/managementgroups/createorupdate). Dans cet exemple, la valeur **groupId** du groupe d’administration est _Contoso_.
 
 - URI de l’API REST
 
@@ -81,7 +81,7 @@ Dans les exemples précédents, le groupe d’administration est créé sous le 
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour supprimer le groupe d’administration créé ci-dessus, utilisez le point de terminaison [Groupes d’administration - Supprimer](/rest/api/resources/managementgroups/delete) :
+Pour supprimer le groupe d’administration créé ci-dessus, utilisez le point de terminaison [Groupes d’administration - Supprimer](/rest/api/managementgroups/managementgroups/delete) :
 
 - URI de l’API REST
 

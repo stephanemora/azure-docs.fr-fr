@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 9fa6a1758bc2e2a76291efc3bb239c5249a6e21e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a3a70ac5d5603cad98c199cbd8e3b98bb095d131
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149339"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167666"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurer des cibles de calcul pour l'apprentissage et le déploiement de modèles
 
@@ -53,7 +53,7 @@ Pour utiliser les cibles de calcul gérées par Azure Machine Learning service, 
 
 ## <a name="whats-a-compute-target"></a>Qu’est-ce qu’une cible de calcul ?
 
-Azure Machine Learning vous permet de faire l’apprentissage de votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-targets). Une cible de calcul peut être un ordinateur local ou une ressource cloud, comme une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également utiliser des cibles de calcul pour le déploiement de modèles, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
+Azure Machine Learning vous permet d’effectuer l’apprentissage de votre modèle sur une variété de ressources et d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-targets). Une cible de calcul peut être un ordinateur local ou une ressource cloud, comme une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également utiliser des cibles de calcul pour le déploiement de modèles, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
 
 ## <a name="local-computer"></a><a id="local"></a>Ordinateur local
@@ -64,9 +64,12 @@ Lorsque vous utilisez votre ordinateur local pour l’**inférence**, Docker doi
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Machines virtuelles distantes
 
-Azure Machine Learning prend également en charge le rattachement d’une machine virtuelle Azure. La machine virtuelle doit être une instance d’Azure Data Science Virtual Machine (DSVM). Cette machine virtuelle est un environnement de science des données et de développement d’intelligence artificielle préconfiguré dans Azure. La machine virtuelle offre un choix organisé d’outils et d’infrastructures pour le développement de l’apprentissage automatique en cycle de vie complet. Pour plus d’informations sur l’utilisation de la DSVM avec Azure Machine Learning, consultez [Configurer un environnement de développement](./how-to-configure-environment.md#dsvm).
+Azure Machine Learning prend également en charge le rattachement d’une machine virtuelle Azure. La machine virtuelle doit être une instance d’Azure Data Science Virtual Machine (DSVM). La machine virtuelle offre un choix organisé d’outils et d’infrastructures pour le développement de l’apprentissage automatique en cycle de vie complet. Pour plus d’informations sur l’utilisation de la DSVM avec Azure Machine Learning, consultez [Configurer un environnement de développement](./how-to-configure-environment.md#dsvm).
 
-1. **Créer** : Créez une Data Science Virtual Machine (DSVM) à utiliser pour former votre modèle. Pour savoir comment créer cette ressource, voir [Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
+> [!TIP]
+> Au lieu d’une machine virtuelle distante, nous vous recommandons d’utiliser l’[instance de calcul Azure Machine Learning](concept-compute-instance.md). Il s’agit d’une solution de calcul, informatique et complètement managée, qui est propre à Azure Machine Learning. Pour plus d’informations, consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md).
+
+1. **Créer** : Azure Machine Learning ne peut pas créer de machine virtuelle distante pour vous. Au lieu de cela, vous devez créer la machine virtuelle puis l’attacher à votre espace de travail Azure Machine Learning. Pour plus d’informations sur la création d’un environnement Data Science VM, consultez [Approvisionner un environnement Data Science Virtual Machine pour Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
     > [!WARNING]
     > Azure Machine Learning prend uniquement en charge les machines virtuelles exécutant **Ubuntu**. Lorsque vous créez une machine virtuelle ou en choisissez une existante, celle-ci doit utiliser Ubuntu.
@@ -120,11 +123,16 @@ Azure Machine Learning prend également en charge le rattachement d’une machin
    src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
    ```
 
+> [!TIP]
+> Si vous souhaitez __supprimer__ (détacher) une machine virtuelle de votre espace de travail, utilisez la méthode [RemoteCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remotecompute#detach--).
+>
+> Azure Machine Learning ne supprime pas la machine virtuelle pour vous. Vous devez supprimer manuellement la machine virtuelle à l’aide du portail Azure, de l’interface CLI ou du Kit de développement logiciel (SDK) pour Machines virtuelles Azure.
+
 ## <a name="azure-hdinsight"></a><a id="hdinsight"></a>Azure HDInsight 
 
 Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. Elle fournit Apache Spark, que vous pouvez utiliser pour entraîner votre modèle.
 
-1. **Créer** :  Créez le cluster HDInsight à utiliser pour former votre modèle. Pour créer un cluster Spark sur HDInsight, consultez [Créer un cluster Spark dans HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+1. **Créer** : Azure Machine Learning ne peut pas créer de cluster HDInsight pour vous. Au lieu de cela, vous devez créer le cluster puis l’attacher à votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Créer un cluster Spark dans HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
     > [!WARNING]
     > Azure Machine Learning nécessite également que le cluster HDInsight dispose d’une __adresse IP publique__.
@@ -165,8 +173,10 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
-
-À présent que vous avez attaché la cible de calcul et configuré votre série de tests, l’étape suivante consiste à [soumettre la série de tests d’apprentissage](how-to-set-up-training-targets.md).
+> [!TIP]
+> Si vous souhaitez __supprimer__ (détacher) un cluster HDInsight de l’espace de travail, utilisez la méthode [HDInsightCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.hdinsight.hdinsightcompute#detach--).
+>
+> Azure Machine Learning ne supprime pas le cluster HDInsight pour vous. Vous devez le supprimer manuellement à l’aide du portail Azure, de l’interface CLI ou du Kit de développement logiciel (SDK) pour Azure HDInsight.
 
 ## <a name="azure-batch"></a><a id="azbatch"></a>Azure Batch 
 
@@ -215,7 +225,7 @@ print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 
 Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il peut être utilisé comme cible de calcul avec un pipeline Azure Machine Learning.
 
-Créez un espace de travail Azure Databricks avant de l’utiliser. Pour créer une ressource d’espace de travail, consultez le document [Exécuter un travail Spark sur Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
+> [!IMPORTANT} Azure Machine Learning ne peut pas créer de cible de calcul Azure Databricks pour vous. Au lieu de cela, vous devez créer un espace de travail Azure Databricks, puis l’attacher à votre espace de travail Azure Machine Learning. Pour créer une ressource d’espace de travail, consultez le document [Exécuter un travail Spark sur Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 Pour joindre Azure Databricks comme cible de calcul, fournissez les informations suivantes :
 
@@ -330,7 +340,6 @@ Des instances Azure Container Instances (ACI) sont créées de façon dynamique 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) propose différentes options de configuration lorsqu’il est utilisé conjointement à Azure Machine Learning. Pour plus d’informations, consultez [Créer et attacher Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
-
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 

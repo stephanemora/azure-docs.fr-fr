@@ -3,15 +3,15 @@ title: Créer un conteneur de profil FSLogix avec Azure Files et Active Director
 description: Cet article explique comment créer un conteneur de profil FSLogix avec Azure Files et Azure Active Directory Domain Services.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db49ade3b6727775c10321e10aff2e0bf231f1
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 59e2fc1f528040515398e51d359840f6ef1bbefc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447945"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255798"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Créer un conteneur de profil avec Azure Files et Azure AD DS
 
@@ -110,7 +110,7 @@ Pour obtenir la clé d’accès du compte de stockage :
     Par exemple :
 
      ```cmd
-     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
+     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
 8. Exécutez les commandes suivantes pour permettre à vos utilisateurs Windows Virtual Desktop de créer leur propre conteneur de profils tout en bloquant l’accès aux conteneurs de profils par d’autres utilisateurs.

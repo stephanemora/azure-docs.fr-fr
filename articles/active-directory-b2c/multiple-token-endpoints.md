@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ab93a8742d210969ef6ad10683bed92221c1a57
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491559"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256699"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrer une API Web basée sur OWIN vers b2clogin.com ou un domaine personnalisé
 
@@ -30,7 +30,7 @@ Les sections suivantes présentent un exemple d’activation de plusieurs émett
 
 Avant de poursuivre les étapes de cet article, vous devez disposer des ressources Azure AD B2C suivantes :
 
-* [Flux d’utilisateurs](tutorial-create-user-flows.md) ou [stratégies personnalisées](custom-policy-get-started.md) créées dans votre locataire
+* [Flux d’utilisateurs](tutorial-create-user-flows.md?pivots=b2c-user-flow) ou [stratégies personnalisées](tutorial-create-user-flows.md?pivots=b2c-custom-policy) créées dans votre locataire
 
 ## <a name="get-token-issuer-endpoints"></a>Obtenir les points de terminaison d’émetteur de jeton
 

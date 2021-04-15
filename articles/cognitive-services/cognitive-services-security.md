@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425292"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043870"
 ---
 # <a name="azure-cognitive-services-security"></a>Sécurité Azure Cognitive Services
 
@@ -29,13 +29,13 @@ Tous les points de terminaison de Cognitive Services exposés via HTTP appliquen
 * Le langage (et la plateforme) utilisé pour effectuer l’appel HTTP doit spécifier TLS 1.2 dans le cadre de la requête
   * Selon le langage et la plateforme, la spécification de TLS s’effectue implicitement ou explicitement
 
-Pour les utilisateurs .NET, prenez en compte les <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">bonnes pratiques liées au protocole TLS</a>.
+Pour les utilisateurs .NET, prenez en compte les <a href="/dotnet/framework/network-programming/tls" target="_blank">bonnes pratiques liées au protocole TLS</a>.
 
 ## <a name="authentication"></a>Authentification
 
 En ce qui concerne l’authentification, plusieurs fausses idées sont largement répandues. Les gens confondent souvent authentification et autorisation. L’identité est également une composante majeure de la sécurité. Une identité est une collection d’informations sur un <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal</a>. Les fournisseurs d’identité (IdP) fournissent des identités aux services d’authentification. L’authentification est l’action consistant à vérifier l’identité d’un utilisateur. L’autorisation est la spécification de droits d’accès et de privilèges sur des ressources pour une identité donnée. Plusieurs des offres de Cognitive Services incluent le contrôle d’accès en fonction du rôle Azure (Azure RBAC). La fonctionnalité Azure RBAC peut être utilisée pour simplifier une partie du cérémonial impliqué dans la gestion manuelle des principaux. Pour en savoir plus, reportez-vous au [contrôle d’accès en fonction du rôle Azure pour les ressources Azure](../role-based-access-control/overview.md).
 
-Pour plus d’informations sur l’authentification avec les clés d’abonnement, les jetons d’accès et Azure Active Directory (AAD), consultez <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Authentifier des requêtes auprès d’Azure Cognitive Services</a>.
+Pour plus d’informations sur l’authentification avec les clés d’abonnement, les jetons d’accès et Azure Active Directory (AAD), consultez <a href="/azure/cognitive-services/authentication" target="_blank">Authentifier des requêtes auprès d’Azure Cognitive Services</a>.
 
 ## <a name="environment-variables-and-application-configuration"></a>Variables d’environnement et configuration d’application
 
@@ -113,7 +113,7 @@ Pour obtenir une variable d’environnement, elle doit être lue en mémoire. Se
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
+Pour plus d’informations, consultez <a href="/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` </a>.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Pour plus d’informations, consultez <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
+Pour plus d’informations, consultez <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` </a>.
 
 ```cpp
 #include <stdlib.h>

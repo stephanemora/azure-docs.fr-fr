@@ -3,18 +3,20 @@ title: Présentation d’Update Management Azure Automation
 description: Cet article présente la fonctionnalité Update Management qui implémente les mises à jour de vos machines Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/19/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 62ae2eab33063416fdd6265b14dd8c30da55e174
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950057"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166698"
 ---
 # <a name="update-management-overview"></a>Vue d’ensemble de Update Management
 
 Vous pouvez utiliser Update Management dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos machines virtuelles Windows et Linux dans Azure, dans des environnements locaux et dans d’autres environnements cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur toutes les machines d’agent et gérer le processus d’installation des mises à jour nécessaires pour les serveurs.
+
+En tant que fournisseur de services, vous avez peut-être intégré les locataires de plusieurs clients à [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse vous permet d’effectuer des opérations à grande échelle sur plusieurs locataires Azure AD (Azure Active Directory) à la fois, améliorant ainsi l’efficacité des tâches de gestion comme Update Management parmi les locataires dont vous êtes responsable.
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser de machine configurée avec Update Management pour exécuter des scripts personnalisés à partir d’Azure Automation. Cette machine ne peut exécuter que le script de mise à jour signé par Microsoft.
@@ -24,7 +26,7 @@ Vous pouvez utiliser Update Management dans Azure Automation pour gérer les mis
 
 Pour télécharger et installer automatiquement des correctifs *critiques* et *de sécurité* sur votre machine virtuelle Azure, consultez [Mise à jour corrective automatique de l’invité de machine virtuelle](../../virtual-machines/automatic-vm-guest-patching.md) pour les machines virtuelles Windows.
 
-Avant de déployer Update Management et d’activer vos machines pour la gestion, assurez-vous de bien comprendre les informations contenues dans les sections suivantes.  
+Avant de déployer Update Management et d’activer vos machines pour la gestion, assurez-vous de bien comprendre les informations contenues dans les sections suivantes.
 
 ## <a name="about-update-management"></a>À propos d’Update Management
 
@@ -40,7 +42,7 @@ Le schéma suivant illustre la façon dont Update Management évalue les mises �
 
 ![Workflow Update Management](./media/overview/update-mgmt-updateworkflow.png)
 
-Update Management peut être utilisé pour déployer en mode natif sur des machines dans plusieurs abonnements du même locataire.
+Update Management peut être utilisé pour effectuer un déploiement en mode natif sur des machines de plusieurs abonnements dans le même locataire, ou parmi plusieurs locataires à l’aide de la [gestion des ressources déléguée Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 Après la publication d’un package, comptez un délai de deux à trois heures avant l’affichage du correctif pour l’évaluation sur des machines Linux. Sur les machines Windows, ce délai est de 12 à 15 heures. Après qu’une machine a terminé l’analyse de conformité de la mise à jour, l’agent transfère les informations en bloc aux journaux Azure Monitor. Sur une machine Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut. Sur une machine Linux, l’analyse de conformité est effectuée toutes les heures par défaut. Si l’agent Log Analytics est redémarré, une analyse de conformité est démarrée dans les 15 minutes.
 
@@ -131,7 +133,7 @@ Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (
 
 ## <a name="permissions"></a>Autorisations
 
-Pour créer et gérer des déploiements de mises à jour, vous devez disposer d’autorisations spécifiques. Pour en savoir plus sur ces autorisations, consultez [Accès en fonction du rôle – Update Management](../automation-role-based-access-control.md#update-management-permissions).
+Pour créer et gérer des déploiements de mises à jour, vous devez disposer d’autorisations spécifiques. Pour en savoir plus sur ces autorisations, consultez [Accès en fonction du rôle - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
 ## <a name="update-management-components"></a>Composants Update Management
 

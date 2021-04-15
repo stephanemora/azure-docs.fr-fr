@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4fbb09a2687673ef96252d8bdb0523d0c5f235ae
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: dc4450fb1e21211b43bc178d94cf4bdfe6da58e1
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772023"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256784"
 ---
 # <a name="embedded-sign-in-experience"></a>Expérience de connexion incorporée
 
@@ -45,11 +45,11 @@ L’élément de cadre en ligne `<iframe>` permet d’incorporer un document dan
 Lors de l’utilisation d’un IFrame, tenez compte de ce qui suit :
 
 - Une connexion incorporée ne prend en charge que des comptes locaux. La plupart des fournisseurs d’identité sociale (par exemple, Google et Facebook) bloquent l’affichage de leurs pages de connexion dans des cadres en ligne.
-- Étant donné que les cookies de session Azure AD B2C dans un IFrame sont considérés comme des cookies tiers, certains navigateurs (par exemple, Safari ou Chrome en mode Incognito) les bloquent ou les suppriment, ce qui entraîne une expérience utilisateur indésirable. Pour éviter ce problème, assurez-vous que le nom de domaine de votre application et votre domaine Azure AD B2C ont la *même origine*. Pour utiliser la même origine, [activez les domaines personnalisés](custom-domain.md) pour le locataire Azure AD B2C, puis configurez votre application web avec la même origine. Par exemple, une application hébergée sur https://app.contoso.com a la même origine qu’Azure AD B2C s’exécutant sur https://login.contoso.com .
+- Étant donné que les cookies de session Azure AD B2C dans un IFrame sont considérés comme des cookies tiers, certains navigateurs (par exemple, Safari ou Chrome en mode Incognito) les bloquent ou les suppriment, ce qui entraîne une expérience utilisateur indésirable. Pour éviter ce problème, assurez-vous que le nom de domaine de votre application et votre domaine Azure AD B2C ont la *même origine*. Pour utiliser la même origine, [activez les domaines personnalisés](custom-domain.md) pour le locataire Azure AD B2C, puis configurez votre application web avec la même origine. Par exemple, une application hébergée sur « https://app.contoso.com  » a la même origine qu’Azure AD B2C s’exécutant sur « https://login.contoso.com  ».
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
+* Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * [Activez les domaines personnalisés](custom-domain.md) pour vos stratégies.
 
 ## <a name="configure-your-policy"></a>Configurer votre stratégie
