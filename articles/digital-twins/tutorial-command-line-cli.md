@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d155d0c4a18b254f66ff5fb58ea91dbee22d2c34
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 578befe3e26ebb42fa2172976e07d0a5836e3743
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496607"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107140"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>Tutoriel : Créer un graphe Azure Digital Twins à l’aide d’Azure CLI
 
@@ -20,7 +20,7 @@ ms.locfileid: "103496607"
 
 Dans ce tutoriel, vous allez créer un graphe dans Azure Digital Twins à l’aide de modèles, de jumeaux et de relations. L’outil pour ce tutoriel est le [jeu de commandes Azure Digital Twins pour **Azure CLI**](how-to-use-cli.md). 
 
-Vous pouvez utiliser les commandes CLI pour effectuer des actions Azure Digital Twins essentielles, telles que le chargement de modèles, la création et la modification de jumeaux et la création de relations. Vous pouvez également consulter la [documentation de référence sur le jeu de commandes *az dt*](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest) pour voir l’ensemble complet de commandes CLI.
+Vous pouvez utiliser les commandes CLI pour effectuer des actions Azure Digital Twins essentielles, telles que le chargement de modèles, la création et la modification de jumeaux et la création de relations. Vous pouvez également consulter la [documentation de référence sur le jeu de commandes *az dt*](/cli/azure/dt) pour voir l’ensemble complet de commandes CLI.
 
 Ce tutoriel présente les procédures suivantes :
 > [!div class="checklist"]
@@ -91,7 +91,7 @@ Après avoir conçu les modèles, vous devez les charger sur votre instance Azur
     
     Accédez au fichier *Room.json* sur votre machine et sélectionnez « Ouvrir ». Ensuite, répétez cette étape pour *Floor.json*.
 
-1. Ensuite, utilisez la commande [**az dt model create**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create) comme indiqué ci-dessous pour charger votre modèle *Room* mis à jour sur votre instance Azure Digital Twins. La deuxième commande charge un autre modèle, *Floor*, que vous utiliserez également dans la section suivante pour créer différents types de jumeaux.
+1. Ensuite, utilisez la commande [**az dt model create**](/cli/azure/dt/model#az_dt_model_create) comme indiqué ci-dessous pour charger votre modèle *Room* mis à jour sur votre instance Azure Digital Twins. La deuxième commande charge un autre modèle, *Floor*, que vous utiliserez également dans la section suivante pour créer différents types de jumeaux.
 
     ```azurecli-interactive
     az dt model create -n <ADT_instance_name> --models Room.json
@@ -101,9 +101,9 @@ Après avoir conçu les modèles, vous devez les charger sur votre instance Azur
     La sortie de chaque commande affiche des informations sur le modèle chargé avec succès.
 
     >[!TIP]
-    >Vous pouvez également charger tous les modèles dans un répertoire en même temps, à l’aide de l’option `--from-directory` de la commande model create. Pour plus d’informations, consultez [Paramètres facultatifs pour *az dt model create*](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters).
+    >Vous pouvez également charger tous les modèles dans un répertoire en même temps, à l’aide de l’option `--from-directory` de la commande model create. Pour plus d’informations, consultez [Paramètres facultatifs pour *az dt model create*](/cli/azure/dt/model#az_dt_model_create-optional-parameters).
 
-1. Vérifiez que les modèles ont été créés avec la commande [**az dt model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list) comme indiqué ci-dessous. Cette commande imprime une liste de tous les modèles qui ont été chargés sur l’instance Azure Digital Twins, avec leurs informations complètes. 
+1. Vérifiez que les modèles ont été créés avec la commande [**az dt model list**](/cli/azure/dt/model#az_dt_model_list) comme indiqué ci-dessous. Cette commande imprime une liste de tous les modèles qui ont été chargés sur l’instance Azure Digital Twins, avec leurs informations complètes. 
 
     ```azurecli-interactive
     az dt model list -n <ADT_instance_name> --definition
@@ -129,7 +129,7 @@ Comme les modèles ne peuvent pas être remplacés, un code d’erreur `ModelIdA
 
 Maintenant que certains modèles ont été chargés sur votre instance Azure Digital Twins, vous pouvez créer des [**jumeaux numériques**](concepts-twins-graph.md) basés sur les définitions de modèle. Les jumeaux numériques représentent les entités au sein de votre environnement d’entreprise (par exemple les capteurs dans une ferme, les salles d’un bâtiment ou les voyants d’une voiture). 
 
-Pour créer un jumeau numérique, utilisez la commande [**az dt twin create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_create). Vous devez référencer le modèle sur lequel le jumeau est basé, et vous pouvez éventuellement définir des valeurs initiales pour les propriétés du modèle. Vous n’avez pas besoin de transmettre d’informations de relation à ce stade.
+Pour créer un jumeau numérique, utilisez la commande [**az dt twin create**](/cli/azure/dt/twin#az_dt_twin_create). Vous devez référencer le modèle sur lequel le jumeau est basé, et vous pouvez éventuellement définir des valeurs initiales pour les propriétés du modèle. Vous n’avez pas besoin de transmettre d’informations de relation à ce stade.
 
 1. Exécutez ce code dans Cloud Shell pour créer plusieurs jumeaux, basés sur le modèle *Room* que vous avez mis à jour et sur un autre modèle, *Floor*. Rappelez-vous que *Room* a trois propriétés ; vous pouvez donc fournir des arguments avec les valeurs initiales de ces propriétés. (L’initialisation des valeurs de propriétés est facultative en général, mais elle est nécessaire pour ce tutoriel.)
 
@@ -151,7 +151,7 @@ Pour créer un jumeau numérique, utilisez la commande [**az dt twin create**](/
     
     La sortie de chaque commande affiche des informations sur le jumeau créé (notamment les propriétés des jumeaux de pièce qui ont été initialisés avec eux).
 
-1. Vous pouvez vérifier que les jumeaux ont été créés avec la commande [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query), comme indiqué ci-dessous. La requête affichée recherche tous les jumeaux numériques dans votre instance Azure Digital Twins.
+1. Vous pouvez vérifier que les jumeaux ont été créés avec la commande [**az dt twin query**](/cli/azure/dt/twin#az_dt_twin_query), comme indiqué ci-dessous. La requête affichée recherche tous les jumeaux numériques dans votre instance Azure Digital Twins.
     
     ```azurecli-interactive
     az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
@@ -165,7 +165,7 @@ Pour créer un jumeau numérique, utilisez la commande [**az dt twin create**](/
 
 Vous pouvez également modifier les propriétés d’un jumeau que vous avez créé. 
 
-1. Exécutez cette commande [**az dt twin update**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_update) pour changer le RoomName de *room0* de *Room0* en *PresidentialSuite* :
+1. Exécutez cette commande [**az dt twin update**](/cli/azure/dt/twin#az_dt_twin_update) pour changer le RoomName de *room0* de *Room0* en *PresidentialSuite* :
 
     ```azurecli-interactive
     az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
@@ -183,7 +183,7 @@ Vous pouvez également modifier les propriétés d’un jumeau que vous avez cr�
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Capture d’écran de Cloud Shell montrant le résultat de la commande update, qui mentionne PresidentialSuite comme RoomName." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. Vous pouvez vérifier que la mise à jour a réussi en exécutant la commande [**az dt twin show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) pour voir les informations de *room0* :
+1. Vous pouvez vérifier que la mise à jour a réussi en exécutant la commande [**az dt twin show**](/cli/azure/dt/twin#az_dt_twin_show) pour voir les informations de *room0* :
 
     ```azurecli-interactive
     az dt twin show -n <ADT_instance_name> --twin-id room0
@@ -197,7 +197,7 @@ Ensuite, vous pouvez créer des **relations** entre ces jumeaux, afin de les rac
 
 Les types de relations que vous pouvez créer d’un jumeau à un autre sont définis dans les [modèles](#model-a-physical-environment-with-dtdl) que vous avez chargés. La [définition de modèle pour *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) spécifie que les étages peuvent avoir un type de relation nommé *contains*. Cela permet de créer une relation de type *contains* entre chaque jumeau *Floor* et la pièce correspondante qu’il contient.
 
-Pour ajouter une relation, utilisez la commande [**az dt twin relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create). Spécifiez le jumeau d’où provient la relation, le type de relation, et le jumeau avec lequel la relation établit une connexion. Pour finir, attribuez un ID unique à la relation. Si une relation a été définie avec des propriétés, vous pouvez également initialiser les propriétés de relation dans cette commande.
+Pour ajouter une relation, utilisez la commande [**az dt twin relationship create**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create). Spécifiez le jumeau d’où provient la relation, le type de relation, et le jumeau avec lequel la relation établit une connexion. Pour finir, attribuez un ID unique à la relation. Si une relation a été définie avec des propriétés, vous pouvez également initialiser les propriétés de relation dans cette commande.
 
 1. Exécutez le code suivant pour ajouter une relation de type *contains* entre chaque jumeau *Floor* que vous avez créé et le jumeau *Room* correspondant. Les relations sont nommées *relationship0* et *relationship1*.
 
@@ -240,7 +240,7 @@ Les jumeaux et les relations que vous avez configurés dans ce tutoriel forment 
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Interroger le graphe de jumeaux pour répondre à des questions environnementales
 
-L’une des principales fonctionnalités d’Azure Digital Twins est la capacité à [interroger facilement et efficacement](concepts-query-language.md) votre graphe de jumeaux pour répondre à des questions sur votre environnement. Dans Azure CLI, cette opération s’effectue à l’aide de la commande [**az dt twin query**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_query).
+L’une des principales fonctionnalités d’Azure Digital Twins est la capacité à [interroger facilement et efficacement](concepts-query-language.md) votre graphe de jumeaux pour répondre à des questions sur votre environnement. Dans Azure CLI, cette opération s’effectue à l’aide de la commande [**az dt twin query**](/cli/azure/dt/twin#az_dt_twin_query).
 
 Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines questions sur l’exemple d’environnement.
 
@@ -308,7 +308,7 @@ Exécutez les requêtes suivantes dans Cloud Shell pour répondre à certaines q
 
 * **Si vous envisagez de passer au tutoriel suivant**, vous pouvez conserver les ressources que vous avez configurées ici et réutiliser l’instance Azure Digital Twins sans effacer quoi que ce soit.
 
-* **Si vous souhaitez continuer à utiliser l’instance Azure Digital Twins, mais effacer tous ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes [**az dt twin relationship delete**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_delete) et [**az dt model delete**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_delete) pour effacer respectivement les relations, jumeaux et modèles de votre instance.
+* **Si vous souhaitez continuer à utiliser l’instance Azure Digital Twins, mais effacer tous ses modèles, jumeaux et relations**, vous pouvez utiliser les commandes [**az dt twin relationship delete**](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_delete), [**az dt twin delete**](/cli/azure/dt/twin#az_dt_twin_delete) et [**az dt model delete**](/cli/azure/dt/model#az_dt_model_delete) pour effacer respectivement les relations, jumeaux et modèles de votre instance.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 

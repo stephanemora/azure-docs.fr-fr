@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 2f55df70b2ebdaed9b7f15c940d3f4f0553a2856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf71f180a1ce845df436391b98227ae173fe77f1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676897"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303659"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -198,7 +198,6 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-ascs**)
          1. Sélectionnez l’adresse IP du front-end, le pool de back-ends et la sonde d’intégrité créée précédemment (par exemple, **nw1-ascs-frontend**, **nw1-backend** et **nw1-ascs-hp**)
          1. Sélectionnez **Ports haute disponibilité**
-         1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
          * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **nw1-lb-ers**)

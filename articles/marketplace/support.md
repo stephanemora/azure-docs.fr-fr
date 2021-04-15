@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfe365af868f01b868e737a409724e92f1d57f81
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879239"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106987"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
@@ -24,7 +24,7 @@ Microsoft prend en charge un large éventail de produits et services. Le fait de
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obtenir de l’aide ou ouvrir un ticket de support
 
-1. Connectez-vous avec votre compte professionnel. Si vous ne l’avez pas encore fait, vous devez [créer un compte Espace partenaires](partner-center-portal/create-account.md).
+1. Connectez-vous avec votre compte professionnel. Si vous ne l’avez pas encore fait, vous devez [créer un compte Espace partenaires](create-account.md).
 
 1. Dans le menu en haut à droite de la page, sélectionnez l’icône **Support**. Le volet **Aide et support** s’affiche sur le côté droit de la page.
 

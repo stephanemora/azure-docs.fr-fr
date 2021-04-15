@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 8437d12075a148a3e8062f62e195bc019d89a85b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881028"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606961"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Sécurité physique du service HSM dédié Azure
 
@@ -25,7 +25,7 @@ Le service HSM dédié Azure vous permet de respecter les exigences de sécurit�
 
 ## <a name="security-through-procurement"></a>La sécurité tout au long de l’approvisionnement
 
-Microsoft suit un processus d’approvisionnement sécurisé. Nous gérons la chaîne de responsabilité et veillons à ce que l’appareil spécifique qui est commandé et livré correspond bien à l’appareil qui parvient à nos centres de données. Les appareils sont expédiés dans des emballages de protection en plastique. Ils sont maintenus dans une zone de stockage sécurisée jusqu’à ce qu’ils soient mis en service dans la galerie de données du centre de données.  Les racks contenant les appareils HSM sont considérés comme ayant un fort impact commercial (HBI). Les appareils sont verrouillés et font l’objet d’une surveillance vidéo de tous les instants à l’avant et à l’arrière.
+Microsoft suit un processus d’approvisionnement sécurisé. Nous gérons la chaîne de responsabilité et veillons à ce que l’appareil spécifique qui est commandé et livré correspond bien à l’appareil qui parvient à nos centres de données. Les appareils sont expédiés dans des conteneurs et des sacs en plastique de protection dotés d’un numéro de série. Ils sont maintenus dans une zone de stockage sécurisée jusqu’à ce qu’ils soient mis en service dans la galerie de données du centre de données.  Les racks contenant les appareils HSM sont considérés comme ayant un fort impact commercial (HBI). Les appareils sont verrouillés et font l’objet d’une surveillance vidéo de tous les instants à l’avant et à l’arrière.
 
 ## <a name="security-through-deployment"></a>La sécurité tout au long du déploiement
 
@@ -49,7 +49,7 @@ Si un ingénieur Microsoft doit accéder au rack utilisé par des appareils HSM 
 
 ## <a name="logical-level-security-considerations"></a>Considérations relatives à la sécurité de niveau logique
 
-Les modules HSM sont provisionnés sur un réseau virtuel créé par le client. Il s’agit de l’espace d’adressage IUP privé du client.  Cette configuration offre une isolation appréciable au niveau du réseau logique et garantit un accès limité au client. Cela sous-entend que tous les contrôles de sécurité de niveau logique sont de la responsabilité du client.
+Les modules HSM sont provisionnés sur un réseau virtuel créé par le client dans son espace d’adressage IP privé.  Cette configuration offre une isolation appréciable au niveau du réseau logique et garantit un accès limité au client. Cela sous-entend que tous les contrôles de sécurité de niveau logique sont de la responsabilité du client.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

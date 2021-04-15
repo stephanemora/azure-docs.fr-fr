@@ -1,18 +1,18 @@
 ---
 title: Exemples Java pour illustrer le regroupement de connexions
 description: Cet article liste des exemples Java pour illustrer le regroupement de connexions.
-author: rothja
-ms.author: jroth
+author: savjani
+ms.author: pariks
 ms.custom: devx-track-java
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: 6874fb2664fbbaa284aba4703173dd8614c955e5
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 3d7977bc0943317cb52ba0bf98e2d1240a9031d2
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550386"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226470"
 ---
 # <a name="java-sample-to-illustrate-connection-pooling"></a>Exemple Java pour illustrer le regroupement de connexions
 

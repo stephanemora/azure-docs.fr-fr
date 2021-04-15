@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773043"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612379"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Bien démarrer avec la Traduction de documentation (préversion)
 
@@ -37,8 +37,8 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 > [!IMPORTANT]
 >
-> * Vous n’utiliserez pas le point de terminaison se trouvant dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP à la Traduction de documentation.
 > * **Toutes les requêtes d’API adressées au service Traduction de documentation nécessitent un point de terminaison de domaine personnalisé**.
+> * Vous n’utiliserez pas le point de terminaison se trouvant dans la page _Clés et point de terminaison_ de votre ressource du portail Azure, ni le point de terminaison du traducteur global (`api.cognitive.microsofttranslator.com`) pour soumettre des requêtes HTTP à la Traduction de documentation.
 
 ### <a name="what-is-the-custom-domain-endpoint"></a>Qu’est-ce que le point de terminaison de domaine personnalisé ?
 
@@ -93,7 +93,7 @@ Vous devez [**créer des conteneurs**](../../../storage/blobs/storage-quickstart
 
 * Créez un projet.
 * Remplacez Program.cs par le code C# indiqué ci-dessous.
-* Définissez votre point de terminaison. valeur de clé d’abonnement et d’URL du conteneur dans Program.cs.
+* Définissez vos valeurs de point de terminaison, de clé d’abonnement et d’URL de conteneur dans Program.cs.
 * Pour traiter des données JSON, ajoutez le [package Newtonsoft.Json en utilisant l’interface CLI .NET](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Exécutez le programme à partir du répertoire du projet.
 
@@ -174,7 +174,7 @@ gradle run
 * Définissez vos valeurs de point de terminaison, de clé d’abonnement et d’URL de conteneur.
 * Enregistrez le fichier avec une extension .go.
 * Ouvrez une invite de commandes sur un ordinateur sur lequel Go est installé.
-* Créez le fichier, par exemple : « go build example-code.go ».
+* Générez le fichier. Par exemple : « go build example-code.go ».
 * Exécutez le fichier, par exemple : « example-code ».
 
  ---
@@ -207,26 +207,49 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
 ## <a name="post-a-translation-request"></a>Poster (POST) une demande de traduction
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-without-optional-glossaryurl"></a>Corps de la requête POST sans la valeur glossaryURL facultative
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>Corps de requête POST pour traduire tous les documents d’un conteneur
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>Corps de requête POST pour traduire un document spécifique dans un conteneur
+
+* Vérifiez que vous avez spécifié "storageType": "File"
+* Vérifiez que vous avez créé une URL source et un jeton SAS pour l’objet blob/document spécifique (et non pour le conteneur) 
+* Vérifiez que vous avez spécifié le nom de fichier cible dans le cadre de l’URL cible, bien que le jeton SAS soit toujours pour le conteneur.
+* L’exemple de demande ci-dessous montre un document unique qui est traduit en deux langues cibles
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -235,40 +258,6 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
 }
 ```
 
-### <a name="post-request-body-with-optional-glossaryurl"></a>Corps de la requête POST avec la valeur glossaryURL facultative
-
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
 
 > [!IMPORTANT]
 >
@@ -1247,7 +1236,7 @@ func main() {
 
 ## <a name="content-limits"></a>Limites de contenu
 
-Le tableau ci-dessous liste les limites applicables aux données que vous envoyez au service Traduction de documentation.
+Le tableau ci-dessous liste les limites applicables aux données que vous envoyez au service Traduction de documentation (préversion).
 
 |Attribut | Limite|
 |---|---|

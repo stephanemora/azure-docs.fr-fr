@@ -10,30 +10,33 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6971c6f0959135c7de1f41bcd49adde514f87941
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99559652"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625481"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Utiliser Speech Services via un point de terminaison privé
 
 [Azure Private Link](../../private-link/private-link-overview.md) vous permet de vous connecter aux services dans Azure en utilisant un [point de terminaison privé](../../private-link/private-endpoint-overview.md). Un point de terminaison privé est une adresse IP privée qui est accessible uniquement au sein d’un [réseau virtuel](../../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
 
 Cet article explique comment configurer et utiliser Private Link et des points de terminaison privés avec Speech Services dans Azure Cognitive Services.
+Cet article décrit ensuite comment supprimer des points de terminaison privés ultérieurement, tout en continuant à utiliser la ressource Speech.
 
 > [!NOTE]
 > Avant de continuer, consultez l’article qui explique [comment utiliser des réseaux virtuels avec Cognitive Services](../cognitive-services-virtual-networks.md).
 
-Cet article décrit également [comment supprimer des points de terminaison privés ultérieurement, tout en continuant à utiliser la ressource Speech](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+
 
 ## <a name="create-a-custom-domain-name"></a>Créer un nom de domaine personnalisé
 
 Les points de terminaison privés demandent un [nom de sous-domaine personnalisé pour Cognitive Services](../cognitive-services-custom-subdomains.md). Suivez les instructions ci-dessous pour en créer un pour votre ressource Speech.
 
 > [!WARNING]
-> Une ressource Speech avec un nom de domaine personnalisé activé utilise un autre moyen d’interagir avec Speech Services. Vous devrez peut-être adapter votre code d’application pour ces deux scénarios : avec [point de terminaison privé activé](#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled) et [*sans* point de terminaison privé activé](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> Une ressource Speech qui utilise un nom de domaine personnalisé interagit avec les services de reconnaissance vocale d’une manière différente.
+> Vous devrez peut-être ajuster votre code d’application de façon à utiliser une ressource Speech avec un point de terminaison privé et à utiliser une ressource Speech _sans_ point de terminaison privé.
+> Les deux scénarios peuvent être nécessaires, car le basculement vers le nom de domaine personnalisé n’est _pas_ réversible.
 >
 > Lorsque vous activez un nom de domaine personnalisé, l’opération n’est [pas réversible](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). La seule façon de revenir au [nom régional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) consiste à créer une ressource Speech.
 >
@@ -183,9 +186,9 @@ Si le nom est déjà utilisé, vous obtenez la réponse suivante :
   "type": null
 }
 ```
-## <a name="enable-a-custom-domain-name"></a>Activer un nom de domaine personnalisé
+## <a name="turn-on-a-custom-domain-name"></a>Activer un nom de domaine personnalisé
 
-Pour activer un nom de domaine personnalisé pour la ressource Speech sélectionnée, utilisez la commande [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update).
+Pour utiliser un nom de domaine personnalisé avec la ressource Speech sélectionnée, utilisez la commande [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update).
 
 Sélectionnez l’abonnement Azure qui contient la ressource Speech. Si votre compte Azure ne dispose que d’un seul abonnement actif, vous pouvez ignorer cette étape Remplacez `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` par l’identifiant de votre abonnement Azure.
 ```azurecli-interactive
@@ -202,13 +205,14 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ***
 
-## <a name="enable-private-endpoints"></a>Activer les points de terminaison privés
+## <a name="turn-on-private-endpoints"></a>Activer des points de terminaison privés
 
-Nous vous recommandons d’utiliser la [zone DNS privée](../../dns/private-dns-overview.md) attachée au réseau virtuel avec les mises à jour nécessaires pour les points de terminaison privés. Vous créez une zone DNS privée par défaut pendant le processus de provisionnement. Si vous utilisez votre propre serveur DNS, vous devrez peut-être également modifier votre configuration DNS. 
+Nous vous recommandons d’utiliser la [zone DNS privée](../../dns/private-dns-overview.md) attachée au réseau virtuel avec les mises à jour nécessaires pour les points de terminaison privés. Vous pouvez créer une zone DNS privée par défaut pendant le processus de provisionnement. Si vous utilisez votre propre serveur DNS, vous devrez peut-être également modifier votre configuration DNS.
 
 Choisissez une stratégie DNS *avant* de provisionner des points de terminaison privés pour une ressource Speech en production. Testez également vos modifications DNS, en particulier si vous utilisez votre propre serveur DNS.
 
-Consultez l’un des articles suivants pour créer des points de terminaison privés. Ces articles utilisent une application web en guise d’exemple de ressource à activer avec les points de terminaison privés.
+Consultez l’un des articles suivants pour créer des points de terminaison privés.
+Ces articles utilisent une application web en guise d’exemple de ressource à mettre à disposition avec des points de terminaison privés.
 
 - [Créer un point de terminaison privé au moyen du Portail Azure](../../private-link/create-private-endpoint-portal.md)
 - [Créer un point de terminaison privé à l’aide d’Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -271,18 +275,20 @@ Si vous envisagez d’accéder à la ressource en utilisant uniquement un point 
 > [!NOTE]
 > L’adresse IP résolue pointe vers un point de terminaison proxy de réseau virtuel qui est utilisé pour distribuer le trafic réseau vers le point de terminaison privé pour la ressource Cognitive Services. Le comportement est différent pour une ressource avec un nom de domaine personnalisé activé, mais *sans* point de terminaison privé. Consultez [cette section](#dns-configuration) pour plus d’informations.
 
-## <a name="adjust-existing-applications-and-solutions"></a>Ajuster les solutions et applications existantes
+## <a name="adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint"></a>Ajuster une application pour qu’elle utilise une ressource Speech avec un point de terminaison privé
 
-Une ressource Speech avec un domaine personnalisé activé utilise un autre moyen pour interagir avec Speech Services. Cela est vrai pour une ressource Speech avec un domaine personnalisé activé avec et sans point de terminaison privé. Les informations contenues dans cette section s’appliquent aux deux scénarios.
+Une ressource Speech avec un domaine personnalisé interagit avec les services de reconnaissance vocale d’une manière différente. Cela est vrai pour une ressource Speech avec un domaine personnalisé activé avec et sans point de terminaison privé. Les informations contenues dans cette section s’appliquent aux deux scénarios.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled"></a>Utiliser une ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé activé
+Suivez les instructions de cette section afin d’ajuster les applications et solutions existantes pour qu’elles utilisent une ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé activé.
 
-Une ressource Speech qui a un nom de domaine personnalisé et un point de terminaison privé activé utilise un autre moyen d’interagir avec Speech Services. Cette section explique comment utiliser une telle ressource avec les API REST Speech Services et le [SDK Speech](speech-sdk.md).
+Une ressource Speech qui a un nom de domaine personnalisé et un point de terminaison privé activé utilise un autre moyen d’interagir avec les services de reconnaissance vocale. Cette section explique comment utiliser une telle ressource avec les API REST Speech Services et le [SDK Speech](speech-sdk.md).
 
 > [!NOTE]
-> Une ressource Speech sans points de terminaison privés activés mais avec un nom de domaine personnalisé activé utilise aussi une méthode spéciale d’interaction avec Speech Services. Cette méthode diffère du scénario d’une ressource Speech avec des points de terminaison privés activés. Si vous avez une telle ressource (par exemple, vous aviez une ressource avec des points de terminaison privés, que vous avez décidé de supprimer par la suite), consultez la section [Utiliser une ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> Une ressource Speech sans points de terminaison privés qui utilise un nom de domaine personnalisé a également une méthode spéciale d’interaction avec les services de reconnaissance vocale.
+> Cette méthode diffère du scénario d’une ressource Speech qui utilise un point de terminaison privé. Ce point est important, car vous pourriez décider ultérieurement de supprimer des points de terminaison privés.
+> Consultez _Ajuster une application pour qu’elle utilise une ressource Speech sans points de terminaison privés_ plus loin dans cet article.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>Ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé : Utilisation avec les API REST
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>Ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé : Utilisation avec les API REST
 
 Dans cette section, nous allons utiliser `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech (domaine personnalisé).
 
@@ -300,7 +306,7 @@ L’API REST de reconnaissance vocale v3.0 utilise un autre ensemble de points 
 
 Les sous-sections suivantes décrivent les deux cas.
 
-##### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
+#### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
 
 En général, les ressources Speech utilisent des [points de terminaison régionaux Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) pour communiquer avec l’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Ces ressources ont le format d’affectation des noms suivant : <p/>`{region}.api.cognitive.microsoft.com`.
 
@@ -313,9 +319,9 @@ https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 > [!NOTE]
 > Consultez [cet article](sovereign-clouds.md) pour les points de terminaison Azure Government et Azure Chine.
 
-Après l’activation d’un domaine personnalisé pour une ressource Speech (nécessaire pour les points de terminaison privés), cette ressource utilise le modèle de nom DNS suivant pour le point de terminaison d’API REST de base : <p/>`{your custom name}.cognitiveservices.azure.com`.
+Après l’activation d’un domaine personnalisé pour une ressource Speech (nécessaire pour les points de terminaison privés), cette ressource utilise le modèle de nom DNS suivant pour le point de terminaison d’API REST de base : <p/>`{your custom name}.cognitiveservices.azure.com`
 
-Cela signifie que, dans notre exemple, le nom du point de terminaison d’API REST sera : <p/>`my-private-link-speech.cognitiveservices.azure.com`.
+Cela signifie que, dans notre exemple, le nom du point de terminaison d’API REST sera : <p/>`my-private-link-speech.cognitiveservices.azure.com`
 
 Et l’exemple d’URL de requête doit être converti en :
 ```http
@@ -330,7 +336,7 @@ Une fois que vous avez activé un nom de domaine personnalisé pour une ressourc
 >
 > Un domaine personnalisé pour une ressource Speech ne contient *aucune* information sur la région où la ressource est déployée. C’est pourquoi la logique d’application décrite précédemment ne fonctionne *pas* et doit être modifiée.
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de reconnaissance vocale pour audio court et API REST de synthèse vocale
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de reconnaissance vocale pour audio court et API REST de synthèse vocale
 
 L’[API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) et l’[API REST de synthèse vocale](rest-text-to-speech.md) utilisent deux types de points de terminaison :
 - [points de terminaison régionaux Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) pour communiquer avec l’API REST Cognitive Services afin d’obtenir un jeton d’autorisation ;
@@ -346,7 +352,7 @@ Consultez la sous-section mentionnée dans le paragraphe précédent et examinez
 > [!NOTE]
 > Lorsque vous utilisez l’API REST de reconnaissance vocale pour audio court et l’API REST de synthèse vocale dans des scénarios avec des points de terminaison privés, utilisez une clé d’abonnement transmise via l’en-tête `Ocp-Apim-Subscription-Key`. (Voir [API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#request-headers) et [API REST de synthèse vocale](rest-text-to-speech.md#request-headers) pour plus de détails)
 >
-> L’utilisation d’un jeton d’autorisation et sa transmission au point de terminaison spécial via l’en-tête `Authorization` fonctionnent *uniquement* si vous avez activé l’option d’accès **Tous les réseaux** dans la section **Mise en réseau** de votre ressource Speech. Dans d’autres cas, vous obtiendrez une erreur `Forbidden` ou `BadRequest` lors de la tentative d’obtention d’un jeton d’autorisation.
+> L’utilisation d’un jeton d’autorisation et sa transmission au point de terminaison spécial via l’en-tête `Authorization` fonctionnent *uniquement* si vous avez activé l’option d’accès **Tous les réseaux** dans la section **Réseau** de votre ressource Speech. Dans d’autres cas, vous obtiendrez une erreur `Forbidden` ou `BadRequest` lors de la tentative d’obtention d’un jeton d’autorisation.
 
 **Exemple d’utilisation de l’API REST de synthèse vocale**
 
@@ -366,13 +372,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 ```
 Consultez une explication détaillée dans la sous-section [Construire l’URL du point de terminaison](#construct-endpoint-url) pour le SDK Speech.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé : Utilisation avec le SDK Speech
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Ressource Speech avec un nom de domaine personnalisé et un point de terminaison privé : Utilisation avec le SDK Speech
 
 L’utilisation du SDK Speech pour des ressources Speech avec des noms de domaine personnalisés et des points de terminaison privés activés nécessite une revue et probablement des modifications de votre code d’application.
 
 Dans cette section, nous allons utiliser `my-private-link-speech.cognitiveservices.azure.com` comme exemple de nom DNS de ressource Speech (domaine personnalisé).
 
-##### <a name="construct-endpoint-url"></a>Construire l’URL du point de terminaison
+#### <a name="construct-endpoint-url"></a>Construire l’URL du point de terminaison
 
 Généralement, dans les scénarios de SDK (ainsi que dans les scénarios d’API REST de reconnaissance vocale pour audio court et d’API REST de synthèse vocale), les ressources Speech utilisent les points de terminaison régionaux dédiés pour différentes offres de service. Le format de nom DNS pour ces points de terminaison est le suivant :
 
@@ -423,7 +429,7 @@ Notez les informations suivantes :
 https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
 ```
 
-L’URL équivalente suivante utilise un point de terminaison privé activé, où le nom de domaine personnalisé de la ressource Speech est `my-private-link-speech.cognitiveservices.azure.com` :
+L’URL équivalente suivante utilise un point de terminaison privé, où le nom de domaine personnalisé de la ressource Speech est `my-private-link-speech.cognitiveservices.azure.com` :
 
 ```http
 https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservices/v1?deploymentId=974481cc-b769-4b29-af70-2fb557b897c4
@@ -431,7 +437,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 Le même principe que dans l’Exemple 1 est appliqué mais, cette fois, l’élément clé est `voice`.
 
-##### <a name="modifying-applications"></a>Modification d’applications
+#### <a name="modifying-applications"></a>Modification d’applications
 
 Pour modifier votre code, procédez comme suit :
 
@@ -494,13 +500,13 @@ Pour modifier votre code, procédez comme suit :
 
 Après cette modification, votre application fonctionnera correctement avec des ressources Speech avec des points de terminaison privés activés. Nous travaillons sur une prise en charge plus fluide des scénarios avec des points de terminaison privés.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints"></a>Utiliser une ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés
+## <a name="adjust-an-application-to-use-a-speech-resource-without-private-endpoints"></a>Ajuster une application pour qu’elle utilise une ressource Speech sans points de terminaison privés
 
 Dans cet article, nous avons signalé à plusieurs reprises que l’activation d’un domaine personnalisé pour une ressource Speech était une opération *irréversible*. Une telle ressource utilise une autre méthode pour communiquer avec Speech Services, par rapport aux ressources qui utilisent des [noms de points de terminaison régionaux](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints).
 
-Cette section explique comment utiliser une ressource Speech avec un nom de domaine personnalisé activé mais *sans* points de terminaison privés à l’aide des API REST Speech Services et du [SDK Speech](speech-sdk.md). Par exemple, cela pourrait être une ressource qui a été utilisée dans un scénario avec des points de terminaison privés, mais où tous les points de terminaison privés ont été supprimés par la suite.
+Cette section explique comment utiliser une ressource Speech avec un nom de domaine personnalisé mais *sans* points de terminaison privés à l’aide des API REST des services de reconnaissance vocale et du [SDK Speech](speech-sdk.md). Par exemple, cela pourrait être une ressource qui a été utilisée dans un scénario avec des points de terminaison privés, mais où tous les points de terminaison privés ont été supprimés par la suite.
 
-#### <a name="dns-configuration"></a>Configuration DNS
+### <a name="dns-configuration"></a>Configuration DNS
 
 Rappelez-vous qu’un nom DNS de domaine personnalisé de la ressource Speech avec point de terminaison privé est [résolu à partir de réseaux publics](#resolve-dns-from-other-networks). Dans ce cas, l’adresse IP résolue pointe vers un point de terminaison proxy d’un réseau virtuel. Ce point de terminaison est utilisé pour distribuer le trafic réseau à la ressource Cognitive Services avec des points de terminaison privés activés.
 
@@ -524,22 +530,22 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
 Comparez-la avec la sortie de [cette section](#resolve-dns-from-other-networks).
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés : Utilisation avec les API REST
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>Ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés : Utilisation avec les API REST
 
-##### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
+#### <a name="speech-to-text-rest-api-v30"></a>API REST de reconnaissance vocale v3.0
 
 L’utilisation de l’API REST de reconnaissance vocale v3.0 est strictement équivalente à celle des [ressources Speech avec des points de terminaison privés activés](#speech-to-text-rest-api-v30).
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de reconnaissance vocale pour audio court et API REST de synthèse vocale
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de reconnaissance vocale pour audio court et API REST de synthèse vocale
 
 Dans ce cas, l’utilisation de l’API REST de reconnaissance vocale pour audio court et l’utilisation de l’API REST de synthèse vocale ne diffèrent pas du cas général, à une exception près. (Voir la remarque suivante.) Vous devez utiliser les deux API comme cela est décrit dans la documentation de l’[API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) et celle de l’[API REST de synthèse vocale](rest-text-to-speech.md).
 
 > [!NOTE]
 > Lorsque vous utilisez l’API REST de reconnaissance vocale pour audio court et l’API REST de synthèse vocale dans des scénarios de domaine personnalisé, utilisez une clé d’abonnement transmise via l’en-tête `Ocp-Apim-Subscription-Key`. (Voir [API REST de reconnaissance vocale pour audio court](rest-speech-to-text.md#request-headers) et [API REST de synthèse vocale](rest-text-to-speech.md#request-headers) pour plus de détails)
 >
-> L’utilisation d’un jeton d’autorisation et sa transmission au point de terminaison spécial via l’en-tête `Authorization` fonctionnent *uniquement* si vous avez activé l’option d’accès **Tous les réseaux** dans la section **Mise en réseau** de votre ressource Speech. Dans d’autres cas, vous obtiendrez une erreur `Forbidden` ou `BadRequest` lors de la tentative d’obtention d’un jeton d’autorisation.
+> L’utilisation d’un jeton d’autorisation et sa transmission au point de terminaison spécial via l’en-tête `Authorization` fonctionnent *uniquement* si vous avez activé l’option d’accès **Tous les réseaux** dans la section **Réseau** de votre ressource Speech. Dans d’autres cas, vous obtiendrez une erreur `Forbidden` ou `BadRequest` lors de la tentative d’obtention d’un jeton d’autorisation.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés : Utilisation avec le SDK Speech
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Ressource Speech avec un nom de domaine personnalisé mais sans points de terminaison privés : Utilisation avec le SDK Speech
 
 L’utilisation du SDK Speech avec des ressources Speech avec un domaine personnalisé activé *sans* points de terminaison privés équivaut au cas général, comme décrit dans la [documentation du SDK Speech](speech-sdk.md).
 

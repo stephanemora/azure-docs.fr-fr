@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96465503"
 ---
 - Pour accéder au service Data Box Edge, votre organisation doit avoir un abonnement Contrat Entreprise (EA) ou Fournisseur de solutions cloud (CSP). Pour plus d’informations, consultez [Souscription à un abonnement Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).

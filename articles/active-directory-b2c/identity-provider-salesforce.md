@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 008d47fe7086322ea0bb7ef26a6c4b449f4269d2
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579924"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028821"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Salesforce à l’aide d’Azure Active Directory B2C
 
@@ -200,7 +200,7 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 ## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
 
 1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
-1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
 1. Sélectionnez le bouton **Exécuter maintenant**.
 1. Sur la page d'inscription ou de connexion, sélectionnez **Salesforce** pour vous connecter avec un compte Salesforce.
 

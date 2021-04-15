@@ -4,12 +4,12 @@ description: Découvrez la mise à l’échelle dans Azure Kubernetes Service (A
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6d2121403361c4225a7e0e64411875d83d93194
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686036"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305733"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -26,7 +26,7 @@ Cet article présente les concepts fondamentaux qui vous aident à mettre à l�
 
 Vous pouvez mettre à l’échelle des réplicas (pods) et des nœuds manuellement pour tester la façon dont votre application répond à une modification au niveau des ressources disponibles et de l’état. Adapter manuellement les ressources vous permet également de définir une quantité donnée de ressources à utiliser pour maintenir un coût fixe, par exemple le nombre de nœuds. Pour mettre à l’échelle manuellement, vous définissez le nombre de réplicas ou de nœuds. L’API Kubernetes planifie ensuite la création de pods supplémentaires ou le drainage de nœuds en fonction du nombre de réplicas ou de nœuds.
 
-Lors d’un scale-down des nœuds, l’API Kubernetes appelle l’API de calcul Azure appropriée liée au type de calcul utilisé par votre cluster. Par exemple, pour les clusters basés sur VM Scale Sets, la logique de sélection des nœuds à supprimer est déterminée par l’API VM Scale Sets. Pour en savoir plus sur la façon dont les nœuds sont sélectionnés pour la suppression lors d’un scale-down, consultez les [Questions fréquentes (FAQ) sur VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
+Lors d’un scale-down des nœuds, l’API Kubernetes appelle l’API de calcul Azure appropriée liée au type de calcul utilisé par votre cluster. Par exemple, pour les clusters basés sur VM Scale Sets, la logique de sélection des nœuds à supprimer est déterminée par l’API VM Scale Sets. Pour en savoir plus sur la façon dont les nœuds sont sélectionnés pour la suppression lors d’un scale-down, consultez les [Questions fréquentes (FAQ) sur VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#if-i-reduce-my-scale-set-capacity-from-20-to-15--which-vms-are-removed-).
 
 Pour vous familiariser avec la mise à l’échelle manuelle des pods et des nœuds, consultez [Mettre à l’échelle des applications dans AKS][aks-scale].
 

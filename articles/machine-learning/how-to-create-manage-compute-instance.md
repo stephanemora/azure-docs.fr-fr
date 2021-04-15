@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009961"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628949"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Créer et gérer une instance de calcul Azure Machine Learning
 
@@ -127,6 +127,9 @@ Le scientifique des données peut démarrer, arrêter et redémarrer l’instanc
 
 Démarrez, arrêtez, redémarrez et supprimez une instance de calcul. Une instance de calcul ne fait pas automatiquement l’objet d’un scale-down. Veillez donc à arrêter la ressource pour éviter les frais récurrents.
 
+> [!TIP]
+> L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque, [utilisez le terminal](how-to-access-terminal.md) pour effacer au moins 1 à 2 Go avant d’arrêter ou redémarrer l’instance de calcul.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Dans les exemples ci-dessous, le nom de l’instance de calcul est **instance**.
@@ -225,6 +228,7 @@ Pour chaque instance de calcul de votre espace de travail que vous avez créée 
 * Obtenir des informations sur une instance de calcul spécifique, telles que l’adresse IP et la région.
 
 ---
+
 
 Le [contrôle d'accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/overview.md) vous permet de contrôler les utilisateurs de l'espace de travail qui peuvent créer, supprimer, démarrer ou arrêter une instance de calcul. Tous les utilisateurs ayant les rôles Contributeur et Propriétaire dans l’espace de travail sont autorisés à créer, supprimer, démarrer, arrêter et redémarrer des instances de calcul dans tout l’espace de travail. Toutefois, seul le créateur d’une instance de calcul spécifique, ou l’utilisateur affecté si elle a été créée en son nom, est autorisé à accéder à Jupyter, JupyterLab et RStudio sur cette instance de calcul. Une instance de calcul est dédiée à un seul utilisateur disposant d’un accès racine et peut accéder au terminal par le biais de Jupyter/JupyterLab/RStudio. L’instance de calcul utilise une connexion mono-utilisateur et toutes les actions utilisent l’identité de cet utilisateur pour le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et l’attribution des exécutions d’expériences. L’accès SSH est contrôlé par le biais d’un mécanisme de clé publique/privée.
 

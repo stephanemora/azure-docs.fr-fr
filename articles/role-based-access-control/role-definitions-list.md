@@ -2,24 +2,19 @@
 title: Lister les définitions de rôles Azure - RBAC Azure
 description: Découvrez comment lister les rôles intégrés et personnalisés Azure en utilisant le portail Azure, Azure PowerShell, Azure CLI ou l’API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f354e3bb7fc0f7ced17d43acacf29c726ce1329c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100555959"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629151"
 ---
 # <a name="list-azure-role-definitions"></a>Lister les définitions de rôles Azure
 
@@ -33,6 +28,10 @@ Pour voir la liste des rôles d’administrateur pour Azure Active Directory, co
 
 Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 
+Pour voir une mise à jour de l’expérience relative aux rôles, consultez l’onglet **Rôles (préversion)** , qui est en préversion publique. L’onglet **Rôles (préversion)** affiche la même liste de rôles que l’onglet **Rôles** avec quelques fonctionnalités supplémentaires. Vous pouvez utiliser l’un ou l’autre des onglets Rôles pour utiliser vos rôles. Toutefois, si vous créez ou supprimez des rôles personnalisés, vous devrez peut-être actualiser manuellement la page pour voir les derniers changements apportés.
+
+#### <a name="roles"></a>[Rôles](#tab/roles/)
+
 1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
 
 1. Cliquez sur la ressource spécifique.
@@ -43,7 +42,29 @@ Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 
    Vous pouvez voir le nombre d’utilisateurs et de groupes affectés à chaque rôle dans cette étendue.
 
-   ![Liste de rôles](./media/role-definitions-list/roles-list.png)
+   ![Liste de rôles](./media/role-definitions-list/roles-list-current.png)
+
+#### <a name="roles-preview"></a>[Rôles (préversion)](#tab/roles-preview/)
+
+1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez n’importe quelle étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
+
+1. Cliquez sur la ressource spécifique.
+
+1. Cliquez sur **Contrôle d’accès (IAM)** .
+
+1. Cliquez sur l’onglet **Rôles (préversion)** pour voir une liste de tous les rôles intégrés et personnalisés.
+
+   ![Liste des rôles avec la préversion](./media/role-definitions-list/roles-list.png)
+
+1. Pour voir les autorisations d’un rôle en particulier, dans la colonne **Détails**, cliquez sur le lien **Voir**.
+
+    Un volet d’autorisations s’affiche.
+
+1. Cliquez sur l’onglet **Autorisations** pour voir et rechercher les autorisations relatives au rôle sélectionné.
+
+   ![Autorisations relatives aux rôles avec la préversion](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

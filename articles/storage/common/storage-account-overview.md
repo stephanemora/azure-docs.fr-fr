@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d7eca7d8f3cd40f4a3961f0ac478fba290be3041
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561889"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279661"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -175,10 +175,6 @@ Le tableau suivant répertorie les niveaux d’accès disponibles pour les blobs
 > [!IMPORTANT]
 > Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez [Facturation des comptes de stockage](#storage-account-billing).
 
-## <a name="encryption"></a>Chiffrement
-
-Toutes les données de votre compte de stockage sont chiffrées côté service. Pour plus d’informations sur le chiffrement, consultez [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md).
-
 ## <a name="storage-account-endpoints"></a>Points de terminaison d'un compte de stockage
 
 Un compte de stockage fournit un espace de noms unique dans Azure pour vos données. Chaque objet que vous stockez dans le stockage Azure a une adresse qui comprend votre nom de compte unique. La combinaison du nom du compte et du point de terminaison de service du stockage Azure forme les points de terminaison de votre compte de stockage.
@@ -200,22 +196,17 @@ Construisez l’URL permettant d’accéder à un objet dans un compte de stocka
 
 Vous pouvez également configurer votre compte de stockage pour qu’il utilise un domaine personnalisé pour les objets blob. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure](../blobs/storage-custom-domain-name.md).  
 
-## <a name="control-access-to-account-data"></a>Contrôler l’accès aux données d’un compte
+## <a name="migrating-a-storage-account"></a>Migration d’un compte de stockage
 
-Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte. Vous pouvez contrôler qui a accès à vos données et quel type d’autorisations accorder.
+Le tableau suivant résume et propose des conseils sur le déplacement, la mise à niveau ou la migration d’un compte de stockage :
 
-Chaque requête envoyée à votre compte de stockage doit en avoir l’autorisation. Au niveau du service, la demande doit inclure un en-tête *d’autorisation* valide. Plus précisément, cet en-tête contient toutes les informations nécessaires au service pour valider la demande avant de l’exécuter.
-
-Vous pouvez accorder l’accès aux données de votre compte de stockage à l’aide de l’une des méthodes suivantes :
-
-- **Azure Active Directory :** Utilisez les informations d’identification Azure Active Directory (Azure AD) afin d’authentifier un utilisateur, un groupe ou une autre identité, pour l’accès aux données d’objets blob et de files d’attente. Si l’authentification d’une identité réussit, Azure AD retourne un jeton qui doit être utilisé pour autoriser la requête dans le stockage Blob ou File d’attente d’Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
-- **Autorisation par clé partagée :** utilisez la clé d’accès de votre compte de stockage pour construire une chaîne de connexion que votre application utilisera lors de l’exécution afin d’accéder au stockage Azure. Les valeurs de la chaîne de connexion sont utilisées pour construire l’en-tête *d’autorisation* qui est passé au stockage Azure. Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
-- **Signature d’accès partagé :** Une signature d’accès partagé (SAS) est un jeton qui permet un accès délégué aux ressources de votre compte de stockage. Le jeton SAS encapsule toutes les informations nécessaires à l’autorisation d’une demande envoyée au stockage Azure via l’URL. Lorsque vous créez une signature SAS, vous pouvez spécifier les autorisations que la signature SAS octroie à une ressource et l’intervalle pendant lequel les autorisations sont valides. Un jeton SAS peut être signé avec des informations d’identification Azure AD ou avec une clé partagée. Pour plus d’informations, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](storage-sas-overview.md).
-
-> [!NOTE]
-> L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises.
->
-> Microsoft recommande d’utiliser l’autorisation Azure AD pour les applications Stockage Blob et File d’attente Azure, lorsque cela est possible.
+| Scénario de migration | Détails |
+|--|--|
+| Déplacer un compte de stockage vers un autre abonnement | Azure Resource Manager propose plusieurs options pour déplacer une ressource vers un autre abonnement. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Déplacer un compte de stockage vers un autre groupe de ressources | Azure Resource Manager propose plusieurs options pour déplacer une ressource vers un autre groupe de ressources. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
+| Déplacer un compte de stockage vers une autre région | Pour déplacer un compte de stockage, créez une copie de votre compte de stockage dans une autre région. Utilisez ensuite AzCopy ou un autre outil de votre choix pour déplacer vos données vers ce compte. Pour plus d’informations, consultez [Déplacer un compte Stockage Azure vers une autre région](storage-account-move.md). |
+| Mettre à niveau vers un compte de stockage v2 à usage général | Vous pouvez mettre à niveau un compte de stockage v1 universel ou un compte de stockage Blob vers un compte v2 universel. Notez que cette action ne peut pas être annulée. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](storage-account-upgrade.md). |
+| Migrer un compte de stockage classique vers Azure Resource Manager | Le modèle de déploiement Azure Resource Manager est plus performant que le modèle de déploiement classique en termes de fonctionnalités, de scalabilité et de sécurité. Pour plus d’informations sur la migration d’un compte de stockage classique vers Azure Resource Manager, consultez [Migration de comptes de stockage](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts) dans **Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager**. |
 
 ## <a name="copying-data-into-a-storage-account"></a>Copie de données dans un compte de stockage
 
@@ -239,6 +230,10 @@ Pour plus d’informations sur l’API REST du stockage Azure, consultez [Réfé
 
 > [!IMPORTANT]
 > Les objets blob chiffrés utilisant le chiffrement côté client stockent les métadonnées relatives au chiffrement avec l’objet blob. Si vous copiez un objet blob chiffré avec le chiffrement côté client, assurez-vous que l’opération de copie conserve les métadonnées de l’objet blob, et en particulier les métadonnées relatives au chiffrement. Si vous copiez un objet blob sans ces métadonnées de chiffrement, le contenu de l’objet blob ne peut plus être récupéré. Pour plus d’informations concernant les métadonnées liées au chiffrement, consultez l’article [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+## <a name="encryption"></a>Chiffrement
+
+Toutes les données de votre compte de stockage sont chiffrées côté service. Pour plus d’informations sur le chiffrement, consultez [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md).
 
 ## <a name="storage-account-billing"></a>Facturation du compte de stockage
 

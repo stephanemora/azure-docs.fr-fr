@@ -3,12 +3,12 @@ title: Remise d’événements à l’aide du service de liaison privée
 description: Cet article explique la procédure de contournement de l’impossibilité de remettre des événements à l’aide du service de liaison privée.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722325"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629289"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Remise d’événements à l’aide du service de liaison privée
 Actuellement, il n’est pas possible de remettre des événements à l’aide de [points de terminaison privés](../private-link/private-endpoint-overview.md). Autrement dit, il n’y a pas de prise en charge si vous avez des exigences strictes en matière d’isolement réseau lorsque le trafic des événements remis ne doit pas sortir de l’espace IP privé. 
@@ -27,7 +27,7 @@ Dans cette configuration, le trafic transite par l’adresse IP publique ou Inte
 ## <a name="deliver-events-to-event-hubs-using-managed-identity"></a>Remettre des événements à Event Hubs à l’aide d’une identité managée
 Pour remettre des événements à Event Hubs dans votre espace de noms Event Hubs à l’aide d’une identité managée, procédez comme suit :
 
-1. [Activez une identité attribuée par le système pour un sujet ou un domaine](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
+1. Activez l'identité attribuée par le système : [rubriques système](enable-identity-system-topics.md), [rubriques personnalisées et domaines](enable-identity-custom-topics-domains.md).  
 1. [Ajoutez l’identité au rôle **Expéditeur de données Azure Event Hubs** dans l’espace de noms Event Hubs](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
 1. [Activez le paramètre **Autoriser les services Microsoft approuvés à contourner ce pare-feu** dans votre espace de noms Event hubs](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services). 
 1. [Configurez l’abonnement aux événements](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) qui utilise un hub d’événements comme point de terminaison pour utiliser l’identité attribuée au système.
@@ -35,16 +35,16 @@ Pour remettre des événements à Event Hubs dans votre espace de noms Event Hub
 ## <a name="deliver-events-to-service-bus-using-managed-identity"></a>Remettre des événements à Service Bus à l’aide d’une identité managée
 Pour remettre des événements à des files d’attente ou des rubriques Service Bus dans votre espace de noms Service Bus à l’aide d’une identité managée, procédez comme suit :
 
-1. [Activez une identité attribuée par le système pour un sujet ou un domaine](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Ajouter l’identité au rôle [Expéditeur de données Azure Service Bus](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) dans l’espace de noms Service Bus
+1. Activez l'identité attribuée par le système : [rubriques système](enable-identity-system-topics.md), [rubriques personnalisées et domaines](enable-identity-custom-topics-domains.md). 
+1. [Ajoutez l'identité au rôle **Expéditeur de données Azure Service Bus**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) dans l'espace de noms Service Bus.
 1. [Activez le paramètre **Autoriser les services Microsoft approuvés à contourner ce pare-feu** dans votre espace de noms Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
-1. [Configurez l’abonnement aux événements](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) qui utilise une file d’attente ou une rubrique Service Bus comme point de terminaison pour utiliser l’identité affectée au système.
+1. [Configurez l’abonnement aux événements](managed-service-identity.md) qui utilise une file d’attente ou une rubrique Service Bus comme point de terminaison pour utiliser l’identité affectée au système.
 
 ## <a name="deliver-events-to-storage"></a>Remettre des événements au stockage 
 Pour remettre des événements dans les files d’attente de stockage à l’aide d’une identité managée, procédez comme suit :
 
-1. [Activez une identité attribuée par le système pour un sujet ou un domaine](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity).
-1. Ajoutez l’identité au rôle [Expéditeur de messages en file d’attente de stockage](../storage/common/storage-auth-aad-rbac-portal.md) dans la file d’attente de stockage Azure.
+1. Activez l'identité attribuée par le système : [rubriques système](enable-identity-system-topics.md), [rubriques personnalisées et domaines](enable-identity-custom-topics-domains.md). 
+1. [Ajoutez l'identité au rôle **Expéditeur de messages de données en file d'attente du stockage**](../storage/common/storage-auth-aad-rbac-portal.md) dans la file d'attente de Stockage Azure.
 1. [Configurez l’abonnement aux événements](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) qui utilise une file d’attente ou une rubrique Service Bus comme point de terminaison pour utiliser l’identité attribuée au système.
 
 

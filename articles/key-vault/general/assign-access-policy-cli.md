@@ -1,6 +1,6 @@
 ---
 title: Attribuer une stratégie d’accès Azure Key Vault (CLI)
-description: Comment utiliser le Azure CLI pour attribuer une stratégie d’accès Key Vault à un principal de service ou à une identité d’application.
+description: Comment utiliser Azure CLI pour attribuer une stratégie d’accès Key Vault à un principal de sécurité ou à une identité d’application.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0c7910ac149c8de43eeac92913a0d314fcc1854e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a9dc03f776ac430072e456332955cbfc75d73bf2
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934575"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968847"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Attribuer une stratégie d’accès Key Vault
 
-Une stratégie d’accès Key Vault détermine si un principal de service donné, à savoir une application ou un groupe d’utilisateurs, peut effectuer différentes opérations sur des [secrets](../secrets/index.yml), [clés](../keys/index.yml) et [certificats](../certificates/index.yml) de Key Vault. Vous pouvez attribuer des stratégies d’accès à l’aide du [portail Azure](assign-access-policy-portal.md), d’Azure CLI (cet article) ou d’[Azure PowerShell](assign-access-policy-powershell.md).
+Une stratégie d’accès Key Vault détermine si un principal de sécurité donné, à savoir un utilisateur, une application ou un groupe d’utilisateurs, peut effectuer différentes opérations sur des [secrets](../secrets/index.yml), [clés](../keys/index.yml) et [certificats](../certificates/index.yml) de Key Vault. Vous pouvez attribuer des stratégies d’accès à l’aide du [portail Azure](assign-access-policy-portal.md), d’Azure CLI (cet article) ou d’[Azure PowerShell](assign-access-policy-powershell.md).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -69,7 +69,7 @@ Utilisez la commande [az key vault set-policy](/cli/azure/keyvault#az-keyvault-s
 az keyvault set-policy --name myKeyVault --object-id <object-id> --secret-permissions <secret-permissions> --key-permissions <key-permissions> --certificate-permissions <certificate-permissions>
 ```
 
-Remplacez `<object-id>` par l’ID objet de votre principal de service.
+Remplacez `<object-id>` par l’ID objet de votre principal de sécurité.
 
 Vous avez uniquement besoin d’inclure `--secret-permissions`, `--key-permissions`et `--certificate-permissions` lors de l’attribution d’autorisations à ces types particuliers. Les valeurs autorisées pour `<secret-permissions>`, `<key-permissions>` et `<certificate-permissions>` sont indiquées dans la documentation de la commande [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
 

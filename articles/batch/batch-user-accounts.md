@@ -2,21 +2,22 @@
 title: Exécuter des tâches sous des comptes d’utilisateur
 description: Découvrez les types de comptes d’utilisateur et comment les configurer.
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88719357"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606604"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch
 
 > [!NOTE]
 > Pour des raisons de sécurité, les comptes d’utilisateur décrits dans cet article sont différents des comptes d’utilisateur utilisés pour le protocole RDP (Remote Desktop Protocol) ou le protocole SSH (Secure Shell).
 >
-> Pour vous connecter à un nœud qui exécute une configuration de machine virtuelle Linux via le protocole SSH, consultez [Installer et configurer le Bureau à distance pour effectuer une connexion à une machine virtuelle Linux dans Azure](../virtual-machines/linux/use-remote-desktop.md). Pour vous connecter à des nœuds exécutant Windows via RDP, consultez [Connexion à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Pour vous connecter à un nœud exécutant la configuration de machine virtuelle Linux via SSH, consultez [Installer et configurer xrdp pour utiliser Bureau à distance avec Ubuntu](../virtual-machines/linux/use-remote-desktop.md). Pour vous connecter aux nœuds exécutant Windows via RDP, consultez [Connexion à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).
+>
 > Pour vous connecter à un nœud qui exécute la configuration du service cloud via RDP, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 Dans Azure Batch, une tâche s’exécute toujours sous un compte d’utilisateur. Par défaut, les tâches s’exécutent sous des comptes d’utilisateur standard qui ne possèdent pas de droits d’administrateur. Pour certains scénarios, vous pouvez configurer le compte d’utilisateur sous lequel vous voulez exécuter une tâche. Cet article décrit les types de comptes d’utilisateur et la manière de les configurer pour votre scénario.
@@ -30,7 +31,7 @@ Azure Batch offre deux types comptes d’utilisateur pour l’exécution des t�
 - **Un compte d’utilisateur nommé.** Vous pouvez spécifier un ou plusieurs comptes d’utilisateur nommé pour un pool au moment de sa création. Chaque compte d’utilisateur est créé sur chaque nœud du pool. En plus du nom de compte, vous pouvez spécifier le mot de passe utilisateur, le niveau d’élévation, ainsi que, pour les pools Linux, la clé privée SSH. Lorsque vous ajoutez une tâche, vous pouvez spécifier le compte d’utilisateur nommé sous lequel la tâche doit s’exécuter.
 
 > [!IMPORTANT]
-> La version du service Batch 2017-01-01.4.0 introduit une modification qui vous oblige à mettre à jour votre code pour appeler cette version. Si vous migrez du code à partir d’une version antérieure de Batch, notez que la propriété **runElevated** n’est plus prise en charge dans les bibliothèques d’API REST ou du client Batch. Utilisez la nouvelle propriété **userIdentity** d’une tâche pour spécifier le niveau d’élévation. Consultez [Mettre à jour votre code vers la dernière bibliothèque du client Batch](#update-your-code-to-the-latest-batch-client-library) pour savoir comment mettre à jour votre code Batch si vous utilisez l’une des bibliothèques clientes.
+> La version du service Batch 2017-01-01.4.0 introduit un changement cassant qui vous oblige à mettre à jour votre code pour appeler cette version ou une version ultérieure. Consultez [Mettre à jour votre code vers la dernière bibliothèque du client Batch](#update-your-code-to-the-latest-batch-client-library) pour savoir comment mettre à jour votre code Batch à partir d’une version antérieure.
 
 ## <a name="user-account-access-to-files-and-directories"></a>Accès du compte d’utilisateur aux fichiers et répertoires
 
@@ -77,6 +78,7 @@ Les extraits de code suivants montrent comment configurer la spécification d’
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### <a name="batch-java"></a>Java Batch
 
 ```java
@@ -278,7 +280,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>Mettre à jour votre code vers la dernière bibliothèque du client Batch
 
-La version du service Batch 2017-01-01.4.0 introduit une modification qui remplace la propriété **runElevated** disponible dans les versions précédentes par la propriété **userIdentity**. Les tableaux suivants fournissent un mappage simple que vous pouvez utiliser pour mettre à jour votre code à partir de versions antérieures des bibliothèques clientes.
+La version du service Batch 2017-01-01.4.0 introduit un changement cassant qui remplace la propriété **runElevated** disponible dans les versions précédentes par la propriété **userIdentity**. Les tableaux suivants fournissent un mappage simple que vous pouvez utiliser pour mettre à jour votre code à partir de versions antérieures des bibliothèques clientes.
 
 ### <a name="batch-net"></a>.NET Batch
 
