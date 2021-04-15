@@ -1,19 +1,19 @@
 ---
 title: 'Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive'
 description: En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob Azure. Examinez les comptes de stockage qui prennent en charge la hiérarchisation.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 1a1cb8e1676405cbfbb3f4f61c86d8136b688b88
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 957973cc4f53dba10ed9d635c8e3f69fd66ee33b
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104656836"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278420"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive
 
@@ -86,7 +86,7 @@ Voici quelques exemples de scénarios d’utilisation pour le niveau d’accès 
 - Données de conformité et d’archivage qui doivent être stockées à long terme et qui sont très rarement sollicitées
 
 > [!NOTE]
-> Le niveau archive n’est pas pris en charge sur les comptes ZRS, GZRS et RA-GZRS. La migration de LRS vers GRS n’est pas prise en charge si le compte de stockage contient des objets blob dans le niveau archive.
+> Le niveau archive n’est pas pris en charge sur les comptes ZRS, GZRS et RA-GZRS. La migration de LRS vers GRS est prise en charge à condition qu’aucun objet blob n’ait été déplacé vers le niveau archive lorsque le compte était défini sur LRS. Un compte peut être redéfini sur GRS si la mise à jour est effectuée moins de 30 jours après la définition du compte sur LRS et si aucun objet blob n’a été déplacé vers le niveau archive lorsque le compte était défini sur LRS.
 
 ## <a name="account-level-tiering"></a>Hiérarchisation au niveau du compte
 

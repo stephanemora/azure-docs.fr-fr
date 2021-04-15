@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95f2e47d3cf0b967f42b988b565da3643796534d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98784306"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490758"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2413,11 +2413,11 @@ Par défaut, les instances de workflow d’application logique s’exécutent to
 
 Lorsque vous activez le contrôle d’accès concurrentiel du déclencheur, les instances de déclencheur s’exécutent en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite de concurrence, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal de nouvelles instances de workflow qui peuvent s’exécuter en parallèle.
 
-Voici quelques considérations liées à l’activation de la concurrence sur un déclencheur :
-
-* Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
+Voici quelques aspects à prendre en compte avant d’activer la concurrence sur un déclencheur :
 
 * Vous ne pouvez pas désactiver la concurrence après avoir activé le contrôle de la concurrence.
+
+* Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
 
 * Quand la concurrence est activée, une instance d’application logique de longue durée peut amener de nouvelles instances d’application logique à entrer dans un état d’attente. Cet état empêche Azure Logic Apps de créer des instances et se produit même quand le nombre d’exécutions simultanées est inférieur au nombre maximal spécifié d’exécutions simultanées.
 
@@ -2450,9 +2450,9 @@ Voici quelques considérations liées à l’activation de la concurrence sur un
 
 #### <a name="edit-in-code-view"></a>Modifier en mode code 
 
-Dans la définition de déclencheur sous-jacente, ajoutez la propriété `runtimeConfiguration.concurrency.runs`, qui peut avoir une valeur comprise entre `1` et `50`.
+Dans la définition de déclencheur sous-jacente, ajoutez la propriété `runtimeConfiguration.concurrency.runs` et définissez la valeur en fonction des [limites de concurrence du déclencheur](logic-apps-limits-and-config.md#concurrency-debatching). Pour exécuter votre flux de travail de manière séquentielle, définissez la valeur de propriété sur `1`.
 
-Voici un exemple qui limite les exécutions simultanées à 10 instances :
+Cet exemple limite les exécutions simultanées à 10 instances :
 
 ```json
 "<trigger-name>": {

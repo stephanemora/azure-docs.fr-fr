@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 24c181c17e49fe5b7c3001c1cb2839bc957ef463
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712315"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490486"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
 
@@ -358,6 +358,8 @@ Pour les réseaux dont les sources sont des machines virtuelles Azure, les probl
     * Le tunnel entre deux passerelles est déconnecté ou manquant.
     * Le tunnel n'a pas trouvé la deuxième passerelle.
     * Aucune information de peering n'a été trouvée.
+> [!NOTE]
+> S’il y a 2 passerelles connectées et que l’une d’entre elles n’est pas dans la même région que le point de terminaison source, CM l’identifie comme « aucun itinéraire appris » pour la vue topologique. La connectivité n’est pas affectée. Il s’agit d’un problème connu dont la résolution est en cours. 
 * L'itinéraire était manquant dans Microsoft Edge.
 * Le trafic a été interrompu à cause d'itinéraires système ou de règles UDR.
 * Le protocole BGP n'est pas activé sur la connexion à la passerelle.

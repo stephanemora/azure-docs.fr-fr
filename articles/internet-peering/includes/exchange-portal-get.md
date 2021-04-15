@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e139954e6550e33edb75d01ab9dbec0bba543ea6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92548078"
 ---
 Une fois que la ressource **Peering** est déployée, vous pouvez l’afficher en procédant comme suit.
@@ -43,8 +43,8 @@ Une fois que la ressource **Peering** est déployée, vous pouvez l’afficher e
     > ![Peering resource Connections](../media/setup-exchange-get-connectionssummary.png)
 
     * **L’état de la connexion** correspond à l’état de la configuration de la connexion de Peering. Les états affichés dans ce champ suivent le diagramme d’état indiqué dans la [procédure pas à pas pour le Peering Exchange](../walkthrough-exchange-all.md).
-    * L’ **état de session IPv4** et l’ **état de session IPv6** correspondent respectivement aux états de session BGP IPv4 et IPv6.  
-    * Lorsque vous sélectionnez une ligne en haut de l’écran, la section **Connexion** dans la partie inférieure affiche les détails de chaque connexion. Sélectionnez les flèches pour développer **Configuration** , **Adresse IPv4** et **Adresse IPv6**.
+    * L’**état de session IPv4** et l’**état de session IPv6** correspondent respectivement aux états de session BGP IPv4 et IPv6.  
+    * Lorsque vous sélectionnez une ligne en haut de l’écran, la section **Connexion** dans la partie inférieure affiche les détails de chaque connexion. Sélectionnez les flèches pour développer **Configuration**, **Adresse IPv4** et **Adresse IPv6**.
 
     > [!div class="mx-imgBorder"]
     > ![Capture d’écran mettant en évidence une flèche qui développe une section.](../media/setup-exchange-get-connectionsipv4.png)

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Utiliser GitOps avec Helm pour une configuration de cluster avec Azure Arc
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 75e2fcb25680817fc3e2bddabbbdd9c52b7dd059
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df9b40764ec463553659803749f282bbc4587bde
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121403"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449541"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Déployer des charts Helm à l’aide de GitOps sur un cluster Kubernetes avec Arc
 
@@ -21,9 +21,17 @@ Helm est un outil d’empaquetage open source qui vous aide à installer et à g
 
 Cet article vous montre comment configurer et utiliser Helm à l’aide de Kubernetes avec Azure Arc.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
-Vérifiez que vous disposez d’un cluster connecté Kubernetes avec Azure Arc. Si vous avez besoin d’un cluster connecté, consultez [Démarrage rapide Connecter un cluster Kubernetes avec Azure Arc](./quickstart-connect-cluster.md).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Cluster Kubernetes avec Azure Arc connecté.
+    - Si vous n’avez pas encore connecté de cluster, consultez notre [guide de démarrage rapide sur la connexion d’un cluster Kubernetes avec Azure Arc](quickstart-connect-cluster.md).
+- Compréhension suffisante des avantages et de l’architecture de cette fonctionnalité. Pour plus d’informations, consultez l’article [Configurations et GitOps - Kubernetes avec Azure Arc](conceptual-configurations.md).
+- Installez l’extension `k8s-configuration` d’Azure CLI, version >= 1.0.0 :
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Présentation de l’utilisation de GitOps et Helm avec Kubernetes avec Azure Arc
 

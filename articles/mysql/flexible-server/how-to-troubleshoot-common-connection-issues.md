@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
-ms.openlocfilehash: bdd52ba77fd9a65ce27985ff3c86a93fc887ddf9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6fc8e08757ee067e0616cc701a3037a9dbf4c6fd
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105109980"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491744"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Résoudre les problèmes de connexion à Azure Database pour MySQL - Serveur flexible
 
@@ -32,7 +32,7 @@ Dans cet article, nous allons expliquer comment corriger certaines erreurs coura
 
 Si l’application ne parvient pas à se connecter au serveur flexible Azure Database pour MySQL, cela indique généralement un problème avec l’un des éléments suivants :
 
-* Connexion chiffrée à l’aide du protocole TLS/SSL : Le serveur flexible prend uniquement en charge les connexions chiffrées à l’aide du protocole TLS (Transport Layer Security) 1.2 et toutes **les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées**. Vous ne pouvez pas désactiver ni changer la version du protocole TLS. Découvrez-en plus sur la [connectivité chiffrée à l’aide du protocole TLS (Transport Layer Security) 1.2 dans Azure Database pour MySQL - Serveur flexible](./how-to-connect-tls-ssl.md).
+* Connexion chiffrée à l’aide du protocole TLS/SSL : le serveur flexible prend en charge les connexions chiffrées à l’aide du protocole TLS (Transport Layer Security) 1.2, et toutes les **connexions entrantes utilisant les protocoles TLS 1.0 et TLS 1.1 sont refusées par défaut**. Vous pouvez désactiver l’application des connexions chiffrées ou changer la version du protocole TLS. Découvrez-en plus sur la [connectivité chiffrée à l’aide du protocole TLS (Transport Layer Security) 1.2 dans Azure Database pour MySQL - Serveur flexible](./how-to-connect-tls-ssl.md).
 - Serveur flexible dans *Accès privé (intégration au réseau virtuel)*  : Veillez à vous connecter depuis le même réseau virtuel que celui du serveur flexible. Reportez-vous à [Réseau virtuel du serveur flexible Azure Database pour MySQL]<!--(./concepts-networking-virtual-network.md)-->
 - Serveur flexible avec *Accès public (adresses IP autorisées)*  : Vérifiez que le pare-feu est configuré pour autoriser les connexions à partir de votre client. Reportez-vous à [Créer et gérer des règles de pare-feu de serveur flexible à l’aide du portail Azure](./how-to-manage-firewall-portal.md).
 * Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Les adresses IP et les ports du serveur auxquels vous ne pouvez pas vous connecter doivent être autorisés ainsi que les noms d’application telles que MySQL sur certains pare-feu.

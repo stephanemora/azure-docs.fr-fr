@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e94b809513bda8edc7a51baf79ec05a2c9c77489
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614409"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448552"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -222,7 +222,7 @@ Vous pouvez configurer le comportement de POA pour répondre à vos besoins. Rem
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : *90*)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | WURescheduleCount     | Int <br> (Par défaut : *5*)                  | Nombre maximal de fois que le service replanifie une mise à jour Windows en cas d’échec persistant d’une opération.          |
 | WURescheduleTimeInMinutes | Int <br>(Par défaut : *30*) | Intervalle auquel le service replanifie les mises à jour de Windows en cas d’échec persistant. |
-| WUFrequency           | Chaîne de valeurs séparées par une virgule (par défaut : *Toutes les semaines, Mercredi, 7:00:00*)     | Fréquence d’installation des mises à jour Windows. Le format et les valeurs possibles sont les suivants : <br>-Mensuel, JJ, HH:MM:SS (exemple : *Mensuel, 5, 12:22:32*). Les valeurs autorisées pour le champ _JJ_ (jour) sont des nombres compris entre 1 et 28, et _last_ (dernier). <br>- Hebdomadaire, Jour, HH:MM:SS (exemple : *Hebdomadaire, mardi, 12:22:32*)  <br>- Quotidien, HH:MM:SS (exemple : *Quotidien, 12:22:32*)  <br>- Semaine, Jour, HH:MM:SS (exemple : *2, vendredi, 21:00:00* indique 21h00 UTC le vendredi de la 2e semaine de chaque mois) <br>- *Aucun* indique que les mises à jour Windows ne doivent pas être effectuées.  <br><br> Les heures sont exprimées en UTC.|
+| WUFrequency           | Chaîne de valeurs séparées par une virgule (par défaut : *Toutes les semaines, Mercredi, 7:00:00*)     | Fréquence d’installation des mises à jour Windows. Le format et les valeurs possibles sont les suivants : <br>-Mensuel, JJ, HH:MM:SS (exemple : *Mensuel, 5, 12:22:32*). Les valeurs autorisées pour le champ _JJ_ (jour) sont des nombres compris entre 1 et 28, et _last_ (dernier). <br>- Hebdomadaire, Jour, HH:MM:SS (exemple : *Hebdomadaire, mardi, 12:22:32*)  <br>- Quotidien, HH:MM:SS (exemple : *Quotidien, 12:22:32*)  <br>- MensuelParSemaineEtJour, Semaine, Jour, HH:MM:SS (exemple : *MensuelParSemaineEtJour, 2, vendredi, 21:00:00* indique 21h00 UTC le vendredi de la 2e semaine de chaque mois) <br>- *Aucun* indique que les mises à jour Windows ne doivent pas être effectuées.  <br><br> Les heures sont exprimées en UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Par défaut : *true*) | Lorsque cet indicateur est défini, l’application accepte le contrat de licence utilisateur final de Windows Update pour le compte du propriétaire de l’ordinateur.              |
 
 > [!TIP]

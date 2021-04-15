@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98698026"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105582631"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -27,7 +27,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs de votre annuair
 
 1. Sélectionnez l’une des options suivantes :
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Utilisateurs et groupes spécifiques** | Choisissez cette option si vous souhaitez que seuls les utilisateurs et les groupes de votre annuaire que vous spécifiez puissent demander ce package d’accès. |
     | **Tous les membres (à l’exclusion des invités)** | Choisissez cette option si vous souhaitez que tous les utilisateurs membres de votre annuaire puissent demander ce package d’accès. Cette option n’inclut pas les utilisateurs que vous avez invités dans votre annuaire. |
@@ -62,7 +62,7 @@ Suivez ces étapes si vous souhaitez autoriser les utilisateurs absents de votre
 
 1. Sélectionnez l’une des options suivantes :
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Organisations connectées spécifiques** | Choisissez cette option si vous souhaitez sélectionner parmi une liste d’organisations que votre administrateur a ajoutées précédemment. Tous les utilisateurs des organisations sélectionnées peuvent demander ce package d’accès. |
     | **Toutes les organisations connectées** | Choisissez cette option si tous les utilisateurs de toutes les organisations connectées peuvent demander ce package d’accès. |
