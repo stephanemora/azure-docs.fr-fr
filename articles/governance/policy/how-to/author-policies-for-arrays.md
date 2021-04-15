@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies pour les propriétés de tableau sur des ressources
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
-ms.date: 10/22/2020
+ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721611"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106089965"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -99,7 +99,7 @@ Pour utiliser cette chaîne avec chaque kit SDK, utilisez les commandes suivante
 
 ## <a name="using-arrays-in-conditions"></a>Utilisation de tableaux dans des conditions
 
-### <a name="in-and-notin"></a>`In` et `notIn`
+### <a name="in-and-notin"></a>In et notIn
 
 Les conditions `in` et `notIn` ne fonctionnent qu’avec des valeurs de tableau. Elles vérifient l’existence d’une valeur dans un tableau. Le tableau peut être un tableau JSON littéral ou une référence à un paramètre de tableau. Par exemple :
 
@@ -243,7 +243,7 @@ Les propriétés de ressource de tableau sont généralement représentées par 
 
 #### <a name="referencing-the-array"></a>Référencement du tableau
 
-Le premier alias représente une valeur unique, la valeur de la propriété `stringArray` provenant du contenu de la demande. Étant donné que la valeur de cette propriété est un tableau, elle n’est pas très utile dans les conditions de stratégie. Par exemple :
+Le premier alias représente une valeur unique, la valeur de la propriété `stringArray` provenant du contenu de la demande. Étant donné que la valeur de cette propriété est un tableau, elle n’est pas utile dans les conditions de stratégie. Par exemple :
 
 ```json
 {
@@ -290,9 +290,9 @@ Si le tableau contient des objets, un alias `[*]` peut être utilisé pour séle
 }
 ```
 
-Cette condition est vraie si les valeurs de toutes les propriétés `property` dans `objectArray` sont égales à `"value"`. Pour obtenir plus d’exemples, consultez [Autres exemples d’alias \[\*\]](#appendix--additional--alias-examples).
+Cette condition est vraie si les valeurs de toutes les propriétés `property` dans `objectArray` sont égales à `"value"`. Pour obtenir plus d’exemples, consultez [Autres exemples d’alias \[\*\]](#additional--alias-examples).
 
-Lors de l’utilisation de la fonction `field()` pour référencer un alias de tableau, la valeur renvoyée est un tableau de toutes les valeurs sélectionnées. Ce comportement signifie que le cas d’usage courant de la fonction `field()`, c’est-à-dire la possibilité d’appliquer des fonctions de modèle à des valeurs de propriété de ressource, est très limité. Les seules fonctions de modèle qui peuvent être utilisées dans ce cas sont celles qui acceptent des arguments de tableau. Par exemple, il est possible d’obtenir la longueur du tableau avec `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]`. Toutefois, des scénarios plus complexes, tels que l’application d’une fonction de modèle à chaque membre du tableau et sa comparaison à une valeur souhaitée, sont possibles uniquement en utilisant l’expression `count`. Pour plus d’informations, consultez [Expression field count](#field-count-expressions).
+Lors de l’utilisation de la fonction `field()` pour référencer un alias de tableau, la valeur renvoyée est un tableau de toutes les valeurs sélectionnées. Ce comportement signifie que le cas d’usage courant de la fonction `field()`, c’est-à-dire la possibilité d’appliquer des fonctions de modèle à des valeurs de propriété de ressource, est limité. Les seules fonctions de modèle qui peuvent être utilisées dans ce cas sont celles qui acceptent des arguments de tableau. Par exemple, il est possible d’obtenir la longueur du tableau avec `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]`. Toutefois, des scénarios plus complexes, tels que l’application d’une fonction de modèle à chaque membre du tableau et sa comparaison à une valeur souhaitée, sont possibles uniquement en utilisant l’expression `count`. Pour plus d’informations, consultez [Expression field count](#field-count-expressions).
 
 Pour résumer, consultez l’exemple de contenu de ressource suivant et les valeurs sélectionnées renvoyées par différents alias :
 
@@ -382,7 +382,7 @@ Ce comportement fonctionne également avec les tableaux imbriqués. Par exemple,
 }
 ```
 
-La puissance de `count` tient à la condition `where`. Quand elle est spécifiée, Azure Policy énumère les membres du tableau et évalue chacun d’entre eux par rapport à la condition, en comptant le nombre de membres du tableau évalués comme `true`. Plus précisément, dans chaque itération de l’évaluation de la condition `where`, Azure Policy sélectionne un membre de tableau unique ***i** _ et évalue le contenu de la ressource par rapport à la condition `where` _*comme si **_i_*_ était le seul membre du tableau_*. Le fait d’avoir un seul membre de tableau disponible dans chaque itération permet d’appliquer des conditions complexes sur chaque membre du tableau.
+La puissance de `count` tient à la condition `where`. Quand elle est spécifiée, Azure Policy énumère les membres du tableau et évalue chacun d’entre eux par rapport à la condition, en comptant le nombre de membres du tableau évalués comme `true`. Plus précisément, dans chaque itération de l’évaluation de la condition `where`, Azure Policy sélectionne un membre de tableau unique ***i** _ et évalue le contenu de la ressource par rapport à la condition `where` _*comme si ***i**_ était le seul membre du tableau_*. Le fait d’avoir un seul membre de tableau disponible dans chaque itération permet d’appliquer des conditions complexes sur chaque membre du tableau.
 
 Exemple :
 
@@ -398,7 +398,9 @@ Exemple :
   "equals": 1
 }
 ```
-Pour évaluer l’expression `count`, Azure Policy évalue la condition `where` trois fois, une fois pour chaque membre de `stringArray`, en comptant le nombre de fois où elle a été jugée `true`. Lorsque la condition `where` fait référence aux membres du tableau `Microsoft.Test/resourceType/stringArray[*]`, au lieu de sélectionner tous les membres de `stringArray`, elle ne sélectionne qu’un seul membre de tableau à chaque fois :
+
+Pour évaluer l’expression `count`, Azure Policy évalue la condition `where` trois fois, une fois pour chaque membre de `stringArray`, en comptant le nombre de fois où elle a été jugée `true`.
+Lorsque la condition `where` fait référence aux membres du tableau `Microsoft.Test/resourceType/stringArray[*]`, au lieu de sélectionner tous les membres de `stringArray`, elle ne sélectionne qu’un seul membre de tableau à chaque fois :
 
 | Itération | Valeurs `Microsoft.Test/resourceType/stringArray[*]` sélectionnées | Résultat de l’évaluation `where` |
 |:---|:---|:---|
@@ -406,7 +408,7 @@ Pour évaluer l’expression `count`, Azure Policy évalue la condition `where` 
 | 2 | `"b"` | `false` |
 | 3 | `"c"` | `false` |
 
-Par conséquent, `count` retourne `1`.
+`count` retourne `1`.
 
 Voici une expression plus complexe :
 
@@ -436,7 +438,7 @@ Voici une expression plus complexe :
 | 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true` |
 
-Par conséquent, `count` retourne `1`.
+`count` retourne `1`.
 
 Le fait que l’expression `where` soit évaluée par rapport à la **totalité** du contenu de la requête (avec des modifications apportées uniquement au membre du tableau en cours d’énumération) signifie que la condition `where` peut également faire référence à des champs en dehors du tableau :
 
@@ -458,7 +460,7 @@ Le fait que l’expression `where` soit évaluée par rapport à la **totalité*
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-Des expressions count imbriquées peuvent être utilisées pour appliquer des conditions aux champs de tableau imbriqués. Par exemple, la condition suivante vérifie que le tableau `objectArray[*]` a exactement 2 membres avec `nestedArray[*]` qui contient 1 ou plusieurs membres :
+Des expressions count imbriquées peuvent être utilisées pour appliquer des conditions aux champs de tableau imbriqués. Par exemple, la condition suivante vérifie que le tableau `objectArray[*]` a exactement deux membres avec `nestedArray[*]` qui contient un ou plusieurs membres :
 
 ```json
 {
@@ -480,9 +482,9 @@ Des expressions count imbriquées peuvent être utilisées pour appliquer des co
 | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` a 2 membres => `true` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` a 2 membres => `true` |
 
-Étant donné que les deux membres de `objectArray[*]` ont un tableau enfant `nestedArray[*]` avec 2 membres, l’expression outer count retourne `2`.
+Étant donné que les deux membres de `objectArray[*]` ont un tableau enfant `nestedArray[*]` avec deux membres, l’expression outer count retourne `2`.
 
-Exemple plus complexe : vérifiez que le tableau `objectArray[*]` a exactement 2 membres avec `nestedArray[*]` avec tous les membres égaux à `2` ou `3` :
+Exemple plus complexe : vérifiez que le tableau `objectArray[*]` a exactement deux membres avec `nestedArray[*]` avec tous les membres égaux à `2` ou `3` :
 
 ```json
 {
@@ -538,13 +540,13 @@ Quand vous utilisez des fonctions de modèle, utilisez la fonction `current()` p
 
 #### <a name="the-field-function-inside-where-conditions"></a>La fonction field dans des conditions where
 
-La fonction `field()` peut également être utilisée pour accéder à la valeur du membre du tableau actuel tant que l’expression **count** ne figure pas à l’intérieur d’une **condition d’existence** (la fonction`field()` fait toujours référence à la ressource évaluée dans la condition **if**).
-Le comportement de `field()` lorsque vous faites référence au tableau évalué repose sur les concepts suivants :
+La fonction `field()` peut également être utilisée pour accéder à la valeur du membre du tableau actuel tant que l’expression **count** ne figure pas à l’intérieur d’une **condition d’existence** (la fonction`field()` fait toujours référence à la ressource évaluée dans la condition **if**). Le comportement de `field()` lorsque vous faites référence au tableau évalué repose sur les concepts suivants :
+
 1. Les alias de tableau sont résolus en une collection de valeurs sélectionnées parmi tous les membres du tableau.
 1. Les fonctions `field()` qui référencent des alias de tableau retournent un tableau avec les valeurs sélectionnées.
 1. Le référencement de l’alias de tableau compté à l’intérieur de la condition `where` retourne une collection avec une seule valeur sélectionnée dans le membre du tableau évalué dans l’itération actuelle.
 
-Ce comportement signifie que, lorsque vous faites référence au membre de tableau compté avec une fonction `field()` à l’intérieur de la condition `where`, **un tableau avec un seul membre est renvoyé**. Bien que cela ne soit pas intuitif, c’est cohérent avec l’idée que les alias de tableau renvoient toujours une collection de propriétés sélectionnées. Voici un exemple :
+Ce comportement signifie que, lorsque vous faites référence au membre de tableau compté avec une fonction `field()` à l’intérieur de la condition `where`, **un tableau avec un seul membre est renvoyé**. Bien que ce comportement ne soit pas intuitif, c’est cohérent avec l’idée que les alias de tableau renvoient toujours une collection de propriétés sélectionnées. Voici un exemple :
 
 ```json
 {
@@ -608,9 +610,9 @@ Les effets [append](../concepts/effects.md#append) et [modify](../concepts/effec
 
 Pour plus d’informations, consultez ces [exemples Append](../concepts/effects.md#append-examples).
 
-## <a name="appendix--additional--alias-examples"></a>Annexe - Autres exemples d’alias [*]
+## <a name="additional--alias-examples"></a>Autres exemples d’alias [*]
 
-Il est recommandé d’utiliser les [expressions field count](#field-count-expressions) pour vérifier si « tout » ou « partie » des membres d’un tableau dans le contenu de la demande remplissent une condition. Mais dans certaines conditions simples, il est possible d’obtenir le même résultat en utilisant un accesseur de champ avec un alias de tableau (comme décrit dans [Référencement de la collection des membres du tableau](#referencing-the-array-members-collection)). Cela peut être utile dans des règles de stratégie qui dépassent la limite du nombre d’expressions **count**. Voici des exemples de cas d’utilisation courants :
+Il est recommandé d’utiliser les [expressions field count](#field-count-expressions) pour vérifier si « tout » ou « partie » des membres d’un tableau dans le contenu de la requête remplissent une condition. Mais dans certaines conditions simples, il est possible d’obtenir le même résultat en utilisant un accesseur de champ avec un alias de tableau, comme décrit dans [Référencement de la collection des membres du tableau](#referencing-the-array-members-collection). Ce modèle être utile dans des règles de stratégie qui dépassent la limite du nombre d’expressions **count**. Voici des exemples de cas d’utilisation courants :
 
 L’exemple de règle de stratégie pour la table de scénario ci-dessous :
 

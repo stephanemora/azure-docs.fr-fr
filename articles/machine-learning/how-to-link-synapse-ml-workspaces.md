@@ -11,16 +11,16 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: dd62fb5e3c7450d50b9837ee5484ca480cab78aa
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 511ee1aa5f5036f5ca5450def0e4481c0608db33
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640837"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227345"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Lier des espaces de travail Azure Synapse Analytics et Azure Machine Learning (préversion)
 
-Dans cet article, vous allez découvrir comment créer un service lié qui relie votre espace de travail [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) et votre [espace de travail Azure Machine Learning](concept-workspace.md).
+Dans cet article, vous allez découvrir comment créer un service lié qui relie votre espace de travail [Azure Synapse Analytics](/azure/synapse-analytics/overview-what-is) et votre [espace de travail Azure Machine Learning](concept-workspace.md).
 
 Une fois l’espace de travail Azure Machine Learning lié à l’espace de travail Azure Synapse, vous pouvez attacher un pool Apache Spark en tant que calcul dédié pour un data wrangling à grande échelle et effectuer un entraînement de modèle à partir du même notebook.
 

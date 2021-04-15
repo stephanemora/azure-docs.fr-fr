@@ -2,15 +2,15 @@
 title: Créer et déployer des spécifications de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 76573e4415dffb2212dd025ed486d834446d3851
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2f4aec6d9fa07edf36dea68a23ba12eb5f72d308
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102043896"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626082"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specs de modèle Azure Resource Manager (préversion)
 
@@ -25,9 +25,16 @@ Pour déployer la spec de modèle, vous utilisez des outils Azure standard tels 
 
 ## <a name="why-use-template-specs"></a>Pourquoi utiliser des spécifications de modèle ?
 
-Si vous avez actuellement vos modèles dans un GitHub référentiel ou un compte de stockage, vous rencontrez plusieurs défis quand vous essayez de partager et d’utiliser les modèles. Pour qu’un utilisateur le déploie, le modèle doit être local ou l’URL du modèle doit être accessible publiquement. Pour contourner cette limitation, vous pouvez partager des copies du modèle avec les utilisateurs qui ont besoin de le déployer, ou ouvrir l’accès au référentiel ou au compte de stockage. Lorsque les utilisateurs possèdent des copies locales d’un modèle, ces copies peuvent éventuellement séparer le modèle d’origine. Quand vous rendez un référentiel ou un compte de stockage accessible publiquement, des utilisateurs indésirables pourraient accéder au modèle.
+Les specs de modèle permettent de bénéficier des avantages suivants :
 
-L’avantage de l’utilisation de spécifications de modèle est que vous pouvez créer des modèles canoniques et les partager avec des équipes de votre organisation. Les specs de modèle sont sécurisées, car elles sont disponibles pour Azure Resource Manager pour le déploiement, mais ne sont pas accessibles aux utilisateurs sans autorisation Azure RBAC. Les utilisateurs ont uniquement besoin d’un accès en lecture à la spec de modèle pour en déployer le modèle, de sorte que vous pouvez partager le modèle sans permettre à d’autres utilisateurs de le modifier.
+* Vous utilisez des modèles ARM standard pour votre spec de modèle.
+* Vous gérez l’accès par le biais d’Azure RBAC, plutôt que des jetons SAP.
+* Les utilisateurs peuvent déployer la spec de modèle sans avoir d’accès en écriture au modèle.
+* Vous pouvez intégrer la spec de modèle dans un processus de déploiement existant, tel qu’un script PowerShell ou un pipeline DevOps.
+
+Les specs de modèle vous permettent de créer des modèles canoniques et de les partager avec des équipes de votre organisation. Les specs de modèle sont sécurisées, car elles sont disponibles pour Azure Resource Manager pour le déploiement, mais ne sont pas accessibles aux utilisateurs qui n’ont pas l’autorisation appropriée. Les utilisateurs ont uniquement besoin d’un accès en lecture à la spec de modèle pour en déployer le modèle, de sorte que vous pouvez partager le modèle sans permettre à d’autres utilisateurs de le modifier.
+
+Si vous avez actuellement vos modèles dans un GitHub référentiel ou un compte de stockage, vous rencontrez plusieurs défis quand vous essayez de partager et d’utiliser les modèles. Pour déployer le modèle, vous devez rendre le modèle accessible publiquement ou gérer l’accès avec des jetons SAP. Pour contourner cette limite, les utilisateurs peuvent créer des copies locales, qui finissent par diverger de votre modèle original. Les specs de modèle simplifient le partage des modèles.
 
 Les modèles que vous incluez dans une spec de modèle doivent être vérifiés par les administrateurs de votre organisation afin de respecter les exigences et les directives de l’organisation.
 

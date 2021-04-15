@@ -3,14 +3,14 @@ title: Fichier CreateUiDefinition.json pour le volet du portail
 description: Explique comment créer des définitions d’interface utilisateur pour le portail Azure. Utilisé lors de la définition d’applications managées Azure.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89319563"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641649"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json pour une expérience de création d’applications managées Azure
 
@@ -63,25 +63,29 @@ La propriété `config` est facultative. Utilisez-la pour remplacer le comportem
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -102,6 +106,8 @@ La propriété `config` est facultative. Utilisez-la pour remplacer le comportem
     }
 },
 ```
+
+Pour la propriété `isValid`, écrivez une expression qui se résout en true ou false. Pour la propriété `permission`, spécifiez l’une des [actions du fournisseur de ressources](../../role-based-access-control/resource-provider-operations.md).
 
 ### <a name="wizard"></a>Assistant
 
@@ -150,7 +156,7 @@ L’exemple suivant montre une zone de texte qui a été ajoutée aux éléments
 
 ## <a name="steps"></a>Étapes
 
-La propriété Étapes contient zéro ou plusieurs étapes supplémentaires à afficher après les étapes de base. Chaque étape contient un ou plusieurs éléments. Vous pouvez ajouter des étapes par rôle ou niveau de l’application déployée. Par exemple, ajoutez une étape pour les entrées destinées aux nœuds principaux et une étape pour les nœuds Worker à un cluster.
+La propriété steps contient zéro ou plusieurs étapes supplémentaires à afficher après les étapes de base. Chaque étape contient un ou plusieurs éléments. Vous pouvez ajouter des étapes par rôle ou niveau de l’application déployée. Par exemple, ajoutez une étape pour les entrées destinées aux nœuds principaux et une étape pour les nœuds Worker à un cluster.
 
 ```json
 "steps": [

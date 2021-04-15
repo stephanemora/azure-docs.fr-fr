@@ -8,20 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cc470d12377f50f9f9ae4b362bcabf3a5ce34e8f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: d61314dc89d341e376de7d3904568825ad3cfb04
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169281"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293870"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>À propos d’Azure Cloud Services (support étendu)
 
-> [!IMPORTANT]
-> Azure Cloud Services (support étendu) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Cloud Services (support étendu) est un nouveau modèle de déploiement basé sur  [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour le produit  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/). Il est actuellement disponible en préversion publique. Azure Cloud Services (support étendu) a pour principal avantage de fournir une résilience régionale ainsi qu’une parité des fonctionnalités avec Azure Cloud Services déployé à l’aide d’Azure Service Manager. Il offre également certaines capacités ARM telles que l’accès et le contrôle en fonction du rôle (RBAC), les balises, la stratégie et prend en charge les modèles de déploiement.  
+Désormais en disponibilité générale, Azure Cloud Services (support étendu) est un nouveau modèle de déploiement basé sur  [Azure Resource Manager](../azure-resource-manager/management/overview.md) pour le produit  [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/). Azure Cloud Services (support étendu) a pour principal avantage de fournir une résilience régionale ainsi qu’une parité des fonctionnalités avec Azure Cloud Services déployé à l’aide d’Azure Service Manager. Il offre également certaines capacités ARM telles que l’accès et le contrôle en fonction du rôle (RBAC), les balises, la stratégie et prend en charge les modèles de déploiement.  
 
 Avec cette modification, le modèle de déploiement basé sur Azure Service Manager pour Azure Cloud Services est renommé [Azure Cloud Services (classique)](../cloud-services/cloud-services-choose-me.md). Vous conserverez la capacité de créer et de déployer rapidement vos applications et services cloud et web. Vous serez en mesure de mettre à l’échelle votre infrastructure de services cloud en fonction de la demande actuelle et de vous assurer que les performances de vos applications puissent suivre le rythme tout en réduisant les coûts.  
 

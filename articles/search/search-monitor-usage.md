@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592366"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709920"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Superviser les opérations et l’activité de Recherche cognitive Azure
 
@@ -38,9 +38,9 @@ La capture d’écran suivante vous aide à trouver les informations de monitori
 
 * L’onglet **Monitoring**, sur la page Vue d’ensemble principale, présente le volume de requêtes et la latence, et indique si le service est sous pression.
 * Le **Journal d’activité**, dans le volet de navigation gauche, est connecté à Azure Resource Manager. Le journal d’activité signale les actions effectuées par Resource Manager : la disponibilité et l’état du service, les modifications de la capacité (réplicas et partitions) et les activités liées à la clé API.
-* Les paramètres **Monitoring**, plus bas, proposent des alertes configurables, des métriques et des journaux de diagnostic. Créez-les lorsque vous en avez besoin. Une fois les données collectées et stockées, vous pouvez interroger ou visualiser les informations pour obtenir des insights.
+* Les paramètres de **supervision**, plus bas, proposent des alertes configurables, une visualisation des métriques ainsi que des journaux de diagnostic. Créez-les lorsque vous en avez besoin. Une fois les données collectées et stockées, vous pouvez interroger ou visualiser les informations pour obtenir des insights.
 
-![Intégration d’Azure Monitor dans un service de recherche](./media/search-monitor-usage/azure-monitor-search.png
+  ![Intégration d’Azure Monitor dans un service de recherche](./media/search-monitor-usage/azure-monitor-search.png
  "Intégration d’Azure Monitor dans un service de recherche")
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Azure Monitor possède sa propre structure de facturation ; les journaux de diag
 
 ## <a name="monitor-user-access"></a>Superviser l’accès des utilisateurs
 
-Étant donné que les index de recherche sont un composant d’une plus grande application cliente, il n’existe aucune méthodologie intégrée pour contrôler ni superviser l’accès par utilisateur à un index. Les demandes sont supposées provenir d’une application cliente, que ce soit pour des demandes d’administration ou de requête. Les opérations de lecture-écriture d’administration incluent la création, la mise à jour et la suppression d’objets dans l’ensemble du service. Les opérations en lecture seule sont des requêtes sur la collection de documents, délimitées à un seul index. 
+Étant donné que les index de recherche sont un composant d’une plus grande application cliente, il n’existe aucune méthodologie intégrée pour contrôler ni superviser l’accès par utilisateur à un index. Les requêtes sont censées provenir d’une application cliente qui présente une requête d’administrateur ou une requête d’interrogation. Les opérations de lecture-écriture d’administration incluent la création, la mise à jour et la suppression d’objets dans l’ensemble du service. Les opérations en lecture seule sont des requêtes sur la collection de documents, délimitées à un seul index. 
 
 Par conséquent, ce que vous verrez dans les journaux d’activité sont des références à des appels avec des clés d’administration ou des clés de requête. La clé appropriée est incluse dans les demandes provenant du code client. Le service n’est pas équipé pour gérer les jetons d’identité ni l’emprunt d’identité.
 

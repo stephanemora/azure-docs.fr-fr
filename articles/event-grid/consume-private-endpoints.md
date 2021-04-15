@@ -3,12 +3,12 @@ title: Remise d’événements à l’aide du service de liaison privée
 description: Cet article explique la procédure de contournement de l’impossibilité de remettre des événements à l’aide du service de liaison privée.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75ae8ff2c341048c39156e43da3615788e9d0f0a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105629289"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309429"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Remise d’événements à l’aide du service de liaison privée
 Actuellement, il n’est pas possible de remettre des événements à l’aide de [points de terminaison privés](../private-link/private-endpoint-overview.md). Autrement dit, il n’y a pas de prise en charge si vous avez des exigences strictes en matière d’isolement réseau lorsque le trafic des événements remis ne doit pas sortir de l’espace IP privé. 
@@ -36,7 +36,7 @@ Pour remettre des événements à Event Hubs dans votre espace de noms Event Hub
 Pour remettre des événements à des files d’attente ou des rubriques Service Bus dans votre espace de noms Service Bus à l’aide d’une identité managée, procédez comme suit :
 
 1. Activez l'identité attribuée par le système : [rubriques système](enable-identity-system-topics.md), [rubriques personnalisées et domaines](enable-identity-custom-topics-domains.md). 
-1. [Ajoutez l'identité au rôle **Expéditeur de données Azure Service Bus**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) dans l'espace de noms Service Bus.
+1. [Ajoutez l'identité au rôle **Expéditeur de données Azure Service Bus**](../service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) dans l'espace de noms Service Bus.
 1. [Activez le paramètre **Autoriser les services Microsoft approuvés à contourner ce pare-feu** dans votre espace de noms Service Bus](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configurez l’abonnement aux événements](managed-service-identity.md) qui utilise une file d’attente ou une rubrique Service Bus comme point de terminaison pour utiliser l’identité affectée au système.
 

@@ -2,14 +2,14 @@
 title: Approvisionner un pool dans un réseau virtuel
 description: Découvrez comment créer un pool Batch dans un réseau virtuel Azure afin que les nœuds de calcul puissent communiquer en toute sécurité avec d’autres machines virtuelles du réseau, comme un serveur de fichiers.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561909"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629306"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -56,6 +56,8 @@ Pour vérifier que les nœuds de votre pool fonctionnent dans un réseau virtuel
 - Le service Batch doit communiquer avec les nœuds pour la planification des tâches. Pour activer cette communication, ajoutez un UDR pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour obtenir la liste des adresses IP du service Batch, consultez [Balises de service locales](../virtual-network/service-tags-overview.md).
 
 - Vérifiez que le trafic sortant vers le stockage Azure (plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net`) n’est pas bloqué par votre réseau local.
+
+- Si vous utilisez des montages de fichiers virtuels, passez en revue les [impératifs réseau](virtual-file-mount.md#networking-requirements), et vérifiez qu’aucun trafic nécessaire n’est bloqué.
 
 Lorsque vous ajoutez un UDR, définissez l’itinéraire pour chaque préfixe d’adresse IP Batch associé et définissez **Type de tronçon suivant** sur **Internet**.
 

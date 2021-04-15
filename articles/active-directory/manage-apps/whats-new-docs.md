@@ -6,15 +6,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: kenwith
-author: kenwith
-manager: daveba
-ms.openlocfilehash: 81898875af85becf1766f02a5b7e077cb388a173
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.author: iangithinji
+author: iantheninja
+manager: CelesteDG
+ms.openlocfilehash: 17dca502d3c65563cb9e4d2c382afb79f4d612e9
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450036"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376050"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
@@ -40,7 +40,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 - [Démarrage rapide : Configurer l’authentification unique (SSO) basée sur SAML d’une application dans votre locataire Azure Active Directory (Azure AD)](add-application-portal-setup-sso.md)
 - [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
-- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.md)
+- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.yml)
 - [Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications](application-sign-in-other-problem-access-panel.md)
 - [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Optimiser le flux de trafic avec le proxy d’application Azure Active Directory](application-proxy-network-topology.md)
@@ -75,7 +75,7 @@ Nouveautés de la documentation relative à la gestion des applications Azure Ac
 - [Bonnes pratiques relatives à la gestion des applications](application-management-fundamentals.md)
 - [Guide de prise en main de l’intégration d’Azure Active Directory avec les applications](plan-an-application-integration.md)
 - [Qu’est-ce que la gestion des applications ?](what-is-application-management.md)
-- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.md)
+- [Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory](application-proxy-faq.yml)
 - [Tutoriel : Ajouter une application locale pour un accès à distance via le proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md)
 - [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md)
 - [Développer des applications métier pour Azure Active Directory](../develop/v2-overview.md)

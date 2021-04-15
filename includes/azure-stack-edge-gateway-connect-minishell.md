@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/08/2021
+ms.date: 03/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 5e2ab0b9d7f61539a16fc685134bef6c9047229d
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 89e648099a5ac6d905f475319cc108dd0d05a6e9
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988264"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081093"
 ---
 Selon le système d’exploitation du client, les procédures permettant de se connecter à distance à l’appareil sont différentes.
 
@@ -21,7 +21,7 @@ Selon le système d’exploitation du client, les procédures permettant de se c
 Avant de commencer, assurez-vous que :
 
 - Votre client Windows exécute Windows PowerShell 5.0 ou une version ultérieure.
-- Votre client Windows dispose de la chaîne de signature (certificat racine) correspondant au certificat de nœud installé sur l’appareil. Pour obtenir des instructions détaillées, consultez [Installer un certificat sur votre client Windows](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- Votre client Windows dispose de la chaîne de signature (certificat racine) correspondant au certificat de nœud installé sur l’appareil. Pour obtenir des instructions détaillées, consultez [Installer un certificat sur votre client Windows](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 - Le fichier `hosts` sous `C:\Windows\System32\drivers\etc` pour votre client Windows contient une entrée correspondant au certificat de nœud au format suivant :
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`
@@ -58,8 +58,15 @@ Suivez cette procédure pour effectuer une connexion distante depuis un client W
 
     Si vous voyez une erreur liée à une relation de confiance, vérifiez si la chaîne de signature du certificat de nœud chargé sur votre appareil est également installée sur le client qui accède à votre appareil.
 
+    Si vous n’utilisez pas les certificats (nous vous recommandons d’utiliser les certificats !), vous pouvez ignorer ce contrôle à l’aide des options de session : `-SkipCACheck -SkipCNCheck -SkipRevocationCheck`.
+
+    ```powershell
+    $sessOptions = New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck 
+    Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell -UseSSL -SessionOption $sessOptions    
+    ```
+
     > [!NOTE] 
-    > Lorsque vous utilisez l’option `-UseSSL`, vous utilisez la communication à distance via PowerShell sur *https*. Nous vous recommandons de toujours utiliser le *protocole HTTPS* pour vous connecter à distance via PowerShell. Bien qu’une session *http* ne soit pas la méthode de connexion la plus sécurisée, elle est acceptable sur des réseaux approuvés.
+    > Lorsque vous utilisez l’option `-UseSSL`, vous utilisez la communication à distance via PowerShell sur *https*. Nous vous recommandons de toujours utiliser le *protocole HTTPS* pour vous connecter à distance via PowerShell. 
 
 6. Indiquez le mot de passe lorsque vous y êtes invité. Utilisez le mot de passe vous permettant de vous connecter à l’interface utilisateur web locale. Le mot de passe par défaut de cette interface est *Password1*. Lorsque vous êtes connecté à l’appareil à l’aide de PowerShell à distance, vous pouvez voir l’exemple de sortie suivant :  
 
@@ -77,27 +84,30 @@ Suivez cette procédure pour effectuer une connexion distante depuis un client W
     [10.100.10.10]: PS>
     ```
 
-### <a name="remotely-connect-from-a-linux-client"></a>Connexion à distance depuis un client Linux
+> [!IMPORTANT]
+> Dans la version actuelle, vous pouvez vous connecter à l’interface PowerShell de l’appareil uniquement via un client Windows. L’option `-UseSSL` ne fonctionne pas avec les clients Linux.
 
-Sur le client Linux que vous utiliserez pour vous connecter :
+<!--### Remotely connect from a Linux client-->
 
-- [Installez la plus récente de PowerShell Core pour Linux](/powershell/scripting/install/installing-powershell-core-on-linux), à partir de GitHub, afin d’obtenir la fonctionnalité d’accès distant SSH. 
-- [Installez uniquement le package `gss-ntlmssp` à partir du module NTLM](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). Pour les clients Ubuntu, exécutez la commande ci-dessous :
+<!--On the Linux client that you'll use to connect:
+
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
+- [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-Pour plus d’informations, voir [Accès distant à PowerShell via SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
-Suivez cette procédure pour effectuer une connexion distante depuis un client NFS.
+Follow these steps to remotely connect from an NFS client.
 
-1. Pour ouvrir la session PowerShell, saisissez :
+1. To open PowerShell session, type:
 
     `pwsh`
  
-2. Pour vous connecter à l’aide du client distant, saisissez :
+2. For connecting using the remote client, type:
 
     `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
-    Lorsque vous y êtes invité, indiquez le mot de passe utilisé pour la connexion à votre appareil.
+    When prompted, provide the password used to sign into your device.
  
 > [!NOTE]
-> Cette procédure ne fonctionne pas sur Mac OS.
+> This procedure does not work on Mac OS.-->

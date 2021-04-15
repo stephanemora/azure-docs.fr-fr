@@ -1,18 +1,15 @@
 ---
 title: Architecture de la reprise d’activité après sinistre pour Hyper-V dans Azure Site Recovery
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors du déploiement de la récupération d’urgence pour des machines virtuelles Hyper-V locales (sans VMM) sur Azure avec le service Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: c5025b83619b505728bfdf5c4e1ccc81d3bb225e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73771a70bfe14e46fb08db75fd4baa522caaadb8
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97654759"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579606"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence de Hyper-V vers Azure
 

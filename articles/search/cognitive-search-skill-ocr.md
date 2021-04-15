@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa9c8e1d5579538df11358edc08eb7e2043cea74
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950803"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285839"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
 
 La compétence de **reconnaissance optique de caractères (OCR)** reconnaît le texte imprimé et manuscrit dans des fichiers image. Cette compétence utilise les modèles Machine Learning fournis par l’API [Vision par ordinateur](../cognitive-services/computer-vision/overview.md) [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) dans Cognitive Services. La compétence de **reconnaissance optique de caractères (OCR)** est mappée à la fonctionnalité suivante :
 
-+ Pour l’anglais, l’espagnol, l’allemand, le français, l’italien, le portugais et le néerlandais, la nouvelle API [« Lecture »](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) est utilisée.
-+ Pour toutes les autres langues, l’API [« OCR »](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) est utilisée.
++ Pour l’anglais, l’espagnol, l’allemand, le français, l’italien, le portugais et le néerlandais, la nouvelle API [« Lecture »](../cognitive-services/computer-vision/overview-ocr.md#read-api) est utilisée.
++ Pour toutes les autres langues, l’API [OCR](../cognitive-services/computer-vision/overview-ocr.md#ocr-api) héritée est utilisée.
 
 La compétence **OCR** extrait le texte de fichiers d’image. Les formats de fichiers pris en charge sont les suivants :
 
@@ -43,8 +43,8 @@ Les paramètres respectent la casse.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| `detectOrientation`   | Active la détection automatique de l’orientation de l’image. <br/> Valeurs valides : true, false.|
-| `defaultLanguageCode` | <p>   Code de langue du texte d’entrée. Les langages pris en charge incluent : <br/> zh-Hans (chinois simplifié) <br/> zh-Hant (chinois traditionnel) <br/>cs (tchèque) <br/>da (danois) <br/>nl (néerlandais) <br/>en (anglais) <br/>fi (finnois)  <br/>fr (français) <br/>  de (allemand) <br/>el (grec) <br/> hu (hongrois) <br/> it (italien) <br/>  ja (japonais) <br/> ko (coréen) <br/> nb (norvégien) <br/>   pl (polonais) <br/> pt (portugais) <br/>  ru (russe) <br/>  es (espagnol) <br/>  sv (suédois) <br/>  tr (turc) <br/> ar (arabe) <br/> ro (roumain) <br/> sr-Cyrl (serbe cyrillique) <br/> sr-Latn (serbe latin) <br/>  sk (slovaque) <br/>  unk (inconnu) <br/><br/> Si le code langue n’est pas spécifié ou est Null, la langue est définie automatiquement sur l’anglais. Si la langue est explicitement définie sur « unk », la langue sera détectée automatiquement. </p> |
+| `detectOrientation`    | Active la détection automatique de l’orientation de l’image. <br/> Valeurs valides : true, false.|
+| `defaultLanguageCode` | <p>    Code de langue du texte d’entrée. Les langages pris en charge incluent : <br/> zh-Hans (chinois simplifié) <br/> zh-Hant (chinois traditionnel) <br/>cs (tchèque) <br/>da (danois) <br/>nl (néerlandais) <br/>en (anglais) <br/>fi (finnois)  <br/>fr (français) <br/>  de (allemand) <br/>el (grec) <br/> hu (hongrois) <br/> it (italien) <br/>  ja (japonais) <br/> ko (coréen) <br/> nb (norvégien) <br/>   pl (polonais) <br/> pt (portugais) <br/>  ru (russe) <br/>  es (espagnol) <br/>  sv (suédois) <br/>  tr (turc) <br/> ar (arabe) <br/> ro (roumain) <br/> sr-Cyrl (serbe cyrillique) <br/> sr-Latn (serbe latin) <br/>  sk (slovaque) <br/>  unk (inconnu) <br/><br/> Si le code langue n’est pas spécifié ou est Null, la langue est définie automatiquement sur l’anglais. Si la langue est explicitement définie sur « unk », la langue sera détectée automatiquement. </p> |
 | `lineEnding` | La valeur à utiliser entre chaque ligne détectée. Valeurs possibles : "Space", "CarriageReturn", "LineFeed".  La valeur par défaut est "Space" |
 
 Auparavant, un paramètre appelé "textExtractionAlgorithm" servait à indiquer si la compétence devait extraire du texte "printed" ou "handwritten".  Ce paramètre est obsolète et inutile car le dernier algorithme de l'API Read est capable d'extraire les deux types de texte à la fois.  Si votre définition de compétence inclut déjà ce paramètre, inutile de le supprimer, mais il ne sera plus utilisé, et les deux types de texte seront dorénavant extraits, quel que soit leur paramétrage.
@@ -57,9 +57,9 @@ Auparavant, un paramètre appelé "textExtractionAlgorithm" servait à indiquer 
 
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
-| Nom de sortie     | Description                   |
+| Nom de sortie      | Description                   |
 |---------------|-------------------------------|
-| `text`            | Texte brut extrait de l’image.   |
+| `text`             | Texte brut extrait de l’image.   |
 | `layoutText`    | Type complexe qui décrit le texte extrait ainsi que l’emplacement où le texte a été trouvé.|
 
 

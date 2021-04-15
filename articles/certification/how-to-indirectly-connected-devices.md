@@ -7,16 +7,16 @@ ms.author: cbroad
 ms.date: 02/23/2021
 ms.topic: how-to
 ms.service: certification
-ms.openlocfilehash: da3110b562bc5ddbd37657f31cbdd3790a13b897
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 3a4fd2838c0ddf6d7d03d68f105fc59471b77dea
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975702"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304475"
 ---
 # <a name="device-bundles-and-indirectly-connected-devices"></a>Bundles d’appareils et appareils connectés indirectement
 
-Pour prendre en charge les appareils qui interagissent avec Azure via un appareil, des offres SaaS ou de PaaS, notre portail de soumission (https://www.certify.azure.com) et notre catalogue d’appareils (https://devicecatalog.azure.com) mettent en œuvre les concepts de regroupement et de dépendances pour promouvoir ces combinaisons d’appareils et leur permettre d’accéder à notre programme Azure Certified Device.
+Pour prendre en charge les appareils qui interagissent avec Azure via un appareil, des offres SaaS ou de PaaS, notre portail de soumission (https://certify.azure.com/) et notre catalogue d’appareils (https://devicecatalog.azure.com) mettent en œuvre les concepts de regroupement et de dépendances pour promouvoir ces combinaisons d’appareils et leur permettre d’accéder à notre programme Azure Certified Device.
 
 Selon la gamme de produits et les services offerts, votre situation peut nécessiter une combinaison des étapes suivantes :
 

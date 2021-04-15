@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Windows dans Azure Automation
 description: Cet article décrit comment déployer un Runbook Worker hybride qui vous permet d’exécuter des runbooks sur des ordinateurs Windows de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/24/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f2047a07586f078555032ed9001fdb602fe3b2a
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651355"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293785"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -83,7 +83,32 @@ Pour installer et configurer un Runbook Worker hybride utilisateur Windows, vous
 
 ## <a name="automated-deployment"></a>Déploiement automatisé
 
-La méthode de déploiement automatisée utilise le script PowerShell **New-OnPremiseHybridWorker.ps1** pour automatiser et configurer le rôle Runbook Worker hybride Windows. Il effectue les opérations suivantes :
+Deux méthodes permettent de déployer automatiquement un Runbook Worker hybride. Vous pouvez importer un runbook à partir de la Galerie de runbooks dans le portail Azure et l’exécuter ou télécharger manuellement un script à partir de PowerShell Gallery.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importer un runbook à partir de la Galerie de runbooks
+
+La procédure d’importation est détaillée dans [Importer un runbook PowerShell à partir de GitHub avec le portail Azure](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). Le nom du runbook à importer est **Create Automation Windows HybridWorker**.
+
+Le runbook utilise les paramètres suivants.
+
+| Paramètre | Statut | Description |
+| ------- | ----- | ----------- |
+| `Location` | Obligatoire | Emplacement de l’espace de travail Log Analytics. |
+| `ResourceGroupName` | Obligatoire | Groupe de ressources du compte Automation. |
+| `AccountName` | Obligatoire | Nom du compte Automation dans lequel le Runbook Worker hybride sera inscrit. |
+| `CreateLA` | Obligatoire | Si la valeur est True, utilisez la valeur de `WorkspaceName` pour créer un espace de travail Log Analytics. Si la valeur est False, la valeur de `WorkspaceName` doit faire référence à un espace de travail existant. |
+| `LAlocation` | Facultatif | Emplacement où l’espace de travail Log Analytics sera créé ou emplacement où il existe déjà. |
+| `WorkspaceName` | Facultatif | Nom de l’espace de travail Log Analytics à utiliser. |
+| `CreateVM` | Obligatoire | Si la valeur est True, utilisez la valeur de `VMName` comme nom de nouvelle machine virtuelle. Si la valeur est False, utilisez `VMName` pour rechercher et inscrire une machine virtuelle existante. |
+| `VMName` | Facultatif | Nom de la machine virtuelle créée ou enregistrée, en fonction de la valeur de `CreateVM`. |
+| `VMImage` | Facultatif | Nom de l’image de machine virtuelle à créer. |
+| `VMlocation` | Facultatif | Emplacement de la machine virtuelle créée ou inscrite. Si cet emplacement n’est pas spécifié, la valeur de `LAlocation` est utilisée. |
+| `RegisterHW` | Obligatoire | Si la valeur est True, inscrivez la machine virtuelle en tant que Worker hybride. |
+| `WorkerGroupName` | Obligatoire | Nom du Groupe Worker hybride. |
+
+### <a name="download-a-script-from-the-powershell-gallery"></a>Télécharger un script à partir de PowerShell Gallery
+
+Cette méthode de déploiement automatisée utilise le script PowerShell **New-OnPremiseHybridWorker.ps1** pour automatiser et configurer le rôle Runbook Worker hybride Windows. Il effectue les opérations suivantes :
 
 * Installe les modules nécessaires
 * Se connecte votre compte Azure
@@ -96,7 +121,7 @@ La méthode de déploiement automatisée utilise le script PowerShell **New-OnPr
 
 Procédez comme suit pour installer le rôle sur votre ordinateur Windows à l’aide du script.
 
-1. Téléchargez le script **New-OnPremiseHybridWorker.ps1** à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Une fois que vous avez téléchargé le script, copiez-le ou exécutez-le sur la machine cible. Le script **New-OnPremiseHybridWorker.ps1** utilise les paramètres suivants lors de l’exécution.
+1. Téléchargez le script **New-OnPremiseHybridWorker.ps1** à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker). Une fois que vous avez téléchargé le script, copiez-le ou exécutez-le sur la machine cible. Le script utilise les paramètres suivants.
 
     | Paramètre | Statut | Description |
     | --------- | ------ | ----------- |
@@ -109,9 +134,9 @@ Procédez comme suit pour installer le rôle sur votre ordinateur Windows à l�
     | `TenantID` | Facultatif | Identificateur de l’organisation locataire associée à votre compte Automation. |
     | `WorkspaceName` | Facultatif | Nom de l’espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, le script en crée un et le configure. |
 
-2. Ouvrez une invite de commandes PowerShell 64 bits avec élévation de privilèges.
+1. Ouvrez une invite de commandes PowerShell 64 bits avec élévation de privilèges.
 
-3. À partir de l’invite de commandes PowerShell, accédez au dossier contenant le script que vous avez téléchargé. Modifiez les valeurs des paramètres `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID` et `WorkspaceName`. Ensuite, exécutez le script.
+1. À partir de l’invite de commandes PowerShell, accédez au dossier contenant le script que vous avez téléchargé. Modifiez les valeurs des paramètres `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID` et `WorkspaceName`. Ensuite, exécutez le script.
 
     Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous devez vous connecter avec un compte membre du rôle **Administrateurs des abonnements** et coadministrateur de l’abonnement.
 
@@ -127,9 +152,9 @@ Procédez comme suit pour installer le rôle sur votre ordinateur Windows à l�
     .\New-OnPremiseHybridWorker.ps1 @NewOnPremiseHybridWorkerParameters
     ```
 
-4. Vous êtes invité à accepter l’installation de NuGet et à vous authentifier avec vos informations d’identification Azure. Si vous ne disposez pas de la dernière version de NuGet, vous pouvez le télécharger à partir de la page répertoriant les [versions de distribution NuGet disponibles](https://www.nuget.org/downloads).
+1. Vous êtes invité à accepter l’installation de NuGet et à vous authentifier avec vos informations d’identification Azure. Si vous ne disposez pas de la dernière version de NuGet, vous pouvez le télécharger à partir de la page répertoriant les [versions de distribution NuGet disponibles](https://www.nuget.org/downloads).
 
-5. Vérifiez le déploiement une fois le script terminé. Dans la page **Groupes de Runbook Workers hybrides** de votre compte Automation, sous l’onglet **Groupe de Runbook Workers hybrides utilisateur**, le nouveau groupe et le nombre de membres sont affichés. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner ce groupe dans la liste de cette page, dans le menu de gauche, choisissez **Workers hybrides**. Dans la page **Workers hybrides**, vous pouvez voir chaque membre du groupe listé.
+1. Vérifiez le déploiement une fois le script terminé. Dans la page **Groupes de Runbook Workers hybrides** de votre compte Automation, sous l’onglet **Groupe de Runbook Workers hybrides utilisateur**, le nouveau groupe et le nombre de membres sont affichés. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner ce groupe dans la liste de cette page, dans le menu de gauche, choisissez **Workers hybrides**. Dans la page **Workers hybrides**, vous pouvez voir chaque membre du groupe listé.
 
 ## <a name="manual-deployment"></a>Déploiement manuel
 
@@ -141,7 +166,7 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resourceGroupName> -WorkspaceName <workspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
     ```
 
-2. Déployez l’agent Log Analytics sur la machine cible.
+1. Déployez l’agent Log Analytics sur la machine cible.
 
     * Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Windows à l’aide de l’[extension de machine virtuelle pour Windows](../virtual-machines/extensions/oms-windows.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, PowerShell ou Azure Policy pour attribuer la stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
     
@@ -162,7 +187,7 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
 
     Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en utilisant Azure Policy.
 
-3. Vérifiez que l’agent rend compte à l’espace de travail.
+1. Vérifiez que l’agent rend compte à l’espace de travail.
 
     L’agent Log Analytics pour Windows connecte les ordinateurs à un espace de travail Log Analytics Azure Monitor. Lorsque vous installez l’agent sur votre machine et que vous le connectez à votre espace de travail, il télécharge automatiquement les composants nécessaires au runbook Worker hybride.
 
@@ -176,9 +201,9 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
 
     Dans les résultats de la recherche, vous voyez en principe des enregistrements de pulsation pour la machine, ce qui indique que l’agent est connecté et qu’il rend compte au service. Par défaut, chaque agent transmet un enregistrement de pulsation à l’espace de travail qui lui est attribué. Utilisez les étapes suivantes pour effectuer l’installation et la configuration de l’agent.
 
-4. Confirmez la version du Runbook Worker hybride sur l’ordinateur hébergeant l’agent Log Analytics, accédez à `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` et notez le sous-dossier **version**. Ce dossier apparaîtra sur l’ordinateur plusieurs minutes après l’activation de la solution dans l’espace de travail.
+1. Confirmez la version du Runbook Worker hybride sur l’ordinateur hébergeant l’agent Log Analytics, accédez à `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` et notez le sous-dossier **version**. Ce dossier apparaîtra sur l’ordinateur plusieurs minutes après l’activation de la solution dans l’espace de travail.
 
-5. Installez l’environnement de runbook et connectez-vous à Azure Automation. Quand vous configurez un agent pour qu’il envoie des rapports à un espace de travail Log Analytics et importez la solution **Automation**, cette dernière envoie (push) le module PowerShell `HybridRegistration`. Ce module contient l’applet de commande `Add-HybridRunbookWorker`. Vous utilisez cette cmdlet pour installer l’environnement du Runbook sur la machine et l’inscrire auprès d’Azure Automation.
+1. Installez l’environnement de runbook et connectez-vous à Azure Automation. Quand vous configurez un agent pour qu’il envoie des rapports à un espace de travail Log Analytics et importez la solution **Automation**, cette dernière envoie (push) le module PowerShell `HybridRegistration`. Ce module contient l’applet de commande `Add-HybridRunbookWorker`. Vous utilisez cette cmdlet pour installer l’environnement du Runbook sur la machine et l’inscrire auprès d’Azure Automation.
 
     Ouvrez une session PowerShell en mode administrateur et exécutez les commandes suivantes pour importer le module.
 
@@ -187,7 +212,7 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
     Import-Module .\HybridRegistration.psd1
     ```
 
-6. Exécutez l’applet de commande `Add-HybridRunbookWorker` en spécifiant les valeurs des paramètres `Url`, `Key` et `GroupName`.
+1. Exécutez l’applet de commande `Add-HybridRunbookWorker` en spécifiant les valeurs des paramètres `Url`, `Key` et `GroupName`.
 
     ```powershell-interactive
     Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
@@ -205,7 +230,7 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
 
     * Si nécessaire, définissez le paramètre `Verbose` pour recevoir des détails sur l’installation.
 
-7. Vérifiez le déploiement une fois la commande terminée. Dans la page **Groupes de Runbook Workers hybrides** de votre compte Automation, sous l’onglet **Groupe de Runbook Workers hybrides utilisateur**, le groupe nouveau ou existant et le nombre de membres sont affichés. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de cette page en choisissant **Workers hybrides** dans le menu de gauche. Dans la page **Workers hybrides**, vous pouvez voir chaque membre du groupe listé.
+1. Vérifiez le déploiement une fois la commande terminée. Dans la page **Groupes de Runbook Workers hybrides** de votre compte Automation, sous l’onglet **Groupe de Runbook Workers hybrides utilisateur**, le groupe nouveau ou existant et le nombre de membres sont affichés. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de cette page en choisissant **Workers hybrides** dans le menu de gauche. Dans la page **Workers hybrides**, vous pouvez voir chaque membre du groupe listé.
 
 ## <a name="install-powershell-modules"></a>Installer des modules PowerShell
 
@@ -219,9 +244,9 @@ Les modules installés doivent se trouver dans un emplacement référencé par l
 
 1. Dans le portail Azure, accédez à votre compte Automation.
 
-2. Sous **Paramètres du compte**, sélectionnez **Clés**, puis notez les valeurs des champs **URL** et **Clé d’accès primaire**.
+1. Sous **Paramètres du compte**, sélectionnez **Clés**, puis notez les valeurs des champs **URL** et **Clé d’accès primaire**.
 
-3. Ouvrez une session PowerShell en mode administrateur et exécutez la commande suivante avec votre URL et les valeurs de clé d'accès principal. Utilisez le paramètre `Verbose` pour afficher un journal détaillé du processus de suppression. Pour supprimer des ordinateurs obsolètes à partir de votre groupe Worker hybride, utilisez le paramètre facultatif `machineName`.
+1. Ouvrez une session PowerShell en mode administrateur et exécutez la commande suivante avec votre URL et les valeurs de clé d'accès principal. Utilisez le paramètre `Verbose` pour afficher un journal détaillé du processus de suppression. Pour supprimer des ordinateurs obsolètes à partir de votre groupe Worker hybride, utilisez le paramètre facultatif `machineName`.
 
 ```powershell-interactive
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
@@ -233,11 +258,11 @@ Pour supprimer un groupe de Runbooks Workers hybrides, vous commencer par suppri
 
 1. Dans le portail Azure, ouvrez le compte Automation.
 
-2. Sélectionnez **Groupes Worker hybride** sous **Automatisation des processus**. Sélectionnez le groupe à supprimer. La page Propriétés du groupe s’affiche.
+1. Sélectionnez **Groupes Worker hybride** sous **Automatisation des processus**. Sélectionnez le groupe à supprimer. La page Propriétés du groupe s’affiche.
 
    ![Page Propriétés](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-3. Dans la page Propriétés du groupe sélectionné, cliquez sur **Supprimer**. Un message vous invite à confirmer cette action. Si vous êtes sûr de vouloir continuer, sélectionnez **Oui**.
+1. Dans la page Propriétés du groupe sélectionné, cliquez sur **Supprimer**. Un message vous invite à confirmer cette action. Si vous êtes sûr de vouloir continuer, sélectionnez **Oui**.
 
    ![Message de confirmation](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
