@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a532ae9485efa9571137130d32ba0827728e8094
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99257978"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166868"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory
 
@@ -68,11 +68,23 @@ Pour des raisons de sécurité, il s’agit d’une règle stricte. Nous ne pren
 
 ### <a name="dns-updates"></a>Mises à jour de DNS
 
-Quand vous utilisez des domaines personnalisés, vous devez créer une entrée DNS avec un enregistrement CNAME pour l’URL externe (par exemple, `*.adventure-works.com`) pointant vers l’URL externe du point de terminaison du proxy d’application. Pour les applications génériques, l’enregistrement CNAME doit pointer vers les URL externes appropriées :
+Lorsque vous utilisez des domaines personnalisés, vous devez créer une entrée DNS avec un enregistrement CNAME pour l’URL externe (par exemple, `*.adventure-works.com`) pointant vers l’URL externe du point de terminaison proxy de l’application. Pour les applications génériques, l’enregistrement CNAME doit pointer vers l’URL externe appropriée :
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
 Pour vérifier que vous avez correctement configuré votre enregistrement CNAME, vous pouvez utiliser [nslookup](/windows-server/administration/windows-commands/nslookup) sur l’un des points de terminaison cibles, par exemple, `expenses.adventure-works.com`.  Votre réponse doit inclure l’alias déjà mentionné (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+
+### <a name="using-connector-groups-assigned-to-an-app-proxy-cloud-service-region-other-than-the-default-region"></a>Utilisation de groupes de connecteurs affectés à une région de service cloud Proxy d’application autre que la région par défaut
+Si vous avez des connecteurs installés dans des régions différentes de la région par défaut de votre locataire, il peut être avantageux de changer la région pour laquelle votre groupe de connecteurs est optimisé afin d’améliorer les performances d’accès à ces applications. Pour en savoir plus, consultez [Optimiser les groupes de connecteurs afin d’utiliser le service cloud Proxy d’application le plus proche](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
+ 
+Si le groupe de connecteurs affecté à l’application générique utilise une **région différente de la région par défaut**, vous devez mettre à jour l’enregistrement CNAME pour pointer vers une URL externe spécifique à une région. Utilisez le tableau suivant pour déterminer l’URL appropriée :
+
+| Région attribuée au connecteur | URL externe |
+| ---   | ---         |
+| Asia | `<yourAADTenantId>.asia.tenant.runtime.msappproxy.net`|
+| Australie  | `<yourAADTenantId>.aus.tenant.runtime.msappproxy.net` |
+| Europe  | `<yourAADTenantId>.eur.tenant.runtime.msappproxy.net`|
+| Amérique du Nord  | `<yourAADTenantId>.nam.tenant.runtime.msappproxy.net` |
 
 ## <a name="considerations"></a>Considérations
 

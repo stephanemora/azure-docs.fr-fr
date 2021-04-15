@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 362704368958d2600d16cd907421917b824a59cb
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97108431"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256597"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Tutoriel pour configurer LexisNexis avec Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ Dans la [stratégie TrustFrameworkExtensions](https://github.com/azure-ad-b2c/pa
 
 ### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>Partie 7 : Configuration de la stratégie Azure AD B2C
 
-Reportez-vous à ce [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) pour télécharger le [pack de démarrage pour comptes locaux](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) et configurer la [stratégie](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) du locataire Azure AD B2C.
+Reportez-vous à ce [document](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) pour télécharger le [pack de démarrage pour comptes locaux](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) et configurer la [stratégie](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) du locataire Azure AD B2C.
 
 >[!NOTE]
 >Mettez à jour les stratégies fournies en fonction de votre locataire spécifique.
@@ -155,4 +155,4 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Stratégies personnalisées dans Azure AD B2C](./custom-policy-overview.md)
 
-- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

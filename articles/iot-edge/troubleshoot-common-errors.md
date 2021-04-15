@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: cc6d7491d9c38f1ddf4aba2adecad4aaee3c344b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d36a51865f3ed4a093998b16aaa174432c5308a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103489560"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275649"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -87,6 +87,8 @@ Spécifiez le serveur DNS de votre environnement dans les paramètres du moteur 
 
 L’exemple ci-dessus définit le serveur DNS sur un service DNS accessible publiquement. Si l’appareil de périphérie ne peut pas accéder à cette adresse IP depuis son environnement, remplacez l’adresse par l’adresse du serveur DNS qui est accessible.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Placez `daemon.json` au bon emplacement de votre plateforme :
 
 | Plateforme | Emplacement |
@@ -102,6 +104,24 @@ Redémarrez le moteur de conteneur pour que les mises à jour prennent effet.
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Placez `daemon.json` dans le répertoire `/etc/docker` de votre appareil.
+
+Si l’emplacement contient déjà un fichier `daemon.json`, ajoutez-lui la clé **dns** et enregistrez-le.
+
+Redémarrez le moteur de conteneur pour que les mises à jour prennent effet.
+
+```bash
+sudo systemctl restart docker
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 **Option n°2 : Définissez le serveur DNS dans le déploiement IoT Edge par module**
 
@@ -275,6 +295,9 @@ Lorsque vous voyez cette erreur, vous pouvez la résoudre par la configuration d
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Impossible d’obtenir les journaux d’activité de démon IoT Edge sur Windows
 
 **Comportement observé :**
@@ -297,6 +320,9 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## <a name="stability-issues-on-smaller-devices"></a>Problèmes de stabilité sur les petits appareils
 
@@ -388,6 +414,7 @@ Des appareils IoT Edge derrière une passerelle obtiennent leurs images de modul
 Assurez-vous que l’appareil de IoT Edge parent peut recevoir des demandes entrantes de l’appareil IoT Edge enfant. Ouvrez le trafic réseau sur les ports 443 et 6617 pour les requêtes provenant de l’appareil enfant.
 
 :::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

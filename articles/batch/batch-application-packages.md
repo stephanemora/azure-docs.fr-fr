@@ -7,12 +7,12 @@ ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 17729b2b6a2c4faba0554339a382cad559e9894a
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045788"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210497"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -61,7 +61,7 @@ Avec des packages d’application, la tâche de démarrage de votre pool ne doit
 Vous pouvez utiliser le [Portail Azure](https://portal.azure.com) ou les API de Batch Management pour gérer les packages d’application dans votre compte Batch. Les sections suivantes expliquent comment lier un compte de stockage, et comment ajouter et gérer des applications et des packages d’application dans le portail Azure.
 
 > [!NOTE]
-> Bien que vous puissiez définir des valeurs d’application dans la ressource [Microsoft.Batch/batchAccounts](/templates/microsoft.batch/batchaccounts) d’un [modèle ARM](quick-create-template.md), il n’est actuellement pas possible d’utiliser un modèle ARM pour télécharger des packages d’application à utiliser dans votre compte Batch. Vous devez les télécharger dans votre compte de stockage lié comme décrit [ci-dessous](#add-a-new-application).
+> Bien que vous puissiez définir des valeurs d’application dans la ressource [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) d’un [modèle ARM](quick-create-template.md), il n’est actuellement pas possible d’utiliser un modèle ARM pour télécharger des packages d’application à utiliser dans votre compte Batch. Vous devez les télécharger dans votre compte de stockage lié comme décrit [ci-dessous](#add-a-new-application).
 
 ### <a name="link-a-storage-account"></a>Lier un compte de stockage
 

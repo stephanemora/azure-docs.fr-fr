@@ -1,7 +1,7 @@
 ---
 title: Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 titleSuffix: Azure Machine Learning
-description: Apprenez à démarrer, à contrôler et à gérer vos exécutions d’expériences de Machine Learning avec le Kit de développement logiciel (SDK) Azure Machine Learning Python.
+description: Apprenez à démarrer, à surveiller et à suivre vos exécutions d’expériences Machine Learning avec le Kit de développement logiciel (SDK) Azure Machine Learning Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634767"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566283"
 ---
-# <a name="start-monitor-and-track-runs"></a>Démarrer, analyser et suivre les exécutions 
+# <a name="start-monitor-and-track-run-history"></a>Démarrer, surveiller et suivre l’historique des exécutions 
 
-Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro), [l’interface de ligne de commande de Machine Learning](reference-azure-machine-learning-cli.md) et [Azure Machine Learning Studio](https://ml.azure.com) fournissent diverses méthodes permettant d’analyser, d’organiser et de gérer vos exécutions d’entraînement et d’expérimentation.
+Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro), [l’interface de ligne de commande de Machine Learning](reference-azure-machine-learning-cli.md) et [Azure Machine Learning studio](https://ml.azure.com) fournissent diverses méthodes permettant de surveiller, d’organiser et de suivre vos exécutions d’entraînement et d’expérimentation. L’historique des exécutions ML est un élément important d’un processus de développement ML explicable et reproductible.
 
-Cet article montre des exemples des tâches suivantes :
+Cet article explique comment effectuer les tâches suivantes :
 
 * Analyse des performances d’exécution.
 * Analyse de l’état d’exécution par notification par e-mail.
 * Identification et recherche d’exécutions.
 * Ajout d’une description de l’exécution. 
-* Exécution d’une recherche. 
+* Recherche sur l’historique des exécutions. 
 * Annulation ou mise en échec d’exécutions.
 * Création d’exécutions enfants.
  
@@ -103,7 +103,7 @@ Vous devez disposer des éléments suivants :
     
         Pour plus d’informations, consultez [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
-    2. Pour démarrer l’exécution, utilisez la commande suivante : Lorsque vous utilisez cette commande, spécifiez le nom du fichier runconfig (le texte avant \*.runconfig si vous regardez le système de fichiers) avec le paramètre - c.
+    2. Pour démarrer l’exécution, utilisez la commande suivante : Lorsque vous utilisez cette commande, spécifiez le nom du fichier runconfig (le texte avant \*.runconfig si vous regardez le système de fichiers) avec le paramètre -c.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
@@ -134,7 +134,7 @@ Vous devez disposer des éléments suivants :
         print(notebook_run.get_status())
         ```
     
-    * Pour obtenir l’ID d’exécution, le temps d’exécution et des détails supplémentaires sur l’exécution, utilisez la méthode [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--).
+    * Pour obtenir l’ID d’exécution, la durée d’exécution et des détails supplémentaires sur l’exécution, utilisez la méthode [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--).
     
         ```python
         print(notebook_run.get_details())
@@ -211,7 +211,7 @@ Vous devez disposer des éléments suivants :
     1. Dans **Détails de la destination**, sélectionnez **Envoyer à l’espace de travail Log Analytics** et spécifiez l’**abonnement** et l’**espace de travail Log Analytics**. 
 
     > [!NOTE]
-    > L’**espace de travail Azure Log Analytics** est un type de ressource Azure différent de celui de l’**espace de travail Azure Machine Learning service**. S’il n’existe aucune option dans cette liste, vous pouvez [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    > L’**espace de travail Azure Log Analytics** est un type de ressource Azure différent de celui de l’**espace de travail Azure Machine Learning service**. S’il n’existe aucune option dans cette liste, vous pouvez [créer un espace de travail Log Analytics](../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Emplacement où est enregistrée la notification par e-mail](./media/how-to-manage-runs/log-location.png)
 
@@ -219,13 +219,13 @@ Vous devez disposer des éléments suivants :
 
     ![Nouvelle règle d’alerte](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. Découvrez [comment créer et gérer les alertes de journal à l’aide d’Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+1. Découvrez [comment créer et gérer les alertes de journal à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="run-description"></a>Description de l’exécution 
 
 Une description de l’exécution peut être ajoutée à une exécution pour fournir davantage de contexte et d’informations relatifs à l’exécution. Vous pouvez également rechercher ces descriptions à partir de la liste des exécutions et ajouter la description de l’exécution en tant que colonne dans la liste des exécutions. 
 
-Accédez à la page **Détails de l’exécution** de votre exécution, puis sélectionnez l’icône Modifier ou Crayon pour ajouter, modifier ou supprimer des descriptions pour votre exécution. Pour conserver les modifications apportées à la liste des exécutions, enregistrez-les dans votre vue personnalisée existante ou dans une nouvelle vue personnalisée. Le format Markdown est pris en charge pour les descriptions d’exécution qui autorisent les images incorporées et le lien profond, comme indiqué ci-dessous.
+Accédez à la page **Détails de l’exécution** de votre exécution, puis sélectionnez l’icône de modification ou en forme de crayon pour ajouter, modifier ou supprimer des descriptions pour votre exécution. Pour conserver les modifications apportées à la liste des exécutions, enregistrez-les dans votre vue personnalisée existante ou dans une nouvelle vue personnalisée. Le format Markdown est pris en charge pour les descriptions d’exécution, ce qui permet d’intégrer des images et de créer des liens profonds, comme indiqué ci-dessous.
 
 :::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Capture d’écran : créer une description de l’exécution"::: 
 
@@ -285,9 +285,9 @@ Dans Azure Machine Learning, vous pouvez utiliser des balises et propriétés po
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    Vous pouvez ajouter, modifier ou supprimer des étiquettes d’exécution à partir de Studio. Accédez à la page **Détails de l’exécution** de votre exécution, puis sélectionnez l’icône Modifier ou Crayon pour ajouter, modifier ou supprimer des étiquettes pour votre exécution. Vous pouvez également effectuer une recherche ou appliquer un filtre sur ces étiquettes à partir de la page de liste des exécutions.
+    Vous pouvez ajouter, modifier ou supprimer des étiquettes d’exécution à partir de Studio. Accédez à la page **Détails de l’exécution** de votre exécution, puis sélectionnez l’icône de modification ou en forme de crayon pour ajouter, modifier ou supprimer des étiquettes pour votre exécution. Vous pouvez également effectuer une recherche ou appliquer un filtre sur ces étiquettes à partir de la page de liste des exécutions.
     
-    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Capture d’écran : ajouter, modifier ou supprimer des étiquettes d’exécution":::
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Capture d’écran : Ajouter, modifier ou supprimer des étiquettes d’exécution":::
     
     ---
 
@@ -403,9 +403,9 @@ Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode
 
 ### <a name="submit-child-runs"></a>Envoyer des exécutions enfants
 
-Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Cela vous permet de créer des hiérarchies d’exécutions parentes et enfants. Vous ne pouvez pas créer une exécution enfant sans parent : même si l’exécution parente ne fait rien, mais que le lancement de l’enfant s’exécute, il est toujours nécessaire de créer la hiérarchie. Les états de toutes les exécutions sont indépendants : un parent peut afficher l’état de réussite `"Completed"` même si une ou plusieurs exécutions enfants ont été annulées ou ont échoué.  
+Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Cela vous permet de créer des hiérarchies d’exécutions parentes et enfants. Vous ne pouvez pas créer une exécution enfant sans parent : même si l’exécution parente ne fait rien d’autre que de lancer des exécutions enfants, il est toujours nécessaire de créer la hiérarchie. Les états de toutes les exécutions sont indépendants : un parent peut afficher l’état de réussite `"Completed"` même si une ou plusieurs exécutions enfants ont été annulées ou ont échoué.  
 
-Vous pouvez souhaiter que vos exécutions enfants utilisent une configuration d’exécution différente de celle de l’exécution parente. Par exemple, vous pouvez utiliser une configuration basée sur l’UC et moins puissante pour le parent, tout en utilisant des configurations basées sur le GPU pour les enfants. Une autre volonté courante consiste à passer à chaque enfant des données et des arguments différents. Pour personnaliser une exécution enfant, créez un objet `ScriptRunConfig` pour l’exécution enfant. Le code ci-dessous effectue les actions suivantes :
+Vous pouvez souhaiter que vos exécutions enfants utilisent une configuration d’exécution différente de celle de l’exécution parente. Par exemple, vous pouvez utiliser une configuration basée sur l’UC et moins puissante pour le parent, tout en utilisant des configurations basées sur le GPU pour les enfants. Un autre souhait courant consiste à passer à chaque enfant des données et des arguments différents. Pour personnaliser une exécution enfant, créez un objet `ScriptRunConfig` pour l’exécution enfant. Le code ci-dessous :
 
 - Récupère une ressource de calcul nommée `"gpu-cluster"` dans l’espace de travail `ws`
 - Itère sur différentes valeurs d’argument à passer aux objets `ScriptRunConfig` des enfants
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>Connexion à l’exécution parente ou racine
 
-Vous pouvez utiliser le champ `Run.parent` pour accéder à l’exécution qui a lancé l’exécution enfant actuelle. Un cas d’utilisation courant est lorsque vous souhaitez consolider les résultats des journaux dans un emplacement unique. Notez que les exécutions enfants s’exécutent de façon asynchrone et qu’il n’y a aucune garantie de classement ou de synchronisation au-delà de la capacité du parent à attendre la fin de l’exécution de ses enfants.
+Vous pouvez utiliser le champ `Run.parent` pour accéder à l’exécution qui a lancé l’exécution enfant actuelle. `Run.parent` est souvent utilisé pour regrouper les résultats des journaux en un seul endroit. Notez que les exécutions enfants s’exécutent de façon asynchrone et qu’il n’y a aucune garantie de classement ou de synchronisation au-delà de la capacité du parent à attendre la fin de l’exécution de ses enfants.
 
 ```python
 # in child (or even grandchild) run

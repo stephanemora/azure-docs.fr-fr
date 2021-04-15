@@ -4,16 +4,16 @@ description: Comment utiliser la nouvelle exportation de données pour exporter 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 7152012c7c4a342c7491e5f8b835eaede4269c4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d57f24f8cb4b59ce9b9cd5853be11fb2d104d75
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100522612"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277893"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
@@ -24,7 +24,7 @@ Cet article explique comment utiliser la nouvelle fonctionnalité d'exportation 
 
 Par exemple, vous pouvez :
 
-- appliquer une exportation continue des données de télémétrie et des modifications de propriété au format JSON en quasi-temps réel ;
+- Exporter en continu des données de télémétrie, de modifications de propriétés, de cycle de vie d’appareil et de cycle de vie de modèle d’appareil au format JSON en quasi-temps réel.
 - filtrer les flux de données pour exporter des données qui remplissent des conditions personnalisées ;
 - enrichir les flux de données avec des valeurs personnalisées et des valeurs de propriété à partir de l'appareil ;
 - envoyer les données vers des destinations telles qu'Azure Event Hubs, Azure Service Bus, Stockage Blob Azure et des points de terminaison de webhook.
@@ -133,21 +133,19 @@ Maintenant que vous disposez d'une destination vers laquelle exporter vos donné
     | :------------- | :---------- | :----------- |
     |  Télémétrie | Exportez des messages de télémétrie à partir d’appareils en quasi-temps réel. Chaque message exporté contient le contenu complet du message d'origine de l'appareil, normalisé.   |  [Format du message de télémétrie](#telemetry-format)   |
     | Modifications de la propriété | Exportez les modifications apportées aux propriétés de l’appareil et du cloud en quasi-temps réel. Pour les propriétés en lecture seule de l'appareil, les modifications apportées aux valeurs signalées sont exportées. Pour les propriétés en lecture-écriture, les valeurs signalées et souhaitées sont exportées. | [Format du message de modification de la propriété](#property-changes-format) |
+    | Cycle de vie de l’appareil | Exporter des événements inscrits et supprimés d’appareil. | [Format du message relatif aux changements de cycle de vie d’appareil](#device-lifecycle-changes-format) |
+    | Cycle de vie de modèle d’appareil | Exportez les changements de modèle d’appareil publiés, dont les créations, les mises à jour et les suppressions. | [Format de message relatif aux changements de cycle de vie d’appareil](#device-template-lifecycle-changes-format) | 
 
-<a name="DataExportFilters"></a>
-1. Vous pouvez également ajouter des filtres pour réduire la quantité de données exportées. Différents types de filtres sont disponibles pour chaque type d'exportation de données :
-
-    Pour filtrer les données de télémétrie, vous pouvez :
-
-    - **Filtrer** le flux exporté pour qu'il contienne uniquement les données de télémétrie des appareils qui correspondent au nom d'appareil, à l'ID d'appareil et à la condition de filtre du modèle d'appareil.
-    - **Filtrer** en fonction des capacités : si vous choisissez un élément de télémétrie dans la liste déroulante **Nom**, le flux exporté contient uniquement les données de télémétrie qui répondent à la condition de filtre. Si vous choisissez un appareil ou un élément de propriété cloud dans la liste déroulante **Nom**, le flux exporté contient uniquement les données de télémétrie des appareils dont les propriétés correspondent à la condition de filtre.
-    - **Filtre des propriétés de message** : les appareils qui utilisent les kits de développement logiciel (SDK) d'appareil peuvent envoyer des *propriétés de message* ou des *propriétés d'application* sur chaque message de télémétrie. Les propriétés constituent un ensemble de paires clé-valeur qui balisent le message avec des identificateurs personnalisés. Pour créer un filtre de propriété de message, entrez la clé de la propriété de message que vous recherchez, et spécifiez une condition. Seuls les messages de télémétrie dont les propriétés correspondent à la condition de filtre spécifiée sont exportés. Les opérateurs de comparaison de chaînes suivants sont pris en charge : égal à, différent de, contient, ne contient pas, existe, n'existe pas. [En savoir plus sur les propriétés de l’application à partir des documents IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
-
-    Pour filtrer les modifications apportées aux propriétés, utilisez un **filtre de capacité**. Sélectionnez un élément de propriété dans la liste déroulante. Le flux exporté ne contient que les modifications apportées à la propriété sélectionnée remplissant la condition de filtre.
-
-<a name="DataExportEnrichmnents"></a>
-1. Si vous le souhaitez, vous pouvez également enrichir les messages exportés avec des métadonnées supplémentaires dans les paires clé-valeur. Les enrichissements suivants sont disponibles pour les types d'exportation de données de télémétrie et de modification de propriétés :
-
+1. Vous pouvez également ajouter des filtres pour réduire la quantité de données exportées. Différents types de filtres sont disponibles pour chaque type d’exportation de données : <a name="DataExportFilters"></a>
+    
+    | Type de données | Filtres disponibles| 
+    |--------------|------------------|
+    |Télémétrie|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie correspondant aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie des appareils dont les propriétés correspondent aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie contenant des *propriétés de message* correspondant à la condition de filtre. Les *propriétés de message* (également appelées *propriétés d’application*) sont envoyées dans un ensemble de paires clé-valeur sur chaque message de télémétrie éventuellement envoyé par des appareils qui utilisent les kits de développement logiciel (SDK) d’appareil. Pour créer un filtre de propriété de message, entrez la clé de la propriété de message que vous recherchez, et spécifiez une condition. Seuls les messages de télémétrie dont les propriétés correspondent à la condition de filtre spécifiée sont exportés. [En savoir plus sur les propriétés d’application dans des documents IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Modifications de la propriété|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements de propriété correspondant aux conditions de filtre</li></ul>|
+    |Cycle de vie de l’appareil|<ul><li>Filtrer par nom d’appareil, ID d’appareil et modèle d’appareil</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
+    |Cycle de vie de modèle d’appareil|<ul><li>Filtrer par modèle d’appareil</li></ul>|
+    
+1. Si vous le souhaitez, vous pouvez également enrichir les messages exportés avec des métadonnées supplémentaires dans les paires clé-valeur. Les enrichissements suivants sont disponibles pour les types d’exportations de données de télémétrie et de changement de propriétés : <a name="DataExportEnrichmnents"></a>
     - **Chaîne personnalisée** : Ajoute une chaîne statique personnalisée à chaque message. Entrez n’importe quelle clé, puis entrez une valeur de chaîne.
     - **Property** : Ajoute la valeur actuelle de la propriété rapportée d’appareil ou de la propriété de cloud à chaque message. Entrez une clé, puis choisissez une propriété d’appareil ou de cloud. Si le message exporté provient d'un appareil qui ne dispose pas de la propriété spécifiée, l'enrichissement ne s'applique pas à ce message.
 
@@ -207,6 +205,7 @@ Chaque message exporté contient un formulaire normalisé du message complet que
 - `deviceId`:  ID de l'appareil qui a envoyé le message de télémétrie.
 - `schema`: nom et version du schéma de charge utile.
 - `templateId`: ID du modèle d'appareil associé à l'appareil.
+- `enqueuedTime` : Heure à laquelle IoT Central a reçu ce message.
 - `enrichments`: enrichissements configurés lors de l'exportation.
 - `messageProperties`: propriétés supplémentaires envoyées par l'appareil avec le message. Ces propriétés sont parfois appelées *propriétés d'application*. [Pour en savoir plus, consultez la documentation d'IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -349,6 +348,7 @@ Chaque message ou enregistrement représente une modification apportée à une p
 - `messageType`: `cloudPropertyChange`, `devicePropertyDesiredChange` ou `devicePropertyReportedChange`.
 - `deviceId`:  ID de l'appareil qui a envoyé le message de télémétrie.
 - `schema`: nom et version du schéma de charge utile.
+- `enqueuedTime` : Heure à laquelle IoT Central a détecté cette modification.
 - `templateId`: ID du modèle d'appareil associé à l'appareil.
 - `enrichments`: enrichissements configurés lors de l'exportation.
 
@@ -377,13 +377,78 @@ L’exemple suivant présente un message de modification des propriétés export
 }
 ```
 
+## <a name="device-lifecycle-changes-format"></a>Format des changements du cycle de vie d’appareil
+
+Chaque message ou enregistrement représente une modification apportée à un appareil. Les informations incluses dans le message exporté sont les suivantes :
+
+- `applicationId`: ID de l'application IoT Central.
+- `messageSource`: source du message - `deviceLifecycle`.
+- `messageType` : `registered` ou `deleted`.
+- `deviceId` : ID de l’appareil modifié.
+- `schema`: nom et version du schéma de charge utile.
+- `templateId`: ID du modèle d'appareil associé à l'appareil.
+- `enqueuedTime` : Heure à laquelle cette modification est intervenue dans IoT Central.
+- `enrichments`: enrichissements configurés lors de l'exportation.
+
+Pour Event Hubs et Service Bus, IoT Central exporte de nouvelles données de messages à la file d’attente ou à la rubrique de votre Event Hub ou Service Bus en quasi-temps réel. Dans les propriétés utilisateur (également appelées propriétés d'application) de chaque message, les propriétés `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source` et `iotcentral-message-type` sont automatiquement incluses.
+
+Pour le stockage Blob, les messages sont regroupés par lot et exportés une fois par minute.
+
+L’exemple suivant présente un message de cycle de vie d’appareil exporté reçu dans le service Stockage Blob Azure.
+
+```json
+{
+  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "messageSource": "deviceLifecycle",
+  "messageType": "registered",
+  "deviceId": "1vzb5ghlsg1",
+  "schema": "default@v1",
+  "templateId": "urn:qugj6vbw5:___qbj_27r",
+  "enqueuedTime": "2021-01-01T22:26:55.455Z",
+  "enrichments": {
+    "userSpecifiedKey": "sampleValue"
+  }
+}
+```
+## <a name="device-template-lifecycle-changes-format"></a>Format des changements de cycle de vie d’appareil
+
+Chaque message ou enregistrement représente une modification apportée à un modèle d’appareil publié. Les informations incluses dans le message exporté sont les suivantes :
+
+- `applicationId`: ID de l'application IoT Central.
+- `messageSource`: source du message - `deviceTemplateLifecycle`.
+- `messageType` : `created`, `updated` ou `deleted`.
+- `schema`: nom et version du schéma de charge utile.
+- `templateId`: ID du modèle d'appareil associé à l'appareil.
+- `enqueuedTime` : Heure à laquelle cette modification est intervenue dans IoT Central.
+- `enrichments`: enrichissements configurés lors de l'exportation.
+
+Pour Event Hubs et Service Bus, IoT Central exporte de nouvelles données de messages à la file d’attente ou à la rubrique de votre Event Hub ou Service Bus en quasi-temps réel. Dans les propriétés utilisateur (également appelées propriétés d'application) de chaque message, les propriétés `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source` et `iotcentral-message-type` sont automatiquement incluses.
+
+Pour le stockage Blob, les messages sont regroupés par lot et exportés une fois par minute.
+
+L’exemple suivant présente un message de cycle de vie d’appareil exporté reçu dans le service Stockage Blob Azure.
+
+```json
+{
+  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "messageSource": "deviceTemplateLifecycle",
+  "messageType": "created",
+  "schema": "default@v1",
+  "templateId": "urn:qugj6vbw5:___qbj_27r",
+  "enqueuedTime": "2021-01-01T22:26:55.455Z",
+  "enrichments": {
+    "userSpecifiedKey": "sampleValue"
+  }
+}
+```
+
 ## <a name="comparison-of-legacy-data-export-and-data-export"></a>Comparaison entre la fonctionnalité d'exportation de données héritée et la nouvelle fonctionnalité d'exportation de données
 
 Le tableau suivant présente les différences entre la fonctionnalité d'[exportation de données héritée](howto-export-data-legacy.md) et la nouvelle fonctionnalité d'exportation de données :
 
 | Fonctionnalités  | Exportation de données héritée | Nouvelle exportation de données |
 | :------------- | :---------- | :----------- |
-| Types de données disponibles | Télémétrie, appareils, modèles d’appareil | Télémétrie, modifications des propriétés |
+| Types de données disponibles | Télémétrie, appareils, modèles d’appareil | Télémétrie, modifications de propriétés, modifications de cycle de vie d’appareil, modifications de cycle de vie de modèle d’appareil |
 | Filtrage | None | Dépend du type de données exporté. Pour la télémétrie, le filtrage par télémétrie, les propriétés de messages, les valeurs de propriété |
 | Enrichissements | None | Enrichir avec une chaîne personnalisée ou une valeur de propriété sur l’appareil |
 | Destinations | Files d’attente et rubriques d’Azure Event Hubs, Azure Service Bus, Stockage Blob Azure | Les mêmes que pour la fonctionnalité d'exportation de données héritée plus les webhooks|

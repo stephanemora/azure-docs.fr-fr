@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci via votre propre locataire à l'aide de la gestion des ressources déléguées Azure.
-ms.date: 02/16/2021
+ms.date: 03/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100556111"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934306"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -143,7 +143,7 @@ Les modèles que vous choisissez dépendront de votre choix d’intégrer un abo
 |Abonnement (lors de l’utilisation d’une offre publiée sur la Place de marché Azure)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!TIP]
-> Bien que vous ne puissiez pas intégrer un groupe d’administration entier dans un déploiement, vous pouvez [déployer une stratégie au niveau du groupe d’administration](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La stratégie vérifie si chaque abonnement au sein du groupe d’administration a été délégué au locataire de gestion spécifié et, si ce n’est pas le cas, crée l’attribution en fonction des valeurs que vous fournissez.
+> Bien que vous ne puissiez pas intégrer un groupe d’administration entier dans un déploiement, vous pouvez [déployer une stratégie au niveau du groupe d’administration](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). La stratégie utilise l’[effet deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) pour vérifier si chaque abonnement du groupe d’administration a été délégué au locataire de gestion spécifié et, si ce n’est pas le cas, crée l’attribution en fonction des valeurs que vous fournissez. Vous aurez alors accès à tous les abonnements du groupe d’administration, mais vous devrez les utiliser en tant qu’abonnements individuels (plutôt que d’effectuer des actions sur le groupe d’administration dans son ensemble).
 
 L’exemple suivant montre un fichier **delegatedResourceManagement.parameters.json** modifié qui peut être utilisé pour l’intégration d’un abonnement. Les fichiers de paramètres de groupe de ressources (situés dans le dossier [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management)) sont similaires, mais incluent en outre un paramètre **rgName** pour identifier les groupes de ressources à intégrer.
 

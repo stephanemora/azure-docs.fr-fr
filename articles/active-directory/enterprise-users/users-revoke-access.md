@@ -10,15 +10,15 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 12/02/2020
+ms.date: 03/29/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826ca9fc20d8bbcf9a5f90ccc895b9f9867a6be1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 578e8f5f3126542c579cd573c82b732049d407b6
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96860573"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959820"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Révoquer les accès utilisateur dans Azure Active Directory
 
@@ -36,9 +36,9 @@ Les jetons d’accès et les jetons d’actualisation sont fréquemment utilisé
 
 - Les jetons d’accès émis par Azure AD restent valides pendant une heure par défaut. Si le protocole d’authentification l’autorise, l’application peut réauthentifier l’utilisateur de manière transparente pour lui, en passant le jeton d’actualisation à Azure AD après l’expiration du jeton d’accès.
 
-Azure AD réévalue ensuite ses stratégies d’autorisation. Si l’utilisateur est toujours autorisé, Azure AD émet un nouveau jeton d’accès et un nouveau jeton d’actualisation.
+Azure AD réévalue ensuite ses stratégies d’autorisation. Si l’utilisateur est toujours autorisé, Azure AD émet un nouveau jeton d’accès et actualise le jeton.
 
-Les jetons d’accès peuvent poser un problème de sécurité si l’accès doit être révoqué avant la fin de la durée de vie du jeton, qui est généralement d’une heure environ. C’est la raison pour laquelle Microsoft travaille activement à l’intégration de l’[évaluation continue de l’accès](../conditional-access/concept-continuous-access-evaluation.md) aux applications Microsoft 365, le but étant d’assurer l’invalidation des jetons d’accès en quasi-temps réel.  
+Les jetons d’accès peuvent poser un problème de sécurité si l’accès doit être révoqué avant la fin de la durée de vie du jeton, qui est généralement d’une heure environ. C’est la raison pour laquelle Microsoft travaille activement à l’intégration de l’[évaluation continue de l’accès](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) aux applications Office 365, le but étant d’assurer l’invalidation des jetons d’accès en quasi-temps réel.  
 
 ## <a name="session-tokens-cookies"></a>Jetons de session (cookies)
 
@@ -60,18 +60,18 @@ Dans un environnement hybride où un Active Directory local est synchronisé ave
 
 En tant qu’administrateur dans l’environnement Active Directory, connectez-vous à votre réseau local, ouvrez PowerShell et effectuez les étapes suivantes :
 
-1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](/powershell/module/addsadministration/disable-adaccount).
+1. Désactivez l’utilisateur dans Active Directory. Consultez [Disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword).
+2. Réinitialisez le mot de passe de l’utilisateur à deux reprises dans Active Directory. Consultez [Set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > Changer deux fois de suite le mot de passe d’un utilisateur contribue à atténuer le risque d’attaque de type pass-the-hash, surtout quand des délais sont observés durant la réplication du mot de passe local. Si vous avez l’assurance que ce compte n’est pas compromis, vous pouvez vous contenter de réinitialiser le mot de passe une seule fois.
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > N’employez pas les exemples de mots de passe donnés dans les applets de commande suivantes. Vous devez les remplacer par une chaîne aléatoire.
 
     ```PowerShell
@@ -83,32 +83,23 @@ En tant qu’administrateur dans l’environnement Active Directory, connectez-v
 
 En tant qu’administrateur dans Azure Active Directory, ouvrez PowerShell, exécutez ``Connect-AzureAD`` et effectuez les actions suivantes :
 
-1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](/powershell/module/azuread/Set-AzureADUser).
+1. Désactivez l’utilisateur dans Azure AD. Consultez [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
+
+2. Révoquez les jetons d’actualisation Azure AD de l’utilisateur. Consultez [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice).
+3. Désactivez les appareils de l’utilisateur. Consultez [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
     ```
-
-## <a name="optional-steps"></a>Étapes facultatives
-
-- [Effacez les données d’entreprise des applications gérées par Intune](/mem/intune/apps/apps-selective-wipe).
-
-- [Réinitialisez les appareils d’entreprise pour rétablir leurs paramètres d’usine](/mem/intune/remote-actions/devices-wipe).
-
-> [!NOTE]
-> Après une réinitialisation, les données de l’appareil ne peuvent plus être récupérées.
-
 ## <a name="when-access-is-revoked"></a>Après la révocation des accès
 
 Une fois que les administrateurs ont effectué les étapes ci-dessus, l’utilisateur ne peut pas obtenir de nouveaux jetons pour aucune des applications liées à Azure Active Directory. Le temps écoulé entre la révocation des accès de l’utilisateur et la perte effective des accès dépend de la manière dont l’application accorde les accès :
@@ -117,7 +108,25 @@ Une fois que les administrateurs ont effectué les étapes ci-dessus, l’utilis
 
 - Pour les **applications utilisant des jetons de session**, les sessions actives prennent fin dès que le jeton arrive à expiration. Si l’état désactivé de l’utilisateur est synchronisé avec l’application, l’application peut révoquer automatiquement les sessions actives de l’utilisateur si elle est configurée pour cela.  Le délai de révocation dépend de la fréquence de synchronisation entre l’application et Azure AD.
 
+## <a name="best-practices"></a>Meilleures pratiques
+
+- Déployez une solution automatisée d’attribution et de suppression des privilèges d’accès. La suppression des privilèges d’accès des utilisateurs sur les applications est un moyen efficace de révoquer l’accès, en particulier pour les applications qui utilisent des jetons de sessions. Développez un processus permettant de supprimer les privilèges d’accès des utilisateurs sur les applications qui ne prennent pas en charge l’attribution et la suppression automatiques des privilèges d’accès. Assurez-vous que les applications révoquent leurs propres jetons de session et cessent d’accepter les jetons d’accès d’Azure AD, même si ces derniers sont toujours valides.
+
+  - Utilisez [l’approvisionnement d’applications SaaS dans Azure AD](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning). L’approvisionnement d’applications SaaS dans Azure AD s’exécute généralement automatiquement toutes les 20 à 40 minutes. [Configurez l’approvisionnement d’Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) pour supprimer les privilèges d’accès ou désactiver les utilisateurs désactivés dans les applications.
+  
+  - Pour les applications qui n’utilisent pas l’approvisionnement d’applications SaaS dans Azure AD, utilisez [Microsoft Identity Manager (MIM)](https://docs.microsoft.com/microsoft-identity-manager/mim-how-provision-users-adds) ou une solution tierce pour automatiser la suppression des privilèges d’accès des utilisateurs.  
+  - Identifiez les applications qui nécessitent une suppression manuelle des privilèges d’accès et développez un processus à cet effet. Veillez à ce que les administrateurs puissent exécuter rapidement les tâches manuelles requises pour supprimer les privilèges d’accès de l’utilisateur de ces applications, le cas échéant.
+  
+- [Gérez vos appareils et applications avec Microsoft Intune](https://docs.microsoft.com/mem/intune/remote-actions/device-management). Les [appareils gérés par Intune peuvent être restaurés aux paramètres d’usine](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe). Si l’appareil est non géré, vous pouvez [effacer les données d’entreprise des applications gérées](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe). Ces processus sont efficaces pour supprimer les données potentiellement sensibles des appareils des utilisateurs finaux. Toutefois, pour que l’un ou l’autre processus soit déclenché, l’appareil doit être connecté à Internet. Si l’appareil est hors connexion, il aura toujours accès à toutes les données stockées localement.
+
+> [!NOTE]
+> Après une réinitialisation, les données de l’appareil ne peuvent plus être récupérées.
+
+- Utilisez [Microsoft Cloud App Security (MCAS) pour bloquer le téléchargement de données](https://docs.microsoft.com/cloud-app-security/use-case-proxy-block-session-aad), le cas échéant. Si les données sont accessibles uniquement en ligne, les organisations peuvent surveiller les sessions et appliquer les stratégies en temps réel.
+
+- Activez la fonctionnalité [Évaluation continue de l’accès (CAE) dans Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation). CAE permet aux administrateurs de révoquer les jetons de session et les jetons d’accès pour les applications qui sont compatibles avec la fonctionnalité.  
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Pratiques de sécurisation des accès pour les administrateurs d’Azure AD](../roles/security-planning.md)
+- [Pratiques de sécurisation des accès pour les administrateurs d’Azure AD](https://docs.microsoft.com/azure/active-directory/roles/security-planning)
 - [Ajouter ou mettre à jour les informations de profil utilisateur](../fundamentals/active-directory-users-profile-azure-portal.md)

@@ -4,16 +4,16 @@ description: Apprenez-en davantage sur les régions et les zones de disponibilit
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 04/09/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 44ff938d0990a1a7794140a82c0e9222bb69a5d7
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a15a94694f3c0623830650a8b5bbb00dc4c4cb6b
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384253"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285511"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Régions et zones de disponibilité dans Azure
 
@@ -100,45 +100,35 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | Azure Data Lake Storage Gen2           | Azure Active Directory Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Adresse IP publique                        | Cache Azure pour Redis                             | 
-> | Azure SQL Database                     | Recherche cognitive Azure                            | 
-> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
-> | Stockage sur disque                           | Azure Cognitive Services : Vision par ordinateur         | 
-> | Event Hubs                             | Azure Cognitive Services : Content Moderator       | 
-> | Key Vault                              | Azure Cognitive Services : Face                    | 
-> | Équilibrage de charge                          | Azure Cognitive Services : Lecteur immersif        | 
-> | Service Bus                            | Azure Cognitive Services : Language Understanding  | 
-> | Service Fabric                         | Azure Cognitive Services : Services Speech         | 
-> | Stockage : Niveaux de stockage BLOB chaud/froid   | Azure Cognitive Services : Analyse de texte          | 
-> | Stockage : Disques managés                 | Azure Cognitive Services : Convertisseur              | 
-> | Virtual Machine Scale Sets             | Explorateur de données Azure                               | 
-> | Machines Virtuelles                       | Azure Data Share                                  | 
-> | Machines virtuelles : Azure Dedicated Host | Azure Database pour MySQL                          | 
-> | Machines virtuelles : Série Av2           | Azure Database pour PostgreSQL                     | 
-> | Machines virtuelles : Série Bs            | Protection DDoS dans Azure                             | 
-> | Machines virtuelles : Série DSv2          | Pare-feu Azure                                    | 
-> | Machines virtuelles : Série DSv3          | Azure Firewall Manager                            | 
-> | Machines virtuelles : Série Dv2           | Azure Functions                                   | 
-> | Machines virtuelles : Série Dv3           | Azure IoT Hub                                     |     
-> | Machines virtuelles : Série ESv3          | Azure Kubernetes Service (AKS)                    | 
-> | Machines virtuelles : Série Ev3           | Azure Machine Learning                            | 
-> | Réseau virtuel                        | Azure Monitor : Application Insights               | 
-> | Passerelle VPN                            | Azure Monitor : Log Analytics                      | 
-> |                                        | Azure Private Link                                | 
-> |                                        | Azure Red Hat OpenShift                           | 
-> |                                        | Azure Site Recovery                               | 
-> |                                        | Azure Stream Analytics                            | 
-> |                                        | Azure Synapse Analytics                           | 
-> |                                        | Batch                                             | 
-> |                                        | Services cloud : Série M                          | 
-> |                                        | Container Instances                               | 
-> |                                        | Container Registry                                | 
+> | Azure SQL Database                     | Azure Cognitive Services                          | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services : Vision par ordinateur         | 
+> | Stockage sur disque                           | Azure Cognitive Services : Content Moderator       | 
+> | Event Hubs                             | Azure Cognitive Services : Face                    | 
+> | Key Vault                              | Azure Cognitive Services : Analyse de texte          | 
+> | Équilibrage de charge                          | Explorateur de données Azure                               | 
+> | Service Bus                            | Azure Database pour MySQL                          | 
+> | Service Fabric                         | Azure Database pour PostgreSQL                     | 
+> | Stockage : Niveaux de stockage BLOB chaud/froid   | Azure DDoS Protection                             | 
+> | Stockage : Disques managés                 | Pare-feu Azure                                    | 
+> | Virtual Machine Scale Sets             | Azure Firewall Manager                            | 
+> | Machines Virtuelles                       | Azure Functions                                   | 
+> | Machines virtuelles : Azure Dedicated Host | Azure IoT Hub                                     | 
+> | Machines virtuelles : Série Av2           | Azure Kubernetes Service (AKS)                    | 
+> | Machines virtuelles : Série Bs            | Azure Monitor : Application Insights               | 
+> | Machines virtuelles : Série DSv2          | Azure Monitor : Log Analytics                      | 
+> | Machines virtuelles : Série DSv3          | Azure Private Link                                | 
+> | Machines virtuelles : Série Dv2           | Azure Site Recovery                               | 
+> | Machines virtuelles : Série Dv3           | Azure Synapse Analytics                           |     
+> | Machines virtuelles : Série ESv3          | Batch                                             | 
+> | Machines virtuelles : Série Ev3           | Services cloud : Série M                          | 
+> | Réseau virtuel                        | Container Instances                               | 
+> | Passerelle VPN                            | Container Registry                                | 
 > |                                        | Data Factory                                      | 
 > |                                        | Event Grid                                        | 
 > |                                        | HDInsight                                         |  
 > |                                        | Logic Apps                                        | 
 > |                                        | Media Services                                    | 
 > |                                        | Network Watcher                                   | 
-> |                                        | Notification Hubs                                 | 
 > |                                        | Stockage Blob Premium                              | 
 > |                                        | Stockage de fichiers Premium                             | 
 > |                                        | Machines virtuelles : Série Ddsv4                    | 
@@ -163,11 +153,17 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > |------------------------------------------------------|
 > | API Azure pour FHIR                                   |
 > | Azure Analysis Services                              |
+> | Azure Blockchain Service                             |
 > | Azure Cognitive Services : Le détecteur d’anomalies           |
 > | Azure Cognitive Services : Vision personnalisée              |
 > | Azure Cognitive Services : Form Recognizer            |
+> | Azure Cognitive Services : Lecteur immersif           |
+> | Azure Cognitive Services : Language Understanding     |
 > | Azure Cognitive Services : Personalizer               |
 > | Azure Cognitive Services : QnA Maker                  |
+> | Azure Cognitive Services : Services Speech            |
+> | Azure Data Share                                     |
+> | Azure Databricks                                     |
 > | Azure Database for MariaDB                           |
 > | Azure Database Migration Service                     |
 > | Module de sécurité matériel (HSM) dédié Azure                                  |
@@ -176,13 +172,13 @@ Comme mentionné précédemment, Azure classe les services en trois catégories�
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |
+> | Azure Red Hat OpenShift                              |
 > | Service Azure SignalR                                |
-> | Service Azure Spring Cloud                           |
+> | Azure Spring Cloud                                   |
+> | Azure Stream Analytics                               |
 > | Azure Time Series Insights                           |
 > | Azure VMware Solution                                |
 > | Azure VMware Solution by CloudSimple                 |
-> | Data Lake Analytics                                  |
-> | Azure Machine Learning Studio (classique)              |
 > | Spatial Anchors                                      |
 > | Stockage : Stockage archive                             |
 > | Disque Ultra                                   |

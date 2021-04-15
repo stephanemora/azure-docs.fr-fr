@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 03/12/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: a5224aab8db65cf22e952185d07147f6f007e088
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.custom: how-to, contperf-fy21q3
+ms.openlocfilehash: 9021c3f70c9fc053998d1b31271a1ca3b0124b4d
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956279"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169536"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Utilisation de votre espace de travail avec un serveur DNS personnalisé
 
-Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point de terminaison privé, il existe [plusieurs manières de gérer la résolution de noms DNS](../private-link/private-endpoint-dns.md). Par défaut, Azure gère automatiquement la résolution de noms pour votre espace de travail et votre point de terminaison privé. Si vous _utilisez votre propre serveur DNS personnalisé_ _, vous devez créer manuellement des entrées DNS ou utiliser des redirecteurs conditionnels pour l’espace de travail.
+Lorsque vous utilisez un espace de travail Azure Machine Learning avec un point de terminaison privé, il existe [plusieurs manières de gérer la résolution de noms DNS](../private-link/private-endpoint-dns.md). Par défaut, Azure gère automatiquement la résolution de noms pour votre espace de travail et votre point de terminaison privé. Si vous __utilisez votre propre serveur DNS personnalisé__, vous devez créer manuellement des entrées DNS ou utiliser des redirecteurs conditionnels pour l’espace de travail.
 
 > [!IMPORTANT]
 > Cet article ne traite que de la recherche du nom de domaine complet (FQDN) et des adresses IP pour ces entrées. il ne fournit pas d’informations sur la configuration des enregistrements DNS pour ces éléments. Pour savoir comment ajouter des enregistrements, consultez la documentation de votre logiciel DNS.
@@ -46,11 +46,12 @@ La liste suivante contient les noms de domaine complets (FQDN) utilisés par vot
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
 
     > [!NOTE]
-    > Le nom de l’espace de travail pour ce nom de domaine complet peut être tronqué. La troncation est effectuée pour conserver la longueur du nom de domaine complet inférieure ou égale à 63 caractères.
+    > Le nom de l’espace de travail pour ce nom de domaine complet peut être tronqué. La troncature est faite pour maintenir `ml-<workspace-name, truncated>-<region>-<workspace-guid>` sous 63 caractères.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
-    > Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
+    > * Les instances de calcul sont accessibles uniquement à partir du réseau virtuel.
+    > * L’adresse IP de ce nom de domaine complet n’est **pas** l’adresse IP de l’instance de calcul. Utilisez plutôt l’adresse IP privée du point de terminaison privé de l’espace de travail (l’adresse IP des entrées `*.api.azureml.ms`).
 
 ## <a name="azure-china-21vianet-regions"></a>Régions cloud Azure China 21Vianet
 
@@ -61,7 +62,7 @@ Les noms de domaine complets suivants sont destinés aux régions Azure China 2
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.chinacloudapi.cn`
 
     > [!NOTE]
-    > Le nom de l’espace de travail pour ce nom de domaine complet peut être tronqué. La troncation est effectuée pour conserver la longueur du nom de domaine complet inférieure ou égale à 63 caractères.
+    > Le nom de l’espace de travail pour ce nom de domaine complet peut être tronqué. La troncature est faite pour maintenir `ml-<workspace-name, truncated>-<region>-<workspace-guid>` sous 63 caractères.
 * `<instance-name>.<region>.instances.ml.azure.cn`
 ## <a name="find-the-ip-addresses"></a>Rechercher les adresses IP
 
@@ -108,7 +109,7 @@ Les informations retournées par toutes les méthodes sont les mêmes : une lis
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Si vous disposez d’une instance de calcul, utilisez `<instance-name>.<region>.instances.azureml.ms`, où `<instance-name>` est le nom de votre instance de calcul. Utilisez l’adresse IP privée du point de terminaison privé de l’espace de travail. Notez que l’instance de calcul est accessible uniquement à partir du réseau virtuel.
+> * Si vous disposez d’une instance de calcul, utilisez `<instance-name>.<region>.instances.azureml.ms`, où `<instance-name>` est le nom de votre instance de calcul. Utilisez l’adresse IP privée du point de terminaison privé de l’espace de travail. L’instance de calcul est accessible uniquement à partir du réseau virtuel.
 >
 > Pour toutes ces adresses IP, utilisez la même adresse que les entrées `*.api.azureml.ms` retournées par les étapes précédentes.
 

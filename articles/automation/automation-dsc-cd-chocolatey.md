@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 955e6b22c22d9cbe5891bcd0109806cb9270a456
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98896323"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168652"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Configurer un déploiement continu avec Chocolatey
 
@@ -73,8 +73,8 @@ La source complète de cet exemple se trouve dans ce [projet Visual Studio](http
 Ouvrez une ligne de commande PowerShell (`Connect-AzAccount`) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT
 ```
 
 Vous pouvez installer votre compte Automation dans l’une des régions suivantes (également appelées « emplacements ») : USA Est 2, USA Centre Sud, US Gov Virginie, Europe Ouest, Asie Sud-Est, Japon Est, Inde Centre et Australie Sud-Est, Canada Centre, Europe Nord.
@@ -103,7 +103,7 @@ Il existe également une approche manuelle, utilisée une seule fois par ressour
 2. Installer le module d’intégration.
 
     ```azurepowershell-interactive
-    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    Install-Module -Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
     ```
 
 3. Copiez le dossier du module de **c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME** dans un dossier temporaire.
@@ -119,14 +119,14 @@ Il existe également une approche manuelle, utilisée une seule fois par ressour
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME -ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 L’exemple fourni implémente ces étapes pour cChoco et xNetworking. 
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>Étape 4 : Ajouter la configuration de nœud au serveur Pull
 
-L’importation et la compilation initiales de votre configuration dans le serveur Pull ne présentent aucune difficulté particulière. Toutes les importations ou compilations ultérieures de la même configuration auront exactement le même aspect. Chaque fois que vous mettez à jour votre package et que vous devez la mettre en production, vous devez effectuer cette étape après avoir vérifié que le fichier de configuration est correct et qu’il comporte la nouvelle version de votre package. Voici le fichier de configuration **ISVBoxConfig.ps1** :
+L’importation et la compilation initiales de votre configuration dans le serveur Pull ne présentent aucune difficulté particulière. Toutes les importations ou compilations ultérieures de la même configuration auront exactement le même aspect. Chaque fois que vous mettez à jour votre package et que vous devez le mettre en production, vous devez effectuer cette étape après avoir vérifié que le fichier de configuration est correct et qu’il comporte la nouvelle version de votre package. Voici le fichier de configuration **ISVBoxConfig.ps1** :
 
 ```powershell
 Configuration ISVBoxConfig
@@ -175,18 +175,18 @@ Voici le script **New-ConfigurationScript.ps1** (modifié pour utiliser le modul
 
 ```powershell
 Import-AzAutomationDscConfiguration `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
-    -Published –Force
+    -Published -Force
 
 $jobData = Start-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
 Get-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 

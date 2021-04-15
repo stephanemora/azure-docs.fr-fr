@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 3/30/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c5e7f556f37a1d6d53e0a938490f1099a7be776a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: eb75450527fc31d6ea4a9f9d60d676718ad79bda
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647419"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167581"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ?
 
@@ -35,9 +35,21 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 ## <a name="upcoming-changes"></a>Changements à venir
 
-### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>L’accès conditionnel se déclenchera uniquement pour les étendues demandées explicitement
+### <a name="bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice"></a>Résolution de bogue : Azure AD n’encodera plus l’URL du paramètre d’état à deux reprises.
 
 **Date d’effet** : mars 2021
+
+**Points de terminaison impactés** : v1.0 et v2.0 
+
+**Protocole impacté** : Tous les flux qui visitent le point de terminaison `/authorize` (flux de code d’autorisation et flux implicite)
+
+Un bogue a été trouvé et résolu dans la réponse d’autorisation d’Azure AD. Lors de l’étape `/authorize` de l’authentification, le paramètre `state` de la demande est inclus dans la réponse, afin de préserver l’état de l’application et d’empêcher les attaques CSRF. Azure AD a incorrectement codé l’URL du paramètre `state` avant de l’insérer dans la réponse, où elle a été encodée une fois de plus.  En conséquence, les applications ne rejetaient pas correctement la réponse d’Azure AD. 
+
+Azure AD ne codera plus ce paramètre deux fois, ce qui permettra aux applications d’analyser correctement le résultat. Cette modification sera appliquée à toutes les applications. 
+
+### <a name="conditional-access-will-only-trigger-for-explicitly-requested-scopes"></a>L’accès conditionnel se déclenchera uniquement pour les étendues demandées explicitement
+
+**Date d’effet** : mai 2021, avec un lancement progressif à partir d’avril. 
 
 **Points de terminaison impactés** : v2.0
 
@@ -48,6 +60,8 @@ Les applications qui utilisent le consentement dynamique bénéficient aujourd�
 Afin de réduire le nombre d’invites d’accès conditionnel inutiles, Azure AD change la façon dont les étendues non demandées sont fournies aux applications pour que seules les étendues demandées explicitement déclenchent l’accès conditionnel. Cette modification peut entraîner l’arrêt des applications qui s’appuyaient sur le comportement précédent d’Azure AD (fourniture de l’ensemble des autorisations, même non demandées), car des autorisations manqueront aux jetons qu’elles demandent.
 
 Les applications recevront désormais des jetons d’accès avec une combinaison d’autorisations : celles demandées et celles dont elles ont reçu le consentement, qui n’exigent pas d’invite d’accès conditionnel.  Les étendues du jeton d’accès sont reflétées dans le paramètre `scope` de la réponse du jeton. 
+
+Cette modification sera appliquée à toutes les applications, à l’exception de celles qui dépendent de ce comportement.  Les développeurs seront informés s’ils sont exemptés de cette modification, car ils peuvent avoir une dépendance à l’égard des invites d’accès conditionnel supplémentaires. 
 
 **Exemples**
 

@@ -5,15 +5,15 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/15/2019
+ms.date: 04/01/2021
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d4e461b25a25ecdf0d4d89ee7f1c82b9d4a0737
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339833"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220162"
 ---
 # <a name="use-the-change-feed-estimator"></a>Utilisation de l’estimateur de flux de modification
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Cet article décrit comment superviser la progression de vos instances de [proce
 
 ## <a name="why-is-monitoring-progress-important"></a>Pourquoi la supervision de la progression est-elle importante ?
 
-Le processeur de flux de modification agit comme un pointeur qui avance dans votre [flux de modification](./change-feed.md) et fournit les modifications à une implémentation de délégué. 
+Le processeur de flux de modification agit comme un pointeur qui avance dans votre [flux de modification](./change-feed.md) et fournit les modifications à une implémentation de délégué.
 
 Votre déploiement de processeur de flux de modification peut traiter les modifications à une vitesse particulière en fonction de ses ressources disponibles, telles que le CPU, la mémoire, le réseau, et ainsi de suite.
 
@@ -32,7 +32,9 @@ L’identification de ce scénario aide à comprendre si nous devons mettre à l
 
 ## <a name="implement-the-change-feed-estimator"></a>Utilisation de l’estimateur de flux de modification
 
-Comme le [processeur de flux de modification](./change-feed-processor.md), l’estimateur de flux de modification fonctionne en tant que modèle Push. L’estimateur mesure la différence entre le dernier élément traité (défini par l’état du conteneur de baux) et la dernière modification dans le conteneur, et il transmet cette valeur à un délégué. Vous pouvez également personnaliser l’intervalle de prise de cette mesure avec une valeur par défaut de cinq secondes.
+### <a name="as-a-push-model-for-automatic-notifications"></a>En tant que modèle push pour les notifications automatiques
+
+Comme le [processeur de flux de modification](./change-feed-processor.md), l’estimateur de flux de modification peut fonctionner en tant que modèle Push. L’estimateur mesure la différence entre le dernier élément traité (défini par l’état du conteneur de baux) et la dernière modification dans le conteneur, et il transmet cette valeur à un délégué. Vous pouvez également personnaliser l’intervalle de prise de cette mesure avec une valeur par défaut de cinq secondes.
 
 Par exemple, si votre processeur de flux de modification est défini comme suit :
 
@@ -52,8 +54,29 @@ Voici un exemple de délégué qui reçoit l’estimation :
 
 Vous pouvez envoyer cette estimation à votre solution de supervision et l’utiliser pour comprendre le fonctionnement de votre progression au fil du temps.
 
+### <a name="as-an-on-demand-detailed-estimation"></a>Comme une estimation détaillée à la demande
+
+Contrairement au modèle push, il existe une alternative qui vous permet d’obtenir l’estimation à la demande. Ce modèle fournit également des informations plus détaillées :
+
+* Le décalage estimé par bail.
+* L’instance possédant et traitant chaque bail, afin que vous puissiez déterminer s’il existe un problème sur une instance.
+
+Si votre processeur de flux de modification est défini comme suit :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimatorDetailed)]
+
+Vous pouvez créer l’estimateur avec la même configuration de bail :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimatorDetailed)]
+
+À chaque fois que vous le souhaitez, avec la fréquence requise, vous pouvez obtenir l’estimation détaillée :
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=GetIteratorEstimatorDetailed)]
+
+Chaque `ChangeFeedProcessorState` contient les informations relatives au bail et au décalage, ainsi que l’identité de l’instance actuelle qui en est la propriétaire. 
+
 > [!NOTE]
-> L’estimateur de flux de modification n’a pas besoin d’être déployé dans le cadre de votre processeur de flux de modification, ni de faire partie du même projet. Il peut être indépendant et s’exécuter dans une instance complètement différente. Il doit simplement utiliser le même nom et la même configuration de bail.
+> L’estimateur de flux de modification n’a pas besoin d’être déployé dans le cadre de votre processeur de flux de modification, ni de faire partie du même projet. Il peut être indépendant et s’exécuter dans une instance complètement différente, ce qui est recommandé. Il doit simplement utiliser le même nom et la même configuration de bail.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

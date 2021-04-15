@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 78972c4db1802b479a698a22c456561170add4bf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9d2c42a664c8d8a591d95a312cdf1c0034c4d031
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105932911"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305461"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurer les paramètres d'Azure AD Multi-Factor Authentication
 
@@ -236,7 +236,7 @@ La fonctionnalité _Adresses IP approuvées_ d'Azure AD Multi-Factor Authentica
 > [!NOTE]
 > Les adresses IP approuvées peuvent inclure des plages d’adresses IP privées uniquement si vous utilisez le serveur MFA. Dans un environnement Azure AD Multi-Factor Authentication basé sur le cloud, vous pouvez uniquement utiliser des plages d'adresses IP publiques.
 >
-> Les plages d’adresses IPv6 sont uniquement prises en charge dans l’interface [Emplacement nommé (préversion)](../conditional-access/location-condition.md#preview-features).
+> Les plages d’adresses IPv6 sont uniquement prises en charge dans l’interface [Emplacement nommé (préversion)](../conditional-access/location-condition.md).
 
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 

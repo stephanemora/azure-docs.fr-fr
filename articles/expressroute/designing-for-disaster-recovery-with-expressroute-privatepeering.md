@@ -5,20 +5,20 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 05/25/2019
+ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0aa9e8bfd565eeb7599d52adc0ac5b854e750bb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92202411"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105937224"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Conception pour une reprise d’activité avec le peering privé ExpressRoute
 
-ExpressRoute est conçu pour la haute disponibilité afin de fournir à l’opérateur une connectivité de réseau privé de qualité aux ressources Microsoft. En d’autres termes, il n’existe aucun point de défaillance unique dans le chemin d’accès ExpressRoute au sein du réseau de Microsoft. Pour des considérations de conception visant à optimiser la disponibilité d’un circuit ExpressRoute, consultez [Conception pour une haute disponibilité avec ExpressRoute][HA].
+ExpressRoute est conçu pour la haute disponibilité afin de fournir à l’opérateur une connectivité de réseau privé de qualité aux ressources Microsoft. En d’autres termes, il n’existe aucun point de défaillance unique dans le chemin d’accès ExpressRoute au sein du réseau Microsoft. Pour des considérations de conception visant à optimiser la disponibilité d’un circuit ExpressRoute, consultez [Conception pour une haute disponibilité avec ExpressRoute][HA].
 
-Toutefois, prenant en considération l’adage populaire de Murphy, selon lequel *si quelque chose peut mal tourner, c’est ce qui va arriver*, nous nous concentrons dans cet article sur des solutions qui vont au-delà des défaillances qui peuvent être traitées à l’aide d’un simple circuit ExpressRoute. En d’autres termes, dans cet article, nous allons nous intéresser à l’architecture des réseaux du point de vue de la création d’une connectivité réseau back-end robuste favorisant la reprise d’activité à l’aide de circuits ExpressRoute géoredondants.
+Toutefois, prenant en considération l’adage populaire de Murphy, selon lequel *si quelque chose peut mal tourner, c’est ce qui va arriver*, nous nous concentrons dans cet article sur des solutions qui vont au-delà des défaillances qui peuvent être traitées à l’aide d’un simple circuit ExpressRoute. Nous allons nous intéresser à l’architecture des réseaux du point de vue de la création d’une connectivité réseau back-end robuste favorisant la reprise d’activité à l’aide de circuits ExpressRoute géoredondants.
 
 >[!NOTE]
 >Les concepts décrits dans cet article s’appliquent tout autant lorsqu’un circuit ExpressRoute est créé sous Virtual WAN ou à l’extérieur de celui-ci.
@@ -26,9 +26,9 @@ Toutefois, prenant en considération l’adage populaire de Murphy, selon lequel
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Nécessité d’une solution de connectivité redondante
 
-Certaines situations peuvent favoriser la dégradation d’un service régional entier (que ce soit au niveau de Microsoft, des fournisseurs de services réseau, des clients ou d’autres fournisseurs de services cloud). Une catastrophe naturelle peut-être la cause première de ce type d’impact sur un service à l’échelle régionale. Pour la continuité des activités et les applications stratégiques, il est donc important de planifier la reprise d’activité.   
+Certaines situations peuvent favoriser la dégradation d’un service régional entier (que ce soit au niveau de Microsoft, des fournisseurs de services réseau, des clients ou d’autres fournisseurs de services cloud). Une catastrophe naturelle peut-être la cause première de ce type d’impact sur un service à l’échelle régionale. C’est pourquoi, pour la continuité des activités et les applications stratégiques, il est donc important de planifier la reprise d’activité.   
 
-Que vous exécutiez vos applications stratégiques dans une région Azure, localement ou n’importe où ailleurs, vous pouvez utiliser une autre région Azure comme site de basculement. Les articles suivants abordent la reprise d’activité du point de vue des applications et de l’accès front-end :
+Quoi qu’il en soit, que vous exécutiez vos applications stratégiques dans une région Azure, localement ou n’importe où ailleurs, vous pouvez utiliser une autre région Azure comme site de basculement. Les articles suivants abordent la reprise d’activité du point de vue des applications et de l’accès front-end :
 
 - [Reprise d’activité à l’échelle de l’entreprise][Enterprise DR]
 - [Reprise d’activité des TPE/PME avec Azure Site Recovery][SMB DR]
@@ -37,9 +37,19 @@ Si vous vous appuyez sur la connectivité ExpressRoute entre votre réseau local
 
 ## <a name="challenges-of-using-multiple-expressroute-circuits"></a>Défis liés à l’utilisation de plusieurs circuits ExpressRoute
 
-Quand vous interconnectez le même ensemble de réseaux à l’aide de plusieurs connexions, vous introduisez des chemins parallèles entre les réseaux. Quand ils ne sont pas correctement conçus, les chemins parallèles peuvent engendrer un routage asymétrique. Si le chemin comporte des entités avec état (par exemple, NAT, pare-feu), le routage asymétrique risque de bloquer le flux de trafic.  En règle générale, sur le chemin de peering privé ExpressRoute, vous ne rencontrez pas d’entités avec état, telles que NAT ou un pare-feu. Ainsi, le routage asymétrique sur le peering privé ExpressRoute ne bloque pas nécessairement le flux de trafic.
+Quand vous interconnectez le même ensemble de réseaux à l’aide de plusieurs connexions, vous introduisez des chemins parallèles entre les réseaux. Quand ils ne sont pas correctement conçus, les chemins parallèles peuvent engendrer un routage asymétrique. Si le chemin comporte des entités avec état (par exemple, NAT, pare-feu), le routage asymétrique risque de bloquer le flux de trafic.  En règle générale, sur le chemin de peering privé ExpressRoute, vous ne rencontrez pas d’entités avec état, telles que NAT ou un pare-feu. C’est pourquoi le routage asymétrique sur le peering privé ExpressRoute ne bloque pas nécessairement le flux de trafic.
  
-Toutefois, si vous équilibrez la charge du trafic entre des chemin parallèles géoredondants, qu’il existe ou non des entités avec état, vous pouvez observer des performances réseau incohérentes. Dans cet article, nous allons aborder la façon de relever ces défis.
+Toutefois, si vous équilibrez la charge du trafic entre des chemins parallèles géoredondants, qu’il existe ou non des entités avec état, vous pouvez observer des performances réseau incohérentes. Ces chemins parallèles géoredondants peuvent être via le même métro ou le même métro que sur la page [fournisseurs par emplacement](expressroute-locations-providers.md#partners). 
+
+### <a name="same-metro"></a>Même métro
+
+De [nombreux métros](expressroute-locations-providers.md#global-commercial-azure) ont deux emplacements ExpressRoute. Par exemple, *Amsterdam* et *Amsterdam2*. Lors de la conception de la redondance, vous pouvez créer deux chemins d’accès parallèles à Azure avec les deux emplacements dans le même métro. L’avantage de cette conception réside dans le fait que lorsque le basculement d’application se produit, une latence de bout en bout entre vos applications locales et Microsoft reste approximativement la même. Toutefois, en cas de catastrophe naturelle comme un tremblement de ce genre, la connectivité des deux chemins peut ne plus être disponible.
+
+### <a name="different-metros"></a>Différents métros
+
+Lorsque vous utilisez différents métros pour la redondance, vous devez sélectionner l’emplacement secondaire dans la même [région géopolitique](expressroute-locations-providers.md#locations). Pour choisir un emplacement en dehors de la région géopolitique, vous devez utiliser la référence SKU Premium pour les deux circuits dans les chemins parallèles. L’avantage de cette configuration est que les chances d’une catastrophe naturelle entraînant une panne des deux liens sont nettement inférieures, mais au détriment de la latence accrue de bout en bout.
+
+Dans cet article, nous allons aborder la façon de résoudre les problèmes que vous pouvez rencontrer lors de la configuration de chemins géoredondants.
 
 ## <a name="small-to-medium-on-premises-network-considerations"></a>Considérations relatives aux réseaux locaux petits ou moyens
 
@@ -100,7 +110,7 @@ En utilisant l’une ou l’autre des techniques, si vous amenez Azure à préf�
 
 ## <a name="large-distributed-enterprise-network"></a>Grand réseau d’entreprise distribué
 
-Quand vous avez un grand réseau d’entreprise distribué, vous êtes susceptible d’avoir plusieurs circuits ExpressRoute. Dans cette section, nous allons voir comment concevoir la reprise d’activité à l’aide de circuits ExpressRoute en mode actif-actif, sans avoir besoin de circuits de secours supplémentaires. 
+Quand vous avez un grand réseau d’entreprise distribué, vous êtes susceptible d’avoir plusieurs circuits ExpressRoute. Dans cette section, nous allons voir comment concevoir la reprise d’activité à l’aide de circuits ExpressRoute en mode actif-actif, sans avoir besoin d’autres circuits de secours. 
 
 Penchons-nous sur l’exemple illustré dans le diagramme suivant. Dans l’exemple, Contoso dispose de deux emplacements locaux connectés à deux déploiements IaaS Contoso dans deux régions Azure différentes via des circuits ExpressRoute dans deux emplacements de peering différents. 
 
