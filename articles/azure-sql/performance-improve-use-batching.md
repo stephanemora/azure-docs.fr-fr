@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92792597"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641393"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Utiliser le traitement par lot pour améliorer les performances des applications Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Dans cet article, nous allons examiner différents scénarios et stratégies de 
 * Compte tenu des caractéristiques multilocataires d'Azure SQL Database et Azure SQL Managed Instance, l'efficacité de la couche d'accès aux données est en corrélation avec la scalabilité globale de la base de données. En réponse à une utilisation dépassant les quotas prédéfinis, Azure SQL Database and Azure SQL Managed Instance peuvent réduire le débit ou répondre par des exceptions de limitation. Les mesures d'efficacité telles que le traitement par lot vous permettent d'accomplir davantage avant d'atteindre ces limites.
 * Le traitement par lots est également efficace pour les architectures qui utilisent plusieurs bases de données (partitionnement). L’efficacité de votre interaction avec chaque unité de base de données demeure un facteur clé pour votre évolutivité globale.
 
-L'un des avantages associés à l'utilisation d'Azure SQL Database ou Azure SQL Managed Instance est que vous n'avez pas à gérer les serveurs qui hébergent la base de données. Toutefois, cette infrastructure gérée signifie également que vous devez adopter une approche différente pour l’optimisation de la base de données. Vous ne pouvez plus chercher à améliorer l’infrastructure matérielle ou réseau de la base de données. Ces environnements sont directement contrôlés par Microsoft Azure. Votre rayon de contrôle couvre essentiellement la manière dont votre application interagit avec Azure SQL Database et Azure SQL Managed Instance. Le traitement par lots constitue l’une de ces optimisations.
+L’un des avantages associés à l’utilisation d’Azure SQL Database ou Azure SQL Managed Instance est que vous n’avez pas à gérer les serveurs qui hébergent la base de données. Toutefois, cette infrastructure gérée signifie également que vous devez adopter une approche différente pour l’optimisation de la base de données. Vous ne pouvez plus chercher à améliorer l’infrastructure matérielle ou réseau de la base de données. Ces environnements sont directement contrôlés par Microsoft Azure. Votre rayon de contrôle couvre essentiellement la manière dont votre application interagit avec Azure SQL Database et Azure SQL Managed Instance. Le traitement par lots constitue l’une de ces optimisations.
 
 La première partie de cet article examine différentes techniques de traitement par lot pour les applications .NET qui utilisent Azure SQL Database ou Azure SQL Managed Instance. Les deux dernières sections décrivent des recommandations et des scénarios de traitement par lots.
 
@@ -93,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
+Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15&preserve-view=true#WAL), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lot pour les écritures effectuées dans le journal des transactions du serveur.
 
 Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
@@ -378,7 +378,7 @@ Les sections suivantes expliquent comment utiliser les paramètres table dans tr
 
 Bien que certains scénarios apparaissent comme des candidats évidents pour le traitement par lots, il existe de nombreux scénarios qui peuvent tirer parti des avantages d’un traitement par lots différé. Ce type de traitement induit toutefois un risque plus élevé de perte des données en cas de défaillance inattendue. Il est important de comprendre ce risque et de prendre en compte ses conséquences.
 
-Par exemple, considérez une application web qui assure le suivi de l’historique de navigation de chaque utilisateur. À chaque demande de page, l’application peut lancer un appel sur la base de données pour enregistrer la page consultée par l’utilisateur. Mais il est possible d’améliorer les performances et l’évolutivité en plaçant dans la mémoire tampon les activités de navigation des utilisateurs puis en envoyant ces données par lots à la base de données. Vous pouvez déclencher la mise à jour de la base de données par temps écoulé et/ou taille de mémoire tampon. Par exemple, une règle peut spécifier que le lot doit être traité après 20 secondes ou lorsque la mémoire tampon atteint 1 000 éléments.
+Par exemple, considérez une application web qui assure le suivi de l’historique de navigation de chaque utilisateur. À chaque demande de page, l’application peut lancer un appel sur la base de données pour enregistrer la page consultée par l’utilisateur. Mais il est possible d’améliorer les performances et la scalabilité en plaçant dans la mémoire tampon les activités de navigation des utilisateurs, puis en envoyant ces données par lots à la base de données. Vous pouvez déclencher la mise à jour de la base de données par temps écoulé et/ou taille de mémoire tampon. Par exemple, une règle peut spécifier que le lot doit être traité après 20 secondes ou lorsque la mémoire tampon atteint 1 000 éléments.
 
 L’exemple de code suivant utilise les [Extensions réactives - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) pour traiter les événements mis en mémoire tampon déclenchés par une classe de surveillance. Lorsque la mémoire tampon est saturée ou qu’un délai d’attente est atteint, le lot de données utilisateur est envoyé à la base de données avec un paramètre table.
 

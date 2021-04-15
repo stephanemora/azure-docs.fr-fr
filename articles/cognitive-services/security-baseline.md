@@ -4,22 +4,20 @@ description: La base de référence de sécurité de Cognitive Services fournit
 author: msmbaldwin
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b243fa18b17fdd15f3c39545b7d81f5796bd8429
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a7f9570a68102eb20c84942ddf9ac73de033f01c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699859"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076596"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Ligne de base de la sécurité Azure pour Cognitive Services
 
-Cette base de référence de sécurité applique les instructions du [Benchmark de sécurité Azure version 1.0](../security/benchmarks/overview-v1.md) à Cognitive Services. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure.
-Le contenu est regroupé selon les **contrôles de sécurité** définis par le Benchmark de sécurité Azure et les consignes associées applicables à l’offre Cognitive Services. Les **contrôles** non applicables à l’offre Cognitive Services ont été exclus.
+Cette base de référence de sécurité applique les instructions du [Benchmark de sécurité Azure version 1.0](../security/benchmarks/overview-v1.md) à Cognitive Services. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure. Le contenu est regroupé selon les **contrôles de sécurité** définis par le Benchmark de sécurité Azure et les consignes associées applicables à l’offre Cognitive Services. Les **contrôles** non applicables à Cognitive Services, ou dont la responsabilité incombe à Microsoft, ont été exclus.
 
- 
 Pour voir comment l’offre Cognitive Services est entièrement mappée au Benchmark de sécurité Azure, consultez le [fichier de mappage de base de référence complet de la sécurité Cognitive Services](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Sécurité réseau
@@ -50,7 +48,7 @@ Le support du réseau virtuel et du point de terminaison de service pour Cogniti
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : aucune
 
 ### <a name="13-protect-critical-web-applications"></a>1.3 : Protéger les applications web critiques
 
@@ -118,7 +116,7 @@ Notez également que vous devez désactiver l’inspection approfondie des paque
 
 **Responsabilité** : Customer
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : aucune
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7 : Gérer le trafic à destination des applications web
 
@@ -259,9 +257,9 @@ Configurez les paramètres de diagnostic pour votre conteneur Azure Cognitive Se
 
 **Aide** : Azure Active Directory (Azure AD) comporte des rôles intégrés qui doivent être explicitement attribués et qui peuvent être interrogés. Utilisez le module Azure AD PowerShell pour effectuer des requêtes ad hoc afin de découvrir les comptes membres de groupes d’administration.
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Responsabilité** : Customer
 
@@ -379,7 +377,7 @@ Le client peut gérer l’inventaire des comptes d’utilisateur de la Gestion d
 
 - [Gestion des comptes d’utilisateur dans Gestion des API Azure](../api-management/api-management-howto-create-or-invite-developers.md)
 
-- [Obtenir la liste des utilisateurs de la Gestion des API](https://docs.microsoft.com/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-4.8.0&amp;preserve-view=true)
+- [Obtenir la liste des utilisateurs de la Gestion des API](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
 - [Comment utiliser les révisions d’accès des identités Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -496,7 +494,7 @@ Microsoft gère la plateforme sous-jacente et traite tout le contenu des clients
 
 **Responsabilité** : Partagé
 
-**Supervision d’Azure Security Center** : Aucune
+**Supervision Azure Security Center** : aucune
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources 
 
@@ -542,7 +540,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
@@ -628,7 +626,7 @@ En outre, utilisez Azure Resource Graph pour interroger ou découvrir des ressou
 
 **Aide** : Définissez et implémentez des configurations de sécurité standard pour votre conteneur Cognitive Services avec Azure Policy. Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.CognitiveServices » pour créer des stratégies personnalisées d’audit ou d’application de la configuration de vos instances Azure Cache pour Redis.
 
-- [Affichage des alias Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Affichage des alias Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Guide pratique pour configurer et gérer Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -652,9 +650,9 @@ En outre, utilisez Azure Resource Graph pour interroger ou découvrir des ressou
 
 **Aide** : Si vous utilisez des définitions Azure Policy ou des modèles Azure Resource Manager personnalisés pour vos conteneurs Cognitive Services et les ressources associées, utilisez Azure Repos pour stocker et gérer votre code de façon sécurisée.
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentation Azure Repos](/azure/devops/repos/)
 
 **Responsabilité** : Customer
 
@@ -768,7 +766,7 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 - [Présentation d’Azure Automation](../automation/automation-intro.md)
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsabilité** : Customer
 
@@ -780,7 +778,7 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 - [Déployer des ressources avec des modèles ARM et le Portail Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour restaurer des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilité** : Customer
 
@@ -792,7 +790,7 @@ Vous pouvez également utiliser la fonctionnalité de gestion du cycle de vie po
 
 Utilisez le contrôle d’accès en fonction du rôle Azure pour protéger les clés managées par le client. Activez la suppression réversible et la protection contre la purge dans Key Vault pour protéger les clés contre une suppression accidentelle ou malveillante. 
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [À propos des autorisations et des groupes dans Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

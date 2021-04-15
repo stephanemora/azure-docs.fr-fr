@@ -6,20 +6,20 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 02/05/2021
-ms.openlocfilehash: 37df9a276339b80a81e6ac5d5db14872de9edff4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 4/1/2021
+ms.openlocfilehash: e1d3d495d958465e966701aa7ce91bc2706b48e0
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065852"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219584"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classifications prises en charge dans Azure Purview
 
 Cet article répertorie les classifications système prises en charge et définies dans Azure Purview (préversion).
 
 
-- **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. Nos règles de classification système nécessitent qu’au moins 8 valeurs distinctes dans chaque colonne soient soumises à une classification. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
+- **Seuil de correspondances distinctes** : nombre total de valeurs de données distinctes qui doivent se trouver dans une colonne pour que l’analyseur exécute le modèle de données dessus. Le seuil de correspondances distinctes n’a rien à voir avec les critères spéciaux, mais il s’agit d’un prérequis pour les critères spéciaux. Nos règles de classification système nécessitent qu’au moins 8 valeurs distinctes dans chaque colonne soient soumises à une classification. Le système a besoin de cette valeur afin de veiller à ce que la colonne contienne suffisamment de données pour que l’analyseur puisse les classer avec précision. Par exemple, une colonne qui comporte plusieurs lignes contenant toutes la valeur 1 ne sera pas classée. Les colonnes dont une ligne comprend une valeur et les autres lignes des valeurs Null ne sont pas non plus classées. Si vous spécifiez plusieurs modèles, cette valeur s’applique à chacun d’eux.
 
 - **Seuil de correspondances minimales** : pourcentage minimal de correspondances de valeurs de données dans une colonne qui doivent être trouvées par l’analyseur pour que la classification soit appliquée. La valeur de classification système est définie sur 60 %.
 

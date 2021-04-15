@@ -12,17 +12,17 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 15fa1dd230b7f07846653278533805fa66ed2195
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e97c48d4e42627d0fc2caaa4f66e81b9a0cafa86
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870385"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643897"
 ---
 # <a name="get-facial-pose-events"></a>Obtenir des événements de pose faciale
 
 > [!NOTE]
-> Visème fonctionne uniquement pour la voix `en-US-AriaNeural` dans la région USA Ouest (`westus`) et sera disponible pour toutes les voix `en-US` d’ici fin avril 2021.
+> Viseme ne fonctionne que pour la voix `en-US-AriaNeural` pour le moment.
 
 Un visème est la description visuelle d’un phonème dans le langage parlé.
 Il définit la position du visage et de la bouche quand vous prononcez un mot.

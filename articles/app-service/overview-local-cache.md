@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 81782f63199a9fe8f43f56aeefcd1c68951d57a4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 462f37730d61a674edd463e57a98a1228c8ed611
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96852250"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967079"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
 > [!NOTE]
-> Le cache local n’est pas pris en charge dans les applications de fonction ni dans les applications App Service en conteneur, telles que dans [Conteneurs Windows](quickstart-custom-container.md?pivots=container-windows) ou sur [App Service sur Linux](overview.md#app-service-on-linux).
+> Le cache local n’est pas pris en charge dans les applications de fonction ni dans les applications App Service conteneurisées, telles que dans [Conteneurs Windows](quickstart-custom-container.md?pivots=container-windows) ou sur [App Service sur Linux](overview.md#app-service-on-linux). Une version du cache local disponible pour ces types d’applications est [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
 
 
 Le contenu Azure App Service est stocké dans le Stockage Azure et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  

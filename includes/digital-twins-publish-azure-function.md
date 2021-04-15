@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
 ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102630262"
 ---
 Pour publier le projet sur une application de fonction dans Azure, cliquez avec le bouton droit sur le projet dans l’*Explorateur de solutions*, puis sélectionnez **Publier**.

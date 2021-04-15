@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786479"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644074"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](./app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](./asp-net-exceptions.md) dans le portail Application Insights.
@@ -124,7 +124,7 @@ La version 15.2 de Visual Studio 2017 (ou ultérieure) publie les symboles des 
 Pour Calcul Azure et d’autres types, vérifiez que les fichiers de symboles se trouvent dans le même dossier que le fichier .dll de l’application principale (généralement `wwwroot/bin`), ou sont disponibles dans le chemin d’accès actuel.
 
 > [!NOTE]
-> Pour plus d’informations sur les différentes options de symbole disponibles, voir la [documentation de Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> Pour plus d’informations sur les différentes options de symbole disponibles, voir la [documentation de Visual Studio](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
 ). Pour optimiser les résultats, nous vous recommandons d’utiliser les options « Full », « Portable » ou « Embedded ».
 
 ### <a name="optimized-builds"></a>Optimisation des versions

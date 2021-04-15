@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 3/30/2021
+ms.reviewer: lagayhar
+ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726176"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078398"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -25,7 +25,7 @@ Si vous avez des questions sur le fonctionnement de la tarification d’Applicat
 
 ## <a name="pricing-model"></a>Modèle de tarification
 
-Les tarifs d’[Azure Application Insights][start] suivent un modèle de **paiement à l’utilisation**, basé sur le volume de données ingérées. Ils peuvent donc varier si la période de conservation des données est plus longue. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application. Il n’existe aucun frais de volume de données pour l’utilisation du [Flux de métriques temps réel](./live-stream.md).
+Les tarifs d’[Azure Application Insights][start] suivent un modèle de **paiement à l’utilisation**, basé sur le volume de données ingérées. Ils peuvent donc varier si la période de conservation des données est plus longue. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure. Le volume de données est mesuré comme la taille du package de données JSON non compressé reçu par Application Insights de la part de votre application. Le volume de données est mesuré en Go (10^9 octets). Il n’existe aucun frais de volume de données pour l’utilisation du [Flux de métriques temps réel](./live-stream.md).
 
 Les [tests web à plusieurs étapes](./availability-multistep.md) donnent lieu à des frais supplémentaires. Il s’agit de tests web qui exécutent une séquence d’actions. Aucun frais supplémentaire n’est facturé pour les *tests Ping* sur une seule page. Les données de télémétrie des tests Ping et des tests à plusieurs étapes sont facturées comme les autres données de télémétrie de votre application.
 
@@ -43,7 +43,10 @@ Il existe ici deux approches possibles : utiliser la surveillance par défaut e
 
 ### <a name="data-collection-when-using-sampling"></a>Collecte des données dans le cadre de l’échantillonnage
 
-Avec l’[échantillonnage adaptatif](sampling.md#adaptive-sampling) du kit SDK ASP.NET, le volume de données est automatiquement ajusté pour demeurer à un taux de trafic maximal spécifié pour la surveillance Application Insights par défaut. Si l’application génère une faible quantité de données de télémétrie, comme lors du débogage ou en raison d’une faible utilisation, les éléments ne sont pas supprimés par le processeur d’échantillonnage tant que le volume reste inférieur au niveau configuré d’événements par seconde. Pour une application à volume élevé, avec le seuil par défaut de 5 événements par seconde, l’échantillonnage adaptatif limite le nombre d’événements quotidiens à 432 000. En utilisant une taille moyenne d’événement standard de 1 Ko, cela correspond à 13,4 Go de données de télémétrie pour un mois de 31 jours par nœud hébergeant votre application (puisque l’échantillonnage s’effectue localement sur chaque nœud). 
+Avec l’[échantillonnage adaptatif](sampling.md#adaptive-sampling) du kit SDK ASP.NET, le volume de données est automatiquement ajusté pour demeurer à un taux de trafic maximal spécifié pour la surveillance Application Insights par défaut. Si l’application génère une faible quantité de données de télémétrie, comme lors du débogage ou en raison d’une faible utilisation, les éléments ne sont pas supprimés par le processeur d’échantillonnage tant que le volume reste inférieur au niveau configuré d’événements par seconde. Pour une application à volume élevé, avec le seuil par défaut de 5 événements par seconde, l’échantillonnage adaptatif limite le nombre d’événements quotidiens à 432 000. Avec une taille moyenne d’événement standard de 1 Ko, cela correspond à 13,4 Go de télémétrie pour un mois de 31 jours par nœud hébergeant votre application (dans la mesure où l’échantillonnage s’effectue localement sur chaque nœud).
+
+> [!NOTE]
+> La taille des données du journal Azure Monitor est calculée en Go (1 Go = 10^9 octets).
 
 Pour les kits de développement logiciel (SDK) qui ne prennent pas en charge l’échantillonnage adaptatif, vous pouvez utiliser l’[échantillonnage d’ingestion](./sampling.md#ingestion-sampling) où l’échantillonnage a lieu quand les données sont reçues par Application Insights en fonction d’un pourcentage de données à conserver, ou l’[échantillonnage à débit fixe pour les sites web ASP.NET, ASP.NET Core et Java](sampling.md#fixed-rate-sampling) afin de réduire le trafic envoyé à partir de votre serveur web et de vos navigateurs web.
 

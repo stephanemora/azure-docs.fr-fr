@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557367"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642388"
 ---
 # <a name="governing-on-premises-service-accounts"></a>Administrer les comptes de service locaux
 
@@ -60,7 +60,7 @@ Utilisez les critères suivants lors de la création d'un compte de service.
 
 Utilisez les paramètres suivants avec les comptes d'utilisateur employés en guise de comptes de service :
 
-* [**Expiration du compte**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps) : configurez le compte de service pour qu'il expire automatiquement à une date/heure définie après sa période d'examen, sauf s'il est déterminé qu'il doit continuer.
+* [**Expiration du compte**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true) : configurez le compte de service pour qu'il expire automatiquement à une date/heure définie après sa période d'examen, sauf s'il est déterminé qu'il doit continuer.
 
 *  **LogonWorkstations** : limitez les autorisations d'accès au compte de service. S'il est exécuté localement sur un ordinateur, et s'il a uniquement accès aux ressources de cet ordinateur, empêchez-le de se connecter ailleurs.
 
@@ -82,7 +82,7 @@ Utilisez la procédure suivante pour gérer le cycle de vie des comptes de servi
 
 ### <a name="collect-usage-information-for-the-service-account"></a>Collecter les informations relatives à l'utilisation du compte de service
 
-Collectez les informations pertinentes pour chaque compte de service. Le tableau ci-dessous présente les informations minimales à collecter, mais vous devez collecter tout ce qui est nécessaire pour justifier l'existence des comptes.
+Collectez les informations pertinentes pour chaque compte de service. Le tableau ci-dessous présente les informations minimales à collecter, mais vous devez collecter tout ce qui est nécessaire pour justifier l’existence des comptes.
 
 | Données| Détails |
 | - | - |
@@ -149,9 +149,9 @@ L'évaluation des risques, une fois réalisée et documentée, peut avoir un imp
 
 Ne créez un compte de service qu'après avoir documenté les informations pertinentes dans votre base de données CMDB et procédé à une évaluation des risques. Les restrictions de compte doivent être alignées sur l'évaluation des risques. Tenez compte des restrictions suivantes, à condition qu'elles soient pertinentes pour votre évaluation :
 
-* [Expiration du compte](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Expiration du compte](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
-   * Pour tous les comptes d'utilisateur employés en guise de comptes de service, définissez une date de fin d'utilisation réaliste et précise. Définissez cette valeur à l'aide de l'indicateur « Expiration du compte ». Pour plus d'informations, consultez[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
+   * Pour tous les comptes d'utilisateur employés en guise de comptes de service, définissez une date de fin d'utilisation réaliste et précise. Définissez cette valeur à l’aide de l’indicateur « Expiration du compte ». Pour plus d'informations, consultez[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
 * Connexion ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
@@ -193,7 +193,7 @@ Après avoir supprimé toutes les autorisations, utilisez ce processus pour supp
 
 3. Supprimez ensuite le compte de service. 
 
-   * Pour les comptes de service gérés, vous pouvez [le désinstaller](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) à l'aide de PowerShell ou le supprimer manuellement à partir du conteneur du compte.
+   * Pour les comptes de service gérés, vous pouvez [le désinstaller](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) à l'aide de PowerShell ou le supprimer manuellement à partir du conteneur du compte.
 
    * Pour les comptes d'ordinateur ou d'utilisateur, vous pouvez supprimer manuellement le compte dans Active Directory.
 

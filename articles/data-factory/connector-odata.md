@@ -4,14 +4,14 @@ description: Découvrez comment utiliser l’activité de copie dans un pipeline
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/30/2021
 ms.author: jingwang
-ms.openlocfilehash: 90cc4e3f9915db424cec89cfc764771b5be785e9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9dd86b4982edf5d206e64431a5e1458c4b848e9e
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389720"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968493"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -326,6 +326,48 @@ Lorsque vous copiez des données à partir d’OData, les mappages suivants sont
 
 > [!NOTE]
 > Les types de données complexes OData (par exemple, **Object**), ne sont pas pris en charge.
+
+## <a name="copy-data-from-project-online"></a>Copier des données à partir de Project Online
+
+Pour copier des données à partir de Project Online, vous pouvez utiliser le connecteur OData et un jeton d’accès obtenu à partir d’outils tels que Postman.
+
+> [!CAUTION]
+> Le jeton d’accès expire dans une heure par défaut : vous devez obtenir un nouveau jeton d’accès lorsqu’il expire.
+
+1. Utilisez **Postman** pour recevoir le jeton d’accès :
+
+   1. Accédez à l’onglet **Authorization** (Autorisation) sur le site web de Postman.
+   1. Dans la zone **Type**, sélectionnez **OAuth 2.0**, puis, dans la zone **Add authorization data to** (Ajouter des données d’autorisation à), sélectionnez **Request Headers** (En-têtes de demande).
+   1. Renseignez les informations suivantes dans la page **Configure New Token** (Configurer un nouveau jeton) pour obtenir un nouveau jeton d’accès : 
+      - **Grant type** (Type d’autorisation) : Sélectionnez **Authorization Code** (Code d’autorisation).
+      - **Callback URL** (URL de rappel) : Entrez `https://www.localhost.com/`. 
+      - **Auth URL** (URL d’authentification) : Entrez `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Remplacez `<your tenant name>` par votre propre nom de locataire. 
+      - **Access Token URL** (URL de jeton d’accès) : Entrez `https://login.microsoftonline.com/common/oauth2/token`.
+      - **Client ID** (ID client) : Entrez l’ID de votre principal de service AAD.
+      - **Client Secret** (Clé secrète client) : Entrez le secret de votre principal de service.
+      - **Client Authentication** (Authentification du client) : Sélectionnez **Send as Basic Auth header** (Envoyer en tant qu’en-tête d’authentification de base).
+     
+   1. Vous serez invité à vous connecter avec votre nom d’utilisateur et votre mot de passe.
+   1. Une fois que vous avez obtenu votre jeton d’accès, copiez-le et enregistrez-le pour l’étape suivante.
+   
+    [![Utiliser Postman pour recevoir le jeton d’accès](./media/connector-odata/odata-project-online-postman-access-token-inline.png)](./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox)
+
+1. Créez le service lié OData :
+    - **Service URL** (URL du service) : Entrez `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Remplacez `<your tenant name>` par votre propre nom de locataire. 
+    - **Authentication type** (Type d’authentification) : Sélectionnez **Anonymous** (Anonyme).
+    - **Auth headers** (En-têtes d’authentification) :
+        - **Property name** (Nom de propriété) : Choisissez **Authorization** (Autorisation).
+        - **Value** (Valeur) : Entrez le **jeton d’accès** copié à l’étape 1.
+    - Testez le service lié.
+
+    ![Créer le service lié OData](./media/connector-odata/odata-project-online-linked-service.png)
+
+1. Créez le jeu de données OData :
+    1. Créez le jeu de données avec le service lié OData créé à l’étape 2.
+    1. Prévisualisez les données.
+ 
+    ![Aperçu des données](./media/connector-odata/odata-project-online-preview-data.png)
+ 
 
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup

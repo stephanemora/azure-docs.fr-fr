@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c4fc7d7564ecd30326fbec832639b2a81d55e6d5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102635567"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605652"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Dépannage du module Audio et reconnaissance vocale d’Azure Percept
 
@@ -20,16 +20,24 @@ Utilisez les instructions ci-dessous pour résoudre les problèmes liés aux app
 
 ## <a name="collecting-speech-module-logs"></a>Collecte des journaux de module de reconnaissance vocale
 
-Pour exécuter ces commandes, [connectez-vous au point d’accès Wi-Fi du DK Azure Percept et connectez-vous au devkit via SSH](./how-to-ssh-into-percept-dk.md), puis entrez les commandes dans le terminal SSH.
+Pour exécuter ces commandes, connectez-vous via [SSH au kit de développement](./how-to-ssh-into-percept-dk.md), puis entrez les commandes dans l’invite du client SSH.
+
+Collectez les journaux du module de reconnaissance vocale :
 
 ```console
 sudo iotedge logs azureearspeechclientmodule
 ```
 
-Pour rediriger une sortie vers un fichier .txt de façon à l’analyser de façon plus approfondie, utilisez la syntaxe suivante :
+Pour rediriger une sortie vers un fichier .txt de façon à l’analyser de façon plus approfondie, utilisez la syntaxe suivante :
 
 ```console
 sudo [command] > [file name].txt
+```
+
+Modifiez les autorisations du fichier .txt pour qu’il puisse être copié :
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 Après avoir redirigé la sortie vers un fichier .txt, copiez le fichier sur votre PC hôte via SCP :
@@ -38,11 +46,11 @@ Après avoir redirigé la sortie vers un fichier .txt, copiez le fichier sur vot
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[local host file path] fait référence à l’emplacement sur votre ordinateur hôte où vous voulez copier le fichier .txt. [remote username] est le nom d’utilisateur SSH choisi lors de [l’expérience d’intégration](./quickstart-percept-dk-set-up.md). Si vous n’avez pas configuré de connexion SSH lors de l’expérience d’intégration Azure Percept DK, votre nom d’utilisateur distant est root.
+[local host file path] fait référence à l’emplacement sur votre ordinateur hôte où vous voulez copier le fichier .txt. [remote username] est le nom d’utilisateur SSH choisi lors de l’[expérience de configuration](./quickstart-percept-dk-set-up.md).
 
 ## <a name="checking-runtime-status-of-the-speech-module"></a>Vérification de l’état d’exécution du module de reconnaissance vocale
 
-Vérifiez si l’état d’exécution de **azureearspeechclientmodule** est **En cours d’exécution**. Pour rechercher l’état d’exécution des modules de vos appareils, ouvrez le [portail Azure](https://portal.azure.com/) et accédez à **Toutes les ressources** ->  **\<your IoT hub>**  -> **IoT Edge** ->  **\<your device ID>** . Cliquez sur l’onglet **Modules** pour voir l’état d’exécution de tous les modules installés.
+Vérifiez si l’état d’exécution de **azureearspeechclientmodule** est **En cours d’exécution**. Pour rechercher l’état d’exécution des modules de vos appareils, ouvrez le [portail Azure](https://portal.azure.com/) et accédez à **Toutes les ressources** ->  **[votre hub IoT]**  -> **IoT Edge** ->  **[votre identité d’appareil]** . Cliquez sur l’onglet **Modules** pour voir l’état d’exécution de tous les modules installés.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Page des appareils Edge dans le portail Azure.":::
 
@@ -50,10 +58,10 @@ Si l’état d’exécution de **azureearspeechclientmodule** n’est pas **En c
 
 ## <a name="understanding-ear-som-led-indicators"></a>Fonctionnement des indicateurs LED du Ear SoM
 
-Vous pouvez utiliser les indicateurs LED pour comprendre l’état de votre appareil. En général, il faut environ 2 minutes pour que le module s’initialise complètement après la *mise sous tension*. Au fil des étapes d’initialisation, vous allez voir :
+Vous pouvez utiliser les indicateurs LED pour comprendre l’état de votre appareil. En général, il faut environ deux minutes pour que le module s’initialise complètement après la mise sous tension de l’appareil. Au fil des étapes d’initialisation, vous allez voir :
 
-1. 1 LED centrale blanche : l’appareil est sous tension.
-2. 1 LED centrale blanche clignotante : l’authentification est en cours.
+1. LED blanche centrale allumée (statique) : l’appareil est sous tension.
+2. LED blanche centrale allumée (clignotante) : l’authentification est en cours.
 3. Les trois LED vont passer au bleu une fois que l’appareil est authentifié et prêt à être utilisé.
 
 |LED|État du voyant|État du SoM d’écoute|

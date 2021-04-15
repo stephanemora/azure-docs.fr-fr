@@ -7,16 +7,19 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92123335"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629068"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualiser et analyser des données Azure IoT Central dans un tableau de bord Power BI
 
 *Cette rubrique s’applique aux administrateurs et aux développeurs de solutions.*
+
+> [!Note] 
+> Cette solution utilise des [fonctionnalités d’exportation de données héritées](./howto-export-data-legacy.md). Restez à l’affût des derniers conseils sur la façon de se connecter à Power BI avec la fonctionnalité d’exportation de données la plus récente.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Pipeline de solution Power BI":::
 
@@ -27,7 +30,7 @@ La Solution Power BI pour Azure IoT Central V3 vous permet de créer un tableau 
 - filtrer les données envoyées par des appareils spécifiques ;
 - afficher les données de télémétrie les plus récentes dans une table.
 
-Cette solution configure un pipeline qui lit les données à partir de l’[Exportation de données continue](./howto-export-data.md) de votre compte de stockage d’objets blob Azure. Ce pipeline utilise Azure Functions, Azure Data Factory et Azure SQL Database pour traiter et transformer les données. Vous pouvez visualiser et analyser les données dans un rapport Power BI que vous téléchargez en tant que fichier PBIX. Toutes ces ressources étant créées dans votre abonnement Azure, vous pouvez personnaliser chaque composant en fonction de vos besoins.
+Cette solution configure un pipeline qui lit les données à partir de l’[exportation de données héritée](./howto-export-data-legacy.md) de votre compte de stockage d’objets blob Azure. Ce pipeline utilise Azure Functions, Azure Data Factory et Azure SQL Database pour traiter et transformer les données. Vous pouvez visualiser et analyser les données dans un rapport Power BI que vous téléchargez en tant que fichier PBIX. Toutes ces ressources étant créées dans votre abonnement Azure, vous pouvez personnaliser chaque composant en fonction de vos besoins.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +39,7 @@ Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d�
 La configuration de la solution requiert les ressources suivantes :
 
 - Application IoT Central version 3. Pour savoir comment vérifier la version de votre application, consultez [À propose de votre application](./howto-get-app-info.md). Pour savoir comment créer une application IoT Central, consultez [Créer une application Azure IoT Central](./quick-deploy-iot-central.md).
-- Exportation de données continue configurée pour exporter la télémétrie, les appareils et les modèles d’appareils vers le service Stockage Blob Azure. Pour plus d’informations, consultez [Comment exporter des données IoT vers des destinations dans Azure](howto-export-data.md).
+- Exportation de données continue héritée qui est configurée pour exporter la télémétrie, les appareils et les modèles d’appareils vers le service Stockage Blob Azure. Pour plus d’informations, consultez la [documentation relative à l’exportation de données héritée](howto-export-data-legacy.md).
   - Assurez-vous que seule votre application IoT Central exporte des données vers le conteneur d’objets blob.
   - Vos [appareils doivent envoyer des messages encodés JSON](../../iot-hub/iot-hub-devguide-messages-d2c.md). Les appareils doivent spécifier `contentType:application/JSON` et `contentEncoding:utf-8` ou `contentEncoding:utf-16` ou `contentEncoding:utf-32` dans les propriétés système du message.
 - Power BI Desktop (dernière version) Consultez [Téléchargements Power BI](https://powerbi.microsoft.com/downloads/).

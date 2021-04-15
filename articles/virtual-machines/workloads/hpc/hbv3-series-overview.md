@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des machines virtuelles de série HBv3 – Machines virtuelles Azure | Microsoft Docs
+title: Vue d’ensemble, architecture et topologie des machines virtuelles de série HBv3 – Machines virtuelles Azure | Microsoft Docs
 description: En savoir plus sur la taille des machines virtuelles de la série HBv3 dans Azure.
 services: virtual-machines
 author: vermagit
@@ -8,33 +8,90 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d1abd03f517f9e0b13a2994418cbae5cfbe22454
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f78420a65cd9c2402266eb9ba973eabe758d7ee5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801862"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608240"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles de la série HBv3 
 
 Un serveur de la [série HBv3](../../hbv3-series.md) comprend 2 processeurs EPYC 7V13 de 64 cœurs, soit un total de 128 cœurs « Zen3 » physiques. Le multithreading simultané (SMT) est désactivé sur HBv3. Ces 128 cœurs sont divisés en 16 sections (8 par socket), chaque section contenant 8 cœurs de processeur avec un accès uniforme à un cache L3 de 32 Mo. Les serveurs HBv3 Azure exécutent également les paramètres du BIOS AMD suivants :
 
 ```bash
-Nodes per Socket =2
+Nodes per Socket (NPS) = 2
 L3 as NUMA = Disabled
+NUMA domains within VM OS = 4
+C-states = Enabled
 ```
 
 Par conséquent, le serveur démarre avec 4 domaines NUMA (2 par socket), d’une taille de 32 cœurs chacun. Chaque NUMA a un accès direct à 4 canaux de DRAM physique fonctionnant à 3200 MT/s.
 
-Pour permettre à l’hyperviseur Azure de fonctionner sans interférer avec la machine virtuelle, nous réservons 8 cœurs physiques par serveur. 
+Pour permettre à l’hyperviseur Azure de fonctionner sans interférer avec la machine virtuelle, nous réservons 8 cœurs physiques par serveur.
 
-Notez que les tailles de machine virtuelle avec cœurs limités réduisent uniquement le nombre de cœurs physiques exposés à la machine virtuelle. Toutes les ressources partagées globales (RAM, bande passante mémoire, cache L3, connectivité GMI et xGMI, InfiniBand, réseau Ethernet Azure, disque SSD local) restent constantes. Cela permet à un client de choisir la taille de machine virtuelle optimale pour un ensemble donné d’exigences en termes de charge de travail ou de licences logicielles.
+## <a name="vm-topology"></a>Topologie des machines virtuelles
 
-Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyperviseur Azure (en jaune) et la machine virtuelle HBv3 (en vert).
-![Répartition des cœurs réservés pour l’hyperviseur Azure et la machine virtuelle HBv3](./media/architecture/hbv3-segregation-cores.png)
+Le diagramme suivant montre la topologie du serveur. Nous nous réservons ces 8 cœurs de l’hôte hyperviseur (jaune) de manière symétrique sur les deux sockets d’UC, en prenant les 2 premiers cœurs des CCD (Core Complex Dies) spécifiques sur chaque domaine NUMA, avec les cœurs restants pour la machine virtuelle de série HBv3 (vert).
+
+![Topologie du serveur de série HBv3](./media/architecture/hbv3/hbv3-topology-server.png)
+
+Notez que la limite CCD n’est pas équivalente à une limite NUMA. Sur HBv3, un groupe de quatre (4) CCD consécutifs est configuré en tant que domaine NUMA, à la fois au niveau du serveur hôte et au sein d’une machine virtuelle invitée. Ainsi, toutes les tailles de machine virtuelle HBv3 exposent 4 domaines NUMA qui apparaîtront à un système d’exploitation et une application, comme indiqué ci-dessous, 4 domaines NUMA uniformes, chacun avec un nombre différent de cœurs selon la [taille de machine virtuelle HBv3](../../hbv3-series.md) spécifique.
+
+![Topologie de la machine virtuelle de série HBv3](./media/architecture/hbv3/hbv3-topology-vm.png)
+
+Chaque taille de machine virtuelle HBv3 est similaire dans la disposition physique, les caractéristiques et les performances d’un UC différent de la série AMD EPYC 7003, comme suit :
+
+| Taille de machine virtuelle de série HBv3             | Domaines NUMA | Cœurs par nœud NUMA  | Similarité avec AMD EPYC         |
+|---------------------------------|--------------|------------------------|----------------------------------|
+Standard_HB120rs_v3               | 4            | 30                     | Double socket EPYC 7713            |
+Standard_HB120r-96s_v3            | 4            | 24                     | Double socket EPYC 7643            |
+Standard_HB120r-64s_v3            | 4            | 16                     | Double socket EPYC 7543            |
+Standard_HB120r-32s_v3            | 4            | 8                      | Double socket EPYC 7313            |
+Standard_HB120r-16s_v3            | 4            | 4                      | Double socket EPYC 72F3            |
+
+> [!NOTE]
+> Les tailles de machine virtuelle avec cœurs limités réduisent uniquement le nombre de cœurs physiques exposés à la machine virtuelle. Toutes les ressources partagées globales (RAM, bande passante mémoire, cache L3, connectivité GMI et xGMI, InfiniBand, réseau Ethernet Azure, disque SSD local) restent constantes. Cela permet à un client de choisir la taille de machine virtuelle optimale pour un ensemble donné d’exigences en termes de charge de travail ou de licences logicielles.
+
+Le mappage NUMA virtuel de chaque taille de machine virtuelle HBv3 est mappé à la topologie NUMA physique sous-jacente. Il n’y a pas d’abstraction potentiellement trompeuse de la topologie matérielle. 
+
+La topologie exacte pour les différentes [tailles de machine virtuelle HBv3](../../hbv3-series.md) apparaît comme suit en utilisant la sortie de [lstopo](https://linux.die.net/man/1/lstopo) :
+```bash
+lstopo-no-graphics --no-io --no-legend --of txt
+```
+<br>
+<details>
+<summary>Cliquez pour afficher la sortie de lstopo pour Standard_HB120rs_v3</summary>
+
+![Sortie de lstopo pour la machine virtuelle HBv3-120](./media/architecture/hbv3/hbv3-120-lstopo.png)
+</details>
+
+<details>
+<summary>Cliquez pour afficher la sortie de lstopo pour Standard_HB120rs-96_v3</summary>
+
+![Sortie de lstopo pour la machine virtuelle HBv3-96](./media/architecture/hbv3/hbv3-96-lstopo.png)
+</details>
+
+<details>
+<summary>Cliquez pour afficher la sortie de lstopo pour Standard_HB120rs-64_v3</summary>
+
+![Sortie de lstopo pour la machine virtuelle HBv3-64](./media/architecture/hbv3/hbv3-64-lstopo.png)
+</details>
+
+<details>
+<summary>Cliquez pour afficher la sortie de lstopo pour Standard_HB120rs-32_v3</summary>
+
+![Sortie de lstopo pour la machine virtuelle HBv3-32](./media/architecture/hbv3/hbv3-32-lstopo.png)
+</details>
+
+<details>
+<summary>Cliquez pour afficher la sortie de lstopo pour Standard_HB120rs-16_v3</summary>
+
+![Sortie de lstopo pour la machine virtuelle HBv3-16](./media/architecture/hbv3/hbv3-16-lstopo.png)
+</details>
 
 ## <a name="infiniband-networking"></a>Mise en réseau InfiniBand
 Les machines virtuelles HBv3 sont également dotées de cartes réseau InfiniBand HDR Nvidia Mellanox (ConnectX-6) fonctionnant jusqu’à 200 gigabits/s. La carte réseau est transmise à la machine virtuelle via SR-IOV, ce qui permet au trafic réseau de contourner l’hyperviseur. Par conséquent, les clients chargent des pilotes OFED Mellanox standard sur des machines virtuelles HBv3 de la même manière que sur un environnement matériel nu.

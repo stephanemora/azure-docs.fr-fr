@@ -4,22 +4,20 @@ description: La ligne de base de sécurité pour Container Instances fournit de 
 author: msmbaldwin
 ms.service: container-instances
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 03/30/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 07eaa9fd9add14f136d68c50bca15807ef4037ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: be742de41979a218aeca588ce72a8ce80c8c59e5
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738087"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078603"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Base de référence de sécurité Azure pour Container Instances
 
-Cette ligne de base de sécurité applique les instructions [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) à Container Instances. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure.
-Le contenu est regroupé en fonction des **contrôles de sécurité** définis par Azure Security Benchmark et les conseils associés applicables à Container Instances. Les **contrôles** non applicables à Container Instances ont été exclus.
+Cette ligne de base de sécurité applique les conseils du [benchmark de sécurité Azure version 1.0](../security/benchmarks/overview-v1.md) à Container Instances. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure. Le contenu est regroupé en fonction des **contrôles de sécurité** définis par Azure Security Benchmark et les conseils associés applicables à Container Instances. Les **contrôles** non applicables à Container Instances, ou dont la responsabilité incombe à Microsoft, ont été exclus.
 
- 
 Pour voir comment Container Instances est entièrement mappé à Azure Security Benchmark, consultez le [fichier de mappage complet de la base de référence de sécurité de Container Instances](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Sécurité réseau
@@ -38,7 +36,7 @@ Contrôlez l’accès réseau sortant à partir d’un sous-réseau délégué �
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2 : Superviser et journaliser la configuration et le trafic des réseaux virtuels, des sous-réseaux et des interfaces réseau
 
@@ -60,7 +58,7 @@ Contrôlez l’accès réseau sortant à partir d’un sous-réseau délégué �
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4 : Refuser les communications avec des adresses IP connues comme étant malveillantes
 
@@ -80,7 +78,7 @@ Vous pouvez utiliser la fonctionnalité d'accès réseau juste-à-temps d'Azure 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="15-record-network-packets"></a>1.5 : Enregistrer les paquets réseau
 
@@ -92,7 +90,7 @@ Vous pouvez utiliser la fonctionnalité d'accès réseau juste-à-temps d'Azure 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions basés sur le réseau (IDS/IPS)
 
@@ -118,7 +116,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
@@ -128,7 +126,7 @@ Déployez la solution de pare-feu de votre choix dans les limites réseau de vot
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -144,7 +142,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10 : Règles de configuration du trafic de documents
 
@@ -154,7 +152,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11 : Utiliser des outils automatisés pour superviser les configurations des ressources réseau et détecter les modifications
 
@@ -166,7 +164,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
@@ -180,7 +178,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 : Activer la journalisation d’audit pour les ressources Azure
 
@@ -190,7 +188,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5 : Configurer la conservation du stockage des journaux de sécurité
 
@@ -200,7 +198,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="26-monitor-and-review-logs"></a>2.6 : Superviser et examiner les journaux
 
@@ -214,7 +212,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7 : Activer les alertes d’activité anormale
 
@@ -226,7 +224,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8 : Centraliser la journalisation anti-programme malveillant
 
@@ -242,7 +240,7 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
@@ -254,15 +252,15 @@ Vous pouvez utiliser Azure Blueprints pour simplifier les déploiements Azure à
 
 Si vous utilisez un registre privé basé sur le cloud comme Azure Container Registry avec Azure Container Instances, déterminez si le compte administrateur intégré est activé ou désactivé pour chaque registre de conteneurs Azure. Désactivez le compte lorsqu’il n’est pas utilisé.
 
-- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Guide pratique pour obtenir un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Guide pratique pour obtenir les membres d’un rôle d’annuaire dans Azure AD avec PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 - [Compte administrateur Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2 : Modifier les mots de passe par défaut lorsque cela est possible
 
@@ -274,7 +272,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3 : Utiliser des comptes d’administration dédiés
 
@@ -288,13 +286,13 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4 : Utiliser l’authentification unique (SSO) Azure Active Directory
 
-**Conseil** : dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory (Azure AD) au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
+**Conseil** : dans la mesure du possible, utilisez l’authentification unique (SSO) d’Azure Active Directory (Azure AD) au lieu de configurer des informations d’identification autonomes individuelles par service. Suivez les recommandations liées à la gestion des identités et des accès dans Azure Security Center.
 
-Si vous utilisez un registre privé basé sur le cloud comme Azure Container Registry avec Azure Container Instances, pour un accès individuel au registre de conteneurs, utilisez des connexions individuelles intégrées à Azure AD.
+Si vous utilisez un registre informatique privé comme le registre de conteneurs Azure avec Azure Container Instances, pour un accès individuel au registre de conteneurs, utilisez la connexion individuelle intégrée à Azure AD.
 
 - [Présentation de l’authentification SSO avec Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -302,11 +300,11 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5 : Utiliser l’authentification multifacteur pour tous les accès basés sur Azure Active Directory
 
-**Conseil** : activez l’authentification multifacteur Azure Active Directory (Azure AD), puis suivez les recommandations relatives à la gestion des identités et des accès Azure Security Center.
+**Conseils** : activez l’authentification multifacteur Azure Active Directory (Azure AD), puis suivez les recommandations relatives à la gestion des identités et des accès d’Azure Security Center.
 
 - [Guide pratique pour activer l’authentification multifacteur dans Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -314,7 +312,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6 : Utiliser des ordinateurs dédiés (stations de travail avec accès privilégié) pour toutes les tâches administratives
 
@@ -326,7 +324,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7 : Journaliser et générer des alertes en cas d’activités suspectes sur des comptes d’administration
 
@@ -338,7 +336,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
@@ -348,7 +346,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="39-use-azure-active-directory"></a>3.9 : Utiliser Azure Active Directory
 
@@ -358,7 +356,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10 : Examiner et rapprocher régulièrement l’accès utilisateur
 
@@ -370,7 +368,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11 : Superviser les tentatives d’accès à des informations d’identification désactivées
 
@@ -382,7 +380,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12 : Alerter en cas d’écart de comportement de connexion à un compte
 
@@ -394,7 +392,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
 
@@ -404,7 +402,7 @@ Vous pouvez simplifier ce processus en créant des paramètres de diagnostic pou
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-protection"></a>Protection des données
 
@@ -424,7 +422,7 @@ Associez des étiquettes et des versions aux images de conteneur ou d’autres a
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2 : Isoler les systèmes qui stockent ou traitent les informations sensibles
 
@@ -448,7 +446,7 @@ Les ressources doivent être séparées par un réseau virtuel ou un sous-résea
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3. : Surveiller et bloquer le transfert non autorisé d’informations sensibles
 
@@ -460,7 +458,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
@@ -472,7 +470,7 @@ Suivez les recommandations d’Azure Security Center relatives au chiffrement au
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5 : Utiliser un outil de découverte actif pour identifier les données sensibles
 
@@ -486,7 +484,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6 : Utiliser le contrôle d’accès en fonction du rôle pour contrôler l’accès aux ressources
 
@@ -498,7 +496,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7 : Utiliser la protection contre la perte de données basée sur l’hôte pour appliquer le contrôle d’accès
 
@@ -510,7 +508,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8 : Chiffrer des informations sensibles au repos
 
@@ -522,7 +520,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9 : Consigner et alerter les modifications apportées aux ressources Azure critiques
 
@@ -532,7 +530,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="vulnerability-management"></a>Gestion des vulnérabilités
 
@@ -548,7 +546,7 @@ Pour la plateforme sous-jacente qui est gérée par Microsoft, Microsoft traite 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2 : Déployer une solution de gestion des correctifs de système d’exploitation automatisée
 
@@ -560,7 +558,7 @@ Automatisez les mises à jour des images de conteneur lorsque des mises à jour 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3 : Déployer une solution de gestion automatisée des correctifs des logiciels tiers
 
@@ -570,7 +568,7 @@ Automatisez les mises à jour des images de conteneur lorsque des mises à jour 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 : Comparer les analyses de vulnérabilités dos à dos
 
@@ -580,7 +578,7 @@ Automatisez les mises à jour des images de conteneur lorsque des mises à jour 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5 : Utilisez un processus de classement des risques pour classer par ordre de priorité la correction des vulnérabilités découvertes.
 
@@ -590,7 +588,7 @@ Automatisez les mises à jour des images de conteneur lorsque des mises à jour 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="inventory-and-asset-management"></a>Gestion des stocks et des ressources
 
@@ -604,13 +602,13 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 - [Guide pratique pour créer des requêtes avec Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Guide pratique pour afficher ses abonnements Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour afficher ses abonnements Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Présentation d’Azure RBAC](../role-based-access-control/overview.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
@@ -622,7 +620,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3 : Supprimer des ressources Azure non autorisées
 
@@ -634,7 +632,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4 : Définir et tenir un inventaire des ressources Azure approuvées
 
@@ -642,7 +640,7 @@ Bien que les ressources Azure classiques puissent être découvertes via Resourc
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5 : Analyser les ressources Azure non approuvées
 
@@ -658,7 +656,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6 : Analyser les applications logicielles non approuvées dans des ressources de calcul
 
@@ -672,7 +670,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7 : Supprimer des ressources et applications logicielles Azure non approuvées
 
@@ -682,7 +680,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="68-use-only-approved-applications"></a>6.8 : Utiliser des applications approuvées uniquement
 
@@ -690,7 +688,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9 : Utiliser des services Azure approuvés uniquement
 
@@ -704,7 +702,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10 : Tenir un inventaire des titres de logiciels approuvés
 
@@ -712,7 +710,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager
 
@@ -722,17 +720,17 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12 : Limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul
 
 **Conseils** : Utilisez des configurations de système d’exploitation spécifiques ou des ressources tierces pour limiter la capacité des utilisateurs à exécuter des scripts dans des ressources de calcul Azure.
 
-- [Par exemple, contrôler l’exécution d’un script PowerShell dans des environnements Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [Par exemple, contrôler l’exécution d’un script PowerShell dans des environnements Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
@@ -744,7 +742,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="secure-configuration"></a>Configuration sécurisée
 
@@ -760,7 +758,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
@@ -772,7 +770,7 @@ Utilisez Azure Resource Graph pour interroger/découvrir des ressources dans leu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3 : Gérer les configurations de ressources Azure sécurisées
 
@@ -788,7 +786,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4 : Préserver la sécurité des configurations du système d'exploitation
 
@@ -796,19 +794,19 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
 **Aide** : Si vous utilisez des définitions de stratégie Azure personnalisées, utilisez Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-- [Stocker du code dans Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Stocker du code dans Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentation Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentation Azure Repos](/azure/devops/repos/)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6 Stocker en toute sécurité des images de système d’exploitation personnalisées
 
@@ -816,7 +814,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7 : Déployer des outils de gestion de la configuration pour les ressources Azure
 
@@ -832,7 +830,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8 : Déployer des outils de gestion de la configuration pour les systèmes d'exploitation
 
@@ -840,7 +838,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9 : Mettre en place une supervision automatisée de la configuration pour les ressources Azure
 
@@ -856,7 +854,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10 : Implémenter la surveillance de la configuration automatique pour les systèmes d’exploitation
 
@@ -866,7 +864,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11 : Gérer les secrets Azure en toute sécurité
 
@@ -886,7 +884,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
@@ -904,7 +902,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -914,7 +912,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="malware-defense"></a>Défense contre les programmes malveillants
 
@@ -928,7 +926,7 @@ Si vous utilisez un registre privé basé sur le cloud comme Azure Container Reg
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2 : Pré-analyser les fichiers à charger sur des ressources Azure non liées au calcul
 
@@ -938,7 +936,7 @@ Pré-analysez les fichiers chargés sur des ressources Azure non liées au calcu
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="data-recovery"></a>Récupération des données
 
@@ -954,7 +952,7 @@ Vous pouvez également géo-répliquer un registre de conteneurs pour conserver 
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : Effectuer des sauvegardes complètes du système et sauvegarder les clés managées par le client
 
@@ -964,23 +962,23 @@ Sauvegardez les clés gérées par le client dans Azure Key Vault à l’aide d�
 
 - [Importer des images conteneur dans un registre de conteneurs](../container-registry/container-registry-import-images.md)
 
-- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Guide pratique pour sauvegarder des clés de coffre de clés dans Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 - [Chiffrement des données de déploiement avec Container Instances](container-instances-encrypt-data.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : Valider toutes les sauvegardes, y compris les clés gérées par le client
 
 **Conseil** : testez la restauration des clés gérées par le client sauvegardées dans Azure Key Vault à l’aide d’outils en ligne de commande ou de SDK Azure.
 
-- [Comment restaurer des clés Azure Key Vault dans Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Comment restaurer des clés Azure Key Vault dans Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4 : Garantir la protection des sauvegardes et des clés managées par le client
 
@@ -990,7 +988,7 @@ Sauvegardez les clés gérées par le client dans Azure Key Vault à l’aide d�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
@@ -1010,7 +1008,7 @@ Sauvegardez les clés gérées par le client dans Azure Key Vault à l’aide d�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
@@ -1024,7 +1022,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="103-test-security-response-procedures"></a>10.3 : Tester les procédures de réponse de sécurité
 
@@ -1034,7 +1032,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
@@ -1044,7 +1042,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
@@ -1056,7 +1054,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6 : Automatiser la réponse aux alertes de sécurité
 
@@ -1066,7 +1064,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
@@ -1082,7 +1080,7 @@ En outre, marquez les abonnements à l’aide d’étiquettes et créez un syst�
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision Azure Security Center** : Aucune
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: c952fe33b434aac972be6a1eb03b63698eb64fc6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995914fab0e7112327ebf6ab8e32fb67181f481e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782314"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608916"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -142,7 +142,7 @@ Si l’état de découverte est « Découverte en cours », mais que vous ne v
 - Il faut environ 15 minutes pour un serveur sur VMware.
 - Il faut environ deux minutes pour chaque hôte ajouté pour la découverte de serveurs sur Hyper-V.
 
-Si vous attendez et que l’état ne change pas, sélectionnez **Actualiser** sous l’onglet **Serveurs**. Ceci doit normalement montrer le nombre de serveurs découverts dans Azure Migrate : Découverte et évaluation et Azure Migrate : Migration de serveurs.
+Si vous attendez et que l’état ne change pas, sélectionnez **Actualiser** sous l’onglet **Serveurs**. Ceci doit normalement montrer le nombre de serveurs découverts dans Azure Migrate : Découverte et évaluation et Azure Migrate : Server Migration.
 
 Si cela ne fonctionne pas et que vous découvrez des serveurs VMware :
 
@@ -260,6 +260,34 @@ Les erreurs classiques de découverte d’application sont résumées dans le ta
 | 10007 : Impossible de traiter les métadonnées récupérées. | Cette erreur s’est produite lors de la tentative de désérialisation du JSON. | Contactez le Support Microsoft pour la résoudre. |
 | 10008 : Impossible de créer un fichier sur le serveur. | Ce problème peut se produire en raison d’une erreur interne. | Contactez le Support Microsoft pour la résoudre. |
 | 10009 : Impossible d’écrire les métadonnées détectées dans un fichier sur le serveur. | Ce problème peut se produire en raison d’une erreur interne. | Contactez le Support Microsoft pour la résoudre. |
+
+## <a name="common-sql-server-instances-and-database-discovery-errors"></a>Erreurs courantes de détection des instances SQL Server et des bases de données
+
+Azure Migrate prend en charge la découverte des instances SQL Server et des bases de données s’exécutant sur des machines locales, à l’aide d’Azure Migrate : Détection et évaluation. La détection SQL est actuellement prise en charge pour VMware uniquement. Reportez-vous au didacticiel [Détection](tutorial-discover-vmware.md) pour commencer.
+
+Les erreurs classiques de détection SQL sont résumées dans le tableau.
+
+| **Error** | **Cause** | **Action** |
+|--|--|--|
+|30000 : Les informations d’identification associées à ce SQL Server n’ont pas fonctionné.|Les informations d’identification associées manuellement ne sont pas valides ou les informations d’identification auto-associées ne peuvent plus accéder à SQL Server.|Ajoutez des informations d’identification pour SQL Server sur l’appliance et attendez le prochain cycle de détection SQL ou forcez l’actualisation.|
+|30001 : Impossible de se connecter à SQL Server à partir de l’appliance.|1. L’appliance ne dispose pas d’une ligne de vue réseau pour SQL Server.<br/>2. Le pare-feu bloque la connexion entre SQL Server et l’appliance.|1. Rendez SQL Server accessible à partir de l’appliance.<br/>2. Autorisez les connexions entrantes de l’appliance à SQL Server.|
+|30003 : Le certificat n’est pas approuvé.|Un certificat approuvé n’est pas installé sur l’ordinateur exécutant SQL Server.|Veuillez configurer un certificat approuvé sur le serveur. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153616)|
+|30004 : Autorisations insuffisantes.|Cette erreur peut se produire en raison du manque d’autorisations nécessaires pour analyser les instances SQL Server. |Accordez le rôle sysadmin aux informations d’identification et au compte fournis sur l’appliance pour détecter les instances et les bases de données SQL Server. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153511)|
+|30005 : La connexion SQL Server a échoué en raison d'un problème avec sa base de données MASTER par défaut.|Soit la base de données n'est pas valide, soit la connexion ne dispose pas de l'autorisation CONNECT sur la base de données.|Utilisez ALTER LOGIN pour définir la base de données par défaut sur la base de données MASTER.<br/>Accordez le rôle sysadmin aux informations d’identification et au compte fournis sur l’appliance pour détecter les instances et les bases de données SQL Server. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153615)|
+|30006 : SQL Server ne peut pas être utilisé avec l'authentification Windows.|1. La connexion peut être une connexion SQL Server mais le serveur accepte uniquement l'authentification Windows.<br/>2. Vous essayez de vous connecter à l'aide de l'authentification SQL Server mais la connexion utilisée n'existe pas sur SQL Server.<br/>3. La connexion peut utiliser l'authentification Windows mais elle constitue un principal Windows non reconnu. Un principal Windows non reconnu signifie que la connexion ne peut pas être vérifiée par Windows. Cela peut être dû au fait que la connexion Windows s'effectue à partir d'un domaine non approuvé.|Si vous essayez de vous connecter avec l’authentification SQL Server, vérifiez que SQL Server est configuré en mode d’authentification mixte et que la connexion SQL Server existe.<br/>Si vous essayez de vous connecter à l'aide de l'authentification Windows, vérifiez que vous êtes correctement connecté au domaine approprié. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153421)|
+|30007 : Le mot de passe a expiré.|le mot de passe associé à ce compte a expiré.|Le mot de passe de connexion SQL Server peut avoir expiré. Redéfinissez le mot de passe et/ou étendez la date d’expiration du mot de passe. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153419)|
+|30008 : Le mot de passe doit être modifié.|le mot de passe du compte doit être changé.|Modifiez le mot de passe des informations d’identification fournies pour la détection SQL Server. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153318)|
+|30009 : Une erreur interne s’est produite.|Une erreur interne s’est produite lors de la détection des instances et bases de données SQL Server. |Contactez le support Microsoft si le problème persiste.|
+|30010 : Aucune base de données trouvée.|Impossible de trouver des bases de données à partir de l’instance de serveur sélectionnée.|Accordez le rôle sysadmin aux informations d’identification et au compte fournis sur l’appliance pour détecter les bases de données SQL.|
+|30011 : Une erreur interne s’est produite lors de l’évaluation d’une instance ou d’une base de données SQL.|Une erreur interne s’est produite lors de l’évaluation.|Contactez le support Microsoft si le problème persiste.|
+|30012 : La connexion SQL a échoué.|1. Le pare-feu sur le serveur a refusé la connexion.<br/>2. Le service SQL Server Browser (sqlbrowser) n’a pas démarré.<br/>3. SQL Server n’a pas répondu à la requête du client parce que le serveur n’a probablement pas été démarré.<br/>4. Le client SQL Server ne peut pas se connecter au serveur. Cette erreur s'est peut-être produite parce que le serveur n'est pas configuré pour accepter des connexions distantes.<br/>5. Le client SQL Server ne peut pas se connecter au serveur. Cette erreur s'est peut-être produite parce que le client ne peut pas résoudre le nom du serveur ou le nom du serveur est incorrect.<br/>6. Les protocoles TCP ou de canaux nommés ne sont pas activés.<br/>7. Le nom d’instance SQL Server spécifié n’est pas valide.|Utilisez [ce](https://go.microsoft.com/fwlink/?linkid=2153317) guide de l’utilisateur interactif pour la résolution du problème de connectivité. Veuillez patienter 24 heures après avoir donné le guide pour les données à mettre à jour dans le service. Si le problème persiste, contactez le support Microsoft.|
+|30013 : Une erreur s'est produite lors de l'établissement d'une connexion à l’instance de serveur SQL.|1. Le nom de SQL Server ne peut pas être résolu à partir de l’appliance.<br/>2. SQL Server n’autorise pas les connexions à distance.|Si vous pouvez exécuter une commande ping sur le serveur SQL à partir de l’appliance, veuillez patienter 24 heures pour vérifier si ce problème est résolu automatiquement. Si ce n’est pas le cas, contactez le support technique Microsoft. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153316)|
+|30014 : Le nom d'utilisateur ou le mot de passe n’est pas valide.| Cette erreur peut se produire en raison d’un échec d’authentification qui implique un mot de passe ou un nom d’utilisateur incorrect.|Fournissez des informations d’identification avec un nom d’utilisateur et un mot de passe valides. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153315)|
+|30015 : Une erreur interne s’est produite lors de la détection de l’instance SQL.|Une erreur interne s’est produite lors de la détection de l’instance SQL.|Contactez le support Microsoft si le problème persiste.|
+|30016 : La connexion à l’instance « %instance; » a échoué en raison d’un délai d’attente.| Cela peut avoir lieu si le pare-feu du serveur rejette la connexion.|Vérifiez si le pare-feu du SQL Server est configuré pour accepter les connexions. Si l’erreur persiste, contactez le support Microsoft. [En savoir plus](https://go.microsoft.com/fwlink/?linkid=2153611)|
+|30017 : Une erreur interne s’est produite.|Exception non gérée.|Contactez le support Microsoft si le problème persiste.|
+|30018 : Une erreur interne s’est produite.|Une erreur interne s’est produite lors de la collecte de données telles que la taille de la base de données Temp, la taille du fichier, etc. de l’instance SQL.|Veuillez patienter 24 heures et contactez le support Microsoft si le problème persiste.|
+|30019 : Une erreur interne s’est produite.|Une erreur interne s’est produite lors de la collecte des métriques de performances, telles que l’utilisation de la mémoire, etc., d’une base de données ou d’une instance.|Veuillez patienter 24 heures et contactez le support Microsoft si le problème persiste.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
