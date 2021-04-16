@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 29be95a53004070753ca742cd8d76ca9d8384ea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "70166707"
 ---
 ## <a name="specifying-formats"></a>Spécification des formats
@@ -71,7 +71,7 @@ Pour utiliser un caractère `escapeChar` au lieu de `quoteChar`, remplacez la li
 ### <a name="specifying-jsonformat"></a>Définition de JsonFormat
 Pour en savoir plus sur **l’importation ou l’exportation de fichiers JSON en l’état dans ou à partir d’Azure Cosmos DB**, consultez la section [Importer/exporter des documents JSON](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents) dans le connecteur Azure Cosmos DB.
 
-Si vous souhaitez analyser des fichiers JSON ou écrire des données au format JSON, définissez la propriété `format``type` sur **JsonFormat**. Vous pouvez également spécifier les propriétés **facultatives** suivantes, dans la section `format`. Consultez la section [Exemple pour JsonFormat](#jsonformat-example) pour en savoir plus sur la méthode de configuration à suivre.
+Si vous souhaitez analyser des fichiers JSON ou écrire des données au format JSON, définissez la propriété `format` `type` sur **JsonFormat**. Vous pouvez également spécifier les propriétés **facultatives** suivantes, dans la section `format`. Consultez la section [Exemple pour JsonFormat](#jsonformat-example) pour en savoir plus sur la méthode de configuration à suivre.
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |

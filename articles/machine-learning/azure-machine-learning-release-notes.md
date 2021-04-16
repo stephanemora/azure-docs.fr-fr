@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ea7eda7e50e7d8733fd24a63d533272e5bca6bab
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471740"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166681"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -22,6 +22,21 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 __Flux RSS__ : Recevez une notification quand cette page est mise à jour en copiant et collant l’URL suivante dans votre lecteur de flux : `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## <a name="2021-03-31"></a>31/03/2021
+### <a name="azure-machine-learning-studio-notebooks-experience-march-update"></a>Expérience Azure Machine Learning Studio avec les notebooks (mise à jour de mars)
++ **Nouvelles fonctionnalités**
+  + Rendu CSV/TSV. Les utilisateurs peuvent afficher un fichier TSV/CSV dans un format de grille pour faciliter l’analyse des données. 
+  + Authentification unique pour l’instance de calcul. Les utilisateurs peuvent désormais facilement authentifier les nouvelles instances de calcul directement dans l’interface utilisateur de Notebook, ce qui facilite l’authentification et l’utilisation des Kits de développement logiciel (SDK) Azure directement dans AzureML. 
+  + Métriques d’instance de calcul. Les utilisateurs peuvent afficher les métriques de calcul telles que l’utilisation de l’UC et la mémoire via le terminal.
+  + Détails du fichier. Les utilisateurs peuvent désormais voir les détails du fichier, notamment l’heure de la dernière modification et la taille du fichier, en cliquant sur les trois points à côté d’un fichier.
+
++ **Résolutions de bogue et améliorations**
+  + Amélioration des temps de chargement des pages.
+  + Performances améliorées.
+  + Amélioration de la vitesse et de la fiabilité du noyau.
+  + Gain de patrimoine vertical en déplaçant de façon permanente le volet des fichiers Notebook vers le haut.
+  + Les liens sont désormais cliquables dans le terminal.
+  + Amélioration des performances d’IntelliSense.
 
 ## <a name="2021-03-08"></a>08-03-2021
 
@@ -56,9 +71,9 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
 ## <a name="2021-02-28"></a>28-02-2021
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Expérience Azure Machine Learning studio avec les notebooks (mise à jour de février)
 + **Nouvelles fonctionnalités**
-  + [Terminal natif (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le terminal intégré
+  + [Terminal natif (GA)](./how-to-access-terminal.md). Les utilisateurs ont désormais accès à un terminal intégré et à l’opération Git via le terminal intégré
   + [Extraits de notebook (préversion)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Des extraits de code Azure ML communs sont désormais disponibles, à portée de main. Accédez au volet des extraits de code via la barre d’outils, ou activez le menu des extraits de code en utilisant Ctrl + Espace.  
-  + [Raccourcis clavier](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Parité complète avec les raccourcis clavier disponibles dans Jupyter. 
+  + [Raccourcis clavier](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Parité complète avec les raccourcis clavier disponibles dans Jupyter. 
   + Indication des paramètres de cellule. Indique aux utilisateurs quelles cellules d’un notebook sont des cellules de paramètres et peut exécuter des notebooks paramétrisables via [Papermill](https://github.com/nteract/papermill) sur l’instance de calcul.
   + Gestionnaire de session de terminal et de noyau : Les utilisateurs sont en mesure de gérer toutes les sessions de noyau et de terminal s’exécutant sur leur calcul.
   + Bouton de partage. Les utilisateurs peuvent désormais partager n’importe quel fichier dans l’Explorateur de fichiers du notebook, en cliquant avec le bouton droit sur le fichier et en utilisant le bouton Partager.
@@ -68,7 +83,7 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
   + Amélioration des temps de chargement des pages
   + performances améliorées 
   + Amélioration de la vitesse et de la fiabilité du noyau
-  + Ajout d’une roue en rotation pour afficher la progression de toutes les [opérations d’instance de calcul](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators) en cours.
+  + Ajout d’une roue en rotation pour afficher la progression de toutes les [opérations d’instance de calcul](./how-to-run-jupyter-notebooks.md#status-indicators) en cours.
   + Clic droit dans l’Explorateur de fichiers. Désormais, si vous cliquez avec le bouton droit sur un fichier, l’option Opérations sur les fichiers s’ouvre. 
 
 
@@ -79,7 +94,7 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
   + **azureml-core**
     + [Caractéristique expérimentale] Ajout de la prise en charge de la liaison de l’espace de travail Synapse dans AML en tant que service lié
     + [Caractéristique expérimentale] Ajout de la prise en charge de l’attache d’un pool Synapse Spark dans AML en tant que calcul
-    + [Caractéristique expérimentale] Ajout de la prise en charge de l’accès aux données basé sur l’identité. Les utilisateurs peuvent inscrire un magasin de données ou des jeux de données sans fournir d’informations d’identification. Dans ce cas, le jeton AAD des utilisateurs ou l’identité managée de la cible de calcul est utilisé pour l’authentification. En savoir plus [ici](https://aka.ms/data-access).
+    + [Caractéristique expérimentale] Ajout de la prise en charge de l’accès aux données basé sur l’identité. Les utilisateurs peuvent inscrire un magasin de données ou des jeux de données sans fournir d’informations d’identification. Dans ce cas, le jeton AAD des utilisateurs ou l’identité managée de la cible de calcul est utilisé pour l’authentification. En savoir plus [ici](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Caractéristique expérimentale] Ajout de la prise en charge de [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

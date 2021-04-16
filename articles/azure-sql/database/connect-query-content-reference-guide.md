@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a8419ff2ba269b05d1fbf7e9d08a284085465fd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594170"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257413"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Articles sur la connexion et l’interrogation dans Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,7 +40,6 @@ Le document suivant contient des liens vers des exemples Azure qui montrent comm
 |[PHP](connect-query-php.md)|Ce guide de démarrage rapide explique comment utiliser PHP pour créer un programme en vue de se connecter à une base de données et l’interroger à l’aide d’instructions Transact-SQL.|
 |[Python](connect-query-python.md)|Ce guide de démarrage rapide explique comment utiliser Python pour se connecter à une base de données et comment l’interroger à l’aide d’instructions Transact-SQL. |
 |[Ruby](connect-query-ruby.md)|Ce guide de démarrage rapide explique comment utiliser Ruby pour créer un programme en vue de se connecter à une base de données et l’interroger à l’aide d’instructions Transact-SQL.|
-|[R](connect-query-r.md)|Ce guide de démarrage rapide explique comment utiliser R avec Machine Learning Services pour créer un programme en vue de se connecter à une base de données dans Azure SQL Database et l’interroger à l’aide d’instructions Transact-SQL.|
 |||
 
 ## <a name="get-server-connection-information"></a>Obtenir les informations de connexion du serveur

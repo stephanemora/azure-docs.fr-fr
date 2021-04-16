@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0c0507f9206ebe69662090d7a00da6d5c9d0b90a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 442894da23111877f4dd4f67363add0c8e52a4c9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580009"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028976"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte GitHub à l’aide d’Azure Active Directory B2C
 
@@ -208,7 +208,7 @@ Le profil technique GitHub nécessite l’ajout des transformations de revendica
 ## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
 
 1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
-1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
 1. Sélectionnez le bouton **Exécuter maintenant**.
 1. Dans la page d’inscription ou de connexion, sélectionnez **GitHub** pour vous connecter avec un compte GitHub.
 

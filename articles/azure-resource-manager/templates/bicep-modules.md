@@ -2,17 +2,19 @@
 title: Modules Bicep
 description: Décrit comment définir et consommer un module et comment utiliser des étendues de module.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/30/2021
+ms.openlocfilehash: 6c325bbbe265e13241119761373985ca4552b158
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889703"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967878"
 ---
-# <a name="use-bicep-modules"></a>Utiliser des modules Bicep
+# <a name="use-bicep-modules-preview"></a>Utiliser des modules Bicep (préversion)
 
-Bicep vous permet d’arrêter une solution complexe en modules. Un module Bicep est un ensemble d’une ou plusieurs ressources à déployer ensemble. Les modules extraient des détails complexes de la déclaration des ressources brutes, ce qui peut améliorer la lisibilité. Vous pouvez réutiliser ces modules et les partager avec d’autres personnes. Combiné aux [spécifications de modèle](./template-specs.md), il crée un mode de modularité et de réutilisation du code. Pour obtenir un tutoriel, consultez [Tutoriel : ajouter des modules Bicep](./bicep-tutorial-add-modules.md).
+Bicep vous permet d’arrêter une solution complexe en modules. Un module Bicep est un ensemble d’une ou plusieurs ressources à déployer ensemble. Les modules extraient des détails complexes de la déclaration des ressources brutes, ce qui peut améliorer la lisibilité. Vous pouvez réutiliser ces modules et les partager avec d’autres personnes. Combiné aux [spécifications de modèle](./template-specs.md), il crée un mode de modularité et de réutilisation du code. Les modules Bicep sont transposés dans un seul modèle ARM avec des [modèles imbriqués](./linked-templates.md#nested-template) pour le déploiement. Dans Bicep, [_dependsOn_](./template-syntax.md#resources) est géré automatiquement.
+
+Pour obtenir un tutoriel, consultez [Tutoriel : ajouter des modules Bicep](./bicep-tutorial-add-modules.md).
 
 ## <a name="define-modules"></a>Définir des modules
 

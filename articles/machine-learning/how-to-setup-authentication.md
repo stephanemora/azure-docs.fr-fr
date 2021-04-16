@@ -8,15 +8,15 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/05/2020
+ms.date: 04/02/2021
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: 30e4fede72df8eaf922745e7781c9e0d11f7ddb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ee767cbeafcce604ecb4a79ce0fdf21c70bbb47c
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102210816"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219635"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 
@@ -70,12 +70,6 @@ Le moyen le plus simple de créer un principal de service et de lui accorder l�
     Si vous avez plusieurs abonnements Azure, vous pouvez utiliser la commande `az account set -s <subscription name or ID>` pour configurer l’abonnement. Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 
     Pour les autres méthodes d’authentification, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
-
-1. Installez l’extension Azure Machine Learning :
-
-    ```azurecli-interactive
-    az extension add -n azure-cli-ml
-    ```
 
 1. Créez le principal de service. Dans l’exemple suivant, un principal de service nommé **ml-auth** est créé :
 

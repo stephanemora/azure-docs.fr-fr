@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d41d825c7bc33e05815c7528b436c85873859928
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575986"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168924"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Enregistrements DNS pour les régions Azure utilisées par Azure Automation
 
@@ -98,7 +98,7 @@ Il est recommandé d’utiliser les adresses répertoriées lors de la définiti
 * [Plages d’adresses IP et étiquettes de service – Azure public](https://www.microsoft.com/download/details.aspx?id=56519)
 * [Plages d’adresses IP et étiquettes de service – Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
 * [Plages d’adresses IP et étiquettes de service – Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=57064)
-* [Plages d’adresses IP et étiquettes de service – Azure Chine Vianet 21](https://www.microsoft.com/download/details.aspx?id=57062)
+* [Plages d’adresses IP et étiquettes de service Azure – Azure China 21Vianet](https://www.microsoft.com/download/details.aspx?id=57062)
 
 Le fichier d’adresses IP répertorie les plages d’adresses IP qui sont utilisées dans les centres de données Microsoft Azure. Il comprend des plages de calcul, SQL et de stockage, et reflète les plages actuellement déployées ainsi que toutes les futures modifications des plages d’adresses IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum.
 

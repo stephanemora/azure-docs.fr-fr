@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/24/2021
 ms.author: b-juche
-ms.openlocfilehash: add907923cc2284939acd972237fd4ec74ee2d12
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864004"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048372"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Créer et gérer des connexions Active Directory pour Azure NetApp Files
 
@@ -86,6 +86,8 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 * Azure NetApp Files prend en charge la [signature LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), qui permet la transmission sécurisée du trafic LDAP entre le service Azure NetApp Files et les [contrôleurs de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) ciblés. Si vous suivez les conseils de l’avis de sécurite Microsoft [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) pour la signature LDAP, vous devez activer la fonctionnalité de signature LDAP dans Azure NetApp Files en activant la case à cocher **Signature LDAP** dans la fenêtre [Rejoindre Active Directory](#create-an-active-directory-connection). 
 
     La seule configuration de [Liaison de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) n’a aucun effet sur le service Azure NetApp Files. Toutefois, si vous utilisez à la fois la liaison de canal LDAP et le LDAP sécurisé (par exemple, LDAPS ou `start_tls`), la création du volume SMB échouera.
+
+* Pour les DNS non intégrés avec Active Directory, vous devez ajouter un enregistrement DNS A/PTR pour permettre à Azure NetApp Files de fonctionner à l’aide d’un « nom convivial ». 
 
 ## <a name="decide-which-domain-services-to-use"></a>Déterminer quels services de domaine utiliser 
 

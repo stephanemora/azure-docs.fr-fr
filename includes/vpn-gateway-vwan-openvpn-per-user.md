@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 01/16/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3a83fab3211175b6f1e7a5a719f00f775d147fbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77471512"
 ---
 ### <a name="open-the-mfa-page"></a><a name="mfa"></a>Ouvrir la page MFA
