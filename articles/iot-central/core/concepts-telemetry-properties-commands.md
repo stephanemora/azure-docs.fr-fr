@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: f027b2d41f63b5aa7ea3df87e06224abd629799b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 995f4670b17d55fe04d5c30a834ea4be576a8348
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100535312"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106489976"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Charges utiles de télémétrie, de propriétés et de commandes
 
@@ -51,6 +51,10 @@ IoT Central vous permet d’afficher les données brutes qu’un appareil envoie
     Dans cette vue, vous pouvez sélectionner les colonnes à afficher et définir une plage de temps à afficher. La colonne **Données démodélisées** affiche les données de l’appareil qui ne correspondent à aucune définition de propriété ou de télémétrie dans le modèle d’appareil.
 
 ## <a name="telemetry"></a>Télémétrie
+
+### <a name="telemetry-in-components"></a>Télémétrie dans les composants
+
+Si la télémétrie est définie dans un composant, ajoutez une propriété de message personnalisée appelée `$.sub` avec le nom du composant tel que défini dans le modèle d’appareil. Pour plus d’informations, consultez [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md).
 
 ### <a name="primitive-types"></a>Types primitifs
 
@@ -437,6 +441,21 @@ Un client d’appareil doit envoyer l’état au format JSON comme dans l’exem
 > [!NOTE]
 > Les formats de charge utile pour les propriétés s’appliquent aux applications créées le ou après le 14/07/2020.
 
+### <a name="properties-in-components"></a>Propriétés dans les composants
+
+Si la propriété est définie dans un composant, encapsulez la propriété dans le nom du composant. L'exemple suivant définit la propriété `maxTempSinceLastReboot` dans le composant `thermostat2`. Le marqueur `__t` indique qu’il s’agit d’un composant :
+
+```json
+{
+  "thermostat2" : {  
+    "__t" : "c",  
+    "maxTempSinceLastReboot" : 38.7
+    } 
+}
+```
+
+Pour plus d’informations, consultez [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md).
+
 ### <a name="primitive-types"></a>Types primitifs
 
 Cette section présente des exemples de types de données de propriétés primitifs qu’un appareil envoie à une application IoT Central.
@@ -715,11 +734,27 @@ Un client d’appareil doit envoyer une charge utile JSON ressemblant à l’exe
 }
 ```
 
-### <a name="writeable-property-types"></a>Types de propriétés modifiables
+### <a name="writable-property-types"></a>Types de propriétés accessibles en écriture
 
-Cette section présente des exemples de types de propriétés modifiables qu’un appareil reçoit d’une application IoT Central.
+Cette section présente des exemples de types de propriétés accessibles en écriture qu’un appareil reçoit d’une application IoT Central.
 
-IoT Central attend une réponse de l’appareil pour les mises à jour des propriétés modifiables. Le message de réponse doit inclure les champs `ac` et `av`. Le champ `ad` est facultatif. Pour obtenir des exemples, consultez les extraits de code suivants.
+Si la propriété accessible en écriture est définie dans un composant, le message de propriété souhaité comprend le nom du composant. L’exemple suivant montre le message demandant à l’appareil de mettre à jour `targetTemperature` dans le composant `thermostat2`. Le marqueur `__t` indique qu’il s’agit d’un composant :
+
+```json
+{
+  "thermostat2": {
+    "targetTemperature": {
+      "value": 57
+    },
+    "__t": "c"
+  },
+  "$version": 3
+}
+```
+
+Pour plus d’informations, consultez [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md).
+
+IoT Central attend une réponse de l’appareil pour les mises à jour des propriétés accessibles en écriture. Le message de réponse doit inclure les champs `ac` et `av`. Le champ `ad` est facultatif. Pour obtenir des exemples, consultez les extraits de code suivants.
 
 `ac` est un champ numérique qui utilise les valeurs du tableau suivant :
 
@@ -734,7 +769,7 @@ IoT Central attend une réponse de l’appareil pour les mises à jour des propr
 
 `ad` est une description de chaîne d’option.
 
-L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété modifiable `string` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `string` accessible en écriture :
 
 ```json
 {
@@ -769,7 +804,7 @@ L’appareil doit envoyer la charge utile JSON suivante à IoT Central une fois 
 }
 ```
 
-L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété modifiable `Enum` :
+L’extrait de code suivant d’un modèle d’appareil illustre la définition d’un type de propriété `Enum` accessible en écriture :
 
 ```json
 {
@@ -834,6 +869,8 @@ L’appareil doit envoyer la charge utile JSON suivante à IoT Central une fois 
 ```
 
 ## <a name="commands"></a>Commandes
+
+Si la commande est définie dans un composant, le nom de la commande que l’appareil reçoit comprend le nom du composant. Par exemple, si la commande est appelée `getMaxMinReport` et que le composant est appelé `thermostat2`, l’appareil reçoit une requête pour exécuter une commande appelée `thermostat2*getMaxMinReport`.
 
 L’extrait de code suivant d’un modèle d’appareil illustre la définition d’une commande qui n’a pas de paramètres et n’attend pas que l’appareil retourne quoi que ce soit :
 

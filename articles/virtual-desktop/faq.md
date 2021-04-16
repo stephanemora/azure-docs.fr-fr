@@ -5,13 +5,13 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+manager: femila
+ms.openlocfilehash: 1f5e4cb0d2db30c6b07370be137506f3fe26837f
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104582134"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505295"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Questions fréquentes (FAQ) sur Windows Virtual Desktop
 
@@ -139,7 +139,7 @@ Enfin, si vous avez activé le fournisseur de ressources à partir du compte pro
 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>À quelle fréquence dois-je activer mes machines virtuelles pour éviter des problèmes d’inscription ?
 
-Une fois que vous avez inscrit une machine virtuelle dans un pool hôte au sein du service Windows Virtual Desktop, l’agent actualise régulièrement le jeton de la machine virtuelle chaque fois que celle-ci est active. Le certificat du jeton d’inscription est valide pendant 90 jours. En raison de cette limite de 90 jours, nous vous recommandons de démarrer vos machines virtuelles tous les 90 jours. La désactivation de votre machine virtuelle dans ce délai limitera l’expiration ou la non-validité de son jeton d’inscription. Si vous avez démarré votre machine virtuelle après 90 jours et que vous rencontrez des problèmes d’inscription, suivez les instructions du [Guide de résolution des problèmes de l’agent Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour supprimer la machine virtuelle du pool hôte, réinstaller l’agent, puis réinscrire la machine virtuelle dans le pool.
+Une fois que vous avez inscrit une machine virtuelle dans un pool hôte au sein du service Windows Virtual Desktop, l’agent actualise régulièrement le jeton de la machine virtuelle chaque fois que celle-ci est active. Le certificat du jeton d’inscription est valide pendant 90 jours. En raison de cette limite de 90 jours, nous recommandons de mettre en ligne les machines virtuelles pendant 20 minutes tous les 90 jours afin que les machines puissent actualiser les jetons, mettre à jour l’agent et les composants de la pile côte à côte. La désactivation de votre machine virtuelle dans ce délai limitera l’expiration ou la non-validité de son jeton d’inscription. Si vous avez démarré votre machine virtuelle après 90 jours et que vous rencontrez des problèmes d’inscription, suivez les instructions du [Guide de résolution des problèmes de l’agent Windows Virtual Desktop](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) pour supprimer la machine virtuelle du pool hôte, réinstaller l’agent, puis réinscrire la machine virtuelle dans le pool.
 
 ## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Puis-je définir des options de disponibilité lors de la création de pools d’hôtes ?
 

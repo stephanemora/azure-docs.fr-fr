@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 04/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 330131ea7e9a364a31d25a6f3f0a75b1adbeb27a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d63587eec1f7e6d24ae1638e8365b85fd1ec2c94
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799885"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504989"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -82,7 +82,21 @@ Non, actuellement vous ne pouvez pas appliquer de Groupes de sécurité réseau 
 
 ### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>Puis-je utiliser Azure RBAC avec Azure NetApp Files ?
 
-Oui, Azure NetApp Files prend en charge les fonctionnalités Azure RBAC.
+Oui, Azure NetApp Files prend en charge les fonctionnalités Azure RBAC. Avec les rôles Azure intégrés, vous pouvez [créer des rôles personnalisés](../role-based-access-control/custom-roles.md) pour Azure NetApp files. 
+
+Pour obtenir la liste complète des autorisations Azure NetApp Files, consultez les opérations de fournisseur de ressources Azure pour [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+
+### <a name="are-azure-activity-logs-supported-on-azure-netapp-files"></a>Les journaux d’activité Azure sont-ils pris en charge sur Azure NetApp Files ?
+
+Azure NetApp Files est un service natif Azure. Toutes les API PUT, POST et DELETE opérant sur Azure NetApp Files sont journalisées. Par exemple, les journaux présentent des activités indiquant, par exemple, qui a créé la capture instantanée, qui a modifié le volume, et ainsi de suite.
+
+Pour obtenir la liste complète des opérations API, consultez [API REST Azure NetApp Files](/rest/api/netapp/).
+
+### <a name="can-i-use-azure-policies-with-azure-netapp-files"></a>Puis-je utiliser des stratégies Azure avec Azure NetApp Files ?
+
+Oui, vous pouvez créer des [stratégies Azure personnalisées](../governance/policy/tutorials/create-custom-policy-definition.md). 
+
+Toutefois, vous ne pouvez pas créer de stratégies Azure (stratégies de nommage personnalisées) sur l’interface Azure NetApp Files. Consultez [Consignes pour planifier un réseau Azure NetApp Files](azure-netapp-files-network-topologies.md#considerations).
 
 ## <a name="performance-faqs"></a>Questions fréquentes relatives aux performances
 
@@ -192,6 +206,14 @@ La taille du volume signalée dans le client SMB est la taille maximale que peut
 
 Il est recommandé de définir la tolérance maximale de synchronisation de l’horloge de l’ordinateur sur cinq minutes. Pour plus d’informations, consultez [Tolérance maximale de synchronisation de l’horloge de l’ordinateur](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
 
+### <a name="can-i-manage-smb-shares-sessions-and-open-files-through-computer-management-console-mmc"></a>Puis-je gérer `SMB Shares`, `Sessions` et `Open Files` via la console de gestion de l’ordinateur (MMC) ?
+
+La gestion de `SMB Shares`, `Sessions` et `Open Files` via la console de gestion de l’ordinateur (MMC) n’est pas prise en charge pour le moment.
+
+### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>Comment puis-je obtenir l’adresse IP d’un volume SMB via le portail ?
+
+Utilisez le lien **Affichage JSON** dans le volet de vue d’ensemble du volume et recherchez l’identificateur **startIp** sous **Propriétés** -> **mountTargets**.
+
 ## <a name="capacity-management-faqs"></a>Questions fréquentes (FAQ) sur la gestion de la capacité
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Comment surveiller l’utilisation du pool de capacité et du volume Azure NetApp Files ? 
@@ -204,9 +226,9 @@ Non. Azure NetApp Files n’est pas pris en charge par l’Explorateur Stockage 
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Comment déterminer si un répertoire approche de la taille limite ?
 
-Vous pouvez utiliser la commande `stat` à partir d’un client pour voir si la taille d’un annuaire approche de la limite maximale pour des métadonnées d’annuaire (320 Mo).
+Vous pouvez utiliser la commande `stat` à partir d’un client pour voir si la taille d’un annuaire approche de la limite maximale pour des métadonnées d’annuaire (320 Mo).   
 
-Pour un répertoire de 320 Mo, le nombre de blocs est de 655 360, avec une taille de bloc de 512 octets.  (autrement dit, 320x1024x1024/512.)  
+Pour un annuaire de 320 Mo, les blocs sont au nombre de 655 360, d’une taille 512 octets chacun  (soit, 320 x 1 024 x 1 024/512). Ce nombre se traduit par environ 4 millions de fichiers au maximum pour un annuaire de 320 Mo. Toutefois, le nombre de fichiers maximal réel peut être inférieur, en fonction de facteurs tels que le nombre de fichiers contenant des caractères non-ASCII dans l’annuaire. Par conséquent, vous devez utiliser la commande `stat` comme suit pour déterminer si votre annuaire approche de sa limite.  
 
 Exemples :
 

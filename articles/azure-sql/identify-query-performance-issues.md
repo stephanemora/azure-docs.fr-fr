@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
-ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 039332a8728e5d7e5b605f51f4bb53e6dcbb6381
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98217224"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109167"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Types détectables de goulots d’étranglement des performances des requêtes dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -139,7 +139,7 @@ Une recompilation (ou une nouvelle compilation après éviction du cache) peut t
 
 - **Modification de la conception physique** : par exemple, de nouveaux index créés couvrent plus efficacement les exigences d’une requête. Les nouveaux index peuvent être utilisés sur une nouvelle compilation si l’optimiseur de requête juge que l’utilisation des nouveaux index aboutit à un plan plus optimal que l’utilisation de la structure de données qui avait été initialement sélectionnée pour la première version de l’exécution de la requête. Toute modification physique des objets référencés peut entraîner un nouveau choix de plan au moment de la compilation.
 
-- **Différences au niveau des ressources serveur** : quand un plan d’un système diffère du plan d’un autre système, la disponibilité des ressources, comme le nombre de processeurs disponibles, peut déterminer le choix du plan généré. Par exemple, si un système a davantage de processeurs, un plan parallèle peut être choisi.
+- **Différences au niveau des ressources serveur** : quand un plan d’un système diffère du plan d’un autre système, la disponibilité des ressources, comme le nombre de processeurs disponibles, peut déterminer le choix du plan généré. Par exemple, si un système a davantage de processeurs, un plan parallèle peut être choisi. Pour plus d’informations sur le parallélisme dans Azure SQL Database, consultez [Configurer le degré maximal de parallélisme (MAXDOP) dans Azure SQL Database](database/configure-max-degree-of-parallelism.md).
 
 - **Statistiques différentes** : les statistiques associées aux objets référencés ont peut-être changé ou sont peut-être matériellement différentes par rapport aux statistiques du système initiales. Si les statistiques changent et qu’une recompilation a lieu, l’optimiseur de requête utilise les statistiques à partir du changement. Les fréquences et distributions de données indiquées dans les statistiques révisées peuvent différer de celles de la compilation initiale. Ces changements sont utilisés pour estimer la cardinalité. (Les *estimations de cardinalité* correspondent au nombre de lignes qui sont supposées être transmises dans l’arborescence de requêtes logique.) Les changements apportés aux estimations de cardinalité peuvent vous amener à choisir des opérateurs physiques et ordres d’opérations associés différents. Même des modifications mineures apportées aux statistiques peuvent entraîner une modification du plan d’exécution de la requête.
 
@@ -181,6 +181,8 @@ Il est souvent difficile d’identifier qu’une variation du volume de la charg
 
 Utilisez Intelligent Insights pour détecter les [augmentations de charge de travail](database/intelligent-insights-troubleshoot-performance.md#workload-increase) et les [régressions de plan](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
+- **Parallélisme** : un parallélisme excessif peut aggraver les performances d’autres charges de travail simultanées en privant les autres requêtes de ressources de l’UC et du thread de travail. Pour plus d’informations sur le parallélisme dans Azure SQL Database, consultez [Configurer le degré maximal de parallélisme (MAXDOP) dans Azure SQL Database](database/configure-max-degree-of-parallelism.md).
+
 ## <a name="waiting-related-problems"></a>Problèmes liés à l’attente
 
 Une fois que vous avez éliminé les problèmes liés à un plan non optimal et ceux *liés à l’attente* qui sont associés à des problèmes d’exécution, le problème de performances est généralement dû au fait que les requêtes attendent probablement des ressources. Les problèmes liés à l’attente peuvent être provoqués par :
@@ -220,6 +222,11 @@ Les vues de gestion dynamiques qui font le suivi des données du Magasin des req
 > - [Attentes et verrous TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
+## <a name="see-also"></a>Voir aussi
+
+* [Configurer le degré maximal de parallélisme (MAXDOP) dans Azure SQL Database](database/configure-max-degree-of-parallelism.md)
+* [Comprendre et résoudre les problèmes de blocage d’Azure SQL Database dans Azure SQL Database](database/understand-resolve-blocking.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d’ensemble de la supervision et du réglage de SQL Database](database/monitor-tune-overview.md)
+* [Vue d’ensemble de la supervision et du réglage de SQL Database](database/monitor-tune-overview.md)

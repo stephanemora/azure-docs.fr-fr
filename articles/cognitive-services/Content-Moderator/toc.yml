@@ -82,6 +82,12 @@
       items:
         - name: 'Révisions, workflows et travaux'
           href: review-api.md
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Configurer des réseaux virtuels
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+        - name: Utiliser des clés gérées par le client
+          href: encrypt-data-at-rest.md
 - name: Concepts
   items:
     - name: Modération d’image
@@ -114,19 +120,21 @@
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Ressources
   items:
-    - name: Série de webinaires Azure
-      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
-    - name: Prise en charge de la région
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Modules Microsoft Learn
-      href: /learn/browse/?terms=content+moderator
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Prise en charge de la région
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformité et certification
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+    - name: Modules Microsoft Learn
+      href: /learn/browse/?terms=content+moderator
+    - name: Série de webinaires Azure
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: Azure Government et Azure mondial
       href: ../../azure-government/compare-azure-government-global-azure.md
     - name: Mises à jour Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformité
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Chiffrement
-      href: encrypt-data-at-rest.md

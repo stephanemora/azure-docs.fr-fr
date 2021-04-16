@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 04c2330ffee396f5fc30b85640e992df77c08263
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2396768d87b93c4df16b6de78d03faf1d8d1cc2b
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97795426"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491999"
 ---
 # <a name="what-are-device-templates"></a>Que sont les modèles d’appareils ?
 
@@ -39,70 +39,122 @@ Un modèle d’appareil définit la manière dont un appareil interagit avec vot
 
 Un développeur de solutions peut également exporter un fichier JSON contenant le modèle d’appareil. Un développeur d’appareils peut utiliser ce document JSON pour comprendre comment l’appareil doit communiquer avec l’application IoT Central.
 
-Le fichier JSON qui définit le modèle d’appareil utilise le [langage DTDL (Digital Twin Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central s’attend à ce que le fichier JSON contienne le modèle d’appareil avec les interfaces définies incluses plutôt que dans des fichiers distincts.
+Le fichier JSON qui définit le modèle d’appareil utilise le [langage DTDL (Digital Twin Definition Language) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central s’attend à ce que le fichier JSON contienne le modèle d’appareil avec les interfaces définies incluses plutôt que dans des fichiers distincts. Pour en savoir plus, consultez [Guide de modélisation d’IoT Plug-and-Play](../../iot-pnp/concepts-modeling-guide.md).
 
 Un appareil IoT classique est constitué des éléments suivants :
 
 - Des parties personnalisées, qui rendent votre appareil unique.
 - Des parties standard, communes à tous les appareils.
 
-Ces éléments sont appelés _interfaces_ dans un modèle d’appareil. Les interfaces définissent les détails de chaque partie implémentée par votre appareil. Les interfaces sont réutilisables entre les modèles d’appareils. Dans le DTDL, un composant fait référence à une interface définie dans un fichier DTDL distinct.
+Ces éléments sont appelés _interfaces_ dans un modèle d’appareil. Les interfaces définissent les détails de chaque partie implémentée par votre appareil. Les interfaces sont réutilisables entre les modèles d’appareils. Dans DTDL, un composant fait référence à une autre interface, qui peut être définie dans un fichier DTDL distinct ou dans une section distincte du fichier.
 
-L’exemple suivant montre le plan du modèle d’appareil pour un contrôleur de température. Le composant par défaut comprend des définitions pour `workingSet`, `serialNumber` et `reboot`. Le modèle d’appareil inclut également les interfaces `thermostat` et `deviceInformation` :
+L’exemple suivant montre le plan du modèle d’appareil pour un [contrôleur de température](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/temperaturecontroller-2.json). Le composant par défaut comprend des définitions pour `workingSet`, `serialNumber` et `reboot`. Le modèle d’appareil comprend également deux composants `thermostat` et un composant `deviceInformation`. Le contenu des trois composants a été supprimé par souci de concision :
 
 ```json
-{
-  "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:TemperatureController;1",
-  "@type": "Interface",
-  "displayName": "Temperature Controller",
-  "description": "Device with two thermostats and remote reboot.",
-  "contents": [
-    {
-      "@type": [
-        "Telemetry", "DataSize"
-      ],
-      "name": "workingSet",
-      "displayName": "Working Set",
-      "description": "Current working set of the device memory in KiB.",
-      "schema": "double",
-      "unit" : "kibibyte"
-    },
-    {
-      "@type": "Property",
-      "name": "serialNumber",
-      "displayName": "Serial Number",
-      "description": "Serial number of the device.",
-      "schema": "string"
-    },
-    {
-      "@type": "Command",
-      "name": "reboot",
-      "displayName": "Reboot",
-      "description": "Reboots the device after waiting the number of seconds specified.",
-      "request": {
-        "name": "delay",
-        "displayName": "Delay",
-        "description": "Number of seconds to wait before rebooting the device.",
-        "schema": "integer"
+[
+  {
+    "@context": [
+      "dtmi:iotcentral:context;2",
+      "dtmi:dtdl:context;2"
+    ],
+    "@id": "dtmi:com:example:TemperatureController;2",
+    "@type": "Interface",
+    "contents": [
+      {
+        "@type": [
+          "Telemetry",
+          "DataSize"
+        ],
+        "description": {
+          "en": "Current working set of the device memory in KiB."
+        },
+        "displayName": {
+          "en": "Working Set"
+        },
+        "name": "workingSet",
+        "schema": "double",
+        "unit": "kibibit"
+      },
+      {
+        "@type": "Property",
+        "displayName": {
+          "en": "Serial Number"
+        },
+        "name": "serialNumber",
+        "schema": "string",
+        "writable": false
+      },
+      {
+        "@type": "Command",
+        "commandType": "synchronous",
+        "description": {
+          "en": "Reboots the device after waiting the number of seconds specified."
+        },
+        "displayName": {
+          "en": "Reboot"
+        },
+        "name": "reboot",
+        "request": {
+          "@type": "CommandPayload",
+          "description": {
+            "en": "Number of seconds to wait before rebooting the device."
+          },
+          "displayName": {
+            "en": "Delay"
+          },
+          "name": "delay",
+          "schema": "integer"
+        }
+      },
+      {
+        "@type": "Component",
+        "displayName": {
+          "en": "thermostat1"
+        },
+        "name": "thermostat1",
+        "schema": "dtmi:com:example:Thermostat;2"
+      },
+      {
+        "@type": "Component",
+        "displayName": {
+          "en": "thermostat2"
+        },
+        "name": "thermostat2",
+        "schema": "dtmi:com:example:Thermostat;2"
+      },
+      {
+        "@type": "Component",
+        "displayName": {
+          "en": "DeviceInfo"
+        },
+        "name": "deviceInformation",
+        "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1"
       }
-    },
-    {
-      "@type" : "Component",
-      "schema": "dtmi:com:example:Thermostat;1",
-      "name": "thermostat",
-      "displayName": "Thermostat",
-      "description": "Thermostat One."
-    },
-    {
-      "@type": "Component",
-      "schema": "dtmi:azure:DeviceManagement:DeviceInformation;1",
-      "name": "deviceInformation",
-      "displayName": "Device Information interface",
-      "description": "Optional interface with basic device hardware information."
+    ],
+    "displayName": {
+      "en": "Temperature Controller"
     }
-  ]
-}
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:com:example:Thermostat;2",
+    "@type": "Interface",
+    "displayName": "Thermostat",
+    "description": "Reports current temperature and provides desired temperature control.",
+    "contents": [
+      ...
+    ]
+  },
+  {
+    "@context": "dtmi:dtdl:context;2",
+    "@id": "dtmi:azure:DeviceManagement:DeviceInformation;1",
+    "@type": "Interface",
+    "displayName": "Device Information",
+    "contents": [
+      ...
+    ]
+  }
+]
 ```
 
 Une interface contient certains champs obligatoires :
@@ -132,7 +184,7 @@ L’exemple suivant montre la définition d’une interface de thermostat :
 ```json
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
+  "@id": "dtmi:com:example:Thermostat;2",
   "@type": "Interface",
   "displayName": "Thermostat",
   "description": "Reports current temperature and provides desired temperature control.",
@@ -143,8 +195,8 @@ L’exemple suivant montre la définition d’une interface de thermostat :
         "Temperature"
       ],
       "name": "temperature",
-      "displayName" : "Temperature",
-      "description" : "Temperature in degrees Celsius.",
+      "displayName": "Temperature",
+      "description": "Temperature in degrees Celsius.",
       "schema": "double",
       "unit": "degreeCelsius"
     },
@@ -157,7 +209,7 @@ L’exemple suivant montre la définition d’une interface de thermostat :
       "schema": "double",
       "displayName": "Target Temperature",
       "description": "Allows to remotely specify the desired target temperature.",
-      "unit" : "degreeCelsius",
+      "unit": "degreeCelsius",
       "writable": true
     },
     {
@@ -167,7 +219,7 @@ L’exemple suivant montre la définition d’une interface de thermostat :
       ],
       "name": "maxTempSinceLastReboot",
       "schema": "double",
-      "unit" : "degreeCelsius",
+      "unit": "degreeCelsius",
       "displayName": "Max temperature since last reboot.",
       "description": "Returns the max temperature since last device reboot."
     },
@@ -183,7 +235,7 @@ L’exemple suivant montre la définition d’une interface de thermostat :
         "schema": "dateTime"
       },
       "response": {
-        "name" : "tempReport",
+        "name": "tempReport",
         "displayName": "Temperature Report",
         "schema": {
           "@type": "Object",
@@ -199,17 +251,17 @@ L’exemple suivant montre la définition d’une interface de thermostat :
               "schema": "double"
             },
             {
-              "name" : "avgTemp",
+              "name": "avgTemp",
               "displayName": "Average Temperature",
               "schema": "double"
             },
             {
-              "name" : "startTime",
+              "name": "startTime",
               "displayName": "Start Time",
               "schema": "dateTime"
             },
             {
-              "name" : "endTime",
+              "name": "endTime",
               "displayName": "End Time",
               "schema": "dateTime"
             }
@@ -235,7 +287,7 @@ Par défaut, les propriétés sont en lecture seule. Les propriétés en lecture
 
 Vous pouvez également marquer une propriété comme étant accessible en écriture sur une interface. Un appareil peut recevoir de votre application IoT Central une mise à jour de propriété accessible en écriture ainsi que signaler des mises à jour de valeurs de propriété à votre application.
 
-Les appareils n’ont pas besoin d’être connectés pour définir des valeurs de propriété. Les valeurs mises à jour sont transférées quand l’appareil se connecte ensuite à l’application. Ce comportement s’applique aux propriétés en lecture seule et en écriture.
+Les appareils n’ont pas besoin d’être connectés pour définir des valeurs de propriété. Les valeurs mises à jour sont transférées quand l’appareil se connecte ensuite à l’application. Ce comportement s’applique aux propriétés en lecture seule et accessibles en écriture.
 
 N’utilisez pas de propriétés pour envoyer des données de télémétrie à partir de votre appareil. Par exemple, une propriété en lecture seule telle que `temperatureSetting=80` doit signifier que la température de l’appareil a été définie sur 80 et que l’appareil tente d’atteindre cette température ou d’y rester.
 

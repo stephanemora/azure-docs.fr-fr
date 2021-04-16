@@ -7,12 +7,12 @@ ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: b11aedb52be3c263c781c2ac68d1d5197ba4def2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2ed889bea715ff5a26bf8e918789429e57fa31b2
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101743191"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109660"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Résolution des exceptions LocationNotFoundForRoleSize lors du déploiement d’un service cloud (classique) sur Azure
 
@@ -47,7 +47,8 @@ Dans ce scénario, vous devez sélectionner une autre région ou référence SKU
 
 ### <a name="list-skus-in-region-using-azure-cli"></a>Lister les références SKU dans la région à l’aide d’Azure CLI
 
-Vous pouvez utiliser la commande [az vm list-skus](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus).
+Vous pouvez utiliser la commande [az vm list-skus](/cli/azure/vm?view=azure-cli-latest
+#<a name="az_vm_list_skus-command"></a>az_vm_list_skus).
 
 - Utilisez le paramètre `--location` pour filtrer la sortie sur la localisation que vous utilisez.
 - Utilisez le paramètre `--size` pour rechercher par un nom partiel.
@@ -63,7 +64,7 @@ Vous pouvez utiliser la commande [az vm list-skus](https://docs.microsoft.com/cl
 
 #### <a name="list-skus-in-region-using-powershell"></a>Lister les références SKU dans la région à l’aide de PowerShell
 
-Vous pouvez utiliser la commande [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku).
+Vous pouvez utiliser la commande [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku).
 
 - Filtrez les résultats par emplacement.
 - Pour cette commande, vous devez disposer de la version la plus récente de PowerShell.
@@ -91,7 +92,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 #### <a name="list-skus-in-region-using-rest-api"></a>Lister les références SKU dans la région à l’aide de l’API REST
 
-Vous pouvez utiliser l’opération [Resource Skus - List](https://docs.microsoft.com/rest/api/compute/resourceskus/list). Elle renvoie les références et les régions disponibles dans le format suivant :
+Vous pouvez utiliser l’opération [Resource Skus - List](/rest/api/compute/resourceskus/list). Elle renvoie les références et les régions disponibles dans le format suivant :
 
 ```json
 {

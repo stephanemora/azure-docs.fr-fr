@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/06/2021
+ms.openlocfilehash: 92db62622c37241a76d7847931df030162de8f00
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98209829"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504224"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 
@@ -137,12 +137,16 @@ Les services créés après le 15 juillet 2020 offriront une expérience de mise
 
 Avec le nouveau comportement :
 
-* Seules les expressions qui correspondent à la requête d’expression complète sont renvoyées. La requête « super bowl » retourne les résultats mis en surbrillance comme suit :
++ Seules les expressions qui correspondent à la requête d’expression complète sont renvoyées. L’expression de requête « super bowl » retourne les résultats mis en surbrillance comme suit :
 
-    ```html
-    '<em>super bowl</em> is super awesome with a bowl of chips'
-    ```
-  Notez que le terme *bowl of chips* n’est pas mis en surbrillance, car il ne correspond pas à l’expression complète.
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
+     ]
+  ```
+
+  Notez que les autres instances de *super* et *bowl* ne sont pas mises en surbrillance, car ces instances ne correspondent pas à l’expression complète.
 
 Lorsque vous écrivez du code client qui implémente la mise en surbrillance des correspondances, tenez compte de cette modification. Notez que cela n’aura aucun impact sauf si vous créez un service de recherche entièrement nouveau.
 

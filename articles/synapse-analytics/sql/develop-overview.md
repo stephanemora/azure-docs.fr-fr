@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d842414d3046692c982ca3203957a96f8a01b37
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96446599"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377328"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Choix de conception et techniques de codage pour les fonctionnalités SQL Synapse dans Azure Synapse Analytics
 Dans cet article, vous trouverez une liste de ressources pour le pool SQL dédié et les fonctions de pool SQL serverless de Synapse SQL. Les articles recommandés sont répartis dans deux sections : Principaux choix de conception et techniques de développement et de codage.
@@ -46,7 +46,7 @@ Vous trouverez ci-dessous des articles essentiels qui mettent en évidence des t
 
 | Article | Pool SQL dédié | Pool SQL serverless |
 | ------- | -------- | ------------- |
-| [procédures stockées](develop-stored-procedures.md)  | Oui                | Non                      |
+| [procédures stockées](develop-stored-procedures.md)  | Oui                | Oui                      |
 | [Étiquettes](develop-label.md)                           | Oui                | Non                      |
 | [Views](develop-views.md)                             | Oui                | Oui                     |
 | [Tables temporaires](develop-tables-temporary.md)       | Oui                | Oui                     |
