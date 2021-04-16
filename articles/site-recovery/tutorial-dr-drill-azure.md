@@ -1,19 +1,16 @@
 ---
 title: Exécuter une procédure de reprise d’activité après sinistre sur Azure à l’aide d’Azure Site Recovery
 description: Découvrez comment exécuter une procédure de reprise d’activité après sinistre d’un site local vers Azure à l’aide d’Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 246295017e2b05de10ccfd2154a1490ae0ece9c3
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84699615"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579099"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure
 

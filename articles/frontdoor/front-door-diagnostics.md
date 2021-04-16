@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a972123604cafbfc4c6753c1fe3ad21147b53b2d
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715545"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550657"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Supervision des journaux et des métriques dans Azure Front Door
 
@@ -71,7 +71,7 @@ Pour configurer les journaux de diagnostic pour votre service Front Door :
 
 3. Sélectionnez **Activer les diagnostics**. Archivez les journaux de diagnostic et les métriques dans un compte de stockage, envoyez-les en streaming à un hub d’événements ou envoyez-les aux journaux Azure Monitor.
 
-Front Door fournit actuellement des journaux de diagnostic (par lot toutes les heures). Les journaux de diagnostic présentent chaque requête d’API individuellement, chaque entrée ayant le schéma suivant :
+Front Door fournit actuellement des journaux de diagnostic. Les journaux de diagnostic présentent chaque requête d’API individuellement, chaque entrée ayant le schéma suivant :
 
 | Propriété  | Description |
 | ------------- | ------------- |

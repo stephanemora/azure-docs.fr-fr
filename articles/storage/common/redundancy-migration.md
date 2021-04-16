@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ce3bda82e634cd80560d7915a08fa33218173779
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714780"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967191"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -122,25 +122,30 @@ Vous devez effectuer une migration manuelle si :
 - Vous souhaitez migrer les données de ZRS vers LRS, GRS ou RA-GRS.
 - Votre compte de stockage comprend des données dans le niveau archive.
 
-Vous pouvez demander une migration dynamique via le [portail du Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). À partir du portail, sélectionnez le compte de stockage que vous souhaitez convertir en ZRS.
+Vous pouvez demander une migration dynamique via le [portail du Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
-1. Sélectionnez **Nouvelle demande de support**.
-2. Fournissez les informations **De base** de votre compte : 
+> [!IMPORTANT]
+> Si vous devez migrer plus d’un compte de stockage, créez un seul ticket de support et spécifiez les noms des comptes à convertir sous l’onglet **Détails**.
+
+Pour demander une migration dynamique, procédez comme suit :
+
+1. Dans le portail Azure, accédez au compte de stockage que vous voulez migrer.
+1. Sous **Support et dépannage**, sélectionnez **Nouvelle demande de support**.
+1. Renseignez les informations de votre compte dans l’onglet **Informations de base** :
     - **Type de problème** : Sélectionnez **Technique**.
-    - **Service** : Sélectionnez **Mes services** et **Gestion des comptes de stockage**.
-    - **Ressource** : Sélectionnez la ressource à convertir en ZRS.
-3. Sélectionnez **Suivant**.
-4. Dans la section **Problème**, spécifiez les valeurs suivantes :
-    - **Gravité** : conservez la valeur par défaut.
-    - **Type de problème** : sélectionnez **Migration des données**.
-    - **Catégorie** : Sélectionnez **Migrer vers ZRS**.
-    - **Titre** : tapez un titre descriptif tel que **Migration de compte ZRS**.
-    - **Détails** : tapez des détails supplémentaires dans la zone **Détails**, par exemple, « Je souhaite migrer vers ZRS à partir de [LRS, GRS] dans la région \_\_ ».
-5. Sélectionnez **Suivant**.
-6. Vérifiez que les informations de contact dans le panneau **Informations de contact** sont correctes.
-7. Sélectionnez **Create** (Créer).
+    - **Service** : Sélectionnez **Mes services**, puis **Gestion des comptes de stockage**.
+    - **Ressource** : Sélectionnez un compte de stockage à migrer. Si vous devez spécifier plusieurs comptes de stockage, vous pouvez le faire dans la section **Détails**.
+    - **Type de problème** : Choisissez **Migration des données**.
+    - **Sous-type de problème** : Choisissez **Migrer vers ZRS, GZRS ou RA-GZRS**.
 
-Une personne du support technique vous contactera pour vous apporter l’aide dont vous aurez besoin.
+    :::image type="content" source="media/redundancy-migration/request-live-migration-basics-portal.png" alt-text="Capture d’écran montrant comment demander une migration dynamique, onglet Informations de base":::
+
+1. Sélectionnez **Suivant**. Sous l’onglet **Solutions**, vous pouvez vérifier l’éligibilité de vos comptes de stockage pour la migration.
+1. Sélectionnez **Suivant**. Si vous avez plus d’un compte de stockage à migrer, sous l’onglet **Détails**, spécifiez le nom de chaque compte, en les séparant par un point-virgule.
+
+    :::image type="content" source="media/redundancy-migration/request-live-migration-details-portal.png" alt-text="Capture d’écran montrant comment demander une migration dynamique, onglet Détails":::
+
+1. Renseignez les informations supplémentaires requises sous l’onglet **Détails**, puis sélectionnez **Vérifier + créer** pour vérifier et envoyer votre ticket de support. Une personne du support vous contactera pour vous apporter l’aide dont vous aurez besoin.
 
 > [!NOTE]
 > Les partages de fichiers Premium (comptes FileStorage) sont disponibles uniquement pour LRS et ZRS.

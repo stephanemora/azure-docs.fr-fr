@@ -6,18 +6,18 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 04/05/2021
 tags: connectors
-ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449626"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385851"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
+# <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>Créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
-Pour automatiser les tâches qui surveillent, créent, envoient et reçoivent des fichiers sur un serveur [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) à l’aide du protocole [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), vous pouvez générer et automatiser les workflows d’intégration à l’aide d’Azure Logic Apps et du connecteur SFTP-SSH. SFTP est un protocole réseau qui fournit un accès aux fichiers, le transfert de fichiers et la gestion des fichiers sur n’importe quel flux de données fiable.
+Pour automatiser les tâches qui créent et gèrent des fichiers sur un serveur [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) à l’aide du protocole [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), vous pouvez créer des workflows d’intégration automatisés à l’aide d’Azure Logic Apps et du connecteur SFTP-SSH. SFTP est un protocole réseau qui fournit un accès aux fichiers, le transfert de fichiers et la gestion des fichiers sur n’importe quel flux de données fiable.
 
 Voici quelques exemples de tâches que vous pouvez automatiser :
 
@@ -27,7 +27,7 @@ Voici quelques exemples de tâches que vous pouvez automatiser :
 * Obtenir les métadonnées et le contenu des fichiers.
 * Extraire des archives dans des dossiers.
 
-Vous pouvez utiliser des déclencheurs qui surveillent les événements sur votre serveur SFTP et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent diverses tâches sur votre serveur SFTP. Vous pouvez également faire en sorte que d’autres actions de votre application logique utilisent la sortie d’actions SFTP. Par exemple, si vous récupérez régulièrement des fichiers de votre serveur SFTP, vous pouvez envoyer des alertes par e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+Dans votre workflow, vous pouvez utiliser un déclencheur qui supervise les événements sur votre serveur SFTP et met la sortie à la disposition d’autres actions. Vous pouvez ensuite utiliser des actions pour effectuer diverses tâches sur votre serveur SFTP. Vous pouvez également inclure d’autres actions qui utilisent la sortie des actions SFTP-SSH. Par exemple, si vous récupérez régulièrement des fichiers de votre serveur SFTP, vous pouvez envoyer des alertes par e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
 Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur SFTP, consultez la section [Comparer SFTP-SSH et SFTP](#comparison) plus loin dans cette rubrique.
 
@@ -40,16 +40,14 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
   * OpenText Secure MFT
   * OpenText GXS
 
-* Le connecteur SFTP-SSH prend en charge l’authentification par clé privée ou l’authentification par mot de passe, mais pas les deux.
-
-* Les actions SFTP-SSH prenant en charge la [segmentation](../logic-apps/logic-apps-handle-large-messages.md) peuvent gérer des fichiers jusqu’à 1 Go, tandis que les actions SFTP-SSH ne prenant pas en charge la segmentation peuvent gérer des fichiers jusqu’à 50 Mo. Bien que la taille de segment par défaut soit de 15 Mo, cette taille peut changer dynamiquement, à compter de 5 Mo et augmenter progressivement jusqu’à 50 Mo maximum, selon différents facteurs tels que la latence du réseau, le temps de réponse du serveur, etc.
+* Les actions SFTP-SSH prenant en charge la [segmentation](../logic-apps/logic-apps-handle-large-messages.md) peuvent gérer des fichiers jusqu’à 1 Go, tandis que les actions SFTP-SSH ne prenant pas en charge la segmentation peuvent gérer des fichiers jusqu’à 50 Mo. La taille de bloc par défaut est 15 Mo. Toutefois, cette taille peut changer de façon dynamique, en commençant à 5 Mo et augmentant progressivement jusqu’à la valeur maximale de 50 Mo. Le dimensionnement dynamique est basé sur des facteurs tels que la latence du réseau, le temps de réponse du serveur, etc.
 
   > [!NOTE]
   > Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE nécessite des blocs pour utiliser les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
   Vous pouvez passer outre ce comportement adaptatif lorsque vous [spécifiez une taille de bloc constante](#change-chunk-size) à utiliser à la place. Cette taille peut être comprise entre 5 Mo et 50 Mo. Par exemple, supposons que vous disposez d’un fichier de 45 Mo et d’un réseau pouvant prendre en charge cette taille de fichier sans latence. La segmentation adaptative génère plusieurs appels plutôt qu’un seul. Pour réduire le nombre d’appels, vous pouvez essayer de définir une taille de bloc de 50 Mo. Dans un autre scénario, si votre application logique a un délai d’expiration, par exemple lorsque vous utilisez des blocs de 15 Mo, vous pouvez essayer de réduire la taille à 5 Mo.
 
-  La taille de segment est associée à une connexion, ce qui signifie que vous pouvez utiliser la même connexion pour les actions prenant en charge la segmentation, puis pour les actions ne prenant pas en charge la segmentation. Dans ce cas, la taille de segment pour les actions ne prenant pas en charge les plages de segmentation est comprise entre 5 Mo et 50 Mo. Ce tableau indique les actions SFTP-SSH prenant en charge la segmentation :
+  La taille de bloc est associée à une connexion. Cet attribut signifie que vous pouvez utiliser la même connexion pour les actions qui prennent en charge la segmentation et les actions qui ne la prennent pas en charge. Dans ce cas, la taille de segment pour les actions ne prenant pas en charge les plages de segmentation est comprise entre 5 Mo et 50 Mo. Ce tableau indique les actions SFTP-SSH prenant en charge la segmentation :
 
   | Action | Prise en charge de la segmentation | Remplacement de la prise en charge de la taille de bloc |
   |--------|------------------|-----------------------------|
@@ -69,15 +67,15 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
 
 * Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation des messages. Quand ils demandent le contenu des fichiers, les déclencheurs sélectionnent uniquement les fichiers dont la taille est inférieure ou égale à 15 Mo. Pour obtenir des fichiers supérieurs à 15 Mo, suivez plutôt ce modèle :
 
-  1. Utilisez un déclencheur SFTP-SSH qui retourne uniquement des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
+  1. Utilisez un déclencheur SFTP-SSH qui ne retourne que les propriétés du fichier. Ces déclencheurs ont des noms qui incluent la description **(propriétés uniquement)** .
 
-  1. Suivez le déclencheur avec l’action SFTP-SSH **Obtenir le contenu du fichier**, qui lit le fichier complet et utilise implicitement la segmentation des messages.
+  1. Suivez le déclencheur avec l’action SFTP-SSH **Obtenir le contenu du fichier**. Cette action lit le fichier complet et utilise implicitement la segmentation des messages.
 
 <a name="comparison"></a>
 
 ## <a name="compare-sftp-ssh-versus-sftp"></a>Comparer SFTP/SSH par rapport à SFTP
 
-Voici les autres principales différences entre le connecteur SFTP-SSH et le connecteur SFTP où le connecteur SFTP-SSH offre les fonctionnalités suivantes :
+La liste suivante décrit les principales fonctionnalités SFTP-SSH qui diffèrent du connecteur SFTP :
 
 * Il utilise la [bibliothèque SSH.NET](https://github.com/sshnet/SSH.NET), qui est une bibliothèque Secure Shell (SSH) open source prenant en charge .NET.
 
@@ -85,30 +83,25 @@ Voici les autres principales différences entre le connecteur SFTP-SSH et le con
 
 * Fournit l’action **Renommer le fichier**, qui renomme un fichier sur le serveur SFTP.
 
-* Met en cache *jusqu’à 1 heure* la connexion au serveur SFTP, ce qui améliore les performances et réduit le nombre de tentatives de connexion au serveur. Pour définir la durée de ce comportement de mise en cache, modifiez la propriété [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) dans la configuration SSH sur votre serveur SFTP.
+* Met en cache la connexion au serveur SFTP *pendant jusqu’à 1 heure*. Cette fonctionnalité permet d’améliorer les performances et de réduire la fréquence à laquelle le connecteur tente de se connecter au serveur. Pour définir la durée de ce comportement de mise en cache, modifiez la propriété [**ClientAliveInterval** ](https://man.openbsd.org/sshd_config#ClientAliveInterval) dans la configuration SSH sur votre serveur SFTP.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Vos informations d’identification de compte et adresse du serveur SFTP, qui permettent à votre application logique d’accéder à votre compte SFTP. Vous devez également accéder à une clé privée SSH et au mot clé privé SSH. Pour utiliser la segmentation lors du chargement de fichiers volumineux, vous devez disposer d’autorisations d’accès en lecture et en écriture au dossier racine de votre serveur SFTP. Sinon, vous obtiendrez une erreur « 401 non autorisé ».
+* Les informations d’identification de compte et l’adresse de votre serveur SFTP, afin que votre workflow puisse accéder à votre compte SFTP. Vous devez également accéder à une clé privée SSH et au mot clé privé SSH. Pour charger des fichiers volumineux à l’aide de la segmentation, vous devez disposer d’un accès en lecture et en écriture au dossier racine de votre serveur SFTP. Sinon, vous obtiendrez une erreur « 401 non autorisé ».
 
-  > [!IMPORTANT]
-  >
-  > Le connecteur SFTP-SSH prend en charge *uniquement* ces clés privées, formats, algorithmes et empreintes digitales :
-  >
-  > * **Formats de clé privée** : les clés RSA (Rivest Shamir Adleman) et DSA (Digital Signature Algorithm) aux formats OpenSSH et ssh.com. Si votre clé privée est au format de fichier PuTTY (.ppk), commencez par [convertir la clé au format de fichier OpenSSH (.pem)](#convert-to-openssh).
-  >
-  > * **Algorithmes de chiffrement** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
-  >
-  > * **Empreinte digitale** : MD5
-  >
-  > Après avoir ajouté le déclencheur SFTP-SSH ou l’action souhaitée pour votre application logique, vous devez fournir les informations de connexion pour votre serveur SFTP. Quand vous fournissez votre clé privée SSH pour cette connexion, ***vous ne devez pas entrer ou modifier manuellement la clé***, car ceci pourrait entraîner l’échec de la connexion. Veillez plutôt à ***copier la clé*** à partir de votre fichier de clé privée SSH, puis à la ***coller*** dans les informations de connexion. 
-  > Pour plus d’informations, consultez la section [Se connecter à SFTP avec SSH](#connect) plus loin dans cet article.
+  Le connecteur SFTP-SSH prend en charge l’authentification par clé privée et l’authentification par mot de passe. Toutefois, le connecteur SFTP-SSH ne prend en charge *que* ces formats de clé privée, algorithmes et empreintes digitales :
+
+  * **Formats de clé privée** : les clés RSA (Rivest Shamir Adleman) et DSA (Digital Signature Algorithm) aux formats OpenSSH et ssh.com. Si votre clé privée est au format de fichier PuTTY (.ppk), commencez par [convertir la clé au format de fichier OpenSSH (.pem)](#convert-to-openssh).
+  * **Algorithmes de chiffrement** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  * **Empreinte digitale** : MD5
+
+  Après avoir ajouté une action ou un déclencheur SFTP-SSH à votre workflow, vous devez fournir les informations de connexion pour votre serveur SFTP. Quand vous fournissez votre clé privée SSH pour cette connexion, ***vous ne devez pas entrer ou modifier manuellement la clé** _, car ceci pourrait entraîner l’échec de la connexion. Veillez plutôt à _*_copier la clé_*_ à partir de votre fichier de clé privée SSH, puis à la _ *_coller_** dans les informations de connexion. Pour plus d’informations, consultez la section [Se connecter à SFTP avec SSH](#connect) plus loin dans cet article.
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L’application logique à partir de laquelle vous souhaitez accéder à votre compte SFTP. Pour démarrer avec un déclencheur SFTP-SSH, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action SFTP-SSH, démarrez votre application logique avec un autre déclencheur, par exemple, le déclencheur **Périodicité**.
+* Le workflow d’application logique où vous souhaitez accéder à votre compte SFTP. Pour démarrer avec un déclencheur SFTP-SSH, [créez un workflow d’application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action SFTP-SSH, démarrez votre workflow avec un autre déclencheur, par exemple, le déclencheur **Périodicité**.
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Fonctionnement des déclencheurs SFTP-SSH
 
@@ -130,13 +123,13 @@ Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fi
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>Décalage et dérive de la périodicité du déclencheur
 
-Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SFTP-SSH, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu, par exemple le non-respect du calendrier fixé lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l'heure fixée pour la périodicité ne change pas au moment du passage à l'heure d'été, ajustez la périodicité manuellement afin que votre application logique continue de s'exécuter à l'heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
+Les déclencheurs basés sur la connexion, où vous devez d’abord créer une connexion, par exemple le déclencheur SFTP-SSH, diffèrent des déclencheurs intégrés qui s’exécutent en mode natif dans Azure Logic Apps, tels que le [déclencheur de récurrence](../connectors/connectors-native-recurrence.md). Dans les déclencheurs récurrents basés sur la connexion, la planification de la périodicité n'est pas le seul pilote à contrôler l'exécution, et le fuseau horaire détermine uniquement l'heure de début initiale. Les exécutions suivantes dépendent de la planification de la périodicité, de la dernière exécution du déclencheur *et* d’autres facteurs qui peuvent décaler les heures d’exécution ou produire un comportement inattendu. Par exemple, un comportement inattendu peut inclure de ne pas respecter la planification spécifiée lors des passages à l’heure d’été et à l’heure d’hiver. Pour que l’heure fixée pour la périodicité ne change pas au moment du passage à l’heure d’été, ajustez la périodicité manuellement. De cette façon, votre workflow continue à s’exécuter à l’heure prévue. Sinon, l'heure de début est avancée d'une heure lors du passage à l'heure d'été et reculée d'une heure lors du passage à l'heure d'hiver. Pour plus d’informations, consultez [Périodicité des déclencheurs basés sur la connexion](../connectors/apis-list.md#recurrence-connection-based).
 
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>Convertir une clé PuTTY au format OpenSSH
 
-Si votre clé privée est au format PuTTY (qui utilise l’extension de nom de fichier .ppk pour PuTTY Private Key), convertissez d’abord la clé au format OpenSSH, qui utilise l’extension .pem (Privacy Enhanced Mail).
+Le format PuTTy et le format OpenSSH utilisent des extensions de nom de fichier différentes. Le format PuTTy utilise l’extension de nom de fichier .ppk (ou PuTTY Private Key). Le format OpenSSH utilise l’extension de nom de fichier .pem (ou Privacy Enhanced Mail). Si votre clé privée est au format PuTTy et que vous devez utiliser le format OpenSSH, commencez par convertir la clé au format OpenSSH en procédant comme suit :
 
 ### <a name="unix-based-os"></a>Système d’exploitation UNIX
 
@@ -176,9 +169,9 @@ Cette section décrit les considérations à prendre en compte pour utiliser les
 
 ### <a name="use-different-sftp-folders-for-file-upload-and-processing"></a>Utilisation de différents dossiers SFTP pour le chargement et le traitement des fichiers
 
-Sur votre serveur SFTP, veillez à utiliser des dossiers distincts pour stocker les fichiers chargés et pour que le déclencheur les surveille à des fins de traitement. Il vous faut donc un moyen de déplacer des fichiers entre ces dossiers. Dans le cas contraire, le déclencheur ne se déclenche pas et se comporte de manière imprévisible, par exemple en ignorant un nombre aléatoire de fichiers traités.
+Sur votre serveur SFTP, utilisez des dossiers distincts pour stocker les fichiers chargés et pour que le déclencheur supervise ces fichiers en vue de leur traitement. Dans le cas contraire, le déclencheur ne se déclenche pas et se comporte de manière imprévisible, par exemple en ignorant un nombre aléatoire de fichiers traités. Toutefois, cette exigence signifie que vous avez besoin d’un moyen de déplacer des fichiers entre ces dossiers. 
 
-Si ce problème se produit, supprimez les fichiers du dossier surveillé par le déclencheur et utilisez un autre dossier pour stocker les fichiers chargés.
+Si ce problème de déclencheur se produit, supprimez les fichiers du dossier supervisé par le déclencheur et utilisez un autre dossier pour stocker les fichiers chargés.
 
 <a name="create-file"></a>
 
@@ -216,7 +209,7 @@ Pour créer un fichier sur votre serveur SFTP, vous pouvez utiliser l’action S
 
    1. Sélectionnez **Edition** > **Copier**.
 
-   1. Dans le déclencheur SFTP-SSH ou l’action que vous avez ajoutés, collez la clé *complète* que vous avez copiée dans la propriété **Clé privée SSH**, qui prend en charge plusieurs lignes.  **_Veillez à coller_ *_ la clé. _* _Vous ne devez pas l’entrer ni la modifier manuellement_**.
+   1. Dans l’action ou le déclencheur SFTP-SSH que vous avez ajouté(e), *collez l’intégralité* de la clé copiée dans la propriété **Clé privée SSH**, qui prend en charge plusieurs lignes. **_N’entrez pas ni ne modifiez la clé manuellement_**.
 
 1. Après avoir entré les informations de connexion, sélectionnez **Créer**.
 
@@ -244,9 +237,9 @@ Pour remplacer le comportement adaptatif par défaut utilisé par la segmentatio
 
 ### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - déclencheur SSH : Lors de l’ajout ou de la modification d’un fichier
 
-Ce déclencheur démarre un flux de travail d’application logique quand un fichier est ajouté ou changé sur un serveur SFTP. Par exemple, vous pouvez ajouter une condition qui vérifie et extrait le contenu du fichier si ce contenu répond à une condition spécifiée. Vous pouvez ensuite ajouter une action qui obtient le contenu du fichier et le place dans un dossier sur le serveur SFTP.
+Ce déclencheur démarre un workflow quand un fichier est ajouté ou modifié sur un serveur SFTP. Comme exemples d’actions de suivi, le workflow peut utiliser une condition pour vérifier si le contenu du fichier répond aux critères spécifiés. Si le contenu respecte la condition, l’action SFTP-SSH **Obtenir le contenu du fichier** peut obtenir le contenu, puis une autre action SFTP-SSH peut placer ce fichier dans un autre dossier sur le serveur SFTP.
 
-**Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier SFTP de nouveaux fichiers représentant les commandes des clients. Vous pouvez ensuite utiliser une action SFTP comme **Obtenir le contenu du fichier** afin d’obtenir le contenu de la commande à des fins de traitement et stocker cette commande dans une base de données de commandes.
+**Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier SFTP de nouveaux fichiers représentant les commandes des clients. Vous pouvez ensuite utiliser une action SFTP-SSH comme **Obtenir le contenu du fichier** afin d’obtenir le contenu de la commande à des fins de traitement et stocker cette commande dans une base de données de commandes.
 
 <a name="get-content"></a>
 
@@ -282,7 +275,7 @@ Cette erreur peut se produire lorsque votre application logique ne parvient pas 
 
 ### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>Erreur 404 : « Une référence a été faite à un fichier ou dossier qui n’existe pas »
 
-Cette erreur peut se produire lorsque votre application logique crée un nouveau fichier sur votre serveur SFTP au moyen de l’action SFTP-SSH **Créer un fichier**, mais que le fichier qui vient d’être créé est immédiatement déplacé avant que le service Logic Apps ne puisse obtenir les métadonnées du fichier. Quand votre application logique exécute l’action **Créer un fichier**, le service Logic Apps appelle également automatiquement votre serveur SFTP pour récupérer les métadonnées associées. Toutefois, si votre application logique déplace le fichier, le service Logic Apps ne le trouve plus. C’est pourquoi vous recevez le message d’erreur `404`.
+Cette erreur peut se produire lorsque votre workflow crée un fichier sur votre serveur SFTP au moyen de l’action SFTP-SSH **Créer un fichier**, mais déplace immédiatement ce fichier avant que le service Logic Apps ne puisse obtenir les métadonnées du fichier. Quand votre workflow exécute l’action **Créer un fichier**, le service Logic Apps appelle automatiquement votre serveur SFTP pour récupérer les métadonnées associées. Toutefois, si votre application logique déplace le fichier, le service Logic Apps ne le trouve plus. C’est pourquoi vous recevez le message d’erreur `404`.
 
 Si vous ne pouvez pas éviter ou retarder le déplacement du fichier, vous pouvez ignorer la lecture des métadonnées du fichier après sa création en procédant de la façon suivante :
 

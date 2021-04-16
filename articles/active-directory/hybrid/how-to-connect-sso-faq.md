@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b450ecc8aff379dbdb8d58f9b7609cf730ad27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 87b9371bfe3b0bd8ff8b3bd509cc1431f0c2e1c6
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731664"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305767"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Forum aux questions
 
@@ -90,7 +90,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    **Étape 1. Obtenir la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée**
 
    1. Commencez par télécharger et installer [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Accédez au dossier `$env:programfiles\Microsoft Azure Active Directory Connect`.
    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
    5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
@@ -135,7 +135,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    Exécutez les étapes suivantes sur le serveur local où vous exécutez Azure AD Connect :
 
    1. Commencez par télécharger et installer [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Accédez au dossier `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
    5. Appelez `Enable-AzureADSSO -Enable $false`.
@@ -150,7 +150,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
    Suivez les tâches 1 à 4 ci-dessous si vous avez désactivé l’authentification unique fluide à l’aide d’Azure AD Connect. Si vous avez désactivé l’authentification unique fluide à l’aide de PowerShell, passez directement à la tâche 5 ci-dessous.
 
    1. Commencez par télécharger et installer [Azure AD PowerShell](/powershell/azure/active-directory/overview).
-   2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+   2. Accédez au dossier `$env:ProgramFiles\Microsoft Azure Active Directory Connect`.
    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
    5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.

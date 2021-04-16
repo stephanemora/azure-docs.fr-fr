@@ -1,18 +1,19 @@
 ---
-title: Considérations relatives au provisionnement de partages de fichiers Azure
-description: Provisionnez des partages de fichiers Azure en vue d’une utilisation avec Azure File Sync. Bloc de texte commun, partagé entre plusieurs documents de migration.
+title: Fichier include
+description: Fichier include
+services: storage
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: include
 ms.date: 2/20/2020
 ms.author: fauhse
-ms.subservice: files
-ms.openlocfilehash: d48baba5ee60a2bf5a4cb5e4d1ce840fce8eec43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file
+ms.openlocfilehash: c003e765574d764b6653823e8554d0718ea85e0e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82143552"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081036"
 ---
 Un partage de fichiers Azure est stocké dans le cloud dans un compte de stockage Azure.
 Les performances doivent être considérées à un autre niveau ici.

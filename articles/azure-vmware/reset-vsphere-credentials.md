@@ -2,17 +2,19 @@
 title: Réinitialiser les informations d’identification vSphere pour Azure VMware Solution
 description: Découvrez comment réinitialiser les informations d’identification vSphere pour votre cloud privé Azure VMware Solution et vérifier que le connecteur HCX dispose des informations d’identification vSphere les plus récentes.
 ms.topic: how-to
-ms.date: 03/16/2021
-ms.openlocfilehash: 1376b6322250da506d32b8ced0a62ddbf60ba9f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/31/2021
+ms.openlocfilehash: 793b79e42a0adbca54804d1b66102736aff22d7a
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587625"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109099"
 ---
 # <a name="reset-vsphere-credentials-for-azure-vmware-solution"></a>Réinitialiser les informations d’identification vSphere pour Azure VMware Solution
 
 Cet article décrit les étapes de réinitialisation des informations d’identification de vCenter Server et de NSX-T Manager pour votre cloud privé Azure VMware Solution. Vous pouvez ainsi vous assurer que le connecteur HCX dispose des informations d’identification VCenter Server les plus récentes.
+
+En plus de ce guide pratique, vous pouvez également visionner la vidéo de [réinitialisation des mots de passe vCenter CloudAdmin et NSX-T Admin](https://youtu.be/cK1qY3knj88).
 
 ## <a name="reset-your-azure-vmware-solution-credentials"></a>Réinitialiser les informations d’identification Azure VMware Solution
 

@@ -4,12 +4,12 @@ description: Cet article décrit la procédure à suivre pour créer une applica
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7092c3a4c32fe2ad46b71c5a796ac811e4253dbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f289b920b036629e5c518ce3c9e8ec521b1497c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653089"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310102"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Envoyer ou recevoir des événements vers/depuis Azure Event Hubs à l'aide de .NET Core (Microsoft.Azure.EventHubs)
 Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide de la bibliothèque .NET Core **Microsoft.Azure.EventHubs**.
@@ -367,6 +367,6 @@ Consultez les articles suivants :
     Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs**, mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Fonctionnalités et terminologie dans Azure Event Hubs](event-hubs-features.md)
-- [FAQ sur les hubs d’événements](event-hubs-faq.md)
+- [FAQ sur les hubs d’événements](event-hubs-faq.yml)
 
 

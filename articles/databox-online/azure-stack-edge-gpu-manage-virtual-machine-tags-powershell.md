@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 566ca1598857f67e25faea9f19d134c4a91bfb18
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: be4348359e6b53c3e7454e9ab7c1af8ce8a7020a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555928"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305551"
 ---
 # <a name="manage-vm-tags-on-azure-stack-edge-via-azure-powershell"></a>Gérer les étiquettes de machines virtuelles sur Azure Stack Edge via Azure PowerShell
 
@@ -36,17 +36,7 @@ Avant de pouvoir déployer une machine virtuelle sur votre appareil via PowerShe
 
 ## <a name="verify-connection-to-local-azure-resource-manager"></a>Vérifier la connexion à l’instance Azure Resource Manager locale
 
-Assurez-vous que les étapes suivantes peuvent être utilisées pour accéder à l’appareil à partir de votre client.
-
-Vérifiez que votre client peut se connecter à l’instance Azure Resource Manager locale. 
-
-1. Appelez les API de l’appareil local pour l’authentification :
-
-    ```powershell
-    login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d  
-    ```
-
-1. Indiquez le nom d’utilisateur `EdgeArmUser` et le mot de passe pour vous connecter via Azure Resource Manager. Si vous avez oublié le mot de passe, consultez [Réinitialiser le mot de passe pour Azure Resource Manager](azure-stack-edge-gpu-set-azure-resource-manager-password.md) et utilisez le nouveau mot de passe pour vous connecter.
+[!INCLUDE [azure-stack-edge-gateway-verify-azure-resource-manager-connection](../../includes/azure-stack-edge-gateway-verify-azure-resource-manager-connection.md)]
 
 
 ## <a name="add-a-tag-to-a-vm"></a>Ajouter une étiquette à une machine virtuelle

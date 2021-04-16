@@ -8,17 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 704763e8e6e7c5336d0ed3e1c28791fb96c77aba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0f233bdff54822037d15fde9ac62e34193794ad3
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97844927"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106110306"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
-
-> [!IMPORTANT] 
-> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
+#     <a name="custom-entity-lookup-cognitive-skill"></a>Compétence cognitive Recherche d’entité personnalisée
 
 La compétence **Recherche d'entité personnalisée** recherche du texte dans une liste de mots et d'expressions personnalisée et définie par l'utilisateur. À l'aide de cette liste, elle étiquète tous les documents contenant des entités correspondantes. La compétence prend également en charge un degré de correspondance approximative qui peut être appliqué pour rechercher des correspondances similaires sans être rigoureusement exactes.  
 
