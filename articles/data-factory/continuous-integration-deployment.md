@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.date: 04/01/2021
+ms.openlocfilehash: 7ffcb93493ada36df59c0a8305e941176e8320b8
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784031"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121470"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -335,7 +335,7 @@ Voici une explication de la façon dont le modèle précédent est construit, d�
 * La personnalisation spécifique au type est disponible pour les jeux de données, mais vous pouvez fournir une configuration sans avoir explicitement de configuration au niveau \*. Dans l’exemple précédent, toutes les propriétés du jeu de données sous `typeProperties` sont paramétrables.
 
 > [!NOTE]
-> Les **alertes et matrices Azure** si elles sont configurées pour un pipeline ne sont actuellement pas prises en charge en tant que paramètres pour les déploiements ARM. Pour réappliquer les alertes et les matrices dans un nouvel environnement, suivez [Surveillance, alertes et matrices Data Factory.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> Les **alertes et matrices Azure** si elles sont configurées pour un pipeline ne sont actuellement pas prises en charge en tant que paramètres pour les déploiements ARM. Pour réappliquer les alertes et les matrices dans un nouvel environnement, suivez [Surveillance, alertes et matrices Data Factory.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### <a name="default-parameterization-template"></a>Modèle de paramétrage par défaut
@@ -697,6 +697,9 @@ Lors de l’exécution d’un script de prédéploiement, vous devez spécifier 
 Lors de l’exécution d’un script de post-déploiement, vous devez spécifier une variation des paramètres suivants dans le champ **Arguments de script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+> [!NOTE]
+> L’indicateur `-deleteDeployment` est utilisé pour spécifier la suppression de l’entrée de déploiement ADF de l’historique de déploiement dans ARM.
 
 ![Tâche Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
 

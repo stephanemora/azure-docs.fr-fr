@@ -5,16 +5,16 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dfd29f2265e599f3cc7c412b81c3b7b93af40db
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75445750"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109711"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggestions pour la création de balises et de versions pour les images de conteneurs
 
-Lorsque vous déplacez des images de conteneurs vers un registre et que vous les déployez ensuite, vous avez besoin d’une stratégie pour la création de balises et de versions des images. Cet article traite de deux approches et de la place de chacune d’elles dans le cycle de vie des conteneurs :
+Lorsque vous envoyez (push) des images conteneurs vers un registre et que vous les déployez ensuite, vous avez besoin d’une stratégie pour la création de balises et de versions des images. Cet article traite de deux approches et de la place de chacune d’elles dans le cycle de vie des conteneurs :
 
 * **Balises stables :** balises que vous réutilisez, par exemple, pour indiquer une version majeure ou mineure telle que *mycontainerimage:1.0*.
 * **Balises uniques :** autre balise pour chaque image que vous envoyez vers un registre, tel que *mycontainerimage:abc123*.

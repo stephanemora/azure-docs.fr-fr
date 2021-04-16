@@ -5,7 +5,7 @@
   items:
     - name: Prise en charge de la langue
       href: language-support.md
-    - name: Tarification et limites
+    - name: Tarifs
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
 - name: Traduction de texte
   expanded: true
@@ -86,7 +86,7 @@
   items:
     - name: Qu’est-ce que Custom Translator ?
       href: custom-translator/overview.md
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       href: custom-translator/faq.md
     - name: Démarrage rapide
       href: custom-translator/quickstart-build-deploy-custom-model.md
@@ -162,14 +162,24 @@
           href: document-translation/reference/get-operations.md
         - name: Annuler une opération
           href: document-translation/reference/cancel-operation.md
+- name: Guides pratiques
+  items:
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Configurer des réseaux virtuels
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/translator/context/context
+        - name: Utiliser des clés gérées par le client
+          href: encrypt-data-at-rest.md
 - name: Ressources
   items:
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Prise en charge de la région
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformité et certification
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-    - name: Conformité
-      href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy'
-    - name: Chiffrement
-      href: encrypt-data-at-rest.md
     - name: Exemples de code sur GitHub
       href: 'https://aka.ms/TranslatorGitHub'
     - name: Confidentialité et cookies
