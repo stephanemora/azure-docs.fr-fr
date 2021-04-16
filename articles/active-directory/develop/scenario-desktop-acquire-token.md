@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c63ee686ae218a696069465bb8d2d1d7413a998e
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: d45c40bb6878da80f68fff9642b55da68706743a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799086"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305835"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Application de bureau qui appelle des API web : Acquérir un jeton
 
@@ -257,13 +257,13 @@ WithParentActivityOrWindow(IWin32Window window)
 // Mac
 WithParentActivityOrWindow(NSWindow window)
 
-// .Net Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
+// .NET Standard (this will be on all platforms at runtime, but only on NetStandard at build time)
 WithParentActivityOrWindow(object parent).
 ```
 
 Remarques :
 
-- Sur .NET Standard, l’élément `object` attendu est `Activity` sur Android, `UIViewController` sur iOS, `NSWindow` sur MAC, et `IWin32Window` ou `IntPr` sur Windows.
+- Sur .NET Standard, l’élément `object` attendu est `Activity` sur Android, `UIViewController` sur iOS, `NSWindow` sur Mac et `IWin32Window` ou `IntPr` sur Windows.
 - Sur Windows, vous devez appeler `AcquireTokenInteractive` à partir du thread d’interface utilisateur, afin que le navigateur intégré obtienne le contexte de synchronisation de l’interface utilisateur approprié. Ne pas appeler depuis le thread d’interface utilisateur peut occasionner des messages qui ne pompent pas correctement, et des scénarios de blocage avec l’interface utilisateur. Un moyen d’appeler les bibliothèques d’authentification Microsoft (MSAL) à partir du thread d’interface utilisateur, si vous n’êtes pas déjà sur le thread, consiste à utiliser `Dispatcher` sur WPF.
 - Si vous utilisez WPF, vous pouvez vous servir de la classe `WindowInteropHelper.Handle` pour obtenir une fenêtre à partir d’un contrôle WPF. L’appel est alors le suivant, à partir d’un contrôle WPF (`this`) :
 
@@ -277,15 +277,26 @@ Remarques :
 
 `WithPrompt()` permet de contrôler l’interactivité avec l’utilisateur en spécifiant une invite.
 
-![Image montrant les champs de la structure de l’invite. Ces valeurs de constantes contrôlent l’interactivité avec l’utilisateur en définissant le type d’invite affiché par la méthode WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
+![Image montrant les champs de la structure de l’invite. Ces valeurs de constantes contrôlent l’interactivité avec l’utilisateur en définissant le type d’invite affiché par la méthode WithPrompt().](https://user-images.githubusercontent.com/34331512/112267137-3f1c3a00-8c32-11eb-97fb-33604311329a.png)
 
 La classe définit les constantes suivantes :
 
 - ``SelectAccount`` force le service d’émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte qui contient les comptes pour lesquels l’utilisateur dispose d’une session. Cette option est utile lorsque les développeurs d’applications veulent laisser les utilisateurs choisir parmi différentes identités. Cette option oblige MSAL à envoyer ``prompt=select_account`` au fournisseur d’identité. Cette option est celle par défaut. Elle remplit bien sa tâche en fournissant la meilleure expérience possible en fonction des informations disponibles, comme le compte et la présence d’une session pour l’utilisateur. Ne la remplacez pas, à moins d’avoir une excellente raison de le faire.
 - ``Consent`` permet au développeur d’application de forcer l’affichage d’une invite demandant à l’utilisateur son consentement, et même si celui-ci a été accordé auparavant. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. Cette option peut être utilisée dans certaines applications axées sur la sécurité, dans lesquelles la gouvernance de l’organisation exige que l’utilisateur voie s’afficher la boîte de dialogue de consentement chaque fois que l’application est utilisée.
 - ``ForceLogin`` permet au développeur d’application de faire afficher par le service une invite demandant à l’utilisateur d’entrer des informations d’identification, et même si cette invite utilisateur n’est peut-être pas nécessaire. Cette option peut s’avérer utile pour permettre à l’utilisateur de se reconnecter si l’acquisition d’un jeton échoue. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. Elle est parfois utilisée dans les applications axées sur la sécurité, pour lesquelles la gouvernance de l’organisation exige que l’utilisateur se reconnecte chaque fois qu’il accède à des parties spécifiques d’une application.
+- ``Create`` déclenche une expérience d’inscription, qui est utilisée pour External Identities, en envoyant `prompt=create` au fournisseur d’identité. Cette invite ne doit pas être envoyée pour les applications Azure AD B2C. Pour plus d’informations, consultez [Ajouter un flux d’utilisateurs d’inscription en libre-service à une application](https://aka.ms/msal-net-prompt-create).
 - ``Never`` (pour .NET 4.5 et WinRT uniquement) n’affiche aucune invite utilisateur, mais tente à la place d’utiliser le cookie stocké dans la vue web incorporée masquée. Pour plus d’informations, consultez les vues web dans MSAL.NET. L’utilisation de cette option peut échouer. Dans ce cas, `AcquireTokenInteractive` lève une exception pour notifier qu’une interaction avec l’interface utilisateur est nécessaire. Vous devez utiliser un autre paramètre `Prompt`.
 - ``NoPrompt`` n’envoie pas d’invite au fournisseur d’identité. Cette option n’est utile que pour les stratégies de modification de profil Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [Spécificités d’Azure Active Directory B2C](https://aka.ms/msal-net-b2c-specificities).
+
+#### <a name="withuseembeddedwebview"></a>WithUseEmbeddedWebView
+
+Cette méthode vous permet de spécifier si vous souhaitez forcer l’utilisation d’une vue web intégrée ou de la vue web du système (si disponible). Pour plus d’informations, consultez [Utilisation de navigateurs Web](msal-net-web-browsers.md).
+
+ ```csharp
+ var result = await app.AcquireTokenInteractive(scopes)
+                   .WithUseEmbeddedWebView(true)
+                   .ExecuteAsync();
+  ```
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
@@ -1001,7 +1012,7 @@ Ce flux n’est pas pris en charge sur MSAL pour macOS.
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password). Dans l’extrait de code ci-dessous, le nom d’utilisateur et le mot de passe sont codés en dur à des fins d’illustration uniquement. Cela doit être évité en production. Au lieu de cela, une interface utilisateur de base invitant l’utilisateur à entrer son nom d’utilisateur/mot de passe est recommandée. 
+Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/username-password). Dans l’extrait de code ci-dessous, le nom d’utilisateur et le mot de passe sont codés en dur à des fins d’illustration uniquement. Cela doit être évité en production. Au lieu de cela, une interface utilisateur de base invitant l’utilisateur à entrer son nom d’utilisateur/mot de passe est recommandée. 
 
 ```JavaScript
 const msal = require("@azure/msal-node");
@@ -1244,7 +1255,7 @@ Ce flux ne s’applique pas à macOS.
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/device-code).
+Voici un extrait des [exemples de développement MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/device-code).
 
 ```JavaScript
 const msal = require('@azure/msal-node');

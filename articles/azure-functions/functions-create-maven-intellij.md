@@ -1,17 +1,17 @@
 ---
 title: Créer une fonction Java dans Azure Functions à l’aide d’IntelliJ
 description: Découvrez comment utiliser IntelliJ pour créer une fonction Java simple déclenchée par HTTP, que vous publiez ensuite pour l’exécuter dans un environnement serverless dans Azure.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708813"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543638"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Créer votre première fonction Java dans Azure à l’aide d’IntelliJ
 
@@ -104,17 +104,9 @@ Dans cette section, vous utilisez Azure Toolkit for IntelliJ pour créer un proj
 
     ![Déployer le projet sur Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. Si vous n’avez pas encore d’application de fonction, cliquez sur *No available function, click to create a new one*.
+1. Si vous n’avez pas encore d’application de fonction, cliquez sur *+* dans la ligne *Fonction*. Saisissez le nom de l’application de fonction et choisissez la plateforme appropriée. Ici, nous pouvons simplement accepter la valeur par défaut. Cliquez sur *OK*. La nouvelle application de fonction que vous venez de créer sera automatiquement sélectionnée. Cliquez sur *Run* pour déployer vos fonctions.
 
     ![Create function app in Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. Saisissez le nom de l’application de fonction, puis choisissez un abonnement/une plateforme/un groupe de ressources/un plan App Service appropriés. Vous pouvez également créer un groupe de ressources/un plan App Service ici. Laissez les paramètres de l’application inchangés, cliquez sur *OK* et patientez quelques minutes durant la création de l’application de fonction, jusqu’à ce que la barre de progression *Creating New Function App...* disparaisse.
-
-    ![Déployer une application de fonction sur Azure, Assistant de création d’application](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. Sélectionnez l’application de fonction sur laquelle vous souhaitez effectuer le déploiement (l’application de fonction que vous venez de créer sera automatiquement sélectionnée). Cliquez sur *Run* pour déployer vos fonctions.
-
-    ![Capture d’écran montrant la boîte de dialogue Déployer Azure Functions.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Déployer une application de fonction sur Azure, journal](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

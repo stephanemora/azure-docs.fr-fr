@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781277"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443404"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
@@ -33,6 +33,13 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 |1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>Page autodéclarée (selfasserted)
+
+**2.1.4**
+- JQuery mis à jour vers la version 3.5.1.
+- HandlebarJS mis à jour vers la version 4.7.6.
+
+**2.1.3**
+- Correctifs de sécurité.
 
 **2.1.2**
 - Correction du problème d’encodage de la localisation pour des langues telles que l’espagnol et le français.
@@ -87,6 +94,14 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 > [!TIP]
 > Si vous localisez votre page pour prendre en charge plusieurs paramètres régionaux ou langues dans un flux utilisateur. L’article [ID de localisation](localization-string-ids.md) fournit la liste des ID de localisation que vous pouvez utiliser pour la version de page que vous sélectionnez.
 
+**2.1.4**
+- JQuery mis à jour vers la version 3.5.1.
+- HandlebarJS mis à jour vers la version 4.7.6.
+
+**2.1.3**
+- Correctifs de sécurité.
+- Correctifs de bogues mineurs.
+
 **2.1.2**
 - Correction du problème d’encodage de la localisation pour des langues telles que l’espagnol et le français.
 - Possibilité d’utiliser le lien « mot de passe oublié » comme échange de revendications. Pour plus d’informations, consultez [Réinitialisation de mot de passe en libre service](add-password-reset-policy.md#self-service-password-reset-recommended).
@@ -126,6 +141,15 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 
 ## <a name="mfa-page-multifactor"></a>Page MFA (multifactor)
 
+**1.2.4**
+- JQuery mis à jour vers la version 3.5.1.
+- HandlebarJS mis à jour vers la version 4.7.6.
+
+**1.2.3**
+- Autorisation du remplacement de la chaîne ToolTip via la localisation de la langue.
+- Correctifs de sécurité.
+- Correctifs de bogues mineurs.
+
 **1.2.2**
 - Correction d’un problème de remplissage automatique du code de vérification lors de l’utilisation d’iOS.
 - Correction d’un problème de redirection d’un jeton vers la partie de confiance à partir d’Android WebView. 
@@ -162,6 +186,10 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 
 ## <a name="exception-page-globalexception"></a>Page Exception (globalexception)
 
+**1.2.1**
+- JQuery mis à jour vers la version 3.5.1.
+- HandlebarJS mis à jour vers la version 4.7.6.
+
 **1.2.0**
 
 - Correctifs de l’accessibilité
@@ -182,6 +210,10 @@ La mise en page d’Azure AD B2C utilise la version suivante de la [bibliothèqu
 - Version initiale
 
 ## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>Autres pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- JQuery mis à jour vers la version 3.5.1.
+- HandlebarJS mis à jour vers la version 4.7.6.
 
 **1.2.0**
 

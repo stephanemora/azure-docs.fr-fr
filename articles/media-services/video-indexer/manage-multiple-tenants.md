@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7596aa4cef6c4bc601c15018e8ede4265f395eb7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "76990502"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312856"
 ---
 # <a name="manage-multiple-tenants"></a>Gérer plusieurs locataires
 
@@ -45,7 +45,7 @@ Selon cette architecture, un compte Video Indexer est créé pour chaque locatai
 * Ce modèle est plus difficile à gérer, en raison de la présence de plusieurs comptes Video Indexer (et Media Services associés) par locataire.
 
 > [!TIP]
-> Créez un utilisateur administrateur pour votre système sur [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) et utilisez l’API d’autorisation pour fournir à vos locataires le [jeton d’accès au compte](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token) nécessaire.
+> Créez un utilisateur administrateur pour votre système sur [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) et utilisez l’API d’autorisation pour fournir à vos locataires le [jeton d’accès au compte](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token) nécessaire.
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Un compte Video Indexer unique pour tous les utilisateurs
 
@@ -55,7 +55,7 @@ Selon cette architecture, l’isolation des locataires incombe au client. Tous l
 
 Avec cette option, il est possible de partager ou d’isoler les modèles de personnalisation (personne, langue et marques) entre les locataires en filtrant les modèles par locataire.
 
-Lors du [chargement de vidéos](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), vous pouvez spécifier un autre attribut de partition par locataire, ce qui permet l’isolation dans [l’API de recherche](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?). Ainsi, vous n’obtiendrez que les résultats de la partition spécifiée. 
+Lors du [chargement de vidéos](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video), vous pouvez spécifier un autre attribut de partition par locataire, ce qui permet l’isolation dans [l’API de recherche](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Search-Videos). Ainsi, vous n’obtiendrez que les résultats de la partition spécifiée. 
 
 ### <a name="considerations"></a>Considérations
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a195567117378a118b9bea8d15a7cb0a661d284a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101738138"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303523"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Langues et régions prises en charge pour la traduction de texte et vocale
 
@@ -52,8 +52,8 @@ Translator prend en charge les langues suivantes pour la traduction de texte en 
 | Chinois traditionnel | `zh-Hant` |
 | Croate | `hr` |
 | Tchèque | `cs` |
-| Dari | `prs` |
 | Danois | `da` |
+| Dari | `prs` |
 | Néerlandais | `nl` |
 | Anglais | `en` |
 | Estonien | `et` |
@@ -340,6 +340,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l
 | Hongrois      | `hu`          |
 | Islandais | `is` |
 | Indonésien|   `id`    |
+| Inuktitut|    `iu`    |
 | Irlandais | `ga`  |
 | Italien      | `it`          |
 | Japonais      | `ja`          |

@@ -3,12 +3,12 @@ title: Utiliser les alertes dans la console de gestion locale
 description: Utilisez la console de gestion locale pour obtenir une vue au niveau de l’entreprise des menaces récentes sur votre réseau et mieux comprendre comment les utilisateurs de capteurs les gèrent.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781464"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105032138"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Utiliser les alertes dans la console de gestion locale 
 
@@ -242,6 +242,7 @@ Les règles que vous créez à l’aide de l’API s’affichent dans la fenêtr
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Capture d’écran de la vue Modifier la règle d’exclusion.":::
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-[Utiliser des alertes sur votre capteur](how-to-work-with-alerts-on-your-sensor.md)
+[Utilisez des alertes sur votre capteur](how-to-work-with-alerts-on-your-sensor.md).
+Consultez les [alertes du moteur Defender pour IoT](alert-engine-messages.md).

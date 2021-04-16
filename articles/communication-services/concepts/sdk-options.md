@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 92324d68eabfb1885a482a7f539140f93be77596
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d71720b446baa8e2e5e15c407a69d9ff884004b2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605193"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307688"
 ---
 # <a name="sdks-and-rest-apis"></a>Kits SDK et API REST
 
@@ -24,7 +24,7 @@ Les fonctionnalités Azure Communication Services sont organisées de façon con
 Les API Communication Services ainsi que d’autres API REST Azure sont documentées dans [docs.microsoft.com](/rest/api/azure/). Dans cette documentation, vous trouverez des conseils sur la structure de vos messages HTTP et l’utilisation de Postman. Cette documentation est également disponible au format Swagger sur [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 
-## <a name="sdks"></a>SDK
+## <a name="sdks"></a>Kits SDK
 
 | Assembly | Espaces de noms| Protocoles | Fonctionnalités |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
@@ -52,7 +52,7 @@ Vous trouverez ci-dessous des emplacements de publication pour chaque package de
 | Conversation           | [npm](https://www.npmjs.com/package/@azure/communication-chat)        | [NuGet](https://www.nuget.org/packages/Azure.Communication.Chat)     | [PyPI](https://pypi.org/project/azure-communication-chat/)     | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | [GitHub](https://github.com/Azure/azure-sdk-for-ios/releases)  | [Maven](https://search.maven.org/search?q=a:azure-communication-chat)   | -                              |
 | SMS            | [npm](https://www.npmjs.com/package/@azure/communication-sms)         | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms)    | [PyPI](https://pypi.org/project/azure-communication-sms/)       | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)   | -              | -              | -                              |
 | Appel        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
-| Documentation de référence     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
+| Documentation de référence     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.android.communication.calling)            | -                              |
 
 
 ## <a name="rest-api-throttles"></a>Limitations de l’API REST

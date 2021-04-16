@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a571d92dd9663c7d2d0a576b59e5cd2b3352cb76
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ad1351b7c9a649a553ce54422b99a13c286437d6
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951012"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107293"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gérer automatiquement les appareils dans Azure Digital représentations à l’aide du service Device Provisioning (DPS)
 
@@ -302,7 +302,7 @@ Une fois que vous avez parcouru ce processus, tout est configuré pour mettre le
 
 Pour déclencher le processus de mise hors service, vous devez supprimer manuellement l’appareil d’IoT Hub.
 
-Vous pouvez faire cela avec une [commande Azure CLI](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) ou dans le portail Azure. Effectuez les étapes ci-dessous pour supprimer l’appareil dans le portail Azure :
+Vous pouvez faire cela avec une [commande Azure CLI](/cli/azure/iot/hub/module-identity#az_iot_hub_module_identity_delete) ou dans le portail Azure. Effectuez les étapes ci-dessous pour supprimer l’appareil dans le portail Azure :
 
 1. Accédez à votre IoT Hub, puis sélectionnez **Appareils IoT** dans les options de menu sur la gauche. 
 2. Vous verrez un appareil avec l’ID d’inscription de l’appareil que vous avez choisi dans la [première moitié de cet article](#auto-provision-device-using-device-provisioning-service). Vous pouvez également choisir n’importe quel autre appareil à supprimer, à condition qu’il dispose d’un jumeau numérique dans Azure Digital Twins pour vous permettre de vérifier que le jumeau numérique est automatiquement supprimé une fois l’appareil supprimé.

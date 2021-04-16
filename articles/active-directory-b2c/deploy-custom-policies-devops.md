@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ca4464f40c0807e51adffca8e3e68c622314de6
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928730"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256886"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Déployer des stratégies personnalisées avec Azure Pipelines
 
@@ -34,7 +34,7 @@ Trois étapes principales sont nécessaires pour permettre à Azure Pipelines de
 ## <a name="prerequisites"></a>Prérequis
 
 * [Locataire Azure AD B2C](tutorial-create-tenant.md) et informations d'identification d'un utilisateur de l'annuaire disposant du rôle [Administrateur de stratégies B2C IEF](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
-* [Stratégies personnalisées](custom-policy-get-started.md) téléchargées sur votre locataire
+* [Stratégies personnalisées](tutorial-create-user-flows.md?pivots=b2c-custom-policy) téléchargées sur votre locataire
 * [Application de gestion](microsoft-graph-get-started.md) inscrite dans votre locataire avec l’autorisation de l’API Microsoft Graph *Policy.ReadWrite.TrustFramework*
 * [Pipeline Azure](https://azure.microsoft.com/services/devops/pipelines/) et accès à un [projet Azure DevOps Services][devops-create-project]
 

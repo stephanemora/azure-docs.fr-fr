@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 3446de7592c10fd9c0905097a77314192688719d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 52dd642c661aa60157876a89d41c771cabfe2f1d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554006"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256155"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -38,7 +38,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Langage                 | Paramètres régionaux (BCP-47) | Personnalisations  | [Détection de la langue](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
-| Arabe (Bahreïn), standard moderne  | `ar-BH` | Texte                                   | Oui                           | 
+| Arabe (Bahreïn), standard moderne  | `ar-BH` | Texte                                   |                           | 
 | Arabe (Égypte)                     | `ar-EG` | Texte                                   | Oui                          |
 | Arabe (Irak)                      | `ar-IQ` | Texte                                   |                           |
 | Arabe (Israël)                    | `ar-IL` | Texte                                   |                           |
@@ -47,9 +47,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Arabe (Liban)                   | `ar-LB` | Texte                                   |                           |
 | Arabe (Oman)                      | `ar-OM` | Texte                                   |                           |
 | Arabe (Qatar)                     | `ar-QA` | Texte                                   |                           |
-| Arabe (Arabie saoudite)              | `ar-SA` | Texte                                   | Oui                          |
+| Arabe (Arabie saoudite)              | `ar-SA` | Texte                                   |                           |
 | Arabe (État de Palestine)        | `ar-PS` | Texte                                   |                           |
-| Arabe (Syrie)                     | `ar-SY` | Texte                                   | Oui                          |
+| Arabe (Syrie)                     | `ar-SY` | Texte                                   |                           |
 | Arabe (Émirats arabes unis)      | `ar-AE` | Texte                                   |                           |
 | Bulgare (Bulgarie)               | `bg-BG` | Texte                                   |                           |
 | Catalan (Espagne)                    | `ca-ES` | Texte                                   | Oui                          |
@@ -59,15 +59,15 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Croate (Croatie)                 | `hr-HR` | Texte                                   |                           |
 | Tchèque (République tchèque)             | `cs-CZ` | Texte                                   |                           |
 | Danois (Danemark)                   | `da-DK` | Texte                                   | Oui                          |
-| Néerlandais (Pays-Bas)                | `nl-NL` | Audio (20201015)<br>Texte                                   |    Oui                       |
+| Néerlandais (Pays-Bas)                | `nl-NL` | Audio (20201015)<br>Texte<br>Prononcer|    Oui                       |
 | Anglais (Australie)                | `en-AU` | Audio (20201019)<br>Texte                 | Oui                          |
 | Anglais (Canada)                   | `en-CA` | Audio (20201019)<br>Texte                 | Oui                          |
 | Anglais (Ghana)                    | `en-GH` | Texte                                   |                           |
 | Anglais (Hong Kong)                | `en-HK` | Texte                                   |                           |
-| Anglais (Inde)                    | `en-IN` | Audio (20200923)<br>Texte                 | Oui                          |
+| Anglais (Inde)                    | `en-IN` | Audio (20200923)<br>Texte                 |                          |
 | Anglais (Irlande)                  | `en-IE` | Texte                                   |                           |
 | Anglais (Kenya)                    | `en-KE` | Texte                                   |                           |
-| Anglais (Nouvelle-Zélande)              | `en-NZ` | Audio (20201019)<br>Texte                 |  Oui                         |
+| Anglais (Nouvelle-Zélande)              | `en-NZ` | Audio (20201019)<br>Texte                 |                          |
 | Anglais (Nigeria)                  | `en-NG` | Texte                                   |                           |
 | Anglais (Philippines)              | `en-PH` | Texte                                   |                           |
 | Anglais (Singapour)                | `en-SG` | Texte                                   |                           |
@@ -78,12 +78,12 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Estonien (Estonie)                  | `et-EE` | Texte                                   |                           |
 | Filipino (Philippines)             | `fil-PH`| Texte                                   |                           |
 | Finnois (Finlande)                  | `fi-FI` | Texte                                   |     Oui                      |
-| Français (Canada)                    | `fr-CA` | Audio (20201015)<br>Texte                 |     Oui                      |
+| Français (Canada)                    | `fr-CA` | Audio (20201015)<br>Texte<br>Prononcer|     Oui                      |
 | Français (France)                    | `fr-FR` | Audio (20201015)<br>Texte<br>Prononcer|      Oui                     |
-| Français (Suisse)               | `fr-CH` | Texte                                   |                           |
-| Allemand (Autriche)                   | `de-AT` | Texte                                   |                           |
+| Français (Suisse)               | `fr-CH` | Texte<br>Prononcer                  |                           |
+| Allemand (Autriche)                   | `de-AT` | Texte<br>Prononcer                  |                           |
 | Allemand (Allemagne)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Texte<br>Prononcer|  Oui                         |
-| Grec (Grèce)                     | `el-GR` | Texte                                   |                           |
+| Grec (Grèce)                     | `el-GR` | Texte                                   |  Oui                         |
 | Goudjrati (Inde)                  | `gu-IN` | Texte                                   |                           |
 | Hindi (Inde)                      | `hi-IN` | Audio (20200701)<br>Texte                 |     Oui                      |
 | Hongrois (Hongrie)                | `hu-HU` | Texte                                   |                           |
@@ -100,33 +100,33 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Norvégien (bokmål, Norvège)         | `nb-NO` | Texte                                   |     Oui                      |
 | Polonais (Pologne)                    | `pl-PL` | Texte                                   |       Oui                    |
 | Portugais (Brésil)                | `pt-BR` | Audio (20190620, 20201015)<br>Texte<br>Prononcer|          Oui                 |
-| Portugais (Portugal)              | `pt-PT` | Texte                                   |             Oui              |
-| Roumain (Roumanie)                 | `ro-RO` | Texte                                   |                           |
+| Portugais (Portugal)              | `pt-PT` | Texte<br>Prononcer                  |             Oui              |
+| Roumain (Roumanie)                 | `ro-RO` | Texte                                   |  Oui                         |
 | Russe (Russie)                   | `ru-RU` | Audio (20200907)<br>Texte                 |                Oui           |
 | Slovaque (Slovaquie)                  | `sk-SK` | Texte                                   |                           |
 | Slovène (Slovénie)               | `sl-SI` | Texte                                   |                           |
-| Espagnol (Argentine)                | `es-AR` | Texte                                   |                           |
-| Espagnol (Bolivie)                  | `es-BO` | Texte                                   |                           |
-| Espagnol (Chili)                    | `es-CL` | Texte                                   |                           |
-| Espagnol (Colombie)                 | `es-CO` | Texte                                   |                           |
-| Espagnol (Costa Rica)               | `es-CR` | Texte                                   |                           |
-| Espagnol (Cuba)                     | `es-CU` | Texte                                   |                           |
-| Espagnol (République dominicaine)       | `es-DO` | Texte                                   |                           |
-| Espagnol (Équateur)                  | `es-EC` | Texte                                   |                           |
-| Espagnol (Salvador)              | `es-SV` | Texte                                   |                           |
+| Espagnol (Argentine)                | `es-AR` | Texte<br>Prononcer                  |                           |
+| Espagnol (Bolivie)                  | `es-BO` | Texte<br>Prononcer                  |                           |
+| Espagnol (Chili)                    | `es-CL` | Texte<br>Prononcer                  |                           |
+| Espagnol (Colombie)                 | `es-CO` | Texte<br>Prononcer                  |                           |
+| Espagnol (Costa Rica)               | `es-CR` | Texte<br>Prononcer                  |                           |
+| Espagnol (Cuba)                     | `es-CU` | Texte<br>Prononcer                  |                           |
+| Espagnol (République dominicaine)       | `es-DO` | Texte<br>Prononcer                  |                           |
+| Espagnol (Équateur)                  | `es-EC` | Texte<br>Prononcer                  |                           |
+| Espagnol (Salvador)              | `es-SV` | Texte<br>Prononcer                  |                           |
 | Espagnol (Guinée équatoriale)        | `es-GQ` | Texte                                   |                           |
-| Espagnol (Guatemala)                | `es-GT` | Texte                                   |                           |
-| Espagnol (Honduras)                 | `es-HN` | Texte                                   |                           |
-| Espagnol (Mexique)                   | `es-MX` | Audio (20200907)<br>Texte                 |    Oui                       |
-| Espagnol (Nicaragua)                | `es-NI` | Texte                                   |                           |
-| Espagnol (Panama)                   | `es-PA` | Texte                                   |                           |
-| Espagnol (Paraguay)                 | `es-PY` | Texte                                   |                           |
-| Espagnol (Pérou)                     | `es-PE` | Texte                                   |                           |
-| Espagnol (Porto Rico)              | `es-PR` | Texte                                   |                           |
-| Espagnol (Espagne)                    | `es-ES` | Audio (20201015)<br>Texte                 |  Oui                         |
-| Espagnol (Uruguay)                  | `es-UY` | Texte                                   |                           |
-| Espagnol (États-Unis)                      | `es-US` | Texte                                   |                           |
-| Espagnol (Venezuela)                | `es-VE` | Texte                                   |                           |
+| Espagnol (Guatemala)                | `es-GT` | Texte<br>Prononcer                  |                           |
+| Espagnol (Honduras)                 | `es-HN` | Texte<br>Prononcer                  |                           |
+| Espagnol (Mexique)                   | `es-MX` | Audio (20200907)<br>Texte<br>Prononcer|    Oui                       |
+| Espagnol (Nicaragua)                | `es-NI` | Texte<br>Prononcer                  |                           |
+| Espagnol (Panama)                   | `es-PA` | Texte<br>Prononcer                  |                           |
+| Espagnol (Paraguay)                 | `es-PY` | Texte<br>Prononcer                  |                           |
+| Espagnol (Pérou)                     | `es-PE` | Texte<br>Prononcer                  |                           |
+| Espagnol (Porto Rico)              | `es-PR` | Texte<br>Prononcer                  |                           |
+| Espagnol (Espagne)                    | `es-ES` | Audio (20201015)<br>Texte<br>Prononcer|  Oui                         |
+| Espagnol (Uruguay)                  | `es-UY` | Texte<br>Prononcer                  |                           |
+| Espagnol (États-Unis)                      | `es-US` | Texte<br>Prononcer                  |                           |
+| Espagnol (Venezuela)                | `es-VE` | Texte<br>Prononcer                  |                           |
 | Suédois (Suède)                   | `sv-SE` | Texte                                   |   Oui                        |
 | Tamoul (Inde)                      | `ta-IN` | Texte                                   |                           |
 | Télougou (Inde)                     | `te-IN` | Texte                                   |                           |
@@ -283,10 +283,10 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Thaï (Thaïlande) | `th-TH` | Male | `th-TH-NiwatNeural` | Général |
 | Turc (Turquie) | `tr-TR` | Female | `tr-TR-EmelNeural` | Général |
 | Turc (Turquie) | `tr-TR` | Male | `tr-TR-AhmetNeural` | Général |
-| Ukrainien (Ukraine) | `uk-UA` | Female | `en-ZA-LeahNeural` <sup>Nouveau</sup> | Général | 
-| Ukrainien (Ukraine) | `uk-UA` | Male | `en-ZA-LukeNeural` <sup>Nouveau</sup> | Général | 
-| Ourdou (Pakistan) | `ur-PK` | Female | `uk-UA-PolinaNeural` <sup>Nouveau</sup> | Général | 
-| Ourdou (Pakistan) | `ur-PK` | Male | `uk-UA-OstapNeural` <sup>Nouveau</sup> | Général | 
+| Ukrainien (Ukraine) | `uk-UA` | Female | `uk-UA-PolinaNeural` <sup>Nouveau</sup> | Général | 
+| Ukrainien (Ukraine) | `uk-UA` | Male | `uk-UA-OstapNeural` <sup>Nouveau</sup> | Général | 
+| Ourdou (Pakistan) | `ur-PK` | Female | `ur-PK-UzmaNeural` <sup>Nouveau</sup>  | Général | 
+| Ourdou (Pakistan) | `ur-PK` | Male | `ur-PK-AsadNeural` <sup>Nouveau</sup> | Général | 
 | Vietnamien (Vietnam) | `vi-VN` | Female | `vi-VN-HoaiMyNeural` | Général |
 | Vietnamien (Vietnam) | `vi-VN` | Male | `vi-VN-NamMinhNeural` | Général |
 | Gallois (Royaume-Uni) | `cy-GB` | Female | `cy-GB-NiaNeural` <sup>Nouveau</sup> | Général | 

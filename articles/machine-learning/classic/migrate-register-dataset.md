@@ -3,17 +3,17 @@ title: 'ML Studio (classique) : Migrer vers Azure Machine Learning – Reconstr
 description: Reconstruisez des jeux de données Studio (classique) dans le concepteur d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 02/04/2021
-ms.openlocfilehash: 4c04dd5a2b41b3db54b20c9e514767453951cc35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9604fc9d862d94ba5e566753d2186d7d28aa37ee
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565567"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308844"
 ---
 # <a name="migrate-a-studio-classic-dataset-to-azure-machine-learning"></a>Migrer un jeu de données Studio (classique) vers Azure Machine Learning
 

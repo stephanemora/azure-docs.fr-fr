@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: b47a205cac1717dfc66594f856fd9370a01a9ae3
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 2f321413a275676d0abb1a075ba958885ffcd821
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168210"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505023"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Résoudre des problèmes courants liés à l’Agent Windows Virtual Desktop
 
@@ -216,7 +216,7 @@ Pour résoudre ce problème :
 
 ## <a name="error-heartbeat-issue-where-users-keep-getting-disconnected-from-session-hosts"></a>Erreur : problème de pulsation avec des utilisateurs constamment déconnectés des hôtes de session
 
-Si votre serveur ne détecte pas de pulsation du service Windows Virtual Desktop, vous devez modifier le seuil de pulsation. Suivez ces instructions si un ou plusieurs des scénarios suivants vous concernent :
+Si votre serveur ne détecte pas de pulsation du service Windows Virtual Desktop, vous devez modifier le seuil de pulsation. Cela permet d’atténuer temporairement les symptômes du problème, mais ne corrige pas le problème réseau sous-jacent. Suivez ces instructions si un ou plusieurs des scénarios suivants vous concernent :
 
 - Vous recevez une erreur **CheckSessionHostDomainIsReachableAsync**
 - Vous recevez une erreur **ConnectionBrokenMissedHeartbeatThresholdExceeded**
@@ -316,7 +316,7 @@ Pour résoudre ce problème :
 
 Si vous ne trouvez pas votre problème dans cet article ou si les instructions ne vous ont pas été utiles, nous vous recommandons de désinstaller, réinstaller et réinscrire l’agent Windows Virtual Desktop. Les instructions de cette section montrent comment réinscrire votre machine virtuelle auprès du service Windows Virtual Desktop en désinstallant tout agent, chargeur de démarrage et composant de pile, en supprimant l’hôte de la session du pool d’hôtes, en générant une nouvelle clé d’inscription pour la machine virtuelle, et en réinstallant l’agent et le chargeur de démarrage. Si un ou plusieurs des scénarios suivants s’appliquent à vous, suivez ces instructions :
 - Votre machine virtuelle est bloquée dans l’état **Mise à niveau** ou **Indisponible**.
-- Votre écouteur de pile ne fonctionne pas et vous opérez sur Windows 10 1809, 1903 ou 1904.
+- Votre écouteur de pile ne fonctionne pas et vous opérez sur Windows 10 1809, 1903 ou 1909.
 - Vous recevez une erreur **EXPIRED_REGISTRATION_TOKEN**.
 - Vous ne voyez pas vos machines virtuelles apparaître dans la liste des hôtes de la session.
 - Vous ne voyez pas le **chargeur de l’agent Bureau à distance** dans la fenêtre Services.

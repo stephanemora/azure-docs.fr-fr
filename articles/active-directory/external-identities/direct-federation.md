@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 830119a5b3a7781e8b12e3d4df870f539a2cd63a
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687241"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364904"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Fédération directe avec AD FS et des fournisseurs tiers pour les utilisateurs invités (version préliminaire)
 
@@ -33,12 +33,12 @@ Après avoir configuré la fédération directe avec une organisation, tous les 
  - Si vous configurez la fédération directe avec une organisation partenaire et invitez des utilisateurs invités et qu’ensuite l’organisation partenaire passe à Azure AD, les utilisateurs invités qui ont déjà utilisé des invitations continueront d’utiliser la fédération directe, tant que la stratégie existe dans votre locataire.
  - Si vous supprimez la fédération directe avec une organisation partenaire, tous les utilisateurs invités qui utilisent actuellement la fédération directe ne pourront plus se connecter.
 
-Dans un de ces scénarios, vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en supprimant le compte d’utilisateur invité de votre répertoire et en le réinvitant.
+Dans l’un de ces scénarios, vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en [réinitialisant l’état d’acceptation](reset-redemption-status.md).
 
 La fédération directe est liée aux espaces de noms domaine, par exemple contoso.com et fabrikam.com. Lorsque vous établissez une configuration de la fédération directe avec AD FS ou un fournisseur d’identité tiers, les organisations associent un ou plusieurs espaces de noms domaine à ces fournisseurs d’identité. 
 
 ## <a name="end-user-experience"></a>Expérience de l’utilisateur final 
-Avec la fédération directe, les utilisateurs invités se connectent à votre client Azure AD à l’aide de leur propre compte professionnel. Lorsqu’ils accèdent à des ressources partagées et qu’ils sont invités à se connecter, les utilisateurs de la fédération directe sont redirigés vers leur fournisseur d’identité. Après s’être connectés, ils sont renvoyés vers Azure AD pour accéder aux ressources. Les jetons d’actualisation des utilisateurs de la fédération directe sont valides pendant 12 heures, qui est la [durée par défaut de transfert d’un jeton d’actualisation](../develop/active-directory-configurable-token-lifetimes.md#exceptions) dans Azure AD. Si le fournisseur d’identité fédéré dispose de l’authentification unique, l’utilisateur en profitera et ne verra aucune invite de connexion après son authentification initiale.
+Avec la fédération directe, les utilisateurs invités se connectent à votre client Azure AD à l’aide de leur propre compte professionnel. Lorsqu’ils accèdent à des ressources partagées et qu’ils sont invités à se connecter, les utilisateurs de la fédération directe sont redirigés vers leur fournisseur d’identité. Après s’être connectés, ils sont renvoyés vers Azure AD pour accéder aux ressources. Les jetons d’actualisation des utilisateurs de la fédération directe sont valides pendant 12 heures, qui est la [durée par défaut de transfert d’un jeton d’actualisation](../develop/active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties) dans Azure AD. Si le fournisseur d’identité fédéré dispose de l’authentification unique, l’utilisateur en profitera et ne verra aucune invite de connexion après son authentification initiale.
 
 ## <a name="sign-in-endpoints"></a>Points de terminaison de connexion
 
@@ -89,7 +89,7 @@ Lorsque la fédération directe est établie avec une organisation partenaire, e
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La fédération directe répond-elle aux problèmes de connexion, étant une location partiellement synchronisée ?
 Non, la fonctionnalité de connexion par [code secret à usage unique par e-mail](one-time-passcode.md) doit être utilisée dans ce cas. Une « location partiellement synchronisée » fait référence à un locataire Azure AD partenaire où les identités utilisateur locales ne sont pas entièrement synchronisées avec le cloud. Un invité dont l’identité n’existe pas encore dans le cloud mais qui essaie d’utiliser votre invitation B2B ne pourra pas se connecter. La fonctionnalité de code secret à usage unique permettrait à cet invité de se connecter. La fonctionnalité de fédération directe répond aux scénarios où l’invité a son propre compte professionnel géré par le fournisseur d’identité, mais que l’organisation n’a aucune présence sur Azure AD.
 ### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Une fois que la fédération directe est configurée avec une organisation, faut-il envoyer une invitation individuelle à chaque invité pour qu’il l’utilise ?
-La configuration de la fédération directe ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en supprimant le compte d’utilisateur invité de votre répertoire et en le réinvitant.
+La configuration de la fédération directe ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en [réinitialisant l’état d’acceptation](reset-redemption-status.md).
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Étape 1 : Configurer le fournisseur d’identité de l’organisation partenaire
 Votre organisation partenaire doit d’abord configurer son fournisseur d’identité avec les revendications requises et les approbations de partie de confiance. 
 
@@ -212,7 +212,7 @@ Testez maintenant la configuration de votre fédération directe en invitant un 
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>Comment supprimer la fédération directe ?
-Vous pouvez supprimer la configuration de votre fédération directe. Si vous le faites, les utilisateurs invités par fédération directe qui ont déjà utilisé leur invitation ne pourront plus se connecter. Mais vous pouvez leur donner accès à vos ressources à nouveau en les supprimant du répertoire et en les réinvitant. Pour supprimer une fédération directe avec un fournisseur d’identité dans le portail Azure AD :
+Vous pouvez supprimer la configuration de votre fédération directe. Si vous le faites, les utilisateurs invités par fédération directe qui ont déjà utilisé leur invitation ne pourront plus se connecter. Toutefois, vous pouvez autoriser de nouveau l’accès à vos ressources en [réinitialisant l’état d’acceptation](reset-redemption-status.md). Pour supprimer une fédération directe avec un fournisseur d’identité dans le portail Azure AD :
 
 1. Accédez au [portail Azure](https://portal.azure.com/). Sélectionnez **Azure Active Directory** dans le volet de gauche. 
 2. Sélectionnez **Identités externes**.

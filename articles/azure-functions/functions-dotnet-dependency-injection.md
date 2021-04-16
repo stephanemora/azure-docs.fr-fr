@@ -4,15 +4,15 @@ description: Découvrez comment utiliser l’injection de dépendances pour l’
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955086"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608117"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -21,6 +21,11 @@ Azure Functions prend en charge le modèle de conception logicielle d’injectio
 - L’injection de dépendance dans Azure Functions repose sur les fonctionnalités d’injection de dépendance .Net Core. Il est recommandé d’avoir une certaine connaissance de [l’injection de dépendance .NET Core](/aspnet/core/fundamentals/dependency-injection). Il existe des différences dans le remplacement des dépendances et la lecture des valeurs de configuration avec Azure Functions sur le plan de consommation.
 
 - L’injection de dépendances est prise en charge depuis Azure Functions 2.x.
+
+- Les modèles d’injection de dépendances diffèrent selon que vos fonctions C# s’exécutent [in-process](functions-dotnet-class-library.md) ou [hors processus](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> Les conseils d’aide de cet article s’appliquent uniquement aux [fonctions de bibliothèque de classes C#](functions-dotnet-class-library.md), qui s’exécutent in-process avec le runtime. Ce modèle d’injection de dépendances personnalisé ne s’applique pas aux [fonctions isolées .NET](dotnet-isolated-process-guide.md), qui vous permettent d’exécuter des fonctions .NET 5.0 hors processus. Le modèle de processus isolé .NET repose sur les modèles d’injection de dépendances standard ASP.NET Core. Pour en savoir plus, consultez [Injection de dépendances](dotnet-isolated-process-guide.md#dependency-injection) dans le guide des processus isolés .NET.
 
 ## <a name="prerequisites"></a>Prérequis
 

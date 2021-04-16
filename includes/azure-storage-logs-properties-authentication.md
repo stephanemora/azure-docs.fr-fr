@@ -4,17 +4,17 @@ ms.service: storage
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
-ms.openlocfilehash: 61576de4a57d55ea9d1ea209c52df556f0069617
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca8963ed8928745a6d5918c86021199432339c83
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750293"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104612342"
 ---
 | Propriété | Description |
 |:--- |:---|
 |**identity / type** | Type d’authentification qui a été utilisé pour effectuer la demande. Par exemple : `OAuth`, `Kerberos`, `SAS Key`, `Account Key` ou `Anonymous` |
-|**identity / tokenHash**|Ce champ est réservé à un usage interne. |
+|**identity / tokenHash**|Hachage SHA-256 du jeton d’authentification utilisé sur la requête. <br>Lorsque le type d’authentification est `Account Key`, le format est « clé1 \| clé2 (hachage SHA256 de la clé) ». Par exemple : `key1(5RTE343A6FEB12342672AFD40072B70D4A91BGH5CDF797EC56BF82B2C3635CE)`. <br>Lorsque le type d’authentification est `SAS Key`, le format est « clé1 \| clé2 (hachage SHA 256 de la clé),SignatureSas(hachage SHA 256 du jeton SAS) ». Par exemple : `key1(0A0XE8AADA354H19722ED12342443F0DC8FAF3E6GF8C8AD805DE6D563E0E5F8A),SasSignature(04D64C2B3A704145C9F1664F201123467A74D72DA72751A9137DDAA732FA03CF)`. Lorsque le type d’authentification est `OAuth`, le format est « hachage SHA 256 du jeton OAuth ». Par exemple : `B3CC9D5C64B3351573D806751312317FE4E910877E7CBAFA9D95E0BE923DW25C`<br> Pour les autres types d’authentification, il n’y a aucun champ tokenHash. |
 |**authorization / action** | Action affectée à la demande. |
 |**authorization / roleAssignmentId** | ID d’attribution de rôle. Par exemple : `4e2521b7-13be-4363-aeda-111111111111`.|
 |**authorization / roleDefinitionId** | ID de définition de rôle. Par exemple : `ba92f5b4-2d11-453d-a403-111111111111"`.|

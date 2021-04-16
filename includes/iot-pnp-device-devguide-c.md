@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: ad83ef0f3f4c0717a3cb669c34145572d44be09a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d215da660929c66514f9d0cf5f3161c83a1c330c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616617"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104582775"
 ---
 ## <a name="model-id-announcement"></a>Annonce de l’ID de modèle
 
@@ -41,7 +41,7 @@ Les appareils qui utilisent [Device Provisioning Service (DPS)](../articles/iot-
 
 ## <a name="implement-telemetry-properties-and-commands"></a>Implémentation des données de télémétrie, des propriétés et des commandes
 
-Comme le décrit la section [Présentation des composants dans les modèles IoT Plug-and-Play](../articles/iot-pnp/concepts-components.md), les générateurs d’appareils doivent décider s’ils souhaitent utiliser des composants pour décrire leurs appareils, auquel cas ces derniers devront suivre les règles décrites dans cette section.
+Comme le décrit la section [Présentation des composants dans les modèles IoT Plug-and-Play](../articles/iot-pnp/concepts-modeling-guide.md), les générateurs d’appareils doivent décider s’ils souhaitent utiliser des composants pour décrire leurs appareils, auquel cas ces derniers devront suivre les règles décrites dans cette section.
 
 ### <a name="telemetry"></a>Télémétrie
 
@@ -403,7 +403,7 @@ Le jumeau d’appareil montre la propriété dans les sections desired et report
 }
 ```
 
-Un composant imbriqué reçoit les propriétés souhaitées encapsulées avec le nom du composant et doit signaler en retour la propriété rapportée `ack` :
+Un composant imbriqué reçoit les propriétés souhaitées encapsulées avec le nom du composant et doivent renvoyer la propriété rapportée `ack` :
 
 ```c
 bool PnP_ProcessTwinData(

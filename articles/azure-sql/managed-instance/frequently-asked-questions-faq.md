@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503196"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628575"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -88,7 +88,7 @@ Vous pouvez provisionner une instance à partir du [Portail Azure](instance-crea
 
 Oui, vous pouvez provisionner une instance managée dans un abonnement existant si cet abonnement appartient aux [types d’abonnements pris en charge](resource-limits.md#supported-subscription-types).
 
-**Pourquoi ne puis-je pas provisionner une instance managée dans le sous-réseau dont le nom commence par un chiffre ?**
+**Pourquoi ne puis-je pas approvisionner une instance gérée dans un sous-réseau dont le nom commence par un chiffre ?**
 
 Il s’agit d’une limitation actuelle du composant sous-jacent qui vérifie le nom du sous-réseau par rapport à l’expression régulière ^[a-zA-Z_][^\\\/\:\*\?\"\<\>\|\`\'\^]*(?<![\.\s])$. Tous les noms qui réussissent le test de l’expression régulière et qui sont des noms de sous-réseau valides sont actuellement pris en charge.
 
@@ -135,7 +135,7 @@ L’instance gérée offre les mêmes niveaux de performance par calcul et taill
 
 Une option consiste à [exporter la base de données vers un fichier BACPAC](../database/database-export.md), puis à [importer le fichier BACPAC](../database/database-import.md). Cette approche est recommandée si votre base de données est inférieure à 100 Go.
 
-La [réplication transactionnelle](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) peut être utilisée si tous les tableaux dans la base de données ont des clés *primaires* et s’il n'y a pas d'objets OLTP en mémoire.
+La [réplication transactionnelle](replication-two-instances-and-sql-server-configure-tutorial.md) peut être utilisée si tous les tableaux dans la base de données ont des clés *primaires* et s’il n'y a pas d'objets OLTP en mémoire.
 
 Les sauvegardes natives COPY_ONLY prises à partir d’une instance managée ne peuvent pas être restaurées sur SQL Server car l’instance managée a une version de base de données supérieure à celle de SQL Server. Pour plus d’informations, consultez [Sauvegarde en copie seule](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
@@ -171,7 +171,7 @@ Consultez [Causes principales des différences entre SQL Managed Instance et SQL
 
 Vous pouvez optimiser les performances de votre instance managée en procédant comme suit :
 - Le [réglage automatique](../database/automatic-tuning-overview.md) fournit une optimisation des performances et une stabilisation des charges de travail grâce à un réglage continu des performances basé sur l’intelligence artificielle et le machine learning.
--   L’[OLTP en mémoire](../in-memory-oltp-overview.md) améliore le débit et la latence sur les charges de travail de traitement transactionnel et fournit des analyses plus rapides. 
+-    L’[OLTP en mémoire](../in-memory-oltp-overview.md) améliore le débit et la latence sur les charges de travail de traitement transactionnel et fournit des analyses plus rapides. 
 
 Pour affiner encore davantage les performances, envisagez d’appliquer certaines des *bonnes pratiques* pour [optimiser les applications et des bases de données](../database/performance-guidance.md#tune-your-database).
 Si votre charge de travail est constituée d’un grand nombre de petites transactions, envisagez de [passer le type de connexion du mode proxy au mode redirection](connection-types-overview.md#changing-connection-type) pour moins de latence et un débit plus élevé.
@@ -214,7 +214,7 @@ Oui, vous pouvez acheter le stockage de module complémentaire, indépendamment 
 
 **Comment puis-je optimiser les performances de mon stockage quant au niveau de service de l’usage général ?**
 
-Pour optimiser les performances de stockage, consultez [Bonnes pratiques de stockage d’usage général](https://techcommunity.microsoft.com).
+Pour optimiser les performances de stockage, consultez [Bonnes pratiques de stockage d’usage général](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525).
 
 ## <a name="backup-and-restore"></a>Sauvegarde et restauration
 
@@ -263,9 +263,9 @@ Oui. Dès lors qu’une instance managée est provisionnée, vous pouvez défini
 **Puis-je définir l’appliance virtuelle réseau ou le pare-feu local de façon à filtrer le trafic de gestion sortant en fonction des noms de domaine complets ?**
 
 Non. Ce n’est pas pris en charge pour plusieurs raisons :
--   Le routage du trafic qui représente la réponse à la demande de gestion entrante serait asymétrique et ne pourrait pas fonctionner.
--   Le routage du trafic à destination du stockage serait affecté par les contraintes de débit et la latence, ce qui ne nous permettrait pas d’assurer la disponibilité et la qualité de service attendues.
--   L’expérience a montré que ces configurations étaient sujettes à erreurs et ne sont pas acceptables.
+-    Le routage du trafic qui représente la réponse à la demande de gestion entrante serait asymétrique et ne pourrait pas fonctionner.
+-    Le routage du trafic à destination du stockage serait concerné par les contraintes de débit et la latence, ce qui ne nous permettrait pas d’assurer la disponibilité et la qualité de service attendues.
+-    L’expérience a montré que ces configurations étaient sujettes à erreurs et ne sont pas acceptables.
 
 **Puis-je définir l’appliance virtuelle réseau ou le pare-feu pour le trafic sortant non liée à la gestion ?**
 
@@ -416,9 +416,9 @@ SQL Managed Instance propose le [modèle d’achat vCore](sql-managed-instance-p
 **Quels sont les avantages proposés par SQL Managed Instance en matière de coûts ?**
 
 Voici comment vous pouvez réduire les coûts grâce aux avantages Azure SQL :
--   Optimisez les investissements existants en licences locales et économisez jusqu’à 55 % avec [Azure Hybrid Benefit](../azure-hybrid-benefit.md?tabs=azure-powershell). 
--   Engagez-vous sur une réservation de ressources de calcul et économisez jusqu’à 33 % grâce à l’[avantage d’instance réservée](../database/reserved-capacity-overview.md). Combinez-le à Azure Hybrid Benefit pour bénéficier d’économies pouvant atteindre jusqu’à 82 %. 
--   Économisez jusqu’à 55 % par rapport aux prix catalogue grâce à l’[avantage Tarification Azure Dev/Test](https://azure.microsoft.com/pricing/dev-test/) qui offre des tarifs réduits pour vos charges de travail de développement et de test en cours.
+-    Optimisez les investissements existants en licences locales et économisez jusqu’à 55 % avec [Azure Hybrid Benefit](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-    Engagez-vous sur une réservation de ressources de calcul et économisez jusqu’à 33 % grâce à l’[avantage d’instance réservée](../database/reserved-capacity-overview.md). Combinez-le à Azure Hybrid Benefit pour bénéficier d’économies pouvant atteindre jusqu’à 82 %. 
+-    Économisez jusqu’à 55 % par rapport aux prix catalogue grâce à l’[avantage Tarification Azure Dev/Test](https://azure.microsoft.com/pricing/dev-test/) qui offre des tarifs réduits pour vos charges de travail de développement et de test en cours.
 
 **Qui est éligible à l’avantage d’instance réservée ?**
 
