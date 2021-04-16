@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2a37d206955e3372b9ecf97be8d27142bd417192
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428641"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490452"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Monter le stockage Blob à l’aide du protocole NFS (Network File System) 3.0 (préversion)
 
@@ -82,7 +82,7 @@ Au fur et à mesure que vous configurez le compte, choisissez les valeurs suivan
 
 |Paramètre | Niveau de performance Premium | Niveau de performance Standard  
 |----|---|---|
-|Emplacement|Toutes les régions disponibles |L’une des régions suivantes : Australie Est, Corée Centre et USA Centre Sud   
+|Emplacement|Toutes les régions disponibles |L’une des régions suivantes : Australie Est, Corée Centre, USA Est et USA Centre Sud   
 |Performances|Premium| standard
 |Type de compte|BlockBlobStorage| Universel v2
 |Réplication|Stockage localement redondant (LRS)| Stockage localement redondant (LRS)

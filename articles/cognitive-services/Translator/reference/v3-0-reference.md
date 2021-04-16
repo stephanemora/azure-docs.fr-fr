@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b391c5a435c2dd2f19a3f170bf7c84edd7143f2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100650760"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063030"
 ---
 # <a name="translator-v30"></a>Translator v3.0
 
@@ -35,7 +35,7 @@ Microsoft Translator est desservi par des centres de données situés dans plusi
 
 * **Amérique :** USA Est, USA Centre Sud, USA Centre-Ouest, USA Ouest 2 
 * **Asie-Pacifique :** Corée Sud, Japon Est, Asie Sud-Est et Australie Est
-* **Europe :** Europe Nord, Europe Ouest, Suisse Nord <sup>1,2</sup> et Suisse Ouest <sup>1,2</sup>
+* **Europe :** Europe Ouest et Europe Nord
 
 Les requêtes adressées à Microsoft Translator sont dans la plupart des cas gérées par le centre de données le plus proche de l’emplacement d’origine de la requête. En cas de défaillance d’un centre de données, la requête peut être routée à l’extérieur de la zone géographique Azure.
 
@@ -48,7 +48,7 @@ Pour forcer la gestion de la requête par une zone géographique Azure spécifiq
 |Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> Un client disposant d’une ressource située dans la région Suisse Nord ou Suisse Ouest peut s’assurer que les demandes de l’API de texte sont traitées en Suisse. Pour garantir que les requêtes sont gérées en Suisse, créez la ressource Translator dans la « Région de ressource » « Suisse Nord » ou « Suisse Ouest », puis utilisez le point de terminaison personnalisé de la ressource dans vos requêtes d’API. Par exemple : Si vous créez une ressource Translator dans le portail Azure avec « Suisse Nord » comme « Région de ressource » et que le nom de votre ressource est « my-ch-n », votre point de terminaison personnalisé est « https://my-ch-n.cognitiveservices.azure.com  ». Et voici un exemple de demande de traduction :
+<sup>1</sup> Les clients disposant d’une ressource située dans la région Suisse Nord ou Suisse Ouest peuvent s’assurer que leurs requêtes d’API de texte sont traitées en Suisse. Pour garantir que les requêtes sont gérées en Suisse, créez la ressource Translator dans la « Région de ressource » « Suisse Nord » ou « Suisse Ouest », puis utilisez le point de terminaison personnalisé de la ressource dans vos requêtes d’API. Par exemple : Si vous créez une ressource Translator dans le portail Azure avec « Suisse Nord » comme « Région de ressource » et que le nom de votre ressource est « my-ch-n », votre point de terminaison personnalisé est « https://my-ch-n.cognitiveservices.azure.com  ». Et voici un exemple de demande de traduction :
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -57,7 +57,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
-<sup>2</sup>Custom Translator n’est actuellement pas disponible en Suisse.
+<sup>2</sup> Custom Translator n’est actuellement pas disponible en Suisse.
 
 ## <a name="authentication"></a>Authentification
 

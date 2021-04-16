@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: d1d412774dc68cba0c24709c7fc8a7999e0aeab8
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418060"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106094759"
 ---
 # <a name="public-ip-addresses"></a>Adresses IP publiques
 
@@ -165,7 +165,7 @@ La [passerelle VPN Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 Une adresse IP publique est assignée à une passerelle VPN pour lui permettre de communiquer avec le réseau distant. 
 
 * Affectez une adresse IP publique de base **dynamique** à une configuration frontale de SKU VPNGW 1-5.
-* Affectez une adresse IP publique **statique** standard à une configuration frontale de SKU VPNGwAZ 1-5.
+* Attribuez une IP publique **statique** standard à une configuration frontale de SKU VPNGwAZ 1 à 5.
 
 ## <a name="application-gateways"></a>Passerelles d’application
 

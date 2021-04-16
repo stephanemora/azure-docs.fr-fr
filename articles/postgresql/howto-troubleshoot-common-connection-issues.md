@@ -2,21 +2,22 @@
 title: Résoudre les problèmes de connexion - Azure Database pour PostgreSQL - Serveur unique
 description: Découvrez comment résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique.
 keywords: connexion postgresql,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
-author: niklarin
-ms.author: nlarin
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: ''
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7fe8c4b751be174a91a0e2e94991bc63b4b1e5c7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96014616"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504241"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique
 
-Les problèmes de connexion peuvent avoir l’une des causes suivantes :
+Les problèmes de connexion peuvent être notamment provoqués par l’une de ces causes :
 
 * Paramètres du pare-feu
 * Expiration du délai de connexion
@@ -49,7 +50,7 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 * Configuration du pare-feu côté serveur : le pare-feu du serveur Azure Database pour PostgreSQL doit être configuré de façon à autoriser les connexions provenant du client, y compris les serveurs proxy et les passerelles.
 * Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Les adresses IP et les ports du serveur auquel vous ne pouvez pas vous connecter doivent être autorisés, ainsi que les noms d’application, comme PostgreSQL, sur certains pare-feu.
 * Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou le suffixe *\@servername* manquant dans le nom de l’utilisateur.
-* Si l’erreur _Le serveur n’est pas configuré pour autoriser les connexions IPv6_, s’affiche, notez que le niveau de base ne prend pas en charge les points de terminaison de service VNet. Vous devez supprimer le point de terminaison Microsoft.Sql du sous-réseau qui tente de se connecter au serveur de base.
+* Si l’erreur _Le serveur n’est pas configuré pour autoriser les connexions IPv6_, s’affiche, notez que le niveau De base ne prend pas en charge les points de terminaison de service VNet. Vous devez supprimer le point de terminaison Microsoft.Sql du sous-réseau qui tente de se connecter au serveur de base.
 * Si vous voyez le message d’erreur de connexion _valeur sslmode « * * * » non valide lorsque la prise en charge du protocole SSL n’est pas compilée_, cela signifie que votre client PostgreSQL ne prend pas en charge le protocole SSL. Le plus souvent, le libpq côté client n’a pas été compilé avec l’indicateur « --with-openssl ». Essayez de vous connecter avec un client PostgreSQL qui prend en charge le protocole SSL. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants

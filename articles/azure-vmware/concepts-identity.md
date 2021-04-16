@@ -3,12 +3,12 @@ title: Concepts - Identité et accès
 description: Découvrir les concepts d’identité et d’accès de Azure VMware Solution
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: f3a79c79acef07721bd0883fa70c835bee14ef0d
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 1d49ce27ee74621874281a555651c09a73048928
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799273"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109813"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concepts d’identité d’Azure VMware Solution
 
@@ -94,6 +94,9 @@ Pour empêcher la création de rôles qui ne peuvent pas être attribués ni sup
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Identité et accès du gestionnaire NSX-T
 
+>[!NOTE]
+>NSX-T 2.5 est actuellement pris en charge.
+
 Utilisez le compte *administrateur* pour accéder à NSX-T Manager. Ce compte dispose de privilèges complets et vous permet de créer et de gérer des passerelles de niveau 1 (T1), des segments (commutateurs logiques) et tous les services. Les privilèges vous permettent d’accéder à la passerelle de niveau 0 (T0) de NSX-T. Une modification apportée à la passerelle T0 peut entraîner une dégradation des performances réseau ou une perte de l’accès à un cloud privé. Ouvrez une demande de support dans le portail Azure pour demander toute modification de votre passerelle NSX-T T0.
 
  
@@ -101,11 +104,11 @@ Utilisez le compte *administrateur* pour accéder à NSX-T Manager. Ce compte di
 
 Maintenant que vous avez abordé les concepts d’accès et d’identité d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
-- [Concepts de mise à niveau du cloud privé](concepts-upgrades.md).
-- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
-- [Détails de chaque privilège](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
-- [Surveillance et réparation des clouds privés Azure VMware Solution](concepts-monitor-repair-private-cloud.md).
-- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md).
+- [Concepts de mise à niveau du cloud privé](concepts-upgrades.md)
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
+- [Détails de chaque privilège](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html)
+- [Surveillance et réparation des clouds privés Azure VMware Solution](concepts-monitor-repair-private-cloud.md)
+- [Comment activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md)
 
 
 <!-- LINKS - external-->

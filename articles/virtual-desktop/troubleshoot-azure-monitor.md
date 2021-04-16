@@ -1,52 +1,47 @@
 ---
-title: Résolution des problèmes liés à Monitor pour Windows Virtual Desktop (préversion) – Azure
+title: Résolution des problèmes liés à Monitor pour Windows Virtual Desktop – Azure
 description: Guide pratique pour résoudre les problèmes liés à Azure Monitor pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+manager: femila
+ms.openlocfilehash: a104f4d33e1bd38e130101b34d3fd2021de27cd2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101709170"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445480"
 ---
-# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Résolution des problèmes liés à Azure Monitor pour Windows Virtual Desktop (préversion)
+# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop"></a>Résolution des problèmes liés à Azure Monitor pour Windows Virtual Desktop
 
->[!IMPORTANT]
->Azure Monitor pour Windows Virtual Desktop est en préversion publique. Cette préversion est fournie sans contrat de niveau de service, c’est pourquoi nous déconseillons son utilisation pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cet article présente les problèmes connus dans Azure Monitor pour Windows Virtual Desktop (préversion) et les solutions aux problèmes courants.
+Cet article présente des problèmes connus dans Azure Monitor pour Windows Virtual Desktop, ainsi que des solutions à des problèmes courants.
 
 ## <a name="issues-with-configuration-and-setup"></a>Problèmes de configuration
 
 Si le classeur de configuration ne fonctionne pas correctement pour automatiser la configuration, vous pouvez utiliser les ressources suivantes pour configurer votre environnement manuellement :
 
 - Pour activer manuellement les diagnostics ou accéder à l’espace de travail Log Analytics, consultez [Envoi de diagnostics Windows Virtual Desktop à Log Analytics](diagnostics-log-analytics.md).
-- Pour installer manuellement l’extension Log Analytics sur un hôte, consultez [Extension de machine virtuelle Log Analytics pour Windows](../virtual-machines/extensions/oms-windows.md).
+- Pour installer manuellement l’extension Log Analytics sur un hôte de session, consultez [Extension de machine virtuelle Log Analytics pour Windows](../virtual-machines/extensions/oms-windows.md).
 - Pour configurer un nouvel espace de travail Log Analytics, consultez [Création d’un espace de travail Log Analytics sur le Portail Azure](../azure-monitor/logs/quick-create-workspace.md).
-- Pour ajouter ou supprimer des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md).
-- Pour configurer des événements pour un espace de travail Log Analytics, consultez [Collecte de sources de données du journal des événements Windows avec l’agent Log Analytics](../azure-monitor/agents/data-sources-windows-events.md).
+- Pour ajouter, supprimer ou modifier des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md).
+- Pour configurer les journaux des événements Windows pour un espace de travail Log Analytics, consultez [Collecter les sources de données du journal des événements Windows avec l’agent Log Analytics](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>Mes données ne s’affichent pas correctement
 
-Si vos données ne s'affichent pas correctement, vérifiez votre configuration, vos autorisations et assurez-vous que les adresses IP requises sont débloquées. 
+Si vos données ne s’affichent pas correctement, vérifiez les solutions courantes suivantes :
 
-- Tout d’abord, vérifiez que vous avez rempli tous les champs du classeur de configuration (cf. [Monitoring d’un déploiement avec Azure Monitor pour Windows Virtual Desktop](azure-monitor.md)). S’il vous manque des compteurs ou des événements, les données associées n’apparaissent pas sur le Portail Azure.
-
+- Tout d’abord, vérifiez que vous avez correctement préparé le classeur de configuration décrit dans [Monitoring d’un déploiement avec Azure Monitor pour Windows Virtual Desktop](azure-monitor.md). S’il vous manque des compteurs ou des événements, les données associées n’apparaissent pas sur le Portail Azure.
 - Vérifiez vos autorisations d'accès et contactez les propriétaires des ressources pour leur demander les autorisations manquantes ; toute personne surveillant Windows Virtual Desktop doit disposer des autorisations suivantes :
-
     - Accès en lecture aux abonnements Azure qui contiennent vos ressources Windows Virtual Desktop
     - Accès en lecture aux groupes de ressources de l'abonnement qui contiennent vos hôtes de session Windows Virtual Desktop 
-    - Accès en lecture à l’espace de travail Log Analytics
-
-- Vous devrez peut-être ouvrir les ports sortants dans le pare-feu de votre serveur pour autoriser Azure Monitor à envoyer des données au portail ; voir [Ports sortants](../azure-monitor/app/ip-addresses.md). 
-
+    - Accès en lecture à tout espace de travail Log Analytics que vous utilisez
+- Il se peut que vous deviez ouvrir des ports sortants dans le pare-feu de votre serveur pour permettre à Azure Monitor et à Log Analytics d’envoyer des données au portail. Pour savoir comment procéder, consultez les articles suivants :
+      - [Ports sortants Azure Monitor](../azure-monitor/app/ip-addresses.md)
+      - [Configuration requise du pare-feu Log Analytics](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements). 
 - Vous ne voyez pas les données relatives aux activités récentes ? Patientez 15 minutes et actualisez le flux. Azure Monitor présente une période de latence de 15 minutes pour le remplissage des données de journal. Pour plus d’informations, consultez [Durée d’ingestion des données de journal dans Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
-S’il ne manque aucune information, mais que les données ne s’affichent toujours pas correctement, il peut y avoir un problème dans la requête ou les sources de données. Passez en revue nos problèmes connus et limitations. 
+S’il ne manque aucune information, mais que les données ne s’affichent toujours pas correctement, il peut y avoir un problème dans la requête ou les sources de données. Consultez les [Problèmes connus et les limitations](#known-issues-and-limitations). 
 
 ## <a name="i-want-to-customize-azure-monitor-for-windows-virtual-desktop"></a>Je veux personnaliser Azure Monitor pour Windows Virtual Desktop
 
@@ -60,37 +55,32 @@ Pour plus d’informations sur les termes liés aux données, consultez le [glos
 
 ## <a name="the-data-i-need-isnt-available"></a>Les données dont j’ai besoin ne sont pas disponibles
 
-Si vous souhaitez surveiller d'autres compteurs de performances ou événements, vous pouvez les envoyer à votre espace de travail Log Analytics et les surveiller dans Diagnostics de l'ordinateur hôte : navigateur hôte. 
+Si vous souhaitez surveiller d’autres compteurs de performances ou journaux des événements Windows, vous pouvez les activer pour qu’ils envoient des informations de diagnostic à votre espace de travail Log Analytics, et les surveiller dans **Diagnostics de l’ordinateur hôte : navigateur hôte**. 
 
-- Pour ajouter des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters).
-- Pour ajouter des événements Windows, consultez [Configuration des journaux des événements Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs).
+- Pour ajouter des compteurs de performances, consultez [Configuration des compteurs de performances](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- Pour ajouter des événements Windows, consultez [Configuration des journaux des événements Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
 
 Il vous manque un point de données pour diagnostiquer un problème ? Envoyez-nous vos commentaires.
 
 - Pour savoir comment laisser des commentaires, consultez [Vue d’ensemble de la résolution des problèmes, des commentaires et du support pour Windows Virtual Desktop](troubleshoot-set-up-overview.md).
-- Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) ou notre [forum UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+- Vous pouvez également laisser vos commentaires sur Windows Virtual Desktop sur le [Hub de commentaires Windows Virtual Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
-Voici les problèmes et limitations dont nous avons actuellement connaissance et que nous nous efforçons de résoudre :
+Voici les problèmes et limitations dont nous avons actuellement connaissance et que nous nous efforçons de corriger :
 
 - Vous ne pouvez surveiller qu'un seul pool d'hôtes à la fois. 
-
 - Pour enregistrer vos paramètres favoris, vous devez enregistrer un modèle personnalisé du classeur. Les modèles personnalisés n'adoptent pas automatiquement les mises à jour du groupe de produits.
-
-- Certains messages d’erreur ne sont pas formulés de manière conviviale. Par ailleurs, tous ne sont pas décrits dans la documentation.
-
+- Le classeur de configuration indique parfois des erreurs « Échec de la requête » lors du chargement de vos sélections. Actualisez la requête et entrez à nouveau votre sélection si nécessaire. L’erreur devrait se résoudre d’elle-même. 
+- Certains messages d’erreur ne sont pas formulés de manière conviviale, et tous ne sont pas décrits dans la documentation.
 - Le compteur de performances du nombre total de sessions peut légèrement dépasser le nombre de sessions réel, et le nombre total de vos sessions peut sembler dépasser votre limite maximale de sessions.
-
-- Le nombre de sessions disponibles ne reflète pas les stratégies de mise à l'échelle sur le pool d'hôtes. 
-    
-- Bien que cela soit rare, l'événement d'achèvement d'une connexion peut disparaître, ce qui peut avoir un impact sur certains objets visuels comme les connexions au fil du temps et l'état de la connexion de l'utilisateur.  
-    
-- Le classeur de configuration prend uniquement en charge la configuration d'hôtes situés dans la même région que leur groupe de ressources. 
-
+- Le nombre de sessions disponibles ne reflète pas les stratégies de mise à l'échelle sur le pool d'hôtes.   
+- Voyez-vous des temps de connexion contradictoires ou inattendus ? Bien que cela soit rare, l’événement de fin d’une connexion peut disparaître, ce qui peut avoir un impact sur certaines vues et métriques.
 - Le « temps pour se connecter » englobe le temps nécessaire aux utilisateurs pour entrer leurs informations d'identification ; ce temps est corrélé à l'expérience mais peut, dans certains cas, afficher de faux pics. 
     
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne savez pas comment interpréter les données ou souhaitez en savoir plus sur les termes courants, consultez le [glossaire Azure Monitor pour Windows Virtual Desktop](azure-monitor-glossary.md). Si vous voulez apprendre à configurer et à utiliser Azure Monitor pour Windows Virtual Desktop, consultez [Monitoring d’un déploiement avec Azure Monitor pour Windows Virtual Desktop](azure-monitor.md).
+- Pour commencer, consultez [Monitoring d’un déploiement avec Azure Monitor pour Windows Virtual Desktop](azure-monitor.md).
+- Pour estimer, mesurer et gérer les coûts de stockage de vos données, consultez [Estimer les coûts d’Azure Monitor](azure-monitor-costs.md).
+- Consultez notre [glossaire](azure-monitor-glossary.md) pour en savoir plus sur les termes et les concepts liés à Azure Monitor pour Windows Virtual Desktop.

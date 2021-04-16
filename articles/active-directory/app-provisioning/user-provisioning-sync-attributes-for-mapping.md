@@ -1,6 +1,6 @@
 ---
-title: Synchroniser les attributs avec Azure AD pour le mappage
-description: Lors de la configuration des utilisateurs pour les applications SaaS, servez-vous de la fonctionnalité d’extension de répertoire pour ajouter des attributs sources qui ne sont pas synchronisés par défaut.
+title: Synchroniser les attributs avec Azure Active Directory pour le mappage
+description: Lors de la configuration de l’attribution d’utilisateurs pour les applications Azure Active Directory et SaaS, servez-vous de la fonctionnalité d’extension de répertoire pour ajouter des attributs sources qui ne sont pas synchronisés par défaut.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,22 +8,94 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.author: kenwith
-ms.openlocfilehash: 52f34cdafac76a9bca2b4ff0b00e0b3efaa63f5d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 102c0f7363b8d4f635762a33b82825e9ae71dfc6
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579431"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120790"
 ---
-# <a name="syncing-extension-attributes-attributes"></a>Synchronisation d’attributs d’extension
+# <a name="syncing-extension-attributes-for-app-provisioning"></a>Synchronisation des attributs d’extension pour l’approvisionnement d’applications
 
-Lors de la personnalisation des mappages d’attributs pour la configuration utilisateur, vous constaterez peut-être que l’attribut à mapper n’apparaît pas dans la liste **Attribut source**. Cet article explique comment ajouter l’attribut manquant en le synchronisant à partir de votre Active Directory (AD) local sur Azure Active Directory (Azure AD), ou en créant les attributs d’extension dans Azure AD pour un utilisateur cloud uniquement. 
+Azure Active Directory (Azure AD) doit contenir toutes les données (attributs) nécessaires pour créer un profil utilisateur lors de l’attribution de comptes d’utilisateur d’Azure AD vers une [application SaaS](../saas-apps/tutorial-list.md). Lors de la personnalisation des mappages d’attributs pour l’attribution d’utilisateurs, vous constaterez peut-être que l’attribut à mapper n’apparaît pas dans la liste **Attribut source**. Cet article explique comment ajouter l’attribut manquant.
 
-Azure AD doit contenir toutes les données requises pour créer un profil utilisateur lors de la configuration des comptes utilisateur d’Azure AD vers une application SaaS. Pour rendre les données disponibles, vous devez parfois synchroniser les attributs de votre répertoire AD local vers Azure AD. Azure AD Connect synchronise automatiquement certains attributs avec Azure AD, mais pas tous. En outre, certains attributs (par exemple, SAMAccountName) synchronisés par défaut ne peuvent pas être exposés à l’aide de l’API Graph Azure AD. Dans ce cas, vous pouvez utiliser la fonctionnalité d’extension de répertoire Azure AD Connect pour synchroniser l’attribut avec Azure AD. De cette façon, l’attribut est visible pour l’API Graph Azure AD et le service de configuration Azure AD. Si les données dont vous avez besoin pour l’approvisionnement se trouvent dans Active Directory mais ne sont pas disponibles pour l’approvisionnement pour les raisons décrites ci-dessus, vous pouvez utiliser Azure AD Connect pour créer des attributs d’extension. 
+Pour les utilisateurs uniquement dans Azure AD, vous pouvez [créer des extensions de schéma à l’aide de PowerShell ou de Microsoft Graph](#create-an-extension-attribute-on-a-cloud-only-user).
 
-Si la plupart des utilisateurs sont probablement des utilisateurs hybrides synchronisés à partir d’Active Directory, vous pouvez également créer des extensions sur des utilisateurs cloud uniquement sans utiliser Azure AD Connect. À l’aide de PowerShell ou de Microsoft Graph vous pouvez étendre le schéma d’un utilisateur cloud uniquement. 
+Pour les utilisateurs dans Windows Server Active Directory, vous devez synchroniser les utilisateurs sur Azure AD. Vous pouvez synchroniser les utilisateurs et les attributs en utilisant [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). Azure AD Connect synchronise automatiquement certains attributs avec Azure AD, mais pas tous. En outre, certains attributs (par exemple, SAMAccountName) synchronisés par défaut ne peuvent pas être exposés à l’aide de l’API Graph Azure AD. Dans ce cas, vous pouvez [utiliser la fonctionnalité d’extension de répertoire d’Azure AD Connect pour synchroniser l’attribut avec Azure AD](#create-an-extension-attribute-using-azure-ad-connect). De cette façon, l’attribut est visible pour l’API Graph Azure AD et le service de configuration Azure AD.
+
+## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>Créer un attribut d’extension sur un utilisateur cloud uniquement
+Vous pouvez utiliser Microsoft Graph et PowerShell pour étendre le schéma d’utilisateur pour les utilisateurs dans Azure AD. Dans la plupart des cas, ces attributs d’extension sont automatiquement découverts.
+
+Si vous avez plus de 1000 principaux de service, il est possible que des extensions manquent dans la liste des attributs sources. Si un attribut que vous avez créé ne s’affiche pas automatiquement, vérifiez que l’attribut a été créé et ajoutez-le manuellement à votre schéma. Pour vérifier qu’il a été créé, utilisez Microsoft Graph et [Graph Explorer](/graph/graph-explorer/graph-explorer-overview.md). Pour l’ajouter manuellement à votre schéma, consultez [Modification de la liste des attributs pris en charge](customize-application-attributes.md#editing-the-list-of-supported-attributes).
+
+### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Créer un attribut d’extension sur un utilisateur cloud uniquement à l’aide de Microsoft Graph
+Vous pouvez étendre le schéma des utilisateurs Azure AD à l’aide de [Microsoft Graph](/graph/overview.md). 
+
+Tout d’abord, répertoriez les applications de votre locataire pour récupérer l’ID de l’application sur laquelle vous travaillez. Pour en savoir plus, consultez [Lister extensionProperties](/graph/api/application-list-extensionproperty?view=graph-rest-1.0&tabs=http&preserve-view=true).
+
+```json
+GET https://graph.microsoft.com/v1.0/applications
+```
+
+Ensuite, créez l’attribut d’extension. Remplacez la propriété **ID** ci-dessous par l’**ID** récupéré à l’étape précédente. Vous devrez utiliser l’attribut **« ID »** , et non « appId ». Pour en savoir plus, consultez [Créer extensionProperty]/graph/api/application-post-extensionproperty.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+
+```json
+POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
+Content-type: application/json
+
+{
+    "name": "extensionName",
+    "dataType": "string",
+    "targetObjects": [
+        "User"
+    ]
+}
+```
+
+La demande précédente a créé un attribut d’extension au format `extension_appID_extensionName`. Vous pouvez maintenant mettre à jour un utilisateur avec cet attribut d’extension. Pour en savoir plus, consultez [Mettre à jour un utilisateur](/graph/api/user-update.md?view=graph-rest-1.0&tabs=http&preserve-view=true).
+```json
+PATCH https://graph.microsoft.com/v1.0/users/{id}
+Content-type: application/json
+
+{
+  "extension_inputAppId_extensionName": "extensionValue"
+}
+```
+Enfin, vérifiez l’attribut de l’utilisateur. Pour en savoir plus, consultez [Obtenir un utilisateur](/graph/api/user-get.md?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select&preserve-view=true).
+
+```json
+GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
+```
+
+
+### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-powershell"></a>Créez un attribut d’extension sur un utilisateur cloud uniquement à l’aide de PowerShell.
+Créer une extension personnalisée à l’aide de PowerShell et attribuer une valeur à un utilisateur. 
+
+```
+#Connect to your Azure AD tenant   
+Connect-AzureAD
+
+#Create an application (you can instead use an existing application if you would like)
+$App = New-AzureADApplication -DisplayName “test app name” -IdentifierUris https://testapp
+
+#Create a service principal
+New-AzureADServicePrincipal -AppId $App.AppId
+
+#Create an extension property
+New-AzureADApplicationExtensionProperty -ObjectId $App.ObjectId -Name “TestAttributeName” -DataType “String” -TargetObjects “User”
+
+#List users in your tenant to determine the objectid for your user
+Get-AzureADUser
+
+#Set a value for the extension property on the user. Replace the objectid with the ID of the user and the extension name with the value from the previous step
+Set-AzureADUserExtension -objectid 0ccf8df6-62f1-4175-9e55-73da9e742690 -ExtensionName “extension_6552753978624005a48638a778921fan3_TestAttributeName”
+
+#Verify that the attribute was added correctly.
+Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandProperty ExtensionProperty
+
+```
 
 ## <a name="create-an-extension-attribute-using-azure-ad-connect"></a>Créer un attribut d’extension à l’aide d’Azure AD Connect
 
@@ -52,72 +124,6 @@ Si la plupart des utilisateurs sont probablement des utilisateurs hybrides synch
 > [!NOTE]
 > À l’heure actuelle, il n’est pas possible de configurer les attributs de référence à partir du répertoire AD local, comme **managedby** ou **DN/DistinguishedName**. Vous pouvez demander cette fonctionnalité sur [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
 
-## <a name="create-an-extension-attribute-on-a-cloud-only-user"></a>Créer un attribut d’extension sur un utilisateur cloud uniquement
-Les clients peuvent utiliser Microsoft Graph et PowerShell pour étendre le schéma utilisateur. Ces attributs d’extension sont automatiquement découverts dans la plupart des cas, mais les clients disposant de plus de 1 000 principaux de service peuvent trouver des extensions manquantes dans la liste d’attributs source. Si un attribut que vous créez en suivant les étapes ci-dessous n’apparaît pas automatiquement dans la liste d’attributs source, vérifiez à l’aide du graphique que l’attribut d’extension a été créé, puis ajoutez-le à votre schéma [manuellement](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). Lorsque vous effectuez les demandes de graphe ci-dessous, cliquez sur En savoir plus pour vérifier les autorisations requises pour effectuer des demandes. Vous pouvez utiliser l’[Explorateur graphique](https://docs.microsoft.com/graph/graph-explorer/graph-explorer-overview) pour effectuer des demandes. 
-
-### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-microsoft-graph"></a>Créer un attribut d’extension sur un utilisateur cloud uniquement à l’aide de Microsoft Graph
-Vous devrez utiliser une application pour étendre le schéma de vos utilisateurs. Répertoriez les applications de votre locataire pour identifier l’ID de l’application que vous souhaitez utiliser pour étendre le schéma utilisateur. [En savoir plus.](https://docs.microsoft.com/graph/api/application-list?view=graph-rest-1.0&tabs=http)
-
-```json
-GET https://graph.microsoft.com/v1.0/applications
-```
-
-Créez l’attribut d’extension. Remplacez la propriété **id** ci-dessous par l’**id** récupéré à l’étape précédente. Vous devrez utiliser l’attribut **« if »** , non l’attribut « appid ». [En savoir plus.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http)
-```json
-POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
-Content-type: application/json
-
-{
-    "name": "extensionName",
-    "dataType": "string",
-    "targetObjects": [
-        "User"
-    ]
-}
-```
-
-La demande précédente a créé un attribut d’extension au format « extension_appID_extensionName ». Mettez à jour un utilisateur avec l’attribut d’extension. [En savoir plus.](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0&tabs=http)
-```json
-PATCH https://graph.microsoft.com/v1.0/users/{id}
-Content-type: application/json
-
-{
-  "extension_inputAppId_extensionName": "extensionValue"
-}
-```
-Vérifiez l’utilisateur pour vous assurer que l’attribut a été correctement mis à jour. [En savoir plus.](https://docs.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http#example-3-users-request-using-select)
-
-```json
-GET https://graph.microsoft.com/v1.0/users/{id}?$select=displayName,extension_inputAppId_extensionName
-```
-
-
-### <a name="create-an-extension-attribute-on-a-cloud-only-user-using-powershell"></a>Créez un attribut d’extension sur un utilisateur cloud uniquement à l’aide de PowerShell.
-Créer une extension personnalisée à l’aide de PowerShell et attribuer une valeur à un utilisateur. 
-
-```
-#Connect to your Azure AD tenant   
-Connect-AzureAD
-
-#Create an application (you can instead use an existing application if you would like)
-$App = New-AzureADApplication -DisplayName “test app name” -IdentifierUris https://testapp
-
-#Create a service principal
-New-AzureADServicePrincipal -AppId $App.AppId
-
-#Create an extension property
-New-AzureADApplicationExtensionProperty -ObjectId $App.ObjectId -Name “TestAttributeName” -DataType “String” -TargetObjects “User”
-
-#List users in your tenant to determine the objectid for your user
-Get-AzureADUser
-
-#Set a value for the extension property on the user. Replace the objectid with the id of the user and the extension name with the value from the previous step
-Set-AzureADUserExtension -objectid 0ccf8df6-62f1-4175-9e55-73da9e742690 -ExtensionName “extension_6552753978624005a48638a778921fan3_TestAttributeName”
-
-#Verify that the attribute was added correctly.
-Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandProperty ExtensionProperty
-
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: d5d694820c2ffd09868d81693d4f98f839a139d7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 942651aadf4113c1aca32e4e1d2c558b0d764421
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591875"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377223"
 ---
 # <a name="connect-to-azure-database-for-mysql-using-dbforge-studio-for-mysql"></a>Se connecter à Azure Database pour MySQL à l’aide de dbForge Studio pour MySQL
 
@@ -78,9 +78,7 @@ Suite à nos efforts de migration de base de données, la base de données *worl
 dbForge Studio pour MySQL intègre un quelques outils qui permettent de migrer des bases de données MySQL, des schémas MySQL et/ou des données vers Azure. Le choix de la fonctionnalité dépend de vos besoins et des exigences de votre projet. Si vous devez déplacer de manière sélective une base de données, c’est-à-dire migrer certaines tables MySQL vers Azure, il est préférable d’utiliser la fonctionnalité Comparaison de schémas et de données.
 Dans cet exemple, nous migrons la base de données *world* qui réside sur MySQL Server vers Azure Database pour MySQL. La logique sous-tendant le processus de migration à l’aide de la fonctionnalité Comparaison de schémas et de données de dbForge Studio pour MySQL consiste à créer une base de données vide dans Azure Database pour MySQL, à la synchroniser avec la base de données MySQL requise d’abord avec l’outil de comparaison de schémas, puis avec l’outil de comparaison de données. Ainsi, les schémas et données MySQL sont correctement déplacés vers Azure.
 
-### <a name="connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Se connecter à Azure Database pour MySQL et créer une base de données vide
-
-Connectez-vous Azure MySQL Database et créez une base de données vide.
+### <a name="step-1-connect-to-azure-database-for-mysql-and-create-an-empty-database"></a>Étape 1. Se connecter à Azure Database pour MySQL et créer une base de données vide
 
 ### <a name="step-2-schema-synchronization"></a>Étape 2. Synchronisation de schémas
 
@@ -95,7 +93,7 @@ L’Assistant Nouvelle comparaison de schémas s’affiche.
 
     :::image type="content" source="media/concepts-migrate-dbforge-studio-for-mysql/schema-sync-wizard.png" alt-text="Assistant Synchronisation de schémas":::
 
-### <a name="data-comparison"></a>Comparaison de données
+### <a name="step-3-data-comparison"></a>Étape 3. Comparaison de données
 
 1. Dans le menu Comparaison, sélectionnez Nouvelle comparaison de données. L’Assistant Nouvelle comparaison de données s’affiche.
 

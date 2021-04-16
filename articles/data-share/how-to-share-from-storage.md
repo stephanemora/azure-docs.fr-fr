@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739260"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105644652"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partager et recevoir des données à partir de Stockage Blob Azure et d’Azure Data Lake Storage
 
@@ -178,7 +178,7 @@ Suivez les étapes de cette section pour configurer un emplacement de réception
 
    ![Capture d'écran montrant où sélectionner un compte de stockage cible.](./media/map-target.png "Stockage cible.") 
 
-1. Pour un partage basé sur un instantané, si le fournisseur de données utilise une planification d’instantanés pour mettre régulièrement à jour les données, vous pouvez activer la planification dans l’onglet **Planification d'instantanés**. Cochez la case en regard de la planification d’instantanés. Ensuite, sélectionnez **Activer**.
+1. Pour un partage basé sur un instantané, si le fournisseur de données utilise une planification d’instantanés pour mettre régulièrement à jour les données, vous pouvez activer la planification dans l’onglet **Planification d'instantanés**. Cochez la case en regard de la planification d’instantanés. Ensuite, sélectionnez **Activer**. Notez que le premier instantané planifié démarre dans un délai d’une minute après l’heure planifiée et que les instantanés suivants démarrent en quelques secondes après l’heure planifiée.
 
    ![Capture d’écran montrant comment activer une planification d’instantanés.](./media/enable-snapshot-schedule.png "Activer la planification d’instantané.")
 

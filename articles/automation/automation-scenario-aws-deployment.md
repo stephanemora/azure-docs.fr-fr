@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 03f1f1659d120a2aa1b827063cb2bc84138f3655
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 05c06d368dca03e1cb7f07c064f7899300f05cf7
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98896068"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169009"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Déployer une machine virtuelle Amazon Web Services avec un runbook
 
-Dans cet article, vous allez découvrir comment provisionner une machine virtuelle de votre abonnement AWS (Amazon Web Services) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique (opération appelée « balisage » dans AWS).
+Dans cet article, vous allez découvrir comment approvisionner une machine virtuelle de votre abonnement AWS (Amazon Web Services) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique (opération appelée « balisage » dans AWS).
 
 ## <a name="prerequisites"></a>Prérequis
 

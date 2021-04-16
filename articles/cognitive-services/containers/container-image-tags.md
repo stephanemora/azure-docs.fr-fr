@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/17/2020
+ms.date: 03/25/2020
 ms.author: aahi
-ms.openlocfilehash: 2ac8633e48c98b9e1d778ac1d07835683e00e1c0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fecb84196ba736120273955b2c88af8cb4dadea
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102424476"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095813"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Étiquettes et notes de publication des images conteneur Azure Cognitive Services
 
@@ -1355,6 +1355,24 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur. Vous trou
 | `3.0-nl`   | Analyse des sentiments v3 (néerlandais)                 |
 | `2.1`    | Analyse des sentiments v2      |
 
+
+## <a name="text-analytics-for-health"></a>Analyse de texte pour la santé
+
+L’image conteneur [Analyse de texte pour l’intégrité][ta-he] se trouve dans le syndicat du registre de conteneurs `mcr.microsoft.com`. Elle réside dans le référentiel `azure-cognitive-services/textanalytics/` et se nomme `healthcare`. Le nom complet de l’image conteneur est `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`
+
+Les étiquettes suivantes sont disponibles pour cette image conteneur. Vous trouverez aussi la liste complète des [étiquettes sur MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/healthcare/tags/list).
+
+
+Notes de publication pour `3.0.015490002-onprem-amd64` :
+
+* Nouvelle version de modèle `2021-03-01`
+* Conteneur publié dans MCR.
+
+| Étiquettes d’image | Notes                                         |
+|------------|:----------------------------------------------|
+| `latest`   |                                               |
+| `3.0.015490002-onprem-amd64`   |               |
+
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: ../face/face-how-to-install-containers.md
@@ -1369,3 +1387,4 @@ Les étiquettes suivantes sont disponibles pour cette image conteneur. Vous trou
 [ta-kp]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+[ta-he]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare

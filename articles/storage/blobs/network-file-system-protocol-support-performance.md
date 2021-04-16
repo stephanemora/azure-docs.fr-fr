@@ -9,19 +9,19 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: de511fa30caa608c2dc87b6c0ba166ed56ff9499
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589869"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490180"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considérations relatives au niveau de performance du système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)
 
 Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File System) 3.0. Cet article contient des recommandations à appliquer pour optimiser le niveau de performance des demandes de stockage. Pour plus d’informations sur la prise en charge du système NFS 3.0 dans le Stockage Blob Azure, consultez [Prise en charge du protocole de système de gestion de fichiers en réseau (NFS, Network File System) 3.0 dans le Stockage Blob Azure (préversion)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Les comptes de stockage GPV2 avec performances de niveau Standard sont pris en charge dans les régions suivantes : Australie Est, Corée Centre et USA Centre Sud. La préversion prend également en charge les objets blobs de blocs avec niveau de performances Premium dans toutes les régions publiques.
+> La prise en charge du protocole NFS 3.0 dans Stockage Blob Azure est en préversion publique. Les comptes de stockage GPV2 avec performances de niveau Standard sont pris en charge dans les régions suivantes : Australie Est, Corée Centre, USA Est et USA Centre Sud. La préversion prend également en charge les objets blobs de blocs avec niveau de performances Premium dans toutes les régions publiques.
 
 ## <a name="add-clients-to-increase-throughput"></a>Ajout de clients pour augmenter le débit 
 

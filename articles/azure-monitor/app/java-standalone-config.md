@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 997a4e115f8632544b2f73aef498d40dceb0d459
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224654"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449968"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -39,14 +39,14 @@ Vous trouverez plus de détails, ainsi que des options de configuration supplém
 
 ## <a name="configuration-file-path"></a>Chemin d'accès au fichier de configuration
 
-Par défaut, Application Insights Java 3.0 s’attend à ce que le fichier de configuration soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.0.2.jar`.
+Par défaut, Application Insights Java 3.0 s’attend à ce que le fichier de configuration soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.0.3.jar`.
 
 Vous pouvez spécifier votre propre chemin d’accès au fichier de configuration à l’aide d'un des éléments suivants :
 
 * variable d’environnement `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, ou
 * propriété système Java `applicationinsights.configuration.file`
 
-Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.0.2.jar`.
+Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.0.3.jar`.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 
@@ -61,7 +61,7 @@ La chaîne de connexion est obligatoire. Vous pouvez trouver votre chaîne de co
 }
 ```
 
-Vous pouvez également définir la chaîne de connexion à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING` (qui sera alors prioritaire si la chaîne de connexion est également spécifiée dans la configuration json).
+Vous pouvez également définir la chaîne de connexion à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_CONNECTION_STRING` (qui sera alors prioritaire sur la chaîne de connexion spécifiée dans la configuration json).
 
 Si vous ne définissez pas la chaîne de connexion, l’agent Java sera désactivé.
 
@@ -81,7 +81,7 @@ Si vous souhaitez définir le nom du rôle cloud :
 
 Si le nom du rôle cloud n’est pas défini, le nom de la ressource Application Insights sera utilisé pour étiqueter le composant sur la cartographie d’application.
 
-Vous pouvez également définir le nom du rôle cloud à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_NAME` (qui sera alors prioritaire si le nom du rôle cloud est également spécifié dans la configuration json).
+Vous pouvez également définir le nom du rôle cloud à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_NAME` (qui sera alors prioritaire sur le nom du rôle cloud spécifié dans la configuration json).
 
 ## <a name="cloud-role-instance"></a>Instance de rôle cloud
 
@@ -98,7 +98,7 @@ Si vous souhaitez définir l'instance de rôle cloud sur autre chose que le nom 
 }
 ```
 
-Vous pouvez également définir l’instance du rôle cloud à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_INSTANCE` (qui sera alors prioritaire si l’instance du rôle cloud est également spécifiée dans la configuration json).
+Vous pouvez également définir l’instance du rôle cloud à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_ROLE_INSTANCE` (qui sera alors prioritaire sur l’instance du rôle cloud spécifié dans la configuration json).
 
 ## <a name="sampling"></a>échantillonnage
 
@@ -117,10 +117,21 @@ Voici un exemple montrant comment définir l’échantillonnage de façon à cap
 }
 ```
 
-Vous pouvez également définir le pourcentage d’échantillonnage à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (qui sera alors prioritaire si le pourcentage d’échantillonnage est également spécifié dans la configuration json).
+Vous pouvez également définir le pourcentage d’échantillonnage à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (qui sera alors prioritaire sur le pourcentage d’échantillonnage spécifié dans la configuration json).
 
 > [!NOTE]
 > Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
+
+## <a name="sampling-overrides-preview"></a>Remplacements d’échantillonnage (préversion)
+
+Cette fonctionnalité est en préversion, à partir de 3.0.3.
+
+Les remplacements d’échantillonnage vous permettent de remplacer le [pourcentage d’échantillonnage par défaut](#sampling), par exemple :
+* Définissez le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les contrôles d’intégrité bruyants.
+* Définissez le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les appels de dépendance bruyants.
+* Définissez le pourcentage d’échantillonnage sur 100 pour un type de requête important (par exemple `/login`) même si vous avez configuré l’échantillonnage par défaut sur une valeur inférieure.
+
+Pour plus d’informations, consultez la documentation sur les [remplacements d’échantillonnage](./java-standalone-sampling-overrides.md).
 
 ## <a name="jmx-metrics"></a>Métriques JMX
 
@@ -176,9 +187,13 @@ Cette fonctionnalité est en préversion.
 Elle vous permet de configurer des règles qui seront appliquées aux données de télémétrie de requêtes, de dépendances et de traces. Par exemple :
  * Masquer des données sensibles
  * Ajouter de manière conditionnelle des dimensions personnalisées
- * Mettre à jour le nom de télémétrie utilisé pour l’agrégation et l’affichage
+ * Mettre à jour le nom de l’étendue, qui est utilisé pour agréger des données de télémétrie similaires dans le portail Azure.
+ * Supprimer les attributs d’étendue spécifiques pour contrôler les coûts d’ingestion.
 
 Pour plus d’informations, consultez la documentation du [processeur de télémétrie](./java-standalone-telemetry-processors.md).
+
+> [!NOTE]
+> Si vous envisagez de supprimer des étendues spécifiques (entières) pour contrôler le coût d’ingestion, consultez la rubrique [Remplacements d’échantillonnage](./java-standalone-sampling-overrides.md).
 
 ## <a name="auto-collected-logging"></a>Journalisation collectée automatiquement
 
@@ -200,7 +215,7 @@ Le niveau par défaut configuré pour Application Insights est `INFO`. Si vous s
 }
 ```
 
-Vous pouvez également définir le niveau à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (qui sera alors prioritaire si le niveau est également spécifié dans la configuration json).
+Vous pouvez également définir le niveau à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (qui sera alors prioritaire sur le niveau spécifié dans la configuration json).
 
 Voici les valeurs de `level` valides que vous pouvez spécifier dans le fichier `applicationinsights.json`, et leurs correspondances avec les niveaux de journalisation dans les différents frameworks de journalisation :
 
@@ -241,9 +256,32 @@ Pour désactiver la collection automatique des métriques de Micrometer (y compr
 }
 ```
 
+## <a name="auto-collected-azure-sdk-telemetry"></a>Télémétrie du kit SDK Azure collectée automatiquement
+
+Cette fonctionnalité est en préversion.
+
+De nombreuses bibliothèques récentes du kit SDK Azure émettent des données de télémétrie.
+
+À partir de la version 3.0.3, vous pouvez activer la collecte de ces données de télémétrie :
+
+```json
+{
+  "preview": {
+    "instrumentation": {
+      "azureSdk": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
+
+Vous pouvez également activer cette fonctionnalité à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED`
+(qui sera ensuite prioritaire sur le paramètre activé spécifié dans la configuration json).
+
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Suppression d’une télémétrie collectée automatiquement spécifique
 
-Depuis la version 3.0.2, une télémétrie collectée automatiquement spécifique peuvent être supprimée à l’aide des options de configuration suivantes :
+À partir de la version 3.0.3, une télémétrie collectée automatiquement spécifique peut être supprimée à l’aide des options de configuration suivantes :
 
 ```json
 {
@@ -252,6 +290,9 @@ Depuis la version 3.0.2, une télémétrie collectée automatiquement spécifiqu
       "enabled": false
     },
     "jdbc": {
+      "enabled": false
+    },
+    "jms": {
       "enabled": false
     },
     "kafka": {
@@ -265,10 +306,28 @@ Depuis la version 3.0.2, une télémétrie collectée automatiquement spécifiqu
     },
     "redis": {
       "enabled": false
+    },
+    "springScheduling": {
+      "enabled": false
     }
   }
 }
 ```
+
+Vous pouvez également supprimer ces instrumentations à l’aide de ces variables d’environnement :
+
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
+
+(qui seront ensuite prioritaires sur le paramètre activé spécifié dans la configuration json).
+
+> REMARQUE Si vous souhaitez un contrôle plus précis, par exemple pour supprimer une partie mais pas la totalité des appels redis, consultez la rubrique [Remplacements d’échantillonnage](./java-standalone-sampling-overrides.md).
 
 ## <a name="heartbeat"></a>Heartbeat
 
@@ -306,7 +365,7 @@ Cette fonctionnalité est en préversion.
 
 Par défaut, les métriques sont capturées toutes les 60 secondes.
 
-À partir de la version 3.0.3-BETA, vous pouvez modifier cet intervalle :
+À partir de la version 3.0.3, vous pouvez modifier cet intervalle :
 
 ```json
 {
@@ -366,13 +425,13 @@ Par défaut, Application Insights Java 3.0 se connecte au niveau `INFO` au fichi
 
 `level` peut être `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` ou `TRACE`.
 
-`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.0.2.jar`.
+`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.0.3.jar`.
 
 `maxSizeMb` est la taille maximale du fichier journal avant son remplacement.
 
 `maxHistory` est le nombre de fichiers journaux remplacés et conservés (en plus du fichier journal actuel).
 
-À partir de la version 3.0.2, vous pouvez également définir l’autodiagnostic `level` à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (qui sera alors prioritaire si l’autodiagnostic `level` est également spécifié dans la configuration json).
+À partir de la version 3.0.2, vous pouvez également définir l’autodiagnostic `level` à l’aide de la variable d’environnement `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (qui sera alors prioritaire sur l’autodiagnostic spécifié dans la configuration json).
 
 ## <a name="an-example"></a>Exemple
 

@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2020
+ms.date: 04/04/2021
 ms.author: yelevin
-ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c26d86c98c83d9762acb8a75bba8fe464cc2a58e
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600521"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491463"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutoriel : Visualiser et superviser vos données
 
-
-
 Après avoir [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez visualiser et superviser les données grâce à l’adoption par Azure Sentinel de classeurs Azure Monitor, ce qui vous offre une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
-
 
 Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 > [!div class="checklist"]
@@ -35,34 +32,44 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Vous devez avoir au minimum les autorisations de lecteur ou de contributeur de classeurs sur le groupe de ressources de l’espace de travail Azure Sentinel.
+Vous devez disposer au minimum des autorisations de **lecteur de classeur** ou de **contributeur de classeur** sur le groupe de ressources de l’espace de travail Azure Sentinel.
 
 > [!NOTE]
 > Les classeurs que vous voyez dans Azure Sentinel sont enregistrés dans le groupe de ressources de l’espace de travail Azure Sentinel et sont étiquetés par l’espace de travail dans lequel ils ont été créés.
 
 ## <a name="use-built-in-workbooks"></a>Utiliser des classeurs intégrés
 
-1. Accédez à **Classeurs**, puis sélectionnez **Modèles** pour afficher la liste complète des classeurs intégrés à Azure Sentinel. Pour savoir quels classeurs correspondent aux types de vos données connectées, le champ **Types de données requis** dans chaque classeur indique le type de données à côté d’une coche verte si vous envoyez déjà des données de ce type vers Azure Sentinel.
-  ![accéder aux classeurs](./media/tutorial-monitor-data/access-workbooks.png)
-1. Cliquez sur **Afficher le modèle** pour voir le modèle rempli avec vos données.
-  
-1. Pour modifier le classeur, sélectionnez **Enregistrer**, puis sélectionnez l’emplacement où vous souhaitez enregistrer le fichier JSON du modèle. 
+1. Accédez à **Classeurs**, puis sélectionnez **Modèles** pour afficher la liste complète des classeurs intégrés à Azure Sentinel. 
+
+    Pour savoir quels classeurs correspondent aux types de vos données connectées, le champ **Types de données requis** dans chaque classeur indique le type de données à côté d’une coche verte si vous envoyez déjà des données de ce type vers Azure Sentinel.
+
+    [ ![Accédez aux classeurs.](media/tutorial-monitor-data/access-workbooks.png) ](media/tutorial-monitor-data/access-workbooks.png#lightbox)
+
+1. Sélectionnez **Afficher le modèle** pour voir le modèle rempli avec vos données.
+
+1. Pour modifier le classeur, sélectionnez **Enregistrer**, puis sélectionnez l’emplacement où vous souhaitez enregistrer le fichier JSON du modèle.
 
    > [!NOTE]
    > Cette opération crée une ressource Azure basée sur le modèle associé et enregistre le fichier JSON du modèle sans les données.
 
 
-1. Sélectionnez **Afficher le classeur enregistré**. Ensuite, cliquez sur le bouton **Modifier** en haut. Vous pouvez maintenant modifier le classeur et le personnaliser en fonction de vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
-![afficher les classeurs](./media/tutorial-monitor-data/workbook-graph.png)
-1. Quand vous avez terminé vos modifications, enregistrez le classeur. 
+1. Sélectionnez **Afficher le classeur enregistré**. 
 
-1. Vous pouvez aussi cloner le classeur : sélectionnez **Modifier**, puis sélectionnez **Enregistrer**, en veillant à enregistrer le classeur sous un autre nom, dans le même abonnement et le même groupe de ressources. Ces classeurs clonés sont affichés sous l’onglet **Mes classeurs**.
+    [ ![Affichez les classeurs.](media/tutorial-monitor-data/workbook-graph.png) ](media/tutorial-monitor-data/workbook-graph.png#lightbox)
 
+    Sélectionnez le bouton **Modifier** de la barre d’outils du classeur pour personnaliser ce dernier en fonction de vos besoins. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour enregistrer vos paramètres.
 
+    Pour plus d’informations, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
+
+> [!TIP]
+> Pour cloner votre classeur, sélectionnez **Modifier**, puis sélectionnez **Enregistrer sous**, en veillant à enregistrer le classeur sous un autre nom, dans le même abonnement et le même groupe de ressources.
+> Les classeurs clonés sont affichés sous l’onglet **Mes classeurs**.
+>
 ## <a name="create-new-workbook"></a>Créer un classeur
 
 1. Accédez à **Classeurs**, puis sélectionnez **Ajouter un classeur** pour créer un classeur entièrement nouveau.
-  ![Screenshot that shows the New workbook screen.](./media/tutorial-monitor-data/create-workbook.png)
+
+    [ ![Nouveau classeur.](media/tutorial-monitor-data/create-workbook.png) ](media/tutorial-monitor-data/create-workbook.png#lightbox)
 
 1. Pour modifier le classeur, sélectionnez **Modifier**, puis ajoutez du texte, des requêtes et des paramètres selon vos besoins. Pour plus d’informations sur la personnalisation du classeur, consultez [Créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/visualize/workbooks-overview.md). 
 
@@ -72,10 +79,29 @@ Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 
 1. Si vous voulez autoriser d’autres personnes de votre organisation à utiliser le classeur, sous **Enregistrer dans**, sélectionnez **Rapports partagés**. Si vous souhaitez restreindre l’usage de ce classeur à vous-seul, sélectionnez **Mes rapports**.
 
-1. Pour passer d’un classeur à un autre dans votre espace de travail, vous pouvez sélectionner **Ouvrir** ![Icon for opening a workbook.](./media/tutorial-monitor-data/switch.png) dans le volet supérieur d’un classeur. Dans la fenêtre qui s’ouvre sur la droite, accédez au classeur souhaité.
+1. Pour passer d’un classeur à un autre dans votre espace de travail, sélectionnez **Ouvrir** ![Icône d’ouverture d’un classeur.](./media/tutorial-monitor-data/switch.png) dans la barre d’outils de n’importe quel classeur. L’écran bascule vers une liste de classeurs vers lesquels vous pouvez basculer.
 
-   ![Basculer vers le classeur](./media/tutorial-monitor-data/switch-workbooks.png)
+    Sélectionnez le classeur que vous souhaitez ouvrir :
 
+    [ ![Basculez entre les classeurs.](media/tutorial-monitor-data/switch-workbooks.png) ](media/tutorial-monitor-data/switch-workbooks.png#lightbox)
+
+## <a name="refresh-your-workbook-data"></a>Actualiser les données de votre classeur
+
+Actualisez votre classeur pour afficher les données mises à jour. Dans la barre d’outils, sélectionnez l’une des options suivantes :
+
+- :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false":::  **Actualiser**, pour actualiser manuellement les données de votre classeur.
+
+- :::image type="icon" source="media/whats-new/auto-refresh-workbook.png" border="false":::  **Actualisation automatique**, pour définir l’actualisation automatique de votre classeur à un intervalle configuré.
+
+    - Les intervalles d’actualisation automatique s’échelonnent entre **5 minutes** et **1 jour**.
+
+    - L’actualisation automatique est suspendue lorsque vous modifiez un classeur, et les intervalles sont redémarrés chaque fois que vous revenez en mode d’affichage à partir du mode d’édition.
+
+    - Les intervalles d’actualisation automatique sont également redémarrés si vous actualisez manuellement vos données.
+
+    > [!TIP]
+    > Par défaut, l’actualisation automatique est désactivée. Pour optimiser les performances, l’actualisation automatique est également désactivée chaque fois que vous fermez un classeur, et elle ne s’exécute pas en arrière-plan. Activez l’actualisation automatique en fonction de vos besoins la prochaine fois que vous ouvrirez le classeur.
+    >
 
 ## <a name="print-a-workbook-or-save-as-pdf"></a>Imprimer un classeur ou enregistrer au format PDF
 
@@ -86,7 +112,7 @@ Pour imprimer un classeur ou l’enregistrer au format PDF, utilisez le menu Opt
 
 Exemple :
 
-:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Imprimez votre classeur ou enregistrez-le au format PDF.":::
+[ ![Imprimez votre classeur ou enregistrez-le au format PDF.](media/whats-new/print-workbook.png) ](media/whats-new/print-workbook.png#lightbox)
 
 ## <a name="how-to-delete-workbooks"></a>Comment supprimer des classeurs
 

@@ -4,19 +4,19 @@ description: Comprendre les définitions de schéma d’alerte courant pour Azur
 author: ofirmanor
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 02092f5a241824d2a9aef242b544f8900af7ebec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 709ec2dee1be6930ca7c09de334aede8a76e95f4
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045392"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491710"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
 Cet article décrit les [définitions de schéma d’alerte courant](./alerts-common-schema.md) pour Azure Monitor, y compris pour les webhooks, Azure Logic Apps, Azure Functions et les runbooks Azure Automation. 
 
 Chaque instance d’alerte décrit la ressource affectée et la cause de l’alerte. Ces instances sont décrites dans le schéma commun dans les sections suivantes :
-* **Informations de base** : ensemble de champs standardisés, commun à tous les types d’alerte, qui décrivent quelle ressource est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). 
+* **Informations de base** : ensemble de champs standardisés, commun à tous les types d’alerte, qui décrivent quelle ressource est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). Les définitions de gravité sont présentées dans la [vue d’ensemble des alertes](alerts-overview.md#overview). 
 * **Contexte de l’alerte** : ensemble de champs qui décrivent la cause de l’alerte, et varient selon le type d’alerte. Par exemple, une alerte de métrique inclut des champs tels que le nom de la métrique et la valeur de la métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité contient des informations sur l’événement à l’origine de l’alerte. 
 
 **Exemple de charge utile d’alerte**
