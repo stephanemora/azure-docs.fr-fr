@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 3/04/2021
-ms.openlocfilehash: 7ffb5a3dfd23a1515c6d21784b82ccdbf0674f0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb954a32a4e598c45578d4b06606bc133babb50d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593405"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107150"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migration de solutions de co-vente de GTM OCP vers le marketplace commercial
 
@@ -32,7 +32,7 @@ En tant que partenaire Microsoft inscrit sur le marketplace commercial, vous pou
 Vérifiez que vous êtes un membre actif du programme Microsoft Partner Network et que vous êtes inscrit au marketplace commercial dans Espace partenaires.
 
 - Rejoignez le programme Microsoft Partner Network [gratuitement](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership). En tant que partenaire, vous aurez accès à des ressources, programmes, outils et connexions exclusifs pour développer votre activité.
-- Si vous n’avez pas de compte sur le marketplace commercial, [inscrivez-vous dès maintenant](partner-center-portal/create-account.md) pour continuer à co-vendre avec Microsoft et accéder à l’expérience complète de publication.
+- Si vous n’avez pas de compte sur le marketplace commercial, [inscrivez-vous dès maintenant](create-account.md) pour continuer à co-vendre avec Microsoft et accéder à l’expérience complète de publication.
 
 ## <a name="publishing-updates-for-attaining-co-sell-ready-status"></a>Publication de mises à jour pour obtenir l’état co-sell-ready
 
@@ -45,7 +45,7 @@ Une fois inscrit sur le marketplace commercial, préparez-vous à migrer vos sol
 
 Procédez comme suit avant d’importer vos solutions à partir de GTM OCP :
 
-1. Accédez à la [liste des éditeurs](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de votre entreprise. Elle comprend le propriétaire du compte, les managers et les développeurs qui ont accès à la publication. En savoir plus sur les [rôles d’utilisateur d’Espace partenaires](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
+1. Accédez à la [liste des éditeurs](https://partner.microsoft.com/dashboard/account/v3/publishers/list) de votre entreprise. Elle comprend le propriétaire du compte, les managers et les développeurs qui ont accès à la publication. En savoir plus sur les [rôles d’utilisateur d’Espace partenaires](user-roles.md).
 2. Demandez à l’un des contacts de la liste d’[ajouter des utilisateurs](https://partner.microsoft.com/dashboard/account/usermanagement) au marketplace commercial en tant que *managers* ou *développeurs*, car seuls ces rôles peuvent modifier et publier des solutions.
 3. Collaborez avec vos développeurs pour déplacer vos solutions de votre compte GTM OCP au marketplace commercial.
 4. Choisissez l’une des opérations suivantes :
@@ -97,7 +97,7 @@ Sélectionnez cette option si vous avez une solution GTM OCP qui n’a pas encor
 
     [![Onglet Action 1 du processus de migration.](media/co-sell-migrate/action-1-migrate.png)](media/co-sell-migrate/action-1-migrate.png#lightbox)
 
-1. Sous l’onglet **Action 2**, sélectionnez le [profil de l’éditeur](partner-center-portal/create-account.md) dans la liste fournie. Si vous n’avez pas de compte d’éditeur, créez-en un dans [Espace partenaires](https://partner.microsoft.com/solutions/migration), et sélectionnez-le ici.
+1. Sous l’onglet **Action 2**, sélectionnez le [profil de l’éditeur](create-account.md) dans la liste fournie. Si vous n’avez pas de compte d’éditeur, créez-en un dans [Espace partenaires](https://partner.microsoft.com/solutions/migration), et sélectionnez-le ici.
 
     [![Onglet Action 2 du processus de migration.](media/co-sell-migrate/action-2-migrate.png)](media/co-sell-migrate/action-2-migrate.png#lightbox)
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: ac9cef77569dffe461f7711195c5638e831aa218
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 28072184d47beb32dc03e0d6ba52328bfceb5b73
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110102"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364870"
 ---
 # <a name="calling-sdk-overview"></a>Vue d’ensemble du kit SDK Appel
 
@@ -68,12 +68,12 @@ La liste suivante présente l’ensemble des fonctionnalités actuellement dispo
 |                   | Obtenir la liste des caméras                                                                                                     | ✔️   | ✔️            | ✔️
 |                   | Définir la caméra                                                                                                          | ✔️   | ✔️            | ✔️
 |                   | Obtenir la caméra sélectionnée                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Obtenir la liste des microphones                                                                                                 | ✔️   | ✔️            | ✔️
-|                   | Définir le microphone                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Obtenir le microphone sélectionné                                                                                             | ✔️   | ✔️            | ✔️
-|                   | Obtenir la liste des haut-parleurs                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Définir le haut-parleur                                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Obtenir le haut-parleur sélectionné                                                                                                | ✔️   | ✔️            | ✔️
+|                   | Obtenir la liste des microphones                                                                                                 | ✔️   | ❌           |❌  
+|                   | Définir le microphone                                                                                                      | ✔️   | ❌           | ❌  
+|                   | Obtenir le microphone sélectionné                                                                                             | ✔️   | ❌           | ❌  
+|                   | Obtenir la liste des haut-parleurs                                                                                                   | ✔️   | ❌           | ❌  
+|                   | Définir le haut-parleur                                                                                                         | ✔️   | ❌           | ❌  
+|                   | Obtenir le haut-parleur sélectionné                                                                                                | ✔️   | ❌           | ❌  
 | Rendu vidéo   | Afficher une vidéo unique à de nombreux emplacements (caméra locale ou flux distant)                                                  | ✔️   | ✔️            | ✔️
 |                   | Définir/mettre à jour le mode de mise à l’échelle                                                                                           | ✔️   | ✔️            | ✔️
 |                   | Afficher un flux vidéo distant                                                                                          | ✔️   | ✔️            | ✔️

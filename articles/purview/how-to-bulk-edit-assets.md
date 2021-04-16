@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952454"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105024232"
 ---
-# <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Comment modifier en bloc des ressources pour étiqueter des termes de glossaire
+# <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>Comment modifier des ressources en bloc pour annoter des classifications, inscrire des termes au glossaire et modifier des contacts
 
-Cet article explique comment étiqueter plusieurs termes de glossaire dans une liste de ressources sélectionnées en une seule action.
+Cet article explique comment étiqueter en une seule action plusieurs termes de glossaire, classifications, propriétaires et experts dans une liste de ressources données.
 
 ### <a name="add-assets-to-view-selected-list-using-search"></a>Ajouter des ressources pour afficher la liste sélectionnée à l’aide de la recherche
 

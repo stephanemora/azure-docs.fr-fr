@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: dépannage, mise à jour, bogue, Kinect, commentaires, récupération, journalisation, conseils
-ms.openlocfilehash: ecd0fe9021642b27438b0e5d3d140e50c8073f29
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: da5242a09934a756093a9e02b6d474e6c75fecda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951519"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108738"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problèmes connus et résolution des problèmes liés à Azure Kinect
 
@@ -193,12 +193,12 @@ Le kit de développement logiciel (SDK) de suivi du corps prend en charge les en
 > Le runtime ONNX affiche des avertissements pour les opcodes qui ne sont pas accélérés. Vous pouvez l’ignorer en toute sécurité.
 
 Le runtime ONNX contient des variables d’environnement pour contrôler la mise en cache du modèle TensorRT. Les valeurs recommandées sont les suivantes :
-- ORT_TENSORRT_CACHE_ENABLE=1 
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE=1 
 - ORT_TENSORRT_CACHE_PATH="pathname"
 
 Le dossier doit être créé avant de commencer le suivi du corps.
 
-> [!NOTE]  
+> [!IMPORTANT]  
 > TensorRT pré-traite le modèle avant l’inférence entraînant des temps de démarrage étendus par rapport à d’autres environnements d’exécution. Le service de mise en cache du moteur limite ce nombre à la première exécution, mais il est expérimental et est spécifique au modèle, à la version du runtime ONNX, à la version TensorRT et au modèle GPU.
 
 L’environnement d’exécution TensorRT prend en charge FP32 (par défaut) et FP16. Le niveau de performance de FP16 est 2 fois plus important pour une diminution minimale de la précision. Pour spécifier FP16 :

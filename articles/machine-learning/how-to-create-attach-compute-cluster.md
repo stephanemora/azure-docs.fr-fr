@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: c11176f0c7760e76b755406bda96b72b302f8857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506937"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106169570"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Créer un cluster de calcul Azure Machine Learning
 
@@ -44,11 +44,9 @@ Les clusters de calcul peuvent exécuter des travaux de manière sécurisée dan
 
 ## <a name="limitations"></a>Limites
 
-* **Évitez de créer plusieurs attachements en même temps dans le même calcul** depuis votre espace de travail. Par exemple, l’attachement d’un cluster de calcul à un espace de travail en utilisant deux noms différents. Chaque nouvel attachement va supprimer le ou les attachements précédents.
-
-    Si vous voulez réattacher une cible de calcul, par exemple pour changer les paramètres de configuration du cluster, vous devez d’abord supprimer l’attachement existant.
-
 * Certains des scénarios présentés dans ce document présentent la mention __préversion__. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+* Nous prenons actuellement en charge uniquement la création (et non la mise à jour) de clusters via des modèles ARM [https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/workspaces/computes?tabs=json ]. Pour mettre à jour le calcul, nous vous recommandons d’utiliser le Kit de développement logiciel (SDK), l’interface CLI ou l’expérience utilisateur pour le moment.
 
 * Capacité de calcul Azure Machine Learning comporte des limites par défaut, par exemple le nombre de cœurs qui peuvent être alloués. Pour plus d’informations, consultez [Gérer et demander des quotas pour les ressources Azure](how-to-manage-quotas.md).
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: dae9ab56ca1349d288aee02f7e2dfa4eccf1508c
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199160"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044955"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installer l’agent Log Analytics sur des ordinateurs Linux
 Cet article fournit des détails sur l’installation de l’agent Log Analytics sur des ordinateurs Linux à l’aide des méthodes suivantes :
@@ -50,7 +50,7 @@ Pour obtenir la liste des distributions Linux que l’agent Log Analytics prend 
 
 À partir de la version de l’agent 1.13.27, l’agent Linux prend en charge à la fois Python 2 et 3. Nous vous recommandons toujours d’utiliser l’agent le plus récent. 
 
-Si vous utilisez une version antérieure de l’agent, vous devez faire en sorte que la machine virtuelle utilise Python 2 par défaut. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, vous devez l’installer. Les exemples de commandes suivants installent Python 2 sur différentes distributions.
+Si vous utilisez une version antérieure de l’agent, vous devez faire en sorte que la machine virtuelle utilise Python 2 par défaut. Si votre machine virtuelle utilise une distribution qui n’inclut pas Python 2 par défaut, vous devez l’installer. Les exemples de commandes suivants installent Python 2 sur différentes distributions.
 
  - Red Hat, CentOS, Oracle : `yum install -y python2`
  - Ubuntu, Debian : `apt-get install -y python2`
@@ -91,7 +91,7 @@ Le tableau suivant met en évidence les packages requis pour les [distributions 
 |Glibc |    Bibliothèque C de GNU | 2.5-12 
 |Openssl    | Bibliothèques OpenSSL | 1.0.x ou 1.1.x |
 |Curl | Client web cURL | 7.15.5 |
-|Python | | 2.6+ ou 3.3+
+|Python | | 2.7 ou 3.6+
 |Python-ctypes | | 
 |PAM | Modules d’authentification enfichable | | 
 

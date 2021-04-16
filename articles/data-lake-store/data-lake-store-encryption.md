@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 51c9f924c6fe3ac6db86d60e26749d35bc4ab733
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92109151"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108942"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Chiffrement des données dans Azure Data Lake Storage Gen1
 
@@ -135,4 +135,4 @@ Notez que si vous utilisez les options par défaut pour le chiffrement, vos donn
 Cette opération doit prendre moins de deux minutes et aucune interruption de service due à la rotation des clés n’est attendue. Une fois l’opération terminée, la nouvelle version de la clé est utilisée.
 
 > [!IMPORTANT]
-> Une fois l’opération de rotation des clés terminée, l’ancienne version de la clé n’est plus utilisée activement pour chiffrer vos données.  Toutefois, dans de rares cas d’échec inattendu dans lesquels des copies redondantes de vos données sont affectées, les données peuvent être restaurées à partir d’une sauvegarde qui utilise toujours l’ancienne clé. Pour garantir que vos données sont accessibles dans ces rares cas, conservez une copie de la version précédente de votre clé de chiffrement. Pour obtenir de meilleures pratiques sur la planification de votre récupération d’urgence, voir [Conseils sur la récupération d’urgence des données dans Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md).
+> Une fois l’opération de rotation des clés terminée, l’ancienne version de la clé n’est plus utilisée activement pour chiffrer les nouvelles données. Dans certains cas cependant, l’accès à des données plus anciennes peut nécessiter l’utilisation de l’ancienne clé. Pour permettre la lecture de ces données plus anciennes, ne supprimez pas l’ancienne clé.

@@ -3,17 +3,17 @@ title: 'ML Studio (classique) : Migrer vers Azure Machine Learning – Reconstr
 description: Reconstruire des services web Studio (classiques) en tant que points de terminaison de pipeline dans Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 5e467d22cc3230bd9945fb276dc16cf1fa765bb6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 35ee5bf22aa88c18bade0ebdcd961b7687d24e7f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565606"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311819"
 ---
 # <a name="rebuild-a-studio-classic-web-service-in-azure-machine-learning"></a>Reconstruire un service web Studio (classique) dans Azure Machine Learning
 
@@ -156,6 +156,6 @@ Consultez les autres articles de la série sur la migration Studio (classique) 
 1. [Vue d’ensemble de la migration](migrate-overview.md).
 1. [Migrer un jeu de données](migrate-register-dataset.md).
 1. [Reconstruire un pipeline de formation Studio (classique)](migrate-rebuild-experiment.md).
-1. **Reconstruire un service web Studio (classique)** .
+1. **Reconstruire un service web Studio (classique)**.
 1. [Intégrer un service web Azure Machine Learning à des applications clientes](migrate-rebuild-integrate-with-client-app.md).
 1. [Migrer Exécuter un script R](migrate-execute-r-script.md).

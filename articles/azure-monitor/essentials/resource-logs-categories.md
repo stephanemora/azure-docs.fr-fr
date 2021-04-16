@@ -2,13 +2,13 @@
 title: Services et catégories pris en charge des journaux de ressources Azure Monitor
 description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
 ms.topic: reference
-ms.date: 01/29/2021
-ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/30/2021
+ms.openlocfilehash: a4ab4a2e425b752198223da5efd1b07466ab83d1
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033144"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166936"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
 
@@ -33,7 +33,8 @@ Voici la liste des types de journaux disponibles pour chaque type de ressource.
 Il est possible que certaines catégories soient prises en charge uniquement pour des types de ressources spécifiques. Si vous avez le sentiment qu’il vous manque une ressource, consultez la documentation spécifique de celle-ci. Par exemple, les catégories Microsoft.Sql/servers/databases ne sont pas disponibles pour tous les types de bases de données. Pour plus d’informations, consultez les [informations sur la journalisation des diagnostics SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire GitHub au bas de cet article.
-## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/domainServices
+
+## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
@@ -46,6 +47,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |PolicyChange|PolicyChange|Non|
 |PrivilegeUse|PrivilegeUse|Non|
 |SystemSecurity|SystemSecurity|Non|
+
+
+## <a name="microsoftaadiamtenants"></a>microsoft.aadiam/tenants
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|SignIn|SignIn|Oui|
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
@@ -97,6 +105,14 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |JobStreams|Flux de travail|Non|
 
 
+## <a name="microsoftautonomousdevelopmentplatformaccounts"></a>Microsoft.AutonomousDevelopmentPlatform/accounts
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|Audit|Audit|Oui|
+|En fonctionnement|En fonctionnement|Oui|
+
+
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -135,7 +151,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |BotRequest|Demandes des canaux au bot|Non|
-|DependencyRequest|Demandes aux dépendances|Non|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -182,6 +197,7 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
+|AuthOperational|Journaux d’authentification opérationnels|Oui|
 |ChatOperational|Journaux de conversation opérationnels|Non|
 |SMSOperational|Journaux SMS opérationnels|Non|
 |Usage|Enregistrements d’utilisation|Non|
@@ -256,6 +272,8 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |ActivityRuns|Journal d’exécutions d’activités de pipeline|Non|
 |PipelineRuns|Journal d’exécutions de pipeline|Non|
+|SandboxActivityRuns|Journal des exécutions d’activité de bac à sable|Oui|
+|SandboxPipelineRuns|Journal d’exécutions de pipeline de bac à sable|Oui|
 |SSISIntegrationRuntimeLogs|Journaux du runtime d’intégration SSIS|Non|
 |SSISPackageEventMessageContext|Contexte du message d’événement du package SSIS|Non|
 |SSISPackageEventMessages|Messages d’événements du package SSIS|Non|
@@ -320,6 +338,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |PostgreSQLLogs|Journaux d’activité de serveur PostgreSQL|Non|
+
+
+## <a name="microsoftdbforpostgresqlservergroupsv2"></a>Microsoft.DBForPostgreSQL/serverGroupsv2
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|PostgreSQLLogs|Journaux d’activité de serveur PostgreSQL|Oui|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
@@ -531,18 +556,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |AppTraces|Traces|Non|
 
 
-## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
-
-|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
-|---|---|---|
-|Audit|Audit|Non|
-|Sortie|Sortie|Non|
-|Entrée|Entrée|Non|
-|En fonctionnement|En fonctionnement|Non|
-|Trace|Trace|Non|
-|UserDefinedFunction|UserDefinedFunction|Non|
-
-
 ## <a name="microsoftkeyvaultmanagedhsms"></a>microsoft.keyvault/managedhsms
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -747,13 +760,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Moteur|Moteur|Non|
 
 
-## <a name="microsoftprojectbabylonaccounts"></a>Microsoft.ProjectBabylon/accounts
-
-|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
-|---|---|---|
-|ScanStatusLogEvent|ScanStatus|Non|
-
-
 ## <a name="microsoftpurviewaccounts"></a>microsoft.purview/accounts
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -808,6 +814,13 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |AllLogs|Journaux d’Azure SignalR Service.|Non|
+
+
+## <a name="microsoftsignalrservicewebpubsub"></a>Microsoft.SignalRService/WebPubSub
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|AllLogs|Journaux du service Azure Web PubSub|Oui|
 
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
@@ -901,6 +914,9 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |---|---|---|
 |BuiltinSqlReqsEnded|Demandes terminées pour le pool SQL intégré|Non|
 |GatewayApiRequests|Demandes d’API de passerelle Synapse|Non|
+|IntegrationActivityRuns|Exécutions d’activités d’intégration|Oui|
+|IntegrationPipelineRuns|Exécutions de pipelines d’intégration|Oui|
+|IntegrationTriggerRuns|Exécutions de déclencheurs d’intégration|Oui|
 |SQLSecurityAuditEvents|Événement d’audit de sécurité SQL|Non|
 |SynapseRbacOperations|Opérations RBAC Synapse|Non|
 
@@ -975,7 +991,6 @@ Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire 
 |AppServiceIPSecAuditLogs|Journaux d’audit IPSecurity|Non|
 |AppServicePlatformLogs|Journaux de la plateforme App Service|Non|
 |FunctionAppLogs|Journaux d’application de fonction|Non|
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

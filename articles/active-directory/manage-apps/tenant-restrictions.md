@@ -2,22 +2,22 @@
 title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux applications SaaS - Azure AD
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/23/2021
-ms.author: kenwith
+ms.date: 4/6/2021
+ms.author: iangithinji
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 941bf61f3387abf19be58bdd4d8861ab123e244f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589325"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376577"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -97,6 +97,8 @@ Cette section décrit l’expérience des utilisateurs finaux et des administrat
 
 Par exemple, un utilisateur sur le réseau Contoso tente d’accéder à l’instance Fabrikam d’une application SaaS partagée comme Outlook Online. Si Fabrikam est un locataire non autorisé pour l’instance Contoso, l’utilisateur voit un message de refus d’accès, qui indique que vous tentez d’accéder à une ressource qui appartient à une organisation non approuvée par votre service informatique.
 
+![Message d’erreur liées aux restrictions du locataire, à partir d’avril 2021](./media/tenant-restrictions/error-message.png)
+
 ### <a name="admin-experience"></a>Expérience administrateur
 
 Bien que la configuration des restrictions liées au locataire est effectuée sur l’infrastructure du proxy d’entreprise, les administrateurs peuvent accéder aux rapports sur les restrictions liées au locataire directement dans le portail Azure. Pour afficher les rapports :
@@ -113,14 +115,14 @@ Le rapport peut contenir des informations limitées, telles que l’ID de réper
 
 Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes**, vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
 
-- **Utilisateur** : des informations d’identification personnelle peuvent être supprimées dans ce champ, il sera alors défini sur `00000000-0000-0000-0000-000000000000`. 
+- **Utilisateur** : des données personnelles peuvent être supprimées dans ce champ, il sera alors défini sur `00000000-0000-0000-0000-000000000000`. 
 - **Application**
 - **État**
 - **Date**
 - **Date (UTC)**  : où UTC est le temps universel coordonné
 - **Adresse IP**
 - **Client**
-- **Nom d’utilisateur** : des informations d’identification personnelle peuvent être supprimées dans ce champ, il sera alors défini sur `{PII Removed}@domain.com`
+- **Utilisateur** : des données personnelles peuvent être supprimées dans ce champ, il sera alors défini sur `{PII Removed}@domain.com`
 - **Lieu**
 - **ID du locataire cible**
 

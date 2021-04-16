@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5287fe6df4a2f0cb728bf0e705a4ce989ca38487
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80878423"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934034"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
@@ -67,7 +67,7 @@ Les paramètres de configuration de la section `CloudAI` fournissent des options
 
 ### <a name="storage-scenario-settings"></a>Paramètres de scénario de stockage
 
-Le conteneur Visage stocke des données d’objet blob, de cache, de métadonnées et de file d’attente, selon ce qui est stocké. Par exemple, les index et résultats d’entraînement d’un grand groupe de personnes sont stockés sous forme de données d’objet blob. Le conteneur Visage offre deux scénarios de stockage différents quand il interagit avec ces types de données et les stocke :
+Le conteneur Visage stocke des données d’objet blob, de cache, de métadonnées et de file d’attente, selon ce qui est stocké. Par exemple, les index et résultats d’entraînement pour un **LargePersonGroup** sont stockés sous forme de données d’objet blob. Le conteneur Visage offre deux scénarios de stockage différents quand il interagit avec ces types de données et les stocke :
 
 * Mémoire  
   Les quatre types de données sont stockés en mémoire. Ils ne sont ni distribués ni persistants. Si le conteneur Visage est arrêté ou supprimé, toutes les données contenues dans le stockage de ce conteneur sont détruites.  

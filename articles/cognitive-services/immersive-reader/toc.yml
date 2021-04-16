@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: Vue d’ensemble du Lecteur immersif
+    - name: "Qu’est-ce que le lecteur immersif\_?"
       href: Overview.md
     - name: Support multilingue
       href: language-support.md
@@ -10,7 +10,7 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/'
     - name: Notes de publication
       href: release-notes.md
-- name: Démarrage rapide sur le Lecteur immersif
+- name: Démarrage rapide
   href: ./quickstarts/client-libraries.md
 - name: Procédure
   items:
@@ -36,14 +36,24 @@
       href: how-to-store-user-preferences.md
     - name: Utiliser plusieurs ressources du Lecteur immersif
       href: how-to-multiple-resources.md
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Configurer des réseaux virtuels
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/immersive-reader/context/context
+        - name: "Utiliser l’authentification Azure\_AD"
+          href: ../authentication.md?context=/azure/cognitive-services/immersive-reader/context/context
 - name: Informations de référence
   items:
     - name: Kit de développement logiciel (SDK) JavaScript
       href: reference.md
 - name: Ressources
   items:
-    - name: Support régional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Prise en charge de la région
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformité et certification
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Mises à jour Azure

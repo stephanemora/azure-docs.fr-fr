@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: ebd0e48c9f197439e838efbc936537ca5da3520f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96580977"
 ---
 - **Détails de la commande**. Une fois la commande créée, l’adresse de livraison, l’adresse e-mail, et les informations de contact de l’utilisateur sont stockées dans le Portail Azure. Les informations enregistrées incluent :

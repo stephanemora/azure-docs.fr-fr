@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130015"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048338"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
 
@@ -48,7 +48,7 @@ Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d
 **L’ID d’application Azure AD** est associé à votre ID d’éditeur. Veillez donc à utiliser le même *ID d’application* dans toutes vos offres.
 
 >[!Note]
->Si un éditeur possède deux comptes différents dans l’Espace partenaires, il doit utiliser deux ID d’application Azure AD différents.  Chaque compte partenaire de l’Espace partenaires doit avoir recours à un ID d’application Azure AD unique pour toutes les offres SaaS publiées par son intermédiaire.
+>Si l’éditeur a au moins deux comptes différents dans l’Espace partenaires, les détails des inscriptions d’applications auprès d’Azure AD ne peuvent être utilisés que dans un seul compte. L’utilisation de la même paire ID de locataire/ID d’application pour une offre sous un compte d’éditeur distinct n’est pas prise en charge.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Procédure à suivre pour récupérer le jeton d’autorisation de l’éditeur
 

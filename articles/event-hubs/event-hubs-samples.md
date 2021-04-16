@@ -4,12 +4,12 @@ description: Cet article fournit une liste d’exemples pour Azure Event Hubs qu
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e0f8026683302f6b54924625b132e79cb194bad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b7cd4a1ca08f359a2328d7a92239516c39d7e62
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87499418"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311598"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Référentiels Git avec des exemples pour Azure Event Hubs 
 Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Ces exemples présentent les fonctionnalités clés [d’Azure Event Hubs](./index.yml). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
@@ -60,4 +60,4 @@ Pour plus d’informations sur les hubs d’événements, consultez les articles
 
 - [Vue d’ensemble d’Event Hubs](./event-hubs-about.md)
 - [Fonctionnalités des concentrateurs d’événements](event-hubs-features.md)
-- [FAQ sur les hubs d’événements](event-hubs-faq.md)
+- [FAQ sur les hubs d’événements](event-hubs-faq.yml)

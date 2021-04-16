@@ -3,12 +3,12 @@ title: Créer un espace de noms Relay à l’aide du portail Azure | Microsoft D
 description: Cet article fournit une procédure pas à pas qui montre comment créer un espace de noms Relay à l’aide du portail Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c26928d2ee53a5c76ff982b5d57b59f9a7a8ab8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 758e63c933b864ac5a77889f4addac4a468baafd
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85316998"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304526"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Créer un espace de noms Relay à l’aide du Portail Azure
 
@@ -25,7 +25,7 @@ Félicitations ! Vous venez de créer un espace de noms Relay.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [FAQ Relay](relay-faq.md)
+* [FAQ Relay](relay-faq.yml)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)
 
