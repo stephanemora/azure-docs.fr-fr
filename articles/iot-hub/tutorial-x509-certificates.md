@@ -12,13 +12,12 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-- devx-track-azurecli
-ms.openlocfilehash: fada68ba395b959e557542eb8c230561aad84214
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5503f9ad57180146c25a01c133a27b34e643496c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384321"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378344"
 ---
 # <a name="tutorial-understanding-x509-public-key-certificates"></a>Tutoriel : Compréhension des certificats à clé publique X.509
 
@@ -122,4 +121,4 @@ Si vous souhaitez générer des certificats de test que vous pouvez utiliser pou
 * [Utilisation d’OpenSSL pour créer des certificats de test](tutorial-x509-openssl.md)
 * [Utilisation d’OpenSSL pour créer des certificats de test auto-signés](tutorial-x509-self-sign.md)
 
-Si vous avez un certificat d’autorité de certification ou un certificat d’autorité de certification secondaire et que vous souhaitez le charger sur votre hub IoT et prouver que vous en êtes propriétaire, consultez [Prouver la possession d’un certificat d’autorité de certification](tutorial-x509-prove-possession.md).
+Si vous avez un certificat d’autorité de certification ou un certificat d’autorité de certification secondaire et que vous souhaitez le charger sur votre hub IoT et prouver que vous en êtes le propriétaire, consultez [Prouver la possession d’un certificat d’autorité de certification](tutorial-x509-prove-possession.md).

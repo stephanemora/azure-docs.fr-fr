@@ -1,19 +1,19 @@
 ---
-title: Azure Cache pour Redis avec Azure Private Link (préversion)
+title: Azure Cache pour Redis avec Azure Private Link
 description: Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à Azure Cache pour Redis optimisé par Azure Private Link. Cet article explique comment créer un cache Azure, un réseau virtuel Azure et un point de terminaison privé à l’aide du portail Azure.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 22bdf93e7236ae5220a6bb7c6ead898628bb51a1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 3/31/2021
+ms.openlocfilehash: 952f708d8f368b63f772e3af35f6fd441d65622d
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97007583"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106121657"
 ---
-# <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure Cache pour Redis avec Azure Private Link (Préversion publique)
+# <a name="azure-cache-for-redis-with-azure-private-link"></a>Azure Cache pour Redis avec Azure Private Link
 Dans cet article, vous allez apprendre à créer un réseau virtuel et une instance Azure Cache pour Redis avec un point de terminaison privé à l’aide du portail Azure. Vous apprendrez également à ajouter un point de terminaison privé à une instance Azure Cache pour Redis existante.
 
 Un point de terminaison privé Azure est une interface réseau qui vous connecte de façon privée et sécurisée à Azure Cache pour Redis optimisé par Azure Private Link. 
@@ -22,8 +22,7 @@ Un point de terminaison privé Azure est une interface réseau qui vous connecte
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
-> Pour utiliser des points de terminaison privés, votre instance Azure Cache pour Redis doit avoir été créée après le 28 juillet 2020.
-> Actuellement, la géoréplication, les règles de pare-feu, la prise en charge de la console du portail, la multiplicité des points de terminaison par cache en cluster, la persistance au pare-feu et les caches injectés de réseau virtuel ne sont pas pris en charge. 
+> Actuellement, la redondance de zone, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
 >
 >
 
@@ -112,19 +111,8 @@ La création du cache prend un certain temps. Vous pouvez surveiller la progress
 > [!IMPORTANT]
 > 
 > Il existe un indicateur `publicNetworkAccess` qui est `Disabled` par défaut. 
-> Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled` avec la requête PATCH suivante. Modifiez la valeur pour refléter l’indicateur que vous souhaitez appliquer à votre cache.
-> ```http
-> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
-> {    "properties": {
->        "publicNetworkAccess":"Disabled"
->    }
-> }
-> ```
+> Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled`. Pour plus d’informations sur la modification de la valeur, consultez la [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
-
-> [!IMPORTANT]
-> 
-> Pour vous connecter à un cache en cluster, `publicNetworkAccess` doit être défini sur `Disabled`, et il ne peut y avoir qu’une seule connexion de point de terminaison privé. 
 >
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Créer un point de terminaison privé avec une instance Azure Cache pour Redis existante 
@@ -173,7 +161,7 @@ Pour créer un point de terminaison privé, procédez comme suit.
 
 2. Sélectionnez l’instance de cache à laquelle vous souhaitez ajouter un point de terminaison privé.
 
-3. Sur le côté gauche de l’écran, sélectionnez **(PRÉVERSION) Point de terminaison privé**.
+3. Sur le côté gauche de l’écran, sélectionnez **Point de terminaison privé**.
 
 4. Cliquez sur le bouton **Point de terminaison privé** pour créer votre point de terminaison privé.
 
@@ -204,16 +192,36 @@ Pour créer un point de terminaison privé, procédez comme suit.
 
 13. Une fois que le message vert **Validation réussie** s’affiche, sélectionnez **Créer**.
 
+> [!IMPORTANT]
+> 
+> Il existe un indicateur `publicNetworkAccess` qui est `Disabled` par défaut. 
+> Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled`. Pour plus d’informations sur la modification de la valeur, consultez la [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+>
+>
+
+
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
 ### <a name="why-cant-i-connect-to-a-private-endpoint"></a>Pourquoi ne puis-je pas me connecter à un point de terminaison privé ?
-Si votre cache est déjà un cache injecté sur un réseau virtuel, les points de terminaison privés ne peuvent pas être utilisés avec votre instance de cache. Si votre instance de cache utilise une fonctionnalité non prise en charge (voir la liste ci-dessous), vous ne pourrez pas vous connecter à votre instance de point de terminaison privé. En outre, les instances de cache doivent être créées après le 27 juillet pour utiliser des points de terminaison privés.
+Si votre cache est déjà un cache injecté sur un réseau virtuel, les points de terminaison privés ne peuvent pas être utilisés avec votre instance de cache. Si votre instance de cache utilise une fonctionnalité non prise en charge (voir la liste ci-dessous), vous ne pourrez pas vous connecter à votre instance de point de terminaison privé.
 
 ### <a name="what-features-are-not-supported-with-private-endpoints"></a>Quelles fonctionnalités ne sont pas prises en charge avec les points de terminaison privés ?
-La géoréplication, les règles de pare-feu, la prise en charge de la console du portail, la multiplicité des points de terminaison par cache en cluster, la persistance aux règles de pare-feu et la redondance de zone. 
+Actuellement, la redondance de zone, la prise en charge de la console du portail et la persistance dans les comptes de stockage du pare-feu ne sont pas prises en charge. 
 
 ### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access"></a>Comment puis-je modifier mon point de terminaison privé pour qu’il soit désactivé ou activé à partir de l’accès au réseau public ?
-Il existe un indicateur `publicNetworkAccess` qui est `Disabled` par défaut. Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled` avec la requête PATCH suivante. Modifiez la valeur pour refléter l’indicateur que vous souhaitez appliquer à votre cache.
+Il existe un indicateur `publicNetworkAccess` qui est `Disabled` par défaut. Cet indicateur est destiné à vous permettre d’autoriser l’accès de points de terminaison public et privé au cache s’il est défini sur `Enabled`. Si la valeur est `Disabled`, il autorise uniquement l’accès de point de terminaison privé. Vous pouvez définir la valeur sur `Disabled` ou `Enabled` dans le portail Azure ou à l’aide d’une requête PATCH sur l’API RESTful. 
+
+Pour modifier la valeur dans le portail Azure, procédez comme suit.
+
+1. Dans le portail Azure, recherchez **Azure Cache pour Redis** et appuyez sur Entrée ou sélectionnez l’élément correspondant dans les suggestions de recherche.
+
+2. Sélectionnez l’instance de cache dont vous souhaitez modifier la valeur d’accès au réseau public.
+
+3. Sur le côté gauche de l’écran, sélectionnez **Point de terminaison privé**.
+
+4. Cliquez sur le bouton **Activer l’accès au réseau public**.
+
+Pour modifier la valeur par le biais d’une requête PATCH sur l’API RESTful, voyez ci-dessous et modifiez la valeur pour refléter l’indicateur que vous souhaitez pour votre cache.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -223,24 +231,23 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 }
 ```
 
+### <a name="how-can-i-have-multiple-endpoints-in-different-virtual-networks"></a>Comment puis-je avoir plusieurs points de terminaison dans différents réseaux virtuels ?
+Pour avoir plusieurs points de terminaison privés dans différents réseaux virtuels, la zone DNS privée doit être configurée manuellement sur les différents réseaux virtuels _avant_ de créer le point de terminaison privé. Pour plus d’informations, consultez [Configuration DNS des points de terminaison privés Azure](../private-link/private-endpoint-dns.md). 
+
+### <a name="what-happens-if-i-delete-all-the-private-endpoints-on-my-cache"></a>Que se passe-t-il si je supprime tous les points de terminaison privés sur mon cache ?
+Une fois que vous avez supprimé les points de terminaison privés de votre cache, votre instance de cache peut devenir inaccessible jusqu’à ce que vous activiez explicitement l’accès au réseau public ou que vous ajoutiez un autre point de terminaison privé. Vous pouvez modifier l’indicateur `publicNetworkAccess` sur le portail Azure ou par le biais d’une requête PATCH sur l’API RESTful. Pour plus d’informations sur la modification de la valeur, consultez la [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
+
 ### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>Les groupes de sécurité réseau (NSG) sont-ils activés pour les points de terminaison privés ?
 Non, ils sont désactivés pour les points de terminaison privés. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](../private-link/disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les itinéraires sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire. 
 
 Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés. Les journaux de trafic NSG et les informations de supervision pour les connexions sortantes sont toujours pris en charge et peuvent être utilisés.
 
-### <a name="can-i-use-firewall-rules-with-private-endpoints"></a>Puis-je utiliser des règles de pare-feu avec des points de terminaison privés ?
-Non, il s’agit d’une limitation actuelle des points de terminaison privés. Le point de terminaison privé ne fonctionnera pas correctement si des règles de pare-feu sont configurées sur le cache.
-
-### <a name="how-can-i-connect-to-a-clustered-cache"></a>Comment puis-je me connecter à un cache en cluster ?
-`publicNetworkAccess` doit être défini sur `Disabled`, et il ne peut y avoir qu’une seule connexion de point de terminaison privé.
-
 ### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Mon instance de point de terminaison privé ne figure pas dans mon réseau virtuel. Comment est-elle associée à mon réseau virtuel ?
 Elle est uniquement liée à votre réseau virtuel. Comme elle ne se trouve pas dans votre réseau virtuel, il n’est pas nécessaire de modifier les règles NSG pour les points de terminaison dépendants.
 
 ### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>Comment migrer mon cache injecté sur un réseau virtuel vers un cache de point de terminaison privé ?
-Vous devrez supprimer votre cache injecté sur un réseau virtuel et créer une nouvelle instance de cache avec un point de terminaison privé.
+Vous devrez supprimer votre cache injecté sur un réseau virtuel et créer une nouvelle instance de cache avec un point de terminaison privé. Pour plus d’informations, consultez [Migrer vers Azure Cache pour Redis](cache-migration-guide.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 * Pour en savoir plus sur Azure Private Link, consultez la [documentation d’Azure Private Link](../private-link/private-link-overview.md).
 * Pour comparer les différentes options d’isolement réseau de votre instance de cache, consultez la [documentation sur les options d’isolement réseau du cache Azure pour Redis](cache-network-isolation.md).
