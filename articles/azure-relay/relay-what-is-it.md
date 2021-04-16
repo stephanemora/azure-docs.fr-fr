@@ -3,12 +3,12 @@ title: Qu’est-ce qu’Azure Relay ? | Microsoft Docs
 description: Cet article fournit une vue d’ensemble du service Azure Relay, qui vous permet de développer des applications cloud qui utilisent des services locaux exécutés dans votre réseau d’entreprise sans ouvrir de connexion de pare-feu ni apporter de modifications intrusives à votre infrastructure réseau.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b222942394b8a83e6f5d4447aa9ccfb33cdec21
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955380"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314199"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
 Le service Azure Relay vous permet d’exposer en toute sécurité les services exécutés dans votre réseau d’entreprise sur le cloud public. Vous pouvez le faire sans ouvrir de port sur votre pare-feu ni apporter de changements intrusifs à votre infrastructure réseau d’entreprise. 
@@ -80,5 +80,5 @@ Le diagramme suivant illustre comment les requêtes de relais entrantes sont gé
 * [Bien démarrer avec les requêtes HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Bien démarrer avec Websockets Node](relay-hybrid-connections-node-get-started.md)
 * [Bien démarrer avec les requêtes HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
-* [FAQ Relay](relay-faq.md)
+* [FAQ Relay](relay-faq.yml)
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9eb5950b5cf7d4e7d0270deed72866ee28e3962
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102202958"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106902"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Activer une identité managée pour le routage des événements Azure Digital Twins (préversion) : Azure CLI
 
@@ -40,7 +40,7 @@ L’une ou l’autre de ces méthodes de création donnera les mêmes options de
 
 Dans cette section, vous allez apprendre à activer une identité gérée par le système sur une instance Azure Digital Twins en cours de création. 
 
-Pour ce faire, ajoutez un paramètre `--assign-identity` à la commande `az dt create` utilisée pour créer l’instance. (Pour plus d’informations sur cette commande, consultez sa [documentation de référence](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) ou les [instructions générales relatives à la configuration d’une instance d’Azure Digital Twins](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+Pour ce faire, ajoutez un paramètre `--assign-identity` à la commande `az dt create` utilisée pour créer l’instance. (Pour plus d’informations sur cette commande, consultez sa [documentation de référence](/cli/azure/dt#az_dt_create) ou les [instructions générales relatives à la configuration d’une instance d’Azure Digital Twins](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 Pour créer une instance avec une identité managée par le système, ajoutez le paramètre `--assign-identity` comme ceci :
 
@@ -97,7 +97,7 @@ Voici un exemple qui crée une instance avec une identité managée par le syst�
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Pour plus d’exemples d’attributions de rôles à l’aide de cette commande, consultez la [documentation de référence relative à **az dt create**](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create).
+Pour plus d’exemples d’attributions de rôles à l’aide de cette commande, consultez la [documentation de référence relative à **az dt create**](/cli/azure/dt#az_dt_create).
 
 Vous pouvez également utiliser le groupe de commandes [**az role assignment**](/cli/azure/role/assignment) pour créer et gérer des rôles. Cela permet la prise en charge de scénarios supplémentaires dans lesquels vous ne souhaitez pas regrouper l’attribution de rôle avec la commande create.
 
@@ -108,7 +108,7 @@ Après la configuration d’une identité gérée par le système pour votre ins
 >[!NOTE]
 > Vous ne pouvez pas modifier un point de terminaison déjà créé avec une identité basée sur une clé pour passer à l’authentification basée sur l’identité. Vous devez choisir le type d’authentification lorsque le point de terminaison est créé pour la première fois.
 
-Pour ce faire, ajoutez le paramètre `--auth-type` à la commande `az dt endpoint create` utilisée pour créer le point de terminaison. (Pour plus d’informations sur cette commande, consultez sa [documentation de référence](/cli/azure/ext/azure-iot/dt/endpoint/create) ou les [instructions générales relatives à la configuration d’un point de terminaison Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+Pour ce faire, ajoutez le paramètre `--auth-type` à la commande `az dt endpoint create` utilisée pour créer le point de terminaison. (Pour plus d’informations sur cette commande, consultez sa [documentation de référence](/cli/azure/dt/endpoint/create) ou les [instructions générales relatives à la configuration d’un point de terminaison Azure Digital Twins](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 Pour créer un point de terminaison qui utilise l’authentification basée sur l’identité, spécifiez le type d’authentification `IdentityBased` avec le paramètre `--auth-type`. L’exemple ci-dessous en fournit l’illustration pour un point de terminaison Event Hubs.
 

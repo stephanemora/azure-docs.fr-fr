@@ -3,7 +3,7 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: Vue d’ensemble de LUIS
+    - name: Qu’est-ce que le service Language Understanding (LUIS) ?
       href: what-is-luis.md
     - name: Support multilingue
       href: luis-language-support.md
@@ -119,22 +119,26 @@
           diplayName: 'import, export, container'
         - name: Avec Traffic Manager
           href: luis-traffic-manager.md
-    - name: Déployer LUIS
+    - name: Utiliser des conteneurs
       items:
-        - name: Utiliser des conteneurs
-          items:
-            - name: Installer et exécuter des conteneurs
-              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
-              href: luis-container-howto.md
-            - name: Configurer des conteneurs
-              href: luis-container-configuration.md
-            - name: Utiliser des instances de conteneur
-              href: ../containers/azure-container-instance-recipe.md
-            - name: Limitations des conteneurs
-              href: luis-container-limitations.md
-              displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-            - name: Documentation sur les conteneurs Cognitive Services
-              href: ../containers/index.yml
+        - name: Installer et exécuter des conteneurs
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
+          href: luis-container-howto.md
+        - name: Configurer des conteneurs
+          href: luis-container-configuration.md
+        - name: Utiliser des instances de conteneur
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Limitations des conteneurs
+          href: luis-container-limitations.md
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+        - name: Documentation sur les conteneurs Cognitive Services
+          href: ../containers/index.yml
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Configurer des réseaux virtuels
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/luis/context/context
+        - name: Utiliser des clés gérées par le client
+          href: encrypt-data-at-rest.md
 - name: Concepts
   items:
     - name: Intelligence artificielle
@@ -375,24 +379,21 @@
       href: luis-reference-prebuilt-sentiment.md
 - name: Ressources
   items:
-    - name: Portail LUIS
-      href: 'https://www.luis.ai'
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Prise en charge de la région
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+          displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+        - name: Conformité et certification
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
-    - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
-      displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, German, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
+    - name: Portail LUIS
+      href: 'https://www.luis.ai'
     - name: Feuille de route Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glossaire
       href: luis-glossary.md
-    - name: Conformité
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Chiffrement
-      href: encrypt-data-at-rest.md
-    - name: Configurer des réseaux virtuels
-      maintainContext: true
-      href: ../cognitive-services-virtual-networks.md
     - name: Recherche
       href: /search/index?search=LUIS
     - name: Blog

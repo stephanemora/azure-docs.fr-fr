@@ -5,12 +5,12 @@ description: Découvrez comment utiliser l’appartenance de groupe Azure Active
 services: container-service
 ms.topic: article
 ms.date: 03/17/2021
-ms.openlocfilehash: 72b2c456d62b899f2b04041929434da668cad82d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa9a3340d6ff0a9818ba92b94b345bd86a78d426
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583528"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106018"
 ---
 # <a name="control-access-to-cluster-resources-using-kubernetes-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Contrôler l’accès aux ressources de cluster à l’aide du contrôle d’accès en fonction du rôle Kubernetes et des identités Azure Active Directory dans Azure Kubernetes Service
 
@@ -434,5 +434,5 @@ Pour découvrir les meilleures pratiques de contrôle des identités et des ress
 [az-ad-user-create]: /cli/azure/ad/user#az-ad-user-create
 [az-ad-group-member-add]: /cli/azure/ad/group/member#az-ad-group-member-add
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show
-[rbac-authorization]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac
+[rbac-authorization]: concepts-identity.md#kubernetes-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
