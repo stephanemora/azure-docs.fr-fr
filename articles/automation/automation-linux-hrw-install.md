@@ -3,14 +3,14 @@ title: Déployer un Runbook Worker hybride Linux dans Azure Automation
 description: Cet article explique comment déployer un runbook Worker hybride Azure Automation qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/26/2021
+ms.date: 04/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a37f3de48dd675ef1b41f84747f0db3ce1598337
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182330"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106293666"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -106,6 +106,31 @@ Les runbooks Workers hybrides pour Linux prennent en charge un ensemble limité 
 Pour connaître la configuration réseau requise pour le Runbook Worker hybride, consultez [Configuration de votre réseau](automation-hybrid-runbook-worker.md#network-planning).
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Installer un Runbook Worker hybride Linux
+
+Deux méthodes permettent de déployer un Runbook Worker hybride. Vous pouvez importer et exécuter un runbook à partir de la Galerie de runbooks dans le portail Azure ou exécuter manuellement une série de commandes PowerShell pour accomplir la même tâche.
+
+### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importer un runbook à partir de la Galerie de runbooks
+
+La procédure d’importation est détaillée dans [Importer un runbook PowerShell à partir de GitHub avec le portail Azure](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). Le nom du runbook à importer est **Create Automation Linux HybridWorker**.
+
+Le runbook utilise les paramètres suivants.
+
+| Paramètre | Statut | Description |
+| ------- | ----- | ----------- |
+| `Location` | Obligatoire | Emplacement de l’espace de travail Log Analytics. |
+| `ResourceGroupName` | Obligatoire | Groupe de ressources du compte Automation. |
+| `AccountName` | Obligatoire | Nom du compte Automation dans lequel le Runbook Worker hybride sera inscrit. |
+| `CreateLA` | Obligatoire | Si la valeur est True, utilisez la valeur de `WorkspaceName` pour créer un espace de travail Log Analytics. Si la valeur est False, la valeur de `WorkspaceName` doit faire référence à un espace de travail existant. |
+| `LAlocation` | Facultatif | Emplacement où l’espace de travail Log Analytics sera créé ou emplacement où il existe déjà. |
+| `WorkspaceName` | Facultatif | Nom de l’espace de travail Log Analytics à créer ou à utiliser. |
+| `CreateVM` | Obligatoire | Si la valeur est True, utilisez la valeur de `VMName` comme nom de nouvelle machine virtuelle. Si la valeur est False, utilisez `VMName` pour rechercher et inscrire une machine virtuelle existante. |
+| `VMName` | Facultatif | Nom de la machine virtuelle créée ou enregistrée, en fonction de la valeur de `CreateVM`. |
+| `VMImage` | Facultatif | Nom de l’image de machine virtuelle à créer. |
+| `VMlocation` | Facultatif | Emplacement de la machine virtuelle créée ou inscrite. Si cet emplacement n’est pas spécifié, la valeur de `LAlocation` est utilisée. |
+| `RegisterHW` | Obligatoire | Si la valeur est True, inscrivez la machine virtuelle en tant que Worker hybride. |
+| `WorkerGroupName` | Obligatoire | Nom du Groupe Worker hybride. |
+
+### <a name="manually-run-powershell-commands"></a>Exécuter manuellement des commandes PowerShell
 
 Pour installer et configurer un runbook Worker hybride pour Linux, effectuez les étapes suivantes.
 

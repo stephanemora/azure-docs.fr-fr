@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7e2a64c14d7d7a1d20b64b746969aca1e60ab218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cfd3bc406407298c6daf7723cb684911d7c9a9cf
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "90930241"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284666"
 ---
 # <a name="zone-and-line-placement-guide"></a>Guide de positionnement de zone et de ligne
 
-Cet article fournit des instructions sur la façon de définir des zones et des lignes pour les opérations d’analyse spatiale, afin d’obtenir une analyse précise des mouvements de populations dans un espace. Ceci concerne toutes les opérations. 
+Cet article fournit des instructions sur la façon de définir des zones et des lignes pour les opérations d’analyse spatiale, afin d’obtenir une analyse précise des mouvements de personnes dans un espace. Ceci concerne toutes les opérations. 
 
 Les zones et les lignes sont définies à l’aide du paramètre JSON SPACEANALYSIS_CONFIG. Pour plus d’informations, consultez l’article [Opérations d’analyse spatiale](spatial-analysis-operations.md).
 
@@ -31,7 +31,7 @@ Si vous souhaitez afficher une section spécifique de la vue de votre caméra, c
 
 ### <a name="example-of-a-well-shaped-zone"></a>Exemple de zone correctement mise en forme
 
-La zone doit être suffisamment grande pour accueillir trois personnes sur chaque bord et se concentrer sur le domaine qui vous intéresse. L’analyse spatiale identifie les personnes dont les pieds sont placés dans la zone. Par conséquent, lorsque vous dessinez des zones sur l’image 2D, imaginez la zone comme un tapis sur le plancher.
+La zone doit être suffisamment grande pour accueillir trois personnes sur chaque bord et se concentrer sur le domaine qui vous intéresse. L’analyse spatiale identifie les personnes dont les pieds sont placés dans la zone. Par conséquent, quand vous dessinez des zones sur l’image 2D, imaginez la zone comme un tapis sur le sol.
 
 ![Zone correctement mise en forme](./media/spatial-analysis/zone-good-example.png)
 
@@ -61,7 +61,7 @@ Les exemples suivants illustrent des zones mal formées. Dans ces exemples, la z
 
 ### <a name="example-of-a-well-shaped-line"></a>Exemple de ligne correctement mise en forme
 
-La ligne doit être suffisamment longue pour accueillir la totalité de l’entrée. L’analyse spatiale identifiera les personnes dont les pieds franchissent la ligne. Par conséquent, lorsque vous dessinez des lignes sur l’image 2D, imaginez que vous les dessinez comme si elles se trouvaient sur le plancher. 
+La ligne doit être suffisamment longue pour accueillir la totalité de l’entrée. L’analyse spatiale identifiera les personnes dont les pieds franchissent la ligne. Par conséquent, quand vous dessinez des lignes sur l’image 2D, imaginez que vous les dessinez comme si elles se trouvaient sur le sol. 
 
 Si possible, tracez une ligne plus large que l’entrée réelle. Si cela ne provoque pas d’intersections supplémentaires (comme sur l’image ci-dessous lorsque la ligne est sur un mur), vous pouvez la prolonger.
 

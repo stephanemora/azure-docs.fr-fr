@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/30/2020
-ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 6f08fa0b2126112fa17fd61be6f44bb5cc6d5396
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581301"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106552153"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
@@ -37,9 +37,9 @@ Le tableau suivant présente les options de référencement des offres SaaS dans
 
 Pour plus d’informations sur ces options de référencement, consultez [Fonctionnalités de transaction de la place de marché commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Une fois votre offre publiée, l’option de référencement que vous avez choisie pour votre offre s’affiche sous la forme d’un bouton dans l’angle supérieur gauche de la page de référencement de l’offre. Par exemple, la capture d’écran suivante montre une page de référencement d’offre dans la Place de marché Azure avec les boutons **Me contacter** et **Version d’évaluation**.
+Une fois votre offre publiée, l’option de référencement que vous avez choisie pour votre offre s’affiche sous la forme d’un bouton dans l’angle supérieur gauche de la page de référencement de l’offre. Par exemple, la capture d’écran suivante montre une page de référencement d’offre dans la Place de marché Azure avec le bouton **Obtenir maintenant**.
 
-![Illustre un référencement d’offre dans le magasin en ligne.](./media/listing-options.png)
+![Illustre un référencement d’offre dans le magasin en ligne.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>Exigences techniques
 
@@ -68,9 +68,9 @@ Si vous créez une offre pouvant faire l’objet d’une transaction, vous devez
 
 - **URL de la page d’arrivée** : URL du site SaaS (par exemple, `https://contoso.com/signup`) vers lequel les utilisateurs sont dirigés après avoir acquis votre offre sur la place de marché commerciale, déclenchant le processus de configuration à partir du nouvel abonnement SaaS créé. Cette URL reçoit un jeton utilisable pour appeler les API de traitement afin d’obtenir les détails de l’approvisionnement pour votre page d’inscription interactive.
 
-  Cette URL sera appelée avec le paramètre de jeton d’identification d’achat de la place de marché, qui identifie de façon unique l’achat de SaaS du client spécifique. Vous devez échanger ce jeton contre les détails de l’abonnement SaaS correspondant à l’aide de l’[API de résolution](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Ces informations et toutes celles que vous souhaitez recueillir doivent être utilisées au sein d’une page web interactive destinée au client, intégrée dans votre expérience afin de terminer l’inscription du client et d’activer son achat. Sur cette page, l’utilisateur doit s’inscrire via une authentification en un clic à l’aide d’Azure Active Directory (Azure AD).
+  Cette URL sera appelée avec le paramètre de jeton d’identification d’achat de la place de marché, qui identifie de façon unique l’achat de SaaS du client spécifique. Vous devez échanger ce jeton contre les détails de l’abonnement SaaS correspondant à l’aide de l’[API de résolution](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Ces détails et ceux que vous souhaitez collecter dans le cadre d’une page web interactive peuvent être utilisés pour lancer l’expérience d’intégration du client, qui doit se terminer par un appel d’activation sur l’API pour le démarrage de la période d’abonnement. Sur cette page, l’utilisateur doit s’inscrire via une authentification en un clic à l’aide d’Azure Active Directory (Azure AD).
 
-  Cette URL avec le paramètre de jeton d’identification d’achat de la place de marché est également appelée lorsque le client lance une expérience SaaS gérée à partir du portail Azure ou du centre d’administration M365. Vous devez gérer les deux flux : lorsque le jeton est fourni pour la première fois après un achat par un nouveau client, et quand il est à nouveau fourni pour un client existant qui gère sa solution SaaS.
+  Cette URL avec le paramètre de jeton d’identification d’achat de la place de marché est également appelée lorsque le client lance une expérience SaaS gérée à partir du portail Azure ou du centre d’administration Microsoft 365. Vous devez gérer les deux flux : lorsque le jeton est fourni pour la première fois après un achat par un nouveau client, et quand il est à nouveau fourni pour un client existant qui gère sa solution SaaS.
 
     La page d’arrivée que vous configurez ici doit être opérationnelle en permanence. C’est la seule façon pour vous d’être averti des nouveaux achats de vos offres SaaS effectués sur la place de marché commerciale, ou des demandes de configuration pour un abonnement actif à une offre.
 
@@ -79,7 +79,7 @@ Si vous créez une offre pouvant faire l’objet d’une transaction, vous devez
   Le webhook que vous fournissez doit être opérationnel 24 heures sur 24, 7 jours sur 7. C’est la seule façon pour vous d’être informé des mises à jour concernant les abonnements SaaS de vos clients achetés via le marketplace commercial.
 
   > [!NOTE]
-  > À l’intérieur du portail Azure, nous vous recommandons de créer une [application Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) monolocataire pour permettre l’utilisation d’un seul ID d’application Azure pour authentifier la connexion entre nos deux services. Pour trouver l’[ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), accédez à votre Azure Active Directory, sélectionnez **Propriétés**, puis cherchez le numéro d’ID de répertoire répertorié. Par exemple : `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Dans le portail Azure, nous vous recommandons de créer une [inscription d’application Azure Active Directory (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) monolocataire. Utilisez les détails de l’inscription d’application pour authentifier votre solution lors de l’appel des API de la Place de marché. Pour trouver l’[ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), accédez à votre Azure Active Directory, sélectionnez **Propriétés**, puis cherchez le numéro d’ID de répertoire répertorié. Par exemple : `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **ID de locataire Azure Active Directory** : (également appelé ID de répertoire). À l’intérieur du portail Azure, nous exigeons que vous [inscriviez une application Azure Active Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) afin de pouvoir l’ajouter à la liste de contrôle d’accès (ACL) de l’API pour vous assurer que vous êtes autorisé à l’appeler. Pour trouver l’ID de locataire de votre application Azure Active Directory (AD), accédez au panneau [Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) dans Azure Active Directory. Dans la colonne **Nom d’affichage**, sélectionnez l’application. Recherchez ensuite le numéro d’**ID de répertoire (locataire)** référencé (par exemple, `50c464d3-4930-494c-963c-1e951d15360e`).
 
@@ -88,7 +88,7 @@ Si vous créez une offre pouvant faire l’objet d’une transaction, vous devez
   L’ID d’application Azure AD est associé à votre ID d’éditeur dans votre compte de l’Espace partenaires. Vous devez utiliser le même ID d’application pour toutes les offres dans ce compte.
 
   > [!NOTE]
-  > Si l’éditeur possède deux comptes différents ou plus dans Espace partenaires, il doit utiliser autant d’ID d’application Azure AD différents, un pour chacun des comptes. Chaque compte de partenaire dans l’Espace partenaires doit avoir recours à un ID d’application Azure AD unique pour toutes les offres SaaS publiées par son intermédiaire.
+  > Si l’éditeur a au moins deux comptes différents dans l’Espace partenaires, les détails de l’inscription d’application Azure AD ne peuvent être utilisés que dans un seul compte. L’utilisation de la même paire ID de locataire/ID d’application pour une offre sous un compte d’éditeur différent n’est pas prise en charge.
 
 ## <a name="test-drives"></a>Versions d’évaluation
 Vous pouvez choisir d’activer une version d’évaluation pour votre application SaaS. Les versions d’évaluation permettent aux clients d’accéder à un environnement préconfiguré pendant un nombre d’heures fixe. Vous pouvez activer des versions d’évaluation pour n’importe quelle option de publication, mais cette fonctionnalité est assortie d’exigences supplémentaires. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](what-is-test-drive.md). Pour plus d’informations sur la configuration de différents types de versions d’évaluation, consultez [Configuration technique de la version d’évaluation](test-drive-technical-configuration.md).
@@ -134,11 +134,33 @@ Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d
 > [!NOTE]
 > Après avoir publié une offre à l’aide du contrat standard pour la place de marché commerciale, vous ne pouvez pas utiliser vos propres conditions générales personnalisées. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat standard ou vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat standard, vous le pouvez par le biais d’avenants au contrat standard.
 
+
+## <a name="microsoft-365-integration"></a>Intégration de Microsoft 365
+
+L’intégration avec Microsoft 365 permet à votre offre SaaS de fournir une expérience connectée sur plusieurs surfaces d’application Microsoft 365 par le biais de compléments gratuits associés, comme les applications Teams, les compléments Office et les solutions SharePoint Framework. Vous pouvez aider vos clients à découvrir facilement toutes les facettes de votre solution E2E (service web + compléments associés) et à les déployer dans un seul processus en fournissant les informations suivantes. 
+  - Si votre offre SaaS s’intègre à Microsoft Graph, fournissez l’ID d’application Azure Active Directory (AAD) utilisé par votre offre SaaS pour l’intégration. Les administrateurs peuvent passer en revue les autorisations d’accès requises pour le bon fonctionnement de votre offre SaaS telles qu’elles sont définies dans l’ID d’application AAD et accorder l’accès si une autorisation administrateur avancée est nécessaire au moment du déploiement. 
+    
+     Si vous choisissez de vendre votre offre par le biais de Microsoft, il s’agit du même ID d’application AAD que celui que vous avez enregistré pour une utilisation sur votre page d’accueil afin d’obtenir les informations utilisateur de base nécessaires à l’activation de l’abonnement client. Pour obtenir une aide détaillée, consultez [Créer la page d’accueil de votre offre SaaS avec transaction dans la place de marché commerciale](azure-ad-transactable-saas-landing-page.md). 
+    
+   -    Fournissez une liste de compléments associés qui fonctionnent avec votre offre SaaS et que vous souhaitez lier. Les clients pourront découvrir votre solution E2E sur AppSource et les administrateurs peuvent déployer l’offre SaaS et tous les compléments associés que vous avez liés dans le même processus via le centre d’administration Microsoft 365.
+    
+        Pour lier des compléments associés, vous devez fournir le lien AppSource du complément, ce qui signifie que le complément doit d’abord être publié sur AppSource. Les types de compléments pris en charge que vous pouvez lier sont : applications Teams, compléments Office et solutions SharePoint Framework (SPFx). Chaque complément lié doit être unique pour une offre SaaS. 
+
+Pour les produits liés, la recherche sur AppSource retourne un résultat qui comprend à la fois l’offre SaaS et tous les compléments liés. Le client peut naviguer entre les pages des détails sur le produit de l’offre SaaS et les compléments liés. Les administrateurs informatiques peuvent réviser et déployer l’offre SaaS et les compléments liés au cours du même processus via une expérience intégrée et connectée dans le centre d’administration Microsoft 365. Pour plus d’informations, consultez [Tester et déployer des applications Microsoft 365 - Administrateur Microsoft 365](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps).
+
+### <a name="microsoft-365-integration-support-limitations"></a>Limitations de la prise en charge de l’intégration Microsoft 365
+La détection d’une seule solution E2E est prise en charge sur AppSource dans tous les cas. Toutefois, le déploiement simplifié de la solution E2E, comme décrit ci-dessus, via le centre d’administration Microsoft 365 n’est pas pris en charge dans les scénarios suivants :
+
+   - Le même complément est lié à plusieurs offres SaaS.
+   - L’offre SaaS est liée à des compléments, mais elle ne s’intègre pas à Microsoft Graph et aucun ID d’application AAD n’est fourni.
+  - L’offre SaaS est liée à des compléments, mais l’ID d’application AAD fourni pour l’intégration Microsoft Graph est partagé entre plusieurs offres SaaS.
+
+ 
 ## <a name="offer-listing-details"></a>Détails du référencement de l’offre
 
 Lorsque vous [créez une offre SaaS](create-new-saas-offer.md) dans l’Espace partenaires, vous devez entrer du texte, des images, des vidéos facultatives et d’autres détails dans la page de **référencement de l’offre**. Il s’agit des informations que les clients verront quand ils découvriront le référencement de votre offre dans la place de marché commerciale, comme illustré dans l’exemple suivant.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Illustre la façon dont cette offre s’affiche dans Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Illustre la façon dont cette offre s’affiche dans Microsoft AppSource.":::
 
 **Descriptions de légende**
 
@@ -209,9 +231,6 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 > [!Note]
 > Pour être publiées sur la place de marché commerciale, votre offre doit respecter les [stratégies de certification de la place de marché commerciale](/legal/marketplace/certification-policies#100-general) et les [stratégies SaaS](/legal/marketplace/certification-policies#1000-software-as-a-service-saas).
 
-## <a name="preview-audience"></a>Public de la préversion
-Le public de la préversion peut accéder à votre offre avant sa publication dans les magasins en ligne, afin de tester sa fonctionnalité de bout en bout avant la publication en ligne. Dans la page **Public de la préversion**, vous pouvez définir un public de préversion limité. Ce paramètre n’est pas disponible si vous choisissez de traiter les transactions de façon indépendante au lieu de vendre votre offre via Microsoft. Dans ce cas, vous pouvez ignorer cette section et accéder à [Opportunités de ventes supplémentaires](#additional-sales-opportunities).
-
 > [!NOTE]
 > Le public d’une préversion diffère de celui d’un plan privé. Un plan privé est un plan que vous mettez à la disposition d’un public spécifique que vous choisissez. Cela vous permet de négocier un plan personnalisé avec des clients spécifiques. Pour plus d’informations, consultez la section suivante : Plans.
 
@@ -251,6 +270,50 @@ Vous trouverez ci-dessous un exemple de ventilation des coûts et des paiements 
 |||
 
 **`*` Frais de service de place de marché réduits** : pour certaines offres SaaS que vous avez publiées sur notre place de marché commerciale, Microsoft réduit ses frais de service de place de marché de 20 % (comme indiqué dans le Contrat d’éditeur Microsoft) à 10 %. Pour que votre offre soit qualifiée, elle doit avoir été désignée par Microsoft comme étant une offre de co-vente Azure IP incitative. L’éligibilité doit être respectée pendant au moins cinq (5) jours ouvrés avant la fin de chaque mois civil pour bénéficier des frais de service réduits sur le marketplace. Une fois le droit d’éligibilité atteint, les frais de service réduits sont accordés à toutes les transactions effectives le premier jour du mois suivant et appliqués jusqu’à ce que l’état de co-vente Azure IP avec incentives soit perdu. Pour plus d’informations sur l’éligibilité à la co-vente IP, consultez [Prérequis relatifs à l’état de co-vente](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Les frais de service réduits du marketplace s’appliquent aux machines virtuelles et applications managées incitatives de co-vente Azure IP et à toutes les autres offres IaaS payantes qualifiées qui sont mises à disposition sur le marketplace commercial.
+
+## <a name="preview-audience"></a>Public de la préversion
+
+Un public de préversion peut accéder à votre offre avant sa publication dans les boutiques en ligne. Il peut voir comment votre offre s’affichera dans la place de marché commerciale et tester la fonctionnalité de bout en bout avant sa publication en direct. 
+
+Dans la page **Public de la préversion**, vous pouvez définir un public de préversion limité. Ce paramètre n’est pas disponible si vous choisissez de traiter les transactions de façon indépendante au lieu de vendre votre offre via Microsoft. Dans ce cas, vous pouvez ignorer cette section et accéder à [Opportunités de ventes supplémentaires](#additional-sales-opportunities).
+
+## <a name="test-offer"></a>Offre test
+
+Avant de publier votre offre en direct, nous vous conseillons d’utiliser la fonctionnalité en préversion pour développer votre implémentation technique, tester et expérimenter différents modèles de tarification.
+
+Pour développer et tester votre offre SaaS avec le moins de risque possible, nous vous recommandons de créer une offre de test et de développement (DEV) à des fins d’expérimentation et de test. L’offre DEV est distincte de votre offre en production (PROD).
+
+Pour éviter tout achat accidentel de l’offre DEV, vous n’appuierez jamais sur le bouton **Go live** pour publier l’offre DEV.
+
+![Illustre la page Vue d’ensemble de l’offre pour une offre dans l’Espace partenaires. Le bouton Go Live et les liens d’aperçu s’affichent. Le lien Afficher le rapport de validation s’affiche également sous Validation automatique.](./media/review-publish-offer/publish-status-saas.png)
+
+Voici quelques raisons de créer une offre DEV distincte que l’équipe de développement peut utiliser pour le développement et le test de l’offre PROD :
+
+- Éviter les frais accidentels pour les clients
+- Évaluer les modèles de tarification
+- Pas d’ajout de plans qui ne ciblent pas de clients réels
+
+### <a name="avoid-accidental-customer-charges"></a>Éviter les frais accidentels pour les clients
+
+En utilisant une offre DEV au lieu de l’offre PROD et en les traitant comme des environnements de développement et de production, vous pouvez éviter les frais accidentels pour les clients.
+
+Nous vous recommandons d’inscrire deux applications Azure AD différentes pour appeler les API de la place de marché. Les développeurs utiliseront une application Azure AD avec les paramètres de l’offre DEV et l’équipe des opérations utilisera l’inscription d’application PROD. En procédant ainsi, vous pouvez éviter que l’équipe de développement ne commette des erreurs accidentelles, comme appeler l’API pour annuler l’abonnement d’un client qui paie 100 000 $ par mois. Vous pouvez également éviter de facturer un client pour une utilisation limitée qu’il n’a pas consommée.
+
+### <a name="evaluate-pricing-models"></a>Évaluer les modèles de tarification
+
+Le test des modèles de tarification dans l’offre DEV réduit les risques lorsque les développeurs testent des modèles de tarification différents.
+
+Les éditeurs peuvent créer les plans dont ils ont besoin dans l’offre DEV pour déterminer le modèle de tarification le mieux adapté à leur offre. Les développeurs peuvent souhaiter créer plusieurs plans dans l’offre DEV pour tester différentes combinaisons de tarification. Par exemple, vous pouvez créer des plans avec différents jeux de dimensions limitées personnalisées. Vous pouvez créer un plan différent avec un mélange de dimensions limitées personnalisées et de tarification forfaitaire.
+
+Pour tester plusieurs options de tarification, vous devez créer un plan pour chaque modèle de tarification unique. Pour en savoir plus, consultez [Plans](#plans).
+
+### <a name="not-adding-plans-that-do-not-target-actual-customers"></a>Pas d’ajout de plans qui ne ciblent pas de clients réels
+
+En utilisant une offre DEV pour le développement et le test, vous pouvez réduire l’encombrement inutile dans l’offre PROD. Par exemple, vous ne pouvez pas supprimer les plans que vous créez pour tester des modèles de tarification ou des configurations techniques différents (sans créer un ticket de support). Donc, en créant des plans de test dans l’offre DEV, vous réduisez l’encombrement dans l’offre PROD.
+
+L’encombrement dans l’offre PROD est source de frustration pour les équipes produit et marketing, car elles s’attendent à ce que tous les projets ciblent des clients réels. En particulier dans le cas de grandes équipes disséminées qui veulent toutes utiliser des bacs à sable différents, la création de deux offres fournit deux environnements différents pour DEV et PROD. Dans certains cas, vous souhaiterez peut-être créer plusieurs offres DEV pour prendre en charge une équipe plus grande dont des membres exécutent des scénarios de test différents. Permettre à différents membres de l’équipe de travailler dans l’offre DEV distincte de l’offre PROD aide à ce que les plans de production soient aussi prêts pour la production que possible.
+
+Le test d’une offre DEV permet d’éviter la limite de 30 dimensions limitées personnalisées par offre. Les développeurs peuvent essayer différentes combinaisons de compteurs dans l’offre DEV sans affecter la limite de dimension limitée personnalisée dans l’offre PROD.
 
 ## <a name="additional-sales-opportunities"></a>Opportunités de ventes supplémentaires
 

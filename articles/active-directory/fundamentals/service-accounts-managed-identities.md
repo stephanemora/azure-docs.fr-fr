@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8b08231f254ea47fc3c9d65de42966301bd3378f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587829"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640055"
 ---
 # <a name="securing-managed-identities"></a>Sécurisation des identités managées
 
@@ -38,7 +38,7 @@ Les identités managées sont idéales pour les communications entre les service
 
 Un système source demande l'accès à un service cible. N'importe quelle ressource Azure peut être un système source. Par exemple, les machines virtuelles Azure, les instances d'Azure Function et les instances d'Azure App Service prennent en charge les identités managées.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>Fonctionnement de l'authentification et de l'autorisation
 
@@ -86,7 +86,7 @@ Vous disposez de plusieurs méthodes pour rechercher des identités managées :
 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-1. Dans Azure AD, sélectionnez Application d'entreprise.
+1. Dans Azure Active Directory, sélectionnez Applications d’entreprise.
 
 2. Sélectionnez le filtre « Identités managées ». 
 
@@ -100,7 +100,7 @@ Vous pouvez obtenir la liste de toutes les identités managées de votre locatai
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-Vous pouvez filtrer ces requêtes. Pour plus d'informations, consultez [GET servicePrincipal](/graph/api/serviceprincipal-get?view=) dans la documentation de Graph.
+Vous pouvez filtrer ces requêtes. Pour plus d'informations, consultez [GET servicePrincipal](/graph/api/serviceprincipal-get) dans la documentation de Graph.
 
 ## <a name="assess-the-security-of-managed-identities"></a>Évaluer la sécurité des identités managées 
 
@@ -120,7 +120,7 @@ Pour ce faire, vous pouvez énumérer les membres de vos groupes à privilèges 
 
 ## <a name="move-to-managed-identities"></a>Passer aux identités managées
 
-Si vous utilisez un principal de service ou un compte d'utilisateur Azure AD, déterminez si vous pouvez plutôt utiliser un compte managé pour ne pas avoir à protéger, faire tourner et gérer les informations d'identification. 
+Si vous utilisez un principal de service ou un compte d’utilisateur Azure AD, déterminez si vous pouvez plutôt utiliser une identité managée pour ne pas avoir à protéger, faire tourner et gérer les informations d’identification. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

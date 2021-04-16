@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d106021d90304a06ea7c08494d626511bb903df0
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90019527"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553037"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
@@ -44,7 +44,13 @@ Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’
 Les guides pratiques [Télécharger des fichiers de votre appareil vers le cloud avec IoT Hub](iot-hub-csharp-csharp-file-upload.md) fournissent la description complète du processus de chargement de fichier. Ces guides pratiques vous montrent comment utiliser le portail Azure pour associer un compte de stockage à un hub IoT.
 
 > [!NOTE]
-> Les kits [Azure IoT SDK](iot-hub-devguide-sdks.md) gèrent automatiquement la récupération de l’URI SAP, le chargement du fichier et l’envoi d’une notification à IoT Hub de la fin du chargement.
+> Les kits [Azure IoT SDK](iot-hub-devguide-sdks.md) gèrent automatiquement la récupération de l’URI de signature d’accès partagé, le chargement du fichier et l’envoi d’une notification à IoT Hub de la fin du chargement. Si un pare-feu bloque l’accès au point de terminaison Stockage Blob, mais autorise l’accès au point de terminaison IoT Hub, le processus de téléchargement de fichiers échoue et affiche l’erreur suivante pour le Kit de développement logiciel (SDK) d’appareil IoT C# :
+>
+> `---> System.Net.Http.HttpRequestException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond`
+>
+> Pour que la fonctionnalité de chargement de fichier fonctionne, l’accès au point de terminaison IoT Hub et au point de terminaison Stockage Blob doit être disponible pour l’appareil.
+> 
+
 
 ## <a name="initialize-a-file-upload"></a>Initialiser un téléchargement de fichier
 IoT Hub a un point de terminaison spécifique aux appareils pour demander une URI SAS pour le stockage afin de télécharger un fichier. Pour démarrer le processus de chargement de fichiers, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files` avec le corps JSON suivant :

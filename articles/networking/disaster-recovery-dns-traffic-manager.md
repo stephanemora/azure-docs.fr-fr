@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/08/2018
+ms.date: 04/06/2021
 ms.author: kumud
-ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 077e92b67f0cf6dac673cc870b7ff8c86fbe60dd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98234152"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551286"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
 
@@ -94,7 +94,7 @@ Dans cette zone, créez trois enregistrements (par exemple, www\.contoso.com, pr
 
 *Figure - Création d’enregistrements de zone DNS dans Azure*
 
-Dans ce scénario, le site www\.contoso.com a une durée de vie de 30 minutes, ce qui est bien inférieur au RTO annoncé, et pointe vers le site de production prod.contoso.com. Cette configuration est vraie pour les opérations commerciales normales. La durée de vie de prod.contoso.com et de dr.contoso.com a été définie sur 300 secondes soit 5 minutes. Vous pouvez utiliser un service de surveillance tel qu’Azure Monitor ou Azure App Insights, ou encore une solution de surveillance de partenaire comme Dynatrace. Vous pouvez également utiliser votre propre solution capable de surveiller ou de détecter des défaillances au niveau de l’application ou de l’infrastructure virtuelle.
+Dans ce scénario, le site www\.contoso.com a une durée de vie de 30 minutes, ce qui est bien inférieur au RTO annoncé, et pointe vers le site de production prod.contoso.com. Cette configuration est vraie pour les opérations commerciales normales. La durée de vie de prod.contoso.com et de dr.contoso.com a été définie sur 300 secondes soit 5 minutes. Vous pouvez utiliser un service de surveillance Azure, tel que Azure Monitor ou Azure App Insights, ou toute solution de surveillance partenaire telle que Dynatrace. Vous pouvez même utiliser vos propres solutions capables de surveiller ou détecter les défaillances des applications ou de l’infrastructure virtuelle.
 
 ### <a name="step-3-update-the-cname-record"></a>Étape 3 : Mettre à jour l’enregistrement CNAME
 
@@ -126,10 +126,10 @@ Lorsque vous avez des architectures complexes et plusieurs ensembles de ressourc
 *Figure - Basculement automatique à l’aide d’Azure Traffic Manager*
 
 Toutefois, seule la région primaire traite activement les requêtes réseau des utilisateurs. La région secondaire devient active uniquement lorsque la région primaire subit une interruption de service. Dans ce cas, toutes les nouvelles requêtes réseau effectuent le routage vers la région secondaire. La sauvegarde de la base de données étant quasiment instantanée, les deux équilibreurs de charge ont des adresses IP dont l’intégrité peut être vérifiée, et les instances sont toujours opérationnelles. Cette topologie permet de choisir un RTO faible et un basculement sans intervention manuelle. La région de basculement secondaire doit être opérationnelle dès que la région primaire rencontre une défaillance.
-Ce scénario est idéal pour l’utilisation d’Azure Traffic Manager qui dispose de sondes intégrées pour différents types de contrôles d’intégrité, y compris http / https et TCP. Azure Traffic Manager est également doté d’un moteur de règle qui peut être configuré de manière à basculer en cas de défaillance, comme décrit ci-dessous. Prenons la solution suivante utilisant Traffic Manager :
+Ce scénario est idéal pour l’utilisation d’Azure Traffic Manager qui dispose de sondes intégrées pour différents types de contrôles d’intégrité, y compris http / https et TCP. Azure Traffic Manager est également doté d’un moteur de règle qui peut être configuré de manière à basculer en cas de défaillance, comme décrit ci-dessous. Prenons la solution suivante utilisant Traffic Manager :
 - Le client a le point de terminaison Région 1 appelé prod.contoso.com ayant l’adresse IP statique 100.168.124.44, et un point de terminaison Région 2 appelé dr.contoso.com ayant l’adresse IP statique 100.168.124.43. 
 -   Chacun de ces environnements est exposé via une propriété d’accès public telle qu’un équilibreur de charge. L’équilibreur de charge peut être configuré de manière à avoir un point de terminaison DNS ou un nom de domaine complet (FQDN), comme indiqué ci-dessus.
--   Toutes les instances de la Région 2 sont répliquées quasiment en temps réel avec la Région 1. De plus, les images de machine sont à jour et toutes les données logicielles/de configuration sont corrigées et alignées avec la Région 1.  
+-   Toutes les instances de la Région 2 sont répliquées quasiment en temps réel avec la Région 1. De plus, les images des machines sont à jour et toutes les données logicielles/de configuration sont corrigées et alignées avec la Région 1.  
 -   La mise à l’échelle automatique est configurée à l’avance. 
 
 La procédure pour configurer le basculement avec Azure Traffic Manager est la suivante :
@@ -155,7 +155,7 @@ De la même manière, créez le point de terminaison de récupération d’urgen
 
 ### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Étape 3 : Configuration du contrôle d’intégrité et vérification du basculement
 
-Au cours de cette étape, vous définissez la durée de vie du DNS sur 10 secondes, une durée respectée par la plupart des programmes de résolution récursifs sur Internet. Cette configuration signifie qu’aucun programme de résolution DNS ne mettra en cache les informations pendant plus de 10 secondes. Pour les paramètres de surveillance du point de terminaison, le chemin d’accès est défini au / ou à la racine, mais vous pouvez personnaliser les paramètres du point de terminaison pour évaluer un chemin d’accès, par exemple, prod.contoso.com/index. Dans l’exemple ci-dessous, **https** est défini comme protocole de détection. Vous pouvez cependant choisir **http** ou **tcp**. Le choix du protocole dépend de l’application finale. L’intervalle de sondage est défini sur 10 secondes, ce qui permet une détection rapide. La nouvelle tentative est définie sur 3. Par conséquent, Traffic Manager bascule vers le deuxième point de terminaison si trois intervalles consécutifs enregistrent une défaillance. La formule suivante définit la durée totale d’un basculement automatique : Durée du basculement = Durée de vie + Nouvelle tentative * Intervalle de sondage. En l’occurrence, la valeur est 10 + 3 * 10 = 40 secondes (max).
+Au cours de cette étape, vous définissez la durée de vie du DNS sur 10 secondes, une durée respectée par la plupart des programmes de résolution récursifs sur Internet. Cette configuration signifie qu’aucun programme de résolution DNS ne mettra en cache les informations pendant plus de 10 secondes. Pour les paramètres de surveillance du point de terminaison, le chemin d’accès est défini au / ou à la racine, mais vous pouvez personnaliser les paramètres du point de terminaison pour évaluer un chemin d’accès, par exemple, prod.contoso.com/index. Dans l’exemple ci-dessous, **https** est défini comme protocole de détection. Vous pouvez cependant choisir **http** ou **tcp**. Le choix du protocole dépend de l’application finale. L’intervalle de sondage est défini sur 10 secondes, ce qui permet une détection rapide. La nouvelle tentative est définie sur 3. Par conséquent, Traffic Manager bascule vers le deuxième point de terminaison si trois intervalles consécutifs enregistrent une défaillance. La formule suivante définit la durée totale d’un basculement automatique : Durée du basculement = Durée de vie + Nouvelle tentative * Intervalle de sondage. En l’occurrence, la valeur est 10 + 3 * 10 = 40 secondes (max).
 Si Nouvelle tentative est défini sur 1 et Durée de vie sur 10 secondes, la durée du basculement sera 10 + 1 * 10 = 20 secondes. Définissez une valeur de Nouvelle tentative supérieure à **1** pour éliminer les risques de défaillances dues à des faux positifs ou à des spots réseau mineurs. 
 
 
@@ -165,7 +165,7 @@ Si Nouvelle tentative est défini sur 1 et Durée de vie sur 10 secondes, la du
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Fonctionnement du basculement automatique à l’aide d’Azure Traffic Manager
 
-Lors d’un incident, le point de terminaison principal est interrogé et l’état passe à **détérioré**. Le site de récupération d’urgence reste **Online**. Par défaut, Traffic Manager envoie tout le trafic vers le point de terminaison principal (priorité la plus élevée). Si le point de terminaison principal apparaît détérioré, Traffic Manager achemine le trafic au deuxième point de terminaison tant qu’il reste sain. Il est possible de configurer davantage de points de terminaison dans Traffic Manager, qui peuvent servir de points de terminaison de basculement supplémentaires ou d’équilibreurs de charge qui partagent la charge entre les points de terminaison.
+Lors d’un incident, le point de terminaison principal est interrogé et l’état passe à **détérioré**. Le site de récupération d’urgence reste **Online**. Par défaut, Traffic Manager envoie tout le trafic vers le point de terminaison principal (priorité la plus élevée). Si le point de terminaison principal apparaît détérioré, Traffic Manager achemine le trafic au deuxième point de terminaison tant qu’il reste sain. Il est possible de configurer davantage de points de terminaison dans Traffic Manager, qui peuvent servir de points de terminaison de basculement supplémentaires ou d’équilibreurs de charge qui partagent la charge entre les points de terminaison.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).

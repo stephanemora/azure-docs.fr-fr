@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 342c535cadb1a2d3f2d18478d8941d9ea61bdf72
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040241"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448965"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Mise à niveau à partir du SDK Application Insights pour Java 2.x
 
@@ -45,72 +45,12 @@ Dans le SDK 2.x, les noms d’opérations étaient préfixés avec la méthode 
 
 :::image type="content" source="media/java-ipa/upgrade-from-2x/operation-names-prefixed-by-http-method.png" alt-text="Noms d’opérations préfixés avec la méthode HTTP":::
 
-L’extrait de code ci-dessous configure trois processeurs de télémétrie qui s’associent pour répliquer le comportement précédent.
-Les processeurs de télémétrie effectuent les actions suivantes (dans l’ordre indiqué) :
+Depuis 3.0.3, vous pouvez rétablir ce comportement 2.x à l’aide de
 
-1. Le premier processeur de télémétrie est un processeur d’étendue (de type `span`), ce qui signifie qu’il s’applique à `requests` et `dependencies`.
-
-   Il correspondra à n’importe quelle étendue comprenant un attribut nommé `http.method` et dont le nom commence par `/`.
-
-   Ensuite, il extraira ce nom d’étendue dans un attribut nommé `tempName`.
-
-2. Le deuxième processeur de télémétrie est également un processeur d’étendue.
-
-   Il correspondra à n’importe quelle étendue comprenant un attribut nommé `tempName`.
-
-   Ensuite, il mettra à jour le nom de l’étendue en concaténant les deux attributs `http.method` et `tempName`, séparés par un espace.
-
-3. Le dernier processeur de télémétrie est un processeur d’attribut (de type `attribute`), ce qui signifie qu’il s’applique à toutes les données de télémétrie qui ont des attributs (`requests`, `dependencies` et `traces`).
-
-   Il correspondra à n’importe quelles données de télémétrie comprenant un attribut nommé `tempName`.
-
-   Il supprimera ensuite l’attribut nommé `tempName`, afin de ne pas être signalé comme une dimension personnalisée.
-
-```
+```json
 {
   "preview": {
-    "processors": [
-      {
-        "type": "span",
-        "include": {
-          "matchType": "regexp",
-          "attributes": [
-            { "key": "http.method", "value": "" }
-          ],
-          "spanNames": [ "^/" ]
-        },
-        "name": {
-          "toAttributes": {
-            "rules": [ "^(?<tempName>.*)$" ]
-          }
-        }
-      },
-      {
-        "type": "span",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "name": {
-          "fromAttributes": [ "http.method", "tempName" ],
-          "separator": " "
-        }
-      },
-      {
-        "type": "attribute",
-        "include": {
-          "matchType": "strict",
-          "attributes": [
-            { "key": "tempName" }
-          ]
-        },
-        "actions": [
-          { "key": "tempName", "action": "delete" }
-        ]
-      }
-    ]
+    "httpMethodInOperationName": true
   }
 }
 ```

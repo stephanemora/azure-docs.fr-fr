@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 04/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 04300b8d148bb22bf585aa81481c475b347ad462
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888904"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222042"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
@@ -64,7 +64,7 @@ Les fonctionnalités sémantiques sont disponibles par le biais de l’[enregist
 
 La correction orthographique est disponible dans les mêmes régions, mais ne présente aucune restriction de niveau. Si vous avez un service existant qui répond aux critères de niveau et de région, seule l’inscription est requise.
 
-Dans le cadre du lancement de la préversion, du 2 mars au 1er avril, la correction orthographique et le classement sémantique sont proposés gratuitement. Après le 1er avril, les coûts de calcul liés à l’exécution de cette fonctionnalité deviendront un événement facturable. Le coût attendu est d’environ 500 dollars US par mois pour 250 000 requêtes. Vous trouverez des informations détaillées sur les coûts, présentées à la [page des tarifs de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/) et dans [Estimer et gérer les coûts](search-sku-manage-costs.md).
+Dans le cadre du lancement de la préversion, du 2 mars au 1er avril, la correction orthographique et le classement sémantique sont proposés gratuitement. Après le 1er avril, les coûts de calcul liés à l’exécution de cette fonctionnalité seront facturés. Le coût attendu est d’environ 500 dollars US par mois pour 250 000 requêtes. Vous trouverez des informations détaillées sur les coûts, présentées à la [page des tarifs de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/) et dans [Estimer et gérer les coûts](search-sku-manage-costs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

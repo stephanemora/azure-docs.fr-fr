@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 339bbd7edf48737113de360812165dc8148c5b93
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590209"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107375863"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Règles de trafic sortant Azure Load Balancer
 
@@ -40,7 +40,7 @@ Les règles de trafic sortant vous permettent de déterminer :
 * **Comment les ports SNAT de trafic sortant sont alloués.**
      * Si le pool principal 2 est le seul pool effectuant des connexions sortantes, attribuez au pool principal 2 tous les ports SNAT et aucun au pool principal 1.
 * **Les protocoles qui fournissent la traduction sortante.**
-     * If backend pool 2 needs UDP ports for outbound, and backend pool 1 needs TCP, give TCP ports to 1 and UDP ports to 2.
+     * Si le pool principal 2 a besoin de ports UDP pour le trafic sortant et que le pool principal 1 a besoin du protocole TCP, attribuez des ports TCP au pool 1 et des ports UDP au pool 2.
 * **La durée à utiliser comme délai d’inactivité des connexions sortantes ( 4 à 120 minutes).**
      * S’il existe des connexions de longue durée avec les KeepAlive, réservez les ports inactifs pour les connexions de longue durée pendant jusqu’à 120 minutes. Supposer que les connexions obsolètes sont abandonnées et les mettre en production les ports en 4 minutes pour les nouvelles connexions 
 * **La réinitialisation TCP au terme du délai d’inactivité.**
@@ -135,7 +135,7 @@ Pour utiliser une adresse IP publique ou un préfixe adresse IP publique différ
 5. Configurez une règle de trafic sortant sur l’équilibreur de charge public pour permettre à la NAT de trafic sortant pour les machines virtuelles d’utiliser le serveur frontal. Il n’est pas recommandé d’utiliser une règle d’équilibrage de charge pour le trafic sortant. Désactivez la SNAT de trafic sortant sur la règle d’équilibrage de charge.
 
 
-### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>Scénario 2 : Modifier l’allocation de ports [SNAT](load-balancer-outbound-connections.md)
+### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Scénario 2 : Modifier l’allocation de ports de la [SNAT](load-balancer-outbound-connections.md)
 
 
 #### <a name="details"></a>Détails
@@ -144,19 +144,19 @@ Pour utiliser une adresse IP publique ou un préfixe adresse IP publique différ
 Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports). 
 
 
-En cas d’épuisement SNAT, augmentez le nombre de ports [SNAT](load-balancer-outbound-connections.md) par rapport à leur nombre par défaut de 1024. 
+Si la SNAT est insuffisante, augmentez le nombre de ports [SNAT](load-balancer-outbound-connections.md) par rapport à leur nombre par défaut de 1 024. 
 
 
-Chaque adresse IP publique offre jusqu’à 64 000 ports éphémères. Le nombre de machines virtuelles dans le pool principal détermine le nombre de ports distribués à chaque machine virtuelle. Une machine virtuelle du pool principal a accès au nombre maximal de 64 000 ports. Pour deux machines virtuelles, un maximum de 32 000 ports [SNAT](load-balancer-outbound-connections.md) peuvent être alloués avec une règle de trafic sortant (2 x 32 000 = 64 000). 
+Chaque adresse IP publique offre jusqu’à 64 000 ports éphémères. Le nombre de machines virtuelles dans le pool principal détermine le nombre de ports distribués à chaque machine virtuelle. Une machine virtuelle du pool principal a accès au nombre maximal de 64 000 ports. Pour deux machines virtuelles, un maximum de 32 000 ports [SNAT](load-balancer-outbound-connections.md) peuvent être alloués avec une règle de trafic sortant (2 x 32 000 = 64 000). 
 
 
-Vous pouvez utiliser des règles de trafic sortant pour paramétrer les ports SNAT alloués par défaut. Vous allouez plus ou moins de ports [SNAT](load-balancer-outbound-connections.md) que l’allocation par défaut. Chaque IP publique de serveur frontal d’une règle de trafic sortant offre jusqu’à 64 000 ports éphémères utilisables en tant que ports [SNAT](load-balancer-outbound-connections.md). 
+Vous pouvez utiliser des règles de trafic sortant pour paramétrer les ports SNAT alloués par défaut. Vous allouez plus ou moins de ports [SNAT](load-balancer-outbound-connections.md) que l’allocation par défaut. Chaque adresse IP publique de serveur frontal d’une règle de trafic sortant offre jusqu’à 64 000 ports éphémères utilisables en tant que ports [SNAT](load-balancer-outbound-connections.md). 
 
 
 L’équilibreur de charge alloue des ports [SNAT](load-balancer-outbound-connections.md) par multiples de 8. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée. Chaque règle d’équilibrage de charge et règle NAT de trafic entrant utilise une plage de 8 ports. Si une règle d’équilibrage de charge ou une règle NAT de trafic entrant partage la plage de 8 avec une autre, aucun port supplémentaire n’est utilisé.
 
 
-Si vous essayez d’allouer plus de ports [SNAT](load-balancer-outbound-connections.md) qu’il en est disponible compte tenu du nombre d’IP publiques, l’opération de configuration est rejetée. Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d’un pool principal partagent une même adresse IP publique, la configuration est rejetée. Le produit de sept fois 10 000 dépasse la limite de 64 000 ports. Pour permettre le scénario, ajoutez des adresses IP publiques au serveur frontal de la règle de trafic sortant. 
+Si vous essayez d’allouer plus de ports [SNAT](load-balancer-outbound-connections.md) qu’il n’en est de disponibles compte tenu du nombre d’adresses IP publiques, l’opération de configuration est rejetée. Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d’un pool principal partagent une même adresse IP publique, la configuration est rejetée. Le produit de sept fois 10 000 dépasse la limite de 64 000 ports. Pour permettre le scénario, ajoutez des adresses IP publiques au serveur frontal de la règle de trafic sortant. 
 
 
 Rétablissez l’[allocation de ports par défaut](load-balancer-outbound-connections.md#preallocatedports) en spécifiant 0 comme nombre de ports. Les 50 premières instances de machine virtuelle obtiendront 1 024 ports, et les instances de machine virtuelle 51 à 100 en obtiendront 512 jusqu’au nombre maximal d’instances. Pour plus d’informations sur l’allocation de ports SNAT par défaut, consultez [Table d’allocation de ports SNAT](./load-balancer-outbound-connections.md#preallocatedports).
@@ -195,7 +195,7 @@ Pour ce scénario : Les règles de trafic sortant de l’équilibreur de charge
 
 
 
-Utilisez un préfixe ou une IP publique pour mettre à l’échelle les ports [SNAT](load-balancer-outbound-connections.md). Ajoutez la source des connexions sortantes à une liste verte ou rouge.
+Utilisez un préfixe ou une adresse IP publique pour mettre à l’échelle les ports [SNAT](load-balancer-outbound-connections.md). Ajoutez la source des connexions sortantes à une liste verte ou rouge.
 
 
 

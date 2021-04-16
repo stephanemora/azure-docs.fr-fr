@@ -4,20 +4,17 @@ description: Découvrez comment configurer des clés gérées par le client pour
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 04/01/2021
 ms.author: thweiss
-ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101656514"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222620"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurer des clés gérées par le client pour votre compte Azure Cosmos avec Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!NOTE]
-> L’utilisation de clés gérées par le client avec le [magasin analytique](analytical-store-introduction.md) Azure Cosmos DB nécessite actuellement une configuration supplémentaire de votre compte. Contactez [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) pour plus de détails.
 
 Les données stockées dans votre compte Azure Cosmos sont chiffrées automatiquement et de façon fluide avec des clés gérées par Microsoft (**clés gérées par le service**). Vous pouvez éventuellement choisir d’ajouter une deuxième couche de chiffrement avec des clés gérées par vos soins (**clés gérées par le client**).
 
@@ -51,7 +48,7 @@ Si vous utilisez une instance Azure Key Vault existante, vous pouvez vérifier q
 - [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../key-vault/general/key-vault-recovery.md)
 - [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../key-vault/general/key-vault-recovery.md)
 
-## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Ajouter une stratégie d’accès à votre instance Azure Key Vault
+## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a><a id="add-access-policy"></a>Ajouter une stratégie d’accès à votre instance Azure Key Vault
 
 1. Dans le Portail Azure, accédez à l’instance Azure Key Vault que vous prévoyez d’utiliser pour héberger vos clés de chiffrement. Sélectionnez **Stratégies d’accès** dans le menu de gauche :
 
@@ -63,7 +60,14 @@ Si vous utilisez une instance Azure Key Vault existante, vous pouvez vérifier q
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Sélection des autorisations appropriées":::
 
-1. Sous **Sélectionner le principal**, sélectionnez **Aucune sélection**. Ensuite, recherchez le principal **Azure Cosmos DB** et sélectionnez-le. Pour faciliter la recherche, vous pouvez également effectuer une recherche par ID de principal : `a232010e-820c-4083-83bb-3ace5fc29d0b` pour toute région Azure, à l’exception des régions Azure Government où l’ID principal est `57506a73-e302-42a9-b869-6f12d9ec29e9`. Enfin, choisissez **Sélectionner** en bas. Si le principal **Azure Cosmos DB** ne figure pas dans la liste, vous devrez peut-être réinscrire le fournisseur de ressources **Microsoft.DocumentDB** comme cela est décrit dans la section [Inscrire le fournisseur de ressources](#register-resource-provider) de cet article.
+1. Sous **Sélectionner le principal**, sélectionnez **Aucune sélection**.
+
+1. Recherchez le principal **Azure Cosmos DB** et sélectionnez-le. Pour faciliter la recherche, vous pouvez également effectuer une recherche par ID de principal : `a232010e-820c-4083-83bb-3ace5fc29d0b` pour toute région Azure, à l’exception des régions Azure Government où l’ID principal est `57506a73-e302-42a9-b869-6f12d9ec29e9`. Si le principal **Azure Cosmos DB** ne figure pas dans la liste, vous devrez peut-être réinscrire le fournisseur de ressources **Microsoft.DocumentDB** comme cela est décrit dans la section [Inscrire le fournisseur de ressources](#register-resource-provider) de cet article.
+
+   > [!NOTE]
+   > Cette opération enregistre l’identité interne d’Azure Cosmos DB dans votre stratégie d’accès Azure Key Vault. Pour remplacer cette identité interne par l’identité managée de votre compte Azure Cosmos DB, consultez [Utilisation d’une identité managée dans la stratégie d’accès Azure Key Vault](#using-managed-identity).
+
+1. Choisissez **Sélectionner** en bas. 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Sélectionnez le principal Azure Cosmos DBl":::
 
@@ -226,6 +230,34 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="using-a-managed-identity-in-the-azure-key-vault-access-policy"></a><a id="using-managed-identity"></a> Utilisation d’une identité managée dans la stratégie d’accès Azure Key Vault
+
+Cette stratégie d’accès garantit que votre compte Azure Cosmos DB peut accéder à vos clés de chiffrement. Pour ce faire, vous accordez l’accès à une identité Azure Active Directory (AD) spécifique. Deux types d’identités sont prises en charge :
+
+- L’identité interne d’Azure Cosmos DB peut être utilisée pour accorder l’accès au service Azure Cosmos DB.
+- L’[identité managée](how-to-setup-managed-identity.md) de votre compte Azure Cosmos DB peut être utilisée pour accorder l’accès spécifiquement à votre compte.
+
+Étant donné qu’une identité managée affectée par le système ne peut être récupérée qu’une fois votre compte créé, vous devez d’abord créer ce dernier à l’aide de l’identité interne, comme décrit [plus haut](#add-access-policy). Ensuite :
+
+1. Si cette opération n’est pas effectuée lors de la création du compte, [activez une identité managée affectée par le système](how-to-setup-managed-identity.md) sur votre compte et copiez le `principalId` qui a été affecté.
+
+1. Ajoutez une nouvelle stratégie d’accès à votre compte Azure Key Vault, comme décrit [plus haut](#add-access-policy), mais en utilisant le `principalId` que vous avez copié à l’étape précédente au lieu de l’identité interne d’Azure Cosmos DB.
+
+1. Mettez à jour votre compte Azure Cosmos DB pour spécifier que vous souhaitez utiliser l’identité managée affectée par le système lors de l’accès à vos clés de chiffrement dans Azure Key Vault. Pour ce faire, vous pouvez spécifier cette propriété dans le modèle Azure Resource Manager de votre compte :
+
+   ```json
+   {
+       "type": " Microsoft.DocumentDB/databaseAccounts",
+       "properties": {
+           "defaultIdentity": "SystemAssignedIdentity",
+           // ...
+       },
+       // ...
+   }
+   ```
+
+1. Si vous le souhaitez, vous pouvez ensuite supprimer l’identité interne d’Azure Cosmos DB de votre stratégie d’accès Azure Key Vault.
+
 ## <a name="key-rotation"></a>Rotation des clés
 
 La rotation de la clé gérée par le client utilisée par votre compte Azure Cosmos peut être effectuée de deux manières.
@@ -297,7 +329,7 @@ Cette fonctionnalité n’est actuellement disponible que pour les nouveaux comp
 
 ### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>Est-il possible d’utiliser des clés gérées par le client conjointement avec le [magasin analytique](analytical-store-introduction.md) Azure Cosmos DB ?
 
-Oui, mais cela nécessite actuellement une configuration supplémentaire de votre compte. Contactez [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) pour plus de détails.
+Oui, mais vous devez [utiliser l’identité managée de votre compte Azure Cosmos DB](#using-managed-identity) dans votre stratégie d’accès Azure Key Vault avant d’activer le magasin analytique.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Existe-t-il un plan pour prendre en charge une plus grande précision que celle des clés au niveau du compte ?
 

@@ -8,32 +8,32 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8bb1f8bb2aaeab88e5a9ea19534c8983af8c1626
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c80b9fd65588fe6c390f44b34509168f3bfb549
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97895748"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077684"
 ---
 # <a name="ensure-application-high-availability-when-running-in-vmware-on-azure"></a>Garantir la haute disponibilité des applications lors de leur exécution dans VMware sur Azure
 
 La solution CloudSimple fournit des fonctionnalités de haute disponibilité pour les applications exécutées sur VMware dans l'environnement Azure. Le tableau suivant répertorie les scénarios de défaillance et les fonctionnalités de haute disponibilité (HA) associées.
 
-| Scénario de défaillance | Application protégée ? | Fonctionnalité HA plateforme | Fonctionnalité HA VMware | Fonctionnalité HA Azure |
------------- | ------------- | ------------ | ------------ | ------------- |
-| Défaillance disque | YES | Remplacement rapide du nœud défaillant | [À propos de la stratégie de stockage par défaut du réseau SAN virtuel](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html) |
-| Défaillance ventilateur | YES | Ventilateurs redondants, remplacement rapide du nœud défaillant |  |  |
-| Défaillance carte réseau | YES | Carte réseau redondante, remplacement rapide du nœud défaillant
-| Panne d'alimentation de l'hôte | YES | Alimentation redondante |  |  |
-| Défaillance hôte ESXi | YES | Remplacement rapide du nœud défaillant | [Haute disponibilité VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) |  |  |
-| Défaillance machines virtuelles | YES | [Équilibreurs de charge](load-balancers.md)  | [Haute disponibilité VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html) | Azure Load Balancer pour les machines virtuelles VMware sans état |
-| Défaillance port commuté de nœud terminal | YES | Carte réseau redondante |  |  |
-| Défaillance commutateur de nœud terminal | YES | Commutateurs de nœud terminal redondants |  |  |
-| Défaillance rack | YES | Groupes de placement |  |  |
-| Connectivité de réseau pour un contrôleur de domaine local | YES  | Services de mise en réseau redondants |  | Circuits ER redondants |
-| Connectivité réseau à Azure | YES | |  | Circuits ER redondants |
-| Défaillance centre de données | YES |  |  | Zones de disponibilité |
-| Défaillance régionale | YES  |  |  | Régions Azure |
+|  Scénario de défaillance  |  Application protégée ?  |  Fonctionnalité HA plateforme  |  Fonctionnalité HA VMware  |  Fonctionnalité HA Azure  |
+|----------------------------------------|------------------------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+|  Défaillance disque  |  YES  |  Remplacement rapide du nœud défaillant  |  [À propos de la stratégie de stockage par défaut de vSAN](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.virtualsan.doc/GUID-C228168F-6807-4C2A-9D74-E584CAF49A2A.html)  |  |
+|  Défaillance ventilateur  |  YES  |  Ventilateurs redondants, remplacement rapide du nœud défaillant  |  |  |
+|  Défaillance carte réseau  |  YES  |  Carte réseau redondante, remplacement rapide du nœud défaillant  |  |  |
+|  Panne d’alimentation de l’hôte  |  YES  |  Alimentation redondante  |  |  |
+|  Défaillance hôte ESXi  |  YES  |  Remplacement rapide du nœud défaillant  |  [Haute disponibilité VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html)  |  |
+|  Défaillance machines virtuelles  |  YES  |  [Équilibreurs de charge](load-balancers.md)  |  [Haute disponibilité VMware vSphere](https://www.vmware.com/products/vsphere/high-availability.html)  |  Azure Load Balancer pour les machines virtuelles VMware sans état  |
+|  Défaillance port commuté de nœud terminal  |  YES  |  Carte réseau redondante  |  |  |
+|  Défaillance commutateur de nœud terminal  |  YES  |  Commutateurs de nœud terminal redondants  |  |  |
+|  Défaillance rack  |  YES  |  Groupes de placement  |  |  |
+|  Connectivité réseau à un contrôleur de domaine local  |  YES  |  Services de mise en réseau redondants  |  |  Circuits ER redondants  |
+|  Connectivité réseau à Azure  |  YES  |  |  |  Circuits ER redondants  |
+|  Défaillance centre de données  |  YES  |  |  |  Zones de disponibilité  |
+|  Défaillance régionale  |  YES  |  |  |  Régions Azure  |
 
 Azure VMware Solution by CloudSimple fournit les fonctionnalités de haute disponibilité suivantes.
 

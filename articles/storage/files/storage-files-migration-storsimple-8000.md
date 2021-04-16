@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1d2de439e661ef5b1d1669187355621f25400bc4
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601081"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075570"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migration de StorSimple 8100 et 8600 vers Azure File Sync
 
@@ -65,11 +65,11 @@ Lorsque vous avez configuré votre appliance StorSimple pour la première fois, 
 
 La « clé de chiffrement des données de service » est nécessaire pour une migration réussie. Le moment est venu de récupérer cette clé dans vos dossiers, pour chacune des appliances de votre inventaire.
 
-Si vous ne trouvez pas les clés dans vos dossiers, vous pouvez les récupérer à partir de l’appliance. Chaque appliance a une clé de chiffrement unique. Pour récupérer la clé :
+Si vous ne trouvez pas les clés dans vos dossiers, vous pouvez générer une nouvelle clé à partir de l’appliance. Chaque appliance a une clé de chiffrement unique.
 
-* Soumettez une demande de support auprès de Microsoft Azure par le biais du portail Azure. La requête doit contenir les numéros de série de vos appareils StorSimple et une demande de récupération de la « clé de chiffrement des données de service ».
-* Un ingénieur du support technique de StorSimple vous contactera pour une demande de réunion virtuelle.
-* Avant le début de la réunion, assurez-vous de vous connecter à votre appliance StorSimple [via une console série](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) ou via une [session PowerShell à distance](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple).
+#### <a name="change-the-service-data-encryption-key"></a>Modifier la clé de chiffrement des données de service
+
+[!INCLUDE [storage-files-migration-generate-key](../../../includes/storage-files-migration-generate-key.md)]
 
 > [!CAUTION]
 > Lorsque vous décidez de la façon de vous connecter à votre appliance StorSimple, prenez en compte les points suivants :

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aahi
-ms.openlocfilehash: 124145059c825dee1dd52298688a47a807058551
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36091c62814cffd78c5f8132e01820070968af52
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102182092"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284933"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Vision par ordinateur avec Kubernetes et Helm
 
@@ -87,13 +87,13 @@ read:
       # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
       resultExpirationPeriod: 1
       
-      # Redis storage, if configured, will be used by read container to store result records.
-      # A cache is required if multiple read containers are placed behind load balancer.
+      # Redis storage, if configured, will be used by read OCR container to store result records.
+      # A cache is required if multiple read OCR containers are placed behind load balancer.
       redis:
         enabled: false # {true/false}
         password: password
 
-      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read OCR containers are
       # placed behind load balancer.
       rabbitmq:
         enabled: false # {true/false}
@@ -105,7 +105,7 @@ read:
 > [!IMPORTANT]
 > - Si les valeurs `billing` et `apikey` ne sont pas fournies, les services expirent après 15 minutes. De même, la vérification échoue car les services ne sont pas disponibles.
 > 
-> - Si vous déployez plusieurs conteneurs de lecture derrière un équilibreur de charge, par exemple, sous Docker Compose ou Kubernetes, vous devez disposer d’un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](./computer-vision-resource-container-config.md).
+> - Si vous déployez plusieurs conteneurs Read OCR derrière un équilibreur de charge, par exemple sous Docker Compose ou Kubernetes, vous devez avoir un cache externe. Étant donné que le conteneur de traitement et le conteneur de requêtes GET peuvent être différents, un cache externe est utilisé pour stocker les résultats et les partager entre les conteneurs. Pour plus d’informations sur les paramètres de cache, consultez l’article [Configurer les conteneurs Docker Vision par ordinateur](./computer-vision-resource-container-config.md).
 >
 
 Créez un dossier de *modèles* sous le répertoire *read*. Copiez et collez la configuration YAML suivante dans un fichier nommé `deployment.yaml`. Le fichier `deployment.yaml` servira de modèle Helm.
