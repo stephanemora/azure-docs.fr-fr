@@ -2,21 +2,21 @@
 title: Guide pratique pour utiliser l’accès aux applications en libre-service dans Azure AD
 description: Activer le libre-service pour que les utilisateurs puissent trouver des applications dans Azure AD
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/11/2017
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 13f91fdd9e2d9501fba426bd6facbf9824a39285
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e3851a702da46d07634a4141c774275845fa44d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99257015"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377613"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Guide pratique pour utiliser l’accès aux applications en libre-service
 
