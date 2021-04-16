@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/16/2021
+ms.date: 04/02/2021
 ms.author: victorh
-ms.openlocfilehash: 8922e6e0d5137a3a900e0f57f685d449c08b3f47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4514717274cfb66fbfc0eee25b09aa9e1234ffad
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596965"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280324"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 
@@ -181,6 +181,8 @@ Les métriques suivantes sont disponibles pour le pare-feu Azure :
     Unité : pourcentage
 
    Lorsque vous ajoutez d’autres adresses IP publiques à votre pare-feu, davantage de ports SNAT sont disponibles, ce qui réduit l’utilisation des ports SNAT. De plus, lorsque le pare-feu est mis à l’échelle pour différentes raisons (par exemple, UC ou débit), des ports SNAT supplémentaires sont également rendus disponibles. De fait, un pourcentage donné de l’utilisation des ports SNAT peut baisser sans que vous ajoutiez d’adresses IP publiques, juste parce que le service est mis à l’échelle. Vous pouvez contrôler directement le nombre d’adresses IP publiques disponibles pour augmenter les ports disponibles sur votre pare-feu. Toutefois, vous ne pouvez pas contrôler directement la mise à l’échelle du pare-feu.
+
+   Si votre pare-feu épuise les ports SNAT, vous devez ajouter au moins cinq adresses IP publiques. Cela augmente le nombre de ports SNAT disponibles. Pour plus d’informations, consultez [Fonctionnalités du Pare-feu Azure](features.md#multiple-public-ip-addresses).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

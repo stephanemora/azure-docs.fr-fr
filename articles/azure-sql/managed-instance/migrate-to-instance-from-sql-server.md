@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565818"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628371"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-Pour plus d’informations sur les technologies en mémoire, consultez [Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview).
+Pour plus d’informations sur les technologies en mémoire, consultez [Optimiser les performances en utilisant les technologies en mémoire d’Azure SQL Database et Azure SQL Managed Instance](../in-memory-oltp-overview.md).
 
 ### <a name="create-a-performance-baseline"></a>Créer un référentiel de performance
 
@@ -89,7 +89,7 @@ Le référentiel de performance est un ensemble de paramètres tels que l’util
 Voici quelques paramètres à mesurer sur votre instance SQL Server :
 
 - [Analysez l’utilisation du processeur sur votre instance SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) et enregistrez l’utilisation moyenne et maximale du processeur.
-- [Analysez l’utilisation de la mémoire sur votre instance SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) et déterminez la quantité de mémoire utilisée par différents composants, tels que le pool de mémoires tampons, le cache du plan, le pool de stockage en colonne, l’[OLTP en mémoire](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Par ailleurs, vous devez rechercher les valeurs moyennes et maximales du compteur de performance de la mémoire Espérance de vie d’une page.
+- [Analysez l’utilisation de la mémoire sur votre instance SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) et déterminez la quantité de mémoire utilisée par différents composants, tels que le pool de mémoires tampons, le cache du plan, le pool de stockage en colonne, l’[OLTP en mémoire](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. Par ailleurs, vous devez rechercher les valeurs moyennes et maximales du compteur de performance de la mémoire Espérance de vie d’une page.
 - Analysez l’utilisation des E/S disque sur l’instance SQL Server source à l’aide de la vue [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) ou des [compteurs de performance](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Analysez les performances des requêtes et des charges de travail sur votre instance SQL Server en examinant les vues de gestion dynamique ou le magasin de données des requêtes si vous effectuez une migration à partir de la version SQL Server 2016 +. Identifiez la durée moyenne et l’utilisation du processeur des requêtes les plus importantes dans votre charge de travail, afin de les comparer avec les requêtes qui s’exécutent sur l’instance Managed Instance.
 
@@ -100,7 +100,7 @@ Voici quelques paramètres à mesurer sur votre instance SQL Server :
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Déployer sur une instance gérée dimensionnée de façon optimale
 
-SQL Managed Instance est adapté pour des charges de travail locales qui planifient une migration vers le cloud. Un [nouveau modèle d’achat](../database/service-tiers-vcore.md) est ainsi présenté. Il offre davantage de flexibilité dans le choix du niveau de ressources pour vos charges de travail. Localement, vous êtes probablement habitué à dimensionner ces charges de travail à l’aide de cœurs physiques et de bandes passantes E/S. Le modèle d’achat pour une instance gérée repose sur des mémoires à tores magnétiques virtuelle, ou « vCore », avec un stockage et des E/S supplémentaires disponibles séparément. Le modèle vCore vous permet de comprendre plus facilement vos exigences de calcul dans le cloud par rapport à ce que vous utilisez localement aujourd’hui. Ce nouveau modèle vous permet de dimensionner au mieux votre environnement de destination dans le cloud. Quelques conseils généraux pouvant vous aider à choisir les caractéristiques et le niveau de service appropriés sont décrits ici :
+SQL Managed Instance est adapté pour des charges de travail locales qui planifient une migration vers le cloud. Un [nouveau modèle d’achat](../database/service-tiers-vcore.md) est ainsi présenté. Il offre davantage de flexibilité dans le choix du niveau de ressources pour vos charges de travail. Localement, vous êtes probablement habitué à dimensionner ces charges de travail à l’aide de cœurs physiques et de bandes passantes E/S. Le modèle d’achat pour une instance gérée repose sur des mémoires à tores magnétiques virtuelles, ou « vCores », avec un stockage et des E/S supplémentaires disponibles séparément. Le modèle vCore vous permet de comprendre plus facilement vos exigences de calcul dans le cloud par rapport à ce que vous utilisez localement aujourd’hui. Ce nouveau modèle vous permet de dimensionner au mieux votre environnement de destination dans le cloud. Quelques conseils généraux pouvant vous aider à choisir les caractéristiques et le niveau de service appropriés sont décrits ici :
 
 - En fonction de l’utilisation de l’UC de référence, vous pouvez approvisionner une instance gérée correspondant au nombre de cœurs que vous utilisez sur SQL Server, tout en tenant compte des caractéristiques de l’UC qui sont susceptibles d’être mises à l’échelle, afin de satisfaire aux [caractéristiques des machines virtuelles où est installé Managed Instance](resource-limits.md#hardware-generation-characteristics).
 - En fonction de l’utilisation de la mémoire de référence, choisissez [le niveau de service disposant de la mémoire correspondante](resource-limits.md#hardware-generation-characteristics). La quantité de mémoire ne peut pas être choisie directement. Vous devez donc sélectionner l’instance gérée avec la quantité de vCores disposant de la mémoire correspondante (par exemple, 5,1 Go/vCore dans Gen5).
@@ -189,7 +189,7 @@ Dès que vous avez préparé l’environnement qui est comparable autant que pos
 Ainsi, vous devez comparer les paramètres des performances avec le référentiel et identifier les différences importantes.
 
 > [!NOTE]
-> Dans bien des cas, vous ne pouvez pas obtenir des performances correspondant exactement sur l’instance gérée et sur SQL Server. Azure SQL Managed Instance est un moteur de base de données SQL Server, mais l’infrastructure et la configuration de la haute disponibilité qui y sont présentes peuvent amener quelques différences. Vous pouvez vous attendre à ce que certaines requêtes soient plus rapides, et d’autres peut-être plus lentes. L’objectif de la comparaison est de vérifier que les performances de charge de travail correspondent dans l’instance gérée à celles observées sur SQL Server (en moyenne), et d’identifier les requêtes critiques avec les performances qui ne ressemblent pas à vos performances d’origine.
+> Dans bien des cas, vous ne pouvez pas obtenir des performances correspondant exactement sur l’instance gérée et sur SQL Server. Azure SQL Managed Instance est un moteur de base de données SQL Server, mais l’infrastructure et la configuration de la haute disponibilité qui y sont présentes peuvent amener quelques différences. Vous pouvez vous attendre à ce que certaines requêtes soient plus rapides, et d’autres peut-être plus lentes. L’objectif de la comparaison est de vérifier que les performances de charge de travail dans l’instance gérée correspondent à celles observées sur SQL Server (en moyenne) et d’identifier toutes les requêtes critiques dont les performances ne correspondent pas à vos performances d’origine.
 
 Le résultat de la comparaison des performances peut se résumer ainsi :
 

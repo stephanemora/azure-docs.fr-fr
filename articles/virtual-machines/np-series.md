@@ -7,18 +7,15 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 09adb19623ea866091e1b949e78263661eddbb52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aa67a858d0396badc25a625b23dc2f2fdf1bdff9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551145"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551371"
 ---
-# <a name="np-series-preview"></a>Série NP (préversion) 
+# <a name="np-series"></a>Série NP 
 Les machines virtuelles de la série NP sont alimentées par des FPGA [Xilinx U250](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) pour accélérer les charges de travail, notamment l’inférence machine learning, le transcodage vidéo et la recherche de base de données et Analytics. Les machines virtuelles de la série NP sont également alimentées par des processeurs Intel Xeon 8171M (Skylake) avec une vitesse d’horloge de Turbo de 3,2 GHz.
-
-Soumettez une requête à l’aide du [formulaire de préversion](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) pour participer au programme de préversion de la série NP.
-
 
 [Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
@@ -39,10 +36,105 @@ Génération de machine virtuelle prise en charge : Génération 1<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="supported-operating-systems-and-drivers"></a>Systèmes d’exploitation et pilotes pris en charge
-Consultez les [notes de publication de Xilinx Runtime (XRT)](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf) pour obtenir la liste complète des systèmes d’exploitation pris en charge.
 
-Au cours de la version préliminaire, les équipes d’ingénierie Microsoft Azure partageront des instructions spécifiques pour l’installation du pilote.
+##  <a name="frequently-asked-questions"></a>Forum aux questions
+
+**Q :** Quelle version de Vitis dois-je utiliser ? 
+
+**R :** Xilinx recommande [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)
+
+
+**Q :** Ai-je besoin d’utiliser des machines virtuelles NP pour développer ma solution ? 
+
+**R :** Non, vous pouvez la développer en local, puis la déployer sur le cloud. Veillez à suivre la documentation d’attestation pour déployer sur des machines virtuelles NP. 
+
+**Q :** Quelle version de XRT dois-je utiliser ?
+
+**R :** xrt_202020.2.8.832 
+
+**Q :** Quelle est la plateforme de déploiement cible ?
+
+**R :** Utilisez les plateformes suivantes.
+- xilinx-u250-gen3x16-xdma-platform-2.1-3_all
+- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1 
+
+**Q :** Quelle plateforme dois-je cibler pour le développement ?
+
+**R :** xilinx-u250-gen3x16-xdma-2.1-202010-1-dev_1-2954688_all 
+
+**Q :** Quels sont les systèmes d’exploitation pris en charge ? 
+
+**R :** Xilinx et Microsoft ont validé Ubuntu 18.04 LTS and CentOS 7.8.
+
+ Xilinx a créé les images de la place de marché suivantes pour simplifier le déploiement de ces machines virtuelles. 
+
+[Machine virtuelle de déploiement Xilinx Alveo U250 – Ubuntu 18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321)
+
+[Machine virtuelle de déploiement Xilinx Alveo U250 – CentOS 7.8](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_centos78_032321)
+
+**Q :** Puis-je déployer mes propres machines virtuelles Ubuntu/CentOS et installer la plateforme cible XRT/Deployment ? 
+
+**R :** Oui.
+
+**Q :** Si je déploie ma propre machine virtuelle Ubuntu 18.04, quels sont les packages requis et la procédure à suivre ?
+
+**R :** Utilisez Kernel 4.1X comme indiqué dans la [documentation de Xilinx XRT](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf)
+       
+Installez les packages suivants :
+- xrt_202020.2.8.832_18.04-amd64-xrt.deb
+       
+- xrt_202020.2.8.832_18.04-amd64-azure.deb
+       
+- xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
+       
+- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb  
+
+**Q :** Sur Ubuntu, après le redémarrage de ma machine virtuelle, je ne trouve pas mon ou mes FPGA : 
+
+**R :** Vérifiez que votre noyau n’a pas été mis à niveau (uname-a). Dans ce cas, passez à une version antérieure à Kernel 4.1 X. 
+
+**Q :** Si je déploie ma propre machine virtuelle CentOS 7.8, quels sont les packages requis et la procédure à suivre ?
+
+**R :** Utilisez la version de Kernel 3.10.0-1160.15.2.el7.x86_64
+
+ Installez les packages suivants :
+   
+ - xrt_202020.2.8.832_7.4.1708-x86_64-xrt.rpm 
+      
+ - xrt_202020.2.8.832_7.4.1708-x86_64-azure.rpm 
+     
+ - xilinx-u250-gen3x16-xdma-platform-2.1-3.noarch.rpm.tar.gz 
+      
+ - xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  
+
+**Q :** Lors de l’exécution de xbutil Validate sur CentOS, j’obtiens le message d’avertissement suivant : « WARNING: Kernel version 3.10.0-1160.15.2.el7.x86_64 is not officially supported. 4.18.0-193 is the latest supported version. » (« ATTENTION : la version 3.10.0-1160.15.2.el7.x86_64 de Kernel n’est pas officiellement prise en charge, la dernière version prise en charge est la 4.18.0-193. ») 
+
+**R :** Vous pouvez ignorer ce message. 
+
+**Q :** Quelles sont les différences entre les machines virtuelles locale (OnPrem) et les machines virtuelles NP en ce qui concerne XRT ? 
+
+**R :** Sur Azure, la plateforme XDMA 2.1 prend uniquement en charge les fonctionnalités de conservation des données Host_Mem(SB) et DDR. 
+
+Pour activer Host_Mem(SB) (1 Go de RAM) : sudo xbutil host_mem --enable --size 1g 
+
+Pour désactiver Host_Mem(SB) : sudo xbutil host_mem --disable 
+
+**Q :** Puis-je exécuter des commandes xbmgmt ? 
+
+**R :** Non, sur les machines virtuelles Azure, il n’existe pas de prise en charge de la gestion directement à partir de la machine virtuelle Azure. 
+
+ **Q :** Dois-je charger un PLP ? 
+
+**R :** Non, le PLP est chargé automatiquement pour vous, il n’est donc pas nécessaire de le charger via des commandes xbmgmt. 
+
+ 
+**Q :** Azure prend-il en charge différents PLP ? 
+
+**R :** Pas pour l’instant. Nous prenons uniquement en charge les PLP fournis dans les packages de plateforme de déploiement. 
+
+**Q :** Comment puis-je interroger les informations de PLP ? 
+
+**R :** Vous devez exécuter la requête xbutil et examiner la partie inférieure. 
 
 ## <a name="other-sizes"></a>Autres tailles
 

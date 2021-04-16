@@ -9,17 +9,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 84fdca96f2ce42c608e7def98f6a3400964cfe46
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0c45a48e6cafa722945400554f2f81916da13775
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691924"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627606"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Paramètres de connectivité pour Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Cet article présente les paramètres qui contrôlent la connectivité au serveur pour Azure SQL Database et Azure Synapse Analytics. Ces paramètres s’appliquent à toutes les bases de données SQL Database et Azure Synapse Analytics associées au serveur.
+Cet article présente les paramètres qui contrôlent la connectivité au serveur pour Azure SQL Database et le [pool SQL dédié (anciennement SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) dans Azure Synapse Analytics. Ces paramètres s’appliquent à toutes les bases de données SQL Database et bases de données de pool SQL dédié (anciennement SQL DW) associées au serveur.
 
 > [!IMPORTANT]
 > Il ne s’applique pas à Azure SQL Managed Instance.

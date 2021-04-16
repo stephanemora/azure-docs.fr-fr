@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 0b5d0a8b12ad07c5be3a4cfc0840acc81aa0c395
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 6e391ca79c9dcf9ab533a7e67961c654b5f8630b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060730"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103366"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>Planifier une offre de machine virtuelle
 
 Cet article explique les différentes options et conditions requises pour la publication d’une offre de machine virtuelle sur la Place de marché commerciale. Les offres de machines virtuelles sont des offres pouvant faire l’objet d’une transaction, déployées et facturées via la Place de marché Azure.
 
-Avant de commencer, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](./partner-center-portal/create-account.md), et vérifier que votre compte est inscrit dans le programme de la Place de marché commerciale.
+Avant de commencer, vous devez [créer un compte sur la Place de marché commerciale dans l’Espace partenaires](create-account.md), et vérifier que votre compte est inscrit dans le programme de la Place de marché commerciale.
 
 ### <a name="technical-fundamentals"></a>Notions de base techniques
 

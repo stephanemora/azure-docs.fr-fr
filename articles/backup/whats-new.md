@@ -3,12 +3,12 @@ title: Nouveautés de Sauvegarde Azure
 description: En savoir plus sur les nouvelles fonctionnalités de Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095712"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612481"
 ---
 # <a name="whats-new-in-azure-backup"></a>Nouveautés de Sauvegarde Azure
 
@@ -19,6 +19,7 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
 ## <a name="updates-summary"></a>Résumé des mises à jour
 
 - Mars 2021
+  - [La sauvegarde des disques Azure est désormais en disponibilité générale](#azure-disk-backup-is-now-generally-available)
   - [Le Centre de sauvegarde est désormais en disponibilité générale](#backup-center-is-now-generally-available)
   - [Prise en charge du niveau archive pour le service Sauvegarde Azure (en préversion)](#archive-tier-support-for-azure-backup-in-preview)
 - Février 2021
@@ -39,6 +40,12 @@ Pour en savoir plus sur les nouvelles versions, vous pouvez créer un signet sur
   - [Sauvegarde SAP HANA sur des machines virtuelles RHEL Azure (en préversion)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Stockage redondant interzone (ZRS) pour les données de sauvegarde (en préversion)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Suppression réversible pour les charges de travail SQL Server et SAP HANA dans les machines virtuelles Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>La sauvegarde des disques Azure est désormais en disponibilité générale
+
+Le service Sauvegarde Azure permet la gestion de cycle de vie des captures instantanées pour les disques managés Azure en automatisant la création régulière de captures instantanées. Celles-ci sont conservées pendant les durées configurées via la stratégie de sauvegarde.
+
+Pour plus d’informations, consultez [Vue d’ensemble de la sauvegarde des disques Azure](disk-backup-overview.md).
 
 ## <a name="backup-center-is-now-generally-available"></a>Le centre de sauvegarde est désormais en disponibilité générale
 

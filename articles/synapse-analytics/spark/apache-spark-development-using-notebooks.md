@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671599"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612309"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Créer, développer et tenir à jour des notebooks Synapse Studio dans Azure Synapse Analytics
 
@@ -41,9 +41,6 @@ L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Syna
 |%%html| Non pris en charge |&#9745;|
 |Glisser-déposer pour déplacer une cellule| Non pris en charge |&#9745;|
 |Sortie Display() persistante|&#9745;| Non disponible |
-|Annuler tout| &#9745;| Non disponible|
-|Exécuter toutes les cellules ci-dessus|&#9745;| Non disponible |
-|Exécuter toutes les cellules ci-dessous|&#9745;| Non disponible |
 |Mettre en forme une cellule de texte avec des boutons de barre d’outils|&#9745;| Non disponible |
 |Annuler l’opération sur cellule| &#9745;| Non disponible |
 
@@ -115,7 +112,7 @@ L’image suivante illustre la façon d’écrire une requête PySpark avec la c
 
    ![Synapse Commandes magic Spark](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### <a name="use-temp-tables-to-reference-data-across-languages"></a>Utiliser des tables temporaires pour référencer des données dans plusieurs langages
+### <a name="use-temp-tables-to-reference-data-across-languages&quot;></a>Utiliser des tables temporaires pour référencer des données dans plusieurs langages
 
 Vous ne pouvez pas référencer des données ou variables directement dans différents langages dans un bloc-notes Synapse Studio. Dans Spark, une table temporaire peut être référencée dans plusieurs langages. Voici un exemple de lecture d’une tramedonnées `Scala` en `PySpark` et `SparkSQL` en utilisant une table temporaire Spark comme solution de contournement.
 
@@ -123,7 +120,7 @@ Vous ne pouvez pas référencer des données ou variables directement dans diff�
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
@@ -273,28 +270,38 @@ Sélectionnez le bouton **Exécuter tout** pour exécuter toutes les cellules du
    ![exécuter-tout-cellules](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>Exécuter toutes les cellules au-dessus ou en dessous
+
+# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
 Pour accéder au menu d’actions sur cellule supplémentaires tout à fait à droite, sélectionnez les points de suspension ( **...** ). Ensuite, sélectionnez **Exécuter les cellules au-dessus** pour exécuter toutes les cellules situées au-dessus de la cellule active dans l’ordre. Sélectionnez **Exécuter les cellules en dessous** pour exécuter toutes les cellules sous la cellule active dans l’ordre.
 
    ![exécuter-cellules-au-dessus-ou-en dessous](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
+
+Développez la liste déroulante du bouton **Exécuter tout**, puis sélectionnez **Exécuter les cellules ci-dessus** pour exécuter dans l’ordre toutes les cellules au-dessus de la cellule actuelle. Sélectionnez **Exécuter les cellules en dessous** pour exécuter toutes les cellules sous la cellule active dans l’ordre.
+
+   ![azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>Annuler toutes les cellules en cours d’exécution
+
+# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 Sélectionnez le bouton **Annuler tout** pour annuler les cellules en cours d’exécution ou les cellules dans la file d’attente. 
    ![cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-L’annulation de toutes les cellules actives n’est pas encore disponible pour l’expérience de notebook en préversion. 
+Sélectionnez le bouton **Annuler tout** pour annuler les cellules en cours d’exécution ou les cellules dans la file d’attente. 
+   ![azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>Notebook de référence
+### <a name="notebook-reference"></a>Référence de notebook
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
@@ -305,6 +312,11 @@ Non pris en charge.
 Vous pouvez utiliser la commande magic ```%run <notebook path>``` pour référencer un autre notebook dans le contexte du notebook actuel. Toutes les variables définies dans le notebook de référence sont disponibles dans le notebook actuel. La commande magic ```%run``` prend en charge les appels imbriqués, mais pas les appels récursifs. Vous recevrez une exception si la profondeur de l’instruction est supérieure à cinq. Actuellement, la commande ```%run``` permet seulement de transmettre un chemin d’accès de notebook comme paramètre. 
 
 Exemple : ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> La référence de notebook n’est pas prise en charge dans le pipeline Synapse.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ Vous pouvez également spécifier des paramètres de session Spark via une comma
     }
 }
 ```
-
+> [!NOTE]
+> La commande magic de configuration de session Spark n’est pas prise en charge dans le pipeline Synapse.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Importer des données dans un bloc-notes
 
@@ -420,6 +435,11 @@ Dans les propriétés du bloc-notes, vous pouvez éventuellement configurer l’
 ## <a name="magic-commands"></a>Commandes magic
 Vous pouvez utiliser des commandes magic Jupyter familières dans les notebooks Azure Synapse Studio. Vérifiez la liste suivante des commandes magic actuellement disponibles. Parlez-nous de [vos cas d’usage sur GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) pour nous permettre de continuer à créer des commandes magic supplémentaires afin de répondre à vos besoins.
 
+> [!NOTE]
+> Seules les commandes magic suivantes sont prises en charge dans le pipeline Synapse : %%pyspark, %%spark, %%csharp, %%sql. 
+>
+>
+
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
 Commandes magic de ligne disponibles : [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Commandes magic de cellule disponibles : [%%time](https://ipython.readthedocs.i
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-Commandes magic de ligne disponibles : [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#reference-notebook), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Commandes magic de ligne disponibles : [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Commandes magic de cellule disponibles : [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-config-magic-command)
 
@@ -496,7 +516,7 @@ Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter pl
 |Exécuter la cellule active et sélectionner la cellule en dessous | Maj + Entrée |
 |Exécuter la cellule active et insérer en dessous | Alt + Entrée |
 |Sélectionner la cellule au-dessus| Haut |
-|Sélectionner la cellule en dessous| Descendre |
+|Sélectionner la cellule en dessous| Bas |
 |Insérer une cellule au-dessus| Un |
 |Insérer une cellule en dessous| B |
 |Étendre les cellules sélectionnées au-dessus| Maj + Haut |
@@ -532,7 +552,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 | Action |Raccourcis de bloc-notes Synapse Studio  |
 |--|--|
 |Déplacer le curseur vers le haut | Haut |
-|Déplacer le curseur vers le bas|Descendre|
+|Déplacer le curseur vers le bas|Bas|
 |Annuler|Ctrl + Z|
 |Rétablir|CTRL + Y|
 |Commenter/Supprimer un commentaire|Ctrl + /|

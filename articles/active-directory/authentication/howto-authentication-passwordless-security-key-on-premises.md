@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db1b559bb4f6a1f8866116c287df5b814500210b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef56db4ef67515d14f8462db2975e68a1a86f238
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101647470"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105959855"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory 
 
@@ -193,6 +193,8 @@ Si vous effectuez une nouvelle installation de machine jointe à Azure AD Hybrid
 ### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Je ne parviens pas à effectuer l’authentification unique auprès de ma ressource réseau NTLM après m’être connecté avec FIDO, et je reçois une invite à entrer des informations d’identification.
 
 Assurez-vous qu’un nombre suffisant de contrôleurs de domaine sont corrigés pour répondre dans les temps afin de servir votre demande de ressource. Pour vérifier si vous pouvez voir un contrôleur de domaine exécutant la fonctionnalité, consultez la sortie de la commande `nltest /dsgetdc:contoso /keylist /kdc`.
+
+Remarque : Ce commutateur /Keylist dans la commande nltest est disponible dans le client Windows 10 v2004 et versions ultérieures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

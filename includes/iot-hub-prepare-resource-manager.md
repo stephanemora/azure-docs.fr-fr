@@ -5,16 +5,16 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 26c158145de6ce729d8a7060152b19fb14b63d58
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95562817"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Préparation de l’authentification des demandes d’Azure Resource Manager
 Vous devez authentifier toutes les opérations que vous effectuez sur des ressources à l’aide d’[Azure Resource Manager][lnk-authenticate-arm] avec Azure Active Directory (AD). La manière la plus simple de configurer cela consiste à utiliser PowerShell ou l’interface de ligne de commande Azure.
 
-Avant toute chose, installez les [cmdlets Azure PowerShell][lnk-powershell-install].
+Avant toute chose, installez les [applets de commande Azure PowerShell][lnk-powershell-install].
 
 Les étapes suivantes montrent comment configurer l’authentification par mot de passe pour une application Active Directory à l’aide de PowerShell. Vous pouvez exécuter ces commandes dans le cadre d’une session PowerShell standard.
 
@@ -42,8 +42,8 @@ Les étapes suivantes montrent comment configurer l’authentification par mot d
    
    * **{Nom d’affichage} :** nom d’affichage pour votre application, par exemple, **MySampleApp**
    * **{URL de la page d’accueil} :** URL de la page d’accueil de votre application, par exemple **http:\//mysampleapp/home**. Cette URL n’a pas besoin de pointer vers une application réelle.
-   * **{Identificateur d'application} :** identificateur unique, par exemple **http:\//mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
-   * **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier dans votre application.
+   * **{Identificateur d’application} :** identificateur unique, par exemple, **http:\///mysampleapp**. Cette URL n’a pas besoin de pointer vers une application réelle.
+   * **{Mot de passe} :** mot de passe que vous utiliserez pour vous authentifier dans votre application.
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force

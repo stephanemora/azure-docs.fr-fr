@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ccabffc0e5a65e41f31c3c80703e67f78e8b5f9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 87cd32dcace6fd38180cc09ba999efca76f5ae16
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100999"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105605465"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map-android-sdk"></a>Ajouter une couche d’extrusion de polygone à la carte (Android SDK)
 
@@ -106,7 +106,7 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-La capture d’écran suivante présente le code ci-dessus rendant un polygone étiré verticalement à l’aide d’une couche de polygone.
+La capture d’écran suivante présente le code ci-dessus affichant un polygone étiré verticalement à l’aide d’une couche d’extrusion de polygone.
 
 ![Carte avec un polygone étiré verticalement à l’aide d’une couche d’extrusion de polygone](media/map-extruded-polygon-android/polygon-extrusion-layer.jpg)
 

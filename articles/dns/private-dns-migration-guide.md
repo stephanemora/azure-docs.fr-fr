@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 72d046cde70d1224eb1fd47f527c9e49c6b002f6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6bb828aaff0c1d026e977863a6e224aaea81b629
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500459"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729233"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migration des zones privées Azure DNS héritées vers le nouveau modèle de ressource
 
-Dans la préversion publique, les zones DNS privées ont été créées à l’aide de la ressource « dnszones » avec la propriété « zoneType » définie sur « Private ». Ces zones ne seront plus prises en charge après le 31 décembre 2019 et doivent être migrées vers le modèle de ressource GA qui utilise le type de ressource « privateDnsZones » au lieu de « dnszones ». Le processus de migration est simple et nous vous fournissons un script PowerShell pour automatiser ce processus. Ce guide fournit des instructions pas à pas pour migrer Azure DNS Private Zones vers le nouveau modèle de ressource.
+Pendant la préversion publique, des zones DNS privées ont été créées à l’aide de la ressource « dnszones » avec la propriété « zoneType » définie sur « Private ». Ces zones ne seront plus prises en charge après le 31 décembre 2019 et doivent être migrées vers le modèle de ressource GA qui utilise le type de ressource « privateDnsZones » au lieu de « dnszones ». Le processus de migration est simple et nous vous fournissons un script PowerShell pour automatiser ce processus. Ce guide fournit des instructions pas à pas pour migrer Azure DNS Private Zones vers le nouveau modèle de ressource.
 
 Pour connaître les ressources dnszones qui nécessitent une migration, exécutez la commande ci-dessous dans Azure CLI.
 ```azurecli
@@ -67,13 +67,13 @@ PrivateDnsMigrationScript.ps1
 
 ### <a name="enter-the-subscription-id-and-sign-in-to-azure"></a>Entrer l’ID d’abonnement et se connecter à Azure
 
-Vous allez être invité à entrer l’ID d’abonnement qui contient les zones DNS privées que vous voulez migrer. Vous devrez vous connecter à votre compte Azure. Procédez à la connexion afin que le script puisse accéder aux ressources des zones DNS privées dans l’abonnement.
+Vous allez être invité à entrer l’ID d’abonnement qui contient les zones DNS privées que vous voulez migrer. Vous devrez vous connecter à votre compte Azure. Procédez à la connexion afin que le script puisse accéder aux ressources des zones DNS privées dans l’abonnement.
 
 ![Connexion à Azure](./media/private-dns-migration-guide/login-migration-script.png)
 
 ### <a name="select-the-dns-zones-you-want-to-migrate"></a>Sélectionner les zones DNS à migrer
 
-Le script obtient la liste de toutes les zones DNS privées de l’abonnement et vous invite à confirmer celles que vous voulez migrer. Entrez « A » pour migrer toutes les zones DNS privées. Une fois que vous exécutez cette étape, le script va créer des zones DNS privées à l’aide du nouveau modèle de ressource, puis copier les données dans la nouvelle zone DNS. Cette étape ne modifie aucunement vos zones DNS privées existantes.
+Le script obtient la liste de toutes les zones DNS privées de l’abonnement et vous invite à confirmer celles que vous voulez migrer. Entrez « A » pour migrer toutes les zones DNS privées. Une fois que vous exécutez cette étape, le script va créer des zones DNS privées à l’aide du nouveau modèle de ressource, puis copier les données dans la nouvelle zone DNS. Cette étape ne modifie aucunement vos zones DNS privées existantes.
 
 ![Sélectionner les zones DNS](./media/private-dns-migration-guide/migratezone-migration-script.png)
 
@@ -81,7 +81,7 @@ Le script obtient la liste de toutes les zones DNS privées de l’abonnement et
 
 Une fois que les zones et enregistrements ont été copiés dans le nouveau modèle de ressource, le script vous invite à basculer la résolution DNS vers les nouvelles zones DNS. Cette étape supprime l’association entre les zones DNS privées héritées et vos réseaux virtuels. Quand la zone héritée n’est plus liée aux réseaux virtuels, les nouvelles zones DNS créées à l’étape ci-dessus prennent automatiquement le relais de la résolution DNS pour ces réseaux virtuels.
 
-Sélectionnez « A » pour basculer la résolution DNS pour tous les réseaux virtuels.
+Sélectionnez « A » pour basculer la résolution DNS pour tous les réseaux virtuels.
 
 ![Basculement de la résolution de noms](./media/private-dns-migration-guide/switchresolution-migration-script.png)
 
@@ -91,26 +91,26 @@ Avant de continuer, vérifiez que la résolution DNS sur vos zones DNS fonctionn
 
 ![Vérifier la résolution de noms](./media/private-dns-migration-guide/verifyresolution-migration-script.png)
 
-Si vous remarquez que les requêtes DNS ont du mal à se résoudre, patientez quelques minutes et faites une nouvelle tentative. Si les requêtes DNS fonctionnent comme prévu, entrez « Y » quand le script vous invite à supprimer le réseau virtuel de la zone DNS privée.
+Si vous remarquez que les requêtes DNS ont du mal à se résoudre, patientez quelques minutes et faites une nouvelle tentative. Si les requêtes DNS fonctionnent comme prévu, entrez « Y » quand le script vous invite à supprimer le réseau virtuel de la zone DNS privée.
 
 ![Confirmer la résolution de noms](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
 >[!IMPORTANT]
->Si, pour une raison quelconque, la résolution DNS sur les zones migrées ne fonctionne pas comme prévu, entrez « N » à l’étape ci-dessus pour que le script rebascule la résolution DNS vers les zones héritées. Créez un ticket de support pour que nous puissions vous aider dans la migration de vos zones DNS.
+>Si, pour une raison quelconque, la résolution DNS sur les zones migrées ne fonctionne pas comme prévu, entrez « N » à l’étape ci-dessus pour que le script rebascule la résolution DNS vers les zones héritées. Créez un ticket de support pour que nous puissions vous aider dans la migration de vos zones DNS.
 
 ## <a name="cleanup"></a>Nettoyage
 
-Cette étape va supprimer les zones DNS héritées, vous devez donc l’exécuter uniquement après avoir vérifié que la résolution DNS fonctionne comme prévu. Vous allez être invité à supprimer chaque zone DNS privée. Entrez « Y » à chaque invite après avoir vérifié que la résolution DNS pour les zones fonctionne correctement.
+Cette étape va supprimer les zones DNS héritées, vous devez donc l’exécuter uniquement après avoir vérifié que la résolution DNS fonctionne comme prévu. Vous allez être invité à supprimer chaque zone DNS privée. Entrez « Y » à chaque invite après avoir vérifié que la résolution DNS pour les zones fonctionne correctement.
 
-![Nettoyage](./media/private-dns-migration-guide/cleanup-migration-script.png)
+![Nettoyer](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
 ## <a name="update-your-automation"></a>Mettre à jour votre automatisation
 
 Si vous avez recours à une automatisation avec des modèles, des scripts PowerShell ou du code personnalisé développé à l’aide d’un SDK, vous devez mettre à jour votre automatisation afin d’utiliser le nouveau modèle de ressource pour les zones DNS privées. Voici les liens vers la nouvelle documentation CLI/PS/SDK des zones DNS privées.
 * [API REST pour les zones privées Azure DNS](/rest/api/dns/privatedns/privatezones)
-* [CLI pour les zones privées Azure DNS](/cli/azure/ext/privatedns/network/private-dns)
+* [CLI pour les zones privées Azure DNS](/cli/azure/network/private-dns/link/vnet)
 * [PowerShell pour les zones privées Azure DNS](/powershell/module/az.privatedns/)
-* [SDK pour les zones privées Azure DNS](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [SDK pour les zones privées Azure DNS](/dotnet/api/overview/azure/privatedns/management)
 
 ## <a name="need-further-help"></a>Encore besoin d’aide ?
 
