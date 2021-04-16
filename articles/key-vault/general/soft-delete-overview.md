@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 7aeca89ed09182b7947b10f24c65b0cb58ed67ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d691c4c510f5ff00c34d03b7b8d7a7bcaa53c3f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452133"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554091"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -20,7 +20,7 @@ ms.locfileid: "102452133"
 > Vous devez immédiatement activer la suppression réversible sur vos coffres de clés. la possibilité de refuser la suppression réversible sera bientôt dépréciée. Vous trouverez plus de détails [ici](soft-delete-change.md).
 
 > [!IMPORTANT]
-> Un coffre supprimé de manière réversible déclenche les paramètres de suppression pour l’intégration aux services Key Vault, c’est-à-dire les attributions de rôles Azure RBAC, les abonnements Event Grid, et les paramètres de diagnostic Azure Monitor. Après la récupération des paramètres Key Vault supprimés de manière réversible pour les services intégrés, vous devez les recréer manuellement. 
+> Un coffre supprimé de manière réversible déclenche les paramètres de suppression pour l’intégration aux services Key Vault, c’est-à-dire les attributions de rôles Azure RBAC ou les abonnements Event Grid. Après la récupération des paramètres Key Vault supprimés de manière réversible pour les services intégrés, vous devez les recréer manuellement. 
 
 La fonctionnalité de suppression réversible de Key Vault permet la récupération des coffres et des objets de coffres supprimés (par exemple, des clés, secrets ou certificats). Nous aborderons en particulier les scénarios suivants :  Cette sécurité offre les protections suivantes :
 

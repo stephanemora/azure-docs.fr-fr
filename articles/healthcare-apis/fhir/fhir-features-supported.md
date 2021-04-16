@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/30/2021
+ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 56e3ba46ffb43aec907d729a2e74cdf6f7a62c32
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048417"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107530637"
 ---
 # <a name="features"></a>Fonctionnalités
 
@@ -41,8 +41,8 @@ Versions antérieures également prises en charge : `3.0.2`
 | create                         | Oui       | Oui       | Oui       | Prend en charge POST et PUT                               |
 | create (conditional)           | Oui       | Oui       | Oui       | Problème [no 1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | recherche                         | Partiel   | Partiel   | Partiel   | Consultez la section Rechercher ci-dessous.                           |
-| recherche chaînée                 | Oui       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
-| recherche chaînée inversée         | Oui       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
+| recherche chaînée                 | Partiel       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
+| recherche chaînée inversée         | Partiel       | Oui       | Partiel   | Voir la remarque 2 ci-dessous.                                   |
 | capabilities                   | Oui       | Oui       | Oui       |                                                     |
 | lot                          | Oui       | Oui       | Oui       |                                                     |
 | transaction                    | Non        | Oui       | Non        |                                                     |
@@ -146,7 +146,7 @@ Actuellement, les actions autorisées pour un rôle donné sont appliquées *à 
 
 ## <a name="service-limits"></a>Limites du service
 
-* [**Unités de requête (RU)**](../../cosmos-db/concepts-limits.md) : vous pouvez configurer jusqu’à 10 000 unités de requête dans le portail pour l’API Azure pour FHIR. Vous aurez besoin au minimum de 400 unités de requête ou de 10 unités de requête/Go, selon la valeur la plus grande. Si vous avez besoin de plus de 10 000 unités de requête, vous pouvez envoyer un ticket de support pour augmenter ce quota. Le maximum disponible est 1 000 000.
+* [**Unités de requête (RU)**](../../cosmos-db/concepts-limits.md) : vous pouvez configurer jusqu’à 10 000 unités de requête dans le portail pour l’API Azure pour FHIR. Vous aurez besoin d’un minimum de 400 ou de 40 unités de capacité/Go, selon la valeur la plus grande. Si vous avez besoin de plus de 10 000 unités de requête, vous pouvez envoyer un ticket de support pour augmenter ce quota. Le maximum disponible est 1 000 000.
 
 * **Connexions simultanées** et **Instances** : vous avez, par défaut, cinq connexions simultanées sur deux instances du cluster (pour un total de 10 requêtes simultanées). Si vous pensez avoir besoin de plus de requêtes simultanées, ouvrez un ticket de support en détaillant vos besoins.
 
@@ -160,12 +160,12 @@ Les performances du système dépendent du nombre d’unités de requête, des c
 
 | Nombre d’unités de requête | Ressources/s |    Stockage max. (Go)*    |
 |----------|---------------|--------|                 
-| 400      | 5-10          |     40   |
-| 1 000    | 100-150       |      100  |
-| 10 000   | 225-400       |      1 000  |
-| 100 000  | 2 500-4 000   |      10 000  |
+| 400      | 5-10          |     10   |
+| 1 000    | 100-150       |      25  |
+| 10 000   | 225-400       |      250  |
+| 100 000  | 2 500-4 000   |      2 500  |
 
-Remarque : Conformément à l’exigence de Cosmos DB, un débit minimal de 10 RU/s par Go de stockage est nécessaire. Pour plus d’informations, consultez [Quotas de service Cosmos DB](../../cosmos-db/concepts-limits.md).
+Remarque : par Cosmos DB exigence, un débit minimal de 40 RU/s par Go de stockage est requis. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

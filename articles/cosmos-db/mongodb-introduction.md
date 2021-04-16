@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5820592bf06cc9427e12aa0cd79c54dc1f0156e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfaa04077a5148f19f06aa5e1257b986377ea8c0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101657993"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307127"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb"></a>API d’Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "101657993"
 
 ## <a name="wire-protocol-compatibility"></a>Compatibilité des protocoles de transmission
 
-Azure Cosmos DB implémente le protocole filaire pour MongoDB. Cette implémentation permet une compatibilité transparente avec les outils, les pilotes et les kits SDK clients MongoDB natifs. Azure Cosmos DB héberge le moteur de base de données MongoDB. Vous trouverez les détails des fonctionnalités prises en charge par MongoDB ici : 
+Azure Cosmos DB implémente le protocole filaire pour MongoDB. Cette implémentation permet une compatibilité transparente avec les outils, les pilotes et les kits SDK clients MongoDB natifs. Azure Cosmos DB n’héberge pas le moteur de base de données MongoDB. Vous trouverez les détails des fonctionnalités prises en charge par MongoDB ici : 
 - [Version 4.0 de l’API pour MongoDB d’Azure Cosmos DB](mongodb-feature-support-40.md)
 - [Version 3.6 de l’API pour MongoDB d’Azure Cosmos DB](mongodb-feature-support-36.md)
 

@@ -2,21 +2,21 @@
 title: Ajouter une application à partir de la Place de marché Azure
 description: Cet article fait office de page de destination du bouton Télécharger maintenant sur la Place de marché Azure.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2020
-ms.author: kenwith
+ms.author: iangithinji
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7bff0ca3dfa561f836f94e362ee84d025de020ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b2c15ba1f059466240264565d5ff5276b70ddd63
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258335"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374146"
 ---
 # <a name="get-it-now---add-an-app-from-the-azure-marketplace"></a>Télécharger maintenant – Ajouter une application à partir de la Place de marché Azure
 

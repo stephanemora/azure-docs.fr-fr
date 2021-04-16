@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: c7d06172abd696e386337e563fa29fdbd2d3cdae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aebbe7ab736b8a7b73900f1d552d723b8a609de6
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103493660"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222756"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -185,6 +185,14 @@ Quand vous mettez à niveau un cluster AKS pris en charge, les versions mineures
 Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
 
 L’omission de plusieurs versions ne peut être effectuée que lors de la mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge peut être effectuée.
+
+**Puis-je créer un nouveau cluster 1.xx.x pendant la période de prise en charge de 30 jours ?**
+
+Non. Une fois qu’une version est déconseillée/supprimée, il n’est plus possible de créer de cluster avec cette version. Quand la modification est déployée, l’ancienne version est supprimée de votre liste de versions. Ce processus peut durer jusqu’à deux semaines après l’annonce et s’effectue progressivement par région.
+
+**Je travaille sur une version désormais déconseillée, puis-je toujours ajouter de nouveaux pools de nœuds ? Ou une mise à niveau est-elle nécessaire ?**
+
+Non. Vous n’êtes pas autorisé à ajouter des pools de nœuds de la version déconseillée à votre cluster. Vous pouvez ajouter des pools de nœuds d’une nouvelle version. Toutefois, vous devrez peut-être d’abord mettre à jour le plan de contrôle. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

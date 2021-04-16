@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Cet article explique comment créer un moniteur dans Moniteur de connexion à l’aide du portail Azure.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9942b608601b495dd041a8b59aaecb3f5dd81fa7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702162"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106505227"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Créer un moniteur dans Moniteur de connexion à l’aide du portail Azure
 
@@ -121,7 +121,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
 
    * Pour choisir des agents locaux, sélectionnez l’onglet **Points de terminaison non Azure**. Par défaut, les agents sont regroupés par région dans les espaces de travail. Network Performance Monitor est configuré pour tous ces espaces de travail. 
    
-       Si nécessaire, procurez-vous Network Performance Monitor à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview) pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](../azure-monitor/insights/solutions.md). 
+       Si nécessaire, procurez-vous Network Performance Monitor à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview) pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](../azure-monitor/insights/solutions.md). Pour plus d’informations sur la configuration des agents pour les machines locales, consultez [Agents pour les machines locales](connection-monitor-overview.md#agents-for-on-premises-machines).
    
        Sous **Créer un moniteur de connexion**, dans l’onglet **Informations de base**, la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau**, vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé. Vous pouvez également modifier le sélecteur **Grouper par** pour regrouper par agents.
 
@@ -144,7 +144,7 @@ Dans le portail Azure, pour créer un groupe de tests dans un moniteur de connex
     
     * Pour choisir des agents non Azure comme destinations, sélectionnez l’onglet **Points de terminaison non Azure**. Par défaut, les agents sont regroupés par région dans les espaces de travail. Network Performance Monitor est configuré pour tous ces espaces de travail. 
     
-      Si nécessaire, procurez-vous Network Performance Monitor à partir de la Place de marché Azure pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](../azure-monitor/insights/solutions.md). 
+      Si nécessaire, procurez-vous Network Performance Monitor à partir de la Place de marché Azure pour l'ajouter à votre espace de travail. Pour plus d'informations sur l'ajout de Network Performance Monitor, consultez [Solutions de supervision dans Azure Monitor](../azure-monitor/insights/solutions.md). Pour plus d’informations sur la configuration des agents pour les machines locales, consultez [Agents pour les machines locales](connection-monitor-overview.md#agents-for-on-premises-machines).
 
       Sous  **Créer un moniteur de connexion**, dans l’onglet  **Informations de base** , la région par défaut est sélectionnée. Si vous changez la région, vous pouvez choisir des agents des espaces de travail de la nouvelle région. Vous pouvez sélectionner un ou plusieurs agents ou sous-réseaux. Dans la vue **Sous-réseau**, vous pouvez sélectionner des adresses IP spécifiques pour la surveillance. Si vous ajoutez plusieurs sous-réseaux, un réseau local personnalisé nommé **OnPremises_Network_1** sera créé.  
 

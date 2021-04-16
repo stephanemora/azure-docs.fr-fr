@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 49edab5ed20749cb705d160e5cdc46a16bdee951
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dadb23b9a8d00d484a9c42db9007d8c5b94b4c78
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258029"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306787"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -90,7 +90,7 @@ Pour publier votre application via le Proxy d’application avec un domaine pers
    
    ![Cliquez pour télécharger un certificat.](./media/application-proxy-configure-custom-domain/certificate.png)
    
-7. Dans la page **Certificat SSL**, recherchez et sélectionnez votre fichier de certificat PFX. Entrez le mot de passe du certificat, puis sélectionnez **Charger le certificat**. Pour plus d’informations sur les certificats, voir la section [Certificats pour les domaines personnalisés](#certificates-for-custom-domains). Si le certificat n’est pas valide ou s’il y a un problème avec le mot de passe, un message d’erreur s’affiche. Le [FAQ sur le proxy d’application](application-proxy-faq.md#application-configuration) contient des étapes de dépannage que vous pouvez essayer.
+7. Dans la page **Certificat SSL**, recherchez et sélectionnez votre fichier de certificat PFX. Entrez le mot de passe du certificat, puis sélectionnez **Charger le certificat**. Pour plus d’informations sur les certificats, voir la section [Certificats pour les domaines personnalisés](#certificates-for-custom-domains). Si le certificat n’est pas valide ou s’il y a un problème avec le mot de passe, un message d’erreur s’affiche. Le [FAQ sur le proxy d’application](application-proxy-faq.yml#application-configuration) contient des étapes de dépannage que vous pouvez essayer.
    
    ![Télécharger le certificat](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    

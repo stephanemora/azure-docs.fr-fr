@@ -2,20 +2,20 @@
 title: Comprendre l’authentification unique par mot de passe pour les applications dans Azure Active Directory
 description: Comprendre l’authentification unique par mot de passe pour les applications dans Azure Active Directory
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.author: kenwith
-ms.openlocfilehash: bac04bd70469d7b9c4d9485b6a87fd7133967154
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: ffa517f068dbc13f2734630216466373d9014ae6
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255303"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374554"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Comprendre l’authentification unique par mot de passe
 

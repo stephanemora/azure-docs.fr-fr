@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c6b502bbc56d6c9521ec736150fbc0046ff78125
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98802361"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642480"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v12 avec Xamarin
 
@@ -40,7 +40,7 @@ Liens de référence :
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](../common/storage-account-create.md)
-* Visual Studio avec [Développement mobile pour la charge de travail .NET](/xamarin/get-started/installation/?pivots=windows) installé ou [Visual Studio pour Mac](/visualstudio/mac/installation?view=vsmac-2019)
+* Visual Studio avec [Développement mobile pour la charge de travail .NET](/xamarin/get-started/installation/?pivots=windows) installé ou [Visual Studio pour Mac](/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true)
 
 ## <a name="setting-up"></a>Configuration
     
@@ -196,7 +196,7 @@ async void List_Clicked(object sender, EventArgs e)
 
 ### <a name="download-blobs"></a>Télécharger des objets blob
 
-Téléchargez l’objet Blob créé précédemment en appelant la méthode [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync). L’exemple de code copie d’abord la représentation `Stream` de l’objet BLOB dans un `MemoryStream`, puis dans un `StreamReader` afin que le texte puisse être affiché.
+Téléchargez l’objet blob créé précédemment en appelant la méthode [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync). L’exemple de code copie d’abord la représentation `Stream` de l’objet BLOB dans un `MemoryStream`, puis dans un `StreamReader` afin que le texte puisse être affiché.
 
 Ajoutez ce code au fichier *MainPage.xaml.cs* :
 

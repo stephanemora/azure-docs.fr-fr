@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f044596cf084e68b6c9ca10e3da4fbdf4c8c2062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 32715ad1a01366d7d56e6fa8129151b15c315e1d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95026520"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504173"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le SDK Speech
 
-La journalisation dans un fichier est une fonctionnalité facultative pour le SDK Speech. Pendant le développement, la journalisation fournit des informations et des diagnostics supplémentaires en provenance des composants de base du SDK Speech. Elle peut être activée en attribuant à la propriété `Speech_LogFilename` d’un objet de configuration Speech l’emplacement et le nom du fichier journal. La journalisation est activée globalement dès qu’un module de reconnaissance est créé à partir de cette configuration et elle ne peut pas être désactivée par la suite. Vous ne pouvez pas changer le nom d’un fichier journal pendant l’exécution d’une session de journalisation.
+La journalisation dans un fichier est une fonctionnalité facultative pour le SDK Speech. Pendant le développement, la journalisation fournit des informations et des diagnostics supplémentaires en provenance des composants de base du SDK Speech. Elle peut être activée en attribuant à la propriété `Speech_LogFilename` d’un objet de configuration Speech l’emplacement et le nom du fichier journal. La journalisation est gérée par une classe statique dans la bibliothèque native du kit de développement logiciel (SDK) Speech. Vous pouvez activer la journalisation pour n’importe quelle instance de module de reconnaissance ou de synthétiseur du SDK Speech. Toutes les instances dans le même processus écrivent leurs entrées de journal dans le même fichier journal.
 
 > [!NOTE]
 > La journalisation est disponible depuis la version 1.4.0 du SDK Speech dans tous les langages de programmation pris en charge par le SDK Speech, à l’exception de JavaScript.
