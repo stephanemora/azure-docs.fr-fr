@@ -1,6 +1,6 @@
 ---
 title: Attribuer une stratégie d’accès Azure Key Vault
-description: Comment utiliser le Portail Azure, Azure CLI ou Azure PowerShell pour attribuer une stratégie d’accès Key Vault à un principal de service ou à une identité d’application.
+description: Comment utiliser le portail Azure, Azure CLI ou Azure PowerShell pour attribuer une stratégie d’accès Key Vault à un principal de sécurité ou à une identité d’application.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4cf0393cdb0aae1b352b81df4893f874f34970cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4637715b2ba885d58ebb4c5f3ed40a79be2f815b
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934529"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968728"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Attribuer une stratégie d’accès Key Vault à l’aide d’Azure PowerShell
 
-Une stratégie d’accès Key Vault détermine si un principal de service donné, à savoir une application ou un groupe d’utilisateurs, peut effectuer différentes opérations sur des [secrets](../secrets/index.yml), [clés](../keys/index.yml) et [certificats](../certificates/index.yml) de Key Vault. Vous pouvez attribuer des stratégies d’accès à l’aide du portail Azure, d’[Azure CLI](assign-access-policy-portal.md) ou d’[Azure PowerShell](assign-access-policy-cli.md) (cet article).
+Une stratégie d’accès Key Vault détermine si un principal de sécurité donné, à savoir un utilisateur, une application ou un groupe d’utilisateurs, peut effectuer différentes opérations sur des [secrets](../secrets/index.yml), [clés](../keys/index.yml) et [certificats](../certificates/index.yml) de Key Vault. Vous pouvez attribuer des stratégies d’accès à l’aide du portail Azure, d’[Azure CLI](assign-access-policy-portal.md) ou d’[Azure PowerShell](assign-access-policy-cli.md) (cet article).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 

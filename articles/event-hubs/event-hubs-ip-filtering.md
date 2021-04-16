@@ -2,28 +2,28 @@
 title: Règles de pare-feu dans Azure Event Hubs | Microsoft Docs
 description: Utilisez les règles de pare-feu pour autoriser les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: ca5995c3e1b9923d925ddc4deae299c28261d18a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/29/2021
+ms.openlocfilehash: 12240135401b267fd7c60e579fdf5a12e10ffce9
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100560844"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963000"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Autoriser l’accès aux espaces de noms Azure Event Hubs à partir d’adresses ou de plages d’adresses IP spécifiques
 Par défaut, les espaces de noms Event Hubs sont accessibles sur Internet tant que la demande s’accompagne d’une authentification et d’une autorisation valides. Avec le pare-feu IP, vous pouvez les limiter à un ensemble d’adresses IPv4 ou de plages d’adresses IPv4 dans la notation [CIDR (Classless InterDomain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Cette fonctionnalité est utile dans les scénarios où Azure Event Hubs ne doit être accessible qu’à partir de certains sites bien connus. Les règles de pare-feu permettent de configurer des règles pour accepter le trafic provenant d’adresses IPv4 spécifiques. Par exemple, si vous utilisez Event Hubs avec [Azure ExpressRoute][express-route], vous pouvez créer une **règle de pare-feu** pour autoriser uniquement le trafic provenant des adresses IP de votre infrastructure locale. 
 
->[!WARNING]
-> L’activation de règles de pare-feu pour vos demandes entrantes par défaut de blocs d’espace de noms Event Hubs, sauf si les demandes proviennent d’un service opérant à partir d’adresses IP publiques autorisées. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains services approuvés, même lorsque le filtrage IP est activé. Pour obtenir la liste des services approuvés, consultez [Services Microsoft approuvés](#trusted-microsoft-services).
-
-> [!IMPORTANT]
-> Spécifiez au moins une règle d’adresse IP ou une règle de réseau virtuel pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel spécifié. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
-
-
 ## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 Les règles de pare-feu IP sont appliquées au niveau de l’espace de noms Event Hubs. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge. Toute tentative de connexion à partir d’une adresse IP qui ne correspond pas à une règle IP autorisée dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP. Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
+
+
+## <a name="important-points"></a>Points importants
+- Cette fonctionnalité est prise en charge pour les niveaux **standard** et **dédié**. Il ne sont pas pris en charge dans le niveau **De base**.
+- L’activation de règles de pare-feu pour vos demandes entrantes par défaut de blocs d’espace de noms Event Hubs, sauf si les demandes proviennent d’un service opérant à partir d’adresses IP publiques autorisées. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc. En guise d’exception, vous pouvez autoriser l’accès aux ressources Event Hubs à partir de certains **services approuvés**, même lorsque le filtrage IP est activé. Pour obtenir la liste des services approuvés, consultez [Services Microsoft approuvés](#trusted-microsoft-services).
+- Spécifiez **au moins une règle de pare-feu IP ou une règle de réseau virtuel** pour l’espace de noms afin d’autoriser le trafic uniquement à partir des adresses IP ou du sous-réseau d’un réseau virtuel. S’il n’existe aucune règle d’adresse IP et de réseau virtuel, l’espace de noms est accessible via l’Internet public (à l’aide de la clé d’accès).  
+
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Cette section montre comment utiliser le Portail Azure afin de créer des règles de pare-feu IP pour un espace de noms Event Hubs. 

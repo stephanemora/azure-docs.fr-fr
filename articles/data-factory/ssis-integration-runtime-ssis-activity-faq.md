@@ -4,16 +4,16 @@ description: Cet article fournit des instructions pour la résolution des probl�
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: wenjiefu
-author: wenjiefu
+author: RodgeFu
 ms.reviewer: sawinark
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 2bc56d39de392c9e4c20c25b554e3bdeea048bfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6eecedbc28bcb8bc0bd46534a2c2692636f6f2c1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361874"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934000"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -121,7 +121,10 @@ Cette erreur se produit quand le runtime d’intégration SSIS ne peut pas accé
 Le fait que le nom d'utilisateur ou le mot de passe soit configuré pour l'authentification Azure Analysis Services alors que la fonctionnalité Azure AD Multi-Factor Authentication est activée constitue une cause possible. Cette authentification n’est pas prise en charge dans le runtime d’intégration SSIS. Essayez d’utiliser un principal de service pour l’authentification Azure Analysis Services :
 
 1. Préparez un principal de service comme décrit dans [Automatisation à l’aide de principaux de service](../analysis-services/analysis-services-service-principal.md).
-2. Dans le Gestionnaire de connexions, configurez **Utiliser un nom d'utilisateur et un mot de passe spécifiques** : définissez **AppID** comme nom d’utilisateur et **clientSecret** comme mot de passe.
+2. Dans le gestionnaire de connexions, configurez **Utiliser un nom d’utilisateur et un mot de passe spécifiques :** définissez **app: *&lt;AppID&gt;* @*&lt;TenantID&gt;** * comme nom d’utilisateur et clientSecret comme mot de passe. Voici un exemple de nom d’utilisateur correctement mis en forme :
+ 
+   `app:12345678-9012-3456-789a-bcdef012345678@9abcdef0-1234-5678-9abc-def0123456789abc`
+1. Dans le Gestionnaire de connexions, configurez **Utiliser un nom d'utilisateur et un mot de passe spécifiques** : définissez **AppID** comme nom d’utilisateur et **clientSecret** comme mot de passe.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Message d’erreur : « La source ADO NET Source n’a pas pu acquérir la connexion la connexion {GUID}. Message d’erreur : Échec de la connexion pour l’utilisateur 'NT AUTHORITY\ANONYMOUS LOGON' » lors de l’utilisation d’une identité managée
 

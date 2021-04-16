@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f55c3a1f699f8a087eb97eaba347a3f21c124cc9
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200583"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307314"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>Configuration du module proxy d’API pour un scénario de hiérarchie de passerelle (préversion)
 
@@ -34,7 +34,7 @@ Le module proxy d’API offre de nombreux cas d’usage avec les hiérarchies de
 
 ## <a name="deploy-the-proxy-module"></a>Déploiement du module proxy
 
-Le module proxy d’API est disponible dans Microsoft Container Registry (MCR) : `mcr.microsoft.com/azureiotedge-api-proxy:latest`.
+Le module proxy d’API est disponible dans Microsoft Container Registry (MCR) : `mcr.microsoft.com/azureiotedge-api-proxy:1.0`.
 
 Vous pouvez également déployer directement le module proxy d’API à partir de la Place de marché Azure : [Proxy d’API IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
 

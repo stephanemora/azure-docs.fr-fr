@@ -470,7 +470,7 @@
     - name: Configurer RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Conteneurs
+    - name: Utiliser des conteneurs
       items:
         - name: Installer et exécuter des conteneurs Speech
           displayName: 'containers,install container,run container'
@@ -497,6 +497,12 @@
           href: how-to-migrate-from-bing-speech.md
         - name: À partir de l'API de traduction de conversation Translator Speech
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Configurer des réseaux virtuels
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+        - name: Utiliser des clés gérées par le client
+          href: speech-encryption-of-data-at-rest.md
 - name: Appareils
   items:
     - name: Documentation sur Speech Devices
@@ -582,6 +588,12 @@
           href: 'https://speech.microsoft.com'
         - name: Créer une application de commandes personnalisées avec Speech Studio
           href: ./quickstart-custom-commands-application.md
+    - name: Préparation pour l’entreprise
+      items:
+        - name: Prise en charge de la région
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformité et certification
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Options d’aide et de support
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentation Swagger
@@ -591,10 +603,6 @@
       href: sovereign-clouds.md
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
-    - name: Conformité
-      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-    - name: Chiffrement
-      href: speech-encryption-of-data-at-rest.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Confidentialité et cookies

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: c673f7a9556193fb05e05ea372bfccd17cd3c5ed
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d386b504475b308c2fb5146b47d3977cb87510f8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868509"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935671"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -128,10 +128,12 @@ L’accès à un volume SMB est géré par le biais d’autorisations.
 
 ### <a name="share-permissions"></a>Autorisations de partage  
 
-Par défaut, un nouveau volume dispose des autorisations de partage **Tout le monde / Contrôle total**. Les membres du groupe Admins du domaine peuvent modifier les autorisations de partage à l’aide de Gestion de l’ordinateur sur le compte d’ordinateur utilisé pour le volume Azure NetApp Files.
+Par défaut, un nouveau volume dispose des autorisations de partage **Tout le monde / Contrôle total**. Les membres du groupe Administrateurs du domaine peuvent modifier les autorisations de partage comme suit :  
 
-![Chemin de montage SMB](../media/azure-netapp-files/smb-mount-path.png) 
-![Définir des autorisations de partage](../media/azure-netapp-files/set-share-permissions.png) 
+1. Mappez le partage à un lecteur.  
+2. Cliquez avec le bouton droit sur le lecteur, sélectionnez **Propriétés**, puis accédez à l’onglet **Sécurité**.
+
+[![Définir les autorisations de partage](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Autorisations de fichier et de dossier NTFS  
 

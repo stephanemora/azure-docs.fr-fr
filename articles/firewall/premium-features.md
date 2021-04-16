@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 04/07/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fdf0113d73b0b2e82ec889caf2a82c77bb7a040c
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590447"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226699"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Fonctionnalités du Pare-feu Azure Premium - Préversion
 
@@ -105,39 +105,37 @@ Vous êtes invité à envoyer une demande à l’adresse [https://aka.ms/azfw-we
 
 La préversion du Pare-feu Azure Premium est prise en charge dans les régions suivantes :
 
-- Europe Ouest (public/Europe)
-- USA Est (public/États-Unis)
-- Australie Est (public/Australie)
-- Asie Sud-Est (public/Asie-Pacifique)
-- Royaume-Uni Sud (public/Royaume-Uni)
-- Europe Nord (public/Europe)
-- USA Est 2 (public/États-Unis)
-- USA Centre Sud (public/États-Unis)
-- USA Ouest 2 (public/États-Unis)
-- USA Ouest (public/États-Unis)
-- USA Centre (public/États-Unis)
-- USA Centre Nord (public/États-Unis)
-- Japon Est (public/Japon)
-- Asie Est (public/Asie-Pacifique)
-- Canada Centre (public/Canada)
-- France Centre (public/France)
-- Afrique du Sud Nord (public/Afrique du Sud)
-- Émirats arabes unis Nord (public/Émirats Arabes Unis)
-- Suisse Nord (public/Suisse)
-- Brésil Sud (public/Brésil)
-- Norvège Est (public/Norvège)
 - Australie Centre (public/Australie)
 - Australie Centre 2 (public/Australie)
+- Australie Est (public/Australie)
 - Australie Sud-Est (public/Australie)
+- Brésil Sud (public/Brésil)
+- Canada Centre (public/Canada)
 - Canada Est (public/Canada)
+- USA Centre (public/États-Unis)
 - USA Centre EUAP (public/Canaries (États-Unis))
+- Asie Est (public/Asie-Pacifique)
+- USA Est (public/États-Unis)
+- USA Est 2 (public/États-Unis)
+- France Centre (public/France)
 - France Sud (public/France)
+- Japon Est (public/Japon)
 - Japon Ouest (public/Japon)
+- Corée Centre (public/Corée)
 - Corée Sud (public/Corée)
+- USA Centre Nord (public/États-Unis)
+- Europe Nord (public/Europe)
+- Afrique du Sud Nord (public/Afrique du Sud)
+- USA Centre Sud (public/États-Unis)
+- Asie Sud-Est (public/Asie-Pacifique)
 - Émirats arabes unis Centre (public/Émirats arabes unis)
+- Royaume-Uni Sud (public/Royaume-Uni)
 - Royaume-Uni Ouest (public/Royaume-Uni)
 - USA Centre-Ouest (public/États-Unis)
+- Europe Ouest (public/Europe)
 - Inde Ouest (public/Inde)
+- USA Ouest (public/États-Unis)
+- USA Ouest 2 (public/États-Unis)
 
 
 ## <a name="known-issues"></a>Problèmes connus
@@ -150,7 +148,6 @@ Les problèmes connus du Pare-feu Azure Premium - Préversion sont les suivants�
 |Prise en charge ESNI pour la résolution de nom de domaine complet dans HTTPS|Le chiffrement SNI n’est pas pris en charge dans l’établissement d'une liaison HTTPS.|Aujourd’hui, seul Firefox prend en charge ESNI via une configuration personnalisée. La solution de contournement recommandée consiste à désactiver cette fonctionnalité.|
 |Certificats clients (TLS)|Les certificats clients sont utilisés pour créer une approbation d’identité mutuelle entre le client et le serveur. Les certificats clients sont utilisés lors d’une négociation TLS. Le Pare-feu Azure renégocie une connexion avec le serveur et n’a pas accès à la clé privée des certificats clients.|Aucun|
 |QUIC/HTTP3|QUIC est la nouvelle version majeure de HTTP. Il s’agit d’un protocole basé sur UDP sur 80 (PLAN) et 443 (SSL). L’inspection FQDN/URL/TLS n’est pas prise en charge.|Configurez le passage UDP 80/443 en tant que règles de réseau.|
-|Hub sécurisé et tunneling forcé non pris en charge dans Premium|Actuellement, la référence SKU du Pare-feu Premium n’est pas prise en charge dans les déploiements de hub sécurisé et les configurations de tunnel forcé.|Correctif planifié lors de la disponibilité générale.|
 Certificats signés par le client non approuvés|Les certificats signés par le client ne sont pas approuvés par le pare-feu lorsqu’ils proviennent d’un serveur web intranet.|Correctif planifié lors de la disponibilité générale.
 |Adresses IP source et de destination erronées dans les alertes pour IDPS avec inspection TLS.|Lorsque vous activez l’inspection TLS et que le système IDPS émet une nouvelle alerte, l’adresse IP source/de destination affichée est incorrecte (l’adresse IP interne est affichée à la place de l’adresse IP d’origine).|Correctif planifié lors de la disponibilité générale.|
 |Adresse IP source erronée dans les alertes avec système IDPS pour HTTP (sans inspection TLS).|Lorsque le trafic HTTP en texte brut est utilisé, que le système IDPS émet une nouvelle alerte et que la destination est publique, l’adresse IP source affichée est incorrecte (l’adresse IP interne est affichée à la place de l’adresse IP d’origine).|Correctif planifié lors de la disponibilité générale.|

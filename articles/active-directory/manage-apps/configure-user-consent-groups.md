@@ -2,22 +2,22 @@
 title: Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe à l’aide d’Azure AD
 description: Apprenez à gérer si les propriétaires de groupe et d’équipe peuvent donner leur consentement aux applications qui auront accès aux données du groupe ou de l’équipe.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8d8604a1dd54ed819bb9e27c46d61a46466bf3da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be28148aacf270f2f3cfabad4cbd5f03afa05d3b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548799"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374418"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurer le consentement du propriétaire du groupe pour des applications qui accèdent aux données de groupe
 

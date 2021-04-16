@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 04aba71e49fedc8a4ca22aed576aaa978f733336
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: bceacf0a22b7add0533b72b4ebf06d503366baa4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783640"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932486"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -76,7 +76,7 @@ Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
    ![Nommer vos paramètres et sélectionner un espace de travail Log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Référence des journaux Diagnostics Azure](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Référence des journaux Diagnostics Azure](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Sélectionnez **Enregistrer**.
 
@@ -269,7 +269,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **storageAccountId** |String | ID de ressource du compte de stockage auquel vous voulez envoyer les journaux de diagnostic. |
 | **serviceBusRuleId** |String | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que les Event Hubs soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format `{service bus resource ID}/authorizationrules/{key name}`.|
-| **workspaceId** | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. La valeur de cette propriété est vide. |
+| **workspaceId** | String | ID de l’espace de travail dans lequel les journaux seront enregistrés. |
 |**metrics**| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments. |
 | **logs**| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, effectuez une opération d’obtention (GET) des paramètres de diagnostic. |
 | **category**| String| Tableau de catégories de journal et leurs stratégies de rétention. |

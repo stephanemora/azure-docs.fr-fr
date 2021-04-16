@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4e709719d56aacacf61e247a5dbe215f766a891a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 257ba16cf015705b8f6da264d9c25f28cef2ebb1
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607949"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443438"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Ajouter des attributs utilisateur et personnaliser l’entrée utilisateur dans Azure Active Directory B2C
 
@@ -60,7 +60,7 @@ Les revendications d’application sont des valeurs qui sont retournées à l’
 1. Sélectionnez **Mises en page**.
 1. Sélectionnez **Page d’inscription à un compte Local**.
 1. Sous **Attributs utilisateur**, sélectionnez **Ville**.
-    1. Dans la liste déroulante **Type d’entrée utilisateur**, sélectionnez **DropdownSingleSelect**.
+    1. Dans la liste déroulante **Type d’entrée utilisateur**, sélectionnez **DropdownSingleSelect**. Facultatif : utilisez les boutons « monter/descendre » pour réorganiser l’ordre du texte sur la page d’inscription.
     1. Dans la liste déroulante **Facultatif**, sélectionnez **Non**.
 1. Sélectionnez **Enregistrer**. 
 

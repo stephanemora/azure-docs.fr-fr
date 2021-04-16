@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: 56d301762fde41f727b0b425d6c41a423f08103c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96465324"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109163"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Spécifications techniques de l’appareil Azure Stack Edge Pro R
 
@@ -26,7 +26,7 @@ L’appareil Azure Stack Edge Pro R présente les spécifications suivantes en m
 
 | Caractéristique       | Valeur                  |
 |---------------------|------------------------|
-| UC    | 2 processeurs 10 cœurs Intel Xeon Silver 4114 |
+| UC    | 2 processeurs Intel Xeon Silver 4114<br>20 cœurs physiques (10 par processeur)<br>40 cœurs logiques (processeurs virtuels) [20 par processeur]  |
 | Mémoire              | 256 Go de RAM (2666 MT/s)     |
 
 

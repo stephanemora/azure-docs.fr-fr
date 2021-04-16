@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: c3056415d3432dbe64dd1f2bcf974a676bbf6c6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 03c74e9108b27856259eb4f17d7ba521007c4fa3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97586055"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312958"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Personnaliser un modèle de marques avec l’API Video Indexer
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser les API Video Indexer pour créer, utiliser et modifier des
 
 ## <a name="create-a-brand"></a>Créer une marque
 
-Le [créer une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) API crée une marque personnalisée et l’ajoute au modèle de marques personnalisées pour le compte spécifié.
+Le [créer une marque](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Brand) API crée une marque personnalisée et l’ajoute au modèle de marques personnalisées pour le compte spécifié.
 
 > [!NOTE]
 > L’affectation de la valeur true à `enabled` (dans le corps) a pour effet de placer la marque dans la liste *Include* pour permettre à Video Indexer de la détecter. L’affectation de la valeur false à `enabled` a pour effet de placer la marque dans la liste *Exclude* pour empêcher Video Indexer de la détecter.
@@ -62,7 +62,7 @@ La réponse fournit des informations sur la marque que vous venez de créer au f
 
 ## <a name="delete-a-brand"></a>Supprimer une marque
 
-L’ [supprimer une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API supprime une marque du modèle de marques personnalisées pour le compte spécifié. Le compte est spécifié dans le paramètre `accountId`. Une fois le paramètre appelé, la marque disparaît des listes *Include* ou *Exclude*.
+L’ [supprimer une marque](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Brand) API supprime une marque du modèle de marques personnalisées pour le compte spécifié. Le compte est spécifié dans le paramètre `accountId`. Une fois le paramètre appelé, la marque disparaît des listes *Include* ou *Exclude*.
 
 ### <a name="response"></a>response
 
@@ -70,7 +70,7 @@ Aucun contenu n’est retourné en cas de suppression effective de la marque.
 
 ## <a name="get-a-specific-brand"></a>Obtenir une marque spécifique
 
-Les[obtiennent une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) API vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisées pour le compte spécifié à l’aide de l’identifiant de marque.
+Les[obtiennent une marque](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brand) API vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisées pour le compte spécifié à l’aide de l’identifiant de marque.
 
 ### <a name="response"></a>response
 
@@ -99,7 +99,7 @@ La réponse fournit des informations sur la marque que vous avez recherchée (à
 
 ## <a name="update-a-specific-brand"></a>Mettre à jour une marque spécifique
 
-Les[mettent à jour une marque](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) API vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisées pour le compte spécifié à l’aide de l’identifiant de marque.
+Les[mettent à jour une marque](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brand) API vous permet de rechercher les détails d’une marque dans le modèle de marques personnalisées pour le compte spécifié à l’aide de l’identifiant de marque.
 
 ### <a name="response"></a>response
 
@@ -125,7 +125,7 @@ La réponse fournit les informations actualisées sur la marque mise à jour au 
 
 ## <a name="get-all-of-the-brands"></a>Obtenir toutes les marques
 
-Les [obtiennent toutes les marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) API retourne toutes les marques dans le modèle de marques personnalisées pour le compte spécifié, que la marque soit ou non dans la liste de marques à *inclure* ou à *exclure*.
+Les [obtiennent toutes les marques](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API retourne toutes les marques dans le modèle de marques personnalisées pour le compte spécifié, que la marque soit ou non dans la liste de marques à *inclure* ou à *exclure*.
 
 ### <a name="response"></a>response
 
@@ -165,7 +165,7 @@ La réponse renvoie une liste de toutes les marques de votre compte et les déta
 
 ## <a name="get-brands-model-settings"></a>Obtenir les paramètres du modèle de marques
 
-Les [ obtiennent des paramètres de marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) API retourne les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détecte uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
+Les [ obtiennent des paramètres de marques](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Brands) API retourne les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détecte uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
 
 ### <a name="response"></a>response
 
@@ -183,7 +183,7 @@ La réponse indique si les marques de Bing sont activées au format de l’exemp
 
 ## <a name="update-brands-model-settings"></a>Mettre à jour les paramètres du modèle de marques
 
-L’API [mises à jour de marques](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) met à jour les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détecte uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
+L’API [mises à jour de marques](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Brands-Model-Settings) met à jour les paramètres du modèle de marques dans le compte spécifié. Les paramètres du modèle de marques indiquent si la détection depuis la base de données de marques de Bing est activée ou non. Si les marques de Bing ne sont pas activées, Video Indexer détecte uniquement les marques définies dans le modèle de marques personnalisé du compte spécifié.
 
 L’indicateur `useBuiltIn` défini sur true indique que les marques Bing sont activées. Si `useBuiltin` est défini sur false, les marques Bing sont désactivées.
 

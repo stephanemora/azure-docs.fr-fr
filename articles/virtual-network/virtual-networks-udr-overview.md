@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0dd053fa268e88c281c1fe6c00339fe6a6edf27a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221012"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732599"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -36,8 +36,8 @@ Chaque itinéraire comporte un préfixe d’adresse et le type de tronçon suiva
 |-------|---------                                               |---------      |
 |Default|Propre au réseau virtuel                           |Réseau virtuel|
 |Default|0.0.0.0/0                                               |Internet       |
-|Default|10.0.0.0/8                                              |None           |
-|Default|192.168.0.0/16                                          |None           |
+|Default|10.0.0.0/8                                              |Aucun           |
+|Default|192.168.0.0/16                                          |Aucun           |
 |Default|100.64.0.0/10                                           |None           |
 
 Les types de tronçon suivants répertoriés dans le tableau précédent représentent la façon dont Azure achemine le trafic à destination du préfixe d’adresse répertorié. Des explications sont fournies ci-après pour les types de tronçon suivants :
@@ -96,6 +96,38 @@ Vous pouvez spécifier les types suivants de tronçon suivants lors de la créat
 
 Vous ne pouvez pas spécifier **Peering de réseau virtuel** ou **VirtualNetworkServiceEndpoint** en tant que type de tronçon suivant dans les itinéraires définis par l’utilisateur. Les itinéraires avec les types de tronçon suivants **réseau virtuel de peering** ou **VirtualNetworkServiceEndpoint** sont créés uniquement par Azure, lorsque vous configurez un peering ou un point de terminaison de service de réseau virtuel.
 
+### <a name="service-tags-for-user-defined-routes-preview"></a>Étiquettes de service pour les itinéraires définis par l’utilisateur (préversion)
+
+Vous pouvez désormais spécifier une [étiquette de service](service-tags-overview.md) comme préfixe d’adresse d’un itinéraire défini par l’utilisateur au lieu d’une plage d’adresses IP explicite. Une étiquette de service représente un groupe de préfixes d’adresses IP d’un service Azure donné. Microsoft gère les préfixes d’adresses inclus dans l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent, ce qui réduit la complexité des mises à jour fréquentes des itinéraires définis par l’utilisateur et réduit le nombre d’itinéraires que vous devez créer. Vous pouvez actuellement créer jusqu’à 25 itinéraires avec des étiquettes de service dans chaque table de routage. </br>
+
+> [!IMPORTANT]
+> Les étiquettes de service pour les itinéraires définis par l’utilisateur sont actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+#### <a name="exact-match"></a>Correspondance exacte
+Lorsqu’il existe une correspondance exacte de préfixe entre un itinéraire avec un préfixe d’adresse IP explicite et un itinéraire avec une étiquette de service, la préférence est donnée à l’itinéraire avec le préfixe explicite. Lorsque plusieurs itinéraires avec des étiquettes de service ont des préfixes d’adresse IP qui correspondent, les itinéraires sont évalués dans l’ordre suivant : 
+
+   1. Étiquettes régionales (par ex. : Storage.EastUS, AppService.AustraliaCentral)
+   2. Étiquettes de niveau supérieur (par ex. : Storage, AppService)
+   3. Étiquettes régionales AzureCloud (par ex. : AzureCloud.canadacentral, AzureCloud.eastasia)
+   4. L’étiquette AzureCloud </br></br>
+
+Pour utiliser cette fonctionnalité, spécifiez un nom d’étiquette de service pour le paramètre de préfixe d’adresse dans les commandes de table de routage. Par exemple, dans PowerShell, vous pouvez créer un itinéraire pour diriger le trafic envoyé vers un préfixe d’adresse IP de Stockage Azure vers une appliance virtuelle en utilisant : </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix "Storage" -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+La même commande pour CLI sera : </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> Bien qu’il s’agisse d’une Préversion publique, il existe plusieurs limites. La fonctionnalité n’est pas actuellement prise en charge dans le portail Azure et n’est disponible que par le biais de PowerShell et de l’interface CLI. Il n’existe pas de prise en charge pour une utilisation avec des conteneurs. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Types de tronçon suivants dans les outils Azure
 
 Le nom affiché et référencé pour les types de tronçon suivants diffère entre le portail Azure et les outils en ligne de commande, et entre Azure Resource Manager et les modèles de déploiement classique. Le tableau suivant répertorie les noms utilisés pour faire référence à chaque type de tronçon suivant avec les différents outils et [modèles de déploiement](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
@@ -109,6 +141,8 @@ Le nom affiché et référencé pour les types de tronçon suivants diffère ent
 |None                            |None                                            |Null (non disponible dans la CLI classique en mode asm)|
 |Peering de réseau virtuel         |Peering de réseaux virtuels                                    |Non applicable|
 |Point de terminaison de service de réseau virtuel|VirtualNetworkServiceEndpoint                   |Non applicable|
+
+
 
 ### <a name="border-gateway-protocol"></a>Protocole de passerelle frontière
 
@@ -248,8 +282,8 @@ La table de routage du *Sous-réseau2* dans l’image contient les itinéraires 
 |Default |Actif |10.2.0.0/16         |Peering de réseaux virtuels              |                   |
 |Default |Actif |10.10.0.0/16        |Passerelle de réseau virtuel   |[X.X.X.X]          |
 |Default |Actif |0.0.0.0/0           |Internet                  |                   |
-|Default |Actif |10.0.0.0/8          |None                      |                   |
-|Default |Actif |100.64.0.0/10       |None                      |                   |
+|Default |Actif |10.0.0.0/8          |Aucun                      |                   |
+|Default |Actif |100.64.0.0/10       |Aucun                      |                   |
 |Default |Actif |192.168.0.0/16      |None                      |                   |
 
 La table de routage du *Sous-réseau2* contient tous les itinéraires par défaut créés par Azure et les itinéraires facultatifs de peering de réseau virtuel et de passerelle de réseau virtuel. Azure a ajouté les itinéraires facultatifs à tous les sous-réseaux du réseau virtuel lorsque la passerelle et le peering ont été ajoutés au réseau virtuel. Azure a supprimé les routes pour les préfixes d’adresse 10.0.0.0/8, 192.168.0.0/16 et 100.64.0.0/10 de la table de routage du *Sous-réseau1* lorsque la route définie par l’utilisateur pour le préfixe d’adresse 0.0.0.0/0 a été ajoutée au *Sous-réseau1*.  

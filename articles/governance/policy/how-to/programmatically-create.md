@@ -3,12 +3,12 @@ title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: b4f15241799469da2e479cb758f648ec3131a149
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb20509fe6d699050e0c98e82873ccdb6a0137b2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598488"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313689"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -141,7 +141,7 @@ Pour créer une définition de stratégie, procédez comme suit.
 
    Remplacez {subscriptionId} précédent par l’ID de votre abonnement ou {managementGroupId} par l’ID de votre [groupe d’administration](../../management-groups/overview.md).
 
-   Pour plus d’informations sur la structure de la requête, consultez [Définitions de stratégie Azure – Créer ou mettre à jour](/rest/api/resources/policydefinitions/createorupdate) et [Définitions de stratégie – Créer ou mettre à jour dans le groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Pour plus d’informations sur la structure de la requête, consultez [Définitions de stratégie Azure – Créer ou mettre à jour](/rest/api/policy/policydefinitions/createorupdate) et [Définitions de stratégie – Créer ou mettre à jour dans le groupe d’administration](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup)
 
 Utilisez la procédure suivante pour créer une attribution de stratégie et assigner la définition de stratégie au niveau du groupe de ressources.
 

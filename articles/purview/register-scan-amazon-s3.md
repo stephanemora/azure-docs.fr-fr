@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 04/05/2021
 ms.custom: references_regions
-ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 751d475fcb2e8c96d05daa5b5e2144909d21a409
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773451"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382298"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connecteur Azure Purview pour Amazon S3
 
@@ -38,6 +38,7 @@ Pour plus d’informations, consultez les limites Purview documentées sur :
 
 - [Gestion et augmentation des quotas de ressources avec Azure Purview](how-to-manage-quotas.md)
 - [Sources de données et types de fichiers pris en charge dans Azure Purview](sources-and-scans.md)
+- [Utiliser des points de terminaison privés pour votre compte Purview](catalog-private-link.md)
 ### <a name="storage-and-scanning-regions"></a>Régions de stockage et d’analyse
 
 Le tableau suivant mappe les régions où sont stockées vos données à la région où elles doivent être analysées par Azure Purview.
@@ -77,9 +78,13 @@ Le tableau suivant mappe les régions où sont stockées vos données à la rég
 
 Vérifiez que vous avez exécuté les prérequis suivants avant d’ajouter vos compartiments Amazon S3 comme sources de données Purview et d’analyser vos données S3.
 
-- Vous devez être administrateur de la source de données Azure Purview.
-
-- Quand vous ajoutez vos compartiments comme ressources Purview, vous avez besoin des valeurs de votre [ARN AWS](#retrieve-your-new-role-arn), de votre [nom de compartiment](#retrieve-your-amazon-s3-bucket-name) et, parfois, de votre [ID de compte AWS](#locate-your-aws-account-id).
+> [!div class="checklist"]
+> * Vous devez être administrateur de la source de données Azure Purview.
+> * [Créez un compte Purview](#create-a-purview-account), si vous n’en avez pas encore
+> * [Créer des informations d’identification Purview pour votre analyse de compartiment AWS](#create-a-purview-credential-for-your-aws-bucket-scan)
+> * [Créez un rôle AWS à utiliser avec Purview](#create-a-new-aws-role-for-purview)
+> * [Configurez l’analyse des compartiments Amazon S3 chiffrés](#configure-scanning-for-encrypted-amazon-s3-buckets), le cas échéant
+> * Quand vous ajoutez vos compartiments comme ressources Purview, vous avez besoin des valeurs de votre [ARN AWS](#retrieve-your-new-role-arn), de votre [nom de compartiment](#retrieve-your-amazon-s3-bucket-name) et, parfois, de votre [ID de compte AWS](#locate-your-aws-account-id).
 
 ### <a name="create-a-purview-account"></a>Créer un compte Purview
 
@@ -138,6 +143,13 @@ Pour plus d’informations sur les informations d’identification Purview, cons
 1. Dans la zone **Create role > Attach permissions policies** (Créer un rôle > Attacher des stratégies d’autorisation), filtrez les autorisations affichées sur **S3**. Sélectionnez **AmazonS3ReadOnlyAccess**, puis **Next: Tags** (Suivant : Étiquettes).
 
     ![Sélectionnez la stratégie ReadOnlyAccess pour le nouveau rôle d’analyse Amazon S3.](./media/register-scan-amazon-s3/aws-permission-role-amazon-s3.png)
+
+    > [!IMPORTANT]
+    > La stratégie **AmazonS3ReadOnlyAccess** fournit les autorisations minimales nécessaires pour l’analyse de vos compartiments S3, et peut également inclure d’autres autorisations.
+    >
+    >Pour appliquer uniquement les autorisations minimales nécessaires à l’analyse des compartiments, créez une stratégie avec les autorisations listées dans [Autorisations minimales pour votre stratégie AWS](#minimum-permissions-for-your-aws-policy), selon que vous souhaitez analyser un seul compartiment ou tous les compartiments de votre compte. 
+    >
+    >Appliquez votre nouvelle stratégie au rôle à la place de **AmazonS3ReadOnlyAccess.**
 
 1. Dans la zone **Add tags (optional)** (Ajouter des étiquettes (facultatif)), vous pouvez éventuellement choisir de créer une étiquette explicite pour ce nouveau rôle. Des étiquettes utiles vous permettent d’organiser, de suivre et de contrôler l’accès de chaque rôle que vous créez.
 
@@ -396,6 +408,90 @@ Utilisez les autres zones de Purview pour en savoir plus sur le contenu de votre
     Tous les rapports d’insights de Purview comprennent les résultats d’analyse Amazon S3, ainsi que les autres résultats de vos sources de données Azure. Le cas échéant, un type de ressource **Amazon S3** supplémentaire est ajouté aux options de filtrage de rapport.
 
     Pour plus d’informations, consultez [Présentation des insights dans Azure Purview](concept-insights.md).
+
+## <a name="minimum-permissions-for-your-aws-policy"></a>Autorisations minimales pour votre stratégie AWS
+
+La procédure par défaut de [création d’un rôle AWS pour Purview](#create-a-new-aws-role-for-purview) à suivre durant l’analyse des compartiments S3 utilise la stratégie **AmazonS3ReadOnlyAccess**.
+
+La stratégie **AmazonS3ReadOnlyAccess** fournit les autorisations minimales nécessaires pour l’analyse de vos compartiments S3, et peut également inclure d’autres autorisations.
+
+Pour appliquer uniquement les autorisations minimales nécessaires à l’analyse des compartiments, créez une stratégie avec les autorisations listées dans les sections suivantes, selon que vous souhaitez analyser un seul compartiment ou tous les compartiments de votre compte.
+
+Appliquez votre nouvelle stratégie au rôle à la place de **AmazonS3ReadOnlyAccess.**
+
+### <a name="individual-buckets"></a>Compartiments individuels
+
+Durant l’analyse de compartiments S3 individuels, les autorisations AWS minimales sont les suivantes :
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListBucket`
+
+Veillez à définir votre ressource avec le nom de compartiment spécifique. Par exemple :
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::<bucketname>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "arn:aws:s3::: <bucketname>/*"
+        }
+    ]
+}
+```
+
+### <a name="all-buckets-in-your-account"></a>Tous les compartiments de votre compte
+
+Durant l’analyse de tous les compartiments de votre compte AWS, les autorisations AWS minimales sont les suivantes :
+
+- `GetBucketLocation`
+- `GetBucketPublicAccessBlock`
+- `GetObject`
+- `ListAllMyBuckets`
+- `ListBucket`.
+
+Veillez à définir votre ressource avec un caractère générique. Par exemple :
+
+```json
+{
+"Version": "2012-10-17",
+"Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetBucketLocation",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

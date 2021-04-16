@@ -1,117 +1,185 @@
 ---
-title: Mettre à niveau la version de Service Fabric d’un cluster
-description: Mettez à niveau le code et/ou la configuration Service Fabric qui exécute un cluster Service Fabric. Cela inclut le mode de mise à jour du cluster, la mise à niveau de certificats, l’ajout de ports d’application, l’application des correctifs de système d’exploitation, etc. À quoi vous attendre lors de l'exécution des mises à niveau ?
-ms.topic: conceptual
-ms.date: 11/12/2018
-ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+title: Gérer les mises à niveau des clusters Service Fabric
+description: Gérer quand et comment le runtime de votre cluster Service Fabric est mis à jour
+ms.topic: how-to
+ms.date: 03/26/2021
+ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90564285"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731159"
 ---
-# <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Mettre à niveau la version de Service Fabric d’un cluster
+# <a name="manage-service-fabric-cluster-upgrades"></a>Gérer les mises à niveau des clusters Service Fabric
 
-Pour les systèmes modernes, la réussite à long terme d’un produit dépend de sa capacité à être mis à niveau. Un cluster Azure Service Fabric est une ressource que vous possédez mais qui est en partie gérée par Microsoft. Cet article explique comment mettre à niveau la version de Service Fabric en cours d’exécution dans votre cluster Azure.
+Un cluster Azure Service Fabric est une ressource qui vous appartient, mais qui est en partie gérée par Microsoft. Voici la façon de gérer quand et comment Microsoft met à jour votre cluster Azure Service Fabric.
 
-Vous pouvez définir votre cluster de façon à recevoir les nouvelles mises à niveau de structure automatiques publiées par Microsoft, ou opter pour la sélection de la version de structure prise en charge que vous voulez associer à votre cluster.
+Pour en savoir plus sur les concepts et processus de mise à niveau des clusters, consultez [Mettre à niveau et mettre à jour des clusters Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Pour ce faire, définissez la configuration de cluster « upgradeMode » sur le portail, ou utilisez Resource Manager lors de la création ou ultérieurement, sur un cluster activé. 
+## <a name="set-upgrade-mode"></a>Définir le mode de mise à niveau
+
+Vous pouvez définir votre cluster de façon à recevoir automatiquement les mises à niveau de Service Fabric dès qu’elles sont publiées par Microsoft, ou vous pouvez choisir manuellement parmi une liste de versions actuellement prises en charge en définissant le mode de mise à niveau de votre cluster. Pour ce faire, vous pouvez utiliser le contrôle *Mode de mise à niveau de Fabric* dans Portail Azure ou le paramètre `upgradeMode` dans le modèle de déploiement de votre cluster.
+
+### <a name="azure-portal"></a>Portail Azure
+
+À l’aide de Portail Azure, vous choisirez des mises à niveau automatiques ou manuelles lors de la création d’un cluster Service Fabric.
+
+:::image type="content" source="media/service-fabric-cluster-upgrade/portal-new-cluster-upgrade-mode.png" alt-text="Choisissez entre les mises à niveau automatiques ou manuelles lors de la création d’un nouveau cluster dans Portail Azure à partir des options « Avancées ».":::
+
+Vous pouvez également basculer entre les mises à niveau automatiques ou manuelles à partir de la section **Mises à niveau de Fabric** d’une ressource de cluster existante.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Sélectionnez des mises à niveau Automatiques ou Manuelles dans la section « Mises à niveau de Fabric » de votre ressource de cluster dans Portail Azure.":::
+
+### <a name="manual-upgrades-with-azure-portal"></a>Mises à jour manuelles avec Portail Azure
+
+Lorsque vous sélectionnez l’option de mise à niveau manuelle, il suffit de sélectionner une version dans la liste déroulante des versions disponibles, puis d’*enregistrer*. À partir de là, la mise à niveau du cluster est immédiatement lancée.
+
+Les [stratégies d’intégrité des clusters](#custom-policies-for-manual-upgrades) (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications exécutées dans le cluster) sont respectées pendant la mise à niveau. Si les stratégies d’intégrité des clusters ne sont pas respectées, la mise à niveau est annulée.
+
+Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau en suivant la procédure décrite précédemment.
+
+### <a name="resource-manager-template"></a>Modèle Resource Manager
+
+Pour modifier le mode de mise à niveau de votre cluster à l’aide d’un modèle Resource Manager, spécifiez *Automatic* (Automatique) ou *Manual* (Manuel) pour la propriété `upgradeMode` de la définition de ressource *Microsoft.ServiceFabric/clusters*. Si vous choisissez des mises à niveau manuelles, définissez également `clusterCodeVersion` sur une [version de Fabric actuellement prise en charge](#query-for-supported-cluster-versions).
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Capture d’écran montrant un modèle, qui est mis en retrait en texte clair pour refléter la structure. Les propriétés « clusterCodeVersion » et « upgradeMode » sont mis en évidence.":::
+
+Une fois le déploiement du modèle réussi, les modifications apportées au mode de mise à niveau du cluster seront appliquées. Si votre cluster est en mode manuel, la mise à niveau du cluster démarre automatiquement.
+
+Les [stratégies d’intégrité des clusters](#custom-policies-for-manual-upgrades) (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications exécutées dans le cluster) sont respectées pendant la mise à niveau. Si les stratégies d’intégrité des clusters ne sont pas respectées, la mise à niveau est annulée.
+
+Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau en suivant la procédure décrite précédemment.
+
+## <a name="wave-deployment-for-automatic-upgrades"></a>Déploiement par vagues pour les mises à niveau automatiques
+
+En mode de mise à niveau automatique, vous avez la possibilité d’activer votre cluster pour le déploiement par vagues. Avec le déploiement par vagues, vous pouvez créer un pipeline pour mettre à niveau vos clusters de test, de préproduction et de production en séquence, séparés par un « temps de cuisson » intégré pour valider les prochaines versions de Service Fabric avant que vos clusters de production ne soient mis à jour.
+
+### <a name="enable-wave-deployment"></a>Activer le déploiement par vagues
 
 > [!NOTE]
-> Faites en sorte que votre cluster exécute systématiquement une version prise en charge de la structure. Lorsque nous annonçons le lancement d’une nouvelle version de Service Fabric, la fin de la prise en charge de la version précédente est signalée 60 jours minimum après la date de lancement. Les nouvelles versions sont annoncées [sur le blog de l’équipe Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). La nouvelle version peut alors être sélectionnée. 
-> 
-> 
+> Le déploiement par vagues requiert la version d’API `2020-12-01-preview` (ou ultérieure) pour votre ressource *Microsoft.ServiceFabric/clusters*.
 
-Un événement d’intégrité est généré 14 jours avant la date d’expiration de la version qu’exécute votre cluster. Il place le cluster dans un état d’avertissement. Ce dernier conserve cet état tant que vous n’avez pas effectué de mise à niveau vers une version prise en charge.
+Pour activer le déploiement par vagues pour la mise à niveau automatique, déterminez d’abord la vague à attribuer à votre cluster :
 
-## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Définir le mode de mise à niveau dans le portail Azure
-Vous pouvez définir le cluster sur le mode Manuel ou Automatique lors de la création du cluster.
+* **Vaque 0** (`Wave0`) : Les clusters sont mis à jour dès qu’une nouvelle build de Service Fabric est publiée. Destinée aux clusters de test/développement.
+* **Vague 1** (`Wave1`) : Les clusters sont mis à jour une semaine (sept jours) après la publication d’une nouvelle build. Destinée aux clusters de préproduction et intermédiaires.
+* **Vague 2** (`Wave2`) : Les clusters sont mis à jour 2 semaines (14 jours) après la publication d’une nouvelle build. Destinée aux clusters de production.
 
-![Capture d’écran montrant le volet Créer un cluster Service Fabric avec l’option 2 Configuration du cluster sélectionnée et le volet Configuration du cluster ouvert.][Create_Manualmode]
+Ensuite, ajoutez simplement une propriété `upgradeWave` à votre modèle de ressource de cluster avec l’une des valeurs de vague indiquées ci-dessus. Assurez-vous que la version d’API de votre ressource de cluster est `2020-12-01-preview` ou une version ultérieure.
 
-Vous pouvez définir le cluster sur le mode Automatique ou Manuel dans le cas d’un cluster activé, à l’aide de l’expérience de gestion. 
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via le portail
-Pour effectuer la mise à niveau vers une nouvelle version, il vous suffit de sélectionner la version disponible dans la liste déroulante, puis d’enregistrer. La mise à niveau de Service Fabric est lancée automatiquement. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
-
-Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée. Faites dérouler ce document pour en savoir plus sur la définition de ces stratégies de contrôle d’intégrité personnalisées. 
-
-Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau, en suivant la procédure décrite précédemment.
-
-![Capture d’écran montrant la fenêtre Clusters Service Fabric avec le volet Mises à niveau de Fabric ouvert et les options de mise à niveau mises en surbrillance, dont Automatique et Manuel.][Manage_Automaticmode]
-
-## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Définir le mode de mise à niveau à l’aide d’un modèle Resource Manager
-Ajoutez la configuration « upgradeMode » dans la définition de ressource Microsoft.ServiceFabric/clusters et définissez le paramètre « clusterCodeVersion » sur l’une des versions de structure prises en charge, comme indiqué ci-dessous, puis déployez le modèle. Les valeurs valides pour l’élément « upgradeMode » sont « Manuel » ou « Automatique ».
-
-![Capture d’écran montrant un modèle, qui est mis en retrait en texte clair pour refléter la structure et clusterCodeVersion et upgradeMode mis en surbrillance.][ARMUpgradeMode]
-
-### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Mise à niveau vers une nouvelle version sur un cluster défini sur le mode Manuel, via un modèle Resource Manager
-Lorsque le cluster est en mode Manuel, si vous voulez effectuer une mise à niveau vers une nouvelle version, modifiez le paramètre « clusterCodeVersion » en indiquant une version prise en charge et en la déployant. Le déploiement du modèle lance la mise à niveau de la structure automatiquement. Les stratégies de contrôle d’intégrité du cluster (combinaison de l’intégrité des nœuds et de l’intégrité de toutes les applications en cours d’exécution dans le cluster) sont respectées pendant la mise à niveau.
-
-Si les stratégies d'intégrité du cluster ne sont pas respectées, la mise à niveau est annulée.  
-
-Une fois que vous avez corrigé les problèmes entraînant la restauration, vous devez initier à nouveau la mise à niveau, en suivant la procédure décrite précédemment.
-
-## <a name="set-custom-health-polices-for-upgrades"></a>Définir des stratégies d’intégrité personnalisées pour les mises à niveau
-Vous pouvez spécifier des stratégies de contrôle d’intégrité personnalisées pour la mise à niveau de la structure. Si vous avez défini votre cluster sur une mise à niveau automatique de la structure, ces stratégies sont appliquées lors de la [phase 1 de cette mise à niveau](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
-Si vous avez défini votre cluster sur une mise à niveau manuelle de la structure, ces stratégies sont appliquées chaque fois que vous sélectionnez une nouvelle version, ce qui amène le système à déclencher la mise à niveau de la structure dans votre cluster. Si vous ne remplacez pas les stratégies, les valeurs par défaut sont utilisées.
-
-Vous pouvez spécifier des stratégies de contrôle d’intégrité personnalisées ou passer en revue les paramètres actuels dans le panneau Fabric Upgrade (Mise à niveau de la structure), en sélectionnant les paramètres de mise à niveau avancés. L’image suivante vous explique comment procéder. 
-
-![Gérer les stratégies de contrôle d’intégrité personnalisées][HealthPolices]
-
-## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>Lister toutes les versions disponibles de tous les environnements pour un abonnement donné
-Exécutez la commande suivante. La sortie doit ressembler à ce qui suit.
-
-Le paramètre « supportExpiryUtc » vous indique lorsqu’une version donnée arrive à expiration ou a expiré. La version la plus récente n’est pas associée à une date valide. Elle a donc la valeur « 9999-12-31T23:59:59.9999999 », qui signifie simplement que la date d’expiration n’est pas encore définie.
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
+```json
 {
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "fabricSettings": [...],
+        "managementEndpoint": ...,
+        "nodeTypes": [...],
+        "provisioningState": ...,
+        "reliabilityLevel": ...,
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+       ...
 ```
 
+Une fois que vous avez déployé le modèle mis à jour, votre cluster sera inscrit dans la vague spécifiée pour la prochaine période de mise à niveau et après celle-ci.
+
+Vous pouvez [vous inscrire aux notifications par e-mail](#register-for-notifications) avec des liens pour obtenir de l’aide en cas d’échec d’une mise à niveau du cluster.
+
+### <a name="register-for-notifications"></a>Inscription à des notifications
+
+Vous pouvez vous inscrire aux notifications en cas d’échec de la mise à niveau d’un cluster. Un e-mail sera envoyé à vos adresses e-mail désignées avec des détails supplémentaires sur l’échec de la mise à niveau et des liens vers de l’aide supplémentaire.
+
+> [!NOTE]
+> L’inscription au déploiement par vagues n’est pas nécessaire pour recevoir des notifications en cas d’échec de la mise à niveau.
+
+Pour vous inscrire aux notifications, ajoutez une section `notifications` à votre modèle de ressource de cluster et désignez une ou plusieurs adresses e-mail (*receivers*) pour recevoir les notifications :
+
+```json
+    "apiVersion": "2020-12-01-preview",
+    "type": "Microsoft.ServiceFabric/clusters",
+     ...
+        "upgradeMode": "Automatic",
+        "upgradeWave": "Wave1",
+        "notifications": [
+        {
+            "isEnabled": true,
+            "notificationCategory": "WaveProgress",
+            "notificationLevel": "Critical",
+            "notificationTargets": [
+            {
+                "notificationChannel": "EmailUser",
+                "receivers": [
+                    "devops@contoso.com"
+                ]
+            }]
+        }]
+```
+
+Une fois que vous avez déployé votre modèle mis à jour, vous êtes inscrit aux notifications d’échec de mise à niveau.
+
+## <a name="custom-policies-for-manual-upgrades"></a>Stratégies personnalisées pour les mises à niveau manuelles
+
+Vous pouvez spécifier des stratégies d’intégrité personnalisées pour les mises à niveau manuelles de cluster. Ces stratégies sont appliquées chaque fois que vous sélectionnez une nouvelle version du runtime, ce qui déclenche le lancement de la mise à niveau de votre cluster par le système. Si vous ne remplacez pas les stratégies, les valeurs par défaut sont utilisées.
+
+Vous pouvez spécifier les stratégies d’intégrité personnalisées ou vérifier les paramètres actuels dans la section **Mises à niveau de Fabric** de votre ressource de cluster dans Portail Azure en sélectionnant l’option *Personnalisée* pour **Stratégie de mise à niveau**.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Sélectionnez l’option de stratégie de mise à niveau « Personnalisée » dans la section « Mises à niveau de Fabric » de votre ressource de cluster dans Portail Azure afin de définir des stratégies d’intégrité personnalisées lors de la mise à niveau.":::
+
+## <a name="query-for-supported-cluster-versions"></a>Requête sur les versions de cluster prises en charge
+
+Vous pouvez utiliser l’[API REST Azure](/rest/api/azure/) pour répertorier toutes les versions du runtime Service Fabric ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponibles pour l’emplacement spécifié et votre abonnement.
+
+Vous pouvez également référencer des [versions de Service Fabric](service-fabric-versions.md) pour plus d’informations sur les versions et les systèmes d’exploitation pris en charge.
+
+```REST
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
+
+"value": [
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+    "name": "5.0.1427.9490",
+    "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.0.1427.9490",
+      "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+    "name": "5.1.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "5.1.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Windows"
+    }
+  },
+  {
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+    "name": "4.4.1427.9490",
+    "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+    "properties": {
+      "codeVersion": "4.4.1427.9490",
+      "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+      "environment": "Linux"
+    }
+  }
+]
+}
+```
+
+La propriété `supportExpiryUtc` dans la sortie indique quand une version donnée expire ou a expiré. Les version les plus récentes ne seront pas associées à une date valide, mais plutôt une valeur *9999-12-31T23:59:59.9999999*, qui signifie simplement que la date d’expiration n’est pas encore définie.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment personnaliser certains [paramètres de la structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md)
-* Découvrez comment [mettre votre cluster à l’échelle](service-fabric-cluster-scale-in-out.md)
+
+* [Gérer les mises à niveau de Service Fabric](service-fabric-cluster-upgrade-version-azure.md)
+* Personnaliser les [paramètres de votre cluster Service Fabric](service-fabric-cluster-fabric-settings.md)
+* [Effectuez un scale-in et un scale-out de votre cluster](service-fabric-cluster-scale-in-out.md)
 * Découvrez les [mises à niveau de l’application](service-fabric-application-upgrade.md)
+
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
