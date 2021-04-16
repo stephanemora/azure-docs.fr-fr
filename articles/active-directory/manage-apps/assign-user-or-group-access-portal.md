@@ -2,21 +2,21 @@
 title: Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory
 description: Découvrez comment attribuer et désattribuer des utilisateurs et des groupes pour une application en utilisant Azure Active Directory pour la gestion des identités.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
-ms.openlocfilehash: 50dcde478b708cd53d8229d70a9ddf4b1ff271be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 097bf55cc7e5372749240c19afb09ba374d437af
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259732"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377970"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gérer l’attribution d’utilisateurs pour une application dans Azure Active Directory
 

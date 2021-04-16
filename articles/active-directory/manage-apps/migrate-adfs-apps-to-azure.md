@@ -2,21 +2,21 @@
 title: Déplacement de l’authentification d’application d’AD FS vers Azure Active Directory
 description: Découvrez comment utiliser Azure Active Directory pour remplacer les Services de fédération Active Directory (AD FS), en donnant aux utilisateurs l’authentification unique à toutes leurs applications.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: baselden
-ms.openlocfilehash: ee1d863ccb974b30213179a1aba9e27d5a3a2bda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83e506c0a3d0b9718f94d48ea8e6b23f43e811f3
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103418351"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377936"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Déplacement de l’authentification d’application des services de fédération Active Directory (AD FS) vers Azure Active Directory
 
