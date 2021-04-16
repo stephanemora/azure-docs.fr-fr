@@ -1,18 +1,18 @@
 ---
 title: Activer les protections de charge de travail intégrées d’Azure Security Center
-description: Découvrez comment permettre à Azure Defender d’étendre les protections d’Azure Security Center à vos ressources hybrides et multiclouds.
+description: Apprenez à utiliser Azure Defender pour étendre les protections d'Azure Security Center à vos ressources hybrides et multicloud.
 author: memildin
 ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 02/24/2021
-ms.openlocfilehash: 6496b18c8c22cbbd4fd3344736a4b38b7a998890
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7124014821c79fa37aa04da8909e3b4ac3bcb4fb
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102108109"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492492"
 ---
 # <a name="quickstart-enable-azure-defender"></a>Démarrage rapide : Activer Azure Defender
 

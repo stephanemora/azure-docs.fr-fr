@@ -1,18 +1,18 @@
 ---
 title: Contrôles de l’exemple de blueprint Media
 description: Correspondance des contrôles des exemples de blueprint Media. Chaque contrôle est mis en correspondance avec une ou plusieurs définitions Azure Policy qui simplifient l’évaluation.
-ms.date: 04/02/2021
+ms.date: 04/13/2021
 ms.topic: sample
-ms.openlocfilehash: b489111010c9a4fcb112428ae642332980302849
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4c04c661d7dd8b2b07a05c20524258d6bb887e62
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386397"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376696"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Media
 
-L’article suivant explique en détails comment l’exemple de blueprint Media d’Azure Blueprints correspond aux contrôles Media. Pour plus d’informations sur les contrôles, consultez [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+L’article suivant explique en détails comment l’exemple de blueprint Media d’Azure Blueprints correspond aux contrôles Media. Pour plus d’informations sur les contrôles, consultez [Media](https://www.motionpictures.org/best-practices).
 
 Les correspondances suivantes concernent les contrôles **Media**. Utilisez le volet de navigation de droite pour accéder directement à la correspondance d’un contrôle spécifique. De nombreux contrôles mappés sont implémentés avec une initiative [Azure Policy](../../../policy/overview.md). Pour examiner l’initiative complète, ouvrez **Stratégie** dans le portail Azure et sélectionnez la page **Définitions**. Ensuite, recherchez et sélectionnez l’initiative de stratégie intégrée **\[Préversion\] : Auditer les contrôles Media**.
 

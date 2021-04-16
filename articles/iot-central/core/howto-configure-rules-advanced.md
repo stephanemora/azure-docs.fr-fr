@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 257855b4f7b1fae56ed8d6a063acfb0588da9b6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af6adcf408c9790b09830e986cd1cac00774a2ec
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92123318"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106491931"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utiliser des workflows pour intégrer votre application Azure IoT Central à d’autres services cloud
 
@@ -180,14 +180,14 @@ Utilisez cette action pour mettre à jour les valeurs de propriété cloud pour 
 
 ### <a name="update-device-properties"></a>Mettre à jour les propriétés de l’appareil
 
-Utilisez cette action pour mettre à jour les valeurs de propriété modifiables pour un appareil spécifique.
+Utilisez cette action pour mettre à jour les valeurs de propriétés accessibles en écriture pour un appareil spécifique.
 
 | Champ | Description |
 | ----- | ----------- |
 | Application | Choisissez dans la liste des applications IoT Central. |
 | Appareil | ID unique de l’appareil à supprimer. |
 | Modèle d'appareil | Choisissez dans la liste des modèles d’appareil dans votre application IoT Central. |
-| Propriétés modifiables | Une fois que vous avez choisi un modèle d’appareil, un champ est ajouté pour chaque propriété modifiable définie dans le modèle. |
+| Propriétés accessibles en écriture | Une fois que vous avez choisi un modèle d’appareil, un champ est ajouté pour chaque propriété accessible en écriture définie dans le modèle. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
