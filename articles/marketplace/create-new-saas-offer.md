@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/19/2021
+ms.openlocfilehash: 74d30b7c42002c8f134520e0198774eba1519bcd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130066"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553836"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Créer une offre SaaS dans la place de marché commerciale
 
@@ -22,6 +22,9 @@ En tant qu’éditeur de la place de marché commerciale, vous pouvez créer une
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Si vous ne l’avez pas déjà fait, lisez [Planifier une offre SaaS pour la place de marché commerciale](plan-saas-offer.md). Cet article explique les exigences techniques liées à votre application SaaS, ainsi que les informations et ressources dont vous aurez besoin pour créer votre offre. À moins que vous n’envisagez de publier un référencement simple (option de référencement **Me contacter**) dans la place de marché commerciale, votre application SaaS doit répondre à des exigences techniques relatives à l’authentification.
+
+> [!IMPORTANT]
+> Nous vous recommandons de créer une offre de développement/test (DEV) et une offre de production (PROD) distinctes. Cet article décrit comment créer une offre PROD. Pour plus de détails sur la création d’une offre DEV, consultez [Créer une offre Développement et test](create-saas-dev-test-offer.md).
 
 ## <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -53,7 +56,7 @@ Sous l’onglet **Configuration de l’offre**, sous **Détails de la configurat
    + Pour proposer un essai gratuit de 30 jours, sélectionnez **Essai gratuit**, puis, dans la zone **URL de la version d’essai** qui s’affiche, entrez l’URL (commençant par *http* ou *https*) à laquelle les clients peuvent accéder à votre essai gratuit via l’[authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](azure-ad-saas.md). Par exemple : `https://contoso.com/trial/saas-app`.
    + Pour que les clients potentiels vous contactent pour acheter votre offre, sélectionnez **Me contacter**.
 
-### <a name="enable-a-test-drive-optional"></a>Activer une version d’évaluation (facultatif)
+## <a name="enable-a-test-drive-optional"></a>Activer une version d’évaluation (facultatif)
 
 Une version d’évaluation constitue un excellent moyen de présenter votre offre à des clients potentiels en leur donnant accès à un environnement préconfiguré pendant un nombre fixe d’heures. L’offre d’une version d’évaluation entraîne un taux de conversion accru et génère des prospects hautement qualifiés. Pour en savoir plus sur les versions d’évaluation, consultez [Qu’est-ce qu’une version d’évaluation ?](./what-is-test-drive.md).
 
@@ -64,14 +67,14 @@ Une version d’évaluation constitue un excellent moyen de présenter votre off
 1.  Sous **Version d’évaluation**, cochez la case **Activer une version d’évaluation**.
 1.  Sélectionnez le type de version d’évaluation dans la liste qui s’affiche.
 
-### <a name="configure-lead-management"></a>Configurer la gestion des prospects
+## <a name="configure-lead-management"></a>Configurer la gestion des prospects
 
 Connectez votre système de gestion des relations avec la clientèle (CRM) à votre offre de la place de marché commerciale pour recevoir les coordonnées d’un client qui exprime son intérêt votre produit ou déploie celui-ci. Vous pouvez modifier cette connexion à tout moment pendant ou après la création de l’offre.
 
 > [!NOTE]
 > Vous devez configurer la gestion des prospects si vous vendez votre offre par le biais de Microsoft ou si vous avez sélectionné l’option de référencement **Me contacter**. Pour obtenir des instructions détaillées, consultez [Prospects de votre offre de marketplace commercial](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
-#### <a name="to-configure-the-connection-details-in-partner-center"></a>Pour configurer les détails de connexion dans l’Espace partenaires
+### <a name="configure-the-connection-details-in-partner-center"></a>Configurer les détails de connexion dans l’Espace partenaires
 
 1.  Sous **Prospects**, sélectionnez le lien **Se connecter**.
 1. Dans la boîte de dialogue **Détails de la connexion**, sélectionnez une destination de prospect dans la liste.
@@ -85,6 +88,36 @@ Connectez votre système de gestion des relations avec la clientèle (CRM) à vo
 
 1. Pour valider la configuration que vous avez fournie, sélectionnez le lien **Valider**.
 1. Pour fermer la boîte de dialogue, sélectionnez **OK**.
+
+## <a name="configure-microsoft-365-app-integration"></a>Configurer l’intégration d’application Microsoft 365
+
+Vous pouvez mettre en lumière la [découverte et la livraison unifiées](./plan-SaaS-offer.md) de votre offre SaaS, ainsi que toute consommation d’application Microsoft 365 associée en les liant.
+
+### <a name="integrate-with-microsoft-api"></a>Intégrer avec une API Microsoft
+
+1. Si votre offre SaaS ne s’intègre pas avec l’API Microsoft Graph, sélectionnez **Non**. Continuez à lier les clients de consommation d’applications Microsoft 365 publiés.  
+
+1. Si votre offre SaaS s’intègre avec l’API Microsoft Graph API, sélectionnez **Oui**, puis indiquez l’ID d’application Azure Active Directory que vous avez créé et inscrit pour l’intégration avec l’API Microsoft Graph. 
+
+### <a name="link-published-microsoft-365-app-consumption-clients"></a>Lier les clients de consommation d’applications Microsoft 365 publiés
+
+1. Si vous n’avez pas publié de complément Office, d’application Teams ou de solution SharePoint Framework fonctionnant avec votre offre SaaS, sélectionnez **Non**.
+
+1. Si vous avez publié un complément Office, une application Teams ou une solution SharePoint Framework fonctionnant avec votre offre SaaS, sélectionnez **Oui**, puis **+ Ajouter un autre lien AppSource** pour ajouter de nouveaux liens.  
+
+1. Fournissez un lien AppSource valide.
+
+1. Continuez à ajouter tous les liens en sélectionnant **+ Ajouter un autre lien AppSource** et fournissez des liens AppSource valides.  
+
+1. L’ordre dans lequel les produits liés s’affichent sur la page de liste de référencement de l’offre SaaS est déterminé par la valeur Classement. Vous pouvez modifier celle-ci en sélectionnant longuement l’icône =, tout en la déplaçant vers le haut ou le bas de la liste. 
+
+1. Vous pouvez supprimer un produit lié en sélectionnant **Supprimer** dans la ligne de produit.  
+
+
+> [!IMPORTANT]
+> Si vous cessez de vendre un produit lié, celui-ci n’est pas automatiquement dissocié de l’offre SaaS. Vous devez le supprimer de la liste des produits liés et soumettre à nouveau l’offre SaaS.  
+
+ 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 2cc9d3e0fb711a0662852ce4f2c5a08dc626f246
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcd333d82b5bb7e8f6adf604511f8ca84680c93d
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96854731"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106490372"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
@@ -112,6 +112,8 @@ Azure NetApp Files prend en charge la création de volumes avec NFS (NFSv3 et NF
 
         Des configurations supplémentaires sont requises si vous utilisez Kerberos avec NFSv4.1. Suivez les instructions fournies dans [Configurer le chiffrement Kerberos NFSv4.1](configure-kerberos-encryption.md).
 
+    * Si vous voulez activer les utilisateurs et les groupes étendus (jusqu’à 1 024 groupes) Active Directory LDAP pour accéder au volume, sélectionnez l’option **LDAP**. Suivez les instructions dans [Configurer ADDS LDAP avec des groupes étendus pour l’accès au volume NFS](configure-ldap-extended-groups.md) afin d’effectuer les configurations requises. 
+ 
     * Le cas échéant, [configurez une stratégie d’exportation pour le volume NFS](azure-netapp-files-configure-export-policy.md).
 
     ![Spécifier le protocole NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
@@ -127,6 +129,7 @@ Azure NetApp Files prend en charge la création de volumes avec NFS (NFSv3 et NF
 
 * [Configurer le domaine par défaut NFSv4.1 pour Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configurer le chiffrement Kerberos NFSv4.1](configure-kerberos-encryption.md)
+* [Configurer ADDS LDAP avec des groupes étendus pour l’accès au volume NFS](configure-ldap-extended-groups.md)
 * [Monter ou démonter un volume pour des machines virtuelles Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurer une stratégie d’exportation pour un volume NFS](azure-netapp-files-configure-export-policy.md)
 * [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)

@@ -4,15 +4,15 @@ description: Découvrez plusieurs conditions d’intégration de la Place de mar
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 03/19/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 760e7210d054e44dfec6d6a6e480baecd04d6807
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88606808"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044122"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Questions courantes sur les API de traitement SaaS
 
@@ -40,7 +40,10 @@ En souscrivant l'offre SaaS, l'utilisateur a accepté de payer pour la consommat
 
 Après avoir souscrit une offre, l'utilisateur Azure peut découvrir et gérer toutes ses offres sur Azure. Par défaut, une offre SaaS nouvellement souscrite présente l’état **Provisioning, fulfillment pending** (Provisionnement, en attente de traitement). Dans cet état, l’utilisateur Azure est invité à **Configurer un compte** pour accéder à son expérience de gestion d’abonnement SaaS sur le portail Azure.
 
-Quand l’utilisateur sélectionne **Configurer un compte**, il est redirigé vers le site web du service SaaS. L’éditeur a configuré l’URL au moment de publier l’offre. Cette page est appelée page d'accueil de l'éditeur. Les utilisateurs Azure se connectent à la page d’accueil SaaS en fonction de leurs informations d’identification AAD existantes dans Azure.
+Quand l’utilisateur sélectionne **Configurer un compte**, il est redirigé vers le site web du service SaaS. L’éditeur a configuré l’URL au moment de publier l’offre. Cette page est appelée page d'accueil de l'éditeur. Les utilisateurs Azure se connectent à la page d’arrivée SaaS en fonction de leurs informations d’identification Azure Active Directory (Azure AD) dans Azure.
+
+> [!IMPORTANT]
+> L’utilisateur qui achète doit se connecter en utilisant Azure Active Directory, l’authentification unique (SSO Azure AD) comme indiqué par la [stratégie](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). La propriété `mail` de la ressource utilisateur récupérée à partir de l’API Microsoft Graph vous donne les coordonnées dans le cas d’Azure AD et `userPrincipalName` pour MSA. Il est possible que le champ « mail » soit vide pour Azure AD, et que l’utilisateur n’ait pas d’adresse e-mail enregistrée. Si c’est le cas, nous vous recommandons de le détecter et de demander une adresse e-mail de contact. C’est votre seule chance d’obtenir une adresse e-mail pour contacter un client pendant ou après le processus d’intégration du client.
 
 Lorsque l'utilisateur Azure est redirigé vers la page d'accueil, un jeton est ajouté à l'URL de la requête. Ce jeton de courte durée est valide pendant 24 heures. Vous pouvez alors détecter la présence de ce jeton et appeler l'API Microsoft pour obtenir plus de contexte sur celui-ci.
 

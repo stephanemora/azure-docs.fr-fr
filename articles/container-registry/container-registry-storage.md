@@ -1,15 +1,15 @@
 ---
 title: Stockage des images conteneur
 description: Plus d’informations sur la façon dont vos images de conteneur et autres artefacts sont stockés dans Azure Container Registry, y compris la sécurité, la redondance et la capacité.
-ms.topic: article
-ms.date: 03/03/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183265"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047743"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Stockage des images conteneur dans Azure Container Registry
 
@@ -21,11 +21,9 @@ Toutes les images conteneur et les autres artefacts dans votre registre sont chi
 
 ## <a name="regional-storage"></a>Stockage régional
 
-Azure Container Registry stocke les données dans la région où le registre est créé, afin d’aider les clients à répondre aux exigences de conformité et de résidence des données.
+Azure Container Registry stocke les données dans la région où le registre est créé, afin d’aider les clients à répondre aux exigences de conformité et de résidence des données. Dans toutes les régions, à l’exception de Brésil Sud et d’Asie Sud-Est, Azure peut également stocker des données de registre dans une région jumelée dans la même zone géographique. Dans les régions Brésil Sud et Asie Sud-Est, les données de registre sont toujours confinées à la région afin de satisfaire aux exigences de résidence des données pour ces régions.
 
-Pour vous protéger contre les pannes de centre de données, certaines régions offrent une [redondance de zone](zone-redundancy.md), où les données sont répliquées sur plusieurs centres de données dans une région particulière.
-
-Les clients qui souhaitent disposer de leurs données stockées dans plusieurs régions pour obtenir de meilleures performances sur différentes zones géographiques ou qui souhaitent disposer d’une résilience en cas de panne régionale devraient activer la [géo-réplication](container-registry-geo-replication.md).
+En cas de panne régionale, les données de registre peuvent devenir indisponibles et ne sont pas automatiquement récupérées. Les clients qui souhaitent que leurs données de registre soient stockées dans plusieurs régions pour obtenir de meilleures performances sur différentes zones géographiques ou qui souhaitent avoir une résilience en cas de panne régionale doivent activer la [géoréplication](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Géoréplication
 
@@ -33,7 +31,7 @@ Pour les scénarios nécessitant une assurance de plus haute disponibilité, env
 
 ## <a name="zone-redundancy"></a>Redondance de zone
 
-Pour créer un registre de conteneurs Azure résilient et à haute disponibilité, vous pouvez éventuellement activer la [redondance des zones](zone-redundancy.md) dans Sélectionner des régions Azure. La redondance de zone, fonctionnalité du niveau de service Premium, utilise les [zones de disponibilité](../availability-zones/az-overview.md) Azure pour répliquer votre registre à un minimum de trois zones distinctes dans chaque région activée. Combinez la géo-réplication et la redondance de zone pour améliorer la fiabilité et les performances d’un registre. 
+Pour faciliter la création d’un registre de conteneurs Azure résilient et à haute disponibilité, vous pouvez éventuellement activer la [redondance de zone](zone-redundancy.md) dans certaines régions Azure. La redondance de zone, fonctionnalité du niveau de service Premium, utilise les [zones de disponibilité](../availability-zones/az-overview.md) Azure pour répliquer votre registre à un minimum de trois zones distinctes dans chaque région activée. Combinez la géo-réplication et la redondance de zone pour améliorer la fiabilité et les performances d’un registre. 
 
 ## <a name="scalable-storage"></a>Stockage évolutif
 

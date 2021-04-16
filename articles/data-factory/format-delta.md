@@ -1,17 +1,17 @@
 ---
 title: Format Delta dans Azure Data Factory
 description: Transformer et déplacer des données à partir d’un lac Delta à l’aide du format Delta
-author: djpmsft
+author: dcstwh
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.author: daperlov
-ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/26/2020
+ms.author: weetok
+ms.openlocfilehash: 6d9d2b0d185750cf8ed8192661f28a2b82d88b78
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386490"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222536"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Format Delta dans Azure Data Factory
 
@@ -75,6 +75,8 @@ Le tableau ci-dessous répertorie les propriétés prises en charge par un réce
 | Niveau de compression | Indiquez si la compression doit se terminer le plus rapidement possible ou si le fichier obtenu doit être compressé de façon optimale. | Obligatoire si `compressedType` est spécifié. | `Optimal` ou `Fastest` | compressionLevel |
 | Nettoyer | Spécifiez le seuil de rétention en heures pour les anciennes versions de table. Une valeur inférieure ou égale à 0 correspond par défaut à 30 jours | Oui | Integer | vacuum |
 | Mettre à jour la méthode | Spécifiez les opérations de mise à jour autorisées sur le lac Delta. Pour les méthodes autres qu’insert, une transformation de modification de ligne précédente est requise afin de marquer des lignes. | Oui | `true` ou `false` | deletable <br> insertable <br> updateable <br> fusion |
+| Écriture optimisée | Obtenez un débit plus élevé pour l’opération d’écriture par le biais de l’optimisation de la lecture aléatoire interne dans les exécuteurs Spark. Il peut en résulter moins de partitions et de fichiers de plus grande taille. | non | `true` ou `false` | optimizedWrite : true |
+| Compactage automatique | Une fois qu’une opération d’écriture est terminée, Spark exécute automatiquement la commande ```OPTIMIZE``` pour réorganiser les données, ce qui entraîne davantage de partitions si nécessaire, pour une meilleure lecture des performances à l’avenir. | non | `true` ou `false` |    autoCompact : true |
 
 ### <a name="delta-sink-script-example"></a>Exemple de script de récepteur Delta
 

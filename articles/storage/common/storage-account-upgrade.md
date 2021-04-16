@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/30/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 85520032e9bc63b6296e40dd1c1055e36762dcc8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 30c73849d07c1495251c17510ea71f29c674c618
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555004"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967487"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -28,7 +28,7 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 > [!NOTE]
 > Bien que Microsoft recommande les comptes v2 universels pour la plupart des scénarios, Microsoft continuera à prendre en charge les comptes v1 universels pour les clients nouveaux et existants. Vous pouvez créer des comptes de stockage v1 universels dans de nouvelles régions chaque fois que Stockage Azure est disponible dans ces régions. Microsoft ne prévoie pas actuellement de déprécier la prise en charge des comptes v1 universels, et fournira un préavis d’au moins un an avant de déprécier toute fonctionnalité Stockage Azure. Microsoft continuera à fournir des mises à jour de sécurité pour les comptes v1 universels, mais aucun nouveau développement de fonctionnalité n’est attendu pour ce type de compte.
 >
-> À compter du 1er octobre 2020, les tarifs des comptes v1 universels dans les nouvelles régions Stockage Azure sont équivalents à ceux des comptes v2 universels dans ces régions. Les tarifs dans les régions Stockage Azure existantes n’ont pas changé. Pour plus d’informations sur les tarifs des comptes v1 universels dans une région spécifique, consultez la page sur la tarification de Stockage Azure. Choisissez votre région puis, en regard de **Offres et tarifs**, sélectionnez **Autre**.
+> Pour les nouvelles régions Azure qui ont été mises en ligne après le 1er octobre 2020, la tarification des comptes v1 universels a changé et équivaut désormais à la tarification des comptes v2 universels dans ces régions. La tarification des comptes v1 universels dans les régions Azure qui existaient avant le 1er octobre 2020 n’a pas changé. Pour plus d’informations sur les tarifs des comptes v1 universels dans une région spécifique, consultez la page sur la tarification de Stockage Azure. Choisissez votre région puis, en regard de **Offres et tarifs**, sélectionnez **Autre**.
 
 ## <a name="upgrade-an-account"></a>Mettre à niveau un compte
 

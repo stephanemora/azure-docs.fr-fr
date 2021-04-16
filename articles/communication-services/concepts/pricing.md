@@ -9,23 +9,20 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc5da3f4ac5bf9a08e16a931d54dfbf6a2fb9f48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5f7b1e6d600f5d3652ce6a66a72cbfbf33b336c4
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495791"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091869"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
 
 Les tarifs pour Azure Communication Services sont généralement basés sur un modèle de paiement à l’utilisation. Les prix dans les exemples suivants sont fournis à titre indicatif et peuvent ne pas refléter les tarifs Azure les plus récents.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Appels vocaux/vidéo et partage d’écran
 
-Azure Communication Services permet d’ajouter les appels vocaux/vidéo et le partage d’écran dans vos applications. Vous pouvez incorporer cette expérience dans vos applications à l’aide des bibliothèques de client JavaScript, Objective-C (Apple), Java (Android) et .NET. Reportez-vous à notre [liste complète des bibliothèques de client disponibles](./sdk-options.md).
+Azure Communication Services permet d’ajouter les appels vocaux/vidéo et le partage d’écran dans vos applications. Vous pouvez incorporer cette expérience dans vos applications à l’aide des kits SDK JavaScript, Objective-C (Apple), Java (Android) et .NET. Reportez-vous à notre [liste complète des kits SDK disponibles](./sdk-options.md).
 
 ### <a name="pricing"></a>Tarifs
 
@@ -33,9 +30,9 @@ Les services d’appel et de partage d’écran sont facturés à la minute pour
 
 Chaque participant d’un appel est comptabilisé dans la facturation pour chaque minute où il est connecté à l’appel. Cela vaut que l’utilisateur effectue un appel vidéo, un appel vocal ou un partage d’écran.
 
-### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-client-libraries"></a>Exemple de tarif : Appel audio/vidéo de groupe à l’aide des bibliothèques de client JS et iOS
+### <a name="pricing-example-group-audiovideo-call-using-js-and-ios-sdks"></a>Exemple de tarif : Appel audio/vidéo de groupe à l’aide des kits SDK JS et iOS
 
-Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice et Bob ont utilisé les bibliothèques de client JS, et Charlie les bibliothèques de client iOS.
+Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice et Bob ont utilisé les kits SDK JS, et Charlie les kits SDK iOS.
 
 - L’appel a duré un total de 60 minutes.
 - Alice et Bob ont participé à la totalité de l’appel. Alice a activé la vidéo pendant cinq minutes et a partagé son écran pendant 23 minutes. Bob avait la vidéo activée pendant l’appel entier (60 minutes) et a partagé son écran pendant 12 minutes.
@@ -48,9 +45,44 @@ Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. Alice 
 
 **Coût total de l’appel de groupe** : 0,48 USD + 0,172 USD = 0,652 USD
 
-### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemple de tarif : Un utilisateur de la bibliothèque de client Communication Services JS rejoint une réunion Microsoft Teams planifiée
 
-Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à la visite à partir de l’application Teams Desktop. Bob va recevoir un lien pour s’y joindre en utilisant le site web médical du fournisseur, qui se connecte à la réunion en utilisant la bibliothèque de client Communication Services JS. Bob va utiliser son téléphone mobile pour participer à la réunion en utilisant un navigateur web (iPhone avec Safari). Une conversation sera disponible pendant la visite virtuelle.
+### <a name="pricing-example-outbound-call-from-app-using-js-sdk-to-a-pstn-number"></a>Exemple de tarif : Appel sortant depuis une application avec le kit SDK JS vers un numéro RTC
+
+Alice appelle Bob, elle passe un appel RTC depuis une application sur son numéro de téléphone américain commençant par `+1-425`.
+
+- Alice a utilisé le kit SDK JS pour créer l’application.
+- L’appel dure 5 minutes au total.
+
+**Calculs des coûts**
+
+- 1 participant sur la section VoIP (Alice) depuis l’application vers les serveurs Communication Services x 10 minutes x 0,004 USD par segment de participant par minute = 0,04 USD
+- 1 participant sur la section sortante RTC (Charlie) depuis les serveurs Communication Services vers un numéro de téléphone américain x 10 minutes x 0,013 USD par segment de participant par minute = 0,13 USD
+
+Remarque : Le tarif mixte des États-Unis vers `+1-425` est de 0,013 USD. Pour plus de détails, consultez le lien suivant : https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Coût total de l’appel de groupe** : 0,04 USD + 0,13 USD = 0,17 USD
+
+
+### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>Exemple de tarif : Appel audio de groupe à l’aide du kit SDK JS et d’une section RTC
+
+Alice et Bob se sont sur un appel VoIP. Bob a transféré l’appel à Charlie sur le numéro RTC de Charlie, un numéro de téléphone américain commençant par `+1-425`.
+
+- Alice a utilisé le kit SDK JS pour créer l’application. Ils ont parlé pendant 10 minutes avant d’appeler Charlie sur le numéro RTC.
+- Une fois l’appel transféré par Bob à Charlie sur son numéro RTC, les trois ont parlé pendant 10 minutes.
+
+**Calculs des coûts**
+
+- 2 participants sur la section VoIP (Alice et Bob) depuis l’application vers les serveurs Communication Services x 20 minutes x 0,004 USD par segment de participant par minute = 0,16 USD
+- 1 participant sur la section sortante RTC (Charlie) depuis les serveurs Communication Services vers un numéro de téléphone américain x 10 minutes x 0,013 USD par segment de participant par minute = 0,13 USD
+
+Remarque : Le tarif mixte des États-Unis vers `+1-425` est de 0,013 USD. Pour plus de détails, consultez le lien suivant : https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Coût total de la section VoIP + appel transféré** : 0,16 USD + 0,13 USD = 0,29 USD
+
+
+### <a name="pricing-example-a-user-of-the-communication-services-javascript-sdk-joins-a-scheduled-microsoft-teams-meeting"></a>Exemple de tarif : Un utilisateur du kit SDK JavaScript Communication Services participe à une réunion Microsoft Teams planifiée
+
+Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à la visite à partir de l’application Teams Desktop. Bob va recevoir un lien pour y participer en utilisant le site web du prestataire de santé, qui se connecte à la réunion en utilisant le kit SDK JavaScript Communication Services. Bob va utiliser son téléphone mobile pour participer à la réunion en utilisant un navigateur web (iPhone avec Safari). Une conversation sera disponible pendant la visite virtuelle.
 
 - L’appel dure 30 minutes au total.
 - Alice et Bob participent à la totalité de l’appel. Alice active sa vidéo 5 minutes après le démarrage de l’appel et partage son écran pendant 13 minutes. Bob a sa vidéo activée pendant toute la durée de l’appel.
@@ -67,13 +99,13 @@ Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à 
 *La participation d’Alice est couverte par sa licence Teams. Votre facture Azure indique pour information les minutes et les messages de conversation que les utilisateurs Teams ont eus avec des utilisateurs Communication Services, mais ces minutes et ces messages provenant du client Teams, ils ne sont pas facturés.
 
 **Coût total de la visite** :
-- Utilisateur se joignant en utilisant la bibliothèque de client Communication Services JS : 0,12 USD + 0,0024 USD = 0,1224 USD
+- Utilisateur participant à l’aide du kit SDK JavaScript Communication Services : 0,12 USD + 0,0024 USD = 0,1224 USD
 - Utilisateur se joignant à l’application Teams Desktop : 0 USD (couvert par une licence Teams)
 
 
 ## <a name="chat"></a>Conversation
 
-Avec Communication Services, vous pouvez améliorer votre application en ajoutant la possibilité d’envoyer et de recevoir des messages de conversation entre deux utilisateurs ou plus. Les bibliothèques de client Chat sont disponibles pour JavaScript, .NET, Python et Java. Reportez-vous à [cette page pour en savoir plus sur les bibliothèques de client](./sdk-options.md).
+Avec Communication Services, vous pouvez améliorer votre application en ajoutant la possibilité d’envoyer et de recevoir des messages de conversation entre deux utilisateurs ou plus. Les kits SDK Conversation sont disponibles pour JavaScript, .NET, Python et Java. Reportez-vous à [cette page pour en savoir plus sur les kits SDK](./sdk-options.md).
 
 ### <a name="price"></a>Price
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sideeksh
-ms.openlocfilehash: 569af28f5773d843f49dd9c8143b45e308ae142e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 675190bee674c745494c2378712afa89bd43cbe4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420411"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105727873"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire
 
@@ -43,10 +43,10 @@ Vous exécutez un test de basculement depuis le site principal vers le site seco
 
 Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionner les paramètres réseau des machines de réplication utilisées pour le test, comme résumé dans le tableau.
 
-| **Option** | **Détails** | |
-| --- | --- | --- |
-| **Aucun** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud et n’est connectée à aucun réseau.<br/><br/> Vous pouvez connecter la machine à un réseau de machines virtuelles après sa création.| |
-| **Utiliser l’existant** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.<br/><br/>Créez un réseau de machines virtuelles isolé de votre réseau de production.<br/><br/>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles pour le test de basculement.<br/><br/>Le réseau logique doit être associé à au moins une des cartes réseau de tous les serveurs Hyper-V hébergeant des machines virtuelles.<br/><br/>Pour les réseaux logiques VLAN, les sites de réseau que vous ajoutez au réseau logique doivent être isolés.<br/><br/>Si vous utilisez un réseau logique basé sur la fonction de virtualisation réseau Windows, Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés. | |
+| **Option** | **Détails** |
+| --- | --- |
+| **Aucun** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud et n’est connectée à aucun réseau.<br/><br/> Vous pouvez connecter la machine à un réseau de machines virtuelles après sa création.|
+| **Utiliser l’existant** | La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.<br/><br/>Créez un réseau de machines virtuelles isolé de votre réseau de production.<br/><br/>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles pour le test de basculement.<br/><br/>Le réseau logique doit être associé à au moins une des cartes réseau de tous les serveurs Hyper-V hébergeant des machines virtuelles.<br/><br/>Pour les réseaux logiques VLAN, les sites de réseau que vous ajoutez au réseau logique doivent être isolés.<br/><br/>Si vous utilisez un réseau logique basé sur la virtualisation de réseau Windows, Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés. |
 | **Créer un réseau** | Un réseau de test temporaire est créé automatiquement, en fonction du paramètre que vous spécifiez dans le champ **Réseau logique** et sur les sites réseau associés.<br/><br/> Le basculement vérifie que les machines virtuelles sont créées.<br/><br/> Vous devez utiliser cette option si un plan de récupération fait appel à plusieurs réseaux de machines virtuelles.<br/><br/> Si vous exploitez des réseaux de virtualisation de réseau Windows, cette option peut être utilisée pour créer automatiquement des réseaux de machines virtuelles à partir des mêmes paramètres (sous-réseaux et pools d’adresses IP) que ceux du réseau de l’ordinateur virtuel de réplication. Ces réseaux de machines virtuelles sont automatiquement nettoyés une fois le test de basculement terminé.<br/><br/> La machine virtuelle de test est créée sur l’hôte où se trouve la machine virtuelle de réplication. Elle n’est pas ajoutée au cloud.|
 
 ### <a name="best-practices"></a>Meilleures pratiques
@@ -87,7 +87,7 @@ Si un réseau de machines virtuelles est configuré dans VMM avec la virtualisat
 Si vous souhaitez simplement vérifier la possibilité de basculement d’une machine virtuelle, vous pouvez exécuter un test de basculement sans infrastructure. Si vous souhaitez effectuer un test de récupération d’urgence complet pour tester le basculement d’application, vous devez préparer l’infrastructure sur le site secondaire.
 
 - Si vous exécutez un test de basculement à l’aide d’un réseau existant, vous devez préparer les services Active Directory, DHCP et DNS de ce réseau.
-- Si vous exécutez un test de basculement avec l’idée de créer un réseau de machines virtuelles automatiquement, vous devez ajouter des ressources d’infrastructure au réseau créé automatiquement, avant d’exécuter le test de basculement. Dans un plan de récupération, cette opération est facilitée en ajoutant une étape manuelle avant le groupe 1, dans le plan de récupération que vous allez utiliser pour le test de basculement. Ajoutez ensuite les ressources de l’infrastructure au réseau créé automatiquement avant d’exécuter le test de basculement.
+- Si vous exécutez un test de basculement avec l’idée de créer un réseau de machines virtuelles automatiquement, vous devez ajouter des ressources d’infrastructure au réseau créé automatiquement, avant d’exécuter le test de basculement. Dans un plan de reprise d’activité, cette opération est facilitée en ajoutant une étape manuelle avant le groupe 1, dans le plan de reprise d’activité que vous allez utiliser pour le test de basculement. Ajoutez ensuite les ressources de l’infrastructure au réseau créé automatiquement avant d’exécuter le test de basculement.
 
 
 ### <a name="prepare-dhcp"></a>Préparer le service DHCP
@@ -100,7 +100,7 @@ Pour exécuter un test de basculement afin de tester des applications, vous deve
 ### <a name="prepare-dns"></a>Préparer le service DNS
 Préparer un serveur DNS pour le test de basculement en procédant comme suit :
 
-* **DHCP** : si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle de serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le réseau de test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
+* **DHCP** : si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle du serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le réseau de test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
 * **Adresse statique** : si les machines virtuelles utilisent une adresse IP statique, l’adresse IP du serveur DNS de test doit être mise à jour dans le réseau de test de basculement. Vous devrez peut-être mettre à jour le service DNS en indiquant l’adresse IP des machines virtuelles de test. À cette fin, vous pouvez utiliser l’exemple de script suivant :
 
   ```powershell

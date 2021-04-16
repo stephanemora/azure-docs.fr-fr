@@ -2,20 +2,20 @@
 title: Gestion des données d’objets blob avec l’inventaire du Stockage Azure (préversion)
 description: L’inventaire du Stockage Azure est un outil qui permet d’obtenir une vue d’ensemble de toutes les données blob d’un compte de stockage.
 services: storage
-author: mhopkins-msft
+author: twooley
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 04/01/2021
 ms.topic: conceptual
-ms.author: mhopkins
-ms.reviewer: yzheng
+ms.author: twooley
+ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 33d50d1a6b5e84d178b522851795bcc42f5fc169
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950924"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277264"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Gestion des données d’objets blob avec l’inventaire des objets blob du Stockage Azure (préversion)
 
@@ -37,6 +37,7 @@ La préversion de l’inventaire des objets blob est disponible dans les comptes
 - Est du Canada
 - USA Est
 - USA Est 2
+- Europe Ouest
 
 ### <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -202,6 +203,14 @@ Exemple d’événement :
   "eventTime": "2020-10-13T15:47:54Z"
 }
 ```
+
+## <a name="known-issues"></a>Problèmes connus
+
+Cette section décrit les limitations et les problèmes connus de la fonctionnalité d’inventaire des objets blob du service Stockage Azure.
+
+### <a name="inventory-job-fails-to-complete"></a>Échec de l’exécution du travail d’inventaire
+
+Le travail d’inventaire risque de ne pas se terminer dans les 24 heures pour un compte avec des millions d’objets blob et des espaces de noms hiérarchiques activés. Dans ce cas, aucun fichier d’inventaire n’est créé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724169"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105104967"
 ---
-* Après avoir sélectionné la plateforme appropriée à l’étape 4 de la section [Configurer les paramètres de la plateforme,](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings) configurez vos **URI de redirection** et **Jetons d’accès** dans le volet latéral situé à droite de l’interface utilisateur.
+* Après avoir sélectionné la plateforme appropriée à l’étape 4 de la section [Configurer les paramètres de la plateforme,](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) configurez vos **URI de redirection** et **Jetons d’accès** dans le volet latéral situé à droite de l’interface utilisateur.
 
     * **L’URI de redirection** doit correspondre à l’adresse fournie par la requête d’authentification :
 
@@ -41,4 +41,4 @@ ms.locfileid: "101724169"
 
     [![Spécifier le type d’autorisation d’API que votre application exige](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Ajoutez des informations d’identification](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) si l’application doit appeler les API de votre environnement elle-même. Les informations d’identification permettent à votre application de s’authentifier de façon autonome, sans qu’aucune interaction utilisateur ne soit nécessaire au moment de l’exécution.
+* [Ajoutez des informations d’identification](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) si l’application doit appeler les API de votre environnement elle-même. Les informations d’identification permettent à votre application de s’authentifier de façon autonome, sans qu’aucune interaction utilisateur ne soit nécessaire au moment de l’exécution.

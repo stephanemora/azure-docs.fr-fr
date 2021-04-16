@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e5a4cc2b964bcf4fa49d90c8b6d5aa546b7148a1
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798882"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106107943"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -94,6 +94,23 @@ Lors du déploiement d’une VDI non persistante, Microsoft recommande aux admin
 - Définissez et implémentez le processus de [gestion des appareils obsolètes](manage-stale-devices.md).
    - Une fois que vous disposez d’une stratégie d’identification de vos appareils Azure AD Hybride joints non persistants (par exemple, en utilisant le préfixe du nom d’affichage de l’ordinateur), vous devez être plus agressif lors du nettoyage de ces appareils pour être certain que votre répertoire ne sera pas consommé par un grand nombre d’appareils obsolètes.
    - Pour les déploiements VDI non persistants sur Windows actuel et de bas niveau, vous devez supprimer les appareils qui ont une propriété **ApproximateLastLogonTimestamp** antérieure à 15 jours.
+
+> [!NOTE]
+> Lors de l’utilisation d’une plateforme VDI non persistante, si vous voulez empêcher l’état de jonction d’appareils, vérifiez que la clé de Registre suivante est définie :  
+> `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
+>
+> Assurez-vous que vous exécutez Windows 10 version 1803 ou ultérieure.  
+>
+> L’itinérance des données sous le chemin d’accès `%localappdata%` n’est pas prise en charge. Si vous choisissez de déplacer le contenu sous `%localappdata%`, assurez-vous que le contenu des dossiers et des clés de Registre suivants ne quitte **jamais** l’appareil, quelles que soient les conditions. Par exemple : Les outils de migration de profil doivent ignorer les dossiers et clés suivants :
+>
+> * `%localappdata%\Packages\Microsoft.AAD.BrokerPlugin_cw5n1h2txyewy`
+> * `%localappdata%\Packages\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy`
+> * `%localappdata%\Packages\<any app package>\AC\TokenBroker`
+> * `%localappdata%\Microsoft\TokenBroker`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+>
+
 
 ### <a name="persistent-vdi"></a>VDI persistante
 

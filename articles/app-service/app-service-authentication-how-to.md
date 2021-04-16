@@ -2,14 +2,14 @@
 title: Utilisation avancée de l’authentification et de l’autorisation
 description: Apprenez à personnaliser les paramètres d’authentification et d’autorisation dans App Service pour différents scénarios et à obtenir des revendications d’utilisateur et des jetons distincts.
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 50587feff29e1c02a639d63d0c99156dcec4f68e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b7faf47363a5efee6a60951e67d9ad2bed8bf76f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180868"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076868"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -18,10 +18,9 @@ Cet article vous explique comment personnaliser les [paramètres d’authentific
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
 * [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](tutorial-auth-aad.md)
-* [Comment configurer votre application pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md)
+* [Comment configurer votre application pour utiliser une connexion par plateforme d’identités Microsoft](configure-authentication-provider-aad.md)
 * [Comment configurer votre application pour utiliser une connexion Facebook](configure-authentication-provider-facebook.md)
 * [Comment configurer votre application pour utiliser une connexion Google](configure-authentication-provider-google.md)
-* [Comment configurer votre application pour utiliser une connexion par compte Microsoft](configure-authentication-provider-microsoft.md)
 * [Comment configurer votre application pour utiliser une connexion Twitter](configure-authentication-provider-twitter.md)
 * [Guide pratique pour configurer une application de sorte qu’elle se connecte avec un fournisseur OpenID Connect (préversion)](configure-authentication-provider-openid-connect.md)
 * [Configurer votre application pour se connecter à l’aide d’Apple (préversion)](configure-authentication-provider-apple.md)
@@ -37,8 +36,7 @@ Sous **Mesure à prendre quand une demande n’est pas authentifiée**, sélecti
 Dans la page de connexion, la barre de navigation ou tout autre emplacement de votre application, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple :
 
 ```html
-<a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
+<a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -159,7 +157,6 @@ Si le [magasin de jetons](overview-authentication-authorization.md#token-store) 
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Jeton Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
-| Compte Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
@@ -175,7 +172,6 @@ Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#ex
 - **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
 - **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
 - **Twitter** : les jetons d’accès n’expirent pas (voir les [questions fréquentes sur Twitter OAuth](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
 - **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
     2. Dans le navigateur de gauche, accédez à **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettings**. 
@@ -280,14 +276,26 @@ Le fournisseur d’identité peut fournir un autorisation clé en main. Par exem
 
 Si l’un des autres niveaux ne fournit pas l’autorisation dont vous avez besoin, ou si votre plateforme ou fournisseur d’identité ne sont pas pris en charge, vous devez écrire du code personnalisé afin d’autoriser les utilisateurs en fonction de leurs [revendications](#access-user-claims).
 
-## <a name="updating-the-configuration-version-preview"></a>Mise à jour de la version de configuration (préversion)
+## <a name="updating-the-configuration-version"></a>Mise à jour de la version de configuration
 
-Il existe deux versions de l’API de gestion pour la fonctionnalité d’authentification/autorisation. La version v2 en préversion est requise pour l’expérience « Authentification (préversion) » dans le portail Azure. Une application qui utilise déjà l’API v1 peut effectuer une mise à niveau vers la version v2 une fois que quelques modifications ont été apportées. Plus précisément, la configuration du secret doit être déplacée vers les paramètres d’application à emplacement fixe. La configuration du fournisseur Compte Microsoft n’est pas prise en charge dans v2 pour l’instant.
+Il existe deux versions de l’API de gestion pour la fonctionnalité d’authentification/autorisation. La version v2 est requise pour l’expérience « Authentification » dans le portail Azure. Une application qui utilise déjà l’API v1 peut effectuer une mise à niveau vers la version v2 une fois que quelques modifications ont été apportées. Plus précisément, la configuration du secret doit être déplacée vers les paramètres d’application à emplacement fixe. Vous pouvez effectuer cette opération automatiquement à partir de la section « Authentification » du portail de votre application.
 
 > [!WARNING]
-> La migration vers la préversion v2 désactivera la gestion de la fonctionnalité d’authentification/autorisation d’App Service de l’application par le biais de certains clients, comme son expérience actuelle dans le portail Azure, Azure CLI et Azure PowerShell. Cette opération ne peut pas être inversée. Pendant la préversion, la migration des charges de travail de production n’est pas encouragée ni prise en charge. Vous devez uniquement suivre les étapes de cette section pour les applications de test.
+> La migration vers la version 2 désactivera la gestion de la fonctionnalité d’authentification/autorisation d’App Service de l’application par le biais de certains clients, comme son expérience actuelle dans le portail Azure, Azure CLI et Azure PowerShell. Cette opération ne peut pas être inversée.
 
-### <a name="moving-secrets-to-application-settings"></a>Déplacement de secrets vers des paramètres d’application
+L’API v2 ne prend pas en charge la création ni la modification d’un compte Microsoft en tant que fournisseur distinct, comme c’était le cas dans la version 1. Elle s’appuie plutôt sur la [plateforme d’identités Microsoft](../active-directory/develop/v2-overview.md) convergente pour permettre aux utilisateurs de se connecter avec Azure AD et leurs comptes Microsoft personnels. Lors du basculement vers l’API v2, la configuration v1 d’Azure Active Directory est utilisée pour configurer le fournisseur Plateforme d’identités Microsoft. Le fournisseur de comptes Microsoft v1 sera reporté dans le processus de migration et continuera à fonctionner normalement, mais il est recommandé de passer au modèle plus récent de la plateforme d’identités Microsoft. Pour en savoir plus, consultez [Prise en charge des inscriptions de fournisseur de comptes Microsoft](#support-for-microsoft-account-provider-registrations).
+
+Le processus de migration automatique déplacera les secrets du fournisseur dans les paramètres de l’application, puis convertira le reste de la configuration au nouveau format. Pour utiliser la migration automatique :
+
+1. Accédez à votre application dans le portail et sélectionnez l’option de menu **Authentification**.
+1. Si l’application est configurée à l’aide du modèle v1, un bouton **Mettre à niveau** s’affiche.
+1. Lisez la description de la demande de confirmation. Si vous êtes prêt à effectuer la migration, cliquez sur **Mettre à niveau** dans l’invite.
+
+### <a name="manually-managing-the-migration"></a>Gestion manuelle de la migration
+
+Les étapes suivantes vous permettront de migrer manuellement l’application vers l’API v2 si vous ne souhaitez pas utiliser la version automatique mentionnée ci-dessus.
+
+#### <a name="moving-secrets-to-application-settings"></a>Déplacement de secrets vers des paramètres d’application
 
 1. Récupérez votre configuration actuelle à l’aide de l’API v1 :
 
@@ -351,7 +359,7 @@ Il existe deux versions de l’API de gestion pour la fonctionnalité d’authen
            "allowedExternalRedirectUrls": null,
            "defaultProvider": "AzureActiveDirectory",
            "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
-           "clientSecret": null,
+           "clientSecret": "",
            "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
            "clientSecretCertificateThumbprint": null,
            "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
@@ -397,9 +405,7 @@ Il existe deux versions de l’API de gestion pour la fonctionnalité d’authen
 
 Vous avez maintenant migré l’application pour stocker les secrets du fournisseur d’identité comme paramètres d’application.
 
-### <a name="support-for-microsoft-account-registrations"></a>Prise en charge des inscriptions de compte Microsoft
-
-L’API v2 ne prend actuellement pas en charge Compte Microsoft comme fournisseur distinct. Elle s’appuie plutôt sur la [plateforme d’identités Microsoft](../active-directory/develop/v2-overview.md) convergente pour permettre aux utilisateurs de se connecter avec des comptes Microsoft personnels. Lors du basculement vers l’API v2, la configuration v1 d’Azure Active Directory est utilisée pour configurer le fournisseur Plateforme d’identités Microsoft.
+#### <a name="support-for-microsoft-account-provider-registrations"></a>Prise en charge des inscriptions de fournisseur de comptes Microsoft
 
 Si votre configuration actuelle contient un fournisseur Compte Microsoft, mais pas de fournisseur Azure Active Directory, vous pouvez basculer la configuration vers le fournisseur Azure Active Directory, puis effectuer la migration. Pour ce faire :
 
@@ -413,12 +419,10 @@ Si votre configuration actuelle contient un fournisseur Compte Microsoft, mais p
 1. À ce stade, vous avez copié la configuration, mais la configuration actuelle du fournisseur Compte Microsoft est conservée. Avant de la supprimer, assurez-vous que toutes les parties de votre application référencent le fournisseur Azure Active Directory via des liens de connexion, etc. Vérifiez que toutes les parties de votre application fonctionnent comme prévu.
 1. Une fois que vous avez validé que les choses fonctionnent avec le fournisseur Azure Active Directory (AAD), vous pouvez supprimer la configuration du fournisseur Compte Microsoft.
 
-Certaines applications peuvent déjà avoir des inscriptions distinctes pour Azure Active Directory et Compte Microsoft. Ces applications ne peuvent pas être migrées pour l’instant. 
-
 > [!WARNING]
 > Il est possible de converger les deux inscriptions en modifiant les [types de comptes pris en charge](../active-directory/develop/supported-accounts-validation.md) pour l’inscription de l’application AAD. Toutefois, cela obligerait les utilisateurs Compte Microsoft à donner leur consentement à une nouvelle invite, et les revendications d’identité de ces utilisateurs pourraient être différentes dans leur structure, `sub` changeant notamment de valeurs, puisqu’un nouveau ID d’application est utilisé. Cette approche n’est pas recommandée, sauf si elle est parfaitement comprise. Vous devriez plutôt attendre la prise en charge des deux inscriptions dans la surface de l’API v2.
 
-### <a name="switching-to-v2"></a>Passage à v2
+#### <a name="switching-to-v2"></a>Passage à v2
 
 Une fois les étapes ci-dessus effectuées, accédez à l’application dans le portail Azure. Sélectionnez la section « Authentification (préversion) ». 
 

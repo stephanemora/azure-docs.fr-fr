@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: 235a6bf4a0dd9afcac8751067b2eac3ddb37c0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d60857503402554381068fc36121fa3f7b61622
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031240"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107283556"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expression app() dans une requête Azure Monitor
 
 L'expression `app` est utilisée dans une requête Azure Monitor afin de récupérer des données à partir d'une application Application Insights spécifique du même groupe de ressources, d'un autre groupe de ressources ou d'un autre abonnement. Elle est particulièrement utile pour inclure des données d'application dans une requête de journal Azure Monitor et pour interroger des données de plusieurs applications dans une requête Application Insights.
 
 > [!IMPORTANT]
-> L'expression app() n'est pas utilisée si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md) car les données de journal sont stockées dans un espace de travail Log Analytics. Utilisez l’expression log () pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
+> L'expression app() n'est pas utilisée si vous utilisez une [ressource Application Insights basée sur un espace de travail](../app/create-workspace-resource.md) car les données de journal sont stockées dans un espace de travail Log Analytics. Utilisez l’expression workspace() pour écrire une requête incluant une application dans plusieurs espaces de travail. En présence de plusieurs applications dans le même espace de travail, vous n’avez pas besoin de requête entre espaces de travail.
 
 ## <a name="syntax"></a>Syntaxe
 

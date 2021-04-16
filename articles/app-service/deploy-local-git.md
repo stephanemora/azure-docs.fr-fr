@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: faf3afc60c8517509199e6a306f511a15b32358c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100560457"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105732837"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -140,6 +140,7 @@ Les messages d'erreur suivants peuvent s'afficher lorsque vous utilisez Git pour
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|L’application n’est pas opérationnelle.|Démarrez l’application dans le portail Azure. Le déploiement Git n'est pas disponible lorsque l’application web est arrêtée.|
 |`Couldn't resolve host 'hostname'`|Les informations d’adresse du référentiel «Azure» distant ne sont pas correctes.|Utilisez la commande `git remote -v` pour répertorier tous les référentiels distants avec l’URL associée. Vérifiez que l'URL du référentiel distant « azure » est correcte. Si nécessaire, supprimez et recréez ce référentiel distant au moyen de l’URL correcte.|
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|Vous n’avez pas spécifié de branche pendant `git push` ou vous n'avez pas défini la valeur `push.default` dans `.gitconfig`.|Réexécutez `git push`, en spécifiant la branche primaire : `git push azure main`.|
+|`Error - Changes committed to remote repository but deployment to website failed.`|Vous avez envoyé (push) une branche locale qui ne correspond pas à la branche de déploiement d’applications sur « Azure ».|Vérifiez que la branche actuelle est `master`. Pour modifier la branche par défaut, utilisez le paramètre d’application `DEPLOYMENT_BRANCH`.|
 |`src refspec [branchname] does not match any.`|Vous avez tenté d’effectuer une transmission de type push sur une autre branche que la branche primaire du référentiel distant « azure ».|Réexécutez `git push`, en spécifiant la branche primaire : `git push azure main`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|Cette erreur peut se produire si vous essayez d’envoyer (push) un dépôt Git volumineux via HTTPS.|Modifiez la configuration Git sur l’ordinateur local pour agrandir le `postBuffer`. Par exemple : `git config --global http.postBuffer 524288000`.|
 |`Error - Changes committed to remote repository but your web app not updated.`|Vous avez déployé une application Node.js contenant un fichier _package.json_ spécifiant des modules obligatoires supplémentaires.|Examinez les messages d'erreur `npm ERR!` préalables à cette erreur pour plus de contexte sur l’échec. Voici les causes connues de cette erreur et les messages `npm ERR!` correspondants :<br /><br />**Fichier package.json incorrect**: `npm ERR! Couldn't read dependencies.`<br /><br />**Un module natif n’a pas de distribution binaire pour Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|

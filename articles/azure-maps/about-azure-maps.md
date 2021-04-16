@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: b53af0fda8bb24bf03d0e02f61ce7d195ae69503
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97680821"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256121"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -169,11 +169,11 @@ Traffic Service est une suite de services web conçue que les développeurs peuv
 
 Pour plus d’informations, consultez la [Documentation du service Traffic](/rest/api/maps/traffic).
 
-### <a name="weather-services-preview"></a>Services Météo (préversion) 
+### <a name="weather-services"></a>Services Météo
 
 Les services Météo offrent des API dont les développeurs peuvent se servir pour récupérer des informations météorologiques pour un lieu particulier. Ces informations contiennent des détails tels que la date et l’heure de l’observation, une brève description des conditions météorologiques, une icône météo, des indicateurs de précipitation, ainsi que des données concernant la température et la vitesse du vent. Des détails supplémentaires tels que la température RealFeel™ et l’indice UV sont également retournés.
 
-Les développeurs peuvent utiliser l’[API d’obtention de données météorologiques](/rest/api/maps/weather/getweatheralongroutepreview) pour récupérer des informations météorologiques concernant un itinéraire particulier. En outre, le service prend en charge la génération de notifications météorologiques pour des points de route affectés par des aléas climatiques tels que des inondations ou de fortes pluies.
+Les développeurs peuvent utiliser l’[API d’obtention de données météorologiques](/rest/api/maps/weather/getweatheralongroute) pour récupérer des informations météorologiques concernant un itinéraire particulier. En outre, le service prend en charge la génération de notifications météorologiques pour des points de route affectés par des aléas climatiques tels que des inondations ou de fortes pluies.
 
 L’[API Get Map Tile V2](/rest/api/maps/renderv2/getmaptilepreview) vous permet de demander des vignettes de satellite et de radar passées, actuelles et futures.
 

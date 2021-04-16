@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: 44dfd07a5b749d88552bb1dcac2ee4b4e5ce65e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e14e214a220d9dade4fac028620d23c563d86a8f
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565238"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554074"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -140,7 +140,7 @@ Pour plus d’informations sur l’utilisation du contrôle d’accès en foncti
 
 ## <a name="using-conditional-access"></a>Utilisation d’un accès conditionnel
 
-Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Linux dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Linux Azure » à partir de l’option d’affectation d’applications ou d’actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle d’octroi d’accès. 
+Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une authentification multifacteur ou une vérification du risque de connexion utilisateur, avant d’autoriser l’accès à des machines virtuelles Linux dans Azure qui sont activées avec une connexion à Azure AD. Pour appliquer une stratégie d’accès conditionnel, vous devez sélectionner l’application « Connexion à une machine virtuelle Linux Microsoft Azure » à partir de l’option d’affectation d’applications ou d’actions cloud, puis utiliser le risque de connexion comme condition et/ou exiger une authentification multifacteur comme contrôle d’octroi d’accès. 
 
 > [!WARNING]
 > Le service Azure AD Multi-Factor Authentication activé/appliqué par utilisateur n’est pas pris en charge pour la connexion à une machine virtuelle.

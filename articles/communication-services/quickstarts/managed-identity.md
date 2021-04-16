@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ffda88da451e25b79112a7adf85026158bd27acc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e4b71cc889615fd4784f11c9edd77b44ef421d9e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492351"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105110732"
 ---
 # <a name="use-managed-identities"></a>Utiliser des identités managées
-Prise en main d’Azure Communication Services à l’aide d’identités managées Les bibliothèques de client Identity et SMS Communication Services prennent en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Prise en main d’Azure Communication Services à l’aide d’identités managées Les kits SDK Communication Services, Identity et SMS prennent en charge l’authentification Azure AD (Azure Active Directory) avec des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Ce guide de démarrage rapide vous montre comment autoriser l’accès aux bibliothèques de client Identité et SMS à partir d’un environnement Azure qui prend en charge les identités managées. Il explique également comment tester votre code dans un environnement de développement.
+Ce guide de démarrage rapide vous montre comment autoriser l’accès aux kits SDK Identity et SMS à partir d’un environnement Azure qui prend en charge les identités managées. Il explique également comment tester votre code dans un environnement de développement.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]

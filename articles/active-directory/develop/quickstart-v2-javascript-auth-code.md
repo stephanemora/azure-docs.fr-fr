@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103224909"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022804"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Démarrage rapide : Connexion d’utilisateurs et récupération d’un jeton d’accès dans une application monopage JavaScript à l’aide du flux de code d’authentification avec PKCE 
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous téléchargez et exécutez un exemple d
 
 Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour obtenir une illustration.
 
-Ce guide de démarrage rapide utilise MSAL.js 2.0 avec le flux de code d’autorisation. Pour accéder à un guide de démarrage rapide similaire qui utilise MSAL.js 1.0 avec le flux implicite, consultez [Démarrage rapide : Connexion d’utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
+Ce guide de démarrage rapide utilise MSAL.js v2 avec le flux du code d’autorisation. Pour obtenir un guide de démarrage rapide similaire qui utilise MSAL.js v1 avec le flux implicite, consultez [Démarrage rapide : Connecter des utilisateurs dans des applications monopages JavaScript](./quickstart-v2-javascript.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

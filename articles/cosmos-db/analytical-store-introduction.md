@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 77c84e4b4a8129a95ee18b4ae89b48a687e9fce1
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951587"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046210"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -112,8 +112,8 @@ Les contraintes suivantes s’appliquent aux données opérationnelles dans Azur
 
 * Un comportement différent est attendu en ce qui concerne les valeurs `null` explicites :
   * Les pools Spark dans Azure Synapse liront ces valeurs comme `0` (zéro).
-  * Les pools serverless SQL dans Azure Synapse liront ces valeurs comme `NULL` si le premier document de la collection a, pour la même propriété, une valeur avec un type de données différent de `integer`.
-  * Les pools serverless SQL dans Azure Synapse lisent ces valeurs comme `0` (zéro) si le premier document de la collection a, pour la même propriété, une valeur qui est un entier.
+  * Les pools serverless SQL dans Azure Synapse liront ces valeurs comme `NULL` si le premier document de la collection a, pour la même propriété, une valeur avec un type de données `non-numeric`.
+  * Les pools serverless SQL dans Azure Synapse liront ces valeurs comme `0` (zéro) si le premier document de la collection a, pour la même propriété, une valeur avec un type de données `numeric`.
 
 * Un comportement différent est attendu en ce qui concerne les colonnes manquantes :
   * Les pools Spark dans Azure Synapse représenteront ces colonnes comme `undefined`.

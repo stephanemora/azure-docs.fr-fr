@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 795b6f13913590041b463115c0be65a6201fedab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6caf72884ce2566ad25b7dd6d80b15d737bbe664
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97654062"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105543582"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -47,7 +47,7 @@ La validation du certificat client est effectuée par la passerelle VPN et se pr
 
 L’authentification Azure AD permet aux utilisateurs de se connecter à Azure à l’aide de leurs informations d’identification Azure Active Directory. L’authentification Azure AD native est uniquement prise en charge pour le protocole OpenVPN et Windows 10 et nécessite l’utilisation d’[Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554).
 
-Avec l’authentification Azure AD native, vous pouvez tirer parti de l’accès conditionnel d’Azure AD ainsi que des fonctionnalités d’authentification multifacteur (MFA) pour le VPN.
+Avec l’authentification Azure AD native, vous pouvez tirer parti de l’accès conditionnel d’Azure AD ainsi que des fonctionnalités d’authentification multifacteur pour le VPN.
 
 De façon générale, vous devez effectuer les étapes suivantes pour configurer l’authentification Azure AD :
 
@@ -61,9 +61,9 @@ De façon générale, vous devez effectuer les étapes suivantes pour configurer
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>S’authentifier à l’aide du serveur de domaine Active Directory (AD)
 
 L’authentification de domaine AD permet aux utilisateurs de se connecter à Azure à l’aide des informations d’identification du domaine de l’organisation. Un serveur RADIUS qui s’intègre avec le serveur AD est requis. Les organisations peuvent aussi exploiter un déploiement RADIUS existant.
-  
-Le serveur RADIUS peut être déployé localement ou sur votre réseau virtuel Azure. Lors de l’authentification, la passerelle VPN Azure permet le transfert direct et transfère les messages d’authentification entre le serveur RADIUS et l’appareil de connexion. Par conséquent, l’accessibilité de la passerelle au serveur RADIUS est importante. Si le serveur RADIUS est situé en local, une connexion VPN S2S au site local à partir d’Azure est requise pour établir l’accessibilité.  
-  
+
+Le serveur RADIUS peut être déployé localement ou sur votre réseau virtuel Azure. Lors de l’authentification, la passerelle VPN Azure permet le transfert direct et transfère les messages d’authentification entre le serveur RADIUS et l’appareil de connexion. Par conséquent, l’accessibilité de la passerelle au serveur RADIUS est importante. Si le serveur RADIUS est situé en local, une connexion VPN S2S au site local à partir d’Azure est requise pour établir l’accessibilité.
+
 Le serveur RADIUS peut aussi être intégré aux services de certificat AD. Cela vous permet d’utiliser le serveur RADIUS et le déploiement de certificat d’entreprise pour votre authentification par certificat P2S comme alternative à l’authentification par certificat Azure. L’avantage est que vous n’avez pas besoin de charger les certificats racine et les certificats révoqués sur Azure.
 
 Un serveur RADIUS permet également l’intégration avec d’autres systèmes d’identité externe. Cette opération ouvre de nombreuses options d’authentification pour les VPN P2S, notamment les options de multifacteur.

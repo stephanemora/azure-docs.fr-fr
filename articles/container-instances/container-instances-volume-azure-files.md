@@ -2,23 +2,27 @@
 title: Monter le volume Azure Files pour le groupe de conteneurs
 description: Découvrir comment monter un volume Azure Files pour conserver l’état avec Azure Container Instances
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 03/24/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 09a4d9922a4f9ba4296fc194d72c621fecb8342d
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97954972"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968898"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
 
 Par défaut, les conteneurs Azure Container Instances sont sans état. Si le conteneur est redémarré, se bloque ou s’arrête, son état est entièrement perdu. Pour conserver l’état au-delà de la durée de vie du conteneur, vous devez monter un volume à partir d’un stockage externe. Comme indiqué dans cet article, Azure Container Instances peut monter un partage de fichiers Azure créé avec [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offre des partages de fichiers complètement managés hébergés dans Stockage Azure qui sont accessibles via le protocole SMB (Server Message Block) standard. L'utilisation d'un partage de fichiers Azure avec Azure Container Instances offre des fonctionnalités de partage de fichiers similaires à l’utilisation d’un partage de fichiers Azure avec machines virtuelles Azure.
 
+## <a name="limitations"></a>Limites
+
+* Vous pouvez uniquement monter des partages Azure Files sur des conteneurs Linux. Pour plus d’informations sur les différences de prise en charge des fonctionnalités pour les groupes de conteneurs Linux et Windows, consultez la [présentation](container-instances-overview.md#linux-and-windows-containers).
+* Le montage du volume de partage de fichiers Azure nécessite que le conteneur Linux soit exécuté en tant que *racine*.
+* Les montages de volumes de partage de fichiers Azure sont limités à la prise en charge de CIFS.
+
 > [!NOTE]
-> Le montage d’un partage de fichiers Azure est actuellement limité aux conteneurs Linux. Recherchez les différences de plateforme actuelles dans la [vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
->
-> Le montage d’un partage Azure Files vers une instance de conteneur est similaire à un [montage de liaison](https://docs.docker.com/storage/bind-mounts/) Docker. Sachez que si vous montez un partage dans un répertoire de conteneur dans lequel des fichiers ou des répertoires existent, ces fichiers ou répertoires sont masqués par le montage et ne sont pas accessibles pendant l’exécution du conteneur.
+> Le montage d’un partage Azure Files vers une instance de conteneur est similaire à un [montage de liaison](https://docs.docker.com/storage/bind-mounts/) Docker. Si vous montez un partage dans un répertoire de conteneur dans lequel des fichiers ou des répertoires existent, le montage masque les fichiers ou les répertoires, les rendant inaccessibles pendant l’exécution du conteneur.
 >
 
 > [!IMPORTANT]

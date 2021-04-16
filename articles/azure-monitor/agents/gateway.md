@@ -5,18 +5,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: bae48dc78eb6973e5bce4d535091bc330c4c897f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0c26a7f53609193bf373c3f7f9b1037405d4e518
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509028"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122133"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
-
->[!NOTE]
->Microsoft Operations Management Suite (OMS) devient Microsoft Azure Monitor. Suite à cette transition, notre terminologie évolue. Cet article fait référence à la passerelle OMS en tant que passerelle Azure Log Analytics. 
->
 
 Cet article décrit comment configurer la communication avec Azure Automation et Azure Monitor à l’aide de la passerelle Log Analytics lorsque les ordinateurs qui sont directement connectés ou qui doivent être analysés par Operations Manager n’ont pas accès à Internet. 
 
@@ -89,6 +85,9 @@ La passerelle Log Analytics est disponible dans les langues suivantes :
 La passerelle Log Analytics prend uniquement en charge les versions 1.0, 1.1 et 1.2 du protocole TLS.  Elle ne prend pas en charge le protocole SSL.  Pour garantir la sécurité des données en transit vers Log Analytics, configurez la passerelle pour qu’elle utilise au moins la version 1.2 du protocole TLS. Les versions antérieures des protocoles SSL ou TLS sont vulnérables. Même si elles permettent la compatibilité descendante, évitez de les utiliser.  
 
 Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
+
+>[!NOTE]
+>La passerelle est un proxy de transfert qui ne stocke pas de données. Une fois que l’agent établit la connexion avec Azure Monitor, il suit le même processus de chiffrement avec ou sans la passerelle. Les données sont chiffrées entre le client et le point de terminaison. Comme la passerelle est simplement un tunnel, elle n’a pas la possibilité d’inspecter ce qui est envoyé.
 
 ### <a name="supported-number-of-agent-connections"></a>Nombre de connexion d’agent prises en charge
 

@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511012"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046808"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Démarrage rapide : Utiliser l’API Python pour exécuter un travail Azure Batch
 
@@ -28,7 +28,7 @@ Démarrez avec Azure Batch à l’aide de l’API Python pour exécuter un trava
 
 - Un compte Batch et un compte Stockage Azure lié. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md).
 
-- Les versions [Python](https://python.org/downloads) 2.7, 3.3 ou ultérieure, avec le gestionnaire de package [pip](https://pip.pypa.io/en/stable/installing/)
+- Les versions [Python](https://python.org/downloads) 2.7 ou 3.6, avec le gestionnaire de package [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

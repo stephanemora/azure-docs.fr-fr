@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 37ac292acc76c681ea38b2ae881ff8cd2ae5ec3c
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5f6e2474a533f5619d5544b674a87b6412323cc3
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502444"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166732"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Étiquetage automatique de données dans Azure Purview
 
@@ -96,7 +96,7 @@ Pour appliquer des étiquettes de confidentialité MIP à des ressources Azure d
 En étendant les étiquettes de confidentialité de MIP avec Azure Purview, les organisations peuvent découvrir, classer et analyser le niveau de confidentialité à travers un éventail plus large de sources de données. Le risque de conformité s’en trouve ainsi réduit.
 
 > [!NOTE]
-> Étant donné que Microsoft 365 et Azure Purview sont des services distincts, il est possible qu’ils soient déployés dans des régions différentes. Le nom des étiquettes et celui des types d’informations sensibles personnalisés sont considérés comme des données client. Ils sont conservés dans le même emplacement géographique par défaut pour préserver la confidentialité des données et éviter l’application des lois RGPD.
+> Étant donné que Microsoft 365 et Azure Purview sont des services distincts, il est possible qu’ils soient déployés dans des régions différentes. Le nom des étiquettes et celui des types d’informations sensibles personnalisés sont considérés comme des données client. Ils sont conservés dans le même emplacement géographique par défaut pour préserver la confidentialité des données et respecter la réglementation en matière de confidentialité.
 >
 > C’est la raison pour laquelle les étiquettes et les types d’informations sensibles personnalisés ne sont pas partagés par défaut avec Azure Purview. Votre consentement est nécessaire pour les utiliser dans Azure Purview.
 

@@ -1,18 +1,15 @@
 ---
 title: Architecture de la récupération d’urgence des machines virtuelles VMware dans Azure Site Recovery
 description: Cet article offre une vue d’ensemble de l’architecture et des composants utilisés pour configurer la reprise d’activité de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
-ms.openlocfilehash: 6b44f0e90acddeca69cc1668c8a05ee095c994f5
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 24333ccc5096e7f04f016444de2b0a7e13ae7bfa
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387075"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106579812"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 

@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3ade41c51cbb8065734e8957cfc8b9f0c22b2df3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 42dd34f0fe4006411f413002eb7c351646e72390
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98673364"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078959"
 ---
 # <a name="table-statistics-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Statistiques des tables pour le pool SQL dédié dans Azure Synapse Analytics
 
@@ -90,7 +90,7 @@ Toutefois, si votre pool SQL dédié ne contient qu’un seul pays/une seule ré
 
 Voici certaines recommandations pour la mise à jour des statistiques :
 
-|||
+| Attribut de statistiques | Recommandation|
 |-|-|
 | **Fréquence des mises à jour des statistiques**  | Classique : Quotidien </br> Après le chargement ou la transformation de données |
 | **Échantillonnage** |  Pour moins d’un milliard de lignes, utilisez le taux d’échantillonnage par défaut (20 %). </br> Pour plus d’un milliard de lignes, utilisez le taux d’échantillonnage de 2 %. |

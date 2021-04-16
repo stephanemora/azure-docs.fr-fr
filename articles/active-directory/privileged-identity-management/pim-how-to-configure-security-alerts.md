@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 26b519ce11747ab3374d9bd286800a6c93129019
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96180487"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565229"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurer les alertes de sécurité pour les rôles Azure AD dans Privileged Identity Management
 
@@ -50,9 +50,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Les administrateurs n’utilisent pas leurs rôles privilégiés
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | L’affectation de rôles privilégiés à des utilisateurs qui n’en ont pas besoin augmente la probabilité d’une attaque. Il est également plus facile pour les attaquants de passer inaperçus dans des comptes qui ne sont pas activement utilisés. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et retirez-les des rôles privilégiés dont ils n’ont pas besoin. |
 | **Prévention** | Affectez des rôles privilégiés uniquement aux utilisateurs qui en ont besoin sur le plan professionnel. </br>Planifiez des [révisions d’accès](pim-how-to-start-security-review.md) régulières pour vérifier que les utilisateurs ont toujours besoin de leur accès. |
@@ -62,9 +63,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Les rôles ne nécessitent pas l’authentification multifacteur pour l’activation
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | Sans authentification multifacteur, les utilisateurs compromis peuvent activer des rôles privilégiés. |
 | **Procédure de résolution** | Passez en revue la liste des rôles et [exigez l’authentification multifacteur](pim-how-to-change-default-settings.md) pour chaque rôle. |
 | **Prévention** | [Demander l’authentification multifacteur](pim-how-to-change-default-settings.md) pour chaque rôle.  |
@@ -72,17 +74,19 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>L’organisation ne dispose pas d’Azure AD Premium P2
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | L’organisation Azure AD actuelle ne dispose pas d’Azure AD Premium P2. |
 | **Procédure de résolution** | Passez en revue les informations sur les [éditions d’Azure AD](../fundamentals/active-directory-whatis.md). Effectuez une mise à niveau vers Azure AD Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Comptes périmés potentiels dans un rôle privilégié
 
-| | |
+Gravité : **Moyenne**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Moyenne |
 | **Pourquoi reçois-je cette alerte ?** | Comptes dans un rôle privilégié qui n’ont pas changé leur mot de passe au cours des 90 derniers jours. Ces comptes peuvent être des comptes partagés ou de service, qui ne sont pas gérés et qui sont vulnérables aux attaques. |
 | **Procédure de résolution** | Passez en revue les comptes de la liste. S’ils n’ont plus besoin d’un accès, supprimez-les de leurs rôles privilégiés. |
 | **Prévention** | Assurez-vous que les comptes partagés modifient régulièrement leur mot de passe fort en cas de changement des utilisateurs qui connaissent le mot de passe. </br>Passez régulièrement en revue les comptes avec des rôles privilégiés en utilisant des [révisions d’accès](pim-how-to-start-security-review.md) et supprimez les attributions de rôles qui ne sont plus nécessaires. |
@@ -91,9 +95,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Les rôles sont affectés en dehors de Privileged Identity Management
 
-| | |
+Gravité : **Élevée**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Élevé |
 | **Pourquoi reçois-je cette alerte ?** | Les affectations de rôle privilégié effectuées en dehors de Privileged Identity Management ne sont pas analysées correctement et peuvent indiquer une attaque active. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et retirez-les des rôles privilégiés qui leur ont été attribués en dehors de Privileged Identity Management. |
 | **Prévention** | Recherchez les endroits où des rôles privilégiés ont été assignés aux utilisateurs en dehors de Privileged Identity Management et interdisez toute future affectation à partir de là. |
@@ -101,9 +106,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="there-are-too-many-global-administrators"></a>Trop d'administrateurs généraux
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | Administrateur général est le rôle privilégié le plus élevé. Si un administrateur général est victime d’une attaque, la personne malveillante a accès à toutes ses autorisations, ce qui met en danger l’intégralité de votre système. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et supprimez ceux qui n’ont absolument pas besoin du rôle Administrateur général. </br>Affectez des rôles privilégiés inférieurs à ces utilisateurs. |
 | **Prévention** | Affectez aux utilisateurs le rôle le moins privilégié dont ils ont besoin. |
@@ -114,9 +120,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Les rôles sont activés trop fréquemment
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | Plusieurs activations au même rôle privilégié par le même utilisateur sont le signe d’une attaque. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et vérifiez que la [durée d’activation](pim-how-to-change-default-settings.md) de leur rôle privilégié est suffisante pour qu’ils puissent effectuer leurs tâches. |
 | **Prévention** | Vérifiez que la [durée d’activation](pim-how-to-change-default-settings.md) des rôles privilégiés est suffisante pour que les utilisateurs puissent effectuer leurs tâches.</br>[Exigez l’authentification multifacteur](pim-how-to-change-default-settings.md) pour les rôles privilégiés qui ont des comptes partagés par plusieurs administrateurs. |
@@ -149,9 +156,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Les administrateurs n’utilisent pas leurs rôles privilégiés
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | L’affectation de rôles privilégiés à des utilisateurs qui n’en ont pas besoin augmente la probabilité d’une attaque. Il est également plus facile pour les attaquants de passer inaperçus dans des comptes qui ne sont pas activement utilisés. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et retirez-les des rôles privilégiés dont ils n’ont pas besoin. |
 | **Prévention** | Affectez des rôles privilégiés uniquement aux utilisateurs qui en ont besoin sur le plan professionnel. </br>Planifiez des [révisions d’accès](pim-how-to-start-security-review.md) régulières pour vérifier que les utilisateurs ont toujours besoin de leur accès. |
@@ -161,9 +169,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Les rôles ne nécessitent pas l’authentification multifacteur pour l’activation
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | Sans authentification multifacteur, les utilisateurs compromis peuvent activer des rôles privilégiés. |
 | **Procédure de résolution** | Passez en revue la liste des rôles et [exigez l’authentification multifacteur](pim-how-to-change-default-settings.md) pour chaque rôle. |
 | **Prévention** | [Demander l’authentification multifacteur](pim-how-to-change-default-settings.md) pour chaque rôle.  |
@@ -171,17 +180,19 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>L’organisation ne dispose pas d’Azure AD Premium P2
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | L’organisation Azure AD actuelle ne dispose pas d’Azure AD Premium P2. |
 | **Procédure de résolution** | Passez en revue les informations sur les [éditions d’Azure AD](../fundamentals/active-directory-whatis.md). Effectuez une mise à niveau vers Azure AD Premium P2. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>Comptes périmés potentiels dans un rôle privilégié
 
-| | |
+Gravité : **Moyenne**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Moyenne |
 | **Pourquoi reçois-je cette alerte ?** | Comptes dans un rôle privilégié qui n’ont pas changé leur mot de passe au cours des 90 derniers jours. Ces comptes peuvent être des comptes partagés ou de service, qui ne sont pas gérés et qui sont vulnérables aux attaques. |
 | **Procédure de résolution** | Passez en revue les comptes de la liste. S’ils n’ont plus besoin d’un accès, supprimez-les de leurs rôles privilégiés. |
 | **Prévention** | Assurez-vous que les comptes partagés modifient régulièrement leur mot de passe fort en cas de changement des utilisateurs qui connaissent le mot de passe. </br>Passez régulièrement en revue les comptes avec des rôles privilégiés en utilisant des [révisions d’accès](pim-how-to-start-security-review.md) et supprimez les attributions de rôles qui ne sont plus nécessaires. |
@@ -190,9 +201,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>Les rôles sont affectés en dehors de Privileged Identity Management
 
-| | |
+Gravité : **Élevée**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Élevé |
 | **Pourquoi reçois-je cette alerte ?** | Les affectations de rôle privilégié effectuées en dehors de Privileged Identity Management ne sont pas analysées correctement et peuvent indiquer une attaque active. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et retirez-les des rôles privilégiés qui leur ont été attribués en dehors de Privileged Identity Management. |
 | **Prévention** | Recherchez les endroits où des rôles privilégiés ont été assignés aux utilisateurs en dehors de Privileged Identity Management et interdisez toute future affectation à partir de là. |
@@ -200,9 +212,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="there-are-too-many-global-administrators"></a>Trop d'administrateurs généraux
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | Administrateur général est le rôle privilégié le plus élevé. Si un administrateur général est victime d’une attaque, la personne malveillante a accès à toutes ses autorisations, ce qui met en danger l’intégralité de votre système. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et supprimez ceux qui n’ont absolument pas besoin du rôle Administrateur général. </br>Affectez des rôles privilégiés inférieurs à ces utilisateurs. |
 | **Prévention** | Affectez aux utilisateurs le rôle le moins privilégié dont ils ont besoin. |
@@ -213,9 +226,10 @@ Cette section répertorie toutes les alertes de sécurité pour les rôles Azure
 
 ### <a name="roles-are-being-activated-too-frequently"></a>Les rôles sont activés trop fréquemment
 
-| | |
+Gravité : **Faible**
+
+| | Description |
 | --- | --- |
-| **Niveau de gravité** | Faible |
 | **Pourquoi reçois-je cette alerte ?** | Plusieurs activations au même rôle privilégié par le même utilisateur sont le signe d’une attaque. |
 | **Procédure de résolution** | Passez en revue les utilisateurs de la liste et vérifiez que la [durée d’activation](pim-how-to-change-default-settings.md) de leur rôle privilégié est suffisante pour qu’ils puissent effectuer leurs tâches. |
 | **Prévention** | Vérifiez que la [durée d’activation](pim-how-to-change-default-settings.md) des rôles privilégiés est suffisante pour que les utilisateurs puissent effectuer leurs tâches.</br>[Exigez l’authentification multifacteur](pim-how-to-change-default-settings.md) pour les rôles privilégiés qui ont des comptes partagés par plusieurs administrateurs. |

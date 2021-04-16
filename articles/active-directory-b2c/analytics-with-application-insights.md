@@ -12,12 +12,12 @@ ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2cde44ddb49ede8002b8a25ab47ae92ccd602a9d
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101645923"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226368"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Suivre le comportement des utilisateurs dans Azure AD B2C à l’aide d’Application Insights
 
@@ -252,7 +252,7 @@ Pour répondre aux besoins de votre entreprise, vous souhaiterez peut-être enre
 
 ### <a name="manipulate-claims"></a>Manipuler les revendications
 
-Vous pouvez utiliser des [transformations de revendications d’entrée](custom-policy-trust-frameworks.md#manipulating-your-claims) pour modifier les revendications d’entrée ou en générer de nouvelles avant de les envoyer à Application Insights. Dans l’exemple suivant, le profil technique comprend la transformation des revendications d’entrée `CheckIsAdmin`.
+Vous pouvez utiliser des [transformations de revendications d’entrée](custom-policy-overview.md#manipulating-your-claims) pour modifier les revendications d’entrée ou en générer de nouvelles avant de les envoyer à Application Insights. Dans l’exemple suivant, le profil technique comprend la transformation des revendications d’entrée `CheckIsAdmin`.
 
 ```xml
 <TechnicalProfile Id="AppInsights-SignInComplete">
@@ -269,7 +269,7 @@ Vous pouvez utiliser des [transformations de revendications d’entrée](custom-
 
 ### <a name="add-events"></a>Ajouter des événements
 
-Pour ajouter un événement, créez un nouveau profil technique qui comprend le profil technique `AppInsights-Common`. Ajoutez ensuite le nouveau profil technique comme étape d’orchestration au [parcours utilisateur](custom-policy-trust-frameworks.md#orchestration-steps). Utilisez l’élément [Precondition](userjourneys.md#preconditions) pour déclencher l’événement quand vous êtes prêt. Par exemple, signalez l’événement uniquement quand des utilisateurs passent par l’authentification multifacteur.
+Pour ajouter un événement, créez un nouveau profil technique qui comprend le profil technique `AppInsights-Common`. Ajoutez ensuite le nouveau profil technique comme étape d’orchestration au [parcours utilisateur](custom-policy-overview.md#orchestration-steps). Utilisez l’élément [Precondition](userjourneys.md#preconditions) pour déclencher l’événement quand vous êtes prêt. Par exemple, signalez l’événement uniquement quand des utilisateurs passent par l’authentification multifacteur.
 
 ```xml
 <TechnicalProfile Id="AppInsights-MFA-Completed">

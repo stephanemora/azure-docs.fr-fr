@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0f09b4557f9bbf2f074948bd7c8dbd349cd397bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3456ecb1de4b6197b274f09a0d25c31c51f43ca0
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103488667"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107028840"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C
 
@@ -177,7 +177,7 @@ Vous pouvez définir un compte QQ en tant que fournisseur de revendications en l
 ## <a name="test-your-custom-policy"></a>Tester votre stratégie personnalisée
 
 1. Sélectionnez votre stratégie de partie de confiance, par exemple `B2C_1A_signup_signin`.
-1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](troubleshoot-custom-policies.md#troubleshoot-the-runtime). L’**URL de réponse** doit être `https://jwt.ms`.
+1. Pour **Application**, sélectionnez une application web que vous avez [précédemment inscrite](tutorial-register-applications.md). L’**URL de réponse** doit être `https://jwt.ms`.
 1. Sélectionnez le bouton **Exécuter maintenant**.
 1. Sur la page d'inscription ou de connexion, sélectionnez **QQ** pour vous connecter avec un compte QQ.
 

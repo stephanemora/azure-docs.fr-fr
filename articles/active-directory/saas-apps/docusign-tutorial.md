@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 03/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d8c94bfaeb3438ef54e745505e51442d6d391929
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92454692"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642984"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à DocuSign
 
@@ -45,8 +45,6 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * DocuSign prend en charge le provisionnement d’utilisateurs **juste-à-temps**.
 
 * DocuSign prend en charge le [provisionnement automatique d’utilisateurs](./docusign-provisioning-tutorial.md).
-
-* Une fois que vous avez configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Ajout de DocuSign à partir de la galerie
 
@@ -79,7 +77,7 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **DocuSign**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
@@ -97,8 +95,11 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
     
     | URL de réponse |
     |-------------|
-    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
-    |`https://<subdomain>.docusign.net/SAML/`|
+    | Production : |
+    | `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>` |
+    | `https://<subdomain>.docusign.net/SAML/` |
+    | Instance AQ :|
+    | `https://<SUBDOMAIN>.docusign.com/organizations/saml2` |
 
     > [!NOTE]
     > Ces valeurs entre crochets sont des espaces réservés. Remplacez ces valeurs par les valeurs réelles de l’URL de connexion, de l’identificateur et de l’URL de réponse. Ces détails sont expliqués dans la section « Afficher les points de terminaison SAML 2.0 » plus loin dans ce tutoriel.
@@ -235,7 +236,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 2. Accédez directement à l’URL de connexion DocuSign pour lancer le flux de connexion à partir de là.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette DocuSign dans le volet d’accès doit vous connecter automatiquement à l’application DocuSign pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+3. Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette DocuSign dans Mes applications doit vous connecter automatiquement à l’application DocuSign pour laquelle vous avez configuré l’authentification unique (SSO). Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -244,16 +245,16 @@ Une fois que vous avez configuré DocuSign, vous pouvez appliquer le contrôle d
 
 <!--Image references-->
 
-[50]: ./media/docusign-tutorial/tutorial_docusign_18.png
-[51]: ./media/docusign-tutorial/tutorial_docusign_21.png
-[52]: ./media/docusign-tutorial/tutorial_docusign_22.png
-[53]: ./media/docusign-tutorial/tutorial_docusign_23.png
-[54]: ./media/docusign-tutorial/tutorial_docusign_19.png
-[55]: ./media/docusign-tutorial/tutorial_docusign_20.png
-[56]: ./media/docusign-tutorial/tutorial_docusign_24.png
-[57]: ./media/docusign-tutorial/tutorial_docusign_25.png
-[58]: ./media/docusign-tutorial/tutorial_docusign_26.png
-[59]: ./media/docusign-tutorial/tutorial_docusign_27.png
-[60]: ./media/docusign-tutorial/tutorial_docusign_28.png
-[61]: ./media/docusign-tutorial/tutorial_docusign_29.png
-[62]: ./media/docusign-tutorial/tutorial_docusign_30.png
+[50]: ./media/docusign-tutorial/tutorial-docusign-18.png
+[51]: ./media/docusign-tutorial/tutorial-docusign-21.png
+[52]: ./media/docusign-tutorial/tutorial-docusign-22.png
+[53]: ./media/docusign-tutorial/tutorial-docusign-23.png
+[54]: ./media/docusign-tutorial/tutorial-docusign-19.png
+[55]: ./media/docusign-tutorial/tutorial-docusign-20.png
+[56]: ./media/docusign-tutorial/tutorial-docusign-24.png
+[57]: ./media/docusign-tutorial/tutorial-docusign-25.png
+[58]: ./media/docusign-tutorial/tutorial-docusign-26.png
+[59]: ./media/docusign-tutorial/tutorial-docusign-27.png
+[60]: ./media/docusign-tutorial/tutorial-docusign-28.png
+[61]: ./media/docusign-tutorial/tutorial-docusign-29.png
+[62]: ./media/docusign-tutorial/tutorial-docusign-30.png

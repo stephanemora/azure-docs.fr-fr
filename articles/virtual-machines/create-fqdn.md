@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2021
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42c53e72de7f6b2943086544f607042957f4b849
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: b010070b7a45c24037c6de4648574c01b017d759
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220077"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107395"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Créer un nom de domaine complet dans le portail Azure pour une machine virtuelle Linux
 
@@ -27,7 +27,7 @@ Cet article suppose que vous avez déjà créé une machine virtuelle. Si néces
 1. Sélectionnez votre machine virtuelle dans le portail. 
 1. Dans le menu de gauche, sélectionnez **Propriétés**.
 1. Sous **Adresse IP publique\Étiquette du nom DNS**, sélectionnez votre adresse IP.
-2. Sous **Étiquette du nom DNA**, entrez le préfixe à utiliser.
+2. Sous **Étiquette du nom DNS**, entrez le préfixe à utiliser.
 3. En haut de la page, sélectionnez **Enregistrer**.
 4. Sélectionnez **Vue d'ensemble** dans le menu de gauche pour revenir à la vue d'ensemble de la machine virtuelle.
 5. Vérifiez que le **nom DNS** s’affiche correctement. 

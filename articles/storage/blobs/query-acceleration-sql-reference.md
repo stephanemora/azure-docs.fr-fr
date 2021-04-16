@@ -10,12 +10,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ca4fe1410c18357a1fab10cc9c971cf3a81542fd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95908776"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105963255"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>Informations de référence sur l’accélération des requêtes en langage SQL
 
@@ -122,8 +122,8 @@ Le langage SQL d’accélération des requêtes prend en charge les fonctions d
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Transforme les caractères d'une expression en minuscules en caractères majuscules.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Retourne une partie d’une expression de type caractère, binaire, texte ou image dans SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Supprime le caractère espace char(32) ou d’autres caractères spécifiés au début et à la fin d’une chaîne.|
-|LEADING    |Description|
-|TRAILING    |Description|
+|LEADING    |Supprime l’espace char(32) ou d’autres caractères spécifiés au début d’une chaîne.|
+|TRAILING    |Supprime l’espace char(32) ou d’autres caractères spécifiés à la fin d’une chaîne.|
 
 Voici quelques exemples :
 

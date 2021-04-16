@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 04/01/2021
+ms.openlocfilehash: b1111caf2eaab1114371cbfed1e929afcff20898
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956252"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219363"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Comment créer des plans pour une offre de machine virtuelle
 
@@ -154,7 +154,9 @@ Les offres privées ne sont pas prises en charge avec les abonnements Azure sous
 
 Si vous comptez utiliser votre machine virtuelle uniquement de manière indirecte quand elle est référencée par un autre modèle de solution ou une application managée, cochez cette case pour publier la machine virtuelle tout en la masquant aux yeux des clients susceptibles de la rechercher ou d’y accéder directement.
 
-Les plans masqués ne prennent pas en charge les liens de préversion.
+Tout client Azure peut déployer l’offre à l’aide de PowerShell ou de l’interface CLI.  Si vous souhaitez mettre cette offre à disposition d’un nombre limité de clients, définissez le plan sur **Privé**. 
+
+Les plans masqués ne génèrent pas de liens d’aperçu. Toutefois, vous pouvez les tester [en procédant comme suit](azure-vm-create-faq.md#how-do-i-test-a-hidden-preview-image). 
 
 Si vous effectuez des modifications, sélectionnez **Enregistrer le brouillon** avant de passer à l’onglet suivant du menu de navigation gauche **Configuration technique**.
 

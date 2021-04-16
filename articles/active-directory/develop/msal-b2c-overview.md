@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: 8ff54a40120bed040ec25fb3f18385dba3b0bf11
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 5168dfb531c40a3efeef978abf65473ee59d2921
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063659"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255594"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Utiliser la bibliothèque d’authentification Microsoft pour JavaScript pour travailler avec Azure AD B2C
 
@@ -215,6 +215,6 @@ Lorsqu’un utilisateur sélectionne **Mot de passe oublié**, votre application
 
 En savoir plus sur ces concepts Azure AD B2C :
 
-- [Flux d’utilisateurs](../../active-directory-b2c/tutorial-create-user-flows.md)
-- [Stratégies personnalisées](../../active-directory-b2c/custom-policy-get-started.md)
+- [Flux d’utilisateurs](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-user-flow)
+- [Stratégies personnalisées](../../active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Personnalisation de l’expérience utilisateur](../../active-directory-b2c/configure-user-input.md)

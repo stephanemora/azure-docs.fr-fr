@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 120335a7bce83bc3d4771ea64f665d67c7d1079a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d41b06bb0c2b26776f9d9c195c3a713e4dae9f82
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98572797"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626626"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -40,7 +40,7 @@ Il existe une file d’attente des éléments de travail par hub de tâches dans
 
 ### <a name="control-queues"></a>File(s) d’attente de contrôle
 
-Il existe plusieurs *files d’attente de contrôle* par hub de tâches dans Fonctions durables. Une *file d’attente de contrôle* est plus sophistiquée et complexe que la file d’attente des éléments de travail. Les files d’attente de contrôle servent à déclencher les fonctions d’orchestrateur ou d’entité avec état. Étant donné que les instances de fonction d’orchestrateur ou d’entité sont des singletons avec état, il est impossible d’utiliser un modèle concurrent de contrôle serveur consommateur pour distribuer la charge sur les machines virtuelles. À la place, la charge des messages d’orchestrateur est d’entité est équilibrée sur les files d’attente de contrôle. Vous trouverez plus d’informations sur ce comportement dans les sections suivantes.
+Il existe plusieurs *files d’attente de contrôle* par hub de tâches dans Fonctions durables. Une *file d’attente de contrôle* est plus sophistiquée et complexe que la file d’attente des éléments de travail. Les files d’attente de contrôle servent à déclencher les fonctions d’orchestrateur ou d’entité avec état. Dans la mesure où les instances de fonction d’orchestrateur et d’entité sont des singletons avec état, il est important que chaque orchestration ou entité soit traitée uniquement par un seul Worker à la fois. Pour ce faire, chaque instance de l’orchestration ou entité est affectée à une seule file d’attente de contrôle. Ces files d’attente de contrôle font l’objet d’un équilibrage de la charge entre les Workers pour que chaque file d’attente soit traitée uniquement par un seul Worker à la fois. Vous trouverez plus d’informations sur ce comportement dans les sections suivantes.
 
 Les files d’attente de contrôle contiennent différents types de message couvrant le cycle de vie de l’orchestration, tels que des [messages de contrôle d’orchestrateurs](durable-functions-instance-management.md), des messages de *réponse* de fonctions d’activité et des messages de minuteurs. Au maximum, 32 messages seront enlevés d’une file d’attente de contrôle lors d’une seule interrogation. Ces messages contiennent des données de charge utile ainsi que des métadonnées, et notamment l’instance d’orchestration de destination. Si plusieurs messages enlevés de la file d’attente sont prévus pour la même instance d’orchestration, ils seront traités en tant que lot.
 
@@ -56,7 +56,7 @@ Le délai maximal d’interrogation est configurable via la propriété `maxQueu
 ### <a name="orchestration-start-delays"></a>Retards de début de l’orchestration
 Les instances d’orchestration sont démarrées en plaçant un message `ExecutionStarted` dans l’une des files d’attente de contrôle du hub de tâches. Dans certaines conditions, vous pouvez observer des délais de plusieurs secondes entre le moment où l’exécution d’une orchestration est planifiée et le moment où elle commence à s’exécuter. Pendant ce laps de temps, l’instance d’orchestration reste dans l’état `Pending`. Il existe deux causes possibles pour ce retard :
 
-1. **Files d’attente de contrôle en backlog** : Si la file d’attente de contrôle de cette instance contient un grand nombre de messages, cela peut prendre du temps avant que le message `ExecutionStarted` ne soit reçu et traité par le runtime. Les backlogs de messages peuvent se produire lorsque des orchestrations traitent un grand nombre d’événements simultanément. Les événements qui se trouvent dans la file d’attente de contrôle incluent les événements de début d’orchestration, les saisies semi-automatiques d’activité, les minuteurs durables, l’achèvement et les événements externes. Si ce retard se produit dans des circonstances normales, envisagez de créer un hub de tâches avec un plus grand nombre de partitions. La configuration d’un plus grand nombre de partitions entraîne la création par le runtime d’autres files d’attente de contrôle pour la distribution de la charge.
+1. **Files d’attente de contrôle en backlog** : Si la file d’attente de contrôle de cette instance contient un grand nombre de messages, cela peut prendre du temps avant que le message `ExecutionStarted` ne soit reçu et traité par le runtime. Les backlogs de messages peuvent se produire lorsque des orchestrations traitent un grand nombre d’événements simultanément. Les événements qui se trouvent dans la file d’attente de contrôle incluent les événements de début d’orchestration, les saisies semi-automatiques d’activité, les minuteurs durables, l’achèvement et les événements externes. Si ce retard se produit dans des circonstances normales, envisagez de créer un hub de tâches avec un plus grand nombre de partitions. La configuration d’un plus grand nombre de partitions entraîne la création par le runtime d’autres files d’attente de contrôle pour la distribution de la charge. Chaque partition correspond à une relation de type 1:1 avec une file d’attente de contrôle et 16 partitions au maximum.
 
 2. **Retards d’interrogation de secours** : Une autre cause courante des retards d’orchestration est le [comportement d’interrogation de secours précédemment décrit pour les files d’attente de contrôle](#queue-polling). Toutefois, ce retard est attendu uniquement en cas de Scale-out d’une application sur plusieurs instances. S’il n’existe qu’une seule instance d’application ou si l’instance d’application qui démarre l’orchestration est également la même instance qui interroge la file d’attente de contrôle cible, il n’y aura pas de retard d’interrogation de la file d’attente. Les retards d’interrogation de secours peuvent être réduits en mettant à jour les paramètres **host.json**, comme décrit précédemment.
 
@@ -94,7 +94,12 @@ S’il n’est pas spécifié, le compte de stockage `AzureWebJobsStorage` par d
 
 ## <a name="orchestrator-scale-out"></a>Mise à l’échelle de l’orchestrateur
 
-Les fonctions d’activité sont sans état et automatiquement mises à l’échelle par l’ajout de machines virtuelles. Les fonctions d’orchestrateur et les entités sont, quant à elles, *partitionnées* sur une ou plusieurs files d’attente de contrôle. Le nombre de files d’attente de contrôle est défini dans le fichier **host.json**. L’exemple suivant d’extrait de code host.json définit la propriété `durableTask/storageProvider/partitionCount` (ou `durableTask/partitionCount`dans Durable Functions 1.x) sur `3`.
+Bien qu’il soit possible d’effectuer un scale-out à l’infini des fonctions d’activité en ajoutant plus de machines virtuelles de manière élastique, chaque instance d’orchestrateur et entité est contrainte d’occuper une seule partition, et le nombre maximal de partitions est limité par le paramètre `partitionCount` dans votre `host.json`. 
+
+> [!NOTE]
+> En règle générale, les fonctions d’orchestrateur sont conçues pour être légères et elles ne requièrent pas une grande puissance de calcul. Il n’est donc pas nécessaire de créer un grand nombre de partitions de file d’attente de contrôle pour obtenir un haut débit pour les orchestrations. Le travail lourd doit être principalement effectué dans les fonctions d’activité sans état, qui peuvent être mises à l’échelle à l’infini.
+
+Le nombre de files d’attente de contrôle est défini dans le fichier **host.json**. L’exemple suivant d’extrait de code host.json définit la propriété `durableTask/storageProvider/partitionCount` (ou `durableTask/partitionCount`dans Durable Functions 1.x) sur `3`. Notez qu’il existe autant de files d’attente de contrôle que de partitions.
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2.x
 
@@ -124,11 +129,25 @@ Les fonctions d’activité sont sans état et automatiquement mises à l’éch
 
 Un hub de tâches peut être configuré avec 1 à 16 partitions. Si ce paramètre n’est pas spécifié, le nombre de partitions par défaut s’élève à **4**.
 
-Durant la mise à l’échelle sur plusieurs instances de l’hôte de fonction (généralement sur différentes machines virtuelles), chaque instance acquiert un verrou sur l’une des files d’attente de contrôle. Ces verrous sont implémentés en interne comme des baux de stockage blob et ils garantissent qu’une instance d’orchestration ou une entité s’exécute uniquement sur une seule instance d’hôte à la fois. Si un hub de tâches est configuré avec trois files d’attente de contrôle, la charge des instances d’orchestration et des entités peut être équilibrée sur trois machines virtuelles. Il est possible d’ajouter des machines virtuelles supplémentaires pour augmenter la capacité d’exécution de la fonction d’activité.
+Dans les scénarios à faible trafic, votre application fait l’objet d’un scale-in. Ainsi, les partitions sont gérées par un petit nombre de Workers. Prenons l’exemple du diagramme ci-dessous.
+
+![Diagramme des orchestrations d’un scale-in](./media/durable-functions-perf-and-scale/scale-progression-1.png)
+
+Dans le diagramme précédent, nous voyons que la charge des orchestrateurs 1 à 6 est équilibrée entre les partitions. De même, les partitions, tout comme les activités, font l’objet d’un équilibrage de charge entre les Workers. La charge des partitions est équilibrée entre les Workers, quel que soit le nombre d’orchestrateurs qui démarrent.
+
+Si vous utilisez les plans Consommation ou Élastique Premium d’Azure Functions, ou si la mise à l’échelle automatique basée sur l’équilibrage de charge est configurée, davantage de Workers sont alloués au fur et à mesure que le trafic augmente, ce qui finit par entraîner un équilibrage de la charge entre tous les Workers. Si nous continuons le scale-out, chaque partition finit par être gérée par un seul Worker. En revanche, les activités continuent de faire l’objet d’un équilibrage de charge parmi tous les Workers. Cela est illustré dans l’image ci-dessous.
+
+![Premier diagramme d’orchestrations faisant l’objet d’un scale-out](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+La limite supérieure du nombre maximal d’orchestrations _actives_ simultanées à *un moment donné* est égale au nombre de Workers alloués à votre application _multiplié_ par la valeur de `maxConcurrentOrchestratorFunctions`. Cette limite supérieure peut être rendue plus précise quand vos partitions font l’objet d’un scale-out complet parmi les Workers. Quand un scale-out complet est effectué et que chaque Worker n’a qu’une seule instance d’hôte Functions, le nombre maximal d’instances d’orchestrateur simultanées _actives_ est égal au nombre de partitions _multiplié_ par la valeur de `maxConcurrentOrchestratorFunctions`. Notre image ci-dessous illustre un scénario de scale-out complet où des orchestrateurs supplémentaires sont ajoutés. Certains d’entre eux sont inactifs, et sont représentés en gris.
+
+![Deuxième diagramme d’orchestrations faisant l’objet d’un scale-out](./media/durable-functions-perf-and-scale/scale-progression-3.png)
+
+Durant le scale-out, des verrous de file d’attente de contrôle peuvent être redistribués parmi les instances d’hôte Functions pour garantir une distribution uniforme des partitions. Ces verrous sont implémentés de manière interne en tant que baux du service Stockage Blob. Ils permettent de garantir que chaque instance de l’orchestration ou entité s’exécute sur une seule instance d’hôte à la fois. Si un hub de tâches est configuré avec trois partitions (et donc trois files d’attente de contrôle), les instances de l’orchestration et les entités peuvent faire l’objet d’un équilibrage de charge sur les trois instances d’hôte détenant un bail. Il est possible d’ajouter des machines virtuelles supplémentaires pour augmenter la capacité d’exécution de la fonction d’activité.
 
 Le diagramme suivant illustre la façon dont l’hôte Azure Functions interagit avec les entités de stockage dans un environnement mis à l’échelle.
 
-![Diagramme de mise à l’échelle](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Diagramme de mise à l’échelle](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 Comme indiqué dans le diagramme précédent, toutes les machines virtuelles sont en concurrence pour les messages de la file d’attente des éléments de travail. Toutefois, seules trois machines virtuelles peuvent acquérir les messages des files d’attente de contrôle, et chacune d’elles verrouille une file d’attente de contrôle.
 

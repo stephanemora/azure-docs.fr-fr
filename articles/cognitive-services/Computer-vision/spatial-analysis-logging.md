@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bd35062ca1a5b3218a9af1fbd28fe8e7d7073c07
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1f03f99e6394c3939855c73548e8fb917f8696bc
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077616"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286026"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Télémétrie et résolution des problèmes
 
@@ -39,7 +39,7 @@ xhost +
 
 ## <a name="collect-system-health-telemetry"></a>Collecter les données de télémétrie d’intégrité du système
 
-Telegraf est une image open source qui fonctionne avec l’analyse spatiale, et est disponible dans le registre de conteneurs Microsoft. Elle prend les entrées suivantes et les envoie à Azure Monitor. Le module Telegraf peut être généré avec les entrées et sorties personnalisées souhaitées. La configuration du module Telegraf dans l’analyse spatiale fait partie du manifeste de déploiement (lien ci-dessous). Ce module est facultatif et peut être supprimé du manifeste si vous n’en avez pas besoin. 
+Telegraf est une image open source qui fonctionne avec l’analyse spatiale, et est disponible dans Microsoft Container Registry. Elle prend les entrées suivantes et les envoie à Azure Monitor. Le module Telegraf peut être généré avec les entrées et sorties personnalisées souhaitées. La configuration du module Telegraf dans l’analyse spatiale fait partie du manifeste de déploiement (lien ci-dessous). Ce module est facultatif et peut être supprimé du manifeste si vous n’en avez pas besoin. 
 
 Entrées : 
 1. Métriques d’analyse spatiale
@@ -129,7 +129,7 @@ Vous pouvez utiliser l’outil en ligne de commande `iotedge` pour vérifier l�
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Collecter les fichiers journaux avec le conteneur de diagnostics
 
-L’analyse spatiale génère des journaux de débogage Docker que vous pouvez utiliser pour diagnostiquer les problèmes d’exécution ou inclure dans les tickets de support. Le module de diagnostics d’analyse spatiale est disponible au téléchargement dans le Registre de conteneurs Microsoft. Dans le fichier de déploiement du manifeste de votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189), recherchez le module *diagnostics*.
+L’analyse spatiale génère des journaux de débogage Docker que vous pouvez utiliser pour diagnostiquer les problèmes d’exécution ou inclure dans les tickets de support. Le module de diagnostics d’analyse spatiale est disponible au téléchargement dans Microsoft Container Registry. Dans le fichier de déploiement du manifeste de votre [appareil Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [ordinateur de bureau](https://go.microsoft.com/fwlink/?linkid=2152270) ou [machine virtuelle Azure avec GPU](https://go.microsoft.com/fwlink/?linkid=2152189), recherchez le module *diagnostics*.
 
 Dans la section « env », ajoutez la configuration suivante :
 
@@ -210,7 +210,7 @@ Dans le portail IoT Edge, sélectionnez votre appareil, puis le module **Diagnos
 }
 ```
 
-### <a name="uploading-spatial-analysis-logs"></a>Téléchargement des journaux d’analyse spatiale
+### <a name="uploading-spatial-analysis-logs"></a>Chargement des journaux d’analyse spatiale
 
 Les journaux sont téléchargés à la demande à l’aide de la méthode IoT Edge `getRTCVLogs`, dans le module `diagnostics`. 
 
@@ -402,7 +402,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 | `Enable-HcsSupportAccess` | Génère des informations d’identification d’accès pour démarrer une session de support. |
 
 
-## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Comment obtenir un ticket de support pour l’analyse spatiale 
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Guide pratique pour envoyer un ticket de support pour l’analyse spatiale 
 
 Si vous avez besoin d’une prise en charge supplémentaire pour trouver une solution à un problème que vous rencontrez avec le conteneur d’analyse spatiale, procédez comme suit pour remplir et envoyer un ticket de support. Notre équipe reviendra vers vous avec des conseils supplémentaires. 
 

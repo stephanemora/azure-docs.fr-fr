@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/30/2021
+ms.openlocfilehash: 491d5f14cc8f456d228a5bc6efaa6686575979c1
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557010"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078738"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Créer des workflows avec état et sans état dans Visual Studio Code à l’aide de l’extension Azure Logic Apps (préversion)
 
@@ -101,8 +101,8 @@ Pour générer et exécuter localement votre projet d’application logique dans
 1. Enregistrez la chaîne de connexion à un emplacement sûr. Après avoir créé votre projet d’application logique dans Visual Studio Code, vous devez ajouter la chaîne au fichier **local.settings.json** situé dans le dossier du niveau racine de votre projet.
 
    > [!IMPORTANT]
-   > Si vous envisagez un déploiement sur un conteneur Docker, vous avez également besoin d’ajouter cette chaîne de connexion au fichier Docker que vous utilisez pour le déploiement.
-
+   > Si vous envisagez un déploiement sur un conteneur Docker, vous devez également utiliser cette chaîne de connexion avec le fichier Docker que vous utilisez pour le déploiement. Pour les scénarios de production, veillez à protéger et à sécuriser ces secrets et informations sensibles, par exemple en utilisant un coffre de clés.
+  
 ### <a name="tools"></a>Outils
 
 * [Visual Studio Code versions 1.30.1 (janvier 2019) ou ultérieures](https://code.visualstudio.com/), qui est gratuit. Téléchargez et installez aussi ces outils pour Visual Studio Code si vous ne les avez pas encore :
@@ -304,6 +304,9 @@ Avant de pouvoir créer votre application logique, créez un projet local afin d
          }
       }
       ```
+
+      > [!IMPORTANT]
+      > Pour les scénarios de production, veillez à protéger et à sécuriser ces secrets et informations sensibles, par exemple en utilisant un coffre de clés.
 
    1. Quand vous avez terminé, veillez à enregistrer vos modifications.
 
@@ -1205,7 +1208,10 @@ Si vous ne maîtrisez pas Docker, passez en revue les rubriques suivantes :
 
 * Un fichier Docker pour le workflow que vous utilisez lors de la génération de votre conteneur Docker
 
-  Par exemple, cet exemple de fichier Docker déploie une application logique. Le fichier spécifie la chaîne de connexion qui contient la clé d’accès du compte de stockage Azure qui a été utilisé pour la publication de l’application logique sur le portail Azure. Pour trouver cette chaîne, consultez [Obtenir la chaîne de connexion du compte de stockage](#find-storage-account-connection-string).
+  Par exemple, cet exemple de fichier Docker déploie une application logique et spécifie la chaîne de connexion qui contient la clé d’accès du compte de stockage Azure qui a été utilisé pour la publication de l’application logique sur le portail Azure. Pour trouver cette chaîne, consultez [Obtenir la chaîne de connexion du compte de stockage](#find-storage-account-connection-string). Pour plus d’informations, consultez [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) (Meilleures pratiques pour l’écriture de fichiers Docker).
+  
+  > [!IMPORTANT]
+  > Pour les scénarios de production, veillez à protéger et à sécuriser ces secrets et informations sensibles, par exemple en utilisant un coffre de clés. Pour plus d’informations sur les fichiers Docker en particulier, consultez [Build images with BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/) (Construire des images avec BuildKit) et [Manage sensitive data with Docker Secrets](https://docs.docker.com/engine/swarm/secrets/) (Gérer les données sensibles avec Docker Secrets).
 
    ```text
    FROM mcr.microsoft.com/azure-functions/node:3.0
@@ -1219,8 +1225,6 @@ Si vous ne maîtrisez pas Docker, passez en revue les rubriques suivantes :
 
    RUN cd /home/site/wwwroot
    ```
-
-   Pour plus d’informations, consultez [Best practices for writing Docker files](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) (Meilleures pratiques pour l’écriture de fichiers Docker).
 
 <a name="find-storage-account-connection-string"></a>
 
