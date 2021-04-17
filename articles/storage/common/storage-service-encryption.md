@@ -4,17 +4,17 @@ description: Le Stockage Azure protège vos données en les chiffrant automatiqu
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 0688e14b77d885132d6c3fbaa44bed117cc7cf9d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180358"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105641125"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du Stockage Azure pour les données au repos
 
@@ -65,50 +65,9 @@ Le chiffrement au niveau du service prend en charge l’utilisation de clés gé
 
 Pour plus d’informations sur la création d’un compte de stockage qui permet le chiffrement de l’infrastructure, consultez [Créer un compte de stockage avec le chiffrement d’infrastructure activé à des fins de double chiffrement des données](infrastructure-encryption-enable.md).
 
-## <a name="encryption-scopes-for-blob-storage-preview"></a>Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)
-
-Par défaut, un compte de stockage est chiffré avec une clé étendue au compte de stockage. Vous pouvez choisir d’utiliser des clés gérées par Microsoft ou des clés gérées par le client stockées dans Azure Key Vault pour protéger et contrôler l’accès à la clé qui chiffre vos données.
-
-Les étendues de chiffrement vous permettent de gérer le chiffrement au niveau d’un objet blob ou d’un conteneur individuel. Vous pouvez utiliser des étendues de chiffrement pour créer des limites sécurisées entre les données qui résident dans le même compte de stockage mais qui appartiennent à des clients différents.
-
-Vous pouvez créer une ou plusieurs étendues de chiffrement pour un compte de stockage à l’aide du fournisseur de ressources de stockage Azure. Lorsque vous créez une étendue de chiffrement, vous spécifiez si l’étendue est protégée par une clé gérée par Microsoft ou par une clé gérée par le client qui est stockée dans Azure Key Vault. Différentes étendues de chiffrement sur le même compte de stockage peuvent utiliser des clés gérées par Microsoft ou par le client.
-
-Une fois que vous avez créé une étendue de chiffrement, vous pouvez spécifier cette étendue de chiffrement sur une requête de création d’un conteneur ou d’un objet blob. Pour plus d’informations sur la création d’une étendue de chiffrement, consultez [Créer et gérer des étendues de chiffrement (version préliminaire)](../blobs/encryption-scope-manage.md).
-
-> [!NOTE]
-> Les étendues de chiffrement ne sont pas prises en charge avec les comptes de stockage géographiquement redondant avec accès en lecture (RA-GRS) et de stockage géographiquement redondant interzone avec accès en lecture (RA-GZRS) dans le cadre de la préversion.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> Cette version préliminaire est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
->
-> Pour éviter les coûts inattendus, veillez à désactiver les étendues de chiffrement dont vous n’avez pas besoin.
-
-### <a name="create-a-container-or-blob-with-an-encryption-scope"></a>Créer un conteneur ou un blob avec une étendue de chiffrement
-
-Les objets blob créés dans le cadre d’une étendue de chiffrement sont chiffrés avec la clé spécifiée pour cette étendue. Vous pouvez spécifier une étendue de chiffrement pour un objet blob individuel lorsque vous le créez l’objet, ou vous pouvez spécifier une étendue de chiffrement par défaut lorsque vous créez un conteneur. Quand une étendue de chiffrement par défaut est spécifiée au niveau d’un conteneur, tous les objets blob de ce conteneur sont chiffrés avec la clé associée à l’étendue par défaut.
-
-Lorsque vous créez un objet blob dans un conteneur qui a une étendue de chiffrement par défaut, vous pouvez spécifier une étendue de chiffrement qui remplace l’étendue de chiffrement par défaut si le conteneur est configuré pour autoriser les remplacements de l’étendue de chiffrement par défaut. Pour empêcher les remplacements de l’étendue de chiffrement par défaut, configurez le conteneur pour refuser les remplacements pour un objet blob individuel.
-
-Les opérations de lecture sur un objet blob qui appartient à une étendue de chiffrement se produisent de façon transparente, tant que l’étendue de chiffrement n’est pas désactivée.
-
-### <a name="disable-an-encryption-scope"></a>Désactiver une étendue de chiffrement
-
-Lorsque vous désactivez une étendue de chiffrement, toutes les opérations de lecture ou d’écriture ultérieures effectuées avec l’étendue de chiffrement échouent avec le code d’erreur HTTP 403 (Interdit). Si vous réactivez l’étendue de chiffrement, les opérations de lecture et d’écriture se poursuivent normalement.
-
-Quand une étendue de chiffrement est désactivée, vous n’êtes plus facturé pour celle-ci. Désactivez les étendues de chiffrement qui ne sont pas nécessaires pour éviter les frais inutiles.
-
-Si votre étendue de chiffrement est protégée par des clés gérées par le client pour Azure Key Vault, vous pouvez également supprimer la clé associée dans le coffre de clés afin de désactiver l’étendue de chiffrement. Gardez à l’esprit que les clés gérées par le client dans Azure Key Vault sont protégées par la suppression réversible et la protection de la suppression, et une clé supprimée est soumise au comportement défini par ces propriétés. Pour plus d'informations, consultez les rubriques suivantes dans la documentation d’Azure Key Vault :
-
-- [Guide pratique pour utiliser la suppression réversible avec Power​Shell](../../key-vault/general/key-vault-recovery.md)
-- [Guide pratique pour utiliser la suppression réversible avec Azure CLI](../../key-vault/general/key-vault-recovery.md)
-
-> [!NOTE]
-> Il n’est pas possible de supprimer une étendue de chiffrement.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/general/overview.md)
 - [Clés gérées par le client pour le chiffrement du Stockage Azure](customer-managed-keys-overview.md)
-- [Étendues de chiffrement pour le stockage d’objets blob (version préliminaire)](../blobs/encryption-scope-overview.md)
+- [Étendues de chiffrement pour le stockage d’objets blob](../blobs/encryption-scope-overview.md)
+- [Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](../blobs/encryption-customer-provided-keys.md)

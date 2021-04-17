@@ -3,7 +3,7 @@ title: Exemple PowerShell - Répertorier des informations étendues pour les app
 description: Exemple PowerShell qui répertorie toutes les applications de proxy d’application Azure Active Directory (Azure AD), ainsi que l’ID d’application (AppId), le nom (DisplayName), l’URL externe (ExternalUrl), l’URL interne (InternalUrl) et le type d’authentification (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ccd0c7be7fd0dd533028faa0dc2bbdad30d74c79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b3234a13a0e3fac760a899ce66e7faa7e7b642c
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258691"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377359"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Obtenir toutes les applications de proxy d’application et répertorier les informations étendues
 

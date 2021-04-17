@@ -5,54 +5,51 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 0f028f264d02d7300bb888e2053708ef6b06ea51
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b1254e7db0e62d08ea2a3d6d30f2abd379675c55
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721560"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078313"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Cet article explique comment configurer l’authentification pour Azure App Service ou Azure Functions afin que votre application utilise Azure Active Directory (Azure AD) comme fournisseur d’authentification pour la connexion des utilisateurs.
+Cet article explique comment configurer l’authentification pour Azure App Service ou Azure Functions afin que votre application utilise la [Plateforme d’identités Microsoft](../active-directory/develop/v2-overview.md) (Azure AD) comme fournisseur d’authentification pour la connexion des utilisateurs.
 
-## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurer avec des paramètres express
+La fonctionnalité d’authentification App Service peut créer automatiquement une inscription d’application avec la plateforme d’identités Microsoft. Vous pouvez également utiliser une inscription créée séparément par vous-même ou par un administrateur de répertoire.
 
-L’option **Express** est conçue pour simplifier l’authentification et ne nécessite que quelques clics.
-
-Les paramètres Express créent automatiquement une inscription d’application qui utilise le point de terminaison Azure Active Directory v1. Pour utiliser [Azure Active Directory v2.0](../active-directory/develop/v2-overview.md) (notamment [MSAL](../active-directory/develop/msal-overview.md)), suivez les [instructions de configuration avancée](#advanced).
+- [Créer une inscription d’application automatiquement](#express)
+- [Utiliser une inscription existante créée séparément](#advanced)
 
 > [!NOTE]
-> L’option **Express** n’est pas disponible pour les clouds du secteur publique.
+> L’option permettant de créer une nouvelle inscription n’est pas disponible pour les clouds gouvernementaux. Au lieu de cela, [définissez une inscription séparément](#advanced).
 
-Pour activer l’authentification à l’aide de l’option **Express**, effectuez les étapes suivantes :
+## <a name="create-a-new-app-registration-automatically"></a><a name="express"> </a>Créer une inscription d’application automatiquement
 
-1. Dans le [Azure portal], recherchez et sélectionnez **App Services**, puis sélectionnez votre application.
-2. Dans la barre de navigation gauche, sélectionnez **Authentification/Autorisation**  > **sur**.
-3. Sélectionnez **Azure Active Directory** > **Express**.
+Cette option est conçue pour simplifier l’authentification et ne nécessite que quelques clics.
 
-   Si vous préférez choisir une inscription d’application existante :
+1. Connectez-vous au [Portail Azure] et accédez à votre application.
+1. Sélectionnez **Authentification** dans le menu de gauche. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité).
+1. Sélectionnez **Microsoft** dans la liste déroulante de fournisseurs d’identité. L’option permettant de créer une nouvelle inscription est sélectionnée par défaut. Vous pouvez modifier le nom de l’inscription ou les types de comptes pris en charge.
 
-   1. Cliquez sur **Sélectionner une application AD existante**, puis sur **Azure AD App**.
-   2. Sélectionnez une inscription d’application existante et cliquez sur **OK**.
+    Une clé secrète client est créée sous la forme d’un [paramètre d’application](./configure-common.md#configure-app-settings) d’emplacement fixe nommé `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. Vous pouvez mettre à jour ce paramètre ultérieurement pour utiliser des [références Key Vault](./app-service-key-vault-references.md) si vous souhaitez gérer le secret dans Azure Key Vault.
 
-4. Cliquez sur **OK** pour inscrire l'application App Service auprès d'Azure Active Directory. Une nouvelle inscription d’application est créée.
+1. S’il s’agit du premier fournisseur d’identité configuré pour l’application, vous êtes également invité à fournir une section **Paramètres d’authentification App Service**. Sinon, vous pouvez passer à l’étape suivante.
+    
+    Ces options déterminent la manière dont votre application répond aux requêtes non authentifiées, et les sélections par défaut redirigent toutes les requêtes de connexion à l’aide de ce nouveau fournisseur. Vous pouvez modifier ce comportement maintenant ou ajuster ces paramètres ultérieurement à partir de l’écran principal **Authentification** en choisissant **Modifier** en regard de **Paramètres d’authentification**. Pour en savoir plus sur ces options, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
 
-    ![Paramètres Express d'Azure Active Directory](./media/configure-authentication-provider-aad/express-settings.png)
+1. (Facultatif) Cliquez sur **Suivant : Autorisations** et ajoutez les étendues nécessaires à l’application. Celles-ci sont ajoutées à l’inscription de l’application, mais vous pouvez également les modifier ultérieurement.
+1. Cliquez sur **Add**.
 
-5. (Facultatif) Par défaut, App Service fournit une authentification, mais ne restreint pas l’accès autorisé au contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application. Pour restreindre l’accès à l’application aux seuls utilisateurs authentifiés par Azure Active Directory, définissez **Action à exécuter quand une requête n’est pas authentifiée** sur **Se connecter avec Azure Active Directory**. Quand vous définissez cette fonctionnalité, votre application exige que toutes les demandes soient authentifiées. Elle redirige également toutes les demandes non authentifiées vers Azure Active Directory à des fins d’authentification.
-
-    > [!CAUTION]
-    > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications qui ont une page d’accès publique disponible, comme dans de nombreuses applications monopages. Pour de telles applications, préférez **Autoriser les requêtes anonymes (aucune action)** . L’application démarre alors elle-même manuellement la connexion. Pour plus d’informations, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
-6. Sélectionnez **Enregistrer**.
+Vous êtes maintenant prêt à utiliser la plateforme d’identités Microsoft pour l’authentification dans votre application. Le fournisseur est répertorié sur l’écran **Authentification**. À partir de là, vous pouvez modifier ou supprimer cette configuration de fournisseur.
 
 Pour obtenir un exemple de configuration d’une connexion Azure AD pour une application web qui accède à Stockage Azure et à Microsoft Graph, consultez [ce tutoriel](scenario-secure-app-authentication-app-service.md).
 
-## <a name="configure-with-advanced-settings"></a><a name="advanced"></a>Configurer avec des paramètres avancés
+## <a name="use-an-existing-registration-created-separately"></a><a name="advanced"> </a>Utiliser une inscription existante créée séparément
 
-Pour qu’Azure AD soit le fournisseur d’authentification de votre application, vous devez inscrire votre application auprès de celui-ci. L’option Express le fait automatiquement. L’option Avancé vous permet d’inscrire manuellement votre application, de personnaliser l’inscription et de saisir manuellement les détails de l’inscription dans App Service. Cette option est utile, par exemple, si vous souhaitez utiliser une inscription d’application provenant d’un locataire Azure AD différent de celui où se trouve l’application App Service.
+Vous pouvez également inscrire manuellement votre application pour la plateforme d’identités Microsoft, en personnalisant l’inscription et en configurant l’authentification App Service avec les détails de l’inscription. Cette option est utile, par exemple, si vous souhaitez utiliser une inscription d’application provenant d’un locataire Azure AD différent de celui où se trouve votre application.
 
 ### <a name="create-an-app-registration-in-azure-ad-for-your-app-service-app"></a><a name="register"></a>Créer une inscription d’application dans Azure AD pour votre application App Service
 
@@ -87,22 +84,27 @@ Pour inscrire l’application, effectuez les étapes suivantes :
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Activez Azure Active Directory dans votre Azure App Service
 
-1. Dans le [Azure portal], recherchez et sélectionnez **App Services**, puis sélectionnez votre application.
-1. Dans le volet gauche, sous **Paramètres**, sélectionnez **Authentification/Autorisation** > **sur**.
-1. (Facultatif) Par défaut, l’authentification App Service autorise l’accès non authentifié à votre application. Pour appliquer l'authentification utilisateur, définissez **Mesure à prendre quand une requête n’est pas authentifiée**, sur **Se connecter avec Azure Active Directory**.
-1. Sous **Fournisseurs d’authentification**, cliquez sur **Azure Active Directory**.
-1. Dans **Mode d'administration**, sélectionnez **Avancé** et configurez l'authentification App Service selon le tableau suivant :
+1. Connectez-vous au [Portail Azure] et accédez à votre application.
+1. Sélectionnez **Authentification** dans le menu de gauche. Cliquez sur **Add Identity Provider** (Ajouter un fournisseur d’identité).
+1. Sélectionnez **Microsoft** dans la liste déroulante de fournisseurs d’identité.
+1. Pour le **Type d’inscription de l’application**, vous pouvez choisir de **Choisir une inscription d’application existante dans ce répertoire**, ce qui regroupera automatiquement les informations d’application nécessaires. Si votre inscription provient d’un autre locataire ou si vous n’avez pas l’autorisation d’afficher l’objet d’inscription, choisissez **Fournir les détails d’une inscription d’application existante**. Pour cette option, vous devez renseigner les détails de configuration suivants :
 
     |Champ|Description|
     |-|-|
-    |ID client| Utilisez l'**ID d’application (client)** de l’inscription de l’application. |
-    |URL de l’émetteur| Utilisez `<authentication-endpoint>/<tenant-id>/v2.0`, puis remplacez *\<authentication-endpoint>* par le [point de terminaison d’authentification de votre environnement cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (par exemple, « https://login.microsoftonline.com  » pour Azure global), puis *\<tenant-id>* par l’**ID du répertoire (locataire)** dans lequel l’inscription de l’application a été créée. Cette valeur sert à rediriger les utilisateurs vers le bon locataire Azure AD, mais aussi à télécharger les métadonnées appropriées pour déterminer les clés de signature de jetons et la valeur de revendication de l’émetteur de jeton qui conviennent, par exemple. Pour les applications qui utilisent Azure AD v1 et pour les applications Azure Functions, omettez `/v2.0` dans l’URL.|
+    |ID d’application (client)| Utilisez l'**ID d’application (client)** de l’inscription de l’application. |
     |Clé secrète client (facultative)| Utilisez la clé secrète client que vous avez générée lors de l’inscription de l’application. Avec une clé secrète client, le flux hybride est utilisé et App Service retourne les jetons d’accès et d’actualisation. Lorsque la clé secrète client n’est pas définie, le flux implicite est utilisé et seul un jeton d’ID est retourné. Ces jetons sont envoyés par le fournisseur et stockés dans le magasin de jetons EasyAuth.|
+    |URL de l’émetteur| Utilisez `<authentication-endpoint>/<tenant-id>/v2.0`, puis remplacez *\<authentication-endpoint>* par le [point de terminaison d’authentification de votre environnement cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (par exemple, « https://login.microsoftonline.com  » pour Azure global), puis *\<tenant-id>* par l’**ID du répertoire (locataire)** dans lequel l’inscription de l’application a été créée. Cette valeur sert à rediriger les utilisateurs vers le bon locataire Azure AD, mais aussi à télécharger les métadonnées appropriées pour déterminer les clés de signature de jetons et la valeur de revendication de l’émetteur de jeton qui conviennent, par exemple. Pour les applications qui utilisent Azure AD v1 et pour les applications Azure Functions, omettez `/v2.0` dans l’URL.|
     |Audiences de jeton autorisées| S’il s’agit d’une application cloud ou serveur et que vous souhaitez autoriser les jetons d’authentification d’une application web, ajoutez l’**URI d’ID d’application** de l’application web ici. **L’ID client** configuré est *toujours* implicitement considéré comme une audience autorisée.|
 
-2. Sélectionnez **OK**, puis cliquez sur **Enregistrer**.
+    La clé secrète client est stockée sous la forme d’un [paramètre d’application](./configure-common.md#configure-app-settings) d’emplacement fixe nommé `MICROSOFT_PROVIDER_AUTHENTICATION_SECRET`. Vous pouvez mettre à jour ce paramètre ultérieurement pour utiliser des [références Key Vault](./app-service-key-vault-references.md) si vous souhaitez gérer le secret dans Azure Key Vault.
 
-Vous êtes maintenant prêt à utiliser Azure Active Directory à des fins d’authentification dans votre application App Service.
+1. S’il s’agit du premier fournisseur d’identité configuré pour l’application, vous êtes également invité à fournir une section **Paramètres d’authentification App Service**. Sinon, vous pouvez passer à l’étape suivante.
+    
+    Ces options déterminent la manière dont votre application répond aux requêtes non authentifiées, et les sélections par défaut redirigent toutes les requêtes de connexion à l’aide de ce nouveau fournisseur. Vous pouvez modifier ce comportement maintenant ou ajuster ces paramètres ultérieurement à partir de l’écran principal **Authentification** en choisissant **Modifier** en regard de **Paramètres d’authentification**. Pour en savoir plus sur ces options, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
+
+1. Cliquez sur **Add**.
+
+Vous êtes maintenant prêt à utiliser la plateforme d’identités Microsoft pour l’authentification dans votre application. Le fournisseur est répertorié sur l’écran **Authentification**. À partir de là, vous pouvez modifier ou supprimer cette configuration de fournisseur.
 
 ## <a name="configure-client-apps-to-access-your-app-service"></a>Configurer des applications clientes pour qu’elles accèdent à votre application App Service
 
