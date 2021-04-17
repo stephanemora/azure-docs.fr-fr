@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b260793cc3c0b5ac3ffce8fac909e2db8991c713
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626705"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307807"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Ajouter l’autocomplétion et les suggestions aux applications clientes à l’aide de Recherche cognitive Azure
 
@@ -67,7 +67,7 @@ Les réponses sont mises en forme par les paramètres que vous incluez dans la d
 
 + Pour l'autocomplétion, définissez [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters) afin de déterminer si la complétion du texte se produit sur un ou deux termes. 
 
-+ Pour les suggestions, définissez [$select](/rest/api/searchservice/suggestionse#query-parameters) pour renvoyer des champs contenant des valeurs uniques ou de différenciation, telles que des noms et une description. Évitez les champs qui contiennent des valeurs en double (par exemple, une catégorie ou une ville).
++ Pour les suggestions, définissez [$select](/rest/api/searchservice/suggestions#query-parameters) pour renvoyer des champs contenant des valeurs uniques ou de différenciation, telles que des noms et une description. Évitez les champs qui contiennent des valeurs en double (par exemple, une catégorie ou une ville).
 
 Les autres paramètres répertoriés ci-dessous s'appliquent à la fois à l'autocomplétion et aux suggestions. Ils sont toutefois peut-être plus utiles pour les suggestions, en particulier lorsqu'un suggesteur inclut plusieurs champs.
 

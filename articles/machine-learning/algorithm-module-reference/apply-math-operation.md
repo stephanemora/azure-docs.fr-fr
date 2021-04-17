@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc2afb2b29c69e9687dbd3b194b6a1626d4131b3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584988"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625192"
 ---
 # <a name="apply-math-operation"></a>Appliquer une opération mathématique
 
@@ -254,6 +254,7 @@ L’ordre de division et de soustraction est le suivant :
 - Diviser(Arg1_Arg2) = Arg1 / Arg2
 
 Le tableau suivant présente des exemples
+
 Opération|Num1|Num2|Colonne de résultats|Valeur de résultat|
 ----|----|----|----|----
 |Addition|1|5|Add(Num2_Num1)| 6|
@@ -343,7 +344,7 @@ Cette catégorie comprend des fonctions mathématiques spécialisées souvent ut
 
 ### <a name="beta"></a>Bêta
 
-Retourne la valeur de la fonction bêta de Euler.  
+Retourne la valeur de la fonction bêta d’Euler.  
 
 ### <a name="ellipticintegrale"></a>EllipticIntegralE
 Retourne la valeur de l’intégrale elliptique incomplète.  

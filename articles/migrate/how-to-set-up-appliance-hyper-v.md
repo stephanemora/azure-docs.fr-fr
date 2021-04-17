@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863681"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612022"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurer une appliance pour les serveurs sur Hyper-V
 
@@ -39,9 +39,9 @@ Pour configurer l'appliance à l'aide d'un modèle VHD :
 
 1. Dans **Objectifs de migration** > **Serveurs** > **Azure Migrate : découverte et évaluation**, sélectionnez **Découvrir**.
 2. Dans **Découvrir les serveurs** > **Vos serveurs sont-ils virtualisés ?** , sélectionnez **Oui, avec Hyper-V**.
-3. Dans **1 : Générer une clé de projet**, attribuez un nom à l'appliance Azure Migrate que vous allez configurer pour la détection de serveurs sur Hyper-V. Il doit s'agir d'un nom alphanumérique de 14 caractères maximum.
+3. Dans **1 : Générer une clé de projet**, affectez un nom à l’appliance Azure Migrate que vous allez configurer pour la découverte des serveurs sur Hyper-V. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 1. Cliquez sur **Générer une clé** pour lancer la création des ressources Azure nécessaires. Ne fermez pas la page Découvrir des serveurs pendant la création de ressources.
-1. Une fois les ressources Azure créées avec succès, une **clé de projet** est générée.
+1. Une fois les ressources Azure créées, une **clé de projet** est générée.
 1. Copiez la clé car vous en aurez besoin pour terminer l'inscription de l'appliance lors de sa configuration.
 
 ### <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
@@ -53,7 +53,6 @@ Dans **2 : Télécharger l'appliance Azure Migrate**, sélectionnez le fichier 
 
    ![Sélections pour la génération d’une clé](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>Vérifier la sécurité
 
 Vérifiez que le fichier compressé est sécurisé avant de le déployer.
@@ -63,9 +62,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Vérifiez la dernière valeur du code de hachage en comparant le résultat de la commande ci-dessus à la valeur documentée [ici](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security)
 
 ## <a name="create-the-appliance"></a>Créer l’appliance
 
@@ -85,7 +82,6 @@ Importez le fichier téléchargé, puis créez une appliance.
 5. Dans **Choisir un réseau**, spécifiez le commutateur virtuel qui sera utilisé par le serveur. Le commutateur nécessite une connexion à Internet pour envoyer des données à Azure.
 6. Dans **Récapitulatif**, passez en revue les paramètres. Puis, cliquez sur **Terminer**.
 7. Dans Gestionnaire Hyper-V > **Machines virtuelles**, démarrez la machine virtuelle.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
@@ -128,8 +124,6 @@ Configurez l’appliance pour la première fois.
 1. Une fois connecté, revenez à l’onglet précédent, c’est-à-dire, l’onglet Appliance Configuration Manager.
 4. Si le compte d’utilisateur Azure utilisé pour la connexion dispose des [autorisations](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) adéquates sur les ressources Azure créées au moment de la génération de la clé, l’inscription de l’appliance est lancée.
 1. Une fois l'appliance inscrite, vous pouvez consulter les détails de l'inscription en cliquant sur **Afficher les détails**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Déléguer des informations d’identification pour les disques durs virtuels sur SMB
 

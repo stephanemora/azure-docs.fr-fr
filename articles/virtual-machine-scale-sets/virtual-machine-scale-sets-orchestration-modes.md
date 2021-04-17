@@ -5,16 +5,15 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 3d9d9449e2a971a4247e507e0c022c8c5fb9956c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225028"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075404"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Préversion : modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure 
 
@@ -85,7 +84,7 @@ Utilisez les commandes de machine virtuelle standard pour démarrer, arrêter, r
 Avec la supervision du fonctionnement de l’application, votre application fournit à Azure une pulsation pour déterminer si votre application est saine ou non. Azure peut remplacer automatiquement les instances de machine virtuelle non saines. Pour les instances de groupe identique Flexibles, vous devez installer et configurer l’extension Intégrité de l’application sur la machine virtuelle. Pour les instances de groupe identique Uniform, vous pouvez utiliser l’extension Intégrité de l’application ou mesurer l’intégrité avec une sonde d’intégrité personnalisée Azure Load Balancer. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Modifications de l’API de machine virtuelle qui liste les instances d’un groupe identique 
-VMSS (Virtual Machine Scale Sets) vous permet de lister les instances appartenant au groupe identique. Avec l’orchestration Flexible, la commande de machine virtuelle VMSS de liste retourne une liste d’ID de machines virtuelles d’un groupe identique. Vous pouvez ensuite appeler les commandes de machine virtuelle VMSS GET pour obtenir plus d’informations sur la façon dont le groupe identique fonctionne avec l’instance de machine virtuelle. Pour obtenir toutes les informations de la machine virtuelle, utilisez les commandes de machine virtuelle GET standard ou [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
+VMSS (Virtual Machine Scale Sets) vous permet de lister les instances appartenant au groupe identique. Avec l’orchestration Flexible, la commande de machine virtuelle VMSS de liste retourne une liste d’ID de machines virtuelles d’un groupe identique. Vous pouvez ensuite appeler les commandes de machine virtuelle VMSS GET pour obtenir plus d’informations sur la façon dont le groupe identique fonctionne avec l’instance de machine virtuelle. Pour obtenir toutes les informations de la machine virtuelle, utilisez les commandes de machine virtuelle GET standard ou [Azure Resource Graph](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Récupérer les données de diagnostics de démarrage 
 Utilisez les API et commandes de machine virtuelle standard pour récupérer les captures d’écran et données de diagnostic de démarrage d’instance. Les commandes et API de diagnostic de démarrage de machine virtuelle VMSS ne sont pas utilisées avec les instances en mode d’orchestration Flexible.
@@ -269,7 +268,7 @@ zones = ["1"]
 
 2. Ajoutez des machines virtuelles au groupe identique.
     1. Attribuez la propriété `virtualMachineScaleSet` au groupe identique que vous avez créé. Vous devez spécifier la propriété `virtualMachineScaleSet` au moment de la création de la machine virtuelle. 
-    1. Vous pouvez utiliser la fonction de modèle Azure Resource Manager **copy()** pour créer plusieurs machines virtuelles simultanément. Consultez [Itération sur la ressource](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) dans les modèles Azure Resource Manager. 
+    1. Vous pouvez utiliser la fonction de modèle Azure Resource Manager **copy()** pour créer plusieurs machines virtuelles simultanément. Consultez [Itération sur la ressource](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) dans les modèles Azure Resource Manager. 
 
     ```json
     {
@@ -307,7 +306,7 @@ Vous pouvez ajouter jusqu’à 1 000 machines virtuelles à un groupe identiqu
 
 **En quoi l’orchestration Flexible est-elle différente des groupes à haute disponibilité ou de l’orchestration Uniform ?**
 
-|   | Orchestration Flexible  | Orchestration Uniform  | Groupes à haute disponibilité  |
+| Attribut de disponibilité  | Orchestration Flexible  | Orchestration Uniform  | Groupes à haute disponibilité  |
 |-|-|-|-|
 | Déploiement entre plusieurs zones de disponibilité  | Non  | Oui  | Non  |
 | Garanties de disponibilité de domaine d’erreur au sein d’une région  | Oui, jusqu’à 1 000 instances peuvent être réparties sur un maximum de 3 domaines d’erreur dans la région. Le nombre maximal de domaines d’erreur varie selon la région  | Oui, jusqu’à 100 instances  | Oui, jusqu’à 200 instances  |

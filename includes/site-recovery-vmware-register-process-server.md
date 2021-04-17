@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
 ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96008471"
 ---
 1. Établissez une connexion Bureau à distance à la machine exécutant le serveur de traitement. 
@@ -19,7 +19,7 @@ ms.locfileid: "96008471"
 3. Dans **FQDN ou IP du serveur de Configuration**, spécifiez le nom ou l’adresse IP du serveur de configuration avec laquelle inscrire le serveur de traitement.
 4. Vérifiez que **Port du serveur de Configuration** est défini sur 443. Il s’agit du port sur lequel le serveur de configuration écoute les requêtes.
 5. Dans **Phrase secrète de connexion**, indiquez la phrase secrète spécifiée lorsque vous configurez le serveur de configuration. Pour rechercher la phrase secrète :
-    -  Sur le serveur de configuration, accédez au dossier d’installation de Site Recovery * *\home\svssystems\bin\** :
+    -  Sur le serveur de configuration, accédez au dossier d’installation de Site Recovery **\home\svssystems\bin\** :
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     ```

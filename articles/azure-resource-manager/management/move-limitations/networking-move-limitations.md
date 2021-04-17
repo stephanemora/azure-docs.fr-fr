@@ -3,12 +3,12 @@ title: Déplacer des ressources de mise en réseau Azure vers un nouveau groupe 
 description: Utilisez Azure Resource Manager pour déplacer des réseaux virtuels et d’autres ressources de mise en réseau vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 0cd6887d3489f2ffede0f5e3d63533a33a6ccc04
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b7aaf01b696b13136a0f4077f315b137c8917906
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75476599"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106120127"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Conseils sur le déplacement de ressources réseau
 
@@ -16,7 +16,10 @@ Cet article décrit comment déplacer des réseaux virtuels et d’autres ressou
 
 ## <a name="dependent-resources"></a>Ressources dépendantes
 
-Lors de la migration d’un réseau virtuel, vous devez également migrer ses ressources dépendantes. Pour les passerelles VPN, vous devez déplacer les adresses IP, les passerelles de réseau virtuel et toutes les ressources de connexion associées. Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
+> [!NOTE]
+> Notez que les passerelles VPN associées à des adresses IP publiques ne sont pas en mesure de se déplacer actuellement entre des groupes de ressources ou des abonnements.
+
+Lorsque vous déplacez une ressource, vous devez également déplacer ses ressources dépendantes (par exemple, les adresses IP publiques, les passerelles de réseau virtuel, toutes les ressources de connexion associées). Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
 
 Si vous déplacez une machine virtuelle avec une carte d’interface réseau vers un nouvel abonnement, vous devez déplacer toutes les ressources dépendantes. Déplacer le réseau virtuel de la carte d’interface réseau, toutes les autres cartes d’interface réseau dépendantes du réseau virtuel ainsi que les passerelles VPN.
 

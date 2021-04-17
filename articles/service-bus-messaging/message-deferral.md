@@ -4,12 +4,12 @@ description: Cet article explique comment reporter la remise des messages Azure 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e3a940f8aa9e72d9b09e9c0a3305521c6f17dfb0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 997aab36652b08864892f1171e2b8588ec5f06b4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622043"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306107"
 ---
 # <a name="message-deferral"></a>Report de message
 
@@ -22,7 +22,7 @@ Un exemple simple illustrant cela est une séquence de traitement d’une comman
 Enfin, le report permet de faciliter la réorganisation des messages, de leur ordre d’arrivée à l’ordre dans lequel ils peuvent être traités, tout en laissant en toute sécurité ces messages (dont le traitement doit être différé) dans le magasin de messages.
 
 > [!NOTE]
-> Les messages différés ne sont pas automatiquement déplacés vers la file d'attente de lettres mortes [après leur expiration](./service-bus-dead-letter-queues.md#exceeding-timetolive). Ce comportement est lié à la conception.
+> Les messages différés ne sont pas automatiquement déplacés vers la file d'attente de lettres mortes [après leur expiration](./service-bus-dead-letter-queues.md#time-to-live). Ce comportement est lié à la conception.
 
 ## <a name="message-deferral-apis"></a>API de report de message
 
