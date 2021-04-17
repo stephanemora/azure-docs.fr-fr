@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 216df0d128e0557345db8f82f6010e1ef681593c
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100527021"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105968779"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure
 
@@ -93,11 +94,22 @@ Pour ajouter des attributions de rôles, vous devez disposer :
 > [!Note]
 > Il est recommandé d’utiliser l’ID de rôle unique à la place du nom de rôle dans les scripts. Par conséquent, si un rôle est renommé, vos scripts continuent de fonctionner. Dans ce document, le nom de rôle est utilisé uniquement à des fins de lisibilité.
 
-Commande Azure CLI pour créer une attribution de rôle :
+Exécutez la commande suivante pour créer une attribution de rôle :
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope <scope>
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+#Assign by User Principal Name
+New-AzRoleAssignment -RoleDefinitionName <role_name> -SignInName <assignee_upn> -Scope <scope>
+
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId <applicationId> -Scope <scope>
+```
+---
 
 Dans le portail Azure, l’écran Attribution de rôle Azure est disponible pour toutes les ressources sous l’onglet Contrôle d’accès (IAM).
 
@@ -114,10 +126,20 @@ Dans le portail Azure, l’écran Attribution de rôle Azure est disponible pour
 
     ![Ajouter un rôle – Groupe de ressources](../media/rbac/image-5.png)
 
-Azure CLI :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+#Assign by User Principal Name
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+```
+---
 
 L’attribution de rôle ci-dessus permet de répertorier les objets figurant dans le coffre de clés.
 
@@ -131,11 +153,20 @@ L’attribution de rôle ci-dessus permet de répertorier les objets figurant da
 
     ![Attribution de rôle – Coffre de clés](../media/rbac/image-6.png)
 
- Azure CLI :
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e jalichwa@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+#Assign by User Principal Name
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+```
+---
 
 Après avoir créé l’attribution de rôle ci-dessus, vous pouvez créer/mettre à jour/supprimer des secrets.
 
@@ -153,11 +184,20 @@ Après avoir créé l’attribution de rôle ci-dessus, vous pouvez créer/mettr
 
 3. Créez le rôle « Responsable des secrets de Key Vault » pour l’utilisateur actuel, comme ci-dessus pour le coffre de clés.
 
-Azure CLI :
-
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+#Assign by User Principal Name
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+
+#Assign by Service Principal ApplicationId
+New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+```
+---
 
 ### <a name="test-and-verify"></a>Tester et vérifier
 
@@ -199,7 +239,7 @@ La page Créer un secret (Secrets \> +Générer/Importer) doit afficher l’erre
 
 [Commande az role definition create](/cli/azure/role/definition#az-role-definition-create)
 
-**(Script Bash de CLI)</br>**
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 az role definition create --role-definition '{ \
    "Name": "Backup Keys Operator", \
@@ -216,6 +256,31 @@ az role definition create --role-definition '{ \
     "AssignableScopes": ["/subscriptions/{subscriptionId}"] \
 }'
 ```
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azurepowershell)
+
+```azurepowershell
+$roleDefinition = @"
+{ 
+   "Name": "Backup Keys Operator", 
+   "Description": "Perform key backup/restore operations", 
+    "Actions": [ 
+    ], 
+    "DataActions": [ 
+        "Microsoft.KeyVault/vaults/keys/read ", 
+        "Microsoft.KeyVault/vaults/keys/backup/action", 
+         "Microsoft.KeyVault/vaults/keys/restore/action" 
+    ], 
+    "NotDataActions": [ 
+   ], 
+    "AssignableScopes": ["/subscriptions/{subscriptionId}"] 
+}
+"@
+
+$roleDefinition | Out-File role.json
+
+New-AzRoleDefinition -InputFile role.json
+```
+---
 
 Pour plus d’informations sur la manière de créer des rôles personnalisés, consultez :
 
