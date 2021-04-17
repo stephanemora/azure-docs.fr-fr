@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 2f34e0bb3c4abcf4efba807f95decd798bbc1f86
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8bcd45ab1270d478b05b3929d7b8914976612294
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101669072"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105645308"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Images de machine virtuelle Oracle et leur déploiement sur Microsoft Azure
 
@@ -161,7 +161,7 @@ Pour plus d’informations, consultez l’article de la Base de connaissances **
 - **Limitations relatives à l’équilibrage de charge et au clustering dynamique.** Partons du principe que vous souhaitez utiliser un cluster dynamique dans Oracle WebLogic Server et l’exposer par le biais d’un seul point de terminaison public à charge équilibrée dans Azure. Cette opération est possible tant que vous utilisez un numéro de port fixe pour chaque serveur géré (et non affecté de manière dynamique à partir d’une plage de valeurs), et que le nombre de serveurs gérés démarrés reste inférieur à celui des machines surveillées par l’administrateur. En d’autres termes, il faut un seul serveur géré par machine virtuelle. Si, suite à votre configuration, le nombre de serveurs Oracle WebLogic Server démarrés est supérieur à celui des machines virtuelles (c’est-à-dire si plusieurs instances Oracle WebLogic Server partagent la même machine virtuelle), une seule de ces instances de serveurs Oracle WebLogic Server peut être liée à un numéro de port donné à la fois. Les autres instances de la machine virtuelle échouent.
 
    Si vous configurez le serveur d’administration de façon à affecter automatiquement des numéros de port uniques à ses serveurs managés, aucun équilibrage de charge n’est possible, car Microsoft Azure ne prend pas en charge le mappage d’un port public unique à plusieurs ports privés (opération alors requise pour cette configuration).
-- **Exécution de plusieurs instances Oracle WebLogic Server sur une seule machine virtuelle.** Selon les exigences liées à votre déploiement, vous pouvez envisager d’exécuter plusieurs instances Oracle WebLogic Server sur la même machine virtuelle, si la taille de cette dernière est suffisante. Ainsi, sur une machine virtuelle de taille moyenne contenant deux cœurs, vous pouvez opter pour l’exécution de deux instances Oracle WebLogic Server. Toutefois, nous vous recommandons malgré tout d’éviter toute introduction de points de défaillance uniques dans votre architecture (situation susceptible de survenir si vous utilisez une seule machine virtuelle exécutant plusieurs instances Oracle WebLogic Server). L’utilisation d’un minimum de deux machines virtuelles peut s’avérer plus efficace ; chaque machine virtuelle peut alors exécuter plusieurs instances Oracle WebLogic Server. Chaque instance Oracle WebLogic Server peut continuer de faire partie du même cluster. Toutefois, il n’est actuellement pas possible d’utiliser Azure pour équilibrer la charge des points de terminaison exposés par des déploiements Oracle WebLogic Server de ce type au sein d’une même machine virtuelle. En effet, l’équilibreur de charge Azure requiert la répartition des serveurs à charge équilibrée sur des machines virtuelles uniques.
+- **Exécution de plusieurs instances Oracle WebLogic Server sur une seule machine virtuelle.** Selon les exigences liées à votre déploiement, vous pouvez envisager d’exécuter plusieurs instances Oracle WebLogic Server sur la même machine virtuelle, si la taille de cette dernière est suffisante. Ainsi, sur une machine virtuelle de taille moyenne contenant deux cœurs, vous pouvez opter pour l’exécution de deux instances Oracle WebLogic Server. Toutefois, nous vous recommandons malgré tout d’éviter toute introduction de points de défaillance uniques dans votre architecture (situation susceptible de survenir si vous utilisez une seule machine virtuelle exécutant plusieurs instances Oracle WebLogic Server). L’utilisation d’un minimum de deux machines virtuelles peut s’avérer plus efficace ; chaque machine virtuelle peut alors exécuter plusieurs instances Oracle WebLogic Server. Chaque instance Oracle WebLogic Server peut continuer de faire partie du même cluster. Toutefois, il n’est actuellement pas possible d’utiliser Azure pour équilibrer la charge des points de terminaison exposés par des déploiements Oracle WebLogic Server de ce type au sein d’une même machine virtuelle. En effet, l’équilibreur de charge Azure requiert la répartition des serveurs à charge équilibrée sur des machines virtuelles uniques.
 
 ## <a name="oracle-jdk-virtual-machine-images"></a>Images de machine virtuelle JDK Oracle
 

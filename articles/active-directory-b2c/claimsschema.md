@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97654028"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -70,12 +70,12 @@ L’élément **DataType** prend en charge les valeurs suivantes :
 | ------- | ----------- |
 |boolean|Représente une valeur booléenne (`true` ou `false`).|
 |Date| Représente un instant, généralement exprimé sous la forme d’une date. La valeur de la date est conforme à la convention ISO 8601.|
-|dateTime|Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure. La valeur de la date est conforme à la convention ISO 8601.|
+|dateTime|Représente un instant, généralement exprimé sous la forme d'une date et d'une heure. La valeur de la date est conforme à la convention ISO 8601.|
 |duration|Représente un intervalle de temps en années, mois, jours, heures, minutes et secondes. Le format est `PnYnMnDTnHnMnS`, où `P` indique une valeur positive, ou `N` pour une valeur négative. `nY` correspond au nombre d’années suivi du littéral `Y`. `nMo` correspond au nombre de mois suivi du littéral `Mo`. `nD` correspond au nombre de jours suivi du littéral `D`. Exemples : `P21Y` représente 21 ans. `P1Y2Mo` représente un an et deux mois. `P1Y2Mo5D` représente un an, deux mois et cinq jours.  `P1Y2M5DT8H5M620S` représente un an, deux mois, cinq jours, huit heures, cinq minutes et vingt secondes.  |
 |phoneNumber|Représente un numéro de téléphone. |
 |int| Représente un nombre compris entre -2,147,483,648 et 2,147,483,647.|
 |long| Représente un nombre compris entre -9,223,372,036,854,775,808 et 9,223,372,036,854,775,807. |
-|string| Représente du texte sous la forme d’une séquence d’unités de code UTF-16.|
+|string| Représente le texte en tant que séquence d’unités de code UTF-16.|
 |stringCollection|Représente une collection de `string`.|
 |userIdentity| Représente une identité d’utilisateur.|
 |userIdentityCollection|Représente une collection de `userIdentity`.|
@@ -92,7 +92,7 @@ L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont OAuth1, OAuth2, SAML2 ou OpenID Connect. |
 | PartnerClaimType | Oui | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.

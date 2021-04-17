@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2021
+ms.date: 3/28/2021
 ms.author: gunnarc
-ms.openlocfilehash: 81b3d7ca21699b1e9b0dc91eaae8075f189eecd3
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103461944"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709903"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="march-2021-guest-os"></a>Système d’exploitation invité, mars 2021
 
->[!NOTE] 
-
->Le système d’exploitation invité de mars est actuellement déployé sur les machines virtuelles du service cloud qui sont configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de mars. Cette liste est susceptible d’être modifiée. 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 21-03 |  [5000822]  |  Dernière mise à jour cumulative (LCU) | 6.29 | 9 mars 2021 |
-|  Version 21-03 |  [4580325]  |  Mise à jour de Flash | 3.95, 4.88, 5.53, 6.29 | 13 octobre 2020 |
-|  Version 21-03 |  [5000800]  |  Mises à jour cumulatives d’IE | 2.108, 3.95, 4.88 | 9 mars 2021 |
-|  Version 21-03 |  [5000803]  |  Dernière mise à jour cumulative (LCU) | 5.53 | 9 mars 2021 |
-|  Version 21-03 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 2.108 | 13 octobre 2020 |
-|  Version 21-03 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 2.108 | 13 octobre 2020 |
-|  Version 21-03 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 4.88 | 13 octobre 2020 |
-|  Version 21-03 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 4.88 | 13 octobre 2020 |
-|  Version 21-03 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 3,95 | 13 octobre 2020 |
-|  Version 21-03 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | 3,95 | 13 octobre 2020 |
-|  Version 21-03 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | 6.29 | 9 février 2021 |
-|  Version 21-03 |  [5000841]  |  Correctif cumulatif mensuel  | 2.108 | 9 mars 2021 |
-|  Version 21-03 |  [5000847]  |  Correctif cumulatif mensuel  | 3,95 | 9 mars 2021 |
-|  Version 21-03 |  [5000848]  |  Correctif cumulatif mensuel  | 4.88 | 9 mars 2021 |
-|  Version 21-03 |  [4566426]  |  Mise à jour de la pile de maintenance  | 3,95 | 14 juillet 2020 |
-|  Version 21-03 |  [4566425]  |  Mise à jour de la pile de maintenance  | 4.88 | 14 juillet 2020 |
-|  Version 21-03 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | 4.88 | 19 août 2020 |
-|  Version 21-03 |  [4592510]  |  Mise à jour de la pile de maintenance  | 2.108 | 8 décembre 2020 |
-|  Version 21-03 |  [5000859]  |  Mise à jour de la pile de maintenance  | 6.29 | 9 mars 2021 |
-|  Version 21-03 |  [4494175]  |  Microcode  | 5.53 | 1er septembre 2020 |
-|  Version 21-03 |  [4494174]  |  Microcode  | 6.29 | 1er septembre 2020 |
+|  Version 21-03 |  [5000822]  |  Dernière mise à jour cumulative (LCU) | [6.29] | 9 mars 2021 |
+|  Version 21-03 |  [4580325]  |  Mise à jour de Flash | [3.95], [4.88], [5.53], [6.29] | 13 octobre 2020 |
+|  Version 21-03 |  [5000800]  |  Mises à jour cumulatives d’IE | [2.108], [3.95], [4.88] | 9 mars 2021 |
+|  Version 21-03 |  [5000803]  |  Dernière mise à jour cumulative (LCU) | [5.53] | 9 mars 2021 |
+|  Version 21-03 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2.108] | 13 octobre 2020 |
+|  Version 21-03 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [2.108] | 13 octobre 2020 |
+|  Version 21-03 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [4.88] | 13 octobre 2020 |
+|  Version 21-03 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [4.88] | 13 octobre 2020 |
+|  Version 21-03 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [3,95] | 13 octobre 2020 |
+|  Version 21-03 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | [3,95] | 13 octobre 2020 |
+|  Version 21-03 |  [4601060]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | [6.29] | 9 février 2021 |
+|  Version 21-03 |  [5000841]  |  Correctif cumulatif mensuel  | [2.108] | 9 mars 2021 |
+|  Version 21-03 |  [5000847]  |  Correctif cumulatif mensuel  | [3,95] | 9 mars 2021 |
+|  Version 21-03 |  [5000848]  |  Correctif cumulatif mensuel  | [4.88] | 9 mars 2021 |
+|  Version 21-03 |  [4566426]  |  Mise à jour de la pile de maintenance  | [3,95] | 14 juillet 2020 |
+|  Version 21-03 |  [4566425]  |  Mise à jour de la pile de maintenance  | [4.88] | 14 juillet 2020 |
+|  Version 21-03 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | [4.88] | 19 août 2020 |
+|  Version 21-03 |  [4592510]  |  Mise à jour de la pile de maintenance  | [2.108] | 8 décembre 2020 |
+|  Version 21-03 |  [5000859]  |  Mise à jour de la pile de maintenance  | [6.29] | 9 mars 2021 |
+|  Version 21-03 |  [4494175]  |  Microcode  | [5.53] | 1er septembre 2020 |
+|  Version 21-03 |  [4494174]  |  Microcode  | [6.29] | 1er septembre 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,7 +70,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [5000859]: https://support.microsoft.com/kb/5000859
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2.108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="february-2021-guest-os"></a>Système d’exploitation invité, février 2021
 
@@ -2432,7 +2433,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4015221]: https://support.microsoft.com/kb/4015221
 [4015583]: https://support.microsoft.com/kb/4015583
 [4015219]: https://support.microsoft.com/kb/4015219
-[4023136]: https://support.microsoft.com/kb/4023136
+[4023136]: https://support.microsoft.com/topic/how-to-configure-daylight-saving-time-for-microsoft-windows-operating-systems-83a0992c-bce3-336a-d64d-f7bdfdbcd7c8
 [4019264]: https://support.microsoft.com/kb/4019264
 [4014545]: https://support.microsoft.com/kb/4014545
 [4014508]: https://support.microsoft.com/kb/4014508
