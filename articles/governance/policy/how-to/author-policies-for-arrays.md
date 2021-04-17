@@ -3,12 +3,12 @@ title: Créer des stratégies pour les propriétés de tableau sur des ressource
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: d4e059f3691554aa91dfd15cf308ef62afa58928
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 18afbee0ca8b1c488e3bd3ce50dacc726bd2ef25
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106089965"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305189"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -95,7 +95,7 @@ Pour utiliser cette chaîne avec chaque kit SDK, utilisez les commandes suivante
 
 - Azure CLI : Commande [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) avec le paramètre **params**
 - Azure PowerShell : Applet de commande [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) avec le paramètre **PolicyParameter**
-- API REST : Dans l’opération _PUT_ [create](/rest/api/resources/policyassignments/create) en tant que partie intégrante du corps de la demande en tant que valeur d’une propriété **properties.parameters**
+- API REST : Dans l’opération _PUT_ [create](/rest/api/policy/policyassignments/create) en tant que partie intégrante du corps de la demande en tant que valeur d’une propriété **properties.parameters**
 
 ## <a name="using-arrays-in-conditions"></a>Utilisation de tableaux dans des conditions
 

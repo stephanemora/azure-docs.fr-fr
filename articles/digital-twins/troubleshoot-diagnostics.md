@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment activer la journalisation avec les paramètres de diagnostic et comment interroger les journaux pour un affichage immédiat.
 author: baanders
 ms.author: baanders
-ms.date: 2/24/2021
+ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 08db4d92da5213b1ce1b79867650da9df8c38ee4
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 797de242b4b4464c0bfb5ae18af05710ab36bce6
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385077"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285477"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
 
@@ -68,7 +68,7 @@ Voici plus d’informations sur les catégories de journaux collectées par Azur
 | ADTModelsOperation | Consigner tous les appels d’API se rapportant à des modèles |
 | ADTQueryOperation | Consigner tous les appels d’API se rapportant à des requêtes |
 | ADTEventRoutesOperation | Consigner tous les appels d’API se rapportant aux itinéraires d’événements, ainsi que la sortie d’événements provenant d’Azure Digital Twins vers un service de point de terminaison comme Event Grid, Event Hubs et Service Bus |
-| ADTDigitalTwinsOperation | Consigner tous les appels d’API appartenant à des jumeaux individuels |
+| ADTDigitalTwinsOperation | Consigner tous les appels d’API se rapportant à Azure Digital Twins |
 
 Chaque catégorie de journal se compose d'opérations d'écriture, de lecture, de suppression et d'action.  Ces opérations sont mappées à des appels d'API REST, comme suit :
 
@@ -104,13 +104,11 @@ Voici une liste complète des opérations et des [appels d’API REST Azure Digi
 
 Chaque catégorie de journal dispose d'un schéma qui définit la façon dont les événements de cette catégorie sont signalés. Chaque entrée de journal est stockée sous forme de texte et formatée en tant qu'objet blob JSON. Les champs du journal et des exemples de corps JSON sont fournis pour chaque type de journal ci-dessous. 
 
-`ADTDigitalTwinsOperation`, `ADTModelsOperation` et `ADTQueryOperation` utilisent un schéma de journal d’API cohérent. `ADTEventRoutesOperation` étend le schéma pour qu’il contienne un champ `endpointName` dans les propriétés.
+`ADTDigitalTwinsOperation`, `ADTModelsOperation` et `ADTQueryOperation` utilisent un schéma de journal d'API cohérent ; `ADTEventRoutesOperation` dispose d'un schéma distinct.
 
 ### <a name="api-log-schemas"></a>Schéma des journaux d'API
 
-Ce schéma de journal est cohérent pour `ADTDigitalTwinsOperation`, `ADTModelsOperation` et `ADTQueryOperation`. Le même schéma est également utilisé pour `ADTEventRoutesOperation`, à l’**exception** du nom de l’opération `Microsoft.DigitalTwins/eventroutes/action` (pour plus d’informations sur ce schéma, consultez la section suivante, [*Schémas de journaux de sortie*](#egress-log-schemas)).
-
-Le schéma contient des informations relatives aux appels d’API à une instance d’Azure Digital Twins.
+Ce schéma de journal est cohérent pour `ADTDigitalTwinsOperation`, `ADTModelsOperation` et `ADTQueryOperation`. Il contient des informations relatives aux appels d'API à une instance d'Azure Digital Twins.
 
 Vous trouverez ci-dessous les descriptions des champs et des propriétés des journaux d'API.
 
@@ -127,15 +125,9 @@ Vous trouverez ci-dessous les descriptions des champs et des propriétés des jo
 | `DurationMs` | String | Temps nécessaire pour exécuter l'événement, en millisecondes |
 | `CallerIpAddress` | String | Adresse IP source masquée de l'événement |
 | `CorrelationId` | Guid | Le client a fourni un identificateur unique pour l'événement |
-| `ApplicationId` | Guid | ID d’application utilisé dans l’autorisation du porteur |
-| `Level` | Int | Gravité de la journalisation de l'événement |
+| `Level` | String | Gravité de la journalisation de l'événement |
 | `Location` | String | Région où s'est produit l'événement |
 | `RequestUri` | Uri | Point de terminaison utilisé pendant l'événement |
-| `TraceId` | String | `TraceId`, dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). ID de la trace entière utilisé pour identifier de façon unique une trace distribuée sur plusieurs systèmes. |
-| `SpanId` | String | `SpanId` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). ID de cette requête dans la trace. |
-| `ParentId` | String | `ParentId` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). Une requête sans ID parent est la racine de la trace. |
-| `TraceFlags` | String | `TraceFlags` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). Contrôle des indicateurs de suivi tels que l’échantillonnage, le niveau de trace, etc. |
-| `TraceState` | String | `TraceState` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). Informations d’identification de trace supplémentaires spécifiques au fournisseur pour s’étendre sur différents systèmes de suivi distribués. |
 
 Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types de journaux.
 
@@ -151,25 +143,12 @@ Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types 
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": 8,
+  "durationMs": "314",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -185,25 +164,12 @@ Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types 
   "resultType": "Success",
   "resultSignature": "201",
   "resultDescription": "",
-  "durationMs": "80",
+  "durationMs": "935",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
 }
 ```
 
@@ -219,67 +185,18 @@ Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types 
   "resultType": "Success",
   "resultSignature": "200",
   "resultDescription": "",
-  "durationMs": "314",
+  "durationMs": "255",
   "callerIpAddress": "13.68.244.*",
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
   "level": "4",
   "location": "southcentralus",
   "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
-  "properties": {},
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
-  }
 }
-```
-
-#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperation
-
-Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui n’est **pas** de type `Microsoft.DigitalTwins/eventroutes/action` (pour plus d’informations sur ce schéma, consultez la section suivante, [*Schémas de journaux de sortie*](#egress-log-schemas)).
-
-```json
-  {
-    "time": "2020-10-30T22:18:38.0708705Z",
-    "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
-    "operationName": "Microsoft.DigitalTwins/eventroutes/write",
-    "operationVersion": "2020-10-31",
-    "category": "EventRoutesOperation",
-    "resultType": "Success",
-    "resultSignature": "204",
-    "resultDescription": "",
-    "durationMs": 42,
-    "callerIpAddress": "212.100.32.*",
-    "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-    "identity": {
-      "claims": {
-        "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-      }
-    },
-    "level": "4",
-    "location": "southcentralus",
-    "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/EventRoutes/egressRouteForEventHub?api-version=2020-10-31",
-    "properties": {},
-    "traceContext": {
-      "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-      "spanId": "b630da57026dd046",
-      "parentId": "9f0de6dadae85945",
-      "traceFlags": "01",
-      "tracestate": "k1=v1,k2=v2"
-    }
-  },
 ```
 
 ### <a name="egress-log-schemas"></a>Schéma des journaux de sortie
 
-Il s’agit du schéma pour les journaux `ADTEventRoutesOperation` spécifiques au nom d’opération `Microsoft.DigitalTwins/eventroutes/action`. Ceux-ci contiennent des détails sur les exceptions et les opérations d'API relatives aux points de terminaison de sortie connectés à une instance d'Azure Digital Twins.
+Il s'agit du schéma des journaux `ADTEventRoutesOperation`. Ceux-ci contiennent des détails sur les exceptions et les opérations d'API relatives aux points de terminaison de sortie connectés à une instance d'Azure Digital Twins.
 
 |Nom du champ | Type de données | Description |
 |-----|------|-------------|
@@ -288,55 +205,28 @@ Il s’agit du schéma pour les journaux `ADTEventRoutesOperation` spécifiques 
 | `OperationName` | String  | Type d'action réalisée pendant l'événement |
 | `Category` | String | Type de ressource émise |
 | `ResultDescription` | String | Détails supplémentaires sur l'événement |
-| `CorrelationId` | Guid | Le client a fourni un identificateur unique pour l'événement |
-| `ApplicationId` | Guid | ID d’application utilisé dans l’autorisation du porteur |
-| `Level` | Int | Gravité de la journalisation de l'événement |
+| `Level` | String | Gravité de la journalisation de l'événement |
 | `Location` | String | Région où s'est produit l'événement |
-| `TraceId` | String | `TraceId`, dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). ID de la trace entière utilisé pour identifier de façon unique une trace distribuée sur plusieurs systèmes. |
-| `SpanId` | String | `SpanId` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). ID de cette requête dans la trace. |
-| `ParentId` | String | `ParentId` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). Une requête sans ID parent est la racine de la trace. |
-| `TraceFlags` | String | `TraceFlags` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). Contrôle des indicateurs de suivi tels que l’échantillonnage, le niveau de trace, etc. |
-| `TraceState` | String | `TraceState` dans le cadre du [contexte de suivi du W3C](https://www.w3.org/TR/trace-context/). Informations d’identification de trace supplémentaires spécifiques au fournisseur pour s’étendre sur différents systèmes de suivi distribués. |
 | `EndpointName` | String | Nom du point de terminaison de sortie créé dans Azure Digital Twins |
 
 Vous trouverez ci-dessous des exemples de corps JSON correspondant à ces types de journaux.
 
-#### <a name="adteventroutesoperation-for-microsoftdigitaltwinseventroutesaction"></a>ADTEventRoutesOperation pour Microsoft.DigitalTwins/eventroutes/action
-
-Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui est de `Microsoft.DigitalTwins/eventroutes/action` type.
+#### <a name="adteventroutesoperation"></a>ADTEventRoutesOperation
 
 ```json
 {
   "time": "2020-11-05T22:18:38.0708705Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/eventroutes/action",
-  "operationVersion": "",
   "category": "EventRoutesOperation",
-  "resultType": "",
-  "resultSignature": "",
-  "resultDescription": "Unable to send EventHub message to [myPath] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
-  "durationMs": -1,
-  "callerIpAddress": "",
+  "resultDescription": "Unable to send EventGrid message to [my-event-grid.westus-1.eventgrid.azure.net] for event Id [f6f45831-55d0-408b-8366-058e81ca6089].",
   "correlationId": "7f73ab45-14c0-491f-a834-0827dbbf7f8e",
-  "identity": {
-    "claims": {
-      "appId": "872cd9fa-d31f-45e0-9eab-6e460a02d1f1"
-    }
-  },
-  "level": "4",
+  "level": "3",
   "location": "southcentralus",
-  "uri": "",
   "properties": {
-    "endpointName": "myEventHub"
-  },
-  "traceContext": {
-    "traceId": "95ff77cfb300b04f80d83e64d13831e7",
-    "spanId": "b630da57026dd046",
-    "parentId": "9f0de6dadae85945",
-    "traceFlags": "01",
-    "tracestate": "k1=v1,k2=v2"
+    "endpointName": "endpointEventGridInvalidKey"
   }
-},
+}
 ```
 
 ## <a name="view-and-query-logs"></a>Afficher et interroger les journaux
