@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier Include
 author: ggailey777
 ms.service: azure-functions
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013720"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607085"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -100,15 +100,15 @@ Paramètres de configuration de [Fonctions durables](../articles/azure-functions
 Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquement des lettres et des chiffres. S’il n’est pas spécifié, le nom du hub de tâches par défaut d’une application de fonction est **DurableFunctionsHub**. Pour en savoir plus, consultez la section relative aux [hubs de tâches](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
 |Propriété  |Default | Description |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|D'autres noms de [hub de tâches](../articles/azure-functions/durable/durable-functions-task-hubs.md) peuvent être utilisés pour isoler plusieurs applications Durable Functions les unes des autres, même si elles s'appuient sur le même principal de stockage.|
 |controlQueueBatchSize|32|Nombre de messages à extraire de la file d’attente de contrôle en une seule fois.|
-|controlQueueBufferThreshold|256|Nombre de messages de file d’attente de contrôle qui peuvent être mis en mémoire tampon à la fois, auquel cas le répartiteur attend avant de retirer des messages supplémentaires de la file d’attente.|
+|controlQueueBufferThreshold| **Plan de consommation** : 32 <br> **Plan dédié/Premium** : 256 |Nombre de messages de file d’attente de contrôle qui peuvent être mis en mémoire tampon à la fois, auquel cas le répartiteur attend avant de retirer des messages supplémentaires de la file d’attente.|
 |partitionCount |4|Nombre de partitions pour la file d’attente de contrôle. Doit être un entier positif compris entre 1 et 16.|
 |controlQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente de contrôle.|
 |workItemQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente des éléments de travail.|
-|maxConcurrentActivityFunctions |10 fois le nombre de processeurs sur l’ordinateur actuel|Nombre maximal de fonctions d’activité pouvant être traitées simultanément sur une seule instance d’hôte.|
-|maxConcurrentOrchestratorFunctions |10 fois le nombre de processeurs sur l’ordinateur actuel|Nombre maximal de fonctions d’orchestrateur pouvant être traitées simultanément sur une seule instance d’hôte.|
+|maxConcurrentActivityFunctions | **Plan de consommation** : 10 <br> **Plan dédié/Premium** : 10 fois le nombre de processeurs présents sur l’ordinateur actuel|Nombre maximal de fonctions d’activité pouvant être traitées simultanément sur une seule instance d’hôte.|
+|maxConcurrentOrchestratorFunctions | **Plan de consommation** : 5 <br> **Plan dédié/Premium** : 10 fois le nombre de processeurs présents sur l’ordinateur actuel |Nombre maximal de fonctions d’orchestrateur pouvant être traitées simultanément sur une seule instance d’hôte.|
 |maxQueuePollingInterval|30 secondes|Intervalle d’interrogation de la file d’attente des éléments de travail et de contrôle maximum, indiqué au format *hh:mm:ss*. Des valeurs plus élevées peuvent entraîner une plus grande latence lors du traitement des messages. Des valeurs plus faibles peuvent entraîner des coûts de stockage plus importants, suite à un nombre plus important de transactions de stockage.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|Nom du paramètre d’application qui contient la chaîne de connexion de stockage Azure utilisée pour gérer les ressources de stockage Azure sous-jacentes.|
 |trackingStoreConnectionStringName||Nom d’une chaîne de connexion à utiliser pour les tables d’historique et d’instances. S’il n’est pas spécifié, la connexion `connectionStringName` (Durable 2.x) ou `azureStorageConnectionStringName` (Durable 1.x) est utilisée.|
@@ -121,7 +121,7 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |eventGridPublishRetryInterval|5 minutes|L’intervalle avant nouvelle tentative de publication Event Grid au format *hh:mm:ss*.|
 |eventGridPublishEventTypes||Liste des types d’événement à publier sur Event Grid. Si elle n’est pas spécifiée, cela signifie que tous les types d’événement seront publiés. Les valeurs autorisées sont `Started`, `Completed`, `Failed` et `Terminated`.|
 |useAppLease|true|Quand la valeur est `true`, les applications nécessitent l’acquisition d’un bail d’objet blob au niveau de l’application pour traiter les messages du hub de tâches. Pour plus d’informations, consultez la documentation [Récupération d’urgence et géodistribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md). Disponible à partir de la version 2.3.0.
-|useLegacyPartitionManagement|true|Quand sa valeur est `false`, utilise un algorithme de gestion des partitions qui réduit le risque d’exécuter une fonction en double lors du scale-out.  Disponible à partir de la version 2.3.0. La valeur par défaut sera remplacée par `false` dans une version ultérieure.|
+|useLegacyPartitionManagement|false|Quand sa valeur est `false`, utilise un algorithme de gestion des partitions qui réduit le risque d’exécuter une fonction en double lors du scale-out.  Disponible à partir de la version 2.3.0.|
 |useGracefulShutdown|false|(Préversion) Activez l’arrêt approprié pour réduire le risque d’échecs d’arrêt de l’hôte dans les exécutions de fonctions in-process.|
 
 La plupart de ces paramètres sont destinés à l’optimisation des performances. Pour plus d’informations, consultez [Performances et échelle](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

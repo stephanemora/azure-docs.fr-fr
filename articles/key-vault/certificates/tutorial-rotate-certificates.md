@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
-ms.openlocfilehash: 78cdc0b59fd178049e755cca5e1e909ac24483f2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec648f02918717dad6b739aa6ae99206bcec1d6e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204046"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581812"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Tutoriel : Configuration de la rotation automatique d’un certificat dans Key Vault
 
@@ -51,7 +51,7 @@ Créez un certificat ou importez un certificat dans le coffre de clés (voir les
 
 ## <a name="update-certificate-lifecycle-attributes"></a>Mettre à jour les attributs du cycle de vie des certificats
 
-Dans Azure Key Vault, vous pouvez mettre à jour les attributs de cycle de vie d’un certificat à la fois avant et après la création du certificat.
+Dans Azure Key Vault, vous pouvez mettre à jour les attributs de cycle de vie d’un certificat au moment de sa création ou après.
 
 Un certificat créé dans le coffre de clés peut être :
 
@@ -83,7 +83,7 @@ Key Vault fait pivoter automatiquement les certificats via des partenariats éta
         |  Automatically renew at a given time (Renouveler automatiquement à un moment donné)| Envoyer un e-mail à tous les contacts à un moment donné (Email all contacts at a given time) |
         |-----------|------|
         |La sélection de cette option *active* la rotation automatique. | La sélection de cette option *ne déclenche pas* la rotation automatique, elle alerte uniquement les contacts.|
-
+         You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
 1. Sélectionnez **Create** (Créer).
 
 ![Cycle de vie du certificat](../media/certificates/tutorial-rotate-cert/create-cert-lifecycle.png)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f19f43b89cd2527a67827d7434f2e054ee40001e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258539"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107227379"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutoriel : Utiliser des stratégies d’allocation personnalisées avec le service DPS (Device Provisioning Service)
 
@@ -483,6 +483,17 @@ Pour supprimer le groupe de ressources par nom :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir un exemple plus détaillé de stratégie d’allocation personnalisée, consultez [Comment utiliser des stratégies d’allocation personnalisées](how-to-use-custom-allocation-policies.md).
-* Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md).
-* Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md).
+Pour obtenir un exemple plus détaillé de stratégie d’allocation personnalisée, consultez 
+
+> [!div class="nextstepaction"]
+> [Comment utiliser des stratégies d’allocation personnalisées](how-to-use-custom-allocation-policies.md)
+
+* Pour en savoir plus sur le reprovisionnement, consultez
+
+> [!div class="nextstepaction"]
+> [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md)
+
+* Pour en savoir plus sur le déprovisionnement, consultez
+
+> [!div class="nextstepaction"]
+> [Guide pratique pour déprovisionner des appareils provisionnés automatiquement](how-to-unprovision-devices.md)

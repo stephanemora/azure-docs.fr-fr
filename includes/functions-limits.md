@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: aa75d1d57f44bb1a4d6513823ac97ac9917b260f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 91f72117fdbcdbeda1d906a9760243e66404920c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934461"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105105885"
 ---
 | Ressource |[Plan Consommation](../articles/azure-functions/consumption-plan.md)|[Plan Premium](../articles/azure-functions/functions-premium-plan.md)|[Plan dédié](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -21,6 +21,7 @@ ms.locfileid: "97934461"
 | Longueur d’URL de requête max.<sup>3</sup> | 8 192 | 8 192 | 8 192 | 8 192 | Dépend du cluster |
 |[ACU](../articles/virtual-machines/acu.md) par instance | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Tarification d’AKS](https://azure.microsoft.com/pricing/details/container-service/) |
 | Mémoire max. (en Go par instance) | 1.5 | 3,5-14 | 1,75-14 | 3.5 - 14 | Tous les nœuds sont pris en charge |
+| Nombre maximal d’instances | 200 | 100<sup>9</sup> | varie en fonction de la référence (SKU)<sup>10</sup> | 100<sup>10</sup> | Dépend du cluster |   
 | Applications de fonction par plan |100 |100 |illimité<sup>4</sup> | illimité | illimité |
 | [Plans App Service](../articles/app-service/overview-hosting-plans.md) | 100 par [région](https://azure.microsoft.com/global-infrastructure/regions/) |100 par groupe de ressources |100 par groupe de ressources | - | - |
 | Stockage<sup>5</sup> |5 To |250 Go |50-1 000 Go | 1 To | n/a |
@@ -34,4 +35,6 @@ ms.locfileid: "97934461"
 <sup>5</sup> La limite de stockage est la taille totale du contenu dans le stockage temporaire de toutes les applications du même plan App Service. Le plan Consommation utilise Azure Files pour le stockage temporaire.  
 <sup>6</sup> Lorsque votre application de fonction est hébergée dans un [Plan Consommation](../articles/azure-functions/consumption-plan.md), seule l’option CNAME est prise en charge. Pour les applications de fonction présentes dans un [plan Premium](../articles/azure-functions/functions-premium-plan.md) ou un [plan App Service](../articles/azure-functions/dedicated-plan.md), vous pouvez mapper un domaine personnalisé en utilisant l’un ou l’autre des enregistrements : CNAME ou A.  
 <sup>7</sup> Garanti pour une durée maximale de 60 minutes.  
-<sup>8</sup>Les workers sont des rôles qui hébergent des applications clientes. Ils sont disponibles dans trois tailles fixes : Un processeur virtuel/3,5 Go de RAM ; Deux processeurs virtuels/7 Go de RAM ; Quatre processeurs virtuels/14 Go de RAM.
+<sup>8</sup>Les workers sont des rôles qui hébergent des applications clientes. Ils sont disponibles dans trois tailles fixes : Un processeur virtuel/3,5 Go de RAM ; Deux processeurs virtuels/7 Go de RAM ; Quatre processeurs virtuels/14 Go de RAM.   
+<sup>9</sup> En cas d’exécution sur Linux dans un plan Premium, vous êtes actuellement limité à 20 instances.  
+<sup>10</sup> Pour plus d’informations, consultez [Limites App Service](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).

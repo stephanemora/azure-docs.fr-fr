@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 0614e6fb1df13332cb05dcb7bb9b0f07a1764d23
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103622281"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251586"
 ---
 | Ressource | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -29,7 +29,7 @@ ms.locfileid: "103622281"
 | Nombre maximal d’abonnements par instance de service<sup>8</sup> | 500 |
 | Nombre maximal de certificats clients par instance de service<sup>8</sup> | 50 |
 | Nombre maximal d’API par instance de service<sup>8</sup> | 50 |
-| Nombre maximal d’opérations d’API par instance de service<sup>8</sup> | 1 000 |
+| Nombre maximal d’opérations de gestion des API par instance de service<sup>8</sup> | 1 000 |
 | Durée totale maximale des requêtes<sup>8</sup> | 30 secondes |
 | Taille maximale de la charge utile mise en mémoire tampon<sup>8</sup> | 2 Mio |
 | Taille maximale de l’URL de requête<sup>9</sup> | 4096 octets |

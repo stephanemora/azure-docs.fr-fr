@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: d3d9f41876cf1310fe25a275624f609031c05b00
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ddb61a79e6af402b06fe8c18df8c62f9287437a3
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601891"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209712"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -33,7 +33,7 @@ Les fonctionnalités suivantes font partie du service Speech. Pour en savoir plu
 | | [Conversation multi-appareil](multi-device-conversation.md) | Connecter plusieurs appareils ou clients dans une conversation pour envoyer des messages vocaux ou textuels, avec une prise en charge simple de la transcription et de la traduction| Oui | Non |
 | | [Transcription de conversation](./conversation-transcription.md) | Permet la reconnaissance vocale en temps réel, l’identification de l’orateur et la structuration (diarisation). Il est parfait pour la transcription de rencontres en personne, avec possibilité de distinguer les orateurs. | Oui | Non |
 | | [Créer des modèles vocaux personnalisés](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non | [Oui](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine avec le [langage SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](./speech-sdk.md) | [Oui](#reference-docs) |
+| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine avec le [langage SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md). Utilisez des voix neuronales, qui sont des voix semblables à la voix humaine alimentées par des réseaux neuronaux profonds. Consultez [Prise en charge des langues](language-support.md). | [Oui](./speech-sdk.md) | [Oui](#reference-docs) |
 | | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non | [Oui](#reference-docs) |
 | [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](./speech-sdk.md) | Non |
 | [Assistants vocaux](voice-assistants.md) | Assistants vocaux | Les assistants vocaux qui utilisent le service Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d’assistant vocal permet une interaction rapide et fiable entre un appareil et une implémentation d’assistant qui utilise le canal Direct Line Speech de Bot Framework ou le service intégré Commandes personnalisées pour réaliser la tâche. | [Oui](voice-assistants.md) | Non |
@@ -105,7 +105,7 @@ Nous proposons des guides de démarrage rapide pour la plupart des langages de p
 * [Guide de démarrage rapide sur la reconnaissance vocale](get-started-speech-to-text.md)
 * [Démarrage rapide sur la conversion de texte par synthèse vocale](get-started-text-to-speech.md)
 * [Guide de démarrage rapide sur la traduction vocale](./get-started-speech-translation.md)
-* [Guide de démarrage rapide sur la reconnaissance de l’intention](quickstarts/intent-recognition.md)
+* [Guide de démarrage rapide sur la reconnaissance de l’intention](./get-started-intent-recognition.md)
 * [Guide de démarrage rapide sur la reconnaissance de l’orateur](./get-started-speaker-recognition.md)
 
 Une fois que vous avez suivi le guide de démarrage rapide du service Speech, essayez nos tutoriels qui vous feront découvrir différents scénarios.

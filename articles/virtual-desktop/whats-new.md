@@ -3,17 +3,17 @@ title: Nouveautés de Windows Virtual Desktop - Azure
 description: Nouvelles fonctionnalités et mises à jour de produit pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 03/20/2021
+ms.date: 04/08/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 1c5d846963d7fc0c2207893f5c4094e3f94351b5
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 710f33ada7a64248f0371a3e8c39e085d3f0834c
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106505414"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107055"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Nouveautés de Windows Virtual Desktop
 
@@ -51,6 +51,53 @@ Voici les modifications apportées à l'agent Windows Virtual Desktop :
 ## <a name="fslogix-updates"></a>Mises à jour FSLogix
 
 Vous êtes curieux de découvrir les dernières mises à jour de FSLogix ? Consultez [Nouveautés de FSLogix](/fslogix/whats-new).
+
+## <a name="march-2021"></a>Mars 2021
+
+Voici ce qui a changé en mars 2021.
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Mises à jour de l’interface utilisateur du portail Azure pour Windows Virtual Desktop
+
+Nous avons apporté les mises à jour suivantes à Windows Virtual Desktop pour le portail Azure :
+
+- Nous avons activé les nouvelles options de disponibilité (zones et groupe à haute disponibilité) pour les workflows, afin de créer des pools d’hôtes et d’ajouter des machines virtuelles.
+- Nous avons résolu un problème dans lequel un hôte avec l’état « A besoin d’aide » apparaissait comme indisponible. À présent, une icône d’avertissement s’affiche en regard de l’hôte.
+- Nous avons activé le tri pour les sessions actives.
+- Vous pouvez désormais envoyer des messages à des utilisateurs spécifiques, ou les déconnecter sous l’onglet Détails de hôte.
+- Nous avons modifié le champ de la durée maximale de session.
+- Nous avons ajouté un chemin de validation UO au workflow pour créer un pool d’hôtes.
+- Vous pouvez désormais utiliser la toute dernière version de l’image Windows 10 lorsque vous créez un pool d’hôtes personnels.
+
+### <a name="generation-2-images-and-trusted-launch"></a>Images Génération 2 et lancement fiable
+
+La Place de marché Azure dispose à présent d’images de 2e génération pour Windows 10 Entreprise et Windows 10 Entreprise multisession. Ces images vous permettent d’utiliser des machines virtuelles à lancement fiable. Pour plus d’informations sur les machines virtuelles de Génération 2, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2](../virtual-machines/generation-2.md). Pour savoir comment provisionner des machines virtuelles Windows Virtual Desktop à lancement fiable, consultez [notre billet sur TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+
+### <a name="fslogix-is-now-preinstalled-on-windows-10-enterprise-multi-session-images"></a>FSLogix est maintenant préinstallé sur les images Windows 10 Entreprise multisession
+
+Pour faire suite aux commentaires des clients, nous avons configuré une nouvelle version de l’image Windows 10 Entreprise multisession qui comporte une version non configurée de FSLogix déjà installée. Nous espérons que votre déploiement de Windows Virtual Desktop s’en trouvera facilité.
+
+### <a name="azure-monitor-for-windows-virtual-desktop-is-now-in-general-availability"></a>Azure Monitor pour Windows Virtual Desktop est maintenant en disponibilité générale
+
+Azure Monitor pour Windows Virtual Desktop est maintenant en disponibilité générale. Cette fonctionnalité est un service automatique qui supervise vos déploiements et vous permet d’afficher les événements, l’intégrité et les suggestions de dépannage à un seul endroit. Pour plus d’informations, reportez-vous à [notre documentation](azure-monitor.md) ou consultez [notre billet sur TechCommunity](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-is-generally-available/m-p/2242861).
+
+### <a name="march-2021-updates-for-teams-on-windows-virtual-desktop"></a>Mises à jour de mars 2021 pour Teams sur Windows Virtual Desktop
+
+Nous avons effectué les mises à jour suivantes pour Teams sur Windows Virtual Desktop :
+
+- Nous avons amélioré les performances en termes de qualité vidéo sur les appels et le mode 2x2.
+- Nous avons réduit l’utilisation du processeur de 5 à 10 % (selon la génération du processeur) en utilisant le déchargement matériel du traitement vidéo (XVP).
+- Les machines plus anciennes peuvent désormais utiliser le décodage matériel et XVP pour afficher davantage de flux vidéo entrants de manière fluide en mode 2x2.
+- Nous avons mis à jour la pile WebRTC en passant de M74 à M88 pour améliorer les performances de la synchronisation AV et réduire les problèmes temporaires.
+- Nous avons remplacé notre encodeur logiciel H264 par OpenH264 (logiciel Open Source utilisé dans Teams sur le web), ce qui a amélioré la qualité vidéo de la caméra sortante.
+- Nous avons activé le mode 2x2 pour Team Server, il sera accessible au grand public le 30 mars. Le mode 2x2 affiche jusqu’à quatre flux vidéo entrants en même temps.
+
+### <a name="start-vm-on-connect-public-preview"></a>Démarrer une machine virtuelle à la connexion (préversion publique)
+
+Le nouveau paramètre de pool d’hôtes, Démarrer une machine virtuelle à la connexion, est désormais disponible en préversion publique. Ce paramètre vous permet d’activer vos machines virtuelles dès que vous en avez besoin. Si vous souhaitez réduire les coûts, vous devrez libérer vos machines virtuelles en configurant vos paramètres Azure Compute. Pour plus d’informations, consultez notre [billet de blog](https://aka.ms/wvdstartvmonconnect) et [notre documentation](start-virtual-machine-connect.md).
+
+### <a name="windows-virtual-desktop-specialty-certification"></a>Certification de spécialité de Windows Virtual Desktop
+
+Nous avons publié une version bêta de l’examen AZ-140 qui vous permettra de prouver votre maîtrise de Windows Virtual Desktop dans Azure. Pour plus d’informations, consultez [notre billet sur TechCommunity](https://techcommunity.microsoft.com/t5/microsoft-learn-blog/beta-exam-prove-your-expertise-in-windows-virtual-desktop-on/ba-p/2147107).
 
 ## <a name="february-2021"></a>Février 2021
 

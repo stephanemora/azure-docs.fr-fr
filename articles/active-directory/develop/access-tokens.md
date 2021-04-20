@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 2/18/2021
+ms.date: 04/02/2021
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f5a60f14799e872d835d651fc043edd27dfc6990
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035065"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105593"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -176,6 +176,12 @@ Les identités Microsoft peuvent s’authentifier de différentes manières appr
 | `ngcmfa` | Équivalente à `mfa`, utilisée pour le provisionnement de certains types avancés d’informations d’identification. |
 | `wiaormfa`| L’utilisateur a utilisé Windows ou un identifiant MFA pour s’authentifier. |
 | `none` | Aucune authentification n’a été effectuée. |
+
+## <a name="access-token-lifetime"></a>Durée de vie de jeton d’accès
+
+La durée de vie par défaut d’un jeton d’accès varie selon l’application cliente qui demande le jeton. Par exemple, les clients prenant en charge l’évaluation continue de l’accès (CAE) qui négocient des sessions prenant en charge le CAE verront une durée de vie de jeton plus longue (jusqu’à 28 heures).  Lorsque le jeton d’accès expire, le client doit utiliser le jeton d’actualisation pour acquérir (généralement en mode silencieux) un nouveau jeton d’actualisation et un nouveau jeton d’accès.
+
+Vous pouvez ajuster la durée de vie d’un jeton d’accès pour contrôler la fréquence à laquelle l’application cliente arrête la session de l’application, ainsi que la fréquence à laquelle elle demande à l’utilisateur de s’authentifier à nouveau (en mode silencieux ou interactif). Pour plus d’informations, consultez [Durées de vie des jetons configurables](active-directory-configurable-token-lifetimes.md).
 
 ## <a name="validating-tokens"></a>Validation des jetons
 

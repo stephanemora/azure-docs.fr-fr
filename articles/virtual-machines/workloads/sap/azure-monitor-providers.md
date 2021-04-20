@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93e97f1f04aea2a31b62b2014a88a5aaa998ed2d
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669000"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376084"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Fournisseurs Azure Monitor pour solutions SAP (préversion)
 
@@ -25,6 +25,7 @@ Les clients peuvent également choisir de configurer plusieurs fournisseurs d’
 - SAP HANA
 - Cluster haute disponibilité
 - Microsoft SQL Server
+- SAP NetWeaver
 
 ![Fournisseurs Azure Monitor pour solutions SAP](./media/azure-monitor-sap/azure-monitor-providers.png)
 
@@ -108,6 +109,27 @@ En préversion publique, les clients peuvent s’attendre à voir les données s
 L’ID du système SAP, l’adresse IP de l’hôte, le numéro de port SQL Server ainsi que le nom de connexion et le mot de passe SQL Server sont nécessaires pour configurer le fournisseur Microsoft SQL Server.
 
 ![Fournisseurs Azure Monitor pour solutions SAP : SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+
+## <a name="provider-type-sap-netweaver"></a>Type fournisseur SAP NetWeaver
+
+Les clients peuvent configurer un ou plusieurs fournisseurs de type fournisseur SAP NetWeaver pour activer la collecte des données à partir de la couche SAP NetWeaver. Le fournisseur AMS NetWeaver utilise l’interface [SAPControl WebService](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) existante pour récupérer les informations de télémétrie appropriées.
+
+Pour la version actuelle, voici les méthodes web SOAP prêtes à l’emploi standard appelées par AMS.
+|méthode Web|    ABAP|   Java|   Mesures|
+|--|--|--|--|
+|GetSystemInstanceList| X|  X|  Disponibilité de l’instance, serveur de messages, passerelle, ICM, disponibilité ABAP|
+|GetProcessList|    X|  X|  Si la liste d’instances est rouge, nous pouvons déterminer le processus à l’origine de ce serveur en rouge|
+|GetQueueStatistic| X|  X|  Statistiques de file d’attente (DIA/BATCH/UPD)|
+|ABAPGetWPTable|    X|   -| Utilisation du processus de travail|
+|EnqGetStatistic|   X   |X  |Verrous|
+
+En préversion publique, les clients peuvent s’attendre à voir les données suivantes avec le fournisseur SAP NetWeaver : 
+- Disponibilité du système et des instances
+- Utilisation du processus de travail
+- Utilisation de la file d’attente
+- Statistiques de verrous empilés.
+
+![image](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

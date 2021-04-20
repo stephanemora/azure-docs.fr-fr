@@ -2,16 +2,16 @@
 title: 'Tutoriel : Créer et déployer des fichiers Bicep Azure Resource Manager'
 description: Créez votre premier fichier Bicep pour le déploiement de ressources Azure. Dans ce tutoriel, vous découvrirez la syntaxe des fichiers Bicep et la façon de déployer un compte de stockage.
 author: mumian
-ms.date: 03/17/2021
+ms.date: 04/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ffd8a97d797144d458e7ec5836042cc6d8d8193
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594272"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306674"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutoriel : Créer et déployer votre premier fichier Bicep Azure Resource Manager
 
@@ -35,7 +35,7 @@ Pour créer des fichiers Bicep, vous avez besoin d’un bon éditeur. Nous vous
 
 ### <a name="command-line-deployment"></a>Déploiement en ligne de commande
 
-Vous pouvez déployer des fichiers Bicep en utilisant Azure CLI ou Azure PowerShell. Pour Azure CLI, vous avez besoin de la version 2.20.0 ou ultérieure ; pour Azure PowerShell, vous avez besoin de la version 5.6.0 ou ultérieure. Pour les instructions d’installation, consultez :
+Vous pouvez déployer des fichiers Bicep en utilisant Azure CLI ou Azure PowerShell. Pour Azure CLI, vous avez besoin de la version 2.20.0 ou ultérieure ; pour Azure PowerShell, vous avez besoin de la version 5.6.0 ou ultérieure. Pour les instructions d’installation, consultez :
 
 - [Installation d'Azure PowerShell](/powershell/azure/install-az-ps)
 - [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows)
@@ -57,7 +57,7 @@ Bien, vous êtes prêt à découvrir le langage Bicep.
 
     ```bicep
     resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-      name: '{provide-unique-name}'
+      name: '{provide-unique-name}'  // must be globally unique
       location: 'eastus'
       sku: {
         name: 'Standard_LRS'
@@ -85,6 +85,10 @@ Bien, vous êtes prêt à découvrir le langage Bicep.
         Si vous voyez une version plus ancienne de l’API, par exemple [storageAccounts 2016-05-01](/azure/templates/microsoft.storage/2016-05-01/storageaccounts), vous remarquerez qu’un ensemble de propriétés plus restreint est disponible.
 
         Si vous décidez de modifier la version de l’API pour une ressource, veillez à évaluer les propriétés de cette version et à ajuster votre fichier Bicep en conséquence.
+
+    Pour plus d’informations, consultez [Structure de Bicep](./bicep-file.md).
+
+    Il y a un commentaire pour la propriété name.  Utilisez `//` pour les commentaires d’une seule ligne ou `/* ... */` pour les commentaires de plusieurs lignes.
 
 1. Remplacez `{provide-unique-name}`, accolades `{}` incluses, par un nom de compte de stockage unique.
 

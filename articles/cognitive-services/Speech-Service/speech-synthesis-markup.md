@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 2c66a7e3bf9e417b47d08e50e21c08625e9d0549
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966943"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210208"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -27,11 +27,9 @@ L’implémentation par SSML du service Speech est basée sur le [langage SSML v
 > [!IMPORTANT]
 > Les caractères chinois, japonais et coréens comptent pour deux en matière de facturation. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-## <a name="standard-neural-and-custom-voices"></a>Voix standard, neuronales et personnalisées
+## <a name="neural-and-custom-voices"></a>Voix neuronales et personnalisées
 
-Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neurales sont disponibles dans 4 langues et paramètres régionaux. Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md).
-
-Pour en savoir plus sur les voix standard, neuronales et personnalisées, voir [Vue d’ensemble de la synthèse vocale](text-to-speech.md).
+Utilisez une voix neuronal de type humain, ou créez votre propre voix personnalisée unique pour votre produit ou votre appellation. Pour obtenir la liste complète des langues, paramètres régionaux et voix pris en charge, consultez [prise en charge linguistique](language-support.md). Pour en savoir plus sur les voix neuronales et personnalisées, voir [Vue d’ensemble de la synthèse vocale](text-to-speech.md).
 
 
 > [!NOTE]
@@ -194,12 +192,9 @@ speechConfig!.setPropertyTo(
 
 ## <a name="adjust-speaking-styles"></a>Ajuster les styles oraux
 
-> [!IMPORTANT]
-> L’ajustement des styles oraux ne fonctionne qu’avec les voix neurales.
+Par défaut, le service de synthèse vocale synthétise le texte à l’aide d’un style oral neutre pour les voix neuronales. Vous pouvez ajuster le ton pour exprimer différentes émotions, comme la joie, l’empathie ou le calme, ou bien optimiser la voix pour différents scénarios comme le service client, la diffusion d’informations et les assistants vocaux, à l’aide de l’élément `mstts:express-as`. Il s’agit d’un élément facultatif propre au service Speech.
 
-Par défaut, le service de synthèse vocale synthétise le texte à l’aide d’un style oral neutre pour les voix standard et neuronales. Avec les voix neurales, vous pouvez ajuster le ton pour exprimer différentes émotions, comme la joie, l’empathie ou le calme, ou bien optimiser la voix pour différents scénarios comme le service client, la diffusion d’informations et les assistants vocaux, à l’aide de l’élément `mstts:express-as`. Il s’agit d’un élément facultatif propre au service Speech.
-
-Actuellement, des ajustements de style oral sont pris en charge pour ces voix neuronales :
+Actuellement, les ajustements de style oral suivants sont pris en charge pour ces voix neuronales :
 * `en-US-AriaNeural`
 * `en-US-JennyNeural`
 * `en-US-GuyNeural`
@@ -215,11 +210,11 @@ Actuellement, des ajustements de style oral sont pris en charge pour ces voix ne
 
 L’intensité du style d’élocution peut être modifiée pour mieux correspondre à votre cas d’usage. Vous pouvez spécifier un style plus fort ou plus doux avec `styledegree` pour rendre la voix plus expressive ou feutrée. Actuellement, les ajustements de style oral sont pris en charge pour les voix neuronales en chinois (mandarin, simplifié).
 
-En plus d’ajuster les styles d’élocution et le degré de style, vous pouvez aussi ajuster le paramètre `role` afin que la voix imite un âge et un sexe différents. Par exemple, une voix masculine peut devenir plus aigüe et changer d’intonation pour imiter une voix féminine, mais le nom de la voix ne changera pas. Actuellement, les ajustements de jeux de rôle sont pris en charge pour ces voix neuronales en chinois (mandarin, simplifié) :
+En plus d’ajuster les styles d’élocution et le degré de style, vous pouvez aussi ajuster le paramètre `role` afin que la voix imite un âge et un sexe différents. Par exemple, une voix masculine peut devenir plus aigüe et changer d’intonation pour imiter une voix féminine, mais le nom de la voix ne changera pas. Actuellement, les ajustements de rôle sont pris en charge pour ces voix neuronales en chinois (mandarin, simplifié) :
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
-Les modifications ci-dessus sont appliquées au niveau de la phrase, et les styles et jeux de rôle varient selon la voix. Si un style ou jeu de rôle n’est pas pris en charge, le service retourne la voix dans le style d’élocution neutre par défaut. Vous pouvez voir les styles et jeux de rôle pris en charge pour chaque voix par le biais de l’[API Voice List](rest-text-to-speech.md#get-a-list-of-voices) ou celui de la plateforme de [création de contenu audio ](https://aka.ms/audiocontentcreation) sans code.
+Les modifications ci-dessus sont appliquées au niveau de la phrase, et les styles et jeux de rôle varient selon la voix. Si un style ou jeu de rôle n’est pas pris en charge, le service retourne la voix dans le style d’élocution neutre par défaut. Vous pouvez voir les styles et rôles pris en charge pour chaque voix par le biais de l’[API Voice List](rest-text-to-speech.md#get-a-list-of-voices) ou celui de la plateforme de [création de contenu audio ](https://aka.ms/audiocontentcreation) sans code.
 
 **Syntaxe**
 
@@ -717,7 +712,7 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>

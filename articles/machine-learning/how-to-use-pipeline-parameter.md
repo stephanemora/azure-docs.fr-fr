@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 03/19/2021
+ms.date: 04/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 09eabffb0e01ee6c5ea6b541378773a7d60397a3
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 30ae737a170c337fe6be51521aeb358cdcebd44b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106080703"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107332"
 ---
 # <a name="use-pipeline-parameters-in-the-designer-to-build-versatile-pipelines"></a>Utiliser des paramètres de pipeline dans le concepteur pour créer des pipelines polyvalents
 
@@ -95,9 +95,11 @@ Si vous souhaitez soumettre votre pipeline avec des jeux de données variables, 
 
 Vous pouvez maintenant spécifier un autre jeu de données à l’aide du paramètre de pipeline lors de la prochaine exécution du pipeline.
 
-## <a name="attach-module-parameter-to-pipeline-parameter"></a>Attacher le paramètre de module à un paramètre de pipeline 
+## <a name="attach-and-detach-module-parameter-to-pipeline-parameter"></a>Attacher et détacher le paramètre de module à un paramètre de pipeline 
 
-Dans cette section, vous allez découvrir comment attacher un paramètre de module à un paramètre de pipeline.
+Dans cette section, vous allez découvrir comment attacher et détacher un paramètre de module à un paramètre de pipeline.
+
+### <a name="attach-module-parameter-to-pipeline-parameter"></a>Attacher le paramètre de module à un paramètre de pipeline
 
 Vous pouvez attacher les mêmes paramètres de module de modules dupliqués au même paramètre de pipeline si vous souhaitez modifier la valeur lors du déclenchement de l’exécution du pipeline.
 
@@ -115,10 +117,16 @@ L’exemple suivant comporte un module **Nettoyer les données manquantes** dupl
 
    ![Capture d’écran montrant comment attacher un paramètre de pipeline](media/how-to-use-pipeline-parameter/attach-replace-value-to-pipeline-parameter.png)
 
-Vous avez correctement attaché le champ **Valeur de remplacement** à votre paramètre de pipeline. La **Valeur de remplacement** dans les modules n’est pas actionnable.
+Vous avez correctement attaché le champ **Valeur de remplacement** à votre paramètre de pipeline. 
+
+
+### <a name="detach-module-parameter-to-pipeline-parameter"></a>Détacher le paramètre de module à un paramètre de pipeline
+
+Une fois que vous avez attaché la **valeur de remplacement** au paramètre de pipeline, elle n’est pas exploitable.
+
+Vous pouvez détacher le paramètre de module dans le paramètre de pipeline en cliquant sur les points de suspension ( **...** ) en regard du paramètre de module, puis sélectionner **Détacher du paramètre de pipeline**.
 
  ![Capture d’écran montrant le caractère non-actionnable après l’attachement au paramètre de pipeline](media/how-to-use-pipeline-parameter/non-actionable-module-parameter.png)
-
 
 ## <a name="update-and-delete-pipeline-parameters"></a>Mettre à jour et supprimer des paramètres de pipeline
 
@@ -133,7 +141,7 @@ Pour mettre à jour un paramètre de pipeline de module, effectuez les étapes s
 
 ### <a name="delete-a-dataset-pipeline-parameter"></a>Supprimer un paramètre de pipeline de jeu de données
 
-Pour détacher un paramètre de pipeline de jeu de données, effectuez les étapes suivantes :
+Pour supprimer un paramètre de pipeline de jeu de données, effectuez les étapes suivantes :
 
 1. Sélectionnez le module de jeu de données.
 1. Décochez l’option **Définir en tant que paramètre de pipeline**.
@@ -147,22 +155,14 @@ Pour supprimer un paramètre de pipeline de module, effectuez les étapes suivan
 
 1. Sélectionnez les points de suspension ( **...** ) en regard du paramètre de pipeline.
 
-    Cet affichage montre les modules auxquels le paramètre de pipeline est attaché. Pour supprimer un paramètre de pipeline, vous devez d’abord le détacher des paramètres de module.
+    Cet affichage montre les modules auxquels le paramètre de pipeline est attaché.
 
-    ![Capture d’écran montrant le paramètre de pipeline actif appliqué à un module](media/how-to-use-pipeline-parameter/current-pipeline-parameter.png)
+    ![Capture d’écran montrant le paramètre de pipeline actif appliqué à un module](media/how-to-use-pipeline-parameter/delete-pipeline-parameter2.png)
 
-1. Dans le canevas, sélectionnez un module auquel le paramètre de pipeline est toujours attaché.
-1. Dans le volet de propriétés du module à droite, recherchez le champ auquel le paramètre de pipeline est attaché.
-1. Placez le pointeur de la souris sur le champ attaché. Ensuite, sélectionnez les points de suspension ( **...** ) qui s’affichent.
-1. Sélectionnez **Détacher du paramètre de pipeline**.
-
-    ![Capture d’écran montrant le détachement des paramètres de pipeline](media/how-to-use-pipeline-parameter/detach-from-pipeline-parameter.png)
-
-1. Répétez les étapes précédentes jusqu’à ce que vous ayez détaché le paramètre de pipeline de tous les champs.
-1. Sélectionnez les points de suspension ( **...** ) en regard du paramètre de pipeline.
 1. Sélectionnez **Supprimer le paramètre** pour supprimer le paramètre de pipeline.
 
-    ![Capture d’écran montrant la suppression des paramètres de pipeline](media/how-to-use-pipeline-parameter/delete-pipeline-parameter.png)
+    > [!NOTE]
+    > La suppression d’un paramètre de pipeline entraîne le détachement de tous les paramètres de module attachés, et la valeur des paramètres de module détaché conservera la valeur actuelle du paramètre de pipeline.     
 
 ## <a name="trigger-a-pipeline-run-with-pipeline-parameters"></a>Déclencher une exécution de pipeline avec des paramètres de pipeline 
 

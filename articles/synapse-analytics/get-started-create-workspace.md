@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: a4fa902268d9a19cd0003a2fdaa4c5e58989a4ff
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: b22954edf4f3a5a935c470326aa43bd24ee2d708
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106218938"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366060"
 ---
 # <a name="creating-a-synapse-workspace"></a>Création d’un espace de travail Synapse
 
@@ -47,8 +47,8 @@ Remplissez les champs suivants :
 
 Sous **Sélectionner Data Lake Storage Gen2** :
 
-1. À côté de **Nom du compte**, cliquez sur **Créer**, puis nommez le nouveau compte de stockage **contosolake** ou avec un nom similaire, car ce nom doit être unique.
-1. À côté de **Nom du système de fichiers**, cliquez sur **Créer**, puis nommez-le **users**. Cette opération crée un conteneur de stockage appelé **users**. L’espace de travail utilise ce compte de stockage comme compte de stockage « principal » pour les tables Spark et les journaux des applications Spark.
+1. À côté de **Nom du compte**, sélectionnez **Créer**, puis nommez le nouveau compte de stockage **contosolake**, ou utilisez un nom similaire, car celui-ci doit être unique.
+1. À côté de **Nom du système de fichiers**, sélectionnez **Créer**, puis nommez-le **users**. Cette opération crée un conteneur de stockage appelé **users**. L’espace de travail utilise ce compte de stockage comme compte de stockage « principal » pour les tables Spark et les journaux des applications Spark.
 1. Cochez la case « Attribuez-moi le rôle Contributeur aux données blob du stockage sur le compte Data Lake Storage Gen2 ». 
 
 ## <a name="completing-the-process"></a>Fin du processus
@@ -64,6 +64,16 @@ Après avoir créé votre espace de travail Azure Synapse, vous pouvez ouvrir Sy
 
 * Ouvrez votre espace de travail Synapse dans le [portail Azure](https://portal.azure.com). Dans la section **Vue d’ensemble** de l’espace de travail Synapse, sélectionnez **Ouvrir** dans la zone Ouvrir Synapse Studio.
 * Accédez à `https://web.azuresynapse.net` et connectez-vous à votre espace de travail.
+
+## <a name="place-sample-data-into-the-primary-storage-account"></a>Placer les exemples de données dans le compte de stockage principal
+Nous allons utiliser un petit jeu de données de 100 000 lignes provenant des données de NYX Taxi Cab des nombreux exemples de ce guide de démarrage. Nous commençons par le placer dans le compte de stockage principal que vous avez créé pour l’espace de travail.
+
+* Téléchargez ce fichier sur votre ordinateur : https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* Dans Synapse Studio, accédez au hub de données. 
+* Sélectionnez **Lié**.
+* Sous la catégorie **Azure Data Lake Storage Gen2**, vous verrez un élément avec un nom qui ressemble à **myworkspace (Principal - contosolake)** .
+* Sélectionnez le conteneur nommé **users (Principal)** .
+* Sélectionnez **Charger**, puis sélectionnez le fichier `NYCTripSmall.parquet` que vous avez téléchargé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

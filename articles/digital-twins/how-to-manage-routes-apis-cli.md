@@ -7,18 +7,18 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e6b35031d976a11bdac6f38d74f9e02a0fc83302
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c7efebaf23bd8e897243f6ee12b23d3821a4c033
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936306"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257328"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins (API et CLI)
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](how-to-interpret-event-data.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
+Dans Azure Digital Twins, vous pouvez acheminer les [notifications d’événements](concepts-event-notifications.md) vers des services en aval ou des ressources de calcul connectées. Pour ce faire, vous devez d’abord configurer des **points de terminaison** qui peuvent recevoir les événements. Vous pouvez ensuite créer [**des itinéraires d’événements**](concepts-route-events.md) qui spécifient quels événements générés par Azure Digital Twins sont remis aux points de terminaison.
 
 Cet article vous guide tout au long du processus de création de points de terminaison et de routes à l’aide des [API REST](/rest/api/azure-digitaltwins/), du [kit SDK .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) et de l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
@@ -48,7 +48,7 @@ Cette section explique comment créer ces points de terminaison à l’aide de l
 
 ### <a name="create-the-endpoint"></a>Créer le point de terminaison
 
-Une fois que vous avez créé les ressources du point de terminaison, vous pouvez les utiliser pour un point de terminaison Azure Digital Twins. Les exemples suivants montrent comment créer des points de terminaison à l’aide de la commande [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Remplacez les espaces réservés dans les commandes par les informations de vos propres ressources.
+Une fois que vous avez créé les ressources du point de terminaison, vous pouvez les utiliser pour un point de terminaison Azure Digital Twins. Les exemples suivants montrent comment créer des points de terminaison à l’aide de la commande [az dt endpoint create](/cli/azure/dt/endpoint/create) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md). Remplacez les espaces réservés dans les commandes par les informations de vos propres ressources.
 
 Pour créer un point de terminaison Event Grid :
 
@@ -119,7 +119,7 @@ Suivez les étapes ci-dessous pour configurer ces ressources de stockage dans vo
     
 #### <a name="create-the-dead-letter-endpoint"></a>Créer le point de terminaison de lettres mortes
 
-Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, ajoutez le paramètre de lettre morte suivant à la commande [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
+Pour créer un point de terminaison avec mise en file d’attente de lettres mortes, ajoutez le paramètre de lettre morte suivant à la commande [az dt endpoint create](/cli/azure/dt/endpoint/create) pour l’[interface CLI Azure Digital Twins](how-to-use-cli.md).
 
 La valeur du paramètre représente l’**URI SAS de lettre morte** constitué du nom du compte de stockage, du nom du conteneur et du jeton SAP que vous avez collectés à la [section précédente](#set-up-storage-resources). Ce paramètre crée le point de terminaison avec l’authentification basée sur une clé.
 
@@ -158,7 +158,7 @@ Une fois que le point de terminaison avec la file d’attente de lettres mortes 
 
 Les messages en file d’attente de lettres mortes correspondent au schéma de l’événement d’origine qui a été conçu pour être remis à votre point de terminaison d’origine.
 
-Voici un exemple de message mis en file d’attente de lettres mortes pour une [notification de création de jumeau](how-to-interpret-event-data.md#digital-twin-lifecycle-notifications) :
+Voici un exemple de message mis en file d’attente de lettres mortes pour une [notification de création de jumeau](concepts-event-notifications.md#digital-twin-lifecycle-notifications) :
 
 ```json
 {
@@ -204,7 +204,7 @@ Une définition d’itinéraire peut contenir les éléments suivants :
 
 Un itinéraire doit permettre la sélection de plusieurs notifications et types d’événements. 
 
-Les routes d'événements peuvent être créées à l’aide des API de plan de données [**EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou des commandes CLI [**az dt route**](/cli/azure/ext/azure-iot/dt/route) Azure Digital Twins. Le reste de cette section décrit le processus de création.
+Les routes d'événements peuvent être créées à l’aide des API de plan de données [**EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) ou des commandes CLI [**az dt route**](/cli/azure/dt/route) Azure Digital Twins. Le reste de cette section décrit le processus de création.
 
 ### <a name="create-routes-with-the-apis-and-c-sdk"></a>Créer des routes avec les API et le Kit de développement logiciel (SDK) C#
 
@@ -225,7 +225,7 @@ L’exemple de méthode suivant montre comment créer, lister et supprimer une r
 
 ### <a name="create-routes-with-the-cli"></a>Créer des routes avec l’interface CLI
 
-Vous pouvez également gérer les routes à l’aide des commandes [az dt route](/cli/azure/ext/azure-iot/dt/route) pour l’interface CLI Azure Digital Twins. 
+Vous pouvez également gérer les routes à l’aide des commandes [az dt route](/cli/azure/dt/route) pour l’interface CLI Azure Digital Twins. 
 
 Pour plus d’informations sur l’utilisation de l’interface CLI et sur les commandes disponibles, consultez le [*Tutoriel : utiliser l’interface CLI Azure Digital Twins*](how-to-use-cli.md).
 
@@ -256,4 +256,4 @@ Voici les filtres d’itinéraire pris en charge. Utilisez les détails de la co
 ## <a name="next-steps"></a>Étapes suivantes
 
 Apprenez-en davantage sur les différents types de messages d’événements que vous pouvez recevoir :
-* [*Guide pratique pour interpréter des données d’événement*](how-to-interpret-event-data.md)
+* [*Concepts : Notifications d’événements*](concepts-event-notifications.md)

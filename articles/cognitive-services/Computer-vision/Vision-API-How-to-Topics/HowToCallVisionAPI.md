@@ -1,9 +1,9 @@
 ---
 title: Appeler l’API Analyse d’image
 titleSuffix: Azure Cognitive Services
-description: Apprenez à appeler l'API Analyse d'images à l'aide de l'API REST dans Azure Cognitive Services.
+description: Découvrez comment appeler l’API Analyse d’image et configurer son comportement.
 services: cognitive-services
-author: KellyDF
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
@@ -11,144 +11,71 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 25907319be5fc79cf4c7d6e46499bacce54cea77
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 3f9a6afe3202df40e26332c3a8c91b8c3eca8a32
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286434"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012266"
 ---
 # <a name="call-the-image-analysis-api"></a>Appeler l’API Analyse d’image
 
-Cet article explique comment appeler l'API Analyse d'images à l'aide de l'API REST. Les exemples sont fournis en C#, avec la bibliothèque de client de l'API Analyse d'images, et en tant qu'appels HTTP POST ou GET. Cet article se concentre sur les points suivants :
+Cet article explique comment appeler l’API Analyse d’image pour retourner des informations sur les caractéristiques visuelles d’une image.
 
-- Obtention d’étiquettes, d’une description et de catégories
-- Obtention d’informations spécifique à un domaine, ou « celebrities » (célébrités)
-
-Les exemples de cet article illustrent les fonctionnalités suivantes :
-
-* Analyse d’une image pour retourner un tableau d’étiquettes et une description
-* Analyse d’une image avec un modèle spécifique à un domaine (ici, le modèle « celebrities ») pour retourner le résultat correspondant au format JSON
-
-Les fonctionnalités offrent les options suivantes :
-
-- **Option 1** : Analyse délimitée - Analyser seulement un modèle spécifié
-- **Option 2** : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une [taxonomie de 86 catégories](../Category-Taxonomy.md)
-
-## <a name="prerequisites"></a>Prérequis
-
-* Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
-* Une fois que vous avez votre abonnement Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créez une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur </a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. Une fois le déploiement effectué, cliquez sur **Accéder à la ressource**.
-    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application au service Vision par ordinateur. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
-    * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
-* Une URL d’image ou un chemin vers l’image stockée localement
-* Méthodes d’entrée prises en charge : image raw binaire sous forme de flux application/octet ou une URL d’image
-* Formats de fichier d’image pris en charge : JPEG, PNG, GIF et BMP
-* Taille du fichier image : 4 Mo ou moins
-* Dimensions de l’image : 50 &times; 50 pixels ou plus
+Ce guide part du principe que vous avez déjà <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créé une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur</a>, et obtenu une clé d’abonnement et une URL de point de terminaison. Si vous ne l’avez pas encore fait, suivez un guide de [démarrage rapide](../quickstarts-sdk/image-analysis-client-library.md) pour commencer.
   
-## <a name="authorize-the-api-call"></a>Autoriser l’appel d’API
+## <a name="submit-data-to-the-service"></a>Envoyer des données au service
 
-Chaque appel de l'API Analyse d'images nécessite une clé d'abonnement. Cette clé peut être passée via un paramètre de chaîne de requête ou spécifiée dans l’en-tête de la demande.
+Vous soumettez une image locale ou une image distante à l’API Analyser. Pour une image locale, vous placez les données image binaires dans le corps de la requête HTTP. Pour une image distante, vous spécifiez l’URL de l’image en mettant en forme le corps de la requête comme suit : `{"url":"http://example.com/images/test.jpg"}`.
 
-Vous pouvez passer la clé d’abonnement de l’une des façons suivantes :
+## <a name="determine-how-to-process-the-data"></a>Déterminer le mode de traitement des données
 
-* Passez-la via une chaîne de requête, comme dans cet exemple :
+###  <a name="select-visual-features"></a>Sélectionner des caractéristiques visuelles
 
-  ```
-  https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
-  ```
+L’[API Analyser](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) vous permet d’accéder à toutes les fonctionnalités d’analyse d’image du service. Vous devez spécifier les fonctionnalités que vous voulez utiliser en définissant les paramètres de requête d’URL. Un paramètre peut avoir plusieurs valeurs, séparées par des virgules. Chaque fonctionnalité que vous spécifiez nécessitera un temps de calcul supplémentaire. Par conséquent, spécifiez uniquement ce dont vous avez besoin.
 
-* Spécifiez-la dans l’en-tête de requête HTTP :
+|Paramètre d’URL | Valeur | Description|
+|---|---|--|
+|`visualFeatures`|`Adult` | détecte si l’image est de nature pornographique (nudité ou acte sexuel) ou si elle est choquante (violence extrême ou sang). Le contenu sexuellement suggestif (ou contenu osé) est également détecté.|
+||`Brands` | détecte les différentes marques dans une image, notamment leur emplacement approximatif. L’argument Brands est disponible uniquement en anglais.|
+||`Categories` | classe le contenu de l’image en fonction d’une taxonomie définie dans la documentation. Il s'agit de la valeur par défaut de `visualFeatures`.|
+||`Color` | détermine la couleur d’accentuation, la couleur dominante et si une image est en noir et blanc.|
+||`Description` | décrit le contenu de l’image avec une phrase complète dans les langues prises en charge.|
+||`Faces` | détecte si des visages sont présents. Si tel est le cas, génère des coordonnées, ainsi que l’âge et le sexe.|
+||`ImageType` | détecte si l’image est de type clipart ou un dessin au trait.|
+||`Objects` | détecte les différents objets dans une image, notamment leur emplacement approximatif. L’argument Objects est disponible uniquement en anglais.|
+||`Tags` | étiquette l’image avec une liste détaillée de mots liés au contenu de l’image.|
+|`details`| `Celebrities` | identifie les célébrités éventuellement détectées dans l’image.|
+||`Landmarks` |identifie les paysages éventuellement détectés dans l’image.|
 
-  ```
-  ocp-apim-subscription-key: <Your subscription key>
-  ```
+Une URL remplie peut se présenter comme suit :
 
-* Quand vous utilisez la bibliothèque de client, passez la clé via le constructeur de ComputerVisionClient et spécifiez la région dans une propriété du client :
+`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities`
 
-    ```
-    var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
-    {
-        Endpoint = "https://westus.api.cognitive.microsoft.com"
-    }
-    ```
+### <a name="specify-languages"></a>Spécifier les langues
 
-## <a name="upload-an-image-to-the-image-analysis-service"></a>Charger une image vers le service Analyse d'images
+Vous pouvez également spécifier la langue des données retournées. Le paramètre de requête d’URL suivant spécifie la langue. La valeur par défaut est `en`.
 
-Pour appeler l'API Analyse d'images, le plus simple consiste à charger directement une image pour renvoyer des étiquettes, une description et des « célébrités ». Pour cela, vous envoyez une demande de « POST » avec l’image binaire dans le corps HTTP ainsi que les données lues à partir de l’image. La méthode de chargement est la même pour tous les appels de l'API Analyse d’images. La seule différence concerne les paramètres de requête que vous spécifiez. 
+|Paramètre d’URL | Valeur | Description|
+|---|---|--|
+|`language`|`en` | Anglais|
+||`es` | Espagnol|
+||`ja` | Japonais|
+||`pt` | Portugais|
+||`zh` | Chinois simplifié|
 
-Pour une image spécifiée, obtenez des étiquettes et une description en utilisant une des options suivantes :
+Une URL remplie peut se présenter comme suit :
 
-### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Option 1 : Obtenir une liste d’étiquettes et une description
+`https://{endpoint}/vision/v2.1/analyze?visualFeatures=Description,Tags&details=Celebrities&language=en`
 
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
-```
+> [!NOTE]
+> **Appels d’API étendues**
+>
+> Certaines des fonctionnalités de l’Analyse d’image peuvent être appelées directement, ainsi que par le biais d’un appel de l’API Analyser. Par exemple, vous pouvez effectuer une analyse étendue des étiquettes d’image uniquement en effectuant une requête à `https://{endpoint}/vision/v3.2-preview.3/tag`. Consultez la [documentation de référence](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) pour découvrir d’autres fonctionnalités qui peuvent être appelées séparément.
 
-```csharp
-using System.IO;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+## <a name="get-results-from-the-service"></a>Obtenir les résultats du service
 
-ImageAnalysis imageAnalysis;
-var features = new VisualFeatureTypes[] { VisualFeatureTypes.Tags, VisualFeatureTypes.Description };
-
-using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
-{
-  imageAnalysis = await visionClient.AnalyzeImageInStreamAsync(fs, features);
-}
-```
-
-### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Option n°2 : Obtenir seulement une liste d’étiquettes ou seulement une description
-
-Pour les étiquettes seulement, exécutez :
-
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
-var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
-```
-
-Pour une description seulement, exécutez :
-
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
-using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
-{
-  imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
-}
-```
-
-## <a name="get-domain-specific-analysis-celebrities"></a>Obtenir une analyse spécifique au domaine (célébrités)
-
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
-var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
-```
-
-Avec cette option, les autres paramètres de requête {visualFeatures, details} ne sont pas valides. Pour afficher la liste des modèles pris en charge, utilisez la commande suivante :
-
-```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models 
-var models = await visionClient.ListModelsAsync();
-```
-
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Option n°2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant une taxonomie de 86 catégories
-
-Dans les applications où vous voulez obtenir une analyse d’image générique en plus des détails issus d’un ou plusieurs modèles spécifiques à un domaine, étendez l’API v1 avec le paramètre de requête « models ».
-
-```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
-```
-
-Quand vous appelez cette méthode, vous appelez d’abord le classifieur [86-category](../Category-Taxonomy.md) (86 catégories). Si aucune des catégories ne correspond à celle d’un modèle connu ou correspondant, une deuxième passe d’appels du classifieur est effectuée. Par exemple, si "details=all" ou "details" inclut "celebrities", vous appelez le modèle « celebrities » après avoir appelé le classifieur de 86 catégories. Le résultat inclut la catégorie person. Contrairement à l’option 1, cette méthode augmente la latence pour les utilisateurs qui sont intéressés par les célébrités.
-
-Dans ce cas, tous les paramètres de requête v1 se comportent de la même façon. Si vous ne spécifiez pas visualFeatures=categories, il est activé implicitement.
-
-## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Récupérer et comprendre la sortie JSON pour l’analyse
-
-Voici un exemple :
+Le service retourne une réponse HTTP `200`, et le corps contient les données retournées sous la forme d’une chaîne JSON. Voici un exemple de réponse JSON.
 
 ```json
 {  
@@ -177,81 +104,39 @@ Voici un exemple :
 }
 ```
 
+Pour obtenir des explications sur les champs de cet exemple, consultez le tableau suivant :
+
 Champ | Type | Contenu
 ------|------|------|
 Balises  | `object` | Objet de plus haut niveau pour un tableau d’étiquettes.
 tags[].Name | `string`    | Mot clé du classifieur d’étiquettes.
 tags[].Score    | `number`    | Score de confiance, compris entre 0 et 1.
-description     | `object`    | Objet de plus haut niveau pour une description.
-description.tags[] |    `string`    | Liste d’étiquettes.  En cas confiance insuffisante pour pouvoir produire une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
+description     | `object`    | Objet de niveau supérieur pour la description d’une description.
+description.tags[] |    `string`    | Liste d’étiquettes. En cas confiance insuffisante pour pouvoir produire une légende, les étiquettes peuvent être les seules informations disponibles pour l’appelant.
 description.captions[].text    | `string`    | Expression décrivant l’image.
 description.captions[].confidence    | `number`    | Score de confiance pour l’expression.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Récupérer et comprendre la sortie JSON des modèles spécifiques au domaine
+### <a name="error-codes"></a>Codes d’erreur
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Option 1 : Analyse délimitée - Analyser seulement un modèle spécifié
+Consultez la liste suivante des erreurs possibles et leurs causes :
 
-La sortie est un tableau d’étiquettes, comme illustré dans l’exemple suivant :
-
-```json
-{  
-  "result":[  
-    {  
-      "name":"golden retriever",
-      "score":0.98
-    },
-    {  
-      "name":"Labrador retriever",
-      "score":0.78
-    }
-  ]
-}
-```
-
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Option n°2 : Analyse élargie - Analyser pour fournir des détails supplémentaires en utilisant la taxonomie « 86-categories » (86 catégories)
-
-Pour les modèles spécifiques au domaine qui utilisent l’option 2 (analyse élargie), le type de retour des catégories est étendu, comme illustré dans l’exemple suivant :
-
-```json
-{  
-  "requestId":"87e44580-925a-49c8-b661-d1c54d1b83b5",
-  "metadata":{  
-    "width":640,
-    "height":430,
-    "format":"Jpeg"
-  },
-  "result":{  
-    "celebrities":[  
-      {  
-        "name":"Richard Nixon",
-        "faceRectangle":{  
-          "left":107,
-          "top":98,
-          "width":165,
-          "height":165
-        },
-        "confidence":0.9999827
-      }
-    ]
-  }
-}
-```
-
-Le champ « categories » est une liste d’une ou plusieurs catégories parmi les [86 catégories](../Category-Taxonomy.md) de la taxonomie d’origine. Les catégories qui se terminent par un trait de soulignement correspondent à cette catégorie et à ses enfants (par exemple, « people_ » et « people_group » pour le modèle « celebrities »).
-
-Champ    | Type    | Contenu
-------|------|------|
-categories | `object`    | Objet de plus haut niveau.
-categories[].name     | `string`    | Nom de la liste de la taxonomie de 86 catégories.
-categories[].score    | `number`    | Score de confiance, compris entre 0 et 1.
-categories[].detail     | `object?`      | (Facultatif) Objet de détail.
-
-Si plusieurs catégories correspondent (par exemple, le classifieur de 86 catégories retourne un score à la fois pour « people_ » et pour « people_young » quand model=celebrities), les détails sont attachés à la correspondance du niveau le plus général (dans cet exemple, « people_ »).
-
-## <a name="error-responses"></a>Réponses d’erreur
-
-Ces erreurs sont identiques à celles de vision.analyze, avec en plus l’erreur NotSupportedModel (HTTP 400), qui peut être retournée dans les deux scénarios Option 1 et Option 2. Dans Option 2 (analyse élargie), si un des modèles spécifiés dans les détails n’est pas reconnu, l’API retourne une erreur NotSupportedModel, même si un ou plusieurs des modèles sont valides. Pour connaître les modèles pris en charge, vous pouvez appeler listModels.
+* 400
+    * InvalidImageUrl : le format de l’URL de l’image est incorrect ou l’URL est inaccessible.
+    * InvalidImageFormat : les données d’entrée ne sont pas une image valide.
+    * InvalidImageSize : l’image d’entrée est trop grande.
+    * NotSupportedVisualFeature : le type de caractéristique spécifié n’est pas valide.
+    * NotSupportedImage : image non prise en charge, par exemple pédopornographie.
+    * InvalidDetails : valeur du paramètre `detail` non prise en charge.
+    * NotSupportedLanguage : l’opération demandée n’est pas prise en charge dans la langue spécifiée.
+    * BadArgument : des détails supplémentaires sont fournis dans le message d’erreur.
+* 415 : erreur de type de support non pris en charge. Le type Content-Type ne figure pas dans les types autorisés :
+    * Pour une URL d’image : Content-Type doit avoir la valeur application/json
+    * Pour des données image binaires : Content-Type doit avoir la valeur application/octet-stream ou multipart/form-data
+* 500
+    * FailedToProcess
+    * Timeout : le traitement de l’image a expiré.
+    * InternalServerError
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour utiliser l'API REST, consultez les [Informations de référence sur l'API Analyse d'images](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+Pour essayer l’API REST, consultez les [Informations de référence sur l’API Analyse d’images](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).

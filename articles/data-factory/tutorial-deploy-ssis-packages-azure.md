@@ -4,15 +4,15 @@ description: Découvrez comment provisionner le runtime d’intégration Azure-S
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/22/2021
+ms.date: 04/02/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6007ce4b4c54d795ff2cc3188504db11c29219cc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740407"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256371"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -70,7 +70,7 @@ Une fois la fabrique de données créée, ouvrez la page de vue d’ensemble dan
 
 ### <a name="from-the-data-factory-overview"></a>À partir de la vue d’ensemble de Data Factory
 
-1. Dans la page de **prise en main**, cliquez sur la vignette **Configurer un runtime d’intégration SSIS**. 
+1. Dans la page **Commençons**, sélectionnez la vignette **Configurer l’intégration SSIS**. 
 
    ![Vignette Configurer un runtime d’intégration SSIS](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
@@ -78,7 +78,7 @@ Une fois la fabrique de données créée, ouvrez la page de vue d’ensemble dan
 
 ### <a name="from-the-authoring-ui"></a>À partir de l’interface utilisateur de création
 
-1. Dans l’interface utilisateur Azure Data Factory, basculez vers l’onglet **Modifier** et sélectionnez **Connexions**. Basculez ensuite vers l’onglet **Runtimes d’intégration** pour voir les runtimes d’intégration existants dans votre fabrique de données. 
+1. Dans l’IU d’Azure Data Factory, accédez à l’onglet **Gérer**, puis à l’onglet **Runtimes d’intégration** pour voir les runtimes d’intégration présents dans votre fabrique de données. 
 
    ![Sélections pour l’affichage des runtimes d’intégration existants](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
@@ -86,7 +86,7 @@ Une fois la fabrique de données créée, ouvrez la page de vue d’ensemble dan
 
    ![Runtime d’intégration via le menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-1. Dans le volet **Configuration du runtime d’intégration**, sélectionnez la vignette **Faire une migration lift-and-shift des packages SSIS existants à exécuter dans Azure**, puis sélectionnez **Suivant**.
+1. Dans le volet **Configuration du runtime d’intégration**, sélectionnez la vignette **Faire une migration lift-and-shift des packages SSIS existants à exécuter dans Azure**, puis sélectionnez **Continuer**.
 
    ![Spécifier le type de runtime d’intégration](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
@@ -116,7 +116,7 @@ Dans la page **Paramètres généraux** du volet **Configuration du runtime d’
 
    1. Pour **Économiser de l’argent**, sélectionnez l’option Azure Hybrid Benefit pour votre runtime d’intégration : **Oui** ou **Non**. Sélectionnez **Oui** si vous souhaitez utiliser votre propre licence SQL Server avec Software Assurance pour faire des économies grâce à une utilisation hybride. 
 
-   1. Sélectionnez **Suivant**. 
+   1. Sélectionnez **Continuer**. 
 
 ### <a name="deployment-settings-page"></a>Page Paramètres de déploiement
 
@@ -150,15 +150,15 @@ Si vous cochez la case, effectuez les étapes suivantes pour apporter votre prop
 
    1. Pour **Mot de passe administrateur**, entrez le mot de passe d’authentification SQL de votre serveur de base de données pour héberger le catalogue SSISDB. 
 
-   1. Cochez la case **Utiliser la paire Azure-SSIS Integration Runtime de secours double avec le basculement SSISDB** pour configurer une paire d’IR Azure-SSIS de secours double qui fonctionne en synchronisation avec le groupe de basculement Azure SQL Database/Managed Instance pour la continuité d’activité et reprise d’activité (BCDR).
+   1. Cochez la case **Utiliser la paire Runtime d’intégration Azure-SSIS de secours double avec le basculement SSISDB** pour configurer une paire IR Azure SSIS de secours double qui fonctionne en synchronisation avec le groupe de basculement Azure SQL Database/Managed Instance pour la continuité d’activité et la reprise d’activité (BCDR).
    
-      Si vous cochez cette case, entrez un nom pour identifier votre paire d’IR Azure-SSIS principal et secondaire dans la zone de texte **Nom de la paire de secours double**. Vous devez entrer le même nom de paire lors de la création de vos IR Azure-SSIS principal et secondaire.
+      Si vous cochez cette case, entrez un nom pour identifier votre paire d’IR Azure-SSIS principal et secondaire dans la zone de texte **Nom de paire de secours double**. Vous devez entrer le même nom de paire lors de la création de vos IR Azure-SSIS principal et secondaire.
 
-      Pour plus d’informations, consultez [Configurer votre IR Azure-SSIS pour la BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
+      Pour plus d’informations, consultez [Configurer votre IR Azure-SSIS pour BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Pour **Niveau de service de base de données de catalogue**, sélectionnez le niveau de service de votre serveur de base de données pour héberger le catalogue SSISDB. Sélectionnez le niveau De base, Standard ou Premium, ou sélectionnez un nom de pool élastique.
 
-Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Suivant**.
+Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Continuer**.
 
 #### <a name="creating-azure-ssis-ir-package-stores"></a>Création de magasins de packages Azure-SSIS IR
 
@@ -177,7 +177,7 @@ Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivante
    1. Dans **Service lié du magasin de packages**, sélectionnez votre service lié existant qui stocke les informations d’accès pour le système de fichiers/Azure Files/Azure SQL Managed Instance où vos packages sont déployés ou créez-en un en sélectionnant **Nouveau**. Dans le volet **Nouveau service lié**, effectuez les étapes suivantes. 
 
       > [!NOTE]
-      > Vous pouvez utiliser les services liés **Stockage Fichier Azure** ou **Système de fichiers** pour accéder à Azure Files. Si vous utilisez le service lié **Stockage Fichier Azure**, le magasin de packages Azure-SSIS IR prend en charge uniquement la méthode d’authentification **De base** (pas les méthodes **Clé de compte** et **URI SAS**). Pour utiliser l’authentification **De base** sur le service lié **Stockage Fichier Azure**, ajoutez `?feature.upgradeAzureFileStorage=false` à l’URL du portail ADF dans votre navigateur. Vous pouvez aussi utiliser le service lié **Système de fichiers** pour accéder à Azure Files à la place. 
+      > Vous pouvez utiliser les services liés **Stockage Fichier Azure** ou **Système de fichiers** pour accéder à Azure Files. Si vous utilisez le service lié **Stockage Fichier Azure**, le magasin de packages Azure-SSIS IR prend en charge uniquement la méthode d’authentification **De base** (pas les méthodes **Clé de compte** et **URI SAS**). 
 
       ![Paramètres de déploiement pour les services liés](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 
@@ -188,8 +188,8 @@ Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivante
       1. Dans **Type**, sélectionnez **Stockage Fichier Azure**, **Azure SQL Managed Instance** ou **Système de fichiers**.
 
       1. Vous pouvez ignorer **Se connecter via le runtime d’intégration**, car nous utilisons toujours votre runtime d’intégration Azure-SSIS pour extraire les informations d’accès des magasins de packages.
-
-      1. Si vous sélectionnez **Stockage Fichier Azure**, effectuez les étapes suivantes. 
+      
+      1. Si vous sélectionnez **Stockage Fichier Azure**, sélectionnez la **Méthode d’authentification** **De base**, puis effectuez les étapes suivantes. 
 
          1. Pour **Méthode de sélection de compte**, sélectionnez **À partir d’un abonnement Azure** ou **Entrer manuellement**.
          
@@ -199,21 +199,21 @@ Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivante
 
       1. Si vous sélectionnez **Azure SQL Managed Instance**, effectuez les étapes suivantes. 
 
-         1. Sélectionnez **Chaîne de connexion** pour entrer la chaîne manuellement ou le **coffre de clés Azure** où elle est stockée en tant que secret.
+         1. Sélectionnez **Chaîne de connexion** ou le **coffre de clés Azure Key Vault** où elle est stockée en tant que secret.
          
          1. Si vous sélectionnez **Chaîne de connexion**, effectuez les étapes suivantes. 
+             1. Pour la **Méthode de sélection de compte**, si vous choisissez **À partir d’un abonnement Azure**, sélectionnez l’**abonnement Azure**, le **nom du serveur**, le **type de point de terminaison** et le **nom de base de données** appropriés. Si vous choisissez **Entrer manuellement**, effectuez les étapes suivantes. 
+                1.  Pour **Nom de domaine complet**, entrez `<server name>.<dns prefix>.database.windows.net` ou `<server name>.public.<dns prefix>.database.windows.net,3342` comme point de terminaison privé ou public de votre instance gérée SQL Azure, respectivement. Si vous entrez le point de terminaison privé, **Tester la connexion** n’est pas applicable, car l’interface utilisateur d’ADF ne peut pas l’atteindre.
 
-            1. Pour **Nom de domaine complet**, entrez `<server name>.<dns prefix>.database.windows.net` ou `<server name>.public.<dns prefix>.database.windows.net,3342` comme point de terminaison privé ou public de votre instance gérée SQL Azure, respectivement. Si vous entrez le point de terminaison privé, **Tester la connexion** n’est pas applicable, car l’interface utilisateur d’ADF ne peut pas l’atteindre.
-
-            1. Pour **Nom de la base de données**, entrez `msdb`.
+                1. Pour **Nom de la base de données**, entrez `msdb`.
                
             1. Pour **Type d’authentification**, sélectionnez **Authentification SQL**, **Identité gérée** ou **Principal du service**.
 
-            1. Si vous sélectionnez **Authentification SQL**, entrez les **nom d’utilisateur** et **mot de passe** appropriés ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
+                - Si vous sélectionnez **Authentification SQL**, entrez les **nom d’utilisateur** et **mot de passe** appropriés ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
 
-            1. Si vous sélectionnez **Identité gérée**, accordez à votre instance gérée ADF l’accès à votre instance gérée SQL Azure.
+                -  Si vous sélectionnez **Identité gérée**, accordez à votre instance gérée ADF l’accès à votre instance gérée SQL Azure.
 
-            1. Si vous sélectionnez **Principal du service**, entrez les **ID principal de service** et la **clé du principal de service** appropriés ou sélectionnez le **coffre de clés Azure** où la clé est stockée en tant que secret.
+                - Si vous sélectionnez **Principal du service**, entrez les **ID principal de service** et la **clé du principal de service** appropriés ou sélectionnez le **coffre de clés Azure** où la clé est stockée en tant que secret.
 
       1. Si vous sélectionnez **Système de fichiers**, entrez le chemin d’accès UNC du dossier dans lequel vos packages sont déployés pour **Hôte** ainsi que les **nom d’utilisateur** et **mot de passe** appropriés, ou sélectionnez le **coffre de clés Azure** où le mot de passe est stocké en tant que secret.
 
@@ -221,7 +221,7 @@ Dans le volet **Ajouter un magasin de packages**, effectuez les étapes suivante
 
    1. Vos magasins de packages ajoutés s’affichent dans la page **Paramètres de déploiement**. Pour les supprimer, activez leurs cases à cocher, puis sélectionnez **Supprimer**.
 
-Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Suivant**.
+Sélectionnez **Tester la connexion** le cas échéant et, si l’opération réussit, sélectionnez **Continuer**.
 
 ### <a name="advanced-settings-page"></a>Page Paramètres avancés
 
@@ -241,7 +241,7 @@ Dans la page **Paramètres avancés** du volet **Configuration du runtime d’in
 
    1. Sélectionnez **Continuer**. 
 
-Dans la page **Résumé** du volet **Configuration du runtime d’intégration**, passez en revue tous les paramètres de provisionnement, ajoutez les liens de documentation recommandés aux favoris, puis sélectionnez **Terminer** pour lancer la création de votre runtime d’intégration. 
+Dans la page **Résumé** du volet **Configuration du runtime d’intégration**, passez en revue tous les paramètres de provisionnement, ajoutez aux favoris les liens de documentation recommandés, puis sélectionnez **Créer** pour démarrer la création de votre runtime d’intégration. 
 
    > [!NOTE]
    > En dehors des réglages personnalisés, ce processus devrait se terminer dans les 5 minutes.

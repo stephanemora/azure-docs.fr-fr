@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 04/11/2021
 ms.author: memildin
-ms.openlocfilehash: 33184a9a9afaf05b093b8495fddd3b2c97fbd09a
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 3e4dddf61656ea38bac406366bf993788fd34943
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492475"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303149"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -28,11 +28,43 @@ Pour en savoir plus sur les changements *planifiés* qui seront bientôt disponi
 ## <a name="april-2021"></a>Avril 2021
 
 Les mises à jour du mois d’avril incluent :
-- [Quatre nouvelles recommandations relatives à la configuration des invités (préversion)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)](#recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability)
 - [Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview)
+- [Quatre nouvelles recommandations relatives à la configuration des invités (préversion)](#four-new-recommendations-related-to-guest-configuration-preview)
+- [Recommandations CMK déplacées dans le contrôle de sécurité des bonnes pratiques](#cmk-recommendations-moved-to-best-practices-security-control)
 - [Onze alertes Azure Defender déconseillées](#11-azure-defender-alerts-deprecated)
 - [Deux recommandations du contrôle de sécurité « Appliquer les mises à jour système » sont désormais déconseillées](#two-recommendations-from-apply-system-updates-security-control-were-deprecated)
 
+### <a name="recently-pulled-container-registry-images-are-now-rescanned-weekly-general-availability"></a>Les images de registre de conteneurs récemment extraites sont à présent réanalysées chaque semaine (disponibilité générale)
+
+Azure Defender pour les registres de conteneurs comprend un analyseur de vulnérabilité intégré. Cet analyseur analyse immédiatement toute image que vous envoyez à votre registre et toute image extraite au cours des 30 derniers jours.
+
+De nouvelles vulnérabilités sont découvertes tous les jours. Avec cette mise à jour, les images conteneur qui ont été extraites de vos registres au cours des 30 derniers jours sont **réanalysées** chaque semaine. Procéder ainsi permet de s’assurer que les vulnérabilités nouvellement découvertes sont identifiées dans vos images.
+
+L’analyse est facturée par image, aucuns frais supplémentaires ne sont donc facturés pour ces analyses.
+
+Apprenez-en davantage sur cet analyseur en consultant [Analyse des vulnérabilités dans les images avec Azure Defender pour les registres de conteneurs](defender-for-container-registries-usage.md).
+
+
+### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)
+
+Azure Defender pour Kubernetes étend ses fonctionnalités de protection contre les menaces afin de protéger vos clusters où qu'ils soient déployés. L’intégration de [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md) et de ses nouvelles [fonctionnalités d’extensions](../azure-arc/kubernetes/extensions.md) a rendu cela possible. 
+
+Lorsque vous avez activé Azure Arc sur vos clusters Kubernetes non Azure, une nouvelle recommandation d'Azure Security Center propose d'y déployer l'extension Azure Defender en quelques clics seulement.
+
+Utilisez la recommandation (**L'extension d'Azure Defender doit être installée sur les clusters Kubernetes avec Azure Arc**) et l'extension pour protéger les clusters Kubernetes déployés via d'autres fournisseurs de cloud, mais pas sur leurs services Kubernetes managés.
+
+Cette intégration entre Azure Security Center, Azure Defender et Kubernetes avec Azure Arc offre les avantages suivants :
+
+- Approvisionnement aisé de l'extension Azure Defender sur les clusters Kubernetes avec Azure Arc non protégés (manuellement et à grande échelle)
+- Surveillance de l'extension Azure Defender et de son état d'approvisionnement à partir du portail Azure Arc
+- Les recommandations de sécurité de Security Center sont signalées sur la nouvelle page Sécurité du portail Azure Arc
+- Les menaces de sécurité identifiées par Azure Defender sont signalées sur la nouvelle page Sécurité du portail Azure Arc
+- Les clusters Kubernetes avec Azure Arc sont intégrés à la plateforme et à l'expérience Azure Security Center
+
+Pour en savoir plus, consultez [Utiliser Azure Defender pour Kubernetes avec vos clusters Kubernetes locaux et multicloud](defender-for-kubernetes-azure-arc.md).
+
+:::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center relative au déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 ### <a name="four-new-recommendations-related-to-guest-configuration-preview"></a>Quatre nouvelles recommandations relatives à la configuration des invités (préversion)
 
@@ -50,24 +82,24 @@ Nous avons ajouté quatre nouvelles recommandations à Security Center pour tire
 
 Pour en savoir plus, consultez [Présentation de la fonctionnalité de configuration des invités d'Azure Policy](../governance/policy/concepts/guest-configuration.md).
 
+### <a name="cmk-recommendations-moved-to-best-practices-security-control"></a>Les recommandations CMK ont été déplacées dans le contrôle de sécurité des bonnes pratiques
 
-### <a name="use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-preview"></a>Utiliser Azure Defender pour Kubernetes afin de protéger les déploiements Kubernetes hybrides et multicloud (préversion)
+Le programme de sécurité de chaque organisation comprend des exigences en matière de chiffrement de données. Par défaut, les données des clients Azure sont chiffrées au repos avec des clés gérées par le service. Toutefois, les clés gérées par le client (CMK) sont généralement nécessaires pour répondre aux normes de conformité réglementaire. Les CMK vous permettent de chiffrer vos données avec une clé [Azure Key Vault](../key-vault/general/overview.md) que vous avez créée et dont vous êtes le propriétaire. Ainsi, le contrôle total et la responsabilité du cycle de vie des clés, notamment leur permutation et leur gestion, vous sont donnés.
 
-Azure Defender pour Kubernetes étend ses fonctionnalités de protection contre les menaces afin de protéger vos clusters où qu'ils soient déployés. Cela a été rendu possible grâce à l'intégration de [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md) et des fonctionnalités des nouvelles extensions. 
+Les contrôles de sécurité d’Azure Security Center sont des groupes logiques de recommandations de sécurité associées, qui reflètent vos surfaces d’attaque vulnérables. Chaque contrôle comprend un nombre maximal de points que vous pouvez ajouter à votre degré de sécurisation si vous appliquez toutes les recommandations indiquées dans le contrôle, pour toutes vos ressources. Le contrôle de sécurité **Implémenter les bonnes pratiques de sécurité** vaut zéro point. Les recommandations de ce contrôle n’ont donc pas d’incidence sur votre degré de sécurisation.
 
-Lorsque vous avez activé Azure Arc sur vos clusters Kubernetes non Azure, une nouvelle recommandation d'Azure Security Center propose d'y déployer l'extension Azure Defender en quelques clics seulement.
+Les recommandations listées ci-dessous sont en cours de déplacement vers le contrôle de sécurité **Implémenter les bonnes pratiques de sécurité** pour mieux refléter leur nature facultative. Ce déplacement garantit que ces recommandations se trouvent dans le contrôle le plus approprié pour atteindre leur objectif.
 
-Utilisez la recommandation (**L'extension d'Azure Defender doit être installée sur les clusters Kubernetes avec Azure Arc**) et l'extension pour protéger les clusters Kubernetes déployés via d'autres fournisseurs de cloud, mais pas sur leurs services Kubernetes managés.
+- Les comptes Azure Cosmos DB doivent utiliser des clés gérées par le client pour chiffrer les données au repos
+- Les espaces de travail Azure Machine Learning doivent être chiffrés avec une clé gérée par le client (CMK)
+- Les comptes Cognitive Services doivent activer le chiffrement des données avec une clé gérée par le client (CMK)
+- Les registres de conteneurs doivent être chiffrés avec une clé gérée par le client (CMK)
+- Les instances gérées SQL doivent utiliser des clés gérées par le client pour chiffrer les données au repos
+- Les serveurs SQL doivent utiliser des clés gérées par le client pour chiffrer les données au repos
+- Les comptes de stockage doivent utiliser une clé gérée par le client (CMK) pour le chiffrement
 
-Cette intégration entre Azure Security Center, Azure Defender et Kubernetes avec Azure Arc offre les avantages suivants :
+Découvrez les recommandations de chaque contrôle de sécurité dans [Contrôles de sécurité et leurs recommandations](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
-- Approvisionnement aisé de l'extension Azure Defender sur les clusters Kubernetes avec Azure Arc non protégés (manuellement et à grande échelle)
-- Surveillance de l'extension Azure Defender et de son état d'approvisionnement à partir du portail Azure Arc
-- Les recommandations de sécurité de Security Center sont signalées sur la nouvelle page Sécurité du portail Azure Arc
-- Les menaces de sécurité identifiées par Azure Defender sont signalées sur la nouvelle page Sécurité du portail Azure Arc
-- Les clusters Kubernetes avec Azure Arc sont intégrés à la plateforme et à l'expérience Azure Security Center
-
-Pour en savoir plus, consultez [Utiliser Azure Defender pour Kubernetes avec vos clusters Kubernetes locaux et multicloud](defender-for-kubernetes-azure-arc.md).
 
 ### <a name="11-azure-defender-alerts-deprecated"></a>Onze alertes Azure Defender déconseillées
 

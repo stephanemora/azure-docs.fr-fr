@@ -2,13 +2,13 @@
 title: Règles d’action pour les alertes Azure Monitor
 description: Pour comprendre ce que sont les règles d’action dans Azure Monitor, et comment les configurer et les gérer.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/08/2021
+ms.openlocfilehash: df71883d04106dd341af4571c13cc55f35a1ecc3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105036779"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304815"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -67,7 +67,7 @@ Les filtres disponibles sont :
 
 * **Niveau de gravité**  
 Cette règle s’applique uniquement aux alertes avec les gravités sélectionnées.  
-Par exemple, **severity = Sev1** signifie que la règle s’applique uniquement aux alertes avec une gravité de Sev1.
+Par exemple, **severity = "Sev1"** signifie que la règle s’applique uniquement aux alertes avec une gravité de Sev1.
 * **Service de surveillance**  
 Cette règle s’applique uniquement aux alertes provenant des services de surveillance sélectionnés.  
 Par exemple, **monitor service = “Azure Backup”** signifie que la règle s’appliquera uniquement aux alertes de sauvegarde (provenant de Sauvegarde Azure).
@@ -79,15 +79,22 @@ Cette règle s’applique uniquement aux alertes provenant d’une règle d’al
 Par exemple, la règle **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** signifie que cette règle s’applique uniquement aux alertes provenant de la règle d’alerte de métrique « API-Latency ».  
 _Remarque : vous pouvez obtenir l’ID de règle d’alerte approprié en répertoriant vos règles d’alerte à partir de l’interface CLI ou en ouvrant une règle d’alerte spécifique dans le portail, en cliquant sur « Propriétés » et en copiant la valeur « ID de ressource »._
 * **Condition de surveillance**  
-Cette règle s’applique uniquement aux événements d’alerte avec la condition d’analyse spécifiée, **Déclenchée** ou **Résolue**.
+Cette règle s’applique uniquement aux événements d’alerte avec la condition d’analyse spécifiée, **"Déclenchée"** ou **"Résolue"** .
 * **Description**  
 Cette règle s’applique uniquement aux alertes qui contiennent une chaîne spécifique dans le champ Description de l’alerte. Ce champ contient la description de la règle d’alerte.  
-Par exemple, **description contains ’prod’** signifie que la règle ne mettra en correspondance que les alertes contenant la chaîne « prod » dans leur description.
+Par exemple, **description contains "prod"** signifie que la règle ne mettra en correspondance que les alertes contenant la chaîne « prod » dans leur description.
 * **Contexte de l’alerte (charge utile)**  
 Cette règle s’applique uniquement aux alertes qui contiennent une ou plusieurs valeurs spécifiques dans les champs de contexte d’alerte.  
-Par exemple, **alert context (payload) contains ’Computer-01’** signifie que la règle s’applique uniquement aux alertes dont la charge utile contient la chaîne « Computer-01 ».
+Par exemple, **alert context (payload) contains "Computer-01"** signifie que la règle s’applique uniquement aux alertes dont la charge utile contient la chaîne « Computer-01 ».
 
-Si vous définissez plusieurs filtres dans une règle, tous les filtres s’appliquent. Par exemple, si vous définissez **resource type’ = Virtual Machines** et **severity’ = Sev0**, la règle s’applique uniquement aux alertes de Sev0 sur les machines virtuelles.
+> [!NOTE]
+> Chaque filtre peut inclure jusqu’à cinq valeurs.  
+> Par exemple, un filtre sur le service de surveillance peut inclure jusqu’à cinq noms de service de surveillance.
+
+
+
+
+Si vous définissez plusieurs filtres dans une règle, tous les filtres s’appliquent. Par exemple, si vous définissez **resource type = "Virtual Machines"** et **severity = "Sev0"** , la règle s’applique uniquement aux alertes de Sev0 sur les machines virtuelles.
 
 ![Filtres de règle d’action](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

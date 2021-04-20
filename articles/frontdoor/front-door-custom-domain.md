@@ -3,21 +3,21 @@ title: Tutoriel - Ajouter un domaine personnalisé à votre configuration Azure
 description: Dans ce tutoriel, vous allez apprendre à intégrer un domaine personnalisé à Azure Front Door.
 services: frontdoor
 documentationcenter: ''
-author: duongau
+author: jessie-jyy
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2020
-ms.author: duau
-ms.openlocfilehash: e1540602bae0779d69c0cb4bb59e93b810b52904
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.date: 04/12/2021
+ms.author: yuajia
+ms.openlocfilehash: 7e2f05a7d911ce2b311a423994d2b459de0fa269
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550759"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107308861"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutoriel : Ajouter un domaine personnalisé à votre Front Door
 
@@ -40,9 +40,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 * Avant de pouvoir effectuer les étapes de ce tutoriel, vous devez d’abord créer un Front Door. Pour plus d’informations, consultez [Démarrage rapide : Créer une porte d’entrée](quickstart-create-front-door.md)
 
-* Si vous ne disposez pas déjà d’un domaine personnalisé, vous devez tout d’abord en acheter un auprès d’un fournisseur de domaine. Par exemple, consultez [Acheter un nom de domaine personnalisé](../app-service/manage-custom-dns-buy-domain.md).
+* Si vous n’avez pas encore de domaine personnalisé, vous devez tout d’abord en acheter un auprès d’un fournisseur de domaine. Par exemple, consultez [Acheter un nom de domaine personnalisé](../app-service/manage-custom-dns-buy-domain.md).
 
-* Si vous utilisez Azure pour héberger vos [domaines DNS](../dns/dns-overview.md), vous devez déléguer le DNS (Domain Name System) du fournisseur de domaine à un DNS Azure. Pour plus d’informations, voir [Délégation de domaine à Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Sinon, si vous utilisez un fournisseur de domaine pour gérer votre domaine DNS, passez à [Créer un enregistrement CNAME DNS](#create-a-cname-dns-record).
+* Si vous utilisez Azure pour héberger vos [domaines DNS](../dns/dns-overview.md), vous devez déléguer le DNS (Domain Name System) du fournisseur de domaine à Azure DNS. Pour plus d’informations, voir [Délégation de domaine à Azure DNS](../dns/dns-delegate-domain-azure-dns.md). Sinon, si vous utilisez un fournisseur de domaine pour gérer votre domaine DNS, passez à [Créer un enregistrement CNAME DNS](#create-a-cname-dns-record).
 
 
 ## <a name="create-a-cname-dns-record"></a>Créer un enregistrement CNAME DNS
@@ -54,9 +54,9 @@ Un domaine personnalisé et son sous-domaine ne peuvent être associés qu’à 
 
 ## <a name="map-the-temporary-afdverify-subdomain"></a>Mapper le sous-domaine temporaire afdverify
 
-Lorsque vous mappez un domaine existant qui est en production, plusieurs points demandent une attention particulière. Lorsque vous inscrivez votre domaine personnalisé dans le Portail Azure, il se peut que le domaine connaisse un court temps d’arrêt. Pour éviter toute interruption du trafic web, commencez par mapper votre domaine personnalisé à l’hôte front-end par défaut Front Door ayant le sous-domaine Azure afdverify pour créer un mappage CNAME temporaire. Avec cette méthode, les utilisateurs peuvent accéder à votre domaine sans interruption pendant que le mappage DNS est en cours.
+Lorsque vous mappez un domaine existant qui est en production, plusieurs points demandent une attention particulière. Pendant que vous inscrivez votre domaine personnalisé dans le portail Azure, il se peut que le domaine connaisse un bref temps d’arrêt. Pour éviter toute interruption du trafic web, commencez par mapper votre domaine personnalisé à l’hôte front-end par défaut Front Door ayant le sous-domaine Azure afdverify pour créer un mappage CNAME temporaire. Avec cette méthode, les utilisateurs peuvent accéder à votre domaine sans interruption pendant que le mappage DNS est en cours.
 
-Sinon, si vous utilisez votre domaine personnalisé pour la première fois et si aucun trafic de production n’est en cours d’exécution sur ce dernier, vous pouvez mapper directement votre domaine personnalisé à votre Front Door. Passez à [Mapper le domaine personnalisé permanent](#map-the-permanent-custom-domain).
+Sinon, si vous utilisez votre domaine personnalisé pour la première fois et si aucun trafic de production n’est en cours d’exécution sur ce dernier, vous pouvez mapper directement votre domaine personnalisé à votre instance Front Door. Passez à [Mapper le domaine personnalisé permanent](#map-the-permanent-custom-domain).
 
 Pour créer un enregistrement CNAME avec le sous-domaine afdverify :
 
@@ -70,7 +70,7 @@ Pour créer un enregistrement CNAME avec le sous-domaine afdverify :
     |---------------------------|-------|---------------------------------|
     | afdverify. www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
-    - Source : entrez votre nom de domaine personnalisé, y compris le sous-domaine afdverify, au format suivant : afdverify. _&lt;nom_de_domaine_personnalisé&gt;_ . Exemple : afdverify. www.contoso.com. Si vous mappez un domaine générique, comme \*.contoso.com, la valeur source est la même que sans le caractère générique : afdverify.contoso.com.
+    - Source : entrez votre nom de domaine personnalisé, y compris le sous-domaine afdverify, au format suivant : afdverify. _&lt;nom_de_domaine_personnalisé&gt;_ . Exemple : afdverify. www.contoso.com. Si vous mappez un domaine générique, par exemple \*.contoso.com, la valeur source est la même que sans le caractère générique : afdverify.contoso.com.
 
     - Tapez : entrez *CNAME*.
 
@@ -109,7 +109,7 @@ Après avoir inscrit votre domaine personnalisé, vous pouvez l’ajouter à vot
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) et accédez au Front Door contenant l’hôte frontend à mapper à un domaine personnalisé.
     
-2. Dans la page **Concepteur Front Door**, cliquez sur + pour ajouter un domaine personnalisé.
+2. Dans la page **Concepteur Front Door**, sélectionnez « + » pour ajouter un domaine personnalisé.
     
 3. Spécifiez le **domaine personnalisé**. 
 
@@ -126,14 +126,14 @@ Après avoir inscrit votre domaine personnalisé, vous pouvez l’ajouter à vot
 
 ## <a name="verify-the-custom-domain"></a>Vérifier le domaine personnalisé
 
-Une fois l’inscription de votre domaine personnalisé effectuée, vérifiez que celui-ci référence l’hôte frontend par défaut du Front Door.
+Une fois l’inscription du domaine personnalisé effectuée, vérifiez que celui-ci référence l’hôte front-end Front Door par défaut.
  
 Dans votre navigateur, accédez à l’adresse du fichier à l’aide du domaine personnalisé. Par exemple, si votre domaine personnalisé est robotics.contoso.com, l’URL du fichier mis en cache doit être similaire à l’URL suivante : http:\//robotics.contoso.com/mon-conteneur-public/mon-fichier.jpg. Vérifiez que le résultat est identique à celui obtenu quand vous accédez directement au Front Door sur *&lt;Hôte Front Door&gt;* .azurefd.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapper le domaine personnalisé permanent
 
-Si vous avez vérifié que le sous-domaine afdverify a été mappé correctement à votre Front Door (ou si vous utilisez un nouveau domaine personnalisé qui n’est pas en production), vous pouvez ensuite mapper le domaine personnalisé directement à votre hôte frontend par défaut.
+Si vous avez vérifié que le sous-domaine afdverify a été mappé correctement à votre instance Front Door (ou si vous utilisez un nouveau domaine personnalisé qui n’est pas en production), vous pouvez ensuite mapper le domaine personnalisé directement à votre hôte front-end Front Door par défaut.
 
 Pour créer un enregistrement CNAME pour votre domaine personnalisé :
 
@@ -157,7 +157,7 @@ Pour créer un enregistrement CNAME pour votre domaine personnalisé :
 
 5. Si vous avez créé un enregistrement CNAME temporaire de sous-domaine afdverify, supprimez-le. 
 
-6. Si vous utilisez ce domaine personnalisé en production pour la première fois, suivez les étapes pour [Associer le domaine personnalisé à votre Front Door](#associate-the-custom-domain-with-your-front-door) et [Vérifier le domaine personnalisé](#verify-the-custom-domain).
+6. Si vous utilisez ce domaine personnalisé en production pour la première fois, suivez les étapes pour [associer le domaine personnalisé à votre instance Front Door](#associate-the-custom-domain-with-your-front-door) et [vérifier le domaine personnalisé](#verify-the-custom-domain).
 
 Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy est la suivante :
 
@@ -187,17 +187,18 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 
 8. Sélectionnez **Supprimer** pour supprimer l’enregistrement CNAME.
 
-
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un Front Door. Si vous ne souhaitez plus associer votre Front Door à un domaine personnalisé, vous pouvez supprimer le domaine personnalisé en effectuant les étapes suivantes :
+Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un Front Door. Si vous ne souhaitez plus associer votre instance Front Door à un domaine personnalisé, vous pouvez supprimer le domaine personnalisé en effectuant les étapes suivantes :
  
-1. Dans votre Concepteur Front Door, sélectionnez le domaine personnalisé à supprimer.
+1. Accédez à votre fournisseur DNS, supprimez l’enregistrement CNAME du domaine personnalisé, ou mettez à jour l’enregistrement CNAME du domaine personnalisé vers un point de terminaison non Front Door.
 
-2. Cliquez dans le menu contextuel du domaine personnalisé sur Supprimer.  
+    > [!Important]
+    > Pour éviter les entrées DNS non résolues et les risques de sécurité qu’elles entraînent, à partir du 9 avril 2021, Azure Front Door impose la suppression des enregistrements CNAME vers les points de terminaison Front Door avant la suppression des ressources. Les ressources incluent les domaines personnalisés Front Door, les points de terminaison Front Door ou les groupes de ressources Azure pour lesquels un ou plusieurs domaines personnalisés Front Door sont activés.
 
-   Le domaine personnalisé est dissocié de votre point de terminaison.
+2. Dans votre Concepteur Front Door, sélectionnez le domaine personnalisé à supprimer.
 
+3. Sélectionnez **Supprimer** dans le menu contextuel du domaine personnalisé. Le domaine personnalisé va maintenant se dissocier de votre point de terminaison.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

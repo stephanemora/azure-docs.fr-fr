@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e9749dfd7b28551a4fc2e7c6ba70ba9cce4e5a69
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568815"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307297"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Exemple de scénario de déploiement de la préversion du cache connecté Microsoft : passerelle Azure IoT Edge imbriquée à deux niveaux avec proxy non authentifié sortant
 
@@ -70,7 +70,7 @@ Le diagramme ci-dessous décrit le scénario où une passerelle Azure IoT Edge e
 ## <a name="child-gateway-configuration"></a>Configuration de la passerelle enfant
 
 >[!Note]
->Si vous avez des conteneurs répliqués utilisés dans votre configuration dans votre propre registre privé, vous devez modifier les paramètres de configuration de config.toml et les paramètres d’exécution dans le déploiement de votre module. Pour plus d’informations, reportez-vous au [Tutoriel : Créer une hiérarchie d’appareils IoT Edge - Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device).
+>Si vous avez des conteneurs répliqués utilisés dans votre configuration dans votre propre registre privé, vous devez modifier les paramètres de configuration de config.toml et les paramètres d’exécution dans le déploiement de votre module. Pour plus d’informations, consultez [Connecter des appareils IoT Edge en aval - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-lower-layer-devices).
 
 1. Modifiez le chemin de l’image pour l’agent Edge comme illustré dans l’exemple ci-dessous :
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4033421095ead47e2bd1e97c4f2f42672644d7df
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102030985"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364853"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clé gérée par le client dans Azure Monitor 
 
@@ -59,7 +59,7 @@ Les règles suivantes s’appliquent :
 - Les comptes de stockage de cluster Log Analytics génèrent une clé de chiffrement unique pour chaque compte de stockage, appelée clé de chiffrement de compte (AEK, Account Encryption Key).
 - La clé AEK est utilisée pour dériver les clés DEK, clés utilisées pour chiffrer chaque bloc de données écrites sur le disque.
 - Lorsque vous configurez votre clé dans Key Vault et que vous la référencez dans le cluster, Stockage Azure envoie des requêtes à votre Azure Key Vault pour envelopper et désenvelopper l’AEK afin d’effectuer des opérations de chiffrement et de déchiffrement de données.
-- Votre clé KEK ne quitte jamais votre coffre de clés et, dans le cas d’une clé HSM, elle ne quitte jamais le matériel.
+- Votre KEK ne quitte jamais votre Key Vault.
 - Stockage Azure utilise l’identité managée associée à la ressource *cluster* pour s’authentifier et accéder à Azure Key Vault par le biais d’Azure Active Directory.
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Étapes de configuration de clé gérée par le client
@@ -136,7 +136,7 @@ Les clusters prennent en charge deux [types d’identités managées](../../acti
   "identity": {
   "type": "UserAssigned",
     "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
       }
   }
   ```
@@ -168,6 +168,9 @@ Sélectionnez la version actuelle de votre clé dans Azure Key Vault pour affich
 ![Octroi d’autorisations d’accès au coffre de clés](media/customer-managed-keys/key-identifier-8bit.png)
 
 Mettez à jour la propriété KeyVaultProperties du cluster avec les détails de l’identificateur de clé.
+
+>[!NOTE]
+>La rotation de clé prend en charge deux modes : la rotation automatique ou la mise à jour de version de clé explicite. Consultez [Rotation des clés](#key-rotation) pour déterminer la meilleure approche pour vous.
 
 L’opération est asynchrone et peut prendre du temps.
 
@@ -266,7 +269,9 @@ Le stockage du cluster vérifie régulièrement votre coffre de clés pour tente
 
 ## <a name="key-rotation"></a>Rotation des clés
 
-La rotation de clés gérées par le client nécessite une mise à jour explicite du cluster avec la nouvelle version de clé dans Azure Key Vault. [Mettre à jour le cluster avec les détails de l’identificateur de clé](#update-cluster-with-key-identifier-details). Si vous ne mettez pas à jour les nouveaux détails de la version de la clé dans le cluster, le stockage de cluster Log Analytics continue d’utiliser votre clé précédente pour le chiffrement. Si vous désactivez ou supprimez votre ancienne clé avant de mettre à jour la nouvelle dans le cluster, vous passez à l’état [révocation de clé](#key-revocation).
+La rotation des clés propose deux modes : 
+- Rotation automatique : quand vous mettez à jour votre cluster avec ```"keyVaultProperties"``` mais omettez la propriété ```"keyVersion"```, ou que vous lui affectez la valeur ```""```, le stockage utilise automatiquement les versions les plus récentes.
+- Mise à jour de version de clé explicite : lorsque vous mettez à jour votre cluster et fournissez une version de clé dans la propriété ```"keyVersion"```, toutes les nouvelles versions de clé requièrent une mise à jour ```"keyVaultProperties"``` explicite dans le cluster. Consultez [Mettre à jour le cluster avec les détails d’identificateur de clé](#update-cluster-with-key-identifier-details) pour plus de détails. Si vous générez la nouvelle version de la clé dans Key Vault mais ne la mettez pas à jour dans le cluster, le stockage de cluster Log Analytics continue d’utiliser votre clé précédente. Si vous désactivez ou supprimez votre ancienne clé avant de mettre à jour la nouvelle dans le cluster, vous passez à l’état [révocation de clé](#key-revocation).
 
 Toutes vos données restent accessibles après l’opération de rotation de clé, car les données sont toujours chiffrées avec la clé de chiffrement de compte (AEK, Account Encryption Key), tandis que celle-ci est désormais chiffrée avec votre nouvelle version de clé de chiffrement de clé (KEK, Key Encryption Key) dans Key Vault.
 

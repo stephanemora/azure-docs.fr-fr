@@ -3,12 +3,12 @@ title: Prise en charge du niveau Archive (préversion)
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a42b8702cfdda14a18aa3cdd4e084ed78767b0a
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563971"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012146"
 ---
 # <a name="archive-tier-support-preview"></a>Prise en charge du niveau Archive (préversion)
 
@@ -40,6 +40,8 @@ Clients pris en charge :
 
 ## <a name="get-started-with-powershell"></a>Bien démarrer avec PowerShell
 
+1. Téléchargez la [dernière](https://github.com/PowerShell/PowerShell/releases) version de PowerShell à partir de GitHub.
+
 1. Exécutez la commande suivante dans PowerShell :
   
     ```azurepowershell
@@ -57,7 +59,13 @@ Clients pris en charge :
 
 1. Obtenez la liste des éléments de sauvegarde :
 
-    `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM/AzureWorkload" -WorkloadType "AzureVM/MSSQL"`
+    - Pour des machines virtuelles Azure :
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureVM" -WorkloadType "AzureVM"`
+
+    - Pour des machines virtuelles SQL Server dans Azure :
+
+        `$BackupItemList = Get-AzRecoveryServicesBackupItem -vaultId $vault.ID -BackupManagementType "AzureWorkload" -WorkloadType "MSSQL"`
 
 1. Obtenez l’élément de sauvegarde.
 

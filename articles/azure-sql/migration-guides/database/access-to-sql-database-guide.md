@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 73ee4d4be16284880b10df4a52b422a08c04c6a0
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643581"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284185"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guide de migration : Access vers Azure SQL Database
 
-Dans ce guide, vous découvrirez comment migrer votre base de données Microsoft Access vers une base de données Azure SQL à l’aide de l’outil Assistant Migration SQL Server pour Access (SSMA pour Access).
+Dans ce guide, vous découvrirez [comment migrer](https://azure.microsoft.com/migration/migration-journey) votre base de données Microsoft Access vers une base de données Azure SQL à l’aide de l’outil Assistant [Migration SQL Server](https://azure.microsoft.com/en-us/migration/sql-server/) pour Access (SSMA pour Access).
 
 Pour d’autres guides sur la migration, consultez [Guide sur la migration de bases de données Azure](https://docs.microsoft.com/data-migration). 
 
@@ -32,7 +32,7 @@ Avant de commencer à migrer votre base de données Access vers une base de donn
 
 ## <a name="pre-migration"></a>Prémigration
 
-Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre migration.
+Une fois que vous avez rempli les prérequis, vous êtes prêt à découvrir la topologie de votre environnement et à évaluer la faisabilité de votre [migration vers le cloud Azure](https://azure.microsoft.com/migration).
 
 
 ### <a name="assess"></a>Évaluer 
@@ -56,7 +56,7 @@ Pour créer une évaluation, procédez comme suit :
 
    ![Capture d’écran de la commande « Créer un rapport » dans l’Explorateur de métadonnées Access.](./media/access-to-sql-database-guide/create-report.png)
 
-1. Examinez le rapport HTML pour comprendre les statistiques de conversion et les erreurs ou avertissements. Vous pouvez également ouvrir le rapport dans Excel pour obtenir un inventaire des objets Access et comprendre l’effort nécessaire pour effectuer des conversions de schémas. Le dossier de rapport situé dans SSMAProjects est l’emplacement par défaut du rapport. Par exemple :
+1. Examinez le rapport HTML pour comprendre les statistiques de conversion et les erreurs ou avertissements. Vous pouvez également ouvrir le rapport dans Excel pour obtenir un inventaire des objets Access et comprendre l’effort nécessaire pour effectuer des conversions de schémas. Le dossier de rapport situé dans SSMAProjects est l’emplacement par défaut du rapport. Exemple :
 
    `drive:\<username>\Documents\SSMAProjects\MyAccessMigration\report\report_<date>`
 
@@ -64,7 +64,7 @@ Pour créer une évaluation, procédez comme suit :
 
 ### <a name="validate-the-data-types"></a>Valider les types de données
 
-Validez les mappages de types de données par défaut et changez-les en fonction de vos exigences, si nécessaire. Pour ce faire :
+Validez les mappages de types de données par défaut et changez-les en fonction de vos exigences, si nécessaire. Pour cela, procédez de la façon suivante :
 
 1. Dans SSMA pour Access, sélectionnez **Outils**, puis **Paramètres du projet**. 
 1. Sélectionnez l’onglet **Mappage de types**. 
@@ -167,7 +167,7 @@ Pour plus d’informations sur ces problèmes et les étapes spécifiques pour l
 
 Pour plus d’informations sur l’exécution de ce scénario de migration, consultez la ressource suivante. Elle a été développée pour soutenir un engagement de projet de migration réel.
 
-| Intitulé | Description |
+| Titre | Description |
 | --- | --- |
 | [Outil et modèle d’évaluation d’une charge de travail de données](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fournit des suggestions pour les plateformes cibles, la préparation du cloud et le niveau de correction des applications/bases de données qui sont les mieux adaptés pour des charges de travail spécifiées. Il propose des fonctionnalités de génération de rapports et de calculs simples en un clic qui permettent d’accélérer les évaluations d’un vaste domaine en fournissant un processus de décision de plateforme cible automatisé et uniforme. |
 
@@ -185,6 +185,8 @@ L’équipe d’ingénierie SQL des données a développé ces ressources. La ch
 - Pour en savoir plus sur l’infrastructure et le cycle d’adoption des migrations cloud, consultez :
    -  [Cloud Adoption Framework pour Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Ressources de migration vers le cloud](https://azure.microsoft.com/migration/resources)
+
 
 - Pour évaluer la couche d’accès aux applications, consultez [Data Access Migration Toolkit (préversion)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
 - Pour plus d’informations sur la façon d’effectuer un test A/B Data Access Layer, consultez [Vue d’ensemble de l’Assistant Expérimentation de base de données](/sql/dea/database-experimentation-assistant-overview).

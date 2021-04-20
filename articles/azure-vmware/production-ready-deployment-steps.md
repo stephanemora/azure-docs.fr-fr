@@ -3,12 +3,12 @@ title: Planification du déploiement d’Azure VMware Solution
 description: Cet article décrit un workflow de déploiement d’Azure VMware Solution.  Le résultat final est un environnement prêt pour la création et la migration des machines virtuelles.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: 2ded5d706ab71b3880633cd324fb366d0a1bccbe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 60e0a4083c0253d322b2e10472d0df7496722c10
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584633"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107242"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planification du déploiement d’Azure VMware Solution
 
@@ -16,8 +16,12 @@ Cet article vous présente le processus de planification permettant d’identifi
 
 Les étapes décrites dans ce guide de démarrage rapide vous permettent d’obtenir un environnement prêt pour la production en vue de la création de machines virtuelles et de la migration. 
 
->[!IMPORTANT]
->Avant de créer votre ressource Azure VMware Solution, référez-vous à l’article [Guide pratique pour activer la ressource Azure VMware Solution](enable-azure-vmware-solution.md) afin de soumettre un ticket de support pour que vos hôtes soient alloués. Une fois que l’équipe du support technique a reçu votre demande, il lui faut jusqu’à cinq jours ouvrés pour confirmer votre requête et vous allouer des hôtes. Si vous disposez d’un cloud privé Azure VMware Solution et que vous souhaitez que davantage d’hôtes vous soient alloués, vous passerez par le même processus. 
+Pour suivre les données que vous allez collecter, consultez la [check-list de planification de HCX](https://www.virtualworkloads.com/2021/04/hcx-planning-checklist/).
+
+> [!IMPORTANT]
+> Il est important de demander un quota d’hôte au plus tôt, quand vous vous préparez à créer votre ressource Azure VMware Solution. Comme vous pouvez demander un quota d’hôte maintenant, vous êtes prêt à déployer le cloud privé Azure VMware Solution dès lors que le processus de planification est terminé. Une fois que l’équipe du support technique a reçu votre demande de quota d’hôte, cela prend jusqu’à cinq jours ouvrés pour la confirmer et vous allouer des hôtes. Si vous avez un cloud privé Azure VMware Solution et que vous voulez que davantage d’hôtes vous soient alloués, suivez le même processus. Pour plus d’informations, consultez les liens suivants, en fonction du type d’abonnement que vous avez :
+> - [Clients EA](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
+> - [Clients CSP](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
 
 ## <a name="subscription"></a>Abonnement
 
@@ -82,18 +86,6 @@ Ce segment réseau est principalement utilisé à des fins de test lors du dépl
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identifier : segment d’adresse IP pour les charges de travail des machines virtuelles" border="false":::     
 
-## <a name="optional-extend-your-networks"></a>(Facultatif) Étendre vos réseaux
-
-Vous pouvez étendre les segments réseau à partir d’un site local vers Azure VMware Solution et, si vous le faites, identifier ces réseaux maintenant.  
-
-N’oubliez pas les points suivants :
-
-- Si vous envisagez d’étendre des réseaux en local, ces réseaux doivent se connecter à un [commutateur vDS (vSphere Distributed Switch)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) dans votre environnement VMware local.  
-- Si le ou les réseaux que vous souhaitez étendre se trouvent sur un [commutateur vSS (vSphere Standard Switch)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), ils ne peuvent pas être étendus.
-
->[!NOTE]
->Ces réseaux sont étendus en guise de dernière étape de configuration, et non lors du déploiement.
-
 ## <a name="attach-azure-virtual-network-to-azure-vmware-solution"></a>Joindre le réseau virtuel Azure à Azure VMware Solution
 
 Pour assurer la connectivité à Azure VMware Solution, un circuit ExpressRoute est créé du cloud privé Azure VMware Solution vers une passerelle de réseau virtuel ExpressRoute.
@@ -106,7 +98,7 @@ Vous pouvez utiliser une passerelle de réseau virtuel ExpressRoute *existante* 
 
 Si vous prévoyez d’utiliser une passerelle de réseau virtuel ExpressRoute *existante*, le circuit ExpressRoute d’Azure VMware Solution est établi dans le cadre d’une étape post-déploiement. Dans ce cas, laissez vide le champ **Réseau virtuel**.
 
-En guise de recommandation générale, il est acceptable d’utiliser une passerelle de réseau virtuel ExpressRoute existante. À des fins de planification, prenez note de la passerelle de réseau virtuel ExpressRoute que vous utiliserez et passez à l’étape suivante.
+En guise de recommandation générale, il est acceptable d’utiliser une passerelle de réseau virtuel ExpressRoute existante. À des fins de planification, notez la passerelle de réseau virtuel ExpressRoute que vous utiliserez, puis passez à l’[étape suivante](#vmware-hcx-network-segments).
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Créer une nouvelle passerelle de réseau virtuel ExpressRoute
 
@@ -116,23 +108,36 @@ Lorsque vous créez une *nouvelle* passerelle de réseau virtuel ExpressRoute, v
    1. Identifiez un réseau virtuel Azure où il n’existe pas de passerelle de réseau virtuel ExpressRoute préexistante.
    2. Avant le déploiement, créez un [sous-réseau de passerelle](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet) dans le réseau virtuel Azure.
 
-- Pour un nouveau réseau virtuel Azure, vous pouvez le créer à l’avance ou au cours du déploiement. Sélectionnez le lien **Créer nouveau** sous la liste **Réseau virtuel**.
+- Pour un nouveau réseau virtuel Azure et une nouvelle passerelle de réseau virtuel, vous allez le créer pendant le déploiement en sélectionnant le lien **Créer** sous la liste **Réseau virtuel**.  Il est important de définir l’espace d’adressage et les sous-réseaux avant le déploiement. Vous êtes donc prêt à entrer ces informations quand vous effectuez les étapes de déploiement.
 
-L’image ci-dessous montre l’écran de déploiement **Créer un cloud privé** avec le champ **Réseau virtuel** mis en surbrillance.
+L’image suivante montre l’écran de déploiement **Créer un cloud privé** avec le champ **Réseau virtuel** mis en évidence.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Capture d’écran de la fenêtre de déploiement Azure VMware Solution avec le champ Réseau virtuel mis en surbrillance":::
 
->[!NOTE]
->Un réseau virtuel qui sera utilisé ou créé est visible par votre environnement local et votre solution Azure VMware Solution. Vous devez donc vous assurer que le segment IP que vous utilisez dans ce réseau virtuel et les sous-réseaux ne se chevauchent pas.
+> [!NOTE]
+> Un réseau virtuel qui sera utilisé ou créé est visible par votre environnement local et votre solution Azure VMware Solution. Vous devez donc vous assurer que le segment IP que vous utilisez dans ce réseau virtuel et les sous-réseaux ne se chevauchent pas.
 
 ## <a name="vmware-hcx-network-segments"></a>Segments réseau VMware HCX
 
-VMware HCX est une technologie regroupée avec Azure VMware Solution. Les principaux cas d’utilisation de VMware HCX sont les migrations de charge de travail et la récupération d’urgence. Si vous envisagez d’effectuer l’une ou l’autre, il est préférable de planifier la mise en réseau maintenant.   Dans le cas contraire, vous pouvez passer à l’étape suivante.
+VMware HCX est une technologie qui regroupée avec Azure VMware Solution. Les principaux cas d’utilisation de VMware HCX sont les migrations de charge de travail et la récupération d’urgence. Si vous envisagez d’effectuer l’une ou l’autre, il est préférable de planifier la mise en réseau maintenant. Dans le cas contraire, vous pouvez passer à l’étape suivante.
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
+## <a name="optional-extend-your-networks"></a>(Facultatif) Étendre vos réseaux
+
+Vous pouvez étendre des segments réseau à partir d’un site local vers Azure VMware Solution. Si vous le faites, identifiez ces réseaux maintenant.  
+
+Voici quelques facteurs à prendre en compte :
+
+- Si vous envisagez d’étendre des réseaux en local, ces réseaux doivent se connecter à un [commutateur vDS (vSphere Distributed Switch)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) dans votre environnement VMware local.  
+- Les réseaux qui se trouvent sur un [commutateur vSS (vSphere Standard Switch)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html) ne peuvent pas être étendus.
+
+>[!NOTE]
+>Ces réseaux sont étendus en guise de dernière étape de configuration, et non lors du déploiement.
+>
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez rassemblé et documenté les informations nécessaires, passez à la section suivante pour créer votre cloud privé Azure VMware Solution.
 
 > [!div class="nextstepaction"]
 > [Déployer Azure VMware Solution](deploy-azure-vmware-solution.md)
+> 

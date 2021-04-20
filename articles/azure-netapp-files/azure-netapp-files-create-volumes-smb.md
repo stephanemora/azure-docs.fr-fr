@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/29/2021
 ms.author: b-juche
-ms.openlocfilehash: d386b504475b308c2fb5146b47d3977cb87510f8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eeeaf01dd20e5b309884a01f954ceca576cbcbb9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105935671"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259623"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
-Azure NetApp Files prend en charge la création de volumes avec NFS (NFSv3 et NFSv4.1), SMB3 ou le double protocole (NFSv3 et SMB). La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool. Cet article explique comment créer un volume SMB3.
+Azure NetApp Files prend en charge la création de volumes avec NFS (NFSv3 et NFSv4.1), SMB3 ou le double protocole (NFSv3 et SMB). La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool. 
+
+Cet article explique comment créer un volume SMB3. Pour les volumes NFS, voir [Créer un volume NFS](azure-netapp-files-create-volumes.md). Pour les volumes à deux protocoles, consultez [Créer un volume à deux protocoles](create-volumes-dual-protocol.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 

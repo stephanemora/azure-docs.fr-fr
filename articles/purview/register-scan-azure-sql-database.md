@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 74a8bc4209696682c294bccab450d25ae86e3645
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9873ec2113c0c5704ccca4fa10daf6ac8d572989
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643936"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107429"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Inscrire et analyser une base de données Azure SQL
 
@@ -28,7 +28,8 @@ La source de données Azure SQL Database prend en charge les fonctionnalités su
 
 ### <a name="known-limitations"></a>Limitations connues
 
-Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) dans Azure SQL Database.
+> * Azure Purview ne prend pas en charge l’analyse des [vues](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) dans Azure SQL Database.
+> * Azure Purview prend en charge 300 colonnes au maximum sous l’onglet Schéma. Au-delà, il affiche « Additional-Columns-Truncated » (Colonnes-Supplémentaires-Tronquées). 
 
 ## <a name="prerequisites"></a>Prérequis
 

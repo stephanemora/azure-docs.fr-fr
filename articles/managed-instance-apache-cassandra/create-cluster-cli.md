@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.openlocfilehash: b719310a331044df363efcc6b79be323faf49247
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 53fe53e1406bfcde1f2d8c7b2a1ce8369303426f
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105562101"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107379364"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Guide de démarrage rapide : Créer un cluster Azure Managed Instance pour Apache Cassandra à l’aide d’Azure CLI (préversion)
 
@@ -48,11 +48,19 @@ Ce guide de démarrage rapide vous montre comment utiliser les commandes Azure 
    ```azurecli-interactive
    az network vnet create -n <VNet_Name> -l eastus2 -g <Resource_Group_Name> --subnet-name <Subnet Name>
    ```
+    > [!NOTE]
+    > Le déploiement d’une instance Azure Managed Instance pour Apache Cassandra nécessite un accès à Internet. Le déploiement échoue dans les environnements où l’accès à Internet est limité. Vérifiez que vous ne bloquez pas l’accès dans votre réseau virtuel aux services Azure essentiels qui sont nécessaires au bon fonctionnement de Managed Instance pour Apache Cassandra :
+    > - Stockage Azure
+    > - Azure KeyVault
+    > - Groupes de machines virtuelles identiques Azure
+    > - Surveillance Azure
+    > - Azure Active Directory
+    > - Sécurité Azure
 
-1. Appliquez certaines autorisations spéciales, qui sont requises par l’instance managée, au réseau virtuel et au sous-réseau. Utilisez la commande `az role assignment create`, en remplaçant `<subscription ID>`, `<resource group name>`, `<VNet name>` et `<subnet name>` par les valeurs appropriées :
+1. Appliquez au réseau virtuel certaines autorisations spéciales qui sont demandées par l’instance managée. Utilisez la commande `az role assignment create`, en remplaçant `<subscription ID>`, `<resource group name>` et `<VNet name>` par les valeurs appropriées :
 
    ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
+   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
    ```
 
    > [!NOTE]

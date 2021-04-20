@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13ead70f278f12866dbe00b53c487aebcc43304f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40094c00a4b896756c5c0e51116e0ae33ae2a096
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742634"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580727"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 
@@ -29,13 +29,14 @@ Cette section présente les différentes configurations possibles du pare-feu Az
 
 ### <a name="key-vault-firewall-disabled-default"></a>Pare-feu Key Vault désactivé (configuration par défaut)
 
-Par défaut, quand vous créez un coffre de clés, le pare-feu Azure Key Vault est désactivé. Toutes les applications et tous les services Azure peuvent accéder au coffre de clés et lui envoyer des requêtes. Notez que cette configuration n’implique pas que tous les utilisateurs pourront effectuer des opérations sur le coffre de clés. Le coffre de clés restreint toujours l’accès aux secrets, aux clés et aux certificats qu’il stocke en exigeant des autorisations de stratégie d’accès et une authentification Azure Active Directory. Pour mieux comprendre l’authentification du coffre de clés, consultez [ici](./authentication-fundamentals.md) l’article sur les concepts de base de l’authentification du coffre de clés.
+Par défaut, quand vous créez un coffre de clés, le pare-feu Azure Key Vault est désactivé. Toutes les applications et tous les services Azure peuvent accéder au coffre de clés et lui envoyer des requêtes. Notez que cette configuration n’implique pas que tous les utilisateurs pourront effectuer des opérations sur le coffre de clés. Le coffre de clés restreint toujours l’accès aux secrets, aux clés et aux certificats qu’il stocke en exigeant des autorisations de stratégie d’accès et une authentification Azure Active Directory. Pour mieux comprendre l’authentification du coffre de clés, consultez [ici](./authentication-fundamentals.md) l’article sur les concepts de base de l’authentification du coffre de clés. Pour plus d’informations, consultez [Accès à Azure Key Vault derrière un pare-feu](./access-behind-firewall.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Pare-feu Key Vault activé (services approuvés uniquement)
 
-Quand vous activez le pare-feu Key Vault, vous pouvez choisir d’autoriser les services Microsoft approuvés à contourner ce pare-feu. La liste des services approuvés n’inclut pas tous les services Azure. Par exemple, Azure DevOps n’y figure pas. **Cela ne signifie pas que les services qui ne sont pas dans la liste des services approuvés ne sont pas approuvés ou sécurisés.** La liste des services approuvés englobe les services dans lesquels tout le code exécuté est contrôlé par Microsoft. Du fait que les utilisateurs peuvent écrire du code personnalisé dans des services Azure comme Azure DevOps, Microsoft n’offre pas l’option de créer une approbation permanente pour le service. En outre, la présence d’un service dans la liste des services approuvés ne signifie pas pour autant que le service est autorisé dans tous les scénarios.
+Quand vous activez le pare-feu Key Vault, vous pouvez choisir d’autoriser les services Microsoft approuvés à contourner ce pare-feu. La liste des services approuvés n’inclut pas tous les services Azure. Par exemple, Azure DevOps n’y figure pas. **Cela ne signifie pas que les services qui ne sont pas dans la liste des services approuvés ne sont pas approuvés ou sécurisés.** La liste des services approuvés englobe les services dans lesquels tout le code exécuté est contrôlé par Microsoft. Du fait que les utilisateurs peuvent écrire du code personnalisé dans des services Azure comme Azure DevOps, Microsoft n’offre pas l’option de créer une approbation permanente pour le service. En outre, la présence d’un service dans la liste des services approuvés ne signifie pas pour autant que le service est autorisé dans tous les scénarios. 
 
 Pour déterminer si un service que vous voulez utiliser fait partie de la liste des services approuvés, consultez [ce document](./overview-vnet-service-endpoints.md#trusted-services).
+Pour obtenir un guide pratique, suivez les instructions situées ici concernant le [portail, Azure CLI et PowerShell](https://docs.microsoft.com/azure/key-vault/general/network-security#use-the-azure-portal)
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Pare-feu Key Vault activé (adresses et plages IPv4 - adresses IP statiques)
 

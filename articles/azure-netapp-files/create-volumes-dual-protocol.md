@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/05/2021
 ms.author: b-juche
-ms.openlocfilehash: bbb8baf111c62e3a1207de9b910979a77927cd6e
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: b6a2d7ad92c209a93d740d60808c2cbd2f90c6b4
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106490797"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258416"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Créer un volume double protocole (NFSv3 et SMB) pour Azure NetApp Files
 
-Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFSv3 et NFSv4.1), SMB3 ou le double protocole. Cet article explique la procédure de création d’un volume qui utilise le double protocole NFSv3 et SMB avec prise en charge du mappage d’utilisateur LDAP.  
+Azure NetApp Files prend en charge la création de volumes en utilisant NFS (NFSv3 et NFSv4.1), SMB3 ou le double protocole. Cet article explique la procédure de création d’un volume qui utilise le double protocole NFSv3 et SMB avec prise en charge du mappage d’utilisateur LDAP. 
 
+Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-create-volumes.md). Pour créer des volumes SMB, voir [Créer un volume SMB](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
@@ -140,9 +141,9 @@ Vous pouvez gérer les attributs POSIX, tels que l’identificateur d’utilisat
 
 Vous devez définir les attributs suivants pour les utilisateurs LDAP et les groupes LDAP : 
 * Attributs requis pour les utilisateurs LDAP :   
-    `uid` : Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+    `uid: Alice`, `uidNumber: 139`, `gidNumber: 555`, `objectClass: posixAccount`
 * Attributs requis pour les groupes LDAP :   
-    `objectClass` : "posixGroup", `gidNumber` : 555
+    `objectClass: posixGroup`, `gidNumber: 555`
 
 ## <a name="configure-the-nfs-client"></a>Configurer le client NFS 
 

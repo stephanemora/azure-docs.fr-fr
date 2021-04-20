@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010952"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104803420"
 ---
 Le service Azure Key Vault prend en charge deux types de ressources : les coffres et les HSM managés. Les deux sections suivantes décrivent les limites de service pour chacun d’entre eux.
 
@@ -50,6 +50,17 @@ Cette section décrit les limites de service pour le type de ressource `vaults`.
 Pour en savoir plus sur la façon de gérer la limitation en cas de dépassement de ces limites, voir [Aide sur la limitation de requêtes Azure Key Vault](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> La limite d’abonnement pour tous les types de transaction est fixée à 5 fois la limite des coffres de clés. Par exemple, le nombre de transactions autres que HSM par abonnement est limité à 5 000 en 10 secondes.
+
+#### <a name="backup-keys-secrets-certificates"></a>Sauvegarder des clés, des secrets ou des certificats
+
+Quand vous sauvegardez un objet d’un coffre de clés (secret, clé ou certificat), l’opération de sauvegarde télécharge l’objet sous la forme d’un objet blob chiffré. Cet objet blob ne peut pas être déchiffré en dehors d’Azure. Pour obtenir des données utilisables à partir de cet objet blob, vous devez restaurer l’objet blob dans un coffre de clés dans le même abonnement Azure et la même zone géographique Azure.
+
+| Type de transaction | Nombre maximal de versions d’objet de coffre de clés autorisées |
+| --- | --- |
+| Sauvegarder une clé individuelle, un secret individuel ou un certificat individuel |500 |
+
+> [!NOTE]
+> Toute tentative de sauvegarde d’un objet clé, secret ou certificat avec un nombre de versions supérieur à la limite mentionnée ci-dessus génère une erreur. Il est impossible de supprimer les versions précédentes d’une clé, d’un secret ou d’un certificat. 
 
 #### <a name="azure-private-link-integration"></a>Intégration d’Azure Private Link
 

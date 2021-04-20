@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/17/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ee066ff46f319749469a41e6decf12b35c0ee27e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e160b21581bc7b5fa38b12309bd9deb90bfbbe51
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651939"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107251282"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
 | Nom du quota | Étendue | Notes | Valeur |
 | --- | --- | --- | --- |
-| Nombre maximal d’espaces de noms de base/standard par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms de base/standard supplémentaires sont rejetées par le portail Azure. |100|
-| Nombre maximal d’espaces de noms premium par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms premium supplémentaires sont rejetées par le portail. |100 |
+| Nombre maximal d’espaces de noms de base/standard par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms de base/standard supplémentaires sont rejetées par le portail Azure. | La valeur par défaut est 100. <br/> La valeur maximale est 1 000. <br/><br/> Pour augmenter la limite, contactez le support Azure. |
+| Nombre maximal d’espaces de noms premium par abonnement Azure |Espace de noms |Les demandes suivantes d’espaces de noms premium supplémentaires sont rejetées par le portail. | La valeur par défaut est 100. <br/> La valeur maximale est 1 000. <br/><br/> Pour augmenter la limite, contactez le support Azure. |
 | Taille de la file d’attente ou de la rubrique |Entité |Définie lors de la création de la file d’attente/rubrique. <br/><br/> Les messages entrants suivants sont rejetés et le code appelant reçoit une exception. |1, 2, 3, 4 ou 5 Go.<br /><br />Dans la référence SKU Premium, ainsi que la référence SKU Standard avec le [partitionnement](../articles/service-bus-messaging/service-bus-partitioning.md) activé, la taille maximale de file d’attente/rubrique est de 80 Go. |
 | Nombre de connexions simultanées sur un espace de noms |Espace de noms |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées. |Messagerie Net : 1 000.<br /><br />AMQP : 5 000. |
 | Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement |Entité |Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique. |5 000 |
@@ -38,6 +38,6 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 | Taille d’actions/filtres SQL |Espace de noms |Les requêtes suivantes de création de filtres supplémentaires sont rejetées et le code appelant reçoit une exception. |Longueur maximale de la chaîne de condition de filtre : 1 024 (1 Ko).<br /><br />Longueur maximale de la chaîne d’action de règle : 1 024 (1 Ko).<br /><br />Nombre maximal d’expressions par action de règle : 32. |
 | Nombre de règles d’autorisation d’accès partagé par espace de noms, file d’attente ou rubrique |Entité, espace de noms |Les requêtes suivantes de création de règles supplémentaires sont rejetées et le code appelant reçoit une exception. |Nombre maximal de règles par type d’entité : 12. <br /><br /> Les règles qui sont configurées sur un espace de noms Service Bus s’appliquent à tous les types : files d’attente, rubriques. |
 | Nombre de messages par transaction | Transaction | Les messages entrants supplémentaires sont rejetés et une exception indiquant « Impossible d’envoyer plus de 100 messages dans une transaction unique » est reçue par le code appelant. | 100 <br /><br /> Pour les deux operations **Send()** et **SendAsync()** . |
-| Nombre de règles de réseau virtuel et de filtre IP | Espace de noms | &nbsp; | 128 | 
+| Nombre de règles de réseau virtuel et de filtre IP | Espace de noms | &nbsp; | 128 |
 
 [Azure portal]: https://portal.azure.com

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/26/2021
+ms.date: 4/7/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 53c3ca542e78246410e84a56b8b4af0d50b721f0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 4c046129293fcfbcea8ecaf98da72b9126dd540a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385341"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030336"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -26,6 +26,7 @@ Les versions prises en charge de l'agent Azure File Sync sont les suivantes :
 | Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
 | Mise en production V12 – [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 26 mars 2021 | Prise en charge : Distribution de version d’évaluation |
+| Version V11.3 : [KB4539953](https://support.microsoft.com/topic/f68974f6-bfdd-44f4-9659-bf2d8a696c26)| 11.3.0.0 | 7 avril 2021 | Prise en charge |
 | Version V11.2 – [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 février 2021 | Prise en charge |
 | Mise en production V 11.1 – [KB4539951](https://support.microsoft.com/help/4539951)| 11.1.0.0 | 4 novembre 2020 | Prise en charge |
 | Version V10.1 : [KB4522411](https://support.microsoft.com/help/4522411)| 10.1.0.0 | 5 juin 2020 | Prise en charge - La version de l'agent expirera le 7 juin 2021 |
@@ -132,6 +133,12 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lors de la copie de fichiers à l’aide de Robocopy, utilisez l’option /MIR pour conserver les horodatages des fichiers. Les plus anciens fichiers sont ainsi hiérarchisés plus tôt que les derniers fichiers utilisés.
+
+## <a name="agent-version-11300"></a>Version de l’agent 11.3.0.0
+Les notes de publication suivantes concernent la version 11.3.0.0 de l’agent Azure File Sync (publiée le 7 avril 2021). Ces notes s’ajoutent aux notes de publication de la version 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Améliorations et problèmes résolus 
+Correction d’un bogue qui entraîne une altération des données si la hiérarchisation cloud est activée et que les fichiers hiérarchisés sont copiés à l’aide de Robocopy avec le paramètre /B.
 
 ## <a name="agent-version-11200"></a>Version de l’agent 11.2.0.0
 Les notes de publication suivantes concernent la version 11.2.0.0 de l’agent Azure File Sync publiée le 2 février 2021. Ces notes s’ajoutent aux notes de publication de la version 11.1.0.0.

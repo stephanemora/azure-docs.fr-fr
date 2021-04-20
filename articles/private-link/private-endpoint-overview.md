@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 79d21549e7234e4ee342776466f8d3d8ced5f08c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1302d44a4cb5b09f6dc3b1bf0cb08a12a932c87
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508807"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029401"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -39,7 +39,7 @@ Voici quelques détails clés sur Private Endpoint :
 
 - Lors de la création d’un point de terminaison privé, une interface réseau en lecture seule est également créée pour le cycle de vie de la ressource. Des adresses IP privées sont attribuées dynamiquement à l’interface à partir du sous-réseau qui est mappé à la ressource de liaison privée. La valeur de l’adresse IP privée reste inchangée pour l’intégralité du cycle de vie du point de terminaison privé.
  
-- Private Endpoint doit être déployé dans la même région que le réseau virtuel. 
+- Le point de terminaison privé doit être déployé dans la même région et dans le même abonnement que le réseau virtuel. 
  
 - La ressource Private Link peut être déployée dans une autre région que le réseau virtuel et Private Endpoint.
  

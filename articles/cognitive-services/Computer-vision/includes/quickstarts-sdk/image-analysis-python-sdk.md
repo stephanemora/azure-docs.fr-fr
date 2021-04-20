@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ff7cdcf9ed86bee1cc92ebfbb425780408efee7
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: aae780ad42c39789c0c4448a90a12737074e4176
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287380"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073398"
 ---
 <a name="HOLTop"></a>
 
@@ -198,10 +198,10 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Analyse d'images pour Python pour effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans ce guide de démarrage rapide, vous avez appris à installer la bibliothèque de client Analyse d’image et à effectuer des appels d’analyse d’image de base. À présent, découvrez-en plus sur les fonctionnalités de l’API Analyser.
 
 > [!div class="nextstepaction"]
->[Informations de référence sur l'API Analyse d'images (Python)](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
+>[Appeler l’API Analyser](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Vue d’ensemble de l’analyse d’image](../../overview-image-analysis.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 8e1fc816e32e563161e1604bdcd7a7006353e4ed
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 175473f5abd74fa208962fd94852e9ddedfaf7e3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047381"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105802"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
@@ -107,7 +107,7 @@ Les paramètres suivants sont définis comme une valeur par défaut :
 
 2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) pour découvrir les propriétés et les valeurs prises en charge.
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.   
-4. Vous êtes prêt à déployer ce modèle. Utilisez les commandes suivantes à partir du dossier qui contient le modèle. Lorsque vous êtes invité à entrer un nom d’espace de travail, fournissez un nom globalement unique dans tous les abonnements Azure.
+4. Vous êtes prêt à déployer ce modèle. Utilisez les commandes suivantes à partir du dossier qui contient le modèle. Lorsque vous êtes invité à entrer un nom d’espace de travail, fournissez un nom unique dans votre groupe de ressources.
 
     ```azurecli
     az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
@@ -120,7 +120,7 @@ Le déploiement peut prendre plusieurs minutes. Lorsqu’il est terminé, vous v
 ## <a name="troubleshooting"></a>Dépannage
 Lorsque vous créez un espace de travail qui a été supprimé au cours des 14 derniers jours et qui se trouve dans l’[état de suppression réversible](../logs/delete-workspace.md#soft-delete-behavior), l’opération peut avoir des résultats différents en fonction de la configuration de votre espace de travail :
 1. Si vous fournissez les mêmes nom d’espace de travail, groupe de ressources, abonnement et région que dans l’espace de travail supprimé, votre espace de travail est récupéré avec ses données, sa configuration et ses agents connectés.
-2. Si vous utilisez le même nom d’espace de travail, mais un groupe de ressources, un abonnement ou une région différents, vous recevez un message erreur indiquant que *le nom de l’espace de travail « nom-espace-de-travail » n’est pas unique* ou qu’il y a un *conflit*. Pour annuler la suppression réversible afin de supprimer définitivement votre espace de travail et d’en créer un nouveau sous le même nom, procédez comme suit pour récupérer l’espace de travail avant d’effectuer la suppression définitive :
+2. Le nom de l’espace de travail doit être unique par groupe de ressources. Si vous utilisez un nom d’espace de travail qui existe déjà ou qui est en suppression réversible dans votre groupe de ressources, le message d’erreur suivant s’affiche : *Le nom de l’espace de travail « workspace-name » n’est pas unique* ou vous pouvez constater un *conflit*. Pour annuler la suppression réversible afin de supprimer définitivement votre espace de travail et d’en créer un nouveau sous le même nom, procédez comme suit pour récupérer l’espace de travail avant d’effectuer la suppression définitive :
    * [Récupérer](../logs/delete-workspace.md#recover-workspace) votre espace de travail
    * [Supprimer définitivement](../logs/delete-workspace.md#permanent-workspace-delete) votre espace de travail
    * Créer un espace de travail en reprenant le même nom d’espace de travail

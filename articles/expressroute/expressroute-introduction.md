@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1cef56d15838d80079decc6e1da7ad830bd1cd9
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206949"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029758"
 ---
 # <a name="what-is-azure-expressroute"></a>Qu’est-ce qu’Azure ExpressRoute ?
 ExpressRoute vous permet d’étendre vos réseaux locaux dans le cloud Microsoft via une connexion privée avec l’aide d’un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Microsoft 365.
@@ -20,6 +20,10 @@ ExpressRoute vous permet d’étendre vos réseaux locaux dans le cloud Microsof
 La connectivité peut provenir d’un réseau universel (IP VPN), d’un réseau Ethernet point à point ou d’une interconnexion virtuelle via un fournisseur de connectivité dans un centre de colocalisation. Les connexions ExpressRoute ne passent pas par l’Internet public. Elles offrent ainsi une meilleure fiabilité, des vitesses supérieures, des latences cohérentes et une plus grande sécurité que les connexions classiques sur Internet. Pour plus d’informations sur la connexion de votre réseau à Microsoft à l’aide d’ExpressRoute, consultez [Modèles de connectivité ExpressRoute](expressroute-connectivity-models.md).
 
 ![Présentation de la connexion à ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
+
+> [!NOTE]
+> Dans le contexte d’ExpressRoute, Microsoft Edge décrit les routeurs de périphérie du côté Microsoft du circuit ExpressRoute. Il s’agit du point d’entrée du circuit ExpressRoute au réseau de Microsoft.
+> 
 
 ## <a name="key-benefits"></a>Principaux avantages
 

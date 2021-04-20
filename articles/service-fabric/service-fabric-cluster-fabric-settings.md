@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 65ae2337ac7dbe4370411a154463a6ddc37f83b2
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232050"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255969"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -60,6 +60,12 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |SecretEncryptionCertX509StoreName|chaîne, valeur recommandée « My » (pas de valeur par défaut) |    Dynamique|    Ce paramètre indique le certificat à utiliser pour le chiffrement et le déchiffrement des informations d’identification. Nom du magasin de certificats X.509 utilisé pour le chiffrement et le déchiffrement des informations d’identification de magasin qu’utilise le service de restauration de sauvegarde |
 |TargetReplicaSetSize|entier, valeur par défaut : 0|statique| Paramètre TargetReplicaSetSize pour BackupRestoreService |
 
+## <a name="centralsecretservice"></a>CentralSecretService
+
+| **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
+| --- | --- | --- | --- |
+|DeployedState |Valeur wstring, par défaut L"DSTS" |statique |Suppression en 2 étapes du CSS. |
+
 ## <a name="clustermanager"></a>ClusterManager
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
@@ -95,6 +101,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
+|AllowCreateUpdateMultiInstancePerNodeServices |Valeur booléenne (valeur par défaut : false) |Dynamique|Permet la création de plusieurs instances sans état d’un service par nœud. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. |
 |PerfMonitorInterval |Durée en secondes (valeur par défaut : 1) |Dynamique|Spécifiez la durée en secondes. Interface de surveillance des performances. Une valeur nulle ou négative désactive la surveillance. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
@@ -304,6 +311,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Valeur booléenne (valeur par défaut : false) |statique|Stratégie d’évaluation de l’intégrité du cluster : activer pour chaque évaluation de l’intégrité du type d’application. |
+|EnableNodeTypeHealthEvaluation |Valeur booléenne (valeur par défaut : false) |statique|Stratégie d’évaluation de l’intégrité du cluster : activer pour chaque évaluation de l’intégrité du type de nœud. |
 |MaxSuggestedNumberOfEntityHealthReports|Entier (valeur par défaut : 100) |Dynamique|Nombre maximal de rapports d’intégrité qu’une entité peut avoir avant de susciter des inquiétudes concernant la logique de création de rapports d’intégrité de la surveillance. Chaque entité d’intégrité est supposée avoir un nombre relativement faible de rapports d’intégrité. Si le nombre de rapports dépasse ce nombre, des problèmes peuvent se poser avec l’implémentation de la surveillance. Une entité avec un trop grand nombre de rapports est marquée d’un rapport d’intégrité d’avertissement quand l’entité est évaluée. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
@@ -349,7 +357,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DisableContainers|valeur booléenne, valeur par défaut : FALSE|statique|Configuration pour la désactivation des conteneurs - utilisé à la place de DisableContainerServiceStartOnContainerActivatorOpen qui est un paramètre de configuration déprécié |
 |DisableDockerRequestRetry|valeur booléenne, valeur par défaut : FALSE |Dynamique| Par défaut SF communique avec DD (docker dameon) avec un délai d’expiration « DockerRequestTimeout » pour chaque requête http qui lui est envoyée. Si DD ne répond pas au cours de cette période, SF renvoie la requête s’il reste du temps dans l’opération de niveau supérieur.  Avec le conteneur Hyper-V ; DD prend parfois beaucoup plus de temps pour afficher le conteneur ou le désactiver. Dans ce cas, DD demande un délai d’expiration à partir de la perspective de SF et SF retente l’opération. Parfois, cela semble ajoute plus de pression sur DD. Cette configuration permet de désactiver cette nouvelle tentative et d’attendre la réponse de DD. |
 |DnsServerListTwoIps | Valeur booléenne, valeur par défaut : FALSE | statique | Cet indicateur ajoute deux fois le serveur DNS local pour aider à atténuer les problèmes intermittents. |
-| DockerTerminateOnLastHandleClosed | valeur booléenne, valeur par défaut : FALSE | statique | Par défaut, si FabricHost gère dockerd (en fonction de : SkipDockerProcessManagement == false), ce paramètre configure ce qui se produit lorsque FabricHost ou dockerd se bloquent. Si lorsque la valeur est définie sur `true`, l’un des processus se bloque, tous les conteneurs en cours d’exécution sont arrêtés de force par HCS. Si la valeur est définie sur `false`, les conteneurs continuent de s’exécuter. Remarque : avant la version 8.0, ce comportement était intentionnellement équivalent à `false`. La valeur par défaut `true` correspond au comportement attendu par défaut par la suite pour que notre logique de nettoyage soit effective au redémarrage de ces processus. |
+| DockerTerminateOnLastHandleClosed | Valeur booléenne, valeur par défaut : TRUE | statique | Par défaut, si FabricHost gère dockerd (en fonction de : SkipDockerProcessManagement == false), ce paramètre configure ce qui se produit lorsque FabricHost ou dockerd se bloquent. Si lorsque la valeur est définie sur `true`, l’un des processus se bloque, tous les conteneurs en cours d’exécution sont arrêtés de force par HCS. Si la valeur est définie sur `false`, les conteneurs continuent de s’exécuter. Remarque : avant la version 8.0, ce comportement était intentionnellement équivalent à `false`. La valeur par défaut `true` correspond au comportement attendu par défaut par la suite pour que notre logique de nettoyage soit effective au redémarrage de ces processus. |
 | DoNotInjectLocalDnsServer | valeur booléenne, valeur par défaut : FALSE | statique | Empêche le runtime d’injecter l’adresse IP locale en tant que serveur DNS pour les conteneurs. |
 |EnableActivateNoWindow| valeur booléenne, valeur par défaut : FALSE|Dynamique| Le processus activé est créé en arrière-plan sans aucune console. |
 |EnableContainerServiceDebugMode|Valeur booléenne, valeur par défaut : TRUE|statique|Activer/désactiver la journalisation pour les conteneurs Docker.  Windows uniquement.|
@@ -552,6 +560,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |MovementPerPartitionThrottleCountingInterval | Durée en secondes (valeur par défaut : 600) |statique| Spécifiez la durée en secondes. Indiquez la durée de l’intervalle écoulé pendant lequel effectuer le suivi des mouvements de réplica pour chaque partition (utilisée avec MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Valeur Uint (valeur par défaut : 50) |Dynamique| Aucun mouvement d’équilibrage n’est effectué pour une partition si le nombre d’équilibrages des réplicas de cette partition a atteint ou dépassé la valeur MovementPerFailoverUnitThrottleThreshold pendant la période écoulée spécifiée par MovementPerPartitionThrottleCountingInterval. |
 |MoveParentToFixAffinityViolation | Valeur booléenne (valeur par défaut : false) |Dynamique| Paramètre déterminant si les réplicas parents peuvent être déplacés pour corriger les contraintes d’affinité.|
+|NodeTaggingEnabled | Valeur booléenne (valeur par défaut : false) |Dynamique| Si la valeur est true, la fonctionnalité NodeTagging est activée. |
+|NodeTaggingConstraintPriority | Entier (valeur par défaut : 0) |Dynamique| Priorité configurable du marquage de nœud. |
 |PartiallyPlaceServices | Valeur booléenne (valeur par défaut : true) |Dynamique| Détermine si tous les réplicas de service dans le cluster seront placés selon le principe du « tout ou rien », en fonction du nombre limité de nœuds appropriés pour eux.|
 |PlaceChildWithoutParent | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre déterminant si le réplica de service enfant peut être placé si aucun réplica parent n’est actif. |
 |PlacementConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte de placement : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
@@ -572,7 +582,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |UpgradeDomainConstraintPriority | Entier (valeur par défaut : 1)| Dynamique|Détermine la priorité de la contrainte de domaine de mise à niveau : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |UseMoveCostReports | Valeur booléenne (valeur par défaut : false) | Dynamique|Demande à LB d’ignorer l’élément de coût de la fonction de score, ce qui génère un nombre potentiellement important de déplacements et, donc, un placement mieux équilibré. |
 |UseSeparateSecondaryLoad | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre déterminant si une charge distincte doit être utilisée pour les réplicas secondaires. |
-|UseSeparateSecondaryMoveCost | Valeur booléenne (valeur par défaut : false) | Dynamique|Paramètre déterminant si un coût de déplacement distinct doit être utilisé pour les réplicas secondaires. |
+|UseSeparateSecondaryMoveCost | Valeur booléenne (valeur par défaut : true) | Dynamique|Paramètre qui détermine si PLB doit utiliser un coût de déplacement différent pour le réplica secondaire sur chaque nœud. Si UseSeparateSecondaryMoveCost est désactivé : - Le coût de déplacement signalé pour le réplica secondaire sur un nœud entraîne le remplacement du coût de déplacement pour chaque réplica secondaire (sur tous les autres nœuds) Si UseSeparateSecondaryMoveCost est activé : - Le coût de déplacement signalé pour le réplica secondaire sur un nœud ne prend effet que sur ce réplica secondaire (aucun effet sur les réplicas secondaires sur les autres nœuds) - En cas d’incident du réplica - un nouveau réplica est créé avec le coût de déplacement par défaut indiqué dans le niveau de service - Si PLB déplace un réplica existant - le coût de déplacement est conservé. |
 |ValidatePlacementConstraint | Valeur booléenne (valeur par défaut : true) |Dynamique| Spécifie si l’expression PlacementConstraint d’un service est validée lors de la mise à jour du paramètre ServiceDescription d’un service. |
 |ValidatePrimaryPlacementConstraintOnPromote| Valeur booléenne, valeur par défaut : TRUE |Dynamique|Spécifie si l’expression PlacementConstraint pour un service est évaluée ou non pour la préférence principale lors du basculement. |
 |VerboseHealthReportLimit | Entier (valeur par défaut : 20) | Dynamique|Définit le nombre de fois que le placement d’un réplica doit être annulé avant qu’un avertissement d’intégrité ne soit émis (si le rapport d’intégrité détaillé est activé). |
@@ -767,6 +777,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |RecoverServicePartitions |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour restaurer des partitions de service. |
 |RecoverSystemPartitions |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour restaurer des partitions du service système. |
 |RemoveNodeDeactivations |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour annuler la désactivation sur plusieurs nœuds. |
+|ReportCompletion |valeur wstring, valeur par défaut L"Admin" |Dynamique| Configuration de la sécurité pour compléter le rapport. |
 |ReportFabricUpgradeHealth |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour reprendre des mises à niveau de cluster à leur état d’avancement actuel. |
 |ReportFault |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour signaler une défaillance. |
 |ReportHealth |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour créer un rapport d’intégrité. |

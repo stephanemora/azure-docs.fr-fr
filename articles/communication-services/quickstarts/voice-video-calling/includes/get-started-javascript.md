@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d7b62d6587a568b74d142a2ee6a93587941559d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bd9a607b46c87ca590bcefef310f822d6f23483c
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105645416"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386704"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment démarrer un appel à l’aide du kit de développement logiciel (SDK) Azure Communication Services Calling pour Javascript.
 
@@ -88,11 +88,11 @@ const hangUpButton = document.getElementById("hang-up-button");
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Calling :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK Azure Communication Services Calling :
 
 | Nom                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| CallClient                       | CallClient est le point d’entrée principal du kit de développement logiciel (SDK) Calling.                                                                       |
+| CallClient                       | CallClient est le point d’entrée principal du SDK Calling.                                                                       |
 | CallAgent                        | CallAgent sert à démarrer et à gérer les appels.                                                                                            |
 | AzureCommunicationTokenCredential | La classe AzureCommunicationTokenCredential implémente l’interface CommunicationTokenCredential qui est utilisée pour instancier CallAgent. |
 
@@ -162,6 +162,10 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments suivants doivent s’afficher :
 
-:::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
+:::image type="content" source="../media/javascript/calling-javascript-app-2.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
-Vous pouvez établir un appel VoIP sortant en fournissant un ID d’utilisateur dans le champ de texte et en cliquant sur le bouton **Start Call**. L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour démarrer et vérifier que vos périphériques audio fonctionnent.
+Vous pouvez établir un appel VoIP sortant en fournissant un jeton d’accès utilisateur et un ID d’utilisateur valides dans les champs de texte correspondant et en cliquant sur le bouton **Start Call** (Démarrer l’appel). L’appel de `8:echo123` vous connecte à un bot d’écho, ce qui est parfait pour bien démarrer et vérifier que vos périphériques audio fonctionnent.
+
+## <a name="sample-code"></a>Exemple de code
+
+Vous pouvez télécharger l’exemple d’application à partir de [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-voice-calling).

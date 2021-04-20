@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 550084ccbb1df24fe0cbc0a4630efe19e6685e5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2c0b82f14fd16ecb9eef163e7a263f4327cfc46
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709901"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364547"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -83,7 +83,7 @@ Pour obtenir des didacticiels sur la façon de s’authentifier auprès de Key V
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gérer des clés, certificats et secrets
 
-L’accès aux clés, secrets et certificats est contrôlé par le plan de données. Le contrôle d’accès du plan de données peut être effectué à l’aide de stratégies d’accès au coffre local ou d’Azure RBAC (préversion).
+L’accès aux clés, secrets et certificats est contrôlé par le plan de données. Le contrôle d’accès du plan de données peut être effectué à l’aide de stratégies d’accès au coffre locales ou d’Azure RBAC.
 
 **API et kits SDK de clés**
 
@@ -105,7 +105,7 @@ L’accès aux clés, secrets et certificats est contrôlé par le plan de donn�
 
 Consultez les [bibliothèques clientes](client-libraries.md) pour obtenir les packages d’installation et le code source.
 
-Pour plus d’informations sur la sécurité du plan de données Key Vault, consultez [Plan de données et stratégies d’accès de Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) et [Plan de données et Azure RBAC (préversion) de Key Vault](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview).
+Pour plus d’informations sur la sécurité du plan de données Key Vault, consultez [Plan de données et stratégies d’accès Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) et [Plan de données Key Vault et Azure RBAC](./secure-your-key-vault.md#data-plane-and-azure-rbac)
 
 ### <a name="code-examples"></a>Exemples de code
 

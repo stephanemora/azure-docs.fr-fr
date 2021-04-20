@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 876fd8260b64fba4d3d34a766b4259323c660b76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94568eb5d64f07133ebb9992cdae59400830dd5e
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94968075"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226886"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
@@ -98,7 +98,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Démarrer l’appareil
 > * Vérifier que l’appareil est enregistré
 
-Passez au didacticiel suivant pour apprendre à approvisionner plusieurs appareils sur des hubs à charge équilibrée. 
+Passez au tutoriel suivant pour découvrir comment provisionner plusieurs appareils sur des hubs à charge équilibrée
 
 > [!div class="nextstepaction"]
 > [Approvisionner des appareils sur des hubs IoT à charge équilibrée](./tutorial-provision-multiple-hubs.md)

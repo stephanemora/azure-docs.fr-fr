@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3342b38f782b718cefd63295ef4d4d26b525058
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595946"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259045"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -45,7 +45,7 @@ Pour le stockage sur le serveur local, vous pouvez lister et télécharger les j
 Les journaux de diagnostics Azure Monitor vous permettent d’acheminer les journaux de requêtes lentes vers des journaux Azure Monitor (Log Analytics), le stockage Azure ou Event Hubs. Pour plus d’informations, voir [plus bas](concepts-server-logs.md#diagnostic-logs).
 
 ## <a name="local-server-storage-log-retention"></a>Rétention du journal de stockage du serveur local
-Lorsque vous vous connectez au stockage local du serveur, les journaux sont disponibles jusqu’à sept jours après leur création. Si la taille totale des journaux d’activité disponibles dépasse 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible.
+Lorsque vous vous connectez au stockage local du serveur, les journaux sont disponibles jusqu’à sept jours après leur création. Si la taille totale des journaux disponibles est supérieure à 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible. La limite de stockage de 7 Go pour les journaux de serveurs est disponible gratuitement et ne peut pas être étendue. 
 
 Une rotation des journaux d’activité s’effectue toutes les 24 heures ou une fois les 7 Go atteints, selon ce qui se produit en premier.
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68d90fa56d5dce902a44a32b322e582a81e419d5
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392780"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011635"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Mappage de schéma et de type de données dans l’activité de copie
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,7 +22,7 @@ Cet article décrit la manière dont l’activité de copie d’Azure Data Facto
 
 ### <a name="default-mapping"></a>Mappage par défaut
 
-Par défaut, l’activité de copie mappe les données sources au récepteur **par noms de colonnes** de manière sensible à la casse. Si le récepteur n’existe pas, par exemple, en écrivant dans un ou plusieurs fichiers, les noms des champs sources sont rendus persistants en tant que noms de récepteurs. Ce mappage par défaut prend en charge des schémas flexibles et des dérives de schéma de la source au récepteur d’une exécution à l’autre. Toutes les données retournées par le magasin de données source peuvent être copiées dans le récepteur.
+Par défaut, l’activité de copie mappe les données sources au récepteur **par noms de colonnes** de manière sensible à la casse. Si le récepteur n’existe pas, par exemple, en écrivant dans un ou plusieurs fichiers, les noms des champs sources sont rendus persistants en tant que noms de récepteurs. Si le récepteur existe déjà, il doit contenir toutes les colonnes copiées à partir de la source. Ce mappage par défaut prend en charge des schémas flexibles et des dérives de schéma de la source au récepteur d’une exécution à l’autre. Toutes les données retournées par le magasin de données source peuvent être copiées dans le récepteur.
 
 Si votre source est un fichier texte sans ligne d’en-tête, un [mappage explicite](#explicit-mapping) est requis, car la source ne contient pas de noms de colonne.
 

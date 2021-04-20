@@ -2,13 +2,13 @@
 title: Messagerie Azure Service Bus - files d’attente, rubriques et abonnements
 description: Cet article fournit une vue d’ensemble des entités de messagerie Azure Service Bus (file d’attente, rubriques et abonnements).
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2021
+ms.openlocfilehash: ccd91d5091dbbba072cf222e5a73c3db1d48c321
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101096335"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209822"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 Azure Service Bus prend en charge un ensemble de technologies interlogicielles Cloud orientées messages, notamment une mise en file d'attente des messages fiable et une messagerie de publication/abonnement durable. Ces capacités de messagerie répartie peuvent être considérées comme des fonctionnalités de messagerie découplée prenant en charge la publication-abonnement, le découplage temporel et les scénarios d’équilibrage de charge qui utilisent la charge de travail de messagerie Service Bus. La communication découplée présente de nombreux avantages. Par exemple, les clients et les serveurs peuvent se connecter en fonction des besoins et exécuter leurs opérations de manière asynchrone.
@@ -53,7 +53,7 @@ Dans de nombreux scénarios, les messages ayant des caractéristiques spécifiqu
 
 Pour un exemple complet et concret, voir [TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) sur GitHub.
 
-Pour plus d’informations sur les valeurs de filtre possibles, consultez la documentation des classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) et [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
+Pour en savoir plus sur les filtres, consultez [Actions et filtres de rubrique](topic-filters.md).
 
 ## <a name="java-message-service-jms-20-entities"></a>Entités Java message service (JMS) 2.0
 Les entités suivantes sont accessibles via l’API Java Message Service (JMS) 2.0.

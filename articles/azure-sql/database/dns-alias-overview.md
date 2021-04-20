@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: c25a9d69df4786afa6600c4749d02fc148d0f1c3
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 6ef268b349d5a21cdbadd55ffd2199a35f650e5b
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385783"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107376288"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS pour Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -93,10 +93,10 @@ Un exemple de code des cmdlets PowerShell utilisées pour gérer les alias DNS e
 
 Voici les cmdlets utilisées dans l’exemple de code :
 
-- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias) : Crée un alias DNS dans le système de service Azure SQL Database. L’alias fait référence au serveur 1.
-- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias) : Obtient et liste tous les alias DNS attribués au serveur 1.
-- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias) : modifie le nom du serveur que l’alias doit référencer, de serveur 1 à serveur 2.
-- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias) : supprime l’alias DNS du serveur 2 en utilisant le nom de l’alias.
+- [New-AzSqlServerDnsAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias) : Crée un alias DNS dans le système de service Azure SQL Database. L’alias fait référence au serveur 1.
+- [Get-AzSqlServerDnsAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias) : Obtient et liste tous les alias DNS attribués au serveur 1.
+- [Set-AzSqlServerDnsAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias) : modifie le nom du serveur que l’alias doit référencer, de serveur 1 à serveur 2.
+- [Remove-AzSqlServerDnsAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias) : supprime l’alias DNS du serveur 2 en utilisant le nom de l’alias.
 
 ## <a name="limitations"></a>Limites
 

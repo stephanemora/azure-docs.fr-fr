@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 04/12/2021
 ms.author: alkohli
-ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e0eb976f655308082671afe2dc1923f082a3373b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034742"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303166"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Spécifications techniques et conformité pour Azure Stack Edge Pro avec GPU 
 
@@ -23,10 +23,14 @@ Les composants matériels de votre appareil Azure Stack Edge Pro avec unité de 
 
 L’appareil Azure Stack Edge Pro présente les spécifications suivantes en matière de calcul et de mémoire :
 
-| Caractéristique           | Valeur                  |
-|-------------------------|----------------------------|
-| UC                     | 2 UC Intel Xeon Silver 4214 (Cascade Lake)<br> 24 cœurs physiques (12 par UC)<br>48 cœurs logiques (processeurs virtuels) (24 par UC)       |
-| Mémoire                  | 128 (8x16 Go) Go de RAM <br> Compatible Dell 16 Go PC4-23400 DDR4 2933 Mhz 2Rx8 1.2v ECC inscrit RDIMM       |
+| Caractéristique  | Valeur                                                                       |
+|----------------|-----------------------------------------------------------------------------|
+| Type de processeur       | Deux processeurs Intel Xeon Silver 4214 (Cascade Lake)                              |
+| Processeur : raw       | 24 cœurs au total, 48 processeurs virtuels au total                                              |
+| Processeur : utilisable    | 40 processeurs virtuels                                                                    |
+| Type de mémoire    | Compatible Dell 16 Go PC4-23400 DDR4 2933 Mhz 2Rx8 1.2v ECC inscrit RDIMM |
+| Mémoire : raw    | 128 Go de RAM (8 x 16 Go)                                                      |
+| Mémoire : utilisable | 102 Go de RAM                                                                  |
 
 
 ## <a name="compute-acceleration-specifications"></a>Spécifications de l’accélération de calcul
@@ -44,7 +48,7 @@ L’appareil Azure Stack Edge Pro a deux blocs d’alimentation de 100-240 V av
 
 | Caractéristique           | Bloc d’alimentation de 750 W                  |
 |-------------------------|----------------------------|
-| Puissance de sortie maximale    | 750 W                     |
+| Puissance de sortie maximale    | 750 W                      |
 | Fréquence               | 50/60 Hz                   |
 | Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
 | Enfichable à chaud           | Oui                        |
@@ -60,7 +64,7 @@ Votre appareil Azure Stack Edge Pro dispose de 6 interfaces réseau : PORT1 à
 
 Votre appareil Azure Stack Edge Pro est équipé des composants matériels réseau suivants :
 
-* **Carte Microsoft Qlogic Cavium 25G NDC personnalisée** : Ports 1 à 4.
+* **Carte Microsoft `Qlogic` Cavium 25G NDC personnalisée** - Ports 1 à 4.
 * **Carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux** : Ports 5 et 6.
 
 Voici les détails de la carte Mellanox :
@@ -74,7 +78,7 @@ Voici les détails de la carte Mellanox :
 
 Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pris en charge pour ces cartes réseau, consultez le document :
 
-- [Matrice d’interopérabilité de la carte Qlogic Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [Matrice d’interopérabilité de la carte `Qlogic` Cavium 25G NDC](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 - [Produits compatibles avec la carte réseau Mellanox Dual Port 25G ConnectX - 4 canaux](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
 ## <a name="storage-specifications"></a>Spécifications de stockage

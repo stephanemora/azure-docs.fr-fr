@@ -1,21 +1,21 @@
 ---
 title: Créer un service de recherche dans le portail
 titleSuffix: Azure Cognitive Search
-description: Dans ce guide démarrage rapide du portail, découvrez comment configurer une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
+description: Découvrez comment configurer une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, les régions et le SKU ou le niveau tarifaire.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/15/2021
-ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83e206a5fd7b34da0b0ac8590d5271a554855d3e
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100651984"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580750"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
+# <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>Créer un service Recherche cognitive Azure dans le portail
 
 [Recherche cognitive Azure](search-what-is-azure-search.md) est une ressource Azure qui permet d’ajouter une expérience de recherche en texte intégral à des applications personnalisées. Vous pouvez facilement l’intégrer à d’autres services Azure qui fournissent des données ou un traitement supplémentaire, avec des applications situées sur des serveurs réseau ou avec des logiciels s’exécutant sur d’autres plateformes cloud.
 

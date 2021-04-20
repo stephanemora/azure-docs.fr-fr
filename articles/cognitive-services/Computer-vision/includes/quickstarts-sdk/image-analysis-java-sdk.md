@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 85ea12071447535af964418db4b3e4f759ba3851
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 9349ac5c0b207d0dffb71295117f35849ab5caba
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287384"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073595"
 ---
 <a name="HOLTop"></a>
 
@@ -277,11 +277,10 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Java Analyse d'images pour effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans ce guide de démarrage rapide, vous avez appris à installer la bibliothèque de client Analyse d’image et à effectuer des appels d’analyse d’image de base. À présent, découvrez-en plus sur les fonctionnalités de l’API Analyser.
 
 > [!div class="nextstepaction"]
->[Informations de référence sur Analyse d'images (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
-
+>[Appeler l’API Analyser](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Vue d’ensemble de l’analyse d’image](../../overview-image-analysis.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

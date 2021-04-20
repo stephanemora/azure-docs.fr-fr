@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 04/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e8192c5c6734009f69e3f741531251dd85675b47
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 4130ed4bb690edb3c0c5d72d7d158262ed6ff39d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449447"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305597"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutoriel : Développer et planifier le provisionnement pour un point de terminaison SCIM
 
@@ -62,7 +62,7 @@ La norme SCIM définit un schéma pour la gestion des utilisateurs et des groupe
 Le schéma utilisateur **core** ne nécessite que trois attributs (tous les autres attributs sont facultatifs) :
 
 - `id`, identificateur défini par le fournisseur de services
-- `externalId`, identificateur défini par le client
+- `userName`, identificateur unique de l’utilisateur (mappe généralement au nom d’utilisateur principal Azure AD)
 - `meta`, métadonnées *en lecture seule* gérées par le fournisseur de services
 
 Outre le schéma utilisateur **core**, la norme SCIM définit une extension utilisateur **enterprise** avec un modèle permettant d’étendre le schéma utilisateur en fonction des besoins de votre application. 

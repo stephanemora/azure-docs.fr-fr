@@ -3,12 +3,12 @@ title: Annotations de version pour Application Insights | Microsoft Docs
 description: Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 776efd56aaa523d1c2621c51cba0446a42bb7411
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9132e65e4705fd9125d97a5e095fe5f0850229a2
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461910"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107011048"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
@@ -96,7 +96,10 @@ Pour activer les annotations dans votre classeur, accédez à **Paramètres avan
 Sélectionnez un marqueur d’annotation pour ouvrir les détails sur la version, notamment le demandeur, la branche de contrôle de code source, le pipeline de mise en production et l’environnement.
 
 ## <a name="create-custom-annotations-from-powershell"></a>Créer des annotations personnalisées à partir de PowerShell
-Vous pouvez utiliser le script PowerShell CreateReleaseAnnotation de GitHub pour créer des annotations à partir de tout processus de votre choix, sans utiliser Azure DevOps.
+Vous pouvez utiliser le script PowerShell CreateReleaseAnnotation pour créer des annotations à partir de tout processus de votre choix sans utiliser Azure DevOps.
+
+> [!IMPORTANT]
+> Si vous utilisez PowerShell 7.1, ajoutez `-SkipHttpErrorCheck` à la fin de la ligne 26. Par exemple : `$request = Invoke-WebRequest -Uri $fwLink -MaximumRedirection 0 -UseBasicParsing -ErrorAction Ignore -SkipHttpErrorCheck`.
 
 1. Effectuez une copie locale du fichier CreateReleaseAnnotation.ps1 :
 
@@ -256,8 +259,8 @@ Vous pouvez utiliser le script PowerShell CreateReleaseAnnotation de GitHub pour
 
 Vous pouvez modifier le script, par exemple, pour créer des annotations pour le passé.
 
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer des éléments de travail](./diagnostic-search.md#create-work-item)
 * [Automation avec PowerShell](./powershell.md)
-

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c25504e3313234ac6b6f80a6e00c77fce28b1400
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 41bdf5251881fa9307a3cd4d214081845e967900
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174527"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209517"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -52,19 +52,19 @@ Pour obtenir des instructions pas à pas, consultez [Créer ou mettre à jour un
 
 ![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
-### <a name="rule-syntax-for-a-single-expression"></a>Syntaxe de règle pour une expression unique
+### <a name="rule-syntax-for-a-single-expression&quot;></a>Syntaxe de règle pour une expression unique
 
 Une expression unique est la forme la plus simple d’une règle d’appartenance, qui ne comprend que les trois parties précitées. Une règle avec une expression unique ressemble à ceci : `Property Operator Value`, où la syntaxe de la propriété est le nom de object.property.
 
 Voici un exemple de règle d’appartenance correctement construite avec une expression unique :
 
 ```
-user.department -eq "Sales"
+user.department -eq &quot;Sales&quot;
 ```
 
-Les parenthèses sont facultatives pour une expression unique. La longueur totale du corps de votre règle d’appartenance ne peut pas dépasser 2048 caractères.
+Les parenthèses sont facultatives pour une expression unique. La longueur totale du corps de votre règle d’appartenance ne peut pas dépasser 3072 caractères.
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Construction du corps d’une règle d’appartenance
+## <a name=&quot;constructing-the-body-of-a-membership-rule&quot;></a>Construction du corps d’une règle d’appartenance
 
 Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
 
@@ -74,7 +74,7 @@ Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateu
 
 L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
 
-## <a name="supported-properties"></a>Propriétés prises en charge
+## <a name=&quot;supported-properties&quot;></a>Propriétés prises en charge
 
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
@@ -84,18 +84,18 @@ Il existe trois types de propriétés utilisables pour construire une règle d�
 
 Les propriétés utilisateur que vous pouvez utiliser pour créer une expression unique sont les suivantes.
 
-### <a name="properties-of-type-boolean"></a>Propriétés de type booléen
+### <a name=&quot;properties-of-type-boolean&quot;></a>Propriétés de type booléen
 
 | Propriétés | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
-### <a name="properties-of-type-string"></a>Propriétés de type chaîne
+### <a name=&quot;properties-of-type-string&quot;></a>Propriétés de type chaîne
 
 | Propriétés | Valeurs autorisées | Usage |
 | --- | --- | --- |
-| city |Toute valeur de chaîne ou *null* |(user.city -eq "value") |
+| city |Toute valeur de chaîne ou *null* |(user.city -eq &quot;value") |
 | country |Toute valeur de chaîne ou *null* |(user.country -eq "value") |
 | companyName | Toute valeur de chaîne ou *null* | (user.companyName -eq "value") |
 | department |Toute valeur de chaîne ou *null* |(user.department -eq "value") |

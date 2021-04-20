@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
 ms.date: 07/10/2020
-ms.openlocfilehash: 2da7311e61aa39be69a6a0a29eff686baaad7ebf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91323190"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285273"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Vue d’ensemble des opérations de gestion Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -70,12 +70,14 @@ Les tableaux suivants récapitulent les opérations et les durées globales habi
 |Opération  |Segment de longue durée  |Durée estimée  |
 |---------|---------|---------|
 |Modification de propriété d’instance (mot de passe administrateur, connexion Azure AD, indicateur Azure Hybrid Benefit)|N/A|Jusqu’à une minute.|
-|Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|Attachement de fichiers de base de données|90 % des opérations ne prennent pas plus de cinq minutes.|
+|Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|Pas de segment de longue durée<sup>1</sup>|99 % des opérations ne prennent pas plus de cinq minutes.|
 |Scale-up et scale-down du stockage d’instance (niveau de service Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les 2,5 heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure).|
 |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente.|
 |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les 2,5 heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure).|
 |Modification du niveau de service de l’instance (Usage général vers Critique pour l’entreprise et vice versa)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les 2,5 heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure).|
 | | | 
+
+<sup>1</sup> La mise à l’échelle du stockage d’instance géré en usage général ne provoque pas de basculement à la fin de l’opération. Dans ce cas, l’opération consiste à mettre à jour les métadonnées et à propager la réponse pour la requête envoyée.
 
 **Catégorie : Suppression**
 
@@ -90,6 +92,9 @@ Les tableaux suivants récapitulent les opérations et les durées globales habi
 ## <a name="instance-availability"></a>Disponibilité des instances
 
 SQL Managed Instance **est disponible pendant les opérations de mise à jour**, à l’exception d’un court temps d’arrêt dû au basculement qui se produit à la fin de la mise à jour. Elle dure généralement jusqu’à 10 secondes, même en cas de transactions longues interrompues, grâce à la [récupération de base de données accélérée](../accelerated-database-recovery.md).
+
+> [!NOTE]
+> La mise à l’échelle du stockage d’instance géré en usage général ne provoque pas de basculement à la fin de la mise à jour.
 
 SQL Managed Instance n’est pas accessible aux applications clientes pendant les opérations de déploiement et de suppression.
 

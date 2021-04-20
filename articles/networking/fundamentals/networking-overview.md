@@ -8,20 +8,20 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/28/2020
+ms.date: 04/07/2021
 ms.author: kumud
-ms.openlocfilehash: 3145a52a6050272c01cd7ccb64afef0b89812753
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 34e31bacbb276feb5b11d1b955096877376e989b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169676"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107107701"
 ---
 # <a name="azure-networking-services-overview"></a>Vue d’ensemble des services de mise en réseau Azure
 
 Les services de mise en réseau dans Azure fournissent un éventail de fonctionnalités de mise en réseau qui peuvent être utilisées ensemble ou séparément. Cliquez sur une des fonctionnalités principales suivantes pour en savoir plus à leur sujet :
 - [**Services de connectivité**](#connect) : Connectez les ressources Azure et les ressources locales à l’aide d’un de ces services de mise en réseau dans Azure – réseau virtuel (VNet), Virtual WAN, ExpressRoute, passerelle VPN, passerelle NAT de réseau virtuel, Azure DNS, Peering Service et Azure Bastion – ou d’une combinaison de ces derniers.
-- [**Services de protection des applications**](#protect) : Protégez vos applications à l’aide d’un ou plusieurs de ces services de mise en réseau dans Azure – Private Link, protection DDoS, pare-feu, groupes de sécurité réseau, pare-feu d’applications Web et points de terminaison de réseau virtuel.
+- [**Services de protection des applications**](#protect) : protégez vos applications à l’aide d’un ou d’une combinaison de ces services de mise en réseau dans Azure (Load Balancer, Private Link, Protection DDoS, Pare-feu, Groupes de sécurité réseau, Pare-feu d’applications web et Points de terminaison de réseau virtuel).
 - [**Services de distribution d’applications**](#deliver) : Fournissez des applications dans le réseau Azure à l’aide d’un ou plusieurs de ces services de mise en réseau dans Azure – Content Delivery Network (CDN), Azure Front Door Service, Traffic Manager, Application Gateway, Internet Analyzer et Load Balancer.
 - [**Surveillance du réseau**](#monitor) : Surveillez vos ressources réseau à l’aide d’un ou plusieurs de ces services de mise en réseau dans Azure – Network Watcher, ExpressRoute Monitor, Azure Monitor ou point d’accès terminal de réseau virtuel (TAP).
 
@@ -158,13 +158,13 @@ Le diagramme suivant montre le routage d’URL basé sur le chemin avec Applicat
 :::image type="content" source="./media/networking-overview/figure1-720.png" alt-text="Exemple avec Application Gateway":::
 
 ## <a name="network-monitoring-services"></a><a name="monitor"></a>Services de surveillance de réseau
-Cette section décrit les services réseau Azure qui permettent de superviser les ressources réseau : Network Watcher, Azure Monitor pour réseaux, ExpressRoute Monitor, Azure Monitor et TAP de réseau virtuel.
+Cette section décrit les services de mise en réseau Azure qui permettent de surveiller les ressources réseau : Network Watcher, Azure Monitor Network Insights, Azure Monitor, Moniteur ExpressRoute, et TAP de réseau virtuel.
 
 ### <a name="network-watcher"></a><a name="networkwatcher"></a>Network Watcher
 Azure Network Watcher offre des outils permettant d’effectuer un monitoring et des diagnostics, d’afficher les métriques et d’activer et de désactiver les journaux d’activité pour les ressources se trouvant sur un réseau virtuel Azure. Pour plus d’informations, consultez [Présentation de Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
-### <a name="azure-monitor-for-networks-preview"></a>Azure Monitor pour réseaux (préversion)
-Azure Monitor pour réseaux offre une vue complète de l’intégrité et des métriques de toutes les ressources réseau déployées, sans aucune configuration nécessaire. Il permet également d’accéder à toutes les fonctionnalités de supervision du réseau, comme le [Moniteur de connexion](../../network-watcher/connection-monitor-overview.md), la [journalisation de flux pour les groupes de sécurité réseau](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) et [Traffic Analytics](../../network-watcher/traffic-analytics.md). Pour plus d’informations, consultez [Aperçu d’Azure Monitor pour réseaux](../../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+### <a name="azure-monitor-network-insights"></a>Azure Monitor Network Insights
+Azure Monitor pour réseaux offre une vue complète de l’intégrité et des métriques de toutes les ressources réseau déployées, sans aucune configuration nécessaire. Il permet également d’accéder à toutes les fonctionnalités de supervision du réseau, comme le [Moniteur de connexion](../../network-watcher/connection-monitor-overview.md), la [journalisation de flux pour les groupes de sécurité réseau](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) et [Traffic Analytics](../../network-watcher/traffic-analytics.md). Pour plus d’informations, consultez [Azure Monitor Network Insights](../../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="expressroute-monitor"></a><a name="expressroutemonitor"></a>Moniteur ExpressRoute
 Pour en savoir plus sur l’affichage des métriques de circuit ExpressRoute, les journaux de ressources et les alertes, consultez [Supervision, métriques et alertes ExpressRoute](../../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).

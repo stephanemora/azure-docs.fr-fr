@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 26076289d8c6659abdd55fa805c27b13690feccd
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285465"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258739"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
@@ -37,10 +37,10 @@ Cette documentation contient les types d’articles suivants :
 
 ## <a name="face-detection"></a>Détection des visages
 
-Le service Visage détecte les visages humains dans une image et retourne les coordonnées du rectangle de leur emplacement. La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la posture de la tête, le sexe, l’âge, l’émotion, la pilosité du visage et les lunettes.
+L’API Détecter détecte les visages humains dans une image et retourne les coordonnées du rectangle de leur emplacement. La détection des visages peut également permettre d’extraire un ensemble d’attributs associés au visage tels que la posture de la tête, le sexe, l’âge, l’émotion, la pilosité du visage et les lunettes. Ces attributs sont des prédictions générales, pas des classifications réelles. 
 
 > [!NOTE]
-> La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](../computer-vision/overview.md). En revanche, si vous voulez effectuer d’autres opérations avec des données faciales, préférez plutôt utiliser ce service.
+> La fonctionnalité de détection des visages est également disponible par le biais du [service Vision par ordinateur](../computer-vision/overview.md). Toutefois, si vous voulez effectuer d’autres opérations de Visage, comme Identifier, Vérifier, Rechercher semblables ou Regrouper, vous devez utiliser ce service Visage à la place.
 
 ![Une image d’une femme et d’un homme, avec des rectangles dessinés autour de leur visage, et un âge et un sexe affichés](./Images/Face.detection.jpg)
 
@@ -48,7 +48,19 @@ Pour plus d’informations sur la détection de visage, consultez l’article su
 
 ## <a name="face-verification"></a>Vérification faciale
 
-L’API de vérification effectue une authentification en comparant deux visages détectés ou un visage détecté et un objet Personne. En pratique, il évalue si deux visages appartiennent à la même personne. Cette capacité peut être utile dans le domaine de la sécurité. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+L’API Vérifier s’appuie sur la Détection et répond à la question « Ces deux images sont-elles la même personne ? ». La vérification est également appelée correspondance « un-à-un », car l’image de sondage est comparée à un seul modèle inscrit. Elle peut être utilisée dans les scénarios de vérification d’identité ou de contrôle d’accès pour vérifier qu’une image correspond à une image précédemment capturée (par exemple, à partir d’une photo provenant d’une carte d’identité délivrée par un gouvernement). Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de vérification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+
+## <a name="face-identification"></a>Identification des visages
+
+L’API Identifier commence également par la Détection et répond à la question « Le visage détecté peut-il être mis en correspondance avec un visage inscrit dans une base de données ? ». Comme il s’agit d’une recherche par reconnaissance faciale, cette opération est également appelée correspondance « un-à-plusieurs ». Les correspondances sont retournées en fonction du degré de correspondance du modèle de sondage avec le visage détecté pour chacun des modèles inscrits.
+
+L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
+
+![Une grille avec 3 colonnes pour les différentes personnes, chacune avec 3 lignes d’images de visages](./Images/person.group.clare.jpg)
+
+Après avoir créé et entraîné une base de données, vous pouvez effectuer l’identification par rapport au groupe avec un nouveau visage détecté. Si le visage est identifié en tant qu’une personne du groupe, l’objet Personne est renvoyé.
+
+Pour plus d’informations sur l’identification de personnes, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API d’identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="find-similar-faces"></a>Rechercher des visages semblables
 
@@ -70,21 +82,6 @@ Pour rechercher quatre visages semblabes, le mode **matchPerson** renvoie a et b
 
 L’API de regroupement divise un ensemble de visages inconnus en plusieurs groupes en fonction de leurs similarités. Chaque groupe est un sous-ensemble distinct de l’ensemble de visages d’origine. Tous les visages d’un groupe sont susceptibles d’appartenir à la même personne. Une seule personne peut correspondre à plusieurs groupes différents. Les groupes sont différenciés par un autre facteur, comme l’expression. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de groupe](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-## <a name="person-identification"></a>Identification de personnes
-
-L’API d’identification permet d’identifier un visage détecté en le comparant à ceux d’une base de données de personnes (recherche de reconnaissance faciale). Cette fonctionnalité peut être utile pour baliser automatiquement les images dans les logiciels de gestion de photos. Vous créez la base de données à l’avance,qui pourra ensuite être modifiée au fil du temps.
-
-L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
-
-![Une grille avec 3 colonnes pour les différentes personnes, chacune avec 3 lignes d’images de visages](./Images/person.group.clare.jpg)
-
-Après avoir créé et entraîné une base de données, vous pouvez effectuer l’identification par rapport au groupe avec un nouveau visage détecté. Si le visage est identifié en tant qu’une personne du groupe, l’objet Personne est renvoyé.
-
-Pour plus d’informations sur l’identification de personnes, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API d’identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-
-## <a name="deploy-on-premises-using-docker-containers"></a>Déployer localement en utilisant des conteneurs Docker
-
-[Utilisez le conteneur Visage (préversion)](face-how-to-install-containers.md) pour déployer des fonctionnalités d’API localement. Ce conteneur Docker vous donne la possibilité de rapprocher le service plus près de vos données, ce qui peut être souhaitable pour des raisons de conformité, de sécurité ou opérationnelles.
 
 ## <a name="sample-apps"></a>Exemples d’application
 

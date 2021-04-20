@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e1554b1728b120145a06124e4703065a98a4e466
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4f4bfdb5d09da6a9967b53ca56bb2491976592a1
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670092"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105882"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Unity avec Azure Spatial Anchors
 
@@ -45,6 +45,8 @@ Pour suivre ce guide de démarrage rapide, veillez à avoir :
 ## <a name="download-and-open-the-unity-sample-project"></a>Télécharger et ouvrir l’exemple de projet Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Suivez les instructions fournies [ici](../how-tos/setup-unity-project.md#download-asa-packages) pour télécharger et importer les packages du SDK ASA nécessaires pour la plateforme Android.
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 

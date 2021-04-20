@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: a49fd6f97a9130fa0369d2a36cdc38e59613afc1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bcf96a222dd40909401b70d8f1812b7d29b6088b
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544381"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012460"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Déployer un cluster Azure Service Fabric sur des zones de disponibilité
 Les zones de disponibilité dans Azure constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Une zone de disponibilité est un emplacement physique unique équipé d’une alimentation, d’un refroidissement et d’une mise en réseau indépendants dans une région Azure.
@@ -33,7 +33,7 @@ La topologie recommandée du type de nœud principal nécessite les ressources d
 * Un groupe de sécurité réseau (NSG) référencé par le sous-réseau dans lequel vous déployez vos groupes de machines virtuelles identiques.
 
 >[!NOTE]
-> La propriété de groupe de placement de groupe de machines virtuelles identiques doit être définie sur true (vrai) car Service Fabric ne prend pas en charge un groupe de machines virtuelles identiques couvrant des zones.
+> La propriété de groupe de placement unique du groupe de machines virtuelles identiques doit être définie sur true.
 
 Diagramme illustrant le diagramme d’architecture de zone de disponibilité Azure Service Fabric ![Diagramme illustrant le diagramme d’architecture de zone de disponibilité Azure Service Fabric.][sf-architecture]
 

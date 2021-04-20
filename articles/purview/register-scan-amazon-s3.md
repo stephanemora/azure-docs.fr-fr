@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 751d475fcb2e8c96d05daa5b5e2144909d21a409
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: a0559028192b0a99aeffd45a3b2896f9c9d159be
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382298"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310192"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Connecteur Azure Purview pour Amazon S3
 
@@ -97,7 +97,7 @@ Vérifiez que vous avez exécuté les prérequis suivants avant d’ajouter vos 
 Cette procédure décrit comment créer des informations d’identification Purview à utiliser pour l’analyse de vos compartiments AWS.
 
 > [!TIP]
-> Vous pouvez également créer des informations d’identification au milieu du processus, pendant la [configuration de votre analyse](#create-a-scan-for-your-amazon-s3-bucket). Dans ce cas, dans le champ **Informations d’identification**, sélectionnez **Nouveau**.
+> Vous pouvez également créer des informations d’identification au milieu du processus, pendant la [configuration de votre analyse](#create-a-scan-for-one-or-more-amazon-s3-buckets). Dans ce cas, dans le champ **Informations d’identification**, sélectionnez **Nouveau**.
 >
 
 1. Dans Purview, accédez au **Centre de gestion** et, sous **Sécurité et accès**, sélectionnez **Informations d’identification**.
@@ -116,9 +116,30 @@ Cette procédure décrit comment créer des informations d’identification Purv
 
     Sélectionnez **Créer** une fois vos informations d’identification créées.
 
-Pour plus d’informations sur les informations d’identification Purview, consultez la [documentation de la préversion publique d’Azure Purview](manage-credentials.md).
+1. Si vous ne l’avez pas encore fait, copiez et collez l’**ID de compte Microsoft** et les valeurs d’**ID externe** à utiliser lors de la [création d’un nouveau rôle AWS pour Purview](#create-a-new-aws-role-for-purview), ce qui est la prochaine étape.
+
+Pour plus d’informations sur les informations d’identification Purview, consultez [Informations d’identification pour l’authentification de source dans Azure Purview](manage-credentials.md).
 
 ### <a name="create-a-new-aws-role-for-purview"></a>Créer un rôle AWS pour Purview
+
+Cette procédure nécessite que vous entriez les valeurs de votre ID de compte Azure et votre ID externe lors de la création de votre rôle AWS.
+
+Si vous n’avez pas ces valeurs, localisez-les en premier dans vos [informations d’identification Purview](#create-a-purview-credential-for-your-aws-bucket-scan).
+
+**Pour localiser votre ID de compte Microsoft et votre ID externe** :
+
+1. Dans Purview, accédez à **Centre de gestion** > **Sécurité et accès** > **Informations d’identification**.
+
+1. Sélectionnez les informations d’identification que vous avez [créées pour votre analyse de compartiment AWS](#create-a-purview-credential-for-your-aws-bucket-scan), puis, dans la barre d’outils, sélectionnez **Modifier**.
+
+1. Dans le volet **Modifier les informations d’identification** qui s’affiche à droite, copiez l’**ID de compte Microsoft** et les valeurs d’**ID externe** dans un fichier distinct, ou gardez-les à portée pour les coller dans le champ approprié dans AWS.
+
+    Par exemple :
+
+    [ ![Localisez votre ID de compte Microsoft et votre ID externe.](./media/register-scan-amazon-s3/locate-account-id-external-id.png) ](./media/register-scan-amazon-s3/locate-account-id-external-id.png#lightbox)
+
+
+**Pour créer votre rôle AWS pour Purview** :
 
 1.  Ouvrez votre console **Amazon Web Services**, sous **Security, Identity, and Compliance** (Sécurité, identité et conformité), sélectionnez **IAM**.
 
@@ -129,12 +150,8 @@ Pour plus d’informations sur les informations d’identification Purview, cons
     |Champ  |Description  |
     |---------|---------|
     |**ID de compte**     |    Entrez votre ID de compte Microsoft. Par exemple : `615019938638`     |
-    |**ID externe**     |   Sous les options, sélectionnez **Require external ID...** (Exiger un ID externe...), puis entrez votre ID externe dans le champ désigné. <br>Par exemple : `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>Vous pouvez trouver cet ID externe quand vous .  |
+    |**ID externe**     |   Sous les options, sélectionnez **Require external ID...** (Exiger un ID externe...), puis entrez votre ID externe dans le champ désigné. <br>Par exemple : `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`     |
     | | |
-
-    > [!NOTE]
-    > Vous pouvez trouver les valeurs de l’**ID de compte Microsoft** et de l’**ID externe** dans la zone de Purview **Centre de gestion** > **Informations d’identification**, où vous avez [créé vos informations d’identification Purview](#create-a-purview-credential-for-your-aws-bucket-scan).
-    >
 
     Par exemple :
 
@@ -231,7 +248,7 @@ Les compartiments AWS prennent en charge plusieurs types de chiffrement. Pour le
 
 ### <a name="retrieve-your-new-role-arn"></a>Récupérer votre nouveau rôle ARN
 
-Vous devez enregistrer votre rôle AWS ARN et le copier dans Purview pendant la [création d’une analyse pour votre compartiment Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Vous devez enregistrer votre rôle AWS ARN et le copier dans Purview pendant la [création d’une analyse pour votre compartiment Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 **Pour récupérer votre rôle ARN :**
 
@@ -241,11 +258,11 @@ Vous devez enregistrer votre rôle AWS ARN et le copier dans Purview pendant la 
 
     ![Copiez la valeur du rôle ARN dans le Presse-papiers.](./media/register-scan-amazon-s3/aws-copy-role-purview.png)
 
-1. Collez cette valeur dans un emplacement sécurisé afin de l’utiliser par la suite lors de la [création d’une analyse pour votre compartiment Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+1. Collez cette valeur dans un emplacement sécurisé afin de l’utiliser par la suite lors de la [création d’une analyse pour votre compartiment Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
 ### <a name="retrieve-your-amazon-s3-bucket-name"></a>Récupérer le nom de votre compartiment Amazon S3
 
-Vous avez besoin du nom de votre compartiment Amazon S3 pour le copier dans Purview pendant la [création d’une analyse pour votre compartiment Amazon S3](#create-a-scan-for-your-amazon-s3-bucket)
+Vous avez besoin du nom de votre compartiment Amazon S3 pour le copier dans Purview pendant la [création d’une analyse pour votre compartiment Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets)
 
 **Pour récupérer le nom de votre compartiment :**
 
@@ -282,6 +299,8 @@ Par exemple :
 
 Utilisez cette procédure si vous avez seulement un compartiment S3 à inscrire dans Purview comme source de données ou si vous avez plusieurs compartiments dans votre compte AWS, mais que vous ne voulez pas tous les inscrire dans Purview.
 
+**Pour ajouter votre compartiment** : 
+
 1. Lancez le portail Purview à l’aide de l’URL du connecteur Purview dédié pour Amazon S3. Cette URL vous a été fournie par l’équipe de gestion de produit du connecteur Amazon S3 Purview.
 
     ![Lancez le portail Purview.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -305,12 +324,15 @@ Utilisez cette procédure si vous avez seulement un compartiment S3 à inscrire 
 
     Une fois que vous avez terminé, sélectionnez **Terminer** pour terminer l’inscription.
 
-Passez à l’étape [Créer une analyse pour votre compartiment Amazon S3.](#create-a-scan-for-your-amazon-s3-bucket).
+Passez à l’étape [Créer une analyse pour un ou plusieurs compartiments Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="add-all-of-your-amazon-s3-buckets-as-purview-resources"></a>Ajouter tous vos compartiments Amazon S3 comme ressources Purview
+## <a name="add-an-amazon-account-as-a-purview-resource"></a>Ajouter un compte Amazon comme ressource Purview
 
 Utilisez cette procédure si vous avez plusieurs compartiments S3 dans votre compte Amazon et voulez tous les inscrire comme sources de données Purview.
 
+Lorsque vous [configurez votre analyse](#create-a-scan-for-one-or-more-amazon-s3-buckets), vous pouvez sélectionner les compartiments spécifiques que vous souhaitez analyser, si vous ne souhaitez pas les analyser ensemble.
+
+**Pour ajouter votre compte Amazon** :
 1. Lancez le portail Purview à l’aide de l’URL du connecteur Purview dédié pour Amazon S3. Cette URL vous a été fournie par l’équipe de gestion de produit du connecteur Amazon S3 Purview.
 
     ![Lancer le portail Purview dédié au connecteur pour Amazon S3](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
@@ -334,9 +356,9 @@ Utilisez cette procédure si vous avez plusieurs compartiments S3 dans votre com
 
     Une fois que vous avez terminé, sélectionnez **Terminer** pour terminer l’inscription.
 
-Passez à l’étape [Créer une analyse pour votre compartiment Amazon S3](#create-a-scan-for-your-amazon-s3-bucket).
+Passez à l’étape [Créer une analyse pour un ou plusieurs compartiments Amazon S3](#create-a-scan-for-one-or-more-amazon-s3-buckets).
 
-## <a name="create-a-scan-for-your-amazon-s3-bucket"></a>Créer une analyse pour votre compartiment Amazon S3
+## <a name="create-a-scan-for-one-or-more-amazon-s3-buckets"></a>Créer une analyse pour un ou plusieurs compartiments Amazon S3
 
 Une fois que vous avez ajouté vos compartiments comme sources de données Purview, vous pouvez configurer une analyse à exécuter à intervalles planifiés ou immédiatement.
 
@@ -352,7 +374,8 @@ Une fois que vous avez ajouté vos compartiments comme sources de données Purvi
     |**Nom**     |  Entrez un nom explicite pour votre analyse ou utilisez le nom par défaut.       |
     |**Type** |S’affiche uniquement si vous avez ajouté votre compte AWS avec tous les compartiments inclus. <br><br>Les options actuelles comprennent uniquement **Tout** > **Amazon S3**. De nouvelles options seront disponibles avec le développement de la matrice de prise en charge de Purview. |
     |**Informations d'identification**     |  Sélectionnez des informations d’identification Purview avec votre rôle ARN. <br><br>**Conseil** : Si vous voulez créer des informations d’identification à cette étape, sélectionnez **Nouveau**. Pour plus d’informations, consultez [Créer des informations d’identification Purview pour votre analyse de compartiment AWS](#create-a-purview-credential-for-your-aws-bucket-scan).     |
-    |     |         |
+    | **Amazon S3**    |   S’affiche uniquement si vous avez ajouté votre compte AWS avec tous les compartiments inclus. <br><br>Sélectionnez un ou plusieurs compartiments à analyser, ou **Sélectionner tout** pour analyser tous les compartiments de votre compte.      |
+    | | |
 
     Purview vérifie automatiquement que le rôle ARN est valide, et que le compartiment et l’objet dans le compartiment sont accessibles, puis continue si la connexion est établie.
 

@@ -6,17 +6,17 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 6dbb1b46aef40986fc2d601aee152aed02591ac0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491589"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312601"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>Se connecter à Azure Database pour MySQL - Serveur flexible en utilisant des connexions chiffrées
 
 > [!IMPORTANT]
-> Le serveur flexible Azure Database pour MySQL est actuellement en préversion publique.
+> La fonctionnalité Serveur flexible Azure Database pour MySQL est actuellement disponible en préversion publique
 
 Le serveur flexible Azure Database pour MySQL prend en charge la connexion de vos applications clientes au serveur MySQL en utilisant le protocole SSL (Secure Sockets Layer) avec le protocole TLS (Transport Layer Security). TLS est un protocole standard qui garantit la sécurité des connexions réseau entre votre serveur de base de données et vos applications clientes, ce qui vous permet de respecter les exigences de conformité.
 
@@ -26,7 +26,7 @@ Voici les différentes configurations des paramètres SSL et TLS possibles pour 
 
 | Scénario   | Paramètres du serveur      | Description                                    |
 |------------|--------------------------------|------------------------------------------------|
-|Désactiver SSL (connexions chiffrées) | require_secure_transport = OFF |Si votre application héritée ne prend pas en charge les connexions chiffrées à MySQL Server, vous pouvez désactiver l’application des connexions chiffrées à votre serveur flexible en définissant require_secure_transport = OFF.|
+|Désactiver la contrainte d’application de SSL | require_secure_transport = OFF |Si votre application héritée ne prend pas en charge les connexions chiffrées à MySQL Server, vous pouvez désactiver l’application des connexions chiffrées à votre serveur flexible en définissant require_secure_transport = OFF.|
 |Appliquer le protocole SSL avec une version TLS < 1.2 | require_secure_transport = ON et tls_version = TLSV1 ou TLSV1.1| Si votre application héritée prend en charge les connexions chiffrées mais requiert la version TLS < 1.2, vous pouvez activer les connexions chiffrées, mais configurer votre serveur flexible pour autoriser les connexions avec la version TLS (v1.0 ou v1.1) prises en charge par votre application|
 |Appliquer le protocole SSL avec la version TLS version = 1.2 (configuration par défaut)|require_secure_transport = ON et tls_version = TLSV1.2| Il s’agit de la configuration par défaut recommandée pour le serveur flexible.|
 |Appliquer le protocole SSL avec une version TLS = 1.3 (pris en charge avec MySQL v8.0 et versions ultérieures)| require_secure_transport = ON et tls_version = TLSV1.3| Cette fonctionnalité est utile et recommandée pour le développement de nouvelles applications|
@@ -44,7 +44,7 @@ Dans cet article, vous allez apprendre à :
 * Vérifier l’état du chiffrement pour votre connexion
 * Connectez-vous à votre serveur flexible avec des connexions chiffrées à l’aide de différentes infrastructures d’application
 
-## <a name="disable-ssl-on-your-flexible-server"></a>Désactiver SSL sur votre serveur flexible
+## <a name="disable-ssl-enforcement-on-your-flexible-server"></a>Désactivation de la contrainte d’application de SSL sur votre serveur flexible
 Si votre application cliente ne prend pas en charge les connexions chiffrées, vous devez désactiver la mise en œuvre des connexions chiffrées sur votre serveur flexible. Pour désactiver la mise en application des connexions chiffrées, vous devez définir require_secure_transport paramètre Server sur OFF comme indiqué dans la capture d’écran et enregistrer la configuration du paramètre de serveur pour qu’elle prenne effet. require_secure_transport est un **paramètre de serveur dynamique** qui prend effet immédiatement et ne nécessite pas le redémarrage du serveur pour prendre effet.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Capture d’écran montrant comment désactiver SSL avec Azure Database pour serveur flexible MySQL.":::

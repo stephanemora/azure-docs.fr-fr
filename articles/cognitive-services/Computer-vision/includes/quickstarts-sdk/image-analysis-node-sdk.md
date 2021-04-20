@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 80c08eb20a734c16543f2767d18d86b260f17eee
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: d38b1f20547056c30f19dbbc77589643be1663a4
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287377"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073535"
 ---
 <a name="HOLTop"></a>
 
@@ -255,9 +255,11 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
->[Informations de référence sur l'API Analyse d'images (Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
+Dans ce guide de démarrage rapide, vous avez appris à installer la bibliothèque de client Analyse d’image et à effectuer des appels d’analyse d’image de base. À présent, découvrez-en plus sur les fonctionnalités de l’API Analyser.
 
+> [!div class="nextstepaction"]
+>[Appeler l’API Analyser](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
 * [Vue d’ensemble de l’analyse d’image](../../overview-image-analysis.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
+

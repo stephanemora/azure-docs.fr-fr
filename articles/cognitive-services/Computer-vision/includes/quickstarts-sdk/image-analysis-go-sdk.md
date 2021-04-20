@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 780d0db40651255adbd2dd70336f5696ae99862e
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 6a0d13dbc0beb90e0e276c5f594ff09c721f06f8
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106287407"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107073316"
 ---
 <a name="HOLTop"></a>
 
@@ -234,9 +234,11 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Dans ce guide de démarrage rapide, vous avez appris à installer la bibliothèque de client Analyse d’image et à effectuer des appels d’analyse d’image de base. À présent, découvrez-en plus sur les fonctionnalités de l’API Analyser.
+
 > [!div class="nextstepaction"]
-> [Informations de référence sur l'API Analyse d'images (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
+>[Appeler l’API Analyser](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
 
-
-* [Présentation d'Analyse d'images](../../overview-image-analysis.md)
+* [Vue d’ensemble de l’analyse d’image](../../overview-image-analysis.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).
+

@@ -11,17 +11,17 @@ ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b880d70baf7c160f8235bd01a5000f83825c36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af4eaa5912cdf7463c81f501d71b69e934f8febb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98614491"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306005"
 ---
 # <a name="what-is-azure-ad-connect-cloud-sync"></a>Qu’est-ce que la synchronisation cloud Azure AD Connect ?
 La synchronisation cloud Azure AD Connect est une nouvelle offre Microsoft conçue pour répondre à vos objectifs d’identités hybrides en matière de synchronisation des utilisateurs, groupes et contacts sur Azure AD.  Elle utilise pour cela l’agent de provisionnement cloud Azure AD au lieu de l’application Azure AD Connect.  Toutefois, elle peut être utilisée avec la synchronisation Azure AD Connect, et offre les avantages suivants :
     
-- Prise en charge de la synchronisation sur un locataire Azure AD, à partir d’un environnement de forêt Active Directory déconnecté multiforêt. Les scénarios courants incluent la fusion et l’acquisition, dans lesquelles les forêts Active Directory de la société acquise sont isolées des forêts Active Directory de la société parente et des sociétés qui ont historiquement plusieurs forêts Active Directory.
+- Prise en charge de la synchronisation sur un locataire Azure AD, à partir d’un environnement de forêt Active Directory déconnecté multiforêt. Les scénarios courants incluent la fusion et l’acquisition (dans lesquelles les forêts Active Directory de la société acquise sont isolées des forêts Active Directory de la société parente), et des sociétés qui ont historiquement plusieurs forêts Active Directory.
 - Installation simplifiée avec des agents de provisionnement légers. Les agents jouent le rôle de pont entre Active Directory et Azure AD, avec toute la configuration de synchronisation gérée dans le cloud. 
 - Plusieurs agents de provisionnement peuvent être utilisés pour simplifier les déploiements à haute disponibilité, particulièrement critiques pour les organisations qui reposent sur la synchronisation de hachage de mot de passe entre Active Directory et Azure AD.
 - Prise en charge des grands groupes comptant jusqu’à 50 000 membres. Nous vous recommandons d’utiliser uniquement le filtre d’étendue d’unité d’organisation pour synchroniser les grands groupes.
@@ -30,7 +30,7 @@ La synchronisation cloud Azure AD Connect est une nouvelle offre Microsoft con�
 ![Qu’est-ce qu’Azure AD Connect ?](media/what-is-cloud-sync/architecture-1.png)
 
 ## <a name="how-is-azure-ad-connect-cloud-sync-different-from-azure-ad-connect-sync"></a>En quoi la synchronisation cloud Azure AD Connect est-elle différente de la synchronisation Azure AD Connect ?
-Avec la synchronisation cloud Azure AD Connect, le provisionnement d’Active Directory vers Azure AD est orchestré dans Microsoft Online Services. Une organisation a uniquement besoin de déployer, dans son environnement IaaS local, un agent léger qui fait office de pont entre Azure AD et Active Directory. La configuration du provisionnement est stockée dans Azure AD et gérée dans le cadre du service.
+Avec la synchronisation cloud Azure AD Connect, le provisionnement d’Active Directory vers Azure AD est orchestré dans Microsoft Online Services. Une organisation a uniquement besoin de déployer, dans son environnement IaaS ou local, un agent léger qui fait office de pont entre Azure AD et Active Directory. La configuration du provisionnement est stockée dans Azure AD et gérée dans le cadre du service.
 
 ## <a name="azure-ad-connect-cloud-sync-video"></a>Vidéo sur la synchronisation cloud Azure AD Connect
 La courte vidéo suivante donne une excellente vue d’ensemble de la synchronisation cloud Azure AD Connect :
@@ -63,7 +63,7 @@ Le tableau suivant présente une comparaison entre la synchronisation Azure AD 
 | Prise en charge de la fédération |●|●|
 | Authentification unique transparente|● |●|
 | Installation des supports sur un contrôleur de domaine |● |● |
-| Prise en charge pour Windows Server 2012 et Windows Server 2012 R2 |● |● |
+| Prise en charge pour Windows Server 2016|● |● |
 | Filtrage sur les domaines/unités d’organisation/groupes |● |● |
 | Filtrage sur les valeurs d’attributs des objets |● | |
 | Autorisation d’un ensemble minimal d’attributs à synchroniser (MinSync) |● |● |

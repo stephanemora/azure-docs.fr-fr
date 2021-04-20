@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010807"
 ---
 Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour connaître les références SKU des passerelles de réseau virtuel dans les Zones de disponibilité Azure, voir [Références SKU des passerelles pour les Zones de disponibilité Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
@@ -33,7 +33,7 @@ Les nouvelles références SKU de passerelle VPN rationalisent les ensembles de 
 
 | **Référence (SKU)**| **Caractéristiques**|
 | ---    | ---         |
-|**De base** (\*\*)   | **VPN basé sur le routage** : 10 tunnels avec S2S/connexions ; aucune authentification RADIUS pour P2S ; aucune IKEV2 pour P2S<br>**VPN basé sur des stratégies** : (IKEv1) : 1 tunnel avec S2S/connexion ; aucun P2S|
+|**De base** (\*\*)   | **VPN basés sur un itinéraire** : 10 tunnels avec S2S/connexions ; aucune authentification RADIUS pour P2S ; aucune IKEV2 pour P2S<br>**VPN basés sur les stratégies** : (IKEv1) : 1 tunnel S2S/connexion ; aucune S2S|
 | **Toutes les références SKU Génération1 et Génération2, sauf De base** | **VPN basés sur le routage** : jusqu’à 30 itinéraires (*), P2S, BGP, actif/passif, stratégie IPsec/IKE personnalisée, coexistence ExpressRoute/VPN |
 |        |             |
 
@@ -41,7 +41,7 @@ Les nouvelles références SKU de passerelle VPN rationalisent les ensembles de 
 
 (\*\*) La référence SKU De base est considérée comme une référence SKU héritée. La référence SKU De base a certaines limitations en termes de fonctionnalités. Vous ne pouvez pas redimensionner une passerelle qui utilise une référence SKU De base vers l’une des nouvelles références SKU de passerelle. À la place, vous devez passer à une nouvelle référence SKU, ce qui implique la suppression et la recréation de votre passerelle VPN.
 
-###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Références SKU de passerelle - Charges de travail de production ou charges de travail de développement et de test
+###  <a name="gateway-skus---production-vs-dev-test-workloads"></a><a name="workloads"></a>Références SKU de passerelle - Charges de travail de production et charges de travail de développement/de test
 
 En raison de différences des contrats de niveau de service et des ensembles de fonctionnalités, nous vous recommandons les références SKU suivantes pour la production par rapport au développement et au test :
 

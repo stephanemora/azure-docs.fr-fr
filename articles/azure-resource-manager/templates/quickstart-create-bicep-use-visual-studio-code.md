@@ -2,15 +2,15 @@
 title: Créer des fichiers Bicep - Visual Studio Code
 description: Utiliser Visual Studio Code et l’extension Bicep avec des fichiers Bicep pour déployer des ressources Azure
 author: mumian
-ms.date: 03/26/2021
+ms.date: 04/12/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e82f047f553290c9121d91060c347c5b242c7ec2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612883"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306464"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>Démarrage rapide : Créer des fichiers Bicep avec Visual Studio Code
 
@@ -51,6 +51,10 @@ La déclaration de ressource se compose de quatre éléments :
 - **nom symbolique** (stg) : le nom symbolique est un identificateur permettant de référencer la ressource dans l’ensemble de votre fichier Bicep. Il ne s’agit pas du nom de la ressource lorsqu’elle sera déployée. Le nom de la ressource est défini par la propriété **name**.  Consultez le quatrième élément de cette liste.
 - **type de ressource** (Microsoft.Storage/storageAccounts@2019-06-01) : il se compose du fournisseur de ressources (Microsoft.Storage), du type de ressource (storageAccounts) et de l’élément apiVersion (01-06-2019). Chaque fournisseur de ressources publiant ses propres versions d’API, cette valeur est donc propre au type. Vous trouverez d’autres types et éléments apiVersion pour différentes ressources Azure dans la section [Informations de référence sur les modèles ARM](/azure/templates/).
 - **propriétés** (tout ce qui se trouve dans = {...}) : spécifiez les propriétés du type de ressource. Chaque ressource comporte une propriété `name`. La plupart des ressources possèdent également une propriété `location`, qui définit la région dans laquelle la ressource est déployée. Les autres propriétés varient selon le type de la ressource et la version de l’API.
+
+Pour plus d’informations, consultez [Structure de Bicep](./bicep-file.md).
+
+Il y a un commentaire pour la propriété name.  Utilisez `//` pour les commentaires d’une seule ligne ou `/* ... */` pour les commentaires de plusieurs lignes.
 
 ## <a name="completion-and-validation"></a>Autocomplétion et validation
 

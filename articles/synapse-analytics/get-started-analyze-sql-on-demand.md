@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 0ef76be2c083d6185b8b919d174de28aa3b65446
-ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.openlocfilehash: 7c228bfe5897b45e6345234f2ed8e0f5cfbec73a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2021
-ms.locfileid: "106293768"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312788"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analyser des données avec un pool SQL serverless
 
@@ -27,9 +27,8 @@ Les pools SQL serverless vous permettent d’utiliser SQL sans avoir de capacit�
 
 Chaque espace de travail est fourni avec un pool SQL serverless préconfiguré, dit **Intégré**. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Analyser les données NYC Taxi du stockage Blob avec un pool SQL serverless
+## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>Analyser les données de NYC Taxi avec un pool SQL serverless
 
-Dans cette section, vous allez utiliser un pool SQL serverless pour analyser les données NYC Taxi sur un compte Stockage Blob Azure.
 
 1. Dans Synapse Studio, accédez au hub **Développer**
 1. Un nouveau script SQL est alors créé.
@@ -37,12 +36,12 @@ Dans cette section, vous allez utiliser un pool SQL serverless pour analyser les
 
     ```
     SELECT
-        TOP 100 *
+        TOP 100 *
     FROM
         OPENROWSET(
-            BULK     'https://azureopendatastorage.blob.core.windows.net/nyctlc/yellow/puYear=*/puMonth=*/*.parquet',
-            FORMAT = 'parquet'
-        ) AS [result];
+                BULK 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet',
+            FORMAT='PARQUET'
+        ) AS [result]
     ```
 1. Cliquez sur **Exécuter**.
 

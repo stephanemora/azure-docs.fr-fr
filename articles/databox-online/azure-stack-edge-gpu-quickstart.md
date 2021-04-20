@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 01/27/2021
+ms.date: 04/07/2021
 ms.author: alkohli
-ms.openlocfilehash: b6389152116a47bedbc9c2dc44231f3e1732fdc6
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 43477f11effaafb0bcd6158be6843c79d19092ac
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055108"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210808"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Démarrage rapide : Bien démarrer avec Azure Stack Edge Pro avec GPU 
 
@@ -36,7 +36,7 @@ Avant de procéder au déploiement, vérifiez que les prérequis suivants sont e
 
 ## <a name="deployment-steps"></a>Étapes du déploiement
 
-1. **Installation** : connectez le PORT 1 à un ordinateur client à l’aide d’un câble croisé ou d’une carte Ethernet USB. Connectez au moins un autre port d’appareil pour les données, de préférence 25 GbE, (du PORT 3 au PORT 6) à Internet via au moins 1 commutateur GbE et des câbles en cuivre SFP+. Connectez les cordons d’alimentation fournis aux unités d’alimentation et à des unités de distribution d’alimentation distinctes. Appuyez sur le bouton d’alimentation du panneau avant pour allumer l’appareil.  
+1. **Installation** : connectez le PORT 1 à un ordinateur client à l’aide d’un câble croisé ou d’une carte Ethernet USB. Connectez au moins un autre port d’appareil pour les données, de préférence 25 GbE, (du PORT 3 au PORT 6) à Internet via des câbles en cuivre SFP+, ou utilisez le PORT 2 avec un cordon de connexion RJ45. Connectez les cordons d’alimentation fournis aux unités d’alimentation et à des unités de distribution d’alimentation distinctes. Appuyez sur le bouton d’alimentation du panneau avant pour allumer l’appareil.  
 
     Consultez [Matrice d’interopérabilité de la série Cavium FastlinQ 41000](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) et [Produits compatibles avec la carte réseau Mellanox double port 25G ConnectX-4 canaux](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) pour obtenir les commutateurs et câbles réseau compatibles.
 

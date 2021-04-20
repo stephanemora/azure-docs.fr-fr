@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b8a94409f082177192847f2c65d44a513ecdbe4
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96350226"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305036"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>Tutoriel : Créer une application web statique avec Blazor dans Azure Static Web Apps
 
@@ -43,7 +43,7 @@ Ces projets sont tous nécessaires à la création d'une application d'assembly 
 
 ## <a name="fallback-route"></a>Itinéraire de secours
 
-L'application expose des URL telles que _/counter_ et _/fetchdata_ qui correspondent à des itinéraires spécifiques de l'application. Dans la mesure où cette application est implémentée sous forme d'application monopage, chaque itinéraire reçoit le fichier _index.html_. Pour veiller à ce que toutes les requêtes de chemin renvoient _index.html_, un [itinéraire de secours](./routes.md#fallback-routes) est implémenté dans le fichier _routes.json_ situé dans le dossier _wwwroot_ du projet Client.
+L'application expose des URL telles que _/counter_ et _/fetchdata_ qui correspondent à des itinéraires spécifiques de l'application. Dans la mesure où cette application est implémentée sous forme d'application monopage, chaque itinéraire reçoit le fichier _index.html_. Pour garantir que les requêtes de chemin retournent _index.html_, une [route de secours](./routes.md#fallback-routes) est implémentée dans le fichier _staticwebapp.config.json_ situé dans le dossier _wwwroot_ du projet Client.
 
 ```json
 {
@@ -64,7 +64,7 @@ Grâce à la configuration ci-dessus, les requêtes adressées à tout itinérai
 Cet article utilise un dépôt de modèles GitHub pour vous permettre de démarrer facilement. Le modèle comprend une application de démarrage déployée sur Azure Static Web Apps.
 
 1. Veillez à être connecté à GitHub et accédez à l’emplacement suivant pour créer un dépôt :
-    - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
+   - [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=/staticwebdev/blazor-starter/generate)
 1. Nommez votre référentiel **my-first-static-blazor-app**
 
 ## <a name="create-a-static-web-app"></a>Créer une application web statique
@@ -84,7 +84,7 @@ Dans la section _De base_, commencez par configurer votre nouvelle application e
 1. Sélectionnez votre _abonnement Azure_.
 1. Sélectionnez ou créez un _groupe de ressources_.
 1. Nommez l'application **my-first-static-blazor-app**.
-    - Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.
+   - Les caractères valides sont `a-z` (insensible à la casse), `0-9`et `-`.
 1. Sélectionnez la _région_ la plus proche de vous.
 1. Sélectionnez **SKU** _gratuite_.
 1. Sélectionnez le bouton **Se connecter à GitHub** et authentifiez-vous auprès de GitHub.
@@ -97,23 +97,23 @@ Après vous être connecté à GitHub, entrez les informations relatives au dép
 1. Sélectionnez **my-first-static-blazor-app** dans la liste déroulante _Référentiel_.
 1. Sélectionnez **principale** dans la liste déroulante _Branche_.
 
-    En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à votre dépôt GitHub, puis à **Paramètres > Applications > Applications OAuth autorisées**, sélectionnez **Azure Static Web Apps**, puis sélectionnez **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
+   En l’absence de dépôt, il peut être nécessaire d’autoriser Azure Static Web Apps dans GitHub. Accédez à votre dépôt GitHub, puis à **Paramètres > Applications > Applications OAuth autorisées**, sélectionnez **Azure Static Web Apps**, puis sélectionnez **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
 
 1. Dans la section _Détails de la build_, ajoutez les détails de configuration spécifiques à Blazor.
 
-    - Sélectionnez **Blazor** dans la liste déroulante _Présélections de build_ et conservez toutes les valeurs par défaut.
+   - Sélectionnez **Blazor** dans la liste déroulante _Présélections de build_ et conservez toutes les valeurs par défaut.
 
 1. Sélectionnez **Revoir + créer**.
 
-    :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Bouton Vérifier + créer":::
+   :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="Bouton Vérifier + créer":::
 
 1. Sélectionnez **Create** (Créer).
 
-    :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Bouton Créer":::
+   :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="Bouton Créer":::
 
 1. Sélectionnez **Accéder à la ressource**.
 
-    :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Accédez au bouton de ressources":::
+   :::image type="content" source="media/deploy-blazor/resource-button.png" alt-text="Accédez au bouton de ressources":::
 
 ## <a name="view-the-website"></a>Voir le site web
 

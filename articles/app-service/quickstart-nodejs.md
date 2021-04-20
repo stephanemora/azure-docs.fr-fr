@@ -10,12 +10,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-nodejs-uiex
-ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b1ff02d6a9b3e8c7b7abaf1b185a9becd2be12b
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735112"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105831"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure
 
@@ -313,11 +313,11 @@ Vous pouvez déployer les modifications apportées à cette application en utili
 
 Dans cette section, vous allez apprendre à visionner les journaux à partir de l’application App Service en cours d’exécution. Tous les appels à `console.log` dans l’application sont affichés dans la fenêtre de résultats de Visual Studio Code.
 
-Recherchez l’application dans l'explorateur **AZURE APP SERVICE**, cliquez avec le bouton droit de la souris sur l’application, puis choisissez **Afficher les journaux d’activité de diffusion en continu**.
+Recherchez l’application dans l’explorateur **AZURE APP SERVICE**, cliquez dessus avec le bouton droit, puis choisissez **Commencer le streaming des journaux**.
 
 La fenêtre de résultats de VS Code s’ouvre avec une connexion au flux de journaux.
 
-![Afficher les journaux d’activité de diffusion en continu](./media/quickstart-nodejs/view-logs.png)
+![Commencer le streaming des journaux](./media/quickstart-nodejs/view-logs.png)
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Capture d’écran de l’invite de VS Code pour permettre la journalisation des fichiers et le redémarrage de l’application web avec le bouton Oui sélectionné.":::
 

@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 04/12/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 50e29262b609887d91c43ea8f012fad0c7a35ee2
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 534b5b3aca86cc2f6d7ee2d703939420f80abb8e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449271"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365091"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
@@ -40,7 +40,7 @@ Les pipelines peuvent ingérer des données provenant de différents magasins de
 
 * [Explorateur Stockage Azure](https://storageexplorer.com/) (facultatif).
 
-* [Une application dans Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Notez les valeurs suivantes à utiliser lors d’étapes ultérieures : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle **Contributeur** en suivant les instructions dans le même article.
+* [Une application dans Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Pour créer l’application, suivez les étapes de ce lien, puis affectez l’application au rôle **Contributeur** en suivant les instructions fournies dans le même article. Notez les valeurs suivantes, comme indiqué dans l’article, pour une utilisation ultérieure : **ID de l’application (ID du principal du service ci-dessous), clé d’authentification (secret client ci-dessous) et ID du locataire.**
 
 ## <a name="create-and-upload-an-input-file"></a>Créer et charger un fichier d’entrée
 
@@ -226,6 +226,7 @@ Vous définissez un jeu de données qui représente les données sources dans l�
     print_item(dsOut)
 ```
 
+
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 
 Ajoutez le code suivant à la méthode **Main** qui crée un **pipeline avec une activité de copie**.
@@ -240,6 +241,13 @@ Ajoutez le code suivant à la méthode **Main** qui crée un **pipeline avec une
     copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
+    
+    #Note1: To pass parameters to the pipeline, add them to the json string params_for_pipeline shown below in the format { “ParameterName1” : “ParameterValue1” } for each of the parameters needed in the pipeline.
+    #Note2: To pass parameters to a dataflow, create a pipeline parameter to hold the parameter name/value, and then consume the pipeline parameter in the dataflow parameter in the format @pipeline().parameters.parametername.
+    
+    p_name = 'copyPipeline'
+    params_for_pipeline = {}
+
     p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)

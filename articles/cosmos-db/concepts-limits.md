@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: f33490e273104105502ecc8f4f255c354a2d2f3b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/07/2021
+ms.openlocfilehash: f6416a688c7f1c94d7d8a90b0531b1ccd684ee29
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104800021"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031101"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de
 | --- | --- |
 | Nombre maximal d’unités de requête par conteneur ([mode provisionné avec débit dédié](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md). |
 | Nombre maximal d’unités de requête par base de données ([mode provisionné avec débit partagé](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md). |
-| Nombre maximal d’unités de requête par partition (logique) | 10 000 |
+| Nombre maximal d’unités de requête par partition (logique et physique) | 10 000 |
 | Volume de stockage maximal sur tous les éléments par partition (logique) | 20 Go |
 | Nombre maximal de clés de partition (logiques) distinctes | Illimité |
 | Volume de stockage maximal par conteneur | Illimité |

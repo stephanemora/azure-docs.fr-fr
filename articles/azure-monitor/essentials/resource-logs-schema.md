@@ -2,18 +2,18 @@
 title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
 ms.topic: reference
-ms.date: 09/01/2020
-ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 04/07/2020
+ms.openlocfilehash: 09415353d93313f1b3c4844202b59f577ef3838d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033093"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105763"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
 > [!NOTE]
-> Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure. En outre, la liste des catégories de journaux de ressources que vous pouviez était répertoriée dans cet article. Elles ont été déplacées vers les [catégories de journaux de ressources](resource-logs-categories.md). 
+> Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure. En outre, la liste des catégories de journaux de ressources que vous pouvez collecter était répertoriée dans cet article. Elles se trouvent à présent dans les [catégories de journal des ressources](resource-logs-categories.md). 
 
 Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
 
@@ -65,6 +65,7 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database pour PostgreSQL | [Journaux d’Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Journalisation des diagnostics dans Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Protection DDOS | [Journalisation pour Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Configurer les diagnostics Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Journaux d’Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schéma non disponible. |
@@ -76,13 +77,13 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 | Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Protection DDOS | [Journalisation pour Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dédiées | [Journalisation pour Power BI Embedded dans Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modèle de données pour la sauvegarde Azure](../../backup/backup-azure-reports-data-model.md)|
 | Recherche |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../../search/search-traffic-analytics.md) |
 | Service Bus |[Journaux d’Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Journalisation d’Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Journaux de tâches](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Stockage | [Objets Blob](/azure/storage/blobs/monitor-blob-storage-reference#resource-logs-preview), [Fichiers](/azure/storage/files/storage-files-monitoring-reference#resource-logs-preview), [Files d’attente](/azure/storage/queues/monitor-queue-storage-reference#resource-logs-preview), [Tables](/azure/storage/tables/monitor-table-storage-reference#resource-logs-preview) |
 | Traffic Manager | [Schéma des journaux de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Network | Schéma non disponible. |
 | Passerelles de réseau virtuel | Schéma non disponible. |

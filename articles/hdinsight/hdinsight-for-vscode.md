@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d098af394906dc120a252bdcda65fb3af31e28c8
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d7e2bd2987e7eaf7798093f3918f72b7e09a3cb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865789"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313462"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -265,7 +265,7 @@ L’outil prend également en charge la requête **Spark SQL** :
 
 > [!NOTE]
 >
-> L’erreur [« La version MS-python >= 2020.5.78807 n’est pas prise en charge sur cette extension »](#issues-changed) a été résolue. Mettez à jour **ms-python** vers la **dernière version** maintenant.
+> [Les versions de ms-toolsai.jupyter >2021.3.684299474 ne sont pas prises en charge sur cette extension](#known-issues). Il s’agit d’un problème connu. Utilisez le noyau de Synapse en restant sur Microsoft Jupyter 2021.3.684299474.
 
 ## <a name="submit-pyspark-batch-job"></a>Envoyer le travail de traitement par lots PySpark
 
@@ -485,9 +485,19 @@ Envoyez un travail à un cluster HDInsight à l’aide de Data Lake Storage Gen2
 
 À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Se déconnecter**.
 
-## <a name="issues-changed"></a>Problèmes modifiés
+## <a name="known-issues"></a>Problèmes connus 
 
-L’erreur « La version ms-python >=2020.5.78807 n’est pas prise en charge sur cette extension » a été résolu. Mettez à jour **ms-python** vers la **dernière version** maintenant.
+ Les versions de ms-toolsai.jupyter >2021.3.684299474 ne sont pas prises en charge sur cette extension. Utilisez le noyau de Synapse en restant sur Microsoft Jupyter 2021.3.684299474.
+
+ 1. Désactivez la mise à jour automatique des extensions.
+
+      ![désactiver la mise à jour automatique des extensions](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
+
+2. Installez une version sélectionnée de Microsoft Jupyter.
+
+      ![Version sélectionnée de Microsoft Jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
+
+3. Installer Microsoft Jupyter version 2021.3.684299474
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b7f79bebce5a086b268f4fc1080c33517555fb39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c1cf6e1d47f9bb78349e0846f624e1d6a484669
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102431536"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107386629"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN est-il en disponibilité générale ?
 
@@ -276,6 +276,10 @@ Le comportement actuel consiste à préférer le chemin du circuit ExpressRoute 
 ### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Des hubs peuvent-ils être créés dans différents groupes de ressources dans Virtual WAN ?
 
 Oui. Cette option est actuellement disponible avec PowerShell uniquement. Le portail Virtual WAN exige que les hubs se trouvent dans le même groupe de ressources que la ressource Virtual WAN proprement dite.
+
+### <a name="what-is-the-recommended-hub-address-space-during-hub-creation"></a>Quel est l’espace d’adressage de hub recommandé lors de la création d’un hub ?
+
+L’espace d’adressage de hub Virtual WAN recommandé est /23. Le hub Virtual WAN attribue des sous-réseaux à différentes passerelles (ExpressRoute, VPN site à site, VPN point à site, pare-feu Azure, routeur de hub virtuel). Pour les scénarios dans lesquels les appliances virtuelles réseau sont déployées à l’intérieur d’un hub virtuel, un sous-réseau /28 est généralement mis en œuvre pour les instances d’appliance virtuelle réseau. Toutefois, si l’utilisateur devait provisionner plusieurs appliances virtuelles réseau, un sous-réseau /27 peut être attribué. Par conséquent, en gardant à l’esprit une architecture future, si les hubs Virtual WAN sont déployés avec une taille minimale de /24, l’espace d’adressage de hub recommandé que l’utilisateur peut entrer au moment de la création est /23.
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>IPv6 est-il pris en charge dans Virtual WAN ?
 

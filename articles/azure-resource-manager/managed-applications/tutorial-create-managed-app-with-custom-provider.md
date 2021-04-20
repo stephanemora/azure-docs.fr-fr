@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50a65583c41dd94b174a33432afcf42b31e67df0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 228d1a8bcd97daebae873de4c69cbec238e0c995
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96437046"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312533"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutoriel : Créer une application managée avec des actions et des ressources personnalisées
 
@@ -349,7 +349,7 @@ Vous pouvez accéder à l’instance d’application managée et effectuer une *
 
 ## <a name="looking-for-help"></a>Besoin d’aide
 
-Si vous avez des questions sur Applications managées Azure, n’hésitez pas à vous rendre sur le site [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). Avant de la publier, vérifiez si votre réponse a déjà été posée et a déjà reçu une réponse. Ajoutez le mot clé `azure-managedapps` pour obtenir une réponse rapide !
+Si vous avez des questions sur les applications managées Azure, vous pouvez essayer de demander sur [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) avec l’étiquette azure-managed-app ou sur [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-managed-applications.html) avec l’étiquette azure-managed-application. Avant de la publier, vérifiez si votre réponse a déjà été posée et a déjà reçu une réponse. Pour une réponse plus rapide, utilisez les étiquettes appropriées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

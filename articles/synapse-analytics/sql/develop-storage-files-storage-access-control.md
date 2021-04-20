@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 726395e9f004130699dab061cfa752a2e516c834
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: acfaa780f21f5264b546f97e9a3792aa43e9c30b
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552952"
+ms.locfileid: "107029741"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -23,6 +23,13 @@ Une requête de pool SQL serverless lit les fichiers directement dans Stockage A
 - **Niveau de service SQL** - L’utilisateur doit se voir attribuer l’autorisation de lire les données en utilisant une [table externe](develop-tables-external-tables.md) ou d’exécuter la fonction `OPENROWSET`. Explorez plus en détail [les autorisations requises dans cette section](develop-storage-files-overview.md#permissions).
 
 Cet article décrit les types d’informations d’identification que vous pouvez utiliser et la façon dont la recherche des informations d’identification est appliquée pour les utilisateurs SQL et Azure AD.
+
+## <a name="storage-permissions"></a>Autorisations de stockage
+
+Un pool SQL serverless dans l’espace de travail Synapse Analytics peut lire le contenu des fichiers stockés dans Azure Data Lake Storage. Vous devez configurer des autorisations sur le stockage pour permettre à un utilisateur qui exécute une requête SQL de lire les fichiers. Il existe trois méthodes pour activer l’accès aux fichiers>
+- Le **[contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md)** vous permet d’attribuer un rôle à un utilisateur Azure AD dans le locataire où votre stockage est placé. Les rôles RBAC peuvent être attribués à des utilisateurs Azure AD. Un lecteur doit avoir un rôle `Storage Blob Data Reader`, `Storage Blob Data Contributor` ou `Storage Blob Data Owner`. Un utilisateur qui écrit des données dans le stockage Azure doit disposer du rôle `Storage Blob Data Writer` ou `Storage Blob Data Owner`. Notez que le rôle `Storage Owner` ne signifie pas qu’un utilisateur est également `Storage Data Owner`.
+- Les **listes de contrôle d’accès (ACL, Access Control Lists)** vous permettent de définir un modèle d’autorisation précis sur les fichiers et les répertoires du stockage Azure. Une liste ACL peut être attribuée aux utilisateurs Azure AD. Si les lecteurs veulent lire un fichier sur un chemin dans le stockage Azure, ils doivent avoir exécuter (X) la liste ACL sur chaque dossier du chemin, et lu (R) la liste ACL sur le fichier. [En savoir plus sur la définition des autorisations ACL dans la couche de stockage](../../storage/blobs/data-lake-storage-access-control.md#how-to-set-acls)
+- La **signature d’accès partagé (SAS)** permet à un lecteur d’accéder aux fichiers sur le stockage Azure Data Lake à l’aide du jeton à durée limitée. Le lecteur n’a même pas besoin d’être authentifié en tant qu’utilisateur Azure AD. Le jeton SAS contient les autorisations accordées au lecteur, ainsi que la durée pendant laquelle le jeton est valide. Le jeton SAS représente un bon choix pour un accès à durée restreinte d’un utilisateur qui n’est même pas obligé de se trouver dans le même locataire Azure AD. Le jeton SAS peut être défini sur le compte de stockage ou sur des annuaires spécifiques. Apprenez-en davantage sur l’[octroi d’un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé](../../storage/common/storage-sas-overview.md).
 
 ## <a name="supported-storage-authorization-types"></a>Types d’autorisations de stockage pris en charge
 
@@ -88,7 +95,7 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 | Type d’autorisation  | Stockage Blob   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Prise en charge\*      | Non pris en charge   | Prise en charge\*     |
-| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Pris en charge        | Prise en charge     |
+| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Prise en charge        | Prise en charge     |
 | [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Prise en charge\*      | Prise en charge\*        | Prise en charge\*     |
 
 \* Le jeton SAP et l’identité Azure AD peuvent être utilisés pour accéder à un stockage qui n’est pas protégé par un pare-feu.
@@ -103,7 +110,7 @@ Lors de l’accès à un stockage protégé par le pare-feu, vous pouvez utilise
 
 #### <a name="user-identity"></a>Identité de l’utilisateur
 
-Pour accéder au stockage protégé par le pare-feu via une identité utilisateur, vous pouvez utiliser le module PowerShell Az.Storage.
+Pour accéder au stockage protégé par le pare-feu via une identité utilisateur, vous pouvez vous servir de l’interface utilisateur du portail Azure ou du module PowerShell Az.Storage.
 #### <a name="configuration-via-azure-portal"></a>Configuration via le portail Azure
 
 1. Recherchez votre compte de stockage sur le portail Azure.

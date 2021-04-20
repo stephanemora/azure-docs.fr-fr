@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: a26f46da7b392bd3b4a49aacb360a4c6147f8d2c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 92d1534b5dd0233ce88b81d605c6502b67a121df
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382638"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307892"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explorer le centre des connaissances Synapse
 
 Dans ce tutoriel, découvrez comment utiliser le centre des connaissances Synapse Studio.
 
-## <a name="getting-to-the-knowledge-center"></a>Accès au centre des connaissances
+## <a name="introduction-to-the-knowledge-center"></a>Présentation du Centre des connaissances
 
 Il existe deux façons d’accéder au centre des connaissances dans Synapse Studio :
 
@@ -30,16 +30,19 @@ Il existe deux façons d’accéder au centre des connaissances dans Synapse Stu
 
 Choisissez l’une des méthodes et ouvrez le **centre des connaissances**.
 
-## <a name="overview"></a>Vue d’ensemble
-
-Le **centre des connaissances** vous permet d’effectuer trois opérations :
+Une fois qu’il est visible, le **Centre des connaissances** vous permet de faire trois choses :
 * **Use samples immediately (Utiliser des exemples immédiatement)** . Si vous souhaitez avoir un exemple rapide du fonctionnement de Synapse, choisissez cette option.
 * **Parcourir la galerie**. Cette option vous permet de lier des exemples de jeux de données et d’ajouter des exemples de code sous la forme de scripts SQL, de notebooks et de pipelines.
 * **Tour Synapse Studio (Visiter Synapse Studio)** . Cette option vous guide dans une brève présentation des composants de base de Synapse Studio. Elle est utile si vous n’avez jamais utilisé Synapse Studio.
 
-## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Exploration du stockage Blob avec un pool SQL serverless
+## <a name="exploring-use-samples-immediately"></a>Exploration : Utiliser les exemples immédiatement
 
-1. Accédez au **Centre des connaissances**, puis cliquez sur **Use samples immediately** (Utiliser des exemples immédiatement).
+Cette section comprend trois éléments :
+* Explorer les exemples de données avec Spark
+* Interroger des données avec SQL
+* Créer une table externe avec SQL
+
+1. Dans le **Centre des connaissances**, cliquez sur **Use samples immediately (Utiliser des exemples immédiatement)** .
 1. Sélectionnez **Query data with SQL** (Interroger des données avec SQL).
 1. Cliquez sur **Use sample** (Utiliser un exemple).
 1. Un nouvel exemple de script SQL s’ouvre.

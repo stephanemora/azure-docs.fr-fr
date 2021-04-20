@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: fc92543f5954cda9db42e53cab18db1d8f3366c3
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384236"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284202"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -52,6 +52,10 @@ Pour plus d’informations, consultez [Vue d’ensemble d’Azure Spatial Anchor
 **Q : Comment le service Azure Spatial Anchors stocke-t-il les données ?**
 
 **R :** Toutes les données sont stockées chiffrées à l’aide d’une clé de chiffrement de données gérée par Microsoft et sont toutes stockées au niveau régional pour chacune des ressources.
+
+**Q : Où le service Azure Spatial Anchors stocke-t-il les données ?**
+
+**R :** Les comptes Azure Spatial Anchors vous permettent de spécifier la région où vos données seront stockées. Microsoft peut répliquer des données sur d’autres régions à des fins de résilience, mais Microsoft ne réplique pas ou ne déplace pas de données en dehors de la zone géographique. Ces données sont stockées dans la région où le compte Azure Spatial Anchors est configuré. Par exemple, si le compte est inscrit dans la région USA Est, ces données sont stockées dans la région USA Est, mais elles peuvent être répliquées sur une autre région de la zone géographique Amérique du Nord pour garantir la résilience.
 
 **Q : Quelles informations d’environnement sont transmises et stockées dans le service quand Azure Spatial Anchors est utilisé ? Les images de l’environnement sont-elles transmises et stockées ?**
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8de0dd16c3b3b73b5d5e52017cf63b357654144f
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721628"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030955"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutoriel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer une passerelle Application Gateway
 > * Créer des machines virtuelles pour les serveurs principaux
 > * Créer des pools principaux avec les serveurs principaux
-> * Créer des écouteurs principaux
+> * Créer des écouteurs
 > * Créer des règles d’acheminement
 > * Modifier le fichier hosts pour la résolution de noms
 

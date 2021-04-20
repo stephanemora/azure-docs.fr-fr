@@ -3,23 +3,25 @@ title: Versions de Kubernetes prises en charge dans Azure Kubernetes Service
 description: Comprendre la stratégie de prise en charge des versions de Kubernetes et le cycle de vie des clusters dans Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 03/29/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: aebbe7ab736b8a7b73900f1d552d723b8a609de6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: ba75e11a067a257c659f8c659f68bb2bba6fa2e0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222756"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107012083"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
-La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Récemment, la communauté Kubernetes a [prolongé la fenêtre de prise en charge de chaque version de 9 mois à 12 mois](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), à compter de la version 1.19. Ces versions contiennent de nouvelles fonctionnalités et des améliorations. Les publications de correctifs sont plus fréquentes (parfois hebdomadaires) et sont destinées aux correctifs de bogues critiques dans une version mineure. Ces versions comportent des correctifs pour les failles de sécurité et les bogues majeurs.
+La communauté Kubernetes publie des versions mineures à peu près tous les trois mois. Récemment, la communauté Kubernetes a [prolongé la fenêtre de prise en charge de chaque version de 9 mois à 12 mois](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), à compter de la version 1.19. 
+
+Les versions mineures contiennent de nouvelles fonctionnalités et des améliorations. Les publications de correctifs sont plus fréquentes (parfois hebdomadaires) et sont destinées aux correctifs de bogues critiques dans une version mineure. Les versions de correctif comportent des correctifs pour les failles de sécurité et les bogues majeurs.
 
 ## <a name="kubernetes-versions"></a>Version de Kubernetes
 
-Kubernetes applique le schéma de contrôle de version [Gestion sémantique de version](https://semver.org/) standard, ce qui signifie que chaque version de Kubernetes suit ce schéma de numérotation :
+Kubernetes utilise le schéma de contrôle de version standard [Semantic Versioning](https://semver.org/) pour chaque version :
 
 ```
 [major].[minor].[patch]
@@ -31,11 +33,11 @@ Example:
 
 Chaque chiffre de la version indique la compatibilité générale avec la version précédente :
 
-* Les versions principales changent lorsque des modifications incompatibles de l’API ou la rétrocompatibilité peuvent être rompues.
-* Les versions mineures changent lorsque des modifications de fonctionnalités rétrocompatibles avec les autres versions mineures sont apportées.
-* Les versions des correctifs changent lorsque des corrections de bogues rétrocompatibles sont apportées.
+* Les **versions principales** changent lorsque des mises à jour incompatibles de l’API ou la rétrocompatibilité peuvent être rompues.
+* Les **versions mineures** changent lorsque des mises à jour de fonctionnalités rétrocompatibles avec les autres versions mineures sont apportées.
+* Les **versions des patchs** changent quand des résolutions de bogues ont une compatibilité descendante.
 
-Les utilisateurs doivent s’efforcer d’exécuter la dernière version du correctif de la version mineure qu’ils utilisent. Par exemple, si votre cluster de production fonctionne sur **`1.17.7`** et que la dernière version corrective disponible pour la série *1.17* est **`1.17.8`** , vous devez passer à **`1.17.8`** dès que possible pour garantir la prise en charge et le bon état de votre cluster.
+Essayez d’exécuter la dernière version corrective de la version mineure que vous exécutez. Par exemple, supposons que votre cluster de production est sur **`1.17.7`** . **`1.17.8`** est la dernière version corrective disponible pour la série *1.17*. Vous devez effectuer la mise à niveau vers dès **`1.17.8`** que possible pour vous assurer que votre cluster est entièrement corrigé et pris en charge.
 
 ## <a name="kubernetes-version-support-policy"></a>Stratégie de prise en charge des versions de Kubernetes
 
@@ -43,8 +45,9 @@ AKS définit une version en disponibilité générale (GA) comme étant activée
 
 * La dernière version mineure GA publiée dans AKS (que nous appellerons N).
 * Deux versions mineures précédentes.
-* Chaque version mineure prise en charge gère également deux (2) correctifs stables au maximum.
-* AKS peut également prendre en charge des préversions, qui sont explicitement étiquetées et soumises aux [Conditions générales des préversions][preview-terms].
+    * Chaque version mineure prise en charge gère également deux (2) correctifs stables au maximum.
+
+AKS peut également prendre en charge des préversions, qui sont explicitement étiquetées et soumises aux [Conditions générales des préversions][preview-terms].
 
 > [!NOTE]
 > AKS applique des pratiques de déploiement sécurisé qui impliquent un déploiement graduel des régions. Par conséquent, la mise à disposition d’une nouvelle version dans toutes les régions peut prendre jusqu’à 10 jours ouvrés.
@@ -70,10 +73,10 @@ Quand une nouvelle version mineure est introduite, la version mineure et les pub
 1.15.f
 ```
 
-Si AKS publie la version 1.18.\*, cela signifie que toutes les versions 1.15.\* seront supprimées et ne seront plus prises en charge dans 30 jours.
+AKS publie la version 1.18.\*, supprimant toutes les versions 1.15.\* du support dans après 30 jours.
 
 > [!NOTE]
-> Veuillez noter que si les clients utilisent une version de Kubernetes non supportée, il leur sera demandé de mettre à jour lors de leur demande de support pour le cluster. Les clusters exécutant des versions de Kubernetes non supportées ne sont pas couverts par les politiques de support [AKS](./support-policies.md).
+> Si les clients utilisent une version de Kubernetes non supportée, il leur sera demandé de mettre à jour lors de leur demande de support pour le cluster. Les clusters exécutant des versions de Kubernetes non supportées ne sont pas couverts par les politiques de support [AKS](./support-policies.md).
 
 En plus de ce qui précède, AKS prend en charge au maximum deux versions **correctives** d’une version mineure donnée. Prenons les versions prise en charge suivantes :
 
@@ -103,22 +106,23 @@ Pour installer ou mettre à jour votre version de `kubectl`, exécutez `az aks i
 
 Pour consulter la référence sur les versions à venir et les dépréciations, consultez le [Calendrier de publication AKS Kubernetes](#aks-kubernetes-release-calendar).
 
-Pour les nouvelles versions **mineures** de Kubernetes
-1. AKS publie une annonce préalable avec la date prévisionnelle d’une nouvelle version et la dépréciation de l’ancienne version correspondante dans les [Notes de publication AKS](https://aka.ms/aks/releasenotes) au moins 30 jours avant la suppression.
-2. AKS publie une [notification d’intégrité des services](../service-health/service-health-overview.md) accessible à tous les utilisateurs disposant d’un accès à AKS et au portail, et envoie un e-mail aux administrateurs des abonnements avec les dates prévisionnelles de suppression des versions.
-````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
-````
-3. Les utilisateurs ont **30 jours** à compter de la suppression d’une version pour effectuer une mise à niveau vers une version mineure prise en charge afin de continuer à bénéficier du support.
+Pour les nouvelles versions **mineures** de Kubernetes :
+  * AKS publie une annonce préalable avec la date prévisionnelle d’une nouvelle version et la dépréciation de l’ancienne version correspondante dans les [Notes de publication AKS](https://aka.ms/aks/releasenotes) au moins 30 jours avant la suppression.
+  * AKS publie une [notification d’intégrité des services](../service-health/service-health-overview.md) accessible à tous les utilisateurs disposant d’un accès à AKS et au portail, et envoie un e-mail aux administrateurs des abonnements avec les dates prévisionnelles de suppression des versions.
 
-Pour les nouvelles versions de **correctif** de Kubernetes
+    ````
+    To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
+    ````
+  * Les utilisateurs ont **30 jours** à compter de la suppression d’une version pour effectuer une mise à niveau vers une version mineure prise en charge afin de continuer à bénéficier du support.
+
+Pour les nouvelles versions de **correctif** de Kubernetes :
   * En raison de leur nature urgente, les versions correctives peuvent être introduites dans le service dès qu’elles sont disponibles.
   * En général, AKS ne communique pas beaucoup lors de la publication de nouvelles versions correctives. Toutefois, il surveille et valide constamment les correctifs CVE disponibles pour les prendre en charge en temps utile. Si un correctif critique est trouvé ou qu’une action des utilisateurs est requise, AKS avertit ces derniers qu’ils peuvent effectuer une mise à niveau vers le nouveau correctif.
   * Les utilisateurs ont **30 jours** à compter de la suppression d’une version corrective d’AKS pour effectuer une mise à niveau vers un correctif pris en charge et ainsi continuer de bénéficier du support.
 
 ### <a name="supported-versions-policy-exceptions"></a>Exceptions de la stratégie de version prise en charge
 
-AKS se réserve le droit d’ajouter ou de supprimer de nouvelles versions ou des versions existantes qui ont été identifiées comme ayant une ou plusieurs productions critiques ayant un impact sur des bogues ou des problèmes de sécurité sans préavis.
+AKS se réserve le droit d’ajouter ou de supprimer de nouvelles versions ou des versions existantes avec une ou plusieurs productions critiques ayant un impact sur des bogues ou des problèmes de sécurité sans préavis.
 
 Certaines versions de correctifs spécifiques peuvent être ignorées, ou le déploiement peut être accéléré en fonction de la gravité du bogue ou du problème de sécurité.
 
@@ -151,7 +155,9 @@ Pour connaître l’historique des versions antérieures, cliquez sur [Kubernete
 
 **À quelle fréquence dois-je prévoir de mettre à niveau les versions de Kubernetes pour continuer à bénéficier de la prise en charge ?**
 
-Avec Kubernetes 1.19, la [communauté open source a étendu la durée de prise en charge à une année](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS s’engage au minimum à activer les correctifs et à prendre en charge le respect des engagements en amont. Cela signifie qu’à partir des clusters AKS sur 1.19, vous pourrez effectuer une mise à niveau au moins une fois par an pour rester sur une version prise en charge. Pour les versions sur 1.18 ou version antérieure, la fenêtre de prise en charge reste à 9 mois, ce qui nécessite une mise à niveau tous les 9 mois afin de rester sur une version prise en charge. Nous vous recommandons vivement de vérifier régulièrement l’existence de nouvelles versions et de vous préparer à la mise à niveau vers des versions plus récentes afin de capturer les dernières améliorations stables dans Kubernetes.
+Avec Kubernetes 1.19, la [communauté open source a étendu la durée de prise en charge à une année](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS s’engage à activer les correctifs et à prendre en charge le respect des engagements en amont. Pour les clusters AKS sur 1.19 et versions ultérieures, vous pourrez effectuer une mise à niveau au moins une fois par an pour rester sur une version prise en charge. 
+
+Pour les versions sur 1.18 ou version antérieure, la fenêtre de prise en charge reste à 9 mois, ce qui nécessite une mise à niveau tous les 9 mois afin de rester sur une version prise en charge. Vérifiez régulièrement l’existence de nouvelles versions et préparez-vous à la mise à niveau vers des versions plus récentes afin de capturer les dernières améliorations stables dans Kubernetes.
 
 **Que se passe-t-il quand un utilisateur met à niveau un cluster Kubernetes avec une version mineure non prise en charge ?**
 
@@ -164,11 +170,15 @@ Les passages à une version antérieure ne sont pas pris en charge.
 
 **Que signifie « Ne plus disposer du support technique » ?**
 
-Si vous êtes « hors support », cela signifie que la version que vous utilisez ne figure pas dans la liste des versions prises en charge et qu’il vous sera demandé de mettre à niveau le cluster vers une version prise en charge en cas de demande de support, à moins que vous ne vous trouviez dans la période de grâce de 30 jours suivant la dépréciation de la version. Par ailleurs, AKS n’offre aucune garantie d’exécution ou autre pour les clusters qui ne figurent pas dans la liste des versions prises en charge.
+« Ne plus disposer du support technique » signifie que :
+* La version que vous exécutez n’est pas dans la liste des versions prises en charge.
+* Vous serez invité à mettre à niveau le cluster vers une version prise en charge lors de la demande d’assistance, sauf si vous êtes dans la période de grâce de 30 jours après la dépréciation de la version. 
+
+Par ailleurs, AKS n’offre aucune garantie d’exécution ou autre pour les clusters qui ne figurent pas dans la liste des versions prises en charge.
 
 **Que se passe-t-il quand un utilisateur fait évoluer (scaling) un cluster Kubernetes avec une version mineure non prise en charge ?**
 
-Pour les versions mineures non prises en charge par AKS, le scale-in et le scale-out devraient continuer de fonctionner. Cependant, dans la mesure où il n’y a aucune garantie de qualité de service, il est fortement recommandé d’effectuer la mise à niveau pour que le cluster bénéficie à nouveau du support.
+Pour les versions mineures non prises en charge par AKS, le scale-in ou le scale-out devrait continuer à fonctionner. Étant donné qu’il n’existe aucune garantie de qualité de service, nous vous recommandons d’effectuer une mise à niveau pour que votre cluster soit pris en charge.
 
 **Un utilisateur peut-il rester éternellement sur une même version de Kubernetes ?**
 
@@ -180,11 +190,16 @@ Le plan de contrôle doit se trouver dans une fenêtre de versions pour tous les
 
 **Puis-je ignorer plusieurs versions d’AKS durant la mise à niveau d’un cluster ?**
 
-Quand vous mettez à niveau un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x*.
+Quand vous mettez à niveau un cluster AKS pris en charge, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau entre :
+  * *1.12.x* -> *1.13.x* : autorisées.
+  * *1.13.x* -> *1.14.x* : autorisées.
+  * *1.12.x* -> *1.14.x* : non autorisées.
 
-Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
+Pour mettre à niveau de *1.12.x* -> *1.14.x* :
+1. Mettre à niveau de *1.12.x* -> *1.13.x*.
+1. Mettre à niveau de *1.13.x* -> *1.14.x*.
 
-L’omission de plusieurs versions ne peut être effectuée que lors de la mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, la mise à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge peut être effectuée.
+L’omission de plusieurs versions ne peut être effectuée que lors de la mise à niveau d’une version non prise en charge vers une version prise en charge. Par exemple, vous pouvez mettre à niveau à partir d’une version *1.10.x* non prise en charge vers une version *1.15.x* prise en charge.
 
 **Puis-je créer un nouveau cluster 1.xx.x pendant la période de prise en charge de 30 jours ?**
 

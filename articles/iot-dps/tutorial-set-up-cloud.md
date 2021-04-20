@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5707d873bbf67add78f9a8e29fcb9135898486d6
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91316067"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226835"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutoriel : Configurer les ressources cloud pour le provisionnement d’appareils avec le service IoT Hub Device Provisioning
 
@@ -120,7 +120,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Lier le hub IoT au service Device Provisioning
 > * Définir la stratégie d’allocation sur le service Device Provisioning
 
-Passez au didacticiel suivant pour apprendre à configurer votre appareil pour l’approvisionnement.
+Passez au tutoriel suivant afin de découvrir comment configurer votre appareil pour le provisionnement
 
 > [!div class="nextstepaction"]
 > [Configurer l’appareil pour l’approvisionnement](tutorial-set-up-device.md)

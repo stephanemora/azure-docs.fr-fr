@@ -8,15 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f35f9196fb4ab67de724ba73982fed69ac81361
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102501615"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306838"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement Python pour Azure Machine Learning
 
@@ -134,7 +134,12 @@ Pour utiliser Visual Studio Code dans le cadre du développement :
 1. Installez [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Installer l’[extension Azure Machine Learning de Visual Studio Code](tutorial-setup-vscode-extension.md) (préversion).
 
-Une fois l’extension Visual Studio Code installée, vous pouvez gérer vos [ressources Azure Machine Learning](how-to-manage-resources-vscode.md), [exécuter et déboguer des expériences](how-to-debug-visual-studio-code.md) et [déployer des modèles formés](tutorial-train-deploy-image-classification-model-vscode.md).
+Une fois l’extension Visual Studio Code installée, utilisez-la pour :
+
+* [Gérer vos ressources Azure Machine Learning](how-to-manage-resources-vscode.md)
+* [Vous connecter à une instance de calcul Azure Machine Learning](how-to-set-up-vs-code-remote.md)
+* [Exécuter et déboguer des expériences](how-to-debug-visual-studio-code.md)
+* [Déployer des modèles formés](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## <a name="azure-machine-learning-compute-instance"></a><a id="compute-instance"></a>Instance de calcul Azure Machine Learning
 
@@ -151,7 +156,7 @@ Pour en savoir plus sur les instances de calcul, notamment sur la manière d’i
 
 En plus d’un serveur Jupyter Notebook et d’un JupyterLab, vous pouvez utiliser des instances de calcul dans la [fonctionnalité de notebook intégrée à Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 
-Vous pouvez également utiliser l’extension Visual Studio Code d’Azure Machine Learning pour [configurer une instance de calcul Azure Machine Learning comme serveur Jupyter Notebook distant](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+Vous pouvez également utiliser l’extension Azure Machine Learning Visual Studio Code pour [vous connecter à une instance de calcul distante à l’aide de VS Code](how-to-set-up-vs-code-remote.md).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
 

@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/11/2021
-ms.openlocfilehash: 28a647949fdb3ff4d8527268919dbd7e49b27ea4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.date: 04/08/2021
+ms.openlocfilehash: 075b02e3e5f2e409298bf31eb0b6720e64af68a0
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276652"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210826"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Créer et attacher un cluster Azure Kubernetes Service
 
@@ -67,6 +67,10 @@ Azure Machine Learning peut déployer des modèles Machine Learning entraînés 
     - [Configurer l’utilitaire de mise à l’échelle automatique de cluster dans AKS](../aks/cluster-autoscaler.md)
 
 - __Ne mettez pas directement à jour le cluster en utilisant une configuration YAML__. Alors qu’Azure Kubernetes Services prend en charge les mises à jour via la configuration YAML, les déploiements Azure Machine Learning remplacent vos modifications. Les deux seuls champs YAML qui ne seront pas remplacés sont __Limites des demande__ et __UC et mémoire__.
+
+- La création d’un cluster AKS à l’aide de l’interface utilisateur, du kit de développement logiciel ou de l’extension CLI Azure Machine Learning Studio n’est __pas__ idempotente. Toute tentative de création de la ressource entraîne une erreur indiquant qu’un cluster portant le même nom existe déjà.
+    
+    - L’utilisation d’un modèle Azure Resource Manager et de la ressource [Microsoft.MachineLearningServices/workspaces/computes](/azure/templates/microsoft.machinelearningservices/2019-11-01/workspaces/computes) pour créer un cluster AKS n’est __pas__ idempotente non plus. Si vous tentez d’utiliser à nouveau le modèle pour mettre à jour une ressource déjà existante, vous recevrez le même message d’erreur.
 
 ## <a name="azure-kubernetes-service-version"></a>Version d’Azure Kubernetes Service
 

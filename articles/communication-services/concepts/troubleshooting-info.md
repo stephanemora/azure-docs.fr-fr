@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 80db53a5ed8d2edc90bc847578d5df4d603cc437
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: db6aafc8c9db7a67c9ee70d524d17a642d03dfd8
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105107225"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259062"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Résolution des problèmes dans Azure Communication Services
 
@@ -79,11 +79,11 @@ chat_client = ChatClient(
 
 ## <a name="access-your-call-id"></a>Accéder à votre ID d’appel
 
-Lors de l’envoi d’une demande de support liée à des problèmes d’appel par le biais du portail Azure, vous pouvez être invité à fournir l’ID de l’appel auquel vous faites référence. Vous pouvez y accéder par le biais du kit SDK Appel :
+Lors de la résolution de problèmes d’appels vocaux ou vidéo, vous pouvez être invité à fournir un `call ID`. Vous pouvez y accéder via la propriété `id` de l’objet `call` :
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
-// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods
+// `call` is an instance of a call created by `callAgent.startCall` or `callAgent.join` methods
 console.log(call.id)
 ```
 
@@ -97,7 +97,7 @@ print(call.callId)
 # <a name="android"></a>[Android](#tab/android)
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
-// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods
+// `call` is an instance of a call created by `callAgent.startCall(…)` or `callAgent.join(…)` methods
 Log.d(call.getCallId())
 ```
 ---
@@ -127,17 +127,23 @@ console.log(result); // your message ID will be in the result
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Le code suivant peut être utilisé pour configurer `AzureLogger`, afin de sortir les journaux dans la console à l’aide du kit SDK JavaScript :
+Le kit SDK Appel Azure communication Services s’appuie en interne sur la bibliothèque [@azure/logger](https://www.npmjs.com/package/@azure/logger) pour contrôler la journalisation.
+Utilisez la méthode `setLogLevel` du package `@azure/logger` pour configurer la sortie de journal :
+
+```javascript
+import { setLogLevel } from '@azure/logger';
+setLogLevel('verbose');
+const callClient = new CallClient();
+```
+
+Vous pouvez utiliser AzureLogger pour rediriger la sortie de journalisation depuis les kits SDK Azure en remplaçant la méthode `AzureLogger.log`. Cette opération peut s’avérer utile si vous souhaitez rediriger les journaux vers un autre emplacement que celui de la console.
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
-
-AzureLogger.verbose = (...args) => { console.info(...args); }
-AzureLogger.info = (...args) => { console.info(...args); }
-AzureLogger.warning = (...args) => { console.info(...args); }
-AzureLogger.error = (...args) => { console.info(...args); }
-
-callClient = new CallClient({logger: AzureLogger});
+// redirect log output
+AzureLogger.log = (...args) => {
+  console.log(...args); // to console, file, buffer, REST API..
+};
 ```
 
 # <a name="ios"></a>[iOS](#tab/ios)

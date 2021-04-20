@@ -3,16 +3,16 @@ title: 'Azure Defender pour les registres de conteneurs : avantages et fonction
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour les registres de conteneurs.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176635"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010690"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduction à Azure Defender pour des registres de conteneurs
 
@@ -47,7 +47,7 @@ Il existe trois déclencheurs pour une analyse d’image :
 
 - **On push** (en mode « push ») : chaque fois qu’une image est envoyée à votre registre, Security Center analyse automatiquement cette image. Pour déclencher l’analyse d’une image, poussez-la vers votre référentiel.
 
-- **Recently pulled** (extraites récemment) : étant donné que de nouvelles vulnérabilités sont découvertes chaque jour, **Azure Defender pour les registres de conteneurs** analyse également les images extraites au cours des 30 derniers jours. Aucuns frais supplémentaires ne sont facturés pour une nouvelle analyse. Comme indiqué ci-dessus, vous êtes facturé une fois par image.
+- **Recently pulled** (extraites récemment) : étant donné que de nouvelles vulnérabilités sont découvertes chaque jour, **Azure Defender pour les registres de conteneurs** analyse également toutes les semaines les images extraites au cours des 30 derniers jours. Aucuns frais supplémentaires ne sont facturés pour ces nouvelles analyses. Comme indiqué ci-dessus, vous êtes facturé une fois par image.
 
 - **Lors de l’importation** : Azure Container Registry inclut des outils d’importation pour importer des images dans votre registre à partir de Dockr Hub, d’un registre de conteneurs Microsoft ou d’un autre registre de conteneurs Azure. **Azure Defender pour les registres de conteneurs** analyse toutes les images prises en charge que vous importez. Pour plus d’informations, consultez [Importation d’images conteneur dans un registre de conteneurs](../container-registry/container-registry-import-images.md).
  

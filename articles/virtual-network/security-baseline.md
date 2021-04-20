@@ -4,21 +4,22 @@ description: La base de référence de sécurité des réseaux virtuels Azure fo
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 04/08/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c27f00ac7952ea6d6282bcf9f392242112595d99
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 433f20de4d150aadb48ead685e981c60579f2730
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968966"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285528"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Ligne de base de sécurité Azure pour les réseaux virtuels
 
-Cette base de référence de sécurité applique les conseils d’[ version 1.0](../security/benchmarks/overview-v1.md) aux réseaux virtuels Azure. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure. Le contenu est regroupé par les **contrôles de sécurité** définis par Azure Security Benchmark et les conseils associés applicables aux réseaux virtuels Azure. Les **contrôles** non applicables à Réseau virtuel Microsoft Azure, ou pour lesquels la responsabilité est celle de Microsoft, ont été exclus.
+Cette base de référence de sécurité applique les conseils d’[ version 1.0](../security/benchmarks/overview-v1.md) aux réseaux virtuels Azure. Le benchmark de sécurité Azure fournit des recommandations sur la façon dont vous pouvez sécuriser vos solutions cloud sur Azure. Le contenu est regroupé par les **contrôles de sécurité** définis par Azure Security Benchmark et les conseils associés applicables aux réseaux virtuels Azure. 
 
-Pour voir comment le réseau virtuel Azure est entièrement mappé au benchmark de sécurité Azure, consultez le [fichier de mappage complet de la base de référence de sécurité Réseau virtuel Microsoft Azure](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+> [!NOTE]
+> Les **contrôles** non applicables au réseau virtuel, ou pour lesquels la responsabilité est celle de Microsoft, ont été exclus. Pour voir comment le service de réseau virtuel est entièrement mappé au benchmark de sécurité Azure, consultez le **[fichier de mappage complet de la base de référence de sécurité de réseau virtuel](https://github.com/MicrosoftDocs/SecurityBenchmarks/raw/master/Azure%20Offer%20Security%20Baselines/1.1/virtual-network-security-baseline-v1.1.xlsx)** .
 
 ## <a name="network-security"></a>Sécurité réseau
 
@@ -165,9 +166,9 @@ Choisissez Azure PowerShell ou Azure CLI pour rechercher des ressources ou effec
 
 **Conseils** : Utilisez le journal d’activité Azure pour effectuer le monitoring des configurations de ressources et détecter les modifications apportées à votre réseau virtuel. Créez des alertes dans Azure Monitor, qui se déclenchent en cas de modification des ressources critiques.
 
-- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Guide pratique pour consulter et récupérer les événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
-- [Guide pratique pour créer des alertes dans Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes dans Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
@@ -184,9 +185,9 @@ Choisissez Azure PowerShell ou Azure CLI pour rechercher des ressources ou effec
 Dans Azure Monitor, utilisez des espaces de travail Log Analytics pour interroger et effectuer l’analytique, puis utilisez les comptes de stockage Azure pour le stockage à long terme/d’archivage.
 Vous pouvez également activer et intégrer les données dans Azure Sentinel ou une solution SIEM tierce. 
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Affichage et récupération des événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Affichage et récupération des événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -198,9 +199,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Autorisez Azure Monitor à accéder à vos journaux d’audit et d’activité, qui comprennent la source de l’événement, la date, l’utilisateur, l’horodatage, les adresses sources, les adresses de destination et d’autres éléments utiles.
 
-- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Guide pratique pour collecter des journaux et des métriques de plateforme avec Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Affichage et récupération des événements du journal d’activité Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Affichage et récupération des événements du journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 **Responsabilité** : Customer
 
@@ -210,9 +211,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 **Aide** : Dans Azure Monitor, définissez la période de conservation de votre espace de travail Log Analytics en fonction des obligations réglementaires de votre organisation. Utilisez des comptes de stockage Azure pour le stockage à long terme et la rétention du stockage des journaux de sécurité.
 
-- [Modification de la période de conservation des données dans Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Modification de la période de conservation des données dans Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
-- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Guide pratique pour configurer la stratégie de conservation des journaux de compte de Stockage Azure](https://docs.microsoft.com/azure/storage/common/manage-storage-analytics-logs#configure-logging)
 
 **Responsabilité** : Customer
 
@@ -224,9 +225,9 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 Vous pouvez également activer et intégrer les données dans Azure Sentinel ou une solution SIEM tierce. 
 
-- [Présentation de l’espace de travail Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Présentation de l’espace de travail Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Guide pratique pour effectuer des requêtes personnalisées dans Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -244,13 +245,13 @@ Vous pouvez également activer et intégrer les données dans Azure Sentinel ou 
 
 - [Guide pratique pour gérer les alertes dans Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Guide pratique pour générer une alerte sur des données de journal Log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Responsabilité** : Customer
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="29-enable-dns-query-logging"></a>2.9 : Activer la journalisation des requêtes DNS
 
@@ -336,7 +337,7 @@ Ingérez les alertes de détection des risques de Security Center dans Azure Mon
 
 - [Guide pratique pour intégrer des journaux d’activité Azure dans Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 
 
-- [Configuration des groupes d’actions pour générer des alertes et des notifications personnalisées](/azure/azure-monitor/platform/action-groups)
+- [Configuration des groupes d’actions pour générer des alertes et des notifications personnalisées](../azure-monitor/alerts/action-groups.md)
 
 **Responsabilité** : Customer
 
@@ -418,7 +419,7 @@ En outre, le « chiffrement par défaut » à l'aide de MACsec (norme IEEE au 
 
 **Responsabilité** : Partagé
 
-**Supervision Azure Security Center** : aucune
+**Supervision d’Azure Security Center** : Aucune
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4.6 : Utiliser Azure RBAC pour contrôler l’accès aux ressources 
 
@@ -442,7 +443,7 @@ Choisissez des rôles intégrés tels que Propriétaire, Contributeur ou Contrib
 
 - [Journalisation des diagnostics pour un groupe de sécurité réseau](virtual-network-nsg-manage-log.md)
 
-- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Guide pratique pour créer des alertes sur les événements du journal d’activité Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilité** : Customer
 
@@ -760,7 +761,7 @@ Activez la suppression réversible et la protection contre la purge dans Key Vau
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2 : Créer une procédure de notation et de classement des incidents
 
-**Conseils** : Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
+**Conseils** : Security Center attribue un niveau de gravité à chaque alerte pour vous aider à hiérarchiser celles devant être examinées en premier. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou à l’analytique utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
 
 Marquez clairement les abonnements (par exemple : production ou non-production) à l’aide d’étiquettes et créez un système de nommage pour identifier et classer clairement les ressources Azure, en particulier celles qui traitent des données sensibles.  Il vous incombe de hiérarchiser le traitement des alertes en fonction de la criticité des ressources et de l’environnement Azure où l’incident s’est produit.
 

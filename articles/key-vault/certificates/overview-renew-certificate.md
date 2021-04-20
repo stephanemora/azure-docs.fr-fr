@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0492575bef93a1b08d48475c3ab32ecbc7becd6e
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105726360"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364292"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renouveler des certificats Azure Key Vault
 
@@ -82,7 +82,7 @@ Azure Key Vault gère également le renouvellement automatique des certificats a
 
 **Comment faire pour tester la fonctionnalité de rotation automatique du certificat ?**
 
-Créez un certificat avec une validité de **1 mois**, puis définissez l’action de durée de vie pour la rotation à **1 %** . Avec ce paramètre, il y aura une rotation du certificat toutes les 7,2 heures.
+Créez un certificat auto-signé avec une validité de **1 mois**, puis définissez l’action de durée de vie pour la rotation à **1 %** . Vous devriez être en mesure de voir l’historique des versions de certificats créé au cours des prochains jours.
   
 **Les étiquettes seront-elles répliquées après le renouvellement automatique du certificat ?**
 
