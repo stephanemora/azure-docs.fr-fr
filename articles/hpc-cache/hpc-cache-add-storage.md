@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 44b2534d7aeb12f4819a6c42cfb29d057ce26ddc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772720"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259028"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -314,6 +314,8 @@ Les cibles de stockage ADLS-NFS ont des similarités avec les cibles de stockage
 
 Avant de pouvoir créer une cible de stockage ADLS-NFS, vous devez créer un compte de stockage compatible NFS. Suivez les conseils dans [Conditions préalables pour Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) et les instructions dans [Monter le stockage Blob à l’aide de NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). Une fois votre compte de stockage configuré, vous pouvez créer un conteneur lors de la création de la cible de stockage.
 
+Pour en savoir plus sur cette configuration, consultez [Utiliser le stockage blob monté sur NFS avec Azure HPC Cache](nfs-blob-considerations.md).
+
 Pour créer une cible de stockage ADLS-NFS, ouvrez la page **Ajouter une cible de stockage** dans le portail Azure. (Des méthodes supplémentaires sont en cours de développement.)
 
 ![Capture d’écran de la page Ajouter la cible de stockage avec le type de cible défini sur ADLS-NFS](media/add-adls-target.png)
@@ -331,8 +333,6 @@ Entrez les informations suivantes.
 * **Modèle d’utilisation** : choisissez l’un des profils de mise en cache des données en fonction de votre workflow, comme décrit dans [Choisir un modèle d’utilisation](#choose-a-usage-model) précédemment.
 
 Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage.
-
-<!-- **** -->
 
 ## <a name="view-storage-targets"></a>Afficher les cibles de stockage
 

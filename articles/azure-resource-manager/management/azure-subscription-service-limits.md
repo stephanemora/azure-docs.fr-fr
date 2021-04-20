@@ -2,13 +2,13 @@
 title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 3ef3e6f3b67e8c92e0137f36e19c62cba79e1c14
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471013"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030817"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -34,9 +34,9 @@ Les [abonnements d’essai gratuit](https://azure.microsoft.com/offers/ms-azr-00
 
 Certaines limites sont gérées au niveau régional.
 
-Nous allons utiliser des quotas de processeurs virtuels pour l’exemple. Pour demander une augmentation des quotas de prise en charge des processeurs virtuels, vous devez déterminer le nombre de processeurs virtuels souhaités et les régions concernées. Effectuez ensuite une demande spécifique de quotas de processeurs virtuels de groupes de ressources Azure pour la quantité et les régions de votre choix. Si vous avez besoin de 30 processeurs virtuels dans la région Europe Ouest pour y exécuter votre application, demandez spécifiquement 30 processeurs virtuels dans cette région. Votre quota de processeurs virtuels n’est pas augmenté dans les autres régions ; seule la région Europe Ouest dispose du quota de 30 processeurs virtuels.
+Nous allons utiliser des quotas de processeurs virtuels pour l’exemple. Pour demander une augmentation des quotas de prise en charge des processeurs virtuels, vous devez déterminer le nombre de processeurs virtuels souhaités et les régions concernées. Vous demandez ensuite une augmentation des quotas de processeurs virtuels pour les quantités et les régions souhaitées. Si vous avez besoin de 30 processeurs virtuels dans la région Europe Ouest pour y exécuter votre application, demandez spécifiquement 30 processeurs virtuels dans cette région. Votre quota de processeurs virtuels n’est pas augmenté dans les autres régions ; seule la région Europe Ouest dispose du quota de 30 processeurs virtuels.
 
-Par conséquent, déterminez les quotas de groupes de ressources Azure pour votre charge de travail dans une région. Puis, demandez ce volume dans chaque région où vous envisagez d’effectuer un déploiement. Pour vous aider à déterminer vos quotas actuels dans des régions spécifiques, consultez [Résoudre les erreurs liées aux quotas de ressources](../templates/error-resource-quota.md).
+Par conséquent, déterminez les quotas pour votre charge de travail dans une région. Puis, demandez ce volume dans chaque région où vous envisagez d’effectuer un déploiement. Pour vous aider à déterminer vos quotas actuels dans des régions spécifiques, consultez [Résoudre les erreurs liées aux quotas de ressources](../templates/error-resource-quota.md).
 
 ## <a name="general-limits"></a>Limites générales
 

@@ -2,21 +2,21 @@
 title: Gestion du consentement pour les applications et évaluation des demandes de consentement dans Azure Active Directory
 description: Apprenez à gérer les demandes de consentement lorsque le consentement de l’utilisateur est désactivé ou limité, puis à évaluer une demande de consentement de l’administrateur au niveau du locataire pour une application dans Azure Active Directory.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: phsignor
-ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3405181f9bace023950e583dfe1a334216bf0aa0
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99253100"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107373942"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
 
@@ -26,7 +26,7 @@ Une fois que le consentement de l’utilisateur final est désactivé ou limité
 
 ## <a name="process-changes-and-education"></a>Changements de processus et formation
 
- 1. Activez le [workflow de consentement de l’administrateur (préversion)](configure-admin-consent-workflow.md) pour permettre aux utilisateurs de demander l’approbation de l’administrateur directement à partir de l’écran de consentement.
+ 1. Activez le [workflow de consentement de l’administrateur](configure-admin-consent-workflow.md) pour permettre aux utilisateurs de demander l’approbation de l’administrateur directement à partir de l’écran de consentement.
 
  2. Assurez-vous que tous les administrateurs comprennent la [structure d’autorisations et de consentement](../develop/consent-framework.md), le fonctionnement de l’[invite de consentement](../develop/application-consent-experience.md) et l’[évaluation d’une demande de consentement de l’administrateur au niveau du locataire](#evaluating-a-request-for-tenant-wide-admin-consent).
  3. Passez en revue les processus existants de votre organisation pour permettre aux utilisateurs de demander l’approbation de l’administrateur pour une application et d’effectuer des mises à jour si nécessaire. Si les processus changent :

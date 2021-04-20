@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ea1296fd4e31c2deaed79e980ab764c523a2bfd7
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576393"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364360"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -172,7 +172,6 @@ Suivez ces étapes pour déployer le modèle :
       1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb**).
       1. Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
       1. Sélectionnez **Ports HA**.
-      1. Augmentez le **délai d’inactivité** à 30 minutes.
       1. Veillez à **activer l’IP flottante** .
       1. Sélectionnez **OK**.
 
@@ -499,6 +498,71 @@ Les étapes de cette section utilisent les préfixes suivants :
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Implémenter le hook de réplication de système Python SAPHanaSR
+
+Il s’agit d’une étape importante pour optimiser l’intégration au cluster et améliorer la détection lorsqu’un basculement de cluster est nécessaire. Il est vivement recommandé de configurer le hook Python SAPHanaSR.    
+
+1. **[A]** Installez le « hook de réplication de système » HANA. Le hook doit être installé sur les deux nœuds HANA DB.           
+
+   > [!TIP]
+   > Vérifiez que le package SAPHanaSR est au moins à la version 0.153 pour pouvoir utiliser la fonctionnalité de hook Python SAPHanaSR.       
+   > Le hook Python ne peut être implémenté que pour HANA 2.0.        
+
+   1. Préparer le hook en tant que `root`.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. Arrêter HANA sur les deux nœuds. Exécutez en tant que <sid\>adm :  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. Réglez `global.ini` sur chaque nœud du cluster.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** Le cluster nécessite une configuration de sudoers sur chaque nœud de cluster pour <sid\>adm. Dans cet exemple, il est possible de créer un nouveau fichier. Exécutez les commandes en tant que `root`.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+Pour plus d’informations sur l’implémentation du hook de réplication de système SAP HANA, consultez [Configurer les fournisseurs de haute disponibilité ou de récupération HANA](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers).  
+
+3. **[A]** Démarrez SAP HANA sur les deux nœuds. Exécutez en tant que <sid\>adm.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** Vérifiez l’installation de hook. Exécutez en tant que <sid\>adm sur le site de réplication de système HANA actif.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+
+    ```
+
 ## <a name="create-sap-hana-cluster-resources"></a>Créer les ressources de cluster SAP HANA
 
 Tout d’abord, créez la topologie HANA. Exécutez les commandes suivantes sur l’un des nœuds du cluster Pacemaker :
@@ -711,6 +775,9 @@ Cette section explique comment vous pouvez tester votre configuration. Chaque te
 Avant de commencer le test, assurez-vous que Pacemaker ne comporte pas d’action ayant échoué (via crm_mon -r), qu’il n’existe pas de contraintes d’emplacement inattendues (par exemple les reliquats d’un test de migration) et que HANA est en état de synchronisation, par exemple avec SAPHanaSR-showAttr :
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -724,7 +791,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 Vous pouvez migrer le nœud principal SAP HANA en exécutant la commande suivante :
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 Si vous définissez `AUTOMATED_REGISTER="false"`, cette séquence de commandes permet de migrer vers hn1-db-1 le nœud principal SAP HANA et le groupe qui contient l’adresse IP virtuelle.
@@ -763,7 +830,7 @@ La migration crée des contraintes d’emplacement qui doivent être de nouveau 
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 Vous devez également nettoyer l’état de la ressource du nœud secondaire :

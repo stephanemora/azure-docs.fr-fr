@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e08fe67dece02b936aa3a22e9cac58d809f19f46
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99225341"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107285681"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Réplication transactionnelle avec Azure SQL Managed Instance (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -154,7 +154,7 @@ Dans cette configuration, une base de données dans Azure SQL Database ou Azure 
 
 [La géoréplication active](../database/active-geo-replication-overview.md) n’est pas prise en charge avec une instance managée SQL utilisant la réplication transactionnelle. Au lieu de la géoréplication active, utilisez des [groupes de basculement automatique](../database/auto-failover-group-overview.md), mais notez que la publication doit être [supprimée manuellement](transact-sql-tsql-differences-sql-server.md#replication) de l’instance managée principale et recréée sur l’instance managée SQL secondaire après le basculement.
 
-Si la géoréplication est activée sur une instance managée SQL assumant le rôle de **base de données du serveur de publication** ou de **base de données du serveur de distribution** dans un [groupe de basculement](../database/auto-failover-group-overview.md), l’administrateur de l’instance managée SQL doit nettoyer toutes les publications de l’ancienne instance principale et les reconfigurer sur la nouvelle instance principale après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
+Si une instance SQL managée de **publication** ou de **distribution** se trouve dans un [groupe de basculement](../database/auto-failover-group-overview.md), l’administrateur SQL Managed Instance doit nettoyer toutes les publications de l’ancienne instance principale et les reconfigurer sur la nouvelle instance principale après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
 
 1. Arrêtez tous les travaux de réplication en cours d’exécution sur la base de données, le cas échéant.
 1. Supprimez les métadonnées d’abonnement du serveur de publication en exécutant le script suivant sur la base de données du serveur de publication :

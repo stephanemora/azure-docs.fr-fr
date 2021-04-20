@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5a9ff7661fda372631d1bb912b1c137b37c7e07
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688006"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363357"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Forum aux questions sur Azure Automanage pour machines virtuelles
 
@@ -104,7 +104,10 @@ Non, Automanage ne va pas la reconfigurer. Nous allons commencer à surveiller l
 
 **Pourquoi l’état de ma machine virtuelle est-il Échec dans le portail Automanage ?**
 
-Si vous voyez l’état *Échec*, vous pouvez résoudre des problèmes de déploiement via le groupe de ressources dans lequel se trouve votre machine virtuelle. Accédez à **Groupes de ressources**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
+Si vous voyez l’état *Échec*, vous pouvez résoudre les problèmes liés au déploiement de différentes manières :
+* Accédez à **Groupes de ressources**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
+* Accédez à **Abonnements**, sélectionnez votre groupe de ressources, cliquez sur **Déploiements**, puis consultez l’état *Échec* contenant tous les détails de l’erreur.
+* Vous pouvez également consulter le journal d’activité d’une machine virtuelle, qui contient une entrée pour « Créer ou mettre à jour des attributions de profil de configuration ». Il peut également contenir plus de détails sur votre déploiement.
 
 **Comment puis-je obtenir une assistance pour la résolution des problèmes en lien avec Automanage ?**
 

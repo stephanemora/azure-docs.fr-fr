@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 34e841a5f17d589c4fbef54a4a8674a99ac6c640
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96026053"
 ---
 Les conditions suivantes doivent être remplies afin d’établir un tunnel d’appareil :
@@ -28,7 +28,7 @@ Les conditions suivantes doivent être remplies afin d’établir un tunnel d’
 
 Après avoir configuré la passerelle de réseau virtuel et installé le certificat client dans le magasin de l’ordinateur local sur le client Windows 10, utilisez les exemples suivants pour configurer un tunnel d’appareil client :
 
-1. Copiez le texte suivant et enregistrez-le sous le nom ***devicecert.ps1** _.
+1. Copiez le texte suivant et enregistrez-le sous le nom ***devicecert.ps1***.
 
    ```
    Param(
@@ -80,7 +80,7 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiez le texte suivant et enregistrez-le sous le nom _*_VPNProfile.xml_*_ dans le même dossier que _*devicecert.ps1**. Modifiez le texte suivant pour correspondre à votre environnement.
+1. Copiez le texte suivant et enregistrez-le sous le nom ***VPNProfile.xml** _ dans le même dossier que _*devicecert.ps1**. Modifiez le texte suivant pour correspondre à votre environnement.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`

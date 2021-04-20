@@ -4,13 +4,13 @@ description: Problèmes couramment rencontrés avec les alertes de métrique Azu
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 04/12/2021
+ms.openlocfilehash: 85be4100d62971ef7f69840ae3e9b117fbc3c047
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466495"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305223"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -91,9 +91,10 @@ Si vous envisagez de déclencher une alerte sur une métrique spécifique, mais 
 Si vous souhaitez déclencher des alertes liées aux [valeurs de dimension spécifiques d’une métrique](./alerts-metric-overview.md#using-dimensions), mais que vous ne trouvez pas ces valeurs, notez ce qui suit :
 
 1. L’affichage des valeurs de dimension sous la liste **Valeurs de dimension** peut prendre quelques minutes.
-1. Les valeurs de dimension affichées se basent sur les données de métriques collectées au cours du dernier jour.
-1. Si la valeur de dimension n’est pas encore émise ou n’est pas affichée, vous pouvez utiliser l’option « Ajouter une valeur personnalisée » pour ajouter une valeur de dimension personnalisée.
-1. Si vous souhaitez déclencher une alerte sur l'ensemble des valeurs possibles d'une dimension (y compris les valeurs futures), choisissez l’option « Sélectionner toutes les valeurs actuelles et futures ».
+2. Les valeurs de dimension affichées se basent sur les données de métriques collectées au cours du dernier jour.
+3. Si la valeur de dimension n’est pas encore émise ou n’est pas affichée, vous pouvez utiliser l’option « Ajouter une valeur personnalisée » pour ajouter une valeur de dimension personnalisée.
+4. Si vous souhaitez déclencher une alerte sur l'ensemble des valeurs possibles d'une dimension (y compris les valeurs futures), choisissez l’option « Sélectionner toutes les valeurs actuelles et futures ».
+5. Les dimensions de métriques personnalisées des ressources Application Insights sont désactivées par défaut. Pour activer la collecte de dimensions pour ces métriques personnalisées, consultez [ceci](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Règles d'alerte de métrique toujours définies sur une ressource supprimée 
 

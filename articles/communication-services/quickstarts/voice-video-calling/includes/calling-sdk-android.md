@@ -4,13 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 45a772b4a1d65b67f918107fd33135a56f6302f2
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103621978"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "106073562"
 ---
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-android-ios.md)]
+
+
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -23,9 +26,8 @@ ms.locfileid: "103621978"
 ### <a name="install-the-package"></a>Installer le package
 
 > [!NOTE]
-> Ce document utilise la version 1.0.0-beta.8 de la bibliothèque de client appelante.
+> Ce document utilise la version 1.0.0-beta.8 du kit de développement logiciel (SDK) Calling.
 
-<!-- TODO: update with instructions on how to download, install and add package to project -->
 Recherchez votre niveau de projet build.gradle et veillez à ajouter `mavenCentral()` à la liste des référentiels sous `buildscript` et `allprojects`.
 ```groovy
 buildscript {
@@ -59,11 +61,11 @@ dependencies {
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités de la bibliothèque de client Appel Azure Communication Services :
+Les classes et les interfaces suivantes gèrent certaines des principales fonctionnalités du SDK Azure Communication Services Calling :
 
 | Nom                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| CallClient est le point d’entrée principal de la bibliothèque de client Appel.|
+| CallClient| CallClient est le point d’entrée principal du SDK Calling.|
 | CallAgent | CallAgent sert à démarrer et à gérer les appels. |
 | CommunicationTokenCredential | CommunicationTokenCredential est utilisé comme informations d’identification du jeton pour instancier CallAgent.|
 | CommunicationIdentifier | CommunicationIdentifier est utilisé comme type de participant différent susceptible de faire partie d’un appel.|
@@ -224,10 +226,10 @@ Un jeu d’autorisations pour l’application Android est requis pour pouvoir re
 
 Pour s’inscrire aux notifications Push, l’application doit appeler `registerPushNotification()` sur une instance *CallAgent* avec un jeton d’inscription d’appareil.
 
-Pour obtenir le jeton d’inscription de l’appareil, ajoutez la bibliothèque de clients Firebase au fichier *build.gradle* de votre module d’application en ajoutant les lignes suivantes à la section `dependencies` si elles n’y figurent pas encore :
+Pour obtenir le jeton d’inscription de l’appareil, ajoutez le SDK Firebase au fichier *build.gradle* de votre module d’application en ajoutant les lignes suivantes à la section `dependencies` si elles n’y figurent pas encore :
 
 ```
-    // Add the client library for Firebase Cloud Messaging
+    // Add the SDK for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
@@ -244,7 +246,7 @@ Ajoutez le plug-in suivant au début du fichier s’il n’y figure pas encore 
 apply plugin: 'com.google.gms.google-services'
 ```
 
-Sélectionnez *Synchroniser maintenant* dans la barre d’outils. Ajoutez l’extrait de code suivant pour obtenir le jeton d’inscription de l’appareil généré par la bibliothèque cliente de Firebase Cloud Messaging pour l’instance de l’application cliente. Veillez à ajouter les importations ci-dessous à l’en-tête de l’activité principale de l’instance. Celles-ci sont nécessaires pour que l’extrait de code récupère le jeton :
+Sélectionnez *Synchroniser maintenant* dans la barre d’outils. Ajoutez l’extrait de code suivant pour obtenir le jeton d’inscription de l’appareil généré par le SDK Firebase Cloud Messaging pour l’instance de l’application cliente. Veillez à ajouter les importations ci-dessous à l’en-tête de l’activité principale de l’instance. Celles-ci sont nécessaires pour que l’extrait de code récupère le jeton :
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -272,7 +274,7 @@ Ajoutez cet extrait de code pour récupérer le jeton :
                     }
                 });
 ```
-Inscrivez le jeton d’inscription d’appareil auprès de la bibliothèque de client Calling Services pour les notifications Push des appels entrants :
+Inscrivez le jeton d’inscription d’appareil auprès du SDK Calling Services pour les notifications Push des appels entrants :
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,7 +290,7 @@ catch(Exception e) {
 
 Pour recevoir les notifications Push d’appel entrant, appelez *handlePushNotification()* sur une instance *CallAgent* avec une charge utile.
 
-Pour obtenir la charge utile depuis Firebase Cloud Messaging, commencez par créer un nouveau Service (Fichier > Nouveau > Service > Service) qui étend la classe de la bibliothèque de client Firebase *FirebaseMessagingService* et remplacez la méthode `onMessageReceived`. Cette méthode est le gestionnaire d’événements appelé lorsque Firebase Cloud Messaging remet la notification Push à l’application.
+Pour obtenir la charge utile depuis Firebase Cloud Messaging, commencez par créer un nouveau Service (Fichier > Nouveau > Service > Service) qui étend la classe du SDK Firebase *FirebaseMessagingService* et remplacez la méthode `onMessageReceived`. Cette méthode est le gestionnaire d’événements appelé lorsque Firebase Cloud Messaging remet la notification Push à l’application.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -318,7 +320,7 @@ Ajoutez la définition de service suivante au fichier `AndroidManifest.xml`, dan
         </service>
 ```
 
-- Une fois la charge utile récupérée, elle peut être transmise à la bibliothèque de client *Communication Services* afin d’être analysée en un objet *IncomingCallInformation* qui sera géré en appelant la méthode *handlePushNotification* sur une instance de *CallAgent*. Une instance `CallAgent` est créée en appelant la méthode `createCallAgent(...)` sur la classe `CallClient`.
+- Une fois la charge utile récupérée, elle peut être transmise au SDK *Communication Services* afin d’être analysée en un objet *IncomingCallInformation* qui sera géré en appelant la méthode *handlePushNotification* sur une instance de *CallAgent*. Une instance `CallAgent` est créée en appelant la méthode `createCallAgent(...)` sur la classe `CallClient`.
 
 ```java
 try {

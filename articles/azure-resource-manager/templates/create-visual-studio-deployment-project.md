@@ -2,13 +2,13 @@
 title: Créer et déployer des projets de groupe de ressources avec Visual Studio
 description: Utilisez Visual Studio pour créer un projet de groupe de ressources Azure et déployer les ressources dans Azure.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 4c0e19042506e0cf1772398b0a02b81f0245b1c7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704412"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107306974"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
@@ -45,9 +45,9 @@ Dans cette section, vous créez un projet de groupe de ressources Azure avec un 
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Script PowerShell qui exécute des commandes PowerShell à déployer sur Azure Resource Manager. Visual Studio utilise ce script PowerShell pour déployer votre modèle. |
    | WebSite.json |Le modèle Resource Manager qui définit l’infrastructure que vous voulez déployer sur Azure, et les paramètres que vous pouvez fournir au cours du déploiement. Il définit également les dépendances entre les ressources de manière à ce que Resource Manager les déploie dans le bon ordre. |
-   | WebSite.parameters.json |Un fichier de paramètres qui contient les valeurs requises par le modèle. Vous transmettez des valeurs de paramètres pour personnaliser chaque déploiement. |
+   | WebSite.parameters.json |Un fichier de paramètres qui contient les valeurs requises par le modèle. Vous transmettez des valeurs de paramètres pour personnaliser chaque déploiement. Notez que l’**Action de génération** a la valeur **Contenu**. Si vous ajoutez d’autres fichiers de paramètres, assurez-vous que l’action de génération est définie sur **Contenu**. |
 
-    Tous les projets de déploiement de groupe de ressources Azure contiennent ces fichiers de base. D'autres projets peuvent contenir des fichiers supplémentaires pour prendre en charge d'autres fonctionnalités.
+    Tous les projets de déploiement de groupe de ressources Azure contiennent ces fichiers de base. D’autres projets peuvent contenir d’autres fichiers pour prendre en charge d’autres fonctionnalités.
 
 ## <a name="customize-resource-manager-template"></a>Personnaliser le modèle Resource Manager
 
@@ -245,7 +245,7 @@ Il doit se présenter comme ceci :
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Notez que dans l’exemple précédent, il n’existe pas de `'/',` entre **parameters('_artifactsLocation')** et **parameters('ExampleAppPackageFolder')** .
+Notez que dans l’exemple précédent, il n’existe pas de `'/',` entre **parameters(’_artifactsLocation’)** et **parameters(’ExampleAppPackageFolder’)** .
 
 Regénérez le projet. Générer le projet permet de garantir que les fichiers que vous devez déployer sont ajoutés au dossier intermédiaire.
 

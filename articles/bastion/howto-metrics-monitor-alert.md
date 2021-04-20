@@ -8,12 +8,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: c4e03318fae8d8d3a8b4d29538cad49f9ef39593
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103417941"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259113"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Comment configurer la surveillance et les métriques pour Azure Bastion à l’aide d’Azure Monitor
 
@@ -58,7 +58,7 @@ Vous pouvez afficher la mémoire totale d’Azure Bastion, répartie sur chaque 
 
 #### <a name="used-cpu"></a><a name="used-cpu"></a>Utilisation du processeur
 
-Vous pouvez afficher l’utilisation du processeur d’Azure Bastion, répartie sur chaque instance de Bastion. La surveillance de cette métrique permet de mesurer la disponibilité et la capacité des instances qui composent Azure Bastion.
+Vous pouvez afficher l’utilisation du processeur d’Azure Bastion, répartie sur chaque instance de Bastion. La surveillance de cette métrique permet de mesurer la disponibilité et la capacité des instances qui composent Azure Bastion
 
 :::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Capture d’écran montrant l’utilisation du processeur.":::
 
@@ -73,6 +73,12 @@ Vous pouvez afficher l’utilisation de la mémoire sur chaque instance Bastion,
 #### <a name="session-count"></a>Nombre de sessions
 
 Vous pouvez afficher le nombre de sessions actives par instance de Bastion, agrégées par type de session (RDP et SSH). Chaque instance Azure Bastion peut prendre en charge une plage de sessions RDP et SSH actives. La surveillance de cette métrique vous aidera à comprendre si vous devez ajuster le nombre d’instances exécutant le service Bastion. Pour plus d’informations sur le nombre de sessions qu’Azure Bastion peut prendre en charge, reportez-vous au [Forum aux questions pour Azure Bastion](bastion-faq.md).
+
+Les valeurs recommandées pour cette configuration de métrique sont les suivantes :
+
+* **Agrégation :** Avg
+* **Granularité :** 5 ou 15 minutes
+* Le fractionnement par instance est recommandé pour obtenir un nombre plus précis
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Capture d’écran montrant le nombre de sessions.":::
 

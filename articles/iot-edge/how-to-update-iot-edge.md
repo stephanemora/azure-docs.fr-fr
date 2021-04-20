@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b24276974eba76aa841cdd7f02145210713474eb
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: e5034c228a354c98b5792492d484da9eb10b8cf2
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104872283"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107310850"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Mettre à jour le runtime et le démon de sécurité IoT Edge
 
@@ -87,17 +87,17 @@ Si vous souhaitez effectuer la mise à jour vers la version la plus récente du 
    sudo apt-get install iotedge
    ```
 
-Si vous souhaitez mettre à jour vers une version spécifique du démon de sécurité, spécifiez la version dans la sortie de liste apt. Chaque fois que **iotedge** est mis à jour, il tente automatiquement de mettre à jour le package **libiothsm-std** vers la dernière version, ce qui peut entraîner un conflit de dépendance. Si vous n’allez pas utiliser la version la plus récente, veillez à cibler les deux packages avec la même version. Par exemple, la commande suivante installe une version spécifique de la version 1.0.9 :
+Si vous souhaitez mettre à jour vers une version spécifique du démon de sécurité, spécifiez la version dans la sortie de liste apt. Chaque fois que **iotedge** est mis à jour, il tente automatiquement de mettre à jour le package **libiothsm-std** vers la dernière version, ce qui peut entraîner un conflit de dépendance. Si vous n’allez pas utiliser la version la plus récente, veillez à cibler les deux packages avec la même version. Par exemple, la commande suivante installe une version spécifique de la version 1.1 :
 
    ```bash
-   sudo apt-get install iotedge=1.0.9-1 libiothsm-std=1.0.9-1
+   sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
    ```
 
 Si la version que vous souhaitez installer n’est pas disponible par le biais de apt-get, vous pouvez utiliser curl pour cibler n’importe quelle version du référentiel [IoT Edge](https://github.com/Azure/azure-iotedge/releases). Quelle que soit la version que vous souhaitez installer, localisez les fichiers **libiothsm-STD** et **iotedge** correspondant à votre appareil. Pour chaque fichier, cliquez avec le bouton droit de la souris sur le lien du fichier, puis copiez l’adresse du lien. Utilisez l’adresse du lien pour installer les versions spécifiques de ces composants :
 
 ```bash
-curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
-curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
+curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
 ```
 <!-- end 1.1 -->
 :::moniker-end
@@ -140,7 +140,7 @@ Actuellement, il n’existe pas de prise en charge d’IoT Edge version 1.2 s’
 
 ## <a name="update-the-runtime-containers"></a>Mettre à jour les conteneurs du runtime
 
-La façon dont vous mettez à jour les conteneurs de l’agent IoT Edge et du hub IoT Edge diffère selon que vous utilisez des étiquettes évolutives (par exemple, 1.0) ou des étiquettes spécifiques (par exemple, 1.0.7) dans votre déploiement.
+La façon dont vous mettez à jour les conteneurs de l’agent IoT Edge et du hub IoT Edge diffère selon que vous utilisez des étiquettes évolutives (par exemple, 1.1) ou des étiquettes spécifiques (par exemple, 1.1.1) dans votre déploiement.
 
 Vérifiez la version des modules de l’agent IoT Edge et du hub IoT Edge sur votre appareil à l’aide des commandes `iotedge logs edgeAgent` ou `iotedge logs edgeHub`.
 
@@ -156,13 +156,13 @@ Les images de l’agent IoT Edge et du hub IoT Edge sont marquées avec la versi
 
 ### <a name="update-a-rolling-tag-image"></a>Mettre à jour une image avec des étiquettes évolutives
 
-Si vous utilisez des étiquettes évolutives dans votre déploiement (par exemple, mcr.microsoft.com/azureiotedge-hub:**1.0**), vous devez forcer le runtime du conteneur sur votre appareil à extraire la dernière version de l’image.
+Si vous utilisez des étiquettes évolutives dans votre déploiement (par exemple, mcr.microsoft.com/azureiotedge-hub:**1.1**), vous devez forcer le runtime du conteneur sur votre appareil à extraire la dernière version de l’image.
 
 Supprimez la version locale de l’image de votre appareil IoT Edge. Sur les ordinateurs Windows, la désinstallation du démon de sécurité entraîne également la suppression des images du runtime, ce qui permet de sauter cette étape.
 
 ```bash
-docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
-docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
+docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
+docker rmi mcr.microsoft.com/azureiotedge-agent:1.1
 ```
 
 Vous devrez peut-être utiliser l’indicateur `-f` (forcer) pour supprimer les images.
@@ -171,7 +171,7 @@ Le service IoT Edge extrait les dernières versions des images de runtime et les
 
 ### <a name="update-a-specific-tag-image"></a>Mettre à jour une image avec des étiquettes spécifiques
 
-Si vous utilisez des étiquettes spécifiques dans votre déploiement (par exemple, mcr.microsoft.com/azureiotedge-hub:**1.0.8**), il vous suffit de mettre à jour l’étiquette dans votre manifeste de déploiement et d’appliquer les modifications à votre appareil.
+Si vous utilisez des étiquettes spécifiques dans votre déploiement (par exemple, mcr.microsoft.com/azureiotedge-hub:**1.1.1**), il vous suffit de mettre à jour l’étiquette dans votre manifeste de déploiement et d’appliquer les modifications à votre appareil.
 
 1. Dans l’IoT Hub du portail Azure, sélectionnez votre appareil IoT Edge, puis sélectionnez **Définir les modules**.
 
@@ -202,9 +202,10 @@ Voici quelques-unes des principales différences entre la version 1.2 et les ver
 
 * Le nom du package est passé de **iotedge** à **aziot-Edge**.
 * Le package **libiothsm-STD** n’est plus utilisé. Si vous avez utilisé le package standard fourni dans le cadre de la mise en production d’IoT Edge, vos configurations peuvent être transférées vers la nouvelle version. Si vous avez utilisé une autre implémentation de libiothsm-std, tous les certificats fournis par l’utilisateur, tel le certificat d’identité d’appareil, l’autorité de certification de l’appareil et le bundle de confiance doivent être reconfigurés.
-* Un nouveau service d’identité, **aziot-identity-service** , a été introduit dans le cadre de la mise en production 1.2. Ce service gère l’approvisionnement et la gestion des identités pour IoT Edge et pour d’autres composants d’appareil qui doivent communiquer avec IoT Hub, tel Azure IoT Hub Device Update. <!--TODO: add link to ADU when available -->
+* Un nouveau service d’identité, **aziot-identity-service** , a été introduit dans le cadre de la mise en production 1.2. Ce service gère l’approvisionnement et la gestion des identités pour IoT Edge et pour d’autres composants d’appareil qui doivent communiquer avec IoT Hub, comme [Device Update pour IoT Hub](../iot-hub-device-update/understand-device-update.md).
 * Le fichier de configuration par défaut a un nouveau nom et un nouvel emplacement. Les informations de configuration de votre appareil qui se trouvaient auparavant dans `/etc/iotedge/config.yaml` sont désormais supposées se trouver dans `/etc/aziot/config.toml` par défaut. La commande `iotedge config import` peut aider à migrer les informations de configuration de l’ancien emplacement et de l’ancienne syntaxe.
-* Les modules qui utilisent l’API de charge de travail IoT Edge pour chiffrer ou déchiffrer des données persistantes ne peuvent pas être déchiffrés après la mise à jour. IoT Edge génère de façon dynamique une clé d’identité principale et une clé de chiffrement pour une utilisation interne. Cette clé ne sera pas transférée vers le nouveau service. IoT Edge v 1.2 en générera un nouvelle.
+  * La commande d’importation ne peut pas détecter ou modifier les règles d’accès au module de plateforme sécurisée (TPM) d’un appareil. Si votre appareil utilise l’attestation TPM, vous devez mettre à jour manuellement le fichier/etc/udev/rules.d/tpmaccess.rules pour accorder l’accès au service aziottpm. Pour plus d’informations, consultez [Donner à IoT Edge l’accès au TPM](how-to-auto-provision-simulated-device-linux.md?view=iotedge-2020-11&preserve-view=true#give-iot-edge-access-to-the-tpm).
+* L’API de charge de travail dans la version 1.2 enregistre les secrets chiffrés dans un nouveau format. Si vous effectuez une mise à niveau à partir d’une version antérieure vers la version 1.2, la clé de chiffrement principale existante est importée. L’API de charge de travail peut lire les secrets enregistrés dans le format précédent à l’aide de la clé de chiffrement importée. Toutefois, l’API de charge de travail ne peut pas écrire de secrets chiffrés dans l’ancien format. Une fois qu’une clé secrète est chiffrée à nouveau par un module, elle est enregistrée dans le nouveau format. Les secrets chiffrés dans la version 1.2 ne peuvent pas être lus par le même module dans la version 1.1. Si vous conservez des données chiffrées dans un dossier ou un volume monté par l’hôte, créez toujours une copie de sauvegarde des données *avant* d’effectuer la mise à niveau afin de conserver la possibilité de repasser à une version antérieure si nécessaire.
 
 Avant d’automatiser tout processus de mise à jour, vérifiez qu’il fonctionne sur des machines de test.
 
@@ -267,9 +268,9 @@ Lorsque vous êtes prêt, procédez comme suit pour mettre à jour IoT Edge sur 
 
 Azure IoT Edge publie régulièrement de nouvelles versions du service IoT Edge. Avant chaque version stable, il y a une ou plusieurs versions Release Candidate (RC). Les versions RC incluent toutes les fonctionnalités planifiées de la version, mais sont encore sujettes aux processus de tests et de validation. Si vous souhaitez tester très tôt une nouvelle fonctionnalité, vous pouvez installer un version RC et envoyer des commentaires via GitHub.
 
-Les versions Release Candidate suivent la même convention de numérotation que les versions publiées, mais **-rc** et un nombre incrémentiel sont ajoutés à la fin. Vous pouvez voir les versions Release Candidate dans la même liste [Versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) que les versions stables. Recherchez par exemple **1.0.9-rc5** et **1.0.9-rc6**, deux versions Release Candidate mises en place avant la version **1.0.9**. Vous pouvez également voir que les versions RC sont marquées avec des étiquettes **préversion**.
+Les versions Release Candidate suivent la même convention de numérotation que les versions publiées, mais **-rc** et un nombre incrémentiel sont ajoutés à la fin. Vous pouvez voir les versions Release Candidate dans la même liste [Versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases) que les versions stables. Par exemple, recherchez **1.2.0-rc4**, une des versions Release Candidate publiées avant **1.2.0**. Vous pouvez également voir que les versions RC sont marquées avec des étiquettes **préversion**.
 
-Les modules agent et hub d’IoT Edge ont des versions RC qui sont marquées selon la même convention. Par exemple, **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc6**.
+Les modules agent et hub d’IoT Edge ont des versions RC qui sont marquées selon la même convention. For example, **mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4**.
 
 Tout comme les préversions, les versions Release Candidate ne sont pas incluses comme la version la plus récente ciblée par les programmes d’installation réguliers. Au lieu de cela, vous devez cibler manuellement les ressources de la version RC que vous souhaitez tester. Dans la plupart des cas, l’installation ou la mise à jour vers une version RC sont identiques au ciblage d’une autre version d’IoT Edge.
 

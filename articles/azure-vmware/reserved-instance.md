@@ -1,14 +1,14 @@
 ---
-title: Économiser grâce à l’instance réservée de Azure VMware Solution
-description: Découvrez comment acheter une instance réservée pour Azure VMware Solution.
+title: Instances réservées d’Azure VMware Solution
+description: Découvrez comment acheter une instance réservée pour Azure VMware Solution. L’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/09/2021
+ms.openlocfilehash: 6f181d4b6ee7e2098130633fef0eb8558add0308
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99550973"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210022"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -135,7 +135,7 @@ Les CSP peuvent annuler, échanger ou rembourser, avec certaines restrictions, l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez abordé l’achat d’une instance réservée d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
+Maintenant que vous avez abordé une instance réservée d’Azure VMware Solution, vous pouvez en apprendre davantage sur les sujets suivants :
 
 - [Création d’une évaluation Azure VMware Solution](../migrate/how-to-create-azure-vmware-solution-assessment.md).
 - [Gestion du protocole DHCP pour Azure VMware Solution](manage-dhcp.md).

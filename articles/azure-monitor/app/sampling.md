@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a03dab43c12b372fc52e7516821fe7aef22d2e16
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589547"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305240"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -184,7 +184,7 @@ Le code ci-dessus va désactiver l’échantillonnage adaptatif. Pour ajouter un
 Pour personnaliser le comportement de l’échantillonnage, utilisez des méthodes d’extension de `TelemetryProcessorChainBuilder`, comme indiqué ci-dessous.
 
 > [!IMPORTANT]
-> Si vous utilisez cette méthode pour configurer l’échantillonnage, veillez à définir la propriété `aiOptions.EnableAdaptiveSampling` sur `false` lors de l’appel de `AddApplicationInsightsTelemetry()`.
+> Si vous utilisez cette méthode pour configurer l’échantillonnage, veillez à définir la propriété `aiOptions.EnableAdaptiveSampling` sur `false` lors de l’appel de `AddApplicationInsightsTelemetry()`. Après avoir apporté cette modification, vous devez suivre **exactement** les instructions du bloc de code ci-dessous afin de réactiver l’échantillonnage adaptatif avec vos personnalisations en place. Dans le cas contraire, cela peut entraîner une ingestion excessive de données. Testez toujours les paramètres d’échantillonnage après modification et définissez une [limite de données quotidienne](pricing.md#set-the-daily-cap) appropriée pour vous aider à contrôler vos coûts.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 605f495fbc5913663499f5411abcaa531cea97ee
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98071185"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312210"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Activation des fonctionnalités de l’espace de travail Synapse pour un pool SQL dédié (anciennement SQL DW)
 
@@ -24,6 +24,7 @@ Tous les utilisateurs de l’entrepôt de données SQL peuvent désormais accéd
 ## <a name="prerequisites"></a>Prérequis
 Avant d’activer les fonctionnalités de l’espace de travail Synapse sur votre entrepôt de données, vous devez vous assurer que vous disposez des éléments suivants :
 - Les droits nécessaires pour créer et gérer les ressources SQL hébergées sur le serveur logique SQL.
+- Autorisations en écriture sur l’instance SQL Server hôte. 
 - Les droits nécessaires pour créer des ressources Azure Synapse.
 - Un administrateur Azure Active Directory identifié sur le serveur logique
 

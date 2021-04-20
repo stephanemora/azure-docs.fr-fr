@@ -4,12 +4,12 @@ description: Découvrez comment monter un système de fichiers virtuel sur un po
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 03/26/2021
-ms.openlocfilehash: dc5fbdf9ca0df8362a8999856c3f7163dd5e59b9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dcd56a12d8728b83cdcb7cea4c16c4aedd4251a7
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626025"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105746"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
@@ -53,7 +53,7 @@ Les exemples de code suivants illustrent le montage d’une grande diversité de
 
 ### <a name="azure-files-share"></a>Partage Azure Files
 
-Azure Files est l’offre standard de systèmes de fichiers cloud d’Azure. Pour en savoir plus sur l’obtention de n’importe lequel des paramètres dans l’exemple de code de configuration de montage, consultez [Utiliser un partage Azure Files](../storage/files/storage-how-to-use-files-windows.md).
+Azure Files est l’offre standard de systèmes de fichiers cloud d’Azure. Pour en savoir plus sur l’obtention de l’un des paramètres de l’exemple de code de configuration de montage, consultez [Utiliser un partage Azure Files partage - SMB](../storage/files/storage-how-to-use-files-windows.md) ou [Utiliser un partage Azure Files - NFS](../storage/files/storage-files-how-to-create-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter

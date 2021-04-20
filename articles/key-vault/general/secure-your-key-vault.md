@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b1ec89db7bc12ffbd21c6e302e065449eba3ac20
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212465"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366485"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -46,7 +46,7 @@ Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiqu
 
 - **Application uniquement** : L’application représente un principal du service ou une identité managée. Cette identité est le scénario le plus courant pour les applications qui doivent accéder régulièrement à des certificats, des clés ou des secrets à partir du coffre de clés. Pour que ce scénario fonctionne, la propriété `objectId` de l’application doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
 - **Utilisateur uniquement** : l’utilisateur accède au coffre de clés à partir de n’importe quelle application inscrite dans le locataire. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. Pour que ce scénario fonctionne, la propriété `objectId` de l’utilisateur doit être spécifiée dans la stratégie d’accès et `applicationId` ne doit _pas_ être spécifiée ou doit être `null`.
-- **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. `applicationId` identifie l’application requise et `objectId` identifie l’utilisateur. Actuellement, cette option n’est pas disponible pour le plan de données Azure RBAC (préversion).
+- **Application-plus-utilisateur** (parfois appelé _identité composée)_  : l’utilisateur est tenu d’accéder au coffre de clés à partir d’une application spécifique _et_ l’application doit utiliser le flux OBO (Authentification On-Behalf-Of) pour emprunter l’identité de l’utilisateur. Pour que ce scénario fonctionne, l’`applicationId` et l’`objectId` doivent être spécifiés dans la stratégie d’accès. `applicationId` identifie l’application requise et `objectId` identifie l’utilisateur. Actuellement, cette option n’est pas disponible pour le plan de données Azure RBAC.
 
 Pour tous les types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../../active-directory/develop/authentication-vs-authorization.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -58,14 +58,14 @@ Le modèle d’un mécanisme d’authentification unique auprès des deux plans 
 
 ## <a name="resource-endpoints"></a>Points de terminaison de ressource
 
-Les applications accèdent aux plans par le biais de points de terminaison. Les contrôles d’accès pour les deux plans fonctionnent indépendamment. Pour permettre à une application d’utiliser des clés dans un coffre de clés, vous accordez l’accès au plan de données à l’aide d’une stratégie d’accès Key Vault ou d’Azure RBAC (préversion). Pour permettre à un utilisateur de lire les propriétés et les étiquettes d’un coffre de clés, mais pas d’accéder aux données (clés, secrets ou certificats), vous accordez l’accès au plan de gestion avec Azure RBAC.
+Les applications accèdent aux plans par le biais de points de terminaison. Les contrôles d’accès pour les deux plans fonctionnent indépendamment. Pour permettre à une application d’utiliser des clés dans un coffre de clés, vous accordez l’accès au plan de données à l’aide d’une stratégie d’accès Key Vault ou d’Azure RBAC. Pour permettre à un utilisateur de lire les propriétés et les étiquettes d’un coffre de clés, mais pas d’accéder aux données (clés, secrets ou certificats), vous accordez l’accès au plan de gestion avec Azure RBAC.
 
 Le tableau suivant présente les points de terminaison pour les plans de gestion et de données.
 
 | Plan&nbsp;d’accès | Points de terminaison d’accès | Opérations | Mécanisme de contrôle&nbsp;d’accès |
 | --- | --- | --- | --- |
 | Plan de gestion | **Mondial :**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> management.microsoftazure.de:443 | Créer, lire, mettre à jour et supprimer des coffres de clés<br><br>Définir des stratégies d’accès Key Vault<br><br>Définir des étiquettes Key Vault | Azure RBAC |
-| Plan de données | **Mondial :**<br> &lt;nom du coffre&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;nom du coffre&gt;.vault.azure.cn:443<br><br> **Azure US Government :**<br> &lt;nom du coffre&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> &lt;nom du coffre&gt;.vault.microsoftazure.de:443 | Clés : chiffrer, déchiffrer, wrapKey, unwrapKey, signer, vérifier, obtenir, lister, créer, mettre à jour, importer, supprimer, récupérer, sauvegarder, restaurer, purger<br><br> Certificats : managecontacts, getissuers, listissuers, setissurs, deleteissuers, manageissuers, obtenir, lister, créer, importer, mettre à jour, supprimer, récupérer, sauvegarder, restaurer, purger<br><br>  Secrets : obtenir, lister, définir, supprimer, récupérer, sauvegarder, restaurer, purger | Stratégie d’accès Key Vault ou Azure RBAC (préversion)|
+| Plan de données | **Mondial :**<br> &lt;nom du coffre&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;nom du coffre&gt;.vault.azure.cn:443<br><br> **Azure US Government :**<br> &lt;nom du coffre&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> &lt;nom du coffre&gt;.vault.microsoftazure.de:443 | Clés : chiffrer, déchiffrer, wrapKey, unwrapKey, signer, vérifier, obtenir, lister, créer, mettre à jour, importer, supprimer, récupérer, sauvegarder, restaurer, purger<br><br> Certificats : managecontacts, getissuers, listissuers, setissurs, deleteissuers, manageissuers, obtenir, lister, créer, importer, mettre à jour, supprimer, récupérer, sauvegarder, restaurer, purger<br><br>  Secrets : obtenir, lister, définir, supprimer, récupérer, sauvegarder, restaurer, purger | Stratégie d’accès Key Vault ou Azure RBAC |
 
 ## <a name="management-plane-and-azure-rbac"></a>Plan de gestion et Azure RBAC
 
@@ -103,7 +103,7 @@ Pour plus d’informations sur l’utilisation des stratégies d’accès au cof
 Les stratégies d’accès Key Vault ne prennent pas en charge les autorisations granulaires au niveau des objets, comme une clé, un secret ou un certificat spécifique. 
 >
 
-## <a name="data-plane-and-azure-rbac-preview"></a>Plan de données et Azure RBAC (préversion)
+## <a name="data-plane-and-azure-rbac"></a>Plan de données et Azure RBAC
 
 Le contrôle d’accès en fonction du rôle Azure est un modèle d’autorisation alternatif qui permet de contrôler l’accès au plan de données Azure Key Vault, qui peut être activé sur des coffres de clés individuels. Le modèle d’autorisation Azure RBAC est exclusif et défini une seule fois. Les stratégies d’accès au coffre sont devenues inactives. Azure Key Vault définit un ensemble de rôles intégrés Azure qui englobent des ensembles d’autorisations communs utilisés pour accéder aux clés, aux secrets ou aux certificats.
 

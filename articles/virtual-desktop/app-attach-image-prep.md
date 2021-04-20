@@ -1,25 +1,21 @@
 ---
-title: Aperçu de la préparation d’une image d’attachement d’application MSIX pour Windows Virtual Desktop – Azure
+title: Préparation d’une image d’attachement d’application MSIX pour Windows Virtual Desktop – Azure
 description: Comment créer une image d’attachement d’application MSIX pour un pool d’hôtes Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a2d909d04c38a7d6bad42020175cbbbfcfd7bf9f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 443f117907381862639564dfbf9752562f4a3564
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448353"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107363663"
 ---
 # <a name="prepare-an-msix-image-for-windows-virtual-desktop"></a>Préparer une image MSIX pour Windows Virtual Desktop
 
-> [!IMPORTANT]
-> L’application MSIX est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Attachement d’application MSIX (préversion) est une solution d’application en couches qui vous permet d’attacher dynamiquement des applications d’un package MSIX à une session utilisateur. Le système de package MSIX sépare les applications du système d’exploitation, ce qui facilite la création d’images pour les machines virtuelles. Les packages MSIX vous permettent également de mieux contrôler les applications auxquelles vos utilisateurs peuvent accéder sur leurs machines virtuelles. Vous pouvez même séparer les applications de l’image principale et les donner aux utilisateurs ultérieurement.
+Attachement d’application MSIX est une solution d’application en couches qui vous permet d’attacher dynamiquement des applications d’un package MSIX à une session utilisateur. Le système de package MSIX sépare les applications du système d’exploitation, ce qui facilite la création d’images pour les machines virtuelles. Les packages MSIX vous permettent également de mieux contrôler les applications auxquelles vos utilisateurs peuvent accéder sur leurs machines virtuelles. Vous pouvez même séparer les applications de l’image principale et les donner aux utilisateurs ultérieurement.
 
 ## <a name="create-a-vhd-or-vhdx-package-for-msix"></a>Créer un package VHD ou VHDX pour MSIX
 

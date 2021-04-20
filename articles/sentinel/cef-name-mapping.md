@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 03/16/2021
-ms.openlocfilehash: 6c23fe86af030d371e12914062bb9558e8db3484
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 1670d1bb291e30295018146f2a24c5282feac6e7
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104776053"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311649"
 ---
 # <a name="cef-and-commonsecuritylog-field-mapping"></a>Mappage de champs CEF et CommonSecurityLog
 
@@ -37,13 +37,13 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 |Fournisseur de l’appareil     |  DeviceVendor       | Chaîne qui, associée aux définitions de version et de produit du périphérique, identifie de façon unique le type d’appareil émetteur.       |
 |Produit de l’appareil     |   DeviceProduct      |   Chaîne qui, associée aux définitions de version et de fournisseur du périphérique, identifie de façon unique le type d’appareil émetteur.        |
 |Version de l’appareil     |   DeviceVersion      |      Chaîne qui, associée aux définitions de fournisseur et de produit du périphérique, identifie de façon unique le type d’appareil émetteur.     |
-|DeviceEventClassID     |   DeviceEventClassID     |   Chaîne ou entier qui sert d’identificateur unique par type d’événement.      |
 | destinationDnsDomain    | DestinationDnsDomain        |   La partie DNS du nom de domaine complet (FQDN).      |
 | destinationServiceName | DestinationServiceName | Le service ciblé par l’événement. Par exemple : `sshd`.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identifie la destination traduite référencée par l’événement dans un réseau IP, sous la forme d’une adresse IP IPv4. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port, après traduction, tel qu’un pare-feu. <br>Numéros de port valides : `0` - `65535` |
 | deviceDirection | <a name="communicationdirection"></a> CommunicationDirection | Toutes les informations sur le sens de la communication observée. Valeurs valides : <br>- `0` = Entrant <br>- `1` = Sortant |
 | deviceDnsDomain | DeviceDnsDomain | Partie du domaine DNS du nom de domaine complet (FQDN) |
+|DeviceEventClassID     |   DeviceEventClassID     |   Chaîne ou entier qui sert d’identificateur unique par type d’événement.      |
 | deviceExternalID | DeviceExternalID | Nom qui identifie de façon unique l’appareil générant l’événement. |
 | deviceFacility | DeviceFacility | La structure générant l’événement.|
 | deviceInboundInterface | DeviceInboundInterface |Interface sur laquelle le paquet ou les données sont entrés sur l’appareil.  |
@@ -118,7 +118,7 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 | requestCookies | RequestCookies |Cookies associés à la requête. |
 | requestMethod | RequestMethod | Méthode utilisée pour accéder à une URL. <br><br>Les valeurs valides incluent des méthodes telles que `POST`, `GET`, et ainsi de suite. |
 | rt | ReceiptTime | Heure à laquelle l’événement associé à l’activité a été reçu. |
-|Gravité     |  <a name="logseverity"></a> LogSeverity       |  Chaîne ou entier qui décrit l’importance de l’événement.<br><br> Valeur de chaîne valide : `Unknown`, `Low`, `Medium`, `High`, `Very-High` <br><br>Les valeurs entières valides sont : `0` - `3` = basse, `4` - `6` = moyenne, `7` - `8` = haute, `9` - `10` = très haute |
+|Gravité     |  <a name="logseverity"></a> LogSeverity       |  Chaîne ou entier qui décrit l’importance de l’événement.<br><br> Valeur de chaîne valide : `Unknown`, `Low`, `Medium`, `High`, `Very-High` <br><br>Les valeurs d’entier valides sont :<br> - `0`-`3` = Faible <br>- `4`-`6` = Moyenne<br>- `7`-`8` = Élevée<br>- `9`-`10` = Très élevée |
 | shost    | SourceHostName        |Identifie la source à laquelle l’événement fait référence dans un réseau IP. Le format doit être un nom de domaine complet (FQDN) associé au nœud source, lorsqu’un nœud est disponible. Par exemple, `host` ou `host.domain.com`. |
 | smac | SourceMacAddress | Adresse MAC source. |
 | sntdom | SourceNTDomain | Nom de domaine Windows pour l’adresse source. |
@@ -133,13 +133,126 @@ Pour plus d’informations, consultez [Connecter votre solution externe à l’a
 | src | SourceIP |Source à laquelle un événement fait référence dans un réseau IP, comme une adresse IPv4. |
 | start | StartTime | Heure de début de l’activité à laquelle l’événement fait référence. |
 | suid | SourceUserID | Identifie l’utilisateur source par ID. |
+| suser | SourceUserName | Identifie l’utilisateur source par nom. |
 | type | Type d’événement | Type d'événement. Les valeurs de valeur incluent : <br>- `0` : événement de base <br>- `1` : agrégés <br>- `2` : événement de corrélation <br>- `3` : événement d’action <br><br>**Remarque** : cet événement peut être omis pour les événements de base. |
 | | | |
 
-## <a name="unmapped-fields"></a>Champs non mappés
+## <a name="custom-fields"></a>Champs personnalisés
 
-Les noms de champs **CommonSecurityLog** suivants n’ont pas de mappages dans les clés CEF :
+Les tableaux suivants mappent les noms des clés CEF et des champs CommonSecurityLog qui peuvent être utilisés par les clients pour les données qui ne s’appliquent à aucun des champs prédéfinis.
 
+### <a name="custom-ipv6-address-fields"></a>Champs d’adresse IPv6 personnalisés
+
+Le tableau suivant mappe les noms de clé CEF et CommonSecurityLog pour les champs d’adresse *IPv6* disponibles pour les données personnalisées.
+
+|Nom de la clé CEF  |Nom CommonSecurityLog  |
+|---------|---------|
+|     c6a1    |     DeviceCustomIPv6Address1       |
+|     c6a1Label    |     DeviceCustomIPv6Address1Label    |
+|     c6a2    |     DeviceCustomIPv6Address2    |
+|     c6a2Label    |     DeviceCustomIPv6Address2Label    |
+|     c6a3    |     DeviceCustomIPv6Address3    |
+|     c6a3Label    |     DeviceCustomIPv6Address3Label    |
+|     c6a4    |     DeviceCustomIPv6Address4    |
+|     c6a4Label    |     DeviceCustomIPv6Address4Label    |
+|     cfp1    |     DeviceCustomFloatingPoint1    |
+|     cfp1Label    |     deviceCustomFloatingPoint1Label    |
+|     cfp2    |     DeviceCustomFloatingPoint2    |
+|     cfp2Label    |     deviceCustomFloatingPoint2Label    |
+|     cfp3    |     DeviceCustomFloatingPoint3    |
+|     cfp3Label    |     deviceCustomFloatingPoint3Label    |
+|     cfp4    |     DeviceCustomFloatingPoint4    |
+|     cfp4Label    |     deviceCustomFloatingPoint4Label    |
+| | |
+
+### <a name="custom-number-fields"></a>Champs de nombre personnalisé
+
+Le tableau suivant mappe les noms de clé CEF et CommonSecurityLog pour les champs *numériques* disponibles pour les données personnalisées.
+
+|Nom de la clé CEF  |Nom CommonSecurityLog  |
+|---------|---------|
+|     cn1    |     DeviceCustomNumber1       |
+|     cn1Label    |     DeviceCustomNumber1Label       |
+|     cn2    |     DeviceCustomNumber2       |
+|     cn2Label    |     DeviceCustomNumber2Label       |
+|     cn3    |     DeviceCustomNumber3       |
+|     cn3Label    |     DeviceCustomNumber3Label       |
+| | |
+
+### <a name="custom-string-fields"></a>Champs de chaîne personnalisés
+
+Le tableau suivant mappe les noms de clé CEF et CommonSecurityLog pour les champs de *chaîne* disponibles pour les données personnalisées.
+
+|Nom de la clé CEF  |Nom CommonSecurityLog  |
+|---------|---------|
+|     cs1    |     DeviceCustomString1 <sup>[1](#use-sparingly)</sup>    |
+|     cs1Label    |     DeviceCustomString1Label <sup>[1](#use-sparingly)</sup>    |
+|     cs2    |     DeviceCustomString2 <sup>[1](#use-sparingly)</sup>   |
+|     cs2Label    |     DeviceCustomString2Label   <sup>[1](#use-sparingly)</sup> |
+|     cs3    |     DeviceCustomString3  <sup>[1](#use-sparingly)</sup>  |
+|     cs3Label    |     DeviceCustomString3Label   <sup>[1](#use-sparingly)</sup> |
+|     cs4    |     DeviceCustomString4   <sup>[1](#use-sparingly)</sup> |
+|     cs4Label    |     DeviceCustomString4Label  <sup>[1](#use-sparingly)</sup>  |
+|     cs5    |     DeviceCustomString5 <sup>[1](#use-sparingly)</sup>   |
+|     cs5Label    |     DeviceCustomString5Label <sup>[1](#use-sparingly)</sup>    |
+|     cs6    |     DeviceCustomString6   <sup>[1](#use-sparingly)</sup> |
+|     cs6Label    |     DeviceCustomString6Label   <sup>[1](#use-sparingly)</sup> |
+|     flexString1    |     FlexString1    |
+|     flexString1Label    |     FlexString1Label    |
+|     flexString2    |     FlexString2    |
+|     flexString2Label    |     FlexString2Label    |
+| | |
+
+> [!TIP]
+> <a name="use-sparingly"></a><sup>1</sup> Nous vous recommandons d’utiliser les champs **DeviceCustomString** avec modération et d’utiliser des champs plus spécifiques et intégrés lorsque cela est possible.
+> 
+
+### <a name="custom-timestamp-fields"></a>Champs timestamp personnalisés
+
+Le tableau suivant mappe les noms de clé CEF et CommonSecurityLog pour les champs de *timestamp* disponibles pour les données personnalisées.
+
+|Nom de la clé CEF  |Nom CommonSecurityLog  |
+|---------|---------|
+|     deviceCustomDate1    |     DeviceCustomDate1    |
+|     deviceCustomDate1Label    |     DeviceCustomDate1Label    |
+|     deviceCustomDate2       |     DeviceCustomDate2    |
+|     deviceCustomDate2Label    |     DeviceCustomDate2Label    |
+|     flexDate1    |     FlexDate1    |
+|     flexDate1Label    |     FlexDate1Label    |
+| | |
+
+### <a name="custom-integer-data-fields"></a>Champs de données d’entier personnalisés
+
+Le tableau suivant mappe les noms de clé CEF et CommonSecurityLog pour les champs *entiers* disponibles pour les données personnalisées.
+
+|Nom de la clé CEF  |Nom CommonSecurityLog  |
+|---------|---------|
+|     flexNumber1    |     FlexNumber1    |
+|     flexNumber1Label    |     FlexNumber1Label    |
+|     flexNumber2    |     FlexNumber2    |
+|     flexNumber2Label    |     FlexNumber2Label    |
+| | |
+
+## <a name="enrichment-fields"></a>Champs d’enrichissement
+
+Les champs **CommonSecurityLog** suivants sont ajoutés par Azure Sentinel pour enrichir les événements d’origine reçus à partir des appareils sources. Ils n’ont pas de mappages dans les clés CEF :
+
+### <a name="threat-intelligence-fields"></a>Champs d’informations sur les menaces
+
+|Nom du champ CommonSecurityLog  |Description  |
+|---------|---------|
+|   **IndicatorThreatType**  |  Type de menace [MaliciousIP](#MaliciousIP), selon le flux d’informations sur les menaces.       |
+| <a name="MaliciousIP"></a>**MaliciousIP** | Répertorie toutes les adresses IP du message corrélées avec le flux d’informations sur les menaces actuel. |
+|  **MaliciousIPCountry**   | Le pays de [MaliciousIP](#MaliciousIP), en fonction des informations géographiques au moment de l’ingestion de l’enregistrement.        |
+| **MaliciousIPLatitude**    |   La longitude de [MaliciousIP](#MaliciousIP), en fonction des informations géographiques au moment de l’ingestion de l’enregistrement.      |
+| **MaliciousIPLongitude**    |  La longitude de [MaliciousIP](#MaliciousIP), en fonction des informations géographiques au moment de l’ingestion de l’enregistrement.       |
+| **ReportReferenceLink**    |    Lien vers le rapport d’informations sur les menaces.     |
+|  **ThreatConfidence**   |   Confiance de menace de [MaliciousIP](#MaliciousIP), selon le flux d’informations sur les menaces.      |
+| **ThreatDescription**    |   Description de menace de [MaliciousIP](#MaliciousIP), selon le flux d’informations sur les menaces.      |
+| **ThreatSeverity** | Le niveau de gravité de la menace pour [MaliciousIP](#MaliciousIP), en fonction du flux d’informations sur les menaces au moment de l’ingestion des enregistrements. |
+|     |         |
+
+### <a name="additional-enrichment-fields"></a>Champs d’enrichissement supplémentaires
 
 |Nom du champ CommonSecurityLog  |Description  |
 |---------|---------|
@@ -147,8 +260,8 @@ Les noms de champs **CommonSecurityLog** suivants n’ont pas de mappages dans l
 |**RemoteIP**     |     Adresse IP distante. <br>Cette valeur est basée sur le champ [CommunicationDirection](#communicationdirection), si possible.     |
 |**RemotePort**     |   Le port distant. <br>Cette valeur est basée sur le champ [CommunicationDirection](#communicationdirection), si possible.      |
 |**SimplifiedDeviceAction**     |   Simplifie la valeur [DeviceAction](#deviceaction) sur un ensemble statique de valeurs, tout en conservant la valeur d’origine dans le champ [DeviceAction](#deviceaction). <br>Par exemple : `Denied` > `Deny`.      |
+|**SourceSystem**     | Toujours défini comme **OpsManager**.        |
 |     |         |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

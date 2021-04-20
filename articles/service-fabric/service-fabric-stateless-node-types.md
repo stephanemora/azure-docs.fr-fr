@@ -5,14 +5,14 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 74680f7b56ad98851e2839b53c1f9e92b6c6c23a
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563774"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107030006"
 ---
-# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Déployer un cluster Azure Service Fabric avec des types de nœuds sans état (préversion)
+# <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types"></a>Déployer un cluster Azure Service Fabric avec des types de nœuds sans état
 Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment donné, des services avec état peuvent être placés sur les nœuds. Les types de nœuds sans état assouplissent cette hypothèse pour un type de nœud, ce qui permet au type de nœud d’utiliser d’autres fonctionnalités, telles que l’accélération des opérations de scale-out, la prise en charge des mises à niveau automatiques du système d’exploitation sur la durabilité Bronze et le scale-out de plus de 100 nœuds dans un même groupe de machines virtuelles identiques.
 
 * Les types de nœuds principaux ne peuvent pas être configurés pour être sans état
@@ -23,7 +23,7 @@ Les types de nœuds Service Fabric sont fournis en supposant qu’à un moment d
 Des exemples de modèles sont disponibles : [Modèle de types de nœuds sans état Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Activation de types de nœuds sans état dans un cluster Service Fabric
-Pour définir un ou plusieurs types de nœuds comme sans état dans une ressource de cluster, définissez la propriété **isStateless** sur « True ». Lors du déploiement d’un cluster Service Fabric avec des types de nœuds sans état, n’oubliez pas d’avoir au moins un type de nœud principal dans la ressource de cluster.
+Pour définir un ou plusieurs types de nœuds comme sans état dans une ressource de cluster, définissez la propriété **isStateless** sur **true**. Lors du déploiement d’un cluster Service Fabric avec des types de nœuds sans état, n’oubliez pas d’avoir au moins un type de nœud principal dans la ressource de cluster.
 
 * La ressource de cluster Service Fabric apiVersion doit être « 2020-12-01-preview » ou une version ultérieure.
 
@@ -44,7 +44,7 @@ Pour définir un ou plusieurs types de nœuds comme sans état dans une ressourc
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateless": false,
+        "isStateless": false, // Primary Node Types cannot be stateless
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -72,16 +72,15 @@ Pour définir un ou plusieurs types de nœuds comme sans état dans une ressourc
 Pour activer les types de nœuds sans état, vous devez configurer la ressource de groupe de machines virtuelles identiques sous-jacente de la façon suivante :
 
 * La propriété **singlePlacementGroup** de la valeur doit être définie sur **false** si vous devez effectuer une mise à l’échelle sur plus de 100 machines virtuelles.
-* Le **mode** **upgradePolicy** du groupe identique doit être défini sur **Continue**.
+* Le groupe identique **upgradeMode** doit être défini sur **Continu**.
 * Le mode de mise à niveau Continue nécessite la configuration de l’extension Intégrité de l’application ou des sondes d’intégrité. Configurez la sonde d’intégrité avec la configuration par défaut pour les types de nœuds sans état comme indiqué ci-dessous. Une fois les applications déployées sur le type de nœud, les ports d’extension de sonde d’intégrité/d’intégrité peuvent être modifiés pour surveiller l’intégrité de l’application.
 
 >[!NOTE]
-> Il est nécessaire que le nombre de domaines d’erreur de la plateforme soit mis à jour à 5 lorsqu’un type de nœud sans état repose sur un groupe de machines virtuelles identiques qui s’étend sur plusieurs zones. Consultez ce [modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) pour plus de détails.
-> 
-> **platformFaultDomainCount:5**
+> Lors de l’utilisation de la mise à l’échelle automatique avec types de nœuds sans état, l’état du nœud n’est pas automatiquement nettoyé après l’opération de scale-down. Il est recommandé d’utiliser l’[assistance de mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper) pour le nettoyage du NodeState pendant la mise à l’échelle automatique.
+
 ```json
 {
-    "apiVersion": "2018-10-01",
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.Compute/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType1Name')]",
     "location": "[parameters('computeLocation')]",
@@ -92,8 +91,9 @@ Pour activer les types de nœuds sans état, vous devez configurer la ressource 
           "automaticOSUpgradePolicy": {
             "enableAutomaticOSUpgrade": true
           }
-        }
-    }
+        },
+        "platformFaultDomainCount": 5
+    },
     "virtualMachineProfile": {
     "extensionProfile": {
     "extensions": [
@@ -136,6 +136,18 @@ Pour activer les types de nœuds sans état, vous devez configurer la ressource 
     ]
 }
 ```
+
+## <a name="configuring-stateless-node-types-with-multiple-availability-zones"></a>Configuration de types de nœud sans état avec plusieurs zones de disponibilité
+Pour configurer un type de nœud sans état entre plusieurs zones de disponibilité, suivez la documentation [ici](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), avec les quelques modifications suivantes :
+
+* Définissez **singlePlacementGroup** : **false** si plusieurs groupes de placement doivent être activés.
+* Définissez  **upgradeMode** : **Propagée** et ajoute une extension Intégrité de l’application/des sondes d’intégrité comme indiqué ci-dessus.
+* Définissez **platformFaultDomainCount** : **5** pour le groupe de machines virtuelles identiques.
+
+>[!NOTE]
+> Quel que soit le VMSSZonalUpgradeMode configuré dans le cluster, les mises à jour du groupe de machines virtuelles identiques se produisent toujours séquentiellement, une zone de disponibilité à la fois, pour le type de nœud sans état qui s’étend sur plusieurs zones, car il utilise le mode de mise à niveau propagée.
+
+Pour obtenir des informations de référence, consultez le [modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) de configuration des types de nœud sans état avec plusieurs zones de disponibilité
 
 ## <a name="networking-requirements"></a>Configuration requise du réseau
 ### <a name="public-ip-and-load-balancer-resource"></a>Ressource d’adresse IP publique et Load Balancer
@@ -184,7 +196,7 @@ Pour activer la mise à l'échelle de plus de 100 machines virtuelles sur une r
 ```
 
 >[!NOTE]
-> Il n’est pas possible d’effectuer une modification sur place de référence SKU sur les ressources d’adresse IP publique et d’équilibreur de charge. Si vous effectuez une migration à partir de ressources existantes ayant une référence SKU de base, consultez la section relative à la migration de cet article.
+> Il n’est pas possible d’effectuer une modification sur place de référence SKU sur les ressources d’adresse IP publique et d’équilibreur de charge. 
 
 ### <a name="virtual-machine-scale-set-nat-rules"></a>Règles NAT de groupe de machines virtuelles identiques
 Les règles NAT de trafic entrant de l’équilibreur de charge doivent correspondre aux pools NAT du groupe de machines virtuelles identiques. Chaque groupe de machines virtuelles identiques doit avoir un pool NAT entrant unique.
@@ -243,7 +255,7 @@ Si on les compare à l’utilisation de références SKU de base, Standard Load 
 
 
 
-### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrer à l’aide de types de nœuds sans état à partir d’un cluster à l’aide d’un Load Balancer de référence SKU de base et d’une adresse IP de référence SKU de base
+## <a name="migrate-to-using-stateless-node-types-in-a-cluster"></a>Migrer à l’aide des types de nœud sans état dans un cluster
 Pour tous les scénarios de migration, un nouveau type de nœud sans état doit être ajouté. Impossible de migrer un type de nœud existant pour qu’il soit sans état uniquement.
 
 Pour migrer un cluster qui utilisait un Load Balancer et une adresse IP avec une référence SKU de base, vous devez tout d’abord créer une toute nouvelle ressource de Load Balancer et d’adresse à l’aide de la référence SKU standard. Il n’est pas possible de mettre à jour ces ressources sur place.
@@ -256,9 +268,6 @@ Pour commencer, vous devez ajouter les nouvelles ressources à votre modèle Res
 * Un groupe de sécurité réseau (NSG) référencé par le sous-réseau dans lequel vous déployez vos groupes de machines virtuelles identiques.
 
 Une fois le déploiement des ressources terminé, vous pouvez commencer à désactiver les nœuds dans le type de nœud que vous souhaitez supprimer du cluster d’origine.
-
->[!NOTE]
-> Lors de l’utilisation de la mise à l’échelle automatique avec types de nœuds sans état avec un niveau de durabilité bronze, l’état du nœud n’est pas automatiquement nettoyé après l’opération de scale-down. Il est recommandé d’utiliser l’[assistance de mise à l’échelle automatique Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper) pour le nettoyage du NodeState pendant la mise à l’échelle automatique.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 * [Services fiables (Reliable Services)](service-fabric-reliable-services-introduction.md)

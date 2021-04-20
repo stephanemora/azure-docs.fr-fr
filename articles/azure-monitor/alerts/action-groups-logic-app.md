@@ -1,16 +1,16 @@
 ---
-title: Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
+title: Déclencher des actions complexes avec des alertes Azure Monitor
 description: Découvrez comment créer une action d’application logique pour traiter des alertes Azure Monitor.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: a1371e00a6d4c5db609466e25c9d94aad5e73398
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f1e81dca6926ae9f57e428eb1cef761c588a78b6
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045715"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029843"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
@@ -34,66 +34,66 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Créer une alerte de journal d’activité : Administratif
 
-1. [Créer une application logique](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
+1. [Créez une application logique](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2.  Sélectionnez le déclencheur : **Lors de la réception d’une requête HTTP**.
+1.  Sélectionnez le déclencheur : **Lors de la réception d’une requête HTTP**.
 
 1. Dans la boîte de dialogue **Lors de la réception d’une demande HTTP**, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
 
     ![Capture d’écran montrant la boîte de dialogue Lors de la réception d’une demande HTTP et l’option Utiliser l’exemple de charge utile pour générer le schéma sélectionnée. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-3.  Copiez et collez l’exemple de charge utile suivant dans la boîte de dialogue :
+1.  Copiez et collez l’exemple de charge utile suivant dans la boîte de dialogue :
 
     ```json
         {
-            "schemaId": "Microsoft.Insights/activityLogs",
-            "data": {
-                "status": "Activated",
-                "context": {
-                "activityLog": {
-                    "authorization": {
-                    "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+            "schemaId&quot;: &quot;Microsoft.Insights/activityLogs&quot;,
+            &quot;data&quot;: {
+                &quot;status&quot;: &quot;Activated&quot;,
+                &quot;context&quot;: {
+                &quot;activityLog&quot;: {
+                    &quot;authorization&quot;: {
+                    &quot;action&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;scope&quot;: &quot;/subscriptions/…&quot;
                     },
-                    "channels": "Operation",
-                    "claims": "…",
-                    "caller": "logicappdemo@contoso.com",
-                    "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
-                    "description": "",
-                    "eventSource": "Administrative",
-                    "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
-                    "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
-                    "level": "Informational",
-                    "operationName": "microsoft.insights/activityLogAlerts/write",
-                    "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
-                    "resourceGroupName": "LOGICAPP-DEMO",
-                    "resourceProviderName": "microsoft.insights",
-                    "status": "Succeeded",
-                    "subStatus": "",
-                    "subscriptionId": "…",
-                    "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
-                    "resourceType": "microsoft.insights/activityLogAlerts"
+                    &quot;channels&quot;: &quot;Operation&quot;,
+                    &quot;claims&quot;: &quot;…&quot;,
+                    &quot;caller&quot;: &quot;logicappdemo@contoso.com&quot;,
+                    &quot;correlationId&quot;: &quot;91ad2bac-1afa-4932-a2ce-2f8efd6765a3&quot;,
+                    &quot;description&quot;: &quot;&quot;,
+                    &quot;eventSource&quot;: &quot;Administrative&quot;,
+                    &quot;eventTimestamp&quot;: &quot;2018-04-03T22:33:11.762469+00:00&quot;,
+                    &quot;eventDataId&quot;: &quot;ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0&quot;,
+                    &quot;level&quot;: &quot;Informational&quot;,
+                    &quot;operationName&quot;: &quot;microsoft.insights/activityLogAlerts/write&quot;,
+                    &quot;operationId&quot;: &quot;61f59fc8-1442-4c74-9f5f-937392a9723c&quot;,
+                    &quot;resourceId&quot;: &quot;/subscriptions/…&quot;,
+                    &quot;resourceGroupName&quot;: &quot;LOGICAPP-DEMO&quot;,
+                    &quot;resourceProviderName&quot;: &quot;microsoft.insights&quot;,
+                    &quot;status&quot;: &quot;Succeeded&quot;,
+                    &quot;subStatus&quot;: &quot;&quot;,
+                    &quot;subscriptionId&quot;: &quot;…&quot;,
+                    &quot;submissionTimestamp&quot;: &quot;2018-04-03T22:33:36.1068742+00:00&quot;,
+                    &quot;resourceType&quot;: &quot;microsoft.insights/activityLogAlerts&quot;
                 }
                 },
-                "properties": {}
+                &quot;properties&quot;: {}
             }
         }
     ```
 
-9. Le **Concepteur d’applications logiques** affiche une fenêtre indépendante rappelant que la requête envoyée à l’application logique doit définir l’en-tête **Content-Type** sur **application/json**. Fermez la fenêtre indépendante. L’alerte Azure Monitor définit l’en-tête.
+1. Le **Concepteur d’applications logiques** affiche une fenêtre indépendante rappelant que la requête envoyée à l’application logique doit définir l’en-tête **Content-Type** sur **application/json**. Fermez la fenêtre indépendante. L’alerte Azure Monitor définit l’en-tête.
 
-    ![Définir l'en-tête Content-Type](media/action-groups-logic-app/content-type-header.png "Définir l'en-tête Content-Type")
+    ![Définir l'en-tête Content-Type](media/action-groups-logic-app/content-type-header.png &quot;Définir l'en-tête Content-Type")
 
-10. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une action**.
+1. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une action**.
 
     ![Ajouter une action](media/action-groups-logic-app/add-action.png "Ajouter une action")
 
-11. Recherchez et sélectionnez le connecteur Microsoft Teams. Choisissez l’action **Microsoft Teams – Publier un message**.
+1. Recherchez et sélectionnez le connecteur Microsoft Teams. Choisissez l’action **Microsoft Teams – Publier un message**.
 
     ![Action Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Action Microsoft Teams")
 
-12. Configurez l’action Microsoft Teams. Le **Concepteur Logic Apps** vous invite à vous authentifier pour vous connecter à votre compte professionnel ou scolaire. Choisissez l’**ID de l’équipe** et l’**ID du canal** auxquels envoyer le message.
+1. Configurez l’action Microsoft Teams. Le **Concepteur Logic Apps** vous invite à vous authentifier pour vous connecter à votre compte professionnel ou scolaire. Choisissez l’**ID de l’équipe** et l’**ID du canal** auxquels envoyer le message.
 
 13. Configurez le message en utilisant une combinaison de texte statique et de références aux \<fields\> du contenu dynamique. Coupez et collez le texte suivant dans le champ **Message** :
 
@@ -111,9 +111,9 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
     ![Action Microsoft Teams : Poster un message](media/action-groups-logic-app/teams-action-post-message.png "Action Microsoft Teams : Envoyer un message")
 
-14. En haut du **Concepteur d’applications logiques**, sélectionnez **Enregistrer** pour enregistrer votre application logique.
+1. En haut du **Concepteur d’applications logiques**, sélectionnez **Enregistrer** pour enregistrer votre application logique.
 
-15. Ouvrez votre groupe d’actions existant et ajoutez une action pour référencer l’application logique. Si vous n’avez pas de groupe d’actions, voir [Créer et gérer des groupes d’actions sur le portail Azure](./action-groups.md) pour en créer un. N’oubliez pas d’enregistrer vos modifications.
+1. Ouvrez votre groupe d’actions existant et ajoutez une action pour référencer l’application logique. Si vous n’avez pas de groupe d’actions, voir [Créer et gérer des groupes d’actions sur le portail Azure](./action-groups.md) pour en créer un. N’oubliez pas d’enregistrer vos modifications.
 
     ![Mettre à jour le groupe d’actions](media/action-groups-logic-app/update-action-group.png "Mettre à jour le groupe d’actions")
 

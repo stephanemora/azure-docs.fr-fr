@@ -1,27 +1,23 @@
 ---
-title: Aperçu de la configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Windows Virtual Desktop – Azure
+title: Configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Windows Virtual Desktop – Azure
 description: Procédure de configuration d’un partage de fichiers pour l’attachement d’application MSIX pour Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1e7a956b358d486250fbfc26da141c47c0238b56
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: d8aaa8d5013c426ac1ab6b367309c51be4929cee
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448387"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366400"
 ---
-# <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX (préversion)
-
-> [!IMPORTANT]
-> L’application MSIX est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="set-up-a-file-share-for-msix-app-attach"></a>Configurer un partage de fichiers pour l’attachement d’application MSIX
 
 Toutes les images MSIX doivent être stockées sur un partage réseau accessible par les utilisateurs d’un pool hôte avec des autorisations en lecture seule.
 
-L’attachement d’application MSIX (préversion) n’a pas de dépendances par rapport au type d’infrastructure de stockage utilisé par le partage de fichiers. Les considérations relatives au partage d’attachement d’application MSIX sont identiques à celles d’un partage FSLogix. Pour en savoir plus sur les exigences en matière de stockage, consultez [Options de stockage pour conteneurs de profils FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).
+L’attachement d’application MSIX n’a pas de dépendances par rapport au type d’infrastructure de stockage utilisé par le partage de fichiers. Les considérations relatives au partage d’attachement d’application MSIX sont identiques à celles d’un partage FSLogix. Pour en savoir plus sur les exigences en matière de stockage, consultez [Options de stockage pour conteneurs de profils FSLogix dans Windows Virtual Desktop](store-fslogix-profile.md).
 
 ## <a name="performance-requirements"></a>Exigences en matière de performances
 

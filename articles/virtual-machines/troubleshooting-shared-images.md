@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9652e940674ec7580b006cd38df2a7d17014f939
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607590"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309983"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Résoudre les problèmes liés aux galeries d’images partagées dans Azure
 
@@ -303,6 +303,14 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Cause** : la définition d’image utilisée pour déployer la machine virtuelle ne contient pas de versions d’image incluses dans la dernière version.  
 **Solution de contournement** : assurez-vous qu’il existe au moins une version d’image pour laquelle « Exclure de la plus récente » est défini sur False. 
 
+**Message** : *L’image de galerie /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\>/versions/<versionNumber\> n’est pas disponible dans la région <region\>. Contactez le propriétaire de l’image à répliquer dans cette région, ou modifiez la région demandée. Contactez le propriétaire de l’image à répliquer dans cette région, ou modifiez la région demandée.*  
+**Cause** : La version sélectionnée pour le déploiement n’existe pas ou n’a pas de réplica dans la région indiquée.  
+**Solution de contournement** : Assurez-vous que le nom de la ressource d’image est correct et qu’il existe au moins un réplica dans la région indiquée. 
+
+**Message** : *L’image de galerie /subscriptions/<subscriptionID\>/resourceGroups/<resourceGroup\>/providers/Microsoft.Compute/galleries/<galleryName\>/images/<imageName\> n’est pas disponible dans la région <region\>. Contactez le propriétaire de l’image à répliquer dans cette région, ou modifiez la région demandée. Contactez le propriétaire de l’image à répliquer dans cette région, ou modifiez la région demandée.*  
+**Cause** : La définition d’image sélectionnée pour le déploiement n’a pas de versions d’image incluses dans la version la plus récente ainsi que dans la région indiquée.  
+**Solution de contournement** : Assurez-vous qu’il existe au moins une version d’image dans la région pour laquelle « Exclure de la plus récente » est défini sur False. 
+
 **Message** : *Le client a l’autorisation d’effectuer l’action « Microsoft.Compute/galleries/images/versions/read » sur l’étendue <resourceID\>, mais le locataire actuel, <tenantID\>, n’est pas autorisé à accéder à l’abonnement lié <subscriptionID\>.*  
 **Cause** : la machine virtuelle ou le groupe identique ont été créés à l’aide d’une image SIG dans un autre locataire. Vous avez tenté d’apporter une modification à la machine virtuelle ou au groupe identique, mais vous n’avez pas accès à l’abonnement possédant l’image.  
 **Solution de contournement** : contactez le propriétaire de l’abonnement de la version d’image pour accorder un accès en lecture à la version d’image.
@@ -318,10 +326,6 @@ Si vous rencontrez des problèmes en exécutant des opérations sur les galeries
 **Message** : *Le paramètre obligatoire « osProfile » est manquant (null).*  
 **Cause** : la machine virtuelle est créée à partir d’une image généralisée et il lui manque le nom d’utilisateur administrateur, le mot de passe ou les clés SSH d’administrateur. Comme les images généralisées ne conservent pas le nom d’utilisateur, le mot de passe ou les clés SSH d’administrateur, ces champs doivent être spécifiés lors de la création d’une machine virtuelle ou d’un groupe identique.  
 **Solution de contournement** : spécifiez le nom d’utilisateur administrateur, le mot de passe ou les clés SSH d’administrateur, ou utilisez une version d’image spécialisée.
-
-**Message** : *Impossible de créer une version d’image de galerie à partir de <resourceID\>, car l’état du système d’exploitation dans l’image de galerie parente (« Specialized ») n’est pas « Generalized ».*  
-**Cause** : la version d’image est créée à partir d’une source généralisée, mais sa définition parente est spécialisée.  
-**Solution de contournement** : créez la version d’image à l’aide d’une source spécialisée, ou utilisez une définition parente généralisée.
 
 **Message** : *Impossible de mettre à jour le groupe de machines virtuelles identiques <vmssName\>, car l’état actuel du système d’exploitation du groupe de machines virtuelles identiques est Generalized, contrairement à l’état du système d’exploitation d’image de galerie mise à jour qui est Specialized.*  
 **Cause** : l’image source actuelle pour le groupe identique est généralisée, mais elle est mise à jour avec une image source spécialisée. L’image source actuelle et la nouvelle image source pour un groupe identique doivent avoir le même état.  

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 8f679626b69bd855e86b94cdde51955edd068e8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8846efa3619cec383809cdbd6efe70e3622fa007
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91714894"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107365193"
 ---
 # <a name="enable-automanage-for-virtual-machines-through-azure-policy"></a>Activer Automanage pour machines virtuelles via Azure Policy
 
@@ -30,6 +30,8 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.micr
 > [!IMPORTANT]
 > L’autorisation Azure RBAC suivante est nécessaire pour activer Automanage : Rôles **Propriétaire** ou **Contributeur**, ainsi que **Administrateur de l’accès utilisateur**.
 
+## <a name="direct-link-to-policy"></a>Lien direct vers la stratégie
+La définition de la stratégie Automanage se trouve dans le portail Azure sous le nom [Configurer des machines virtuelles à intégrer à Azure Automanage](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F270610db-8c04-438a-a739-e8e6745b22d3). Si vous cliquez sur ce lien, passez directement à l’étape 8 de [Localiser et attribuer la stratégie](#locate-and-assign-the-policy) ci-dessous.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -53,9 +55,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sous l’onglet **De base**, renseignez l’**Étendue** en définissant l’*Abonnement* et le *Groupe de ressources*.
 
     > [!NOTE]
-    > L’Étendue vous permet de définir les machines virtuelles auxquelles cette stratégie s’applique. Vous pouvez définir l’application au niveau d’un abonnement ou d’un groupe de ressources. Si vous définissez un groupe de ressources, Automanage est automatiquement activé pour toutes les machines virtuelles qui se trouvent dans celui-ci ou que nous y ajouterons à l’avenir. 
+    > L’Étendue vous permet de définir les machines virtuelles auxquelles cette stratégie s’applique. Vous pouvez définir l’application au niveau d’un abonnement ou d’un groupe de ressources. Si vous définissez un groupe de ressources, Automanage est automatiquement activé pour toutes les machines virtuelles qui se trouvent dans celui-ci ou que nous y ajouterons à l’avenir.
 
-1. Cliquez sur l’onglet **Paramètres**, puis définissez le **Compte Automanage** et le **Profil de configuration** souhaité. 
+1. Cliquez sur l’onglet **Paramètres**, puis définissez le **Compte Automanage** et le **Profil de configuration** souhaité.
 1. Sous l’onglet **Vérifier + créer**, examinez les paramètres.
 1. Appliquez l’affectation en cliquant sur **Créer**.
 1. Consultez vos affectations sous l’onglet **Affectations** en regard de **Définition**.
@@ -64,9 +66,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 > Un certain temps s’écoule avant que cette stratégie prenne effet sur les machines virtuelles qui se trouvent actuellement dans le groupe de ressources ou l’abonnement.
 
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez une autre façon d’activer Azure Automanage pour les machines virtuelles via le portail Azure. 
+Découvrez une autre façon d’activer Azure Automanage pour les machines virtuelles via le portail Azure.
 
 > [!div class="nextstepaction"]
 > [Activer le service Automanage pour machines virtuelles dans le portail Azure](quick-create-virtual-machines-portal.md)

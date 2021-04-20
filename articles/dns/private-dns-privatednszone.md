@@ -5,14 +5,14 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 04/09/2021
 ms.author: rohink
-ms.openlocfilehash: 9eaa320e79f1d595303c6d9fe1399df12cb6c52b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e04d7525cbd0c707ba0050f31414c2472602d1b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94954407"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311411"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>Qu’est-ce qu’une zone Azure DNS privée ?
 
@@ -25,12 +25,12 @@ Vous pouvez également activer la fonctionnalité d’[inscription automatique](
 
 ## <a name="limits"></a>limites
 
-Pour savoir combien de zones DNS privées vous pouvez créer dans un abonnement et combien de jeux d’enregistrements peuvent être pris en charge dans une zone DNS privée, consultez [Limites d’Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits).
+Pour savoir combien de zones DNS privées vous pouvez créer dans un abonnement et combien de jeux d’enregistrements peuvent être pris en charge dans une zone DNS privée, consultez [Limites d’Azure DNS](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="restrictions"></a>Restrictions
 
 * Les zones DNS privées à étiquette unique ne sont pas prises en charge. Une zone DNS privée doit avoir au moins deux étiquettes. Par exemple, contoso.com a deux étiquettes séparées par un point. Une zone DNS privée peut avoir un maximum de 34 étiquettes.
-* Vous ne pouvez pas créer de délégations de zone (enregistrements NS) dans une zone DNS privée. Si vous comptez utiliser un domaine enfant, vous pouvez directement créer le domaine en tant que zone DNS privée et le lier au réseau virtuel sans configurer une délégation de serveur de noms à partir de la zone parente.
+* Vous ne pouvez pas créer de délégations de zone (enregistrements NS) dans une zone DNS privée. Si vous envisagez d’utiliser un domaine enfant, vous pouvez directement créer le domaine en tant que zone DNS privée. Ensuite, vous pouvez le lier au réseau virtuel sans configurer de délégation de serveur de noms à partir de la zone parent.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -38,4 +38,4 @@ Pour savoir combien de zones DNS privées vous pouvez créer dans un abonnement 
 
 * Passez en revue certains [scénarios de zones privées](./private-dns-scenarios.md) courants qui peuvent être réalisés avec des zones privées dans Azure DNS.
 
-* Pour trouver des réponses aux questions fréquemment posées concernant les zones privées dans Azure DNS, notamment le comportement spécifique auquel vous attendre pour certains types d’opérations, voir le [FAQ sur les DNS privés](./dns-faq-private.md).
+* Pour les questions et réponses courantes sur les zones privées dans Azure DNS, consultez la [FAQ sur le DNS privé](./dns-faq-private.md).

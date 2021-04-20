@@ -5,17 +5,17 @@ description: Les options de protection des données disponibles pour les donnée
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/22/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
-ms.openlocfilehash: afd98e629500bc90cc9ddd1ed4ab2472f733e845
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 90c83397089b77d30694041a37debc0731ea2a38
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104803030"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107304254"
 ---
 # <a name="data-protection-overview"></a>Vue d’ensemble de la protection des données
 
@@ -30,7 +30,7 @@ Si vous recherchez une couverture de protection de base des données pour votre 
 - Configurez un verrou Azure Resource Manager sur le compte de stockage pour protéger le compte contre la suppression ou les changements de configuration. [En savoir plus…](../common/lock-account-resource.md)
 - Activez la suppression réversible de conteneur pour le compte de stockage afin de pouvoir récupérer un conteneur supprimé et son contenu. [En savoir plus…](soft-delete-container-enable.md)
 - Enregistrez l’état d’un blob à intervalles réguliers :
-  - Pour les charges de travail du Stockage Blob, activez le contrôle de version des blobs pour enregistrer automatiquement l’état de vos données chaque fois qu’un blob est supprimé ou remplacé. [En savoir plus…](versioning-enable.md)
+  - Pour les charges de travail du Stockage Blob, activez le contrôle de version des blobs pour enregistrer automatiquement l’état de vos données chaque fois qu’un blob est remplacé. [En savoir plus…](versioning-enable.md)
   - Pour les charges de travail d’Azure Data Lake Storage, prenez des captures instantanées manuelles pour enregistrer l’état de vos données à un moment précis dans le temps. [En savoir plus…](snapshots-overview.md)
 
 Ces options, ainsi que d’autres options de protection des données pour d’autres scénarios, sont décrites plus en détail dans la section suivante.
@@ -46,7 +46,7 @@ Le tableau suivant récapitule les options disponibles dans Stockage Azure pour 
 | Empêcher la suppression ou la modification d’un compte de stockage. | Verrou Azure Resource Manager<br />[En savoir plus…](../common/lock-account-resource.md) | Verrouillez l’ensemble de vos comptes de stockage avec un verrou Azure Resource Manager pour empêcher la suppression du compte de stockage. | Protège le compte de stockage contre la suppression et les changements de configuration.<br /><br />Ne protège pas les conteneurs ou blobs du compte contre la suppression ou le remplacement. | Oui |
 | Empêcher la suppression ou la modification d’un conteneur et de ses blobs pendant un intervalle de temps que vous contrôlez. | Stratégie d’immuabilité sur un conteneur<br />[En savoir plus…](storage-blob-immutable-storage.md) | Définissez une stratégie d’immuabilité sur un conteneur pour protéger des documents vitaux pour l’entreprise, par exemple, en réponse à des exigences de conformité légales ou réglementaires. | Protège un conteneur et ses blobs contre les suppressions et les remplacements.<br /><br />Quand une stratégie de conservation légale ou de rétention à durée déterminée est activée, le compte de stockage est également protégé contre la suppression. Les conteneurs pour lesquels aucune stratégie d’immuabilité n’a été définie ne sont pas protégés contre la suppression. | Oui, en préversion |
 | Restaurer un conteneur supprimé dans un intervalle spécifié. | Suppression réversible de conteneur (préversion)<br />[En savoir plus…](soft-delete-container-overview.md) | Activez la suppression réversible de conteneur pour tous les comptes de stockage, avec un intervalle de rétention minimal de 7 jours.<br /><br />Activez le contrôle de version et la suppression réversible des blobs avec une suppression réversible de conteneur pour protéger des blobs individuels dans un conteneur.<br /><br />Stockez les conteneurs qui nécessitent différentes périodes de rétention dans des comptes de stockage distincts. | Vous pouvez restaurer un conteneur et son contenu supprimés pendant la période de rétention.<br /><br />Seules des opérations au niveau du conteneur (par exemple, [Supprimer un conteneur](/rest/api/storageservices/delete-container)) peuvent être restaurées. La suppression réversible de conteneur ne vous permet pas de restaurer un blob individuel dans le conteneur si celui-ci est supprimé. | Oui, en préversion |
-| Enregistrer automatiquement l’état d’un blob dans une version antérieure quand il est supprimé ou remplacé. | Contrôle de version des objets blob<br />[En savoir plus…](versioning-overview.md) | Activez le contrôle de version des blobs, ainsi que la suppression réversible de conteneur et de blob, pour les comptes de stockage où vous avez besoin d’une protection optimale pour les données de blob.<br /><br />Stockez les données de blob qui ne nécessitent pas de contrôle de version dans un compte distinct pour limiter les coûts. | Chaque opération de remplacement ou de suppression de blob crée une nouvelle version. Un blob peut être restauré à partir d’une version antérieure en cas de suppression ou de remplacement. | Non |
+| Enregistrer automatiquement l’état d’un blob dans une version antérieure quand il est remplacé. | Contrôle de version des objets blob<br />[En savoir plus…](versioning-overview.md) | Activez le contrôle de version des blobs, ainsi que la suppression réversible de conteneur et de blob, pour les comptes de stockage où vous avez besoin d’une protection optimale pour les données de blob.<br /><br />Stockez les données de blob qui ne nécessitent pas de contrôle de version dans un compte distinct pour limiter les coûts. | Chaque opération d’écriture de blob crée une nouvelle version. La version actuelle d’un objet blob peut être restaurée à partir d’une version antérieure si la version actuelle est supprimée ou remplacée. | Non |
 | Restaurer un blob supprimé ou une version de blob dans un intervalle spécifié. | Suppression réversible de blob<br />[En savoir plus…](soft-delete-blob-overview.md) | Activez la suppression réversible de blob pour tous les comptes de stockage, avec un intervalle de rétention minimal de 7 jours.<br /><br />Activez le contrôle de version de blob et la suppression réversible de conteneur avec la suppression réversible de blob pour une protection optimale des données de blob.<br /><br />Stockez les blobs qui nécessitent différentes périodes de rétention dans des comptes de stockage distincts. | Vous pouvez restaurer un blob supprimé ou une version de blob au cours de la période de rétention. | Non |
 | Restaurer un ensemble d’objets blob de blocs à un point antérieur dans le temps. | Restauration dans le temps<br />[En savoir plus…](point-in-time-restore-overview.md) | Pour utiliser une restauration à un instant dans le passé afin de revenir à un état antérieur, concevez votre application pour supprimer des objets blob de blocs individuels au lieu de supprimer des conteneurs. | Un ensemble d’objets blob de blocs peut être rétabli dans l’état où il était à un point spécifique dans le passé.<br /><br />Seules les opérations effectuées sur des objets blob de blocs sont annulées. Les opérations effectuées sur des conteneurs, des objets blob de pages ou des objets blob d’ajouts ne sont pas annulées. | Non |
 | Enregistrer manuellement l’état d’un blob à un moment donné. | Instantané d’objet blob<br />[En savoir plus…](snapshots-overview.md) | Alternative recommandée au contrôle de version de blob quand le contrôle de version n’est pas adapté pour votre scénario, pour des raisons de coût ou autres, ou quand un espace de noms hiérarchique est activé pour le compte de stockage. | Vous pouvez restaurer un blob remplacé à partir d’une capture instantanée. Si le blob est supprimé, les captures instantanées le sont également. | Oui, en préversion |

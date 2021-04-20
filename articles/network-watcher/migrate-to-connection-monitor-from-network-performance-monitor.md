@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045482"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366349"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Migration de Network Performance Monitor vers Moniteur de connexion
 
@@ -43,7 +43,7 @@ La migration produit les résultats suivants :
     
 ## <a name="prerequisites"></a>Prérequis
 
-* Assurez-vous que Network Watcher est activé dans votre abonnement et la région de l’espace de travail Log Analytics. 
+* Assurez-vous que Network Watcher est activé dans votre abonnement et la région de l’espace de travail Log Analytics. Si vous ne l’avez pas fait, vous verrez une erreur indiquant « Avant de tenter une migration, activez l’extension Network Watcher dans l’abonnement de la sélection et l’emplacement de l’espace de travail LA sélectionné. »
 * Si vous utilisez en tant que point de terminaison une machine virtuelle Azure appartenant à une autre région ou à un autre abonnement que l’espace de travail de Log Analytics, assurez-vous que Network Watcher est activé pour cet abonnement et cette région.   
 * Les machines virtuelles Azure sur lesquelles les agents Log Analytics sont installés doivent être activées avec l’extension Network Watcher.
 
@@ -57,6 +57,10 @@ Pour migrer les tests de Network Performance Monitor vers Moniteur de connexion,
     
 1. Dans les listes déroulantes, sélectionnez votre abonnement et votre espace de travail, puis la fonctionnalité NPM que vous souhaitez migrer. 
 1. Sélectionnez **Importer** pour migrer les tests.
+* Si NPM n’est pas activé sur l’espace de travail, vous verrez une erreur indiquant « Aucune configuration NPM valide n’a été trouvée ». 
+* Si aucun test n’existe dans la fonctionnalité que vous avez choisie à l’étape 2, vous verrez une erreur indiquant « L’espace de travail sélectionné n’a pas de configuration <feature> ».
+* S’il n’y a pas de tests valides, vous verrez une erreur indiquant « L’espace de travail sélectionné n’a pas de tests valides »
+* Vos tests peuvent contenir des agents qui ne sont plus actifs, mais qui ont peut-être été actifs dans le passé. Une erreur s’affiche indiquant que « Certains tests contiennent des agents qui ne sont plus actifs. Liste des agents inactifs : {0}. Ces agents ont peut-être été exécutés par le passé, mais ils sont arrêtés/ne sont plus en cours d’exécution. Activez les agents et migrez vers le moniteur de connexion. Cliquez sur Continuer pour migrer les tests qui ne contiennent pas d’agents qui ne sont pas actifs. »
 
 Après le début de la migration, les modifications suivantes ont lieu : 
 * Une nouvelle ressource de moniteur de connexion est créée.

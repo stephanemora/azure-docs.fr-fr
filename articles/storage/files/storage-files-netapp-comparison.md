@@ -8,12 +8,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 3/19/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 652d362a11e80a488c9278dfeff38e715acee784
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 381fe00e835f0e359a2347372cbc2544a2b211ca
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641945"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364224"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Comparaison entre Azure Files et Azure NetApp Files
 
@@ -25,7 +25,7 @@ La plupart des charges de travail qui requièrent le stockage de fichiers cloud 
 
 | Category | Azure Files | Azure NetApp Files |
 |---------|-------------------------|---------|
-| Description | [Azure Files](https://azure.microsoft.com/services/storage/files/) est un service complètement managé et hautement disponible qui est optimisé pour les charges de travail d’accès aléatoire avec des mises à jour de données sur place.<br><br> Azure Files repose sur la même plateforme de stockage Azure que d’autres services comme les Blobs Azure. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) est un service NAS d’entreprise complètement managé et hautement disponible, qui peut gérer les charges de travail les plus exigeantes, hautes performances et à faible latence nécessitant des fonctionnalités de gestion de données avancées. Il permet la migration des charges de travail, qui sont considérées comme « non migrables » sans.<br><br>  ANF s’appuie sur le matériel nu de NetApp avec le système d’exploitation de stockage ONTAP s’exécutant dans le centre de centres Azure pour une expérience Azure cohérente et des performances locales par exemple. |
+| Description | [Azure Files](https://azure.microsoft.com/services/storage/files/) est un service complètement managé et hautement disponible de niveau entreprise qui est optimisé pour les charges de travail d’accès aléatoire avec des mises à jour de données sur place.<br><br> Azure Files repose sur la même plateforme de stockage Azure que d’autres services comme les Blobs Azure. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) est un service NAS d’entreprise complètement managé et hautement disponible, qui peut gérer les charges de travail les plus exigeantes, hautes performances et à faible latence nécessitant des fonctionnalités de gestion de données avancées. Il permet la migration des charges de travail, qui sont considérées comme « non migrables » sans.<br><br>  ANF s’appuie sur le matériel nu de NetApp avec le système d’exploitation de stockage ONTAP s’exécutant dans le centre de centres Azure pour une expérience Azure cohérente et des performances locales par exemple. |
 | Protocoles | Premium<br><ul><li>SMB 2.1, 3.0</li><li>NFS 4.1 (préversion)</li><li>REST</li></ul><br>Standard<br><ul><li>SMB 2.1, 3.0</li><li>REST</li></ul><br> Pour en savoir plus, consultez les [protocoles de partage de fichiers disponibles](https://docs.microsoft.com/azure/storage/files/storage-files-compare-protocols). | Tous les niveaux<br><ul><li>SMB 1, 2.x, 3.x</li><li>NFS 3.0, 4.1</li><li>Accès au protocole double (NFSv3/SMB)</li></ul><br> Pour plus d’informations, consultez comment créer des volumes [NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes), [SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb)ou [double protocole](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol). |
 | Disponibilité dans les régions | Premium<br><ul><li>30 régions et plus</li></ul><br>Standard<br><ul><li>Toutes les régions</li></ul><br> Pour plus d’informations, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage). | Tous les niveaux<br><ul><li>25 régions et plus</li></ul><br> Pour plus d’informations, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage). |
 | Redondance | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>Standard<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> Pour en savoir plus, consultez [redondance](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy). | Tous les niveaux<br><ul><li>Haute disponibilité locale intégrée</li><li>[Réplication entre régions](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)</li></ul> |

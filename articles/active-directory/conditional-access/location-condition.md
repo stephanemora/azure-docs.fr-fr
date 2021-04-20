@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07af586bac71ee9b33ef314756454cb3c52ec912
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97615709"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107305920"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Utilisation de la condition d’emplacement dans une stratégie d’accès conditionnel 
 
@@ -32,39 +32,37 @@ Les organisations peuvent utiliser cet emplacement réseau pour les tâches cour
 
 L’emplacement réseau est déterminé par l’adresse IP publique fournie par le client à Azure Active Directory. Par défaut, les stratégies d’accès conditionnel s’appliquent à toutes les adresses IPv4 et IPv6. 
 
-> [!TIP]
-> Les plages d’adresses IPv6 sont uniquement prises en charge dans l’interface **[Emplacement nommé (préversion)](#preview-features)** . 
-
 ## <a name="named-locations"></a>Emplacements nommés
 
-Les emplacements sont désignés dans le Portail Azure sous **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés**. Ces emplacements réseau nommés peuvent inclure les plages réseau du siège de l’organisation ou du VPN, ou les plages que vous souhaitez bloquer. 
+Les emplacements sont désignés dans le Portail Azure sous **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés**. Ces emplacements réseau nommés peuvent inclure les plages réseau du siège de l’organisation ou du VPN, ou les plages que vous souhaitez bloquer. Les emplacements nommés peuvent être définis par des plages d’adresses IPv4/IPv6 ou par pays/régions. 
 
 ![Emplacements nommés dans le Portail Azure](./media/location-condition/new-named-location.png)
 
-Pour configurer un emplacement, vous devez fournir au moins un **nom** et la plage d’adresses IP. 
+### <a name="ip-address-ranges"></a>Plages d’adresse IP
 
-Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Vous pouvez configurer des emplacements selon les limitations suivantes :
+Pour définir un emplacement nommé à l’aide de plages d’adresses IPv4/IPv6, vous devez fournir un **nom** et une plage d’adresses IP. 
 
-- Un emplacement nommé avec 1 200 plages d’adresses IPv4 maximum.
-- Un maximum de 90 emplacements nommés avec une plage d’adresses IP assignée à chacun d’eux.
-
-> [!TIP]
-> Les plages d’adresses IPv6 sont uniquement prises en charge dans l’interface **[Emplacement nommé (préversion)](#preview-features)** . 
+Les emplacements nommés définis par les plages d’adresses IPv4/IPv6 sont soumis aux limitations suivantes : 
+- Configurer jusqu’à 195 emplacements nommés
+- Configurer jusqu’à 2 000 plages d’adresses IP par emplacement nommé
+- Les adresses IPv4 et IPv6 sont prises en charge
+- Les plages d’adresses IP privées ne peuvent pas être configurées
+- Le nombre d’adresses IP contenues dans une plage est limité. Seuls les masques CIDR supérieurs à /8 sont autorisés lors de la définition d’une plage d’adresses IP. 
 
 ### <a name="trusted-locations"></a>Emplacements approuvés
 
-Lors de la création d’un emplacement réseau, un administrateur a la possibilité de marquer un emplacement comme approuvé. 
+Les administrateurs peuvent désigner des emplacements nommés définis par des plages d’adresses IP comme des emplacements approuvés. 
 
 ![Emplacements approuvés dans le Portail Azure](./media/location-condition/new-trusted-location.png)
 
-Cette option peut être prise en compte dans les stratégies d’accès conditionnel dans lesquelles vous pouvez, par exemple, exiger l’inscription à des fins d’authentification multifacteur à partir d’un emplacement réseau approuvé. Elle est également incluse le calcul des risques liés à Azure AD Identity Protection, qui réduit le risque que présente la connexion d’un utilisateur lorsqu’elle provient d’un emplacement signalé comme approuvé.
+Les connexions provenant d’emplacements nommés approuvés améliorent la précision du calcul des risques d’Azure AD Identity Protection, réduisant ainsi le risque de connexion des utilisateurs lorsqu’ils s’authentifient à partir d’un emplacement marqué comme approuvé. En outre, les emplacements nommés approuvés peuvent être ciblés dans des stratégies d’accès conditionnel. Par exemple, vous pouvez avoir besoin de restreindre l’inscription à l’authentification multifacteur aux emplacements nommés approuvés uniquement. 
 
 ### <a name="countries-and-regions"></a>Pays et régions
 
-Certaines organisations peuvent choisir de définir les limites IP de régions ou pays entiers sous la forme d’emplacements nommés pour les stratégies d’accès conditionnel. Elles peuvent utiliser ces emplacements lors du blocage du trafic inutile, si elles sont certaines que les utilisateurs acceptés ne seront jamais issus d’un lieu tel que la Corée du Nord. Ces mappages d’adresses IP à des pays sont régulièrement mis à jour. 
+Certaines organisations peuvent choisir de limiter l’accès à certains pays ou régions à l’aide de l’accès conditionnel. En plus de définir des emplacements nommés par plages d’adresses IP, les administrateurs peuvent définir des emplacements nommés par pays ou par région. Lorsqu’un utilisateur se connecte, Azure AD résout l’adresse IPv4 de l’utilisateur en un pays ou une région, et le mappage est mis à jour périodiquement. Les organisations peuvent utiliser des emplacements nommés définis par les pays pour bloquer le trafic à partir de pays où ils n’ont pas d’activités, par exemple la Corée du Nord. 
 
 > [!NOTE]
-> Les plages d’adresses IPv6 ne peuvent pas être mappées à des pays. Seules les adresses IPv4 sont mappées à des pays.
+> Les connexions à partir d’adresses IPv6 ne peuvent pas être mappées à des pays ou régions et sont considérées comme des zones inconnues. Seules les adresses IPv4 peuvent être mappées à des pays ou des régions.
 
 ![Créer un emplacement basé sur le pays ou la région dans le Portail Azure](./media/location-condition/new-named-location-country-region.png)
 
@@ -91,33 +89,6 @@ Pour les applications mobiles et de bureau avec des durées de session active lo
 
 Si les deux étapes échouent, un utilisateur est considéré comme n’étant plus sur une adresse IP approuvée.
 
-## <a name="preview-features"></a>Fonctionnalités de préversion
-
-En plus de la fonctionnalité d’emplacement nommé généralement disponible, il existe également un emplacement nommé en préversion. Vous pouvez accéder à la préversion de l’emplacement nommé à l’aide de la bannière située en haut du panneau de l’emplacement nommé actuel.
-
-![Essayer la préversion de l’emplacement nommé](./media/location-condition/preview-features.png)
-
-Avec la préversion de l’emplacement nommé, vous pouvez :
-
-- Configurer jusqu’à 195 emplacements nommés
-- Configurer jusqu’à 2 000 plages d’adresses IP par emplacement nommé
-- Configurer des adresses IPv6 avec des adresses IPv4
-
-Nous avons également ajouté des vérifications supplémentaires pour aider à limiter les changements suite à une configuration incorrecte.
-
-- Les plages d’adresses IP privées ne peuvent plus être configurées.
-- Le nombre d’adresses IP pouvant être incluses dans une plage est limité. Seuls les masques CIDR supérieurs à /8 sont autorisés lors de la configuration d’une plage d’adresses IP.
-
-Avec la préversion, il existe désormais deux options de création : 
-
-- **Emplacement des pays**
-- **Emplacement des plages d’adresses IP**
-
-> [!NOTE]
-> Les plages d’adresses IPv6 ne peuvent pas être mappées à des pays. Seules les adresses IPv4 sont mappées à des pays.
-
-![Interface d’emplacement nommé en préversion](./media/location-condition/named-location-preview.png)
-
 ## <a name="location-condition-in-policy"></a>Condition d’emplacement dans une stratégie
 
 Lorsque vous configurez la condition d’emplacement, vous avez la possibilité de faire la distinction entre :
@@ -143,7 +114,7 @@ Avec cette option, vous pouvez sélectionner un ou plusieurs emplacements nommé
 
 ## <a name="ipv6-traffic"></a>Trafic IPv6
 
-Par défaut, les stratégies d’accès conditionnel s’appliquent à tout le trafic IPv6. Avec la [préversion d’emplacement nommé](#preview-features), vous pouvez exclure des plages d’adresses IPv6 spécifiques d’une stratégie d’accès conditionnel. Cette option est utile dans les cas où vous ne souhaitez pas que la stratégie soit appliquée pour des plages IPv6 spécifiques. Par exemple, si vous ne souhaitez pas appliquer une stratégie pour les utilisations sur votre réseau d’entreprise et que votre réseau d’entreprise est hébergé sur des plages IPv6 publiques.  
+Par défaut, les stratégies d’accès conditionnel s’appliquent à tout le trafic IPv6. Vous pouvez exclure des plages d’adresses IPv6 spécifiques d’une stratégie d’accès conditionnel si vous ne souhaitez pas que les stratégies soient appliquées pour des plages IPv6 spécifiques. Par exemple, si vous ne souhaitez pas appliquer une stratégie pour les utilisations sur votre réseau d’entreprise et que votre réseau d’entreprise est hébergé sur des plages IPv6 publiques.  
 
 ### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Quand mon locataire aura-t-il un trafic IPv6 ?
 

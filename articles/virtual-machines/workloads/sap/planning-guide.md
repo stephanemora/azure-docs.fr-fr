@@ -8,15 +8,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/17/2020
+ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 8bc289e90470ae9bc8b1996ac08c3144ea78de35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 67ef0bf7a8c3906122468c895325a77de555c196
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504710"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258790"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -588,7 +588,11 @@ Il est possible d’attribuer des adresses IP fixes ou réservées aux machines 
 > [!NOTE]
 > Vous devez attribuer des adresses IP statiques aux cartes réseau virtuelles individuelles à l’aide des outils Azure. Vous ne devez pas attribuer d’adresses IP statiques au sein du système d’exploitation invité à une carte réseau virtuelle. Certains services Azure, comme le service de Sauvegarde Azure, s’appuient sur le fait que la carte réseau virtuelle principale est définie sur la DHCP et non sur des adresses IP statiques. Consultez également le document [Dépannage de la sauvegarde de machine virtuelle Azure](../../../backup/backup-azure-vms-troubleshoot.md#networking).
 >
->
+
+
+##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Adresses IP secondaires pour la virtualisation du nom d’hôte SAP
+Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge]( https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
+
 
 ##### <a name="multiple-nics-per-vm"></a>Plusieurs cartes d’interface réseau par machine virtuelle
 
@@ -1657,7 +1661,7 @@ Le système de transport et correction SAP (TMS) doit être configuré pour expo
 
 ##### <a name="configuring-the-transport-domain"></a>Configurer le domaine de Transport
 
-Configurez votre domaine de transport sur le système que vous avez désigné en tant que contrôleur de domaine de transport, comme décrit dans [Configuring the Transport Domain Controller](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm)(Configuration du contrôleur de domaine de transport). Un utilisateur système TMSADM sera créé et la destination RFC nécessaire sera générée. Vous pouvez vérifier ces connexions RFC à l’aide de la transaction SM59. La résolution de nom d’hôte doit être activée dans votre domaine de transport.
+Configurez votre domaine de transport sur le système que vous avez désigné en tant que contrôleur de domaine de transport, comme décrit dans [Configuring the Transport Domain Controller](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Configuring%20the%20Transport%20Domain%20Controller)(Configuration du contrôleur de domaine de transport). Un utilisateur système TMSADM sera créé et la destination RFC nécessaire sera générée. Vous pouvez vérifier ces connexions RFC à l’aide de la transaction SM59. La résolution de nom d’hôte doit être activée dans votre domaine de transport.
 
 Procédure :
 
@@ -1670,12 +1674,12 @@ Procédure :
 
 La séquence d’intégration d’un système SAP dans un domaine de transport se présente comme suit :
 
-* Sur le système de développement dans Azure, accédez au système de transport (Client 000) et appelez le STMS de transaction. Choisissez Other Configuration (Autre configuration) dans la boîte de dialogue et passez à Include System in Domain (Inclure le système dans le domaine). Définissez le contrôleur de domaine en tant qu’hôte cible ([Inclure des systèmes SAP dans le domaine de transport](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). Le système attend maintenant d’être inclus dans le domaine de transport.
+* Sur le système de développement dans Azure, accédez au système de transport (Client 000) et appelez le STMS de transaction. Choisissez Other Configuration (Autre configuration) dans la boîte de dialogue et passez à Include System in Domain (Inclure le système dans le domaine). Définissez le contrôleur de domaine en tant qu’hôte cible ([Inclure des systèmes SAP dans le domaine de transport](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0c17acc11d1899e0000e829fbbd.html?q=Including%20SAP%20Systems%20in%20the%20Transport%20Domain)). Le système attend maintenant d’être inclus dans le domaine de transport.
 * Pour des raisons de sécurité, vous devez ensuite revenir au contrôleur de domaine pour confirmer votre demande. Choisissez System Overview (Vue d’ensemble du système) et Approve of the waiting system (Approbation du système en attente). Puis, confirmez l’invite pour que la configuration soit distribuée.
 
 Ce système SAP contient à présent les informations nécessaires sur tous les autres systèmes SAP du domaine de transport. Dans le même temps, les données d’adresse du nouveau système SAP sont envoyées à tous les autres systèmes SAP, et le système SAP est entré dans le profil de transport du programme de contrôle de transport. Vérifiez si les RFC et l’accès au répertoire de transport du domaine fonctionnent.
 
-Poursuivez par la configuration de votre système de transport comme vous en avez l’habitude, en procédant de la manière décrite dans la documentation [Change and Transport System](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)(Correction et système de Transport).
+Poursuivez par la configuration de votre système de transport comme vous en avez l’habitude, en procédant de la manière décrite dans la documentation [Change and Transport System](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/3bdfba3692dc635ce10000009b38f839.html)(Correction et système de Transport).
 
 Procédure :
 
@@ -1687,13 +1691,13 @@ Procédure :
 
 Dans les scénarios de connexion de site à site, la latence entre les systèmes locaux et Azure peut néanmoins être importante. Si nous suivons la séquence de transport d’objets des systèmes de développement et de test à la production ou si nous envisageons d’appliquer des packages de transport ou de prise en charge aux différents systèmes, vous vous rendez compte qu’en fonction de l’emplacement du répertoire de transport central, certains systèmes subissent une latence élevée en termes de lecture et d’écriture de données dans ce dernier. La situation est semblable aux configurations de paysage SAP où les différents systèmes sont répartis sur différents centres de données très éloignés les uns des autres.
 
-Pour pallier cette latence et permettre aux systèmes d’accélérer la lecture ou l’écriture vers ou depuis le répertoire de transport, vous pouvez configurer deux domaines de transport STMS (un pour les systèmes locaux et un pour les systèmes dans Azure) et lier les domaines de transport. Consultez la documentation qui explique les principes de ce concept dans SAP TMS : <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
+Pour pallier cette latence et permettre aux systèmes d’accélérer la lecture ou l’écriture vers ou depuis le répertoire de transport, vous pouvez configurer deux domaines de transport STMS (un pour les systèmes locaux et un pour les systèmes dans Azure) et lier les domaines de transport. Consultez la [documentation](<https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm), qui explique les principes de ce concept dans SAP TMS.
+
 
 Procédure :
 
-* Configurer un domaine de transport sur chaque emplacement (local et Azure) à l’aide du STMS de transaction <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
-* Associez les domaines avec un lien de domaine et confirmez le lien entre les deux domaines.
-  <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
+* [Configurer un domaine de transport](<https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain) sur chaque emplacement (local et Azure) à l’aide du STMS de transaction
+* [Associez les domaines avec un lien de domaine](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link) et confirmez le lien entre les deux domaines.
 * Distribuez la configuration au système lié.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>Trafic RFC entre des instances SAP situées dans Azure et en local (intersite)

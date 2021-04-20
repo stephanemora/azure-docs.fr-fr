@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dad46e21b35225855d787c367d112362fc95a463
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90527205"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010539"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Pratiques de sécurité pour les fabricants d’appareils Azure IoT
 À l’heure où de plus en plus de fabricants mettent en production des appareils IoT, il est utile d’identifier des conseils en lien avec les pratiques courantes. Cet article résume les pratiques de sécurité recommandées à prendre en compte lorsque vous fabriquez des appareils destinés à une utilisation avec le service d’approvisionnement d’appareils Azure IoT.  
@@ -177,7 +177,7 @@ La chronologie suivante montre le processus de production d’un module de plate
     > Si vous utilisez un module de plateforme sécurisée logiciel, vous pouvez l’installer maintenant.  Extrayez la paire de clés de type EK (Endorsement Key) publique au même moment.
 
 #### <a name="step-4-device-is-packaged-and-sent-to-the-warehouse"></a>Étape 4 : L’appareil est conditionné et envoyé à l’entrepôt
-Un appareil peut séjourner dans un entrepôt pendant de 6 à 12 mois avant son déploiement. 
+Un appareil peut parfois se trouver dans un entrepôt jusqu’à un an avant d’être déployé et approvisionné avec DPS.  Si un appareil se trouve dans un entrepôt pendant un certain temps avant le déploiement, les clients qui déploient l’appareil peuvent avoir besoin de mettre à jour le microprogramme, le logiciel ou les informations d’identification qui ont expiré.
 
 #### <a name="step-5-device-is-installed-into-the-location"></a>Étape 5 : L’appareil est installé à son emplacement
 Une fois que l’appareil arrive à son emplacement final, il passe par le processus d’approvisionnement automatique du service d’approvisionnement des appareils.

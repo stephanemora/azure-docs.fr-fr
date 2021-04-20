@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6978c8588b877c065a78bfd6e99a01f9f75066f3
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 25f0933c2d0b8b3c8ec227ce52c974a50a671043
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800854"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107309728"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
@@ -23,6 +23,7 @@ Les machines virtuelles d’origine de la série HBv2 sont dotées de la technol
 
 [Stockage Premium](premium-storage-performance.md) : Pris en charge<br>
 [Mise en cache du Stockage Premium](premium-storage-performance.md) : Pris(e) en charge<br>
+[Disques Ultra](disks-types.md#ultra-disk) : pris en charge ([En savoir plus](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) sur la disponibilité, l’utilisation et les performances) <br>
 [Migration dynamique](maintenance-and-updates.md) : Non pris en charge<br>
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
@@ -34,7 +35,7 @@ Les machines virtuelles d’origine de la série HBv2 sont dotées de la technol
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 456 | 350 | 2.45 | 3.1 | 3.3 | 200 | Tous | 480 + 960 | 8 | 8 |
 
-Apprenez-en davantage sur ce qui suit :
+En savoir plus sur :
 - [Architecture et topologie de machine virtuelle](./workloads/hpc/hbv2-series-overview.md)
 - [Pile logicielle](./workloads/hpc/hbv2-series-overview.md#software-specifications) prise en charge incluant le système d’exploitation
 - [Performances](./workloads/hpc/hbv2-performance.md) attendues de la machine virtuelle série HBv2.
